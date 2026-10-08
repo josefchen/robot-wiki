@@ -168,8 +168,8 @@
     "minutes": 14
   },
   "classical/grasp-planning": {
-    "words": 2106,
-    "minutes": 11
+    "words": 2020,
+    "minutes": 10
   },
   "classical/perception": {
     "words": 4400,
@@ -180,11 +180,11 @@
     "minutes": 15
   },
   "classical/calibration": {
-    "words": 1098,
-    "minutes": 5
+    "words": 1210,
+    "minutes": 6
   },
   "classical/ros2-for-ml-engineers": {
-    "words": 1158,
+    "words": 1288,
     "minutes": 6
   },
   "frontier/reliability-gap": {

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "1fd8237b077409f3a2e954da09b8533f802bb0d8b23c6e85fa2d4071bcd88de6",
+  "fingerprint": "c75a711aed40be22d83360031f9bd0795ee5f3e90389b26edb53bcb7f7339530",
   "source": "out/ static export",
   "routes": [
     {
@@ -99,10 +99,11 @@
     },
     {
       "route": "/classical/calibration/",
-      "outboundAnchors": 79,
+      "outboundAnchors": 82,
       "distinctHrefs": 41,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -168,10 +169,11 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "outboundAnchors": 73,
+      "outboundAnchors": 80,
       "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -811,14 +813,14 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 4456,
+  "outboundAnchors": 4466,
   "distinctOutboundHrefs": 1298,
   "anchorsByShape": {
     "citation-chip": 2027,
     "footer": 152,
     "reference-entry": 1400,
     "other": 563,
-    "figure-credit": 314
+    "figure-credit": 324
   },
   "anchorsWithoutNoopener": 0,
   "anchorsWithNoreferrer": 3909,
@@ -905,11 +907,11 @@
     },
     {
       "route": "/classical/calibration/",
-      "outboundInDom": 79,
-      "reachedByTab": 79,
+      "outboundInDom": 82,
+      "reachedByTab": 82,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 190
+      "tabStops": 196
     },
     {
       "route": "/classical/control/",
@@ -925,7 +927,7 @@
       "reachedByTab": 100,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 239
+      "tabStops": 233
     },
     {
       "route": "/classical/kinematics/",
@@ -953,11 +955,11 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "outboundInDom": 73,
-      "reachedByTab": 73,
+      "outboundInDom": 80,
+      "reachedByTab": 80,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 180
+      "tabStops": 189
     },
     {
       "route": "/classical/scene-representation/",

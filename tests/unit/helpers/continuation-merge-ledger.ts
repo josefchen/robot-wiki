@@ -293,6 +293,10 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  * - `content-integration-20260923-`: release/seo-content-fixes onto 754ae58
  *   registered llama-3-herd-2024 and shiu-ahmad-1989, which moved
  *   `citation-rendering:label-and-meta`.
+ *
+ * - `figure-mounts-20261007-`: the 2026-10-07 classical pass mounted a new
+ *   figure on calibration and on ROS 2 for ML engineers, which moved each
+ *   article's prose with one plain edge from its domain-pass endpoint.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -317,6 +321,7 @@ export const LATER_REANCHOR_PREFIXES = [
   // endpoint, and only these two re-anchor from the sealed hash.
   'reader-first-20261003-prose-manipulation-generalist-policies',
   'reader-first-20261003-prose-manipulation-rl-finetuning',
+  'figure-mounts-20261007-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

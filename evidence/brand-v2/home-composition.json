@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "1e7e1e1da84c6cbf3ccd7d8c8f648c73ca6b901c70668d15f0e8b950b4dc1b4f",
+  "fingerprint": "71e2fd0e30a7634868c6475411cd5d198c41e4c0ba91a8219cd3ca79cbe6f0f4",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2899,
+  "visibleTextLength": 2920,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Control",
-      "href": "/classical/control/",
+      "accessibleName": "ROS 2 for Machine Learning Engineers",
+      "href": "/classical/ros2-for-ml-engineers/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2423.34,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Grasp Planning",
-      "href": "/classical/grasp-planning/",
+      "accessibleName": "Control",
+      "href": "/classical/control/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2454.34,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Kinematics",
-      "href": "/classical/kinematics/",
+      "accessibleName": "Grasp Planning",
+      "href": "/classical/grasp-planning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2485.34,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Motion Planning",
-      "href": "/classical/motion-planning/",
+      "accessibleName": "Kinematics",
+      "href": "/classical/kinematics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2516.34,
@@ -1004,7 +1004,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-07 Robot Calibration 2026-10-07 Control 2026-10-07 Grasp Planning 2026-10-07 Kinematics 2026-10-07 Motion Planning"
+      "text": "Recently updated 2026-10-07 Robot Calibration 2026-10-07 ROS 2 for Machine Learning Engineers 2026-10-07 Control 2026-10-07 Grasp Planning 2026-10-07 Kinematics"
     },
     {
       "label": "Tools",

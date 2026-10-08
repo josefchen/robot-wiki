@@ -7,6 +7,13 @@
     "reason": "The question and its explanation are a reader-controlled assessment, not an unfolding physical sequence."
   },
   {
+    "article": "calibration",
+    "element": "CalibrationChain",
+    "decision": "keep",
+    "teachingGoal": "See the chain of links a robot uses to reach what its camera sees, with the error each link has been measured to carry.",
+    "reason": "A static frame graph: every link and its sourced error are visible at once, so no animation or control would add to it."
+  },
+  {
     "article": "control",
     "element": "PendulumController",
     "decision": "keep",
@@ -118,6 +125,13 @@
     "decision": "keep",
     "teachingGoal": "Choose the correct typed interface for a cancellable task with progress.",
     "reason": "The answer explains topics, services and actions as alternatives rather than a temporal progression."
+  },
+  {
+    "article": "ros2-for-ml-engineers",
+    "element": "Ros2PolicyLayout",
+    "decision": "keep",
+    "teachingGoal": "See the six-node policy layout with each edge's interface and QoS, and that only the command gate reaches the controller.",
+    "reason": "A static node graph: the layout and its edge labels are the content, so the figure has no controls or motion."
   },
   {
     "article": "scene-representation",

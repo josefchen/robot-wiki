@@ -2,7 +2,7 @@
  * Which citation records each client widget may render, resolved on the
  * server.
  *
- * Fourteen interactive widgets link to primary sources, either from their
+ * Sixteen interactive widgets link to primary sources, either from their
  * rows or through inline <CiteRef> chips. They used to import the whole
  * citation registry (data/citations.ts) into the browser, directly or via
  * the MDX chip resolver, to look up a handful of ids; the registry is the
@@ -40,6 +40,7 @@ import { PI_GENERATIONS } from '@/lib/pi-generations';
 
 export const WIDGET_CITATION_IDS = {
   // Row-driven source links (useCitationLookup).
+  CalibrationChain: () => ['humanoid-geometric-calibration-2025', 'omnicalib-2026', 'khoshelham-kinect-2012'],
   ComparisonMatrix: () => METHODS.flatMap((method) => method.sources),
   CrossEmbodimentStrategies: () => [
     ...Object.values(STRATEGIES).map((strategy) => strategy.citationId),
@@ -57,6 +58,14 @@ export const WIDGET_CITATION_IDS = {
   HierarchyTimescales: () => HIERARCHY_SYSTEMS.map((system) => system.citationId),
   MotInsulation: () => [KNOWLEDGE_INSULATION_CITATION_ID],
   PiGenerationTimeline: () => PI_GENERATIONS.map((generation) => generation.citationId),
+  Ros2PolicyLayout: () => [
+    'ros2-qos-2026',
+    'tf2-docs-2026',
+    'tf2-time-tutorial-2026',
+    'ros2-realtime-docs-2026',
+    'ros2-lifecycle-design-2015',
+    'ros2-interfaces-2026',
+  ],
   // Inline <CiteRef> chips. Row-driven chips derive from their rows; the
   // literal ids are the chips written into the widget's own JSX, which
   // tests/unit/widget-citations.test.tsx reads back out of the source.

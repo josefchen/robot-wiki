@@ -4,6 +4,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { CITATIONS } from '../../data/citations';
 import { test, readerBaseURL } from './grasp-reader-fixture';
 import { captureReaderText, dismissReaderPopups } from './grasp-reader-capture';
+import { openAdjustMore } from './helpers/figure-fold';
 
 test.skip(!readerBaseURL, 'Requires a fully bound owned current-source reader');
 
@@ -113,6 +114,8 @@ test('grasp readers: complete final text pixels and clean apparatus', async ({ p
     proof.slider = { before, after: await slider.inputValue() };
     await expect(page.getByRole('tooltip').filter({ visible: true })).toHaveCount(0);
     await page.screenshot({ path: info.outputPath('lab-keyboard.png') });
+    // The wrench-space plot sits in the lab's "Adjust more" fold.
+    await openAdjustMore(page.locator('[data-figure-frame="grasp-wrench-lab"]'));
     for (const id of ['grasp-object-view', 'grasp-wrench-view']) {
       const view = page.getByTestId(id);
       await view.scrollIntoViewIfNeeded();

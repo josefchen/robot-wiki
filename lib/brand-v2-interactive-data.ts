@@ -291,6 +291,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // strength is a reader control, not an authored number.
     kind: 'source-data',
   },
+  'interactive:CalibrationChain': {
+    // Published calibration errors from three studies, drawn on a schematic chain.
+    kind: 'source-data',
+  },
   'interactive:ComparisonMatrix': {
     // Filterable table of published architectural facts.
     kind: 'source-data',
@@ -501,6 +505,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:RecedingHorizon': {
     // The T_p / T_a replanning dial.
+    kind: 'schematic',
+  },
+  'interactive:Ros2PolicyLayout': {
+    // One recommended node layout; the QoS labels quote the ROS 2 docs.
     kind: 'schematic',
   },
   'interactive:RrtExplorer': {

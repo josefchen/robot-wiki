@@ -294,3 +294,80 @@ export function suggestContactPosition(existing: number[]): number {
   }
   return Number(bestS.toFixed(2));
 }
+
+/**
+ * Where a dragged contact lands: the perimeter point on the ray from the
+ * object's centre through (x, y), snapped to the contact grid. Null at the
+ * centre itself, where the ray has no direction.
+ */
+export function contactPositionFromPoint(x: number, y: number): number | null {
+  const m = Math.max(Math.abs(x), Math.abs(y));
+  if (m < 1e-9) return null;
+  const px = x / m;
+  const py = y / m;
+  let s: number;
+  if (Math.abs(py) >= Math.abs(px)) {
+    s = py > 0 ? (1 - px) / 8 : (2 + (px + 1) / 2) / 4;
+  } else {
+    s = px < 0 ? (1 + (1 - py) / 2) / 4 : (3 + (py + 1) / 2) / 4;
+  }
+  const snapped = Number((Math.round(s / CONTACT_POSITION_STEP) * CONTACT_POSITION_STEP).toFixed(3));
+  return snapped > CONTACT_POSITION_MAX ? CONTACT_POSITION_MIN : snapped;
+}
+
+/** The test pushes the figure applies through the object's centre. */
+export const PUSH_COUNT = 8;
+
+/** The direction of test push k, counterclockwise from "to the right". */
+export const pushAngle = (k: number) => (2 * Math.PI * k) / PUSH_COUNT;
+
+const det3 = (a: Vec3, b: Vec3, c: Vec3) => dot3(a, cross3(b, c));
+const COEFFICIENT_TOL = 1e-9;
+
+/**
+ * Whether w is a non-negative combination of the generators. By
+ * Caratheodory's theorem for cones it is exactly when w is one of some
+ * linearly independent one, two or three of them, so a few hundred small
+ * solves decide it with no iteration.
+ */
+export function inWrenchCone(generators: readonly Vec3[], w: Vec3): boolean {
+  const n = generators.length;
+  for (let i = 0; i < n; i += 1) {
+    for (let j = i + 1; j < n; j += 1) {
+      for (let k = j + 1; k < n; k += 1) {
+        const [a, b, c] = [generators[i], generators[j], generators[k]];
+        const d = det3(a, b, c);
+        if (Math.abs(d) < COLLINEAR_TOL) continue;
+        if (det3(w, b, c) / d >= -COEFFICIENT_TOL && det3(a, w, c) / d >= -COEFFICIENT_TOL &&
+          det3(a, b, w) / d >= -COEFFICIENT_TOL) return true;
+      }
+    }
+  }
+  for (let i = 0; i < n; i += 1) {
+    for (let j = i + 1; j < n; j += 1) {
+      const [a, b] = [generators[i], generators[j]];
+      const normal = cross3(a, b);
+      const len = Math.hypot(normal.x, normal.y, normal.z);
+      if (len < COLLINEAR_TOL || Math.abs(dot3(normal, w)) / len > COEFFICIENT_TOL) continue;
+      const [aa, ab, bb] = [dot3(a, a), dot3(a, b), dot3(b, b)];
+      const [aw, bw] = [dot3(a, w), dot3(b, w)];
+      const g = aa * bb - ab * ab;
+      if ((aw * bb - bw * ab) / g >= -COEFFICIENT_TOL && (bw * aa - aw * ab) / g >= -COEFFICIENT_TOL) return true;
+    }
+  }
+  return generators.some((a) => {
+    const c = cross3(a, w);
+    return Math.hypot(c.x, c.y, c.z) < COEFFICIENT_TOL && dot3(a, w) > 0;
+  });
+}
+
+/**
+ * For each test push through the centre, whether the contacts resist it:
+ * some non-negative mix of the cone-edge wrenches must supply the opposite
+ * force with no net twist. Under force closure every push is resisted.
+ */
+export function resistedPushes(primitives: readonly Vec3[]): boolean[] {
+  return Array.from({ length: PUSH_COUNT }, (_, k) =>
+    inWrenchCone(primitives, { x: -Math.cos(pushAngle(k)), y: -Math.sin(pushAngle(k)), z: 0 }),
+  );
+}
