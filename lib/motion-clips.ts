@@ -25,7 +25,12 @@ export interface MotionClipFiles {
 
 export interface MotionClip {
   id: string;
+  /** The clip's name, used for its region label and transcript. */
   title: string;
+  /** The technical name above the headline, six words or fewer. */
+  kicker: string;
+  /** The takeaway in plain words, ten or fewer. */
+  headline: string;
   /** The article route the clip is mounted on. */
   route: string;
   /** One visible sentence under the stage naming what the clip teaches. */
@@ -37,6 +42,8 @@ export interface MotionClip {
   height: number;
   durationMs: number;
   beats: MotionClipBeat[];
+  /** The paragraphs of the "How this was made" fold. */
+  method: string[];
   textAlternative: string;
   files: MotionClipFiles;
 }
@@ -49,21 +56,29 @@ export const MOTION_CLIPS: Record<string, MotionClip> = {
   'kalman-episode': {
     id: 'kalman-episode',
     title: "One Kalman filter, a whole run",
+    kicker: "Kalman filter, a whole run",
+    headline: "Noisy, patchy readings still give a steady track",
     route: '/classical/state-estimation',
-    teaches: "The seeded filter tracks a wandering target; its uncertainty band widens in dropouts and narrows on readings.",
-    status: 'schematic',
-    statusNote: "Seeded toy filter; schematic, not measured hardware.",
+    teaches: "Sensors are noisy and sometimes go quiet; the filter still tracks the target and shows how sure it is.",
+    status: 'illustrative',
+    statusNote: "Illustrative: a simulated run, not measured on hardware.",
     width: 1280,
     height: 720,
-    durationMs: 18000,
+    durationMs: 16000,
     beats: [
-    { caption: "A target wanders through one dimension; the dashed line is its true position, step by step.", durationMs: 3000 },
-    { caption: "A noisy position sensor reports on most steps and stays silent on about one in five.", durationMs: 3000 },
-    { caption: "One fusion up close: the wide predicted belief meets a reading, and the gain K narrows the posterior between them.", durationMs: 3000 },
-    { caption: "Run the whole episode: the estimate drifts through each dropout and corrects on each reading, staying close to the truth.", durationMs: 6500 },
-    { caption: "Predict widens the belief, update narrows it; that alternation, repeated forever, is the filter.", durationMs: 2500 },
+    { caption: "A target drifts back and forth; the dashed line shows where it really is at each moment.", durationMs: 3000 },
+    { caption: "A noisy sensor reports its position, and on about one step in five it reports nothing.", durationMs: 3000 },
+    { caption: "The filter's track follows the target, and the shaded band around it shows how unsure it is.", durationMs: 6500 },
+    { caption: "Where readings drop out the band widens, and the next reading pulls it tight again.", durationMs: 3500 },
     ],
-    textAlternative: "Schematic cinematic clip, 18 seconds: one Kalman filter over a whole run. A target wanders in one dimension; the dashed line is its true position. A noisy position sensor reports on most steps and drops about one in five; its readings are the scattered markers. One fusion up close: the wide predicted belief meets a reading, and the gain K narrows the posterior between them. Run the whole episode: the estimate drifts through each dropout and corrects on each reading, staying close to the truth. Predict widens the belief, update narrows it; that alternation, repeated forever, is the filter. Seeded toy filter; schematic, not measured hardware.",
+    method: [
+      "A seeded toy simulation (seed 1): a target drifts along a line, and a position sensor reads it with random noise and misses about one step in five. The clip shows 240 steps of that run, steps 300 to 540.",
+      "Each step has two halves, which Kalman filters call predict and update: predicting where the target moved widens the band, and a reading, when one arrives, narrows it.",
+      "The band spans two standard deviations either side of the filter's estimate, about 95% of its belief. The filter's noise settings match the simulation: process noise 0.20, reading noise 1.00.",
+      "The note marks steps 436 to 439, the longest run of missing readings in the simulation: four in a row. The band grows to three times its width at the last reading, then narrows when the next one arrives.",
+      "The clip is rendered offline from the same filter code as the scene above. It is silent; its captions and the transcript carry the words.",
+    ],
+    textAlternative: "Illustrative cinematic clip, 16 seconds: one Kalman filter over a whole run of 240 steps. A target drifts back and forth; the dashed line shows where it really is at each moment. A noisy sensor reports its position, and on about one step in five it reports nothing; its readings are the scattered dots. The filter's track follows the target, and the shaded band around it shows how unsure it is. Where readings drop out the band widens, and the next reading pulls it tight again. A note points at the widest stretch, where four readings in a row are missing: no readings, so the band grows to three times its width and the filter is less sure. In filter terms, each predict step widens the band and each update with a reading narrows it. Simulated run, not measured on hardware.",
     files: {
       "webm": "/clips/kalman-episode.webm",
       "mp4": "/clips/kalman-episode.mp4",

@@ -81,7 +81,8 @@ const CHARTS: Array<{
     def: '0.7',
     match: 'Ferrari-Canny',
   },
-  { route: '/classical/motion-planning', name: 'rrt', control: 'range', moves: ['40', '120'], def: '0' },
+  // The RRT figure opens on the finished tree, iteration 288 of 288.
+  { route: '/classical/motion-planning', name: 'rrt', control: 'range', moves: ['40', '120'], def: '288' },
   { route: '/classical/kinematics', name: 'planar-fk', control: 'range', moves: ['40', '160'], def: '110' },
   {
     route: '/manipulation/bc-foundations',

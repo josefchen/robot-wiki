@@ -5535,12 +5535,15 @@ export const CITATIONS: Citation[] = [
     // Verified against the live Northwestern book site (2026-08-10): the
     // official companion for Lynch and Park, Cambridge University Press,
     // 2017, ISBN 9781107156302. Free full text and video lectures.
+    // 2026-10-08: modernrobotics.northwestern.edu now redirects to a single
+    // lecture-video page, so the entry links the book's home page, where
+    // modernrobotics.org lands and the authors post the full-text preprint.
     id: 'modern-robotics-2017',
     title: 'Modern Robotics: Mechanics, Planning, and Control',
     authors: ['Kevin M. Lynch', 'Frank C. Park'],
     year: 2017,
     venue: 'Cambridge University Press',
-    url: 'https://modernrobotics.northwestern.edu/',
+    url: 'https://hades.mech.northwestern.edu/index.php/Modern_Robotics',
     type: 'docs',
   },
   {
@@ -5686,18 +5689,19 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // This entry links to project documentation, not a version-pinned copy
-    // of the associated 2012 paper. The fetched project page lists PRM/RRT
-    // implementations and benchmarking/integration capabilities; it does
-    // not establish field-wide adoption or testing certification. The
-    // paper title, authors and year below remain a separate P1 identity check.
+    // The 2012 paper itself (Crossref, 2026-10-08: IEEE RAM 19(4):72-82,
+    // December 2012). The authors' preprint lists PRM and RRT among the
+    // implemented planners, describes the Benchmark class, and says OMPL
+    // includes no collision checker or visualization and plugs into host
+    // systems that do. It does not establish field-wide adoption or testing
+    // certification.
     id: 'ompl-2012',
     title: 'The Open Motion Planning Library',
     authors: ['Ioan A. Șucan', 'Mark Moll', 'Lydia E. Kavraki'],
     year: 2012,
     venue: 'IEEE Robotics & Automation Magazine',
-    url: 'https://ompl.kavrakilab.org/',
-    type: 'docs',
+    url: 'https://doi.org/10.1109/MRA.2012.2205651',
+    type: 'paper',
   },
   {
     // DOI verified via Crossref (2026-08-11): the record is the 1993 JDSMC
@@ -8031,11 +8035,13 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Live as of 2026-08-20 (HTTP 200): URScript dynamic force control,
-    // the force-mode behavior exposed to UR programs.
+    // the force-mode behavior exposed to UR programs. The page shows only
+    // "Last modified on Feb 17, 2016" (re-read 2026-10-08), so the year is
+    // the access year, as for the other "as of" entries.
     id: 'ur-force-mode-docs',
     title: 'URScript: Dynamic Force Control',
     authors: ['Universal Robots'],
-    year: 2025,
+    year: 2026,
     venue: 'Universal Robots, as of 2026-08-20',
     url: 'https://www.universal-robots.com/articles/ur/programming/urscript-dynamic-force-control/',
     type: 'docs',
@@ -8480,12 +8486,14 @@ export const CITATIONS: Citation[] = [
     // enumerates the five invalidation causes (outside the illumination
     // mask, saturated IR signal, low IR signal, filter outlier, multi-path
     // interference), and names object edges and corners as the common
-    // multi-path cases.
+    // multi-path cases. The page is dated 2019-06-26 (ms.date, re-read
+    // 2026-10-08), so the year is the page's own; the venue states it next to
+    // the access date so the reference prints one of each.
     id: 'azure-kinect-depth-docs-2026',
     title: 'Azure Kinect DK depth camera',
     authors: ['Microsoft'],
     year: 2019,
-    venue: 'Microsoft Learn, as of 2026-08-22',
+    venue: 'Microsoft Learn, 2019; accessed 2026-08-22',
     url: 'https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera',
     type: 'docs',
   },

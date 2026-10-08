@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/classical/grasp-planning/",
+  "mount": "mount:/classical/grasp-planning/:GraspWrenchLab:1",
+  "screenshots": {
+    "375": "evidence/reader-first/classical--grasp-planning--grasp-wrench-lab.375.png",
+    "1280": "evidence/reader-first/classical--grasp-planning--grasp-wrench-lab.1280.png"
+  },
+  "takeaway": "Three fingertips placed well around a box hold it against a push from any direction.",
+  "sentence": "If a robot hand puts three fingers in the right places on a box, the box stays put no matter which direction it gets pushed from, and rougher surfaces make the grip stronger.",
+  "unclearTerms": [
+    "the pale purple curved triangle shapes at each fingertip (the legend says 'where a fingertip can push without slipping', but I couldn't tell how the shape shows that)",
+    "the black dots where the fingers touch the box",
+    "the grip strength bar: it is only about one third full, close to 'slips', while the green text says 'the grip holds'",
+    "Adjust more"
+  ],
+  "samePoint": "yes",
+  "reason": "My sentence says three well-placed fingers keep the box still against a push from any direction; the extra remark about rough surfaces does not change that point.",
+  "verdict": "fail",
+  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "date": "2026-10-08",
+  "reviewerSession": "reader-session-3ddc4e3a",
+  "sourceDigest": "661db13b81696eaeef589be39649c3cdda0feec0de778381cb1b3d5b0a1bfc45"
+}

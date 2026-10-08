@@ -1,11 +1,41 @@
 import { describe, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { JSDOM } from 'jsdom';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { ImpedanceContactLab } from '@/components/interactive/impedance-contact-lab';
+import { CitationRecordsProvider } from '@/components/article/citation-records';
+import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
+import { mainViewSymbolHits, mainViewText } from '@/lib/figure-main-view';
 import { DEFAULT_PARAMS, SLIDER_SPECS } from '@/lib/impedance';
+import { widgetCitationRecords } from '@/lib/widget-citations';
 import { renderWithCitations } from '../helpers/widget-citations';
 
 const render = renderWithCitations('ImpedanceContactLab');
+
+describe('ImpedanceContactLab served HTML', () => {
+  const markup = renderToStaticMarkup(
+    <CitationRecordsProvider records={widgetCitationRecords('ImpedanceContactLab')}>
+      <ImpedanceContactLab />
+    </CitationRecordsProvider>,
+  );
+  const html = `<!doctype html><html><body><main>${markup}</main></body></html>`;
+
+  it('passes the figure-system check', () => {
+    const { figures, violations } = inspectFigureDocument(html, '/classical/control/');
+    expect(figures).toEqual(['impedance-contact-lab']);
+    expect(violations.map(formatViolation)).toEqual([]);
+  });
+
+  it('shows no symbol, formula or bare unit in the main view', () => {
+    const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
+    expect(mainViewSymbolHits(frame)).toEqual([]);
+    const { lines } = mainViewText(frame);
+    expect(lines).toContain('crushes the object');
+    expect(lines.some((line) => /^Human pain limit:\s?about 10 times higher$/.test(line))).toBe(true);
+    expect(lines.some((line) => /stiffness|damping|impedance law/i.test(line))).toBe(false);
+  });
+});
 
 /** The rendered numeric peak-force readout, parsed, when numeric. */
 function parsePeak(): number | null {
@@ -122,6 +152,81 @@ describe('ImpedanceContactLab', () => {
       .getByTestId('impedance-lab')
       .querySelector('[data-cite-id="han-force-pain-2024"]');
     expect(chip).toBeTruthy();
+  });
+
+  // Han et al. (2024), Table 4: 255.0 N is the thigh value for the W-R5
+  // wedge impactor; their cylindrical CS-R40 impactor gives 310.8 N there.
+  it('says the pain limit was measured with a wedge-shaped impactor', () => {
+    render(<ImpedanceContactLab />);
+    const method = screen.getByTestId('impedance-limit-label').parentElement?.textContent ?? '';
+    expect(method).toMatch(/Pain limit: contact-force limit 255 N \(thigh,[^)]*\), measured with a wedge-shaped impactor,/);
+  });
+
+  it('opens on the fingertip, the crush line and a first bump just under it', () => {
+    const { container } = render(<ImpedanceContactLab />);
+    expect(screen.getByTestId('impedance-contact-sketch')).toHaveAttribute('data-hardware', 'torque');
+    expect(screen.getByTestId('impedance-crush-label')).toHaveTextContent('crushes the object');
+    expect(screen.getByTestId('impedance-pain-arrow')).toHaveTextContent(
+      'Human pain limit: about 10 times higher',
+    );
+    expect(container.querySelector('[data-figure-annotation]')?.textContent).toBe(
+      'First bump: just underthe crushing force',
+    );
+    expect(screen.queryByTestId('impedance-object-crack')).toBeNull();
+    expect(screen.getByTestId('impedance-outcome-readout')).toHaveTextContent('object intact');
+    // The arm choice and Softness are the main view; depth, damping and the
+    // exact readouts sit in "Adjust more".
+    const fold = container.querySelector('[data-figure-fold="adjust"]')!;
+    expect(fold.contains(screen.getByTestId('impedance-hardware-torque'))).toBe(false);
+    expect(fold.contains(screen.getByTestId('impedance-stiffness-slider'))).toBe(false);
+    expect(fold.contains(screen.getByTestId('impedance-depth-slider'))).toBe(true);
+    expect(fold.contains(screen.getByTestId('impedance-damping-slider'))).toBe(true);
+    expect(fold.contains(screen.getByTestId('impedance-peak-readout'))).toBe(true);
+  });
+
+  it('starts each slider name with the label it prints', () => {
+    render(<ImpedanceContactLab />);
+    for (const [label, id] of [
+      ['Softness', 'stiffness'],
+      ['How far it presses in', 'depth'],
+      ['Calm the bounce', 'damping'],
+    ] as const) {
+      expect(screen.getByText(label)).toBeInTheDocument();
+      expect(screen.getByRole('slider', { name: new RegExp(`^${label}: `) })).toBe(
+        screen.getByTestId(`impedance-${id}-slider`),
+      );
+    }
+  });
+
+  it('a stiff setting sends the first bump past the crush line and breaks the object', () => {
+    const { container } = render(<ImpedanceContactLab />);
+    fireEventChange(screen.getByTestId('impedance-stiffness-slider') as HTMLInputElement, '1500');
+    expect(container.querySelector('[data-figure-annotation]')?.textContent).toBe(
+      'First bump: pastthe crushing force',
+    );
+    expect(screen.getByTestId('impedance-object-crack')).toBeInTheDocument();
+    expect(screen.getByTestId('impedance-outcome-readout')).toHaveTextContent('object crushed');
+    fireEventChange(screen.getByTestId('impedance-stiffness-slider') as HTMLInputElement, '20000');
+    expect(container.querySelector('[data-figure-annotation]')?.textContent).toBe(
+      'First bump: off the chart,far past the crushing force',
+    );
+  });
+
+  it('the spring arm and the stiff geared arm change the sketch and the chart', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<ImpedanceContactLab />);
+    await user.click(screen.getByTestId('impedance-hardware-sea'));
+    expect(screen.getByTestId('impedance-contact-sketch')).toHaveAttribute('data-hardware', 'sea');
+    expect(container.querySelector('[data-figure-annotation]')?.textContent).toBe(
+      'First bump: well underthe crushing force',
+    );
+    await user.click(screen.getByTestId('impedance-hardware-position'));
+    expect(screen.queryByTestId('impedance-force-trace')).toBeNull();
+    expect(container.querySelector('[data-figure-annotation]')).toBeNull();
+    expect(container.querySelector('[data-scene-note]')?.textContent).toBe(
+      'This arm only follows a position:nothing sets how hard it pushes',
+    );
+    expect(screen.getByTestId('impedance-outcome-readout')).toHaveTextContent('no force control');
   });
 });
 

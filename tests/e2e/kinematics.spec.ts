@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
+import { openAdjustMore } from './helpers/figure-fold';
 import { waitForHydration } from './interaction-ready';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -11,7 +12,7 @@ import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from '
 
 const ROUTE = '/classical/kinematics/';
 
-const BASE = { name: /base joint/i };
+const BASE = { name: /shoulder joint/i };
 const ELBOW = { name: /elbow joint/i };
 const WRIST = { name: /wrist joint/i };
 
@@ -91,22 +92,29 @@ test('classical closure mounted observations at desktop and mobile', async ({ pa
         mountId: 'mount:/classical/motion-planning/:RrtExplorer:1', caseId, prestate, action, poststate: name,
         readouts: display.map((text, i) => ({ selector: `[data-testid="${rrtReadouts[i]}"]`, text })) });
     };
-    await rrtState('opening', 0, 'unmounted', 'navigate to article', 'default');
+    // The figure opens on the finished tree; Step forward, Reset and the
+    // readouts sit in its "Adjust more" fold.
+    await openAdjustMore(page.locator('[data-figure-frame="rrt-explorer"]'));
+    const rrtTotal = Number(await rrtControl.getAttribute('max'));
+    await rrtState('opening', rrtTotal, 'unmounted', 'navigate to article', 'default');
+    await setSlider(rrtControl, 0);
     await page.getByRole('button', { name: 'Step forward', exact: true }).click();
-    await rrtState('step', 1, 'opening', 'Step forward', 'slider-boundaries-and-anchors');
+    await rrtState('step', 1, 'scrubbed to 0', 'Step forward', 'slider-boundaries-and-anchors');
     await page.getByRole('button', { name: 'Reset', exact: true }).click();
-    await page.getByRole('button', { name: 'Run the exploration', exact: true }).click();
+    await page.getByRole('button', { name: 'Grow the tree', exact: true }).click();
     await expect(page.getByTestId('rrt-iteration-readout')).toHaveAttribute('data-playback-cadence', 'smooth');
     await page.clock.runFor(50);
-    await page.getByRole('button', { name: 'Pause the exploration', exact: true }).click();
-    await rrtState('playback', 3, 'reset at 0', 'Run, one 50ms timer tick, Pause', 'slider-boundaries-and-anchors');
+    await page.getByRole('button', { name: 'Pause the growth', exact: true }).click();
+    await rrtState('playback', 3, 'reset to the finished tree', 'Grow the tree (replays from 0), one 50ms timer tick, Pause', 'slider-boundaries-and-anchors');
     await setSlider(rrtControl, 100);
     await rrtState('scrub', 100, 'playback at 3', 'set iteration slider to 100', 'slider-boundaries-and-anchors');
     await page.getByRole('button', { name: 'Reset', exact: true }).click();
-    await rrtState('reset', 0, 'scrub at 100', 'Reset', 'reset');
+    await rrtState('reset', rrtTotal, 'scrub at 100', 'Reset', 'reset');
     await page.clock.resume();
 
     await ready('/classical/perception/');
+    // The budget readouts, target and Reset sit in the figure's "Adjust more" fold.
+    await openAdjustMore(page.getByTestId('perception-budget'));
     const base = { handEyeDeg: .5, depthPct: 2, poseMm: 3, workingDistanceM: .5, target: 'opaque' };
     const perceptionReadouts = ['perception-total-readout', 'perception-depth-readout', 'perception-verdict-readout'];
     const state = async (name: string, inputs: typeof base, prestate: string, action: string, caseId: string) => {
@@ -241,7 +249,7 @@ test.describe('classical kinematics module', () => {
     }
     await expect(
       main.getByRole('link', { name: 'Lynch et al. 2017' }).first(),
-    ).toHaveAttribute('href', 'https://modernrobotics.northwestern.edu/');
+    ).toHaveAttribute('href', 'https://hades.mech.northwestern.edu/index.php/Modern_Robotics');
 
     // Every chip is a real external link; no unresolved ids render.
     // Scoped to the authored prose: the generated References bibliography
@@ -252,14 +260,16 @@ test.describe('classical kinematics module', () => {
     expect(await chips.count()).toBeGreaterThanOrEqual(9);
     expect(await main.getByText('missing citation:').count()).toBe(0);
 
-    // A chip is keyboard-focusable and reveals its metadata on focus.
+    // A chip is keyboard-focusable and reveals its metadata on focus. The
+    // article cites LaValle more than once, so only the focused chip's
+    // tooltip is shown.
     const dhChip = main.getByRole('link', { name: 'LaValle 2006' }).first();
     await dhChip.focus();
     await expect(
       main
-        .locator('span[role="tooltip"]')
+        .locator('span[role="tooltip"]:visible')
         .filter({ hasText: 'Planning Algorithms' }),
-    ).toBeVisible();
+    ).toHaveCount(1);
   });
 
   test('KaTeX renders with no raw math delimiters (VAL-CLASS-004)', async ({
@@ -283,11 +293,17 @@ test.describe('classical kinematics module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    for (const joint of [BASE, ELBOW, WRIST]) {
+    // The shoulder slider and the poses are the visible controls; the elbow
+    // and wrist sliders, the exact readouts and Reset sit in "Adjust more".
+    await openAdjustMore(page.locator('[data-figure-frame="planar-fk-arm"]'));
+    for (const [joint, min, max] of [[BASE, '0', '180'], [ELBOW, '-180', '180'], [WRIST, '-180', '180']] as const) {
       const slider = page.getByRole('slider', joint);
       await expect(slider).toBeVisible();
-      await expect(slider).toHaveAttribute('min', '-180');
-      await expect(slider).toHaveAttribute('max', '180');
+      await expect(slider).toHaveAttribute('min', min);
+      await expect(slider).toHaveAttribute('max', max);
+    }
+    for (const pose of ['Reach up', 'Reach out', 'Tuck in']) {
+      await expect(page.getByRole('button', { name: pose, exact: true })).toBeVisible();
     }
     await expect(page.getByTestId('fk-theta-1')).toBeVisible();
     await expect(page.getByTestId('fk-theta-2')).toBeVisible();
@@ -305,6 +321,7 @@ test.describe('classical kinematics module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    await openAdjustMore(page.locator('[data-figure-frame="planar-fk-arm"]'));
     const base = page.getByRole('slider', BASE);
     const elbow = page.getByRole('slider', ELBOW);
     const theta1 = page.getByTestId('fk-theta-1');

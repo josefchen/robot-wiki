@@ -9,12 +9,14 @@ import { readFileSync } from 'node:fs';
  * header with no evidence plans, and the Whitney span still attributed
  * Jacobian inversion to the 1969 abstract's scope.
  */
+// Row 7's plan has a successor since 2026-10-08; the 2026-09-15 plan is
+// retained verbatim in audit/evidence/domain-pass-20261008/prior-plans.json.
 const PLAN_IDS = [
   'kinematics-1-mr-fk-product-20260915',
   'kinematics-2-planar-demo-20260915',
   'kinematics-4-dh-symbolic-20260915',
   'kinematics-6-so101-urdf-20260915',
-  'kinematics-7-jacobian-20260915',
+  'kinematics-7-jacobian-screw-20261008',
   'kinematics-8-statics-dual-20260915',
   'kinematics-9-whitney-rmrc-20260915',
   'kinematics-13-ik-solver-20260915',
@@ -291,5 +293,61 @@ describe('kinematics originals: 20260917a book-retry row 5 (near-parallel DH re-
       '2885525f6f0448ce59a5e74b9c953866b706e61596ffa35931f8fa92e5582b4b',
     );
     expect(delta.newHash).not.toBe(delta.oldHash);
+  });
+});
+describe('kinematics originals: 2026-10-08 row 7 (Jacobian columns as screw axes)', () => {
+  const PLAN_ID = 'kinematics-7-jacobian-screw-20261008';
+  const PRIOR_ID = 'kinematics-7-jacobian-20260915';
+  const PREPRINT = 'https://hades.mech.northwestern.edu/images/2/25/MR-v2.pdf';
+  const article = readFileSync('content/classical/kinematics.mdx', 'utf8');
+  const ledger = readFileSync('audit/classical.md', 'utf8');
+  const plans = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
+
+  it('states each column as the joint screw axis, cited to Modern Robotics', () => {
+    expect(article).toContain(
+      "column $i$ is joint $i$'s screw axis at the current pose, in base-frame coordinates <Cite id=\"modern-robotics-2017\" />",
+    );
+    expect(article).toContain('J_i = \\begin{bmatrix} \\omega_i \\\\ -\\omega_i \\times p_i \\end{bmatrix}');
+    expect(article).toContain('J_i = \\begin{bmatrix} 0 \\\\ v_i \\end{bmatrix}');
+    // the cross-product form no fetched page stated is gone from the prose
+    expect(article).not.toContain('p_\\mathrm{ee} - p_i');
+  });
+
+  it('binds the row to the preprint passages that state both forms', () => {
+    const start = ledger.indexOf('### kinematics.mdx');
+    const section = ledger.slice(start, ledger.indexOf('### motion-planning.mdx', start));
+    const row = section.split('\n').find((line) => line.endsWith(`| ${PLAN_ID} |`))!;
+    expect(row).toContain('screw axis');
+    expect(row).toContain(PREPRINT);
+    expect(row).not.toContain('local-AND');
+    const plan = plans.find((p: { id: string }) => p.id === PLAN_ID)!;
+    expect(plan.parts.map((p: { id: string }) => p.id)).toEqual([
+      'jacobian-linear-map',
+      'jacobian-screw-axis-columns',
+    ]);
+    const screw = plan.evidence.find(
+      (e: { partId: string }) => e.partId === 'jacobian-screw-axis-columns',
+    )!;
+    expect(screw.sourceUrl).toBe(PREPRINT);
+    expect(screw.supportingPassage).toContain(
+      'is simply the screw vector describing joint axis i, expressed in fixed-frame coordinates',
+    );
+    expect(screw.supportingPassage).toContain('vn = −ωn × qn');
+    expect(screw.supportingPassage).toContain('If joint n is prismatic then ωn = 0');
+  });
+
+  it('retains the superseded 2026-09-15 plan verbatim outside the live catalog', () => {
+    const archive = JSON.parse(
+      readFileSync('audit/evidence/domain-pass-20261008/prior-plans.json', 'utf8'),
+    );
+    expect(archive.plans.map((p: { id: string }) => p.id)).toEqual([PRIOR_ID]);
+    expect(plans.filter((p: { id: string }) => p.id === PRIOR_ID)).toEqual([]);
+    const [prior] = archive.plans;
+    const successor = plans.find((p: { id: string }) => p.id === PLAN_ID)!;
+    expect([successor.ledgerPath, successor.articleSlug, successor.rowOrdinal])
+      .toEqual([prior.ledgerPath, prior.articleSlug, prior.rowOrdinal]);
+    expect(successor.parts[0]).toEqual(prior.parts[0]);
+    expect(successor.evidence[0]).toEqual(prior.evidence[0]);
+    expect(prior.parts[1].id).toBe('jacobian-column-form-local');
   });
 });

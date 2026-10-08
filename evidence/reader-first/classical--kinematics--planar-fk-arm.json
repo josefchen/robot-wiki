@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/classical/kinematics/",
+  "mount": "mount:/classical/kinematics/:PlanarFkArm:1",
+  "screenshots": {
+    "375": "evidence/reader-first/classical--kinematics--planar-fk-arm.375.png",
+    "1280": "evidence/reader-first/classical--kinematics--planar-fk-arm.1280.png"
+  },
+  "takeaway": "Turning the shoulder swings the whole rest of the arm, hand included, along with it.",
+  "sentence": "When the robot's shoulder joint turns, the rest of the arm (elbow, wrist and hand) moves along with it, and the robot works out where its hand is by adding up the turn of every joint.",
+  "unclearTerms": [
+    "the green ring around the bottom joint and the green line pointing to it",
+    "\"points right\" and \"points left\" under the slider (it was not clear what points which way)",
+    "Adjust more",
+    "Reach up / Reach out / Tuck in (whether these change the picture or only the slider)"
+  ],
+  "samePoint": "yes",
+  "reason": "My sentence says that turning the shoulder makes the elbow, wrist and hand move with it, which is the intended point.",
+  "verdict": "fail",
+  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "date": "2026-10-08",
+  "reviewerSession": "reader-session-018a5ef0",
+  "sourceDigest": "22d9b4035ccfd744c54387fcc8cfef4a41ede212a88b05ed030b8091026ceb89"
+}

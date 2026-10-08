@@ -92,6 +92,17 @@ describe('impedance contact lab physics', () => {
     expect(crushRun.steadyForceN).toBeGreaterThan(CRUSH_LIMIT_N);
     expect(crushRun.peakForceN).toBeLessThan(TRANSIENT_CONTACT_LIMIT_N);
     expect(classifyOutcome(crushParams, crushRun)).toBe('crushed');
+    // A first bump past the crush limit breaks the object even when the
+    // settled force would be well under it.
+    const bumpParams = at({ stiffnessKNPerM: 1500 });
+    const bumpRun = simulateContact(bumpParams);
+    expect(bumpRun.steadyForceN).toBeLessThan(CRUSH_LIMIT_N);
+    expect(bumpRun.peakForceN).toBeGreaterThan(CRUSH_LIMIT_N);
+    expect(classifyOutcome(bumpParams, bumpRun)).toBe('crushed');
+    // The default first bump stays just under it.
+    const defaultRun = simulateContact(DEFAULT_PARAMS);
+    expect(defaultRun.peakForceN).toBeGreaterThan(0.8 * CRUSH_LIMIT_N);
+    expect(classifyOutcome(DEFAULT_PARAMS, defaultRun)).toBe('success');
     const harsh = simulateContact(at({
       stiffnessKNPerM: SLIDER_SPECS.stiffness.max,
       depthM: SLIDER_SPECS.depth.max,

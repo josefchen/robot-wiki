@@ -30,15 +30,15 @@ const textsOf = (root: Element) =>
 describe('CalibrationChain', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = renderFigure();
-    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Calibration chain');
+    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Camera-to-hand chain');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'An error in any link moves where the gripper lands',
+      'A wrong measurement anywhere makes the hand miss the box',
     );
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'A robot reaches what its camera sees only through these links, so each one needs calibrating and checking.',
+      'The robot reaches what its camera sees only through these measurements, so each one must be checked.',
     );
     expect(container.querySelector('[data-figure-status]')).toHaveTextContent(
-      'Schematic: errors from three different studies, not one robot',
+      'Schematic: not drawn to scale',
     );
   });
 
@@ -65,29 +65,38 @@ describe('CalibrationChain', () => {
       ['wrist-tip', 'robot-links'],
     ]);
     const frames = Array.from(stage.querySelectorAll('[data-frame] text')).map((t) => t.textContent);
-    expect(frames).toEqual(['robot base', 'wrist', 'camera', 'gripper tip', 'object']);
-    const texts = textsOf(stage);
-    for (const label of [
-      'joint readings and link lengths',
-      'hand-eye calibration',
-      'what the camera measures',
-      'tool offset',
-    ]) {
-      expect(texts).toContain(label);
-    }
+    expect(frames).toEqual(['robot base', 'wrist', 'camera', 'hand', 'box']);
+    const names = Array.from(stage.querySelectorAll('[data-link-label]')).map((g) => [
+      g.getAttribute('data-link-label'),
+      textsOf(g).join(' '),
+    ]);
+    expect(names).toEqual([
+      ['base-wrist', 'how far each joint turns, and how long each arm part is'],
+      ['wrist-camera', 'where the camera is fixed on the wrist'],
+      ['camera-object', 'how far the camera sees the box'],
+      ['wrist-tip', 'how far the fingertips reach'],
+    ]);
   });
 
-  it('writes each sourced error on its link and keeps the rest in the method fold', () => {
+  it('keeps every technical name, sourced error and caveat in the method fold', () => {
     const { container } = renderFigure();
-    const notes = (id: string) =>
-      Array.from(stageOf(container).querySelectorAll(`[data-link-note="${id}"]`))
-        .map((t) => t.textContent)
-        .join(' ');
-    expect(notes('base-wrist')).toBe("calibration cut a humanoid's error 2.3-fold");
-    expect(notes('wrist-camera')).toBe('drawing values off by up to 10.56 mm');
-    expect(notes('camera-object')).toBe('depth noise up to about 4 cm');
-    expect(notes('wrist-tip')).toBe('checked by touching one point from several angles');
+    const stageText = textsOf(stageOf(container)).join(' ');
+    for (const moved of ['2.3', '10.56', '4 cm', 'calibration', 'tool offset']) {
+      expect(stageText).not.toContain(moved);
+    }
     const method = methodOf(container);
+    for (const kept of [
+      'set by joint readings and link lengths',
+      'set by hand-eye calibration',
+      'set by what the camera measures (depth)',
+      'set by tool offset',
+      'cut its RMS error 2.3-fold',
+      'off by up to 10.56 mm',
+      'to about 4 cm at its maximum range',
+      'touching one point with the gripper tip from several angles',
+    ]) {
+      expect(method).toHaveTextContent(kept);
+    }
     expect(method).toHaveTextContent('1.74 degrees');
     expect(method).toHaveTextContent('31 chosen postures');
     expect(method).toHaveTextContent('No source here reports a measured error for the tool offset');
@@ -118,7 +127,7 @@ describe('CalibrationChain', () => {
     const { container } = renderFigure();
     const notes = container.querySelectorAll('[data-figure-annotation]');
     expect(notes).toHaveLength(1);
-    expect(notes[0]).toHaveTextContent('The gripper mustreach this point');
+    expect(notes[0]).toHaveTextContent('The hand mustreach this spot');
     const stage = stageOf(container);
     const described = stage.getAttribute('aria-describedby') ?? '';
     expect(document.getElementById(described)).toHaveTextContent('Four calibrated links join the robot base');
@@ -144,7 +153,7 @@ describe('CalibrationChain served HTML', () => {
     const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
     expect(mainViewSymbolHits(frame)).toEqual([]);
     const lines = mainViewText(frame).lines;
-    expect(lines).toContain('drawing values off by up to 10.56 mm');
-    expect(lines.some((line) => line.includes('1.74'))).toBe(false);
+    expect(lines).toContain('where the camera is fixed on the wrist');
+    expect(lines.some((line) => /1\.74|10\.56|2\.3-fold/.test(line))).toBe(false);
   });
 });

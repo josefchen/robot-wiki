@@ -50,7 +50,7 @@ import {
  *
  * The box is the lib's unit square and each fingertip a frictional point
  * contact that the reader drags along the edges. The fan inside the box at
- * each fingertip is its friction cone, half-angle arctan(mu); the Surface
+ * each fingertip is its friction cone, half-angle arctan(mu); the surface
  * slider sets mu. Eight test pushes act through the box centre, each drawn
  * as resisted when the contacts can cancel it with no net twist (see
  * resistedPushes in lib/grasp); under force closure every push is resisted.
@@ -150,12 +150,12 @@ function pushArrow(k: number) {
   };
 }
 
-/** The Surface slider's value in words. */
+/** The surface slider's value in words. */
 function surfaceWords(mu: number) {
   if (mu < 0.25) return 'slippery';
-  if (mu < 0.5) return 'fairly slippery';
-  if (mu < 0.8) return 'grippy';
-  return 'very grippy';
+  if (mu < 0.5) return 'a little slippery';
+  if (mu < 0.8) return 'fairly rough';
+  return 'very rough';
 }
 
 /** The stage note: what the eight test pushes show right now. */
@@ -244,7 +244,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
     <>
       <ControlField>
         <ControlLabel htmlFor="grasp-mu" value={surfaceWords(mu)}>
-          Surface
+          How rough the surface is
         </ControlLabel>
         <input
           id="grasp-mu"
@@ -255,12 +255,12 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           step={0.05}
           value={mu}
           onChange={(e) => setMu(Number(e.target.value))}
-          aria-label={`Surface: friction coefficient mu, currently ${mu.toFixed(2)}`}
+          aria-label={`How rough the surface is: friction coefficient mu, currently ${mu.toFixed(2)}`}
           className={INSTRUMENT_SLIDER_CLASS}
         />
-        <SliderEnds low="slippery" high="grippy" />
+        <SliderEnds low="slippery" high="rough" />
       </ControlField>
-      <div className="self-center font-sans text-sm text-text-dim">Drag a fingertip along the box.</div>
+      <div className="self-center font-sans text-sm text-text-dim">Drag finger 1, 2 or 3 along the box.</div>
     </>
   );
 
@@ -401,7 +401,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
       })}
       <g data-meter="grip-margin">
         <text x={METER.x + METER.width / 2} y={METER.top - 14} textAnchor="middle" fontSize={CHART_TYPE.labelPx} fill={ink}>
-          grip margin
+          grip strength
         </text>
         <rect
           x={METER.x}
@@ -421,10 +421,10 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           fill={roleColour('value')}
         />
         <text x={METER.x + METER.width + 6} y={METER.top + 10} fontSize={CHART_TYPE.labelPx} fill={graphite}>
-          firm
+          strong
         </text>
         <text x={METER.x + METER.width + 6} y={METER.bottom} fontSize={CHART_TYPE.labelPx} fill={graphite}>
-          weak
+          slips
         </text>
       </g>
     </PlotStage>
@@ -561,10 +561,10 @@ export function GraspWrenchLab({ className }: { className?: string }) {
             <>
               <InstrumentLegend>
                 <LegendItem series="cone" swatch={<LegendSwatch role="action" mark="band" />}>
-                  directions a fingertip can push without slipping
+                  where a fingertip can push without slipping
                 </LegendItem>
                 <LegendItem series="push-held" swatch={<LegendSwatch role="highlight" mark="line" />}>
-                  test push the grip resists
+                  an outside push the grip resists
                 </LegendItem>
               </InstrumentLegend>
               <StageStatus>Schematic: computed for an ideal box, not measured on a robot</StageStatus>
@@ -574,21 +574,21 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           {objectView}
         </FigureStage>
       }
-      caption="A robot hand must place fingers so friction can resist a push from any direction, or the object slips."
+      caption="A robot hand must place its fingers so they can resist a push from any direction, or the object slips."
       method={
         <>
           <p>
             Seen from above, the box is a square of half side 1 and each fingertip is a point contact. Friction
             lets a contact push anywhere inside its friction cone, of half-angle arctan μ, but never pull; at μ{' '}
-            {mu.toFixed(2)} the half-angle is {halfAngle}°. The Surface slider sets μ from 0.05 to 1.00.
+            {mu.toFixed(2)} the half-angle is {halfAngle}°. The surface slider sets μ from 0.05 to 1.00.
           </p>
           <p>
             The two edge forces of each cone, with their torque τ about the centre measured per half side, are
             the primitive wrenches (fx, fy, τ). Their convex hull is the grasp wrench space drawn under Adjust
             more. Force closure holds exactly when the origin sits strictly inside the hull: the fingertips can
-            then balance any push or twist. The grip margin is the Ferrari-Canny quality ε, the radius of the
+            then balance any push or twist. The grip meter shows the Ferrari-Canny quality ε, the radius of the
             largest origin-centred ball inside the hull. The three-finger grasp at μ 0.70 gives ε = 0.444; the
-            meter is full at ε = 1.00, which four fingertips at the edge midpoints reach on the grippiest
+            meter is full at ε = 1.00, which four fingertips at the edge midpoints reach on the roughest
             surface.
           </p>
           <p>

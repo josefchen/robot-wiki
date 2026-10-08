@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/classical/control/",
+  "mount": "mount:/classical/control/:ImpedanceContactLab:1",
+  "screenshots": {
+    "375": "evidence/reader-first/classical--control--impedance-contact-lab.375.png",
+    "1280": "evidence/reader-first/classical--control--impedance-contact-lab.1280.png"
+  },
+  "takeaway": "An arm that controls how hard it pushes can be set soft enough to touch a fragile object without crushing it; a stiff arm that only follows a position cannot.",
+  "sentence": "A robot arm that can control how hard it pushes can be set to touch an object gently, so its push stays under the force that would crush it, while a stiff arm cannot be adjusted this way.",
+  "unclearTerms": [
+    "newtons",
+    "Stiff geared arm",
+    "Arm with a built-in spring",
+    "the pale blue repeated bumps after the first dark bump (are they more touches, bouncing, or another arm?)",
+    "why the push gets smaller with each bump",
+    "the red upward arrow next to \"Human pain limit: about 10 times higher\"",
+    "\"Human pain limit\" (whose pain, and why it is on a chart about crushing an object)",
+    "the green circle and green line on the first bump",
+    "the hatched lines under the ground line",
+    "the slider is set to \"soft\" but the first bump still nearly reaches the crushing line",
+    "Adjust more",
+    "Han et al. 2024",
+    "the \"↓\" symbol next to the citation"
+  ],
+  "samePoint": "yes",
+  "reason": "My sentence has the same subject and comparison: an arm that controls its push can be set gentle enough to stay under the crushing force, and a stiff arm cannot be adjusted that way.",
+  "verdict": "fail",
+  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "date": "2026-10-08",
+  "reviewerSession": "reader-session-018a5ef0",
+  "sourceDigest": "c1b64ff8fb6a0431dc8cadd70b2c7dd09aa5994076b70256ecf6cef01b61bc7c"
+}

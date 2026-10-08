@@ -184,6 +184,79 @@ test('diffusion camera closes on one guess and the relation is rewritten glyph b
   }
 });
 
+test('Kalman camera closes on the gap and the worked step is rewritten glyph by glyph', async ({ page }) => {
+  const directory = join(process.cwd(), 'evidence/motion/scenes/kalman-predict-update');
+  mkdirSync(directory, { recursive: true });
+  for (const width of [375, 1440]) {
+    await page.setViewportSize({ width, height: width === 375 ? 800 : 900 });
+    await page.goto('/classical/state-estimation/', { waitUntil: 'networkidle' });
+    await page.addStyleTag({ content: 'nextjs-portal { display: none !important; }' });
+    await page.evaluate(() => document.fonts.ready);
+    const group = page.locator('[data-motion-scene="kalman-predict-update"]');
+    await waitForHydration(group.getByTestId('motion-poster'));
+    await group.getByTestId('motion-poster').click();
+    const scrubber = group.getByTestId('motion-scrubber');
+    await expect(scrubber).toBeVisible();
+    await page.keyboard.press('k');
+    const opacity = (selector: string) => group.locator(selector).first().evaluate((node) => {
+      let alpha = 1;
+      for (let el: Element | null = node; el && !el.matches('svg'); el = el.parentElement) {
+        alpha *= Number(getComputedStyle(el).opacity);
+      }
+      return alpha;
+    });
+    const zoom = async () => Number(
+      (await group.locator('[data-scene-camera]').getAttribute('transform'))?.match(/scale\(([\d.]+)\)/)?.[1],
+    );
+    const clean = async (moment: string) => {
+      const audit = await group.evaluate(auditSceneElement);
+      expect(audit.intersections, `${width} ${moment}`).toEqual([]);
+      expect(audit.overflow, `${width} ${moment}`).toEqual([]);
+    };
+
+    // 40% into the blend beat the camera holds on the gap, inside the zoom
+    // token, with the bracket drawn and the labels stepped aside.
+    await scrubber.fill('3800');
+    expect(await zoom()).toBeGreaterThan(1.5);
+    expect(await zoom()).toBeLessThanOrEqual(MOTION_CAMERA.focusMaxZoom);
+    expect(await opacity('[data-scene-mark="blend-point"]')).toBeGreaterThan(0.9);
+    expect(await opacity('text:text("my guess")')).toBeLessThan(0.01);
+    await clean('camera hold');
+    await group.screenshot({ path: join(directory, `${width}-camera-hold.png`) });
+
+    // The symbols beat first writes the step in the filter's own numbers.
+    await scrubber.fill('5600');
+    expect(await opacity('[data-scene-glyph="reading"]')).toBe(1);
+    expect(await opacity('[data-scene-glyph="reading-symbol"]')).toBe(0);
+    await clean('numbers written');
+    await group.screenshot({ path: join(directory, `${width}-numbers-written.png`) });
+
+    // The numbers have left and the shared signs slide; the symbols wait for room.
+    await scrubber.fill('6300');
+    expect(await opacity('[data-scene-glyph="equals"]')).toBe(1);
+    expect(await opacity('[data-scene-glyph="reading"]')).toBe(0);
+    expect(await opacity('[data-scene-glyph="reading-symbol"]')).toBe(0);
+    await clean('glyphs sliding');
+    await group.screenshot({ path: join(directory, `${width}-symbols-slide.png`) });
+    await scrubber.fill('7000');
+    expect(await opacity('[data-scene-glyph="estimate"]')).toBe(1);
+    await clean('rule written');
+
+    // The camera is home and every symbol gone on the finished frame.
+    await scrubber.fill('8000');
+    expect(await zoom()).toBe(1);
+    for (const id of ['blend', 'equals', 'estimate', 'gain-symbol', 'reading-symbol', 'close']) {
+      expect(await opacity(`[data-scene-glyph="${id}"]`), id).toBe(0);
+    }
+
+    // Between the beat ends too: labels, glyphs and marks never collide mid-move.
+    for (let t = 0; t <= 8000; t += 100) {
+      await scrubber.fill(String(t));
+      await clean(`t=${t}`);
+    }
+  }
+});
+
 test('a camera window that reaches the stage edge fails the 4px margin', async ({ page }) => {
   await page.goto('/manipulation/diffusion-policy/', { waitUntil: 'networkidle' });
   const group = page.locator('[data-motion-scene="diffusion-denoising"]');

@@ -8,16 +8,17 @@ from motion-tokens.json, through clip_kit. The beat durations are read
 from motion-clips.json so the render, the WebVTT cues and the page
 registry share one timeline.
 
-The frame is a legend band over the run. The native video controls and
-their scrim cover the bottom of the frame whenever the clip is paused,
-ended or showing its poster (the bottom quarter at desktop widths, half
-at phone widths), so no label sits there and the run ends above it. The
-fusion beat clears the run and draws the seeded update as two beliefs on
-one line, labelled from above. Nothing here runs at build or deploy time.
+The frame is a legend row and one note over the run. The native video
+controls and their scrim cover the bottom of the frame whenever the clip
+is paused, ended or showing its poster (the bottom quarter at desktop
+widths, half at phone widths), so no label sits there and the run ends
+above it. The last beat points the note at the widest stretch of the
+band, where the sensor went quiet; the final frame is also the poster, so
+the page shows the note before anyone plays the clip. Nothing here runs
+at build or deploy time.
 """
 
 import json
-import math
 import pathlib
 import sys
 
@@ -30,12 +31,10 @@ import motion_theme as theme  # noqa: E402
 from manim import (  # noqa: E402
     Create,
     FadeIn,
-    FadeOut,
     LaggedStart,
     Line,
     Polygon,
     Scene,
-    Transform,
     VGroup,
     ValueTracker,
     always_redraw,
@@ -48,34 +47,31 @@ from manim import (  # noqa: E402
 EASE = theme.smooth
 
 CLIP_ID = "kalman-episode"
+# The clip draws RUN_STEPS steps of the seeded episode from RUN_START on.
+# That stretch holds the episode's longest run of missing readings (four
+# in a row), so the band visibly fans out where the note points.
+RUN_START = 300
 RUN_STEPS = 240
 TWO_SIGMA = 2.0
 
 # Layout in stage px on the stage the frame stands for (CLIP_STAGE_PX wide,
-# origin at the centre, y up). The run's 2-sigma band reaches 6.27 in the
-# first RUN_STEPS steps, so +-6.5 holds the whole band, not just its mean.
+# origin at the centre, y up). The run's 2-sigma band reaches 8.27 in the
+# drawn steps, so +-8.5 holds the whole band, not just its mean.
 EDGE = 137.5
-LEGEND_BASELINES = (64, 45)
+LEGEND_BASELINE = 64
+NOTE_BASELINE = 45
 LEGEND_GAP = 12
 SWATCH = 15
 SWATCH_GAP = 4
 PLOT_TOP = 35
 PLOT_BOTTOM = -48
-POSITION_SPAN = 6.5
-
-# The fusion close-up, also in stage px. The offsets are an explanatory
-# layout, not model values: the seeded gain places the posterior on the
-# predicted-to-reading segment and the seeded sigma ratio narrows it.
-FUSION_LINE = -12
-PREDICTED_X = -84
-READING_X = 76
-PREDICTED_SIGMA = 20
-PREDICTED_PEAK = 34
-ABOVE_GAP = 8
+POSITION_SPAN = 8.5
+# Clear space between the note, its arrow and the marks around them.
 CLEARANCE = 3
-# A belief's curve is drawn out to this many sigmas, where it has fallen
-# below 4% of its peak.
-BUMP_REACH = 2.6
+# The note's gap must miss at least this many readings in a row.
+MIN_GAP = 2
+
+NOTE = "No readings, so the band widens: less sure"
 
 
 def _load():
@@ -92,7 +88,7 @@ def _point(x_px, y_px):
 
 
 def _plot_x(step):
-    return -EDGE + 2 * EDGE * step / RUN_STEPS
+    return -EDGE + 2 * EDGE * (step - RUN_START) / RUN_STEPS
 
 
 def _plot_y(position):
@@ -104,38 +100,6 @@ def _plot(step, position):
     return _point(_plot_x(step), _plot_y(position))
 
 
-def _bump_height(mean_px, sigma_px, peak_px, x_px):
-    return peak_px * math.exp(-0.5 * ((x_px - mean_px) / sigma_px) ** 2)
-
-
-def _bump(mean_px, sigma_px, peak_px):
-    """A belief on the fusion line: its curve and the filled area under it."""
-    xs = [mean_px + sigma_px * (i / 30 - 1) * BUMP_REACH for i in range(61)]
-    curve = [
-        _point(x, FUSION_LINE + _bump_height(mean_px, sigma_px, peak_px, x)) for x in xs
-    ]
-    area = kit.fill(
-        Polygon(*curve, _point(xs[-1], FUSION_LINE), _point(xs[0], FUSION_LINE)),
-        "state",
-    )
-    edge = kit.dashed(kit.trace(curve, "reference", "state"))
-    return VGroup(area, edge)
-
-
-def _clear_of(label, *beliefs):
-    """Fail the render if a fusion label touches a belief curve it spans
-    (each belief a mean, sigma, peak triple) or a marker on the line."""
-    left = kit.stage_px(label.get_left()[0])
-    right = kit.stage_px(label.get_right()[0])
-    bottom = kit.stage_px(label.get_bottom()[1])
-    floor = FUSION_LINE + theme.MARKER_RADIUS_PX["single"]
-    for mean, sigma, peak in beliefs:
-        nearest = min(max(mean, left), right)
-        floor = max(floor, FUSION_LINE + _bump_height(mean, sigma, peak, nearest))
-    assert bottom - floor >= CLEARANCE, "a fusion label collides with the marks below it"
-    return label
-
-
 def _legend(row, entries):
     """One legend row, laid out once so an item appearing later never shifts
     the others. A swatch builder gets the swatch's left edge and the label's
@@ -144,12 +108,8 @@ def _legend(row, entries):
     cursor = -EDGE
     for swatch, word in entries:
         label = kit.text(word)
-        if swatch is None:
-            kit.place(label, cursor, row, edge=-1)
-            items.append(label)
-        else:
-            kit.place(label, cursor + SWATCH + SWATCH_GAP, row, edge=-1)
-            items.append(VGroup(swatch(cursor, kit.x_middle(label)), label))
+        kit.place(label, cursor + SWATCH + SWATCH_GAP, row, edge=-1)
+        items.append(VGroup(swatch(cursor, kit.x_middle(label)), label))
         cursor = kit.stage_px(label.get_right()[0]) + LEGEND_GAP
     return items
 
@@ -176,6 +136,20 @@ def _band_swatch(left, mid):
     return VGroup(band, line)
 
 
+def _widest_gap(sigma, measurements):
+    """The run's widest band and the readings on either side of it.
+
+    Returns the last step with a reading before the widest band, the widest
+    step, and the first step with a reading after it. Every step strictly
+    between the two readings has none, which is what the note says."""
+    run = range(RUN_START + 1, RUN_START + RUN_STEPS)
+    widest = max(run, key=lambda t: sigma[t])
+    before = max(t for t in range(RUN_START, widest) if measurements[t] is not None)
+    after = min(t for t in range(widest + 1, RUN_START + RUN_STEPS + 1) if measurements[t] is not None)
+    assert after - before - 1 >= MIN_GAP, "the widest band does not sit in a run of missing readings"
+    return before, widest, after
+
+
 class KalmanEpisode(Scene):
     def construct(self):
         with kit.clip_font():
@@ -184,17 +158,21 @@ class KalmanEpisode(Scene):
     def _episode(self):
         data, clip = _load()
         beats = [beat["durationMs"] / 1000.0 for beat in clip["beats"]]
-        steps = range(RUN_STEPS + 1)
+        assert len(beats) == 4, "the clip draws four beats; the manifest lists another count"
+        steps = range(RUN_START, RUN_START + RUN_STEPS + 1)
         truth = data["truth"]
         measurements = data["measurements"]
         est = [frame["est"] for frame in data["frames"]]
         sigma = [frame["sigma"] for frame in data["frames"]]
-        focus = data["focus"]
-        reach = max(
-            [abs(truth[t]) for t in steps]
-            + [abs(measurements[t]) for t in steps if measurements[t] is not None]
-            + [abs(est[t]) + TWO_SIGMA * sigma[t] for t in steps]
-        )
+
+        def marks_at(t):
+            """Every position drawn at step t: truth, band edges, reading."""
+            values = [truth[t], est[t] + TWO_SIGMA * sigma[t], est[t] - TWO_SIGMA * sigma[t]]
+            if measurements[t] is not None:
+                values.append(measurements[t])
+            return values
+
+        reach = max(abs(value) for t in steps for value in marks_at(t))
         assert reach < POSITION_SPAN, "the run exceeds the plot's vertical bounds"
 
         self.camera.background_color = theme.STAGE_BACKGROUND
@@ -223,23 +201,26 @@ class KalmanEpisode(Scene):
                 self.wait((hold + 0.5) / fps, frozen_frame=True)
             assert frames() == target
 
-        # ---- the run's legend band ----------------------------------------
-        # The run's length stands in the band, not on a bottom axis, which
-        # the paused controls would cover.
-        length_note = kit.place(
-            kit.text(f"{RUN_STEPS} steps", size="axis", tone="secondary"),
-            EDGE, LEGEND_BASELINES[1], edge=1,
+        # ---- the legend row and the note's place -------------------------
+        truth_item, readings_item, track_item = _legend(
+            LEGEND_BASELINE,
+            [
+                (_dash_swatch, "true path"),
+                (_dot_swatch, "readings"),
+                (_band_swatch, "filter's track"),
+            ],
         )
-        truth_item, readings_item, estimate_item = _legend(
-            LEGEND_BASELINES[0],
-            [(_dash_swatch, "truth"), (_dot_swatch, "readings"), (_band_swatch, "estimate")],
-        )
-        predict_item, update_item = _legend(
-            LEGEND_BASELINES[1], [(None, "predict widens"), (None, "update narrows")]
-        )
-        assert (
-            kit.stage_px(length_note.get_left()[0] - update_item.get_right()[0]) >= LEGEND_GAP
-        ), "the run-length note crowds the second legend row"
+        assert kit.stage_px(track_item.get_right()[0]) <= EDGE, "the legend runs off the stage"
+        note = kit.place(kit.text(NOTE, tone="highlight"), -EDGE, NOTE_BASELINE, edge=-1)
+        assert kit.stage_px(note.get_right()[0]) <= EDGE, "the note runs off the stage"
+        note_top = kit.stage_px(note.get_top()[1])
+        note_bottom = kit.stage_px(note.get_bottom()[1])
+        legend_bottom = min(kit.stage_px(item.get_bottom()[1]) for item in (truth_item, readings_item, track_item))
+        assert legend_bottom - note_top >= CLEARANCE, "the note crowds the legend"
+        dot_radius = theme.MARKER_RADIUS_PX["dense"]
+        top_mark = max(_plot_y(value) for t in steps for value in marks_at(t)) + dot_radius
+        assert note_bottom - top_mark >= CLEARANCE, "the note sits on the run"
+
         truth_dashes = kit.dashed(
             kit.trace([_plot(t, truth[t]) for t in steps], "reference", "reference")
         )
@@ -252,7 +233,7 @@ class KalmanEpisode(Scene):
         )
 
         # ---- beat 1: the wandering target --------------------------------
-        play(FadeIn(truth_item), FadeIn(length_note), run_time=0.5)
+        play(FadeIn(truth_item), run_time=0.5)
         # Steps appear at a constant rate: the reveal is model time.
         play(
             LaggedStart(
@@ -276,101 +257,23 @@ class KalmanEpisode(Scene):
         )
         rest(beats[1])
 
-        # ---- beat 3: one fusion up close ----------------------------------
-        ratio = focus["posterior"]["sigma"] / focus["predicted"]["sigma"]
-        posterior_x = PREDICTED_X + focus["gain"] * (READING_X - PREDICTED_X)
-        posterior_sigma = PREDICTED_SIGMA * ratio
-        posterior_peak = PREDICTED_PEAK / ratio
-        beliefs = (
-            (PREDICTED_X, PREDICTED_SIGMA, PREDICTED_PEAK),
-            (posterior_x, posterior_sigma, posterior_peak),
-        )
-        dot_radius = theme.MARKER_RADIUS_PX["single"]
-        on_line = FUSION_LINE + dot_radius + ABOVE_GAP
-        fusion_line = kit.structure(Line(_point(-EDGE, FUSION_LINE), _point(EDGE, FUSION_LINE)))
-        predicted = _bump(*beliefs[0])
-        posterior = _bump(*beliefs[1])
-        predicted_dot = kit.marker(_point(PREDICTED_X, FUSION_LINE), "state")
-        reading_dot = kit.marker(_point(READING_X, FUSION_LINE), "measurement")
-        posterior_dot = kit.marker(_point(posterior_x, FUSION_LINE), "state")
-        predicted_label = _clear_of(
-            kit.place(
-                kit.text("predicted", tone="state"),
-                PREDICTED_X, FUSION_LINE + PREDICTED_PEAK + ABOVE_GAP,
-            ),
-            *beliefs,
-        )
-        posterior_label = _clear_of(
-            kit.place(
-                kit.text("posterior", tone="state"),
-                posterior_x, FUSION_LINE + posterior_peak + ABOVE_GAP,
-            ),
-            *beliefs,
-        )
-        assert (
-            kit.stage_px(config.frame_height / 2 - posterior_label.get_top()[1]) >= ABOVE_GAP
-        ), "the posterior label leaves the top of the frame"
-        # The reading label runs right from its dot: centred, it would
-        # meet the posterior's flank.
-        reading_label = _clear_of(
-            kit.place(
-                kit.text("reading z", tone="measurement"),
-                READING_X - dot_radius, on_line, edge=-1,
-            ),
-            *beliefs,
-        )
-        gain_arrow = kit.arrow(
-            _point(PREDICTED_X + dot_radius, FUSION_LINE),
-            _point(posterior_x - dot_radius, FUSION_LINE),
-            "label",
-        )
-        # Centred on the gap between the two drawn curves.
-        gap_centre = (
-            PREDICTED_X + BUMP_REACH * PREDICTED_SIGMA + posterior_x - BUMP_REACH * posterior_sigma
-        ) / 2
-        gain_label = _clear_of(kit.place(kit.text("gain K"), gap_centre, on_line), *beliefs)
-
-        # The run leaves before the close-up, so no unrelated mark sits
-        # under the two beliefs.
-        run_art = VGroup(length_note, truth_item, readings_item, truth_dashes, dots)
-        play(FadeOut(run_art), run_time=0.25)
-        play(
-            Create(fusion_line), FadeIn(predicted), FadeIn(predicted_dot),
-            FadeIn(predicted_label), run_time=0.45,
-        )
-        play(FadeIn(reading_dot), FadeIn(reading_label), run_time=0.3)
-        narrowing = predicted.copy()
-        self.add(narrowing)
-        play(
-            Transform(narrowing, posterior), Create(gain_arrow), FadeIn(posterior_dot),
-            run_time=0.6,
-        )
-        play(FadeIn(posterior_label), FadeIn(gain_label), run_time=0.3)
-        play(kit.indicate(narrowing), run_time=theme.INDICATE, rate_func=theme.there_and_back)
-        rest(beats[2])
-
-        # ---- beat 4: the whole run ----------------------------------------
-        closeup = VGroup(
-            fusion_line, predicted, predicted_dot, predicted_label, reading_dot,
-            reading_label, narrowing, posterior_dot, posterior_label, gain_arrow,
-            gain_label,
-        )
-        play(FadeOut(closeup), run_time=0.3)
-        play(FadeIn(run_art), FadeIn(estimate_item), run_time=0.4)
-
-        tracker = ValueTracker(1)
+        # ---- beat 3: the filter's track over the whole run ----------------
+        play(FadeIn(track_item), run_time=0.4)
+        tracker = ValueTracker(steps.start + 1)
 
         def reached():
-            return max(1, min(RUN_STEPS, int(round(tracker.get_value()))))
+            return max(steps.start + 1, min(steps.stop - 1, int(round(tracker.get_value()))))
+
+        def drawn():
+            return range(steps.start, reached() + 1)
 
         def estimate_band():
-            span = range(reached() + 1)
-            upper = [_plot(t, est[t] + TWO_SIGMA * sigma[t]) for t in span]
-            lower = [_plot(t, est[t] - TWO_SIGMA * sigma[t]) for t in reversed(span)]
+            upper = [_plot(t, est[t] + TWO_SIGMA * sigma[t]) for t in drawn()]
+            lower = [_plot(t, est[t] - TWO_SIGMA * sigma[t]) for t in reversed(drawn())]
             return kit.fill(Polygon(*upper, *lower), "state")
 
         def estimate_curve():
-            return kit.trace([_plot(t, est[t]) for t in range(reached() + 1)], "trace", "state")
+            return kit.trace([_plot(t, est[t]) for t in drawn()], "trace", "state")
 
         def estimate_tip():
             return kit.marker(_plot(reached(), est[reached()]), "state")
@@ -380,19 +283,32 @@ class KalmanEpisode(Scene):
         tip = always_redraw(estimate_tip).set_z_index(2)
         self.add(band, curve, tip)
         # Simulation time runs linear in model time: never eased.
-        play(tracker.animate.set_value(RUN_STEPS), run_time=4.9, rate_func=linear)
+        play(tracker.animate.set_value(steps.stop - 1), run_time=4.9, rate_func=linear)
         for mobject in (band, curve, tip):
             mobject.clear_updaters()
-        rest(beats[3])
+        rest(beats[2])
 
-        # ---- beat 5: the recursion ----------------------------------------
-        play(FadeIn(predict_item), FadeIn(update_item), run_time=0.4)
-        # The band keeps its geometry: it is the data the two labels name.
-        play(
-            kit.indicate(band, grow=False),
-            kit.indicate(predict_item),
-            kit.indicate(update_item),
-            run_time=theme.INDICATE,
-            rate_func=theme.there_and_back,
-        )
-        rest(beats[4])
+        # ---- beat 4: the note at the widest gap ---------------------------
+        # The band between the last reading before the gap and the first one
+        # after it takes the highlight tint: the fan the note explains.
+        before, widest, after = _widest_gap(sigma, measurements)
+        gap = range(before, after + 1)
+        fan = kit.fill(
+            Polygon(
+                *(_plot(t, est[t] + TWO_SIGMA * sigma[t]) for t in gap),
+                *(_plot(t, est[t] - TWO_SIGMA * sigma[t]) for t in reversed(gap)),
+            ),
+            "highlight",
+        ).set_z_index(-0.5)
+        # The arrow drops from the note to just above every mark its head
+        # could touch, so it points at the fan without covering data.
+        x_gap = (_plot_x(before) + _plot_x(after)) / 2
+        beside = [t for t in steps if abs(_plot_x(t) - x_gap) <= theme.TICK_LENGTH_PX]
+        clear_top = max(_plot_y(value) for t in beside for value in marks_at(t)) + dot_radius
+        arrow_top = note_bottom - CLEARANCE
+        arrow_tip = clear_top + CLEARANCE
+        assert arrow_top - arrow_tip >= 2 * theme.TICK_LENGTH_PX, "the note's arrow has no shaft"
+        arrow = kit.arrow(_point(x_gap, arrow_top), _point(x_gap, arrow_tip), "highlight")
+        play(FadeIn(note), run_time=0.4)
+        play(Create(arrow), FadeIn(fan), run_time=0.6)
+        rest(beats[3])

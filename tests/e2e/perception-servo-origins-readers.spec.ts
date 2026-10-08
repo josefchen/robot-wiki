@@ -5,6 +5,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { GLOSSARY } from '../../data/glossary';
 import { termConsumerInventory } from './helpers/term-consumer-inventory';
 import { setSlider } from './slider';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 test('visual-servo origin pair has bounded reader, glossary and control evidence', async ({ page }, testInfo) => {
   const viewport = page.viewportSize()!;
@@ -90,6 +91,7 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
     await expect(menu).toBeFocused();
   } else await expect(menu).not.toBeVisible();
 
+  await openAdjustMore(page.getByTestId('perception-budget'));
   const defaultTotal = await page.getByTestId('perception-total-readout').innerText();
   await page.getByTestId('perception-target-specular').check();
   await expect(page.getByTestId('perception-depth-readout')).toContainText('6.0%');
@@ -102,6 +104,8 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
   await expect(page.getByTestId('perception-target-opaque')).toBeChecked();
   await expect(page.getByTestId('perception-total-readout')).toHaveText(defaultTotal);
   await capture('calculator-reset');
+  // The chart-data disclosures sit inside "How this was made"; open it so each one can take focus.
+  await openHowThisWasMade(page.getByTestId('perception-budget'));
   const disclosures = page.locator('main details');
   for (let index = 0; index < await disclosures.count(); index++) {
     const disclosure = disclosures.nth(index);
