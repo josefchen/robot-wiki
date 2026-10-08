@@ -226,6 +226,11 @@ const BASE = 140;
 const RAIL = 170;
 const BRACKET = 186;
 const NOTE_Y = 212;
+/**
+ * The note centres a little left of the bracket's middle: at the narrowest
+ * stage its one line is about 300 units wide and must clear both edges.
+ */
+const NOTE_X = 172;
 /** The blend's peak height; every bell keeps the same area, so a narrower one stands taller. */
 const PEAK = 84;
 const SEGMENTS = 48;
@@ -473,15 +478,11 @@ function Robot() {
   );
 }
 
-/** The track the robot rides: a rail and its ties. */
+/** The floor the robot rides: one plain line, which first-time readers took ties under it for marks. */
 function Track() {
-  const ties = Array.from({ length: 13 }, (_, index) => PLOT_LEFT + 6 + index * 25);
   return (
     <g data-scene-structure="track" stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)">
       <line x1={PLOT_LEFT} y1={RAIL} x2={PLOT_RIGHT} y2={RAIL} strokeWidth={1.5} />
-      {ties.map((x) => (
-        <line key={x} x1={x} y1={RAIL} x2={x - 5} y2={RAIL + 6} strokeWidth={1} />
-      ))}
     </g>
   );
 }
@@ -533,6 +534,15 @@ function Bell({
   );
 }
 
+const LEADER_GAP = 2;
+const LEADER_HEAD = 6;
+/** A downward arrowhead whose tip stops just above the curve at `curve`. */
+const leaderHead = (x: number, curve: number) => {
+  const tip = r2(curve - LEADER_GAP);
+  const base = r2(tip - LEADER_HEAD);
+  return `${r2(x - 3.5)},${base} ${r2(x + 3.5)},${base} ${x},${tip}`;
+};
+
 /** A label in its bell's colour, with an optional leader down to the curve. */
 function BellLabel({
   children,
@@ -564,7 +574,15 @@ function BellLabel({
             x1={leader.x}
             x2={leader.x}
             y1={y + 8}
-            bindings={{ y2: (t) => r2(leader.to(t) - 4) }}
+            bindings={{ y2: (t) => r2(leader.to(t) - LEADER_GAP - LEADER_HEAD) }}
+          />
+          {/* An arrowhead, so the leader reads as "this curve" and never as a mark of its own. */}
+          <AnimatedElement
+            as="polygon"
+            data-scene-structure="label-leader-head"
+            fill={color}
+            stroke="none"
+            bindings={{ points: (t) => leaderHead(leader.x, leader.to(t)) }}
           />
         </g>
       ) : null}
@@ -588,7 +606,6 @@ function TrackLayer() {
         shown={(t) => 1 - 0.5 * kalmanFrameAt(t).settled}
         fillAlpha={MOTION_UNCERTAINTY.fillAlpha}
         strokeWidth={1.75}
-        dashed
       />
       <Bell
         mark="reading"
@@ -698,6 +715,18 @@ export function KalmanStage() {
       >
         best blend
       </BellLabel>
+      {/* The key to every bell, on the first row's free left end. */}
+      <AnimatedElement
+        as="text"
+        data-scene-key="bell-width"
+        x={PLOT_LEFT}
+        y={ROW_ONE}
+        fontSize={FONT}
+        fill="var(--motion-stage-label-secondary)"
+        bindings={{ opacity: (t) => fade(kalmanFrameAt(t).guessLabel) }}
+      >
+        narrower bell: surer
+      </AnimatedElement>
 
       <FormulaRow />
 
@@ -708,14 +737,14 @@ export function KalmanStage() {
         bindings={{ opacity: (t) => fade(kalmanFrameAt(t).annotation) }}
       >
         <text
-          x={r2((X_GUESS + X_READING) / 2)}
+          x={NOTE_X}
           y={NOTE_Y}
           textAnchor="middle"
           fontSize={FONT}
           fontWeight={600}
           fill="var(--role-highlight-stage)"
         >
-          {GAIN_PERCENT}% of the way to the reading
+          {GAIN_PERCENT}% of the way from guess to sensor
         </text>
       </AnimatedElement>
     </StageSvg>

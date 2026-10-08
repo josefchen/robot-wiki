@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "d59bc6bc6cecde8fb1231bea82ef2bc776676c9599a8403b02414fd39c9045e4",
+  "fingerprint": "ff73d8d2edc02afe88575bb9d31dec284d9b59fbfc0cc2ff22a40500f96c385e",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -254,7 +254,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3345,
+      "visibleTextLength": 3343,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -1397,7 +1397,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17506,
+      "visibleTextLength": 17521,
       "route": "/classical/calibration/",
       "viewport": "1440x900"
     },
@@ -1524,7 +1524,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27017,
+      "visibleTextLength": 27348,
       "route": "/classical/control/",
       "viewport": "1440x900"
     },
@@ -1651,7 +1651,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20232,
+      "visibleTextLength": 21286,
       "route": "/classical/grasp-planning/",
       "viewport": "1440x900"
     },
@@ -1778,7 +1778,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18954,
+      "visibleTextLength": 18968,
       "route": "/classical/kinematics/",
       "viewport": "1440x900"
     },
@@ -1905,7 +1905,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29333,
+      "visibleTextLength": 29789,
       "route": "/classical/motion-planning/",
       "viewport": "1440x900"
     },
@@ -2032,7 +2032,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 40407,
+      "visibleTextLength": 40805,
       "route": "/classical/perception/",
       "viewport": "1440x900"
     },
@@ -2159,7 +2159,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15680,
+      "visibleTextLength": 15361,
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "1440x900"
     },
@@ -2286,7 +2286,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 32117,
+      "visibleTextLength": 31997,
       "route": "/classical/scene-representation/",
       "viewport": "1440x900"
     },
@@ -2413,7 +2413,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24563,
+      "visibleTextLength": 24751,
       "route": "/classical/state-estimation/",
       "viewport": "1440x900"
     },
@@ -9825,7 +9825,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3107,
+      "visibleTextLength": 3105,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10968,7 +10968,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17069,
+      "visibleTextLength": 17084,
       "route": "/classical/calibration/",
       "viewport": "375x812"
     },
@@ -11095,7 +11095,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26580,
+      "visibleTextLength": 26911,
       "route": "/classical/control/",
       "viewport": "375x812"
     },
@@ -11222,7 +11222,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19795,
+      "visibleTextLength": 20849,
       "route": "/classical/grasp-planning/",
       "viewport": "375x812"
     },
@@ -11349,7 +11349,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18517,
+      "visibleTextLength": 18531,
       "route": "/classical/kinematics/",
       "viewport": "375x812"
     },
@@ -11476,7 +11476,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28896,
+      "visibleTextLength": 29352,
       "route": "/classical/motion-planning/",
       "viewport": "375x812"
     },
@@ -11603,7 +11603,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 39970,
+      "visibleTextLength": 40368,
       "route": "/classical/perception/",
       "viewport": "375x812"
     },
@@ -11730,7 +11730,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15243,
+      "visibleTextLength": 14924,
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "375x812"
     },
@@ -11857,7 +11857,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 31680,
+      "visibleTextLength": 31560,
       "route": "/classical/scene-representation/",
       "viewport": "375x812"
     },
@@ -11984,7 +11984,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24126,
+      "visibleTextLength": 24314,
       "route": "/classical/state-estimation/",
       "viewport": "375x812"
     },

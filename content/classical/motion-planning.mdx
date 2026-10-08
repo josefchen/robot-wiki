@@ -48,6 +48,7 @@ citations:
   - totg-2012
   - ruckig-2021
   - curobo-v2-2026
+  - neural-motion-planner-survey-2026
 seeAlso:
   - "manipulation/realtime-execution"
   - "data-hardware/industrial-deployment"
@@ -190,7 +191,7 @@ As of January 2023, MoveIt 2 recommends Time-Optimal Trajectory Generation (TOTG
 
 ## Where this meets the learned stack
 
-Motion Policy Networks trained on over 3 million motion planning problems in over 500,000 [environments](/world-models/generative-sim) <Cite id="mpinets-2022" />. Neural MP distills motion-planner data into a reactive generalist policy and adds lightweight optimization for safety. Its authors report success gains of 23%, 17% and 79% over sampling, optimization and learning-based planners <Cite id="neural-mp-2024" />.
+Motion Policy Networks trained on over 3 million motion planning problems in over 500,000 [environments](/world-models/generative-sim) <Cite id="mpinets-2022" />. Neural MP distills motion-planner data into a reactive generalist policy and adds lightweight optimization for safety. Its authors report success gains of 23%, 17% and 79% over sampling, optimization and learning-based planners <Cite id="neural-mp-2024" />. A 2026 survey of neural motion planners finds that they often struggle to generalize to unseen, out-of-distribution planning settings <Cite id="neural-motion-planner-survey-2026" />.
 
 Deep Reactive Policy replaced AIT\* with cuRobo as its expert planner because GPU acceleration let it scale to 10 million expert trajectories. Its authors report that AIT\* achieved 0% success on all dynamic tasks, and cuRobo fell to 3.00% when the goal was temporarily obstructed <Cite id="deep-reactive-policy-2025" />.
 

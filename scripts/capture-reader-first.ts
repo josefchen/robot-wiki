@@ -55,8 +55,9 @@ try {
       const page = await context.newPage();
       await page.goto(base + entry.route, { waitUntil: 'networkidle', timeout: 120_000 });
       await page.evaluate(() => document.fonts.ready);
-      // The phone layout's sticky top bar would otherwise paint over the frame's top edge.
-      await page.addStyleTag({ content: 'header.sticky { visibility: hidden !important; }' });
+      // The phone layout's sticky top bar, and in some tall-frame captures the
+      // fixed skip link, would otherwise paint over the frame's top edge.
+      await page.addStyleTag({ content: 'header.sticky, .skip-link { visibility: hidden !important; }' });
       const frame = page.locator(`main [data-figure-frame="${entry.figure}"]`).first();
       await frame.scrollIntoViewIfNeeded();
       await page.waitForTimeout(1200);

@@ -4,6 +4,7 @@ import { JSDOM } from 'jsdom';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { RrtExplorer } from '@/components/interactive/rrt-explorer';
+import { ANNOTATION_ARROW } from '@/components/motion/chart';
 import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
 import { mainViewSymbolHits, mainViewText } from '@/lib/figure-main-view';
 import { RRT_SCENE, buildRrt } from '@/lib/rrt';
@@ -317,21 +318,23 @@ describe('RrtExplorer', () => {
     const { container } = render(<RrtExplorer />);
     const notes = () => container.querySelectorAll('[data-figure-annotation]');
     const note = () => [...notes()[0].querySelectorAll('tspan')].map((t) => t.textContent).join(' ');
-    const ring = () => {
-      const circle = notes()[0].querySelector('circle')!;
-      return [Number(circle.getAttribute('cx')), Number(circle.getAttribute('cy'))];
+    // The arrowhead's tip stops ANNOTATION_ARROW.gap short of the point the note names.
+    const gapTo = (target: number[]) => {
+      const points = notes()[0].querySelector('[data-annotation-pointer="arrow"] polygon')!.getAttribute('points')!;
+      const [tx, ty] = points.split(' ')[0].split(',').map(Number);
+      return Math.hypot(tx - target[0], ty - target[1]);
     };
     const stage = (p: { x: number; y: number }) => [Number((10 + p.x * 3.2).toFixed(2)), Number((44 + p.y * 3.2).toFixed(2))];
     expect(notes()).toHaveLength(1);
     expect(note()).toBe('The first branch to reach the goal becomes the path');
     const top = RESULT.path.reduce((a, p) => (p.y < a.y ? p : a));
-    expect(ring()).toEqual(stage(top));
+    expect(gapTo(stage(top))).toBeCloseTo(ANNOTATION_ARROW.gap, 5);
     fireEvent.change(screen.getByRole('slider', { name: /exploration iteration/i }), { target: { value: '40' } });
     expect(note()).toBe('New branches reach toward random spots, so they fill open space first');
-    expect(ring()).toEqual(stage(RESULT.nodes[40]));
+    expect(gapTo(stage(RESULT.nodes[40]))).toBeCloseTo(ANNOTATION_ARROW.gap, 5);
     toStart();
     expect(note()).toBe('The tree grows from the start');
-    expect(ring()).toEqual(stage(RRT_SCENE.start));
+    expect(gapTo(stage(RRT_SCENE.start))).toBeCloseTo(ANNOTATION_ARROW.gap, 5);
   });
 
   it('clamps stepping at the final iteration', async () => {
@@ -424,7 +427,7 @@ describe('RrtExplorer served HTML', () => {
     expect(mainViewSymbolHits(frame)).toEqual([]);
     const { lines } = mainViewText(frame);
     expect(lines).toContain('Start');
-    expect(lines).toContain('Goal');
+    expect(lines).toContain('Goal area');
     expect(lines.some((line) => /units|iteration|nodes/.test(line))).toBe(false);
   });
 });

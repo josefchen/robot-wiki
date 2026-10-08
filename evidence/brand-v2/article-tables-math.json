@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5e5c000124a660a21eae12a9924cd7b1e13a666b6e0617c0cb0a7c22c01d680a",
+  "fingerprint": "e61767f474579bc79bcb500b66269e7f56c11524b3a3b21424eaf19644bf0503",
   "viewports": [
     "375x812",
     "1440x900"
@@ -276,7 +276,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17069,
+      "visibleTextLength": 17084,
       "tables": [
         {
           "index": 0,
@@ -408,7 +408,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26580,
+      "visibleTextLength": 26911,
       "tables": [],
       "equations": [
         {
@@ -853,7 +853,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19795,
+      "visibleTextLength": 20849,
       "tables": [],
       "equations": [
         {
@@ -1308,7 +1308,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18517,
+      "visibleTextLength": 18531,
       "tables": [
         {
           "index": 0,
@@ -1950,7 +1950,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28896,
+      "visibleTextLength": 29352,
       "tables": [
         {
           "index": 0,
@@ -2770,7 +2770,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 39970,
+      "visibleTextLength": 40368,
       "tables": [],
       "equations": [
         {
@@ -3219,7 +3219,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15243,
+      "visibleTextLength": 14924,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -3233,7 +3233,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 31680,
+      "visibleTextLength": 31560,
       "tables": [],
       "equations": [
         {
@@ -3312,7 +3312,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24126,
+      "visibleTextLength": 24314,
       "tables": [],
       "equations": [
         {
@@ -7813,7 +7813,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17506,
+      "visibleTextLength": 17521,
       "tables": [
         {
           "index": 0,
@@ -7945,7 +7945,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27017,
+      "visibleTextLength": 27348,
       "tables": [],
       "equations": [
         {
@@ -8390,7 +8390,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20232,
+      "visibleTextLength": 21286,
       "tables": [],
       "equations": [
         {
@@ -8845,7 +8845,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18954,
+      "visibleTextLength": 18968,
       "tables": [
         {
           "index": 0,
@@ -9487,7 +9487,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 29333,
+      "visibleTextLength": 29789,
       "tables": [
         {
           "index": 0,
@@ -10307,7 +10307,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 40407,
+      "visibleTextLength": 40805,
       "tables": [],
       "equations": [
         {
@@ -10756,7 +10756,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15680,
+      "visibleTextLength": 15361,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -10770,7 +10770,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 32117,
+      "visibleTextLength": 31997,
       "tables": [],
       "equations": [
         {
@@ -10849,7 +10849,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24563,
+      "visibleTextLength": 24751,
       "tables": [],
       "equations": [
         {

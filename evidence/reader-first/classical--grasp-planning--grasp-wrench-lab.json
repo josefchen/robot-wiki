@@ -7,18 +7,18 @@
     "1280": "evidence/reader-first/classical--grasp-planning--grasp-wrench-lab.1280.png"
   },
   "takeaway": "Three fingertips placed well around a box hold it against a push from any direction.",
-  "sentence": "If a robot hand puts three fingers in the right places on a box, the box stays put no matter which direction it gets pushed from, and rougher surfaces make the grip stronger.",
+  "sentence": "Three fingers placed around a box, one on top, one on the side and one underneath, can grip it so that pushes from any direction don't make it slip, and a rougher surface makes the grip stronger.",
   "unclearTerms": [
-    "the pale purple curved triangle shapes at each fingertip (the legend says 'where a fingertip can push without slipping', but I couldn't tell how the shape shows that)",
-    "the black dots where the fingers touch the box",
-    "the grip strength bar: it is only about one third full, close to 'slips', while the green text says 'the grip holds'",
+    "the white stripe across the middle of each dark finger",
+    "the grip strength bar is only about half full while the message says the grip holds, so I could not tell how firm is firm enough",
+    "the teal box is not labelled, so I assumed it is the object being held",
     "Adjust more"
   ],
   "samePoint": "yes",
-  "reason": "My sentence says three well-placed fingers keep the box still against a push from any direction; the extra remark about rough surfaces does not change that point.",
+  "reason": "My sentence says that three well-placed fingers around a box keep it from slipping under a push from any direction; the extra note about roughness does not change that point.",
   "verdict": "fail",
-  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
   "date": "2026-10-08",
-  "reviewerSession": "reader-session-3ddc4e3a",
-  "sourceDigest": "661db13b81696eaeef589be39649c3cdda0feec0de778381cb1b3d5b0a1bfc45"
+  "reviewerSession": "reader-session-817aaa8e",
+  "sourceDigest": "f91b16c601f97fb58b383138ec52d5307df3ae9549b9857c02548db55c5a5674"
 }

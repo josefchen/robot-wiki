@@ -8,14 +8,17 @@ from motion-tokens.json, through clip_kit. The beat durations are read
 from motion-clips.json so the render, the WebVTT cues and the page
 registry share one timeline.
 
-The frame is a legend row and one note over the run. The native video
-controls and their scrim cover the bottom of the frame whenever the clip
-is paused, ended or showing its poster (the bottom quarter at desktop
-widths, half at phone widths), so no label sits there and the run ends
-above it. The last beat points the note at the widest stretch of the
-band, where the sensor went quiet; the final frame is also the poster, so
-the page shows the note before anyone plays the clip. Nothing here runs
-at build or deploy time.
+The frame is two legend rows, one note and the run, with a time cue in
+the run's empty lower left corner. The legend names every mark in plain
+words, including the band, whose swatch widens beside "wider: less
+sure" (words only: the main view carries no formula sign). The page
+shows the poster over the top 78% of the frame and the native controls
+below it, so no label sits lower than that and the run ends above it.
+The last beat points the note at the widest stretch of the band, where
+the sensor went quiet, tints that stretch in the note's colour and drops
+the moving dot at the end of the estimate; the final frame is also the
+poster, so the page shows the note before anyone plays the clip. Nothing
+here runs at build or deploy time.
 """
 
 import json
@@ -31,6 +34,7 @@ import motion_theme as theme  # noqa: E402
 from manim import (  # noqa: E402
     Create,
     FadeIn,
+    FadeOut,
     LaggedStart,
     Line,
     Polygon,
@@ -58,20 +62,26 @@ TWO_SIGMA = 2.0
 # origin at the centre, y up). The run's 2-sigma band reaches 8.27 in the
 # drawn steps, so +-8.5 holds the whole band, not just its mean.
 EDGE = 137.5
-LEGEND_BASELINE = 64
-NOTE_BASELINE = 45
+LEGEND_BASELINES = (69, 52)
+NOTE_BASELINE = 35
 LEGEND_GAP = 12
 SWATCH = 15
 SWATCH_GAP = 4
-PLOT_TOP = 35
-PLOT_BOTTOM = -48
+PLOT_TOP = 25
+PLOT_BOTTOM = -45
 POSITION_SPAN = 8.5
+# The page shows the poster's top POSTER_SHOWN of the frame (clip.tsx);
+# the run ends above that line and the time cue at least MARGIN above it.
+POSTER_SHOWN = 0.78
+MARGIN = 4
+TIME_BASELINE = -41
+TIME_ARROW = 24
 # Clear space between the note, its arrow and the marks around them.
 CLEARANCE = 3
 # The note's gap must miss at least this many readings in a row.
 MIN_GAP = 2
 
-NOTE = "No readings, so the band widens: less sure"
+NOTE = "No readings: the filter grows less sure"
 
 
 def _load():
@@ -123,17 +133,21 @@ def _dot_swatch(left, mid):
     return kit.marker(_point(left + SWATCH / 2, mid), "measurement")
 
 
+def _line_swatch(left, mid):
+    return kit.stroke(Line(_point(left, mid), _point(left + SWATCH, mid)), "trace", "state")
+
+
 def _band_swatch(left, mid):
-    half = theme.TYPE_PX["label"] / 3
-    band = kit.fill(
+    """The band alone, widening to the right beside "wider = less sure"."""
+    narrow = theme.TYPE_PX["label"] / 7
+    wide = theme.TYPE_PX["label"] / 3
+    return kit.fill(
         Polygon(
-            _point(left, mid - half), _point(left + SWATCH, mid - half),
-            _point(left + SWATCH, mid + half), _point(left, mid + half),
+            _point(left, mid - narrow), _point(left + SWATCH, mid - wide),
+            _point(left + SWATCH, mid + wide), _point(left, mid + narrow),
         ),
         "state",
     )
-    line = kit.stroke(Line(_point(left, mid), _point(left + SWATCH, mid)), "trace", "state")
-    return VGroup(band, line)
 
 
 def _widest_gap(sigma, measurements):
@@ -201,25 +215,51 @@ class KalmanEpisode(Scene):
                 self.wait((hold + 0.5) / fps, frozen_frame=True)
             assert frames() == target
 
-        # ---- the legend row and the note's place -------------------------
-        truth_item, readings_item, track_item = _legend(
-            LEGEND_BASELINE,
-            [
-                (_dash_swatch, "true path"),
-                (_dot_swatch, "readings"),
-                (_band_swatch, "filter's track"),
-            ],
+        # ---- the legend rows, the note's place and the time cue ----------
+        top_row = _legend(
+            LEGEND_BASELINES[0],
+            [(_dash_swatch, "true position"), (_dot_swatch, "sensor readings")],
         )
-        assert kit.stage_px(track_item.get_right()[0]) <= EDGE, "the legend runs off the stage"
+        bottom_row = _legend(
+            LEGEND_BASELINES[1],
+            [(_line_swatch, "filter's estimate"), (_band_swatch, "wider: less sure")],
+        )
+        truth_item, readings_item = top_row
+        estimate_item, band_item = bottom_row
+        half_height = kit.stage_px(config.frame_height) / 2
+        crop = half_height - POSTER_SHOWN * 2 * half_height
+        assert kit.stage_px(truth_item.get_top()[1]) <= half_height - MARGIN, "the legend runs off the top"
+        for row in (top_row, bottom_row):
+            assert kit.stage_px(row[-1].get_right()[0]) <= EDGE, "the legend runs off the stage"
+        top_row_bottom = min(kit.stage_px(item.get_bottom()[1]) for item in top_row)
+        bottom_row_top = max(kit.stage_px(item.get_top()[1]) for item in bottom_row)
+        assert top_row_bottom - bottom_row_top >= CLEARANCE, "the legend rows touch"
         note = kit.place(kit.text(NOTE, tone="highlight"), -EDGE, NOTE_BASELINE, edge=-1)
         assert kit.stage_px(note.get_right()[0]) <= EDGE, "the note runs off the stage"
         note_top = kit.stage_px(note.get_top()[1])
         note_bottom = kit.stage_px(note.get_bottom()[1])
-        legend_bottom = min(kit.stage_px(item.get_bottom()[1]) for item in (truth_item, readings_item, track_item))
+        legend_bottom = min(kit.stage_px(item.get_bottom()[1]) for item in bottom_row)
         assert legend_bottom - note_top >= CLEARANCE, "the note crowds the legend"
         dot_radius = theme.MARKER_RADIUS_PX["dense"]
         top_mark = max(_plot_y(value) for t in steps for value in marks_at(t)) + dot_radius
         assert note_bottom - top_mark >= CLEARANCE, "the note sits on the run"
+        low_mark = min(_plot_y(value) for t in steps for value in marks_at(t)) - dot_radius
+        assert low_mark >= crop, "the run dips under the page's poster crop"
+
+        # Time runs left to right: a word and an arrow in the corner the
+        # run leaves empty, clear of every mark above them.
+        time_label = kit.place(kit.text("time", tone="secondary"), -EDGE, TIME_BASELINE, edge=-1)
+        time_mid = kit.x_middle(time_label)
+        time_start = kit.stage_px(time_label.get_right()[0]) + SWATCH_GAP
+        time_arrow = kit.arrow(
+            _point(time_start, time_mid), _point(time_start + TIME_ARROW, time_mid), "secondary"
+        )
+        time_cue = VGroup(time_label, time_arrow)
+        assert kit.stage_px(time_cue.get_bottom()[1]) >= crop + MARGIN, "the time cue sits under the crop"
+        cue_right = kit.stage_px(time_cue.get_right()[0])
+        above_cue = [t for t in steps if _plot_x(t) <= cue_right + CLEARANCE]
+        lowest_above = min(_plot_y(value) for t in above_cue for value in marks_at(t)) - dot_radius
+        assert lowest_above - kit.stage_px(time_cue.get_top()[1]) >= CLEARANCE, "the time cue touches the run"
 
         truth_dashes = kit.dashed(
             kit.trace([_plot(t, truth[t]) for t in steps], "reference", "reference")
@@ -232,8 +272,8 @@ class KalmanEpisode(Scene):
             )
         )
 
-        # ---- beat 1: the wandering target --------------------------------
-        play(FadeIn(truth_item), run_time=0.5)
+        # ---- beat 1: the moving object ------------------------------------
+        play(FadeIn(truth_item), FadeIn(time_cue), run_time=0.5)
         # Steps appear at a constant rate: the reveal is model time.
         play(
             LaggedStart(
@@ -257,8 +297,8 @@ class KalmanEpisode(Scene):
         )
         rest(beats[1])
 
-        # ---- beat 3: the filter's track over the whole run ----------------
-        play(FadeIn(track_item), run_time=0.4)
+        # ---- beat 3: the filter's estimate over the whole run -------------
+        play(FadeIn(estimate_item), FadeIn(band_item), run_time=0.4)
         tracker = ValueTracker(steps.start + 1)
 
         def reached():
@@ -286,12 +326,19 @@ class KalmanEpisode(Scene):
         play(tracker.animate.set_value(steps.stop - 1), run_time=4.9, rate_func=linear)
         for mobject in (band, curve, tip):
             mobject.clear_updaters()
+        # The moving dot only marks the step being drawn; the finished run
+        # has no current step, so the dot goes.
+        play(FadeOut(tip), run_time=0.3)
         rest(beats[2])
 
         # ---- beat 4: the note at the widest gap ---------------------------
-        # The band between the last reading before the gap and the first one
-        # after it takes the highlight tint: the fan the note explains.
-        before, widest, after = _widest_gap(sigma, measurements)
+        # The arrow drops from the note to just above every mark its head
+        # could touch, so it points at the band's widest stretch, between
+        # the last reading before the gap and the first one after it,
+        # without covering data.
+        before, _widest, after = _widest_gap(sigma, measurements)
+        # The band over the gap takes the note's highlight tint, so the eye
+        # finds the stretch the note explains.
         gap = range(before, after + 1)
         fan = kit.fill(
             Polygon(
@@ -300,8 +347,6 @@ class KalmanEpisode(Scene):
             ),
             "highlight",
         ).set_z_index(-0.5)
-        # The arrow drops from the note to just above every mark its head
-        # could touch, so it points at the fan without covering data.
         x_gap = (_plot_x(before) + _plot_x(after)) / 2
         beside = [t for t in steps if abs(_plot_x(t) - x_gap) <= theme.TICK_LENGTH_PX]
         clear_top = max(_plot_y(value) for t in beside for value in marks_at(t)) + dot_radius

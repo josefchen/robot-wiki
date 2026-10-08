@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1471565, sha256: 'b3daa17125ece9760accfae5cd3e3a864e8b72b6c1704cd604781d5271914ffc' };
+const reviewPin = { bytes: 1519503, sha256: '355e0ccb0d98e757129276631d000605b0816e00e385da70e3ecbdfb208464ee' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -51,23 +51,23 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/interactive/friction-transfer.tsx', [18564, '661f580d2f912b0c3acdcdee6fad16141ae146924525cd55f0a295d119301cff']],
   ['components/interactive/generalist-release-timeline.tsx', [19613, '4b66270e2be56a21dd3766c80148d00a9208e2b325f0e29cf535156d561883ff']],
   ['components/interactive/hand-comparison.tsx', [16488, '3b2c3d9308e0bd0baef0a65303752664ebdd92f7e560312aaf00c57a3a95f2b2']],
-  ['components/interactive/impedance-contact-lab.tsx', [22160, 'd6dca2d8a11b74ed0cb29dba6c3bef0fd7dbfda2936a607b105921609268f8b8']],
+  ['components/interactive/impedance-contact-lab.tsx', [22466, 'b11c110fbd5113462188cda01f3263dee4c4339d3db5e5a279ccca367f057055']],
   ['components/interactive/jepa-planning.tsx', [22427, 'd704fd6bfdf648676495355f9ba8ad8a670bca6ecf2c6ea958cc26fe812826a4']],
   ['components/interactive/latent-imagination.tsx', [20313, '109246120dd9fa8b512fd69d27012e0283231861dd4fa75ac0b457c05a030367']],
   ['components/interactive/milestones-watchlist.tsx', [16141, '81aae07a0d8e73f9aa9761314e435460d6a544226689bf8a1f7c8335057ff88f']],
-  ['components/interactive/pendulum-controller.tsx', [23204, 'fa45d0c45371312625e4466ad138b4d5eacc5a0f797084f214d62ba35c319d81']],
-  ['components/interactive/perception-error-budget.tsx', [26047, '3d2124f41825b9b46880f67dd181774460e97e4235e44e68b81d385aaee4f50f']],
+  ['components/interactive/pendulum-controller.tsx', [24310, 'e6eb99fb13da60b6eae7a3dde22ad695e1e162a8943ab7b5d96f70609628d604']],
+  ['components/interactive/perception-error-budget.tsx', [26488, 'f0bf82c1eb18f692e322cc5cc80de5651d6c4f50360b03539cf7ee93ecd4d783']],
   ['components/interactive/perception-latency.tsx', [15260, '6f4270266f91b4c9f78e44358977a60200e02143a212f6438c74858672a9b202']],
-  ['components/interactive/planar-fk-arm.tsx', [14175, 'e772caab60e3c044b124304e97a30582740d9e563afb61831e0c00ea35693e5a']],
+  ['components/interactive/planar-fk-arm.tsx', [14545, 'c167868d0f20b85a306c65924bcfb9d443948cfdeb5c1a113482555cacc0180a']],
   ['components/interactive/reliability-compounding.tsx', [19076, 'b07a31b6b8b2156598fe9d2e90473578e472245b123a97c75ed4863b953db2bd']],
   ['components/interactive/reward-shaping.tsx', [19505, '842e3032a17ed3fde222a6204400c2787884e60eab8aea456b6704c86cd2dfb1']],
-  ['components/interactive/rrt-explorer.tsx', [18691, '160fe91fb00154b09dbb59bc9c2dcf0d5e8c841214f97b25ad30e3371ffe1c94']],
-  ['components/interactive/scene-representation-ladder.tsx', [27006, 'ff4d99f1f824a27468aa7f7470f1b5e976b211f552bd193ce7718cf45bdb3422']],
+  ['components/interactive/rrt-explorer.tsx', [18813, '11f6d5c3e84dc47e324be2ee95259802262c6b82ba01a74b7db76daab471714d']],
+  ['components/interactive/scene-representation-ladder.tsx', [33182, 'e918946658af05a5633a706738ea2089a698709fbef6f629766bacfe3df9cb42']],
   ['components/interactive/teacher-student.tsx', [14625, '6721248ba2cc6f7123c0a5baf8d1f3fedfe9d938ebc619af51e7d661eff02dca']],
   ['components/interactive/thesis-explorer.tsx', [16923, 'c5ab42ae55a0d684f5bde5c6a9d665eebfeac751cfbdfac2b674f7033a4bb5d7']],
   ['components/interactive/wbc-decomposition.tsx', [13637, 'b03b9ae89698e49d6ad91d48614ae2d287cee947a9cd6518dba60355224c5715']],
   ['components/interactive/wm-disambiguator.tsx', [23709, 'c83efae307bec54faf8c190d4c4745a7c7f8b1538c6a8ec0f14408f14316ab09']],
-  ['components/motion/chart/chart-marks.tsx', [6820, '0fe3b378f8693b576137b44c9ce1a7c221ace4ffc1d16c0fcb22bd07b1b7af28']],
+  ['components/motion/chart/chart-marks.tsx', [8656, '678a4f0effab4586f5a80798f368a08359ed77315c4bf4009653f828e71d776c']],
   ['components/motion/figure-frame.tsx', [11868, 'daadde02a1cbc942cdc83adf2e79671325641217835b17aab2b2b5ad127eb149']],
   ['components/motion/motion-tokens.css', [2185, '1bad785920b500c5e7b866f2c31f7aae5666ed4d586beac132a01f42dcdc1a7c']],
   ['components/motion/scene-chrome.tsx', [3578, 'eb62ef63dc05b3d92f38c6df6d7dd24c484e1008057c4d9d9f1cc5dd483e3aef']],
@@ -122,7 +122,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['scripts/plant-figure-system.ts', [7617, '154dcd9f14add37c9abed7191e84d056a74ed4a756f4189dae0f6960a6895b6d']],
   ['tests/component/action-conditioning.test.tsx', [6576, '1eb2e9b9a735487ae52b564412861f07817b5aa53d567cfa83986a1d5adba36d']],
   ['tests/component/appearance-physics-push.test.tsx', [6847, '6bfbc22c1f9cc001d0114515d3c98bc10fb161b745e77e86cc865bdbc112114f']],
-  ['tests/component/chart-primitives.test.tsx', [6661, '06feb4ed25afc3f3ee38e08bf5d76de3e22a71f7bef9320cb987a98feeb5b3a4']],
+  ['tests/component/chart-primitives.test.tsx', [8240, 'eda43b3e5cdc7c6cd9fc90834b270a3bfaf124c413b922bb313ebd0aa53160e6']],
   ['tests/component/chart-state-descriptions.test.tsx', [19466, '83650acab7fb66d0cf567d304ba3da1e3063467c0350e8900d05bbc3f65cdf14']],
   ['tests/component/collaborative-operation-modes.test.tsx', [9511, '1fb9bbdfbdf923c9510af1cbdb18453cc1deed6e7d5ca9cbd36bb4f40b9bea88']],
   ['tests/component/contact-geometry.test.tsx', [8336, '5722a594e2bb89fc804c8714f823ccfa7cd8c50099b206b8c01340a58607cc57']],
@@ -189,7 +189,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/perception-depth-readers.spec.ts', [22377, '35d77ff776ad4f4ffdc847f515a435b3176282c418938db53c6fe4e900c0fbf5']],
   ['tests/e2e/perception.spec.ts', [37417, '7ad6e146b37c8b85d53dc66e169a5db76ec6d6e1d7229c208d8be73d5636a585']],
   ['tests/e2e/pi-helix-theses-readers.spec.ts', [3798, 'd4d426d40a5d6ab1020e7e955e2c4d0c10e55d1a04ae6ac062b763743f2d9686']],
-  ['tests/e2e/predict-then-reveal.spec.ts', [40882, '7a577ffd6539763febb5aab93160e04a61156ad6ac06ac67ee5bfd5a1f2cab16']],
+  ['tests/e2e/predict-then-reveal.spec.ts', [40893, '2ca19df1a64eff1fcd0c874c1e2b1e3e2b3f0d2224c5560e45955bf2331639aa']],
   ['tests/e2e/randomization-reader-closeout.spec.ts', [19825, 'd08dc3cb2455f5ede0cf86a4e67a424fc117fca0d543e350ce05162b575dc02c']],
   ['tests/e2e/residual-release-classical.spec.ts', [9970, 'cc144bbf81ab277e9be9bbc920f0a98559efe6e44663cd637d1f4dc1bcf39955']],
   ['tests/e2e/residual-release-final-seven.spec.ts', [8515, 'ee12949e0a9d3dc52517e3639fa702c4c92f7014475d3a8784e7370f03d218c9']],
@@ -197,10 +197,10 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/reward-local-evidence.spec.ts', [7920, 'de6611a9844281dd184b4090c0557ec503e908ba1ee1fc6b16ad6bc8e5295b50']],
   ['tests/e2e/rl-finetuning.spec.ts', [11831, '7b280a8981f129fa4e5ac5593d6ee9a29fefb3e32d760284570b5b98f89e9889']],
   ['tests/e2e/safety-and-assurance.spec.ts', [23544, 'd8eb080ba5f910c343430f63f9e0d2a6c8b7e34d3cd814d292d42ea77d61e0fd']],
-  ['tests/e2e/scene-representation.spec.ts', [25417, '75b016a0e6663e7b424045cefc202d21ff0b930ee7aac1f2fff346e78162326f']],
+  ['tests/e2e/scene-representation.spec.ts', [25615, '91b39f565d61de6930e96d2a801ea678af8c1f66aa001cf0662cd1d9813f0e6c']],
   ['tests/e2e/sim2real-local-evidence.spec.ts', [10444, '6098bdce6d76b790445c5cc8244349d2b5deb64733514591e436e0b5a5741618']],
   ['tests/e2e/sim2real-transfer.spec.ts', [11461, 'd7b10157da292b08fa92d4137d1f66b879e8e635cf5d992825945aa4e595e483']],
-  ['tests/e2e/state-estimation.spec.ts', [14098, '593de009e09ca81c1fff6b38e872cef7d113cc9dec97aa4946aa714e3268ec91']],
+  ['tests/e2e/state-estimation.spec.ts', [14104, 'acf481dfb999c01b3e0739d399eb1bfe848eae10b3a2d6f122a236cd1ee062bb']],
   ['tests/e2e/thesis-economics-readers.spec.ts', [6170, '25b0c7ae3b7cdcbe6a2b604f55d6bc6aa51de094f1e2209e1ee00325c52da0d3']],
   ['tests/e2e/why-rl-locomotion.spec.ts', [5014, '22f94f07128a16eedb4b9d46bbfe5040dbecce0bfbd9f51930069ea97cf130dd']],
   ['tests/e2e/wm-taxonomy.spec.ts', [6582, 'fd2e08b777b42395db7ba1f62d96e260f77cd886f8845d9f0349d395c77138a6']],
@@ -212,7 +212,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/motion-data-hardware.test.ts', [10895, 'd9a5ffee78d77b45a6155155c84992e3299e892e4e32e2a9c08fd62837842648']],
   ['tests/unit/motion-frontier-adjacent-home.test.ts', [10400, '65d530b06879dcadbb24c1660a49c723882aece6335a11e0ca5ba299a9a14fe3']],
   ['tests/unit/motion-tokens.test.ts', [4233, 'b6ab1f9ed18b3b0b4cbc084da4846571d8fb69e95a45328947b96700800ee00a']],
-  ['tests/unit/reader-release-integration.test.ts', [20518, '7c332e8fef3fe45c7cf2018d25825a35d8761d487fca3603b05850a4ec5ac378']],
+  ['tests/unit/reader-release-integration.test.ts', [20898, 'dd54edce309ddbce37ce223f9d8b464c635d3f9c0c4d295b1d9c8b7bde028abe']],
   ['tests/unit/robomind-hours-evidence.test.ts', [25008, 'b6180ad7cf1930ad9d6a1a4511e7f3011da9a0e26e5922ca64396f672f70cc39']],
 ]);
 // END reader-first pins

@@ -7,25 +7,17 @@
     "1280": "evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.1280.png"
   },
   "takeaway": "The AI never drives the motors itself: every move it suggests passes a safety check first.",
-  "sentence": "In the robot's software, the AI's suggested moves have to go through a separate safety check before anything reaches the motors.",
+  "sentence": "In the robot's software, the AI's suggested moves must pass through a safety check before anything drives the motors.",
   "unclearTerms": [
-    "task manager",
-    "late readings may be skipped",
-    "combines the readings",
-    "checked to be recent",
-    "arm position at the moment the photo was taken",
-    "suggested moves, all delivered",
-    "at steady, exact intervals",
-    "starts and stops these three parts (which three?)",
-    "the dashed lines and arrows coming from the task manager",
-    "the difference between \"runs the motors\" and \"motors\"",
-    "the grey-filled \"motors\" box"
+    "what the boxes are (programs, machines, or steps?)",
+    "gathers the latest readings (what does the gathering, and why it is a separate step)",
+    "why the arrows change from blue-green to purple partway down"
   ],
   "samePoint": "yes",
-  "reason": "My sentence also said that the AI's suggested moves must pass a separate safety check before reaching the motors.",
+  "reason": "My sentence says the AI's suggested moves must pass a safety check before anything drives the motors, which carries the takeaway's point that the AI never drives the motors itself.",
   "verdict": "fail",
-  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
   "date": "2026-10-08",
-  "reviewerSession": "reader-session-ec98138f",
-  "sourceDigest": "47de037a448f40e2a18c67efe05373a66f1320e24d1afab2320bc85dac1860fc"
+  "reviewerSession": "reader-session-72c5c167",
+  "sourceDigest": "e3195efbf8c146af6cb07bc3f20ff1da460fa008428d55cb6e8bee50bb069961"
 }

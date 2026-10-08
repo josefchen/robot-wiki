@@ -113,10 +113,10 @@ describe('content integration of 2026-09-23', () => {
       expect(entry.ownerApproval).toMatch(/^Owner-delegated approval: Josef Chen delegated release decisions to the delegated release reviewer on 2026-09-22\/23 \('you think and decide all'\); approved after primary-source verification of \S/);
     }
     // Each domain-pass article group, and the 2026-10-08 classical registry
-    // fixes, close the shared rendering chain with their own resolution; the
-    // newest is the head.
+    // fixes and sweep additions, close the shared rendering chain with their
+    // own resolution; the newest is the head.
     const domainPassRendering = approvals.filter(a =>
-      /^domain-pass-(20261006-g\d+|20261008)-citation-rendering$/.test(a.id));
+      /^domain-pass-(20261006-g\d+|20261008|20261008-sweep)-citation-rendering$/.test(a.id));
     expect(domainPassRendering.length).toBeGreaterThan(0);
     expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
       .toBe(domainPassRendering.at(-1)!.id);

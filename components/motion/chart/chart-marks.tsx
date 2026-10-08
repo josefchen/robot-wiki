@@ -211,10 +211,41 @@ export function DirectLabel({
 
 const LINE_STEP_EM = 1.25;
 
+/** Arrowhead of an annotation pointer, in stage units. */
+export const ANNOTATION_ARROW = { length: 9, halfWidth: 4.5, gap: 3 } as const;
+
+/**
+ * The leader of an arrow pointer: it stops `gap` short of the target so the
+ * head never covers the mark it names, and the head's base sits `length`
+ * back along the leader. Returns null when the leader is too short to carry
+ * a head.
+ */
+export function annotationArrow(
+  from: ChartPoint,
+  target: ChartPoint,
+): { end: ChartPoint; head: readonly [ChartPoint, ChartPoint, ChartPoint] } | null {
+  const dx = target[0] - from[0];
+  const dy = target[1] - from[1];
+  const length = Math.hypot(dx, dy);
+  const { length: headLength, halfWidth, gap } = ANNOTATION_ARROW;
+  if (length <= headLength + gap) return null;
+  const ux = dx / length;
+  const uy = dy / length;
+  const tip: ChartPoint = [target[0] - ux * gap, target[1] - uy * gap];
+  const baseX = tip[0] - ux * headLength;
+  const baseY = tip[1] - uy * headLength;
+  return {
+    end: [baseX, baseY],
+    head: [tip, [baseX - uy * halfWidth, baseY + ux * halfWidth], [baseX + uy * halfWidth, baseY - ux * halfWidth]],
+  };
+}
+
 /**
  * The plain-words note that points at what the figure shows: the label in
  * the highlight role, one line per entry of `lines`, with an optional
- * leader from the label to the point it names and a ring on that point.
+ * leader from the label to the point it names. The leader ends in a ring on
+ * that point, or with `pointer="arrow"` in an arrowhead just short of it,
+ * which first-time readers take for a pointer rather than for data.
  * A figure carries one, two at most, and shows it at settle.
  */
 export function StageAnnotation({
@@ -224,6 +255,7 @@ export function StageAnnotation({
   anchor = 'start',
   target,
   from,
+  pointer = 'ring',
 }: {
   x: number;
   y: number;
@@ -233,10 +265,13 @@ export function StageAnnotation({
   target?: ChartPoint;
   /** Where the leader leaves the label; defaults to the label's anchor point. */
   from?: ChartPoint;
+  /** How the leader marks its target. */
+  pointer?: 'ring' | 'arrow';
 }) {
   const colour = roleColour('highlight');
   const block = CHART_TYPE.labelPx * LINE_STEP_EM * (lines.length - 1);
   const [fx, fy] = from ?? [x, y + block + CHART_TYPE.labelPx * 0.35];
+  const arrow = target && pointer === 'arrow' ? annotationArrow([fx, fy], target) : null;
   // The stage holds its type at one CSS pixel size while the viewBox
   // stretches, so lines step in ems and a wide stage packs them tighter
   // than the stage units the layout was planned in. A leader that leaves
@@ -246,7 +281,14 @@ export function StageAnnotation({
   const firstDy = fromBelow ? `${-LINE_STEP_EM * (lines.length - 1)}em` : 0;
   return (
     <g data-figure-annotation="">
-      {target ? (
+      {target && pointer === 'arrow' ? (
+        arrow ? (
+          <g data-annotation-pointer="arrow">
+            <line x1={fx} y1={fy} x2={arrow.end[0]} y2={arrow.end[1]} stroke={colour} strokeWidth={CHART_STROKE.structure * 2} />
+            <polygon points={arrow.head.map(([px, py]) => `${px},${py}`).join(' ')} fill={colour} />
+          </g>
+        ) : null
+      ) : target ? (
         <>
           <line x1={fx} y1={fy} x2={target[0]} y2={target[1]} stroke={colour} strokeWidth={CHART_STROKE.structure * 2} />
           <circle cx={target[0]} cy={target[1]} r={CHART_STROKE.markerRadius + 1} fill="none" stroke={colour} strokeWidth={CHART_STROKE.structure * 2} />

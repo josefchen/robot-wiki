@@ -6,9 +6,9 @@
     {
       "id": "kalman-predict-update",
       "chunks": [
-        "310m4kc868rig.js"
+        "1v89wygzsk73a.js"
       ],
-      "gzipBytes": 7673,
+      "gzipBytes": 7748,
       "withinBudget": true
     },
     {
@@ -86,23 +86,23 @@
   "images": [
     {
       "path": "evidence/motion/scenes/kalman-predict-update/375-beat-1.png",
-      "sha256": "61205e91464df7d621967df60c7b7d6f3029219b045858714b9874b895ef0208"
+      "sha256": "026b281d7f40bc563eec3b76bde04d4f63a4c53ded7f687c04762e61211c8449"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/375-beat-2.png",
-      "sha256": "6333fc09101233b1880d8b93455698e1969f7812173ae97ce640cd55fc6d084f"
+      "sha256": "c875801a910db157c88f8fbc486c4d39b2edb0cb370f9632383d1fbbd567418f"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/375-beat-3.png",
-      "sha256": "5c7a4c00cbf1b42854a47448f5e06e468ff55b800cb936297f8bea3b57ac8530"
+      "sha256": "52cd897f58810693eb5dcf21571152e2e4bf5df26b414d0d10aabd3027d3becc"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/375-beat-4.png",
-      "sha256": "8572b5f929e3dd3b1f44dcd8a8569badb4b35ae77f4db139001ec732a714fd70"
+      "sha256": "d086afdc160f3afac514d49598773c4d8b64695094572fd6ee12808158196186"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/375-beat-5.png",
-      "sha256": "26bc129b75fc68cc3f8e07a9d6c8b1db485753f78e36ef0e093dc871a8925a8d"
+      "sha256": "3bca46a461ca769a66fa3622b01a0d6a7d3d0cbdbb74c3fd6f76f18f6daaeab3"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-1.png",
@@ -222,23 +222,23 @@
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/1440-beat-1.png",
-      "sha256": "a0e22f2eef6ad717c18a663d2f5857f4422c07d837696aa2a1443f1466503ad7"
+      "sha256": "9ee1a35f6f35b9b8ef60f7655c46eb503cedb74f208da9fa9c22e3b4c8e94beb"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/1440-beat-2.png",
-      "sha256": "3212fc719c0a5ac1651b8db69b4ec4594cce897d202d27e364b976f69e34ce95"
+      "sha256": "dcf515fc451ba21a17378afd304f4ec8998137555dea7b8757894936f72eea44"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/1440-beat-3.png",
-      "sha256": "dcb805fa9c89751637b3b0b98f338e5879150b466311d2ebaf9b1b63a78bfcd8"
+      "sha256": "bab0ef9b16974690ece31d7fc07b53b1ff080e6b552a064a553703dadb7a09c0"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/1440-beat-4.png",
-      "sha256": "916c6a331cf116921c8d916cce9ddeecbe8b8e8483aa37dd2c608fb12bd93b26"
+      "sha256": "606bcdc7466db4c91fcb4bd6502b468b43abdd88f781cfd94ca64f852c0a96c4"
     },
     {
       "path": "evidence/motion/scenes/kalman-predict-update/1440-beat-5.png",
-      "sha256": "b5221c2556037b4643958323ee732a44640b0b6352a8311dd9f988561d2d5f56"
+      "sha256": "2ec0e7e6e5bde7eddc31683cff193c7e6d2097ba0b17cf9b773c632fae012907"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-1.png",

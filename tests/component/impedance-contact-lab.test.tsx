@@ -32,7 +32,9 @@ describe('ImpedanceContactLab served HTML', () => {
     expect(mainViewSymbolHits(frame)).toEqual([]);
     const { lines } = mainViewText(frame);
     expect(lines).toContain('crushes the object');
-    expect(lines.some((line) => /^Human pain limit:\s?about 10 times higher$/.test(line))).toBe(true);
+    // The pain limit is off the chart's scale; it is stated, with its citation, in the method fold.
+    expect(lines.some((line) => /pain limit|Han et al/i.test(line))).toBe(false);
+    expect(lines).toContain('later bounces, all smaller');
     expect(lines.some((line) => /stiffness|damping|impedance law/i.test(line))).toBe(false);
   });
 });
@@ -159,16 +161,19 @@ describe('ImpedanceContactLab', () => {
   it('says the pain limit was measured with a wedge-shaped impactor', () => {
     render(<ImpedanceContactLab />);
     const method = screen.getByTestId('impedance-limit-label').parentElement?.textContent ?? '';
-    expect(method).toMatch(/Pain limit: contact-force limit 255 N \(thigh,[^)]*\), measured with a wedge-shaped impactor,/);
+    expect(method).toMatch(
+      /human pain limit is about 10 times the crush force: contact-force limit 255 N \(thigh,[^)]*\), measured with a wedge-shaped impactor/,
+    );
   });
 
   it('opens on the fingertip, the crush line and a first bump just under it', () => {
     const { container } = render(<ImpedanceContactLab />);
     expect(screen.getByTestId('impedance-contact-sketch')).toHaveAttribute('data-hardware', 'torque');
     expect(screen.getByTestId('impedance-crush-label')).toHaveTextContent('crushes the object');
-    expect(screen.getByTestId('impedance-pain-arrow')).toHaveTextContent(
-      'Human pain limit: about 10 times higher',
-    );
+    expect(screen.queryByTestId('impedance-pain-arrow')).toBeNull();
+    expect(container.querySelector('[data-figure-status]')).toHaveTextContent('Illustrative model, not measured');
+    expect(screen.getByTestId('impedance-bounce-label')).toHaveTextContent('later bounces, all smaller');
+    expect(container.querySelector('[data-annotation-pointer="arrow"]')).not.toBeNull();
     expect(container.querySelector('[data-figure-annotation]')?.textContent).toBe(
       'First bump: just underthe crushing force',
     );
@@ -212,7 +217,7 @@ describe('ImpedanceContactLab', () => {
     );
   });
 
-  it('the spring arm and the stiff geared arm change the sketch and the chart', async () => {
+  it('the spring arm and the stiff arm change the sketch and the chart', async () => {
     const user = userEvent.setup();
     const { container } = render(<ImpedanceContactLab />);
     await user.click(screen.getByTestId('impedance-hardware-sea'));

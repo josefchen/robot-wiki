@@ -65,7 +65,7 @@ describe('CalibrationChain', () => {
       ['wrist-tip', 'robot-links'],
     ]);
     const frames = Array.from(stage.querySelectorAll('[data-frame] text')).map((t) => t.textContent);
-    expect(frames).toEqual(['robot base', 'wrist', 'camera', 'hand', 'box']);
+    expect(frames).toEqual(['robot arm', 'wrist', 'camera', 'hand', 'box']);
     const names = Array.from(stage.querySelectorAll('[data-link-label]')).map((g) => [
       g.getAttribute('data-link-label'),
       textsOf(g).join(' '),
@@ -73,9 +73,23 @@ describe('CalibrationChain', () => {
     expect(names).toEqual([
       ['base-wrist', 'how far each joint turns, and how long each arm part is'],
       ['wrist-camera', 'where the camera is fixed on the wrist'],
-      ['camera-object', 'how far the camera sees the box'],
+      ['camera-object', "the camera's measure of how far away the box is"],
       ['wrist-tip', 'how far the fingertips reach'],
     ]);
+  });
+
+  it('sets each link name beside its part, with no leader line to drift on a wide stage', () => {
+    const { container } = renderFigure();
+    const stage = stageOf(container);
+    for (const label of stage.querySelectorAll('[data-link-label]')) {
+      expect(label.querySelector('line, path'), label.getAttribute('data-link-label') ?? '').toBeNull();
+    }
+    // Only the spot the hand must reach carries a dot; the hand carries none.
+    expect(stage.querySelectorAll('[data-frame] circle')).toHaveLength(1);
+    expect(stage.querySelector('[data-frame="object"] circle')).not.toBeNull();
+    expect(stage.querySelectorAll('[data-scene-part="joint"]')).toHaveLength(2);
+    // The drawing is capped, so its type-scale container keeps labels beside their parts.
+    expect(stage.parentElement).toHaveClass('@container');
   });
 
   it('keeps every technical name, sourced error and caveat in the method fold', () => {
@@ -128,6 +142,8 @@ describe('CalibrationChain', () => {
     const notes = container.querySelectorAll('[data-figure-annotation]');
     expect(notes).toHaveLength(1);
     expect(notes[0]).toHaveTextContent('The hand mustreach this spot');
+    expect(notes[0].querySelector('[data-annotation-pointer="arrow"] polygon')).not.toBeNull();
+    expect(notes[0].querySelector('circle')).toBeNull();
     const stage = stageOf(container);
     const described = stage.getAttribute('aria-describedby') ?? '';
     expect(document.getElementById(described)).toHaveTextContent('Four calibrated links join the robot base');
@@ -153,7 +169,7 @@ describe('CalibrationChain served HTML', () => {
     const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
     expect(mainViewSymbolHits(frame)).toEqual([]);
     const lines = mainViewText(frame).lines;
-    expect(lines).toContain('where the camera is fixed on the wrist');
+    expect(lines).toContain('fixed on the wrist');
     expect(lines.some((line) => /1\.74|10\.56|2\.3-fold/.test(line))).toBe(false);
   });
 });

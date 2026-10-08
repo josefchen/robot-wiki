@@ -7,18 +7,17 @@
     "1280": "evidence/reader-first/classical--kinematics--planar-fk-arm.1280.png"
   },
   "takeaway": "Turning the shoulder swings the whole rest of the arm, hand included, along with it.",
-  "sentence": "When the robot's shoulder joint turns, the rest of the arm (elbow, wrist and hand) moves along with it, and the robot works out where its hand is by adding up the turn of every joint.",
+  "sentence": "When the robot turns its shoulder joint, the elbow, wrist and hand all swing along with it, so the hand ends up in a new place.",
   "unclearTerms": [
-    "the green ring around the bottom joint and the green line pointing to it",
-    "\"points right\" and \"points left\" under the slider (it was not clear what points which way)",
-    "Adjust more",
-    "Reach up / Reach out / Tuck in (whether these change the picture or only the slider)"
+    "adding up each joint's turn, from shoulder to fingertip",
+    "slider ends labelled 'arm leans right' on the left and 'arm leans left' on the right (the direction feels backwards)",
+    "Adjust more"
   ],
   "samePoint": "yes",
-  "reason": "My sentence says that turning the shoulder makes the elbow, wrist and hand move with it, which is the intended point.",
+  "reason": "My sentence says turning the shoulder makes the elbow, wrist and hand swing along with it, which is the same point.",
   "verdict": "fail",
-  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
   "date": "2026-10-08",
-  "reviewerSession": "reader-session-018a5ef0",
-  "sourceDigest": "22d9b4035ccfd744c54387fcc8cfef4a41ede212a88b05ed030b8091026ceb89"
+  "reviewerSession": "reader-session-842252fb",
+  "sourceDigest": "ccce25b7e6aea3f4cdb53022069b9956dce9d857befacee0e48f9719a6e013e7"
 }

@@ -7,27 +7,19 @@
     "1280": "evidence/reader-first/classical--control--impedance-contact-lab.1280.png"
   },
   "takeaway": "An arm that controls how hard it pushes can be set soft enough to touch a fragile object without crushing it; a stiff arm that only follows a position cannot.",
-  "sentence": "A robot arm that can control how hard it pushes can be set to touch an object gently, so its push stays under the force that would crush it, while a stiff arm cannot be adjusted this way.",
+  "sentence": "A robot arm that is set to be soft presses on a fragile object with a first bump that stays just under the force that would crush it, and the later bounces get smaller and smaller.",
   "unclearTerms": [
-    "newtons",
-    "Stiff geared arm",
-    "Arm with a built-in spring",
-    "the pale blue repeated bumps after the first dark bump (are they more touches, bouncing, or another arm?)",
-    "why the push gets smaller with each bump",
-    "the red upward arrow next to \"Human pain limit: about 10 times higher\"",
-    "\"Human pain limit\" (whose pain, and why it is on a chart about crushing an object)",
-    "the green circle and green line on the first bump",
-    "the hatched lines under the ground line",
-    "the slider is set to \"soft\" but the first bump still nearly reaches the crushing line",
+    "Arm that controls its own push (how it differs from 'Arm with a built-in spring')",
+    "why the arm bounces repeatedly on the object instead of touching it once",
+    "dark teal first spike versus the paler teal later spikes (whether the colour difference means something beyond 'first' and 'later')",
     "Adjust more",
-    "Han et al. 2024",
-    "the \"↓\" symbol next to the citation"
+    "a position-only arm"
   ],
-  "samePoint": "yes",
-  "reason": "My sentence has the same subject and comparison: an arm that controls its push can be set gentle enough to stay under the crushing force, and a stiff arm cannot be adjusted that way.",
+  "samePoint": "no",
+  "reason": "My sentence got the soft arm staying under the crushing force, but it said nothing about a stiff, position-only arm being unable to do this, so the comparison is missing.",
   "verdict": "fail",
-  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
   "date": "2026-10-08",
-  "reviewerSession": "reader-session-018a5ef0",
-  "sourceDigest": "c1b64ff8fb6a0431dc8cadd70b2c7dd09aa5994076b70256ecf6cef01b61bc7c"
+  "reviewerSession": "reader-session-842252fb",
+  "sourceDigest": "5e7dbd37f01003b6a776ef11834cebcc68debba2450fc94bb15f366fb1e460a8"
 }

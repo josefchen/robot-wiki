@@ -7,18 +7,18 @@
     "1280": "evidence/reader-first/classical--perception--perception-error-budget.1280.png"
   },
   "takeaway": "A camera tilted a fraction of a degree off makes the robot miss, and the miss grows the farther away the object is.",
-  "sentence": "If a robot's camera is tilted even slightly, the robot reaches to the wrong spot, and the error grows the farther away the object is.",
+  "sentence": "If the camera is tilted by even half a degree, the robot's hand misses the object by a few millimetres, and the miss gets bigger the farther away the object is.",
   "unclearTerms": [
-    "the green line going up from the object toward the label: is it the hand, a measurement, or just a pointer?",
-    "the open green circle on the blue line",
-    "how 4.4 millimetres off fits with the picture, where the gap looks large",
+    "why the robot's belief is drawn as the slanted line and reality as the straight dashed line, when I expected the reverse",
+    "the short green vertical mark with a crossbar between the two lines",
+    "the small tick marks along the dashed line",
     "Adjust more"
   ],
   "samePoint": "yes",
-  "reason": "My sentence says a slight camera tilt makes the robot miss and the miss grows with distance, which matches the subject and the trend.",
+  "reason": "My sentence says that a fraction-of-a-degree tilt makes the hand miss, and the miss grows with the object's distance.",
   "verdict": "fail",
-  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
   "date": "2026-10-08",
-  "reviewerSession": "reader-session-3ddc4e3a",
-  "sourceDigest": "acc37b8abe4ba4bef1653e474218f5a82d56b92bd954cc9a0c261df0739b16ff"
+  "reviewerSession": "reader-session-817aaa8e",
+  "sourceDigest": "f2f2399bff3d39927bdec79203e7000e2bb4dea7113db125bf892cf784ecd276"
 }

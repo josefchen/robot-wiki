@@ -2731,9 +2731,9 @@
       "category": "static-asset",
       "ownershipId": "owner:static-asset",
       "sourceRegistryId": null,
-      "byteHash": "0119ba9dc9ffb90a8b1355829c04f4c3a7744e860cca6d8fd1a05eb29bbe6d26",
+      "byteHash": "5ab9974a8cb3804cb91ab688baaa75d19730a02f012bdb10db8898422b72e35c",
       "semanticHash": null,
-      "fingerprint": "defdc16866019adbffaba8d2c11f924d27f20f49c0a0d9356d1cf61afe9048e8"
+      "fingerprint": "b960b8391046adc8bed011ee7e34bf04793b2c783732d6f429235a2faaf8b124"
     },
     {
       "id": "asset:explainers/posters/arm.webp",
@@ -5814,9 +5814,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
           },
           {
             "id": "unavailable-not-applicable",
@@ -5825,7 +5825,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "5491af8156427461b56e8e1f0f03c06ac9b02001595d8830abacbea63469c6f3"
+        "fingerprint": "4f82df06426452b71141646fc9d6f2aae83bc538c11428207882e1810b106506"
       },
       {
         "id": "interactive:HandComparison",
@@ -7846,9 +7846,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
           },
           {
             "id": "unavailable-not-applicable",
@@ -7857,7 +7857,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "6c3ff2cb09946b6b5ddc16b525cf5ad689796a97dd5f9cbf0cbe53fc3404b9e1"
+        "fingerprint": "3d64b7708e2bd99454c540121947e1c397fed52fc3d06215bf7c6764e7393499"
       },
       {
         "id": "mount:/classical/kinematics/:PlanarFkArm:1",
@@ -12029,5 +12029,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "c83130d1f506b6dc09ab31bbfc38461a30871773fe598d70a468a2ca2ed27ac0"
+  "rootFingerprint": "3d4b0ade3598d36214c39ca770f9e1081bd41ebf872d48520ee1ab520e3db85a"
 }

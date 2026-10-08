@@ -68402,6 +68402,1230 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "manifest": "accessible-names",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "id": "reader-first-20261008-name-scene-representation-ladder-literal-aria-label-1",
+      "memberId": "literal:components/interactive/scene-representation-ladder.tsx:aria-label:1",
+      "oldHash": "b3bcf7a2b13fd90b3e9c67a7ed665bcb66ec14dd6e6313fc9b427a5f450983f2",
+      "newHash": "0335078d6ebb8e42ac6f43b4b4f7d3e9cd00ef482f746b735e152c36a06abd37",
+      "reason": "The five-second reader test of 2026-10-08 (evidence/reader-first/classical--scene-representation--scene-representation-ladder.json, reviewer session reader-session-018a5ef0) failed the scene-representation ladder: the reviewer missed that finer resolution changes only cost and detail, and listed 24 terms it did not understand, among them every representation name, log-odds, voxel and Resolution. The figure was rewritten in plain words (VAL-OPUS-139, VAL-OPUS-145). The tab list that picks a representation printed no group name; its accessible name changes from Scene representations to How the robot stores the room, the question the tabs answer. The five representations are unchanged.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "manifest": "accessible-names",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "id": "reader-first-20261008-name-scene-representation-ladder-expression-aria-label-2",
+      "memberId": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:2",
+      "oldHash": "e7faf52a232e26b744996dd015fa5885d87a7a8b90d24c719adf401d841e4a51",
+      "newHash": "d0022e142c3f05617cfa7be668d69609e2eef7977febe818b7c1f52f81628afe",
+      "reason": "The five-second reader test of 2026-10-08 (evidence/reader-first/classical--scene-representation--scene-representation-ladder.json, reviewer session reader-session-018a5ef0) failed the scene-representation ladder: the reviewer missed that finer resolution changes only cost and detail, and listed 24 terms it did not understand, among them every representation name, log-odds, voxel and Resolution. The figure was rewritten in plain words (VAL-OPUS-139, VAL-OPUS-145). Each tab now prints a plain name (Dots, Grid of boxes, Distance map, Triangle skin, Soft blobs), so its accessible name restates that name before the technical name in brackets and what the representation stores. The representations and what each stores are unchanged.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "manifest": "accessible-names",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "id": "reader-first-20261008-name-scene-representation-ladder-expression-aria-label-3",
+      "memberId": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:3",
+      "oldHash": "59864107be5ed1dd4766d5c31dd8633071c95038d62dc04fb1075ffbee4e1404",
+      "newHash": "e09aec523a88c4b543a0c4ed67a8c01af90d5f365ed661defb390ffb87bbffad",
+      "reason": "The five-second reader test of 2026-10-08 (evidence/reader-first/classical--scene-representation--scene-representation-ladder.json, reviewer session reader-session-018a5ef0) failed the scene-representation ladder: the reviewer missed that finer resolution changes only cost and detail, and listed 24 terms it did not understand, among them every representation name, log-odds, voxel and Resolution. The figure was rewritten in plain words (VAL-OPUS-139, VAL-OPUS-145). The resolution slider now prints the plain label Detail with ends coarse and fine, so its accessible name restates Detail before the cell size in centimetres. The resolution steps and the default are unchanged.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "manifest": "accessible-names",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "id": "reader-first-20261008-name-scene-representation-ladder-expression-aria-label-4",
+      "memberId": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:4",
+      "oldHash": "85aabd44794710eb76efdcef135c75106fc9b15fe8e1185e45a7df613e26d791",
+      "newHash": "7b2cb7e34783432f18cea94d35829e3a9843eeb36ec14561d5ad44b00d2d4a44",
+      "reason": "The five-second reader test of 2026-10-08 (evidence/reader-first/classical--scene-representation--scene-representation-ladder.json, reviewer session reader-session-018a5ef0) failed the scene-representation ladder: the reviewer missed that finer resolution changes only cost and detail, and listed 24 terms it did not understand, among them every representation name, log-odds, voxel and Resolution. The figure was rewritten in plain words (VAL-OPUS-139, VAL-OPUS-145). Each capability now prints as a plain question (for example, Which way does the surface face?) with a plain answer, so its accessible name reads that question and answer in place of the capability label and state word. The capability grading per representation and resolution is unchanged.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "manifest": "accessible-names",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "id": "reader-first-20261008-rework-name-ros2-policy-layout-literal-aria-label-1",
+      "memberId": "literal:components/interactive/ros2-policy-layout.tsx:aria-label:1",
+      "oldHash": "556c77b50f364179b4d51ebfa4597ecfcd8c1a4d6857d706e76bb5b22d173409",
+      "newHash": "cb08f9c5441838ef52cf9957c8790ab9059fb8480e3324e031ed94291ce83e06",
+      "reason": "The third five-second reader test of 2026-10-08 (evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.json, reviewer session reader-session-ec98138f) stated the point but listed words and marks it did not understand, so the stage was simplified to one top-to-bottom chain (VAL-OPUS-139, VAL-OPUS-145): the frame tree and the task manager moved to How this was made, and the last box is a drawn robot arm. The graph's accessible name follows the chain it now draws, each plain name still paired with its ROS 2 name, and states that every suggested move passes the safety check before it reaches the motors. The nodes, the gate and the citations are unchanged.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ]
+    },
+    {
+      "id": "domain-pass-20261008-sweep-prose-control",
+      "manifest": "prose",
+      "memberId": "article:classical/control",
+      "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+      "newHash": "226f39274b3146abbead5513d21aa36e330b63379ecb087dcbce5f0fe89d94f1",
+      "reason": "Classical pass of 2026-10-08 on classical/control, sweep item C.R3: the impedance paragraph that ends with the diffusion-based impedance learner gains one sentence, \"Intrinsic, which ran the 2026 AI for Industry Challenge, reports that 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines such as spiral searches, using force-torque feedback\", cited to intrinsic-ai-for-industry-challenge-2026 (Intrinsic's post of 22 Sep 2026, read 2026-10-08, which names spiral searches and the workcell's high-frequency force and torque sensor feedback). No other text changes. The edge starts from the sealed bytes and reconciles the member's 29 earlier approved edges exactly.",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "control-r5-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r6-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r7-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r8-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r9-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r12-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r14-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r15-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r17-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r18-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r19-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r1-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r2-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r3-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r11-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r13-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r16-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "seo-20260824-prose-cb9819bd8941",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "cb9819bd89410c690abfd9d28151e3a776c02f2682be21a19bc26c6adbab3781"
+        },
+        {
+          "id": "paywall0917a-control-prose",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "5cd1041d01e82fc7fdb80072da6bb9b4b518a354f34c452088e0b25a846ff7da"
+        },
+        {
+          "id": "control-citation-20260924-prose",
+          "oldHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820",
+          "newHash": "2f6d4267bd07f34ca2c5acc683f5c4a3b29ae09d79e944b12e41983df5cccda0"
+        },
+        {
+          "id": "main-merge-20260924-control-prose",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "3c11df73fbabb49f9a6d8fe7626f9392f09b4558e107c9a2d51a4e683644d28c"
+        },
+        {
+          "id": "motion-classical-humanizer-v3-20260927-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "7ae2310f358c571397744a43cde65fe2ea18e6b924053b66b33deb0136f747e8"
+        },
+        {
+          "id": "opus-figure-migration-20261001-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "bdbe9512448bd44b43ff9111af8664b48dd08b8e94f5de045a3f364c798fc7be"
+        },
+        {
+          "id": "seo-pass-20261002-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "ee337ad9ed5a5c137d2513b634b6b1c41bd31fcd5164b34e623fd61ba4d6a1bc"
+        },
+        {
+          "id": "reader-first-20261003-predict-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "b63fd6c36aeab864ceec5692ba7ccab6eef8b86b97da08bad768bcadd64e946d"
+        },
+        {
+          "id": "domain-pass-20261006-g7-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "18cde4b4c9156cba07d6a44826a72f94ed7ee2fd8dc32aef440cdf7836ff6909"
+        },
+        {
+          "id": "domain-pass-20261006-g8-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "a4c1431aba5df3161ade49c2cb4a1b80bb49b65f651819c6433e7d703b36f3a8"
+        },
+        {
+          "id": "reader-first-20261008-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "4684f8ee3778513f601f8a8af6a7cf2364543cf0a44b76b397fbd540bad0c13f"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261008-sweep-prose-grasp-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/grasp-planning",
+      "oldHash": "25b1a1afac189c807e792d8cfe8864d2248b591453c9f62837f70bf90dca2fe4",
+      "newHash": "dcf351372294507d170f84f8cf80f96a4f1584bf9321017ad97c4ea6c6a48bff",
+      "reason": "Classical pass of 2026-10-08 on classical/grasp-planning, sweep item G.R2 and the Marco Hutter KOL intake note of 2026-10-07: after GraspGen, one sentence says GraspGen-X conditions a diffusion grasp generator on a swept-volume encoding of the gripper and, trained on procedural grippers and 2 billion grasps, generalized zero-shot to novel real grippers (graspgen-x-2026, arXiv 2606.00998); a new two-sentence paragraph after the touch-feedback result attributes GENESIS-Handover to Marco Hutter (ETH Zurich) and colleagues (October 2026), says it matches generated task-specific grips to the person's live hand, and reports that on a legged manipulator handovers needing no adjustment rose from 6 to 16 of 60 against AFT-Handover (genesis-handover-2026, arXiv 2610.08003, CoRL 2026); both read 2026-10-08. No other text changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-prose-grasp-planning).",
+      "ownerApproval": "Owner directive of 2026-09-30 00:40 and owner-decision-kol-coverage-and-evidence-standards-20260924 (validation/brand-v2-editorial/source-recovery-20260906/): a domain's KOL intake notes are integrated as attributed, dated, linked and cited work once every number is checked against the primary source, or rejected with a reason (library/kol-dispositions-classical-20260929.md). Applied together with the owner sweep of 2026-09-29 for the classical domain (owner-sweep-20260929/classical.md) under VAL-OPUS-061 and VAL-OPUS-062. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-prose-motion-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "f2550e87531ec0c23faeb4e1da26359992eb3ad00231c4dcc20f4c91a1908452",
+      "newHash": "c685de620bb7c67d601304fbcc4efb6be244aa18e02952e8dbef25b63bedd116",
+      "reason": "Classical pass of 2026-10-08 on classical/motion-planning, sweep item MP.R4: after the Neural MP result, one sentence says a 2026 survey of neural motion planners finds that they often struggle to generalize to unseen, out-of-distribution planning settings, cited to neural-motion-planner-survey-2026 (arXiv 2603.24318, IEEE Transactions on Automation Science and Engineering 23, read 2026-10-08). No other text changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-prose-motion-planning).",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-prose-perception",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "e82bc91be678347ddca962c4562bf301b3d300f349851b926f53c868244d4c19",
+      "newHash": "f6cc5e3938c676a61a23836102c21542cb33e36eacaf80ab6accffc2523cbc8d",
+      "reason": "Classical pass of 2026-10-08 on classical/perception, sweep item P.R5: the time-of-flight paragraph that cites the Azure Kinect DK depth documentation gains one sentence, \"Microsoft announced the end of Azure Kinect DK production in August 2023, and support for its Sensor SDK ended in August 2024\", cited to azure-kinect-sdk-retirement-2024 (microsoft-support.md in the Sensor SDK repository at commit 3c79d56 of 21 Jun 2024, read 2026-10-08). No other text changes. This edge moves the member from its last approved endpoint (domain-pass-20261007-prose-perception).",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-prose-scene-representation",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "c559f261328e76babfb655953521bef8edfcc58ae15f57d8b65d1514e75e21ce",
+      "newHash": "ca0bffbe7d7858a884e532ba6a3626b4cf4e28f498c7ce8ad537f94e92648246",
+      "reason": "Classical pass of 2026-10-08 on classical/scene-representation, sweep items SR.R5 and SR.R3 (with SE.R2): after nvblox, two sentences say cuRoboV2 computes signed distances densely over the full workspace, where existing methods cover only sparsely allocated blocks, and at manipulation scale reports up to 10x the speed of the state of the art in 8x less memory with up to 99% collision recall (curobo-v2-2026, arXiv 2603.05493v2, read 2026-10-08); after DROID-SLAM, two sentences say AMB3R-SLAM avoids bundle adjustment, which relies on a static world, enforces consistency in a hierarchical back end, reconstructs kilometer-scale monocular trajectories over 10,000 frames on one consumer GPU, and cuts absolute trajectory error on VBR and Oxford Spires by over 70% against the previous state of the art (amb3r-slam-2026, arXiv 2609.19518, read 2026-10-08). No other text changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-prose-scene-representation).",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-relationships-control",
+      "manifest": "relationships",
+      "memberId": "article:classical/control",
+      "oldHash": "ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae",
+      "newHash": "0e4ad3dceaf10099bcd86b61440a53beb9504ccf1c13466907c0c78add52cd38",
+      "reason": "Classical pass of 2026-10-08 on classical/control, sweep item C.R3: the impedance paragraph that ends with the diffusion-based impedance learner gains one sentence, \"Intrinsic, which ran the 2026 AI for Industry Challenge, reports that 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines such as spiral searches, using force-torque feedback\", cited to intrinsic-ai-for-industry-challenge-2026 (Intrinsic's post of 22 Sep 2026, read 2026-10-08, which names spiral searches and the workcell's high-frequency force and torque sensor feedback). The relationships record gains the inline citation intrinsic-ai-for-industry-challenge-2026; no other citation, route or link changes. The edge starts from the sealed bytes and reconciles the member's 8 earlier approved edges exactly.",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "seo-20260824-relationships-5cda8704afb3",
+          "oldHash": "ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae",
+          "newHash": "5cda8704afb3f5827b8a19fd7dea21206b5118c8720da78880da0ecd06ddd4cd"
+        },
+        {
+          "id": "paywall0917a-control-relationships",
+          "oldHash": "ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae",
+          "newHash": "dd43ebb2f6bccb675df15e21e7aa87b13b663c99ff65ab5cbefa76a5c0e55a03"
+        },
+        {
+          "id": "continuation-merge-20260922-relationships-classical-control",
+          "oldHash": "ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae",
+          "newHash": "cfbcf3e5341b0ab59f771e5172c5dd3df0156a36b5e30117e831d3db5cd7df3d"
+        },
+        {
+          "id": "control-citation-20260924-relationships",
+          "oldHash": "dd43ebb2f6bccb675df15e21e7aa87b13b663c99ff65ab5cbefa76a5c0e55a03",
+          "newHash": "5bdeb3587711a59c04ae2af4c582be80ad73d26c2c129e3bb6bc8e32c17b4fb1"
+        },
+        {
+          "id": "main-merge-20260924-control-relationships",
+          "oldHash": "ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae",
+          "newHash": "30e11ce41f710c88861e350b3a9b8eb6abdc55772795c0ba775d9b999db0dafb"
+        },
+        {
+          "id": "seo-pass-20261002-relationships-classical-control",
+          "oldHash": "ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae",
+          "newHash": "b54b3320c827d2b1130c5d26fb673e72f7a086f43e95af7e82faf0b456307fb2"
+        },
+        {
+          "id": "domain-pass-20261006-g7-relationships-control",
+          "oldHash": "ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae",
+          "newHash": "162de8769e5bef8ba4774ba53693e149c03b071be7ebbd6e8bcaab84c4a82b0e"
+        },
+        {
+          "id": "domain-pass-20261006-g8-relationships-control",
+          "oldHash": "ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae",
+          "newHash": "8f2883d99c5db2a505bf05f7f3f86c9251306e2431c1cec85ab7b4142e6fccb3"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261008-sweep-relationships-grasp-planning",
+      "manifest": "relationships",
+      "memberId": "article:classical/grasp-planning",
+      "oldHash": "a76e241966d27506b96e88f37ea141a61ac5aeeb3b951d6a7562dd3324bc5bc3",
+      "newHash": "ad641d9be281e1ec69714e67b1f32851ed8d843c6e99f1f6d1759bf47ef816ae",
+      "reason": "Classical pass of 2026-10-08 on classical/grasp-planning, sweep item G.R2 and the Marco Hutter KOL intake note of 2026-10-07: after GraspGen, one sentence says GraspGen-X conditions a diffusion grasp generator on a swept-volume encoding of the gripper and, trained on procedural grippers and 2 billion grasps, generalized zero-shot to novel real grippers (graspgen-x-2026, arXiv 2606.00998); a new two-sentence paragraph after the touch-feedback result attributes GENESIS-Handover to Marco Hutter (ETH Zurich) and colleagues (October 2026), says it matches generated task-specific grips to the person's live hand, and reports that on a legged manipulator handovers needing no adjustment rose from 6 to 16 of 60 against AFT-Handover (genesis-handover-2026, arXiv 2610.08003, CoRL 2026); both read 2026-10-08. The relationships record gains the inline citations graspgen-x-2026 and genesis-handover-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-relationships-grasp-planning).",
+      "ownerApproval": "Owner directive of 2026-09-30 00:40 and owner-decision-kol-coverage-and-evidence-standards-20260924 (validation/brand-v2-editorial/source-recovery-20260906/): a domain's KOL intake notes are integrated as attributed, dated, linked and cited work once every number is checked against the primary source, or rejected with a reason (library/kol-dispositions-classical-20260929.md). Applied together with the owner sweep of 2026-09-29 for the classical domain (owner-sweep-20260929/classical.md) under VAL-OPUS-061 and VAL-OPUS-062. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-relationships-motion-planning",
+      "manifest": "relationships",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "f28264d0bfcc08aaff35f6323ddf1b4484e2be53db82f233eccb6c6f672cd6c4",
+      "newHash": "df4072e919da92927c34a2a439b967708fe2d6580bcbd1712441cbf3e45aad54",
+      "reason": "Classical pass of 2026-10-08 on classical/motion-planning, sweep item MP.R4: after the Neural MP result, one sentence says a 2026 survey of neural motion planners finds that they often struggle to generalize to unseen, out-of-distribution planning settings, cited to neural-motion-planner-survey-2026 (arXiv 2603.24318, IEEE Transactions on Automation Science and Engineering 23, read 2026-10-08). The relationships record gains the inline citation neural-motion-planner-survey-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-relationships-motion-planning).",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-relationships-perception",
+      "manifest": "relationships",
+      "memberId": "article:classical/perception",
+      "oldHash": "ab60782e0c2c147c3f4d2b8cf2fc325eb181c68806e3adc2f7220986e629927e",
+      "newHash": "eddb8fc5725e35cbd6579525d877374d8e3a096047efe00aac54dd81f4a9b6df",
+      "reason": "Classical pass of 2026-10-08 on classical/perception, sweep item P.R5: the time-of-flight paragraph that cites the Azure Kinect DK depth documentation gains one sentence, \"Microsoft announced the end of Azure Kinect DK production in August 2023, and support for its Sensor SDK ended in August 2024\", cited to azure-kinect-sdk-retirement-2024 (microsoft-support.md in the Sensor SDK repository at commit 3c79d56 of 21 Jun 2024, read 2026-10-08). The relationships record gains the inline citation azure-kinect-sdk-retirement-2024; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-relationships-perception).",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-relationships-scene-representation",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "3e604571cbcd4649367c258c9eddd873da26f40c256365823e3869528acdaa71",
+      "newHash": "4f0431d497c90066be0cfe7a519b5a83034b1dec16a355eacbe8ab7dd68976d6",
+      "reason": "Classical pass of 2026-10-08 on classical/scene-representation, sweep items SR.R5 and SR.R3 (with SE.R2): after nvblox, two sentences say cuRoboV2 computes signed distances densely over the full workspace, where existing methods cover only sparsely allocated blocks, and at manipulation scale reports up to 10x the speed of the state of the art in 8x less memory with up to 99% collision recall (curobo-v2-2026, arXiv 2603.05493v2, read 2026-10-08); after DROID-SLAM, two sentences say AMB3R-SLAM avoids bundle adjustment, which relies on a static world, enforces consistency in a hierarchical back end, reconstructs kilometer-scale monocular trajectories over 10,000 frames on one consumer GPU, and cuts absolute trajectory error on VBR and Oxford Spires by over 70% against the previous state of the art (amb3r-slam-2026, arXiv 2609.19518, read 2026-10-08). The relationships record gains the inline citations curobo-v2-2026 and amb3r-slam-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-relationships-scene-representation).",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-frontmatter-control",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:classical/control",
+      "oldHash": "0e13fc3468d36ca2a6a31a0a32c56c02229086ecff128e059da57b2360a7eb6a",
+      "newHash": "3a6b0a77683ceaa83fafbc129d3e34d9b55afb29d3fc8a78703fb701a646c885",
+      "reason": "Classical pass of 2026-10-08 on classical/control, sweep item C.R3: the impedance paragraph that ends with the diffusion-based impedance learner gains one sentence, \"Intrinsic, which ran the 2026 AI for Industry Challenge, reports that 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines such as spiral searches, using force-torque feedback\", cited to intrinsic-ai-for-industry-challenge-2026 (Intrinsic's post of 22 Sep 2026, read 2026-10-08, which names spiral searches and the workcell's high-frequency force and torque sensor feedback). The frontmatter citation list appends intrinsic-ai-for-industry-challenge-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-frontmatter-control).",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-frontmatter-grasp-planning",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:classical/grasp-planning",
+      "oldHash": "d9d2d96a5af5bc4c3b122d1a0d31b9e60a456fce6afc396b251bdded31881d68",
+      "newHash": "b3de7b5d1b5e1efc45858196752f3f547bc287ccda15a7b8d1512233b35baa97",
+      "reason": "Classical pass of 2026-10-08 on classical/grasp-planning, sweep item G.R2 and the Marco Hutter KOL intake note of 2026-10-07: after GraspGen, one sentence says GraspGen-X conditions a diffusion grasp generator on a swept-volume encoding of the gripper and, trained on procedural grippers and 2 billion grasps, generalized zero-shot to novel real grippers (graspgen-x-2026, arXiv 2606.00998); a new two-sentence paragraph after the touch-feedback result attributes GENESIS-Handover to Marco Hutter (ETH Zurich) and colleagues (October 2026), says it matches generated task-specific grips to the person's live hand, and reports that on a legged manipulator handovers needing no adjustment rose from 6 to 16 of 60 against AFT-Handover (genesis-handover-2026, arXiv 2610.08003, CoRL 2026); both read 2026-10-08. The frontmatter citation list appends graspgen-x-2026 and genesis-handover-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-frontmatter-grasp-planning).",
+      "ownerApproval": "Owner directive of 2026-09-30 00:40 and owner-decision-kol-coverage-and-evidence-standards-20260924 (validation/brand-v2-editorial/source-recovery-20260906/): a domain's KOL intake notes are integrated as attributed, dated, linked and cited work once every number is checked against the primary source, or rejected with a reason (library/kol-dispositions-classical-20260929.md). Applied together with the owner sweep of 2026-09-29 for the classical domain (owner-sweep-20260929/classical.md) under VAL-OPUS-061 and VAL-OPUS-062. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-frontmatter-motion-planning",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:classical/motion-planning",
+      "oldHash": "1f4f6d73be451003a7a1cbe8e05cee8d96cba6d2ea32a276183dae389548b475",
+      "newHash": "7ac6b3641832cbbef4e9f58bf70a1ae3cc4a1ca8634c9ff195e73b2a98d7f6ed",
+      "reason": "Classical pass of 2026-10-08 on classical/motion-planning, sweep item MP.R4: after the Neural MP result, one sentence says a 2026 survey of neural motion planners finds that they often struggle to generalize to unseen, out-of-distribution planning settings, cited to neural-motion-planner-survey-2026 (arXiv 2603.24318, IEEE Transactions on Automation Science and Engineering 23, read 2026-10-08). The frontmatter citation list appends neural-motion-planner-survey-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-frontmatter-motion-planning).",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-frontmatter-perception",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:classical/perception",
+      "oldHash": "9c0d6623d3ac987582d9196b5719647a2a4b27504cfc92414ff2f6003eef4b80",
+      "newHash": "567767ec93832e7294ee74990a7fe969d8138212739196df7133e43117d6bd76",
+      "reason": "Classical pass of 2026-10-08 on classical/perception, sweep item P.R5: the time-of-flight paragraph that cites the Azure Kinect DK depth documentation gains one sentence, \"Microsoft announced the end of Azure Kinect DK production in August 2023, and support for its Sensor SDK ended in August 2024\", cited to azure-kinect-sdk-retirement-2024 (microsoft-support.md in the Sensor SDK repository at commit 3c79d56 of 21 Jun 2024, read 2026-10-08). The frontmatter citation list appends azure-kinect-sdk-retirement-2024; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-frontmatter-perception).",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-frontmatter-scene-representation",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:classical/scene-representation",
+      "oldHash": "a7576fcdfbc85b2928e748dc7c35c11e781be1f798141106dd70eec310764399",
+      "newHash": "46209cc70d6fbb1673c6c112a95dd1777601b8b638b4ad58b2747498efae9df6",
+      "reason": "Classical pass of 2026-10-08 on classical/scene-representation, sweep items SR.R5 and SR.R3 (with SE.R2): after nvblox, two sentences say cuRoboV2 computes signed distances densely over the full workspace, where existing methods cover only sparsely allocated blocks, and at manipulation scale reports up to 10x the speed of the state of the art in 8x less memory with up to 99% collision recall (curobo-v2-2026, arXiv 2603.05493v2, read 2026-10-08); after DROID-SLAM, two sentences say AMB3R-SLAM avoids bundle adjustment, which relies on a static world, enforces consistency in a hierarchical back end, reconstructs kilometer-scale monocular trajectories over 10,000 frames on one consumer GPU, and cuts absolute trajectory error on VBR and Oxford Spires by over 70% against the previous state of the art (amb3r-slam-2026, arXiv 2609.19518, read 2026-10-08). The frontmatter citation list appends curobo-v2-2026 and amb3r-slam-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-frontmatter-scene-representation).",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-citation-rendering",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "61c97fe891fef4e2b1cc296bd422b18913901df38641fbfc3a8ea7da16a25439",
+      "reason": "Resolution entry for the citation-rendering:label-and-meta approval graph after the classical pass of 2026-10-08 registered six citation records for its sweep and KOL sentences (amb3r-slam-2026, azure-kinect-sdk-retirement-2024, genesis-handover-2026, graspgen-x-2026, intrinsic-ai-for-industry-challenge-2026, neural-motion-planner-survey-2026); no existing record changes. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 66 earlier approved edges exactly.",
+      "ownerApproval": "Owner directive of 2026-09-30 00:40 and owner-decision-kol-coverage-and-evidence-standards-20260924 (validation/brand-v2-editorial/source-recovery-20260906/): a domain's KOL intake notes are integrated as attributed, dated, linked and cited work once every number is checked against the primary source, or rejected with a reason (library/kol-dispositions-classical-20260929.md). Applied together with the owner sweep of 2026-09-29 for the classical domain (owner-sweep-20260929/classical.md) under VAL-OPUS-061 and VAL-OPUS-062. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "brand-v2-citation-rendering-seal-added",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0e79fe7b2d2828ace0e597a938188665ca6a49a1377c5eef7019ac6016e8aea8"
+        },
+        {
+          "id": "current-dp-td3-20260907-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "04049261ce9dd32c29a001de30b8a74fc76e8c891d25bd18a20116a2b0dfe259"
+        },
+        {
+          "id": "act-convention-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ca93d000ecfc779c557d142061c72267ec25d28ca44213758c76ec4b87a22ad8"
+        },
+        {
+          "id": "bc-foundations-20260907-6",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3ec80be198832290602b14ecb3ee7375dbd096af9e8f2f536cc1d0f60fadab33"
+        },
+        {
+          "id": "act-current-claims-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ccd4c34ab44d2d927394888ee44ef170ef1fa2d42a37cd4c4da9d2e1aecc571"
+        },
+        {
+          "id": "act-five-sources-20260907-18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2adadd231e996bb34f0c5974dfa1b80ff276ffb83e75bdabd6849748a84975b2"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "287633b834b110f8f96446c84f22efac91fa05ddb6abef8b4d23643d320535bf"
+        },
+        {
+          "id": "oft-gemini-oxe-20260908-39",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "45e21d8955bf710fc8859f7a514dbdfbdbaa91c31c9014be8d335569e67ca56d"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "905dc70516ada8e0838923ef2f5d1bedb989a32ebf63d9efe0f99e56fdc508b8"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-10",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "1e7e287ed05943c558a08a22c5435ac2b4415080f7b90431b199cbd6b9f08d19"
+        },
+        {
+          "id": "rl-source-closeouts-20260908-8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c9644600fe3193ec9e21a7511fcb5293e60894aab91d0f6f5a1aaafe69ba9b8"
+        },
+        {
+          "id": "jepa-source-closeouts-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "a903ea05e32dc5baa6c30c6accda84cf8b8d736d7cabe2d12e2bcc68d0f81dc6"
+        },
+        {
+          "id": "cosmos-reader-closeout-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ce936431e57110acb81dfb9ffe53777f9113b270a134d499642441ccb24a967e"
+        },
+        {
+          "id": "isaac-v1-twelve-originals-7-20260908",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "38a5fafd03466fe1f774197a0f7a3108fa45d985f1aa5ec20c8894e9a16e7ca5"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bc758e2c141629a284dbe42110669da6a4a2c98dcaac76d37d1c0c0a1ab39e0e"
+        },
+        {
+          "id": "neural-scene-originals-12-16-20260908-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b6e1d5997438ce5c7ede6b5987c92db4236a94d3252f816a0572307ed4f6c9c6"
+        },
+        {
+          "id": "classical-slam-cadena-25-20260908-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e4d5ea650d814a12a217868b42e5230bbce2ae6b4316389526fed203fc2e24e9"
+        },
+        {
+          "id": "pose-metrics-bop-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b990f28bc59b401cc490d8936a863b8cceed1310cbf393439ba46fa1d23b10d8"
+        },
+        {
+          "id": "servo-apollo-integration-20260909-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c6da7f1ba8ef59c2cfb14e77e96d42635dcdee06b102ec75f8d41cce6b8b3af"
+        },
+        {
+          "id": "randomization-citation-rendering-reconciliation-20260909",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4b36cb18768cb7b21719fae5a0bdae280818b7330a3b9f12b7162febb7972205"
+        },
+        {
+          "id": "rudin-protocol-20260909-fdd3edc8ec7ccb2da3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "382c8296f46c710890966bf9ffdae876f02ed430fdbc4ff8c795e73341636208"
+        },
+        {
+          "id": "ifr-industrial-originals-20260912-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9db509451024c2f2ba02808619b47af462f31d835eed4ad8e26b7ffefc930856"
+        },
+        {
+          "id": "amazon-industrial-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ad43c3cc6acae54840e4bb247b68fd857c46e4ebea2bde03d12ac9be86fb30cd"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "71f7df8ba7ae919b5e2049f73fb4fb4d1d36d969368d856a073a79bbf5181a46"
+        },
+        {
+          "id": "evaluation-statistics-originals-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5570fa96d9961e65be4a31f072b16d1ec616bfbbaa1e00e599686bd829e6c446"
+        },
+        {
+          "id": "perception-foundations-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "43d99fc56253db83d960b989acd81a7ba776310a27c99d6cc62eeb1f9ff40195"
+        },
+        {
+          "id": "perception-depth-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e1dadc72fb980c3d8ab17b743dcf82f79f80232ad1bca2f50bbc81e997e61d76"
+        },
+        {
+          "id": "optimal-sampling-ompl-20260913-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "eab0d47adaa2cd995273dcf17f7434a8bfb75c37a899d7a0dd773402c61c32f3"
+        },
+        {
+          "id": "orb-scene-four-20260914-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "65553c74d026e7397f9cb0b678224af3a8c78eb48b1f96c4674f020fcb79a56e"
+        },
+        {
+          "id": "seo-merge-20260916-article-metadata-143",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "079a39b797d139832e982ce57f899d1bbe5ac8c1dc7d266e34d96952a49702a2"
+        },
+        {
+          "id": "seo-merge-20260916-b3-article-metadata-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "21c594db74adf7e091b5ef8b35615dfe145f87dd2a681fc2434ede2c1e1fb223"
+        },
+        {
+          "id": "seo-merge-20260916-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c6d54bfdf8468ccbc39743598bc452a64dc59a6e5bf489e8fb366a747cc59bc1"
+        },
+        {
+          "id": "wm-cost-labelmeta-20260917-1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d4b364d55f8c6a688b5c2a17484919b1fd3efa21a3c148010034904bac0376c5"
+        },
+        {
+          "id": "round5-closeout-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6aec4b2772e8d4a5cb9c9ad1c462534912f9a8b01958c39e6fb9069e27c00cc7"
+        },
+        {
+          "id": "aq0917a-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507"
+        },
+        {
+          "id": "dataset-license-pair-20260921-2",
+          "oldHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507",
+          "newHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b"
+        },
+        {
+          "id": "generalist-attribution-p1-20260922-4",
+          "oldHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b",
+          "newHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef"
+        },
+        {
+          "id": "continuation-merge-20260922-article-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5f3bad00fb7f68ff333ded54c5a51dfbada7ac788bb2f213839864ec17e5cefb"
+        },
+        {
+          "id": "content-integration-20260923-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3955fc201543cf29cabfe07ea3d65b0a726c26be36d7387bd7fa4315520085fb"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-6",
+          "oldHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef",
+          "newHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "833ab76d14390836473994dfb50f9b70b384d4de8a37157be70a88ccce449a2f"
+        },
+        {
+          "id": "industrial-closure-20260923-3",
+          "oldHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450",
+          "newHash": "51f54329ecb1d1a289c6764b3e38e5653abbd9144f3470266d8a489fcec467ab"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3373e6623166e653a62074c4d156e1e5a454dfb89f5c56691ce6d35521ade5f2"
+        },
+        {
+          "id": "control-citation-20260924-rendering-inventory",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4eef21fee12072861cf36b8849218a09714aace4ee4199f2da71fa6cfebcf7b6"
+        },
+        {
+          "id": "main-merge-20260924-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03de761700f6c1776eeeb9336c009832040f21d39951916c7a20c6025b1e9e53"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2822722c660d8405d900c39dadeeb0e6efc72016bf5ea756a61211ea049ee6a0"
+        },
+        {
+          "id": "expo-ft-intake-20260925-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "dc3c6a368d704a0fc06005dd34dd7985b3fc1e36fa68f4fa81a84d6c9b89d96f"
+        },
+        {
+          "id": "kol-backlog-20261001-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0f638d06385adacc58d419c23a0fa24860069dd6dfc63a53ec0250766064c5d0"
+        },
+        {
+          "id": "kol-backlog-20261001-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d0708a60d3214684fda52170fcd4447bcd66c56ff7078283c9ab19be9f8ee92d"
+        },
+        {
+          "id": "kol-backlog-20261001-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "86bdaf2aad9c7973398e9465830cfd5b157a4933034ddd17f285ee5e6ff9ab12"
+        },
+        {
+          "id": "kol-backlog-20261001-frontier-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bacb386d64e42b7c3c9e8d2d79257fa1c4bc2a2245cbd846ceb9c9cc495f08fa"
+        },
+        {
+          "id": "seo-pass-20261002-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4275fce1f2fa6fcab3e9f65b8451c851a1c9000c0ce172fe97ba5e9f46d443b0"
+        },
+        {
+          "id": "kol-backlog-20261005-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d5fa6de0920efb6f604b3adb78671398a2f7315e701b7679c84db792de6ca6c9"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb35cb7a742017f7eb5c1fff3b0002b8a60a6c67776a33db155b0aebe0b4a8f0"
+        },
+        {
+          "id": "kol-backlog-20261005-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4ed90498df28ec03385a9fec964589aaf8d39c804f9460765cd315ebf06bea31"
+        },
+        {
+          "id": "kol-backlog-20261005-frontier-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "126e7b445dc19b681249cf921a88515accb5ce3d2ca9014530a39252d7629134"
+        },
+        {
+          "id": "kol-backlog-20261005-data-hardware-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d88adcb29d51f3923544c1761f138cc80ada2ac4861b0f1f84e0f8ad67319de4"
+        },
+        {
+          "id": "kol-backlog-20261005-classical-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6d7fb89f953cd5806346a46d295a04f6925fd41f3174d80f05f1a812435c81e4"
+        },
+        {
+          "id": "domain-pass-20261006-g1-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3e1ca8a9c5dc154bd815e226b7d53d9527f38e7255f2a3a0dabb7fcf3df91849"
+        },
+        {
+          "id": "domain-pass-20261006-g2-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "912315196c4c4633c733b5e0b53ef0c0c3c8be2237449b78c8652e036210819f"
+        },
+        {
+          "id": "domain-pass-20261006-g3-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7c11f6330dc6494c88e40d10722e448679cc4356022d05e3f8240a41afc671da"
+        },
+        {
+          "id": "domain-pass-20261006-g4-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bf7a5e8a8094ce208c548b783c6a54d45f5a1de61a4d0886bbf2a8928061fa60"
+        },
+        {
+          "id": "domain-pass-20261006-g5-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8e198326a8254e01cbabb3b442d824528d3ab013b1ecba871daf4aecdcc36c80"
+        },
+        {
+          "id": "domain-pass-20261006-g7-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b9884a99b341adbd61edfb1ee0968fafc7071fac3eff926c79a54fbb8e207342"
+        },
+        {
+          "id": "domain-pass-20261006-g8-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b817d91fe450f5361e69424260f9ce9c17683eb871046a99ed68ed8b034c1e46"
+        },
+        {
+          "id": "domain-pass-20261008-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8ad2f12bcce96cd5c2fe6478cb1bd0e99b9b11ac7a5c5c1b4fc22f80e21b4b75"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261008-sweep-citation-amb3r-slam-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:amb3r-slam-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b91b48c8e81e053e3745b14c1059060dd54d4025a07990021322bad97d4494a9",
+      "reason": "Registers the new citation amb3r-slam-2026 added by the classical pass of 2026-10-08 (sweep items SR.R3 and SE.R2; Wang and Agapito, arXiv 2609.19518, abstract read 2026-10-08). Its audit row is in audit/citations.md under \"Classical domain pass: sweep and KOL additions, 2026-10-08\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-citation-azure-kinect-sdk-retirement-2024",
+      "manifest": "article-metadata",
+      "memberId": "citation:azure-kinect-sdk-retirement-2024",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8337ce83cfb69493d807b3f4b0cc257d6c213251b57a57c34c6ccef8217f8518",
+      "reason": "Registers the new citation azure-kinect-sdk-retirement-2024 added by the classical pass of 2026-10-08 (sweep item P.R5; Microsoft's support page in the Azure Kinect Sensor SDK repository, pinned to commit 3c79d56, read 2026-10-08). Its audit row is in audit/citations.md under \"Classical domain pass: sweep and KOL additions, 2026-10-08\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-citation-genesis-handover-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:genesis-handover-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bd2efc0965728911168a2534c29671b6dec6167c1958e5bb5a0cc83105ae8235",
+      "reason": "Registers the new citation genesis-handover-2026 added by the classical pass of 2026-10-08 (the Marco Hutter KOL intake note of 2026-10-07; Scheidemann, Tulbure, Burkhardt and Hutter, arXiv 2610.08003 (CoRL 2026), abstract and HTML full text read 2026-10-08). Its audit row is in audit/citations.md under \"Classical domain pass: sweep and KOL additions, 2026-10-08\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner directive of 2026-09-30 00:40 and owner-decision-kol-coverage-and-evidence-standards-20260924 (validation/brand-v2-editorial/source-recovery-20260906/): a domain's KOL intake notes are integrated as attributed, dated, linked and cited work once every number is checked against the primary source, or rejected with a reason (library/kol-dispositions-classical-20260929.md). Applied together with the owner sweep of 2026-09-29 for the classical domain (owner-sweep-20260929/classical.md) under VAL-OPUS-061 and VAL-OPUS-062. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-citation-graspgen-x-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:graspgen-x-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "85e9ce020fecf87e522804e3dad22a4313c13de9777101efdc4a3fbf171d435a",
+      "reason": "Registers the new citation graspgen-x-2026 added by the classical pass of 2026-10-08 (sweep item G.R2; Han et al., arXiv 2606.00998, abstract read 2026-10-08). Its audit row is in audit/citations.md under \"Classical domain pass: sweep and KOL additions, 2026-10-08\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-citation-intrinsic-ai-for-industry-challenge-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:intrinsic-ai-for-industry-challenge-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "22e13313b82609266d4de44ce9de6ee114f2f1c158b701a53dcf28fdfa89478f",
+      "reason": "Registers the new citation intrinsic-ai-for-industry-challenge-2026 added by the classical pass of 2026-10-08 (sweep item C.R3; Intrinsic's blog post of 22 Sep 2026, read 2026-10-08). Its audit row is in audit/citations.md under \"Classical domain pass: sweep and KOL additions, 2026-10-08\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-citation-neural-motion-planner-survey-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:neural-motion-planner-survey-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "18478cf634065a498b165053a1a61b2835deb646688d8bd8afa3fab030b1a047",
+      "reason": "Registers the new citation neural-motion-planner-survey-2026 added by the classical pass of 2026-10-08 (sweep item MP.R4; Soleymanzadeh et al., arXiv 2603.24318 (IEEE T-ASE 23, 2026), abstract read 2026-10-08). Its audit row is in audit/citations.md under \"Classical domain pass: sweep and KOL additions, 2026-10-08\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md: an open recency item that one primary source settles becomes one cited sentence, checked against that source on 2026-10-08 and given an audit row in audit/citations.md; the other open items are skipped with a reason in library/sweep-dispositions-classical-20260929.md. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-source-calibration-chain",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/calibration-chain.tsx",
+      "oldHash": "4b6e4a0ebd5426942fdf88e1a78b1176bc1fe02fae0cbfd7b09a65f3b3d0a965",
+      "newHash": "9af6a9dee39e414a97af304b771366311fc72b4b0a36c8af863f6866e16fb597",
+      "reason": "Classical pass of 2026-10-08: the rework of all eleven classical figures after their first five-second reader test (acaa223c, answering the terms the reviewers listed at cce3793c) changed this source, and that commit recorded only its accessible-name edges. In acaa223c each link's name sits beside its part with no leader line, and only the box the hand must reach carries a dot. The second reader test of the reworked figure is recorded in evidence/reader-first/classical--calibration--calibration-chain.json (51447959). Its cited sources and behavioral defaults are unchanged. This edge moves the member from its last approved endpoint (reader-first-20261008-retest-interactive-sources-mounts-source-calibration-chain).",
+      "ownerApproval": "Owner directive of 2026-10-02 02:30 (mission AGENTS.md) and the owner decision on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure a pass touches keeps the reader-first bar and is re-tested with a five-second reader test whose record and takeaway are refreshed with it. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-144",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-source-grasp-wrench-lab",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/grasp-wrench-lab.tsx",
+      "oldHash": "3a7e0e69c5fcc68ed68c9a1892198c2bd0bc59897296004c4510be52e61bc9bc",
+      "newHash": "e25358f7cd00e85e2d891e34ddf4e49ba9d43a8ae896466f8b5361fc7e9fa575",
+      "reason": "Classical pass of 2026-10-08: the rework of all eleven classical figures after their first five-second reader test (acaa223c, answering the terms the reviewers listed at cce3793c) changed this source, and that commit recorded only its accessible-name edges. In acaa223c a label with an arrow says what a wedge means, the meter ends read \"no grip\" and \"very firm\", and the wedges bulge away from the fingertips. The second reader test of the reworked figure is recorded in evidence/reader-first/classical--grasp-planning--grasp-wrench-lab.json (51447959). Its cited sources and behavioral defaults are unchanged. This edge moves the member from its last approved endpoint (reader-first-20261008-retest-interactive-sources-mounts-source-grasp-wrench-lab).",
+      "ownerApproval": "Owner directive of 2026-10-02 02:30 (mission AGENTS.md) and the owner decision on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure a pass touches keeps the reader-first bar and is re-tested with a five-second reader test whose record and takeaway are refreshed with it. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-144",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-source-impedance-contact-lab",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-contact-lab.tsx",
+      "oldHash": "979420d13c95c002d1e5d96ef5cc1395fa23172578f50a32b5a3f3204e3974d3",
+      "newHash": "f23df59de9baacd88ff958945a5902496dc5e202a68fb9c642b2ac275b15e0a3",
+      "reason": "Classical pass of 2026-10-08: the rework of all eleven classical figures after their first five-second reader test (acaa223c, answering the terms the reviewers listed at cce3793c) changed this source, and that commit recorded only its accessible-name edges. In acaa223c the shared opt-in arrow pointer on StageAnnotation (a short line ending in an arrowhead that stops 3 px short of its target) replaces the leader and ring on the peak; \"Stiff arm\" replaces \"Stiff geared arm\", the table is a plain block, the pain-limit arrow moves to the method fold with its wedge impactor and source, the bounces are labelled, the footer keeps \"Illustrative model, not measured\", and the selected hardware option uses the quiet selected style, since lime never fills a control. The second reader test of the reworked figure is recorded in evidence/reader-first/classical--control--impedance-contact-lab.json (51447959). Its cited sources and behavioral defaults are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261008-source-impedance-contact-lab).",
+      "ownerApproval": "Owner directive of 2026-10-02 02:30 (mission AGENTS.md) and the owner decision on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure a pass touches keeps the reader-first bar and is re-tested with a five-second reader test whose record and takeaway are refreshed with it. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-144",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-source-pendulum-controller",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/pendulum-controller.tsx",
+      "oldHash": "87fcb180f00e52bd8eec8f7929121f2b683a50cdbecb0d8ef331c321b3feac7d",
+      "newHash": "ca6018b72daec591b7a635044c13dee4b0ba3909f459b9027857c0cfcfe28fe3",
+      "reason": "Classical pass of 2026-10-08: the rework of all eleven classical figures after their first five-second reader test (acaa223c, answering the terms the reviewers listed at cce3793c) changed this source, and that commit recorded only its accessible-name edges. In acaa223c the shared opt-in arrow pointer on StageAnnotation (a short line ending in an arrowhead that stops 3 px short of its target) replaces the leader and ring on the motor; the preset group asks how hard the motor pushes back, and the arc carries the word \"push\". The second reader test of the reworked figure is recorded in evidence/reader-first/classical--control--pendulum-controller.json (51447959). Its cited sources and behavioral defaults are unchanged. This edge moves the member from its last approved endpoint (reader-first-20261008-interactive-sources-mounts-source-pendulum-controller).",
+      "ownerApproval": "Owner directive of 2026-10-02 02:30 (mission AGENTS.md) and the owner decision on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure a pass touches keeps the reader-first bar and is re-tested with a five-second reader test whose record and takeaway are refreshed with it. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-144",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-source-perception-error-budget",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/perception-error-budget.tsx",
+      "oldHash": "2bc1405b446bbc9a9e838d10dc980d93d9b34b8847ed8de4b231b0c58ea45305",
+      "newHash": "67c097216b10a7e20958712e4ef5d7b03015e5f1a9ff1bd56d75b2a5ea389d90",
+      "reason": "Classical pass of 2026-10-08: the rework of all eleven classical figures after their first five-second reader test (acaa223c, answering the terms the reviewers listed at cce3793c) changed this source, and that commit recorded only its accessible-name edges. In acaa223c the shared opt-in arrow pointer on StageAnnotation (a short line ending in an arrowhead that stops 3 px short of its target) replaces the leader and ring; the bracket gains end caps, and the status reads \"Schematic: the tilt and the miss are drawn far larger than they are\". The second reader test of the reworked figure is recorded in evidence/reader-first/classical--perception--perception-error-budget.json (51447959). Its cited sources and behavioral defaults are unchanged. This edge moves the member from its last approved endpoint (reader-first-20261008-retest-interactive-sources-mounts-source-perception-error-budget).",
+      "ownerApproval": "Owner directive of 2026-10-02 02:30 (mission AGENTS.md) and the owner decision on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure a pass touches keeps the reader-first bar and is re-tested with a five-second reader test whose record and takeaway are refreshed with it. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-144",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-source-planar-fk-arm",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/planar-fk-arm.tsx",
+      "oldHash": "37566a3b3f927d09edc4e658e81b364ea66dc14f11a269d594fd4a78d5fbfd0e",
+      "newHash": "25bb0f19c157855dfae7a6ff16019b67753050f0e013a5a680fd01291940ff33",
+      "reason": "Classical pass of 2026-10-08: the rework of all eleven classical figures after their first five-second reader test (acaa223c, answering the terms the reviewers listed at cce3793c) changed this source, and that commit recorded only its accessible-name edges. In acaa223c the shared opt-in arrow pointer on StageAnnotation (a short line ending in an arrowhead that stops 3 px short of its target) replaces the leader and ring; the slider ends say which way the arm leans, and the preset reads \"Pose the whole arm\". The second reader test of the reworked figure is recorded in evidence/reader-first/classical--kinematics--planar-fk-arm.json (51447959). Its cited sources and behavioral defaults are unchanged. This edge moves the member from its last approved endpoint (reader-first-20261008-interactive-sources-mounts-source-planar-fk-arm).",
+      "ownerApproval": "Owner directive of 2026-10-02 02:30 (mission AGENTS.md) and the owner decision on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure a pass touches keeps the reader-first bar and is re-tested with a five-second reader test whose record and takeaway are refreshed with it. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-144",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-source-ros2-policy-layout",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/ros2-policy-layout.tsx",
+      "oldHash": "230279247891a029593b223bf210cfc6feb05750a7c4da60218720a829798948",
+      "newHash": "57ec4fb77483330c34200d4d42fbea2c77f563ea16c7a3a6cc194cb609afe7c1",
+      "reason": "Classical pass of 2026-10-08: the rework of all eleven classical figures after their first five-second reader test (acaa223c, answering the terms the reviewers listed at cce3793c) changed this source, and that commit recorded only its accessible-name edges. In acaa223c one column runs from the sensors to a drawn robot arm with the safety check in focus, and the task manager, the arm-position store, the ROS 2 names and each link's delivery details move to the method fold; its changed accessible names carry their own approved edges. The second reader test of the reworked figure is recorded in evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.json (51447959). Its cited sources and behavioral defaults are unchanged. This edge moves the member from its last approved endpoint (reader-first-20261008-retest-interactive-sources-mounts-source-ros2-policy-layout).",
+      "ownerApproval": "Owner directive of 2026-10-02 02:30 (mission AGENTS.md) and the owner decision on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure a pass touches keeps the reader-first bar and is re-tested with a five-second reader test whose record and takeaway are refreshed with it. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-144",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-sweep-source-rrt-explorer",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/rrt-explorer.tsx",
+      "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+      "newHash": "6e81ad70d14ed354fa8d34782c6b0a7561735bc8925c909758dcfd4f1ceecc9a",
+      "reason": "Classical pass of 2026-10-08: the rework of all eleven classical figures after their first five-second reader test (acaa223c, answering the terms the reviewers listed at cce3793c) changed this source, and that commit recorded only its accessible-name edges. In acaa223c the shared opt-in arrow pointer on StageAnnotation (a short line ending in an arrowhead that stops 3 px short of its target) replaces the leader and ring on the goal, whose word becomes \"Goal area\", nudged left so both words stay inside the stage at 375 px. The second reader test of the reworked figure is recorded in evidence/reader-first/classical--motion-planning--rrt-explorer.json (51447959). Its cited sources and behavioral defaults are unchanged. The edge starts from the sealed bytes and reconciles the member's 9 earlier approved edges exactly.",
+      "ownerApproval": "Owner directive of 2026-10-02 02:30 (mission AGENTS.md) and the owner decision on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure a pass touches keeps the reader-first bar and is re-tested with a five-second reader test whose record and takeaway are refreshed with it. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-144",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "seo-merge-20260916-interactive-sources-mounts-98",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "5945bb04a04771a26a661e919e2ec8fd8dd15b15758b0f6c0d7d63a293e27ad8"
+        },
+        {
+          "id": "round5-closeout2-src-interactive-rrt-explorer-tsx",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "5945bb04a04771a26a661e919e2ec8fd8dd15b15758b0f6c0d7d63a293e27ad8"
+        },
+        {
+          "id": "four-local-truth-repairs-20260922-4",
+          "oldHash": "5945bb04a04771a26a661e919e2ec8fd8dd15b15758b0f6c0d7d63a293e27ad8",
+          "newHash": "1b82e36081a46b78dddee8ed8d7ec0dd6d2c4a8e7199d0ab19455a4eb9a62c27"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-interactive-sources-mounts-source-components-interactive-rrt-explorer-tsx",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "1b82e36081a46b78dddee8ed8d7ec0dd6d2c4a8e7199d0ab19455a4eb9a62c27"
+        },
+        {
+          "id": "classical-closure-20260923-9",
+          "oldHash": "1b82e36081a46b78dddee8ed8d7ec0dd6d2c4a8e7199d0ab19455a4eb9a62c27",
+          "newHash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-interactive-sources-mounts-source-components-interactive-rrt-explorer-tsx",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-interactive-sources-mounts-source-components-interactive-rrt-explorer-tsx",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+        },
+        {
+          "id": "instrument-migration-20260926-rrt-source",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3"
+        },
+        {
+          "id": "reader-first-20261008-retest-interactive-sources-mounts-source-rrt-explorer",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "1b970a398b3a72a65a788325bfd5d6c66368c1f148452d862c0340a69fde4c29"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261008-sweep-source-scene-representation-ladder",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/scene-representation-ladder.tsx",
+      "oldHash": "1390b6d9db7dab6502a792f12a06b57a6599402e6549792d5b378f6154087275",
+      "newHash": "3b1e71aefb14653c0cc52491c01dd8b25c04098010007e532ac218caa3aedbd4",
+      "reason": "Classical pass of 2026-10-08: the rework of all eleven classical figures after their first five-second reader test (acaa223c, answering the terms the reviewers listed at cce3793c) changed this source, and that commit recorded only its accessible-name edges. In between, unrecorded, the file moved onto the shared instrument primitives (c9503d16, 2026-09-26), gained its self-label \"Synthetic scene: one fixed scene redrawn as each representation would store it.\" (ca3d0584, 2026-09-26), moved onto the figure frame (f2f0a840, 2026-10-01), took the light page stage ground (b03ede6a, 2026-10-02), and one sentence came to say that a narrow-band signed-distance field holds fewer cells than the occupancy grid it resembles (db856b22, 2026-10-07). In acaa223c the figure is rewritten around one question per rung with plain labels, and the shared opt-in arrow pointer on StageAnnotation (a short line ending in an arrowhead that stops 3 px short of its target) replaces the leader and ring; its changed accessible names carry their own approved edges. The second reader test of the reworked figure is recorded in evidence/reader-first/classical--scene-representation--scene-representation-ladder.json (51447959). Its cited sources and behavioral defaults are unchanged. This edge moves the member from its last approved endpoint (perf-articles-20260923-src-scene-representation-ladder).",
+      "ownerApproval": "Owner directive of 2026-10-02 02:30 (mission AGENTS.md) and the owner decision on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: every figure a pass touches keeps the reader-first bar and is re-tested with a five-second reader test whose record and takeaway are refreshed with it. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-144",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

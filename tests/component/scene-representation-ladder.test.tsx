@@ -83,10 +83,10 @@ describe('SceneRepresentationLadder', () => {
     await user.click(selector('gaussian-splat'));
     const indicator = capability('contact-normal');
     expect(indicator).toHaveAttribute('data-state', 'no');
-    expect(indicator).toHaveTextContent(/Surface normal for contact:\s*no/i);
+    expect(indicator).toHaveTextContent(/Which way does the surface face\?\s*No/);
     expect(indicator).toHaveAttribute(
       'aria-label',
-      'Surface normal for contact: no',
+      'Which way does the surface face? No',
     );
     // And the splat is the one rung that renders a novel view.
     expect(capability('novel-view')).toHaveAttribute('data-state', 'yes');
@@ -171,5 +171,90 @@ describe('SceneRepresentationLadder', () => {
     expect(screen.getByTestId('scene-live-summary')).toHaveTextContent(
       representationById('gaussian-splat').unobserved.slice(0, 40),
     );
+  });
+
+  it('states the takeaway as a short headline under a kicker', () => {
+    const { container } = render(<SceneRepresentationLadder />);
+    const title = container.querySelector('[data-figure-title]');
+    expect(title).toHaveTextContent('Each way of storing a room answers different questions');
+    expect(title?.textContent?.trim().split(/\s+/).length).toBeLessThanOrEqual(10);
+    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Scene representations');
+    const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
+    expect(caption.trim().split(/\s+/).length).toBeLessThanOrEqual(25);
+  });
+
+  it('shows two visible controls in plain words: the store and Detail', () => {
+    const { container } = render(<SceneRepresentationLadder />);
+    const visible = container.querySelector('[data-figure-controls]')!;
+    const outside = (el: Element) => !el.closest('[data-figure-fold]');
+    expect([...visible.querySelectorAll('[role="group"]')].filter(outside)).toHaveLength(1);
+    expect([...visible.querySelectorAll('input[type="range"]')].filter(outside)).toHaveLength(1);
+    const plain = ['Dots', 'Grid of boxes', 'Distance map', 'Triangle skin', 'Soft blobs'];
+    REPRESENTATIONS.forEach((rep, i) => {
+      expect(selector(rep.id)).toHaveTextContent(plain[i]!);
+      // The accessible name starts with the visible label and keeps the technical name.
+      expect(selector(rep.id).getAttribute('aria-label')).toMatch(new RegExp(`^${plain[i]} \\(${rep.short}\\)`));
+    });
+    expect(screen.getByTestId('scene-technical-name')).toHaveTextContent('Engineers call this an occupancy grid');
+    expect(screen.getByLabelText(/^Detail/)).toBe(screen.getByTestId('scene-resolution-slider'));
+    const ends = visible.querySelector('[data-slider-ends]');
+    expect(ends).toHaveTextContent('coarse');
+    expect(ends).toHaveTextContent('fine');
+    expect(screen.getByTestId('scene-detail-note')).toHaveTextContent(
+      'More detail: sharper picture, more storage, same answers.',
+    );
+  });
+
+  it('names the three questions in plain words, each answered', () => {
+    render(<SceneRepresentationLadder />);
+    expect(capability('free-space')).toHaveTextContent(/Can the robot move here\?\s*Yes/);
+    expect(capability('contact-normal')).toHaveTextContent(/Which way does the surface face\?\s*No/);
+    expect(capability('novel-view')).toHaveTextContent(/What does it look like from here\?\s*No/);
+  });
+
+  it('points one annotation at the region hidden behind the box', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<SceneRepresentationLadder />);
+    const notes = container.querySelectorAll('[data-figure-stage] [data-figure-annotation]');
+    expect(notes).toHaveLength(1);
+    expect(notes[0]).toHaveTextContent('Hidden behind the box:marked ‘unknown’, not ‘empty’');
+    // An arrow, which first-time readers take for a pointer rather than for a mark in the room.
+    expect(notes[0]!.querySelector('[data-annotation-pointer="arrow"] polygon')).not.toBeNull();
+    expect(notes[0]!.querySelector('circle')).toBeNull();
+    await user.click(selector('gaussian-splat'));
+    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(/rendered, never measured/);
+  });
+
+  it('draws the real room under every store', async () => {
+    const user = userEvent.setup();
+    render(<SceneRepresentationLadder />);
+    for (const rep of REPRESENTATIONS) {
+      await user.click(selector(rep.id));
+      const room = screen.getByTestId('scene-room');
+      for (const object of ['box', 'bottle', 'post', 'camera']) {
+        expect(room.querySelector(`[data-scene-object="${object}"]`), `${object} on ${rep.id}`).not.toBeNull();
+      }
+    }
+  });
+
+  it('keeps the storage readout and reset in Adjust more, sources in How this was made', () => {
+    const { container } = render(<SceneRepresentationLadder />);
+    const adjust = container.querySelector('[data-figure-fold="adjust"]')!;
+    const method = container.querySelector('[data-figure-fold="method"]')!;
+    expect(adjust.querySelector('summary')).toHaveTextContent(/^Adjust more$/);
+    expect(method.querySelector('summary')).toHaveTextContent(/^How this was made$/);
+    expect(adjust).toContainElement(screen.getByTestId('scene-footprint-readout'));
+    expect(adjust).toContainElement(screen.getByTestId('scene-elements-readout'));
+    expect(adjust).toContainElement(screen.getByRole('button', { name: /reset/i }));
+    for (const id of ['curless-levoy-1996', 'moravec-elfes-1985']) {
+      const chip = container.querySelector(`[data-cite-id="${id}"]`);
+      expect(chip, id).not.toBeNull();
+      expect(method).toContainElement(chip as HTMLElement);
+    }
+    expect(method).toHaveTextContent('3.0 by 3.0 by 2.0 m');
+    expect(method).toHaveTextContent('16 cm behind its true face');
+    expect(method).toHaveTextContent('log-odds');
+    expect(method).toHaveTextContent('2,250 voxels (2.2 KB) at 20 cm');
+    expect(container.querySelector('[data-figure-status]')).toHaveTextContent(/Schematic/);
   });
 });

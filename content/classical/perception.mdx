@@ -68,6 +68,7 @@ citations:
   - molmoact-2025
   - gemini-robotics-er-1-6-2026
   - eyerobot-2-2026
+  - azure-kinect-sdk-retirement-2024
 seeAlso:
   - "manipulation/vla-models"
   - "data-hardware/hardware-taxonomy"
@@ -116,7 +117,7 @@ Learned models now estimate depth from images, alone or with a sparse sensor. Fo
 
 For industrial 3D scanning, the PhoXi 3D Scanner L page lists 0.200 mm calibration accuracy and 0.190 mm temporal noise (both 1 σ), an 870 to 2150 mm scanning range and 250 to 2750 ms scanning time. These are separate specification fields for one model <Cite id="photoneo-phoxi-l-2026" />.
 
-Time of flight casts its own modulated near-infrared light and measures its round trip per pixel. Multi-path interference lets one pixel integrate light that arrived by several routes. The Azure Kinect DK documentation lists five causes of invalid depth: outside the IR illumination mask, saturated IR signal, low IR signal, filter outlier and multi-path interference. Invalid pixels carry depth zero. Ambiguous depth arises when light reflects from one wall onto another in a corner, and where foreground and background mix at object edges. Fast motion can increase edge invalidation <Cite id="azure-kinect-depth-docs-2026" />.
+Time of flight casts its own modulated near-infrared light and measures its round trip per pixel. Multi-path interference lets one pixel integrate light that arrived by several routes. The Azure Kinect DK documentation lists five causes of invalid depth: outside the IR illumination mask, saturated IR signal, low IR signal, filter outlier and multi-path interference. Invalid pixels carry depth zero. Ambiguous depth arises when light reflects from one wall onto another in a corner, and where foreground and background mix at object edges. Fast motion can increase edge invalidation <Cite id="azure-kinect-depth-docs-2026" />. Microsoft announced the end of Azure Kinect DK production in August 2023, and support for its Sensor SDK ended in August 2024 <Cite id="azure-kinect-sdk-retirement-2024" />.
 
 ### The failure taxonomy that decides how a cell is built
 

@@ -23,29 +23,26 @@ import { MOTION_STAGE } from '@/lib/motion-tokens';
  * policy server; proposed actions pass through a command gate, the only
  * command publisher, to the controller bridge and its real-time loop. A
  * supervisor receives the task goal as an action and drives the policy
- * server, gate and bridge through lifecycle transitions on a dashed rail.
+ * server, gate and bridge through lifecycle transitions.
  *
- * A static schematic: no controls, no state. The stage names every node
- * and link in plain words; the ROS 2 names, every QoS setting, timeout and
- * source sit in "How this was made".
+ * A static schematic: no controls, no state. The stage draws only the chain
+ * that makes the point, from the sensors through the safety check to a
+ * drawn robot arm, with two short link labels. The supervisor and the tf2
+ * store, the ROS 2 names, every link's delivery details, QoS setting,
+ * timeout and source sit in "How this was made".
  */
 
 const W = CHART_VIEW_WIDTH;
 
 /** The node column on the left; arrows run down its left side. */
-const BOX = { x: 8, w: 176, h: 30 };
+const BOX = { x: 8, w: 184, h: 30 };
 const BOX_RIGHT = BOX.x + BOX.w;
 const ARROW_X = 24;
 const LABEL_X = 36;
 const LINE = 18;
 /** First label baseline below the box above a gap. */
 const GAP_FIRST = 22;
-const gapHeight = (lines: number) => GAP_FIRST + (lines - 1) * LINE + 16;
-
-/** The supervisor sits top right; its lifecycle rail runs down the right edge. */
-const SUP = { x: 196, y: 52, w: W - 6 - 196, h: 30 };
-const RAIL_X = 326;
-const TASK_END_X = 96;
+const gapHeight = (lines: number) => (lines === 0 ? 24 : GAP_FIRST + (lines - 1) * LINE + 16);
 
 const HEAD_LEN = 7;
 const HEAD_HALF = 4;
@@ -54,20 +51,23 @@ type NodeId = 'drivers' | 'state' | 'policy' | 'gate' | 'bridge' | 'hardware';
 
 /**
  * Box label in plain words, the node's ROS 2 name for the method fold, and
- * how many label lines the gap under the box needs.
+ * how many label lines the gap under the box needs. The hardware is drawn
+ * as a robot arm rather than a box, so it cannot be mistaken for the part
+ * that drives it.
  */
 const NODES: { id: NodeId; label: string; name: string; gapLines: number }[] = [
-  { id: 'drivers', label: 'camera and joint sensors', name: 'camera and joint drivers', gapLines: 2 },
-  { id: 'state', label: 'combines the readings', name: 'state assembly', gapLines: 3 },
-  { id: 'policy', label: 'AI that suggests moves', name: 'policy server', gapLines: 2 },
-  { id: 'gate', label: 'safety check', name: 'command gate', gapLines: 2 },
-  { id: 'bridge', label: 'runs the motors', name: 'controller bridge', gapLines: 1 },
-  { id: 'hardware', label: 'motors', name: 'robot hardware', gapLines: 0 },
+  { id: 'drivers', label: 'camera and joint sensors', name: 'camera and joint drivers', gapLines: 0 },
+  { id: 'state', label: 'gathers the latest readings', name: 'state assembly', gapLines: 0 },
+  { id: 'policy', label: 'AI that suggests moves', name: 'policy server', gapLines: 1 },
+  { id: 'gate', label: 'safety check', name: 'command gate', gapLines: 1 },
+  { id: 'bridge', label: 'drives the motors', name: 'controller bridge', gapLines: 0 },
+  { id: 'hardware', label: 'robot arm', name: 'robot hardware', gapLines: 0 },
 ];
+/** Parts of the layout the drawing leaves out; the method fold names them. */
 const SUPERVISOR = { label: 'task manager', name: 'supervisor' };
 const STORE_NAMES = { label: 'arm positions', name: 'tf2 frame tree' };
 
-const FIRST_BOX_Y = 104;
+const FIRST_BOX_Y = 8;
 
 /** Each box's top edge, stacked with the gap its outgoing label needs. */
 const BOX_Y = NODES.reduce<Record<NodeId, number>>(
@@ -77,17 +77,26 @@ const BOX_Y = NODES.reduce<Record<NodeId, number>>(
   },
   {} as Record<NodeId, number>,
 );
-const VIEW_H = BOX_Y.hardware + BOX.h + 8;
 const centreY = (id: NodeId) => BOX_Y[id] + BOX.h / 2;
 
-/** The tf2 store: an open-sided record beside state assembly. */
-const STORE = { x: 204, right: 316 };
-const STORE_LABEL_X = 196;
+/** The drawn robot arm, side on, standing under the arrow from the motor driver. */
+const ARM = (() => {
+  const top = BOX_Y.hardware;
+  return {
+    elbow: { x: ARROW_X, y: top + 10 },
+    shoulder: { x: ARROW_X + 12, y: top + 50 },
+    wrist: { x: ARROW_X + 76, y: top + 18 },
+    ground: top + 66,
+  };
+})();
+const VIEW_H = ARM.ground + 8;
 
 type Edge = {
   id: string;
-  /** What the link carries, in plain words, one entry per stage line. */
+  /** The words the stage writes beside the link, one entry per line; most links carry none. */
   stage: readonly string[];
+  /** What the link carries, in plain words, for the method fold. */
+  plain: string;
   /** The ROS 2 interface: kind and payload. */
   kind: string;
   /** The QoS or timing setting. */
@@ -101,7 +110,8 @@ type Edge = {
 const DOWN_EDGES: Partial<Record<NodeId, Edge>> = {
   drivers: {
     id: 'drivers-to-state',
-    stage: ['camera pictures, joint positions', 'late readings may be skipped'],
+    stage: [],
+    plain: 'Camera pictures and joint positions; late readings may be skipped',
     kind: 'topic: camera images, joint states',
     note: 'sensor data: best effort, small queue',
     method:
@@ -110,7 +120,8 @@ const DOWN_EDGES: Partial<Record<NodeId, Edge>> = {
   },
   state: {
     id: 'state-to-policy',
-    stage: ['newest readings', 'checked to be recent'],
+    stage: [],
+    plain: 'The newest readings, checked to be recent',
     kind: 'topic: observation',
     note: 'log message age here',
     method:
@@ -119,7 +130,8 @@ const DOWN_EDGES: Partial<Record<NodeId, Edge>> = {
   },
   policy: {
     id: 'policy-to-gate',
-    stage: ['suggested moves,', 'all delivered'],
+    stage: ['suggested moves'],
+    plain: 'Suggested moves, all delivered',
     kind: 'topic: proposed actions',
     note: 'reliable',
     method:
@@ -128,7 +140,8 @@ const DOWN_EDGES: Partial<Record<NodeId, Edge>> = {
   },
   gate: {
     id: 'gate-to-bridge',
-    stage: ['checked moves', 'the only path to the motors'],
+    stage: ['checked moves only'],
+    plain: 'Checked moves, the only path to the motors',
     kind: 'topic: commands',
     note: 'the only command publisher',
     method:
@@ -137,7 +150,8 @@ const DOWN_EDGES: Partial<Record<NodeId, Edge>> = {
   },
   bridge: {
     id: 'bridge-to-hardware',
-    stage: ['at steady, exact intervals'],
+    stage: [],
+    plain: 'Motor commands at steady, exact intervals',
     kind: 'real-time loop',
     method:
       "Controller bridge to the robot hardware, in the real-time loop. ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of this path, so inference stays outside it unless its worst case fits.",
@@ -147,7 +161,8 @@ const DOWN_EDGES: Partial<Record<NodeId, Edge>> = {
 
 const TF2_EDGE: Edge = {
   id: 'tf2-to-state',
-  stage: ['arm position at', 'the moment the', 'photo was taken'],
+  stage: [],
+  plain: 'The arm positions (the tf2 frame tree) give the arm position at the moment each photo was taken',
   kind: 'tf2 lookup',
   note: "frames at the image's timestamp",
   method:
@@ -158,6 +173,7 @@ const TF2_EDGE: Edge = {
 const TASK_EDGE: Edge = {
   id: 'task-to-supervisor',
   stage: [],
+  plain: 'The task manager (the supervisor) takes the task request',
   kind: 'action: task goal with feedback and cancel',
   method:
     'Task request to the supervisor, as an action: a long-running goal with feedback, cancellation and a result.',
@@ -166,13 +182,14 @@ const TASK_EDGE: Edge = {
 
 const LIFECYCLE_EDGE: Edge = {
   id: 'supervisor-lifecycle',
-  stage: ['starts and stops', 'these three parts'],
+  stage: [],
+  plain:
+    'The task manager starts and stops these three parts: the AI that suggests moves, the safety check and the part that drives the motors',
   kind: 'lifecycle: start, stop, deactivate',
   method:
     "Supervisor to the policy server, command gate and controller bridge, through lifecycle transitions. ROS 2 managed nodes leave a primary state only at an external supervisor's request or on an error in the Active state.",
   sources: ['ros2-lifecycle-design-2015'],
 };
-const SUPERVISED: NodeId[] = ['policy', 'gate', 'bridge'];
 
 /** Every edge in reading order, for the method list and the description. */
 const ALL_EDGES: Edge[] = [
@@ -208,7 +225,6 @@ function Arrow({
   x2,
   y2,
   colour,
-  dashed = false,
   edge,
 }: {
   x1: number;
@@ -216,7 +232,6 @@ function Arrow({
   x2: number;
   y2: number;
   colour: string;
-  dashed?: boolean;
   edge: string;
 }) {
   const { shaft, head } = arrowPaths(x1, y1, x2, y2);
@@ -226,8 +241,7 @@ function Arrow({
         d={shaft}
         fill="none"
         stroke={colour}
-        strokeWidth={dashed ? CHART_STROKE.reference : CHART_STROKE.trace}
-        strokeDasharray={dashed ? CHART_STROKE.dash : undefined}
+        strokeWidth={CHART_STROKE.trace}
       />
       <path d={head} fill={colour} />
     </g>
@@ -267,8 +281,11 @@ function StageText({
 /** Drops a label's baseline so the text sits centred on a row. */
 const BASELINE_DROP = Math.round(CHART_TYPE.labelPx * 0.35);
 
-function NodeBox({ id, x, y, w, label }: { id: string; x: number; y: number; w: number; label: string }) {
-  const hardware = id === 'hardware';
+/** The node the annotation points at, drawn at full emphasis. */
+const FOCUS: NodeId = 'gate';
+
+function NodeBox({ id, x, y, w, label }: { id: NodeId; x: number; y: number; w: number; label: string }) {
+  const focus = id === FOCUS;
   return (
     <g data-node={id}>
       <rect
@@ -276,12 +293,66 @@ function NodeBox({ id, x, y, w, label }: { id: string; x: number; y: number; w: 
         y={y}
         width={w}
         height={BOX.h}
-        fill={hardware ? CHART_STRUCTURE.grid : MOTION_STAGE.background}
-        fillOpacity={hardware ? CHART_STRUCTURE.gridOpacity : undefined}
+        fill={MOTION_STAGE.background}
         stroke={CHART_STRUCTURE.label}
+        strokeWidth={focus ? CHART_STROKE.trace : CHART_STROKE.structure}
+      />
+      <StageText x={x + w / 2} y={y + BOX.h / 2 + BASELINE_DROP} anchor="middle" weight={focus ? 600 : 500}>
+        {label}
+      </StageText>
+    </g>
+  );
+}
+
+const ARM_W = 10;
+const JOINT_R = 6;
+
+/** The robot hardware as a side view of an arm: a base, two parts, two joints and a gripper. */
+function RobotArm() {
+  const { elbow, shoulder, wrist, ground } = ARM;
+  const outline = CHART_STRUCTURE.labelSecondary;
+  const palmY = wrist.y + 12;
+  const label = NODES.find((node) => node.id === 'hardware')!.label;
+  return (
+    <g data-node="hardware">
+      <line x1={BOX.x} y1={ground} x2={wrist.x + 40} y2={ground} stroke={outline} strokeWidth={CHART_STROKE.trace} />
+      <rect
+        x={shoulder.x - 14}
+        y={shoulder.y}
+        width={28}
+        height={ground - shoulder.y}
+        fill={CHART_STRUCTURE.grid}
+        stroke={outline}
         strokeWidth={CHART_STROKE.structure}
       />
-      <StageText x={x + w / 2} y={y + BOX.h / 2 + BASELINE_DROP} anchor="middle" weight={500}>
+      {[ARM_W + 2, ARM_W].map((width) => (
+        <path
+          key={width}
+          d={`M ${shoulder.x} ${shoulder.y} L ${elbow.x} ${elbow.y} L ${wrist.x} ${wrist.y}`}
+          fill="none"
+          stroke={width === ARM_W ? CHART_STRUCTURE.grid : outline}
+          strokeWidth={width}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      ))}
+      <g fill="none" stroke={outline} strokeLinecap="round">
+        <path d={`M ${wrist.x} ${wrist.y} V ${palmY}`} strokeWidth={5} />
+        <path d={`M ${wrist.x - 10} ${palmY} H ${wrist.x + 10}`} strokeWidth={3} />
+        <path d={`M ${wrist.x - 9} ${palmY} v 16 M ${wrist.x + 9} ${palmY} v 16`} strokeWidth={3} />
+      </g>
+      {[shoulder, elbow].map((joint) => (
+        <circle
+          key={`${joint.x}-${joint.y}`}
+          cx={joint.x}
+          cy={joint.y}
+          r={JOINT_R}
+          fill={MOTION_STAGE.background}
+          stroke={outline}
+          strokeWidth={CHART_STROKE.trace}
+        />
+      ))}
+      <StageText x={wrist.x + 24} y={palmY + BASELINE_DROP} weight={500}>
         {label}
       </StageText>
     </g>
@@ -308,63 +379,24 @@ function RowSource({ id, lookup }: { id: string; lookup: ReturnType<typeof useCi
 function PolicyGraph({ descriptionId }: { descriptionId: string }) {
   const sensing = roleColour('state');
   const command = roleColour('action');
-  const supervision = roleColour('reference');
-  const stateMid = centreY('state');
-  const railTop = SUP.y + SUP.h;
-  const railBottom = centreY('bridge');
+  const below = (id: NodeId) => BOX_Y[id] + BOX.h;
+  const noteTop = BOX_Y[FOCUS] + 2;
   return (
     <PlotStage
       viewBox={`0 0 ${W} ${VIEW_H}`}
-      aria-label="ROS 2 graph for a learned policy, top to bottom: camera and joint sensors (drivers), a node that combines the readings (state assembly) using the arm positions (tf2 frame tree), the AI that suggests moves (policy server), a safety check (command gate), the part that runs the motors (controller bridge) and the robot's motors. A task manager (supervisor) takes the task request and starts and stops the AI, the safety check and the part that runs the motors."
+      aria-label="ROS 2 graph for a learned policy, top to bottom: camera and joint sensors (drivers), a part that gathers the latest readings (state assembly), the AI that suggests moves (policy server), a safety check (command gate), the part that drives the motors (controller bridge) and a drawn robot arm (the robot hardware). Every move the AI suggests passes the safety check before it reaches the motors."
       aria-describedby={descriptionId}
       data-testid="ros2-policy-graph"
     >
-      <StageAnnotation x={8} y={18} lines={['Only the safety check sends', 'moves to the motors']} />
-
-      <StageText x={8} y={SUP.y + SUP.h / 2 + BASELINE_DROP}>task request</StageText>
-      <NodeBox id="supervisor" x={SUP.x} y={SUP.y} w={SUP.w} label={SUPERVISOR.label} />
-      {LIFECYCLE_EDGE.stage.map((line, i) => (
-        <StageText
-          key={line}
-          x={RAIL_X - 8}
-          y={BOX_Y.policy + BOX.h + GAP_FIRST + i * LINE}
-          anchor="end"
-          secondary={i > 0}
-        >
-          {line}
-        </StageText>
-      ))}
-
-      {NODES.map((node) => (
+      {NODES.filter((node) => node.id !== 'hardware').map((node) => (
         <NodeBox key={node.id} id={node.id} x={BOX.x} y={BOX_Y[node.id]} w={BOX.w} label={node.label} />
       ))}
-
-      <g data-node="tf2-store">
-        <path
-          d={`M ${STORE.right} ${BOX_Y.state} H ${STORE.x} V ${BOX_Y.state + BOX.h} H ${STORE.right}`}
-          fill="none"
-          stroke={CHART_STRUCTURE.label}
-          strokeWidth={CHART_STROKE.structure}
-        />
-        <StageText x={(STORE.x + STORE.right) / 2} y={stateMid + BASELINE_DROP} anchor="middle" weight={500}>
-          {STORE_NAMES.label}
-        </StageText>
-      </g>
-      {TF2_EDGE.stage.map((line, i) => (
-        <StageText
-          key={line}
-          x={STORE_LABEL_X}
-          y={BOX_Y.state + BOX.h + GAP_FIRST + i * LINE}
-          secondary={i > 0}
-        >
-          {line}
-        </StageText>
-      ))}
+      <RobotArm />
 
       {NODES.map((node) => {
         const edge = DOWN_EDGES[node.id];
-        if (!edge) return null;
-        const top = BOX_Y[node.id] + BOX.h + GAP_FIRST;
+        if (!edge || edge.stage.length === 0) return null;
+        const top = below(node.id) + GAP_FIRST;
         return (
           <g key={edge.id} data-edge-label={edge.id}>
             {edge.stage.map((line, i) => (
@@ -377,37 +409,30 @@ function PolicyGraph({ descriptionId }: { descriptionId: string }) {
       })}
 
       <g data-series="sensing" data-chart-role="state">
-        <Arrow edge="drivers-to-state" x1={ARROW_X} y1={BOX_Y.drivers + BOX.h} x2={ARROW_X} y2={BOX_Y.state} colour={sensing} />
-        <Arrow edge="tf2-to-state" x1={STORE.x - 2} y1={stateMid} x2={BOX_RIGHT} y2={stateMid} colour={sensing} />
-        <Arrow edge="state-to-policy" x1={ARROW_X} y1={BOX_Y.state + BOX.h} x2={ARROW_X} y2={BOX_Y.policy} colour={sensing} />
+        <Arrow edge="drivers-to-state" x1={ARROW_X} y1={below('drivers')} x2={ARROW_X} y2={BOX_Y.state} colour={sensing} />
+        <Arrow edge="state-to-policy" x1={ARROW_X} y1={below('state')} x2={ARROW_X} y2={BOX_Y.policy} colour={sensing} />
       </g>
       <g data-series="commands" data-chart-role="action">
-        <Arrow edge="task-to-supervisor" x1={TASK_END_X} y1={SUP.y + SUP.h / 2} x2={SUP.x} y2={SUP.y + SUP.h / 2} colour={command} />
-        <Arrow edge="policy-to-gate" x1={ARROW_X} y1={BOX_Y.policy + BOX.h} x2={ARROW_X} y2={BOX_Y.gate} colour={command} />
-        <Arrow edge="gate-to-bridge" x1={ARROW_X} y1={BOX_Y.gate + BOX.h} x2={ARROW_X} y2={BOX_Y.bridge} colour={command} />
-        <Arrow edge="bridge-to-hardware" x1={ARROW_X} y1={BOX_Y.bridge + BOX.h} x2={ARROW_X} y2={BOX_Y.hardware} colour={command} />
-      </g>
-      <g data-series="lifecycle" data-chart-role="reference">
-        <path
-          d={`M ${RAIL_X} ${railTop} V ${railBottom}`}
-          fill="none"
-          stroke={supervision}
-          strokeWidth={CHART_STROKE.reference}
-          strokeDasharray={CHART_STROKE.dash}
+        <Arrow edge="policy-to-gate" x1={ARROW_X} y1={below('policy')} x2={ARROW_X} y2={BOX_Y.gate} colour={command} />
+        <Arrow edge="gate-to-bridge" x1={ARROW_X} y1={below('gate')} x2={ARROW_X} y2={BOX_Y.bridge} colour={command} />
+        <Arrow
+          edge="bridge-to-hardware"
+          x1={ARROW_X}
+          y1={below('bridge')}
+          x2={ARROW_X}
+          y2={ARM.elbow.y - JOINT_R - 2}
+          colour={command}
         />
-        {SUPERVISED.map((id) => (
-          <Arrow
-            key={id}
-            edge={`supervisor-to-${id}`}
-            x1={RAIL_X}
-            y1={centreY(id)}
-            x2={BOX_RIGHT}
-            y2={centreY(id)}
-            colour={supervision}
-            dashed
-          />
-        ))}
       </g>
+
+      <StageAnnotation
+        x={226}
+        y={noteTop}
+        lines={['Every suggested', 'move is checked', 'here first']}
+        from={[222, centreY(FOCUS) - 2]}
+        target={[BOX_RIGHT + 2, centreY(FOCUS)]}
+        pointer="arrow"
+      />
     </PlotStage>
   );
 }
@@ -432,10 +457,7 @@ export function Ros2PolicyLayout({ className }: { className?: string }) {
                   what the robot senses
                 </LegendItem>
                 <LegendItem series="commands" swatch={<LegendSwatch role="action" mark="line" />}>
-                  tasks and moves
-                </LegendItem>
-                <LegendItem series="lifecycle" swatch={<LegendSwatch role="reference" mark="dash" />}>
-                  starting and stopping parts
+                  moves
                 </LegendItem>
               </InstrumentLegend>
               <StageStatus>Schematic: one recommended layout, not a required one</StageStatus>
@@ -455,13 +477,16 @@ export function Ros2PolicyLayout({ className }: { className?: string }) {
             One robust layout for a learned-policy graph, as the article recommends: drivers, state assembly, a
             policy server, a command gate, a controller bridge and a supervisor, each its own node. The drawing
             names them in plain words:{' '}
-            {[...NODES, SUPERVISOR, STORE_NAMES].map((node) => `"${node.label}" is the ${node.name}`).join('; ')}.
-            Each link below names its ROS 2 interface, its QoS or timing, and its source.
+            {NODES.map((node) => `"${node.label}" is the ${node.name}`).join('; ')}. It leaves out two parts
+            to keep the chain to the motors in view:{' '}
+            {[SUPERVISOR, STORE_NAMES].map((node) => `the ${node.name}, a "${node.label}"`).join(', and ')}.
+            Each link below says in plain words what it carries, then names its ROS 2 interface, its QoS or
+            timing, and its source.
           </div>
           <ul data-testid="ros2-policy-edges" className="list-disc space-y-1.5 pl-5">
             {ALL_EDGES.map((edge) => (
               <li key={edge.id} data-edge-method={edge.id}>
-                {edge.method}
+                <span className="font-medium" data-edge-plain="">{edge.plain}.</span> {edge.method}
                 {edge.sources.length > 0 ? (
                   <>
                     {' '}

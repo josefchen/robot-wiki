@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3107,
+      "visibleTextLength": 3105,
       "header": {
         "present": true,
         "display": "flex",
@@ -1541,7 +1541,7 @@
     },
     {
       "route": "/classical/calibration/",
-      "visibleTextLength": 17069,
+      "visibleTextLength": 17084,
       "header": {
         "present": true,
         "display": "flex",
@@ -1704,7 +1704,7 @@
     },
     {
       "route": "/classical/control/",
-      "visibleTextLength": 26580,
+      "visibleTextLength": 26911,
       "header": {
         "present": true,
         "display": "flex",
@@ -1867,7 +1867,7 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "visibleTextLength": 19795,
+      "visibleTextLength": 20849,
       "header": {
         "present": true,
         "display": "flex",
@@ -2030,7 +2030,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "visibleTextLength": 18517,
+      "visibleTextLength": 18531,
       "header": {
         "present": true,
         "display": "flex",
@@ -2193,7 +2193,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 28896,
+      "visibleTextLength": 29352,
       "header": {
         "present": true,
         "display": "flex",
@@ -2356,7 +2356,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 39970,
+      "visibleTextLength": 40368,
       "header": {
         "present": true,
         "display": "flex",
@@ -2519,7 +2519,7 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "visibleTextLength": 15243,
+      "visibleTextLength": 14924,
       "header": {
         "present": true,
         "display": "flex",
@@ -2682,7 +2682,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "visibleTextLength": 31680,
+      "visibleTextLength": 31560,
       "header": {
         "present": true,
         "display": "flex",
@@ -2845,7 +2845,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 24126,
+      "visibleTextLength": 24314,
       "header": {
         "present": true,
         "display": "flex",

@@ -7,20 +7,21 @@
     "1280": "evidence/reader-first/classical--control--pendulum-controller.1280.png"
   },
   "takeaway": "To hold the pole upright the motor must push back harder than gravity pulls; push too gently and the pole sags over.",
-  "sentence": "To keep a pole balanced upright, the motor at its base has to push back harder than gravity pulls it over, because a gentle correction lets it fall.",
+  "sentence": "A motor at the base of a pole has to push back harder than gravity pulls, or the pole falls over.",
   "unclearTerms": [
-    "Correction strength",
-    "the small green triangle or arrowhead near the pole, just below the 'upright' line",
-    "the green line sticking out down-left from the base: is it the motor's push or a pointer to the label?",
-    "the circles around the base of the pole",
-    "whether 'Too gentle' or 'Strong enough' is currently selected",
+    "the small green arrowhead labelled push next to the pole",
+    "the circle at the bottom of the pole (I guessed it is the motor, but it is not labelled)",
+    "the larger green arrow pointing at that circle from the lower left",
+    "I could not tell whether Too gentle or Strong enough is the selected option",
+    "Give it a push (I could not tell who or what does the pushing)",
+    "the hatched line at the bottom",
     "Adjust more"
   ],
   "samePoint": "yes",
-  "reason": "My sentence says the motor must push back harder than gravity and a gentle correction lets the pole fall, which matches.",
+  "reason": "My sentence says that the motor must push back harder than gravity pulls or the pole falls over, which matches the pole sagging over when the push is too gentle.",
   "verdict": "fail",
-  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
   "date": "2026-10-08",
-  "reviewerSession": "reader-session-3ddc4e3a",
-  "sourceDigest": "9adb73289ffe9b1ce1d7b6e44f7d779e52b3cfed57944ebe35f42c8038a1ece2"
+  "reviewerSession": "reader-session-817aaa8e",
+  "sourceDigest": "daeb2352bb90d9e9ae52f800a645c5a33252bde8316e934fb3b5c7b79ea4dd86"
 }

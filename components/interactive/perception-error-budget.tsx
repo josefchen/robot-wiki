@@ -517,6 +517,11 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
       {missMm >= 0.05 ? (
         <g data-series="miss" data-testid="perception-miss-bracket">
           <line x1={objectX} y1={SIGHT_Y} x2={objectX} y2={aimY} stroke={highlight} strokeWidth={CHART_STROKE.structure * 2} />
+          {/* End caps make the bracket read as a measured gap, not a pointer. */}
+          <line x1={objectX - 5} y1={SIGHT_Y} x2={objectX + 5} y2={SIGHT_Y} stroke={highlight} strokeWidth={CHART_STROKE.structure * 2} />
+          {offChart ? null : (
+            <line x1={objectX - 5} y1={aimY} x2={objectX + 5} y2={aimY} stroke={highlight} strokeWidth={CHART_STROKE.structure * 2} />
+          )}
           {offChart ? (
             <path d={`M${objectX - 5} ${aimY + 6} L${objectX} ${aimY - 2} L${objectX + 5} ${aimY + 6} Z`} fill={highlight} />
           ) : null}
@@ -532,6 +537,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         lines={[missNote(missMm)]}
         target={[objectX, aimY]}
         from={[f(Math.min(Math.max(objectX - 36, EDGE + 16), WIDTH - 90)), NOTE_Y + 6]}
+        pointer="arrow"
       />
       <CameraGlyph ink={CHART_STRUCTURE.label} />
     </PlotStage>
@@ -633,7 +639,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
                   where the camera really looks
                 </LegendItem>
               </InstrumentLegend>
-              <StageStatus>Schematic: the tilt is drawn far steeper than it is</StageStatus>
+              <StageStatus>Schematic: the tilt and the miss are drawn far larger than they are</StageStatus>
             </>
           }
         >

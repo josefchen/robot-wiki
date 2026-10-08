@@ -47,6 +47,33 @@ export function domainPassEndpoint<T extends Edge>(entries: readonly T[], edge: 
 export const withoutDomainPassEdges = <T extends Pick<ApprovedDelta, 'id'>>(entries: readonly T[]): T[] =>
   entries.filter((entry) => !isDomainPassEdge(entry));
 
+/**
+ * Edges the classical pass of 2026-10-07 and 2026-10-08 appended after the
+ * domain passes (figures, reader-first rework, registry fixes, sweep items).
+ */
+export const isClassicalPassEdge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  /^(reader-first|figure-mounts|domain-pass)-2026100[78]-/.test(entry.id);
+
+/**
+ * The hash the classical pass leaves on a member whose domain-pass chain
+ * ends at `from`. Each of its edges on the member, in ledger order, must
+ * continue the previous endpoint, as a plain edge from it or as a resolution
+ * that reconciles it; a member the pass did not touch stays at `from`.
+ */
+export function classicalPassEndpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  let endpoint = from;
+  for (const entry of entries) {
+    if (!isClassicalPassEdge(entry) || entry.manifest !== manifest || entry.memberId !== memberId) continue;
+    if (entry.oldHash !== endpoint && !(entry.reconciles ?? []).some((binding) => binding.newHash === endpoint)) {
+      throw new Error(`${entry.id} does not continue ${manifest} ${memberId} from ${endpoint}`);
+    }
+    endpoint = entry.newHash;
+  }
+  return endpoint;
+}
+
 /** The citation list a frontmatter P1 row declared for `content/<domain>/<slug>.mdx`. */
 export const preDomainPassCitations = (domain: string, slug: string, citations: readonly string[]) =>
   preDomainPassCitationList(root, `content/${domain}/${slug}.mdx`, citations);

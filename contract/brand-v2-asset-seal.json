@@ -3,10 +3,10 @@
   "assets": [
     {
       "path": "clips/kalman-episode.png",
-      "sha256": "0119ba9dc9ffb90a8b1355829c04f4c3a7744e860cca6d8fd1a05eb29bbe6d26",
-      "byteCount": 288638,
+      "sha256": "5ab9974a8cb3804cb91ab688baaa75d19730a02f012bdb10db8898422b72e35c",
+      "byteCount": 292372,
       "owner": "robot-wiki-editorial",
-      "purpose": "First-party illustrative final-frame poster for the owner-authorized Kalman clip; the seeded true path, sensor readings, filter track and uncertainty band sit on the light figure stage under an IBM Plex Sans legend and the highlight note on the longest run of missing readings."
+      "purpose": "First-party illustrative final-frame poster for the owner-authorized Kalman clip; the seeded true position, sensor readings, filter's estimate and its widening uncertainty band sit on the light figure stage under a two-row IBM Plex Sans legend, a time cue and the highlight note on the longest run of missing readings."
     },
     {
       "path": "explainers/posters/arm.webp",

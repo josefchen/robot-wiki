@@ -7,18 +7,17 @@
     "1280": "evidence/reader-first/classical--motion-planning--rrt-explorer.1280.png"
   },
   "takeaway": "The robot's search grows random branches into open space until one reaches the goal, and that branch is the path around the obstacles.",
-  "sentence": "A robot finds a route from start to goal by growing random branches into empty space, and the first branch to reach the goal becomes its path.",
+  "sentence": "To find a way to the goal, the robot sends out random branches into the open space around the obstacles until one of them reaches the goal, and that branch becomes the path.",
   "unclearTerms": [
-    "the green line that runs from the small green circle up and out of the top of the box (it looked like part of the path leaving the map before I realised it might be pointing at the label)",
-    "the small open green circle on the path near the top",
-    "the circle with a flag at the goal",
+    "the circle with a flag on it at the goal",
+    "the small dots along the blue branches",
     "Adjust more"
   ],
   "samePoint": "yes",
-  "reason": "My sentence says random branches grow into empty space and the first one to reach the goal becomes the path, which matches.",
+  "reason": "My sentence says that random branches grow into open space around the obstacles until one reaches the goal and becomes the path.",
   "verdict": "fail",
-  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
   "date": "2026-10-08",
-  "reviewerSession": "reader-session-3ddc4e3a",
-  "sourceDigest": "e75583fd54757c358b2b0e1a00de2163aa0ed3362e63e094010f3fc35e059c45"
+  "reviewerSession": "reader-session-817aaa8e",
+  "sourceDigest": "13bb7887cb7fa1ddd870144829f01b29dfeb07ca4e3bfdf791eb4e58f28c0e2b"
 }

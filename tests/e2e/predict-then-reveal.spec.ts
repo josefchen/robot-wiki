@@ -41,7 +41,7 @@ const PLACEMENTS: Placement[] = [
     figure: 'PendulumController',
     primaryControl: /proportional gain kp/i,
     mountedReadout: /9\.5/,
-    // The main view offers the "Correction strength" presets and a push;
+    // The main view offers the "How hard the motor pushes back" presets and a push;
     // the three gain sliders moved into "Adjust more".
     primaryControlInAdjust: true,
   },
