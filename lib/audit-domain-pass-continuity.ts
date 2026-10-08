@@ -37,12 +37,12 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 692162, sha256: 'cb8a8f025f53d4146badd240e592bda163471b83b3c7f380d579a6e5c0f01f19' };
+const reviewPin = { bytes: 692158, sha256: '1c10214a5825fc06d4d6e7868b011a2e9d22d9301980661abf5ff9b774305ef0' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/calibration.mdx', [9689, 'f05b9f74bfefac02ed215bb3f4110b0afd3ec2ef1ed5cc5679c9e51be0943500']],
-  ['content/classical/control.mdx', [20019, '2dd6f23a17d56e87c9ab596e54f7c088117c6d89f56904ca8d94db23808f95ec']],
+  ['content/classical/control.mdx', [20015, '5deb9961e56c1c5f4cfa3847fe479cddf795e00f255874e4276841e8953b9ba3']],
   ['content/classical/grasp-planning.mdx', [14228, 'd8646bbd77d25693e25e87aef575c5d3fefb45357bf7c03e5b056a1a75591605']],
   ['content/classical/kinematics.mdx', [11805, '3f89ea8849092ca97811c4e9db5e0afc61beda251cfb019d5c93e3188b3072c9']],
   ['content/classical/motion-planning.mdx', [20675, 'e076b91ef2e0265cf0d87b663f1b07e51d05fe546fe512b37405f118101be66b']],
@@ -130,7 +130,7 @@ const CORRECTED_MOUNTS: ReadonlyMap<string, ReadonlyMap<string, string>> = new M
     'PredictThenReveal prompt="The lab below is released 12 degrees off vertical with the payload bias ' +
       'in place. Below what proportional gain can the loop no longer hold the pole upright, however the ' +
       'other two gains are set?" options={[ { value: \'mgl-threshold\', label: \'Kp must clear the weight ' +
-      'threshold, about 9.8 here; below it the pole cannot stay upright, however high the damping\', why: ' +
+      'threshold, about 9.8 here; below it the pole cannot stay upright, even at high damping\', why: ' +
       '\'Linearized about upright, the loop is stable only when Kp exceeds m g l, 9.81 in the slider’s ' +
       'units. The derivative term can shape the recovery but cannot create a restoring torque the ' +
       'proportional term does not supply, so below the threshold nothing holds the pole upright.\', cite: ' +

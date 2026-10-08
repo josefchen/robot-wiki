@@ -225,10 +225,12 @@ test.describe('prediction step (PredictThenReveal)', () => {
       // interactive root (a figure frame) is the element directly after the
       // hint, and its chart is visible at settle without answering.
       // textContent for the readout: a figure may keep its exact readout in
-      // its own closed "How this was made" fold.
+      // its own closed "How this was made" fold. The drawing is read from
+      // the stage, since an icon inside the closed "Adjust more" fold can
+      // come first in document order.
       const figure = predictFigure.locator(':scope > [data-reveal-hint] + *');
       await expect(figure).toBeVisible();
-      await expect(figure.locator('svg').first()).toBeVisible();
+      await expect(figure.locator('[data-figure-stage] svg').first()).toBeVisible();
       const figureText = await figure.textContent();
       expect(figureText, `${placement.route}: figure missing under the hint`).toMatch(
         placement.mountedReadout,
@@ -245,7 +247,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
       await expect(reveal).not.toHaveAttribute('open');
       // The figure is drawn with the reasoning still closed.
       const figure = root.locator(':scope > [data-predict-figure] > [data-reveal-hint] + *');
-      const svg = figure.locator('svg').first();
+      const svg = figure.locator('[data-figure-stage] svg').first();
       await expect(svg).toBeVisible();
       const box = await svg.boundingBox();
       expect(box?.width ?? 0).toBeGreaterThan(0);
@@ -269,7 +271,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
         const summary = reveal.locator(':scope > summary');
         const figureSvg = root
           .locator(':scope > [data-predict-figure] > [data-reveal-hint] + *')
-          .locator('svg')
+          .locator('[data-figure-stage] svg')
           .first();
         // The figure is already shown before the reader opens anything.
         await expect(figureSvg).toBeVisible();
