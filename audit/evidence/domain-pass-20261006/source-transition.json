@@ -3,7 +3,7 @@
   "name": "domain-pass-20261006",
   "reviewedBy": "implementation worker for the opus-pass domain passes of 2026-10-06 (not independent acceptance)",
   "rationale": "The opus-pass domain passes rewrite each article from the owner's verified draft: shorter prose, at least 30 cited sources, no Callout or Aside boxes, every non-OK audit finding fixed. Each rewrite is recorded here as exact edits over the bytes the article had before the pass. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, its frontmatter differs only by appended citation ids, every citation it had is still cited and every figure and component mount is unchanged, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-08T16:39:16Z",
+  "observedAt": "2026-10-08T21:23:27Z",
   "sources": [
     {
       "archivedFrom": "8d03b39a6a04cab51d863b586bb2e1156bf137cd",
@@ -85,8 +85,8 @@
       },
       "after": {
         "path": "content/classical/control.mdx",
-        "bytes": 20019,
-        "sha256": "2dd6f23a17d56e87c9ab596e54f7c088117c6d89f56904ca8d94db23808f95ec"
+        "bytes": 20015,
+        "sha256": "5deb9961e56c1c5f4cfa3847fe479cddf795e00f255874e4276841e8953b9ba3"
       },
       "edits": [
         {
@@ -103,7 +103,7 @@
         },
         {
           "before": "      label: 'Kp must clear the weight threshold, about 9.8 here; below it the pole falls no matter how high the damping',\n      why: 'Linearized about upright, the loop is stable only when Kp exceeds m g l, 9.81 in the slider’s units. The derivative term can shape the recovery but cannot create a restoring torque the proportional term does not supply, so below the threshold nothing holds the pole up.',\n",
-          "after": "      label: 'Kp must clear the weight threshold, about 9.8 here; below it the pole cannot stay upright, however high the damping',\n      why: 'Linearized about upright, the loop is stable only when Kp exceeds m g l, 9.81 in the slider’s units. The derivative term can shape the recovery but cannot create a restoring torque the proportional term does not supply, so below the threshold nothing holds the pole upright.',\n"
+          "after": "      label: 'Kp must clear the weight threshold, about 9.8 here; below it the pole cannot stay upright, even at high damping',\n      why: 'Linearized about upright, the loop is stable only when Kp exceeds m g l, 9.81 in the slider’s units. The derivative term can shape the recovery but cannot create a restoring torque the proportional term does not supply, so below the threshold nothing holds the pole upright.',\n"
         },
         {
           "before": "      why: 'This is the expectation the lab exists to break. Proportional action generates corrective torque from error, and below the gravity torque the correction is always outrun: the mounted figure sits half a unit under the threshold and the status reads fallen within seconds of Run.'\n",

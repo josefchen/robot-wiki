@@ -237,7 +237,7 @@ test('all affected optimal and OMPL citation occurrences expose bounded metadata
     'stomp-2011', 'trajopt-ijrr-2014', 'curobo-2023', 'industrial-curobo-2025', 'mr-pop-2026', 'hauser-shortcut-2010',
     'moveit-trajectory-processing-2026', 'moveit-time-parameterization-2026', 'moveit-pro-10-1-2026', 'mpinets-2022',
     'neural-mp-2024', 'deep-reactive-policy-2025', 'mayne-2000', 'diffusion-policy-2023', 'totg-2012', 'ruckig-2021',
-    'curobo-v2-2026',
+    'curobo-v2-2026', 'neural-motion-planner-survey-2026',
   ];
   expect(await page.locator('[data-reference-id]').evaluateAll(els => els.map(el => el.getAttribute('data-reference-id')))).toEqual(expectedIds);
   await e.textCapture(page.locator('section[aria-labelledby="references-heading"]'), 'complete-references');

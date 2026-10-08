@@ -69,6 +69,10 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       await document.fonts.ready;
       await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
     });
+    // The error budget is a lazy mount that hydrates after the page shell.
+    // A screenshot hides the caret with an inline style on every input, and
+    // one taken before the budget hydrates shows up as a hydration mismatch.
+    await waitForHydration(page.getByTestId('perception-handeye-slider'));
     const prose = page.locator('div.prose[data-pagefind-body]');
     const fontRoles = await page.evaluate(() => {
       const selectors = ['h1', '[data-testid="perception-target-note"]', 'div.prose[data-pagefind-body] > p', '[data-testid="perception-total-readout"]'];

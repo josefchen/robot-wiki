@@ -115658,7 +115658,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/control moved from 0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b to 226f39274b3146abbead5513d21aa36e330b63379ecb087dcbce5f0fe89d94f1 exactly as approved delta domain-pass-20261008-sweep-prose-control permits: Classical pass of 2026-10-08 on classical/control, sweep item C.R3: the impedance paragraph that ends with the diffusion-based impedance learner gains one sentence, \"Intrinsic, which ran the 2026 AI for Industry Challenge, reports that 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines such as spiral searches, using force-torque feedback\", cited to intrinsic-ai-for-industry-challenge-2026 (Intrinsic's post of 22 Sep 2026, read 2026-10-08, which names spiral searches and the workcell's high-frequency force and torque sensor feedback). No other text changes. The edge starts from the sealed bytes and reconciles the member's 29 earlier approved edges exactly.",
+      "actual": "prose member article:classical/control moved from 0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b to 259a90c04c8f301ed0eeaceb268889ed8bce047ea7dd79b4fb9cf83d120759e8 exactly as approved delta domain-pass-20261008-option-length-prose-control permits: Classical pass of 2026-10-08 on classical/control: the correct answer of the pendulum prediction ended \"below it the pole cannot stay upright, however high the damping\" and now ends \"even at high damping\". The longer ending made it the longest of its three options, which raised the number of prediction steps and self-checks whose correct option is the longest to 11 of 21, past the half that VAL-EDU-017 allows (tests/e2e/predict-then-reveal.spec.ts). The answer is now 111 characters against a 113-character distractor and keeps its 20 words, its meaning and its citation. No other text changes. The edge starts from the sealed bytes and reconciles the member's 30 earlier approved edges exactly.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -115670,9 +115670,9 @@
           "manifest": "prose",
           "member": "article:classical/control",
           "baselineHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
-          "currentHash": "226f39274b3146abbead5513d21aa36e330b63379ecb087dcbce5f0fe89d94f1",
+          "currentHash": "259a90c04c8f301ed0eeaceb268889ed8bce047ea7dd79b4fb9cf83d120759e8",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261008-sweep-prose-control"
+          "approvedDelta": "domain-pass-20261008-option-length-prose-control"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -144395,7 +144395,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/control/ rendered no v1 identity spelling and no v1 descriptor in 54259 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/control/ rendered no v1 identity spelling and no v1 descriptor in 54251 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",

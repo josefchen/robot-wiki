@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1519503, sha256: '355e0ccb0d98e757129276631d000605b0816e00e385da70e3ecbdfb208464ee' };
+const reviewPin = { bytes: 1520523, sha256: '676ca6985fcca70135b047179ed7437e5aa61a27d4f21c17aa40ec924a1d4b40' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -151,7 +151,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/chart-descriptions.spec.ts', [15766, '59699f9d3b85a780115a4c913bd52944808404fb5084d6679ef69917df482309']],
   ['tests/e2e/chart-state-descriptions.spec.ts', [24466, '00f085f82d74fadd2b1245c155efa5e09231412411e2d0c181406c8c0e242546']],
   ['tests/e2e/competing-theses.spec.ts', [9790, '42020e2d5dfb33bab2959e059998b9d79592453d522f6b9482e562b588682ed9']],
-  ['tests/e2e/control.spec.ts', [27282, 'fe4827332debf9bf81ac3636439c0e2da7573b616986e718790622dcd9ccf00f']],
+  ['tests/e2e/control.spec.ts', [27778, 'a55612829a2153a5b3fd9b53c34eb3ffa14abefc71eeff449580eb28bbcef8dd']],
   ['tests/e2e/data-bottleneck.spec.ts', [7827, 'aa6c97f41580e006c54cc443e728b00d2a6acc908da19a2fca857b6322e4bb1b']],
   ['tests/e2e/deviation-axis.spec.ts', [11582, '76ff839590df338a640e6cdb27338b2c49ca723d094dbd723ce1601048a244a9']],
   ['tests/e2e/dexterity.spec.ts', [13239, '67696d58645a36946d2ca3b71f5aacac3dc58394696688333760060aa8f111c4']],
@@ -183,13 +183,13 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/motion-data-hardware.spec.ts', [9234, '843c3d0146ed5a34b0f97d7b0889884afeac43d10045ec46fb5627d0af19d453']],
   ['tests/e2e/motion-frontier-adjacent-home.spec.ts', [9612, '60f0e13044bb551268f502e79acf1193989d8e61eaa0e269dad6edf2d0a9afe8']],
   ['tests/e2e/motion-manipulation.spec.ts', [5298, 'ddf0390c048325db5bacae0b0ad64f9e89deeb28289f21f3a3b8419d035e4f1a']],
-  ['tests/e2e/motion-planning.spec.ts', [17702, '7a02602111dd2f5659c90516dcb49e4b977e79f3d523f90a872eb190ca5a40c4']],
+  ['tests/e2e/motion-planning.spec.ts', [17893, '7552079a8db4715813e28ffbd42e9a3abd7fea819eaf698a751f5cc1e3eb1d2b']],
   ['tests/e2e/motion-world-models.spec.ts', [15214, 'fec15d25a91353c7ce6c3794696a948bf14cb994e53969f705e20a83cd2b07a2']],
   ['tests/e2e/parallel-sim-rl.spec.ts', [4252, 'e620f9f452d38d76c127ffbe391e6c6a140bbf4a098a69e5891c81ae9ed604ff']],
   ['tests/e2e/perception-depth-readers.spec.ts', [22377, '35d77ff776ad4f4ffdc847f515a435b3176282c418938db53c6fe4e900c0fbf5']],
   ['tests/e2e/perception.spec.ts', [37417, '7ad6e146b37c8b85d53dc66e169a5db76ec6d6e1d7229c208d8be73d5636a585']],
   ['tests/e2e/pi-helix-theses-readers.spec.ts', [3798, 'd4d426d40a5d6ab1020e7e955e2c4d0c10e55d1a04ae6ac062b763743f2d9686']],
-  ['tests/e2e/predict-then-reveal.spec.ts', [40893, '2ca19df1a64eff1fcd0c874c1e2b1e3e2b3f0d2224c5560e45955bf2331639aa']],
+  ['tests/e2e/predict-then-reveal.spec.ts', [41092, '8fe64fe8441b66d0564c12575262d8883fd94999f7d28d07aec41b334128b3da']],
   ['tests/e2e/randomization-reader-closeout.spec.ts', [19825, 'd08dc3cb2455f5ede0cf86a4e67a424fc117fca0d543e350ce05162b575dc02c']],
   ['tests/e2e/residual-release-classical.spec.ts', [9970, 'cc144bbf81ab277e9be9bbc920f0a98559efe6e44663cd637d1f4dc1bcf39955']],
   ['tests/e2e/residual-release-final-seven.spec.ts', [8515, 'ee12949e0a9d3dc52517e3639fa702c4c92f7014475d3a8784e7370f03d218c9']],

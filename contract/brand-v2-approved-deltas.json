@@ -69626,6 +69626,176 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-option-length-prose-control",
+      "manifest": "prose",
+      "memberId": "article:classical/control",
+      "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+      "newHash": "259a90c04c8f301ed0eeaceb268889ed8bce047ea7dd79b4fb9cf83d120759e8",
+      "reason": "Classical pass of 2026-10-08 on classical/control: the correct answer of the pendulum prediction ended \"below it the pole cannot stay upright, however high the damping\" and now ends \"even at high damping\". The longer ending made it the longest of its three options, which raised the number of prediction steps and self-checks whose correct option is the longest to 11 of 21, past the half that VAL-EDU-017 allows (tests/e2e/predict-then-reveal.spec.ts). The answer is now 111 characters against a 113-character distractor and keeps its 20 words, its meaning and its citation. No other text changes. The edge starts from the sealed bytes and reconciles the member's 30 earlier approved edges exactly.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149, applied to the pendulum prediction of audit item A41 with the option-set rules of VAL-EDU-017 kept as they are. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-137",
+        "VAL-EDU-017",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "control-r5-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r6-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r7-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r8-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r9-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r12-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r14-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r15-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r17-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r18-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r19-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r1-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r2-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r3-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r11-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r13-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r16-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "seo-20260824-prose-cb9819bd8941",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "cb9819bd89410c690abfd9d28151e3a776c02f2682be21a19bc26c6adbab3781"
+        },
+        {
+          "id": "paywall0917a-control-prose",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "5cd1041d01e82fc7fdb80072da6bb9b4b518a354f34c452088e0b25a846ff7da"
+        },
+        {
+          "id": "control-citation-20260924-prose",
+          "oldHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820",
+          "newHash": "2f6d4267bd07f34ca2c5acc683f5c4a3b29ae09d79e944b12e41983df5cccda0"
+        },
+        {
+          "id": "main-merge-20260924-control-prose",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "3c11df73fbabb49f9a6d8fe7626f9392f09b4558e107c9a2d51a4e683644d28c"
+        },
+        {
+          "id": "motion-classical-humanizer-v3-20260927-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "7ae2310f358c571397744a43cde65fe2ea18e6b924053b66b33deb0136f747e8"
+        },
+        {
+          "id": "opus-figure-migration-20261001-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "bdbe9512448bd44b43ff9111af8664b48dd08b8e94f5de045a3f364c798fc7be"
+        },
+        {
+          "id": "seo-pass-20261002-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "ee337ad9ed5a5c137d2513b634b6b1c41bd31fcd5164b34e623fd61ba4d6a1bc"
+        },
+        {
+          "id": "reader-first-20261003-predict-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "b63fd6c36aeab864ceec5692ba7ccab6eef8b86b97da08bad768bcadd64e946d"
+        },
+        {
+          "id": "domain-pass-20261006-g7-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "18cde4b4c9156cba07d6a44826a72f94ed7ee2fd8dc32aef440cdf7836ff6909"
+        },
+        {
+          "id": "domain-pass-20261006-g8-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "a4c1431aba5df3161ade49c2cb4a1b80bb49b65f651819c6433e7d703b36f3a8"
+        },
+        {
+          "id": "reader-first-20261008-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "4684f8ee3778513f601f8a8af6a7cf2364543cf0a44b76b397fbd540bad0c13f"
+        },
+        {
+          "id": "domain-pass-20261008-sweep-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "226f39274b3146abbead5513d21aa36e330b63379ecb087dcbce5f0fe89d94f1"
+        }
+      ]
     }
   ]
 }

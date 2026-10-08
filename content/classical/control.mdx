@@ -68,7 +68,7 @@ Control is the use of feedback to make a robot follow a reference, such as a [mo
   options={[
     {
       value: 'mgl-threshold',
-      label: 'Kp must clear the weight threshold, about 9.8 here; below it the pole cannot stay upright, however high the damping',
+      label: 'Kp must clear the weight threshold, about 9.8 here; below it the pole cannot stay upright, even at high damping',
       why: 'Linearized about upright, the loop is stable only when Kp exceeds m g l, 9.81 in the slider’s units. The derivative term can shape the recovery but cannot create a restoring torque the proportional term does not supply, so below the threshold nothing holds the pole upright.',
       cite: 'tedrake-underactuated'
     },

@@ -3,7 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 import { writeFileSync } from 'node:fs';
 import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
-import { openAdjustMore } from './helpers/figure-fold';
+import { figureFold, openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/classical/control/';
 
@@ -597,11 +597,19 @@ test.describe('classical control module', () => {
 
     // Every enabled control is tab-reachable in visual order with a
     // visible focus indicator (the design system's accent outline). The
-    // depth slider sits in "Adjust more", which a reader opens first.
-    await openAdjustMore(lab);
+    // depth slider is the first control in "Adjust more": a keyboard
+    // reader opens the fold from its summary and tabs on to it. A mouse
+    // click would leave Chromium in pointer modality, where a slider
+    // focused afterwards shows no focus-visible ring.
+    await waitForHydration(lab.getByTestId('impedance-stiffness-slider'));
+    const fold = figureFold(lab, 'adjust');
+    await fold.locator(':scope > summary').focus();
+    await page.keyboard.press('Enter');
+    await expect(fold).toHaveJSProperty('open', true);
     const focusTrace: string[] = [];
     const depth = lab.getByTestId('impedance-depth-slider');
-    await depth.focus();
+    await page.keyboard.press('Tab');
+    await expect(depth).toBeFocused();
     focusTrace.push('depth');
     const outline = await depth.evaluate((el) =>
       window.getComputedStyle(el).outlineStyle,
