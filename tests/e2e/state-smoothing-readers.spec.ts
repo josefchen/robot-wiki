@@ -211,7 +211,7 @@ test('state scene transport and seeded readout retain keyboard paths', async ({ 
     await page.keyboard.press('Tab'); await expect(close).toBeFocused(); await e.capture('state-drawer'); await e.axe('[role="dialog"]', 'drawer-axe');
     await page.keyboard.press('Escape'); await expect(dialog).toHaveCount(0); await expect(menu).toBeFocused();
   }
-  const scene = page.getByRole('group', { name: 'Motion scene: Kalman filter: predict and update' });
+  const scene = page.getByRole('group', { name: 'Motion scene: Kalman filter: guess, measure, blend' });
   await expect(scene.getByTestId('motion-beat-readout')).toHaveText('5 / 5');
   await expect(scene.getByTestId('kalman-gain-value')).toHaveText('0.62');
   await expect(scene).toContainText('seed 1');
@@ -225,13 +225,13 @@ test('state scene transport and seeded readout retain keyboard paths', async ({ 
   await scrubber.focus(); await page.keyboard.press('Home');
   await expect(scene.getByTestId('motion-beat-readout')).toHaveText('1 / 5');
   // A beat boundary belongs to the beat it completes: the first arrow
-  // reaches beat 1's end-state, the second reaches Predict's end-state.
+  // reaches beat 1's end-state, the second reaches Measure's end-state.
   await page.keyboard.press('ArrowRight');
   await expect(scene.getByTestId('motion-beat-readout')).toHaveText('1 / 5');
   await page.keyboard.press('ArrowRight');
   await expect(scene.getByTestId('motion-beat-readout')).toHaveText('2 / 5');
-  await expect(scene.getByTestId('motion-caption')).toContainText('Predict:');
-  await e.capture('kalman-predict-beat');
+  await expect(scene.getByTestId('motion-caption')).toContainText('Measure:');
+  await e.capture('kalman-measure-beat');
   await page.keyboard.press('End');
   await expect(scene.getByTestId('motion-beat-readout')).toHaveText('5 / 5');
   await openAdjustMore(scene);

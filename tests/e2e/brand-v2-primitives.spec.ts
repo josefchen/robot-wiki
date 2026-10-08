@@ -333,7 +333,6 @@ test.describe('brand-v2 shared primitive registry', () => {
 
     const swept = await sweep(page, staticBase);
     let measured = 0;
-    let marks = 0;
     for (const [route, observation] of swept.byRoute) {
       measured += observation.surfaces.length;
       const unannotated = observation.surfaces
@@ -359,13 +358,32 @@ test.describe('brand-v2 shared primitive registry', () => {
       // carries no content of its own; the exclusion is re-derived here so a
       // real content plane cannot hide behind it.
       for (const mark of observation.marks) {
-        marks += 1;
         expect(mark.textLength, describe(mark)).toBe(0);
         expect(mark.childElementCount, describe(mark)).toBe(0);
       }
     }
     expect(measured, 'surface population over the swept routes').toBeGreaterThan(0);
-    expect(marks, 'excluded mark population must stay observable').toBeGreaterThan(0);
+    // The public routes may render no mark at all (the last one, the Kalman
+    // legend's gain dot, left with that figure's legend). The exclusion stays
+    // observable on a probe: an empty painted dot is a mark, and the same dot
+    // holding text is an unregistered surface the gate above would refuse.
+    await page.setContent(
+      '<body style="background:rgb(255,255,255)">' +
+        '<span id="probe-mark" style="display:inline-block;width:10px;height:10px;border-radius:9999px;background:rgb(200,40,40)"></span>' +
+        '<span id="probe-plane" style="display:inline-block;width:40px;height:20px;border-radius:9999px;background:rgb(200,40,40)">x</span>' +
+        '</body>',
+    );
+    const probe = await page.evaluate(discoverBrandPrimitives);
+    expect(
+      probe.marks.map(({ outline }) => outline),
+      'an empty painted dot is an excluded mark',
+    ).toEqual([expect.stringContaining('probe-mark')]);
+    expect(
+      probe.surfaces
+        .filter(({ registeredId }) => registeredId === null)
+        .map(({ outline }) => outline),
+      'the same dot holding text is an unregistered surface',
+    ).toEqual([expect.stringContaining('probe-plane')]);
     expect(
       [...renderedOn(swept, (observation) =>
         observation.surfaces.map(({ registeredId }) => registeredId),

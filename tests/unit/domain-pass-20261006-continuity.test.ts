@@ -71,6 +71,36 @@ describe('domain pass 2026-10-06 article successors', () => {
     expect(keepsDomainPassObligations('components/x.tsx', prior, rewritten)).toBe(false);
   });
 
+  it('admits only the exact Stat corrections the classical sweep named, on their own article', () => {
+    const stat = (attributes: string) => [
+      '---', 'title: "K"', 'citations:', '  - a-2020', '---', '', `<${attributes} />`, '', 'Text <Cite id="a-2020" />.', '',
+    ].join('\n');
+    const prior = stat('Stat label="SO-101 revolute joints" value="6" note="the arm in the 3D playground"');
+    const fixed = stat('Stat label="SO-101 arm joints" value="5" note="plus a gripper, in the 3D playground"');
+    expect(keepsDomainPassObligations('content/classical/kinematics.mdx', prior, fixed)).toBe(true);
+    // The same swap on another article, or any other value on the named one, is still a changed mount.
+    expect(keepsDomainPassObligations('content/classical/control.mdx', prior, fixed)).toBe(false);
+    expect(keepsDomainPassObligations('content/classical/kinematics.mdx', prior, fixed.replace('value="5"', 'value="4"')))
+      .toBe(false);
+    expect(keepsDomainPassObligations('content/classical/kinematics.mdx', fixed, prior)).toBe(false);
+  });
+
+  it('admits the corrected pendulum prediction exactly, and only on control', () => {
+    const path = 'content/classical/control.mdx';
+    const source = review.sources.find(({ after }) => after.path === path)!;
+    const live = read(path);
+    const prediction = (bytes: Buffer) => String(bytes).match(/<PredictThenReveal\b[^>]*>/)![0];
+    const article = (mount: string) => ['---', 'title: "C"', '---', '', mount, '', '</PredictThenReveal>', ''].join('\n');
+    const prior = article(prediction(domainPassPredecessor(root, source.before, live)));
+    const fixed = article(prediction(live));
+    expect(fixed).not.toEqual(prior);
+    expect(keepsDomainPassObligations(path, prior, fixed)).toBe(true);
+    // The same swap on another article, a partial one or its reverse is still a changed mount.
+    expect(keepsDomainPassObligations('content/classical/kinematics.mdx', prior, fixed)).toBe(false);
+    expect(keepsDomainPassObligations(path, prior, fixed.replace('sags to a steep lean', 'falls'))).toBe(false);
+    expect(keepsDomainPassObligations(path, fixed, prior)).toBe(false);
+  });
+
   it('rejects a review that drifted from its pinned bytes', () => {
     const tmp = mkdtempSync(join(tmpdir(), 'domain-pass-continuity-test-'));
     scratchRoots.push(tmp);

@@ -277,7 +277,7 @@
         "components/motion/scenes/kalman-predict-update.tsx",
         "lib/kalman.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Mixing the robot's own guess of where it is with a noisy sensor reading gives an estimate surer than either one alone."
     },
     {
       "id": "classical--grasp-planning--grasp-wrench-lab",
@@ -479,7 +479,7 @@
         "components/interactive/rrt-explorer.tsx",
         "lib/rrt.ts"
       ],
-      "takeaway": ""
+      "takeaway": "The robot's search grows random branches into open space until one reaches the goal, and that branch is the path around the obstacles."
     },
     {
       "id": "classical--control--pendulum-controller",
@@ -491,7 +491,7 @@
         "components/interactive/pendulum-controller.tsx",
         "lib/pendulum.ts"
       ],
-      "takeaway": ""
+      "takeaway": "To hold the pole upright the motor must push back harder than gravity pulls; push too gently and the pole sags over."
     },
     {
       "id": "classical--control--impedance-contact-lab",
@@ -504,7 +504,7 @@
         "lib/force-limits.ts",
         "lib/impedance.ts"
       ],
-      "takeaway": ""
+      "takeaway": "An arm that controls how hard it pushes can be set soft enough to touch a fragile object without crushing it; a stiff arm that only follows a position cannot."
     },
     {
       "id": "classical--perception--perception-error-budget",
@@ -516,7 +516,7 @@
         "components/interactive/perception-error-budget.tsx",
         "lib/perception-error.ts"
       ],
-      "takeaway": ""
+      "takeaway": "A camera tilted a fraction of a degree off makes the robot miss, and the miss grows the farther away the object is."
     },
     {
       "id": "classical--scene-representation--scene-representation-ladder",
@@ -705,7 +705,7 @@
         "components/interactive/planar-fk-arm.tsx",
         "lib/planar-fk.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Turning the shoulder swings the whole rest of the arm, hand included, along with it."
     },
     {
       "id": "classical--state-estimation--clip-kalman-episode",
@@ -717,7 +717,7 @@
         "motion-clips.json",
         "scripts/motion/clips/kalman_episode.py"
       ],
-      "takeaway": ""
+      "takeaway": "Even with noisy readings that sometimes drop out, the filter tracks the target, and it grows less sure while readings are missing."
     },
     {
       "id": "classical--calibration--calibration-chain",
@@ -728,7 +728,7 @@
       "sources": [
         "components/interactive/calibration-chain.tsx"
       ],
-      "takeaway": "An error in any link between the robot, its camera and its gripper moves where the gripper lands."
+      "takeaway": "A wrong measurement anywhere between the arm, the camera and the hand moves where the hand lands."
     },
     {
       "id": "classical--ros2-for-ml-engineers--ros2-policy-layout",
@@ -739,7 +739,7 @@
       "sources": [
         "components/interactive/ros2-policy-layout.tsx"
       ],
-      "takeaway": "The learned model never drives the motors itself: its commands pass through one gate first."
+      "takeaway": "The AI never drives the motors itself: every move it suggests passes a safety check first."
     }
   ]
 }

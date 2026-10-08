@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/classical/state-estimation/",
+  "mount": "clip:kalman-episode",
+  "screenshots": {
+    "375": "evidence/reader-first/classical--state-estimation--clip-kalman-episode.375.png",
+    "1280": "evidence/reader-first/classical--state-estimation--clip-kalman-episode.1280.png"
+  },
+  "takeaway": "Even with noisy readings that sometimes drop out, the filter tracks the target, and it grows less sure while readings are missing.",
+  "sentence": "Over a whole run, even when the sensor readings are noisy and sometimes missing, the filter's line stays close to the true path.",
+  "unclearTerms": [
+    "filter's track",
+    "the light blue band around the track",
+    "the green shaded wedge under the arrow where the band widens",
+    "the target (what is being tracked?)",
+    "what the horizontal and vertical directions of the chart represent (no axis labels)",
+    "the large dot at the right end of the track"
+  ],
+  "samePoint": "no",
+  "reason": "I caught that the filter tracks well despite noisy, missing readings, but I left out that it grows less sure while readings are missing, so my point was partial.",
+  "verdict": "fail",
+  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "date": "2026-10-08",
+  "reviewerSession": "reader-session-ec98138f",
+  "sourceDigest": "bbddee53453d2c97647bcf4b7120235a7a98007cf365d2c02347ed85918993a5"
+}

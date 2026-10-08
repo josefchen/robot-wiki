@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/classical/perception/",
+  "mount": "mount:/classical/perception/:PerceptionErrorBudget:1",
+  "screenshots": {
+    "375": "evidence/reader-first/classical--perception--perception-error-budget.375.png",
+    "1280": "evidence/reader-first/classical--perception--perception-error-budget.1280.png"
+  },
+  "takeaway": "A camera tilted a fraction of a degree off makes the robot miss, and the miss grows the farther away the object is.",
+  "sentence": "If a robot's camera is tilted even slightly, the robot reaches to the wrong spot, and the error grows the farther away the object is.",
+  "unclearTerms": [
+    "the green line going up from the object toward the label: is it the hand, a measurement, or just a pointer?",
+    "the open green circle on the blue line",
+    "how 4.4 millimetres off fits with the picture, where the gap looks large",
+    "Adjust more"
+  ],
+  "samePoint": "yes",
+  "reason": "My sentence says a slight camera tilt makes the robot miss and the miss grows with distance, which matches the subject and the trend.",
+  "verdict": "fail",
+  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "date": "2026-10-08",
+  "reviewerSession": "reader-session-3ddc4e3a",
+  "sourceDigest": "acc37b8abe4ba4bef1653e474218f5a82d56b92bd954cc9a0c261df0739b16ff"
+}

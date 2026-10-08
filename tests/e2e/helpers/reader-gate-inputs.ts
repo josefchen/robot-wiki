@@ -17,7 +17,7 @@ export const READER_LANES = {
       'tests/e2e/motion-three-reader-closeout.spec.ts',
       'tests/e2e/rrt-date-readers.spec.ts',
     ],
-    helpers: ['tests/e2e/helpers/motion-planning-offline-fixture.ts', ORACLE, SELF],
+    helpers: ['tests/e2e/helpers/motion-planning-offline-fixture.ts', ORACLE, 'tests/e2e/helpers/figure-fold.ts', SELF],
   },
   'state-smoothing': {
     specs: ['tests/e2e/state-estimation.spec.ts', 'tests/e2e/state-smoothing-readers.spec.ts'],

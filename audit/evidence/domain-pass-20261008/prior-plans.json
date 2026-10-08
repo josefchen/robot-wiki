@@ -1,0 +1,66 @@
+{
+  "schema": "domain-pass-20261008-prior-plans-v1",
+  "recordedOn": "2026-10-08",
+  "note": "The compound plan of audit/classical.md kinematics row 7, retained verbatim (no field changed) after the 2026-10-08 classical pass restated the Jacobian columns in Modern Robotics' screw-axis form; its successor is kinematics-7-jacobian-screw-20261008.",
+  "plans": [
+    {
+      "id": "kinematics-7-jacobian-20260915",
+      "ledgerPath": "audit/classical.md",
+      "articleSlug": "kinematics",
+      "rowOrdinal": 7,
+      "originalCellsDigest": "610ae90f35dbea1569450402c915edad044d1688cbb3435f3f2788b62d8738fd",
+      "kind": "explicit-parts",
+      "parts": [
+        {
+          "id": "jacobian-linear-map",
+          "text": "The Jacobian maps joint velocities to end-effector velocity, one column per joint, each column the contribution of that joint at unit speed with all others zero.",
+          "requiredCitationIds": [
+            "modern-robotics-2017"
+          ]
+        },
+        {
+          "id": "jacobian-column-form-local",
+          "text": "The article's geometric column form (revolute: z_i x (p_ee - p_i) stacked over z_i; prismatic: its axis) is consistent with lib/ik.ts and with the 5.1.1 screw-axis column derivation, but the cross-product form itself is a local-AND item, not a verbatim fetched sentence.",
+          "requiredCitationIds": [
+            "modern-robotics-2017"
+          ]
+        }
+      ],
+      "planReview": {
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993, model review pass, reasoning effort max)",
+        "rationale": "Packet record kinematics:7 (ready-source-correction-with-local-AND): jacobian-linear-map needle-verified FULL; jacobian-column-form-local re-proven against lib/ik.ts at HEAD b082ad8. Integrator review 2026-09-15T18:58:29Z: packet plan reviewed; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see integration lane needle-verification.json; 20/21 FULL, the so101-six-revolute item verified literally against the sha256-matched retained URDF receipt); citation ids confirmed registered; zero retrieval by this integrator. Local-AND re-proven this session at HEAD b082ad8: lib/ik.ts builds each revolute Jacobian column as cross(joint.axisWorld, sub(eePosition, joint.position)), i.e. z_i x (p_ee - p_i); pinned in tests/unit/kinematics-originals.test.ts. Zero retrieval performed by this integrator.",
+        "planDigest": "3a8253714cff446aa1e7e8a01dc3f5419454f5fe9fdf3cf50ecc293c5a849fd1"
+      },
+      "evidence": [
+        {
+          "partId": "jacobian-linear-map",
+          "citationId": "modern-robotics-2017",
+          "sourceUrl": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-1-1-space-jacobian/",
+          "supportingPassage": "The Jacobian J maps the joint velocities to v_tip. For this 2R robot, the Jacobian has two columns, one for each joint, which we call J_1 and J_2. Each column is the contribution to v_tip when the speed at that joint is 1 and the speed at all other joints is zero."
+        },
+        {
+          "partId": "jacobian-column-form-local",
+          "citationId": "modern-robotics-2017",
+          "sourceUrl": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-1-1-space-jacobian/",
+          "supportingPassage": "Any other column i of the space Jacobian is given by the screw axis S_i premultiplied by the transformation that expresses the screw axis in the {s} frame for arbitrary joint positions."
+        }
+      ],
+      "adjudications": [
+        {
+          "partId": "jacobian-linear-map",
+          "outcome": "supported",
+          "reviewedBy": "kinematics-integrator-20260915 (session 6692d993, model review pass, reasoning effort max)",
+          "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-1-1-space-jacobian/",
+          "evidenceDigest": "eeef5f29dc8f93d39e0b205e50bacf25deaa550476340d3a3f30b58cec3035da"
+        },
+        {
+          "partId": "jacobian-column-form-local",
+          "outcome": "supported",
+          "reviewedBy": "kinematics-integrator-20260915 (session 6692d993, model review pass, reasoning effort max)",
+          "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-1-1-space-jacobian/",
+          "evidenceDigest": "237be7c35350bbe4e6fca131602bcabcf99060deae547622fdaa35ae5bef1b7b"
+        }
+      ]
+    }
+  ]
+}

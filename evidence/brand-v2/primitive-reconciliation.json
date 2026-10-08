@@ -455,16 +455,18 @@
     },
     "control:primary-action": {
       "kind": "controls",
-      "fingerprint": "2dbe3654a750213b958605ff60b131aa256ce56b5ac0a0ad504f2ad7860b743e",
+      "fingerprint": "8b6d7f4e487134d8bc2a83a30b7e885523b5d16c1b52862e15cec9223b3613ef",
       "mountState": "production",
       "definedIn": [
         "components/explainers/how-robots-work.tsx",
+        "components/motion/clip.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
         "components/ui/action.tsx"
       ],
       "ownerRouteOrMount": [
         "components/explainers/how-robots-work.tsx",
+        "components/motion/clip.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
         "components/ui/action.tsx"
@@ -653,6 +655,8 @@
       ],
       "renderedOn": [
         "/adjacent/drones/",
+        "/classical/control/",
+        "/classical/kinematics/",
         "/data-hardware/data-bottleneck/",
         "/data-hardware/evaluation-crisis/",
         "/data-hardware/industrial-deployment/",
@@ -749,7 +753,7 @@
         "/adjacent/drones/",
         "/classical/calibration/",
         "/classical/control/",
-        "/classical/perception/",
+        "/classical/kinematics/",
         "/classical/ros2-for-ml-engineers/",
         "/classical/scene-representation/",
         "/data-hardware/data-bottleneck/",

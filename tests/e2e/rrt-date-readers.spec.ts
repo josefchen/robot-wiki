@@ -4,6 +4,7 @@ import { writeFileSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { ownedEvidencePath } from './helpers/keypoint-reader-oracle';
 import { readerGateInputs } from './helpers/reader-gate-inputs';
+import { openAdjustMore } from './helpers/figure-fold';
 
 test('RRT report correction, bibliography date and full configuration-space definition render together', async ({ page }, info) => {
   const states: object[] = [];
@@ -99,11 +100,15 @@ test('RRT report correction, bibliography date and full configuration-space defi
   // Tab exit is tested here; this is not a claim to repair the separate Term Escape debt.
   const slider = page.getByRole('slider', { name: /exploration iteration/i });
   await slider.evaluate(el => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
+  // The figure opens on the finished tree; Reset sits in "Adjust more" and returns to it.
+  await expect(page.getByTestId('rrt-node-readout')).toHaveText('289');
+  await slider.focus(); await page.keyboard.press('Home');
   await expect(page.getByTestId('rrt-node-readout')).toHaveText('1');
-  await slider.focus(); await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('ArrowRight');
   await expect(page.getByTestId('rrt-node-readout')).toHaveText('2');
+  await openAdjustMore(page.locator('[data-figure-frame="rrt-explorer"]'));
   await page.getByRole('button', { name: 'Reset', exact: true }).click();
-  await expect(page.getByTestId('rrt-node-readout')).toHaveText('1');
+  await expect(page.getByTestId('rrt-node-readout')).toHaveText('289');
   await capture('unchanged-toy-controls');
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
   expect(overflow).toBeLessThanOrEqual(0);

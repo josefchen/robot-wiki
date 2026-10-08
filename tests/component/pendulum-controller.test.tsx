@@ -1,7 +1,11 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { JSDOM } from 'jsdom';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { PendulumController } from '@/components/interactive/pendulum-controller';
+import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
+import { mainViewSymbolHits } from '@/lib/figure-main-view';
 import { DEFAULT_GAINS, PENDULUM_PARAMS } from '@/lib/pendulum';
 
 /** Escape a literal string for embedding in a RegExp. */
@@ -91,7 +95,7 @@ describe('PendulumController', () => {
       screen.getByRole('button', { name: /run the simulation/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: /push the pole/i }),
+      screen.getByRole('button', { name: /give it a push/i }),
     ).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
     for (const id of [
@@ -167,7 +171,7 @@ describe('PendulumController', () => {
   it('push kicks the pole and starts playback from paused', () => {
     vi.useFakeTimers();
     render(<PendulumController />);
-    fireEvent.click(screen.getByRole('button', { name: /push the pole/i }));
+    fireEvent.click(screen.getByRole('button', { name: /give it a push/i }));
     // Playback starts so the kick's effect is visible.
     expect(
       screen.getByRole('button', { name: /pause the simulation/i }),
@@ -346,6 +350,66 @@ describe('PendulumController', () => {
     });
     expect(angleText()).not.toBe(frozen);
   });
+
+  it('opens on the motor pushing back against gravity, with no outcome shown yet', () => {
+    const { container } = render(<PendulumController defaultKp={9.5} />);
+    expect(screen.getByTestId('pendulum-motor')).toBeInTheDocument();
+    expect(screen.getByTestId('pendulum-push-arrow')).toBeInTheDocument();
+    expect(screen.getByTestId('pendulum-gravity-arrow')).toHaveTextContent('gravity');
+    expect(container.querySelector('[data-figure-annotation]')?.textContent).toBe(
+      'Gravity tips it over;the motor at the basepushes back',
+    );
+    expect(screen.queryByTestId('pendulum-stage-status')).toBeNull();
+    expect(screen.queryByTestId('pendulum-trail')).toBeNull();
+    expect(screen.getByRole('button', { name: 'Too gentle' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: 'Strong enough' })).toHaveAttribute('aria-pressed', 'false');
+  });
+
+  it('sizes the push-back arc by the motor torque', () => {
+    const sweep = (kp: number) => {
+      const { unmount } = render(<PendulumController defaultKp={kp} />);
+      const value = Number(screen.getByTestId('pendulum-push-arrow').getAttribute('data-push-sweep-deg'));
+      unmount();
+      return value;
+    };
+    expect(sweep(25)).toBeGreaterThan(sweep(9.5) * 2);
+  });
+
+  it('a correction strength releases the pole again and runs it to its outcome', () => {
+    vi.useFakeTimers();
+    render(<PendulumController defaultKp={9.5} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Too gentle' }));
+    expect(screen.getByRole('button', { name: /pause the simulation/i })).toBeInTheDocument();
+    act(() => {
+      vi.advanceTimersByTime(6000);
+    });
+    // Just under the threshold the pole comes to rest about 50 degrees off
+    // upright: settled, but the stage must not call that balanced.
+    expect(statusText()).toBe('settled');
+    expect(angleDeg()).toBeGreaterThan(45);
+    expect(screen.getByTestId('pendulum-stage-status')).toHaveTextContent('stuck leaning');
+    expect(screen.getByTestId('pendulum-trail')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Strong enough' }));
+    expect(screen.getByTestId('pendulum-gain-kp-value')).toHaveTextContent(DEFAULT_GAINS.kp.toFixed(1));
+    expect(screen.getByRole('button', { name: 'Strong enough' })).toHaveAttribute('aria-pressed', 'true');
+    act(() => {
+      vi.advanceTimersByTime(6000);
+    });
+    expect(statusText()).toBe('settled');
+    expect(Math.abs(angleDeg())).toBeLessThan(6);
+    expect(screen.getByTestId('pendulum-stage-status')).toHaveTextContent('balanced');
+  });
+
+  it('calls a pole that falls past the line fallen over on the stage', () => {
+    vi.useFakeTimers();
+    render(<PendulumController defaultKp={5} />);
+    fireEvent.click(screen.getByRole('button', { name: /give it a push/i }));
+    act(() => {
+      vi.advanceTimersByTime(6000);
+    });
+    expect(statusText()).toBe('fallen');
+    expect(screen.getByTestId('pendulum-stage-status')).toHaveTextContent('fallen over');
+  });
 });
 
   it('derives the takeaway from live gains and playback state, not the mount default', () => {
@@ -378,9 +442,25 @@ describe('PendulumController', () => {
       vi.advanceTimersByTime(400);
     });
     expect(read()).not.toMatch(/frozen/);
-    // Pausing freezes them again, and Run or Push is what unfreezes them.
+    // Pausing freezes them again, and the two buttons that unfreeze them
+    // are named as they print.
     fireEvent.click(
       screen.getByRole('button', { name: /pause the simulation/i }),
     );
-    expect(read()).toMatch(/frozen until Run or Push/);
+    expect(read()).toMatch(/frozen until Run or Give it a push\./);
+    expect(screen.getByRole('button', { name: 'Give it a push' })).toBeInTheDocument();
   });
+
+describe('PendulumController served HTML', () => {
+  const html = `<!doctype html><html><body><main>${renderToStaticMarkup(
+    <PendulumController defaultKp={9.5} />,
+  )}</main></body></html>`;
+
+  it('passes the figure-system check and shows no symbol or bare unit in the main view', () => {
+    const { figures, violations } = inspectFigureDocument(html, '/classical/control/');
+    expect(figures).toEqual(['pendulum-controller']);
+    expect(violations.map(formatViolation)).toEqual([]);
+    const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
+    expect(mainViewSymbolHits(frame)).toEqual([]);
+  });
+});

@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import { Clip } from '@/components/motion/clip';
 import { getMotionClip } from '@/lib/motion-clips';
 
@@ -85,7 +85,63 @@ describe('<Clip>', () => {
   it('shows the status vocabulary and the teaching sentence', () => {
     render(<Clip id="kalman-episode" />);
     expect(screen.getByText(clip.teaches)).toBeVisible();
-    expect(document.body.textContent).toContain(clip.status);
+    expect(screen.getByText(clip.statusNote)).toBeVisible();
+    expect(clip.statusNote.toLowerCase()).toContain(clip.status);
+  });
+
+  it('heads the frame with the kicker and the takeaway headline', () => {
+    render(<Clip id="kalman-episode" />);
+    const frame = screen.getByRole('region', {
+      name: `Cinematic clip: ${clip.title}`,
+    });
+    expect(
+      frame.querySelector('[data-figure-kicker]')?.textContent,
+    ).toBe(clip.kicker);
+    expect(
+      frame.querySelector('[data-figure-heading]')?.textContent,
+    ).toContain(clip.headline);
+  });
+
+  it('keeps the method in the "How this was made" fold', () => {
+    render(<Clip id="kalman-episode" />);
+    const fold = screen.getByText('How this was made').closest('details');
+    expect(fold).not.toBeNull();
+    expect(fold).not.toHaveAttribute('open');
+    for (const paragraph of clip.method) {
+      expect(fold?.textContent).toContain(paragraph);
+    }
+  });
+
+  it('plays and pauses the native video from one plain-words button', () => {
+    const play = vi
+      .spyOn(HTMLMediaElement.prototype, 'play')
+      .mockImplementation(function (this: HTMLMediaElement) {
+        this.dispatchEvent(new Event('play'));
+        return Promise.resolve();
+      });
+    const pause = vi
+      .spyOn(HTMLMediaElement.prototype, 'pause')
+      .mockImplementation(function (this: HTMLMediaElement) {
+        this.dispatchEvent(new Event('pause'));
+      });
+    try {
+      render(<Clip id="kalman-episode" />);
+      const button = screen.getByRole('button', { name: 'Play the run' });
+      expect(button).toHaveTextContent('Play the run');
+      fireEvent.click(button);
+      expect(play).toHaveBeenCalledTimes(1);
+      // jsdom keeps paused true, so the pause path is driven by the event.
+      const playing = screen.getByRole('button', { name: 'Pause the run' });
+      expect(playing).toHaveTextContent('Pause');
+      fireEvent(document.querySelector('video')!, new Event('pause'));
+      expect(
+        screen.getByRole('button', { name: 'Play the run' }),
+      ).toBeInTheDocument();
+      expect(document.querySelector('video')).toHaveAttribute('controls');
+    } finally {
+      play.mockRestore();
+      pause.mockRestore();
+    }
   });
 
   it('throws on an unknown clip id rather than rendering nothing', () => {

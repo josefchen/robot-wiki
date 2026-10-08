@@ -359,7 +359,14 @@ describe('four bounded local truth repairs without completion credit', { timeout
           expect(domainPass.oldHash === passEndpoint
             || (domainPass.reconciles ?? []).some((binding) => binding.newHash === passEndpoint)).toBe(true);
         }
-        expect(domainPass?.newHash ?? passEndpoint).toBe(memberHash(read(path)));
+        // The 2026-10-07 classical pass may carry the body on by exactly one
+        // plain edge from the domain-pass endpoint (sweep label fixes).
+        const domainEndpoint = domainPass?.newHash ?? passEndpoint;
+        const classicalPass = entries.filter((entry) => entry.manifest === 'prose' &&
+          entry.memberId === delta.memberId && /^(reader-first|figure-mounts|domain-pass)-20261007-/.test(entry.id));
+        expect(classicalPass.length).toBeLessThanOrEqual(1);
+        if (classicalPass[0]) expect(classicalPass[0].oldHash).toBe(domainEndpoint);
+        expect(classicalPass[0]?.newHash ?? domainEndpoint).toBe(memberHash(read(path)));
       } else {
         expect(migrated).toHaveLength(0);
       }

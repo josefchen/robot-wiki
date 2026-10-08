@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import matter from 'gray-matter';
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 /**
  * Perception for Manipulation (VAL-CLASS-039 through VAL-CLASS-045).
@@ -102,6 +103,11 @@ function slider(page: Page, name: string): Locator {
   return page.getByTestId(`perception-${name}-slider`);
 }
 
+/** The budget's target, depth and pose controls and its readouts sit in "Adjust more". */
+async function openBudget(page: Page): Promise<Locator> {
+  return openAdjustMore(page.getByTestId('perception-budget'));
+}
+
 test.describe('classical perception module', () => {
   test('the article names all six pipeline stages, each with a citation chip inside its own section (VAL-CLASS-040)', async ({
     page,
@@ -194,8 +200,10 @@ test.describe('classical perception module', () => {
     await expect(page.getByTestId('perception-target-note')).toContainText(
       'not a measured property of that material',
     );
-    // Keep the named topics; do not certify universal failure classes.
-    for (const topic of [/transparent/i, /specular/i, /dark surfaces/i, /repetitive structures/i, /view-dependent invalidation/i]) {
+    // Keep the named topics; do not certify universal failure classes. The
+    // draft names repetitive structures by the source's examples (fences and
+    // wire grids) and view-dependent invalidation by what the source says.
+    for (const topic of [/transparent/i, /specular/i, /dark surfaces/i, /fences and wire grids/i, /from one camera view can reappear from another/i]) {
       expect(depth!.text).toMatch(topic);
     }
     expect(depth!.citeIds).toContain('realsense-tuning-2026');
@@ -257,6 +265,7 @@ test.describe('classical perception module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    await openHowThisWasMade(page.getByTestId('perception-budget'));
     const label = page.getByTestId('perception-simplification-label');
     await expect(label).toBeVisible();
     const text = (await label.textContent()) ?? '';
@@ -273,6 +282,7 @@ test.describe('classical perception module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    await openBudget(page);
     const opaqueDepth = await readout(page, 'perception-depth-readout');
     const opaqueVerdict = await readout(page, 'perception-verdict-readout');
     const opaqueNote = await readout(page, 'perception-target-note');
@@ -303,6 +313,7 @@ test.describe('classical perception module', () => {
       pose: await readout(page, 'perception-pose-value'),
     });
     const opening = await values();
+    await openBudget(page);
     await expect(page.getByTestId('perception-target-opaque')).toBeChecked();
 
     await setSlider(slider(page, 'handeye'), 2.4);
@@ -328,7 +339,7 @@ test.describe('classical perception module', () => {
 
     // The argument itself, as article prose.
     expect(closer.text).toMatch(/explicit pipeline/i);
-    expect(closer.text).toMatch(/replaced/i);
+    expect(closer.text).toMatch(/absorb the explicit pipeline into weights/i);
 
     // An inline internal link inside that section, resolving to a real page.
     const prose = page.locator('div.prose[data-pagefind-body]');
@@ -706,8 +717,10 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       await page.keyboard.press('Tab');
       }
     }
-    // Leave the last citation's second link before unobscured prose captures.
-    await page.keyboard.press('Tab');
+    // Leave the last citation before unobscured prose captures. The next
+    // focusable element may be another chip, so focus leaves the prose.
+    await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
+    await page.mouse.move(viewport.width - 1, viewport.height - 1);
     await expect(prose.getByRole('tooltip')).toHaveCount(0);
     for (const [text, name] of [
       ['An estimate is correct when', 'inclusive-threshold'],

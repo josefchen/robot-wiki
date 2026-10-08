@@ -74,6 +74,91 @@ export const DOMAIN_PASS_REGISTRY_CORRECTIONS: readonly (readonly [string, strin
 `,
     `    title: 'SO-ARM100: Standard Open Arm 100',
 `],
+  // classical, 2026-10-08 (sweep item RF.2): the old book-site URL now
+  // redirects to one lecture-video page; modernrobotics.org lands on the
+  // book's home page, which hosts the preprint.
+  [`    // 2017, ISBN 9781107156302. Free full text and video lectures.
+    id: 'modern-robotics-2017',
+    title: 'Modern Robotics: Mechanics, Planning, and Control',
+    authors: ['Kevin M. Lynch', 'Frank C. Park'],
+    year: 2017,
+    venue: 'Cambridge University Press',
+    url: 'https://modernrobotics.northwestern.edu/',
+`,
+    `    // 2017, ISBN 9781107156302. Free full text and video lectures.
+    // 2026-10-08: modernrobotics.northwestern.edu now redirects to a single
+    // lecture-video page, so the entry links the book's home page, where
+    // modernrobotics.org lands and the authors post the full-text preprint.
+    id: 'modern-robotics-2017',
+    title: 'Modern Robotics: Mechanics, Planning, and Control',
+    authors: ['Kevin M. Lynch', 'Frank C. Park'],
+    year: 2017,
+    venue: 'Cambridge University Press',
+    url: 'https://hades.mech.northwestern.edu/index.php/Modern_Robotics',
+`],
+  // classical, 2026-10-08 (sweep item RF.10): the entry carries the 2012
+  // paper's metadata, so it now links the paper's DOI as a paper.
+  [`    // This entry links to project documentation, not a version-pinned copy
+    // of the associated 2012 paper. The fetched project page lists PRM/RRT
+    // implementations and benchmarking/integration capabilities; it does
+    // not establish field-wide adoption or testing certification. The
+    // paper title, authors and year below remain a separate P1 identity check.
+    id: 'ompl-2012',
+    title: 'The Open Motion Planning Library',
+    authors: ['Ioan A. Șucan', 'Mark Moll', 'Lydia E. Kavraki'],
+    year: 2012,
+    venue: 'IEEE Robotics & Automation Magazine',
+    url: 'https://ompl.kavrakilab.org/',
+    type: 'docs',
+`,
+    `    // The 2012 paper itself (Crossref, 2026-10-08: IEEE RAM 19(4):72-82,
+    // December 2012). The authors' preprint lists PRM and RRT among the
+    // implemented planners, describes the Benchmark class, and says OMPL
+    // includes no collision checker or visualization and plugs into host
+    // systems that do. It does not establish field-wide adoption or testing
+    // certification.
+    id: 'ompl-2012',
+    title: 'The Open Motion Planning Library',
+    authors: ['Ioan A. Șucan', 'Mark Moll', 'Lydia E. Kavraki'],
+    year: 2012,
+    venue: 'IEEE Robotics & Automation Magazine',
+    url: 'https://doi.org/10.1109/MRA.2012.2205651',
+    type: 'paper',
+`],
+  // classical, 2026-10-08 (sweep items RF.11 and X.6b): the page prints no
+  // year of its own, so the year is the access year of its "as of" venue.
+  [`    // the force-mode behavior exposed to UR programs.
+    id: 'ur-force-mode-docs',
+    title: 'URScript: Dynamic Force Control',
+    authors: ['Universal Robots'],
+    year: 2025,
+`,
+    `    // the force-mode behavior exposed to UR programs. The page shows only
+    // "Last modified on Feb 17, 2016" (re-read 2026-10-08), so the year is
+    // the access year, as for the other "as of" entries.
+    id: 'ur-force-mode-docs',
+    title: 'URScript: Dynamic Force Control',
+    authors: ['Universal Robots'],
+    year: 2026,
+`],
+  // classical, 2026-10-08 (sweep item X.6b): the reference printed the access
+  // date and the page's 2019 date side by side; the venue now states both.
+  [`    // multi-path cases.
+    id: 'azure-kinect-depth-docs-2026',
+    title: 'Azure Kinect DK depth camera',
+    authors: ['Microsoft'],
+    year: 2019,
+    venue: 'Microsoft Learn, as of 2026-08-22',
+`,
+    `    // multi-path cases. The page is dated 2019-06-26 (ms.date, re-read
+    // 2026-10-08), so the year is the page's own; the venue states it next to
+    // the access date so the reference prints one of each.
+    id: 'azure-kinect-depth-docs-2026',
+    title: 'Azure Kinect DK depth camera',
+    authors: ['Microsoft'],
+    year: 2019,
+    venue: 'Microsoft Learn, 2019; accessed 2026-08-22',
+`],
 ];
 
 /** The registry source with every reviewed domain-pass correction swapped back. */

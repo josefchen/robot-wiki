@@ -5,10 +5,9 @@ export type SceneRole = 'state' | 'measurement' | 'action' | 'value' | 'constrai
 /** Independent semantic classification. A new mark must receive a reviewed role. */
 const ROLE_RULES: Record<string, readonly [RegExp, SceneRole | 'gait-phase'][]> = {
   'kalman-predict-update': [
-    [/^(prior|predicted)-outline$/, 'reference'],
-    [/^model-motion$|^gain-point$|^belief-(uncertainty|mean)$/, 'state'],
-    [/^measurement-(uncertainty|cross-horizontal|cross-vertical)$/, 'measurement'],
-    [/^update-segment$/, 'reference'],
+    [/^(guess|blend)-(area|curve)$/, 'state'],
+    [/^reading-(area|curve)$/, 'measurement'],
+    [/^blend-(share|point)$/, 'highlight'],
   ],
   'diffusion-denoising': [[/^observed-state$/, 'state'],
     [/^demonstration-\d+$|^action-arrow-\d+$|^action-\d+$/, 'action'],

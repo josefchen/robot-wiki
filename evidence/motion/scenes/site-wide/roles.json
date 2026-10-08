@@ -13,10 +13,50 @@
     {
       "id": "kalman-predict-update",
       "route": "/classical/state-estimation/",
-      "sourceSha256": "b2fa68f16ed889a1360fc9c34e21c58728cb8ecb42a0eb5312037e4d42150269",
+      "sourceSha256": "d0dbc79b6c93ed0bf317227d3b4234d9a5adc92d336a9b62c46391c0747e07ee",
       "marks": [
         {
-          "mark": "belief-mean",
+          "mark": "blend-area",
+          "role": "state",
+          "hex": "#007A91",
+          "beats": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "mark": "blend-curve",
+          "role": "state",
+          "hex": "#007A91",
+          "beats": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "mark": "blend-point",
+          "role": "highlight",
+          "hex": "#507C00",
+          "beats": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "mark": "blend-share",
+          "role": "highlight",
+          "hex": "#507C00",
+          "beats": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "mark": "guess-area",
           "role": "state",
           "hex": "#007A91",
           "beats": [
@@ -28,7 +68,7 @@
           ]
         },
         {
-          "mark": "belief-uncertainty",
+          "mark": "guess-curve",
           "role": "state",
           "hex": "#007A91",
           "beats": [
@@ -40,53 +80,10 @@
           ]
         },
         {
-          "mark": "gain-point",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            1,
-            2,
-            3,
-            4,
-            5
-          ]
-        },
-        {
-          "mark": "measurement-cross-horizontal",
+          "mark": "reading-area",
           "role": "measurement",
           "hex": "#8E6A00",
           "beats": [
-            3,
-            4,
-            5
-          ]
-        },
-        {
-          "mark": "measurement-cross-vertical",
-          "role": "measurement",
-          "hex": "#8E6A00",
-          "beats": [
-            3,
-            4,
-            5
-          ]
-        },
-        {
-          "mark": "measurement-uncertainty",
-          "role": "measurement",
-          "hex": "#8E6A00",
-          "beats": [
-            3,
-            4,
-            5
-          ]
-        },
-        {
-          "mark": "model-motion",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            1,
             2,
             3,
             4,
@@ -94,30 +91,12 @@
           ]
         },
         {
-          "mark": "predicted-outline",
-          "role": "reference",
-          "hex": "#6E6F70",
-          "beats": [
-            4,
-            5
-          ]
-        },
-        {
-          "mark": "prior-outline",
-          "role": "reference",
-          "hex": "#6E6F70",
+          "mark": "reading-curve",
+          "role": "measurement",
+          "hex": "#8E6A00",
           "beats": [
             2,
             3,
-            4,
-            5
-          ]
-        },
-        {
-          "mark": "update-segment",
-          "role": "reference",
-          "hex": "#6E6F70",
-          "beats": [
             4,
             5
           ]

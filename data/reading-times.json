@@ -152,39 +152,39 @@
     "minutes": 6
   },
   "classical/kinematics": {
-    "words": 2082,
+    "words": 2083,
     "minutes": 10
   },
   "classical/motion-planning": {
-    "words": 3290,
+    "words": 3259,
     "minutes": 16
   },
   "classical/control": {
-    "words": 2877,
+    "words": 2780,
     "minutes": 14
   },
   "classical/state-estimation": {
-    "words": 2798,
+    "words": 2831,
     "minutes": 14
   },
   "classical/grasp-planning": {
-    "words": 2020,
+    "words": 2030,
     "minutes": 10
   },
   "classical/perception": {
-    "words": 4400,
-    "minutes": 22
+    "words": 4139,
+    "minutes": 21
   },
   "classical/scene-representation": {
     "words": 2973,
     "minutes": 15
   },
   "classical/calibration": {
-    "words": 1210,
+    "words": 1188,
     "minutes": 6
   },
   "classical/ros2-for-ml-engineers": {
-    "words": 1288,
+    "words": 1287,
     "minutes": 6
   },
   "frontier/reliability-gap": {

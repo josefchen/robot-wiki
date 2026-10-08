@@ -5,6 +5,7 @@ import { CITATIONS } from '../../data/citations';
 import { GLOSSARY } from '../../data/glossary';
 import { DEFAULT_PARAMS, SLIDER_SPECS, TARGET_CLASSES, composeBudget } from '../../lib/perception-error';
 import { setSlider } from './slider';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const route = '/classical/perception/';
 const manuscript = fs.readFileSync(new URL('../../content/classical/perception.mdx', import.meta.url), 'utf8');
@@ -156,6 +157,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       const budget = page.getByTestId('perception-budget');
       const readout = budget.getByTestId('perception-total-readout');
       await expect(readout).toHaveText(`${composeBudget(DEFAULT_PARAMS).totalMm.toFixed(2)} mm`);
+      await openAdjustMore(budget);
       await expect(budget.getByRole('radio')).toHaveCount(TARGET_CLASSES.length);
       await expect(budget.getByRole('slider')).toHaveCount(4);
       for (const target of TARGET_CLASSES) {
@@ -178,7 +180,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
           await expect(slider).toHaveValue(String(value));
         }
       }
-      const disclosure = budget.locator('details[data-chart-data]');
+      await openHowThisWasMade(budget);
+      const disclosure = budget.locator('details[data-chart-data]', { hasText: 'Current authored budget and model band' });
       await expect(disclosure).toHaveCount(1);
       await disclosure.locator('summary').focus();
       await page.keyboard.press('Enter');
@@ -225,6 +228,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       // Actual dynamic mount is reached, not inferred from authored markers.
       const budget = page.getByTestId('perception-budget');
       await expect(budget).toBeVisible();
+      await openHowThisWasMade(budget);
       await expect(budget.locator('[data-cite-id="realsense-d400-datasheet-2026"]')).toHaveCount(1);
       groups.push({ id: 'realsense-d400-datasheet-2026', attr: 'data-cite-id', count: 1 });
       // The classical closeout removed the unsupported ClearGrasp budget claim and its chip.

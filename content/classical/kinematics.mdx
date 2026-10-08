@@ -56,9 +56,9 @@ Kinematics is the geometry of robot motion, studied without forces or torques. <
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DH parameters per joint" value="4" note="theta, d, a, alpha" />
-  <Stat label="SO-101 revolute joints" value="6" note="the arm in the 3D playground" />
+  <Stat label="SO-101 arm joints" value="5" note="plus a gripper, in the 3D playground" />
   <Stat label="playground IK tolerance" value="±0.5mm" note="solver residual target" />
-  <Stat label="joints in the 2D demo" value="3" note="the planar chain below" />
+  <Stat label="joints in the 2D demo" value="3" note="the planar chain above" />
 </div>
 
 ## Forward kinematics
@@ -126,10 +126,12 @@ $$
 \dot{x} = J(q)\,\dot{q}
 $$
 
-A revolute joint $i$ with axis $z_i$ at $p_i$ contributes its axis crossed with the vector to the end effector, stacked above the axis; a prismatic joint contributes its axis:
+In Modern Robotics' space Jacobian, column $i$ is joint $i$'s screw axis at the current pose, in base-frame coordinates <Cite id="modern-robotics-2017" />. A revolute joint with unit axis $\omega_i$ through point $p_i$ gives the first form; a prismatic joint sliding along unit direction $v_i$ gives the second <Cite id="modern-robotics-2017" />:
 
 $$
-J_i = \begin{bmatrix} z_i \times (p_\mathrm{ee} - p_i) \\ z_i \end{bmatrix}
+J_i = \begin{bmatrix} \omega_i \\ -\omega_i \times p_i \end{bmatrix}
+\qquad
+J_i = \begin{bmatrix} 0 \\ v_i \end{bmatrix}
 $$
 
 The transpose maps an end-effector wrench to balancing joint torques, $\tau = J^{T}(q)\,F$ <Cite id="modern-robotics-2017" />. At singularities, such as a fully extended arm, the Jacobian loses rank, and nearby a modest end-effector speed demands unbounded joint speeds <Cite id="modern-robotics-2017" />. Yoshikawa's 1985 manipulability measure scores how well an arm can position and orient its end effector <Cite id="yoshikawa-1985" />.

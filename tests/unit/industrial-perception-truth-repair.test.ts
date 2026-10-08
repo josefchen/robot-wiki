@@ -223,7 +223,17 @@ describe('industrial32 and perception2/19: zero-completion truth repairs', () =>
       (plan.ledgerPath === 'audit/frontier.md' && plan.articleSlug === 'bear-case'
         && [4, 5, 14, 15].includes(plan.rowOrdinal))
     );
-    const unselected = plans.filter((plan) => !superseded(plan));
+    // The 2026-10-08 classical pass gave kinematics row 7 a successor plan in
+    // the same catalog position and retained the prior plan verbatim; the
+    // byte pins below read the catalog with that prior plan in place.
+    const rescoped = (JSON.parse(read('audit/evidence/domain-pass-20261008/prior-plans.json')) as
+      { plans: typeof plans }).plans;
+    expect(rescoped.map((plan) => plan.id)).toEqual(['kinematics-7-jacobian-20260915']);
+    const successorAt = plans.findIndex((plan) => plan.id === 'kinematics-7-jacobian-screw-20261008');
+    expect([plans[successorAt].ledgerPath, plans[successorAt].articleSlug, plans[successorAt].rowOrdinal])
+      .toEqual([rescoped[0].ledgerPath, rescoped[0].articleSlug, rescoped[0].rowOrdinal]);
+    const asRetained = plans.map((plan, index) => (index === successorAt ? rescoped[0] : plan));
+    const unselected = asRetained.filter((plan) => !superseded(plan));
     expect(unselected.slice(0, 862)).toHaveLength(862);
     expect(hash(JSON.stringify(unselected.slice(0, 862))))
       .toBe('9181c2064d2bef787c7a81a28a4cd4db79ccbb81fe2b0060477db8095f7356e8');

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "c75a711aed40be22d83360031f9bd0795ee5f3e90389b26edb53bcb7f7339530",
+  "fingerprint": "7f71e1d2bf989652faeb02a496914ea199ea580c65baee3f930dd7aac19c70f0",
   "source": "out/ static export",
   "routes": [
     {
@@ -134,7 +134,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "outboundAnchors": 92,
+      "outboundAnchors": 94,
       "distinctHrefs": 40,
       "shapes": [
         "citation-chip",
@@ -813,17 +813,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 4466,
+  "outboundAnchors": 4468,
   "distinctOutboundHrefs": 1298,
   "anchorsByShape": {
-    "citation-chip": 2027,
+    "citation-chip": 2029,
     "footer": 152,
     "reference-entry": 1400,
     "other": 563,
     "figure-credit": 324
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 3909,
+  "anchorsWithNoreferrer": 3911,
   "keyboard": [
     {
       "route": "/",
@@ -919,7 +919,7 @@
       "reachedByTab": 101,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 268
+      "tabStops": 264
     },
     {
       "route": "/classical/grasp-planning/",
@@ -931,11 +931,11 @@
     },
     {
       "route": "/classical/kinematics/",
-      "outboundInDom": 92,
-      "reachedByTab": 92,
+      "outboundInDom": 94,
+      "reachedByTab": 94,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 232
+      "tabStops": 237
     },
     {
       "route": "/classical/motion-planning/",
@@ -943,7 +943,7 @@
       "reachedByTab": 118,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 282
+      "tabStops": 281
     },
     {
       "route": "/classical/perception/",
@@ -951,7 +951,7 @@
       "reachedByTab": 144,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 330
+      "tabStops": 329
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
@@ -975,7 +975,7 @@
       "reachedByTab": 101,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 242
+      "tabStops": 245
     },
     {
       "route": "/credits/",

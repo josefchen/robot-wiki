@@ -22,42 +22,47 @@ const withRecords = (ui: ReactElement) => (
   <CitationRecordsProvider records={records}>{ui}</CitationRecordsProvider>
 );
 
-const NODE_LABELS = [
-  'camera and joint drivers',
-  'state assembly',
-  'policy server',
-  'command gate',
-  'controller bridge',
-  'supervisor',
-];
+/** Plain stage label and the ROS 2 name the method fold pairs it with. */
+const NODES = [
+  ['camera and joint sensors', 'camera and joint drivers'],
+  ['combines the readings', 'state assembly'],
+  ['AI that suggests moves', 'policy server'],
+  ['safety check', 'command gate'],
+  ['runs the motors', 'controller bridge'],
+  ['motors', 'robot hardware'],
+  ['task manager', 'supervisor'],
+  ['arm positions', 'tf2 frame tree'],
+] as const;
 
 const EDGE_LABELS = [
-  'action: task goal with feedback and cancel',
-  'topic: camera images, joint states',
-  'sensor data: best effort, small queue',
-  'tf2 lookup:',
-  'frames at the',
-  "image's timestamp",
-  'topic: observation',
-  'log message age here',
-  'topic: proposed actions',
-  'reliable',
-  'topic: commands',
-  'the only command publisher',
-  'real-time loop',
-  'lifecycle: start,',
-  'stop, deactivate',
+  'camera pictures, joint positions',
+  'late readings may be skipped',
+  'arm position at',
+  'the moment the',
+  'photo was taken',
+  'newest readings',
+  'checked to be recent',
+  'suggested moves,',
+  'all delivered',
+  'checked moves',
+  'the only path to the motors',
+  'at steady, exact intervals',
+  'starts and stops',
+  'these three parts',
 ];
+
+/** ROS 2 vocabulary that belongs in the method fold, never on the stage. */
+const TECHNICAL = /\b(topic|tf2|lifecycle|QoS|best effort|reliable|policy|node|supervisor|gate|controller|driver)/i;
 
 describe('Ros2PolicyLayout', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = render(withRecords(<Ros2PolicyLayout />));
-    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('ROS 2 policy layout');
+    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('ROS 2 software layout');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'Keep the model one gate away from the motors',
+      "The AI's moves pass a safety check first",
     );
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'Separate nodes let you test, stop or swap the learned policy without touching drivers or the real-time controller.',
+      'Separate parts let engineers test, stop or swap the AI without touching what moves the robot.',
     );
     expect(container.querySelector('[data-figure-status]')).toHaveTextContent(
       'Schematic: one recommended layout, not a required one',
@@ -71,26 +76,28 @@ describe('Ros2PolicyLayout', () => {
     expect(container.querySelectorAll('button, input, select, textarea, [role="button"]')).toHaveLength(0);
   });
 
-  it('draws the six nodes, the robot hardware and the tf2 store', () => {
+  it('draws the six nodes, the robot hardware and the tf2 store in plain words', () => {
     const { container } = render(withRecords(<Ros2PolicyLayout />));
     const graph = screen.getByTestId('ros2-policy-graph');
-    for (const label of [...NODE_LABELS, 'robot hardware', 'tf2 frame tree', 'task request']) {
-      expect(graph).toHaveTextContent(label);
-    }
+    for (const [label] of NODES) expect(graph).toHaveTextContent(label);
+    expect(graph).toHaveTextContent('task request');
+    const method = container.querySelector('details[data-figure-fold="method"]') as HTMLElement;
+    for (const [label, name] of NODES) expect(method).toHaveTextContent(`"${label}" is the ${name}`);
     for (const id of ['drivers', 'state', 'policy', 'gate', 'bridge', 'hardware', 'supervisor', 'tf2-store']) {
       expect(container.querySelector(`[data-node="${id}"]`), id).not.toBeNull();
     }
     expect(container.querySelector('[data-node="tf2-store"] rect')).toBeNull();
   });
 
-  it('labels every edge with its interface and its QoS or timing', () => {
+  it('labels every edge in plain words and keeps the ROS 2 terms off the stage', () => {
     render(withRecords(<Ros2PolicyLayout />));
     const texts = Array.from(screen.getByTestId('ros2-policy-graph').querySelectorAll('text')).map(
-      (t) => t.textContent,
+      (t) => t.textContent ?? '',
     );
     for (const label of EDGE_LABELS) expect(texts, label).toContain(label);
+    expect(texts.filter((text) => TECHNICAL.test(text))).toEqual([]);
     expect(screen.getByTestId('ros2-policy-graph').querySelector('[data-figure-annotation]')).toHaveTextContent(
-      'Only the command gate talksto the controller',
+      'Only the safety check sendsmoves to the motors',
     );
   });
 
@@ -143,7 +150,7 @@ describe('Ros2PolicyLayout', () => {
     const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]');
     expect(frame).not.toBeNull();
     const { lines } = mainViewText(frame as Element);
-    for (const line of ['Keep the model one gate away from the motors', 'sensor data: best effort, small queue', 'real-time loop']) {
+    for (const line of ["The AI's moves pass a safety check first", 'late readings may be skipped', 'at steady, exact intervals']) {
       expect(lines).toContain(line);
     }
     expect(lines.some((line) => /50 ms|last 10/.test(line))).toBe(false);

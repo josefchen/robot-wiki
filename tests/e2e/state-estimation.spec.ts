@@ -1,6 +1,6 @@
 import { expect, test, type Page } from './helpers/state-smoothing-fixture';
 import AxeBuilder from '@axe-core/playwright';
-import { openAdjustMore } from './helpers/figure-fold';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
 
 const ROUTE = '/classical/state-estimation/';
@@ -176,10 +176,10 @@ test.describe('classical state-estimation module', () => {
     await expect(scene.getByTestId('motion-scrubber')).toHaveCount(0);
     await expect(scene.locator('[data-motion-stage] svg').first()).toBeVisible();
     // The poster caption is the recap beat's caption.
-    await expect(scene.getByTestId('motion-caption')).toHaveText(/written out/i);
+    await expect(scene.getByTestId('motion-caption')).toHaveText(/never knows exactly where it is/);
   });
 
-  test('activation steps the five predict-update beats with honest numbers (VAL-CLASS-025)', async ({
+  test('activation steps the five guess, measure, blend, symbols and recap beats with honest numbers (VAL-CLASS-025)', async ({
     page,
   }) => {
     await page.goto(ROUTE, { waitUntil: 'networkidle' });
@@ -217,16 +217,16 @@ test.describe('classical state-estimation module', () => {
     // from the top; the caption names each beat the reader arrives at.
     await page.keyboard.press('k');
     await page.keyboard.press('Home');
-    await expect(caption).toHaveText(/prior belief/i);
+    await expect(caption).toHaveText(/Guess: from where it was/);
     await expect(scene.getByTestId('motion-beat-count')).toHaveText(
       'beat 1 / 5',
     );
     for (const [step, pattern] of [
-      [1, /prior belief/i],
-      [2, /predict/i],
-      [3, /measurement arrives/i],
-      [4, /update/i],
-      [5, /written out/i],
+      [1, /Guess: from where it was/],
+      [2, /Measure: a sensor/],
+      [3, /Blend: the robot mixes/],
+      [4, /in numbers, then in symbols/],
+      [5, /never knows exactly where it is/],
     ] as const) {
       await page.keyboard.press('ArrowRight');
       await expect(caption).toHaveText(pattern);
@@ -235,13 +235,14 @@ test.describe('classical state-estimation module', () => {
       );
     }
 
-    // The readout carries the filter's own numbers for the demonstrated
-    // step: the gain and the reading, and the sigma walk.
-    await expect(scene.getByTestId('kalman-gain-value')).toHaveText('0.62');
-    const readout = await scene.getByTestId('motion-readout').textContent();
-    expect(readout).toContain('0.94');
-    expect(readout).toContain('1.27');
-    expect(readout).toContain('0.79');
+    // The settled stage names its point in words; the filter's own numbers
+    // for the demonstrated step (the gain, the reading and the walk of the
+    // spread) are one click away, in "How this was made".
+    await expect(scene.locator('[data-figure-annotation]')).toHaveText('62% of the way to the reading');
+    const method = await openHowThisWasMade(scene);
+    await expect(method.getByTestId('kalman-gain-value')).toHaveText('0.62');
+    const numbers = (await method.textContent()) ?? '';
+    for (const value of ['0.82', '0.94', '1.27', '0.79']) expect(numbers).toContain(value);
 
     // The scrubber is a labelled slider whose valuetext is the caption.
     const scrubber = scene.getByTestId('motion-scrubber');
@@ -256,7 +257,7 @@ test.describe('classical state-estimation module', () => {
     await scene
       .getByRole('button', { name: /reset the scene to its poster still/i })
       .click();
-    await expect(caption).toHaveText(/written out/i);
+    await expect(caption).toHaveText(/never knows exactly where it is/);
   });
 
   test('runs are reproducible: reload lands on the identical poster still (VAL-CLASS-032)', async ({
@@ -297,18 +298,18 @@ test.describe('classical state-estimation module', () => {
     await expect(
       scene.getByRole('button', { name: /play the scene/i }),
     ).toBeVisible();
-    await expect(caption).toHaveText(/written out/i);
+    await expect(caption).toHaveText(/never knows exactly where it is/);
     // Stepping jumps between beat end-states with no tweening.
     await openAdjustMore(scene);
     await scene
       .getByRole('button', { name: /step back one beat/i })
       .click();
-    await expect(caption).toHaveText(/update/i);
+    await expect(caption).toHaveText(/in numbers, then in symbols/);
     // The scrubber still works.
     const scrubber = scene.getByTestId('motion-scrubber');
     await scrubber.focus();
     await scrubber.fill('1000');
-    await expect(caption).toHaveText(/prior belief/i);
+    await expect(caption).toHaveText(/Guess: from where it was/);
     await context.close();
   });
 

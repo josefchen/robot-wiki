@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "fingerprint": "7e148651237b6d011c749e7f53975b508443ebe87a110c1b5776d247bca09da3",
+  "fingerprint": "8a51987d6f346e116a36aa0847dfa414569282f53036461976d830554ab1064e",
   "viewport": "1440x900",
   "surfaces": [
     {
       "route": "/",
-      "visibleTextLength": 4152,
+      "visibleTextLength": 4187,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Robot Wiki",
@@ -160,7 +160,7 @@
     },
     {
       "route": "/classical/",
-      "visibleTextLength": 5031,
+      "visibleTextLength": 5253,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Classical Foundations",

@@ -37,16 +37,16 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 686733, sha256: '87cee6426c17736e753809d34579aa9cac469d0003b1a64e36e5b766d6d7918a' };
+const reviewPin = { bytes: 689984, sha256: 'd4b64a92aabcb2b9fb2d1d575ea447e4b94bbe53ac0117e1892520c2bdd9b0a7' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/calibration.mdx', [9689, 'f05b9f74bfefac02ed215bb3f4110b0afd3ec2ef1ed5cc5679c9e51be0943500']],
-  ['content/classical/control.mdx', [19659, '4f68142d7a05a8e6ee80d1297c0a6c0c69f3ab42430f29f8a485ee2728b6d86b']],
+  ['content/classical/control.mdx', [19698, '41d153f8f9e9129c3269b76a0512070beda156789f33a4f87c37e6052e665a27']],
   ['content/classical/grasp-planning.mdx', [13593, 'c70f1a6b072d4df15c6422bbb825cbdb8abc17c4559804770556931c8d21215f']],
-  ['content/classical/kinematics.mdx', [11586, '36c66a5df19a38696991d78b5ef7cd030f2259282f44e209f48882106e4afa5d']],
+  ['content/classical/kinematics.mdx', [11805, '3f89ea8849092ca97811c4e9db5e0afc61beda251cfb019d5c93e3188b3072c9']],
   ['content/classical/motion-planning.mdx', [20454, 'ebc07401ea182cb0334d7037c3ed272cb7ecf0a38c807bfed847edaffa878cd1']],
-  ['content/classical/perception.mdx', [28234, 'a7db2b82791e81cba3b759f8601ed8b97d7074f19db5e17e5df51127a7f22cff']],
+  ['content/classical/perception.mdx', [28231, '21ca3eb0470cfdfcfd2371897979dd072f0eabf7c949269862f4414c90c8fb24']],
   ['content/classical/ros2-for-ml-engineers.mdx', [9592, '1dfd445c34d55ac5c92957fa838df7e4a4918c9a13e7309546bebc7f13b34f34']],
   ['content/classical/scene-representation.mdx', [19360, 'af7d61ef547fa23cb7765c5bcc8e81341a4c090caf2d92813fb36107bd51f52d']],
   ['content/classical/state-estimation.mdx', [15410, '96b92f0aa260583ff52b6cd3e7867c14891b61fe8bb1379d04bea15d7ca30329']],
@@ -84,6 +84,72 @@ const mounts = (source: string) => [...source.slice(frontmatter(source)?.length 
   .filter((m) => !INLINE.has(m[1]) && !REMOVED_BOXES.has(m[1]))
   .map((m) => `${m[1]}${m[2].replace(/\s+/g, ' ').trimEnd()}`);
 
+/**
+ * Mounts the classical pass corrected, each one exact swap of one mount's
+ * attributes on one article. Stat cards from its owner sweep: K.R5 (the
+ * SO-101 has five arm joints plus a gripper, not six arm joints), the 2D
+ * demo card that pointed below at a figure mounted above it, and P.X1 (Shiu
+ * and Ahmad posed AX = XB; the card dates Tsai and Lenz's solver). The
+ * pendulum prediction on control, from the figure's reader-first rewrite:
+ * it said a gain under the threshold makes the pole fall within seconds,
+ * while the lab's own simulation holds the pole at a lean of about 50
+ * degrees, so its prompt, answers and hint now say the pole cannot stay
+ * upright. Every other mount still has to match its predecessor exactly.
+ */
+const CORRECTED_MOUNTS: ReadonlyMap<string, ReadonlyMap<string, string>> = new Map([
+  ['content/classical/kinematics.mdx', new Map([
+    ['Stat label="SO-101 revolute joints" value="6" note="the arm in the 3D playground"',
+      'Stat label="SO-101 arm joints" value="5" note="plus a gripper, in the 3D playground"'],
+    ['Stat label="joints in the 2D demo" value="3" note="the planar chain below"',
+      'Stat label="joints in the 2D demo" value="3" note="the planar chain above"'],
+  ])],
+  ['content/classical/perception.mdx', new Map([[
+    'Stat label="hand-eye (AX = XB)" value="1989" note="Tsai and Lenz solve the camera-to-gripper transform"',
+    'Stat label="hand-eye solver" value="1989" note="Tsai and Lenz solve the camera-to-gripper transform"',
+  ]])],
+  ['content/classical/control.mdx', new Map([[
+    'PredictThenReveal prompt="The lab below is released 12 degrees off vertical with the payload bias ' +
+      'in place. Below what proportional gain does the loop lose the pole entirely, however the other two ' +
+      'gains are set?" options={[ { value: \'mgl-threshold\', label: \'Kp must clear the weight threshold, ' +
+      'about 9.8 here; below it the pole falls no matter how high the damping\', why: \'Linearized about ' +
+      'upright, the loop is stable only when Kp exceeds m g l, 9.81 in the slider’s units. The derivative ' +
+      'term can shape the recovery but cannot create a restoring torque the proportional term does not ' +
+      'supply, so below the threshold nothing holds the pole up.\', cite: \'tedrake-underactuated\' }, { ' +
+      'value: \'any-positive\', label: \'Any positive Kp holds the pole in the usual case; a small gain only ' +
+      'corrects more slowly and the lean settles out\', why: \'This is the expectation the lab exists to ' +
+      'break. Proportional action generates corrective torque from error, and below the gravity torque the ' +
+      'correction is always outrun: the mounted figure sits half a unit under the threshold and the status ' +
+      'reads fallen within seconds of Run.\' }, { value: \'damping-saves\', label: \'A Kp below the threshold ' +
+      'can still work, provided Kd is raised enough for the damping to hold the pole up\', why: \'Damping ' +
+      'opposes rate. With the pole leaning and accelerating away, a high Kd slows the fall and can hold it ' +
+      'ringing at large angles, but the classification still lands on fallen: drag Kd to its ceiling in ' +
+      'the figure and watch the status line.\' } ]} answer="mgl-threshold" revealHint="The lab is mounted ' +
+      'at Kp 9.5 with the threshold at 9.81 half a unit above it: press Run and the pole falls. Raise the ' +
+      'gain one step and it holds." takeaway="The restoring torque must outweigh gravity before anything ' +
+      'else matters: past that floor the loop is unstable, and damping alone cannot buy it back."',
+    'PredictThenReveal prompt="The lab below is released 12 degrees off vertical with the payload bias ' +
+      'in place. Below what proportional gain can the loop no longer hold the pole upright, however the ' +
+      'other two gains are set?" options={[ { value: \'mgl-threshold\', label: \'Kp must clear the weight ' +
+      'threshold, about 9.8 here; below it the pole cannot stay upright, however high the damping\', why: ' +
+      '\'Linearized about upright, the loop is stable only when Kp exceeds m g l, 9.81 in the slider’s ' +
+      'units. The derivative term can shape the recovery but cannot create a restoring torque the ' +
+      'proportional term does not supply, so below the threshold nothing holds the pole upright.\', cite: ' +
+      '\'tedrake-underactuated\' }, { value: \'any-positive\', label: \'Any positive Kp holds the pole in the ' +
+      'usual case; a small gain only corrects more slowly and the lean settles out\', why: \'This is the ' +
+      'expectation the lab exists to break. Proportional action generates corrective torque from error, ' +
+      'and under the threshold that torque loses to gravity near upright: the mounted figure sits half a ' +
+      'unit under it, and once released the pole sags to about 50 degrees and stays there.\' }, { value: ' +
+      '\'damping-saves\', label: \'A Kp below the threshold can still work, provided Kd is raised enough for ' +
+      'the damping to hold the pole up\', why: \'Damping opposes rate. With the pole leaning and ' +
+      'accelerating away, a high Kd slows the fall, but it adds no push once the pole stops moving: drag ' +
+      'Kd to its ceiling in the figure and the pole sags to the same lean, only more slowly.\' } ]} ' +
+      'answer="mgl-threshold" revealHint="The lab starts half a unit under the threshold: press Too gentle ' +
+      'to release the pole and it sags to a steep lean. Press Strong enough and it holds near upright." ' +
+      'takeaway="The restoring torque must outweigh gravity before anything else matters: past that floor ' +
+      'the loop is unstable, and damping alone cannot buy it back."',
+  ]])],
+]);
+
 function applyExact(text: string, edits: readonly (readonly [string, string])[], message = drift): string {
   let result = text;
   for (const [from, to] of edits) {
@@ -119,7 +185,9 @@ export function keepsDomainPassObligations(path: string, prior: string, current:
   if (withoutAdded !== priorHead) return false;
   const kept = citedIds(current);
   if ([...citedIds(prior)].some((id) => !kept.has(id))) return false;
-  return JSON.stringify(mounts(prior)) === JSON.stringify(mounts(current));
+  const corrected = CORRECTED_MOUNTS.get(path);
+  const expected = mounts(prior).map((mount) => corrected?.get(mount) ?? mount);
+  return JSON.stringify(expected) === JSON.stringify(mounts(current));
 }
 
 /**

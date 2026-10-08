@@ -38,10 +38,12 @@
  *   dominates the contact stiffness, so peak force falls and force
  *   resolution rises.
  *
- * Task outcomes: success (steady-state force within the crush limit and
- * the peak under the transient contact-force limit), crushed (steady
- * force exceeds the object's crush limit), or over-limit (peak exceeds the
- * transient contact-force limit even when the steady force is fine).
+ * Task outcomes: success (the force stays within the crush limit, at its
+ * peak and once settled, and under the transient contact-force limit),
+ * crushed (the peak or the settled force exceeds the object's crush
+ * limit: a fragile object breaks on the first bump as surely as under a
+ * steady squeeze), or over-limit (the peak exceeds the transient
+ * contact-force limit).
  *
  * References: Hogan (1985) for the impedance law,
  * 10.1115/1.3140702; Pratt and Williamson (1995) for series elasticity,
@@ -184,13 +186,13 @@ export function simulateContact(params: LabParams): ContactRun {
 export type TaskOutcome = 'success' | 'crushed' | 'over-limit' | 'unbounded';
 
 /** Classify the outcome for a run. Position mode is unbounded by
- * construction; otherwise the object crushes if the steady force exceeds
- * the crush limit, or the contact exceeds the transient limit if the peak
- * does, and only a run inside both succeeds. */
+ * construction; otherwise the contact exceeds the transient limit if the
+ * peak does, the object crushes if the peak or the settled force exceeds
+ * the crush limit, and only a run inside both succeeds. */
 export function classifyOutcome(params: LabParams, run: ContactRun): TaskOutcome {
   if (params.hardware === 'position') return 'unbounded';
   if (run.peakForceN > TRANSIENT_CONTACT_LIMIT_N) return 'over-limit';
-  if (run.steadyForceN > CRUSH_LIMIT_N) return 'crushed';
+  if (Math.max(run.peakForceN, run.steadyForceN) > CRUSH_LIMIT_N) return 'crushed';
   return 'success';
 }
 

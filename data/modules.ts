@@ -314,7 +314,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'classical',
     'kinematics',
     'Kinematics',
-    'Forward and inverse kinematics, DH parameters, and the Jacobian; the theory behind the 3D playground.',
+    "How joint angles place a robot's hand, and how to find the angles that reach a target: transforms, DH parameters, the Jacobian and inverse kinematics.",
   ],
   [
     'classical',
@@ -344,7 +344,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'classical',
     'perception',
     'Perception for Manipulation',
-    'Calibration through 6-DoF pose: the pipeline that finds the object, and its error budget.',
+    "How a robot turns camera images into an object's position and orientation: calibration, depth, detection, pose estimation and the error each step adds.",
   ],
   [
     'classical',

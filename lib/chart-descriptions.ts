@@ -169,7 +169,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/impedance-contact-lab.tsx',
     route: '/classical/control/',
     quantityNames: ['contact', 'limit'],
-    text: 'On the torque-controlled arm at depth 2.0 mm, stiffness 800 N/m and damping 40 N·s/m, the contact peaks at 23.7 N and settles at 1.6 N against the 255 N research-basis transient limit: task succeeded.',
+    text: 'On the arm that controls its own push at press depth 2.0 mm, stiffness 800 N/m and damping 40 N·s/m, the contact peaks at 23.7 N, under the 25 N crush force, and settles at 1.6 N; the 255 N research-basis transient limit is not reached: object intact.',
   },
   {
     component: 'PerceptionErrorBudget',
@@ -177,6 +177,13 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     route: '/classical/perception/',
     quantityNames: ['root-sum-of-squares magnitude', 'model band'],
     text: 'At an authored angle of 0.5 degrees and axial distance 0.50 m, the model\'s root-sum-of-squares magnitude is 11.32 mm against its 15 mm comparison band. depth sensing contributes 78% of the sum of squared inputs. Model band: within model band.',
+  },
+  {
+    component: 'PerceptionErrorBudgetSightLine',
+    file: 'components/interactive/perception-error-budget.tsx',
+    route: '/classical/perception/',
+    quantityNames: ['line of sight', 'miss'],
+    text: 'A camera\'s assumed line of sight is tilted 0.5 degrees from the true one; at 0.50 m the gap between them, the miss, is 4.36 mm, and at 1.5 m it is 13.09 mm.',
   },
   {
     component: 'SampleEfficiencyLedger',
@@ -231,15 +238,15 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'RrtExplorer',
     file: 'components/interactive/rrt-explorer.tsx',
     route: '/classical/motion-planning/',
-    quantityNames: ['iteration', 'node'],
-    text: 'The RRT tree is at iteration 0 of 288 with 1 node and status tree not started; path length is n/a until a branch first reaches the goal.',
+    quantityNames: ['iteration', 'nodes'],
+    text: 'The RRT tree is at iteration 288 of 288 with 289 nodes and status goal reached at iteration 288; the highlighted start-to-goal path measures 124.2 units after a branch first reached the goal at iteration 288.',
   },
   {
     component: 'PlanarFkArm',
     file: 'components/interactive/planar-fk-arm.tsx',
     route: '/classical/kinematics/',
-    quantityNames: ['effector', 'degrees'],
-    text: 'With base 110 degrees, elbow -45 degrees and wrist -35 degrees the end effector sits at x +0.45, y +1.89 link units; those three link lengths are 1.00, 0.75 and 0.55.',
+    quantityNames: ['hand', 'degrees'],
+    text: 'With the shoulder at 110 degrees, the elbow at -45 degrees and the wrist at -35 degrees, the hand sits at x +0.45, y +1.89 link units from the shoulder; the three links are 1.00, 0.75 and 0.55 long.',
   },
   {
     component: 'CompoundingErrorRollout',

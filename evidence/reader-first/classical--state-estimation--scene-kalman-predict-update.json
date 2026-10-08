@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/classical/state-estimation/",
+  "mount": "scene:kalman-predict-update",
+  "screenshots": {
+    "375": "evidence/reader-first/classical--state-estimation--scene-kalman-predict-update.375.png",
+    "1280": "evidence/reader-first/classical--state-estimation--scene-kalman-predict-update.1280.png"
+  },
+  "takeaway": "Mixing the robot's own guess of where it is with a noisy sensor reading gives an estimate surer than either one alone.",
+  "sentence": "A robot combines its own guess about where it is with a noisy sensor reading, and the combined estimate is more certain than either one alone.",
+  "unclearTerms": [
+    "what the height and width of the bell-shaped curves mean",
+    "dashed curve versus solid curves",
+    "the shaded areas under the curves",
+    "the two vertical lines under \"my guess\" and \"the sensor says\" (do they mark the peaks or something else?)",
+    "the green horizontal bar with a dot and end marks under the robot",
+    "62% of the way to the reading (62% measured from where?)",
+    "the slanted tick marks under the ground line"
+  ],
+  "samePoint": "yes",
+  "reason": "My sentence also said that combining the robot's guess with a noisy reading gives an estimate more certain than either one alone.",
+  "verdict": "fail",
+  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "date": "2026-10-08",
+  "reviewerSession": "reader-session-ec98138f",
+  "sourceDigest": "6026a90bd45812fb66a4d5c4180a4e2966673a0232a5d0937df8a340fd3d59c5"
+}

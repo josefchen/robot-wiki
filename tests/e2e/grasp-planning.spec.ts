@@ -407,10 +407,10 @@ test.describe('classical grasp-planning module', () => {
     await page.goto(ROUTE);
     const label = page.locator('label[for="grasp-mu"]');
     // Figure control labels are sentence case, so no transform may turn
-    // the label into capitals. The visible slider is "Surface"; its mu
+    // the label into capitals. The visible slider is "How rough the surface is"; its mu
     // lives in the readout under "How this was made".
     await expect(label).toHaveCSS('text-transform', 'none');
-    expect(await label.evaluate((el) => (el as HTMLElement).innerText)).toContain('Surface');
+    expect(await label.evaluate((el) => (el as HTMLElement).innerText)).toContain('How rough the surface is');
     const method = await openHowThisWasMade(labFrame(page));
     const line = method.locator('[data-figure-readout]');
     await expect(line).toHaveCSS('text-transform', 'none');

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ce01aded28c3c37abce7d62b0b4b95e0c5fc93a567e05a0c8a1340db6f36ce2d",
+  "fingerprint": "93138ee674b851ac03e64653092349c3b6971aed3c50a2944f5a87d13d14c030",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3072,
+      "visibleTextLength": 3107,
       "header": {
         "present": true,
         "display": "flex",
@@ -1378,7 +1378,7 @@
     },
     {
       "route": "/classical/",
-      "visibleTextLength": 1599,
+      "visibleTextLength": 1710,
       "header": {
         "present": true,
         "display": "flex",
@@ -1541,7 +1541,7 @@
     },
     {
       "route": "/classical/calibration/",
-      "visibleTextLength": 17107,
+      "visibleTextLength": 17069,
       "header": {
         "present": true,
         "display": "flex",
@@ -1704,7 +1704,7 @@
     },
     {
       "route": "/classical/control/",
-      "visibleTextLength": 27242,
+      "visibleTextLength": 26580,
       "header": {
         "present": true,
         "display": "flex",
@@ -1867,7 +1867,7 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "visibleTextLength": 19700,
+      "visibleTextLength": 19795,
       "header": {
         "present": true,
         "display": "flex",
@@ -2030,7 +2030,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "visibleTextLength": 18500,
+      "visibleTextLength": 18517,
       "header": {
         "present": true,
         "display": "flex",
@@ -2193,7 +2193,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 29071,
+      "visibleTextLength": 28896,
       "header": {
         "present": true,
         "display": "flex",
@@ -2356,7 +2356,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 41534,
+      "visibleTextLength": 39970,
       "header": {
         "present": true,
         "display": "flex",
@@ -2519,7 +2519,7 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "visibleTextLength": 15230,
+      "visibleTextLength": 15243,
       "header": {
         "present": true,
         "display": "flex",
@@ -2845,7 +2845,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 24025,
+      "visibleTextLength": 24126,
       "header": {
         "present": true,
         "display": "flex",
@@ -3823,7 +3823,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 26529,
+      "visibleTextLength": 26591,
       "header": {
         "present": true,
         "display": "flex",
@@ -4312,7 +4312,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 15349,
+      "visibleTextLength": 15398,
       "header": {
         "present": true,
         "display": "flex",
@@ -6260,7 +6260,7 @@
     },
     {
       "route": "/manipulation/action-chunking/",
-      "visibleTextLength": 22472,
+      "visibleTextLength": 22521,
       "header": {
         "present": true,
         "display": "flex",
@@ -6423,7 +6423,7 @@
     },
     {
       "route": "/manipulation/action-spaces/",
-      "visibleTextLength": 18307,
+      "visibleTextLength": 18377,
       "header": {
         "present": true,
         "display": "flex",
@@ -6912,7 +6912,7 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "visibleTextLength": 19669,
+      "visibleTextLength": 19718,
       "header": {
         "present": true,
         "display": "flex",
@@ -7564,7 +7564,7 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "visibleTextLength": 24043,
+      "visibleTextLength": 24105,
       "header": {
         "present": true,
         "display": "flex",
@@ -8379,7 +8379,7 @@
     },
     {
       "route": "/manipulation/robot-learning-roadmap/",
-      "visibleTextLength": 15616,
+      "visibleTextLength": 15686,
       "header": {
         "present": true,
         "display": "flex",
@@ -8542,7 +8542,7 @@
     },
     {
       "route": "/manipulation/vla-models/",
-      "visibleTextLength": 23765,
+      "visibleTextLength": 23827,
       "header": {
         "present": true,
         "display": "flex",
@@ -11460,7 +11460,7 @@
     },
     {
       "route": "/world-models/jepa/",
-      "visibleTextLength": 16253,
+      "visibleTextLength": 16315,
       "header": {
         "present": true,
         "display": "flex",

@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
 import { waitForHydration } from './interaction-ready';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`named-device depth specifications and calculator at ${viewport.width}px`, async ({ page }, testInfo) => {
@@ -111,6 +112,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     }
 
     const budget = page.getByTestId('perception-budget');
+    await openAdjustMore(budget);
     await expect(page.getByTestId('perception-target-note')).toContainText('it is not a measured property of that material.');
     await expect(budget).toContainText('D410/D415 and D43x');
     const opening = await page.getByTestId('perception-total-readout').innerText();
@@ -130,7 +132,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(page.getByTestId('perception-target-opaque')).toBeChecked();
     await expect(page.getByTestId('perception-total-readout')).toHaveText(opening);
     await captureText(page.getByTestId('perception-target-note'), 'opaque-reset-note');
-    await captureText(budget.locator('[data-figure-source]'), 'calculator-reference');
+    const method = await openHowThisWasMade(budget);
+    await captureText(method.locator('p', { hasText: 'D410/D415 and D43x' }), 'calculator-reference');
 
     for (const [text, name, checks] of [
       ['The 2% figure is measured', 'specification-conditions', ['texture-less white target', 'publishes no target condition', 'is not disclosed in either datasheet']],

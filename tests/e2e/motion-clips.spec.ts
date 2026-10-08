@@ -101,7 +101,22 @@ for (const clip of CLIPS) {
       await expect(alternative).toHaveClass(/sr-only/);
       await expect(alternative).toContainText(/predict/i);
       await expect(alternative).toContainText(/update/i);
-      expect(await scope.textContent()).toContain('schematic');
+      expect((await scope.textContent())?.toLowerCase()).toContain(
+        'illustrative',
+      );
+
+      // One plain-words play button drives the same native video.
+      const playButton = scope.getByRole('button', { name: 'Play the run' });
+      await expect(playButton).toBeVisible();
+      await playButton.click();
+      await expect
+        .poll(() => video.evaluate((element: HTMLVideoElement) => element.paused))
+        .toBe(false);
+      await scope.getByRole('button', { name: 'Pause the run' }).click();
+      await expect
+        .poll(() => video.evaluate((element: HTMLVideoElement) => element.paused))
+        .toBe(true);
+      await expect(video).toHaveAttribute('controls', '');
     });
 
     test('keeps the poster box stable at phone and desktop widths', async ({

@@ -31,6 +31,8 @@ export interface MotionClipBeat {
 export interface MotionClipManifestEntry {
   id: string;
   title: string;
+  kicker: string;
+  headline: string;
   route: string;
   teaches: string;
   status: MotionClipStatus;
@@ -38,6 +40,7 @@ export interface MotionClipManifestEntry {
   width: number;
   height: number;
   beats: MotionClipBeat[];
+  method: string[];
   textAlternative: string;
 }
 
@@ -102,10 +105,15 @@ export function buildTypeScript(manifest: MotionClipsManifest): string {
             `    { caption: ${JSON.stringify(beat.caption)}, durationMs: ${beat.durationMs} },`,
         )
         .join('\n');
+      const method = clip.method
+        .map((paragraph) => `      ${JSON.stringify(paragraph)},`)
+        .join('\n');
       return [
         `  '${clip.id}': {`,
         `    id: '${clip.id}',`,
         `    title: ${JSON.stringify(clip.title)},`,
+        `    kicker: ${JSON.stringify(clip.kicker)},`,
+        `    headline: ${JSON.stringify(clip.headline)},`,
         `    route: '${clip.route}',`,
         `    teaches: ${JSON.stringify(clip.teaches)},`,
         `    status: '${clip.status}',`,
@@ -115,6 +123,9 @@ export function buildTypeScript(manifest: MotionClipsManifest): string {
         `    durationMs: ${durationMs},`,
         '    beats: [',
         beats,
+        '    ],',
+        '    method: [',
+        method,
         '    ],',
         `    textAlternative: ${JSON.stringify(clip.textAlternative)},`,
         `    files: ${JSON.stringify(clipFiles(clip.id), null, 2).replace(/\n/g, '\n    ')},`,
@@ -150,7 +161,12 @@ export interface MotionClipFiles {
 
 export interface MotionClip {
   id: string;
+  /** The clip's name, used for its region label and transcript. */
   title: string;
+  /** The technical name above the headline, six words or fewer. */
+  kicker: string;
+  /** The takeaway in plain words, ten or fewer. */
+  headline: string;
   /** The article route the clip is mounted on. */
   route: string;
   /** One visible sentence under the stage naming what the clip teaches. */
@@ -162,6 +178,8 @@ export interface MotionClip {
   height: number;
   durationMs: number;
   beats: MotionClipBeat[];
+  /** The paragraphs of the "How this was made" fold. */
+  method: string[];
   textAlternative: string;
   files: MotionClipFiles;
 }

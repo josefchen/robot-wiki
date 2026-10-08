@@ -26,31 +26,36 @@ import {
   INSTRUMENT_SECONDARY_CONTROL_CLASS,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
-  InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
-  LegendItem,
   PlotStage,
+  PresetGroup,
+  type Preset,
 } from '@/components/ui/instrument';
 import { FigureStage } from '@/components/motion/figure-frame';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_VIEW_WIDTH,
-  LegendSwatch,
+  DirectLabel,
+  StageAnnotation,
   roleColour,
 } from '@/components/motion/chart';
 
 /**
  * PendulumController: a live PID lab on a torque-actuated inverted
  * pendulum. The pole is released 12 degrees off vertical with a small
- * off-center payload (the dot beside the tip mass) supplying a constant
- * disturbance torque, and the three gain sliders retune the loop while it
- * runs: default gains settle into a small steady lean, adding Ki walks the
- * pole back to vertical, cutting Kd toward zero leaves it ringing, and
- * dropping Kp below the mgl threshold (9.81) loses the pole entirely. Push
- * applies a fixed angular-velocity kick so a tuned loop can be disturbed on
- * demand. Reset restores the release state and the mount's initial gains.
+ * off-center payload supplying a constant disturbance torque. The stage
+ * draws the motor at the pivot with a curved push-back arrow sized by its
+ * torque, and gravity's pull at the tip. "Correction strength" picks a
+ * proportional gain just under gravity's pull (9.5) or the stock 25 and
+ * releases the pole; "Give it a push" applies a fixed angular-velocity
+ * kick. The three gain sliders, Run and Reset sit in "Adjust more": default
+ * gains settle into a small steady lean, adding Ki walks the pole back to
+ * vertical, cutting Kd toward zero leaves it ringing, a Kp just under the
+ * mgl threshold (9.81) lets the pole sag to a steep lean, and a Kp well
+ * under it loses the pole entirely. Reset restores the release state and
+ * the mount's initial gains.
  *
  * Interactive contract: fully deterministic physics (no randomness, fixed
  * substep, identical trajectories for identical inputs), native range
@@ -65,14 +70,42 @@ const WIDTH = CHART_VIEW_WIDTH;
 const HEIGHT = 226;
 // The pivot sits on a support post well above the ground line, so the pole
 // stays fully in frame in every regime: upright, hanging straight down, or
-// tumbling through.
+// tumbling through. It stands right of centre so the note fits on the left.
 const GROUND_Y = 214;
-const PIVOT = { x: WIDTH / 2, y: 108 };
+const PIVOT = { x: 196, y: 116 };
 const ROD_PX = 92;
-const ROD_WIDTH = CHART_STROKE.trace * 1.25;
-const MASS_R = 9;
-const PAYLOAD_R = 3;
-const ARC_R = 26;
+const ROD_WIDTH = CHART_STROKE.trace * 1.5;
+const MASS_R = 10;
+const MOTOR_R = 11;
+const PUSH_ARC_R = 25;
+/** Degrees of push-back arc per newton-metre of motor torque. */
+const PUSH_ARC_DEG_PER_NM = 9;
+const GRAVITY_ARROW_PX = 32;
+
+type StrengthId = 'gentle' | 'enough';
+const STRENGTHS: readonly (Preset<StrengthId> & { kp: number })[] = [
+  { id: 'gentle', label: 'Too gentle', kp: 9.5 },
+  { id: 'enough', label: 'Strong enough', kp: DEFAULT_GAINS.kp },
+];
+
+/** The regime in the words a reader would use, shown on the stage once the pole moves. */
+const STAGE_WORD: Record<Stability, string> = {
+  settled: 'balanced',
+  settling: 'settling',
+  oscillating: 'swinging',
+  fallen: 'fallen over',
+};
+/**
+ * Just under the threshold the P term is linear in the lean while gravity
+ * grows with its sine, so the pole comes to rest well off upright (about
+ * 50 degrees at Kp 9.5). The status still reads settled; the stage must not
+ * call that balanced.
+ */
+const BALANCED_LEAN_RAD = (10 * Math.PI) / 180;
+function stageWord(stability: Stability, theta: number): string {
+  if (stability === 'settled' && Math.abs(theta) > BALANCED_LEAN_RAD) return 'stuck leaning';
+  return STAGE_WORD[stability];
+}
 
 /** Round every rendered geometry value: SSR HTML and hydration agree. */
 const f = (v: number) => Number(v.toFixed(2));
@@ -92,52 +125,87 @@ const STATUS_TEXT: Record<Stability, string> = {
   fallen: 'fallen',
 };
 
-const GAIN_WORD: Record<keyof PidGains, string> = {
-  kp: 'proportional',
-  ki: 'integral',
-  kd: 'derivative',
+/** What each gain does, in the words of its slider label. */
+const GAIN_LABEL: Record<keyof PidGains, string> = {
+  kp: 'React to the lean (P)',
+  ki: 'Fix lingering drift (I)',
+  kd: 'Calm the swing (D)',
 };
 
 /** Past this lean the plant is treated as fallen rather than recovering. */
 const FALL_LINE_RAD = Math.PI / 3;
 
-/** The off-center payload rides just outside the tip mass, across the rod. */
-function payloadPosition(theta: number): { x: number; y: number } {
-  const tip = tipPosition(theta, ROD_PX, PIVOT);
-  const offset = MASS_R + PAYLOAD_R + 1.5;
-  return { x: tip.x + offset * Math.cos(theta), y: tip.y + offset * Math.sin(theta) };
+/** A point on a circle round the pivot, `angle` measured clockwise from straight up. */
+function aroundPivot(angle: number, radius: number): [number, number] {
+  return [f(PIVOT.x + radius * Math.sin(angle)), f(PIVOT.y - radius * Math.cos(angle))];
 }
 
-/** Ground, its hatch ticks and the support post under the pivot. */
+/** An arrowhead at (x, y) pointing along the unit direction (dx, dy). */
+function arrowHead(x: number, y: number, dx: number, dy: number): string {
+  return [
+    [x + dx * 4, y + dy * 4],
+    [x - dx * 6 - dy * 4.5, y - dy * 6 + dx * 4.5],
+    [x - dx * 6 + dy * 4.5, y - dy * 6 - dx * 4.5],
+  ].map(([px, py]) => `${f(px)},${f(py)}`).join(' ');
+}
+
+/** Ground, its hatch ticks and the post under the motor. */
 function PendulumSupport() {
   return (
     <g data-scene-structure="pendulum-support" stroke={CHART_STRUCTURE.axes}>
-      <line
-        x1={34}
-        y1={GROUND_Y + 0.5}
-        x2={306}
-        y2={GROUND_Y + 0.5}
-        strokeWidth={CHART_STROKE.structure}
-      />
+      <line x1={34} y1={GROUND_Y + 0.5} x2={306} y2={GROUND_Y + 0.5} strokeWidth={CHART_STROKE.structure} />
       <g opacity={CHART_STRUCTURE.axesOpacity}>
         {Array.from({ length: 21 }, (_, i) => 46 + i * 13).map((x) => (
-          <line
-            key={x}
-            x1={x}
-            y1={GROUND_Y + 0.5}
-            x2={x - 4}
-            y2={GROUND_Y + 5}
-            strokeWidth={CHART_STROKE.structure}
-          />
+          <line key={x} x1={x} y1={GROUND_Y + 0.5} x2={x - 4} y2={GROUND_Y + 5} strokeWidth={CHART_STROKE.structure} />
         ))}
-        <line
-          x1={PIVOT.x}
-          y1={PIVOT.y + 5}
-          x2={PIVOT.x}
-          y2={GROUND_Y}
-          strokeWidth={CHART_STROKE.trace}
-        />
+        <rect x={PIVOT.x - 4} y={PIVOT.y + MOTOR_R} width={8} height={GROUND_Y - PIVOT.y - MOTOR_R} fill={CHART_STRUCTURE.axes} stroke="none" />
       </g>
+    </g>
+  );
+}
+
+/**
+ * The motor at the pivot and its push on the pole: an arc from the rod
+ * toward upright whose length grows with the motor's torque.
+ */
+function MotorPush({ theta, torque }: { theta: number; torque: number }) {
+  const colour = roleColour('highlight');
+  const sweep = (Math.min(Math.abs(torque) * PUSH_ARC_DEG_PER_NM, 160) * Math.PI) / 180;
+  const turn = Math.sign(torque);
+  const end = theta + turn * sweep;
+  const [x0, y0] = aroundPivot(theta, PUSH_ARC_R);
+  const [x1, y1] = aroundPivot(end, PUSH_ARC_R);
+  return (
+    <g data-testid="pendulum-motor">
+      <circle cx={PIVOT.x} cy={PIVOT.y} r={MOTOR_R} fill={MOTION_STAGE.background} stroke={CHART_STRUCTURE.axes} strokeWidth={CHART_STROKE.trace} />
+      {Math.abs(torque) > 0.05 ? (
+        <g data-testid="pendulum-push-arrow" data-chart-role="highlight" data-push-sweep-deg={f((sweep * 180) / Math.PI)}>
+          <path
+            d={`M ${x0} ${y0} A ${PUSH_ARC_R} ${PUSH_ARC_R} 0 ${sweep > Math.PI ? 1 : 0} ${turn > 0 ? 1 : 0} ${x1} ${y1}`}
+            fill="none"
+            stroke={colour}
+            strokeWidth={CHART_STROKE.trace}
+            strokeLinecap="round"
+          />
+          <polygon points={arrowHead(x1, y1, turn * Math.cos(end), turn * Math.sin(end))} fill={colour} />
+        </g>
+      ) : null}
+    </g>
+  );
+}
+
+/** Gravity's pull at the tip mass, drawn while the mass is above the pivot. */
+function GravityPull({ tip }: { tip: { x: number; y: number } }) {
+  const colour = CHART_STRUCTURE.labelSecondary;
+  const top = tip.y + MASS_R + 3;
+  const bottom = top + GRAVITY_ARROW_PX;
+  return (
+    <g data-testid="pendulum-gravity-arrow">
+      <line x1={f(tip.x)} y1={f(top)} x2={f(tip.x)} y2={f(bottom - 4)} stroke={colour} strokeWidth={CHART_STROKE.trace} />
+      <polygon points={arrowHead(f(tip.x), f(bottom - 4), 0, 1)} fill={colour} />
+      <DirectLabel x={f(tip.x + 9)} y={f(bottom - 6)}>
+        gravity
+      </DirectLabel>
     </g>
   );
 }
@@ -233,7 +301,6 @@ export function PendulumController({
     : 'holding at release';
   const pastFallLine = Math.abs(sim.theta) > FALL_LINE_RAD;
   const tip = tipPosition(sim.theta, ROD_PX, PIVOT);
-  const payload = payloadPosition(sim.theta);
   const torque = controlTorque(sim, gains, PENDULUM_PARAMS);
   // The takeaway names the gains "Default" only while they actually are
   // the defaults: the label follows the live sliders, not the mount, so
@@ -243,13 +310,11 @@ export function PendulumController({
     gains.ki === DEFAULT_GAINS.ki &&
     gains.kd === DEFAULT_GAINS.kd;
 
-  // Angle arc from the upright setpoint to the rod, hidden while the pole
-  // sits on the setpoint.
-  const showArc = Math.abs(sim.theta) > 0.02;
-  const arcEnd = {
-    x: PIVOT.x + ARC_R * Math.sin(sim.theta),
-    y: PIVOT.y - ARC_R * Math.cos(sim.theta),
-  };
+  const strength = STRENGTHS.find((option) => option.kp === gains.kp)?.id ?? null;
+  // The tip's path over the last two seconds of the run.
+  const trail = started
+    ? history.map((h) => tipPosition(h.theta, ROD_PX, PIVOT)).map((p) => `${f(p.x)},${f(p.y)}`).join(' ')
+    : '';
 
   const push = () => {
     setRun((prev) => ({ ...prev, sim: applyPush(prev.sim) }));
@@ -260,6 +325,13 @@ export function PendulumController({
     setPlaying(false);
     setGains({ ...DEFAULT_GAINS, kp: defaultKp });
     setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] });
+  };
+
+  // A strength is a fresh trial: the pole goes back to its release and runs.
+  const chooseStrength = (id: StrengthId) => {
+    setGains((g) => ({ ...g, kp: STRENGTHS.find((option) => option.id === id)!.kp }));
+    setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] });
+    setPlaying(true);
   };
 
   const state = roleColour('state');
@@ -274,7 +346,7 @@ export function PendulumController({
           </span>
         }
       >
-        {spec.symbol} {GAIN_WORD[spec.id]}
+        {GAIN_LABEL[spec.id]}
       </ControlLabel>
       <input
         id={`${uid}-gain-${spec.id}`}
@@ -287,7 +359,7 @@ export function PendulumController({
         onChange={(e) =>
           setGains((g) => ({ ...g, [spec.id]: Number(e.target.value) }))
         }
-        aria-label={`${spec.name} ${spec.symbol}, currently ${gains[
+        aria-label={`${GAIN_LABEL[spec.id]}: ${spec.name.toLowerCase()} ${spec.symbol}, currently ${gains[
           spec.id
         ].toFixed(1)}`}
         className={INSTRUMENT_SLIDER_CLASS}
@@ -301,84 +373,10 @@ export function PendulumController({
     <InstrumentFigure
       figureId="pendulum-controller"
       className={className}
-      heading="Inverted pendulum under PID control"
+      kicker="PID control"
+      heading="Push back harder than gravity to keep the pole upright"
       stage={
-        <FigureStage
-          footer={
-            <>
-              <InstrumentLegend>
-                <LegendItem series="pendulum-pole" swatch={<LegendSwatch role="state" mark="line" />}>
-                  pole and tip mass
-                </LegendItem>
-                <LegendItem series="pendulum-payload" swatch={<LegendSwatch role="state" mark="dot" />}>
-                  off-center payload
-                </LegendItem>
-                <LegendItem series="pendulum-setpoint" swatch={<LegendSwatch role="reference" mark="dash" />}>
-                  upright setpoint
-                </LegendItem>
-              </InstrumentLegend>
-              <InstrumentReadout className="flex flex-wrap gap-x-3">
-                <span>
-                  angle{' '}
-                  <span data-testid="pendulum-angle-readout" style={{ color: state }}>
-                    {formatDeg(sim.theta)}°
-                  </span>
-                </span>
-                <span>
-                  rate{' '}
-                  <span data-testid="pendulum-rate-readout">{formatDeg(sim.thetaDot)}°/s</span>
-                </span>
-                <span>
-                  integral{' '}
-                  <span data-testid="pendulum-integral-readout">{sim.integral.toFixed(2)}</span>
-                </span>
-                <span>
-                  torque{' '}
-                  <span data-testid="pendulum-torque-readout">{torque.toFixed(1)} N·m</span>
-                </span>
-                <span>
-                  status{' '}
-                  <span
-                    data-testid="pendulum-status-readout"
-                    style={status === 'fallen' ? { color: roleColour('constraint') } : undefined}
-                  >
-                    {status}
-                  </span>
-                </span>
-              </InstrumentReadout>
-              <ChartDescription
-                id={descriptionId}
-                form="state"
-                summary="Current pendulum gains and regime"
-                description={
-                  defaultKp === DEFAULT_GAINS.kp
-                    ? `${gainsAtDefault ? 'Default gains' : 'Retuned gains'} Kp ${gains.kp.toFixed(1)}, Ki ${gains.ki.toFixed(1)} and Kd ${gains.kd.toFixed(1)} leave the lab pole ${status} at ${formatDeg(sim.theta)} degrees with torque ${torque.toFixed(1)} N·m; angle and status ${playing ? 'update on every playback tick' : 'stay frozen until Run or Push'}.`
-                    : // The threshold clause branches on the live Kp against
-                      // PENDULUM_PARAMS.gravity (with massKg = lengthM = 1 the
-                      // mgl hold threshold equals g): a Kp dragged past the
-                      // threshold must not be described as under it. "starts at"
-                      // holds only while the reader has not moved the mount's
-                      // own initial gain. The load-state sentence (Kp 9.5 on the
-                      // control page) is byte-identical to the pre-branch text.
-                      `The prediction-step pole ${
-                        gains.kp === defaultKp ? 'starts at' : 'now sits at'
-                      } Kp ${gains.kp.toFixed(1)}, ${
-                        gains.kp < PENDULUM_PARAMS.gravity
-                          ? `under the ${PENDULUM_PARAMS.gravity.toFixed(2)} mgl hold threshold`
-                          : `above the ${PENDULUM_PARAMS.gravity.toFixed(2)} mgl hold threshold where the loop can hold it`
-                      }, still ${formatDeg(sim.theta)} degrees off upright and ${status} so the prompt can be answered before playback.`
-                }
-                states={[
-                  { label: 'Kp', value: gains.kp.toFixed(1) },
-                  { label: 'Ki', value: gains.ki.toFixed(1) },
-                  { label: 'Kd', value: gains.kd.toFixed(1) },
-                  { label: 'angle', value: `${formatDeg(sim.theta)}°` },
-                  { label: 'status', value: status },
-                ]}
-              />
-            </>
-          }
-        >
+        <FigureStage>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`Inverted pendulum with PID control. Pole angle ${formatDeg(
@@ -391,30 +389,31 @@ export function PendulumController({
             <g data-series="pendulum-setpoint" data-chart-role="reference">
               <line
                 x1={PIVOT.x}
-                y1={PIVOT.y - 6}
+                y1={PIVOT.y - MOTOR_R - 3}
                 x2={PIVOT.x}
-                y2={PIVOT.y - ROD_PX - 10}
+                y2={PIVOT.y - ROD_PX - 12}
                 stroke={roleColour('reference')}
                 strokeWidth={CHART_STROKE.reference}
                 strokeDasharray={CHART_STROKE.dash}
               />
             </g>
-            {showArc ? (
-              <g data-scene-structure="pendulum-angle">
-                <path
-                  data-testid="pendulum-angle-arc"
-                  d={`M ${PIVOT.x} ${PIVOT.y - ARC_R} A ${ARC_R} ${ARC_R} 0 0 ${
-                    sim.theta > 0 ? 1 : 0
-                  } ${f(arcEnd.x)} ${f(arcEnd.y)}`}
-                  fill="none"
-                  stroke={CHART_STRUCTURE.labelSecondary}
-                  strokeWidth={CHART_STROKE.structure}
-                />
-              </g>
+            <DirectLabel x={PIVOT.x - 8} y={PIVOT.y - ROD_PX - 2} anchor="end">
+              upright
+            </DirectLabel>
+            {trail ? (
+              <polyline
+                data-testid="pendulum-trail"
+                points={trail}
+                fill="none"
+                stroke={roleColour('reference')}
+                strokeWidth={CHART_STROKE.structure}
+                opacity={0.7}
+              />
             ) : null}
+            <MotorPush theta={sim.theta} torque={torque} />
             {/* Past the fall line the rod breaks into dashes and the tip mass
                 opens into a broken ring, so the failed regime reads from the
-                shape as well as from the status readout. */}
+                shape as well as from the status word. */}
             <g data-series="pendulum-pole" data-chart-role="state">
               <line
                 data-testid="pendulum-rod"
@@ -438,29 +437,44 @@ export function PendulumController({
                 strokeDasharray={pastFallLine ? '5 3' : undefined}
               />
             </g>
-            <g data-series="pendulum-payload" data-chart-role="state">
-              <circle
-                data-testid="pendulum-payload"
-                cx={f(payload.x)}
-                cy={f(payload.y)}
-                r={PAYLOAD_R}
-                fill={state}
-              />
-            </g>
-            <g data-scene-structure="pendulum-pivot">
-              <path
-                d={`M ${PIVOT.x - 7} ${PIVOT.y + 1} L ${PIVOT.x} ${PIVOT.y - 6} L ${
-                  PIVOT.x + 7
-                } ${PIVOT.y + 1} Z`}
-                fill={MOTION_STAGE.background}
-                stroke={CHART_STRUCTURE.axes}
-                strokeWidth={CHART_STROKE.structure}
-              />
-            </g>
+            <circle cx={PIVOT.x} cy={PIVOT.y} r={3} fill={CHART_STRUCTURE.axes} />
+            {Math.abs(sim.theta) < Math.PI / 2 ? <GravityPull tip={tip} /> : null}
+            {started ? (
+              <DirectLabel x={WIDTH - 8} y={22} anchor="end" role={status === 'fallen' ? 'constraint' : undefined}>
+                <tspan data-testid="pendulum-stage-status">{stageWord(classifyStability(history), sim.theta)}</tspan>
+              </DirectLabel>
+            ) : null}
+            <StageAnnotation
+              x={8}
+              y={146}
+              lines={['Gravity tips it over;', 'the motor at the base', 'pushes back']}
+              target={[PIVOT.x, PIVOT.y]}
+              from={[162, 141]}
+            />
           </PlotStage>
         </FigureStage>
       }
       controls={
+        <>
+          <PresetGroup
+            label="Correction strength"
+            presets={STRENGTHS}
+            value={strength}
+            onChange={chooseStrength}
+            testId="pendulum-strength"
+          />
+          <button
+            data-brand-control-id="control:secondary-action"
+            data-pagefind-ignore
+            type="button"
+            onClick={push}
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+          >
+            Give it a push
+          </button>
+        </>
+      }
+      adjust={
         <>
           {gainSliders}
           <button
@@ -480,24 +494,86 @@ export function PendulumController({
             )}
             {playing ? 'Pause' : 'Run'}
           </button>
-          <button
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            type="button"
-            onClick={push}
-            aria-label="Push the pole with a fixed impulse"
-            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
-          >
-            Push
-          </button>
           <InstrumentReset
             onClick={reset}
             aria-label="Reset the simulation and restore default gains"
           />
+          <InstrumentReadout className="flex basis-full flex-wrap gap-x-3">
+            <span>
+              angle{' '}
+              <span data-testid="pendulum-angle-readout" style={{ color: state }}>
+                {formatDeg(sim.theta)}°
+              </span>
+            </span>
+            <span>
+              rate <span data-testid="pendulum-rate-readout">{formatDeg(sim.thetaDot)}°/s</span>
+            </span>
+            <span>
+              integral <span data-testid="pendulum-integral-readout">{sim.integral.toFixed(2)}</span>
+            </span>
+            <span>
+              torque <span data-testid="pendulum-torque-readout">{torque.toFixed(1)} N·m</span>
+            </span>
+            <span>
+              status{' '}
+              <span
+                data-testid="pendulum-status-readout"
+                style={status === 'fallen' ? { color: roleColour('constraint') } : undefined}
+              >
+                {status}
+              </span>
+            </span>
+          </InstrumentReadout>
         </>
       }
-      caption="Below Kp 9.81, the mgl threshold of this plant, no setting of Ki or Kd keeps the pole up."
-      source="Deterministic schematic simulation: a 1 kg point mass on a 1 m rod, torque applied at the pivot, and an off-center payload as a constant disturbance."
+      caption="Balancing robots constantly measure their lean and push back; if the push is too gentle, nothing else can save them."
+      method={
+        <>
+          <p>
+            A deterministic simulation: a 1 kg point mass on a massless 1 m rod, released 12 degrees off upright,
+            with the motor&apos;s torque applied at the pivot and capped at 40 N·m. A small off-centre load adds a
+            constant 0.8 N·m that tips the pole right. The motor pushes back with u = −(Kp·θ + Ki·∫θ + Kd·θ̇): P
+            reacts to the lean, I removes the steady lean the load leaves, and D damps the swing. Linearised about
+            upright, the pole can only be held upright when Kp exceeds m·g·l = {PENDULUM_PARAMS.gravity.toFixed(2)}{' '}
+            N·m per radian, so below it no I or D setting helps. Too gentle sets Kp to 9.5: the pole sags until the
+            motor&apos;s push matches gravity&apos;s pull, about 50 degrees off upright. Strong enough sets the stock
+            25. The push-back arc grows {PUSH_ARC_DEG_PER_NM} degrees per N·m of motor torque, and the faint trail
+            is the tip&apos;s path over the last two seconds. The balance problem follows Tedrake&apos;s
+            Underactuated Robotics, chapters 2 and 3; the PID structure follows Åström and Murray&apos;s Feedback
+            Systems.
+          </p>
+          <ChartDescription
+            id={descriptionId}
+            form="state"
+            summary="Current pendulum gains and regime"
+            description={
+              defaultKp === DEFAULT_GAINS.kp
+                ? `${gainsAtDefault ? 'Default gains' : 'Retuned gains'} Kp ${gains.kp.toFixed(1)}, Ki ${gains.ki.toFixed(1)} and Kd ${gains.kd.toFixed(1)} leave the lab pole ${status} at ${formatDeg(sim.theta)} degrees with torque ${torque.toFixed(1)} N·m; angle and status ${playing ? 'update on every playback tick' : 'stay frozen until Run or Give it a push'}.`
+                : // The threshold clause branches on the live Kp against
+                  // PENDULUM_PARAMS.gravity (with massKg = lengthM = 1 the
+                  // mgl hold threshold equals g): a Kp dragged past the
+                  // threshold must not be described as under it. "starts at"
+                  // holds only while the reader has not moved the mount's
+                  // own initial gain. The load-state sentence (Kp 9.5 on the
+                  // control page) is byte-identical to the pre-branch text.
+                  `The prediction-step pole ${
+                    gains.kp === defaultKp ? 'starts at' : 'now sits at'
+                  } Kp ${gains.kp.toFixed(1)}, ${
+                    gains.kp < PENDULUM_PARAMS.gravity
+                      ? `under the ${PENDULUM_PARAMS.gravity.toFixed(2)} mgl hold threshold`
+                      : `above the ${PENDULUM_PARAMS.gravity.toFixed(2)} mgl hold threshold where the loop can hold it`
+                  }, still ${formatDeg(sim.theta)} degrees off upright and ${status} so the prompt can be answered before playback.`
+            }
+            states={[
+              { label: 'Kp', value: gains.kp.toFixed(1) },
+              { label: 'Ki', value: gains.ki.toFixed(1) },
+              { label: 'Kd', value: gains.kd.toFixed(1) },
+              { label: 'angle', value: `${formatDeg(sim.theta)}°` },
+              { label: 'status', value: status },
+            ]}
+          />
+        </>
+      }
     />
   );
 }

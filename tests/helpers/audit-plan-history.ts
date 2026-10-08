@@ -110,8 +110,19 @@ export function preservedLegacySurvivors(
   for (const old of withdrawn) {
     expect(current.filter(p => p.id === old.id), old.id).toEqual([]);
   }
+  // The 2026-10-08 classical pass gave kinematics row 7 a successor plan under
+  // a new id; the prior plan is retained verbatim in that pass's evidence.
+  const rescopeArchive = readArchive('audit/evidence/domain-pass-20261008/prior-plans.json');
+  expect(sha256(rescopeArchive)).toBe('f909e84c655fffb38f3f80c9e65e5c5ad624cb9f5c766b196da56061ad3daec3');
+  const rescoped = (JSON.parse(rescopeArchive.toString()) as { plans: CompoundPlan[] }).plans;
+  expect(rescoped.map(p => p.id)).toEqual(['kinematics-7-jacobian-20260915']);
+  const rescopedIds = new Set(rescoped.map(p => p.id));
+  for (const old of rescoped) {
+    expect(current.filter(p => p.id === old.id), old.id).toEqual([]);
+    for (const previous of prior.filter(p => p.id === old.id)) expect(previous).toEqual(old);
+  }
   expect(current.filter(p => priorIds.has(p.id)))
-    .toEqual(survivors.filter(p => !withdrawnIds.has(p.id)));
+    .toEqual(survivors.filter(p => !withdrawnIds.has(p.id) && !rescopedIds.has(p.id)));
 }
 
 export function planPacket<T extends { id: string }>(plans: T[], ids: readonly string[]): T[] {

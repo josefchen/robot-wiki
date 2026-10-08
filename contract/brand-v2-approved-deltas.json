@@ -66704,6 +66704,1704 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261007-prose-kinematics",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "d2d1a1af77e8f665fe147b224d66b6ad026288754ff4744b2b65e1a6df8ec18b",
+      "newHash": "e3eb542a8693e4776bf5ca57fff5b3a023e0a19ef686c54858d7ba61b3f159f8",
+      "reason": "Classical pass of 2026-10-07 on classical/kinematics (sweep item K.R5): the SO-101 Stat read \"SO-101 revolute joints: 6\", which counts the gripper jaw of the playground URDF as an arm joint; it now reads \"SO-101 arm joints: 5, plus a gripper, in the 3D playground\" (public/models/so101/so101.urdf: shoulder_pan, shoulder_lift, elbow_flex, wrist_flex, wrist_roll, gripper). The 2D demo card now points to the planar chain above it, where the figure is mounted. No citation changes; this edge moves the prose member from its domain-pass endpoint to the corrected text.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md) and the classical pass of 2026-10-07 (library/sweep-dispositions-classical-20260929.md): text and label fixes on current sources are applied as regeneration-only edits. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-059",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261007-prose-perception",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "6e7cf1462785db25b74cb5a9b320855f46d6885879cef7ab550d4048c4001bee",
+      "newHash": "e82bc91be678347ddca962c4562bf301b3d300f349851b926f53c868244d4c19",
+      "reason": "Classical pass of 2026-10-07 on classical/perception (sweep item P.X1): the 1989 Stat was labelled \"hand-eye (AX = XB)\" while its note credits Tsai and Lenz; Shiu and Ahmad cast the problem as AX = XB (calibration article), so the label now reads \"hand-eye solver\". The value, note and citations are unchanged; this edge moves the prose member from its domain-pass endpoint to the relabelled text.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md) and the classical pass of 2026-10-07 (library/sweep-dispositions-classical-20260929.md): text and label fixes on current sources are applied as regeneration-only edits. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-059",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261007-name-perception-error-budget-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-error-budget.tsx:aria-label:2",
+      "oldHash": "e9c3c9926e8a7a52b8cd9ea65d55c5741b5c1e8c88b60f7884627f2341f94fd3",
+      "newHash": "c49cfcdc4bb0a00003efafa28a75c5f4b946883c2350febe2e962395cca432cb",
+      "reason": "Reader-first rewrite of the perception error budget (VAL-OPUS-138): the hand-eye slider now prints the plain label Camera tilt error, so its accessible name restates that label before the hand-eye rotation error in degrees and its current value. The parameter, its range, step and default are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261007-name-perception-error-budget-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-error-budget.tsx:aria-label:3",
+      "oldHash": "d3949f4d30798b562ae5f78dc9ce883c4033ccf27e60cfbb89ffdf0d8487e2c0",
+      "newHash": "b16f53323394d3d44bd3096860f1a6fad423af41db521ac29b0f62f9544a3321",
+      "reason": "Reader-first rewrite of the perception error budget (VAL-OPUS-138): the working-distance slider now prints the plain label Distance to the object, so its accessible name restates that label before the working distance in metres and its current value. The parameter, its range, step and default are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261007-name-perception-error-budget-expression-aria-label-7",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-error-budget.tsx:aria-label:7",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "054b8bd89ab41a16cf24af8b25de31ecf008132d5faa3b48e05263d2ee7c5b4e",
+      "reason": "Reader-first rewrite of the perception error budget (VAL-OPUS-142): the new side-view stage draws the camera's assumed line of sight tilted from the true one, so its accessible name states the tilt in degrees, the distance in metres and the resulting miss in millimetres. The miss is the instrument's existing hand-eye term, distance times the tangent of the tilt.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-142",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261007-name-rrt-explorer-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/rrt-explorer.tsx:aria-label:1",
+      "oldHash": "aa49b46600af577f41f0ee0141b221406fd87186068a664e4790a6cafaf0d383",
+      "newHash": "f1172cae1b4bb032f882f86c7c2f8302ccf876ac7e6851cf4af56974b9a1f753",
+      "reason": "Reader-first rewrite of the RRT explorer (VAL-OPUS-138): the play button now prints the plain label Grow the tree, so while the replay runs its accessible name reads Pause the growth. The planner, its seed and its playback cadence are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261007-name-rrt-explorer-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/rrt-explorer.tsx:aria-label:2",
+      "oldHash": "3f17f0265b73f1c7f87d387b8aa6afa94e3c3d2c61bc3155f129940eb590cd1d",
+      "newHash": "485d498bc6555030abf1abc47c88abf657bf8edee5cdda7fe07ea5ca3c1ec84f",
+      "reason": "Reader-first rewrite of the RRT explorer (VAL-OPUS-138): the iteration slider now prints the plain label Tree growth with ends Just started and Path found, so its accessible name restates that label before the exploration iteration and the total. The iteration range and the tree are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261007-value-states-rrt-explorer-not-applicable-3",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/rrt-explorer.tsx:not-applicable:3",
+      "oldHash": "2061b275b8c63746105b27502a97101b651174136501931d38e5c8c87fbd9f5d",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Reader-first rewrite of the RRT explorer: the path-length readout and the figure's data table printed the same n/a in two separate expressions; both now render one shared path-length text, which still reads n/a until a branch reaches the goal. The third scanned site is therefore gone while every rendered n/a remains.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-142",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261007-value-states-chart-descriptions-not-applicable-4",
+      "manifest": "value-states",
+      "memberId": "state-site:lib/chart-descriptions.ts:not-applicable:4",
+      "oldHash": "594dd72edc4960bfbb504638f953ac581f4f6a7250207de82ab53ef4621536ef",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Reader-first rewrite of the RRT explorer (VAL-OPUS-140): the figure now opens on the finished tree, so its registered chart description reports the opening state, goal reached at iteration 288 with a 124.2-unit path, in place of the iteration-0 text whose path length read n/a. The live description still renders n/a before a branch reaches the goal.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-140",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261008-name-rrt-explorer-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/rrt-explorer.tsx:aria-label:2",
+      "oldHash": "485d498bc6555030abf1abc47c88abf657bf8edee5cdda7fe07ea5ca3c1ec84f",
+      "newHash": "b382ac0f2360441bf04109f300439c44768114210539c810d905417c52d93659",
+      "reason": "The five-second reader test of 2026-10-08 (evidence/reader-first/classical--motion-planning--rrt-explorer.json, reviewer session reader-session-147d5212) failed this figure on words the reviewer did not understand, so it was reworded in plain words (VAL-OPUS-139, VAL-OPUS-145). The reviewer could not tell what the slider labelled Tree growth adjusts, so the slider now prints Branches grown, and its accessible name restates that label before the exploration iteration and the total. The iteration range and the tree are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-calibration-chain-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/calibration-chain.tsx:aria-label:1",
+      "oldHash": "08f919b6e19dcc2a39efccd0b0e8998afdec08214254fee6f838d1ddc3635dc3",
+      "newHash": "07af32a2befef6e1eaf5a15863bb5b79fa4fb993f9f0ed4a32a7a59876cc1537",
+      "reason": "The five-second reader test of 2026-10-08 (evidence/reader-first/classical--calibration--calibration-chain.json, reviewer session reader-session-147d5212) failed this figure on words the reviewer did not understand, so it was reworded in plain words (VAL-OPUS-139, VAL-OPUS-145). The stage now names the frames box and hand in place of object and gripper tip, so the figure's name reads \"Side view of a robot arm with a camera on its wrist looking down at a box on a table. Arrows join five frames: robot base to wrist, wrist to camera, camera to box, and wrist to hand.\" The frames, links and arrows are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-ros2-policy-layout-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/ros2-policy-layout.tsx:aria-label:1",
+      "oldHash": "2db0dce22515166adddb64f7a7a595f1bf31ae019e41461fe85b38b335d5bdb7",
+      "newHash": "8682eb181e625d130e6e4931c95110928be31de1e545ff1de1cf77f09787754c",
+      "reason": "The five-second reader test of 2026-10-08 (evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.json, reviewer session reader-session-147d5212) failed this figure on words the reviewer did not understand, so it was reworded in plain words (VAL-OPUS-139, VAL-OPUS-145). The stage now names each node by what it does (the AI that suggests moves, a checkpoint, motor control, a task manager), so the figure's name gives that plain name first and the ROS 2 name in brackets. The six nodes, the supervisor and every edge are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-interactive-sources-mounts-source-calibration-chain",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/calibration-chain.tsx",
+      "oldHash": "af4e161cec6922d062508284fa319523f19d44e1cf4708aaa33e6ddec0f09ea8",
+      "newHash": "1326dc161759ad3d9d9a05dc8b209182d3b85a02b208a383fd1c01461e01f659",
+      "reason": "The five-second reader test of 2026-10-08 (evidence/reader-first/classical--calibration--calibration-chain.json, reviewer session reader-session-147d5212) failed this figure on words the reviewer did not understand, so it was reworded in plain words (VAL-OPUS-139, VAL-OPUS-145). The stage names the frames and links in plain words (hand, box, where the camera sits on the wrist), the measured errors and their technical link names move into How this was made, and the headline and caption say that an error anywhere in the chain moves where the hand lands. Geometry, citations, the measured numbers and their caveats are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-139",
+        "VAL-OPUS-141",
+        "VAL-OPUS-144",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-interactive-sources-mounts-source-ros2-policy-layout",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/ros2-policy-layout.tsx",
+      "oldHash": "89cef433e3eef3cdf520a57b18a56903a61c7d5df805d22a6e6e541007dd32f1",
+      "newHash": "40821247d1ab1624c3a23304120df6cfa294349c48ed3aa69429d86394a718ed",
+      "reason": "The five-second reader test of 2026-10-08 (evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.json, reviewer session reader-session-147d5212) failed this figure on words the reviewer did not understand, so it was reworded in plain words (VAL-OPUS-139, VAL-OPUS-145). Nodes and edges carry plain names on the stage, and the ROS 2 node, topic and quality-of-service names move into How this was made; the headline says to keep the AI one checkpoint away from the motors. The graph, its edges, citations and caveats are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-139",
+        "VAL-OPUS-141",
+        "VAL-OPUS-144",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-retest-interactive-sources-mounts-source-calibration-chain",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/calibration-chain.tsx",
+      "oldHash": "1326dc161759ad3d9d9a05dc8b209182d3b85a02b208a383fd1c01461e01f659",
+      "newHash": "4b6e4a0ebd5426942fdf88e1a78b1176bc1fe02fae0cbfd7b09a65f3b3d0a965",
+      "reason": "The second five-second reader test of 2026-10-08 (evidence/reader-first/classical--calibration--calibration-chain.json, reviewer session reader-session-bfe626b3) stated the figure's point but listed words and marks it did not understand, so the figure was reworded again (VAL-OPUS-139, VAL-OPUS-145). The headline now says a wrong measurement anywhere makes the hand miss the box, the link labels say how far each joint turns, where the camera is fixed and how far the fingertips reach, the legend says what each path measures, and only the hand and the target spot keep a dot. The links, numbers, citations and caveats are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-139",
+        "VAL-OPUS-141",
+        "VAL-OPUS-144",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-retest-interactive-sources-mounts-source-ros2-policy-layout",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/ros2-policy-layout.tsx",
+      "oldHash": "40821247d1ab1624c3a23304120df6cfa294349c48ed3aa69429d86394a718ed",
+      "newHash": "230279247891a029593b223bf210cfc6feb05750a7c4da60218720a829798948",
+      "reason": "The second five-second reader test of 2026-10-08 (evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.json, reviewer session reader-session-bfe626b3) stated the figure's point but listed words and marks it did not understand, so the figure was reworded again (VAL-OPUS-139, VAL-OPUS-145). The checkpoint becomes a safety check, the bridge the part that runs the motors and the frame tree the arm positions; each edge label says in plain words what is skipped, checked or delivered. The graph, its edges, citations and caveats are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-139",
+        "VAL-OPUS-141",
+        "VAL-OPUS-144",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-retest-name-ros2-policy-layout-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/ros2-policy-layout.tsx:aria-label:1",
+      "oldHash": "8682eb181e625d130e6e4931c95110928be31de1e545ff1de1cf77f09787754c",
+      "newHash": "556c77b50f364179b4d51ebfa4597ecfcd8c1a4d6857d706e76bb5b22d173409",
+      "reason": "The second five-second reader test of 2026-10-08 (evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.json, reviewer session reader-session-bfe626b3) stated the figure's point but listed words and marks it did not understand, so the figure was reworded again (VAL-OPUS-139, VAL-OPUS-145). The graph's accessible name uses the new plain node names, each still paired with its ROS 2 name.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-retest-interactive-sources-mounts-source-perception-error-budget",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/perception-error-budget.tsx",
+      "oldHash": "af7ce1d314268bca47d0d6c3e51ed9ca973304c7eda85c3fdea058942c15b1f9",
+      "newHash": "2bc1405b446bbc9a9e838d10dc980d93d9b34b8847ed8de4b231b0c58ea45305",
+      "reason": "The second five-second reader test of 2026-10-08 (evidence/reader-first/classical--perception--perception-error-budget.json, reviewer session reader-session-bfe626b3) stated the figure's point but listed words and marks it did not understand, so the figure was reworded again (VAL-OPUS-139, VAL-OPUS-145). The tilt slider now reads How far the camera is tilted, from not at all to 3 degrees; the object's dot is labelled and the note names where the hand goes and how far off it is. The model, numbers and citations are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. The earlier, unrecorded changes to this file in this path came from the owner's one-figure-system decision (validation/brand-v2-editorial/source-recovery-20260906/owner-visual-audit-20260929.md) and the reader-first rewrite of this figure in the same opus-pass milestone. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-139",
+        "VAL-OPUS-141",
+        "VAL-OPUS-144",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-retest-name-perception-error-budget-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-error-budget.tsx:aria-label:2",
+      "oldHash": "c49cfcdc4bb0a00003efafa28a75c5f4b946883c2350febe2e962395cca432cb",
+      "newHash": "705a3063909e9c7487a7984f346977a33bdb3fac28681880786ad27b2d7631ce",
+      "reason": "The second five-second reader test of 2026-10-08 (evidence/reader-first/classical--perception--perception-error-budget.json, reviewer session reader-session-bfe626b3) stated the figure's point but listed words and marks it did not understand, so the figure was reworded again (VAL-OPUS-139, VAL-OPUS-145). The tilt slider prints How far the camera is tilted, and its accessible name restates that label before the hand-eye rotation error in degrees.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-retest-interactive-sources-mounts-source-grasp-wrench-lab",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/grasp-wrench-lab.tsx",
+      "oldHash": "e86ebb5996bf92cb0872bda337b4be7e9002a6c24eeda53f7648faf7e3536cef",
+      "newHash": "3a7e0e69c5fcc68ed68c9a1892198c2bd0bc59897296004c4510be52e61bc9bc",
+      "reason": "The second five-second reader test of 2026-10-08 (evidence/reader-first/classical--grasp-planning--grasp-wrench-lab.json, reviewer session reader-session-bfe626b3) stated the figure's point but listed words and marks it did not understand, so the figure was reworded again (VAL-OPUS-139, VAL-OPUS-145). The surface slider now reads How rough the surface is, the meter runs from slips to strong, and the legend and hint say what the wedges and pushes mean. The grasp model, numbers and citations are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. The earlier, unrecorded changes to this file in this path came from the owner's one-figure-system decision (validation/brand-v2-editorial/source-recovery-20260906/owner-visual-audit-20260929.md) and the reader-first rewrite of this figure in the same opus-pass milestone. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-139",
+        "VAL-OPUS-141",
+        "VAL-OPUS-144",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-retest-name-grasp-wrench-lab-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:1",
+      "oldHash": "f90ac31d67814105685ec44a04b6c1a2e0ad7ea07fafdb4ff705fa91192d81a2",
+      "newHash": "b005075521eb7c75c0cb44f2672aedffffc2bad4f6a2bde0143910b2cbf1975c",
+      "reason": "The second five-second reader test of 2026-10-08 (evidence/reader-first/classical--grasp-planning--grasp-wrench-lab.json, reviewer session reader-session-bfe626b3) stated the figure's point but listed words and marks it did not understand, so the figure was reworded again (VAL-OPUS-139, VAL-OPUS-145). The surface slider prints How rough the surface is, and its accessible name restates that label before the friction coefficient.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-retest-interactive-sources-mounts-source-rrt-explorer",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/rrt-explorer.tsx",
+      "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+      "newHash": "1b970a398b3a72a65a788325bfd5d6c66368c1f148452d862c0340a69fde4c29",
+      "reason": "Resolve this member's approval graph at its current bytes. After the 2026-09-24 reconciliation (continuation-merge-2026-09-24-0305-...), instrument-migration-20260926-rrt-source moved the explorer onto the shared instrument family (1d5304b4), and this opus-pass then rewrote it for first-time readers twice: after the reader test of 2026-10-07 and again after the second five-second reader test of 2026-10-08 (evidence/reader-first/classical--motion-planning--rrt-explorer.json, reviewer session reader-session-bfe626b3), which stated the figure's point but listed words and marks it did not understand (VAL-OPUS-139, VAL-OPUS-145). The slider now reads How far the search has grown, from beginning to path found, and the goal is a plain ring with its flag and word label instead of a dashed legend entry. The sampler, scene and path are unchanged. Every prior edge for this member is inventoried below; any removed, altered or newly added edge invalidates this review.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. The earlier, unrecorded changes to this file in this path came from the owner's one-figure-system decision (validation/brand-v2-editorial/source-recovery-20260906/owner-visual-audit-20260929.md) and the reader-first rewrite of this figure in the same opus-pass milestone. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-139",
+        "VAL-OPUS-141",
+        "VAL-OPUS-144",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "seo-merge-20260916-interactive-sources-mounts-98",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "5945bb04a04771a26a661e919e2ec8fd8dd15b15758b0f6c0d7d63a293e27ad8"
+        },
+        {
+          "id": "round5-closeout2-src-interactive-rrt-explorer-tsx",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "5945bb04a04771a26a661e919e2ec8fd8dd15b15758b0f6c0d7d63a293e27ad8"
+        },
+        {
+          "id": "four-local-truth-repairs-20260922-4",
+          "oldHash": "5945bb04a04771a26a661e919e2ec8fd8dd15b15758b0f6c0d7d63a293e27ad8",
+          "newHash": "1b82e36081a46b78dddee8ed8d7ec0dd6d2c4a8e7199d0ab19455a4eb9a62c27"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-interactive-sources-mounts-source-components-interactive-rrt-explorer-tsx",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "1b82e36081a46b78dddee8ed8d7ec0dd6d2c4a8e7199d0ab19455a4eb9a62c27"
+        },
+        {
+          "id": "classical-closure-20260923-9",
+          "oldHash": "1b82e36081a46b78dddee8ed8d7ec0dd6d2c4a8e7199d0ab19455a4eb9a62c27",
+          "newHash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-interactive-sources-mounts-source-components-interactive-rrt-explorer-tsx",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-interactive-sources-mounts-source-components-interactive-rrt-explorer-tsx",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "b0467ed738de5c40509b6c2a3d03e8090577d5e5951a29f4b41cdc82cfdaa10a"
+        },
+        {
+          "id": "instrument-migration-20260926-rrt-source",
+          "oldHash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa",
+          "newHash": "1d5304b4315baf14ce54cf2361c6da2d82f313152ed49ab7f12b8ff1f8f2e5b3"
+        }
+      ]
+    },
+    {
+      "id": "reader-first-20261008-retest-name-rrt-explorer-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/rrt-explorer.tsx:aria-label:2",
+      "oldHash": "b382ac0f2360441bf04109f300439c44768114210539c810d905417c52d93659",
+      "newHash": "1b65112580e5d91ac33b945569654908d345bb0444c250d6b71f693569af490d",
+      "reason": "The second five-second reader test of 2026-10-08 (evidence/reader-first/classical--motion-planning--rrt-explorer.json, reviewer session reader-session-bfe626b3) stated the figure's point but listed words and marks it did not understand, so the figure was reworded again (VAL-OPUS-139, VAL-OPUS-145). The slider prints How far the search has grown, and its accessible name restates that label before the exploration iteration and the total.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-impedance-contact-lab-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:2",
+      "oldHash": "fd6e99d22c1ecdc9914c08a29b7cf91beefb864ecd480a6a3e61f2d87da21c04",
+      "newHash": "ac8221d0801f1fa945f67751900950619907067d290e6f15dfdb9d634b68530e",
+      "reason": "The reader-first rewrite of audit item A42 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) names the stiffness slider Softness, and its accessible name restates that label before the stiffness in newtons per metre. Softness is the main-view slider and How far it presses in now follows it in Adjust more, so the slider names after the arm choice run Softness, press depth, damping, then the chart.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-impedance-contact-lab-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:3",
+      "oldHash": "37daf3bfb716335e27ec6a68cd92f9841a40b0c126780e95d4a26662ba832a61",
+      "newHash": "c20650a9a7de1dd3ac7926dc54d385dd86cfe0a22a32bbbfd7f6f19629363ce5",
+      "reason": "The reader-first rewrite of audit item A42 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) names the press-depth slider How far it presses in, and its accessible name restates that label before the commanded press depth in millimetres. Softness is the main-view slider and How far it presses in now follows it in Adjust more, so the slider names after the arm choice run Softness, press depth, damping, then the chart.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-impedance-contact-lab-expression-aria-label-4",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:4",
+      "oldHash": "880da618cb1740d0331ab86a28d043e5b7b3f454a06f407551e6517d411e69cd",
+      "newHash": "950c29b5dfd0fee96fb2a748795716f7e239510ed74187a4756da7f8dbffc23d",
+      "reason": "The reader-first rewrite of audit item A42 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) names the damping slider Calm the bounce, and its accessible name restates that label before the damping in newton-seconds per metre.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-impedance-contact-lab-expression-aria-label-5",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:5",
+      "oldHash": "e239605a4e741aa095d28b694a3ef71bf9689986111701a6c9a5bfa2b0cd4522",
+      "newHash": "bb5ac1d09a5bc5e4a93b2903d51a5d88822bb13a8bdd2de9500ec44ee341d0f4",
+      "reason": "The reader-first rewrite of audit item A42 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) turns the chart into a fingertip pressing a fragile object; the chart's accessible name says so and gives the peak push and the outcome in the words the figure prints (object intact, object crushed, past the human pain limit, no force control).",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-impedance-contact-lab-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/impedance-contact-lab.tsx:aria-label:1",
+      "oldHash": "5e57e9912a98342af4384e2dc69ec2d85b0c23f44badf909c84e0f90c2bcf8af",
+      "newHash": "6ca78a0ea1150b6c6fcf23d2d9fa6faef6b36480a1b26f2e88838dc4987d12b1",
+      "reason": "The reader-first rewrite of audit item A42 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) names the default arm The arm that controls its own push, so Reset's accessible name reads Reset the lab to the arm that controls its own push.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-pendulum-controller-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/pendulum-controller.tsx:aria-label:1",
+      "oldHash": "1fa7c8fceb6e6cb99b35ad334f4e110d076fccba31f4d38b886d258bf16be971",
+      "newHash": "9f72002ecdecd2220160b14dcf5a669be0d55baaf12ea3ccd911201f7e613de2",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) prints what each gain does above its slider (React to the lean (P), Fix lingering drift (I), Calm the swing (D)); each slider's accessible name restates that label before the gain's name and value.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-pendulum-controller-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/pendulum-controller.tsx:aria-label:1",
+      "oldHash": "50813a0ec3e799d60a221b33f71be1442af1132f6df7599a106fd687ace8b361",
+      "newHash": "032471338c489881afa10bff78a4b07f23ebdd4e7ff1c0573f7ff658bde644c6",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) gives the push button the visible label Give it a push, which names it, so its separate aria-label is gone and Reset's accessible name, unchanged, is now the first literal one.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-pendulum-controller-literal-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/pendulum-controller.tsx:aria-label:2",
+      "oldHash": "032471338c489881afa10bff78a4b07f23ebdd4e7ff1c0573f7ff658bde644c6",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) gives the push button the visible label Give it a push, which names it; with that aria-label gone the file has one literal accessible name, Reset's, so this second member no longer exists.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-planar-fk-arm-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/planar-fk-arm.tsx:aria-label:1",
+      "oldHash": "85b7e56553fa6f4b4b036e04aeb71db0cdc47311510c71ffe99e3742d070e895",
+      "newHash": "8520e639dbae53c52b9cb35c8554f3ea706088c747fb36392ed392ae2044577f",
+      "reason": "The reader-first rewrite of audit item A59 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) gives the shoulder its own main-view slider labelled Turn the shoulder; its accessible name restates that label before the shoulder angle in degrees.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-planar-fk-arm-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/planar-fk-arm.tsx:aria-label:2",
+      "oldHash": "39bed823555296fe26a17dd62cd8d8a5a395549ede3fff59752e00f2b0b654b4",
+      "newHash": "8d99952dd9e3d5769957de652af3ed5b6f0a480fecf99058f20c04893d3492a3",
+      "reason": "The reader-first rewrite of audit item A59 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) moves the elbow and wrist sliders into Adjust more, labelled Bend the elbow and Bend the wrist; each accessible name restates its label before the joint angle in degrees.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-planar-fk-arm-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/planar-fk-arm.tsx:aria-label:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "fc0d2d0df1d9579761340a812684e3359c94e25eba79f941ba5a188166e3a954",
+      "reason": "The reader-first rewrite of audit item A59 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) draws a robot arm with three joints on a post; the stage's accessible name says so and gives the three joint angles and where the hand is, in link units from the shoulder. With the shoulder slider split from the other two, this is now the third expression.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-3",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:3",
+      "oldHash": "5d5414858d873baee20c7fe57ecc55184af724e27b4f4f82831e698aba07023b",
+      "newHash": "7bfa494b02710ed9796ebaa95816d85259c3a80c243fd49a0e1e567bc4043891",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-4",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:4",
+      "oldHash": "e3a833ede78b706f175ea9532c82c151ec9b539188c3094440caea2819291eb4",
+      "newHash": "5d5414858d873baee20c7fe57ecc55184af724e27b4f4f82831e698aba07023b",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-5",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:5",
+      "oldHash": "6d130dad1cbf613115c6c4bfe7184f546361bbc76f1cea6a13efbdb62ea56d39",
+      "newHash": "e3a833ede78b706f175ea9532c82c151ec9b539188c3094440caea2819291eb4",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-6",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:6",
+      "oldHash": "91b1c1f3d2dbfb4ed51880beb84bbb315d948b59635486e55ff37d7343f61dd7",
+      "newHash": "6d130dad1cbf613115c6c4bfe7184f546361bbc76f1cea6a13efbdb62ea56d39",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-7",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:7",
+      "oldHash": "889763324d46ce9017993b320efc6fbc3d43deb6cabd5caf49b68fd876bfa6b3",
+      "newHash": "91b1c1f3d2dbfb4ed51880beb84bbb315d948b59635486e55ff37d7343f61dd7",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-8",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:8",
+      "oldHash": "0318258e732a823c2293e00a46d9be57ad1ad950bf41b4cf325c5ce611e3a4ad",
+      "newHash": "889763324d46ce9017993b320efc6fbc3d43deb6cabd5caf49b68fd876bfa6b3",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-9",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:9",
+      "oldHash": "889763324d46ce9017993b320efc6fbc3d43deb6cabd5caf49b68fd876bfa6b3",
+      "newHash": "0318258e732a823c2293e00a46d9be57ad1ad950bf41b4cf325c5ce611e3a4ad",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-10",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:10",
+      "oldHash": "c8c4823e2502ae03c4565278d8318c2205ecc498f02a2359e23c4f79cdc12a7d",
+      "newHash": "889763324d46ce9017993b320efc6fbc3d43deb6cabd5caf49b68fd876bfa6b3",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-11",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:11",
+      "oldHash": "85d8b000ce47fca84fff1fb84a6d3d7c60e2c8055dcdf002002f7e9f8028f171",
+      "newHash": "c8c4823e2502ae03c4565278d8318c2205ecc498f02a2359e23c4f79cdc12a7d",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-12",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:12",
+      "oldHash": "e39d998c5f8a04a45390009fce9147ee38447c815b08b851c43e64c509ae0d4b",
+      "newHash": "85d8b000ce47fca84fff1fb84a6d3d7c60e2c8055dcdf002002f7e9f8028f171",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-13",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:13",
+      "oldHash": "3c16ee7ee2ad865bae2efb027e61c7670fa2b65ef0b017f95210dfea30adcb1d",
+      "newHash": "e39d998c5f8a04a45390009fce9147ee38447c815b08b851c43e64c509ae0d4b",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-14",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:14",
+      "oldHash": "974a0b53594a934731af9f0183d1e14a22e2a6915ed656f1ba6f6542ca369cfd",
+      "newHash": "3c16ee7ee2ad865bae2efb027e61c7670fa2b65ef0b017f95210dfea30adcb1d",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-15",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:15",
+      "oldHash": "a9869e6348d623c692686e542939ba19c8a7cb695f132f7cb1b16bfaa53e6515",
+      "newHash": "974a0b53594a934731af9f0183d1e14a22e2a6915ed656f1ba6f6542ca369cfd",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-16",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:16",
+      "oldHash": "85d8b000ce47fca84fff1fb84a6d3d7c60e2c8055dcdf002002f7e9f8028f171",
+      "newHash": "a9869e6348d623c692686e542939ba19c8a7cb695f132f7cb1b16bfaa53e6515",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-17",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:17",
+      "oldHash": "d176791f976f5fd38bc9e0e58e1287ce2aff6a926dfdc1b79a6a2c5edfb81ec6",
+      "newHash": "85d8b000ce47fca84fff1fb84a6d3d7c60e2c8055dcdf002002f7e9f8028f171",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-18",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:18",
+      "oldHash": "34d7d79dbc5fcaff2e27690900edee63c04b36df4ceea75d09365266625f780d",
+      "newHash": "85d8b000ce47fca84fff1fb84a6d3d7c60e2c8055dcdf002002f7e9f8028f171",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-19",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:19",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d176791f976f5fd38bc9e0e58e1287ce2aff6a926dfdc1b79a6a2c5edfb81ec6",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-pendulum-controller-20",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:20",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "34d7d79dbc5fcaff2e27690900edee63c04b36df4ceea75d09365266625f780d",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) adds the named Correction strength presets: Strong enough is { kp: DEFAULT_GAINS.kp } (member 3), and choosing a strength restarts the trial with setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] }) (member 18). Every later default expression shifts down by one or two places. DEFAULT_GAINS, INITIAL_STATE, the defaultKp prop and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-planar-fk-arm-2",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/planar-fk-arm.tsx:2",
+      "oldHash": "2fd3b3f7fca46150e9d1bf9bb920ac4df34bec0f04171431a016b0602a72547a",
+      "newHash": "a22c78df6ad784fe73e75bcde708ba2906ba02fd7717365f2b3884d37f091fe8",
+      "reason": "The reader-first rewrite of audit item A59 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) draws a faint copy of the opening pose with the shoulder 40 degrees back, OPENING_GHOST = [DEFAULT_ANGLES_DEG[0] - 40, DEFAULT_ANGLES_DEG[1], DEFAULT_ANGLES_DEG[2]] (member 2), so the swing shows at load; the two later [...DEFAULT_ANGLES_DEG] expressions shift down one place. The default pose and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-behavioral-defaults-planar-fk-arm-4",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/planar-fk-arm.tsx:4",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2fd3b3f7fca46150e9d1bf9bb920ac4df34bec0f04171431a016b0602a72547a",
+      "reason": "The reader-first rewrite of audit item A59 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) draws a faint copy of the opening pose with the shoulder 40 degrees back, OPENING_GHOST = [DEFAULT_ANGLES_DEG[0] - 40, DEFAULT_ANGLES_DEG[1], DEFAULT_ANGLES_DEG[2]] (member 2), so the swing shows at load; the two later [...DEFAULT_ANGLES_DEG] expressions shift down one place. The default pose and Reset are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-prose-classical-control",
+      "manifest": "prose",
+      "memberId": "article:classical/control",
+      "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+      "newHash": "4684f8ee3778513f601f8a8af6a7cf2364543cf0a44b76b397fbd540bad0c13f",
+      "reason": "The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) on classical/control corrects the pendulum prediction above the lab. Its prompt asks below what gain the loop can no longer hold the pole upright, where it asked when the loop loses the pole entirely; the answers and hint say that under the 9.81 threshold the pole sags to about 50 degrees and stays there, which is what the lab's own simulation shows, where they said it falls within seconds; and the hint names the Too gentle and Strong enough presets. Every cited fact, number and citation in the article is unchanged. The edge starts from the sealed bytes and reconciles the member's 28 earlier approved edges exactly.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "control-r5-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r6-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r7-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r8-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r9-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r12-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r14-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r15-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r17-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r18-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r19-20260915-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r1-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r2-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r3-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r11-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r13-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "control-r16-20260916-1",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b"
+        },
+        {
+          "id": "seo-20260824-prose-cb9819bd8941",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "cb9819bd89410c690abfd9d28151e3a776c02f2682be21a19bc26c6adbab3781"
+        },
+        {
+          "id": "paywall0917a-control-prose",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "5cd1041d01e82fc7fdb80072da6bb9b4b518a354f34c452088e0b25a846ff7da"
+        },
+        {
+          "id": "control-citation-20260924-prose",
+          "oldHash": "01b71ccc454f6d269a643986f989cbd0106f43ccda566f29ad0603ca16bae820",
+          "newHash": "2f6d4267bd07f34ca2c5acc683f5c4a3b29ae09d79e944b12e41983df5cccda0"
+        },
+        {
+          "id": "main-merge-20260924-control-prose",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "3c11df73fbabb49f9a6d8fe7626f9392f09b4558e107c9a2d51a4e683644d28c"
+        },
+        {
+          "id": "motion-classical-humanizer-v3-20260927-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "7ae2310f358c571397744a43cde65fe2ea18e6b924053b66b33deb0136f747e8"
+        },
+        {
+          "id": "opus-figure-migration-20261001-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "bdbe9512448bd44b43ff9111af8664b48dd08b8e94f5de045a3f364c798fc7be"
+        },
+        {
+          "id": "seo-pass-20261002-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "ee337ad9ed5a5c137d2513b634b6b1c41bd31fcd5164b34e623fd61ba4d6a1bc"
+        },
+        {
+          "id": "reader-first-20261003-predict-prose-classical-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "b63fd6c36aeab864ceec5692ba7ccab6eef8b86b97da08bad768bcadd64e946d"
+        },
+        {
+          "id": "domain-pass-20261006-g7-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "18cde4b4c9156cba07d6a44826a72f94ed7ee2fd8dc32aef440cdf7836ff6909"
+        },
+        {
+          "id": "domain-pass-20261006-g8-prose-control",
+          "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+          "newHash": "a4c1431aba5df3161ade49c2cb4a1b80bb49b65f651819c6433e7d703b36f3a8"
+        }
+      ]
+    },
+    {
+      "id": "reader-first-20261008-interactive-sources-mounts-source-pendulum-controller",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/pendulum-controller.tsx",
+      "oldHash": "3414889bfbac2e18414b58b6612fc595cb117120ae8ba03031ef9b7cc7d748d2",
+      "newHash": "87fcb180f00e52bd8eec8f7929121f2b683a50cdbecb0d8ef331c321b3feac7d",
+      "reason": "This edge moves the member from its last approved endpoint (seo-merge-20260916-interactive-sources-mounts-93 and round5-closeout2-src-interactive-pendulum-controller-tsx) to its current bytes. In between, the file moved onto the shared instrument primitives and gained its in-frame status label (c9503d16, f5352236, 2026-09-26) and moved onto the figure frame (ee6202d1, 2026-10-01) without ledger entries. The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) gives the figure the headline Push back harder than gravity to keep the pole upright: two named presets, Too gentle (Kp 9.5) and Strong enough (the stock 25), restart the trial; the stage draws gravity's pull and the motor's push-back arc and says stuck leaning when the pole comes to rest far off upright; the gain sliders print what each gain does and sit with Run, Reset and the readouts in Adjust more. The simulation, its parameters and defaults, and the citations are unchanged. The member has no earlier resolution, so this is one plain edge from that endpoint.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. The earlier, unrecorded changes to this file in this path are the shared-instrument migration and the in-frame status label of 2026-09-26 (c9503d16, f5352236) and the move onto the figure frame under the owner's one-figure-system decision (validation/brand-v2-editorial/source-recovery-20260906/owner-visual-audit-20260929.md) of 2026-10-01. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-141",
+        "VAL-OPUS-144",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-interactive-sources-mounts-source-impedance-contact-lab",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-contact-lab.tsx",
+      "oldHash": "42bb1b8641f1952894c993d18034a2297ec2b79f930bb52f707a82f3a98cf108",
+      "newHash": "d4651612216e3a25389439f0047fba3be20b3c5629a563662c1102caca3dce47",
+      "reason": "This edge moves the member from its last approved endpoint (perf-articles-20260923-src-impedance-contact-lab, 2026-09-23) to its current bytes. In between, the file moved onto the shared instrument primitives and gained its in-frame status label (c9503d16, f5352236, 2026-09-26), then moved onto the figure frame and registered its hardware options as flat surfaces (ee6202d1, 3de338f1, 2026-10-01) without ledger entries. The reader-first rewrite of audit item A42 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) gives the figure the headline A softer arm touches gently enough not to crush: a sketch shows a fingertip pressing a fragile object that cracks when the push passes its 25 N crush force, Which arm? names the three arms in plain words, the chart's dashed line reads crushes the object with the first bump annotated against it, and an arrow puts the human pain limit about 10 times higher. Press depth, damping, the readouts and Reset sit in Adjust more. The contact model, its parameters and defaults, and the citations are unchanged; lib/impedance.ts now also counts a first bump past the crush force as crushed, matching the object the figure draws. The member has no earlier resolution, so this is one plain edge from that endpoint.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. The earlier, unrecorded changes to this file in this path are the shared-instrument migration and the in-frame status label of 2026-09-26 (c9503d16, f5352236) and the move onto the figure frame under the owner's one-figure-system decision (validation/brand-v2-editorial/source-recovery-20260906/owner-visual-audit-20260929.md) of 2026-10-01. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-141",
+        "VAL-OPUS-144",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-interactive-sources-mounts-source-planar-fk-arm",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/planar-fk-arm.tsx",
+      "oldHash": "391770cee404206dfe40d66457858c6118cc88380910d37a778578c15d338651",
+      "newHash": "37566a3b3f927d09edc4e658e81b364ea66dc14f11a269d594fd4a78d5fbfd0e",
+      "reason": "This edge moves the member from its last approved endpoint (seo-merge-20260916-interactive-sources-mounts-95 and round5-closeout2-src-interactive-planar-fk-arm-tsx) to its current bytes. In between, the file moved onto the shared instrument primitives and gained its in-frame status label (c9503d16, f5352236, 2026-09-26) and moved onto the figure frame (ee6202d1, 2026-10-01) without ledger entries. The reader-first rewrite of audit item A59 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) gives the figure the headline Turn the shoulder and everything beyond it swings along: the arm stands on a post, a faint copy of the opening pose with the shoulder 40 degrees back shows the swing at load, Try a pose offers three named poses, and the elbow and wrist sliders, the readout and Reset sit in Adjust more. The kinematics, link lengths, default pose and citations are unchanged. The member has no earlier resolution, so this is one plain edge from that endpoint.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. The earlier, unrecorded changes to this file in this path are the shared-instrument migration and the in-frame status label of 2026-09-26 (c9503d16, f5352236) and the move onto the figure frame under the owner's one-figure-system decision (validation/brand-v2-editorial/source-recovery-20260906/owner-visual-audit-20260929.md) of 2026-10-01. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-137",
+        "VAL-OPUS-138",
+        "VAL-OPUS-139",
+        "VAL-OPUS-141",
+        "VAL-OPUS-144",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261008-name-clip-play-run-expression-aria-label-4",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/motion/clip.tsx:aria-label:4",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "14c63bbfadf0d056c7cbe4c59c9004f0f86d3104d76f46a82606a76ac694bdf4",
+      "reason": "The reader-first rewrite of audit item A60 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) gives the Kalman clip one plain-words control, Play the run, which plays and pauses the same native video; its accessible name restates that label (Pause the run while playing). The native video keeps its controls and preload none (VAL-MOTION-018).",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-MOTION-018",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-prose-kinematics",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "e3eb542a8693e4776bf5ca57fff5b3a023e0a19ef686c54858d7ba61b3f159f8",
+      "newHash": "98253a2658521da078cfe9d332089eec7947b40004cf06bda4a95cbbf326beda",
+      "reason": "Classical pass of 2026-10-08 on classical/kinematics (VAL-OPUS-152; sweep finding M): the uncited lead-in to the Jacobian column equation, \"A revolute joint $i$ with axis $z_i$ at $p_i$ contributes its axis crossed with the vector to the end effector, stacked above the axis; a prismatic joint contributes its axis:\", stated a form modern-robotics-2017 does not state. It now gives the book's space-Jacobian rule, column $i$ is joint $i$'s screw axis at the current pose in base-frame coordinates, with two modern-robotics-2017 citations, and the displayed equation shows the revolute column [omega_i; -omega_i x p_i] and the prismatic column [0; v_i] (preprint Sections 4.1.1 and 5.1.1, read 2026-10-08). No other text changes; this edge moves the prose member from its 2026-10-07 endpoint (domain-pass-20261007-prose-kinematics).",
+      "ownerApproval": "Owner directive of 2026-10-04 11:00 in the mission AGENTS.md, sealed as VAL-OPUS-152 in contract/opus-pass.md: every paragraph of a domain article is cited to a source checked to state it. The classical pass of 2026-10-08 restates kinematics:129 in the form Modern Robotics states (preprint PDF read 2026-10-08; audit/classical.md kinematics row 7, plan kinematics-7-jacobian-screw-20261008, successor of kinematics-7-jacobian-20260915). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-062",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-relationships-kinematics",
+      "manifest": "relationships",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "6b5cdf98f3a53d161d849d1522a382ad7052743b5edef41ed85b4eff161ea013",
+      "newHash": "df68fbdeacdd299dbb28b8ed2505797c7a05fda9ecae4173d4c15a22bf24be25",
+      "reason": "Classical pass of 2026-10-08 on classical/kinematics (VAL-OPUS-152): the Jacobian lead-in, restated in Modern Robotics' screw-axis form, carries two modern-robotics-2017 citations, so the relationships record lists that id twice more. No other citation, route or link changes; this edge moves the record from its domain-pass endpoint (domain-pass-20261006-g8-relationships-kinematics).",
+      "ownerApproval": "Owner directive of 2026-10-04 11:00 in the mission AGENTS.md, sealed as VAL-OPUS-152 in contract/opus-pass.md: every paragraph of a domain article is cited to a source checked to state it. The classical pass of 2026-10-08 restates kinematics:129 in the form Modern Robotics states (preprint PDF read 2026-10-08; audit/classical.md row kinematics-7-jacobian-20260915). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-062",
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-metadata-kinematics",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:classical/kinematics",
+      "oldHash": "1b20d556b80ba97efd31bd249e08ad253058299eb896048bc23601ea93190f08",
+      "newHash": "5e5049c27a8feab5a41cbbe7901677cdffc9f633a903cd3b70c9ac7db4487b3e",
+      "reason": "Sweep item H.I4 in the classical pass of 2026-10-08: the registry summary of classical/kinematics, which is the article deck, hub card and feed line, read \"Forward and inverse kinematics, DH parameters, and the Jacobian; the theory behind the 3D playground.\" It now says what the page covers in plain words: \"How joint angles place a robot's hand, and how to find the angles that reach a target: transforms, DH parameters, the Jacobian and inverse kinematics.\" Title, frontmatter description and slug are unchanged.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md) and the classical pass of 2026-10-08 (library/sweep-dispositions-classical-20260929.md): text and registry fixes on current sources are applied as regeneration-only edits. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-metadata-perception",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:classical/perception",
+      "oldHash": "3a2a394416da9049a75a755d53ce3c51902b43bcfbad69402e4b89d79606745f",
+      "newHash": "30b92bb59a4f9ee73bb26005716787ca965f4b88171b14bcdacf4ca4eef5f533",
+      "reason": "Sweep item H.I4 in the classical pass of 2026-10-08: the registry summary of classical/perception, which is the article deck, hub card and feed line, read \"Calibration through 6-DoF pose: the pipeline that finds the object, and its error budget.\" It now says what the page covers in plain words: \"How a robot turns camera images into an object's position and orientation: calibration, depth, detection, pose estimation and the error each step adds.\" Title, frontmatter description and slug are unchanged.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md) and the classical pass of 2026-10-08 (library/sweep-dispositions-classical-20260929.md): text and registry fixes on current sources are applied as regeneration-only edits. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-metadata-modules-source",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/modules.ts",
+      "oldHash": "3ae553c7a590ca567ecb3249bfe9ad8ee513a4c5b836203b0ecf3b1ac624f418",
+      "newHash": "1638fc58e1a98e1c41ac9d747c47e5d622da8c82ca83b12e6642713a732387d1",
+      "reason": "Sweep item H.I4 in the classical pass of 2026-10-08: the registry summaries of classical/kinematics and classical/perception (the visible deck, hub card, feed and llms.txt line) now name what each page covers in plain words, in place of \"the theory behind the 3D playground\" and \"Calibration through 6-DoF pose\"; no other module field, slug, order or status changes.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md) and the classical pass of 2026-10-08 (library/sweep-dispositions-classical-20260929.md): text and registry fixes on current sources are applied as regeneration-only edits. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-citation-rendering",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8ad2f12bcce96cd5c2fe6478cb1bd0e99b9b11ac7a5c5c1b4fc22f80e21b4b75",
+      "reason": "Resolution entry for the citation-rendering:label-and-meta approval graph after the classical pass of 2026-10-08 changed four registry records: modern-robotics-2017 links the book's home page (sweep RF.2), ompl-2012 becomes a paper on its DOI (RF.10), ur-force-mode-docs takes its access year 2026 so venue and year agree (RF.11, X.6b), and azure-kinect-depth-docs-2026 prints \"2019; accessed 2026-08-22\" in place of a doubled date (X.6b). Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md) and the classical pass of 2026-10-08 (library/sweep-dispositions-classical-20260929.md): text and registry fixes on current sources are applied as regeneration-only edits. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "brand-v2-citation-rendering-seal-added",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0e79fe7b2d2828ace0e597a938188665ca6a49a1377c5eef7019ac6016e8aea8"
+        },
+        {
+          "id": "current-dp-td3-20260907-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "04049261ce9dd32c29a001de30b8a74fc76e8c891d25bd18a20116a2b0dfe259"
+        },
+        {
+          "id": "act-convention-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ca93d000ecfc779c557d142061c72267ec25d28ca44213758c76ec4b87a22ad8"
+        },
+        {
+          "id": "bc-foundations-20260907-6",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3ec80be198832290602b14ecb3ee7375dbd096af9e8f2f536cc1d0f60fadab33"
+        },
+        {
+          "id": "act-current-claims-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ccd4c34ab44d2d927394888ee44ef170ef1fa2d42a37cd4c4da9d2e1aecc571"
+        },
+        {
+          "id": "act-five-sources-20260907-18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2adadd231e996bb34f0c5974dfa1b80ff276ffb83e75bdabd6849748a84975b2"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "287633b834b110f8f96446c84f22efac91fa05ddb6abef8b4d23643d320535bf"
+        },
+        {
+          "id": "oft-gemini-oxe-20260908-39",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "45e21d8955bf710fc8859f7a514dbdfbdbaa91c31c9014be8d335569e67ca56d"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "905dc70516ada8e0838923ef2f5d1bedb989a32ebf63d9efe0f99e56fdc508b8"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-10",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "1e7e287ed05943c558a08a22c5435ac2b4415080f7b90431b199cbd6b9f08d19"
+        },
+        {
+          "id": "rl-source-closeouts-20260908-8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c9644600fe3193ec9e21a7511fcb5293e60894aab91d0f6f5a1aaafe69ba9b8"
+        },
+        {
+          "id": "jepa-source-closeouts-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "a903ea05e32dc5baa6c30c6accda84cf8b8d736d7cabe2d12e2bcc68d0f81dc6"
+        },
+        {
+          "id": "cosmos-reader-closeout-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ce936431e57110acb81dfb9ffe53777f9113b270a134d499642441ccb24a967e"
+        },
+        {
+          "id": "isaac-v1-twelve-originals-7-20260908",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "38a5fafd03466fe1f774197a0f7a3108fa45d985f1aa5ec20c8894e9a16e7ca5"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bc758e2c141629a284dbe42110669da6a4a2c98dcaac76d37d1c0c0a1ab39e0e"
+        },
+        {
+          "id": "neural-scene-originals-12-16-20260908-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b6e1d5997438ce5c7ede6b5987c92db4236a94d3252f816a0572307ed4f6c9c6"
+        },
+        {
+          "id": "classical-slam-cadena-25-20260908-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e4d5ea650d814a12a217868b42e5230bbce2ae6b4316389526fed203fc2e24e9"
+        },
+        {
+          "id": "pose-metrics-bop-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b990f28bc59b401cc490d8936a863b8cceed1310cbf393439ba46fa1d23b10d8"
+        },
+        {
+          "id": "servo-apollo-integration-20260909-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c6da7f1ba8ef59c2cfb14e77e96d42635dcdee06b102ec75f8d41cce6b8b3af"
+        },
+        {
+          "id": "randomization-citation-rendering-reconciliation-20260909",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4b36cb18768cb7b21719fae5a0bdae280818b7330a3b9f12b7162febb7972205"
+        },
+        {
+          "id": "rudin-protocol-20260909-fdd3edc8ec7ccb2da3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "382c8296f46c710890966bf9ffdae876f02ed430fdbc4ff8c795e73341636208"
+        },
+        {
+          "id": "ifr-industrial-originals-20260912-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9db509451024c2f2ba02808619b47af462f31d835eed4ad8e26b7ffefc930856"
+        },
+        {
+          "id": "amazon-industrial-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ad43c3cc6acae54840e4bb247b68fd857c46e4ebea2bde03d12ac9be86fb30cd"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "71f7df8ba7ae919b5e2049f73fb4fb4d1d36d969368d856a073a79bbf5181a46"
+        },
+        {
+          "id": "evaluation-statistics-originals-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5570fa96d9961e65be4a31f072b16d1ec616bfbbaa1e00e599686bd829e6c446"
+        },
+        {
+          "id": "perception-foundations-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "43d99fc56253db83d960b989acd81a7ba776310a27c99d6cc62eeb1f9ff40195"
+        },
+        {
+          "id": "perception-depth-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e1dadc72fb980c3d8ab17b743dcf82f79f80232ad1bca2f50bbc81e997e61d76"
+        },
+        {
+          "id": "optimal-sampling-ompl-20260913-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "eab0d47adaa2cd995273dcf17f7434a8bfb75c37a899d7a0dd773402c61c32f3"
+        },
+        {
+          "id": "orb-scene-four-20260914-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "65553c74d026e7397f9cb0b678224af3a8c78eb48b1f96c4674f020fcb79a56e"
+        },
+        {
+          "id": "seo-merge-20260916-article-metadata-143",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "079a39b797d139832e982ce57f899d1bbe5ac8c1dc7d266e34d96952a49702a2"
+        },
+        {
+          "id": "seo-merge-20260916-b3-article-metadata-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "21c594db74adf7e091b5ef8b35615dfe145f87dd2a681fc2434ede2c1e1fb223"
+        },
+        {
+          "id": "seo-merge-20260916-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c6d54bfdf8468ccbc39743598bc452a64dc59a6e5bf489e8fb366a747cc59bc1"
+        },
+        {
+          "id": "wm-cost-labelmeta-20260917-1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d4b364d55f8c6a688b5c2a17484919b1fd3efa21a3c148010034904bac0376c5"
+        },
+        {
+          "id": "round5-closeout-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6aec4b2772e8d4a5cb9c9ad1c462534912f9a8b01958c39e6fb9069e27c00cc7"
+        },
+        {
+          "id": "aq0917a-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507"
+        },
+        {
+          "id": "dataset-license-pair-20260921-2",
+          "oldHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507",
+          "newHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b"
+        },
+        {
+          "id": "generalist-attribution-p1-20260922-4",
+          "oldHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b",
+          "newHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef"
+        },
+        {
+          "id": "continuation-merge-20260922-article-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5f3bad00fb7f68ff333ded54c5a51dfbada7ac788bb2f213839864ec17e5cefb"
+        },
+        {
+          "id": "content-integration-20260923-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3955fc201543cf29cabfe07ea3d65b0a726c26be36d7387bd7fa4315520085fb"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-6",
+          "oldHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef",
+          "newHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "833ab76d14390836473994dfb50f9b70b384d4de8a37157be70a88ccce449a2f"
+        },
+        {
+          "id": "industrial-closure-20260923-3",
+          "oldHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450",
+          "newHash": "51f54329ecb1d1a289c6764b3e38e5653abbd9144f3470266d8a489fcec467ab"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3373e6623166e653a62074c4d156e1e5a454dfb89f5c56691ce6d35521ade5f2"
+        },
+        {
+          "id": "control-citation-20260924-rendering-inventory",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4eef21fee12072861cf36b8849218a09714aace4ee4199f2da71fa6cfebcf7b6"
+        },
+        {
+          "id": "main-merge-20260924-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03de761700f6c1776eeeb9336c009832040f21d39951916c7a20c6025b1e9e53"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2822722c660d8405d900c39dadeeb0e6efc72016bf5ea756a61211ea049ee6a0"
+        },
+        {
+          "id": "expo-ft-intake-20260925-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "dc3c6a368d704a0fc06005dd34dd7985b3fc1e36fa68f4fa81a84d6c9b89d96f"
+        },
+        {
+          "id": "kol-backlog-20261001-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0f638d06385adacc58d419c23a0fa24860069dd6dfc63a53ec0250766064c5d0"
+        },
+        {
+          "id": "kol-backlog-20261001-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d0708a60d3214684fda52170fcd4447bcd66c56ff7078283c9ab19be9f8ee92d"
+        },
+        {
+          "id": "kol-backlog-20261001-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "86bdaf2aad9c7973398e9465830cfd5b157a4933034ddd17f285ee5e6ff9ab12"
+        },
+        {
+          "id": "kol-backlog-20261001-frontier-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bacb386d64e42b7c3c9e8d2d79257fa1c4bc2a2245cbd846ceb9c9cc495f08fa"
+        },
+        {
+          "id": "seo-pass-20261002-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4275fce1f2fa6fcab3e9f65b8451c851a1c9000c0ce172fe97ba5e9f46d443b0"
+        },
+        {
+          "id": "kol-backlog-20261005-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d5fa6de0920efb6f604b3adb78671398a2f7315e701b7679c84db792de6ca6c9"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb35cb7a742017f7eb5c1fff3b0002b8a60a6c67776a33db155b0aebe0b4a8f0"
+        },
+        {
+          "id": "kol-backlog-20261005-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4ed90498df28ec03385a9fec964589aaf8d39c804f9460765cd315ebf06bea31"
+        },
+        {
+          "id": "kol-backlog-20261005-frontier-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "126e7b445dc19b681249cf921a88515accb5ce3d2ca9014530a39252d7629134"
+        },
+        {
+          "id": "kol-backlog-20261005-data-hardware-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d88adcb29d51f3923544c1761f138cc80ada2ac4861b0f1f84e0f8ad67319de4"
+        },
+        {
+          "id": "kol-backlog-20261005-classical-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6d7fb89f953cd5806346a46d295a04f6925fd41f3174d80f05f1a812435c81e4"
+        },
+        {
+          "id": "domain-pass-20261006-g1-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3e1ca8a9c5dc154bd815e226b7d53d9527f38e7255f2a3a0dabb7fcf3df91849"
+        },
+        {
+          "id": "domain-pass-20261006-g2-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "912315196c4c4633c733b5e0b53ef0c0c3c8be2237449b78c8652e036210819f"
+        },
+        {
+          "id": "domain-pass-20261006-g3-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7c11f6330dc6494c88e40d10722e448679cc4356022d05e3f8240a41afc671da"
+        },
+        {
+          "id": "domain-pass-20261006-g4-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bf7a5e8a8094ce208c548b783c6a54d45f5a1de61a4d0886bbf2a8928061fa60"
+        },
+        {
+          "id": "domain-pass-20261006-g5-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8e198326a8254e01cbabb3b442d824528d3ab013b1ecba871daf4aecdcc36c80"
+        },
+        {
+          "id": "domain-pass-20261006-g7-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b9884a99b341adbd61edfb1ee0968fafc7071fac3eff926c79a54fbb8e207342"
+        },
+        {
+          "id": "domain-pass-20261006-g8-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b817d91fe450f5361e69424260f9ce9c17683eb871046a99ed68ed8b034c1e46"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261008-citation-azure-kinect-depth-docs-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:azure-kinect-depth-docs-2026",
+      "oldHash": "9ac966db5ac42a81a26846b367eaab2ed66829d838cb0caf9b6f615b43ba9723",
+      "newHash": "3f9e8e5c7c98a7f4d08934313205d779de86b83c587b27160a7a35834d25c366",
+      "reason": "Sweep item X.6b in the classical pass of 2026-10-08: the reference printed \"Microsoft Learn, as of 2026-08-22, 2019\", an access date and a publication year side by side. The venue now reads \"Microsoft Learn, 2019; accessed 2026-08-22\" (the page is dated 2019-06-26, re-read 2026-10-08), so the reference prints one of each; title, authors, URL, type and year are unchanged.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md) and the classical pass of 2026-10-08 (library/sweep-dispositions-classical-20260929.md): text and registry fixes on current sources are applied as regeneration-only edits. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-citation-modern-robotics-2017",
+      "manifest": "article-metadata",
+      "memberId": "citation:modern-robotics-2017",
+      "oldHash": "35d35972e8b5c6c45e457a49dd0e2461219b3f12ef8eed85fee6d8f969f94dc6",
+      "newHash": "49e8502b15ef282b294dbc005440042765ce751c431fe5f9eb164436440e9bfe",
+      "reason": "Sweep item RF.2 in the classical pass of 2026-10-08: modernrobotics.northwestern.edu now redirects to one lecture-video page, so the entry links the book's home page, https://hades.mech.northwestern.edu/index.php/Modern_Robotics (HTTP 200 on 2026-10-08, where modernrobotics.org lands and the authors post the preprint PDF). Title, authors, venue, year and type are unchanged; tests/e2e/kinematics.spec.ts pins the new href.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md) and the classical pass of 2026-10-08 (library/sweep-dispositions-classical-20260929.md): text and registry fixes on current sources are applied as regeneration-only edits. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-citation-ompl-2012",
+      "manifest": "article-metadata",
+      "memberId": "citation:ompl-2012",
+      "oldHash": "ac00652e73612d228afb0ef933dc7abf4e532c1764b78adc01dbe8e248637352",
+      "newHash": "c890e3ae0037342045821f10dd1fc7c763d7091296d939b1b428139fcfd221ea",
+      "reason": "Sweep item RF.10 in the classical pass of 2026-10-08: the entry carried the 2012 IEEE Robotics & Automation Magazine paper's metadata on the project homepage URL with type docs. It now links the paper's DOI, https://doi.org/10.1109/MRA.2012.2205651 (Crossref record read 2026-10-08), with type paper; title, authors, venue and year are unchanged, and tests/e2e/motion-planning-optimal-readers.spec.ts pins the new href.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md) and the classical pass of 2026-10-08 (library/sweep-dispositions-classical-20260929.md): text and registry fixes on current sources are applied as regeneration-only edits. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-citation-ur-force-mode-docs",
+      "manifest": "article-metadata",
+      "memberId": "citation:ur-force-mode-docs",
+      "oldHash": "f2b1be913317856a565d971c15e9f477137cebb74fcf4a5823676e2483a599ef",
+      "newHash": "1462b8c39323851892b13101efde5d3720603aa724cb0c1eb825cccf6b136b6f",
+      "reason": "Sweep items RF.11 and X.6b in the classical pass of 2026-10-08: the year 2025 matched neither the page (\"Last modified on Feb 17, 2016\", re-read 2026-10-08) nor the access date, and the reference printed \"Universal Robots, as of 2026-08-20, 2025\". The year is now 2026 under the registry's \"as of\" convention for undated documentation, so the reference prints \"Universal Robots, as of 2026-08-20\" once; title, URL, authors and type are unchanged.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md) and the classical pass of 2026-10-08 (library/sweep-dispositions-classical-20260929.md): text and registry fixes on current sources are applied as regeneration-only edits. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261008-source-impedance-contact-lab",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-contact-lab.tsx",
+      "oldHash": "d4651612216e3a25389439f0047fba3be20b3c5629a563662c1102caca3dce47",
+      "newHash": "979420d13c95c002d1e5d96ef5cc1395fa23172578f50a32b5a3f3204e3974d3",
+      "reason": "Classical pass of 2026-10-08, owner sweep item C.X1 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md; draft note control.notes.md note 9): the contact lab's method fold now says the 255 N thigh pain limit was measured with a wedge-shaped impactor. Han et al. (2024), Front. Robot. AI 11:1374999, Table 4 (read 2026-10-08), give 255.0 N as the third quartile of the log-logistic fit for the W-R5 wedge impactor (5 mm edge radius) on the thigh and 310.8 N for the CS-R40 cylinder, so the number is impactor-specific. The shared label from lib/force-limits.ts is unchanged, so the frontier safety instrument still renders the identical string (VAL-FRONT-029). No control, default, citation or main-view text changes; this edge moves the member from its 2026-10-08 reader-first endpoint (reader-first-20261008-interactive-sources-mounts-source-impedance-contact-lab).",
+      "ownerApproval": "Owner sweep of 2026-09-29 for the classical domain (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/README.md and classical.md), applied item by item under VAL-OPUS-061 and VAL-OPUS-062 in contract/opus-pass.md. The shared label stays put because lib/force-limits.ts is a byte-pinned calculation dependency of the frontier safety proofs in audit/local-basis.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-061",
+        "VAL-OPUS-062",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

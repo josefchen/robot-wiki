@@ -890,7 +890,7 @@
       "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/classical/kinematics/",
       "title": "Kinematics",
-      "description": "Forward and inverse kinematics, DH parameters, and the Jacobian; the theory behind the 3D playground.",
+      "description": "How joint angles place a robot's hand, and how to find the angles that reach a target: transforms, DH parameters, the Jacobian and inverse kinematics.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/classical/kinematics/",
@@ -909,7 +909,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "8c71d07c2c8f6fabbb70acf30a183f7bab266989c1bbae203744dd52bb20420c"
+      "fingerprint": "629d66ac1daa3c0e07cfc43a6f2d36c8f721b9ae154cf70246e162c31a8e60f9"
     },
     {
       "id": "metadata:/classical/motion-planning/",
@@ -948,7 +948,7 @@
       "ownerSourceFingerprint": "c6233e5e6fafac8e2d923915d3efb298037d14d6dcec0133cdf332d882e3a6cf",
       "canonical": "https://robot-wiki.com/classical/perception/",
       "title": "Perception for Manipulation",
-      "description": "Calibration through 6-DoF pose: the pipeline that finds the object, and its error budget.",
+      "description": "How a robot turns camera images into an object's position and orientation: calibration, depth, detection, pose estimation and the error each step adds.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/classical/perception/",
@@ -967,7 +967,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6e62fa3bbd025d48ef50dd238b6006171ef13d8528e2a8939e94dc14c29574c8"
+      "fingerprint": "90ce6c6177479a602623fd5bdc7594c1441cbb04a7b18b522a3ec9699b9e7ccc"
     },
     {
       "id": "metadata:/classical/ros2-for-ml-engineers/",
@@ -2731,9 +2731,9 @@
       "category": "static-asset",
       "ownershipId": "owner:static-asset",
       "sourceRegistryId": null,
-      "byteHash": "2f1b410520c36d5a0f1a14fb413736ffcfe9c97148efe7d0cf96f886a02a3504",
+      "byteHash": "0119ba9dc9ffb90a8b1355829c04f4c3a7744e860cca6d8fd1a05eb29bbe6d26",
       "semanticHash": null,
-      "fingerprint": "a7a4c1838440c1182f234ca9eb6643dd17a84bc82ee9ff0a8cf98a93825e7951"
+      "fingerprint": "defdc16866019adbffaba8d2c11f924d27f20f49c0a0d9356d1cf61afe9048e8"
     },
     {
       "id": "asset:explainers/posters/arm.webp",
@@ -6471,8 +6471,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -6495,8 +6506,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "9cd8cd61b7c50de75cc8c86180d9e928ac07923da61699076ae6b0a10e7dfe1b"
+        "expectedCaseCount": 11,
+        "fingerprint": "4827bf10993d299c5886dc219766e0cfb644c4444ed4f14494decdfdc265d051"
       },
       {
         "id": "interactive:PerceptionErrorBudget",
@@ -6713,8 +6724,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -6737,8 +6759,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "2f795dceeea4750ba97021e7bcfa831e2b32e562b69daeaf1154ab08f181c705"
+        "expectedCaseCount": 11,
+        "fingerprint": "888b116aa9ab7d00274e7a27468c08dd2ee685046610b52e0b859099319bc451"
       },
       {
         "id": "interactive:RecedingHorizon",
@@ -7740,8 +7762,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -7764,8 +7797,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "10fe32ae5a5c32cdfe5a9ea2b852a68fef2c2f6dcd574325827fab360d439a30"
+        "expectedCaseCount": 11,
+        "fingerprint": "5c6a3529385f765d6369d1493e8ee5a66adb2812b0cf8c7da2321312d9eaee45"
       },
       {
         "id": "mount:/classical/grasp-planning/:GraspWrenchLab:1",
@@ -7858,8 +7891,19 @@
             "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
           },
           {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
             "id": "reset",
             "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
           },
           {
             "id": "loading-not-applicable",
@@ -7882,8 +7926,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "54675647cb1c397cc978f60a28f4fbd2b917fca1337aeb9323a09530d68008f5"
+        "expectedCaseCount": 11,
+        "fingerprint": "29b763d623e1477ea12afe4d1c2161b0f448ee01d38bb375327fb86ce9793e55"
       },
       {
         "id": "mount:/classical/motion-planning/:RrtExplorer:1",
@@ -11425,12 +11469,14 @@
       ],
       "definedIn": [
         "components/explainers/how-robots-work.tsx",
+        "components/motion/clip.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
         "components/ui/action.tsx"
       ],
       "ownerRouteOrMount": [
         "components/explainers/how-robots-work.tsx",
+        "components/motion/clip.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
         "components/ui/action.tsx"
@@ -11443,7 +11489,7 @@
         "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "2dbe3654a750213b958605ff60b131aa256ce56b5ac0a0ad504f2ad7860b743e"
+      "fingerprint": "8b6d7f4e487134d8bc2a83a30b7e885523b5d16c1b52862e15cec9223b3613ef"
     },
     {
       "id": "control:secondary-action",
@@ -11983,5 +12029,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "ebbad43a90f62ea342108e19c4d476237bf5981c7ee537f8787745e77cc13400"
+  "rootFingerprint": "c83130d1f506b6dc09ab31bbfc38461a30871773fe598d70a468a2ca2ed27ac0"
 }
