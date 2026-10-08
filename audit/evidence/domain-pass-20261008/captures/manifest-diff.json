@@ -1,0 +1,859 @@
+{
+ "schemaVersion": "domain-capture-diff-v1",
+ "domain": "classical",
+ "start": "a09d3c92",
+ "end": "aa9856f4",
+ "fields": [
+  "kind",
+  "label",
+  "w",
+  "h",
+  "surface",
+  "scene",
+  "colours"
+ ],
+ "widths": {
+  "375": {
+   "visualsStart": 11,
+   "visualsEnd": 13,
+   "routeCountsStart": {
+    "/classical/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/classical/calibration/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/classical/control/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/classical/grasp-planning/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/kinematics/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/classical/motion-planning/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/perception/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/ros2-for-ml-engineers/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/classical/scene-representation/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/state-estimation/": {
+     "dom": 3,
+     "manifest": 3
+    }
+   },
+   "routeCountsEnd": {
+    "/classical/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/classical/calibration/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/control/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/classical/grasp-planning/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/kinematics/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/classical/motion-planning/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/perception/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/ros2-for-ml-engineers/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/scene-representation/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/state-estimation/": {
+     "dom": 3,
+     "manifest": 3
+    }
+   },
+   "failuresStart": [],
+   "failuresEnd": [],
+   "unchanged": 2,
+   "changed": [
+    "/classical/calibration/ classical__calibration__00.png: added",
+    "/classical/control/ classical__control__00.png: label, h, colours",
+    "/classical/control/ classical__control__01.png: label, h, colours",
+    "/classical/grasp-planning/ classical__grasp-planning__00.png: label, h, colours",
+    "/classical/kinematics/ classical__kinematics__00.png: label, h, colours",
+    "/classical/motion-planning/ classical__motion-planning__00.png: label, h, colours",
+    "/classical/perception/ classical__perception__00.png: label, h, colours",
+    "/classical/ros2-for-ml-engineers/ classical__ros2-for-ml-engineers__00.png: added",
+    "/classical/scene-representation/ classical__scene-representation__00.png: label, h, colours",
+    "/classical/state-estimation/ classical__state-estimation__00.png: label, h, colours",
+    "/classical/state-estimation/ classical__state-estimation__02.png: label"
+   ],
+   "visuals": [
+    {
+     "route": "/classical/calibration/",
+     "file": "classical__calibration__00.png",
+     "kind": "figure/instrument",
+     "labelStart": null,
+     "labelEnd": "The robot reaches what its camera sees only through these measurements, so each one must be checked.",
+     "start": null,
+     "end": {
+      "w": 335,
+      "h": 1755
+     },
+     "colourKeysSame": null,
+     "offPaletteStart": null,
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "added"
+     ]
+    },
+    {
+     "route": "/classical/control/",
+     "file": "classical__control__00.png",
+     "kind": "figure/instrument",
+     "labelStart": "Below Kp 9.81, the mgl threshold of this plant, no setting of Ki or Kd keeps the pole up.",
+     "labelEnd": "Balancing robots constantly measure their lean and push back; if the push is too gentle, nothing else can save them.",
+     "start": {
+      "w": 335,
+      "h": 922
+     },
+     "end": {
+      "w": 335,
+      "h": 1427
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/control/",
+     "file": "classical__control__01.png",
+     "kind": "figure/instrument",
+     "labelStart": "A softer K lowers the peak contact force; a position-controlled arm has no force channel to program.",
+     "labelEnd": "An arm that controls how hard it pushes can be tuned to touch gently; a position-only arm has no such dial.",
+     "start": {
+      "w": 335,
+      "h": 993
+     },
+     "end": {
+      "w": 335,
+      "h": 1543
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/grasp-planning/",
+     "file": "classical__grasp-planning__00.png",
+     "kind": "figure/instrument",
+     "labelStart": "The default three-contact grasp holds force closure: the origin sits inside the wrench hull, and ε measures the margin.",
+     "labelEnd": "A robot hand must place its fingers so they can resist a push from any direction, or the object slips.",
+     "start": {
+      "w": 335,
+      "h": 1498
+     },
+     "end": {
+      "w": 335,
+      "h": 2237
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/kinematics/",
+     "file": "classical__kinematics__00.png",
+     "kind": "figure/instrument",
+     "labelStart": "Each joint angle is relative to its parent link, so moving the base joint swings the whole arm.",
+     "labelEnd": "A robot works out where its hand is by adding up each joint's turn, from shoulder to fingertip.",
+     "start": {
+      "w": 335,
+      "h": 854
+     },
+     "end": {
+      "w": 335,
+      "h": 1236
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/kinematics/",
+     "file": "classical__kinematics__01.png",
+     "kind": "image",
+     "labelStart": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+     "labelEnd": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+     "start": {
+      "w": 320,
+      "h": 355
+     },
+     "end": {
+      "w": 320,
+      "h": 355
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [],
+     "offPaletteEnd": [],
+     "changedFields": []
+    },
+    {
+     "route": "/classical/motion-planning/",
+     "file": "classical__motion-planning__00.png",
+     "kind": "figure/instrument",
+     "labelStart": "Each accepted step grows from the tree node nearest a random sample, so the tree spreads into open space.",
+     "labelEnd": "Rather than check every route, the robot's search grows random branches into open space until one reaches the goal.",
+     "start": {
+      "w": 335,
+      "h": 781
+     },
+     "end": {
+      "w": 335,
+      "h": 1129
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/perception/",
+     "file": "classical__perception__00.png",
+     "kind": "figure/instrument",
+     "labelStart": "Only the hand-eye term grows with working distance, so distance moves the total only when that angle is non-zero.",
+     "labelEnd": "Robots reach for what their camera sees, so a camera angle off by a fraction of a degree puts the hand beside the object",
+     "start": {
+      "w": 335,
+      "h": 1492
+     },
+     "end": {
+      "w": 335,
+      "h": 2467
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/ros2-for-ml-engineers/",
+     "file": "classical__ros2-for-ml-engineers__00.png",
+     "kind": "figure/instrument",
+     "labelStart": null,
+     "labelEnd": "Separate parts let engineers test, stop or swap the AI without touching what moves the robot.",
+     "start": null,
+     "end": {
+      "w": 335,
+      "h": 2328
+     },
+     "colourKeysSame": null,
+     "offPaletteStart": null,
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "added"
+     ]
+    },
+    {
+     "route": "/classical/scene-representation/",
+     "file": "classical__scene-representation__00.png",
+     "kind": "figure/instrument",
+     "labelStart": "The representation sets which of the three queries the store answers; resolution changes only cost and detail.",
+     "labelEnd": "How a robot stores what it sees decides what it can ask: where it may move, where to touch, how things look.",
+     "start": {
+      "w": 335,
+      "h": 1442
+     },
+     "end": {
+      "w": 335,
+      "h": 2044
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/state-estimation/",
+     "file": "classical__state-estimation__00.png",
+     "kind": "scene",
+     "labelStart": "Motion scene: Kalman filter: predict and update",
+     "labelEnd": "Motion scene: Kalman filter: guess, measure, blend",
+     "start": {
+      "w": 335,
+      "h": 712
+     },
+     "end": {
+      "w": 335,
+      "h": 1383
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/state-estimation/",
+     "file": "classical__state-estimation__01.png",
+     "kind": "image",
+     "labelStart": "after: The Kalman filter",
+     "labelEnd": "after: The Kalman filter",
+     "start": {
+      "w": 335,
+      "h": 188
+     },
+     "end": {
+      "w": 335,
+      "h": 188
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [],
+     "offPaletteEnd": [],
+     "changedFields": []
+    },
+    {
+     "route": "/classical/state-estimation/",
+     "file": "classical__state-estimation__02.png",
+     "kind": "figure/instrument",
+     "labelStart": "One Kalman filter, a whole run (schematic)",
+     "labelEnd": "One Kalman filter, a whole run (illustrative)",
+     "start": {
+      "w": 335,
+      "h": 188
+     },
+     "end": {
+      "w": 335,
+      "h": 188
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [],
+     "offPaletteEnd": [],
+     "changedFields": [
+      "label"
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "visualsStart": 11,
+   "visualsEnd": 13,
+   "routeCountsStart": {
+    "/classical/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/classical/calibration/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/classical/control/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/classical/grasp-planning/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/kinematics/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/classical/motion-planning/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/perception/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/ros2-for-ml-engineers/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/classical/scene-representation/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/state-estimation/": {
+     "dom": 3,
+     "manifest": 3
+    }
+   },
+   "routeCountsEnd": {
+    "/classical/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/classical/calibration/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/control/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/classical/grasp-planning/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/kinematics/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/classical/motion-planning/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/perception/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/ros2-for-ml-engineers/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/scene-representation/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/classical/state-estimation/": {
+     "dom": 3,
+     "manifest": 3
+    }
+   },
+   "failuresStart": [],
+   "failuresEnd": [],
+   "unchanged": 2,
+   "changed": [
+    "/classical/calibration/ classical__calibration__00.png: added",
+    "/classical/control/ classical__control__00.png: label, h, colours",
+    "/classical/control/ classical__control__01.png: label, h, colours",
+    "/classical/grasp-planning/ classical__grasp-planning__00.png: label, h, colours",
+    "/classical/kinematics/ classical__kinematics__00.png: label, h, colours",
+    "/classical/motion-planning/ classical__motion-planning__00.png: label, h, colours",
+    "/classical/perception/ classical__perception__00.png: label, h, colours",
+    "/classical/ros2-for-ml-engineers/ classical__ros2-for-ml-engineers__00.png: added",
+    "/classical/scene-representation/ classical__scene-representation__00.png: label, h, colours",
+    "/classical/state-estimation/ classical__state-estimation__00.png: label, h, colours",
+    "/classical/state-estimation/ classical__state-estimation__02.png: label"
+   ],
+   "visuals": [
+    {
+     "route": "/classical/calibration/",
+     "file": "classical__calibration__00.png",
+     "kind": "figure/instrument",
+     "labelStart": null,
+     "labelEnd": "The robot reaches what its camera sees only through these measurements, so each one must be checked.",
+     "start": null,
+     "end": {
+      "w": 715,
+      "h": 1438
+     },
+     "colourKeysSame": null,
+     "offPaletteStart": null,
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "added"
+     ]
+    },
+    {
+     "route": "/classical/control/",
+     "file": "classical__control__00.png",
+     "kind": "figure/instrument",
+     "labelStart": "Below Kp 9.81, the mgl threshold of this plant, no setting of Ki or Kd keeps the pole up.",
+     "labelEnd": "Balancing robots constantly measure their lean and push back; if the push is too gentle, nothing else can save them.",
+     "start": {
+      "w": 715,
+      "h": 840
+     },
+     "end": {
+      "w": 715,
+      "h": 1119
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/control/",
+     "file": "classical__control__01.png",
+     "kind": "figure/instrument",
+     "labelStart": "A softer K lowers the peak contact force; a position-controlled arm has no force channel to program.",
+     "labelEnd": "An arm that controls how hard it pushes can be tuned to touch gently; a position-only arm has no such dial.",
+     "start": {
+      "w": 715,
+      "h": 842
+     },
+     "end": {
+      "w": 715,
+      "h": 1319
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/grasp-planning/",
+     "file": "classical__grasp-planning__00.png",
+     "kind": "figure/instrument",
+     "labelStart": "The default three-contact grasp holds force closure: the origin sits inside the wrench hull, and ε measures the margin.",
+     "labelEnd": "A robot hand must place its fingers so they can resist a push from any direction, or the object slips.",
+     "start": {
+      "w": 715,
+      "h": 782
+     },
+     "end": {
+      "w": 715,
+      "h": 2099
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/kinematics/",
+     "file": "classical__kinematics__00.png",
+     "kind": "figure/instrument",
+     "labelStart": "Each joint angle is relative to its parent link, so moving the base joint swings the whole arm.",
+     "labelEnd": "A robot works out where its hand is by adding up each joint's turn, from shoulder to fingertip.",
+     "start": {
+      "w": 715,
+      "h": 793
+     },
+     "end": {
+      "w": 715,
+      "h": 1110
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/kinematics/",
+     "file": "classical__kinematics__01.png",
+     "kind": "image",
+     "labelStart": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+     "labelEnd": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+     "start": {
+      "w": 512,
+      "h": 428
+     },
+     "end": {
+      "w": 512,
+      "h": 428
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [],
+     "offPaletteEnd": [],
+     "changedFields": []
+    },
+    {
+     "route": "/classical/motion-planning/",
+     "file": "classical__motion-planning__00.png",
+     "kind": "figure/instrument",
+     "labelStart": "Each accepted step grows from the tree node nearest a random sample, so the tree spreads into open space.",
+     "labelEnd": "Rather than check every route, the robot's search grows random branches into open space until one reaches the goal.",
+     "start": {
+      "w": 715,
+      "h": 778
+     },
+     "end": {
+      "w": 715,
+      "h": 1138
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/perception/",
+     "file": "classical__perception__00.png",
+     "kind": "figure/instrument",
+     "labelStart": "Only the hand-eye term grows with working distance, so distance moves the total only when that angle is non-zero.",
+     "labelEnd": "Robots reach for what their camera sees, so a camera angle off by a fraction of a degree puts the hand beside the object",
+     "start": {
+      "w": 715,
+      "h": 1069
+     },
+     "end": {
+      "w": 715,
+      "h": 1975
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/ros2-for-ml-engineers/",
+     "file": "classical__ros2-for-ml-engineers__00.png",
+     "kind": "figure/instrument",
+     "labelStart": null,
+     "labelEnd": "Separate parts let engineers test, stop or swap the AI without touching what moves the robot.",
+     "start": null,
+     "end": {
+      "w": 715,
+      "h": 1498
+     },
+     "colourKeysSame": null,
+     "offPaletteStart": null,
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "added"
+     ]
+    },
+    {
+     "route": "/classical/scene-representation/",
+     "file": "classical__scene-representation__00.png",
+     "kind": "figure/instrument",
+     "labelStart": "The representation sets which of the three queries the store answers; resolution changes only cost and detail.",
+     "labelEnd": "How a robot stores what it sees decides what it can ask: where it may move, where to touch, how things look.",
+     "start": {
+      "w": 715,
+      "h": 911
+     },
+     "end": {
+      "w": 715,
+      "h": 1226
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/state-estimation/",
+     "file": "classical__state-estimation__00.png",
+     "kind": "scene",
+     "labelStart": "Motion scene: Kalman filter: predict and update",
+     "labelEnd": "Motion scene: Kalman filter: guess, measure, blend",
+     "start": {
+      "w": 715,
+      "h": 876
+     },
+     "end": {
+      "w": 715,
+      "h": 1228
+     },
+     "colourKeysSame": false,
+     "offPaletteStart": [
+      "#000000"
+     ],
+     "offPaletteEnd": [
+      "#000000"
+     ],
+     "changedFields": [
+      "label",
+      "h",
+      "colours"
+     ]
+    },
+    {
+     "route": "/classical/state-estimation/",
+     "file": "classical__state-estimation__01.png",
+     "kind": "image",
+     "labelStart": "after: The Kalman filter",
+     "labelEnd": "after: The Kalman filter",
+     "start": {
+      "w": 715,
+      "h": 402
+     },
+     "end": {
+      "w": 715,
+      "h": 402
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [],
+     "offPaletteEnd": [],
+     "changedFields": []
+    },
+    {
+     "route": "/classical/state-estimation/",
+     "file": "classical__state-estimation__02.png",
+     "kind": "figure/instrument",
+     "labelStart": "One Kalman filter, a whole run (schematic)",
+     "labelEnd": "One Kalman filter, a whole run (illustrative)",
+     "start": {
+      "w": 715,
+      "h": 402
+     },
+     "end": {
+      "w": 715,
+      "h": 402
+     },
+     "colourKeysSame": true,
+     "offPaletteStart": [],
+     "offPaletteEnd": [],
+     "changedFields": [
+      "label"
+     ]
+    }
+   ]
+  }
+ }
+}
