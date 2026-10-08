@@ -2,10 +2,15 @@ import { describe, expect, it } from 'vitest';
 import {
   DEFAULT_CONTACTS,
   DEFAULT_MU,
+  PUSH_COUNT,
   analyzeGrasp,
   contactGeometry,
+  contactPositionFromPoint,
   convexHull3,
+  inWrenchCone,
   primitiveWrenches,
+  pushAngle,
+  resistedPushes,
 } from '@/lib/grasp';
 
 /**
@@ -216,5 +221,58 @@ describe('analyzeGrasp', () => {
       if (Math.abs(facet.offset / n) < TOL) touches = true;
     }
     expect(touches).toBe(true);
+  });
+});
+
+describe('contactPositionFromPoint', () => {
+  it('sends a point on the ray from the centre to that edge point, on the slider grid', () => {
+    expect(contactPositionFromPoint(0, 2)).toBe(0.125);
+    expect(contactPositionFromPoint(-3, 0)).toBe(0.375);
+    expect(contactPositionFromPoint(0, -1.5)).toBe(0.625);
+    expect(contactPositionFromPoint(1.2, 0)).toBe(0.875);
+    expect(contactPositionFromPoint(-1, 1)).toBe(0.25);
+    // Inside the box the ray still picks the edge: (0.3, 0.1) heads for (1, 1/3).
+    expect(contactPositionFromPoint(0.3, 0.1)).toBe(0.915);
+  });
+
+  it('wraps the top-right corner to 0 and has no answer at the centre', () => {
+    expect(contactPositionFromPoint(1, 1)).toBe(0);
+    expect(contactPositionFromPoint(1, 0.999)).toBe(0);
+    expect(contactPositionFromPoint(0, 0)).toBeNull();
+  });
+
+  it('round-trips every edge midpoint through contactGeometry', () => {
+    for (const s of [0.125, 0.375, 0.625, 0.875]) {
+      const { point } = contactGeometry(s);
+      expect(contactPositionFromPoint(point.x, point.y)).toBe(s);
+    }
+  });
+});
+
+describe('inWrenchCone and resistedPushes', () => {
+  const x = { x: 1, y: 0, z: 0 };
+  const y = { x: 0, y: 1, z: 0 };
+
+  it('accepts non-negative mixes of the generators and nothing else', () => {
+    expect(inWrenchCone([x, y], { x: 2, y: 3, z: 0 })).toBe(true);
+    expect(inWrenchCone([x, y], { x: 2, y: 0, z: 0 })).toBe(true);
+    expect(inWrenchCone([x, y], { x: -1, y: 1, z: 0 })).toBe(false);
+    expect(inWrenchCone([x, y], { x: 1, y: 1, z: 0.5 })).toBe(false);
+    expect(inWrenchCone([x], { x: -1, y: 0, z: 0 })).toBe(false);
+  });
+
+  it('resists all eight pushes under the force-closure tripod', () => {
+    const { primitives, forceClosure } = analyzeGrasp(DEFAULT_CONTACTS, DEFAULT_MU);
+    expect(forceClosure).toBe(true);
+    expect(resistedPushes(primitives)).toEqual(Array(PUSH_COUNT).fill(true));
+  });
+
+  it('resists only the pushes into the fingers once the grip is open', () => {
+    // Top and right fingers alone: pushes to the right, up-right and up
+    // drive the box into a finger; the other five slip it free.
+    const { primitives, forceClosure } = analyzeGrasp([0.125, 0.875], DEFAULT_MU);
+    expect(forceClosure).toBe(false);
+    expect(resistedPushes(primitives)).toEqual([true, true, true, false, false, false, false, false]);
+    expect(pushAngle(2)).toBeCloseTo(Math.PI / 2, 12);
   });
 });

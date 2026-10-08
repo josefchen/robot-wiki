@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3051,
+      "visibleTextLength": 3072,
       "header": {
         "present": true,
         "display": "flex",
@@ -1541,7 +1541,7 @@
     },
     {
       "route": "/classical/calibration/",
-      "visibleTextLength": 16443,
+      "visibleTextLength": 17107,
       "header": {
         "present": true,
         "display": "flex",
@@ -1867,7 +1867,7 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "visibleTextLength": 20266,
+      "visibleTextLength": 19700,
       "header": {
         "present": true,
         "display": "flex",
@@ -2519,7 +2519,7 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "visibleTextLength": 14388,
+      "visibleTextLength": 15230,
       "header": {
         "present": true,
         "display": "flex",

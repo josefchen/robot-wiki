@@ -52,6 +52,8 @@ seeAlso:
   - "rl-sim2real/sim2real-transfer"
 ---
 
+import { CalibrationChain } from '@/components/interactive/calibration-chain';
+
 Robot calibration is the estimation of the parameters that make a robot's measurements and commands refer to the same physical world. Classical kinematic calibration has four steps: modeling, measurement, identification and correction <Cite id="roth-mooring-ravani-1987" />. A learning system adds cameras, depth, clocks and actuators to the chain.
 
 <SelfCheck
@@ -80,6 +82,8 @@ Robot calibration is the estimation of the parameters that make a robot's measur
 ## The calibration chain
 
 A manipulation system carries <Term id="camera-intrinsics">camera intrinsics</Term>, depth alignment, camera extrinsics, joint zeroes and link parameters, tool and payload parameters, timestamps and latency, and actuator response. Each stage feeds the next. FoundationPose estimates and tracks novel-object poses with or without a model <Cite id="foundationpose-2024" />, yet a wrong hand-eye transform still sends the gripper to the wrong place. HALO first calibrates a humanoid's nominal model from real data, then identifies an unknown payload's mass distribution <Cite id="halo-payload-2026" />.
+
+<CalibrationChain className="my-6" />
 
 ## Camera intrinsics
 

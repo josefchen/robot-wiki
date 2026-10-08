@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "da5019ba9cf80094ede2cbac1affa649d71c5d28a297a568be41068f3a01378f",
+  "fingerprint": "0aec8c34ecaaccb985e46ca56bb0557424c2af9782a8dd8b4d57ebb1430c3ce3",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3051,
+      "visibleTextLength": 3072,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4328,7 +4328,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16443,
+      "visibleTextLength": 17107,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4395,11 +4395,11 @@
           "Robot Calibration"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 5,
+        "readingMinutes": 6,
         "citationCount": 38,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "5 min",
+        "readingTimeText": "6 min",
         "citationCountText": "38",
         "bibliographyIds": [
           "zhang-2000-calibration",
@@ -4492,6 +4492,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A manipulation system carries camera intrinsicscamera intrin"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: errors from three different studies, not one robo"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Four calibrated links join the robot base to the box its cam"
         },
         {
           "familyHead": "newsreader",
@@ -4848,14 +4866,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 3,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 3,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -4975,6 +5004,22 @@
         {
           "tag": "summary",
           "text": "Read the reasoning",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "The four links and their measure",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -5969,7 +6014,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20266,
+      "visibleTextLength": 19700,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6036,11 +6081,11 @@
           "Grasp Planning"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 11,
+        "readingMinutes": 10,
         "citationCount": 39,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "11 min",
+        "readingTimeText": "10 min",
         "citationCountText": "39",
         "bibliographyIds": [
           "murray-li-sastry-1994",
@@ -6112,14 +6157,59 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 240,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "contacts 3 · force closure yes · ε 0.444"
+          "text": "Schematic: computed for an ideal box, not measured on a robo"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Seen from above, the box is a square of half side 1 and each"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The two edge forces of each cone, with their torque τ about "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The eight test pushes act through the centre, 45° apart. A p"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Contact positions run counterclockwise from 0.000 at the top"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "contacts 3 · force closure yes · ε 0.444 · friction coeffici"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -6128,7 +6218,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -6669,6 +6759,14 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Add contact",
           "familyHead": "ibm plex sans",
@@ -6687,6 +6785,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -9645,7 +9751,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14388,
+      "visibleTextLength": 15230,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -9876,6 +9982,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "One robust layout for a learned-policy graph separates drive"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: one recommended layout, not a required one"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Six ROS 2 nodes run top to bottom from camera and joint driv"
         },
         {
           "familyHead": "newsreader",
@@ -10160,14 +10284,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 7,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 7,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -10340,6 +10475,22 @@
         {
           "tag": "summary",
           "text": "Read the reasoning",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Graph data",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -55592,7 +55743,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3289,
+      "visibleTextLength": 3310,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59777,7 +59928,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16880,
+      "visibleTextLength": 17544,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59844,11 +59995,11 @@
           "Robot Calibration"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 5,
+        "readingMinutes": 6,
         "citationCount": 38,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "5 min",
+        "readingTimeText": "6 min",
         "citationCountText": "38",
         "bibliographyIds": [
           "zhang-2000-calibration",
@@ -59941,6 +60092,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A manipulation system carries camera intrinsicscamera intrin"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: errors from three different studies, not one robo"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Four calibrated links join the robot base to the box its cam"
         },
         {
           "familyHead": "newsreader",
@@ -60297,14 +60466,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 3,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 3,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -60424,6 +60604,22 @@
         {
           "tag": "summary",
           "text": "Read the reasoning",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "The four links and their measure",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -61418,7 +61614,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20703,
+      "visibleTextLength": 20137,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -61485,11 +61681,11 @@
           "Grasp Planning"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 11,
+        "readingMinutes": 10,
         "citationCount": 39,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "11 min",
+        "readingTimeText": "10 min",
         "citationCountText": "39",
         "bibliographyIds": [
           "murray-li-sastry-1994",
@@ -61561,14 +61757,59 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 240,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "contacts 3 · force closure yes · ε 0.444"
+          "text": "Schematic: computed for an ideal box, not measured on a robo"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Seen from above, the box is a square of half side 1 and each"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The two edge forces of each cone, with their torque τ about "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The eight test pushes act through the centre, 45° apart. A p"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Contact positions run counterclockwise from 0.000 at the top"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "contacts 3 · force closure yes · ε 0.444 · friction coeffici"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -61577,7 +61818,7 @@
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
@@ -62118,6 +62359,14 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Add contact",
           "familyHead": "ibm plex sans",
@@ -62136,6 +62385,14 @@
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -65094,7 +65351,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14825,
+      "visibleTextLength": 15667,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65325,6 +65582,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "One robust layout for a learned-policy graph separates drive"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: one recommended layout, not a required one"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Six ROS 2 nodes run top to bottom from camera and joint driv"
         },
         {
           "familyHead": "newsreader",
@@ -65609,14 +65884,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 7,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 7,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -65789,6 +66075,22 @@
         {
           "tag": "summary",
           "text": "Read the reasoning",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Graph data",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,

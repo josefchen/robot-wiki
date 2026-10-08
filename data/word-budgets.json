@@ -1,11 +1,11 @@
 {
-  "classical/calibration": 1098,
+  "classical/calibration": 1210,
   "classical/control": 2877,
   "classical/grasp-planning": 2106,
   "classical/kinematics": 2082,
   "classical/motion-planning": 3290,
   "classical/perception": 4400,
-  "classical/ros2-for-ml-engineers": 1158,
+  "classical/ros2-for-ml-engineers": 1288,
   "classical/scene-representation": 2973,
   "classical/state-estimation": 2798,
   "manipulation/action-chunking": 2409,

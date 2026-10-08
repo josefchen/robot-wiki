@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "figure-mount-continuity-v1",
+  "name": "figure-mounts-20261007",
+  "reviewedBy": "implementation worker for the classical figure mounts of 2026-10-07 (not independent acceptance)",
+  "rationale": "The classical articles on calibration and on ROS 2 for ML engineers each gained their first interactive figure on 2026-10-07 (VAL-OPUS-057): one import line after the frontmatter and one mount on its own line between blank lines, beside the paragraph the figure illustrates. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted import and mount gives the earlier bytes exactly, so no prose, number, citation, frontmatter field or other mount moved and older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
+  "observedAt": "2026-10-07T21:04:25Z",
+  "sources": [
+    {
+      "archivedFrom": "3a55248b22152efb944c45d498488de33f9e946c",
+      "before": {
+        "path": "content/classical/calibration.mdx",
+        "bytes": 9689,
+        "sha256": "f05b9f74bfefac02ed215bb3f4110b0afd3ec2ef1ed5cc5679c9e51be0943500"
+      },
+      "after": {
+        "path": "content/classical/calibration.mdx",
+        "bytes": 9808,
+        "sha256": "1fb3072f6ea0bb40679ee0f43572269399608d5e54ad8635add8bda998d4b724"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { CalibrationChain } from '@/components/interactive/calibration-chain';\n\n"
+        },
+        {
+          "before": "A manipulation system carries <Term id=\"camera-intrinsics\">camera intrinsics</Term>, depth alignment, camera extrinsics, joint zeroes and link parameters, tool and payload parameters, timestamps and latency, and actuator response. Each stage feeds the next. FoundationPose estimates and tracks novel-object poses with or without a model <Cite id=\"foundationpose-2024\" />, yet a wrong hand-eye transform still sends the gripper to the wrong place. HALO first calibrates a humanoid's nominal model from real data, then identifies an unknown payload's mass distribution <Cite id=\"halo-payload-2026\" />.\n",
+          "after": "A manipulation system carries <Term id=\"camera-intrinsics\">camera intrinsics</Term>, depth alignment, camera extrinsics, joint zeroes and link parameters, tool and payload parameters, timestamps and latency, and actuator response. Each stage feeds the next. FoundationPose estimates and tracks novel-object poses with or without a model <Cite id=\"foundationpose-2024\" />, yet a wrong hand-eye transform still sends the gripper to the wrong place. HALO first calibrates a humanoid's nominal model from real data, then identifies an unknown payload's mass distribution <Cite id=\"halo-payload-2026\" />.\n\n<CalibrationChain className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "3a55248b22152efb944c45d498488de33f9e946c",
+      "before": {
+        "path": "content/classical/ros2-for-ml-engineers.mdx",
+        "bytes": 9592,
+        "sha256": "1dfd445c34d55ac5c92957fa838df7e4a4918c9a13e7309546bebc7f13b34f34"
+      },
+      "after": {
+        "path": "content/classical/ros2-for-ml-engineers.mdx",
+        "bytes": 9712,
+        "sha256": "c7fc3dba96e143c0ac3d505bd94a0e50709394d4052f7a5b366d46cecc00c125"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { Ros2PolicyLayout } from '@/components/interactive/ros2-policy-layout';\n\n"
+        },
+        {
+          "before": "One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n",
+          "after": "One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n\n<Ros2PolicyLayout className=\"my-6\" />\n"
+        }
+      ]
+    }
+  ]
+}

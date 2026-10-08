@@ -178,10 +178,13 @@ async function verifyChecker(): Promise<boolean> {
 /** Reads every recorded successor back through the written layer. */
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-domain-pass-continuity.ts');
+  const { figureMountPredecessor } = await import('../lib/audit-figure-mount-continuity.ts');
   let ok = true;
   for (const source of layer.loadDomainPassReview(root).sources) {
     try {
-      const prior = layer.domainPassPredecessor(root, source.before, readFileSync(join(root, source.after.path)));
+      // The newer figure-mount layer hands back the domain-pass successor first.
+      const live = figureMountPredecessor(root, source.before, readFileSync(join(root, source.after.path)));
+      const prior = layer.domainPassPredecessor(root, source.before, live);
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {
       ok = false;

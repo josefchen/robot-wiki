@@ -13,8 +13,16 @@ import {
 } from '../helpers/grasp-contact-grid';
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const ROUTE = '/classical/grasp-planning/';
+
+/**
+ * The lab's main view is the fingers on the box, the Surface slider and the
+ * stage note; the contact sliders, Add, Remove, Reset and the wrench-space
+ * plot sit in "Adjust more", and the readouts in "How this was made".
+ */
+const labFrame = (page: Page) => page.locator('[data-figure-frame="grasp-wrench-lab"]');
 
 function collectPageErrors(page: Page): string[] {
   const errors: string[] = [];
@@ -219,11 +227,14 @@ test.describe('classical grasp-planning module', () => {
     const objectView = page.getByTestId('grasp-object-view');
     const wrenchView = page.getByTestId('grasp-wrench-view');
     await expect(objectView).toBeVisible();
-    await expect(wrenchView).toBeVisible();
-
+    await expect(wrenchView).toBeHidden();
+    await expect(labFrame(page).locator('[data-push="resisted"]')).toHaveCount(8);
     await expect(
       page.getByRole('slider', { name: /friction coefficient/i }),
     ).toBeVisible();
+    await openAdjustMore(labFrame(page));
+    await expect(wrenchView).toBeVisible();
+
     for (const i of [1, 2, 3]) {
       await expect(
         page.getByRole('slider', { name: new RegExp(`contact ${i} position`, 'i') }),
@@ -268,6 +279,7 @@ test.describe('classical grasp-planning module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    await openAdjustMore(labFrame(page));
     const wrenchView = page.getByTestId('grasp-wrench-view');
     const hullHtml = () => wrenchView.innerHTML();
     const epsilon = async () =>
@@ -326,6 +338,7 @@ test.describe('classical grasp-planning module', () => {
     await expect(page.getByTestId('grasp-contact-1-value')).toHaveText('0.130');
     expect(await hullHtml()).not.toBe(baseHull);
     await page.reload();
+    await openAdjustMore(labFrame(page));
     await expectDefaultContacts(page);
     await expect(page.getByTestId('grasp-epsilon-readout')).toHaveText(
       '0.444',
@@ -341,6 +354,7 @@ test.describe('classical grasp-planning module', () => {
     await expect(muSlider).toBeFocused();
     await muSlider.press('ArrowRight');
     await expect(page.getByTestId('grasp-mu-value')).toHaveText('0.75');
+    await openAdjustMore(labFrame(page));
 
     // Derive expected values through decimal grid indexes rather than binary
     // floating-point addition. A native step moves one index, then returns.
@@ -387,19 +401,24 @@ test.describe('classical grasp-planning module', () => {
     await expect(page.getByTestId('grasp-contacts-readout')).toHaveText('4');
   });
 
-  test('the mu label renders the Greek glyph, not an uppercased lookalike', async ({
+  test('the mu readout renders the Greek glyph, not an uppercased lookalike', async ({
     page,
   }) => {
     await page.goto(ROUTE);
     const label = page.locator('label[for="grasp-mu"]');
     // Figure control labels are sentence case, so no transform may turn
-    // the mu into its capital lookalike.
+    // the label into capitals. The visible slider is "Surface"; its mu
+    // lives in the readout under "How this was made".
     await expect(label).toHaveCSS('text-transform', 'none');
+    expect(await label.evaluate((el) => (el as HTMLElement).innerText)).toContain('Surface');
+    const method = await openHowThisWasMade(labFrame(page));
+    const line = method.locator('[data-figure-readout]');
+    await expect(line).toHaveCSS('text-transform', 'none');
     // innerText reflects the RENDERED text (text-transform applied), which
     // textContent-based assertions cannot see: an uppercase transform once
     // made this read "Μ ..." (U+039C, visually a Latin M) even though the
     // DOM always held μ.
-    const rendered = await label.evaluate(
+    const rendered = await line.evaluate(
       (el) => (el as HTMLElement).innerText,
     );
     expect(rendered).toContain('μ'); // U+03BC greek small letter mu
