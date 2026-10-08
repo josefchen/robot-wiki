@@ -5,6 +5,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { GLOSSARY } from '../../data/glossary';
 import { termConsumerInventory } from './helpers/term-consumer-inventory';
 import { setSlider } from './slider';
+import { waitForHydration } from './interaction-ready';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 test('visual-servo origin pair has bounded reader, glossary and control evidence', async ({ page }, testInfo) => {
@@ -64,6 +65,10 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
     await document.fonts.ready;
     await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
   });
+  // The error budget is a lazy mount that hydrates after the page shell.
+  // A screenshot hides the caret with an inline style on every input, and
+  // one taken before the budget hydrates shows up as a hydration mismatch.
+  await waitForHydration(page.getByTestId('perception-handeye-slider'));
   const roles = await page.evaluate(() => [
     'h1', '[data-testid="perception-target-note"]',
     'div.prose[data-pagefind-body] > p', '[data-testid="perception-total-readout"]',

@@ -211,7 +211,10 @@ test.describe('classical motion-planning module', () => {
     ).toBeVisible();
     const slider = page.getByRole('slider', { name: /exploration iteration/i });
     await expect(slider).toBeVisible();
-    // Step forward, Reset and the readouts sit in "Adjust more".
+    // Step forward, Reset and the readouts sit in "Adjust more". A fold
+    // opened before hydration leaves the server's closed <details> out of
+    // step with the DOM, which the offline fixture reports as an error.
+    await waitForHydration(slider);
     await openAdjustMore(explorer(page));
     await expect(
       explorer(page).getByRole('button', { name: /step forward/i }),

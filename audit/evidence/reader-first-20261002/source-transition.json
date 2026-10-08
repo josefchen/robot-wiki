@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-08T17:08:29Z",
+  "observedAt": "2026-10-08T21:26:09Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -7213,13 +7213,13 @@
       },
       "after": {
         "path": "tests/e2e/control.spec.ts",
-        "bytes": 27282,
-        "sha256": "fe4827332debf9bf81ac3636439c0e2da7573b616986e718790622dcd9ccf00f"
+        "bytes": 27778,
+        "sha256": "a55612829a2153a5b3fd9b53c34eb3ffa14abefc71eeff449580eb28bbcef8dd"
       },
       "edits": [
         {
           "before": "import { writeFileSync } from 'node:fs';\n",
-          "after": "import { writeFileSync } from 'node:fs';\nimport { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+          "after": "import { writeFileSync } from 'node:fs';\nimport { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';\nimport { figureFold, openAdjustMore } from './helpers/figure-fold';\n"
         },
         {
           "before": " * The article's only pendulum lab. The prediction step wraps it inside its\n * closed disclosure, mounted at Kp 9.5, so a test opens the step first.\n",
@@ -7307,7 +7307,11 @@
         },
         {
           "before": "    // visible focus indicator (the design system's accent outline).\n",
-          "after": "    // visible focus indicator (the design system's accent outline). The\n    // depth slider sits in \"Adjust more\", which a reader opens first.\n    await openAdjustMore(lab);\n"
+          "after": "    // visible focus indicator (the design system's accent outline). The\n    // depth slider is the first control in \"Adjust more\": a keyboard\n    // reader opens the fold from its summary and tabs on to it. A mouse\n    // click would leave Chromium in pointer modality, where a slider\n    // focused afterwards shows no focus-visible ring.\n    await waitForHydration(lab.getByTestId('impedance-stiffness-slider'));\n    const fold = figureFold(lab, 'adjust');\n    await fold.locator(':scope > summary').focus();\n    await page.keyboard.press('Enter');\n    await expect(fold).toHaveJSProperty('open', true);\n"
+        },
+        {
+          "before": "    await depth.focus();\n",
+          "after": "    await page.keyboard.press('Tab');\n    await expect(depth).toBeFocused();\n"
         }
       ]
     },
@@ -8673,8 +8677,8 @@
       },
       "after": {
         "path": "tests/e2e/motion-planning.spec.ts",
-        "bytes": 17702,
-        "sha256": "7a02602111dd2f5659c90516dcb49e4b977e79f3d523f90a872eb190ca5a40c4"
+        "bytes": 17893,
+        "sha256": "7552079a8db4715813e28ffbd42e9a3abd7fea819eaf698a751f5cc1e3eb1d2b"
       },
       "edits": [
         {
@@ -8711,7 +8715,7 @@
         },
         {
           "before": "      explorer(page).getByRole('button', { name: /run the exploration/i }),\n    ).toBeVisible();\n",
-          "after": "      explorer(page).getByRole('button', { name: /grow the tree/i }),\n    ).toBeVisible();\n    const slider = page.getByRole('slider', { name: /exploration iteration/i });\n    await expect(slider).toBeVisible();\n    // Step forward, Reset and the readouts sit in \"Adjust more\".\n    await openAdjustMore(explorer(page));\n"
+          "after": "      explorer(page).getByRole('button', { name: /grow the tree/i }),\n    ).toBeVisible();\n    const slider = page.getByRole('slider', { name: /exploration iteration/i });\n    await expect(slider).toBeVisible();\n    // Step forward, Reset and the readouts sit in \"Adjust more\". A fold\n    // opened before hydration leaves the server's closed <details> out of\n    // step with the DOM, which the offline fixture reports as an error.\n    await waitForHydration(slider);\n    await openAdjustMore(explorer(page));\n"
         },
         {
           "before": "    await expect(\n      page.getByRole('slider', { name: /exploration iteration/i }),\n    ).toBeVisible();\n    // Initial readouts: only the root node, no path yet.\n    await expect(page.getByTestId('rrt-node-readout')).toHaveText('1');\n    await expect(page.getByTestId('rrt-path')).toHaveCount(0);\n",
@@ -9147,8 +9151,8 @@
       },
       "after": {
         "path": "tests/e2e/predict-then-reveal.spec.ts",
-        "bytes": 40893,
-        "sha256": "2ca19df1a64eff1fcd0c874c1e2b1e3e2b3f0d2224c5560e45955bf2331639aa"
+        "bytes": 41092,
+        "sha256": "8fe64fe8441b66d0564c12575262d8883fd94999f7d28d07aec41b334128b3da"
       },
       "edits": [
         {
@@ -9213,7 +9217,7 @@
         },
         {
           "before": "      // reveal hint. textContent, not innerText: the disclosure is still\n      // closed, and a closed disclosure's content has no rendered innerText.\n      const figure = reveal.locator('[data-reveal-hint] + *');\n      await expect(figure.locator('svg').first()).toBeAttached();\n",
-          "after": "      // hint, and its chart is visible at settle without answering.\n      // textContent for the readout: a figure may keep its exact readout in\n      // its own closed \"How this was made\" fold.\n      const figure = predictFigure.locator(':scope > [data-reveal-hint] + *');\n      await expect(figure).toBeVisible();\n      await expect(figure.locator('svg').first()).toBeVisible();\n"
+          "after": "      // hint, and its chart is visible at settle without answering.\n      // textContent for the readout: a figure may keep its exact readout in\n      // its own closed \"How this was made\" fold. The drawing is read from\n      // the stage, since an icon inside the closed \"Adjust more\" fold can\n      // come first in document order.\n      const figure = predictFigure.locator(':scope > [data-reveal-hint] + *');\n      await expect(figure).toBeVisible();\n      await expect(figure.locator('[data-figure-stage] svg').first()).toBeVisible();\n"
         },
         {
           "before": "        placement.mountedReadout,\n      );\n",
@@ -9225,7 +9229,7 @@
         },
         {
           "before": "      await reveal.locator(':scope > summary').click();\n      await expect(reveal).toHaveAttribute('open');\n      const svg = reveal.locator('svg').first();\n",
-          "after": "      // The figure is drawn with the reasoning still closed.\n      const figure = root.locator(':scope > [data-predict-figure] > [data-reveal-hint] + *');\n      const svg = figure.locator('svg').first();\n"
+          "after": "      // The figure is drawn with the reasoning still closed.\n      const figure = root.locator(':scope > [data-predict-figure] > [data-reveal-hint] + *');\n      const svg = figure.locator('[data-figure-stage] svg').first();\n"
         },
         {
           "before": "      const text = await reveal.innerText();\n      expect(text).toMatch(placement.mountedReadout);\n",
@@ -9233,7 +9237,7 @@
         },
         {
           "before": "        // Tab-reachability: the radio group is the tab stop before the\n        // summary; Tab from the group lands on the summary.\n",
-          "after": "        const figureSvg = root\n          .locator(':scope > [data-predict-figure] > [data-reveal-hint] + *')\n          .locator('svg')\n          .first();\n        // The figure is already shown before the reader opens anything.\n        await expect(figureSvg).toBeVisible();\n        await expect(reveal).not.toHaveAttribute('open');\n        // Tab-reachability: the summary follows the radio group and the\n        // figure's own controls in tab order; tabbing on from the group\n        // reaches it.\n"
+          "after": "        const figureSvg = root\n          .locator(':scope > [data-predict-figure] > [data-reveal-hint] + *')\n          .locator('[data-figure-stage] svg')\n          .first();\n        // The figure is already shown before the reader opens anything.\n        await expect(figureSvg).toBeVisible();\n        await expect(reveal).not.toHaveAttribute('open');\n        // Tab-reachability: the summary follows the radio group and the\n        // figure's own controls in tab order; tabbing on from the group\n        // reaches it.\n"
         },
         {
           "before": "        await page.keyboard.press('Tab');\n        const focused = await summary.evaluate(\n          (el) => document.activeElement === el,\n        );\n        expect(focused, `${key}: summary must be reachable by Tab`).toBe(true);\n",

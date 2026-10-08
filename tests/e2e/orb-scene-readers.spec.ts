@@ -202,7 +202,10 @@ test('ORB readers: qualified prose, short Cite metadata and full footnote author
   }
   for (const caveat of ['slow motion can delay inertial initialization',
     'false negatives discard useful measurements']) {
-    const p = prose.locator(':scope > p').filter({ hasText: caveat }).first();
+    // hasText also matches a glossary term's hidden tooltip, so a paragraph
+    // that only defines the caveat inside a tooltip is skipped.
+    const p = prose.locator(':scope > p').filter({ hasText: caveat })
+      .filter({ hasNot: page.locator('[role="tooltip"]', { hasText: caveat }) }).first();
     await p.evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
     await finalTextVisible(page, p, caveat);
     await capture(page, info, caveat.startsWith('slow') ? 'orb3-prose' : 'false-match-prose');
