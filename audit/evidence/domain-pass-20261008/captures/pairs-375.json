@@ -1,0 +1,176 @@
+[
+ {
+  "route": "/classical/control/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Below Kp 9.81, the mgl threshold of this plant, no setting of Ki or Kd keeps the pole up.",
+   "file": "classical__control__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Balancing robots constantly measure their lean and push back; if the push is too gentle, nothing else can save them.",
+   "file": "classical__control__00.png"
+  }
+ },
+ {
+  "route": "/classical/control/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "A softer K lowers the peak contact force; a position-controlled arm has no force channel to program.",
+   "file": "classical__control__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "An arm that controls how hard it pushes can be tuned to touch gently; a position-only arm has no such dial.",
+   "file": "classical__control__01.png"
+  }
+ },
+ {
+  "route": "/classical/grasp-planning/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "The default three-contact grasp holds force closure: the origin sits inside the wrench hull, and ε measures the margin.",
+   "file": "classical__grasp-planning__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "A robot hand must place its fingers so they can resist a push from any direction, or the object slips.",
+   "file": "classical__grasp-planning__00.png"
+  }
+ },
+ {
+  "route": "/classical/kinematics/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Each joint angle is relative to its parent link, so moving the base joint swings the whole arm.",
+   "file": "classical__kinematics__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "A robot works out where its hand is by adding up each joint's turn, from shoulder to fingertip.",
+   "file": "classical__kinematics__00.png"
+  }
+ },
+ {
+  "route": "/classical/kinematics/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+   "file": "classical__kinematics__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+   "file": "classical__kinematics__01.png"
+  }
+ },
+ {
+  "route": "/classical/motion-planning/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Each accepted step grows from the tree node nearest a random sample, so the tree spreads into open space.",
+   "file": "classical__motion-planning__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Rather than check every route, the robot's search grows random branches into open space until one reaches the goal.",
+   "file": "classical__motion-planning__00.png"
+  }
+ },
+ {
+  "route": "/classical/perception/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Only the hand-eye term grows with working distance, so distance moves the total only when that angle is non-zero.",
+   "file": "classical__perception__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Robots reach for what their camera sees, so a camera angle off by a fraction of a degree puts the hand beside the object",
+   "file": "classical__perception__00.png"
+  }
+ },
+ {
+  "route": "/classical/scene-representation/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "The representation sets which of the three queries the store answers; resolution changes only cost and detail.",
+   "file": "classical__scene-representation__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "How a robot stores what it sees decides what it can ask: where it may move, where to touch, how things look.",
+   "file": "classical__scene-representation__00.png"
+  }
+ },
+ {
+  "route": "/classical/state-estimation/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Kalman filter: predict and update",
+   "file": "classical__state-estimation__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Kalman filter: guess, measure, blend",
+   "file": "classical__state-estimation__00.png"
+  }
+ },
+ {
+  "route": "/classical/state-estimation/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "after: The Kalman filter",
+   "file": "classical__state-estimation__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "after: The Kalman filter",
+   "file": "classical__state-estimation__01.png"
+  }
+ },
+ {
+  "route": "/classical/state-estimation/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "One Kalman filter, a whole run (schematic)",
+   "file": "classical__state-estimation__02.png"
+  },
+  "after": {
+   "idx": 2,
+   "label": "One Kalman filter, a whole run (illustrative)",
+   "file": "classical__state-estimation__02.png"
+  }
+ },
+ {
+  "route": "/classical/calibration/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 0,
+   "label": "The robot reaches what its camera sees only through these measurements, so each one must be checked.",
+   "file": "classical__calibration__00.png"
+  }
+ },
+ {
+  "route": "/classical/ros2-for-ml-engineers/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 0,
+   "label": "Separate parts let engineers test, stop or swap the AI without touching what moves the robot.",
+   "file": "classical__ros2-for-ml-engineers__00.png"
+  }
+ }
+]
