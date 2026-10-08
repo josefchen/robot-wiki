@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "7f71e1d2bf989652faeb02a496914ea199ea580c65baee3f930dd7aac19c70f0",
+  "fingerprint": "ef5eb90c68d3e114d083f6be2a7a1881669f39e1c79d5e4ed2d70a5c2b9761f6",
   "source": "out/ static export",
   "routes": [
     {
@@ -111,8 +111,8 @@
     },
     {
       "route": "/classical/control/",
-      "outboundAnchors": 101,
-      "distinctHrefs": 47,
+      "outboundAnchors": 103,
+      "distinctHrefs": 48,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -123,8 +123,8 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "outboundAnchors": 100,
-      "distinctHrefs": 42,
+      "outboundAnchors": 105,
+      "distinctHrefs": 44,
       "shapes": [
         "citation-chip",
         "footer",
@@ -146,8 +146,8 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "outboundAnchors": 118,
-      "distinctHrefs": 44,
+      "outboundAnchors": 120,
+      "distinctHrefs": 45,
       "shapes": [
         "citation-chip",
         "footer",
@@ -157,8 +157,8 @@
     },
     {
       "route": "/classical/perception/",
-      "outboundAnchors": 144,
-      "distinctHrefs": 64,
+      "outboundAnchors": 146,
+      "distinctHrefs": 65,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -181,8 +181,8 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "outboundAnchors": 135,
-      "distinctHrefs": 60,
+      "outboundAnchors": 141,
+      "distinctHrefs": 62,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -813,17 +813,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 4468,
-  "distinctOutboundHrefs": 1298,
+  "outboundAnchors": 4485,
+  "distinctOutboundHrefs": 1304,
   "anchorsByShape": {
-    "citation-chip": 2029,
+    "citation-chip": 2039,
     "footer": 152,
-    "reference-entry": 1400,
+    "reference-entry": 1407,
     "other": 563,
     "figure-credit": 324
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 3911,
+  "anchorsWithNoreferrer": 3928,
   "keyboard": [
     {
       "route": "/",
@@ -915,19 +915,19 @@
     },
     {
       "route": "/classical/control/",
-      "outboundInDom": 101,
-      "reachedByTab": 101,
+      "outboundInDom": 103,
+      "reachedByTab": 103,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 264
+      "tabStops": 267
     },
     {
       "route": "/classical/grasp-planning/",
-      "outboundInDom": 100,
-      "reachedByTab": 100,
+      "outboundInDom": 105,
+      "reachedByTab": 105,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 233
+      "tabStops": 241
     },
     {
       "route": "/classical/kinematics/",
@@ -939,19 +939,19 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "outboundInDom": 118,
-      "reachedByTab": 118,
+      "outboundInDom": 120,
+      "reachedByTab": 120,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 281
+      "tabStops": 284
     },
     {
       "route": "/classical/perception/",
-      "outboundInDom": 144,
-      "reachedByTab": 144,
+      "outboundInDom": 146,
+      "reachedByTab": 146,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 329
+      "tabStops": 332
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
@@ -963,11 +963,11 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "outboundInDom": 135,
-      "reachedByTab": 135,
+      "outboundInDom": 141,
+      "reachedByTab": 141,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 304
+      "tabStops": 315
     },
     {
       "route": "/classical/state-estimation/",

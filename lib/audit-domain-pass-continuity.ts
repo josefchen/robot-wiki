@@ -37,18 +37,18 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 689984, sha256: 'd4b64a92aabcb2b9fb2d1d575ea447e4b94bbe53ac0117e1892520c2bdd9b0a7' };
+const reviewPin = { bytes: 692162, sha256: 'cb8a8f025f53d4146badd240e592bda163471b83b3c7f380d579a6e5c0f01f19' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/calibration.mdx', [9689, 'f05b9f74bfefac02ed215bb3f4110b0afd3ec2ef1ed5cc5679c9e51be0943500']],
-  ['content/classical/control.mdx', [19698, '41d153f8f9e9129c3269b76a0512070beda156789f33a4f87c37e6052e665a27']],
-  ['content/classical/grasp-planning.mdx', [13593, 'c70f1a6b072d4df15c6422bbb825cbdb8abc17c4559804770556931c8d21215f']],
+  ['content/classical/control.mdx', [20019, '2dd6f23a17d56e87c9ab596e54f7c088117c6d89f56904ca8d94db23808f95ec']],
+  ['content/classical/grasp-planning.mdx', [14228, 'd8646bbd77d25693e25e87aef575c5d3fefb45357bf7c03e5b056a1a75591605']],
   ['content/classical/kinematics.mdx', [11805, '3f89ea8849092ca97811c4e9db5e0afc61beda251cfb019d5c93e3188b3072c9']],
-  ['content/classical/motion-planning.mdx', [20454, 'ebc07401ea182cb0334d7037c3ed272cb7ecf0a38c807bfed847edaffa878cd1']],
-  ['content/classical/perception.mdx', [28231, '21ca3eb0470cfdfcfd2371897979dd072f0eabf7c949269862f4414c90c8fb24']],
+  ['content/classical/motion-planning.mdx', [20675, 'e076b91ef2e0265cf0d87b663f1b07e51d05fe546fe512b37405f118101be66b']],
+  ['content/classical/perception.mdx', [28442, 'cf19ca2fb3368fc0252c97545fec67ae6cadc6bb4c7bf635523e9e369beb8e2b']],
   ['content/classical/ros2-for-ml-engineers.mdx', [9592, '1dfd445c34d55ac5c92957fa838df7e4a4918c9a13e7309546bebc7f13b34f34']],
-  ['content/classical/scene-representation.mdx', [19360, 'af7d61ef547fa23cb7765c5bcc8e81341a4c090caf2d92813fb36107bd51f52d']],
+  ['content/classical/scene-representation.mdx', [20121, 'aaae84fb8b176dcffd8cb88e3085b9e4559ad1f46051248edcceb8c4a6bf9e21']],
   ['content/classical/state-estimation.mdx', [15410, '96b92f0aa260583ff52b6cd3e7867c14891b61fe8bb1379d04bea15d7ca30329']],
   ['content/frontier/dexterity.mdx', [18761, '91e3c09b8b032560e4fc843db142f558447434e8f078f1d596324687e83381a1']],
   ['content/manipulation/action-chunking.mdx', [12714, 'a08054d5b2b91c7f0a47b42a5f1851087634420845b7fba5f89f42d4c2d4ed84']],

@@ -355,10 +355,14 @@ describe('PendulumController', () => {
     const { container } = render(<PendulumController defaultKp={9.5} />);
     expect(screen.getByTestId('pendulum-motor')).toBeInTheDocument();
     expect(screen.getByTestId('pendulum-push-arrow')).toBeInTheDocument();
+    // The small arc names itself, so it never reads as a stray mark.
+    expect(screen.getByTestId('pendulum-push-word')).toHaveTextContent('push');
     expect(screen.getByTestId('pendulum-gravity-arrow')).toHaveTextContent('gravity');
     expect(container.querySelector('[data-figure-annotation]')?.textContent).toBe(
       'Gravity tips it over;the motor at the basepushes back',
     );
+    expect(container.querySelector('[data-annotation-pointer="arrow"]')).not.toBeNull();
+    expect(screen.getByRole('group', { name: 'How hard the motor pushes back' })).toBeInTheDocument();
     expect(screen.queryByTestId('pendulum-stage-status')).toBeNull();
     expect(screen.queryByTestId('pendulum-trail')).toBeNull();
     expect(screen.getByRole('button', { name: 'Too gentle' })).toHaveAttribute('aria-pressed', 'true');

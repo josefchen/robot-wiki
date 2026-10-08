@@ -3,10 +3,13 @@ import { join } from 'node:path';
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import {
+  ANNOTATION_ARROW,
   CHART_HATCH,
   CHART_STROKE,
   CHART_TYPE,
   CHART_UNCERTAINTY,
+  StageAnnotation,
+  annotationArrow,
   roleColour,
 } from '@/components/motion/chart';
 import tokens from '@/motion-tokens.json';
@@ -130,6 +133,34 @@ describe('chart primitives on the light page stage', () => {
     );
     expect(Math.min(...sizes)).toBeGreaterThanOrEqual(12);
     expect(sizes.size).toBeLessThanOrEqual(3);
+  });
+
+  it('annotation: a ring by default, or an arrowhead that stops short of its target', () => {
+    const ring = render(
+      <svg><StageAnnotation x={10} y={10} lines={['note']} target={[60, 80]} /></svg>,
+    ).container;
+    expect(ring.querySelector('[data-figure-annotation] circle')).not.toBeNull();
+    expect(ring.querySelector('[data-annotation-pointer]')).toBeNull();
+
+    const from = [10, 20] as const;
+    const target = [70, 100] as const;
+    const arrow = render(
+      <svg><StageAnnotation x={10} y={10} lines={['note']} from={from} target={target} pointer="arrow" /></svg>,
+    ).container;
+    const note = arrow.querySelector('[data-figure-annotation]')!;
+    expect(note.querySelector('circle')).toBeNull();
+    const pointer = note.querySelector('[data-annotation-pointer="arrow"]')!;
+    const head = pointer.querySelector('polygon')!.getAttribute('points')!.split(' ').map((p) => p.split(',').map(Number));
+    const [tip] = head;
+    // The tip sits on the leader's line, the gap short of the target.
+    expect(Math.hypot(target[0] - tip[0], target[1] - tip[1])).toBeCloseTo(ANNOTATION_ARROW.gap, 6);
+    const line = pointer.querySelector('line')!;
+    expect(Number(line.getAttribute('x1'))).toBe(from[0]);
+    expect(Number(line.getAttribute('y1'))).toBe(from[1]);
+    expect(pointer.querySelector('polygon')!.getAttribute('fill')).toBe(roleColour('highlight'));
+
+    // Too short to carry a head: no pointer, and still no ring.
+    expect(annotationArrow([0, 0], [5, 5])).toBeNull();
   });
 
   it('carries no colour literal or bare font size in the primitive sources', () => {

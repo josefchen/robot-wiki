@@ -7,20 +7,17 @@
     "1280": "evidence/reader-first/classical--calibration--calibration-chain.1280.png"
   },
   "takeaway": "A wrong measurement anywhere between the arm, the camera and the hand moves where the hand lands.",
-  "sentence": "For a robot hand to reach a box that its camera sees, it relies on a chain of measurements of the arm and camera, and an error in any one of them makes the hand miss.",
+  "sentence": "For a robot arm to reach a box it sees with its wrist camera, it relies on a series of linked measurements, and if any one of them is wrong the hand misses.",
   "unclearTerms": [
-    "the thin black lines running from the labels (on the wide screen some point to empty space, for example the one going off the top left and the one under the hand)",
-    "the thick grey band behind the arm",
-    "the circles at the arm joints",
-    "the small black dot in the hand",
-    "the green ring inside the box",
-    "how far the camera sees the box"
+    "the short brown arrow near the wrist going toward the camera",
+    "the light grey band running along the arm under the purple line",
+    "the circles at the arm's joints"
   ],
   "samePoint": "yes",
-  "reason": "My sentence also said that an error in any measurement in the arm-to-camera chain makes the hand miss.",
+  "reason": "My sentence says that if any one measurement in the arm-camera-hand chain is wrong, the hand misses, which is the same effect as the takeaway.",
   "verdict": "fail",
-  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
   "date": "2026-10-08",
-  "reviewerSession": "reader-session-ec98138f",
-  "sourceDigest": "51cded49e4efbdce7e89de059033716bf81246981e2af0d39c6113d12a8eaedb"
+  "reviewerSession": "reader-session-72c5c167",
+  "sourceDigest": "a8af0d278da7128571420394adf9d10346aa999813ec9e420006d4c0c4d6b27f"
 }

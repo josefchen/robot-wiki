@@ -1,8 +1,8 @@
 One Kalman filter, a whole run — illustrative clip, 16 seconds.
-Sensors are noisy and sometimes go quiet; the filter still tracks the target and shows how sure it is.
+Through noisy and missing readings the filter stays close to the object, and its band shows when a robot should trust it less.
 Transcript:
-- A target drifts back and forth; the dashed line shows where it really is at each moment.
-- A noisy sensor reports its position, and on about one step in five it reports nothing.
-- The filter's track follows the target, and the shaded band around it shows how unsure it is.
-- Where readings drop out the band widens, and the next reading pulls it tight again.
+- An object moves back and forth as time runs left to right, and the dashed line marks its true position.
+- A noisy sensor reports the object's position as dots, and about one time in five it reports nothing.
+- The filter's estimate, the solid line, stays close to the true position, and the shaded band shows how unsure it is.
+- While readings are missing the filter grows less sure and its band widens, which tells a robot to trust the estimate less.
 Illustrative: a simulated run, not measured on hardware.

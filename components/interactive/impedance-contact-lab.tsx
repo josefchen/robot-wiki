@@ -33,8 +33,9 @@ import {
   PlotStage,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage } from '@/components/motion/figure-frame';
+import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
+  ANNOTATION_ARROW,
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
@@ -51,22 +52,21 @@ import { CiteRef } from '@/components/article/citation-records';
  * ImpedanceContactLab: a one-dimensional compliant-contact lab. A
  * fingertip presses a fragile object, and the chart shows the push on the
  * object over the first 0.6 s against the force that crushes it. "Which
- * arm?" picks the hardware: a stiff geared arm that only follows a
- * position, an arm that controls its own push (torque control) or an arm
+ * arm?" picks the hardware: a stiff arm (geared, position-controlled) that
+ * only follows a position, an arm that controls its own push (torque control) or an arm
  * with a built-in spring (series-elastic joint). "Softness" sets the
  * commanded stiffness K. Press depth, damping D, the exact readouts and
  * Reset sit in "Adjust more".
  *
- * The teaching move: the stiff geared arm greys out softness and damping
+ * The teaching move: the stiff arm greys out softness and damping
  * with the NATIVE disabled attribute (a disabled control is honestly
  * unavailable rather than focusable-and-inert) and reads unbounded,
  * because a position loop has no force channel at all.
  *
  * The chart's only reference is the crush line. The transient
  * contact-force limit from the shared lib/force-limits module sits about
- * ten times higher, so the stage points at it with an off-chart arrow, and
- * the method fold renders its label: the string the frontier safety
- * instrument also renders.
+ * ten times higher, off the chart; the method fold states it, with its
+ * citation, in the string the frontier safety instrument also renders.
  *
  * Interactive contract: deterministic simulation recomputed from pure
  * functions on every input change (no interval: the trace is a
@@ -87,7 +87,7 @@ const TABLE_Y = 66;
 const OBJECT = { x: 70, y: 52, rx: 11, ry: 13 };
 
 const HARDWARE_OPTIONS: ReadonlyArray<{ value: HardwareMode; label: string }> = [
-  { value: 'position', label: 'Stiff geared arm' },
+  { value: 'position', label: 'Stiff arm' },
   { value: 'torque', label: 'Arm that controls its own push' },
   { value: 'sea', label: 'Arm with a built-in spring' },
 ];
@@ -102,12 +102,13 @@ const OUTCOME_TEXT: Record<TaskOutcome, string> = {
 /**
  * A hardware option in the shared toggle look. Its native radio covers the
  * whole option, transparent, so the option is the radio's own hit target;
- * the checked option takes the selection fill and the focused one the
- * focus ring the hidden radio cannot paint.
+ * the checked option reads like a selected preset (weight, an ink hairline
+ * and a tinted tile; lime never fills a figure control) and the focused one
+ * takes the focus ring the hidden radio cannot paint.
  */
 const HARDWARE_OPTION_CLASS = cx(
   INSTRUMENT_TOGGLE_CLASS,
-  'relative cursor-pointer has-[:checked]:bg-highlight has-[:checked]:text-ink has-[:checked]:no-underline has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-focus',
+  'relative cursor-pointer has-[:checked]:border-text has-[:checked]:bg-surface-2 has-[:checked]:font-semibold has-[:checked]:text-ink has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-focus',
 );
 
 const DISABLED_SLIDER_CLASS = 'disabled:cursor-not-allowed disabled:opacity-40';
@@ -148,14 +149,17 @@ function ContactSketch({ hardware, outcome }: { hardware: HardwareMode; outcome:
   const spring = Array.from({ length: 7 }, (_, i) => `${OBJECT.x + (i % 2 === 0 ? 0 : i % 4 === 1 ? 6 : -6)},${8 + i * (16 / 6)}`);
   return (
     <g data-testid="impedance-contact-sketch" data-hardware={hardware}>
-      <g stroke={CHART_STRUCTURE.axes}>
-        <line x1={30} y1={TABLE_Y + 0.5} x2={124} y2={TABLE_Y + 0.5} strokeWidth={CHART_STROKE.structure} />
-        <g opacity={CHART_STRUCTURE.axesOpacity}>
-          {Array.from({ length: 8 }, (_, i) => 40 + i * 12).map((x) => (
-            <line key={x} x1={x} y1={TABLE_Y + 0.5} x2={x - 4} y2={TABLE_Y + 5} strokeWidth={CHART_STROKE.structure} />
-          ))}
-        </g>
-      </g>
+      {/* A plain table top: first-time readers took hatch ticks under a line for marks. */}
+      <rect
+        data-testid="impedance-table"
+        x={30}
+        y={TABLE_Y}
+        width={94}
+        height={6}
+        rx={1}
+        fill={CHART_STRUCTURE.axes}
+        opacity={CHART_STRUCTURE.axesOpacity}
+      />
       <ellipse
         data-testid="impedance-object"
         cx={OBJECT.x}
@@ -230,32 +234,14 @@ function LabelLines({
 }
 
 /**
- * The pain limit, far above the chart: an arrow out of its top edge. One
- * line, so the space under it stays free for the first-bump note.
- */
-function PainLimitArrow() {
-  const colour = roleColour('constraint');
-  const x = PLOT.right - 6;
-  const tipY = PLOT.top - 6;
-  return (
-    <g data-testid="impedance-pain-arrow" data-chart-role="constraint">
-      <line x1={x} y1={PLOT.top + 18} x2={x} y2={tipY + 6} stroke={colour} strokeWidth={CHART_STROKE.trace} />
-      <polygon points={`${x},${tipY} ${x - 4.5},${tipY + 8} ${x + 4.5},${tipY + 8}`} fill={colour} />
-      <DirectLabel x={x - 9} y={PLOT.top + 14} anchor="end" role="constraint">
-        Human pain limit: about {Math.round(TRANSIENT_CONTACT_LIMIT_N / CRUSH_LIMIT_N)} times higher
-      </DirectLabel>
-    </g>
-  );
-}
-
-/**
- * Where the first-bump note sits: under the crush line beside a small
- * bump, at the top left above a bump that nears the line, and to the right
- * of a bump that crosses it.
+ * Where the first-bump note sits: above and right of a small bump, at the
+ * top left above a bump that nears the crush line, and to the right of a
+ * bump that crosses it, always far enough off for its arrow to show.
  */
 function notePlacement(peakN: number, bump: readonly [number, number]): { x: number; y: number } {
-  if (peakN < 0.5 * CRUSH_LIMIT_N) return { x: bump[0] + 12, y: f(bump[1] - 34) };
-  if (peakN <= CRUSH_LIMIT_N) return { x: PLOT.left + 8, y: PLOT.top + 42 };
+  if (peakN < 0.5 * CRUSH_LIMIT_N) return { x: bump[0] + 12, y: f(bump[1] - 48) };
+  if (peakN <= CRUSH_LIMIT_N) return { x: PLOT.left + 8, y: PLOT.top + 14 };
+  if (peakN <= AXIS_MAX_N) return { x: bump[0] + 18, y: Math.max(f(bump[1] - 40), PLOT.top + 14) };
   return { x: bump[0] + 12, y: PLOT.top + 34 };
 }
 
@@ -296,6 +282,14 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
       .join(' ');
   const bump: [number, number] = [f(xFor((peakIndex / last) * HORIZON_S)), f(yFor(run.peakForceN))];
   const note = notePlacement(run.peakForceN, bump);
+  // First-time readers asked what the fainter bumps were, so the tallest
+  // of them is named while the first bump stays under the crush line.
+  let second = split;
+  for (let i = split; i <= last; i += 1) if (forces[i] > forces[second]) second = i;
+  const bounceLabel =
+    !positionMode && run.peakForceN <= CRUSH_LIMIT_N && second < last && forces[second] - run.steadyForceN >= 1
+      ? { x: f(xFor((second / last) * HORIZON_S) + 6), y: f(yFor(forces[second]) - 6) }
+      : null;
 
   const constraint = roleColour('constraint');
   const failedTone = outcome === 'success' ? undefined : { color: constraint };
@@ -345,7 +339,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
           </label>
         ))}
       </fieldset>
-      {/* On the stiff geared arm softness and damping are natively
+      {/* On the stiff arm softness and damping are natively
           disabled: not tab-reachable, visibly greyed, honestly unavailable. */}
       <ControlField>
         <ControlLabel htmlFor={`${uid}-stiffness`}>Softness</ControlLabel>
@@ -418,7 +412,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
       controls={controls}
       adjust={adjust}
       stage={
-        <FigureStage>
+        <FigureStage footer={<StageStatus>Illustrative model, not measured</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`A fingertip pressing a fragile object: the push over time peaks at ${
@@ -460,6 +454,11 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
                 ) : null}
               </g>
             )}
+            {bounceLabel ? (
+              <DirectLabel x={bounceLabel.x} y={bounceLabel.y} role="state">
+                <tspan data-testid="impedance-bounce-label">later bounces, all smaller</tspan>
+              </DirectLabel>
+            ) : null}
             <g data-series="impedance-crush" data-chart-role="constraint">
               <line
                 x1={PLOT.left}
@@ -474,7 +473,6 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
                 <tspan data-testid="impedance-crush-label">crushes the object</tspan>
               </DirectLabel>
             </g>
-            <PainLimitArrow />
             {positionMode ? (
               <text
                 data-scene-note=""
@@ -490,7 +488,13 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
                 </tspan>
               </text>
             ) : (
-              <StageAnnotation x={note.x} y={note.y} lines={bumpWords(run.peakForceN)} target={bump} />
+              <StageAnnotation
+                x={note.x}
+                y={note.y}
+                lines={bumpWords(run.peakForceN)}
+                target={[bump[0], f(bump[1] + ANNOTATION_ARROW.gap)]}
+                pointer="arrow"
+              />
             )}
           </PlotStage>
         </FigureStage>
@@ -505,11 +509,13 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
             first bump or once settled. The arm that controls its own push runs an impedance law with stiffness K
             (Softness, {params.stiffnessKNPerM.toFixed(0)} N/m) and damping D (Calm the bounce,{' '}
             {params.dampingNPerM.toFixed(0)} N·s/m). The arm with a built-in spring adds an{' '}
-            {SEA_SPRING_STIFFNESS_N_PER_M} N/m spring in series with the contact. The stiff geared arm only
-            follows its commanded position, so the force is whatever the position error makes it. The chart stops
-            at {AXIS_MAX_N} N and clips any bump above it. Pain limit:{' '}
+            {SEA_SPRING_STIFFNESS_N_PER_M} N/m spring in series with the contact. The stiff arm, a geared arm
+            under position control, only follows its commanded position, so the force is whatever the position
+            error makes it. The chart stops at {AXIS_MAX_N} N and clips any bump above it. For scale, the human
+            pain limit is about {Math.round(TRANSIENT_CONTACT_LIMIT_N / CRUSH_LIMIT_N)} times the crush force:{' '}
             <span data-testid="impedance-limit-label">{TRANSIENT_CONTACT_LIMIT_LABEL}</span>, measured with a
-            wedge-shaped impactor, used in place of the paywalled ISO/TS 15066 table.
+            wedge-shaped impactor <CiteRef id={TRANSIENT_CONTACT_LIMIT_CITATION} />, used in place of the
+            paywalled ISO/TS 15066 table.
           </p>
           <ChartDescription
             id={descriptionId}
@@ -517,7 +523,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
             summary="Current contact lab settings and outcome"
             description={
               positionMode
-                ? 'With the stiff geared arm selected, softness and damping are unavailable and the contact force is unbounded by construction: the position loop has no force channel.'
+                ? 'With the stiff arm selected, softness and damping are unavailable and the contact force is unbounded by construction: the position loop has no force channel.'
                 : `On the ${armLabel.toLowerCase()} at press depth ${depthMm} mm, stiffness ${params.stiffnessKNPerM.toFixed(0)} N/m and damping ${params.dampingNPerM.toFixed(0)} N·s/m, the contact peaks at ${run.peakForceN.toFixed(1)} N, ${run.peakForceN > CRUSH_LIMIT_N ? 'over' : 'under'} the ${CRUSH_LIMIT_N} N crush force, and settles at ${run.steadyForceN.toFixed(1)} N; the ${TRANSIENT_CONTACT_LIMIT_N} N research-basis transient limit is ${run.peakForceN > TRANSIENT_CONTACT_LIMIT_N ? 'exceeded' : 'not reached'}: ${OUTCOME_TEXT[outcome]}.`
             }
             states={[
@@ -528,12 +534,6 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
               { label: 'outcome', value: OUTCOME_TEXT[outcome] },
             ]}
           />
-        </>
-      }
-      source={
-        <>
-          Illustrative model, not measured. Pain limit from measured pain thresholds{' '}
-          <CiteRef id={TRANSIENT_CONTACT_LIMIT_CITATION} />.
         </>
       }
     />

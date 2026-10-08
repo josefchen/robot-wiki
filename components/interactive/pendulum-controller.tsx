@@ -36,6 +36,7 @@ import { FigureStage } from '@/components/motion/figure-frame';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
+  CHART_TYPE,
   CHART_VIEW_WIDTH,
   DirectLabel,
   StageAnnotation,
@@ -78,6 +79,9 @@ const ROD_WIDTH = CHART_STROKE.trace * 1.5;
 const MASS_R = 10;
 const MOTOR_R = 11;
 const PUSH_ARC_R = 25;
+/** How far beyond the push arc its word sits, so the word never touches the arc or the rod. */
+const PUSH_WORD_R = PUSH_ARC_R + 14;
+
 /** Degrees of push-back arc per newton-metre of motor torque. */
 const PUSH_ARC_DEG_PER_NM = 9;
 const GRAVITY_ARROW_PX = 32;
@@ -109,6 +113,15 @@ function stageWord(stability: Stability, theta: number): string {
 
 /** Round every rendered geometry value: SSR HTML and hydration agree. */
 const f = (v: number) => Number(v.toFixed(2));
+
+/** The note's arrow runs from beside the note to the motor's rim. */
+const NOTE_FROM = [162, 141] as const;
+const NOTE_TARGET = (() => {
+  const [fx, fy] = NOTE_FROM;
+  const d = Math.hypot(PIVOT.x - fx, PIVOT.y - fy);
+  const rim = MOTOR_R + 2;
+  return [f(PIVOT.x - ((PIVOT.x - fx) / d) * rim), f(PIVOT.y - ((PIVOT.y - fy) / d) * rim)] as const;
+})();
 
 function prefersReducedMotion(): boolean {
   return (
@@ -188,9 +201,30 @@ function MotorPush({ theta, torque }: { theta: number; torque: number }) {
             strokeLinecap="round"
           />
           <polygon points={arrowHead(x1, y1, turn * Math.cos(end), turn * Math.sin(end))} fill={colour} />
+          <PushWord angle={end} colour={colour} />
         </g>
       ) : null}
     </g>
+  );
+}
+
+/**
+ * The word "push" past the arrowhead, on the side the arrow points to, so a
+ * reader sees the small arrow is the motor's push.
+ */
+function PushWord({ angle, colour }: { angle: number; colour: string }) {
+  const [x, y] = aroundPivot(angle, PUSH_WORD_R);
+  return (
+    <text
+      data-testid="pendulum-push-word"
+      x={x}
+      y={f(y + CHART_TYPE.labelPx * 0.35)}
+      textAnchor={x < PIVOT.x ? 'end' : 'start'}
+      fontSize={CHART_TYPE.labelPx}
+      fill={colour}
+    >
+      push
+    </text>
   );
 }
 
@@ -448,8 +482,9 @@ export function PendulumController({
               x={8}
               y={146}
               lines={['Gravity tips it over;', 'the motor at the base', 'pushes back']}
-              target={[PIVOT.x, PIVOT.y]}
-              from={[162, 141]}
+              target={NOTE_TARGET}
+              from={NOTE_FROM}
+              pointer="arrow"
             />
           </PlotStage>
         </FigureStage>
@@ -457,7 +492,7 @@ export function PendulumController({
       controls={
         <>
           <PresetGroup
-            label="Correction strength"
+            label="How hard the motor pushes back"
             presets={STRENGTHS}
             value={strength}
             onChange={chooseStrength}

@@ -51,6 +51,7 @@ citations:
   - ishihara-2024
   - dierking-2026
   - forcetwin-2026
+  - intrinsic-ai-for-industry-challenge-2026
 seeAlso:
   - "rl-sim2real/legged-locomotion"
   - "manipulation/realtime-execution"
@@ -176,7 +177,7 @@ Salisbury's active stiffness control, five years earlier, set the apparent Carte
 
 Mason's and Raibert and Craig's <Term id="hybrid-force-position-control">hybrid force/position control</Term> splits the contact into a task frame from its geometry. It controls force along the constrained axes and position along the free ones, never both on one axis <Cite id="mason-1981" /> <Cite id="raibert-craig-1981" />. Polishing controls force normal to the surface and position along it; the contact geometry must be known in advance.
 
-Learned policies now set impedance. Adaptive Compliance Policy learns spatially and temporally varying compliance from human demonstrations and reports over 50% improvement over state-of-the-art visuomotor policies <Cite id="acp-2024" />. A diffusion-based impedance learner co-authored by Hogan adapts stiffness and damping online on a torque-controlled KUKA LBR iiwa and reached 100% success in multi-geometry peg-in-hole insertion <Cite id="geiger-impedance-2025" />.
+Learned policies now set impedance. Adaptive Compliance Policy learns spatially and temporally varying compliance from human demonstrations and reports over 50% improvement over state-of-the-art visuomotor policies <Cite id="acp-2024" />. A diffusion-based impedance learner co-authored by Hogan adapts stiffness and damping online on a torque-controlled KUKA LBR iiwa and reached 100% success in multi-geometry peg-in-hole insertion <Cite id="geiger-impedance-2025" />. Intrinsic, which ran the 2026 AI for Industry Challenge, reports that 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines such as spiral searches, using force-torque feedback <Cite id="intrinsic-ai-for-industry-challenge-2026" />.
 
 ForceTwin, from Marco Hutter (ETH Zurich) and colleagues (September 2026), fits an articulated object's inertia, friction, damping and spring or door-closer forces from a person probing it with a handheld force-sensing gripper. As the feedforward model for impedance control on a Spot and a Franka FR3, it completed 87% of goals across nine object-robot pairs, against 60% with vision-language-model priors and 57% with kinematics-only twins <Cite id="forcetwin-2026" />.
 

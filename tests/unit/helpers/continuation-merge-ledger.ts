@@ -301,6 +301,10 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  * - `domain-pass-20261008-citation-rendering`: the classical pass corrected
  *   four registry records on 2026-10-08, which moved
  *   `citation-rendering:label-and-meta` with one more resolution.
+ *
+ * - `domain-pass-20261008-sweep-citation-rendering`: the same pass then
+ *   registered six records for its sweep and KOL sentences, which moved
+ *   `citation-rendering:label-and-meta` with a further resolution.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -327,6 +331,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'reader-first-20261003-prose-manipulation-rl-finetuning',
   'figure-mounts-20261007-',
   'domain-pass-20261008-citation-rendering',
+  'domain-pass-20261008-sweep-citation-rendering',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

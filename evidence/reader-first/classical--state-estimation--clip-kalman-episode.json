@@ -7,20 +7,20 @@
     "1280": "evidence/reader-first/classical--state-estimation--clip-kalman-episode.1280.png"
   },
   "takeaway": "Even with noisy readings that sometimes drop out, the filter tracks the target, and it grows less sure while readings are missing.",
-  "sentence": "Over a whole run, even when the sensor readings are noisy and sometimes missing, the filter's line stays close to the true path.",
+  "sentence": "Over a whole run, the robot's estimate follows the real position through noisy readings, and when readings stop for a while its uncertainty grows.",
   "unclearTerms": [
-    "filter's track",
-    "the light blue band around the track",
-    "the green shaded wedge under the arrow where the band widens",
-    "the target (what is being tracked?)",
-    "what the horizontal and vertical directions of the chart represent (no axis labels)",
-    "the large dot at the right end of the track"
+    "filter / filter's estimate (what the 'filter' is)",
+    "what the up-and-down direction of the lines means (no label on the vertical direction)",
+    "the dashed grey 'true position' line, which I could barely find in the chart",
+    "the green shaded wedge under the green arrow",
+    "where exactly the stretch with no readings begins and ends",
+    "'the object' in the caption below (what object?)"
   ],
-  "samePoint": "no",
-  "reason": "I caught that the filter tracks well despite noisy, missing readings, but I left out that it grows less sure while readings are missing, so my point was partial.",
+  "samePoint": "yes",
+  "reason": "My sentence makes the same two points: the estimate keeps following the real position through noisy readings, and its uncertainty grows when readings stop.",
   "verdict": "fail",
-  "screenshotCommit": "0e0d9540ac9737d4b8ea94c1210852e27417110d",
+  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
   "date": "2026-10-08",
-  "reviewerSession": "reader-session-ec98138f",
-  "sourceDigest": "bbddee53453d2c97647bcf4b7120235a7a98007cf365d2c02347ed85918993a5"
+  "reviewerSession": "reader-session-72c5c167",
+  "sourceDigest": "a43183acd5f349bdd50272ee58d3f19e0e7ad88177d5cbc8f0686ac16b13943b"
 }

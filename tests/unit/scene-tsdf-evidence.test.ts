@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import { committedSource, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import { preSeoPassHash } from '../helpers/seo-pass';
-import { domainPassEndpoint, isDomainPassEdge } from '../helpers/domain-pass';
+import { classicalPassEndpoint, domainPassEndpoint, isClassicalPassEdge, isDomainPassEdge } from '../helpers/domain-pass';
 import matter from 'gray-matter';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
@@ -221,10 +221,12 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
         expect(sourceFlow.newHash).not.toBe(merge.newHash);
         latestHash = merge.newHash;
       }
-      // The 2026-10-02 SEO pass and the 2026-10-06 domain pass are checked
-      // last, in that order, from the endpoint the earlier ledger reached.
+      // The 2026-10-02 SEO pass, the 2026-10-06 domain pass and the later
+      // classical pass are checked last, in that order, from the endpoint the
+      // earlier ledger reached.
       const isSeoPass = (entry: ApprovedDelta) => entry.id.startsWith('seo-pass-20261002-');
-      const preSeoPass = entries.filter((entry) => !isSeoPass(entry) && !isDomainPassEdge(entry));
+      const preSeoPass = entries.filter((entry) => !isSeoPass(entry) && !isDomainPassEdge(entry)
+        && !isClassicalPassEdge(entry));
       for (const later of preSeoPass.slice(preSeoPass.indexOf(delta) + 1).filter((entry) =>
         entry.manifest === delta.manifest && entry.memberId === delta.memberId &&
         !entry.id.startsWith('continuation-merge-') && entry.id !== 'reader-source-flow-20260923-1')) {
@@ -243,7 +245,8 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
       const domainPass = entries.find((entry) => isDomainPassEdge(entry) &&
         entry.manifest === delta.manifest && entry.memberId === delta.memberId &&
         (entry.oldHash === seoEndpoint || (entry.reconciles ?? []).some((binding) => binding.newHash === seoEndpoint)));
-      expect((domainPass ? domainPassEndpoint(entries, domainPass).newHash : undefined) ?? seoEndpoint)
+      const domainEndpoint = (domainPass ? domainPassEndpoint(entries, domainPass).newHash : undefined) ?? seoEndpoint;
+      expect(classicalPassEndpoint(entries, delta.manifest, delta.memberId, domainEndpoint))
         .toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
     });
   });

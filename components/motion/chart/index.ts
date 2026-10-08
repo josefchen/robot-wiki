@@ -12,6 +12,8 @@ export {
   PointMarker,
   StageAnnotation,
   UncertaintyBand,
+  ANNOTATION_ARROW,
+  annotationArrow,
   type ChartPoint,
 } from './chart-marks';
 export {

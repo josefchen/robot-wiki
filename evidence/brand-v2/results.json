@@ -1820,11 +1820,11 @@
                 ],
                 "lastReviewed": "2026-08-17",
                 "readingMinutes": 14,
-                "citationCount": 44,
+                "citationCount": 45,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
                 "readingTimeText": "14 min",
-                "citationCountText": "44",
+                "citationCountText": "45",
                 "bibliographyIds": [
                   "ziegler-nichols-1942",
                   "tedrake-underactuated",
@@ -1869,7 +1869,8 @@
                   "safety-filter-2023",
                   "ishihara-2024",
                   "dierking-2026",
-                  "forcetwin-2026"
+                  "forcetwin-2026",
+                  "intrinsic-ai-for-industry-challenge-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -1920,12 +1921,12 @@
                   "Grasp Planning"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 10,
-                "citationCount": 39,
+                "readingMinutes": 11,
+                "citationCount": 41,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "10 min",
-                "citationCountText": "39",
+                "readingTimeText": "11 min",
+                "citationCountText": "41",
                 "bibliographyIds": [
                   "murray-li-sastry-1994",
                   "nguyen-1988",
@@ -1965,7 +1966,9 @@
                   "robustdexgrasp-2025",
                   "graspvla-2025",
                   "dexgraspvla-2025",
-                  "touch-dexterous-grasping-2026"
+                  "touch-dexterous-grasping-2026",
+                  "graspgen-x-2026",
+                  "genesis-handover-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -2109,11 +2112,11 @@
                 ],
                 "lastReviewed": "2026-08-17",
                 "readingMinutes": 16,
-                "citationCount": 41,
+                "citationCount": 42,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
                 "readingTimeText": "16 min",
-                "citationCountText": "41",
+                "citationCountText": "42",
                 "bibliographyIds": [
                   "lozano-perez-1983",
                   "kavraki-1996",
@@ -2155,7 +2158,8 @@
                   "diffusion-policy-2023",
                   "totg-2012",
                   "ruckig-2021",
-                  "curobo-v2-2026"
+                  "curobo-v2-2026",
+                  "neural-motion-planner-survey-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -2207,11 +2211,11 @@
                 ],
                 "lastReviewed": "2026-08-22",
                 "readingMinutes": 21,
-                "citationCount": 61,
+                "citationCount": 62,
                 "reviewDateText": "22 August 2026",
                 "reviewDateTime": "2026-08-22",
                 "readingTimeText": "21 min",
-                "citationCountText": "61",
+                "citationCountText": "62",
                 "bibliographyIds": [
                   "zhang-2000-calibration",
                   "tsai-lenz-1989",
@@ -2273,7 +2277,8 @@
                   "gemini-robotics-2025",
                   "molmoact-2025",
                   "gemini-robotics-er-1-6-2026",
-                  "eyerobot-2-2026"
+                  "eyerobot-2-2026",
+                  "azure-kinect-sdk-retirement-2024"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -2414,12 +2419,12 @@
                   "Scene Representation and Mapping"
                 ],
                 "lastReviewed": "2026-08-22",
-                "readingMinutes": 15,
-                "citationCount": 57,
+                "readingMinutes": 14,
+                "citationCount": 59,
                 "reviewDateText": "22 August 2026",
                 "reviewDateTime": "2026-08-22",
-                "readingTimeText": "15 min",
-                "citationCountText": "57",
+                "readingTimeText": "14 min",
+                "citationCountText": "59",
                 "bibliographyIds": [
                   "moravec-elfes-1985",
                   "curless-levoy-1996",
@@ -2477,7 +2482,9 @@
                   "conceptgraphs-2023",
                   "moveit-planning-scene-2026",
                   "particlesplat-2026",
-                  "scenelm-2026"
+                  "scenelm-2026",
+                  "curobo-v2-2026",
+                  "amb3r-slam-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -9131,7 +9138,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 44,
+                  "count": 45,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9141,7 +9148,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 44,
+                      "count": 45,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9153,7 +9160,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 108,
+                  "count": 110,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9163,7 +9170,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 106,
+                      "count": 108,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9263,7 +9270,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 39,
+                  "count": 41,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9273,7 +9280,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 39,
+                      "count": 41,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9285,7 +9292,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 116,
+                  "count": 122,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9295,7 +9302,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 116,
+                      "count": 122,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9529,7 +9536,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 41,
+                  "count": 42,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9539,7 +9546,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 41,
+                      "count": 42,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9551,7 +9558,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 148,
+                  "count": 150,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9561,7 +9568,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 148,
+                      "count": 150,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9651,7 +9658,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 61,
+                  "count": 62,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9661,7 +9668,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 61,
+                      "count": 62,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9673,7 +9680,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 160,
+                  "count": 162,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9683,7 +9690,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 158,
+                      "count": 160,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9927,7 +9934,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 57,
+                  "count": 59,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9937,7 +9944,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|oklab(0.555724 -0.0248339 -0.243387 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-                      "count": 57,
+                      "count": 59,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -9949,7 +9956,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 150,
+                  "count": 158,
                   "colour": "rgb(36, 95, 255)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -9959,7 +9966,7 @@
                   "variants": [
                     {
                       "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex mono|chip border:0px/solid radius:0px",
-                      "count": 146,
+                      "count": 154,
                       "colour": "rgb(36, 95, 255)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -66801,11 +66808,11 @@
                 ],
                 "lastReviewed": "2026-08-17",
                 "readingMinutes": 14,
-                "citationCount": 44,
+                "citationCount": 45,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
                 "readingTimeText": "14 min",
-                "citationCountText": "44",
+                "citationCountText": "45",
                 "bibliographyIds": [
                   "ziegler-nichols-1942",
                   "tedrake-underactuated",
@@ -66850,7 +66857,8 @@
                   "safety-filter-2023",
                   "ishihara-2024",
                   "dierking-2026",
-                  "forcetwin-2026"
+                  "forcetwin-2026",
+                  "intrinsic-ai-for-industry-challenge-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -66901,12 +66909,12 @@
                   "Grasp Planning"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 10,
-                "citationCount": 39,
+                "readingMinutes": 11,
+                "citationCount": 41,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "10 min",
-                "citationCountText": "39",
+                "readingTimeText": "11 min",
+                "citationCountText": "41",
                 "bibliographyIds": [
                   "murray-li-sastry-1994",
                   "nguyen-1988",
@@ -66946,7 +66954,9 @@
                   "robustdexgrasp-2025",
                   "graspvla-2025",
                   "dexgraspvla-2025",
-                  "touch-dexterous-grasping-2026"
+                  "touch-dexterous-grasping-2026",
+                  "graspgen-x-2026",
+                  "genesis-handover-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -67090,11 +67100,11 @@
                 ],
                 "lastReviewed": "2026-08-17",
                 "readingMinutes": 16,
-                "citationCount": 41,
+                "citationCount": 42,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
                 "readingTimeText": "16 min",
-                "citationCountText": "41",
+                "citationCountText": "42",
                 "bibliographyIds": [
                   "lozano-perez-1983",
                   "kavraki-1996",
@@ -67136,7 +67146,8 @@
                   "diffusion-policy-2023",
                   "totg-2012",
                   "ruckig-2021",
-                  "curobo-v2-2026"
+                  "curobo-v2-2026",
+                  "neural-motion-planner-survey-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -67188,11 +67199,11 @@
                 ],
                 "lastReviewed": "2026-08-22",
                 "readingMinutes": 21,
-                "citationCount": 61,
+                "citationCount": 62,
                 "reviewDateText": "22 August 2026",
                 "reviewDateTime": "2026-08-22",
                 "readingTimeText": "21 min",
-                "citationCountText": "61",
+                "citationCountText": "62",
                 "bibliographyIds": [
                   "zhang-2000-calibration",
                   "tsai-lenz-1989",
@@ -67254,7 +67265,8 @@
                   "gemini-robotics-2025",
                   "molmoact-2025",
                   "gemini-robotics-er-1-6-2026",
-                  "eyerobot-2-2026"
+                  "eyerobot-2-2026",
+                  "azure-kinect-sdk-retirement-2024"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -67395,12 +67407,12 @@
                   "Scene Representation and Mapping"
                 ],
                 "lastReviewed": "2026-08-22",
-                "readingMinutes": 15,
-                "citationCount": 57,
+                "readingMinutes": 14,
+                "citationCount": 59,
                 "reviewDateText": "22 August 2026",
                 "reviewDateTime": "2026-08-22",
-                "readingTimeText": "15 min",
-                "citationCountText": "57",
+                "readingTimeText": "14 min",
+                "citationCountText": "59",
                 "bibliographyIds": [
                   "moravec-elfes-1985",
                   "curless-levoy-1996",
@@ -67458,7 +67470,9 @@
                   "conceptgraphs-2023",
                   "moveit-planning-scene-2026",
                   "particlesplat-2026",
-                  "scenelm-2026"
+                  "scenelm-2026",
+                  "curobo-v2-2026",
+                  "amb3r-slam-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -71592,7 +71606,8 @@
                   "safety-filter-2023",
                   "ishihara-2024",
                   "dierking-2026",
-                  "forcetwin-2026"
+                  "forcetwin-2026",
+                  "intrinsic-ai-for-industry-challenge-2026"
                 ],
                 "citationMarkers": [
                   "fbs-2020",
@@ -71627,6 +71642,7 @@
                   "raibert-craig-1981",
                   "acp-2024",
                   "geiger-impedance-2025",
+                  "intrinsic-ai-for-industry-challenge-2026",
                   "forcetwin-2026",
                   "pratt-williamson-1995",
                   "albu-schaffer-2003",
@@ -71738,7 +71754,9 @@
                   "robustdexgrasp-2025",
                   "graspvla-2025",
                   "dexgraspvla-2025",
-                  "touch-dexterous-grasping-2026"
+                  "touch-dexterous-grasping-2026",
+                  "graspgen-x-2026",
+                  "genesis-handover-2026"
                 ],
                 "citationMarkers": [
                   "bicchi-kumar-2000",
@@ -71790,6 +71808,7 @@
                   "graspnet-1billion-2020",
                   "dexgraspnet-2-2024",
                   "graspgen-2025",
+                  "graspgen-x-2026",
                   "bodex-2024",
                   "dexevolve-2026",
                   "grasp-distance-fields-2026",
@@ -71798,7 +71817,9 @@
                   "robustdexgrasp-2025",
                   "graspvla-2025",
                   "dexgraspvla-2025",
-                  "touch-dexterous-grasping-2026"
+                  "touch-dexterous-grasping-2026",
+                  "genesis-handover-2026",
+                  "genesis-handover-2026"
                 ],
                 "seeAlso": [
                   "data-hardware/datasets",
@@ -72023,7 +72044,8 @@
                   "diffusion-policy-2023",
                   "totg-2012",
                   "ruckig-2021",
-                  "curobo-v2-2026"
+                  "curobo-v2-2026",
+                  "neural-motion-planner-survey-2026"
                 ],
                 "citationMarkers": [
                   "lavalle-2006",
@@ -72093,6 +72115,7 @@
                   "moveit-pro-10-1-2026",
                   "mpinets-2022",
                   "neural-mp-2024",
+                  "neural-motion-planner-survey-2026",
                   "deep-reactive-policy-2025",
                   "mayne-2000",
                   "diffusion-policy-2023",
@@ -72208,7 +72231,8 @@
                   "gemini-robotics-2025",
                   "molmoact-2025",
                   "gemini-robotics-er-1-6-2026",
-                  "eyerobot-2-2026"
+                  "eyerobot-2-2026",
+                  "azure-kinect-sdk-retirement-2024"
                 ],
                 "citationMarkers": [
                   "dope-2018",
@@ -72231,6 +72255,7 @@
                   "prompt-depth-anything-2024",
                   "photoneo-phoxi-l-2026",
                   "azure-kinect-depth-docs-2026",
+                  "azure-kinect-sdk-retirement-2024",
                   "cleargrasp-2020",
                   "transcg-2022",
                   "realsense-d400-datasheet-2026",
@@ -72514,7 +72539,9 @@
                   "conceptgraphs-2023",
                   "moveit-planning-scene-2026",
                   "particlesplat-2026",
-                  "scenelm-2026"
+                  "scenelm-2026",
+                  "curobo-v2-2026",
+                  "amb3r-slam-2026"
                 ],
                 "citationMarkers": [
                   "cadena-2016",
@@ -72533,6 +72560,8 @@
                   "kinectfusion-2011",
                   "voxblox-2016",
                   "nvblox-2023",
+                  "curobo-v2-2026",
+                  "curobo-v2-2026",
                   "voxel-hashing-2013",
                   "curless-levoy-1996",
                   "nerf-2020",
@@ -72565,6 +72594,8 @@
                   "dso-2018",
                   "dso-2018",
                   "droid-slam-2021",
+                  "amb3r-slam-2026",
+                  "amb3r-slam-2026",
                   "cadena-2016",
                   "orb-slam-2015",
                   "lowry-2016-place-recognition",
@@ -80599,7 +80630,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/scene-representation-ladder.tsx:aria-label:2 hashes to e7faf52a232e26b744996dd015fa5885d87a7a8b90d24c719adf401d841e4a51 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member expression:components/interactive/scene-representation-ladder.tsx:aria-label:2 moved from e7faf52a232e26b744996dd015fa5885d87a7a8b90d24c719adf401d841e4a51 to d0022e142c3f05617cfa7be668d69609e2eef7977febe818b7c1f52f81628afe exactly as approved delta reader-first-20261008-name-scene-representation-ladder-expression-aria-label-2 permits: The five-second reader test of 2026-10-08 (evidence/reader-first/classical--scene-representation--scene-representation-ladder.json, reviewer session reader-session-018a5ef0) failed the scene-representation ladder: the reviewer missed that finer resolution changes only cost and detail, and listed 24 terms it did not understand, among them every representation name, log-odds, voxel and Resolution. The figure was rewritten in plain words (VAL-OPUS-139, VAL-OPUS-145). Each tab now prints a plain name (Dots, Grid of boxes, Distance map, Triangle skin, Soft blobs), so its accessible name restates that name before the technical name in brackets and what the representation stores. The representations and what each stores are unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -80611,9 +80642,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:2",
           "baselineHash": "e7faf52a232e26b744996dd015fa5885d87a7a8b90d24c719adf401d841e4a51",
-          "currentHash": "e7faf52a232e26b744996dd015fa5885d87a7a8b90d24c719adf401d841e4a51",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "d0022e142c3f05617cfa7be668d69609e2eef7977febe818b7c1f52f81628afe",
+          "status": "approved-delta",
+          "approvedDelta": "reader-first-20261008-name-scene-representation-ladder-expression-aria-label-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -80627,7 +80658,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/scene-representation-ladder.tsx:aria-label:3 hashes to 59864107be5ed1dd4766d5c31dd8633071c95038d62dc04fb1075ffbee4e1404 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member expression:components/interactive/scene-representation-ladder.tsx:aria-label:3 moved from 59864107be5ed1dd4766d5c31dd8633071c95038d62dc04fb1075ffbee4e1404 to e09aec523a88c4b543a0c4ed67a8c01af90d5f365ed661defb390ffb87bbffad exactly as approved delta reader-first-20261008-name-scene-representation-ladder-expression-aria-label-3 permits: The five-second reader test of 2026-10-08 (evidence/reader-first/classical--scene-representation--scene-representation-ladder.json, reviewer session reader-session-018a5ef0) failed the scene-representation ladder: the reviewer missed that finer resolution changes only cost and detail, and listed 24 terms it did not understand, among them every representation name, log-odds, voxel and Resolution. The figure was rewritten in plain words (VAL-OPUS-139, VAL-OPUS-145). The resolution slider now prints the plain label Detail with ends coarse and fine, so its accessible name restates Detail before the cell size in centimetres. The resolution steps and the default are unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -80639,9 +80670,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:3",
           "baselineHash": "59864107be5ed1dd4766d5c31dd8633071c95038d62dc04fb1075ffbee4e1404",
-          "currentHash": "59864107be5ed1dd4766d5c31dd8633071c95038d62dc04fb1075ffbee4e1404",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "e09aec523a88c4b543a0c4ed67a8c01af90d5f365ed661defb390ffb87bbffad",
+          "status": "approved-delta",
+          "approvedDelta": "reader-first-20261008-name-scene-representation-ladder-expression-aria-label-3"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -80655,7 +80686,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/scene-representation-ladder.tsx:aria-label:4 hashes to 85aabd44794710eb76efdcef135c75106fc9b15fe8e1185e45a7df613e26d791 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member expression:components/interactive/scene-representation-ladder.tsx:aria-label:4 moved from 85aabd44794710eb76efdcef135c75106fc9b15fe8e1185e45a7df613e26d791 to 7b2cb7e34783432f18cea94d35829e3a9843eeb36ec14561d5ad44b00d2d4a44 exactly as approved delta reader-first-20261008-name-scene-representation-ladder-expression-aria-label-4 permits: The five-second reader test of 2026-10-08 (evidence/reader-first/classical--scene-representation--scene-representation-ladder.json, reviewer session reader-session-018a5ef0) failed the scene-representation ladder: the reviewer missed that finer resolution changes only cost and detail, and listed 24 terms it did not understand, among them every representation name, log-odds, voxel and Resolution. The figure was rewritten in plain words (VAL-OPUS-139, VAL-OPUS-145). Each capability now prints as a plain question (for example, Which way does the surface face?) with a plain answer, so its accessible name reads that question and answer in place of the capability label and state word. The capability grading per representation and resolution is unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -80667,9 +80698,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:4",
           "baselineHash": "85aabd44794710eb76efdcef135c75106fc9b15fe8e1185e45a7df613e26d791",
-          "currentHash": "85aabd44794710eb76efdcef135c75106fc9b15fe8e1185e45a7df613e26d791",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "7b2cb7e34783432f18cea94d35829e3a9843eeb36ec14561d5ad44b00d2d4a44",
+          "status": "approved-delta",
+          "approvedDelta": "reader-first-20261008-name-scene-representation-ladder-expression-aria-label-4"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -83427,7 +83458,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/interactive/ros2-policy-layout.tsx:aria-label:1 moved from null to 556c77b50f364179b4d51ebfa4597ecfcd8c1a4d6857d706e76bb5b22d173409 exactly as approved delta reader-first-20261008-retest-name-ros2-policy-layout-literal-aria-label-1 permits: The second five-second reader test of 2026-10-08 (evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.json, reviewer session reader-session-bfe626b3) stated the figure's point but listed words and marks it did not understand, so the figure was reworded again (VAL-OPUS-139, VAL-OPUS-145). The graph's accessible name uses the new plain node names, each still paired with its ROS 2 name.",
+      "actual": "accessible-names member literal:components/interactive/ros2-policy-layout.tsx:aria-label:1 moved from null to cb08f9c5441838ef52cf9957c8790ab9059fb8480e3324e031ed94291ce83e06 exactly as approved delta reader-first-20261008-rework-name-ros2-policy-layout-literal-aria-label-1 permits: The third five-second reader test of 2026-10-08 (evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.json, reviewer session reader-session-ec98138f) stated the point but listed words and marks it did not understand, so the stage was simplified to one top-to-bottom chain (VAL-OPUS-139, VAL-OPUS-145): the frame tree and the task manager moved to How this was made, and the last box is a drawn robot arm. The graph's accessible name follows the chain it now draws, each plain name still paired with its ROS 2 name, and states that every suggested move passes the safety check before it reaches the motors. The nodes, the gate and the citations are unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -83439,9 +83470,9 @@
           "manifest": "accessible-names",
           "member": "literal:components/interactive/ros2-policy-layout.tsx:aria-label:1",
           "baselineHash": null,
-          "currentHash": "556c77b50f364179b4d51ebfa4597ecfcd8c1a4d6857d706e76bb5b22d173409",
+          "currentHash": "cb08f9c5441838ef52cf9957c8790ab9059fb8480e3324e031ed94291ce83e06",
           "status": "approved-addition",
-          "approvedDelta": "reader-first-20261008-retest-name-ros2-policy-layout-literal-aria-label-1"
+          "approvedDelta": "reader-first-20261008-rework-name-ros2-policy-layout-literal-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -83483,7 +83514,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/interactive/scene-representation-ladder.tsx:aria-label:1 hashes to b3bcf7a2b13fd90b3e9c67a7ed665bcb66ec14dd6e6313fc9b427a5f450983f2 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member literal:components/interactive/scene-representation-ladder.tsx:aria-label:1 moved from b3bcf7a2b13fd90b3e9c67a7ed665bcb66ec14dd6e6313fc9b427a5f450983f2 to 0335078d6ebb8e42ac6f43b4b4f7d3e9cd00ef482f746b735e152c36a06abd37 exactly as approved delta reader-first-20261008-name-scene-representation-ladder-literal-aria-label-1 permits: The five-second reader test of 2026-10-08 (evidence/reader-first/classical--scene-representation--scene-representation-ladder.json, reviewer session reader-session-018a5ef0) failed the scene-representation ladder: the reviewer missed that finer resolution changes only cost and detail, and listed 24 terms it did not understand, among them every representation name, log-odds, voxel and Resolution. The figure was rewritten in plain words (VAL-OPUS-139, VAL-OPUS-145). The tab list that picks a representation printed no group name; its accessible name changes from Scene representations to How the robot stores the room, the question the tabs answer. The five representations are unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -83495,9 +83526,9 @@
           "manifest": "accessible-names",
           "member": "literal:components/interactive/scene-representation-ladder.tsx:aria-label:1",
           "baselineHash": "b3bcf7a2b13fd90b3e9c67a7ed665bcb66ec14dd6e6313fc9b427a5f450983f2",
-          "currentHash": "b3bcf7a2b13fd90b3e9c67a7ed665bcb66ec14dd6e6313fc9b427a5f450983f2",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "0335078d6ebb8e42ac6f43b4b4f7d3e9cd00ef482f746b735e152c36a06abd37",
+          "status": "approved-delta",
+          "approvedDelta": "reader-first-20261008-name-scene-representation-ladder-literal-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87151,7 +87182,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:classical/control moved from 9187a197f69cb2e859d6066f61ea722ed210fc1c2dcd4c117629ca7fc21d15cb to 0e13fc3468d36ca2a6a31a0a32c56c02229086ecff128e059da57b2360a7eb6a exactly as approved delta domain-pass-20261006-g8-frontmatter-control permits: Domain pass of 2026-10-06 on classical/control: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "article-metadata member article-fact-frontmatter:classical/control moved from 9187a197f69cb2e859d6066f61ea722ed210fc1c2dcd4c117629ca7fc21d15cb to 3a6b0a77683ceaa83fafbc129d3e34d9b55afb29d3fc8a78703fb701a646c885 exactly as approved delta domain-pass-20261008-sweep-frontmatter-control permits: Classical pass of 2026-10-08 on classical/control, sweep item C.R3: the impedance paragraph that ends with the diffusion-based impedance learner gains one sentence, \"Intrinsic, which ran the 2026 AI for Industry Challenge, reports that 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines such as spiral searches, using force-torque feedback\", cited to intrinsic-ai-for-industry-challenge-2026 (Intrinsic's post of 22 Sep 2026, read 2026-10-08, which names spiral searches and the workcell's high-frequency force and torque sensor feedback). The frontmatter citation list appends intrinsic-ai-for-industry-challenge-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-frontmatter-control).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87163,9 +87194,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:classical/control",
           "baselineHash": "9187a197f69cb2e859d6066f61ea722ed210fc1c2dcd4c117629ca7fc21d15cb",
-          "currentHash": "0e13fc3468d36ca2a6a31a0a32c56c02229086ecff128e059da57b2360a7eb6a",
+          "currentHash": "3a6b0a77683ceaa83fafbc129d3e34d9b55afb29d3fc8a78703fb701a646c885",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-frontmatter-control"
+          "approvedDelta": "domain-pass-20261008-sweep-frontmatter-control"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87179,7 +87210,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:classical/grasp-planning moved from dadaaba0076ae030aedbc51e72107087e5442995f3ad24d668ca6d44fea1149a to d9d2d96a5af5bc4c3b122d1a0d31b9e60a456fce6afc396b251bdded31881d68 exactly as approved delta domain-pass-20261006-g8-frontmatter-grasp-planning permits: Domain pass of 2026-10-06 on classical/grasp-planning: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "article-metadata member article-fact-frontmatter:classical/grasp-planning moved from dadaaba0076ae030aedbc51e72107087e5442995f3ad24d668ca6d44fea1149a to b3de7b5d1b5e1efc45858196752f3f547bc287ccda15a7b8d1512233b35baa97 exactly as approved delta domain-pass-20261008-sweep-frontmatter-grasp-planning permits: Classical pass of 2026-10-08 on classical/grasp-planning, sweep item G.R2 and the Marco Hutter KOL intake note of 2026-10-07: after GraspGen, one sentence says GraspGen-X conditions a diffusion grasp generator on a swept-volume encoding of the gripper and, trained on procedural grippers and 2 billion grasps, generalized zero-shot to novel real grippers (graspgen-x-2026, arXiv 2606.00998); a new two-sentence paragraph after the touch-feedback result attributes GENESIS-Handover to Marco Hutter (ETH Zurich) and colleagues (October 2026), says it matches generated task-specific grips to the person's live hand, and reports that on a legged manipulator handovers needing no adjustment rose from 6 to 16 of 60 against AFT-Handover (genesis-handover-2026, arXiv 2610.08003, CoRL 2026); both read 2026-10-08. The frontmatter citation list appends graspgen-x-2026 and genesis-handover-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-frontmatter-grasp-planning).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87191,9 +87222,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:classical/grasp-planning",
           "baselineHash": "dadaaba0076ae030aedbc51e72107087e5442995f3ad24d668ca6d44fea1149a",
-          "currentHash": "d9d2d96a5af5bc4c3b122d1a0d31b9e60a456fce6afc396b251bdded31881d68",
+          "currentHash": "b3de7b5d1b5e1efc45858196752f3f547bc287ccda15a7b8d1512233b35baa97",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-frontmatter-grasp-planning"
+          "approvedDelta": "domain-pass-20261008-sweep-frontmatter-grasp-planning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87235,7 +87266,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:classical/motion-planning moved from 94099e20e4f182c7f9fa6eaa8180709e5636dfdf0182740b8609b1ea19c1912c to 1f4f6d73be451003a7a1cbe8e05cee8d96cba6d2ea32a276183dae389548b475 exactly as approved delta domain-pass-20261006-g8-frontmatter-motion-planning permits: Domain pass of 2026-10-06 on classical/motion-planning: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "article-metadata member article-fact-frontmatter:classical/motion-planning moved from 94099e20e4f182c7f9fa6eaa8180709e5636dfdf0182740b8609b1ea19c1912c to 7ac6b3641832cbbef4e9f58bf70a1ae3cc4a1ca8634c9ff195e73b2a98d7f6ed exactly as approved delta domain-pass-20261008-sweep-frontmatter-motion-planning permits: Classical pass of 2026-10-08 on classical/motion-planning, sweep item MP.R4: after the Neural MP result, one sentence says a 2026 survey of neural motion planners finds that they often struggle to generalize to unseen, out-of-distribution planning settings, cited to neural-motion-planner-survey-2026 (arXiv 2603.24318, IEEE Transactions on Automation Science and Engineering 23, read 2026-10-08). The frontmatter citation list appends neural-motion-planner-survey-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-frontmatter-motion-planning).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87247,9 +87278,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:classical/motion-planning",
           "baselineHash": "94099e20e4f182c7f9fa6eaa8180709e5636dfdf0182740b8609b1ea19c1912c",
-          "currentHash": "1f4f6d73be451003a7a1cbe8e05cee8d96cba6d2ea32a276183dae389548b475",
+          "currentHash": "7ac6b3641832cbbef4e9f58bf70a1ae3cc4a1ca8634c9ff195e73b2a98d7f6ed",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-frontmatter-motion-planning"
+          "approvedDelta": "domain-pass-20261008-sweep-frontmatter-motion-planning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87263,7 +87294,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:classical/perception moved from c8b08def309ccac1107c8cfcc96f55cfa43c59eb161399e003a7466b23d5ee71 to 9c0d6623d3ac987582d9196b5719647a2a4b27504cfc92414ff2f6003eef4b80 exactly as approved delta domain-pass-20261006-g8-frontmatter-perception permits: Domain pass of 2026-10-06 on classical/perception: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "article-metadata member article-fact-frontmatter:classical/perception moved from c8b08def309ccac1107c8cfcc96f55cfa43c59eb161399e003a7466b23d5ee71 to 567767ec93832e7294ee74990a7fe969d8138212739196df7133e43117d6bd76 exactly as approved delta domain-pass-20261008-sweep-frontmatter-perception permits: Classical pass of 2026-10-08 on classical/perception, sweep item P.R5: the time-of-flight paragraph that cites the Azure Kinect DK depth documentation gains one sentence, \"Microsoft announced the end of Azure Kinect DK production in August 2023, and support for its Sensor SDK ended in August 2024\", cited to azure-kinect-sdk-retirement-2024 (microsoft-support.md in the Sensor SDK repository at commit 3c79d56 of 21 Jun 2024, read 2026-10-08). The frontmatter citation list appends azure-kinect-sdk-retirement-2024; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-frontmatter-perception).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87275,9 +87306,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:classical/perception",
           "baselineHash": "c8b08def309ccac1107c8cfcc96f55cfa43c59eb161399e003a7466b23d5ee71",
-          "currentHash": "9c0d6623d3ac987582d9196b5719647a2a4b27504cfc92414ff2f6003eef4b80",
+          "currentHash": "567767ec93832e7294ee74990a7fe969d8138212739196df7133e43117d6bd76",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-frontmatter-perception"
+          "approvedDelta": "domain-pass-20261008-sweep-frontmatter-perception"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -87319,7 +87350,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:classical/scene-representation moved from 29ae71fb4b4a96c7da2d5513fb6b3f66b39c0aa466d5acf6fe315e3dcc000033 to a7576fcdfbc85b2928e748dc7c35c11e781be1f798141106dd70eec310764399 exactly as approved delta domain-pass-20261006-g8-frontmatter-scene-representation permits: Domain pass of 2026-10-06 on classical/scene-representation: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the front-matter citation list from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "article-metadata member article-fact-frontmatter:classical/scene-representation moved from 29ae71fb4b4a96c7da2d5513fb6b3f66b39c0aa466d5acf6fe315e3dcc000033 to 46209cc70d6fbb1673c6c112a95dd1777601b8b638b4ad58b2747498efae9df6 exactly as approved delta domain-pass-20261008-sweep-frontmatter-scene-representation permits: Classical pass of 2026-10-08 on classical/scene-representation, sweep items SR.R5 and SR.R3 (with SE.R2): after nvblox, two sentences say cuRoboV2 computes signed distances densely over the full workspace, where existing methods cover only sparsely allocated blocks, and at manipulation scale reports up to 10x the speed of the state of the art in 8x less memory with up to 99% collision recall (curobo-v2-2026, arXiv 2603.05493v2, read 2026-10-08); after DROID-SLAM, two sentences say AMB3R-SLAM avoids bundle adjustment, which relies on a static world, enforces consistency in a hierarchical back end, reconstructs kilometer-scale monocular trajectories over 10,000 frames on one consumer GPU, and cuts absolute trajectory error on VBR and Oxford Spires by over 70% against the previous state of the art (amb3r-slam-2026, arXiv 2609.19518, read 2026-10-08). The frontmatter citation list appends curobo-v2-2026 and amb3r-slam-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-frontmatter-scene-representation).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -87331,9 +87362,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:classical/scene-representation",
           "baselineHash": "29ae71fb4b4a96c7da2d5513fb6b3f66b39c0aa466d5acf6fe315e3dcc000033",
-          "currentHash": "a7576fcdfbc85b2928e748dc7c35c11e781be1f798141106dd70eec310764399",
+          "currentHash": "46209cc70d6fbb1673c6c112a95dd1777601b8b638b4ad58b2747498efae9df6",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-frontmatter-scene-representation"
+          "approvedDelta": "domain-pass-20261008-sweep-frontmatter-scene-representation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -90427,7 +90458,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 8ad2f12bcce96cd5c2fe6478cb1bd0e99b9b11ac7a5c5c1b4fc22f80e21b4b75 exactly as approved delta domain-pass-20261008-citation-rendering permits: Resolution entry for the citation-rendering:label-and-meta approval graph after the classical pass of 2026-10-08 changed four registry records: modern-robotics-2017 links the book's home page (sweep RF.2), ompl-2012 becomes a paper on its DOI (RF.10), ur-force-mode-docs takes its access year 2026 so venue and year agree (RF.11, X.6b), and azure-kinect-depth-docs-2026 prints \"2019; accessed 2026-08-22\" in place of a doubled date (X.6b). Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it.",
+      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 61c97fe891fef4e2b1cc296bd422b18913901df38641fbfc3a8ea7da16a25439 exactly as approved delta domain-pass-20261008-sweep-citation-rendering permits: Resolution entry for the citation-rendering:label-and-meta approval graph after the classical pass of 2026-10-08 registered six citation records for its sweep and KOL sentences (amb3r-slam-2026, azure-kinect-sdk-retirement-2024, genesis-handover-2026, graspgen-x-2026, intrinsic-ai-for-industry-challenge-2026, neural-motion-planner-survey-2026); no existing record changes. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 66 earlier approved edges exactly.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90439,9 +90470,9 @@
           "manifest": "article-metadata",
           "member": "citation-rendering:label-and-meta",
           "baselineHash": null,
-          "currentHash": "8ad2f12bcce96cd5c2fe6478cb1bd0e99b9b11ac7a5c5c1b4fc22f80e21b4b75",
+          "currentHash": "61c97fe891fef4e2b1cc296bd422b18913901df38641fbfc3a8ea7da16a25439",
           "status": "approved-addition",
-          "approvedDelta": "domain-pass-20261008-citation-rendering"
+          "approvedDelta": "domain-pass-20261008-sweep-citation-rendering"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -91371,6 +91402,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:amb3r-slam-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:amb3r-slam-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:amb3r-slam-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:amb3r-slam-2026 moved from null to b91b48c8e81e053e3745b14c1059060dd54d4025a07990021322bad97d4494a9 exactly as approved delta domain-pass-20261008-sweep-citation-amb3r-slam-2026 permits: Registers the new citation amb3r-slam-2026 added by the classical pass of 2026-10-08 (sweep items SR.R3 and SE.R2; Wang and Agapito, arXiv 2609.19518, abstract read 2026-10-08). Its audit row is in audit/citations.md under \"Classical domain pass: sweep and KOL additions, 2026-10-08\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:amb3r-slam-2026",
+          "baselineHash": null,
+          "currentHash": "b91b48c8e81e053e3745b14c1059060dd54d4025a07990021322bad97d4494a9",
+          "status": "approved-addition",
+          "approvedDelta": "domain-pass-20261008-sweep-citation-amb3r-slam-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:ames-cbf-2019",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:ames-cbf-2019",
@@ -91954,6 +92013,34 @@
           "currentHash": "3f9e8e5c7c98a7f4d08934313205d779de86b83c587b27160a7a35834d25c366",
           "status": "approved-delta",
           "approvedDelta": "domain-pass-20261008-citation-azure-kinect-depth-docs-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:azure-kinect-sdk-retirement-2024",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:azure-kinect-sdk-retirement-2024",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:azure-kinect-sdk-retirement-2024"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:azure-kinect-sdk-retirement-2024 moved from null to 8337ce83cfb69493d807b3f4b0cc257d6c213251b57a57c34c6ccef8217f8518 exactly as approved delta domain-pass-20261008-sweep-citation-azure-kinect-sdk-retirement-2024 permits: Registers the new citation azure-kinect-sdk-retirement-2024 added by the classical pass of 2026-10-08 (sweep item P.R5; Microsoft's support page in the Azure Kinect Sensor SDK repository, pinned to commit 3c79d56, read 2026-10-08). Its audit row is in audit/citations.md under \"Classical domain pass: sweep and KOL additions, 2026-10-08\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:azure-kinect-sdk-retirement-2024",
+          "baselineHash": null,
+          "currentHash": "8337ce83cfb69493d807b3f4b0cc257d6c213251b57a57c34c6ccef8217f8518",
+          "status": "approved-addition",
+          "approvedDelta": "domain-pass-20261008-sweep-citation-azure-kinect-sdk-retirement-2024"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -98287,6 +98374,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:genesis-handover-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:genesis-handover-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:genesis-handover-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:genesis-handover-2026 moved from null to bd2efc0965728911168a2534c29671b6dec6167c1958e5bb5a0cc83105ae8235 exactly as approved delta domain-pass-20261008-sweep-citation-genesis-handover-2026 permits: Registers the new citation genesis-handover-2026 added by the classical pass of 2026-10-08 (the Marco Hutter KOL intake note of 2026-10-07; Scheidemann, Tulbure, Burkhardt and Hutter, arXiv 2610.08003 (CoRL 2026), abstract and HTML full text read 2026-10-08). Its audit row is in audit/citations.md under \"Classical domain pass: sweep and KOL additions, 2026-10-08\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:genesis-handover-2026",
+          "baselineHash": null,
+          "currentHash": "bd2efc0965728911168a2534c29671b6dec6167c1958e5bb5a0cc83105ae8235",
+          "status": "approved-addition",
+          "approvedDelta": "domain-pass-20261008-sweep-citation-genesis-handover-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:genie-1-2024",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:genie-1-2024",
@@ -98870,6 +98985,34 @@
           "currentHash": "05c0d4fb674cdd252ceaf857bd803eeba6ed289a7193e2013962065e56b93dac",
           "status": "approved-addition",
           "approvedDelta": "domain-pass-20261006-g8-citation-graspgen-2025"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:graspgen-x-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:graspgen-x-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:graspgen-x-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:graspgen-x-2026 moved from null to 85e9ce020fecf87e522804e3dad22a4313c13de9777101efdc4a3fbf171d435a exactly as approved delta domain-pass-20261008-sweep-citation-graspgen-x-2026 permits: Registers the new citation graspgen-x-2026 added by the classical pass of 2026-10-08 (sweep item G.R2; Han et al., arXiv 2606.00998, abstract read 2026-10-08). Its audit row is in audit/citations.md under \"Classical domain pass: sweep and KOL additions, 2026-10-08\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:graspgen-x-2026",
+          "baselineHash": null,
+          "currentHash": "85e9ce020fecf87e522804e3dad22a4313c13de9777101efdc4a3fbf171d435a",
+          "status": "approved-addition",
+          "approvedDelta": "domain-pass-20261008-sweep-citation-graspgen-x-2026"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -100802,6 +100945,34 @@
           "currentHash": "2edaab8ea3e9f9a4eef81aa3e2dc68109e08212908151e05c05ac97ed3e98c3d",
           "status": "identical",
           "approvedDelta": null
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:intrinsic-ai-for-industry-challenge-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:intrinsic-ai-for-industry-challenge-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:intrinsic-ai-for-industry-challenge-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:intrinsic-ai-for-industry-challenge-2026 moved from null to 22e13313b82609266d4de44ce9de6ee114f2f1c158b701a53dcf28fdfa89478f exactly as approved delta domain-pass-20261008-sweep-citation-intrinsic-ai-for-industry-challenge-2026 permits: Registers the new citation intrinsic-ai-for-industry-challenge-2026 added by the classical pass of 2026-10-08 (sweep item C.R3; Intrinsic's blog post of 22 Sep 2026, read 2026-10-08). Its audit row is in audit/citations.md under \"Classical domain pass: sweep and KOL additions, 2026-10-08\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:intrinsic-ai-for-industry-challenge-2026",
+          "baselineHash": null,
+          "currentHash": "22e13313b82609266d4de44ce9de6ee114f2f1c158b701a53dcf28fdfa89478f",
+          "status": "approved-addition",
+          "approvedDelta": "domain-pass-20261008-sweep-citation-intrinsic-ai-for-industry-challenge-2026"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -105226,6 +105397,34 @@
           "currentHash": "d375aa7e32bad8a2e7f4fb369a7f06a1d5937e06f6c544b2f8249234e07d4f58",
           "status": "approved-addition",
           "approvedDelta": "domain-pass-20261006-g8-citation-neural-fields-survey-2024"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:neural-motion-planner-survey-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:neural-motion-planner-survey-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:neural-motion-planner-survey-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:neural-motion-planner-survey-2026 moved from null to 18478cf634065a498b165053a1a61b2835deb646688d8bd8afa3fab030b1a047 exactly as approved delta domain-pass-20261008-sweep-citation-neural-motion-planner-survey-2026 permits: Registers the new citation neural-motion-planner-survey-2026 added by the classical pass of 2026-10-08 (sweep item MP.R4; Soleymanzadeh et al., arXiv 2603.24318 (IEEE T-ASE 23, 2026), abstract read 2026-10-08). Its audit row is in audit/citations.md under \"Classical domain pass: sweep and KOL additions, 2026-10-08\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:neural-motion-planner-survey-2026",
+          "baselineHash": null,
+          "currentHash": "18478cf634065a498b165053a1a61b2835deb646688d8bd8afa3fab030b1a047",
+          "status": "approved-addition",
+          "approvedDelta": "domain-pass-20261008-sweep-citation-neural-motion-planner-survey-2026"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -115459,7 +115658,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/control moved from 0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b to 4684f8ee3778513f601f8a8af6a7cf2364543cf0a44b76b397fbd540bad0c13f exactly as approved delta reader-first-20261008-prose-classical-control permits: The reader-first rewrite of audit item A41 (validation/brand-v2-editorial/source-recovery-20261002-reader-first/reader-first-audit-20261002.md; VAL-OPUS-137 to VAL-OPUS-144) on classical/control corrects the pendulum prediction above the lab. Its prompt asks below what gain the loop can no longer hold the pole upright, where it asked when the loop loses the pole entirely; the answers and hint say that under the 9.81 threshold the pole sags to about 50 degrees and stays there, which is what the lab's own simulation shows, where they said it falls within seconds; and the hint names the Too gentle and Strong enough presets. Every cited fact, number and citation in the article is unchanged. The edge starts from the sealed bytes and reconciles the member's 28 earlier approved edges exactly.",
+      "actual": "prose member article:classical/control moved from 0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b to 226f39274b3146abbead5513d21aa36e330b63379ecb087dcbce5f0fe89d94f1 exactly as approved delta domain-pass-20261008-sweep-prose-control permits: Classical pass of 2026-10-08 on classical/control, sweep item C.R3: the impedance paragraph that ends with the diffusion-based impedance learner gains one sentence, \"Intrinsic, which ran the 2026 AI for Industry Challenge, reports that 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines such as spiral searches, using force-torque feedback\", cited to intrinsic-ai-for-industry-challenge-2026 (Intrinsic's post of 22 Sep 2026, read 2026-10-08, which names spiral searches and the workcell's high-frequency force and torque sensor feedback). No other text changes. The edge starts from the sealed bytes and reconciles the member's 29 earlier approved edges exactly.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -115471,9 +115670,9 @@
           "manifest": "prose",
           "member": "article:classical/control",
           "baselineHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
-          "currentHash": "4684f8ee3778513f601f8a8af6a7cf2364543cf0a44b76b397fbd540bad0c13f",
+          "currentHash": "226f39274b3146abbead5513d21aa36e330b63379ecb087dcbce5f0fe89d94f1",
           "status": "approved-delta",
-          "approvedDelta": "reader-first-20261008-prose-classical-control"
+          "approvedDelta": "domain-pass-20261008-sweep-prose-control"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -115487,7 +115686,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/grasp-planning moved from 156f690191b0e7fb9e4619c870c8ec1501b1d6be800312d91aa4e0c5fc8b56b6 to 25b1a1afac189c807e792d8cfe8864d2248b591453c9f62837f70bf90dca2fe4 exactly as approved delta domain-pass-20261006-g8-prose-grasp-planning permits: Domain pass of 2026-10-06 on classical/grasp-planning: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "prose member article:classical/grasp-planning moved from 156f690191b0e7fb9e4619c870c8ec1501b1d6be800312d91aa4e0c5fc8b56b6 to dcf351372294507d170f84f8cf80f96a4f1584bf9321017ad97c4ea6c6a48bff exactly as approved delta domain-pass-20261008-sweep-prose-grasp-planning permits: Classical pass of 2026-10-08 on classical/grasp-planning, sweep item G.R2 and the Marco Hutter KOL intake note of 2026-10-07: after GraspGen, one sentence says GraspGen-X conditions a diffusion grasp generator on a swept-volume encoding of the gripper and, trained on procedural grippers and 2 billion grasps, generalized zero-shot to novel real grippers (graspgen-x-2026, arXiv 2606.00998); a new two-sentence paragraph after the touch-feedback result attributes GENESIS-Handover to Marco Hutter (ETH Zurich) and colleagues (October 2026), says it matches generated task-specific grips to the person's live hand, and reports that on a legged manipulator handovers needing no adjustment rose from 6 to 16 of 60 against AFT-Handover (genesis-handover-2026, arXiv 2610.08003, CoRL 2026); both read 2026-10-08. No other text changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-prose-grasp-planning).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -115499,9 +115698,9 @@
           "manifest": "prose",
           "member": "article:classical/grasp-planning",
           "baselineHash": "156f690191b0e7fb9e4619c870c8ec1501b1d6be800312d91aa4e0c5fc8b56b6",
-          "currentHash": "25b1a1afac189c807e792d8cfe8864d2248b591453c9f62837f70bf90dca2fe4",
+          "currentHash": "dcf351372294507d170f84f8cf80f96a4f1584bf9321017ad97c4ea6c6a48bff",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-prose-grasp-planning"
+          "approvedDelta": "domain-pass-20261008-sweep-prose-grasp-planning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -115543,7 +115742,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to f2550e87531ec0c23faeb4e1da26359992eb3ad00231c4dcc20f4c91a1908452 exactly as approved delta domain-pass-20261006-g8-prose-motion-planning permits: Domain pass of 2026-10-06 on classical/motion-planning: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to c685de620bb7c67d601304fbcc4efb6be244aa18e02952e8dbef25b63bedd116 exactly as approved delta domain-pass-20261008-sweep-prose-motion-planning permits: Classical pass of 2026-10-08 on classical/motion-planning, sweep item MP.R4: after the Neural MP result, one sentence says a 2026 survey of neural motion planners finds that they often struggle to generalize to unseen, out-of-distribution planning settings, cited to neural-motion-planner-survey-2026 (arXiv 2603.24318, IEEE Transactions on Automation Science and Engineering 23, read 2026-10-08). No other text changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-prose-motion-planning).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -115555,9 +115754,9 @@
           "manifest": "prose",
           "member": "article:classical/motion-planning",
           "baselineHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
-          "currentHash": "f2550e87531ec0c23faeb4e1da26359992eb3ad00231c4dcc20f4c91a1908452",
+          "currentHash": "c685de620bb7c67d601304fbcc4efb6be244aa18e02952e8dbef25b63bedd116",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-prose-motion-planning"
+          "approvedDelta": "domain-pass-20261008-sweep-prose-motion-planning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -115571,7 +115770,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/perception moved from 1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8 to e82bc91be678347ddca962c4562bf301b3d300f349851b926f53c868244d4c19 exactly as approved delta domain-pass-20261007-prose-perception permits: Classical pass of 2026-10-07 on classical/perception (sweep item P.X1): the 1989 Stat was labelled \"hand-eye (AX = XB)\" while its note credits Tsai and Lenz; Shiu and Ahmad cast the problem as AX = XB (calibration article), so the label now reads \"hand-eye solver\". The value, note and citations are unchanged; this edge moves the prose member from its domain-pass endpoint to the relabelled text.",
+      "actual": "prose member article:classical/perception moved from 1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8 to f6cc5e3938c676a61a23836102c21542cb33e36eacaf80ab6accffc2523cbc8d exactly as approved delta domain-pass-20261008-sweep-prose-perception permits: Classical pass of 2026-10-08 on classical/perception, sweep item P.R5: the time-of-flight paragraph that cites the Azure Kinect DK depth documentation gains one sentence, \"Microsoft announced the end of Azure Kinect DK production in August 2023, and support for its Sensor SDK ended in August 2024\", cited to azure-kinect-sdk-retirement-2024 (microsoft-support.md in the Sensor SDK repository at commit 3c79d56 of 21 Jun 2024, read 2026-10-08). No other text changes. This edge moves the member from its last approved endpoint (domain-pass-20261007-prose-perception).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -115583,9 +115782,9 @@
           "manifest": "prose",
           "member": "article:classical/perception",
           "baselineHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
-          "currentHash": "e82bc91be678347ddca962c4562bf301b3d300f349851b926f53c868244d4c19",
+          "currentHash": "f6cc5e3938c676a61a23836102c21542cb33e36eacaf80ab6accffc2523cbc8d",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261007-prose-perception"
+          "approvedDelta": "domain-pass-20261008-sweep-prose-perception"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -115627,7 +115826,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/scene-representation moved from af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e to c559f261328e76babfb655953521bef8edfcc58ae15f57d8b65d1514e75e21ce exactly as approved delta domain-pass-20261006-g8-prose-scene-representation permits: Domain pass of 2026-10-06 on classical/scene-representation: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "prose member article:classical/scene-representation moved from af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e to ca0bffbe7d7858a884e532ba6a3626b4cf4e28f498c7ce8ad537f94e92648246 exactly as approved delta domain-pass-20261008-sweep-prose-scene-representation permits: Classical pass of 2026-10-08 on classical/scene-representation, sweep items SR.R5 and SR.R3 (with SE.R2): after nvblox, two sentences say cuRoboV2 computes signed distances densely over the full workspace, where existing methods cover only sparsely allocated blocks, and at manipulation scale reports up to 10x the speed of the state of the art in 8x less memory with up to 99% collision recall (curobo-v2-2026, arXiv 2603.05493v2, read 2026-10-08); after DROID-SLAM, two sentences say AMB3R-SLAM avoids bundle adjustment, which relies on a static world, enforces consistency in a hierarchical back end, reconstructs kilometer-scale monocular trajectories over 10,000 frames on one consumer GPU, and cuts absolute trajectory error on VBR and Oxford Spires by over 70% against the previous state of the art (amb3r-slam-2026, arXiv 2609.19518, read 2026-10-08). No other text changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-prose-scene-representation).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -115639,9 +115838,9 @@
           "manifest": "prose",
           "member": "article:classical/scene-representation",
           "baselineHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
-          "currentHash": "c559f261328e76babfb655953521bef8edfcc58ae15f57d8b65d1514e75e21ce",
+          "currentHash": "ca0bffbe7d7858a884e532ba6a3626b4cf4e28f498c7ce8ad537f94e92648246",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-prose-scene-representation"
+          "approvedDelta": "domain-pass-20261008-sweep-prose-scene-representation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -117055,7 +117254,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:classical/control moved from ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae to 8f2883d99c5db2a505bf05f7f3f86c9251306e2431c1cec85ab7b4142e6fccb3 exactly as approved delta domain-pass-20261006-g8-relationships-control permits: Domain pass of 2026-10-06 on classical/control: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "relationships member article:classical/control moved from ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae to 0e4ad3dceaf10099bcd86b61440a53beb9504ccf1c13466907c0c78add52cd38 exactly as approved delta domain-pass-20261008-sweep-relationships-control permits: Classical pass of 2026-10-08 on classical/control, sweep item C.R3: the impedance paragraph that ends with the diffusion-based impedance learner gains one sentence, \"Intrinsic, which ran the 2026 AI for Industry Challenge, reports that 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines such as spiral searches, using force-torque feedback\", cited to intrinsic-ai-for-industry-challenge-2026 (Intrinsic's post of 22 Sep 2026, read 2026-10-08, which names spiral searches and the workcell's high-frequency force and torque sensor feedback). The relationships record gains the inline citation intrinsic-ai-for-industry-challenge-2026; no other citation, route or link changes. The edge starts from the sealed bytes and reconciles the member's 8 earlier approved edges exactly.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -117067,9 +117266,9 @@
           "manifest": "relationships",
           "member": "article:classical/control",
           "baselineHash": "ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae",
-          "currentHash": "8f2883d99c5db2a505bf05f7f3f86c9251306e2431c1cec85ab7b4142e6fccb3",
+          "currentHash": "0e4ad3dceaf10099bcd86b61440a53beb9504ccf1c13466907c0c78add52cd38",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-relationships-control"
+          "approvedDelta": "domain-pass-20261008-sweep-relationships-control"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -117083,7 +117282,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:classical/grasp-planning moved from ea77f7b5c834ad99bb8c708166d53409f9134176e0d8057ec5882b413b4a5844 to a76e241966d27506b96e88f37ea141a61ac5aeeb3b951d6a7562dd3324bc5bc3 exactly as approved delta domain-pass-20261006-g8-relationships-grasp-planning permits: Domain pass of 2026-10-06 on classical/grasp-planning: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "relationships member article:classical/grasp-planning moved from ea77f7b5c834ad99bb8c708166d53409f9134176e0d8057ec5882b413b4a5844 to ad641d9be281e1ec69714e67b1f32851ed8d843c6e99f1f6d1759bf47ef816ae exactly as approved delta domain-pass-20261008-sweep-relationships-grasp-planning permits: Classical pass of 2026-10-08 on classical/grasp-planning, sweep item G.R2 and the Marco Hutter KOL intake note of 2026-10-07: after GraspGen, one sentence says GraspGen-X conditions a diffusion grasp generator on a swept-volume encoding of the gripper and, trained on procedural grippers and 2 billion grasps, generalized zero-shot to novel real grippers (graspgen-x-2026, arXiv 2606.00998); a new two-sentence paragraph after the touch-feedback result attributes GENESIS-Handover to Marco Hutter (ETH Zurich) and colleagues (October 2026), says it matches generated task-specific grips to the person's live hand, and reports that on a legged manipulator handovers needing no adjustment rose from 6 to 16 of 60 against AFT-Handover (genesis-handover-2026, arXiv 2610.08003, CoRL 2026); both read 2026-10-08. The relationships record gains the inline citations graspgen-x-2026 and genesis-handover-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-relationships-grasp-planning).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -117095,9 +117294,9 @@
           "manifest": "relationships",
           "member": "article:classical/grasp-planning",
           "baselineHash": "ea77f7b5c834ad99bb8c708166d53409f9134176e0d8057ec5882b413b4a5844",
-          "currentHash": "a76e241966d27506b96e88f37ea141a61ac5aeeb3b951d6a7562dd3324bc5bc3",
+          "currentHash": "ad641d9be281e1ec69714e67b1f32851ed8d843c6e99f1f6d1759bf47ef816ae",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-relationships-grasp-planning"
+          "approvedDelta": "domain-pass-20261008-sweep-relationships-grasp-planning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -117139,7 +117338,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:classical/motion-planning moved from 2de52b7ff8f01c0a9f9fbfbdf4523dbef95b1403a9d7cfacd56d703b0cf9b229 to f28264d0bfcc08aaff35f6323ddf1b4484e2be53db82f233eccb6c6f672cd6c4 exactly as approved delta domain-pass-20261006-g8-relationships-motion-planning permits: Domain pass of 2026-10-06 on classical/motion-planning: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "relationships member article:classical/motion-planning moved from 2de52b7ff8f01c0a9f9fbfbdf4523dbef95b1403a9d7cfacd56d703b0cf9b229 to df4072e919da92927c34a2a439b967708fe2d6580bcbd1712441cbf3e45aad54 exactly as approved delta domain-pass-20261008-sweep-relationships-motion-planning permits: Classical pass of 2026-10-08 on classical/motion-planning, sweep item MP.R4: after the Neural MP result, one sentence says a 2026 survey of neural motion planners finds that they often struggle to generalize to unseen, out-of-distribution planning settings, cited to neural-motion-planner-survey-2026 (arXiv 2603.24318, IEEE Transactions on Automation Science and Engineering 23, read 2026-10-08). The relationships record gains the inline citation neural-motion-planner-survey-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-relationships-motion-planning).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -117151,9 +117350,9 @@
           "manifest": "relationships",
           "member": "article:classical/motion-planning",
           "baselineHash": "2de52b7ff8f01c0a9f9fbfbdf4523dbef95b1403a9d7cfacd56d703b0cf9b229",
-          "currentHash": "f28264d0bfcc08aaff35f6323ddf1b4484e2be53db82f233eccb6c6f672cd6c4",
+          "currentHash": "df4072e919da92927c34a2a439b967708fe2d6580bcbd1712441cbf3e45aad54",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-relationships-motion-planning"
+          "approvedDelta": "domain-pass-20261008-sweep-relationships-motion-planning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -117167,7 +117366,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:classical/perception moved from 9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041 to ab60782e0c2c147c3f4d2b8cf2fc325eb181c68806e3adc2f7220986e629927e exactly as approved delta domain-pass-20261006-g8-relationships-perception permits: Domain pass of 2026-10-06 on classical/perception: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "relationships member article:classical/perception moved from 9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041 to eddb8fc5725e35cbd6579525d877374d8e3a096047efe00aac54dd81f4a9b6df exactly as approved delta domain-pass-20261008-sweep-relationships-perception permits: Classical pass of 2026-10-08 on classical/perception, sweep item P.R5: the time-of-flight paragraph that cites the Azure Kinect DK depth documentation gains one sentence, \"Microsoft announced the end of Azure Kinect DK production in August 2023, and support for its Sensor SDK ended in August 2024\", cited to azure-kinect-sdk-retirement-2024 (microsoft-support.md in the Sensor SDK repository at commit 3c79d56 of 21 Jun 2024, read 2026-10-08). The relationships record gains the inline citation azure-kinect-sdk-retirement-2024; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-relationships-perception).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -117179,9 +117378,9 @@
           "manifest": "relationships",
           "member": "article:classical/perception",
           "baselineHash": "9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041",
-          "currentHash": "ab60782e0c2c147c3f4d2b8cf2fc325eb181c68806e3adc2f7220986e629927e",
+          "currentHash": "eddb8fc5725e35cbd6579525d877374d8e3a096047efe00aac54dd81f4a9b6df",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-relationships-perception"
+          "approvedDelta": "domain-pass-20261008-sweep-relationships-perception"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -117223,7 +117422,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:classical/scene-representation moved from 7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31 to 3e604571cbcd4649367c258c9eddd873da26f40c256365823e3869528acdaa71 exactly as approved delta domain-pass-20261006-g8-relationships-scene-representation permits: Domain pass of 2026-10-06 on classical/scene-representation: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "relationships member article:classical/scene-representation moved from 7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31 to 4f0431d497c90066be0cfe7a519b5a83034b1dec16a355eacbe8ab7dd68976d6 exactly as approved delta domain-pass-20261008-sweep-relationships-scene-representation permits: Classical pass of 2026-10-08 on classical/scene-representation, sweep items SR.R5 and SR.R3 (with SE.R2): after nvblox, two sentences say cuRoboV2 computes signed distances densely over the full workspace, where existing methods cover only sparsely allocated blocks, and at manipulation scale reports up to 10x the speed of the state of the art in 8x less memory with up to 99% collision recall (curobo-v2-2026, arXiv 2603.05493v2, read 2026-10-08); after DROID-SLAM, two sentences say AMB3R-SLAM avoids bundle adjustment, which relies on a static world, enforces consistency in a hierarchical back end, reconstructs kilometer-scale monocular trajectories over 10,000 frames on one consumer GPU, and cuts absolute trajectory error on VBR and Oxford Spires by over 70% against the previous state of the art (amb3r-slam-2026, arXiv 2609.19518, read 2026-10-08). The relationships record gains the inline citations curobo-v2-2026 and amb3r-slam-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g8-relationships-scene-representation).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -117235,9 +117434,9 @@
           "manifest": "relationships",
           "member": "article:classical/scene-representation",
           "baselineHash": "7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31",
-          "currentHash": "3e604571cbcd4649367c258c9eddd873da26f40c256365823e3869528acdaa71",
+          "currentHash": "4f0431d497c90066be0cfe7a519b5a83034b1dec16a355eacbe8ab7dd68976d6",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g8-relationships-scene-representation"
+          "approvedDelta": "domain-pass-20261008-sweep-relationships-scene-representation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -119026,7 +119225,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/control/ ships 101 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 101 outbound anchor occurrences on it with a visible focus ring in 264 stops",
+      "actual": "/classical/control/ ships 103 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 103 outbound anchor occurrences on it with a visible focus ring in 267 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -119034,8 +119233,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/classical/control/",
-          "outboundAnchors": 101,
-          "distinctHrefs": 47,
+          "outboundAnchors": 103,
+          "distinctHrefs": 48,
           "shapes": [
             "citation-chip",
             "figure-credit",
@@ -119044,9 +119243,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 98,
-          "reachedByTab": 101,
-          "tabStops": 264,
+          "anchorsWithNoreferrer": 100,
+          "reachedByTab": 103,
+          "tabStops": 267,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -119064,7 +119263,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/grasp-planning/ ships 100 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 100 outbound anchor occurrences on it with a visible focus ring in 233 stops",
+      "actual": "/classical/grasp-planning/ ships 105 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 105 outbound anchor occurrences on it with a visible focus ring in 241 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -119072,8 +119271,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/classical/grasp-planning/",
-          "outboundAnchors": 100,
-          "distinctHrefs": 42,
+          "outboundAnchors": 105,
+          "distinctHrefs": 44,
           "shapes": [
             "citation-chip",
             "footer",
@@ -119081,9 +119280,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 97,
-          "reachedByTab": 100,
-          "tabStops": 233,
+          "anchorsWithNoreferrer": 102,
+          "reachedByTab": 105,
+          "tabStops": 241,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -119139,7 +119338,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/motion-planning/ ships 118 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 118 outbound anchor occurrences on it with a visible focus ring in 281 stops",
+      "actual": "/classical/motion-planning/ ships 120 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 120 outbound anchor occurrences on it with a visible focus ring in 284 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -119147,8 +119346,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/classical/motion-planning/",
-          "outboundAnchors": 118,
-          "distinctHrefs": 44,
+          "outboundAnchors": 120,
+          "distinctHrefs": 45,
           "shapes": [
             "citation-chip",
             "footer",
@@ -119156,9 +119355,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 115,
-          "reachedByTab": 118,
-          "tabStops": 281,
+          "anchorsWithNoreferrer": 117,
+          "reachedByTab": 120,
+          "tabStops": 284,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -119176,7 +119375,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/perception/ ships 144 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 144 outbound anchor occurrences on it with a visible focus ring in 329 stops",
+      "actual": "/classical/perception/ ships 146 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 146 outbound anchor occurrences on it with a visible focus ring in 332 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -119184,8 +119383,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/classical/perception/",
-          "outboundAnchors": 144,
-          "distinctHrefs": 64,
+          "outboundAnchors": 146,
+          "distinctHrefs": 65,
           "shapes": [
             "citation-chip",
             "figure-credit",
@@ -119194,9 +119393,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 141,
-          "reachedByTab": 144,
-          "tabStops": 329,
+          "anchorsWithNoreferrer": 143,
+          "reachedByTab": 146,
+          "tabStops": 332,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -119252,7 +119451,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/scene-representation/ ships 135 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 135 outbound anchor occurrences on it with a visible focus ring in 304 stops",
+      "actual": "/classical/scene-representation/ ships 141 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 141 outbound anchor occurrences on it with a visible focus ring in 315 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -119260,8 +119459,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/classical/scene-representation/",
-          "outboundAnchors": 135,
-          "distinctHrefs": 60,
+          "outboundAnchors": 141,
+          "distinctHrefs": 62,
           "shapes": [
             "citation-chip",
             "figure-credit",
@@ -119270,9 +119469,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 132,
-          "reachedByTab": 135,
-          "tabStops": 304,
+          "anchorsWithNoreferrer": 138,
+          "reachedByTab": 141,
+          "tabStops": 315,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -143723,7 +143922,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6452 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6448 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -144149,7 +144348,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/calibration/ rendered no v1 identity spelling and no v1 descriptor in 34575 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/calibration/ rendered no v1 identity spelling and no v1 descriptor in 34605 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -144196,7 +144395,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/control/ rendered no v1 identity spelling and no v1 descriptor in 53597 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/control/ rendered no v1 identity spelling and no v1 descriptor in 54259 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -144243,7 +144442,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/grasp-planning/ rendered no v1 identity spelling and no v1 descriptor in 40027 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/grasp-planning/ rendered no v1 identity spelling and no v1 descriptor in 42135 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -144290,7 +144489,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/kinematics/ rendered no v1 identity spelling and no v1 descriptor in 37471 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/kinematics/ rendered no v1 identity spelling and no v1 descriptor in 37499 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -144337,7 +144536,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/motion-planning/ rendered no v1 identity spelling and no v1 descriptor in 58229 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/motion-planning/ rendered no v1 identity spelling and no v1 descriptor in 59141 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -144384,7 +144583,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/perception/ rendered no v1 identity spelling and no v1 descriptor in 80377 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/perception/ rendered no v1 identity spelling and no v1 descriptor in 81173 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -144431,7 +144630,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/ros2-for-ml-engineers/ rendered no v1 identity spelling and no v1 descriptor in 30923 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/ros2-for-ml-engineers/ rendered no v1 identity spelling and no v1 descriptor in 30285 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -144478,7 +144677,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/scene-representation/ rendered no v1 identity spelling and no v1 descriptor in 63797 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/scene-representation/ rendered no v1 identity spelling and no v1 descriptor in 63557 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -144525,7 +144724,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/state-estimation/ rendered no v1 identity spelling and no v1 descriptor in 48689 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/state-estimation/ rendered no v1 identity spelling and no v1 descriptor in 49065 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -147832,7 +148031,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "clips/kalman-episode.png ships exactly the 288638 bytes sealed at 0119ba9dc9ff in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party illustrative final-frame poster for the owner-authorized Kalman clip; the seeded true path, sensor readings, filter track and uncertainty band sit on the light figure stage under an IBM Plex Sans legend and the highlight note on the longest run of missing readings. It decodes as png matching its .png name and its registered hash 0119ba9dc9ff; decoded a 1280x720 png frame for locally registered clip kalman-episode with render source scripts/motion/clips/kalman_episode.py and shipped clips/kalman-episode.mp4 and clips/kalman-episode.webm; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; Clip registration and shipped encodings identify a locally authored poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
+      "actual": "clips/kalman-episode.png ships exactly the 292372 bytes sealed at 5ab9974a8cb3 in contract/brand-v2-asset-seal.json, approved by robot-wiki-editorial for: First-party illustrative final-frame poster for the owner-authorized Kalman clip; the seeded true position, sensor readings, filter's estimate and its widening uncertainty band sit on the light figure stage under a two-row IBM Plex Sans legend, a time cue and the highlight note on the longest run of missing readings. It decodes as png matching its .png name and its registered hash 5ab9974a8cb3; decoded a 1280x720 png frame for locally registered clip kalman-episode with render source scripts/motion/clips/kalman_episode.py and shipped clips/kalman-episode.mp4 and clips/kalman-episode.webm; no icon, manifest or lockup declaration in the 19 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 75 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header, not the depicted subject; Clip registration and shipped encodings identify a locally authored poster, not what its pixels depict; exact-byte editorial approval is checked separately by the asset seal",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -147842,13 +148041,13 @@
           "assetPath": "clips/kalman-episode.png",
           "category": "static-asset",
           "sealedBy": "robot-wiki-editorial",
-          "sealedPurpose": "First-party illustrative final-frame poster for the owner-authorized Kalman clip; the seeded true path, sensor readings, filter track and uncertainty band sit on the light figure stage under an IBM Plex Sans legend and the highlight note on the longest run of missing readings.",
-          "sealedSha256": "0119ba9dc9ffb90a8b1355829c04f4c3a7744e860cca6d8fd1a05eb29bbe6d26",
-          "shippedSha256": "0119ba9dc9ffb90a8b1355829c04f4c3a7744e860cca6d8fd1a05eb29bbe6d26",
+          "sealedPurpose": "First-party illustrative final-frame poster for the owner-authorized Kalman clip; the seeded true position, sensor readings, filter's estimate and its widening uncertainty band sit on the light figure stage under a two-row IBM Plex Sans legend, a time cue and the highlight note on the longest run of missing readings.",
+          "sealedSha256": "5ab9974a8cb3804cb91ab688baaa75d19730a02f012bdb10db8898422b72e35c",
+          "shippedSha256": "5ab9974a8cb3804cb91ab688baaa75d19730a02f012bdb10db8898422b72e35c",
           "sealedAssetCount": 33,
           "approvalSource": "contract/brand-v2-asset-seal.json",
-          "byteCount": 288638,
-          "byteHash": "0119ba9dc9ffb90a8b1355829c04f4c3a7744e860cca6d8fd1a05eb29bbe6d26",
+          "byteCount": 292372,
+          "byteHash": "5ab9974a8cb3804cb91ab688baaa75d19730a02f012bdb10db8898422b72e35c",
           "declaredExtension": ".png",
           "decodedFormat": "png",
           "formatMatchesExtension": true,
@@ -198936,7 +199135,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
-      "actual": "anchor:home-lime-highlight holds on the built home page at 1440x900: {\"inFirstViewport\":[{\"tag\":\"mark\",\"carriers\":[\"background\"],\"text\":\"877 sources\",\"nonColourCue\":\"mark-element\",\"annotation\":\"home-source-count\"}]}",
+      "actual": "anchor:home-lime-highlight holds on the built home page at 1440x900: {\"inFirstViewport\":[{\"tag\":\"mark\",\"carriers\":[\"background\"],\"text\":\"883 sources\",\"nonColourCue\":\"mark-element\",\"annotation\":\"home-source-count\"}]}",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -198952,7 +199151,7 @@
               "carriers": [
                 "background"
               ],
-              "text": "877 sources",
+              "text": "883 sources",
               "nonColourCue": "mark-element",
               "annotation": "home-source-count"
             }
@@ -211844,7 +212043,7 @@
             {
               "id": "/classical/grasp-planning/",
               "observed": {
-                "paragraphCount": 22,
+                "paragraphCount": 23,
                 "familyHeads": [
                   "newsreader"
                 ],
@@ -214544,8 +214743,8 @@
               "id": "/classical/scene-representation/",
               "observed": {
                 "monoRequiredCount": 1,
-                "interfaceControlCount": 22,
-                "controlsInProse": 7,
+                "interfaceControlCount": 24,
+                "controlsInProse": 9,
                 "registrationLabelCount": 4
               }
             }
@@ -219175,7 +219374,7 @@
               "id": "/classical/control/",
               "observed": {
                 "paragraphCount": 56,
-                "registeredFrameParagraphCount": 20,
+                "registeredFrameParagraphCount": 22,
                 "offendingFamilies": []
               }
             }
@@ -219211,7 +219410,7 @@
             {
               "id": "/classical/grasp-planning/",
               "observed": {
-                "paragraphCount": 44,
+                "paragraphCount": 46,
                 "registeredFrameParagraphCount": 16,
                 "offendingFamilies": []
               }
@@ -219397,7 +219596,7 @@
               "id": "/classical/scene-representation/",
               "observed": {
                 "paragraphCount": 54,
-                "registeredFrameParagraphCount": 6,
+                "registeredFrameParagraphCount": 12,
                 "offendingFamilies": []
               }
             }

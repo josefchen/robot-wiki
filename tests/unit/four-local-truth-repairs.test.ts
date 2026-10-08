@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { committedSource, CONTINUATION_CHECKPOINT, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
+import { classicalPassEndpoint } from '../helpers/domain-pass';
 import { preFigureMigration } from '../helpers/figure-migration';
 import { preDomainPass, preSeoPassText } from '../helpers/seo-pass';
 import { planPacket, preservedLegacySurvivors } from '../helpers/audit-plan-history';
@@ -360,13 +361,14 @@ describe('four bounded local truth repairs without completion credit', { timeout
             || (domainPass.reconciles ?? []).some((binding) => binding.newHash === passEndpoint)).toBe(true);
         }
         // The 2026-10-07 classical pass may carry the body on by exactly one
-        // plain edge from the domain-pass endpoint (sweep label fixes).
+        // plain edge from the domain-pass endpoint (sweep label fixes); its
+        // 2026-10-08 sweep sentences continue that endpoint to the live body.
         const domainEndpoint = domainPass?.newHash ?? passEndpoint;
         const classicalPass = entries.filter((entry) => entry.manifest === 'prose' &&
           entry.memberId === delta.memberId && /^(reader-first|figure-mounts|domain-pass)-20261007-/.test(entry.id));
         expect(classicalPass.length).toBeLessThanOrEqual(1);
         if (classicalPass[0]) expect(classicalPass[0].oldHash).toBe(domainEndpoint);
-        expect(classicalPass[0]?.newHash ?? domainEndpoint).toBe(memberHash(read(path)));
+        expect(classicalPassEndpoint(entries, 'prose', delta.memberId, domainEndpoint)).toBe(memberHash(read(path)));
       } else {
         expect(migrated).toHaveLength(0);
       }
