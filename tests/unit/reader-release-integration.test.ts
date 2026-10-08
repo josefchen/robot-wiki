@@ -8,6 +8,7 @@ import {
 } from '../../lib/brand-v2-baseline';
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
+import { classicalPassEndpoint } from '../helpers/domain-pass';
 import { READER_RELEASE_BASE, readerTruthAt } from '../helpers/reader-integration';
 import { finalSevenBefore } from '../helpers/residual-integration';
 import { preDomainPass, preKolBacklog, preReaderFirst, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
@@ -113,10 +114,13 @@ function throughSeoPass(path: string) {
   const preDomain = hashOf(preDomainPass(path).toString('utf8'));
   edge(['kol-backlog-20261005-'], preKol, preDomain);
   // The 2026-10-06 domain pass rewrote some articles from the owner's
-  // drafts; its edges bind the KOL endpoint and reach the live article
-  // (scene-representation takes the 2026-10-07 KOL intake first, then the
-  // classical draft).
-  edge(['domain-pass-20261006-'], preDomain, hashOf(readLive(path)), true);
+  // drafts; its edges bind the KOL endpoint (scene-representation takes the
+  // 2026-10-07 KOL intake first, then the classical draft), and the later
+  // classical pass carries that endpoint to the live article.
+  const domainEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('domain-pass-20261006-'));
+  const domainEnd = edge(['domain-pass-20261006-'], preDomain, domainEdges.at(-1)?.newHash ?? preDomain, true);
+  expect(classicalPassEndpoint(approvals, 'prose', id, domainEnd)).toBe(hashOf(readLive(path)));
 }
 
 describe('merged reader corrections preserve production additions and exact approvals', () => {

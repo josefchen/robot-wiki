@@ -238,7 +238,7 @@ test.describe('classical state-estimation module', () => {
     // The settled stage names its point in words; the filter's own numbers
     // for the demonstrated step (the gain, the reading and the walk of the
     // spread) are one click away, in "How this was made".
-    await expect(scene.locator('[data-figure-annotation]')).toHaveText('62% of the way to the reading');
+    await expect(scene.locator('[data-figure-annotation]')).toHaveText('62% of the way from guess to sensor');
     const method = await openHowThisWasMade(scene);
     await expect(method.getByTestId('kalman-gain-value')).toHaveText('0.62');
     const numbers = (await method.textContent()) ?? '';

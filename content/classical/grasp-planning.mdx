@@ -46,6 +46,8 @@ citations:
   - graspvla-2025
   - dexgraspvla-2025
   - touch-dexterous-grasping-2026
+  - graspgen-x-2026
+  - genesis-handover-2026
 seeAlso:
   - "data-hardware/datasets"
   - "manipulation/cross-embodiment"
@@ -135,8 +137,10 @@ The planner samples antipodal parallel-jaw candidates from depth gradients and e
 
 On eight 3D-printed adversarial objects, GQ-L-Adv, fine-tuned on synthetic examples of them, succeeded in 93% of 80 trials. A separate CEM-augmented run of 100 trials on 40 novel household objects, including articulated and deformable ones, reported 94% success and 99% precision: 68 of 69 grasps rated above 50% robustness succeeded. The two evaluations cannot be pooled, and missing depth on thin parts and object collisions remained failure modes <Cite id="dexnet-2-2017" />.
 
-Dex-Net 4.0 cleared bins of up to 25 novel objects with over 95% reliability at more than 300 mean picks per hour <Cite id="dexnet-4-2019" />. GraspNet-1Billion scores over one billion grasp poses on 97,280 RGB-D images by analytic computation <Cite id="graspnet-1billion-2020" />, and DexGraspNet 2.0 holds 427 million grasps <Cite id="dexgraspnet-2-2024" />. NVIDIA's GraspGen labels over 53 million grasps by simulating a shaking motion in Isaac <Cite id="graspgen-2025" />.
+Dex-Net 4.0 cleared bins of up to 25 novel objects with over 95% reliability at more than 300 mean picks per hour <Cite id="dexnet-4-2019" />. GraspNet-1Billion scores over one billion grasp poses on 97,280 RGB-D images by analytic computation <Cite id="graspnet-1billion-2020" />, and DexGraspNet 2.0 holds 427 million grasps <Cite id="dexgraspnet-2-2024" />. NVIDIA's GraspGen labels over 53 million grasps by simulating a shaking motion in Isaac <Cite id="graspgen-2025" />. GraspGen-X conditions a diffusion grasp generator on a swept-volume encoding of the gripper; trained on procedural grippers and 2 billion grasps, it generalized zero-shot to novel real grippers <Cite id="graspgen-x-2026" />.
 
 Learned [diffusion policies](/manipulation/diffusion-policy) take contacts from data, yet dexterous data pipelines still solve contact mechanics. BODex approximates friction cones with 8-vertex pyramids and synthesizes over 49 grasps per second on one RTX 3090 GPU <Cite id="bodex-2024" />. DexEvolve's authors note that analytic synthesis needs simplifying assumptions that yield infeasible grasps, which must be filtered in high-fidelity simulation <Cite id="dexevolve-2026" />. A 2026 [controller](/classical/control) enforces the quality margin during execution, keeping a median 94% of it at 0.09 ms per solve <Cite id="grasp-distance-fields-2026" />.
 
 [Sim-to-real transfer](/rl-sim2real/why-rl-locomotion) remained hard for dexterous grasping: Get a Grip found most multi-finger methods degrading on hardware <Cite id="get-a-grip-2024" />. DexGraspNet 2.0 transferred zero-shot to real clutter at 90.7% success <Cite id="dexgraspnet-2-2024" />, and RobustDexGrasp, trained in simulation, reached 94.6% on 512 real objects <Cite id="robustdexgrasp-2025" />. GraspVLA pretrains on SynGrasp-1B, a billion-frame synthetic dataset <Cite id="graspvla-2025" />, and DexGraspVLA reports over 90% success in thousands of unseen cluttered scenes <Cite id="dexgraspvla-2025" />. Adding wrench and tactile feedback to vision raised one policy from 14 to 24 successes in 25 real trials <Cite id="touch-dexterous-grasping-2026" />.
+
+GENESIS-Handover, from Marco Hutter (ETH Zurich) and colleagues (October 2026), chooses how a robot presents an object by matching generated task-specific grips to the person's live hand <Cite id="genesis-handover-2026" />. On a legged manipulator, handovers needing no adjustment rose from 6 to 16 of 60 against AFT-Handover <Cite id="genesis-handover-2026" />.

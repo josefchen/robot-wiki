@@ -152,7 +152,7 @@
     "article": "state-estimation",
     "element": "Clip:kalman-episode",
     "decision": "keep",
-    "teachingGoal": "Watch noisy, patchy readings still give a steady track, and see the uncertainty band widen where readings go missing.",
+    "teachingGoal": "Watch the filter keep tracking through noisy, patchy readings, and see its band widen, the filter less sure, where readings go missing.",
     "reason": "The live scene explains one filter step; the clip shows a whole run with one plain play button beside the native controls, a marked gap, and its method in the fold."
   }
 ]

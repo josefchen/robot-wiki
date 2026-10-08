@@ -71,6 +71,15 @@ const POSES: readonly (Preset<PoseId> & { angles: readonly number[] })[] = [
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
 
+/** The note's arrow runs from under the note to the rim of the shoulder joint. */
+const NOTE_FROM = [146, 195] as const;
+const NOTE_TARGET = (() => {
+  const [fx, fy] = NOTE_FROM;
+  const rim = LINK_WIDTHS[0][0] / 2 + 3;
+  const d = Math.hypot(ORIGIN_X - fx, ORIGIN_Y - fy);
+  return [f(ORIGIN_X - ((ORIGIN_X - fx) / d) * rim), f(ORIGIN_Y - ((ORIGIN_Y - fy) / d) * rim)] as const;
+})();
+
 /** Signed fixed-point readout: "+0.42" / "-1.03". */
 function formatSigned(v: number): string {
   const s = v.toFixed(2);
@@ -233,7 +242,6 @@ export function PlanarFkArm({ className }: { className?: string }) {
 
   const x = formatSigned(effector.x);
   const y = formatSigned(effector.y);
-  const shoulder = { x: ORIGIN_X, y: ORIGIN_Y };
 
   return (
     <InstrumentFigure
@@ -243,7 +251,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
       heading="Turn the shoulder and everything beyond it swings along"
       controls={
         <>
-          <PresetGroup label="Try a pose" presets={POSES} value={pose} onChange={choosePose} testId="fk-pose" />
+          <PresetGroup label="Pose the whole arm" presets={POSES} value={pose} onChange={choosePose} testId="fk-pose" />
           <ControlField>
             <ControlLabel htmlFor="fk-joint-1">Turn the shoulder</ControlLabel>
             <input
@@ -258,7 +266,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
               aria-label={`Turn the shoulder: shoulder joint angle in degrees, currently ${angles[0]}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
-            <SliderEnds low="points right" high="points left" />
+            <SliderEnds low="arm leans right" high="arm leans left" />
           </ControlField>
         </>
       }
@@ -312,8 +320,9 @@ export function PlanarFkArm({ className }: { className?: string }) {
               x={8}
               y={200}
               lines={['Turn here: elbow,', 'wrist and hand', 'all ride along']}
-              target={[shoulder.x, shoulder.y]}
-              from={[146, 195]}
+              target={NOTE_TARGET}
+              from={NOTE_FROM}
+              pointer="arrow"
             />
           </PlotStage>
         </FigureStage>

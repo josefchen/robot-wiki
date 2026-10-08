@@ -347,7 +347,7 @@ test.describe('classical scene-representation module', () => {
     await expect(contact).toContainText(/no/i);
     await expect(contact).toHaveAttribute(
       'aria-label',
-      /surface normal for contact:\s*no/i,
+      /which way does the surface face\?\s*no/i,
     );
 
     // And a rung that is positive on the same capability, so "no" is a
@@ -405,6 +405,11 @@ test.describe('classical scene-representation module', () => {
       'true',
     );
 
+    // Reset lives in the figure's "Adjust more" fold.
+    await page
+      .getByTestId('scene-ladder')
+      .locator('[data-figure-fold="adjust"] > summary')
+      .click();
     await page
       .getByRole('button', { name: /reset the representation and resolution/i })
       .click();
@@ -575,7 +580,7 @@ test.describe('classical scene-representation module', () => {
       const panel = svg?.parentElement ?? null;
       const controls = document
         .querySelector('[data-testid="scene-capabilities"]')
-        ?.closest('div.grid > div:last-child') ?? null;
+        ?.closest('[data-figure-stage-band="aside"]') ?? null;
       const r = (el: Element | null) =>
         el ? (el as HTMLElement).getBoundingClientRect() : null;
       return {
@@ -590,7 +595,7 @@ test.describe('classical scene-representation module', () => {
     // The diagram is wider than the control column beside it.
     expect(geometry.svgWidth).toBeGreaterThan(geometry.controlsWidth);
     // The drawing fills its own panel box (no half-empty frame).
-    const aspect = 256 / 340; // viewBox height/width incl. title and sensor bands
+    const aspect = 230 / 340; // viewBox height/width incl. the back-wall and camera bands
     const expectedHeight = geometry.svgWidth * aspect;
     expect(geometry.panelHeight).toBeLessThan(expectedHeight * 1.25);
     await context.close();

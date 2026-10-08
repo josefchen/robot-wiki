@@ -233,6 +233,45 @@ describe('GraspWrenchLab main view', () => {
     expect(height()).toBe(0);
   });
 
+  it('labels the meter so any fill reads as a grip that holds, and only an empty meter as no grip', () => {
+    const { container } = render(<GraspWrenchLab />);
+    const meter = container.querySelector('[data-meter="grip-margin"]') as SVGGElement;
+    expect(Array.from(meter.querySelectorAll('text')).map((t) => t.textContent)).toEqual([
+      'grip strength',
+      'very firm',
+      'no grip',
+    ]);
+    const filled = () => Number(screen.getByTestId('grasp-margin-fill').getAttribute('height')) > 0;
+    const holds = () => readout('grasp-closure-readout') === 'yes';
+    expect([filled(), holds()]).toEqual([true, true]);
+    fireEvent.change(screen.getByRole('slider', { name: /friction coefficient/i }), { target: { value: '0.05' } });
+    expect(filled()).toBe(holds());
+    fireEvent.click(screen.getByRole('button', { name: /remove the last contact/i }));
+    expect([filled(), holds()]).toEqual([false, false]);
+  });
+
+  it('says on the stage what a wedge means and points at one, with no dot on the fingertips', () => {
+    const { container } = render(<GraspWrenchLab />);
+    const note = container.querySelector('[data-wedge-note]') as SVGGElement;
+    expect(Array.from(note.querySelectorAll('text')).map((t) => t.textContent)).toEqual([
+      'Inside its wedge,',
+      'a finger can push',
+      'without slipping',
+    ]);
+    const head = note.querySelector('[data-wedge-pointer] polygon');
+    expect(head).not.toBeNull();
+    // The wedge note is a plain label; the one annotation stays the stage note.
+    expect(container.querySelectorAll('[data-figure-annotation]')).toHaveLength(1);
+    for (const finger of container.querySelectorAll('[data-finger]')) {
+      expect(finger.querySelectorAll('circle')).toHaveLength(1);
+      expect(finger.querySelector('circle')).toHaveAttribute('fill', 'none');
+    }
+    // Each wedge bulges away from its fingertip: the arc is centred on the contact.
+    for (const wedge of container.querySelectorAll('[data-series="cone"] path')) {
+      expect(wedge.getAttribute('d')).toMatch(/ A [\d.]+ [\d.]+ 0 0 0 /);
+    }
+  });
+
   it('moves a dragged fingertip to the edge under the pointer, on the slider grid', () => {
     const { container } = render(<GraspWrenchLab />);
     const stage = screen.getByTestId('grasp-object-view');

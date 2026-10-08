@@ -454,8 +454,9 @@ export function RrtExplorer({ className }: { className?: string }) {
               />
             </g>
             <StageWord x={px(RRT_SCENE.start.x)} y={py(RRT_SCENE.start.y) + 22}>Start</StageWord>
-            <StageWord x={px(RRT_SCENE.goal.x)} y={py(RRT_SCENE.goal.y) + len(RRT_SCENE.goalRadius) + 18}>
-              Goal
+            {/* Nudged left so the two words stay inside the stage at 375 px. */}
+            <StageWord x={px(RRT_SCENE.goal.x) - 12} y={py(RRT_SCENE.goal.y) + len(RRT_SCENE.goalRadius) + 18}>
+              Goal area
             </StageWord>
             <StageAnnotation
               x={NOTE_X}
@@ -463,6 +464,7 @@ export function RrtExplorer({ className }: { className?: string }) {
               lines={note.lines}
               target={target}
               from={[Math.min(Math.max(target[0], NOTE_X + 8), 140), NOTE_LEADER_Y]}
+              pointer="arrow"
             />
           </PlotStage>
         </FigureStage>

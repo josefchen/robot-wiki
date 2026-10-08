@@ -14700,6 +14700,80 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.00638',
     type: 'paper',
   },
+  // amb3r-slam-2026: domain pass 2026-10-06, owner sweep item SR.R3 (also SE.R2), added 2026-10-08.
+  // Abstract page fetched 2026-10-08; v1 submitted 17 September 2026.
+  {
+    id: 'amb3r-slam-2026',
+    title: 'AMB3R-SLAM: Kilometer-scale SLAM with Hierarchical Backend',
+    authors: ['Hengyi Wang', 'Lourdes Agapito'],
+    year: 2026,
+    arxiv: '2609.19518',
+    url: 'https://arxiv.org/abs/2609.19518',
+    type: 'paper',
+  },
+  // azure-kinect-sdk-retirement-2024: domain pass 2026-10-06, owner sweep item P.R5, added 2026-10-08.
+  // The SDK repository's support page, pinned to commit 3c79d56 of 21 June 2024 ("Adding retirement
+  // date for Azure Kinect DK Sensor SDK"), the commit that added the retirement section; read
+  // 2026-10-08. Microsoft's linked end-of-production announcement sits behind a sign-in.
+  {
+    id: 'azure-kinect-sdk-retirement-2024',
+    title: 'Microsoft Support for Azure Kinect DK Sensor SDK',
+    authors: ['Microsoft'],
+    year: 2024,
+    venue: 'Azure Kinect Sensor SDK repository, GitHub',
+    url: 'https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/3c79d56c2aa082d62ebae6ccf217191e6d4e2cfa/microsoft-support.md',
+    type: 'docs',
+  },
+  // genesis-handover-2026: domain pass 2026-10-06, KOL intake note of Marco Hutter, added 2026-10-08.
+  // Abstract page and HTML full text fetched 2026-10-08; v1 submitted 6 October 2026, accepted to
+  // CoRL 2026. ETH Zurich, Robotic Systems Lab.
+  {
+    id: 'genesis-handover-2026',
+    title: 'Reactive Task-Oriented Robot-Human Handovers via Generative Hypothesis Selection',
+    authors: ['Carmen Scheidemann', 'Andreea Tulbure', 'Pascal Burkhardt', 'Marco Hutter'],
+    year: 2026,
+    arxiv: '2610.08003',
+    url: 'https://arxiv.org/abs/2610.08003',
+    type: 'paper',
+  },
+  // graspgen-x-2026: domain pass 2026-10-06, owner sweep item G.R2, added 2026-10-08.
+  // Abstract page fetched 2026-10-08; v1 submitted 31 May 2026.
+  {
+    id: 'graspgen-x-2026',
+    title: 'GraspGen-X: Cross-Embodiment 6-DOF Diffusion-based Grasping',
+    authors: [
+      'Beining Han', 'Yu-Wei Chao', 'Erwin Coumans', 'Clemens Eppner', 'Balakumar Sundaralingam', 'Jia Deng',
+      'Stan Birchfield', 'Adithyavairavan Murali',
+    ],
+    year: 2026,
+    arxiv: '2606.00998',
+    url: 'https://arxiv.org/abs/2606.00998',
+    type: 'paper',
+  },
+  // intrinsic-ai-for-industry-challenge-2026: domain pass 2026-10-06, owner sweep item C.R3, added 2026-10-08.
+  // Intrinsic's recap of its own challenge, dated 22 September 2026, read 2026-10-08. The post names no
+  // individual author, so the organisation stands as author.
+  {
+    id: 'intrinsic-ai-for-industry-challenge-2026',
+    title: 'Robotics is hard - it’s much easier when 5,000 developers get involved',
+    authors: ['Intrinsic'],
+    year: 2026,
+    url: 'https://www.intrinsic.ai/blog/posts/ai-for-industry-challenge',
+    type: 'blog',
+  },
+  // neural-motion-planner-survey-2026: domain pass 2026-10-06, owner sweep item MP.R4, added 2026-10-08.
+  // Abstract page fetched 2026-10-08; v1 submitted 25 March 2026. The venue is the arXiv journal
+  // reference: IEEE Transactions on Automation Science and Engineering, vol. 23, pp. 4488-4531, 2026.
+  {
+    id: 'neural-motion-planner-survey-2026',
+    title: 'Toward Generalist Neural Motion Planners for Robotic Manipulators: Challenges and Opportunities',
+    authors: ['Davood Soleymanzadeh', 'Ivan Lopez-Sanchez', 'Hao Su', 'Yunzhu Li', 'Xiao Liang', 'Minghui Zheng'],
+    year: 2026,
+    venue: 'IEEE Transactions on Automation Science and Engineering',
+    arxiv: '2603.24318',
+    url: 'https://arxiv.org/abs/2603.24318',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

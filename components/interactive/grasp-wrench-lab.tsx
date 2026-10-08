@@ -23,6 +23,7 @@ import {
   CHART_VIEW_WIDTH,
   LegendSwatch,
   StageAnnotation,
+  annotationArrow,
   roleColour,
 } from '@/components/motion/chart';
 import { MOTION_STAGE } from '@/lib/motion-tokens';
@@ -56,7 +57,10 @@ import {
  * resistedPushes in lib/grasp); under force closure every push is resisted.
  * The grip-margin meter shows the Ferrari-Canny epsilon, full at 1.00 (four
  * contacts at the edge midpoints on the grippiest surface reach it) and
- * clamped there.
+ * clamped there. Its ends read "no grip" and "very firm": any fill above that
+ * is a grip that holds (force closure exactly when epsilon is above zero),
+ * so the words stay true at every state. A plain label beside the wedge
+ * nearest it says what a wedge means.
  *
  * The grasp wrench space itself (the hull of cone-edge wrenches in
  * (fx, fy, tau), projected obliquely) sits in "Adjust more" with the
@@ -82,9 +86,11 @@ const objY = (y: number) => f(BOX.cy - BOX.scale * y);
 
 /** Fingertip drawing, in stage units outward along the finger from the contact. */
 const PAD_R = 6;
+const FINGER_W = 11;
+/** The finger's rounded end touches the box: its cap reaches back to the contact. */
+const FINGER_START = FINGER_W / 2;
 const JOINT_AT = 20;
 const FINGER_END = 34;
-const FINGER_W = 11;
 /** Where a finger's number sits: along the finger, and off to one side. */
 const NUMBER_ALONG = 27;
 const NUMBER_SIDE = 14;
@@ -98,12 +104,25 @@ const HEAD_LEN = 7;
 const HEAD_HALF = 4.5;
 
 /** The fan drawn for each friction cone, in object units. */
-const FAN_LEN = 0.45;
+const FAN_LEN = 0.5;
 const FAN_FILL_OPACITY = 0.18;
 
 /** The grip-margin meter: epsilon from 0 (bottom) to EPSILON_FULL (top). */
 export const EPSILON_FULL = 1;
-const METER = { x: 244, top: 96, bottom: 228, width: 14 };
+const METER = { x: 244, top: 128, bottom: 260, width: 14 };
+
+/**
+ * The wedge label, top right. Its last line is held at `y` and the arrow
+ * leaves just under that line's start, so the two stay together while the
+ * stage type keeps its CSS size on a stretched viewBox.
+ */
+const WEDGE_NOTE = {
+  x: 228,
+  y: 88,
+  lines: ['Inside its wedge,', 'a finger can push', 'without slipping'],
+  from: [226, 93] as const,
+};
+const LINE_EM = 1.25;
 
 /** Wrench view (in "Adjust more"): oblique projection of (fx, fy, tau). */
 const WR = { cx: VIEW_W / 2, cy: WRENCH_H / 2, scale: 56 };
@@ -135,8 +154,16 @@ function fanPath(g: ContactGeometry, mu: number) {
   const end = (a: number) =>
     `${objX(g.point.x + FAN_LEN * Math.cos(a))} ${objY(g.point.y + FAN_LEN * Math.sin(a))}`;
   const r = f(FAN_LEN * BOX.scale);
-  // Model-space counterclockwise reads clockwise on screen, so sweep = 1.
-  return `M ${objX(g.point.x)} ${objY(g.point.y)} L ${end(base - half)} A ${r} ${r} 0 0 1 ${end(base + half)} Z`;
+  // Model-space counterclockwise reads counterclockwise on the y-down
+  // screen too once both axes map through objX/objY, so sweep = 0 keeps the
+  // arc centred on the fingertip and the wedge bulges away from it.
+  return `M ${objX(g.point.x)} ${objY(g.point.y)} L ${end(base - half)} A ${r} ${r} 0 0 0 ${end(base + half)} Z`;
+}
+
+/** The middle of a contact's wedge, on screen. */
+function wedgeCentre(g: ContactGeometry) {
+  const along = FAN_LEN * 0.6;
+  return { x: objX(g.point.x + g.normal.x * along), y: objY(g.point.y + g.normal.y * along) };
 }
 
 /** Test push k as an arrow on the ring, pointing along the push at the box centre. */
@@ -216,6 +243,17 @@ export function GraspWrenchLab({ className }: { className?: string }) {
   const action = roleColour('action');
   const halfAngle = ((Math.atan(mu) * 180) / Math.PI).toFixed(1);
   const meterFill = f((Math.min(analysis.epsilon, EPSILON_FULL) / EPSILON_FULL) * (METER.bottom - METER.top));
+  // The wedge label points at whichever wedge sits nearest it, so its arrow
+  // always lands on a wedge wherever the fingers are dragged.
+  const wedgeTarget = geoms
+    .map(wedgeCentre)
+    .reduce((best, c) =>
+      Math.hypot(c.x - WEDGE_NOTE.from[0], c.y - WEDGE_NOTE.from[1]) <
+      Math.hypot(best.x - WEDGE_NOTE.from[0], best.y - WEDGE_NOTE.from[1])
+        ? c
+        : best,
+    );
+  const wedgeArrow = annotationArrow(WEDGE_NOTE.from, [wedgeTarget.x, wedgeTarget.y]);
 
   const addContact = () =>
     setContacts((c) =>
@@ -355,13 +393,14 @@ export function GraspWrenchLab({ className }: { className?: string }) {
       })}
       {geoms.map((g, i) => {
         const tip = fingerPoint(g, PAD_R);
+        const start = fingerPoint(g, FINGER_START);
         const end = fingerPoint(g, FINGER_END);
         const joint = [fingerPoint(g, JOINT_AT, -FINGER_W / 2), fingerPoint(g, JOINT_AT, FINGER_W / 2)];
         const number = fingerPoint(g, NUMBER_ALONG, NUMBER_SIDE);
         return (
           <g key={i} data-finger={i + 1}>
             <path
-              d={`M ${tip.x} ${tip.y} L ${end.x} ${end.y}`}
+              d={`M ${start.x} ${start.y} L ${end.x} ${end.y}`}
               fill="none"
               stroke={graphite}
               strokeWidth={FINGER_W}
@@ -372,7 +411,6 @@ export function GraspWrenchLab({ className }: { className?: string }) {
               stroke={paper}
               strokeWidth={CHART_STROKE.structure * 2}
             />
-            <circle cx={tip.x} cy={tip.y} r={PAD_R} fill={ink} />
             <text
               data-chart-label=""
               x={number.x}
@@ -400,7 +438,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         );
       })}
       <g data-meter="grip-margin">
-        <text x={METER.x + METER.width / 2} y={METER.top - 14} textAnchor="middle" fontSize={CHART_TYPE.labelPx} fill={ink}>
+        <text x={METER.x - 8} y={METER.top - 12} fontSize={CHART_TYPE.labelPx} fill={ink}>
           grip strength
         </text>
         <rect
@@ -421,11 +459,39 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           fill={roleColour('value')}
         />
         <text x={METER.x + METER.width + 6} y={METER.top + 10} fontSize={CHART_TYPE.labelPx} fill={graphite}>
-          strong
+          very firm
         </text>
         <text x={METER.x + METER.width + 6} y={METER.bottom} fontSize={CHART_TYPE.labelPx} fill={graphite}>
-          slips
+          no grip
         </text>
+      </g>
+      <g data-wedge-note="">
+        {wedgeArrow ? (
+          <g data-wedge-pointer="">
+            <line
+              x1={WEDGE_NOTE.from[0]}
+              y1={WEDGE_NOTE.from[1]}
+              x2={f(wedgeArrow.end[0])}
+              y2={f(wedgeArrow.end[1])}
+              stroke={graphite}
+              strokeWidth={CHART_STROKE.structure}
+            />
+            <polygon points={wedgeArrow.head.map(([px, py]) => `${f(px)},${f(py)}`).join(' ')} fill={graphite} />
+          </g>
+        ) : null}
+        {WEDGE_NOTE.lines.map((line, i) => (
+          <text
+            key={line}
+            data-chart-label=""
+            x={WEDGE_NOTE.x}
+            y={WEDGE_NOTE.y}
+            dy={`${(i - (WEDGE_NOTE.lines.length - 1)) * LINE_EM}em`}
+            fontSize={CHART_TYPE.labelPx}
+            fill={ink}
+          >
+            {line}
+          </text>
+        ))}
       </g>
     </PlotStage>
   );
@@ -579,7 +645,8 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         <>
           <p>
             Seen from above, the box is a square of half side 1 and each fingertip is a point contact. Friction
-            lets a contact push anywhere inside its friction cone, of half-angle arctan μ, but never pull; at μ{' '}
+            lets a contact push anywhere inside its friction cone, drawn as the wedge at each fingertip, of
+            half-angle arctan μ, but never pull; at μ{' '}
             {mu.toFixed(2)} the half-angle is {halfAngle}°. The surface slider sets μ from 0.05 to 1.00.
           </p>
           <p>
@@ -587,7 +654,9 @@ export function GraspWrenchLab({ className }: { className?: string }) {
             the primitive wrenches (fx, fy, τ). Their convex hull is the grasp wrench space drawn under Adjust
             more. Force closure holds exactly when the origin sits strictly inside the hull: the fingertips can
             then balance any push or twist. The grip meter shows the Ferrari-Canny quality ε, the radius of the
-            largest origin-centred ball inside the hull. The three-finger grasp at μ 0.70 gives ε = 0.444; the
+            largest origin-centred ball inside the hull. The meter is empty, at &ldquo;no grip&rdquo;, exactly when ε
+            = 0 and the grip fails; any fill above that is a grip that holds. The three-finger grasp at μ 0.70
+            gives ε = 0.444; the
             meter is full at ε = 1.00, which four fingertips at the edge midpoints reach on the roughest
             surface.
           </p>

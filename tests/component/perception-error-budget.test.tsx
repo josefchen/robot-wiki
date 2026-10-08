@@ -27,7 +27,7 @@ describe('PerceptionErrorBudget main view', () => {
       'Robots reach for what their camera sees, so a camera angle off by a fraction of a degree puts the hand beside the object.',
     );
     expect(container.querySelector('[data-figure-status]')).toHaveTextContent(
-      'Schematic: the tilt is drawn far steeper than it is',
+      'Schematic: the tilt and the miss are drawn far larger than they are',
     );
   });
 
