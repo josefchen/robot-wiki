@@ -16,6 +16,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { figureMountPredecessor } from './audit-figure-mount-continuity.ts';
 
 export const DOMAIN_PASS_CONTINUITY_DIR = 'audit/evidence/domain-pass-20261006/';
 const reviewFile = `${DOMAIN_PASS_CONTINUITY_DIR}source-transition.json`;
@@ -199,7 +200,8 @@ function rebuiltPrior(root: string, path: string, live: Buffer): Buffer {
 export function preDomainPassCitations(root: string, path: string, citations: readonly string[]): readonly string[] {
   const pinned = successors.get(path);
   if (!pinned) return citations;
-  const live = readFileSync(join(root, path));
+  // The newer figure-mount layer hands back the domain-pass successor first.
+  const live = figureMountPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(join(root, path)));
   if (live.length !== pinned[0] || digest(live) !== pinned[1]) return citations;
   const prior = citationList(frontmatter(rebuiltPrior(root, path, live).toString()) ?? '');
   const current = citationList(frontmatter(live.toString()) ?? '');

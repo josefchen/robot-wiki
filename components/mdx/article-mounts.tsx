@@ -16,6 +16,7 @@ import type { ComponentType } from 'react';
 import { CitationRecordsProvider } from '@/components/article/citation-records';
 import { widgetCitationRecords, type CitingWidget } from '@/lib/widget-citations';
 import {
+  CalibrationChain as LazyCalibrationChain,
   ComparisonMatrix as LazyComparisonMatrix,
   CrossEmbodimentStrategies as LazyCrossEmbodimentStrategies,
   DeploymentDashboard as LazyDeploymentDashboard,
@@ -27,6 +28,7 @@ import {
   MotInsulation as LazyMotInsulation,
   PerceptionErrorBudget as LazyPerceptionErrorBudget,
   PiGenerationTimeline as LazyPiGenerationTimeline,
+  Ros2PolicyLayout as LazyRos2PolicyLayout,
   SampleEfficiencyLedger as LazySampleEfficiencyLedger,
   SceneRepresentationLadder as LazySceneRepresentationLadder,
   ThesisExplorer as LazyThesisExplorer,
@@ -102,6 +104,7 @@ function withCitationRecords<Props extends object>(
   return CitingMount;
 }
 
+export const CalibrationChain = withCitationRecords('CalibrationChain', LazyCalibrationChain);
 export const ComparisonMatrix = withCitationRecords('ComparisonMatrix', LazyComparisonMatrix);
 export const CrossEmbodimentStrategies = withCitationRecords('CrossEmbodimentStrategies', LazyCrossEmbodimentStrategies);
 export const DeploymentDashboard = withCitationRecords('DeploymentDashboard', LazyDeploymentDashboard);
@@ -113,6 +116,7 @@ export const MilestonesWatchlist = withCitationRecords('MilestonesWatchlist', La
 export const MotInsulation = withCitationRecords('MotInsulation', LazyMotInsulation);
 export const PerceptionErrorBudget = withCitationRecords('PerceptionErrorBudget', LazyPerceptionErrorBudget);
 export const PiGenerationTimeline = withCitationRecords('PiGenerationTimeline', LazyPiGenerationTimeline);
+export const Ros2PolicyLayout = withCitationRecords('Ros2PolicyLayout', LazyRos2PolicyLayout);
 export const SampleEfficiencyLedger = withCitationRecords('SampleEfficiencyLedger', LazySampleEfficiencyLedger);
 export const SceneRepresentationLadder = withCitationRecords('SceneRepresentationLadder', LazySceneRepresentationLadder);
 export const ThesisExplorer = withCitationRecords('ThesisExplorer', LazyThesisExplorer);

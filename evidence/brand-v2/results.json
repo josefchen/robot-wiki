@@ -1724,11 +1724,11 @@
                   "Robot Calibration"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 5,
+                "readingMinutes": 6,
                 "citationCount": 38,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "5 min",
+                "readingTimeText": "6 min",
                 "citationCountText": "38",
                 "bibliographyIds": [
                   "zhang-2000-calibration",
@@ -1920,11 +1920,11 @@
                   "Grasp Planning"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 11,
+                "readingMinutes": 10,
                 "citationCount": 39,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "11 min",
+                "readingTimeText": "10 min",
                 "citationCountText": "39",
                 "bibliographyIds": [
                   "murray-li-sastry-1994",
@@ -9050,6 +9050,28 @@
                       "shape": "inline border:0px/solid radius:0px"
                     }
                   ]
+                },
+                {
+                  "kind": "external",
+                  "count": 3,
+                  "colour": "rgb(36, 95, 255)",
+                  "decorationLine": "underline",
+                  "decorationStyle": "solid",
+                  "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+                  "familyHead": "ibm plex sans",
+                  "shape": "inline border:0px/solid radius:0px",
+                  "variants": [
+                    {
+                      "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+                      "count": 3,
+                      "colour": "rgb(36, 95, 255)",
+                      "decorationLine": "underline",
+                      "decorationStyle": "solid",
+                      "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+                      "familyHead": "ibm plex sans",
+                      "shape": "inline border:0px/solid radius:0px"
+                    }
+                  ]
                 }
               ]
             }
@@ -9821,6 +9843,28 @@
                       "decorationStyle": "dotted",
                       "decorationColour": "rgb(36, 45, 51)",
                       "familyHead": "newsreader",
+                      "shape": "inline border:0px/solid radius:0px"
+                    }
+                  ]
+                },
+                {
+                  "kind": "external",
+                  "count": 7,
+                  "colour": "rgb(36, 95, 255)",
+                  "decorationLine": "underline",
+                  "decorationStyle": "solid",
+                  "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+                  "familyHead": "ibm plex sans",
+                  "shape": "inline border:0px/solid radius:0px",
+                  "variants": [
+                    {
+                      "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+                      "count": 7,
+                      "colour": "rgb(36, 95, 255)",
+                      "decorationLine": "underline",
+                      "decorationStyle": "solid",
+                      "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+                      "familyHead": "ibm plex sans",
                       "shape": "inline border:0px/solid radius:0px"
                     }
                   ]
@@ -59823,6 +59867,118 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-ART-008:/classical/calibration/|1440x900|table#0",
+      "assertionId": "VAL-B2-ART-008",
+      "populationMemberId": "/classical/calibration/|1440x900|table#0",
+      "coveredPopulationMemberIds": [
+        "/classical/calibration/|1440x900|table#0"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
+      "actual": "/classical/calibration/|1440x900|table#0 is a named table with scoped headers that stays inside the viewport by scrolling in its own keyboard-reachable container, on a page with no horizontal document overflow and no clipped root or body, beside a reading column still inside the sealed measure, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#tables",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/classical/calibration/|1440x900|table#0",
+          "measured": [
+            {
+              "id": "/classical/calibration/|1440x900|table#0",
+              "observed": {
+                "index": 0,
+                "accessibleName": "The four links and their measured errors",
+                "captionText": "",
+                "columnHeaders": 3,
+                "rowHeaders": 4,
+                "unscopedHeaders": 0,
+                "sortButtons": 0,
+                "sortedColumns": 0,
+                "notDisclosedCells": 0,
+                "notApplicableCells": 0,
+                "scrollContainer": {
+                  "overflowX": "auto",
+                  "tabIndex": 0,
+                  "role": "region",
+                  "accessibleName": "The four links and their measured errors",
+                  "clientWidth": 715,
+                  "scrollWidth": 715,
+                  "scrolledBy": 0
+                },
+                "tableWidth": 715,
+                "containerOverflowPx": 0,
+                "viewportOverflowPx": 0,
+                "measureCh": 71.5
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-008:/classical/calibration/|375x812|table#0",
+      "assertionId": "VAL-B2-ART-008",
+      "populationMemberId": "/classical/calibration/|375x812|table#0",
+      "coveredPopulationMemberIds": [
+        "/classical/calibration/|375x812|table#0"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
+      "actual": "/classical/calibration/|375x812|table#0 is a named table with scoped headers that stays inside the viewport by scrolling in its own keyboard-reachable container, on a page with no horizontal document overflow and no clipped root or body, beside a reading column still inside the sealed measure, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#tables",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/classical/calibration/|375x812|table#0",
+          "measured": [
+            {
+              "id": "/classical/calibration/|375x812|table#0",
+              "observed": {
+                "index": 0,
+                "accessibleName": "The four links and their measured errors",
+                "captionText": "",
+                "columnHeaders": 3,
+                "rowHeaders": 4,
+                "unscopedHeaders": 0,
+                "sortButtons": 0,
+                "sortedColumns": 0,
+                "notDisclosedCells": 0,
+                "notApplicableCells": 0,
+                "scrollContainer": {
+                  "overflowX": "auto",
+                  "tabIndex": 0,
+                  "role": "region",
+                  "accessibleName": "The four links and their measured errors",
+                  "clientWidth": 335,
+                  "scrollWidth": 480,
+                  "scrolledBy": 40
+                },
+                "tableWidth": 480,
+                "containerOverflowPx": 0,
+                "viewportOverflowPx": 0,
+                "measureCh": 33.5
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
       "resultId": "result:VAL-B2-ART-008:/classical/kinematics/|1440x900|table#0",
       "assertionId": "VAL-B2-ART-008",
       "populationMemberId": "/classical/kinematics/|1440x900|table#0",
@@ -64951,11 +65107,11 @@
                   "Robot Calibration"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 5,
+                "readingMinutes": 6,
                 "citationCount": 38,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "5 min",
+                "readingTimeText": "6 min",
                 "citationCountText": "38",
                 "bibliographyIds": [
                   "zhang-2000-calibration",
@@ -65147,11 +65303,11 @@
                   "Grasp Planning"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 11,
+                "readingMinutes": 10,
                 "citationCount": 39,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "11 min",
+                "readingTimeText": "10 min",
                 "citationCountText": "39",
                 "bibliographyIds": [
                   "murray-li-sastry-1994",
@@ -77079,7 +77235,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/grasp-wrench-lab.tsx:aria-label:1 hashes to 5d5588b4d851728d8ff5d24d8b82c0a1e430d57412663d46b28d96df931512b7 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member expression:components/interactive/grasp-wrench-lab.tsx:aria-label:1 moved from 5d5588b4d851728d8ff5d24d8b82c0a1e430d57412663d46b28d96df931512b7 to f90ac31d67814105685ec44a04b6c1a2e0ad7ea07fafdb4ff705fa91192d81a2 exactly as approved delta reader-first-20261007-name-grasp-wrench-lab-expression-aria-label-1 permits: Reader-first rewrite of the grasp wrench lab (VAL-OPUS-138): the friction slider now prints the plain label Surface with slippery and grippy ends, so its accessible name restates that label before the friction coefficient mu and its current value. The coefficient, its range, step and default are unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -77091,9 +77247,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:1",
           "baselineHash": "5d5588b4d851728d8ff5d24d8b82c0a1e430d57412663d46b28d96df931512b7",
-          "currentHash": "5d5588b4d851728d8ff5d24d8b82c0a1e430d57412663d46b28d96df931512b7",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "f90ac31d67814105685ec44a04b6c1a2e0ad7ea07fafdb4ff705fa91192d81a2",
+          "status": "approved-delta",
+          "approvedDelta": "reader-first-20261007-name-grasp-wrench-lab-expression-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -77135,7 +77291,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/grasp-wrench-lab.tsx:aria-label:3 hashes to a47a3268a408a79b507476a215c63dc17712003d1b56eb72d816d485a53abc02 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member expression:components/interactive/grasp-wrench-lab.tsx:aria-label:3 moved from a47a3268a408a79b507476a215c63dc17712003d1b56eb72d816d485a53abc02 to 8db47a681abd06d114fe56a1568f1c469fed5e6f54f8cec129123db56c619546 exactly as approved delta reader-first-20261007-name-grasp-wrench-lab-expression-aria-label-3 permits: Reader-first rewrite of the grasp wrench lab (VAL-OPUS-142): the stage now draws the box from above with eight test pushes around it, each drawn as resisted or slipping, so its accessible name reports how many of the eight pushes the current fingertips resist. The contact positions, friction cones and force-closure test are unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -77147,9 +77303,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:3",
           "baselineHash": "a47a3268a408a79b507476a215c63dc17712003d1b56eb72d816d485a53abc02",
-          "currentHash": "a47a3268a408a79b507476a215c63dc17712003d1b56eb72d816d485a53abc02",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "8db47a681abd06d114fe56a1568f1c469fed5e6f54f8cec129123db56c619546",
+          "status": "approved-delta",
+          "approvedDelta": "reader-first-20261007-name-grasp-wrench-lab-expression-aria-label-3"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -80907,6 +81063,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/calibration-chain.tsx:aria-label:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:literal:components/interactive/calibration-chain.tsx:aria-label:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:literal:components/interactive/calibration-chain.tsx:aria-label:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member literal:components/interactive/calibration-chain.tsx:aria-label:1 moved from null to 08f919b6e19dcc2a39efccd0b0e8998afdec08214254fee6f838d1ddc3635dc3 exactly as approved delta figure-mounts-20261007-name-calibration-chain-literal-aria-label-1 permits: New figure on the classical pass of 2026-10-07 (VAL-OPUS-138): this aria-label fixed text is new; it reads \"Side view of a robot arm with a camera on its wrist looking down at a box on a table. Arrows join five frames: robot base to wrist, wrist to camera, camera to object, and wrist to gripper tip.\". The name restates in plain words what the figure draws.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "literal:components/interactive/calibration-chain.tsx:aria-label:1",
+          "baselineHash": null,
+          "currentHash": "08f919b6e19dcc2a39efccd0b0e8998afdec08214254fee6f838d1ddc3635dc3",
+          "status": "approved-addition",
+          "approvedDelta": "figure-mounts-20261007-name-calibration-chain-literal-aria-label-1"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/comparison-matrix.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:literal:components/interactive/comparison-matrix.tsx:aria-label:1",
@@ -81574,6 +81758,34 @@
           "currentHash": "52137e870d1f3cdf8f62434958051f4001f9d40e03fb9c2e0c46e0d50a28da81",
           "status": "identical",
           "approvedDelta": null
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/ros2-policy-layout.tsx:aria-label:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:literal:components/interactive/ros2-policy-layout.tsx:aria-label:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:literal:components/interactive/ros2-policy-layout.tsx:aria-label:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member literal:components/interactive/ros2-policy-layout.tsx:aria-label:1 moved from null to 2db0dce22515166adddb64f7a7a595f1bf31ae019e41461fe85b38b335d5bdb7 exactly as approved delta figure-mounts-20261007-name-ros2-policy-layout-literal-aria-label-1 permits: New figure on the classical pass of 2026-10-07 (VAL-OPUS-138): this aria-label fixed text is new; it reads \"ROS 2 graph for a learned policy, top to bottom: camera and joint drivers, state assembly reading the tf2 frame tree, policy server, command gate, controller bridge and robot hardware. A supervisor takes the task goal and starts or stops the policy server, command gate and controller bridge.\". The name restates in plain words what the figure draws.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "literal:components/interactive/ros2-policy-layout.tsx:aria-label:1",
+          "baselineHash": null,
+          "currentHash": "2db0dce22515166adddb64f7a7a595f1bf31ae019e41461fe85b38b335d5bdb7",
+          "status": "approved-addition",
+          "approvedDelta": "figure-mounts-20261007-name-ros2-policy-layout-literal-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -113563,7 +113775,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/calibration moved from null to e02ea903741fd71a0362a99dc60626b3bbc4ba805b4535067cc841e8bc1d9e92 exactly as approved delta domain-pass-20261006-g8-prose-calibration permits: Domain pass of 2026-10-06 on classical/calibration: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). The classical/rl-sim2real pre-audit of 2026-10-06 is folded in: the Tsai and Lenz operation count \"100+64N\", a formula printed as plain text, is typeset as inline math ($100 + 64N$) so it carries MathML and a TeX annotation, and the sentence names N as the number of robot stations, as the source abstract does (\"about 100+64N arithmetic operations ... and incurs only additional 64 arithmetic operations for each additional station\"). No number, citation or claim changes. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "prose member article:classical/calibration moved from null to ce5510613284f52312bf7182459871dd3b4503220200977b13e78079f5ccf125 exactly as approved delta figure-mounts-20261007-prose-calibration permits: Classical pass of 2026-10-07 on classical/calibration: mounts the new CalibrationChain figure where the prose introduces it, as one import line and one mount line recorded by the figure-mount continuity layer of 2026-10-07. No prose, number or citation changes; this edge moves the prose member from its domain-pass endpoint to the mounted text.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -113575,9 +113787,9 @@
           "manifest": "prose",
           "member": "article:classical/calibration",
           "baselineHash": null,
-          "currentHash": "e02ea903741fd71a0362a99dc60626b3bbc4ba805b4535067cc841e8bc1d9e92",
+          "currentHash": "ce5510613284f52312bf7182459871dd3b4503220200977b13e78079f5ccf125",
           "status": "approved-addition",
-          "approvedDelta": "domain-pass-20261006-g8-prose-calibration"
+          "approvedDelta": "figure-mounts-20261007-prose-calibration"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -113731,7 +113943,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/ros2-for-ml-engineers moved from null to f2efaa4f1407ab9641e61a07c8e16501a9cc4a09adf3650235294e0205d38201 exactly as approved delta domain-pass-20261006-g8-prose-ros2-for-ml-engineers permits: Domain pass of 2026-10-06 on classical/ros2-for-ml-engineers: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/classical.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes.",
+      "actual": "prose member article:classical/ros2-for-ml-engineers moved from null to a697dbdb64d64b29ce5f876e2d696ced100a3cd855a408099e43576a68970b3c exactly as approved delta figure-mounts-20261007-prose-ros2-for-ml-engineers permits: Classical pass of 2026-10-07 on classical/ros2-for-ml-engineers: mounts the new Ros2PolicyLayout figure where the prose introduces it, as one import line and one mount line recorded by the figure-mount continuity layer of 2026-10-07. No prose, number or citation changes; this edge moves the prose member from its domain-pass endpoint to the mounted text.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -113743,9 +113955,9 @@
           "manifest": "prose",
           "member": "article:classical/ros2-for-ml-engineers",
           "baselineHash": null,
-          "currentHash": "f2efaa4f1407ab9641e61a07c8e16501a9cc4a09adf3650235294e0205d38201",
+          "currentHash": "a697dbdb64d64b29ce5f876e2d696ced100a3cd855a408099e43576a68970b3c",
           "status": "approved-addition",
-          "approvedDelta": "domain-pass-20261006-g8-prose-ros2-for-ml-engineers"
+          "approvedDelta": "figure-mounts-20261007-prose-ros2-for-ml-engineers"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -117120,7 +117332,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/calibration/ ships 79 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 79 outbound anchor occurrences on it with a visible focus ring in 190 stops",
+      "actual": "/classical/calibration/ ships 82 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 82 outbound anchor occurrences on it with a visible focus ring in 196 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -117128,18 +117340,19 @@
         "kind": "browser-state",
         "computed": {
           "route": "/classical/calibration/",
-          "outboundAnchors": 79,
+          "outboundAnchors": 82,
           "distinctHrefs": 41,
           "shapes": [
             "citation-chip",
+            "figure-credit",
             "footer",
             "other",
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 76,
-          "reachedByTab": 79,
-          "tabStops": 190,
+          "reachedByTab": 82,
+          "tabStops": 196,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -117195,7 +117408,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/grasp-planning/ ships 100 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 100 outbound anchor occurrences on it with a visible focus ring in 239 stops",
+      "actual": "/classical/grasp-planning/ ships 100 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 100 outbound anchor occurrences on it with a visible focus ring in 233 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -117214,7 +117427,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 97,
           "reachedByTab": 100,
-          "tabStops": 239,
+          "tabStops": 233,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -117345,7 +117558,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/ros2-for-ml-engineers/ ships 73 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 73 outbound anchor occurrences on it with a visible focus ring in 180 stops",
+      "actual": "/classical/ros2-for-ml-engineers/ ships 80 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 80 outbound anchor occurrences on it with a visible focus ring in 189 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -117353,18 +117566,19 @@
         "kind": "browser-state",
         "computed": {
           "route": "/classical/ros2-for-ml-engineers/",
-          "outboundAnchors": 73,
+          "outboundAnchors": 80,
           "distinctHrefs": 36,
           "shapes": [
             "citation-chip",
+            "figure-credit",
             "footer",
             "other",
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 70,
-          "reachedByTab": 73,
-          "tabStops": 180,
+          "reachedByTab": 80,
+          "tabStops": 189,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -132865,6 +133079,7 @@
             "components/explainers/how-robots-work.tsx",
             "components/home/contents-index.tsx",
             "components/home/did-you-know.tsx",
+            "components/interactive/calibration-chain.tsx",
             "components/interactive/comparison-matrix.tsx",
             "components/interactive/cross-embodiment-strategies.tsx",
             "components/interactive/data-scale-chart.tsx",
@@ -132876,6 +133091,7 @@
             "components/interactive/hierarchy-timescales.tsx",
             "components/interactive/mot-insulation.tsx",
             "components/interactive/pi-generation-timeline.tsx",
+            "components/interactive/ros2-policy-layout.tsx",
             "components/interactive/teleop-rig-matrix.tsx",
             "components/market-map/company-card.tsx",
             "components/market-map/funding-timeline.tsx",
@@ -141848,7 +142064,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6340 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6382 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -142274,7 +142490,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/calibration/ rendered no v1 identity spelling and no v1 descriptor in 33323 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/calibration/ rendered no v1 identity spelling and no v1 descriptor in 34651 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -142368,7 +142584,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/grasp-planning/ rendered no v1 identity spelling and no v1 descriptor in 40969 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/grasp-planning/ rendered no v1 identity spelling and no v1 descriptor in 39837 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -142556,7 +142772,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/ros2-for-ml-engineers/ rendered no v1 identity spelling and no v1 descriptor in 29213 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/ros2-for-ml-engineers/ rendered no v1 identity spelling and no v1 descriptor in 30897 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -212403,8 +212619,8 @@
               "id": "/classical/calibration/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 12,
-                "controlsInProse": 1,
+                "interfaceControlCount": 14,
+                "controlsInProse": 3,
                 "registrationLabelCount": 4
               }
             }
@@ -212479,8 +212695,8 @@
               "id": "/classical/grasp-planning/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 16,
-                "controlsInProse": 5,
+                "interfaceControlCount": 18,
+                "controlsInProse": 7,
                 "registrationLabelCount": 4
               }
             }
@@ -212631,8 +212847,8 @@
               "id": "/classical/ros2-for-ml-engineers/",
               "observed": {
                 "monoRequiredCount": 13,
-                "interfaceControlCount": 11,
-                "controlsInProse": 1,
+                "interfaceControlCount": 13,
+                "controlsInProse": 3,
                 "registrationLabelCount": 4
               }
             }
@@ -217263,7 +217479,7 @@
               "id": "/classical/calibration/",
               "observed": {
                 "paragraphCount": 26,
-                "registeredFrameParagraphCount": 4,
+                "registeredFrameParagraphCount": 8,
                 "offendingFamilies": []
               }
             }
@@ -217337,7 +217553,7 @@
               "id": "/classical/grasp-planning/",
               "observed": {
                 "paragraphCount": 44,
-                "registeredFrameParagraphCount": 6,
+                "registeredFrameParagraphCount": 16,
                 "offendingFamilies": []
               }
             }
@@ -217485,7 +217701,7 @@
               "id": "/classical/ros2-for-ml-engineers/",
               "observed": {
                 "paragraphCount": 26,
-                "registeredFrameParagraphCount": 4,
+                "registeredFrameParagraphCount": 8,
                 "offendingFamilies": []
               }
             }
@@ -246597,6 +246813,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -246635,6 +246852,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -246667,6 +246885,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -246705,6 +246924,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -246737,6 +246957,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -246775,6 +246996,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -246807,6 +247029,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -246845,6 +247068,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -246877,6 +247101,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -246915,6 +247140,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -246947,6 +247173,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -246985,6 +247212,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -247017,6 +247245,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -247055,6 +247284,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -247087,6 +247317,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -247125,6 +247356,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -247157,6 +247389,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -247195,6 +247428,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -247227,6 +247461,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -247265,6 +247500,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -247297,6 +247533,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -247335,6 +247572,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -247364,12 +247602,14 @@
       "populationMemberId": "population:contract/brand-v2-registries.json#interactive.mounts",
       "coveredPopulationMemberIds": [
         "mount:/adjacent/drones/:PerceptionLatency:1",
+        "mount:/classical/calibration/:CalibrationChain:1",
         "mount:/classical/control/:ImpedanceContactLab:1",
         "mount:/classical/control/:PendulumController:1",
         "mount:/classical/grasp-planning/:GraspWrenchLab:1",
         "mount:/classical/kinematics/:PlanarFkArm:1",
         "mount:/classical/motion-planning/:RrtExplorer:1",
         "mount:/classical/perception/:PerceptionErrorBudget:1",
+        "mount:/classical/ros2-for-ml-engineers/:Ros2PolicyLayout:1",
         "mount:/classical/scene-representation/:SceneRepresentationLadder:1",
         "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
         "mount:/data-hardware/datasets/:DatasetTable:1",
@@ -247436,6 +247676,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -247474,6 +247715,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -247574,6 +247816,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -247612,6 +247855,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",
@@ -247644,6 +247888,7 @@
         "interactive:ActionTokenization",
         "interactive:AdvantageScrubber",
         "interactive:AppearancePhysicsPush",
+        "interactive:CalibrationChain",
         "interactive:ChunkSizeCurve",
         "interactive:CollaborativeOperationModes",
         "interactive:ComparisonMatrix",
@@ -247682,6 +247927,7 @@
         "interactive:RecedingHorizon",
         "interactive:ReliabilityCompounding",
         "interactive:RewardShaping",
+        "interactive:Ros2PolicyLayout",
         "interactive:RrtExplorer",
         "interactive:SampleEfficiencyLedger",
         "interactive:SceneRepresentationLadder",

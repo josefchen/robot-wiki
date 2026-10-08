@@ -214,6 +214,20 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: 'The grasp wrench hull of 3 contacts currently reports force closure yes with Ferrari-Canny quality epsilon 0.444; that radius is the largest origin-centered wrench ball that still fits inside the hull.',
   },
   {
+    component: 'CalibrationChain',
+    file: 'components/interactive/calibration-chain.tsx',
+    route: '/classical/calibration/',
+    quantityNames: ['links', 'error'],
+    text: "Four calibrated links join the robot base to the box its camera sees: calibration cut a humanoid's error 2.3-fold, a wrist camera's drawing values were off by up to 10.56 mm and 1.74 degrees, a Kinect's depth error reaches about 4 cm, and the tool offset has no sourced error.",
+  },
+  {
+    component: 'Ros2PolicyLayout',
+    file: 'components/interactive/ros2-policy-layout.tsx',
+    route: '/classical/ros2-for-ml-engineers/',
+    quantityNames: ['nodes', 'messages'],
+    text: 'Six ROS 2 nodes run top to bottom from camera and joint drivers to the controller bridge; sensor topics use best effort, proposed actions travel reliably with the last 10 messages kept, a tf2 lookup waits up to 50 ms, and only the command gate publishes commands.',
+  },
+  {
     component: 'RrtExplorer',
     file: 'components/interactive/rrt-explorer.tsx',
     route: '/classical/motion-planning/',

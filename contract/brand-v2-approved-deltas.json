@@ -66542,6 +66542,168 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "reader-first-20261007-name-grasp-wrench-lab-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:1",
+      "oldHash": "5d5588b4d851728d8ff5d24d8b82c0a1e430d57412663d46b28d96df931512b7",
+      "newHash": "f90ac31d67814105685ec44a04b6c1a2e0ad7ea07fafdb4ff705fa91192d81a2",
+      "reason": "Reader-first rewrite of the grasp wrench lab (VAL-OPUS-138): the friction slider now prints the plain label Surface with slippery and grippy ends, so its accessible name restates that label before the friction coefficient mu and its current value. The coefficient, its range, step and default are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "reader-first-20261007-name-grasp-wrench-lab-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:3",
+      "oldHash": "a47a3268a408a79b507476a215c63dc17712003d1b56eb72d816d485a53abc02",
+      "newHash": "8db47a681abd06d114fe56a1568f1c469fed5e6f54f8cec129123db56c619546",
+      "reason": "Reader-first rewrite of the grasp wrench lab (VAL-OPUS-142): the stage now draws the box from above with eight test pushes around it, each drawn as resisted or slipping, so its accessible name reports how many of the eight pushes the current fingertips resist. The contact positions, friction cones and force-closure test are unchanged.",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "responsibleMilestone": "opus-pass"
+    },
+    {
+      "id": "figure-mounts-20261007-prose-calibration",
+      "manifest": "prose",
+      "memberId": "article:classical/calibration",
+      "oldHash": "e02ea903741fd71a0362a99dc60626b3bbc4ba805b4535067cc841e8bc1d9e92",
+      "newHash": "ce5510613284f52312bf7182459871dd3b4503220200977b13e78079f5ccf125",
+      "reason": "Classical pass of 2026-10-07 on classical/calibration: mounts the new CalibrationChain figure where the prose introduces it, as one import line and one mount line recorded by the figure-mount continuity layer of 2026-10-07. No prose, number or citation changes; this edge moves the prose member from its domain-pass endpoint to the mounted text.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md): calibration and ROS 2 for ML engineers are the only classical articles with no visual, so each gains one graphite-stage figure, the calibration chain and the six-node policy layout, on the one figure system of owner-visual-audit-20260929.md (VAL-OPUS-057) and at the reader-first bar (VAL-OPUS-137 to VAL-OPUS-145). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "figure-mounts-20261007-prose-ros2-for-ml-engineers",
+      "manifest": "prose",
+      "memberId": "article:classical/ros2-for-ml-engineers",
+      "oldHash": "f2efaa4f1407ab9641e61a07c8e16501a9cc4a09adf3650235294e0205d38201",
+      "newHash": "a697dbdb64d64b29ce5f876e2d696ced100a3cd855a408099e43576a68970b3c",
+      "reason": "Classical pass of 2026-10-07 on classical/ros2-for-ml-engineers: mounts the new Ros2PolicyLayout figure where the prose introduces it, as one import line and one mount line recorded by the figure-mount continuity layer of 2026-10-07. No prose, number or citation changes; this edge moves the prose member from its domain-pass endpoint to the mounted text.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md): calibration and ROS 2 for ML engineers are the only classical articles with no visual, so each gains one graphite-stage figure, the calibration chain and the six-node policy layout, on the one figure system of owner-visual-audit-20260929.md (VAL-OPUS-057) and at the reader-first bar (VAL-OPUS-137 to VAL-OPUS-145). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "figure-mounts-20261007-interactive-sources-mounts-calibration-CalibrationChain-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/classical/calibration.mdx:CalibrationChain:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "1ceacd157eb988f26cc471dbd8f28c07cce686d1addf4e3273e52f1da8330b41",
+      "reason": "New mount of the CalibrationChain figure on classical/calibration, after the paragraph that introduces the calibration chain. The figure is new, so the member has no prior endpoint.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md): calibration and ROS 2 for ML engineers are the only classical articles with no visual, so each gains one graphite-stage figure, the calibration chain and the six-node policy layout, on the one figure system of owner-visual-audit-20260929.md (VAL-OPUS-057) and at the reader-first bar (VAL-OPUS-137 to VAL-OPUS-145). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "figure-mounts-20261007-interactive-sources-mounts-ros2-for-ml-engineers-Ros2PolicyLayout-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/classical/ros2-for-ml-engineers.mdx:Ros2PolicyLayout:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8abff6a2ef27802d5b46b29fdf6248e2b2d491e0c3f002f387801f1e70fbabe7",
+      "reason": "New mount of the Ros2PolicyLayout figure on classical/ros2-for-ml-engineers, after the paragraph that introduces the production policy layout. The figure is new, so the member has no prior endpoint.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md): calibration and ROS 2 for ML engineers are the only classical articles with no visual, so each gains one graphite-stage figure, the calibration chain and the six-node policy layout, on the one figure system of owner-visual-audit-20260929.md (VAL-OPUS-057) and at the reader-first bar (VAL-OPUS-137 to VAL-OPUS-145). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "figure-mounts-20261007-interactive-sources-mounts-source-calibration-chain",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/calibration-chain.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "af4e161cec6922d062508284fa319523f19d44e1cf4708aaa33e6ddec0f09ea8",
+      "reason": "New figure source: the calibration chain drawn as a graph of robot and camera links, each labelled with an error a cited study measured, on the figure system with its chart description and citations.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md): calibration and ROS 2 for ML engineers are the only classical articles with no visual, so each gains one graphite-stage figure, the calibration chain and the six-node policy layout, on the one figure system of owner-visual-audit-20260929.md (VAL-OPUS-057) and at the reader-first bar (VAL-OPUS-137 to VAL-OPUS-145). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "figure-mounts-20261007-interactive-sources-mounts-source-ros2-policy-layout",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/ros2-policy-layout.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "89cef433e3eef3cdf520a57b18a56903a61c7d5df805d22a6e6e541007dd32f1",
+      "reason": "New figure source: six ROS 2 nodes of a production policy layout with their topic, command and lifecycle edges, on the figure system with its chart description and citations.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md): calibration and ROS 2 for ML engineers are the only classical articles with no visual, so each gains one graphite-stage figure, the calibration chain and the six-node policy layout, on the one figure system of owner-visual-audit-20260929.md (VAL-OPUS-057) and at the reader-first bar (VAL-OPUS-137 to VAL-OPUS-145). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "figure-mounts-20261007-name-calibration-chain-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/calibration-chain.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "08f919b6e19dcc2a39efccd0b0e8998afdec08214254fee6f838d1ddc3635dc3",
+      "reason": "New figure on the classical pass of 2026-10-07 (VAL-OPUS-138): this aria-label fixed text is new; it reads \"Side view of a robot arm with a camera on its wrist looking down at a box on a table. Arrows join five frames: robot base to wrist, wrist to camera, camera to object, and wrist to gripper tip.\". The name restates in plain words what the figure draws.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md): calibration and ROS 2 for ML engineers are the only classical articles with no visual, so each gains one graphite-stage figure, the calibration chain and the six-node policy layout, on the one figure system of owner-visual-audit-20260929.md (VAL-OPUS-057) and at the reader-first bar (VAL-OPUS-137 to VAL-OPUS-145). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "figure-mounts-20261007-name-ros2-policy-layout-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/ros2-policy-layout.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2db0dce22515166adddb64f7a7a595f1bf31ae019e41461fe85b38b335d5bdb7",
+      "reason": "New figure on the classical pass of 2026-10-07 (VAL-OPUS-138): this aria-label fixed text is new; it reads \"ROS 2 graph for a learned policy, top to bottom: camera and joint drivers, state assembly reading the tf2 frame tree, policy server, command gate, controller bridge and robot hardware. A supervisor takes the task goal and starts or stops the policy server, command gate and controller bridge.\". The name restates in plain words what the figure draws.",
+      "ownerApproval": "Owner sweep of 2026-09-29 (validation/brand-v2-editorial/source-recovery-20260906/owner-sweep-20260929/classical.md): calibration and ROS 2 for ML engineers are the only classical articles with no visual, so each gains one graphite-stage figure, the calibration chain and the six-node policy layout, on the one figure system of owner-visual-audit-20260929.md (VAL-OPUS-057) and at the reader-first bar (VAL-OPUS-137 to VAL-OPUS-145). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-OPUS-138",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

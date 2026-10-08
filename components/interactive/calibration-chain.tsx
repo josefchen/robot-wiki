@@ -1,0 +1,477 @@
+'use client';
+
+import { useId } from 'react';
+import { useCitationLookup } from '@/components/article/citation-records';
+import { ChartDescription } from '@/components/ui/chart-description';
+import { InstrumentFigure, InstrumentLegend, LegendItem, PlotStage } from '@/components/ui/instrument';
+import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
+import {
+  CHART_STROKE,
+  CHART_STRUCTURE,
+  CHART_TYPE,
+  CHART_VIEW_WIDTH,
+  LegendSwatch,
+  StageAnnotation,
+  roleColour,
+  type ChartRole,
+} from '@/components/motion/chart';
+import { MOTION_STAGE } from '@/lib/motion-tokens';
+
+/**
+ * CalibrationChain: a side view of a robot arm with a wrist camera looking
+ * down at a box, drawn as a frame graph. Five dots are the frames (robot
+ * base, wrist, camera, gripper tip, object); the arrows between them are
+ * the links the robot chains to reach what it sees. The box's position
+ * comes through base, wrist, camera and object; the gripper is placed
+ * through base, wrist and gripper tip; so an error on any link moves the
+ * gripper relative to the box.
+ *
+ * Each link carries what sets it and, where a source reports one, the size
+ * of error that link has been measured to carry. The three numbers come
+ * from three different studies on three different robots and sensors, so
+ * the stage labels itself a schematic and "How this was made" holds every
+ * number, its source and its caveat.
+ *
+ * The figure is static: no controls and a deterministic render.
+ */
+
+const VIEW_W = CHART_VIEW_WIDTH;
+const VIEW_H = 412;
+/**
+ * Baseline step between stacked stage lines, in ems: stage text holds its
+ * CSS pixel size while the viewBox stretches, so a step in stage units
+ * would pull a callout's lines apart on a wide stage.
+ */
+const LINE_EM = 1.25;
+
+/** Round every rendered geometry value: SSR HTML and hydration agree. */
+const f = (v: number) => Number(v.toFixed(2));
+
+type Point = { x: number; y: number };
+type Anchor = 'start' | 'middle' | 'end';
+type FrameId = 'base' | 'wrist' | 'camera' | 'tip' | 'object';
+type PathKind = 'robot' | 'camera';
+
+/** The five frames: where each dot sits and where its name is written. */
+const FRAMES: Record<FrameId, Point & { label: string; lx: number; ly: number; anchor: Anchor }> = {
+  base: { x: 30, y: 368, label: 'robot base', lx: 56, ly: 392, anchor: 'start' },
+  wrist: { x: 168, y: 150, label: 'wrist', lx: 158, ly: 140, anchor: 'end' },
+  camera: { x: 218, y: 130, label: 'camera', lx: 238, ly: 128, anchor: 'start' },
+  tip: { x: 168, y: 204, label: 'gripper tip', lx: 150, ly: 212, anchor: 'end' },
+  object: { x: 268, y: 370, label: 'object', lx: 268, ly: 393, anchor: 'middle' },
+};
+
+/** The arm's joints between the base and the wrist. */
+const SHOULDER: Point = { x: 30, y: 352 };
+const ELBOW: Point = { x: 44, y: 190 };
+const TABLE_Y = 400;
+const BOX = { x: 236, y: 344, w: 64, h: TABLE_Y - 344 };
+const PEDESTAL = { x: 14, w: 32 };
+
+type Callout = {
+  /** Where the anchored line's baseline sits; the other lines stack from it. */
+  x: number;
+  y: number;
+  anchor: Anchor;
+  /**
+   * The line held at `y`. A callout whose leader leaves from below holds its
+   * last line, so the leader stays attached at every stage width.
+   */
+  hold?: 'first' | 'last';
+  /** What sets the link, one entry per line. */
+  name: readonly string[];
+  /** The error note under the name, one entry per line. */
+  note: readonly string[];
+  /** A leader from the callout to a point on the link, when it sits apart. */
+  leader?: { from: Point; to: Point };
+};
+
+type Link = {
+  id: string;
+  from: FrameId;
+  to: FrameId;
+  /** Joints the arrow passes through between its two frames. */
+  via?: readonly Point[];
+  path: PathKind;
+  /** What sets this link, in plain words. */
+  sets: string;
+  callout: Callout;
+  /** The source behind the error note, when one reports a number. */
+  citationId?: string;
+  /** The finding in full, for "How this was made". */
+  finding: string;
+  /** The measured error, for the method table. */
+  error: string;
+};
+
+const LINKS: readonly Link[] = [
+  {
+    id: 'base-wrist',
+    from: 'base',
+    to: 'wrist',
+    via: [SHOULDER, ELBOW],
+    path: 'robot',
+    sets: 'joint readings and link lengths',
+    callout: {
+      x: 8,
+      y: 34,
+      anchor: 'start',
+      hold: 'last',
+      name: ['joint readings and link lengths'],
+      note: ["calibration cut a humanoid's error 2.3-fold"],
+      leader: { from: { x: 14, y: 42 }, to: ELBOW },
+    },
+    citationId: 'humanoid-geometric-calibration-2025',
+    finding:
+      "Nguyen and colleagues calibrated a humanoid from 31 chosen postures and cut its RMS error 2.3-fold against the manufacturer's model.",
+    error: 'RMS error cut 2.3-fold by calibration',
+  },
+  {
+    id: 'wrist-camera',
+    from: 'wrist',
+    to: 'camera',
+    path: 'camera',
+    sets: 'hand-eye calibration',
+    callout: {
+      x: 332,
+      y: 82,
+      anchor: 'end',
+      hold: 'last',
+      name: ['hand-eye calibration'],
+      note: ['drawing values off by up to 10.56 mm'],
+      leader: { from: { x: 196, y: 88 }, to: { x: 193, y: 140 } },
+    },
+    citationId: 'omnicalib-2026',
+    finding:
+      'OmniCalib found the CAD values for a wrist camera off by up to 10.56 mm and 1.74 degrees, and writes back only the corrections its observability checks support.',
+    error: 'up to 10.56 mm and 1.74 degrees from CAD',
+  },
+  {
+    id: 'camera-object',
+    from: 'camera',
+    to: 'object',
+    path: 'camera',
+    sets: 'what the camera measures',
+    callout: {
+      x: 244,
+      y: 306,
+      anchor: 'end',
+      name: ['what the camera measures'],
+      note: ['depth noise up to about 4 cm'],
+    },
+    citationId: 'khoshelham-kinect-2012',
+    finding:
+      'Khoshelham and Oude Elberink found that a Kinect depth sensor’s random depth error grows from a few millimetres to about 4 cm at its maximum range.',
+    error: 'random depth error up to about 4 cm',
+  },
+  {
+    id: 'wrist-tip',
+    from: 'wrist',
+    to: 'tip',
+    path: 'robot',
+    sets: 'tool offset',
+    callout: {
+      x: 232,
+      y: 236,
+      anchor: 'end',
+      name: ['tool offset'],
+      note: ['checked by touching one', 'point from several angles'],
+      leader: { from: { x: 206, y: 219 }, to: { x: 171, y: 186 } },
+    },
+    finding:
+      'No source here reports a measured error for the tool offset. It is checked by touching one point with the gripper tip from several angles.',
+    error: 'no sourced error; checked by touching one point from several angles',
+  },
+];
+
+/** Which role and series each path is drawn in. */
+const PATH_ROLE: Record<PathKind, ChartRole> = { robot: 'action', camera: 'measurement' };
+const PATH_SERIES: Record<PathKind, string> = { robot: 'robot-links', camera: 'camera-links' };
+
+const DOT_R = CHART_STROKE.markerRadius;
+/** Arrows stop this far from a frame's centre, so every dot stays visible. */
+const DOT_GAP = DOT_R + 3;
+const HEAD_LEN = 8;
+const HEAD_HALF = 4;
+const ARM_W = 12;
+const JOINT_R = 6;
+
+const ink = CHART_STRUCTURE.label;
+const graphite = CHART_STRUCTURE.labelSecondary;
+const concrete = CHART_STRUCTURE.grid;
+const paper = MOTION_STAGE.background;
+
+/** A point `d` units from `a` towards `b`. */
+function toward(a: Point, b: Point, d: number): Point {
+  const len = Math.hypot(b.x - a.x, b.y - a.y);
+  return { x: a.x + ((b.x - a.x) / len) * d, y: a.y + ((b.y - a.y) / len) * d };
+}
+
+/** A link's shaft and arrowhead, both clear of the frame dots at its ends. */
+function linkArrow(link: Link) {
+  const pts = [FRAMES[link.from], ...(link.via ?? []), FRAMES[link.to]];
+  const first = toward(pts[0], pts[1], DOT_GAP);
+  const tip = toward(pts[pts.length - 1], pts[pts.length - 2], DOT_GAP);
+  const base = toward(tip, pts[pts.length - 2], HEAD_LEN);
+  const nx = (tip.y - base.y) / HEAD_LEN;
+  const ny = -(tip.x - base.x) / HEAD_LEN;
+  const shaft = [first, ...pts.slice(1, -1), base].map((p) => `${f(p.x)} ${f(p.y)}`).join(' L ');
+  return {
+    shaft: `M ${shaft}`,
+    head: `M ${f(tip.x)} ${f(tip.y)} L ${f(base.x + nx * HEAD_HALF)} ${f(base.y + ny * HEAD_HALF)} L ${f(base.x - nx * HEAD_HALF)} ${f(base.y - ny * HEAD_HALF)} Z`,
+  };
+}
+
+/** The robot, camera, box and table in greys: context under the links. */
+function Scene() {
+  const { base, wrist, camera, tip } = FRAMES;
+  const lens = { x: camera.x, y: camera.y + 12 };
+  return (
+    <g data-scene="robot">
+      <line x1={8} y1={TABLE_Y} x2={VIEW_W - 8} y2={TABLE_Y} stroke={graphite} strokeWidth={CHART_STROKE.trace} />
+      <rect x={PEDESTAL.x} y={base.y} width={PEDESTAL.w} height={TABLE_Y - base.y} fill={concrete} />
+      <path
+        d={`M ${base.x} ${base.y} L ${SHOULDER.x} ${SHOULDER.y} L ${ELBOW.x} ${ELBOW.y} L ${wrist.x} ${wrist.y}`}
+        fill="none"
+        stroke={concrete}
+        strokeWidth={ARM_W}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <line x1={wrist.x} y1={wrist.y} x2={camera.x} y2={camera.y} stroke={concrete} strokeWidth={ARM_W / 2} />
+      {[SHOULDER, ELBOW].map((joint) => (
+        <circle
+          key={`${joint.x}-${joint.y}`}
+          cx={joint.x}
+          cy={joint.y}
+          r={JOINT_R}
+          fill={paper}
+          stroke={graphite}
+          strokeWidth={CHART_STROKE.structure}
+        />
+      ))}
+      <g data-scene-part="gripper" fill="none" stroke={graphite} strokeLinecap="round">
+        <path d={`M ${wrist.x} ${wrist.y} V ${wrist.y + 14}`} strokeWidth={6} />
+        <path d={`M ${wrist.x - 13} ${wrist.y + 14} H ${wrist.x + 13}`} strokeWidth={4} />
+        <path
+          d={`M ${wrist.x - 12} ${wrist.y + 14} V ${tip.y - 2} M ${wrist.x + 12} ${wrist.y + 14} V ${tip.y - 2}`}
+          strokeWidth={3}
+        />
+      </g>
+      <g data-scene-part="camera">
+        <rect x={camera.x - 14} y={camera.y - 10} width={28} height={20} rx={2} fill={paper} stroke={graphite} strokeWidth={CHART_STROKE.trace} />
+        <rect x={lens.x - 5} y={lens.y - 2} width={10} height={4} fill={graphite} />
+      </g>
+      <rect x={BOX.x} y={BOX.y} width={BOX.w} height={BOX.h} fill={concrete} stroke={graphite} strokeWidth={CHART_STROKE.structure} />
+    </g>
+  );
+}
+
+/** A link's label: what sets it in the path colour, then its error note. */
+function LinkCallout({ link }: { link: Link }) {
+  const { x, y, anchor, hold = 'first', name, note, leader } = link.callout;
+  const colour = roleColour(PATH_ROLE[link.path]);
+  const held = hold === 'last' ? name.length + note.length - 1 : 0;
+  const dy = (i: number) => `${f((i - held) * LINE_EM)}em`;
+  return (
+    <g data-link-label={link.id}>
+      {leader ? (
+        <line
+          x1={leader.from.x}
+          y1={leader.from.y}
+          x2={leader.to.x}
+          y2={leader.to.y}
+          stroke={graphite}
+          strokeWidth={CHART_STROKE.structure}
+        />
+      ) : null}
+      {name.map((line, i) => (
+        <text
+          key={`name-${line}`}
+          data-chart-label=""
+          data-chart-role={PATH_ROLE[link.path]}
+          x={x}
+          y={y}
+          dy={dy(i)}
+          textAnchor={anchor}
+          fontSize={CHART_TYPE.labelPx}
+          fontWeight={600}
+          fill={colour}
+        >
+          {line}
+        </text>
+      ))}
+      {note.map((line, i) => (
+        <text
+          key={`note-${line}`}
+          data-link-note={link.id}
+          x={x}
+          y={y}
+          dy={dy(name.length + i)}
+          textAnchor={anchor}
+          fontSize={CHART_TYPE.labelPx}
+          fill={graphite}
+        >
+          {line}
+        </text>
+      ))}
+    </g>
+  );
+}
+
+function RowSource({ id, lookup }: { id: string; lookup: ReturnType<typeof useCitationLookup> }) {
+  const record = lookup(id);
+  if (!record) return <span className="text-text-dim">not listed</span>;
+  return (
+    <a
+      data-brand-control-id="control:link-focus"
+      href={record.url}
+      target="_blank"
+      rel="noopener"
+      className="underline-offset-2"
+    >
+      {record.label}
+    </a>
+  );
+}
+
+/** The link's name in the method fold: "robot base to wrist". */
+const linkName = (link: Link) => `${FRAMES[link.from].label} to ${FRAMES[link.to].label}`;
+
+const DESCRIPTION =
+  "Four calibrated links join the robot base to the box its camera sees: calibration cut a humanoid's error 2.3-fold, a wrist camera's drawing values were off by up to 10.56 mm and 1.74 degrees, a Kinect's depth error reaches about 4 cm, and the tool offset has no sourced error.";
+
+export function CalibrationChain({ className }: { className?: string }) {
+  const uid = useId();
+  const descriptionId = `${uid}-description`;
+  const citationFor = useCitationLookup();
+  const target = FRAMES.object;
+
+  return (
+    <InstrumentFigure
+      figureId="calibration-chain"
+      className={className}
+      kicker="Calibration chain"
+      heading="An error in any link moves where the gripper lands"
+      stage={
+        <FigureStage
+          footer={
+            <>
+              <InstrumentLegend>
+                <LegendItem series="robot-links" swatch={<LegendSwatch role="action" mark="line" />}>
+                  the robot&apos;s own links, which place the gripper
+                </LegendItem>
+                <LegendItem series="camera-links" swatch={<LegendSwatch role="measurement" mark="line" />}>
+                  camera links, which find the box
+                </LegendItem>
+              </InstrumentLegend>
+              <StageStatus>Schematic: errors from three different studies, not one robot</StageStatus>
+            </>
+          }
+        >
+          <PlotStage
+            viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
+            aria-label="Side view of a robot arm with a camera on its wrist looking down at a box on a table. Arrows join five frames: robot base to wrist, wrist to camera, camera to object, and wrist to gripper tip."
+            aria-describedby={descriptionId}
+            data-testid="calibration-chain-stage"
+          >
+            <Scene />
+            {LINKS.map((link) => {
+              const { shaft, head } = linkArrow(link);
+              const colour = roleColour(PATH_ROLE[link.path]);
+              return (
+                <g
+                  key={link.id}
+                  data-series={PATH_SERIES[link.path]}
+                  data-chart-role={PATH_ROLE[link.path]}
+                  data-link={link.id}
+                >
+                  <path
+                    d={shaft}
+                    fill="none"
+                    stroke={colour}
+                    strokeWidth={CHART_STROKE.trace}
+                    strokeLinejoin="round"
+                  />
+                  <path d={head} fill={colour} />
+                </g>
+              );
+            })}
+            {(Object.keys(FRAMES) as FrameId[]).map((id) => {
+              const frame = FRAMES[id];
+              return (
+                <g key={id} data-frame={id}>
+                  <circle cx={frame.x} cy={frame.y} r={DOT_R} fill={ink} stroke={paper} strokeWidth={CHART_STROKE.structure} />
+                  <text
+                    data-chart-label=""
+                    x={frame.lx}
+                    y={frame.ly}
+                    textAnchor={frame.anchor}
+                    fontSize={CHART_TYPE.labelPx}
+                    fill={ink}
+                  >
+                    {frame.label}
+                  </text>
+                </g>
+              );
+            })}
+            {LINKS.map((link) => (
+              <LinkCallout key={link.id} link={link} />
+            ))}
+            <StageAnnotation
+              x={226}
+              y={352}
+              anchor="end"
+              lines={['The gripper must', 'reach this point']}
+              from={[230, 358]}
+              target={[target.x, target.y]}
+            />
+          </PlotStage>
+        </FigureStage>
+      }
+      caption="A robot reaches what its camera sees only through these links, so each one needs calibrating and checking."
+      method={
+        <>
+          <div>
+            The drawing is a schematic. Each dot is a frame, a place the robot keeps track of, and each
+            arrow is a link between two frames. To find the box, the robot chains robot base to wrist,
+            wrist to camera and camera to object. It places the gripper through robot base to wrist and
+            wrist to gripper tip. An error on any of these links moves where the gripper lands
+            relative to the box.
+          </div>
+          <div>
+            Each number comes from a different study and robot: a humanoid&apos;s kinematics, a wrist
+            camera&apos;s CAD values and a Kinect depth sensor. The numbers show the size of error each
+            link can carry, not one robot&apos;s error budget.
+          </div>
+          <ul className="list-disc space-y-1 pl-5" data-testid="calibration-chain-sources">
+            {LINKS.map((link) => (
+              <li key={link.id} data-link-source={link.id}>
+                <span className="font-medium">{linkName(link)}</span>, set by {link.sets}. {link.finding}
+                {link.citationId ? (
+                  <>
+                    {' '}Source: <RowSource id={link.citationId} lookup={citationFor} />.
+                  </>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+          <div>
+            The article recommends storing each calibration together with its residuals, the error left
+            over after calibrating.
+          </div>
+          <ChartDescription
+            id={descriptionId}
+            form="table"
+            open
+            summary="The four links and their measured errors"
+            description={DESCRIPTION}
+            rowHeader="link"
+            columns={[{ header: 'what sets it' }, { header: 'measured error' }]}
+            rows={LINKS.map((link) => ({ label: linkName(link), values: [link.sets, link.error] }))}
+          />
+        </>
+      }
+    />
+  );
+}

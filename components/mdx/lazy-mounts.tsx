@@ -38,6 +38,9 @@ export const AdvantageScrubber = dynamic(() =>
 export const AppearancePhysicsPush = dynamic(() =>
   import('@/components/interactive/appearance-physics-push').then((m) => m.AppearancePhysicsPush),
 );
+export const CalibrationChain = dynamic(() =>
+  import('@/components/interactive/calibration-chain').then((m) => m.CalibrationChain),
+);
 export const ChunkSizeCurve = dynamic(() =>
   import('@/components/interactive/chunk-size-curve').then((m) => m.ChunkSizeCurve),
 );
@@ -153,6 +156,9 @@ export const RewardShaping = dynamic(() =>
 );
 export const RrtExplorer = dynamic(() =>
   import('@/components/interactive/rrt-explorer').then((m) => m.RrtExplorer),
+);
+export const Ros2PolicyLayout = dynamic(() =>
+  import('@/components/interactive/ros2-policy-layout').then((m) => m.Ros2PolicyLayout),
 );
 export const SampleEfficiencyLedger = dynamic(() =>
   import('@/components/interactive/sample-efficiency-ledger').then((m) => m.SampleEfficiencyLedger),

@@ -4580,6 +4580,50 @@
         "fingerprint": "707f670027e1dbdd9fded208e7abac80e5b9fdb4e7d21820ff663e0213d4d09c"
       },
       {
+        "id": "interactive:CalibrationChain",
+        "component": "CalibrationChain",
+        "sourcePath": "components/interactive/calibration-chain.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "475ecca5972c12cee32e4af8959f5167137ff6bbda81114128d94ea48467a677"
+      },
+      {
         "id": "interactive:ChunkSizeCurve",
         "component": "ChunkSizeCurve",
         "sourcePath": "components/interactive/chunk-size-curve.tsx",
@@ -6895,6 +6939,50 @@
         "fingerprint": "24f7563202dad1a4f7f8fff97bbf7b3c1bc7aa11e7ab953f5e9d72906c7b493c"
       },
       {
+        "id": "interactive:Ros2PolicyLayout",
+        "component": "Ros2PolicyLayout",
+        "sourcePath": "components/interactive/ros2-policy-layout.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented unavailable witness"
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "2ee4c30f5dd3ab01cc31108b754d77ca4e052fec723cbde1c81be811909e8645"
+      },
+      {
         "id": "interactive:RrtExplorer",
         "component": "RrtExplorer",
         "sourcePath": "components/interactive/rrt-explorer.tsx",
@@ -7495,6 +7583,54 @@
         "fingerprint": "fd27b1ffec2405e1021db7a598d34025f74724558a6af112f492b5d4f7909ef4"
       },
       {
+        "id": "mount:/classical/calibration/:CalibrationChain:1",
+        "sourceId": "interactive:CalibrationChain",
+        "route": "/classical/calibration/",
+        "ownerPath": "content/classical/calibration.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "aaf129570a2b3a15f70a45efb098d091bf0d9a202add8e018ac7062a31f40bb4"
+      },
+      {
         "id": "mount:/classical/control/:ImpedanceContactLab:1",
         "sourceId": "interactive:ImpedanceContactLab",
         "route": "/classical/control/",
@@ -7877,6 +8013,54 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "3aeb5e135621120eabf56bb4a0d1c703b4ec357bcf8269f04308e1c6cb6e8b4b"
+      },
+      {
+        "id": "mount:/classical/ros2-for-ml-engineers/:Ros2PolicyLayout:1",
+        "sourceId": "interactive:Ros2PolicyLayout",
+        "route": "/classical/ros2-for-ml-engineers/",
+        "ownerPath": "content/classical/ros2-for-ml-engineers.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented unavailable witness"
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "ae6d07d33326bd7451bfdc081339952f16e84689ebd8a6daa3354978887ec792"
       },
       {
         "id": "mount:/classical/scene-representation/:SceneRepresentationLadder:1",
@@ -11493,6 +11677,7 @@
         "components/explainers/how-robots-work.tsx",
         "components/home/contents-index.tsx",
         "components/home/did-you-know.tsx",
+        "components/interactive/calibration-chain.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/data-scale-chart.tsx",
@@ -11504,6 +11689,7 @@
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/pi-generation-timeline.tsx",
+        "components/interactive/ros2-policy-layout.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/funding-timeline.tsx",
@@ -11540,6 +11726,7 @@
         "components/explainers/how-robots-work.tsx",
         "components/home/contents-index.tsx",
         "components/home/did-you-know.tsx",
+        "components/interactive/calibration-chain.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/data-scale-chart.tsx",
@@ -11551,6 +11738,7 @@
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/pi-generation-timeline.tsx",
+        "components/interactive/ros2-policy-layout.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/funding-timeline.tsx",
@@ -11586,7 +11774,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "8de6b8f8b1784c4d35b884ae8e87b962c3994d6f3fd7f1fc9920d24aa436108c"
+      "fingerprint": "39b82b32749d9e5fae2d61e64fde3e9952a1d90a543e5753d433db3a96dbeef8"
     },
     {
       "id": "control:segmented",
@@ -11795,5 +11983,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "22b275c0cab14d35807755d27a0be55dc1701775005a4dddd7f5a3069acdac4b"
+  "rootFingerprint": "ebbad43a90f62ea342108e19c4d476237bf5981c7ee537f8787745e77cc13400"
 }

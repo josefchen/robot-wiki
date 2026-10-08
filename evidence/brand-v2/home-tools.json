@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "f1bca344fadb31c4ef019bc21530cf3c8477c07593fd0b018ff7907411b3c407",
+  "fingerprint": "c29763fec15d51c99460a6549992f87d7ba5bb9e1becb07358fbabc35b43f2a1",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -25,7 +25,7 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 51,
+    "playingFrameRequests": 49,
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(36, 95, 255)",

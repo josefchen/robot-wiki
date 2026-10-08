@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "a3ce445f9d6974851deaa96402ae52c0a961f95c86c2b0099b247bf4d38a5db8",
+  "fingerprint": "57d1bd15f016fc3558816975ea29311bedcba76ce36409403272b35481bcbcb5",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -254,7 +254,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3289,
+      "visibleTextLength": 3310,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -1397,7 +1397,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16880,
+      "visibleTextLength": 17544,
       "route": "/classical/calibration/",
       "viewport": "1440x900"
     },
@@ -1651,7 +1651,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20703,
+      "visibleTextLength": 20137,
       "route": "/classical/grasp-planning/",
       "viewport": "1440x900"
     },
@@ -2159,7 +2159,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14825,
+      "visibleTextLength": 15667,
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "1440x900"
     },
@@ -9825,7 +9825,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3051,
+      "visibleTextLength": 3072,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10968,7 +10968,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16443,
+      "visibleTextLength": 17107,
       "route": "/classical/calibration/",
       "viewport": "375x812"
     },
@@ -11222,7 +11222,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20266,
+      "visibleTextLength": 19700,
       "route": "/classical/grasp-planning/",
       "viewport": "375x812"
     },
@@ -11730,7 +11730,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14388,
+      "visibleTextLength": 15230,
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "375x812"
     },

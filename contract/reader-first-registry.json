@@ -289,7 +289,7 @@
         "components/interactive/grasp-wrench-lab.tsx",
         "lib/grasp.ts"
       ],
-      "takeaway": ""
+      "takeaway": "Three fingertips placed well around a box hold it against a push from any direction."
     },
     {
       "id": "credits--temporal-ensembling",
@@ -718,6 +718,28 @@
         "scripts/motion/clips/kalman_episode.py"
       ],
       "takeaway": ""
+    },
+    {
+      "id": "classical--calibration--calibration-chain",
+      "route": "/classical/calibration/",
+      "mount": "mount:/classical/calibration/:CalibrationChain:1",
+      "figure": "calibration-chain",
+      "audit": null,
+      "sources": [
+        "components/interactive/calibration-chain.tsx"
+      ],
+      "takeaway": "An error in any link between the robot, its camera and its gripper moves where the gripper lands."
+    },
+    {
+      "id": "classical--ros2-for-ml-engineers--ros2-policy-layout",
+      "route": "/classical/ros2-for-ml-engineers/",
+      "mount": "mount:/classical/ros2-for-ml-engineers/:Ros2PolicyLayout:1",
+      "figure": "ros2-policy-layout",
+      "audit": null,
+      "sources": [
+        "components/interactive/ros2-policy-layout.tsx"
+      ],
+      "takeaway": "The learned model never drives the motors itself: its commands pass through one gate first."
     }
   ]
 }

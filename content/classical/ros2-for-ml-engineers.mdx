@@ -47,6 +47,8 @@ seeAlso:
   - "data-hardware/industrial-deployment"
 ---
 
+import { Ros2PolicyLayout } from '@/components/interactive/ros2-policy-layout';
+
 ROS 2 is the second generation of the Robot Operating System, a modular framework of freely available robot software, rebuilt from the ground up because ROS 1 lacked production-grade features <Cite id="ros2-science-robotics-2022" />. Lyrical Luth, the current long-term-support release, shipped on 22 May 2026 and is supported until May 2031 <Cite id="ros2-lyrical-2026" /> <Cite id="ros2-distributions-2026" />.
 
 <SelfCheck
@@ -103,6 +105,8 @@ rosbag2 records timestamped messages for replay, in MCAP by default since Iron I
 ## A production policy layout
 
 One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id="ros2-lifecycle-design-2015" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id="ros2-realtime-docs-2026" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id="ros2-executors-2026" />.
+
+<Ros2PolicyLayout className="my-6" />
 
 Lyrical's `rosidl::Buffer` lets a `uint8[]` field live in GPU memory without changing the .msg file <Cite id="ros2-buffer-backends-2026" />. NVIDIA deprecated its NITROS transport on 21 September 2026 in favor of `rosidl::Buffer` with a CUDA backend <Cite id="isaac-ros-nitros-2026" />, noting that host round-trips add latency and consume CPU and memory bandwidth <Cite id="isaac-ros-rosidl-buffer-2026" />.
 

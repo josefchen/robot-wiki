@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "d14671887753f6aa0d5a58cc7b2af8f476288aab1b658a88e37c17f3929f660f",
+  "fingerprint": "ddcd414dac7f63505579c4e28259d564563cac0c1750012483fb3bc1500476ba",
   "viewports": [
     "375x812",
     "1440x900"
@@ -276,8 +276,33 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16443,
-      "tables": [],
+      "visibleTextLength": 17107,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "The four links and their measured errors",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "The four links and their measured errors",
+            "clientWidth": 335,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [
         {
           "index": 0,
@@ -360,7 +385,19 @@
           "viewportOverflowPx": 0
         }
       ],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "The four links and their measured errors",
+          "tabIndex": 0,
+          "clientWidth": 335,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        }
+      ],
       "route": "/classical/calibration/",
       "viewport": "375x812"
     },
@@ -816,7 +853,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20266,
+      "visibleTextLength": 19700,
       "tables": [],
       "equations": [
         {
@@ -3150,7 +3187,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14388,
+      "visibleTextLength": 15230,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7504,8 +7541,33 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16880,
-      "tables": [],
+      "visibleTextLength": 17544,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "The four links and their measured errors",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "The four links and their measured errors",
+            "clientWidth": 715,
+            "scrollWidth": 715,
+            "scrolledBy": 0
+          },
+          "tableWidth": 715,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [
         {
           "index": 0,
@@ -7588,7 +7650,19 @@
           "viewportOverflowPx": 0
         }
       ],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "The four links and their measured errors",
+          "tabIndex": 0,
+          "clientWidth": 715,
+          "scrollWidth": 715,
+          "scrolledBy": 0
+        }
+      ],
       "route": "/classical/calibration/",
       "viewport": "1440x900"
     },
@@ -8044,7 +8118,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20703,
+      "visibleTextLength": 20137,
       "tables": [],
       "equations": [
         {
@@ -10378,7 +10452,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14825,
+      "visibleTextLength": 15667,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
