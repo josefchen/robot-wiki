@@ -32,17 +32,16 @@ describe('source-scoped autonomous and reset-free RL corrections', () => {
     for (const phrase of [
       'learning from raw sensory inputs',
       'manual resets for bead manipulation',
-      '**deployed-policy evaluation**',
-      '**continuing-policy evaluation**',
-      '`h - c(s,a) <= 0`',
-      'Interventions enter as constrained costs; the evaluation metric stays separate',
-      'scheduled resets during training',
-      'final deployed-policy returns',
+      'deployed-policy evaluation',
+      'continuing-policy evaluation',
+      'treats interventions as constrained costs',
+      'schedule resets during training',
+      'sums gaps to optimal deployment return over training',
       'designer-provided task graph',
       'motion capture',
       'scripted arm motion',
       'frozen fingers',
-      'coverage of every downstream starting state remains unproven',
+      'successful upstream tasks leave valid starting states for downstream ones',
     ]) expect(article).toContain(phrase);
     expect(article).not.toContain('missing pieces are mostly not the learning algorithm');
     expect(article).not.toContain('the system trains without human intervention');

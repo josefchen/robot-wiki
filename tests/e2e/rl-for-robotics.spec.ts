@@ -258,7 +258,19 @@ test.describe('rl-for-robotics module', () => {
       }
       return clone.textContent ?? '';
     });
-    expect(visible.split(/\s+/).filter(Boolean).length).toBeGreaterThan(1200);
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    const citeIds = await prose.locator('[data-cite-id]').evaluateAll((els) =>
+      els.map((el) => el.getAttribute('data-cite-id') ?? ''),
+    );
+    expect(new Set(citeIds).size).toBeGreaterThanOrEqual(30);
+    const leadWords = await prose.locator('p').first().evaluate((el) => {
+      const clone = el.cloneNode(true) as HTMLElement;
+      for (const node of Array.from(clone.querySelectorAll('[data-cite-id], .katex-mathml'))) {
+        node.remove();
+      }
+      return (clone.textContent ?? '').split(/\s+/).filter(Boolean).length;
+    });
+    expect(leadWords).toBeLessThanOrEqual(60);
     expect(visible).not.toContain('import {');
     expect(visible).not.toContain('<Cite');
     expect(visible).not.toContain('<SampleEfficiencyLedger');
@@ -293,11 +305,9 @@ test.describe('rl-for-robotics module', () => {
     expect(offline!.citeIds).toContain('offline-rl-vs-bc-2022');
     expect(offline!.text).toMatch(/coverage of the optimal policy/i);
     expect(offline!.text).toMatch(/worst-case result/i);
-    expect(offline!.text).toMatch(/equal amount of expert data/i);
-    expect(offline!.text).toMatch(/simulated drawer-manipulation/i);
-    expect(offline!.text).toMatch(/offline tuning matters/i);
-    expect(offline!.text).toMatch(/editorial recommendation/i);
-    expect(offline!.text).toMatch(/neither endorses BC as a default nor guarantees/i);
+    expect(offline!.text).toMatch(/equal expert data/i);
+    expect(offline!.text).toMatch(/drawer-manipulation comparison, in simulation/i);
+    expect(offline!.text).toMatch(/Naive CQL can perform no better than BC/i);
 
     // And that comparison is signposted with its own subheading, so it is
     // a stated position rather than a clause buried mid-section.
@@ -325,11 +335,11 @@ test.describe('rl-for-robotics module', () => {
     expect(exploration!.text).toMatch(/hindsight/i);
     expect(exploration!.citeIds).toContain('her-2017');
     expect(exploration!.text).toMatch(/recomputing the reward/i);
-    expect(exploration!.text).toMatch(/not restricted to failed episodes/i);
+    expect(exploration!.text).toMatch(/original goal and alternative goals/i);
     expect(exploration!.text).toMatch(/goals achieved later in the same episode/i);
-    expect(exploration!.text).toMatch(/Fetch arm simulated in MuJoCo/i);
-    expect(exploration!.text).toMatch(/squared-contact-penetration reward penalty/i);
-    expect(exploration!.text).toMatch(/half of its training episodes/i);
+    expect(exploration!.text).toMatch(/simulated seven-DoF Fetch arm/i);
+    expect(exploration!.text).toMatch(/contact-penetration penalty/i);
+    expect(exploration!.text).toMatch(/half its training episodes/i);
     expect(exploration!.text).toMatch(/without real-robot fine-tuning/i);
     expect(exploration!.text).toMatch(/achieved-goal mapping/i);
     const herDefinition = page.locator(

@@ -22,17 +22,16 @@ describe('GRS and Eureka retained source scope', () => {
   });
 
   it('separates reward-code search, PPO learning and task fitness', () => {
-    expect(reward()).toContain('Eureka searches over reward code; PPO learns the policies.');
-    expect(reward()).toContain('environment observation code with the existing reward excluded');
-    expect(reward()).toContain('last reward/reflection pair');
+    expect(reward()).toContain('Eureka searches over reward code while PPO learns the policies.');
+    expect(reward()).toContain('environment observation code, with the existing reward excluded');
   });
 
   it('preserves headline-versus-detailed result and normalization distinctions', () => {
-    expect(reward()).toContain('matching or exceeding the human reward on all nine Isaac tasks');
+    expect(reward()).toContain('matches or beats the human reward on all nine Isaac tasks');
     expect(reward()).not.toContain('Some were ties');
-    expect(reward()).toContain('maximum task fitness over ten fixed-interval checkpoints');
-    expect(reward()).toContain('adjust each score to lie in `[0, 3]`');
-    expect(reward()).toContain('does not express a 52-percentage-point increase');
+    expect(reward()).toContain('maximum task fitness over ten checkpoints');
+    expect(reward()).toContain('Human-normalized scores are bounded to `[0, 3]`');
+    expect(reward()).toContain('so 52% measures normalized reward improvement');
     expect(reward()).not.toContain('label="Eureka wins"');
   });
 

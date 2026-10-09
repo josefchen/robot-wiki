@@ -17,9 +17,8 @@ const sha256 = (text: string | Buffer) => createHash('sha256').update(text).dige
 
 describe('sim2real authored evidence', () => {
   it('discloses chosen reconstruction and does not assert a measured distillation floor', () => {
-    expect(article).toContain('chosen terrain and noise');
-    expect(article).toContain('2.2 times the unrounded reconstruction MAE');
-    expect(article).toContain('not inferred from the displayed input strip');
+    expect(article).toContain('authored terrain and noise');
+    expect(article).toContain('so its errors rise by construction');
     expect(article).not.toContain('That divergence is the cost of distillation');
     expect(article).not.toContain('no amount of imitation closes the gap');
   });

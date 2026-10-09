@@ -186,6 +186,31 @@ export const DOMAIN_PASS_REGISTRY_CORRECTIONS: readonly (readonly [string, strin
     year: 2019,
     venue: 'Microsoft Learn, 2019; accessed 2026-08-22',
 `],
+  // rl-sim2real: why-rl-locomotion now cites the current version's sentence,
+  // so the arXiv v1 pin is lifted (verify/rl-sim2real/why-rl-locomotion.md).
+  [`    // Versioned URL, per the audit/README.md quote policy: the article
+    // quotes a sentence ("...much more laborious real-to-sim engineering
+    // efforts...") that exists only in arXiv v1; v2 dropped it, so the
+    // unversioned abs URL would serve a text the reader cannot find.
+    url: 'https://arxiv.org/abs/2502.20396v1',
+`,
+    `    // Unversioned URL: since the 2026-10-06 domain pass the article cites the
+    // current version's sentence (dexterous sim-to-real RL "remains largely
+    // limited to single-hand ... or state-based setups"), which arXiv v1
+    // does not hold; the earlier v1-only quote is no longer on the page.
+    url: 'https://arxiv.org/abs/2502.20396',
+`],
+  // rl-sim2real: Play2Perfect was accepted at CoRL 2026, as its project page
+  // prints under the byline (owner sweep rl-sim2real/why-rl-locomotion).
+  [`    year: 2026,
+    arxiv: '2606.26428',
+`,
+    `    year: 2026,
+    // Accepted at CoRL 2026: the project page (play2perfect.github.io), fetched 2026-10-07,
+    // prints "Conference on Robot Learning (CoRL) 2026" under the byline.
+    venue: 'CoRL 2026',
+    arxiv: '2606.26428',
+`],
 ];
 
 /** The registry source with every reviewed domain-pass correction swapped back. */

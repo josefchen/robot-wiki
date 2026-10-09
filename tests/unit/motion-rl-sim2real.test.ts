@@ -11,6 +11,7 @@ import { DEFAULT_GAIT, GAITS, GAIT_ORDER, minStanceCount, stanceLegs } from '@/l
 import { DEFAULT_ENVS, MAX_ENVS, MIN_ENVS, wallClockSeconds } from '@/lib/parallel-sim';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
+import { preDomainPass } from '../helpers/seo-pass';
 
 type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
 interface Row {
@@ -139,7 +140,9 @@ const RETIRED_WITH_FIGURES: Record<string, string[]> = {
 describe('RL and sim-to-real prose truth', () => {
   it('preserves the original numeric tokens and citation mounts per article', () => {
     for (const file of articles) {
-      const current = readFileSync(join(folder, file), 'utf8');
+      // The 2026-10-06 domain pass rewrote these articles from the owner's
+      // drafts; its reviewed successor hands this check the pre-pass bytes.
+      const current = preDomainPass(`content/rl-sim2real/${file}`).toString('utf8');
       const before = execFileSync('git', ['show', `8368034:content/rl-sim2real/${file}`], {
         cwd: root, encoding: 'utf8',
       });

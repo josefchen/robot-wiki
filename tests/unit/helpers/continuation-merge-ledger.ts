@@ -305,6 +305,11 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  * - `domain-pass-20261008-sweep-citation-rendering`: the same pass then
  *   registered six records for its sweep and KOL sentences, which moved
  *   `citation-rendering:label-and-meta` with a further resolution.
+ *
+ * - `domain-pass-20261009-kol-citation-rendering`: the overdue KOL queue step
+ *   of 2026-10-09 registered three records for its dexterity and generative
+ *   video sentences, which moved `citation-rendering:label-and-meta` with
+ *   another resolution.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -332,6 +337,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'figure-mounts-20261007-',
   'domain-pass-20261008-citation-rendering',
   'domain-pass-20261008-sweep-citation-rendering',
+  'domain-pass-20261009-kol-citation-rendering',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

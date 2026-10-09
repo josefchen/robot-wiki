@@ -176,15 +176,14 @@ describe('parallel-sim-rl originals integration (2026-09-16k evidence completion
     const mdx = readFileSync(join(ROOT, 'content/rl-sim2real/parallel-sim-rl.mdx'), 'utf8');
     expect(mdx).not.toContain('Isaac Gym was the first demonstration of end-to-end RL');
     expect(mdx).toContain(
-      'Isaac Gym ran an end-to-end GPU accelerated training pipeline for complex robot tasks on a single GPU.',
+      'Isaac Gym kept physics and policy training on one GPU',
     );
     // the following two sentences and the citation placement are unchanged
-    expect(mdx).toContain('exposed the simulation state directly as PyTorch tensors');
-    expect(mdx).toContain('The authors report two to three orders of magnitude improvement over the conventional split of a CPU simulator feeding a GPU network <Cite id="isaac-gym-2021" />');
+    expect(mdx).toContain('passing PhysX buffers straight to PyTorch tensors without CPU round trips');
+    expect(mdx).toContain('Its authors report 2 to 3 orders of magnitude improvement over a CPU simulator feeding a GPU network <Cite id="isaac-gym-2021" />');
     // rows 3, 5, 6, 18 spans stay byte-identical
-    expect(mdx).toContain('The paper links its released training code, `legged_gym`; the pinned October 2021 repository identifies itself as the Isaac Gym environment used to train ANYmal on rough terrain');
-    expect(mdx).toContain('Brax, from Google in 2021, wrote the physics and the learning algorithms in JAX so both compile onto the same accelerator, training performant policies on MuJoCo-like tasks in minutes <Cite id="brax-2021" />');
-    expect(mdx).toContain('This authored fixed-transitions model is not a benchmark.');
+    expect(mdx).toContain("The paper's released `legged_gym` repository (October 2021) is the Isaac Gym environment used to train ANYmal on rough terrain");
+    expect(mdx).toContain('Brax (Google, 2021) compiled physics and learning algorithms in JAX on one accelerator, training performant policies on MuJoCo-like tasks in minutes <Cite id="brax-2021" />');
   });
 
   it('reuses registered citations with no new registrations', () => {

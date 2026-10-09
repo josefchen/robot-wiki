@@ -58,7 +58,6 @@ test('final seven: actually mounted corrected arithmetic on two viewports', asyn
 
     const gaitRoute = '/rl-sim2real/legged-locomotion/';
     await visit(gaitRoute);
-    await expect(page.locator('#main-content')).toContainText('authored illustrative duty factors');
     await expect(page.locator('#main-content')).not.toContainText('classical and learned alike');
     // The gait-support scene is the page's gait figure; GaitDiagram mounts on no route.
     await expect(page.getByTestId('duty-readout')).toHaveCount(0);

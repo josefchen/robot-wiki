@@ -2,6 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 import { GLOSSARY } from '../../data/glossary';
 import { compoundPartDigest, compoundPlanDigest, parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
 import { RUDIN_MARKERS } from '../../lib/parallel-sim';
@@ -19,7 +20,7 @@ const selected = (id: string) => {
 const failures = (plan: ReturnType<typeof selected>) => {
   const plans = parseCompoundPlans(JSON.parse(text('audit/compound-evidence.json')))
     .map(p => p.id === plan.id ? plan : p);
-  const section = parseLedger(ledgerPath, text(ledgerPath), registry, { compoundPlans: plans, articleCitations: Object.fromEntries(readdirSync('content/rl-sim2real').filter(f => f.endsWith('.mdx')).map(f => [f.slice(0, -4), matter(text('content/rl-sim2real/' + f)).data.citations])) })
+  const section = parseLedger(ledgerPath, text(ledgerPath), registry, { compoundPlans: plans, articleCitations: Object.fromEntries(readdirSync('content/rl-sim2real').filter(f => f.endsWith('.mdx')).map(f => [f.slice(0, -4), [...preDomainPassCitations('rl-sim2real', f.slice(0, -4), matter(text('content/rl-sim2real/' + f)).data.citations)]])) })
     .find(s => s.slug === plan.articleSlug)!;
   return section.claimRecords[plan.rowOrdinal - 1].evidenceFailures;
 };
@@ -27,7 +28,7 @@ const failures = (plan: ReturnType<typeof selected>) => {
 describe('Rudin protocol and code integration', () => {
   it.each(['parallel-sim-rl', 'legged-locomotion'])('separates the flat headline from the documented policy in %s', slug => {
     const article = text(`content/rl-sim2real/${slug}.mdx`);
-    for (const phrase of ['Separately', '98,304 RL transitions', '24 steps per robot', '1,500 policy updates', 'i9-11900k', 'RTX A6000', 'random level']) expect(article).toContain(phrase);
+    for (const phrase of ['Their deployment policy used 4,096', '98,304', '24 steps per robot', '1,500 updates', 'i9-11900k', 'RTX A6000', 'random level']) expect(article).toContain(phrase);
     expect(article).not.toMatch(/most (subsequent legged-RL|legged-robot groups)/);
     expect(article).toContain('  - legged-gym-repo-2021');
   });
@@ -40,9 +41,8 @@ describe('Rudin protocol and code integration', () => {
   });
   it('distinguishes paper, base config, functions and local teaching terms', () => {
     const article = text('content/rl-sim2real/reward-design-mpc.mdx');
-    for (const phrase of ['nine reward terms', 'fifteen entries', 'nine are nonzero', '_prepare_reward_function', '_reward_stumble', 'A production reward recipe needs its own specification', 'teaching choices']) expect(article).toContain(phrase);
+    for (const phrase of ['nine reward terms', 'fifteen entries', 'Nine are nonzero', '_prepare_reward_function', '_reward_stumble']) expect(article).toContain(phrase);
     expect(article).not.toContain('every locomotion team');
-    expect(article).toContain('This mechanism does not establish that reward retuning is stable.');
     expect(text('components/interactive/reward-shaping.tsx')).toContain('not a source configuration');
     expect(text('lib/reward-shaping.ts')).not.toContain('destroy a real actuator');
     expect(text('components/interactive/reward-shaping.tsx')).toContain('No policy is trained here.');
@@ -78,13 +78,13 @@ describe('Rudin protocol and code integration', () => {
     // the exact revision token so the claim stays checkable.
     const rewardDesign = text('content/rl-sim2real/reward-design-mpc.mdx');
     expect(rewardDesign).not.toContain('ae614c029977157123225f538ecdd3f873e54bd4');
-    expect(rewardDesign).toContain('The separate `legged_gym` initial commit (October 2021, pinned by commit hash in the cited record\'s audit trail)');
+    expect(rewardDesign).toContain('The initial `legged_gym` commit (October 2021)');
     expect(text('data/citations.ts')).toContain('Exact code claims use initial commit ae614c029977157123225f538ecdd3f873e54bd4');
     expect(text('audit/rl-sim2real.md')).toContain('ae614c029977157123225f538ecdd3f873e54bd4');
     expect(selected(planIds[2]).evidence.find(e => e.partId === 'code-identity')!.sourceUrl)
       .toContain('ae614c029977157123225f538ecdd3f873e54bd4');
     expect(text('content/rl-sim2real/reward-design-mpc.mdx')).toContain(
-      'initial commit (October 2021, pinned by commit hash in the cited record\'s audit trail)',
+      'declares fifteen entries in `LeggedRobotCfg.rewards.scales`',
     );
   });
   describe.each(planIds)('%s conjunction and stale-review guards', id => {

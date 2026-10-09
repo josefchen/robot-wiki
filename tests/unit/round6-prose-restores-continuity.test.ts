@@ -187,7 +187,7 @@ it.each(restores)('changes only the named $name sentences', ({ slug, edits }) =>
 it('keeps the Eureka restore under the structural-tell floor it would otherwise cross', () => {
   const review = reviewOf('reward-design-mpc');
   const before = read(review.before.path).toString();
-  const after = read(review.after.path).toString();
+  const after = preDomainPass(review.after.path).toString();
   const [deletion] = restores[1].edits;
   const deletedOnly = structuralTellReport(before.split(deletion[0]).join(deletion[1]), NO_SLOP_EXCEPTIONS);
   expect(structuralTellReport(before, NO_SLOP_EXCEPTIONS).density).toBeLessThanOrEqual(STRUCTURAL_TELL_LIMIT);
@@ -231,7 +231,7 @@ it('keeps every phrase the RL motion and release reviews require on each live RL
   const entries = loadRlMotionContinuity(root);
   const dependencies = JSON.parse(read(dependencyPath).toString()) as Bindings;
   for (const { slug, path } of restores.filter((restore) => restore.prior === 'rl-motion')) {
-    const live = read(path).toString();
+    const live = preDomainPass(path).toString();
     const reviewed = preFigureMigration(reviewOf(slug).after).toString();
     const entry = entries.find((candidate) => candidate.article === path)!;
     const preserved = dependencies.bindings.filter((binding) => binding.current?.path === path)

@@ -37,7 +37,7 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 692158, sha256: '1c10214a5825fc06d4d6e7868b011a2e9d22d9301980661abf5ff9b774305ef0' };
+const reviewPin = { bytes: 932949, sha256: '2919e0920f24e42e4d6d24d37abfcebb9bb4a7473eba9f745b4fb97129eeabae' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -50,7 +50,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/ros2-for-ml-engineers.mdx', [9592, '1dfd445c34d55ac5c92957fa838df7e4a4918c9a13e7309546bebc7f13b34f34']],
   ['content/classical/scene-representation.mdx', [20121, 'aaae84fb8b176dcffd8cb88e3085b9e4559ad1f46051248edcceb8c4a6bf9e21']],
   ['content/classical/state-estimation.mdx', [15410, '96b92f0aa260583ff52b6cd3e7867c14891b61fe8bb1379d04bea15d7ca30329']],
-  ['content/frontier/dexterity.mdx', [18761, '91e3c09b8b032560e4fc843db142f558447434e8f078f1d596324687e83381a1']],
+  ['content/frontier/dexterity.mdx', [19208, '313886eb5ae0defac6fe89b0b66820a002c3fde5fa780b0291fcf4c29ad7e18f']],
   ['content/manipulation/action-chunking.mdx', [12714, 'a08054d5b2b91c7f0a47b42a5f1851087634420845b7fba5f89f42d4c2d4ed84']],
   ['content/manipulation/action-spaces.mdx', [10574, '885130648006e720419bc1e074513c2c5631d3d1e2f5be6acab2c1ae41df7320']],
   ['content/manipulation/bc-foundations.mdx', [13674, 'cda4f9c5f5ceb8886e1ca3000ca9604e38688ebd1c5a13f61b7e5fe8794c8042']],
@@ -66,6 +66,15 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/manipulation/rl-finetuning.mdx', [23458, '8486f78b8c0c574a54d907f207fa3c7638d842b4e4036fa49d09c7483f71a791']],
   ['content/manipulation/robot-learning-roadmap.mdx', [9916, 'c10473a9d9a52893fe18ce799007c4d7612a23da2934c68a303f33fe9b156aa6']],
   ['content/manipulation/vla-models.mdx', [14391, '3e0f91826050ffdb4b69bd6a39622c315f4497ccfbe931b02f7787a83c3ce854']],
+  ['content/rl-sim2real/humanoid-wbc.mdx', [15618, '44fc129387a235508e910dc8439be047f87b09a9c33fb5bb992873ad8c20f7d7']],
+  ['content/rl-sim2real/legged-locomotion.mdx', [13838, 'beaeda9ad6a8151a78a8f13342240e4c4dfc91db20a0ec6ddeff7fbc44cc3000']],
+  ['content/rl-sim2real/offline-rl.mdx', [13146, 'f7dbcd6b92dc1ddf6a1b81e019a98f699ab4b1f7cab9f6d2c064cd7937e23123']],
+  ['content/rl-sim2real/parallel-sim-rl.mdx', [11748, 'a0848280960cb971b8e665ac14c247a54a0f26a71c82745b37bd124b5a0e5339']],
+  ['content/rl-sim2real/reward-design-mpc.mdx', [18453, 'd42af0128313cf8bd0050d2decd1d24a6a9054dfb883a65f53e2dda7288d0d5d']],
+  ['content/rl-sim2real/rl-for-robotics.mdx', [17566, '7288c55f691604bc59d14e4837be07ebc655862771a53f707d5538ebec484fa5']],
+  ['content/rl-sim2real/sim2real-transfer.mdx', [19592, 'd344470980400b624cd3dfb60732fa7f44d9962708d747d570d860d9c726896e']],
+  ['content/rl-sim2real/why-rl-locomotion.mdx', [8908, 'db029a747a92b75e5f56e716cf548de6c3acd95ea8ffd7215625851ff9f3727c']],
+  ['content/world-models/generative-video.mdx', [16559, '3b2752c33d7a823851e51270f7fa7a25ea6ce25e181b854fa0863031b55d30ea']],
 ]);
 // END domain-pass pins
 
@@ -94,7 +103,11 @@ const mounts = (source: string) => [...source.slice(frontmatter(source)?.length 
  * it said a gain under the threshold makes the pole fall within seconds,
  * while the lab's own simulation holds the pole at a lean of about 50
  * degrees, so its prompt, answers and hint now say the pole cannot stay
- * upright. Every other mount still has to match its predecessor exactly.
+ * upright. The why-rl-locomotion tile from the rl-sim2real findings of
+ * 2026-10-08 (R2): "no four-minute number exists in 2026" was an uncited
+ * absolute negative, so the tile now reports Play2Perfect's sourced 60%
+ * insertion success at 0.5 mm clearance under a label that claims no
+ * equivalence. Every other mount still has to match its predecessor exactly.
  */
 const CORRECTED_MOUNTS: ReadonlyMap<string, ReadonlyMap<string, string>> = new Map([
   ['content/classical/kinematics.mdx', new Map([
@@ -147,6 +160,10 @@ const CORRECTED_MOUNTS: ReadonlyMap<string, ReadonlyMap<string, string>> = new M
       'to release the pole and it sags to a steep lean. Press Strong enough and it holds near upright." ' +
       'takeaway="The restoring torque must outweigh gravity before anything else matters: past that floor ' +
       'the loop is unstable, and damping alone cannot buy it back."',
+  ]])],
+  ['content/rl-sim2real/why-rl-locomotion.mdx', new Map([[
+    'Stat label="Manipulation equivalent" value="none" note="no four-minute number exists in 2026"',
+    'Stat label="Sim-to-real insertion" value="60%" note="Play2Perfect, 0.5 mm clearance (CoRL 2026)"',
   ]])],
 ]);
 
@@ -313,11 +330,11 @@ export type DomainPassCheckerReview = {
 
 // BEGIN domain-pass checker pins (written by scripts/record-domain-pass-continuity.ts --checker)
 /** The reviewed checker evidence file; a changed review needs a reviewed code change too. */
-const checkerReviewPin = { bytes: 1372, sha256: '6ce1b59ac71fd7fbd76b4fe023b4293378e764e13310228ee39409e447d57958' };
+const checkerReviewPin = { bytes: 1956, sha256: '4f0f0e633b680b114ad8a3220a4cda5a2f58057d558f919a37c3c6b8e9333680' };
 
 /** The SEO-pass reader head the revision edits, and the reviewed revision. */
 const checkerBefore = { bytes: 114290, sha256: 'f115c68135aaac380af0e10ebecc721bcb613d5434f24b007f51879ed6829f3e' };
-const checkerAfter = { bytes: 114290, sha256: '593edb1358888d4ca8a827ddd9360540ea8f75808e6a9737b8a8348899397294' };
+const checkerAfter = { bytes: 114290, sha256: 'd3d470a19efd97f496dd29869c314b5026f63b496fe7595856e0d6c490732b80' };
 // END domain-pass checker pins
 
 /** The one checker line a domain-pass revision may change: a suite's reviewed live hash. */

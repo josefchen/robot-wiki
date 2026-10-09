@@ -56,21 +56,21 @@ describe('sixteen RL source closeouts: identity, scope and toy units', () => {
 
   it('qualifies intervention, HER protocol, and conditional offline comparisons', () => {
     for (const phrase of [
-      'one Unitree A1 training run', 'ten minutes of additional online learning',
-      'manually intervened', 'squared-contact-penetration reward penalty',
-      'half of its training episodes', 'achieved-goal mapping',
-      'recomputing the reward', 'not restricted to failed episodes',
-      'worst-case result', 'equal amount of expert data',
-      'simulated drawer-manipulation', 'Editorial recommendation',
+      'Unitree A1 to roll over, stand and walk in one hour', 'ten more minutes of online learning',
+      'intervened manually', 'contact-penetration penalty',
+      'half its training episodes', 'achieved-goal mapping',
+      'recomputing the reward',
+      'worst-case result', 'equal expert data',
+      'drawer-manipulation comparison, in simulation',
     ]) expect(article, phrase).toContain(phrase);
     expect(glossary).toContain('contact-penetration reward penalty');
   });
 
   it('distinguishes training from deployment and scale from regularization', () => {
-    expect(article).toContain('without additional environment interaction during training');
-    expect(article).toContain('counterfactual');
+    expect(article).toContain('without further environment interaction during training');
+    expect(article).toContain('outside the behavior distribution');
     expect(article).toContain('Bellman');
-    expect(article).toContain('Q-Transformer combines scale with regularization');
+    expect(article).toContain('adds conservative regularization');
     expect(article).toContain('conservative');
     expect(article).toContain('failed autonomous trials');
     expect(glossary).toContain('The trained policy can then be deployed');

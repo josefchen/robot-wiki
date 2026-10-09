@@ -115,9 +115,9 @@ test('parallel: changed Stat and source-scoped prose retain readable geometry', 
   await page.evaluate(() => document.fonts.ready);
   const prose = page.locator('div.prose[data-pagefind-body]');
   for (const text of ['Isaac Sim 6.0 and Isaac Lab 3.0 early access releases',
-    'differentiation support differs between solvers', 'example configuration',
-    'Samsung "will use Newton"', 'simulated RB-Y1', '252x for locomotion and 475x for manipulation',
-    'RTX PRO 6000 Blackwell Series', 'it reports no comparative benchmark']) await expect(prose).toContainText(text);
+    'support differs between solvers', 'its assembly example sets',
+    'Samsung "will use Newton"', 'RB-Y1 cable insertion', '252x for locomotion and 475x for manipulation',
+    'RTX PRO 6000 Blackwell', 'without stating task variants']) await expect(prose).toContainText(text);
   const value = prose.getByText('252x / 475x', { exact: true });
   await center(value);
   const stat = value.locator('..'), box = await stat.boundingBox();
@@ -125,7 +125,7 @@ test('parallel: changed Stat and source-scoped prose retain readable geometry', 
   expect(await stat.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
   expect(box!.x + box!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
   await capture(page, 'parallel-stat');
-  await center(prose.getByText(/The release post describes SDF-based collision/));
+  await center(prose.getByText(/The post describes SDF collision from CAD meshes/));
   await capture(page, 'parallel-sdf');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
@@ -133,10 +133,10 @@ test('transfer: current Newton statement preserves the separate paper context', 
   await page.goto('/rl-sim2real/sim2real-transfer/');
   await page.evaluate(() => document.fonts.ready);
   const prose = page.locator('div.prose[data-pagefind-body]');
-  for (const text of ['86.25%', 'Those descriptions disagree',
-    'Only the fine-tuned tracking policy is deployed', '90% placement', '30% in RoboGSim',
-    'ray-tracing backend supports both triangle meshes and Gaussian splats']) await expect(prose).toContainText(text);
-  await center(prose.getByText(/This simulated evaluation cannot stand in for real-robot testing/));
+  for (const text of ['86.25%',
+    'only the tracking policy is deployed', 'placed 90% on the real robot', '30% in RoboGSim',
+    'both triangle meshes and Gaussian splats']) await expect(prose).toContainText(text);
+  await center(prose.getByText(/so its scores cannot replace/));
   await capture(page, 'transfer-context');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

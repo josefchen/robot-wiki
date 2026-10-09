@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "ef5eb90c68d3e114d083f6be2a7a1881669f39e1c79d5e4ed2d70a5c2b9761f6",
+  "fingerprint": "ddd3755cea57338e95b105d6c91bf7232622587f22a47200e5818ebf00cb0064",
   "source": "out/ static export",
   "routes": [
     {
@@ -341,8 +341,8 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundAnchors": 84,
-      "distinctHrefs": 32,
+      "outboundAnchors": 87,
+      "distinctHrefs": 33,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -619,8 +619,8 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "outboundAnchors": 41,
-      "distinctHrefs": 18,
+      "outboundAnchors": 96,
+      "distinctHrefs": 45,
       "shapes": [
         "citation-chip",
         "footer",
@@ -630,8 +630,8 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "outboundAnchors": 33,
-      "distinctHrefs": 18,
+      "outboundAnchors": 84,
+      "distinctHrefs": 42,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -642,8 +642,8 @@
     },
     {
       "route": "/rl-sim2real/offline-rl/",
-      "outboundAnchors": 19,
-      "distinctHrefs": 11,
+      "outboundAnchors": 86,
+      "distinctHrefs": 43,
       "shapes": [
         "citation-chip",
         "footer",
@@ -653,8 +653,8 @@
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "outboundAnchors": 31,
-      "distinctHrefs": 11,
+      "outboundAnchors": 87,
+      "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
         "footer",
@@ -664,8 +664,8 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "outboundAnchors": 47,
-      "distinctHrefs": 20,
+      "outboundAnchors": 101,
+      "distinctHrefs": 45,
       "shapes": [
         "citation-chip",
         "footer",
@@ -675,8 +675,8 @@
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "outboundAnchors": 77,
-      "distinctHrefs": 30,
+      "outboundAnchors": 110,
+      "distinctHrefs": 50,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -687,8 +687,8 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "outboundAnchors": 40,
-      "distinctHrefs": 15,
+      "outboundAnchors": 99,
+      "distinctHrefs": 44,
       "shapes": [
         "citation-chip",
         "footer",
@@ -698,8 +698,8 @@
     },
     {
       "route": "/rl-sim2real/why-rl-locomotion/",
-      "outboundAnchors": 19,
-      "distinctHrefs": 10,
+      "outboundAnchors": 77,
+      "distinctHrefs": 37,
       "shapes": [
         "citation-chip",
         "footer",
@@ -747,8 +747,8 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "outboundAnchors": 44,
-      "distinctHrefs": 18,
+      "outboundAnchors": 49,
+      "distinctHrefs": 20,
       "shapes": [
         "citation-chip",
         "footer",
@@ -813,17 +813,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 4485,
-  "distinctOutboundHrefs": 1304,
+  "outboundAnchors": 4926,
+  "distinctOutboundHrefs": 1442,
   "anchorsByShape": {
-    "citation-chip": 2039,
+    "citation-chip": 2267,
     "footer": 152,
-    "reference-entry": 1407,
+    "reference-entry": 1620,
     "other": 563,
     "figure-credit": 324
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 3928,
+  "anchorsWithNoreferrer": 4369,
   "keyboard": [
     {
       "route": "/",
@@ -943,7 +943,7 @@
       "reachedByTab": 120,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 284
+      "tabStops": 285
     },
     {
       "route": "/classical/perception/",
@@ -1083,11 +1083,11 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundInDom": 84,
-      "reachedByTab": 84,
+      "outboundInDom": 87,
+      "reachedByTab": 87,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 213
+      "tabStops": 218
     },
     {
       "route": "/frontier/generalization/",
@@ -1291,67 +1291,67 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "outboundInDom": 41,
-      "reachedByTab": 41,
+      "outboundInDom": 96,
+      "reachedByTab": 96,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 148
+      "tabStops": 238
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "outboundInDom": 33,
-      "reachedByTab": 33,
+      "outboundInDom": 84,
+      "reachedByTab": 84,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 120
+      "tabStops": 202
     },
     {
       "route": "/rl-sim2real/offline-rl/",
-      "outboundInDom": 19,
-      "reachedByTab": 19,
+      "outboundInDom": 86,
+      "reachedByTab": 86,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 121
+      "tabStops": 228
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "outboundInDom": 31,
-      "reachedByTab": 31,
+      "outboundInDom": 87,
+      "reachedByTab": 87,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 121
+      "tabStops": 210
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "outboundInDom": 47,
-      "reachedByTab": 47,
+      "outboundInDom": 101,
+      "reachedByTab": 101,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 166
+      "tabStops": 252
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
+      "outboundInDom": 110,
+      "reachedByTab": 110,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 264
+    },
+    {
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "outboundInDom": 99,
+      "reachedByTab": 99,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 252
+    },
+    {
+      "route": "/rl-sim2real/why-rl-locomotion/",
       "outboundInDom": 77,
       "reachedByTab": 77,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 216
-    },
-    {
-      "route": "/rl-sim2real/sim2real-transfer/",
-      "outboundInDom": 40,
-      "reachedByTab": 40,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 153
-    },
-    {
-      "route": "/rl-sim2real/why-rl-locomotion/",
-      "outboundInDom": 19,
-      "reachedByTab": 19,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 99
+      "tabStops": 198
     },
     {
       "route": "/search/",
@@ -1387,11 +1387,11 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "outboundInDom": 44,
-      "reachedByTab": 44,
+      "outboundInDom": 49,
+      "reachedByTab": 49,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 151
+      "tabStops": 159
     },
     {
       "route": "/world-models/jepa/",

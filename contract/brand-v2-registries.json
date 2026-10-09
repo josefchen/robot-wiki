@@ -11242,7 +11242,6 @@
         "components/three/playground-canvas.tsx",
         "components/three/playground-hud.tsx",
         "components/ui/badge.tsx",
-        "components/ui/callout.tsx",
         "components/ui/card.tsx",
         "components/ui/cite.tsx",
         "components/ui/figure.tsx",
@@ -11252,7 +11251,7 @@
         "mdx-components.tsx"
       ],
       "mountState": "production",
-      "fingerprint": "7a99437af613e8c70d3545f2b911bd0622348bc8027f38379674be02955493fd"
+      "fingerprint": "c94bbf008bd9b0a0db6bfe980f3370bac6f03ac9ab79f7189b119b29de0a4bd6"
     },
     {
       "id": "surface:raised",
@@ -12029,5 +12028,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "3d4b0ade3598d36214c39ca770f9e1081bd41ebf872d48520ee1ab520e3db85a"
+  "rootFingerprint": "d12da14f8ba2fcae4ae16390cb3c8410d3451717698fefc917fbec37f248dd36"
 }

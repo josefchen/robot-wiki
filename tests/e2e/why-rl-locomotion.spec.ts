@@ -20,10 +20,10 @@ test.describe('why-rl-locomotion module', () => {
     const main = page.locator('#main-content');
     // The core asymmetry and its cause are stated in the prose.
     await expect(
-      main.getByText(/default production approach for quadruped locomotion/i),
+      main.getByText(/made legged locomotion robust well before general manipulation/i),
     ).toBeVisible();
     await expect(
-      main.getByText(/difficult to simulate cheaply/i).first(),
+      main.getByText(/perfect fidelity is computationally infeasible/i).first(),
     ).toBeVisible();
     // The six MDP property rows render with both cells populated.
     for (const key of [

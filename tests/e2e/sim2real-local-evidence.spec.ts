@@ -68,8 +68,8 @@ test('sim2real raw mounted evidence covers the friction mount and teacher transi
     return { line, curve };
   }
 
-  // The figure opens on a floor more slippery than the practice floor (0.50).
-  const initial = await frictionState(ordinary, 'friction-default', 0.5, 0.35);
+  // The figure opens on the practice floor itself (0.80).
+  const initial = await frictionState(ordinary, 'friction-default', 0.8, 0.35);
   await setSlider(ordinary.getByRole('slider', { name: /real robot friction/i }), 150);
   const far = await frictionState(ordinary, 'friction-far', 1.5, 0.35);
   expect(far.line).not.toEqual(initial.line);
@@ -79,7 +79,7 @@ test('sim2real raw mounted evidence covers the friction mount and teacher transi
   expect(wide.curve).not.toEqual(initial.curve);
   await openAdjustMore(ordinary);
   await ordinary.getByRole('button', { name: 'Reset', exact: true }).click();
-  expect(await frictionState(ordinary, 'friction-reset', 0.5, 0.35)).toEqual(initial);
+  expect(await frictionState(ordinary, 'friction-reset', 0.8, 0.35)).toEqual(initial);
 
   const teacher = page.getByTestId('teacher-panel')
     .locator('xpath=ancestor::*[@data-figure-frame][1]');
@@ -136,7 +136,7 @@ test('sim2real raw mounted evidence covers the friction mount and teacher transi
   await expect(teacher).toContainText('Darker cells are higher terrain');
   const desktopAxe = await new AxeBuilder({ page }).include('#main-content').analyze();
   expect(desktopAxe.violations).toEqual([]);
-  await expect(page.locator('div.prose[data-pagefind-body]')).toContainText('not inferred from the displayed input strip');
+  await expect(page.locator('div.prose[data-pagefind-body]')).toContainText('authored terrain and noise');
   let mobileArtifact: Awaited<ReturnType<typeof capture>> | null = null;
   let mobileAxeViolations: unknown[] | null = null;
   if (!finalCapture) {

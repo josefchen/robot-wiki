@@ -115,7 +115,7 @@ export async function splatTransferReaderProof(page: Page, info: TestInfo) {
     // Readable viewport slices, with overlap, cover the entire changed section.
     // Other section starts are a bounded survey, never full-article coverage.
     const heading = prose.getByRole('heading', { name: 'Real-to-sim: rebuild the scene, keep the physics', exact: true });
-    const nextHeading = prose.getByRole('heading', { name: 'The levers nobody demos', exact: true });
+    const nextHeading = prose.getByRole('heading', { name: 'Levers behind successful transfer', exact: true });
     const section = await heading.evaluate((element, nextText) => {
       const next = [...document.querySelectorAll('h2')].find(node => node.textContent === nextText)!;
       return { top: element.getBoundingClientRect().top + scrollY, bottom: next.getBoundingClientRect().top + scrollY };
