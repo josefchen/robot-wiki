@@ -374,10 +374,10 @@ describe('identity geometry and typography stay aligned', () => {
     expect(mot).not.toContain('text-accent">green</span>');
     expect(mot).not.toContain('dashed green: sideways attention');
     expect(cross).not.toContain('text-accent">green</span>');
-    // The WBC stack marks its actuator-facing layer with a lime highlight
-    // bar on the graphite stage, so its takeaway names the bar, not blue.
-    expect(wbc).toMatch(/lime bar (?:still )?marks the (?:layer|VLA)/i);
-    expect(wbc).not.toMatch(/blue (?:still )?marks the (?:layer|VLA)/i);
+    // The WBC stack points its highlight note and arrow at the layer that
+    // drives the joint motors, so its takeaway names the note, not a colour.
+    expect(wbc).toMatch(/the note points at (?:that bottom layer|the controller|the VLA)/i);
+    expect(wbc).not.toMatch(/(?:green|blue|lime) (?:note|bar)? ?(?:still )?(?:marks|points at) the (?:layer|VLA)/i);
     // The insulation diagram and the slot strips paint through the stage
     // roles on the graphite stage, so no legend narrates a blue mark.
     expect(mot).not.toContain('text-accent">blue</span>');
@@ -391,7 +391,7 @@ describe('identity geometry and typography stay aligned', () => {
     // dim-node legend lives in the chart's aria-label, pinned below.
     expect(registry).not.toContain('green marks the layer');
     expect(registry).not.toMatch(/green nodes/i);
-    expect(registry).toContain('lime bar marks the layer');
+    expect(registry).toContain('the note points at that bottom layer');
     expect(registry).not.toContain('blue marks the layer');
     expect(registry).toContain('dim nodes do not establish closed licensing');
     expect(registry).not.toContain('dim nodes mark closed ones');

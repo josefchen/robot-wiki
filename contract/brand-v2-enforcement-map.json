@@ -7145,12 +7145,22 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/rl-sim2real/reward-design-mpc/|1440x900|table#2",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-008:/rl-sim2real/reward-design-mpc/|375x812|table#0",
           "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-008:/rl-sim2real/reward-design-mpc/|375x812|table#1",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/rl-sim2real/reward-design-mpc/|375x812|table#2",
           "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
         },
         {
@@ -7251,7 +7261,7 @@
         "statement": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
         "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 96,
+        "populationSize": 98,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -7338,8 +7348,10 @@
           "result:VAL-B2-ART-008:/rl-sim2real/humanoid-wbc/|375x812|table#0",
           "result:VAL-B2-ART-008:/rl-sim2real/reward-design-mpc/|1440x900|table#0",
           "result:VAL-B2-ART-008:/rl-sim2real/reward-design-mpc/|1440x900|table#1",
+          "result:VAL-B2-ART-008:/rl-sim2real/reward-design-mpc/|1440x900|table#2",
           "result:VAL-B2-ART-008:/rl-sim2real/reward-design-mpc/|375x812|table#0",
           "result:VAL-B2-ART-008:/rl-sim2real/reward-design-mpc/|375x812|table#1",
+          "result:VAL-B2-ART-008:/rl-sim2real/reward-design-mpc/|375x812|table#2",
           "result:VAL-B2-ART-008:/rl-sim2real/rl-for-robotics/|1440x900|table#0",
           "result:VAL-B2-ART-008:/rl-sim2real/rl-for-robotics/|375x812|table#0",
           "result:VAL-B2-ART-008:/rl-sim2real/sim2real-transfer/|1440x900|table#0",
@@ -8346,6 +8358,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/eureka-loop.tsx:aria-label:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/execution-modes.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -9122,11 +9139,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/compounding-error.tsx:aria-label:1",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/eureka-loop.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -16254,6 +16266,7 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/deployment-economics.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/egoscale-scaling.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/egoscale-scaling.tsx:aria-label:2",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/eureka-loop.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/execution-modes.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/execution-modes.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
@@ -16410,7 +16423,6 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/comparison-matrix.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/comparison-matrix.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/compounding-error.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/eureka-loop.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/execution-modes.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/expo-ft-results.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/gait-diagram.tsx:aria-label:1",

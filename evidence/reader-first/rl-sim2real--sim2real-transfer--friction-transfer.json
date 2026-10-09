@@ -7,20 +7,25 @@
     "1280": "evidence/reader-first/rl-sim2real--sim2real-transfer--friction-transfer.1280.png"
   },
   "takeaway": "A robot trained on one floor does best there, while one trained on many varied floors copes with all of them.",
-  "sentence": "A robot trained on only one practice floor does best on that exact floor but fails on others, while a robot trained on many different floors does a bit worse there but still works on many more floors.",
+  "sentence": "The figure compares a robot trained on one floor, which does best on exactly that floor, with a robot trained on many floors, which does fairly well across a wider range from slippery to grippy.",
   "unclearTerms": [
-    "DR peak",
-    "authored formulas",
-    "trained policies",
-    "the green triangle marker labelled 'real floor'",
-    "the grey and green dots on the vertical green line",
-    "what moving the 'Real floor' slider changes on the chart"
+    "one-floor robot / many-floor robot: I had to work out that these mean robots trained on one floor and on many floors",
+    "practice floor: unclear where this practice happens; the note about computer-simulated floors only partly explained it",
+    "Real floor vs practice floor: I had to think about the difference",
+    "slider (slippery to grippy): unclear what moving it does and why it starts in the middle",
+    "copes widely: vague phrasing",
+    "tries without a fall: the axis label was not immediately clear; I guessed it means the percentage of attempts where the robot did not fall",
+    "grey shaded area: the key says the many-floor robot practised on these floors, but at a glance it looked like just a background box",
+    "dashed grey line vs solid green line: I had to use the key to tell the two robots apart",
+    "green vertical line: unclear whether it marks the slider position or the practice floor",
+    "dots and the 97% / 74% labels: I guessed they are the readings where the lines cross the vertical line",
+    "the green line drops off at both edges: unclear why the many-floor robot also fails on very slippery or very grippy floors"
   ],
   "samePoint": "yes",
-  "reason": "My sentence says the robot trained on one floor does best there, and the robot trained on many floors still works on many more floors, which matches the intended message.",
+  "reason": "Both say the one-floor robot does best on its own floor while the many-floor robot copes across a wider range of floors.",
   "verdict": "fail",
-  "screenshotCommit": "37c392c813e3f544f479de8c962f27f3a6302d74",
+  "screenshotCommit": "ee211309e71b215f470d068a95f8b2fb1dd45c3a",
   "date": "2026-10-09",
-  "reviewerSession": "reader-session-b34f3e09",
-  "sourceDigest": "37f82d9c816c390eca76fe40b164e6779a8b51f6f065e0ea5a312b263422e7fe"
+  "reviewerSession": "reader-session-b5cda415",
+  "sourceDigest": "1b36d8b82b3a1a467e53ff820438e5c7416ac0c4b4424ef354979a3f296407d6"
 }

@@ -15,11 +15,12 @@ import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
-  CHART_TYPE,
   CHART_VIEW_WIDTH,
   LegendSwatch,
   StageAnnotation,
+  annotationArrow,
   roleColour,
+  type ChartPoint,
 } from '@/components/motion/chart';
 import {
   APPROACH_ORDER,
@@ -50,92 +51,110 @@ import {
  */
 
 const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 224;
+const HEIGHT = 228;
 const BAND_LEFT = 4;
 const BAND_RIGHT = 228;
 const BAND_H = 44;
-const STACK_TOP = 54;
-const STACK_BOTTOM = 216;
+const STACK_TOP = 6;
+const STACK_BOTTOM = 168;
 const TEXT_X = BAND_LEFT + 14;
-const ARROW_X = BAND_LEFT + 30;
-const ARROW_HEAD = 6;
 const LINE_STEP_EM = 1.25;
+const BAND_MID = (BAND_LEFT + BAND_RIGHT) / 2;
+/**
+ * The note sits under the stack, and its arrow rises from the note's left
+ * end to the bottom layer. Grey arrows between the layers run down, so the
+ * note's own arrow does not read as something flowing up.
+ */
+const NOTE_Y = STACK_BOTTOM + 36;
+const NOTE_ARROW: { from: ChartPoint; target: ChartPoint } = {
+  from: [TEXT_X + 6, NOTE_Y - 16],
+  target: [TEXT_X + 6, STACK_BOTTOM],
+};
 
-/** Each layer in plain words, two short lines, keyed by approach and layer order. */
+/**
+ * Each layer in plain words, keyed by approach and layer order. A line
+ * holds about 26 characters, what fits a layer box on a 320 px phone.
+ * A rate the source does not disclose stays in "How this was made".
+ */
 const PLAIN_LAYERS: Record<WbcApproachId, readonly (readonly [string, string])[]> = {
   'tracking-rl': [
-    ['Works out the goal, slowly;', 'speed not disclosed'],
-    ['Turns what it sees into body', 'poses, 200 times a second'],
-    ['Keeps balance and moves every', 'joint, 1,000 times a second'],
+    ['Sees the scene and decides', 'what to do next'],
+    ['Plans how each arm and leg', 'moves, 200 times a second'],
+    ['Drives every joint motor,', '1,000 times a second'],
   ],
   'latent-action': [
-    ['Sees, reads the instruction and', 'writes compact movement codes'],
-    ['Turns the codes into joint', 'commands, 50 times a second'],
+    ['Sees, reads the task and', 'sends moves in short code'],
+    ['Turns the code into joint', 'moves, 50 times a second'],
   ],
   'end-to-end-vla': [
-    ['Plans the task and calls', 'tools; speed not disclosed'],
-    ['One network moves the whole', 'body; speed not disclosed'],
+    ['Plans the task in steps;', 'its speed is not published'],
+    ['One network for the whole', 'body; speed not published'],
   ],
 };
 
-/** The plain names on the design buttons. */
+/** The plain names on the design buttons: whose robot brain each stack is. */
 const DESIGN_LABELS: Record<WbcApproachId, string> = {
-  'tracking-rl': 'Copies human motion',
-  'latent-action': 'Learned movement codes',
-  'end-to-end-vla': 'One big network',
+  'tracking-rl': 'Figure AI',
+  'latent-action': 'NVIDIA',
+  'end-to-end-vla': 'Google DeepMind',
+};
+/** The group label says what a choice changes: whose robot brain the stack shows. */
+const DESIGN_GROUP_LABEL = 'Robot brain by';
+
+/** The status line names whose published speeds the stack shows. */
+const STATUS: Record<WbcApproachId, string> = {
+  'tracking-rl': 'Schematic; speeds as published by Figure AI',
+  'latent-action': 'Schematic; speeds as published by NVIDIA',
+  'end-to-end-vla': 'Schematic; Google DeepMind publishes no speeds',
 };
 
+/** The note on the bottom layer, the one that moves the joints. */
 const ANNOTATIONS: Record<WbcApproachId, readonly [string, string]> = {
-  'tracking-rl': ['Fastest layer: adjusts every joint', '1,000 times a second'],
-  'latent-action': ['Only compact movement codes pass', 'between the two networks'],
+  'tracking-rl': ['Fastest layer: it keeps the', 'robot balanced as it moves'],
+  'latent-action': ['Fastest layer: moves every joint', '50 times a second'],
   'end-to-end-vla': ['No separate balance layer: one', 'network drives every joint'],
 };
 
 function wbcTakeaway(approach: WbcApproach, fastest: string): string {
   if (approach.id === 'tracking-rl') {
-    return `Motion-tracking RL, represented by ${approach.representative}, stacks ${approach.layers.length} control layers ending at a ${fastest} S0 actuator loop; the lime bar marks the layer that talks to the actuators, and the retargeted human motion is the interface so layers above never name a torque.`;
+    return `Motion-tracking RL, represented by ${approach.representative}, stacks ${approach.layers.length} control layers ending at a ${fastest} S0 loop that drives the actuators; the note points at that bottom layer, which keeps the robot balanced, and the retargeted human motion is the interface so layers above never name a torque.`;
   }
   if (approach.id === 'latent-action') {
-    return `Latent-action hierarchy, represented by ${approach.representative}, splits the stack into ${approach.layers.length} layers (3B-parameter VLA over a ${fastest} controller); the lime bar still marks the actuator-facing box, and latent tokens are the interface so the VLA never names a joint.`;
+    return `Latent-action hierarchy, represented by ${approach.representative}, splits the stack into ${approach.layers.length} layers (3B-parameter VLA over a ${fastest} controller); the note points at the controller, the layer that drives the joint motors, and latent tokens are the interface so the VLA never names a joint.`;
   }
-  return `End-to-end VLA, represented by ${approach.representative}, keeps ${approach.layers.length} layers and no separate whole-body controller; the lime bar marks the VLA itself as the layer that talks to the actuators across 3 embodiments, because there is no internal interface between policy and robot.`;
+  return `End-to-end VLA, represented by ${approach.representative}, keeps ${approach.layers.length} layers and no separate whole-body controller; the note points at the VLA itself as the layer that drives the joint motors across 3 embodiments, because there is no internal interface between policy and robot.`;
 }
 
-/** Legend swatch drawn like the bar inside the actuator-facing layer. */
-function ActuatorBarSwatch() {
-  const h = CHART_TYPE.tickPx;
-  return (
-    <svg aria-hidden="true" focusable="false" width={h * 2} height={h} viewBox={`0 0 ${h * 2} ${h}`} className="shrink-0">
-      <rect x={h - 2} y={0} width={4} height={h} fill={roleColour('highlight')} />
-    </svg>
-  );
-}
-
-/** A humanoid seen from the front, its joint motors marked as dots. */
+/** A humanoid seen from the front, as tall as the stack, its joint motors marked as dots. */
 const BODY_X = 286;
+const BODY_TOP = 8;
+const by = (y: number) => y - 56 + BODY_TOP;
 const MOTORS: readonly (readonly [number, number])[] = [
-  [BODY_X - 16, 92],
-  [BODY_X + 16, 92],
-  [BODY_X - 27, 120],
-  [BODY_X + 27, 120],
-  [BODY_X - 8, 142],
-  [BODY_X + 8, 142],
-  [BODY_X - 9, 178],
-  [BODY_X + 9, 178],
+  [BODY_X - 16, by(92)],
+  [BODY_X + 16, by(92)],
+  [BODY_X - 27, by(120)],
+  [BODY_X + 27, by(120)],
+  [BODY_X - 8, by(142)],
+  [BODY_X + 8, by(142)],
+  [BODY_X - 9, by(178)],
+  [BODY_X + 9, by(178)],
 ];
+/** The bottom layer's arrow runs level from its band into the robot's near leg. */
+const ROBOT_LINK_Y = STACK_BOTTOM - BAND_H / 2;
+const ROBOT_LINK_X = BODY_X - 12;
 
 function Humanoid() {
   const ink = CHART_STRUCTURE.label;
   return (
     <g data-testid="robot-boundary">
       <g data-testid="humanoid" fill="none" stroke={ink} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-        <rect x={BODY_X - 10} y={56} width={20} height={22} rx={6} />
-        <line x1={BODY_X} y1={78} x2={BODY_X} y2={84} />
-        <rect x={BODY_X - 16} y={84} width={32} height={58} rx={6} />
-        <polyline points={`${BODY_X - 16},92 ${BODY_X - 27},120 ${BODY_X - 30},146`} />
-        <polyline points={`${BODY_X + 16},92 ${BODY_X + 27},120 ${BODY_X + 30},146`} />
-        <polyline points={`${BODY_X - 8},142 ${BODY_X - 9},178 ${BODY_X - 10},212 ${BODY_X - 20},212`} />
-        <polyline points={`${BODY_X + 8},142 ${BODY_X + 9},178 ${BODY_X + 10},212 ${BODY_X + 20},212`} />
+        <rect x={BODY_X - 10} y={by(56)} width={20} height={22} rx={6} />
+        <line x1={BODY_X} y1={by(78)} x2={BODY_X} y2={by(84)} />
+        <rect x={BODY_X - 16} y={by(84)} width={32} height={58} rx={6} />
+        <polyline points={`${BODY_X - 16},${by(92)} ${BODY_X - 27},${by(120)} ${BODY_X - 30},${by(146)}`} />
+        <polyline points={`${BODY_X + 16},${by(92)} ${BODY_X + 27},${by(120)} ${BODY_X + 30},${by(146)}`} />
+        <polyline points={`${BODY_X - 8},${by(142)} ${BODY_X - 9},${by(178)} ${BODY_X - 10},${by(212)} ${BODY_X - 20},${by(212)}`} />
+        <polyline points={`${BODY_X + 8},${by(142)} ${BODY_X + 9},${by(178)} ${BODY_X + 10},${by(212)} ${BODY_X + 20},${by(212)}`} />
       </g>
       <g data-series="motors" data-chart-role="action">
         {MOTORS.map(([x, y]) => (
@@ -146,25 +165,47 @@ function Humanoid() {
   );
 }
 
-/** One layer as a short wide band with its plain label, and the arrow down to the next. */
+/**
+ * A grey arrow for what passes down the stack: from one layer to the
+ * next, and from the bottom layer into the robot it drives.
+ */
+function FlowArrow({ from, to }: { from: ChartPoint; to: ChartPoint }) {
+  const arrow = annotationArrow(from, to);
+  if (!arrow) return null;
+  return (
+    <g data-flow-arrow="">
+      <line
+        x1={from[0]}
+        y1={from[1]}
+        x2={arrow.end[0]}
+        y2={arrow.end[1]}
+        stroke={CHART_STRUCTURE.axes}
+        strokeWidth={CHART_STROKE.reference}
+      />
+      <polygon points={arrow.head.map(([x, y]) => `${x},${y}`).join(' ')} fill={CHART_STRUCTURE.axes} />
+    </g>
+  );
+}
+
+/**
+ * One layer as a short wide band with its plain label. The bottom band,
+ * the one the note names, carries the full-weight outline; the others
+ * step back to a thin grey one.
+ */
 function StackLayer({
   lines,
   index,
   top,
-  nextTop,
-  actuatorFacing,
+  noted,
 }: {
   lines: readonly [string, string];
   index: number;
   top: number;
-  nextTop: number | null;
-  actuatorFacing: boolean;
+  noted: boolean;
 }) {
-  const action = roleColour('action');
-  const gapTop = top + BAND_H;
   const midY = Number((top + BAND_H / 2).toFixed(2));
   return (
-    <g data-testid={`layer-${index}`}>
+    <g data-testid={`layer-${index}`} data-noted={noted ? '' : undefined}>
       <rect
         x={BAND_LEFT}
         y={top}
@@ -172,20 +213,9 @@ function StackLayer({
         height={BAND_H}
         rx={4}
         fill="none"
-        stroke={CHART_STRUCTURE.axes}
-        strokeWidth={CHART_STROKE.reference}
+        stroke={noted ? CHART_STRUCTURE.label : CHART_STRUCTURE.axes}
+        strokeWidth={noted ? CHART_STROKE.trace : CHART_STROKE.reference}
       />
-      {actuatorFacing && (
-        <rect
-          data-series="actuator-layer"
-          data-chart-role="highlight"
-          x={BAND_LEFT + 5}
-          y={top + 7}
-          width={4}
-          height={BAND_H - 14}
-          fill={roleColour('highlight')}
-        />
-      )}
       <text x={TEXT_X} y={midY} fill={CHART_STRUCTURE.label}>
         <tspan x={TEXT_X} dy={`${-LINE_STEP_EM / 2 + 0.35}em`}>
           {lines[0]}
@@ -194,29 +224,6 @@ function StackLayer({
           {lines[1]}
         </tspan>
       </text>
-      {nextTop !== null ? (
-        <g data-series="flow" data-chart-role="action">
-          <line x1={ARROW_X} y1={gapTop + 2} x2={ARROW_X} y2={nextTop - ARROW_HEAD - 1} stroke={action} strokeWidth={CHART_STROKE.reference} />
-          <polygon
-            points={`${ARROW_X - 4},${nextTop - ARROW_HEAD - 2} ${ARROW_X + 4},${nextTop - ARROW_HEAD - 2} ${ARROW_X},${nextTop - 2}`}
-            fill={action}
-          />
-        </g>
-      ) : (
-        <g data-series="flow" data-chart-role="action">
-          {/* The bottom band drives the motors on the body. */}
-          <polyline
-            points={`${BAND_RIGHT},${midY} ${BODY_X - 34},${midY} ${BODY_X - 34},${MOTORS[4][1]} ${MOTORS[4][0] - 6},${MOTORS[4][1]}`}
-            fill="none"
-            stroke={action}
-            strokeWidth={CHART_STROKE.reference}
-          />
-          <polygon
-            points={`${MOTORS[4][0] - 12},${MOTORS[4][1] - 4} ${MOTORS[4][0] - 12},${MOTORS[4][1] + 4} ${MOTORS[4][0] - 5},${MOTORS[4][1]}`}
-            fill={action}
-          />
-        </g>
-      )}
     </g>
   );
 }
@@ -245,7 +252,7 @@ export function WbcDecomposition({
       heading="Robot brains are layered: slow thinking above, fast reflexes below"
       controls={
         <PresetGroup<WbcApproachId>
-          label="Design"
+          label={DESIGN_GROUP_LABEL}
           presets={APPROACH_ORDER.map((id) => ({ id, label: DESIGN_LABELS[id] }))}
           value={approachId}
           onChange={setApproachId}
@@ -258,14 +265,11 @@ export function WbcDecomposition({
           footer={
             <>
               <InstrumentLegend>
-                <LegendItem series="actuator-layer" swatch={<ActuatorBarSwatch />}>
-                  layer that drives the motors
-                </LegendItem>
                 <LegendItem series="motors" swatch={<LegendSwatch role="action" mark="dot" />}>
                   joint motors
                 </LegendItem>
               </InstrumentLegend>
-              <StageStatus>Original schematic; speeds are published values</StageStatus>
+              <StageStatus>{STATUS[approach.id]}</StageStatus>
             </>
           }
         >
@@ -275,28 +279,39 @@ export function WbcDecomposition({
             aria-describedby={descriptionId}
             data-testid="wbc-diagram"
           >
-            <StageAnnotation x={8} y={16} lines={ANNOTATIONS[approach.id]} />
             {approach.layers.map((layer, i) => (
               <StackLayer
                 key={layer.name}
                 lines={plain[i]}
                 index={i}
                 top={layerTop(i)}
-                nextTop={i === layerCount - 1 ? null : layerTop(i + 1)}
-                actuatorFacing={i === layerCount - 1}
+                noted={i === layerCount - 1}
               />
             ))}
+            {approach.layers.slice(1).map((layer, i) => (
+              <FlowArrow key={layer.name} from={[BAND_MID, layerTop(i) + BAND_H + 1]} to={[BAND_MID, layerTop(i + 1)]} />
+            ))}
+            <FlowArrow from={[BAND_RIGHT + 2, ROBOT_LINK_Y]} to={[ROBOT_LINK_X, ROBOT_LINK_Y]} />
+            <StageAnnotation
+              x={TEXT_X}
+              y={NOTE_Y}
+              lines={ANNOTATIONS[approach.id]}
+              from={NOTE_ARROW.from}
+              target={NOTE_ARROW.target}
+              pointer="arrow"
+            />
             <Humanoid />
           </PlotStage>
         </FigureStage>
       }
-      caption="Humanoids split control into layers, slow deciding on top and fast balancing below; designs differ in where they draw those lines."
+      caption="Splitting the work lets a slow planner think while a fast layer keeps the robot balanced and moving."
       method={
         <>
           <p>
-            The three designs are the three whole-body control decompositions shipping in 2026: copying human motion
-            is motion-tracking RL, learned movement codes is a latent-action hierarchy, and one big network is an
-            end-to-end VLA. {approach.idea}
+            The three robot brains are the three whole-body control decompositions shipping in 2026: Figure AI&rsquo;s
+            Helix 02 is motion-tracking RL, NVIDIA&rsquo;s GR00T with GEAR-SONIC is a latent-action hierarchy, and
+            Google DeepMind&rsquo;s Gemini Robotics 2 is an end-to-end VLA. They differ in where they draw the lines
+            between layers. {approach.idea}
           </p>
           <ul data-testid="wbc-layers" className="m-0! grid list-none gap-0.5 p-0!">
             {approach.layers.map((layer) => (
@@ -344,7 +359,6 @@ export function WbcDecomposition({
           />
         </>
       }
-      source="Schematic control stacks; the loop rates under each layer name are published values."
     />
   );
 }

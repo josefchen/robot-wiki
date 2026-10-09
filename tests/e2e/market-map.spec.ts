@@ -332,18 +332,19 @@ test.describe('market map visualization', () => {
         route: '/world-models/generative-video/',
         labels: ['Listens to the action', 'Ignores the action'],
       },
-      // The reward-weight figure's weighted total sits in "How this was made".
+      // The reward-weight figure's weighted total, the Eureka replay's labels
+      // and the planner figure's controller names sit in "How this was made".
       {
         route: '/rl-sim2real/reward-design-mpc/',
         labels: [
-          'Task:',
+          'Eureka loop, scripted replay',
           'Fitness:',
           'Proposed reward code',
           'Scripted reward statistics',
-          'Task fitness',
+          'Scripted reflection on the statistics',
           'Weighted total:',
-          'Compute per step:',
-          'Model-based MPC (iLQR + MuJoCo)',
+          'Plans ahead: Model-based MPC (iLQR + MuJoCo)',
+          'Learned by practice:',
         ],
         openFolds: true,
       },

@@ -7,21 +7,20 @@
     "1280": "evidence/reader-first/rl-sim2real--legged-locomotion--scene-gait-support.1280.png"
   },
   "takeaway": "Going from walking to hopping, a four-legged robot keeps fewer feet on the ground, trading steadiness for bounce.",
-  "sentence": "A four-legged robot can move in different ways, from walking to hopping, and the faster ways keep fewer of its feet on the ground, until in a hop all four feet are in the air at the same time.",
+  "sentence": "The figure shows one four-legged robot walking, trotting and hopping: the fewer feet it keeps on the ground, the less steady and the bouncier it gets.",
   "unclearTerms": [
-    "pronk",
-    "Bound",
-    "Trot",
-    "stride",
-    "the tall black vertical line crossing the four bars",
-    "the grey shadow copies behind the dog's legs",
-    "the small slanted dashes under the ground line"
+    "Trot: I know it from horses but was not sure what it means exactly for a robot until I read the line underneath",
+    "Play button: I could not tell what would happen if I pressed it, for example whether the robots would move",
+    "green double-headed arrow: I was not sure whether it is a scale, a direction of movement, or just a decoration linking 'steadier' and 'more bounce'",
+    "green colour of the arrow and labels: I did not know whether green means good or something else",
+    "teal blobs under the feet: I had to check the key to learn they mean a foot on the ground, and at a glance the Walk robot seems to have three and the Trot robot two, which I could not match to 'one foot at a time'",
+    "How this was made: unclear whether it explains the drawing or the robot"
   ],
-  "samePoint": "no",
-  "reason": "I got that faster gaits keep fewer feet on the ground, but my sentence leaves out the trade of steadiness for bounce, so it states only part of the point.",
+  "samePoint": "yes",
+  "reason": "Both say the same robot keeps fewer feet down going from walking to hopping, and becomes less steady and bouncier.",
   "verdict": "fail",
-  "screenshotCommit": "37c392c813e3f544f479de8c962f27f3a6302d74",
+  "screenshotCommit": "ee211309e71b215f470d068a95f8b2fb1dd45c3a",
   "date": "2026-10-09",
-  "reviewerSession": "reader-session-b34f3e09",
-  "sourceDigest": "28140edf4a1492ee19141d441a24245cb585205dd13e7b762e222d14d54e33f4"
+  "reviewerSession": "reader-session-b5cda415",
+  "sourceDigest": "b43b45da6b4e9d9486ef8cb857d5b0e662ae2d33cfb3814d9ef061bd579f6c2a"
 }

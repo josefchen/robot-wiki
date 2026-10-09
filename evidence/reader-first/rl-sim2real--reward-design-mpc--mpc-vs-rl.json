@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/rl-sim2real/reward-design-mpc/",
+  "mount": "mount:/rl-sim2real/reward-design-mpc/:MpcVsRl:1",
+  "screenshots": {
+    "375": "evidence/reader-first/rl-sim2real--reward-design-mpc--mpc-vs-rl.375.png",
+    "1280": "evidence/reader-first/rl-sim2real--reward-design-mpc--mpc-vs-rl.1280.png"
+  },
+  "takeaway": "A robot that plans ahead fails when its guesses about the world are wrong, and one that learned by practice fails on surprises it never practised.",
+  "sentence": "The figure compares a robot that plans ahead with one that learned by practice under different surprises, such as a shove or a slippery patch, and shows which one stays up or falls in each case.",
+  "unclearTerms": [
+    "Plans ahead vs Learned by practice: unclear whether these are two different robots or two ways of controlling the same robot",
+    "greyed-out robot on the right: it 'stays up' yet is drawn faded, so I could not tell whether grey means inactive, less important, or something else",
+    "Surprise for the robot buttons: I guessed the buttons choose the surprise, but did not know whether the picture changes",
+    "It plans for a grippy floor: unclear why it would assume the floor is grippy",
+    "green arrow and green text: unclear what the colour means",
+    "bold row in the table: I guessed it marks the chosen surprise",
+    "body sags: unclear what this means for a robot",
+    "Weaker motors: unclear why the practice robot falls here while the planning one only slows down",
+    "stays up, but slower: unclear why weaker motors make it slower rather than making it fall",
+    "last line, 'practice only covers the surprises a robot has already met': this confused me, because the table does not say which surprises the practice robot had already met"
+  ],
+  "samePoint": "no",
+  "reason": "My sentence only says the figure shows which robot stays up or falls for each surprise; it misses why each one fails (wrong guesses versus surprises never practised).",
+  "verdict": "fail",
+  "screenshotCommit": "b9776c8a5447c05d2dae7a494b9a9dbc1e3ab49e",
+  "date": "2026-10-09",
+  "reviewerSession": "reader-session-b5cda415",
+  "sourceDigest": "7f112f574cd280c1850723726d440cc20fb2056031ee37bec68bc3b32331af1f"
+}

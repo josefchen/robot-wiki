@@ -74904,6 +74904,75 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rl-sim2real-pass-20261009-accessible-names-eureka-loop-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/eureka-loop.tsx:aria-label:1",
+      "oldHash": "1b86df9ea3e8c940d55b0697493e1348741dfc2a7dfc9a9e7926adec28757319",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Reader-first rewrite of the Eureka figure (A34; commits 2c0f478a, 7898e4a1 and 00c16832). The step button that printed \"Run next generation\" now prints \"Next round\", and its visible text is its accessible name, so the aria-label \"Run next generation\" is gone. The button still steps one round and stops at the last; Reset still returns to round 1. Reader record: evidence/reader-first/rl-sim2real--reward-design-mpc--eureka-loop.json (reviewer session reader-session-b5cda415, verdict fail).",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149, with audit items A34 (EurekaLoop) and A35 (MpcVsRl) routed to opus-pass-rl-sim2real by the closure note of 2026-10-05 and the parent instruction of 2026-10-09 07:00, item 4: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-sim2real-pass-20261009-accessible-names-eureka-loop-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/eureka-loop.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a25fabcf7edf45d89c696b9f65ea4cbcba75e2520c26af29bddd384ee804f476",
+      "reason": "Reader-first rewrite of the Eureka figure (A34; commits 2c0f478a, 7898e4a1 and 00c16832). The stage now draws the robot of the current round, so its drawing gets an accessible name built from the plain note the stage prints, for example \"Round 1 of 3: Points only for speed: it runs too fast and falls.\" The three rounds, their order and the method note in \"How this was made\" are unchanged. Reader record: evidence/reader-first/rl-sim2real--reward-design-mpc--eureka-loop.json (reviewer session reader-session-b5cda415, verdict fail).",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149, with audit items A34 (EurekaLoop) and A35 (MpcVsRl) routed to opus-pass-rl-sim2real by the closure note of 2026-10-05 and the parent instruction of 2026-10-09 07:00, item 4: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-139",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-sim2real-pass-20261009-accessible-names-mpc-vs-rl-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/mpc-vs-rl.tsx:aria-label:1",
+      "oldHash": "493412ba39bf39861ffdfab777f40e3dab8b9ecdb13f581d4222bf9ff47ee15a",
+      "newHash": "c298ad08688eb997b1af339ae31c6cc73b7d676e4123b627b8df853eef9dfa51",
+      "reason": "Reader-first rewrite of the planner-or-reflex figure (A35; commits 2c0f478a, 00c16832 and 12428118). The preset group that carried the aria-label \"Perturbation\" is now the shared PresetGroup, named through aria-labelledby by its visible label \"Surprise for the robot\", so the first literal aria-label in the file is the verdict table's name, \"Which robot stays up after each surprise\" (VAL-B2-ART-008 needs every table named). The four surprises and both verdicts per surprise are unchanged. Reader record: evidence/reader-first/rl-sim2real--reward-design-mpc--mpc-vs-rl.json (reviewer session reader-session-b5cda415, verdict fail).",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149, with audit items A34 (EurekaLoop) and A35 (MpcVsRl) routed to opus-pass-rl-sim2real by the closure note of 2026-10-05 and the parent instruction of 2026-10-09 07:00, item 4: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-138",
+        "VAL-OPUS-145",
+        "VAL-B2-ART-008",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-sim2real-pass-20261009-accessible-names-mpc-vs-rl-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/mpc-vs-rl.tsx:aria-label:1",
+      "oldHash": "037782f322dcea324e5c291a6dcb19ae0a5f453e204bac0fd87f48b31ffbb51e",
+      "newHash": "6783bc664b92c36af0138c696eefca54a5e4a96951c3884c7157d813e2948743",
+      "reason": "Reader-first rewrite of the planner-or-reflex figure (A35; commits 2c0f478a and 00c16832). The stage no longer plots base-height traces; it draws the two robots standing or fallen after the chosen surprise, so its accessible name says the same in the stage's plain words, for example \"Slippery patch: the robot that plans ahead falls, the robot that learned by practice stays up.\" in place of \"Base-height deviation after a ... MPC: ... RL policy: ...\". The traces stay in the chart description's table. Reader record: evidence/reader-first/rl-sim2real--reward-design-mpc--mpc-vs-rl.json (reviewer session reader-session-b5cda415, verdict fail).",
+      "ownerApproval": "Owner decision of 2026-10-02 on reader-first figures (validation/brand-v2-editorial/source-recovery-20261002-reader-first/owner-decision-reader-first-figures-20261002.md), sealed in contract/opus-pass.md as VAL-OPUS-137 to VAL-OPUS-149, with audit items A34 (EurekaLoop) and A35 (MpcVsRl) routed to opus-pass-rl-sim2real by the closure note of 2026-10-05 and the parent instruction of 2026-10-09 07:00, item 4: controls carry plain labels or named presets (VAL-OPUS-138), and a control's accessible name restates the label it prints. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-139",
+        "VAL-OPUS-145",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

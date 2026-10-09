@@ -171,6 +171,8 @@ async function modelState(panel: Locator, row: Evidence, mu: number, range: numb
 async function exercisePanel(page: Page, panel: Locator, info: TestInfo, row: Evidence, defaultRange: number, defaultMu: number) {
   // The readouts and the explanation sit in "How this was made"; a reader opens it to read them.
   await openHowThisWasMade(panel);
+  // The floor-range slider sits in "Adjust more" beside Reset; only the real-floor slider is in view at settle.
+  await openAdjustMore(panel);
   const mu = panel.getByRole('slider').nth(0);
   const range = panel.getByRole('slider').nth(1);
   await expect(mu).toHaveAttribute('min', '20');

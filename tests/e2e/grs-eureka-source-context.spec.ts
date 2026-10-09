@@ -83,11 +83,13 @@ for (const width of [1440, 375]) {
     await reference.getByRole('button', { name: 'Show all 9 authors' }).click();
     await expect(reference.locator('[data-author-names]')).toContainText('Anima Anandkumar');
     await expect(reference.locator('[data-author-names]')).not.toContainText('more');
-    const next = page.getByRole('button', { name: 'Run next generation' });
+    const next = page.getByRole('button', { name: 'Next round' });
     await next.focus();
     await page.keyboard.press('Enter');
+    await expect(page.getByTestId('round-readout')).toHaveText('Round 2 of 3');
     await expect(page.getByTestId('generation-readout')).toHaveText('Generation 1 of 2');
     await next.locator('..').getByRole('button', { name: 'Reset', exact: true }).click();
+    await expect(page.getByTestId('round-readout')).toHaveText('Round 1 of 3');
     await expect(page.getByTestId('generation-readout')).toHaveText('Generation 0 of 2');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);

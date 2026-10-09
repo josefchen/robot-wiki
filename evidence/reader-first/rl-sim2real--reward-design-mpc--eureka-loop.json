@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/rl-sim2real/reward-design-mpc/",
+  "mount": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
+  "screenshots": {
+    "375": "evidence/reader-first/rl-sim2real--reward-design-mpc--eureka-loop.375.png",
+    "1280": "evidence/reader-first/rl-sim2real--reward-design-mpc--eureka-loop.1280.png"
+  },
+  "takeaway": "An AI writes the scoring rules a robot learns from, reads how the robot did, and fixes rules that reward the wrong thing.",
+  "sentence": "The figure shows an AI changing a robot's points system round by round: in round 1 the robot only gets points for speed, so it runs too fast and falls.",
+  "unclearTerms": [
+    "scoring rules / points: unclear who gives the points to whom, and why a robot would care about points",
+    "the AI vs the robot: unclear whether they are separate things or the same thing",
+    "Rules the AI wrote: unclear what kind of rules these are",
+    "greyed-out robots in Rounds 2 and 3: I guessed they are rounds not shown yet, but was not sure",
+    "Round 2 'never walks': unclear what goes wrong in round 2; the grey robot looks like it is standing fine",
+    "Round 2 and Round 3 robots look almost the same: I could not see the difference between 'never walks' and 'walks'",
+    "target: 1.0 metres a second: unclear who set this target and why the robot misses it if speed earns points",
+    "practice run: unclear whether this is a real run or a computer one",
+    "green arrow pointing at the fallen robot: I took it as a pointer to the caption, but the green colour's meaning was unclear",
+    "Next round / Reset buttons: I guessed they move through the rounds",
+    "Round 1 of 3: fine, but I was unsure whether the text panels change with each round",
+    "How this was made: unclear what it covers"
+  ],
+  "samePoint": "no",
+  "reason": "My sentence has the AI changing the points round by round with the speed-only example, but not the AI reading the results and fixing rules that reward the wrong thing.",
+  "verdict": "fail",
+  "screenshotCommit": "7a9723889492a0a14da6c06ff4b67bb4dccedf4f",
+  "date": "2026-10-09",
+  "reviewerSession": "reader-session-b5cda415",
+  "sourceDigest": "9c5a8da53c9d8ad2e01f7b35e469c300d97b690402ccfb013da1b1248683079f"
+}

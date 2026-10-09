@@ -5374,11 +5374,11 @@
                   "Reward Design and the MPC Debate"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 15,
+                "readingMinutes": 14,
                 "citationCount": 42,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "15 min",
+                "readingTimeText": "14 min",
                 "citationCountText": "42",
                 "bibliographyIds": [
                   "rudin-2021",
@@ -65663,6 +65663,54 @@
               "id": "/rl-sim2real/reward-design-mpc/|1440x900|table#1",
               "observed": {
                 "index": 1,
+                "accessibleName": "Which robot stays up after each surprise",
+                "captionText": "",
+                "columnHeaders": 3,
+                "rowHeaders": 4,
+                "unscopedHeaders": 0,
+                "sortButtons": 0,
+                "sortedColumns": 0,
+                "notDisclosedCells": 0,
+                "notApplicableCells": 0,
+                "scrollContainer": null,
+                "tableWidth": 715,
+                "containerOverflowPx": 0,
+                "viewportOverflowPx": 0,
+                "measureCh": 71.5
+              }
+            }
+          ],
+          "viewports": [
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-008:/rl-sim2real/reward-design-mpc/|1440x900|table#2",
+      "assertionId": "VAL-B2-ART-008",
+      "populationMemberId": "/rl-sim2real/reward-design-mpc/|1440x900|table#2",
+      "coveredPopulationMemberIds": [
+        "/rl-sim2real/reward-design-mpc/|1440x900|table#2"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
+      "actual": "/rl-sim2real/reward-design-mpc/|1440x900|table#2 is a named table with scoped headers that stays inside the viewport by scrolling in its own keyboard-reachable container, on a page with no horizontal document overflow and no clipped root or body, beside a reading column still inside the sealed measure, measured at 1440x900",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#tables",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/rl-sim2real/reward-design-mpc/|1440x900|table#2",
+          "measured": [
+            {
+              "id": "/rl-sim2real/reward-design-mpc/|1440x900|table#2",
+              "observed": {
+                "index": 2,
                 "accessibleName": "Sampled base-height deviation for both controllers",
                 "captionText": "",
                 "columnHeaders": 3,
@@ -65775,6 +65823,54 @@
               "id": "/rl-sim2real/reward-design-mpc/|375x812|table#1",
               "observed": {
                 "index": 1,
+                "accessibleName": "Which robot stays up after each surprise",
+                "captionText": "",
+                "columnHeaders": 3,
+                "rowHeaders": 4,
+                "unscopedHeaders": 0,
+                "sortButtons": 0,
+                "sortedColumns": 0,
+                "notDisclosedCells": 0,
+                "notApplicableCells": 0,
+                "scrollContainer": null,
+                "tableWidth": 335,
+                "containerOverflowPx": 0,
+                "viewportOverflowPx": 0,
+                "measureCh": 33.5
+              }
+            }
+          ],
+          "viewports": [
+            "375x812"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-tables-math.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-008:/rl-sim2real/reward-design-mpc/|375x812|table#2",
+      "assertionId": "VAL-B2-ART-008",
+      "populationMemberId": "/rl-sim2real/reward-design-mpc/|375x812|table#2",
+      "coveredPopulationMemberIds": [
+        "/rl-sim2real/reward-design-mpc/|375x812|table#2"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
+      "actual": "/rl-sim2real/reward-design-mpc/|375x812|table#2 is a named table with scoped headers that stays inside the viewport by scrolling in its own keyboard-reachable container, on a page with no horizontal document overflow and no clipped root or body, beside a reading column still inside the sealed measure, measured at 375x812",
+      "selectorOrRegistryId": "evidence/brand-v2/article-tables-math.json#tables",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "/rl-sim2real/reward-design-mpc/|375x812|table#2",
+          "measured": [
+            {
+              "id": "/rl-sim2real/reward-design-mpc/|375x812|table#2",
+              "observed": {
+                "index": 2,
                 "accessibleName": "Sampled base-height deviation for both controllers",
                 "captionText": "",
                 "columnHeaders": 3,
@@ -70668,11 +70764,11 @@
                   "Reward Design and the MPC Debate"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 15,
+                "readingMinutes": 14,
                 "citationCount": 42,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "15 min",
+                "readingTimeText": "14 min",
                 "citationCountText": "42",
                 "bibliographyIds": [
                   "rudin-2021",
@@ -79484,6 +79580,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/eureka-loop.tsx:aria-label:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/interactive/eureka-loop.tsx:aria-label:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/interactive/eureka-loop.tsx:aria-label:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/interactive/eureka-loop.tsx:aria-label:1 moved from null to a25fabcf7edf45d89c696b9f65ea4cbcba75e2520c26af29bddd384ee804f476 exactly as approved delta rl-sim2real-pass-20261009-accessible-names-eureka-loop-expression-aria-label-1 permits: Reader-first rewrite of the Eureka figure (A34; commits 2c0f478a, 7898e4a1 and 00c16832). The stage now draws the robot of the current round, so its drawing gets an accessible name built from the plain note the stage prints, for example \"Round 1 of 3: Points only for speed: it runs too fast and falls.\" The three rounds, their order and the method note in \"How this was made\" are unchanged. Reader record: evidence/reader-first/rl-sim2real--reward-design-mpc--eureka-loop.json (reviewer session reader-session-b5cda415, verdict fail).",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/interactive/eureka-loop.tsx:aria-label:1",
+          "baselineHash": null,
+          "currentHash": "a25fabcf7edf45d89c696b9f65ea4cbcba75e2520c26af29bddd384ee804f476",
+          "status": "approved-addition",
+          "approvedDelta": "rl-sim2real-pass-20261009-accessible-names-eureka-loop-expression-aria-label-1"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/execution-modes.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:expression:components/interactive/execution-modes.tsx:aria-label:1",
@@ -80612,7 +80736,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/mpc-vs-rl.tsx:aria-label:1 hashes to 037782f322dcea324e5c291a6dcb19ae0a5f453e204bac0fd87f48b31ffbb51e in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member expression:components/interactive/mpc-vs-rl.tsx:aria-label:1 moved from 037782f322dcea324e5c291a6dcb19ae0a5f453e204bac0fd87f48b31ffbb51e to 6783bc664b92c36af0138c696eefca54a5e4a96951c3884c7157d813e2948743 exactly as approved delta rl-sim2real-pass-20261009-accessible-names-mpc-vs-rl-expression-aria-label-1 permits: Reader-first rewrite of the planner-or-reflex figure (A35; commits 2c0f478a and 00c16832). The stage no longer plots base-height traces; it draws the two robots standing or fallen after the chosen surprise, so its accessible name says the same in the stage's plain words, for example \"Slippery patch: the robot that plans ahead falls, the robot that learned by practice stays up.\" in place of \"Base-height deviation after a ... MPC: ... RL policy: ...\". The traces stay in the chart description's table. Reader record: evidence/reader-first/rl-sim2real--reward-design-mpc--mpc-vs-rl.json (reviewer session reader-session-b5cda415, verdict fail).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -80624,9 +80748,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/mpc-vs-rl.tsx:aria-label:1",
           "baselineHash": "037782f322dcea324e5c291a6dcb19ae0a5f453e204bac0fd87f48b31ffbb51e",
-          "currentHash": "037782f322dcea324e5c291a6dcb19ae0a5f453e204bac0fd87f48b31ffbb51e",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "6783bc664b92c36af0138c696eefca54a5e4a96951c3884c7157d813e2948743",
+          "status": "approved-delta",
+          "approvedDelta": "rl-sim2real-pass-20261009-accessible-names-mpc-vs-rl-expression-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -83852,34 +83976,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/eureka-loop.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:literal:components/interactive/eureka-loop.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:literal:components/interactive/eureka-loop.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/interactive/eureka-loop.tsx:aria-label:1 hashes to 1b86df9ea3e8c940d55b0697493e1348741dfc2a7dfc9a9e7926adec28757319 in the current tree, the value the immutable migration baseline sealed",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "literal:components/interactive/eureka-loop.tsx:aria-label:1",
-          "baselineHash": "1b86df9ea3e8c940d55b0697493e1348741dfc2a7dfc9a9e7926adec28757319",
-          "currentHash": "1b86df9ea3e8c940d55b0697493e1348741dfc2a7dfc9a9e7926adec28757319",
-          "status": "identical",
-          "approvedDelta": null
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/execution-modes.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:literal:components/interactive/execution-modes.tsx:aria-label:1",
@@ -84280,7 +84376,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/interactive/mpc-vs-rl.tsx:aria-label:1 hashes to 493412ba39bf39861ffdfab777f40e3dab8b9ecdb13f581d4222bf9ff47ee15a in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member literal:components/interactive/mpc-vs-rl.tsx:aria-label:1 moved from 493412ba39bf39861ffdfab777f40e3dab8b9ecdb13f581d4222bf9ff47ee15a to c298ad08688eb997b1af339ae31c6cc73b7d676e4123b627b8df853eef9dfa51 exactly as approved delta rl-sim2real-pass-20261009-accessible-names-mpc-vs-rl-literal-aria-label-1 permits: Reader-first rewrite of the planner-or-reflex figure (A35; commits 2c0f478a, 00c16832 and 12428118). The preset group that carried the aria-label \"Perturbation\" is now the shared PresetGroup, named through aria-labelledby by its visible label \"Surprise for the robot\", so the first literal aria-label in the file is the verdict table's name, \"Which robot stays up after each surprise\" (VAL-B2-ART-008 needs every table named). The four surprises and both verdicts per surprise are unchanged. Reader record: evidence/reader-first/rl-sim2real--reward-design-mpc--mpc-vs-rl.json (reviewer session reader-session-b5cda415, verdict fail).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -84292,9 +84388,9 @@
           "manifest": "accessible-names",
           "member": "literal:components/interactive/mpc-vs-rl.tsx:aria-label:1",
           "baselineHash": "493412ba39bf39861ffdfab777f40e3dab8b9ecdb13f581d4222bf9ff47ee15a",
-          "currentHash": "493412ba39bf39861ffdfab777f40e3dab8b9ecdb13f581d4222bf9ff47ee15a",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "c298ad08688eb997b1af339ae31c6cc73b7d676e4123b627b8df853eef9dfa51",
+          "status": "approved-delta",
+          "approvedDelta": "rl-sim2real-pass-20261009-accessible-names-mpc-vs-rl-literal-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -125921,7 +126017,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/rl-sim2real/sim2real-transfer/ ships 99 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 99 outbound anchor occurrences on it with a visible focus ring in 253 stops",
+      "actual": "/rl-sim2real/sim2real-transfer/ ships 99 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 99 outbound anchor occurrences on it with a visible focus ring in 252 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -125940,7 +126036,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 96,
           "reachedByTab": 99,
-          "tabStops": 253,
+          "tabStops": 252,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -138382,7 +138478,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/eureka-loop.tsx uses error through bg-err, border-err, text-err on 1 marks, each carrying its own non-colour cue (semantic-rule, text-carrier), and the token resolved on all 75 swept public routes",
+      "actual": "components/interactive/eureka-loop.tsx uses error through bg-err, border-err, text-err on 2 marks, each carrying its own non-colour cue (accessible-label, semantic-rule, text-carrier), and the token resolved on all 75 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -138402,7 +138498,17 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/eureka-loop.tsx#221:span:error",
+              "id": "components/interactive/eureka-loop.tsx#252:InstrumentFigure:error",
+              "element": "InstrumentFigure",
+              "binding": "class-constant",
+              "via": "DIFF_STYLE",
+              "cues": [
+                "accessible-label",
+                "semantic-rule"
+              ]
+            },
+            {
+              "id": "components/interactive/eureka-loop.tsx#346:span:error",
               "element": "span",
               "binding": "class-constant",
               "via": "DIFF_STYLE",
@@ -138430,7 +138536,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/eureka-loop.tsx uses ok through bg-ok, border-ok, text-ok on 1 marks, each carrying its own non-colour cue (semantic-rule, text-carrier), and the token resolved on all 75 swept public routes",
+      "actual": "components/interactive/eureka-loop.tsx uses ok through bg-ok, border-ok, text-ok on 2 marks, each carrying its own non-colour cue (accessible-label, semantic-rule, text-carrier), and the token resolved on all 75 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -138450,7 +138556,17 @@
           "authored": "#1A6F45",
           "marks": [
             {
-              "id": "components/interactive/eureka-loop.tsx#221:span:ok",
+              "id": "components/interactive/eureka-loop.tsx#252:InstrumentFigure:ok",
+              "element": "InstrumentFigure",
+              "binding": "class-constant",
+              "via": "DIFF_STYLE",
+              "cues": [
+                "accessible-label",
+                "semantic-rule"
+              ]
+            },
+            {
+              "id": "components/interactive/eureka-loop.tsx#346:span:ok",
               "element": "span",
               "binding": "class-constant",
               "via": "DIFF_STYLE",
@@ -139548,7 +139664,6 @@
             "components/interactive/impedance-contact-lab.tsx",
             "components/interactive/milestones-watchlist.tsx",
             "components/interactive/mot-insulation.tsx",
-            "components/interactive/mpc-vs-rl.tsx",
             "components/interactive/perception-error-budget.tsx",
             "components/interactive/pi-generation-timeline.tsx",
             "components/interactive/sample-efficiency-ledger.tsx",
@@ -151346,7 +151461,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/humanoid-wbc/ rendered no v1 identity spelling and no v1 descriptor in 50763 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/humanoid-wbc/ rendered no v1 identity spelling and no v1 descriptor in 50393 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -151393,7 +151508,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/legged-locomotion/ rendered no v1 identity spelling and no v1 descriptor in 43083 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/legged-locomotion/ rendered no v1 identity spelling and no v1 descriptor in 42783 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -151534,7 +151649,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/reward-design-mpc/ rendered no v1 identity spelling and no v1 descriptor in 60009 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/reward-design-mpc/ rendered no v1 identity spelling and no v1 descriptor in 57689 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -151628,7 +151743,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/sim2real-transfer/ rendered no v1 identity spelling and no v1 descriptor in 58021 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/sim2real-transfer/ rendered no v1 identity spelling and no v1 descriptor in 57693 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -221195,8 +221310,8 @@
               "id": "/rl-sim2real/reward-design-mpc/",
               "observed": {
                 "monoRequiredCount": 8,
-                "interfaceControlCount": 32,
-                "controlsInProse": 18,
+                "interfaceControlCount": 35,
+                "controlsInProse": 21,
                 "registrationLabelCount": 4
               }
             }
@@ -225485,7 +225600,7 @@
               "id": "/rl-sim2real/legged-locomotion/",
               "observed": {
                 "paragraphCount": 36,
-                "registeredFrameParagraphCount": 12,
+                "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
             }
@@ -225596,7 +225711,7 @@
               "id": "/rl-sim2real/reward-design-mpc/",
               "observed": {
                 "paragraphCount": 46,
-                "registeredFrameParagraphCount": 20,
+                "registeredFrameParagraphCount": 44,
                 "offendingFamilies": []
               }
             }

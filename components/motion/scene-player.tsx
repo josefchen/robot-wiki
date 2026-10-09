@@ -83,6 +83,8 @@ export interface ScenePlayerProps {
   autoPlayOnMount?: boolean;
   /** Step once on mount (a step pressed in the poster's fold). */
   initialStep?: 1 | -1;
+  /** The poster frame's anchor id, kept once the player replaces it. */
+  anchorId?: string;
   className?: string;
 }
 
@@ -97,6 +99,7 @@ export function ScenePlayer({
   method,
   autoPlayOnMount = false,
   initialStep,
+  anchorId,
   className,
 }: ScenePlayerProps) {
   const descriptionId = `${useId()}-motion-alt`;
@@ -300,6 +303,7 @@ export function ScenePlayer({
   return (
     <FigureFrame
       as="div"
+      id={anchorId}
       figureId={sceneFigureId(scene.id)}
       data-motion-scene={scene.id}
       data-figure-beat-words={sceneBeatWords(scene)}

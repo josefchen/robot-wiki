@@ -1,12 +1,12 @@
 {
   "375 reduced poster": {
-    "textCount": 14,
-    "markCount": 4,
+    "textCount": 6,
+    "markCount": 47,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
-        "control": "Play the motion scene: Foot support over an authored stride cycle",
+        "control": "Play the motion scene: Feet on the ground in three gaits of a robot dog",
         "ratio": 19.67,
         "foreground": "rgb(255, 255, 255)",
         "background": "rgb(11, 11, 12)"
@@ -45,13 +45,13 @@
     "lowContrast": []
   },
   "375 poster": {
-    "textCount": 14,
-    "markCount": 4,
+    "textCount": 6,
+    "markCount": 47,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
-        "control": "Play the motion scene: Foot support over an authored stride cycle",
+        "control": "Play the motion scene: Feet on the ground in three gaits of a robot dog",
         "ratio": 19.67,
         "foreground": "rgb(255, 255, 255)",
         "background": "rgb(11, 11, 12)"
@@ -90,8 +90,8 @@
     "lowContrast": []
   },
   "375 beat 1": {
-    "textCount": 13,
-    "markCount": 6,
+    "textCount": 2,
+    "markCount": 17,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -141,8 +141,8 @@
     "lowContrast": []
   },
   "375 beat 2": {
-    "textCount": 13,
-    "markCount": 4,
+    "textCount": 3,
+    "markCount": 33,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -192,8 +192,8 @@
     "lowContrast": []
   },
   "375 beat 3": {
-    "textCount": 13,
-    "markCount": 4,
+    "textCount": 4,
+    "markCount": 47,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -243,8 +243,8 @@
     "lowContrast": []
   },
   "375 beat 4": {
-    "textCount": 14,
-    "markCount": 4,
+    "textCount": 6,
+    "markCount": 47,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -294,13 +294,13 @@
     "lowContrast": []
   },
   "1440 reduced poster": {
-    "textCount": 14,
-    "markCount": 4,
+    "textCount": 6,
+    "markCount": 47,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
-        "control": "Play the motion scene: Foot support over an authored stride cycle",
+        "control": "Play the motion scene: Feet on the ground in three gaits of a robot dog",
         "ratio": 19.67,
         "foreground": "rgb(255, 255, 255)",
         "background": "rgb(11, 11, 12)"
@@ -339,13 +339,13 @@
     "lowContrast": []
   },
   "1440 poster": {
-    "textCount": 14,
-    "markCount": 4,
+    "textCount": 6,
+    "markCount": 47,
     "intersections": [],
     "overflow": [],
     "contrast": [
       {
-        "control": "Play the motion scene: Foot support over an authored stride cycle",
+        "control": "Play the motion scene: Feet on the ground in three gaits of a robot dog",
         "ratio": 19.67,
         "foreground": "rgb(255, 255, 255)",
         "background": "rgb(11, 11, 12)"
@@ -384,8 +384,8 @@
     "lowContrast": []
   },
   "1440 beat 1": {
-    "textCount": 13,
-    "markCount": 6,
+    "textCount": 2,
+    "markCount": 17,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -435,8 +435,8 @@
     "lowContrast": []
   },
   "1440 beat 2": {
-    "textCount": 13,
-    "markCount": 4,
+    "textCount": 3,
+    "markCount": 33,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -486,8 +486,8 @@
     "lowContrast": []
   },
   "1440 beat 3": {
-    "textCount": 13,
-    "markCount": 4,
+    "textCount": 4,
+    "markCount": 47,
     "intersections": [],
     "overflow": [],
     "contrast": [
@@ -537,8 +537,8 @@
     "lowContrast": []
   },
   "1440 beat 4": {
-    "textCount": 14,
-    "markCount": 4,
+    "textCount": 6,
+    "markCount": 47,
     "intersections": [],
     "overflow": [],
     "contrast": [

@@ -9349,7 +9349,7 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "visibleTextLength": 25136,
+      "visibleTextLength": 24951,
       "header": {
         "present": true,
         "display": "flex",
@@ -9512,7 +9512,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "visibleTextLength": 21296,
+      "visibleTextLength": 21146,
       "header": {
         "present": true,
         "display": "flex",
@@ -10001,7 +10001,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "visibleTextLength": 29759,
+      "visibleTextLength": 28599,
       "header": {
         "present": true,
         "display": "flex",
@@ -10327,7 +10327,7 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "visibleTextLength": 28765,
+      "visibleTextLength": 28601,
       "header": {
         "present": true,
         "display": "flex",
