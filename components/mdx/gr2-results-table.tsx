@@ -34,13 +34,14 @@ export function Gr2ResultsTable({ className }: { className?: string }) {
               scope="col"
               className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
-              Category
+              Group
             </th>
             <th
               scope="col"
               className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
-              Task
+              {/* DeepMind's caption: whole-body and gripper bars average several tasks per skill category. */}
+              Task or category
             </th>
             <th
               scope="col"
@@ -97,7 +98,7 @@ export function Gr2ResultsTable({ className }: { className?: string }) {
       >
         All figures are vendor-reported by Google DeepMind (2026-07-30) with
         no external replication and no standardized real-world humanoid
-        benchmark to compare against. DeepMind&apos;s own gloss: whole-body and gripper-based
+        benchmark. DeepMind&apos;s own gloss: whole-body and gripper-based
         dexterous tasks reach medium to high success; multi-finger dexterous
         manipulation remains challenging.
       </p>

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "bb6d4ed85f6744af57ce86914a995cb87c8f7815d366ac5b46af796efc716bd4",
+  "fingerprint": "1ffead105b5ae01029584ebf87ffa546420d5ebe9b1f26b2ecec9098fc5f9e66",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3092,
+      "visibleTextLength": 3080,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41934,7 +41934,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 25146,
+      "visibleTextLength": 25136,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42829,7 +42829,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21289,
+      "visibleTextLength": 21296,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44687,7 +44687,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18442,
+      "visibleTextLength": 18416,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44926,7 +44926,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The interactive scene is an unbenchmarked toy with a fixed 2"
+          "text": "The opening scene is an illustrative calculation: a fixed 22"
         },
         {
           "familyHead": "newsreader",
@@ -45501,7 +45501,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30472,
+      "visibleTextLength": 29759,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45568,11 +45568,11 @@
           "Reward Design and the MPC Debate"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 16,
+        "readingMinutes": 15,
         "citationCount": 42,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "16 min",
+        "readingTimeText": "15 min",
         "citationCountText": "42",
         "bibliographyIds": [
           "rudin-2021",
@@ -45642,15 +45642,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Reward design is writing the objective that a reinforcement "
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 335,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "This local teaching model uses twelve authored terms, weight"
         },
         {
           "familyHead": "ibm plex sans",
@@ -45786,15 +45777,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The evaluation covers 29 simulated tasks, nine Isaac Gym env"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 335,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "The panel below is a scripted teaching example of the Eureka"
         },
         {
           "familyHead": "ibm plex sans",
@@ -47482,7 +47464,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28768,
+      "visibleTextLength": 28765,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56410,7 +56392,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3330,
+      "visibleTextLength": 3318,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98201,7 +98183,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 25637,
+      "visibleTextLength": 25627,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -99096,7 +99078,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21780,
+      "visibleTextLength": 21787,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100954,7 +100936,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18933,
+      "visibleTextLength": 18907,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101193,7 +101175,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The interactive scene is an unbenchmarked toy with a fixed 2"
+          "text": "The opening scene is an illustrative calculation: a fixed 22"
         },
         {
           "familyHead": "newsreader",
@@ -101768,7 +101750,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30963,
+      "visibleTextLength": 30250,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101835,11 +101817,11 @@
           "Reward Design and the MPC Debate"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 16,
+        "readingMinutes": 15,
         "citationCount": 42,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "16 min",
+        "readingTimeText": "15 min",
         "citationCountText": "42",
         "bibliographyIds": [
           "rudin-2021",
@@ -101909,15 +101891,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Reward design is writing the objective that a reinforcement "
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 715,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "This local teaching model uses twelve authored terms, weight"
         },
         {
           "familyHead": "ibm plex sans",
@@ -102053,15 +102026,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The evaluation covers 29 simulated tasks, nine Isaac Gym env"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 715,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "The panel below is a scripted teaching example of the Eureka"
         },
         {
           "familyHead": "ibm plex sans",
@@ -103749,7 +103713,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29259,
+      "visibleTextLength": 29256,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

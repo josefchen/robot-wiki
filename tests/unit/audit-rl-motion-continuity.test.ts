@@ -213,8 +213,8 @@ it('rejects population changes, unreviewed claims and active article drift', () 
   const destination = fixture();
   const current = join(destination, entries[0].current.path);
   writeFileSync(current, readFileSync(current, 'utf8').replace(
-    'The interactive scene is an unbenchmarked toy',
-    'The interactive scene is a measured benchmark',
+    'The opening scene is an illustrative calculation',
+    'The opening scene is a measured benchmark',
   ));
   expect(() => currentRlMotionArticle(destination, entries[0].historical, entries))
     .toThrow(/identity drift|artifact bytes\/hash|first-screen cd article continuity drift/);
@@ -241,7 +241,7 @@ it('rechecks each member, root and fresh article/catalog bytes with one parsed-i
   const articlePath = join(destination, entries[0].current.path);
   const original = readFileSync(articlePath);
   writeFileSync(articlePath, original.toString().replace(
-    'The interactive scene is an unbenchmarked toy', 'The interactive scene is a measured benchmark',
+    'The opening scene is an illustrative calculation', 'The opening scene is a measured benchmark',
   ));
   expect(() => verify(destination, 0))
     .toThrow(/identity drift|artifact bytes\/hash|first-screen cd article continuity drift/);

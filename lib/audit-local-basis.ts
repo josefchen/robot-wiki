@@ -1222,7 +1222,7 @@ const HISTORICAL_VERIFICATION_INPUTS: Readonly<Record<string, {
   'tests/unit/reward-local-evidence.test.ts': {
     bytes: 7995, sha256: 'adc09ca0aa7774af466974f52ea9b4f7e33cbf82e4eabd73fbc9389836810f05',
     snapshot: 'reward-local-evidence.pre-portability.test.ts.txt',
-    currentTestHash: '5a3c6d529e0fc3ec006aad3a075ac02540ec3476e3f391193b998b89d78b8488',
+    currentTestHash: 'a5d166d0b11e1cce9ce19a093d328ccfc45c2057e61cb856ee08857cf2241c12',
   },
   'tests/unit/sim2real-local-evidence.test.ts': {
     bytes: 9706, sha256: 'c3678122420b6d6ef1f4bc3becc363fe8b46a4f9577f2342d4fd3324f77a078b',
@@ -1232,7 +1232,7 @@ const HISTORICAL_VERIFICATION_INPUTS: Readonly<Record<string, {
   'tests/unit/parallel-local-evidence.test.ts': {
     bytes: 5364, sha256: '959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb',
     snapshot: 'parallel-local-evidence.pre-portability.test.ts.txt',
-    currentTestHash: '246b135fb34347c92ff0b5d675ffb5eaa3050372c9c388912f4c4348a242a442',
+    currentTestHash: 'd2c39b3c94fad8f22da07efe5fa4517aef9325dc77477f510c65275e421fb687',
   },
   'tests/unit/classical-closure-evidence.test.ts': {
     bytes: 12839, sha256: '9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7',
