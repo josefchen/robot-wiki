@@ -49,9 +49,9 @@ import {
  *
  * The robot trained on one floor (the point curve) is the grey dashed
  * spike; the robot trained on many floors (the domain-randomized curve) is
- * the solid value-coloured plateau. The real floor starts at 0.50, where
- * the spike has already fallen to zero and the plateau still holds, so the
- * first frame shows why randomization is used.
+ * the solid value-coloured plateau. The real floor starts on the practice
+ * floor (0.80), where the one-floor robot wins 97% against 74%; moving it
+ * off that floor shows why randomization is used.
  *
  * Interactive contract: deterministic initial render, native range inputs
  * (keyboard-accessible) plus pointer drag on the real-floor line, readouts
@@ -63,8 +63,8 @@ const WIDTH = CHART_VIEW_WIDTH;
 const HEIGHT = 242;
 const PLOT = { left: 72, right: 326, top: 86, bottom: 210 } as const;
 
-/** The real floor the figure opens on: more slippery than the practice floor. */
-export const OPENING_REAL_MU = 0.5;
+/** The real floor the figure opens on: the practice floor itself. */
+export const OPENING_REAL_MU = 0.8;
 
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
@@ -174,7 +174,7 @@ export function FrictionTransfer({
   const widthMark = range >= 0.5 ? 'wide' : 'ordinary';
 
   const descriptionText =
-    `Authored toy, not measured robot data. At selected friction ${formatMu(realMu)}, the point curve is ${formatPct(point)} and the DR curve is ${formatPct(dr)}. The assumed DR half-width is ${formatMu(range)} and its plateau is ${formatPct(drPeakValue)}. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. Dashed edges mark an assumed range, not a confidence interval. The randomization band is marked ${widthMark} at the selected half-width. Reset restores this panel to friction ${formatMu(defaultRealMu)} and half-width ${formatMu(defaultRange)}. Selecting friction samples the formulas; no training or adaptation runs.`;
+    `Illustrative, not measured robot data. At selected friction ${formatMu(realMu)}, the point curve is ${formatPct(point)} and the DR curve is ${formatPct(dr)}. The assumed DR half-width is ${formatMu(range)} and its plateau is ${formatPct(drPeakValue)}. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. Dashed edges mark an assumed range, not a confidence interval. The randomization band is marked ${widthMark} at the selected half-width. Reset restores this panel to friction ${formatMu(defaultRealMu)} and half-width ${formatMu(defaultRange)}. Selecting friction samples the formulas; no training or adaptation runs.`;
 
   const lineX = xFor(realMu);
   const bandEdges = [MU_TRAIN - range, MU_TRAIN + range].filter(

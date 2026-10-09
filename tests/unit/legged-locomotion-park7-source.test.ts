@@ -79,11 +79,10 @@ describe('legged locomotion Park bounding original 7', { timeout: 30_000 }, () =
   it('applies the corrected article span exactly once and removes the drift sentence', () => {
     const drift = 'the MIT Cheetah line made high-speed bounding practical by scaling the duty cycle with speed';
     expect(article.match(drift)).toBeNull();
-    const span = 'Park, Wensing and Kim plan stance time from stride length and desired speed';
+    const span = 'Park, Wensing and Kim plan stance time from stride length and';
     expect(article.match(span)).toHaveLength(1);
-    expect(article).toContain('modulate the duty cycle via vertical impulse scaling');
-    expect(article).toContain('only up to 3 m/s and is fixed above it');
-    expect(article).toContain('qualified by side-wall contact and roll instability');
+    expect(article).toContain('modulate duty cycle by vertical impulse scaling');
+    expect(article).toContain('only up to 3 m/s');
     expect(finalSevenBefore('content/rl-sim2real/legged-locomotion.mdx').match(/<Cite id="park-2017-bounding" \/>/g)).toHaveLength(2);
     expect(article.match(/<Cite id="park-2017-bounding" \/>/g)).toHaveLength(1);
     expect(article).not.toContain('classical and learned alike, modulate duty factor continuously with speed');

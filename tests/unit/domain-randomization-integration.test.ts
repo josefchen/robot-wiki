@@ -34,11 +34,11 @@ describe('Domain randomization source integration', () => {
     expect(transfer).not.toContain('(mass, inertia, friction)');
   });
   it('retains Tobin accuracy, evaluation and pretraining qualifications', () => {
-    for (const s of ['around 1.5 cm', '480 webcam images', 'eight geometric objects', 'ImageNet initialization', 'random initialization']) expect(transfer).toContain(s);
+    for (const s of ['about 1.5 cm', '480 webcam images', 'eight geometric objects', 'ImageNet initialization', 'random initialization']) expect(transfer).toContain(s);
     expect(transfer).not.toContain('detector trained only on non-realistic simulated images');
   });
   it('retains Peng physical evaluation and limited calibration', () => {
-    for (const s of ['seven-DoF Fetch', '200', '7 cm', '30 cm by 30 cm', 'limited calibration']) expect(transfer).toContain(s);
+    for (const s of ['seven-DoF Fetch', '200', '7 cm', 'within a 30 cm square', 'limited calibration']) expect(transfer).toContain(s);
   });
   it('preserves all nineteen ordered OpenAI byline entries', () => {
     expect(CITATIONS.find(c => c.id === 'openai-rubiks-cube-2019')?.authors).toEqual([
@@ -49,16 +49,19 @@ describe('Domain randomization source integration', () => {
     ]);
   });
   it('distinguishes fixed-sequence sensing results from universal puzzle solving', () => {
-    for (const s of ['43 subgoals', 'two of ten', 'zero of ten', 'Giiker', 'solved cube', 'separate solver']) expect(why).toContain(s);
+    for (const s of ['43-subgoal scramble', 'two of ten', 'zero of ten', 'sensor cube', 'vision for face angles']) expect(why).toContain(s);
   });
   it('distinguishes physical calibration and automatic curriculum ranges', () => {
-    for (const s of ['manually tuned motor-torque limits', 'recorded physical joint trajectories', 'not all hand-tuned']) expect(why).toContain(s);
+    for (const s of ['customized hardware', 'tuned torque limits', 'calibrated hand simulation', 'automatic domain randomization']) expect(why).toContain(s);
     expect(why).not.toContain('locomotion gets for free');
   });
   it('removes literature-wide cost and absence claims from prose and feedback', () => {
     expect(transfer).not.toMatch(/optimal for none|papers almost never quantify|every DR paper reports/);
-    expect(transfer).toContain('maximize expected return');
-    expect(transfer).toContain('authored assumptions');
+    expect(transfer).toContain('maximizing expected return');
+    // VAL-OPUS-068: the authored friction curves carry one label in the
+    // figure frame, next to its controls, instead of a prose disclaimer.
+    expect(transfer).not.toContain('authored toy');
+    expect(readFileSync('components/interactive/friction-transfer.tsx', 'utf8')).toContain('<StageStatus>Illustrative, not measured</StageStatus>');
     // The reviewed feedback disclaims Peng for its authored values; the
     // 2026-10-01 figure migration retired that prediction step with values
     // and disclaimer together, so the values may not return without it.
@@ -71,7 +74,7 @@ describe('Domain randomization source integration', () => {
     expect(/0\.7375|0\.5725/.test(transfer) && !transfer.includes('do not come from Peng paper results')).toBe(false);
   });
   it('preserves RMA inference and does not complete held original 23', () => {
-    expect(transfer).toContain('These processes perform inference without online gradient updates.');
+    expect(transfer).toContain('with no online gradient updates');
     expect(transfer).toContain("label: 'A separately trained adaptation module'");
     expect(transfer).toContain('answer="latent-adaptation"');
     const held = parseLedger('audit/rl-sim2real.md', ledger, ids, { compoundPlans: plans })

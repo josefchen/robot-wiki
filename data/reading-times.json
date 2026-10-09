@@ -60,35 +60,35 @@
     "minutes": 7
   },
   "rl-sim2real/rl-for-robotics": {
-    "words": 3099,
-    "minutes": 15
+    "words": 2510,
+    "minutes": 13
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1304,
+    "words": 1303,
     "minutes": 7
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1818,
-    "minutes": 9
+    "words": 1608,
+    "minutes": 8
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 2697,
+    "words": 2549,
     "minutes": 13
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 2180,
-    "minutes": 11
+    "words": 1971,
+    "minutes": 10
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 2348,
-    "minutes": 12
+    "words": 2272,
+    "minutes": 11
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 3309,
-    "minutes": 17
+    "words": 3119,
+    "minutes": 16
   },
   "rl-sim2real/offline-rl": {
-    "words": 1615,
+    "words": 1625,
     "minutes": 8
   },
   "world-models/taxonomy": {
@@ -100,7 +100,7 @@
     "minutes": 9
   },
   "world-models/generative-video": {
-    "words": 2132,
+    "words": 2234,
     "minutes": 11
   },
   "world-models/jepa": {
@@ -192,8 +192,8 @@
     "minutes": 8
   },
   "frontier/dexterity": {
-    "words": 2856,
-    "minutes": 14
+    "words": 2924,
+    "minutes": 15
   },
   "frontier/generalization": {
     "words": 2167,

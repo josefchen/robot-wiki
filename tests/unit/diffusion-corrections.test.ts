@@ -57,6 +57,6 @@ describe('authorized Diffusion Policy current-claim corrections', () => {
 
 it('TD3 states reduction rather than elimination and preserves its citation', () => {
   const rl = readFileSync('content/rl-sim2real/rl-for-robotics.mdx', 'utf8');
-  expect(rl).toContain('TD3 identified overestimation bias in DDPG and reduced its effects with clipped double critics, delayed policy updates and target policy smoothing <Cite id="td3-2018" />');
+  expect(rl).toContain('TD3 reduced DDPG\'s overestimation bias with clipped double critics, delayed policy updates and target policy smoothing <Cite id="td3-2018" />');
   expect(rl).not.toContain('TD3 diagnosed the overestimation bias that made DDPG unstable and fixed it');
 });

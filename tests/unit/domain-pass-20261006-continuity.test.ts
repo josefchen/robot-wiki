@@ -101,6 +101,25 @@ describe('domain pass 2026-10-06 article successors', () => {
     expect(keepsDomainPassObligations(path, fixed, prior)).toBe(false);
   });
 
+  it('admits the sourced why-rl-locomotion insertion tile exactly, and only on that article', () => {
+    const path = 'content/rl-sim2real/why-rl-locomotion.mdx';
+    const source = review.sources.find(({ after }) => after.path === path)!;
+    const live = read(path);
+    const tile = (bytes: Buffer) => String(bytes).match(/<Stat label="(?:Manipulation equivalent|Sim-to-real insertion)"[^>]*\/>/)![0];
+    const article = (mount: string) => ['---', 'title: "W"', '---', '', mount, ''].join('\n');
+    const prior = article(tile(domainPassPredecessor(root, source.before, live)));
+    const fixed = article(tile(live));
+    expect(prior).toContain('<Stat label="Manipulation equivalent" value="none" note="no four-minute number exists in 2026" />');
+    expect(fixed).toContain('<Stat label="Sim-to-real insertion" value="60%" note="Play2Perfect, 0.5 mm clearance (CoRL 2026)" />');
+    expect(keepsDomainPassObligations(path, prior, fixed)).toBe(true);
+    // The same swap on another article, any other value or its reverse is still a changed mount.
+    expect(keepsDomainPassObligations('content/rl-sim2real/sim2real-transfer.mdx', prior, fixed)).toBe(false);
+    expect(keepsDomainPassObligations(path, prior, fixed.replace('value="60%"', 'value="90%"'))).toBe(false);
+    expect(keepsDomainPassObligations(path, prior, fixed.replace('Sim-to-real insertion', 'Manipulation equivalent')))
+      .toBe(false);
+    expect(keepsDomainPassObligations(path, fixed, prior)).toBe(false);
+  });
+
   it('rejects a review that drifted from its pinned bytes', () => {
     const tmp = mkdtempSync(join(tmpdir(), 'domain-pass-continuity-test-'));
     scratchRoots.push(tmp);

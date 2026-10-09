@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "704f5f28dfdd08e27642f54b0dbdc421be278823a57ecd7dd1b8e3884df070c4",
+  "fingerprint": "57c53dcf0269ea2d36e5a1435aa7d256e07f53168b2c64d067a5b50dee05c5d5",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -254,7 +254,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3343,
+      "visibleTextLength": 3376,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -1905,7 +1905,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29789,
+      "visibleTextLength": 29911,
       "route": "/classical/motion-planning/",
       "viewport": "1440x900"
     },
@@ -2032,7 +2032,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 40805,
+      "visibleTextLength": 40810,
       "route": "/classical/perception/",
       "viewport": "1440x900"
     },
@@ -4191,7 +4191,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25435,
+      "visibleTextLength": 25985,
       "route": "/frontier/dexterity/",
       "viewport": "1440x900"
     },
@@ -4699,7 +4699,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 84289,
+      "visibleTextLength": 84359,
       "route": "/glossary/",
       "viewport": "1440x900"
     },
@@ -4826,7 +4826,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 863,
+      "visibleTextLength": 931,
       "route": "/how-robots-work/",
       "viewport": "1440x900"
     },
@@ -7481,19 +7481,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Humanoid Whole-Body Control and Motion Tracking | Robot Wiki",
-        "description": "Humanoid whole-body control via RL motion tracking, from PHC and ASAP to SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.",
+        "description": "Humanoid whole-body control via RL motion tracking, from PHC and ASAP to BeyondMimic and SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Humanoid Whole-Body Control",
-        "ogDescription": "Humanoid whole-body control via RL motion tracking, from PHC and ASAP to SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.",
+        "ogDescription": "Humanoid whole-body control via RL motion tracking, from PHC and ASAP to BeyondMimic and SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Humanoid Whole-Body Control",
         "ogImage": "https://robot-wiki.com/og/rl-sim2real/humanoid-wbc.png",
         "twitterTitle": "Humanoid Whole-Body Control",
-        "twitterDescription": "Humanoid whole-body control via RL motion tracking, from PHC and ASAP to SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.",
+        "twitterDescription": "Humanoid whole-body control via RL motion tracking, from PHC and ASAP to BeyondMimic and SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.",
         "canonical": "https://robot-wiki.com/rl-sim2real/humanoid-wbc/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20724,
+      "visibleTextLength": 25637,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "1440x900"
     },
@@ -7620,7 +7620,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18780,
+      "visibleTextLength": 21780,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "1440x900"
     },
@@ -7747,7 +7747,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14227,
+      "visibleTextLength": 20335,
       "route": "/rl-sim2real/offline-rl/",
       "viewport": "1440x900"
     },
@@ -7862,19 +7862,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "GPU-Parallel Simulation for Robot RL | Robot Wiki",
-        "description": "How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp and MJX, with measured throughput.",
+        "description": "How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp, MJX and Genesis, with measured throughput.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Massively Parallel Sim RL",
-        "ogDescription": "How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp and MJX, with measured throughput.",
+        "ogDescription": "How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp, MJX and Genesis, with measured throughput.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Massively Parallel Sim RL",
         "ogImage": "https://robot-wiki.com/og/rl-sim2real/parallel-sim-rl.png",
         "twitterTitle": "Massively Parallel Sim RL",
-        "twitterDescription": "How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp and MJX, with measured throughput.",
+        "twitterDescription": "How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp, MJX and Genesis, with measured throughput.",
         "canonical": "https://robot-wiki.com/rl-sim2real/parallel-sim-rl/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16141,
+      "visibleTextLength": 18933,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "1440x900"
     },
@@ -7989,19 +7989,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Reward Design and MPC vs RL for Robots | Robot Wiki",
-        "description": "Robot reward design, from hand-tuned terms and constraints to Eureka, and when whole-body model predictive control beats a learned policy.",
+        "description": "Robot reward design, from hand-tuned terms and constraints to Eureka and DrEureka, and when whole-body model predictive control beats a learned policy.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Reward Design and the MPC Debate",
-        "ogDescription": "Robot reward design, from hand-tuned terms and constraints to Eureka, and when whole-body model predictive control beats a learned policy.",
+        "ogDescription": "Robot reward design, from hand-tuned terms and constraints to Eureka and DrEureka, and when whole-body model predictive control beats a learned policy.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Reward Design and the MPC Debate",
         "ogImage": "https://robot-wiki.com/og/rl-sim2real/reward-design-mpc.png",
         "twitterTitle": "Reward Design and the MPC Debate",
-        "twitterDescription": "Robot reward design, from hand-tuned terms and constraints to Eureka, and when whole-body model predictive control beats a learned policy.",
+        "twitterDescription": "Robot reward design, from hand-tuned terms and constraints to Eureka and DrEureka, and when whole-body model predictive control beats a learned policy.",
         "canonical": "https://robot-wiki.com/rl-sim2real/reward-design-mpc/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27904,
+      "visibleTextLength": 30963,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "1440x900"
     },
@@ -8128,7 +8128,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27646,
+      "visibleTextLength": 27632,
       "route": "/rl-sim2real/rl-for-robotics/",
       "viewport": "1440x900"
     },
@@ -8255,7 +8255,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23619,
+      "visibleTextLength": 29259,
       "route": "/rl-sim2real/sim2real-transfer/",
       "viewport": "1440x900"
     },
@@ -8382,7 +8382,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12249,
+      "visibleTextLength": 17937,
       "route": "/rl-sim2real/why-rl-locomotion/",
       "viewport": "1440x900"
     },
@@ -9017,7 +9017,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19773,
+      "visibleTextLength": 20730,
       "route": "/world-models/generative-video/",
       "viewport": "1440x900"
     },
@@ -9825,7 +9825,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3105,
+      "visibleTextLength": 3138,
       "route": "/",
       "viewport": "375x812"
     },
@@ -11476,7 +11476,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29352,
+      "visibleTextLength": 29474,
       "route": "/classical/motion-planning/",
       "viewport": "375x812"
     },
@@ -11603,7 +11603,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 40368,
+      "visibleTextLength": 40373,
       "route": "/classical/perception/",
       "viewport": "375x812"
     },
@@ -13762,7 +13762,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25084,
+      "visibleTextLength": 25634,
       "route": "/frontier/dexterity/",
       "viewport": "375x812"
     },
@@ -14270,7 +14270,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 84051,
+      "visibleTextLength": 84121,
       "route": "/glossary/",
       "viewport": "375x812"
     },
@@ -14397,7 +14397,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 625,
+      "visibleTextLength": 616,
       "route": "/how-robots-work/",
       "viewport": "375x812"
     },
@@ -17052,19 +17052,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Humanoid Whole-Body Control and Motion Tracking | Robot Wiki",
-        "description": "Humanoid whole-body control via RL motion tracking, from PHC and ASAP to SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.",
+        "description": "Humanoid whole-body control via RL motion tracking, from PHC and ASAP to BeyondMimic and SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Humanoid Whole-Body Control",
-        "ogDescription": "Humanoid whole-body control via RL motion tracking, from PHC and ASAP to SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.",
+        "ogDescription": "Humanoid whole-body control via RL motion tracking, from PHC and ASAP to BeyondMimic and SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Humanoid Whole-Body Control",
         "ogImage": "https://robot-wiki.com/og/rl-sim2real/humanoid-wbc.png",
         "twitterTitle": "Humanoid Whole-Body Control",
-        "twitterDescription": "Humanoid whole-body control via RL motion tracking, from PHC and ASAP to SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.",
+        "twitterDescription": "Humanoid whole-body control via RL motion tracking, from PHC and ASAP to BeyondMimic and SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.",
         "canonical": "https://robot-wiki.com/rl-sim2real/humanoid-wbc/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20233,
+      "visibleTextLength": 25146,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "375x812"
     },
@@ -17191,7 +17191,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18289,
+      "visibleTextLength": 21289,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "375x812"
     },
@@ -17318,7 +17318,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 13736,
+      "visibleTextLength": 19844,
       "route": "/rl-sim2real/offline-rl/",
       "viewport": "375x812"
     },
@@ -17433,19 +17433,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "GPU-Parallel Simulation for Robot RL | Robot Wiki",
-        "description": "How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp and MJX, with measured throughput.",
+        "description": "How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp, MJX and Genesis, with measured throughput.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Massively Parallel Sim RL",
-        "ogDescription": "How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp and MJX, with measured throughput.",
+        "ogDescription": "How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp, MJX and Genesis, with measured throughput.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Massively Parallel Sim RL",
         "ogImage": "https://robot-wiki.com/og/rl-sim2real/parallel-sim-rl.png",
         "twitterTitle": "Massively Parallel Sim RL",
-        "twitterDescription": "How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp and MJX, with measured throughput.",
+        "twitterDescription": "How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp, MJX and Genesis, with measured throughput.",
         "canonical": "https://robot-wiki.com/rl-sim2real/parallel-sim-rl/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15650,
+      "visibleTextLength": 18442,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "375x812"
     },
@@ -17560,19 +17560,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Reward Design and MPC vs RL for Robots | Robot Wiki",
-        "description": "Robot reward design, from hand-tuned terms and constraints to Eureka, and when whole-body model predictive control beats a learned policy.",
+        "description": "Robot reward design, from hand-tuned terms and constraints to Eureka and DrEureka, and when whole-body model predictive control beats a learned policy.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Reward Design and the MPC Debate",
-        "ogDescription": "Robot reward design, from hand-tuned terms and constraints to Eureka, and when whole-body model predictive control beats a learned policy.",
+        "ogDescription": "Robot reward design, from hand-tuned terms and constraints to Eureka and DrEureka, and when whole-body model predictive control beats a learned policy.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Reward Design and the MPC Debate",
         "ogImage": "https://robot-wiki.com/og/rl-sim2real/reward-design-mpc.png",
         "twitterTitle": "Reward Design and the MPC Debate",
-        "twitterDescription": "Robot reward design, from hand-tuned terms and constraints to Eureka, and when whole-body model predictive control beats a learned policy.",
+        "twitterDescription": "Robot reward design, from hand-tuned terms and constraints to Eureka and DrEureka, and when whole-body model predictive control beats a learned policy.",
         "canonical": "https://robot-wiki.com/rl-sim2real/reward-design-mpc/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27413,
+      "visibleTextLength": 30472,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "375x812"
     },
@@ -17699,7 +17699,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27155,
+      "visibleTextLength": 27141,
       "route": "/rl-sim2real/rl-for-robotics/",
       "viewport": "375x812"
     },
@@ -17826,7 +17826,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23128,
+      "visibleTextLength": 28768,
       "route": "/rl-sim2real/sim2real-transfer/",
       "viewport": "375x812"
     },
@@ -17953,7 +17953,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 11758,
+      "visibleTextLength": 17446,
       "route": "/rl-sim2real/why-rl-locomotion/",
       "viewport": "375x812"
     },
@@ -18588,7 +18588,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19273,
+      "visibleTextLength": 20230,
       "route": "/world-models/generative-video/",
       "viewport": "375x812"
     },

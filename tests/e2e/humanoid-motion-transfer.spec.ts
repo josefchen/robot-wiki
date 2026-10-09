@@ -6,18 +6,18 @@ import { getTerm } from '../../data/glossary';
 
 const targets = {
   'sim2real-transfer': [
-    ['ASAP starts with phase-conditioned', 'asap-2025'],
-    ['The evaluation separates IsaacGym-to-IsaacSim', 'asap-2025'],
-    ['ASAP reports improved tracking on the held-out', 'asap-2025'],
-    ["Each family's limits differ", 'asap-2025'],
+    ['ASAP pretrains phase-conditioned', 'asap-2025'],
+    ['Evaluation separates IsaacGym-to-IsaacSim', 'asap-2025'],
+    ['tracking on the held-out', 'asap-2025'],
+    ['The two interactives construct their costs', 'asap-2025'],
   ],
   'legged-locomotion': [
     ["On Unitree's H1, H2O", 'h2o-2024'],
     ['On the G1 with fixed wrists', 'asap-2025'],
   ],
   'humanoid-wbc': [
-    ['The previous module covered how learned policies', 'h2o-2024'],
-    ['H2O adapts ideas from simulated humanoid animation', 'h2o-2024'],
+    ['Humanoid whole-body control is the control of every actuated joint', 'h2o-2024'],
+    ['On the Unitree H1, H2O', 'h2o-2024'],
   ],
 } as const;
 

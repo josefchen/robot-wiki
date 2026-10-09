@@ -8,7 +8,7 @@ for (const width of [375, 1440]) {
   test(`Lee corrected citation stays visible on hover and keyboard focus at ${width}`, async ({ page }) => {
     await page.setViewportSize({ width, height: width === 375 ? 812 : 900 });
     await page.goto(ROUTE);
-    const paragraph = page.locator('p').filter({ hasText: 'Lee and colleagues used a privileged' });
+    const paragraph = page.locator('p').filter({ hasText: 'Lee and colleagues trained a privileged' });
     const chip = paragraph.locator('[data-cite-id="lee-2020"]');
     const link = chip.locator('a').first();
     const tooltip = chip.getByRole('tooltip');
@@ -36,13 +36,13 @@ for (const width of [375, 1440]) {
   test(`Park bound timing correction renders at ${width}`, async ({ page }) => {
     await page.setViewportSize({ width, height: width === 375 ? 812 : 900 });
     await page.goto(ROUTE);
-    const paragraph = page.locator('p').filter({ hasText: 'In the MIT Cheetah 2 control design' });
+    const paragraph = page.locator('p').filter({ hasText: 'In the MIT Cheetah 2 design' });
     await expect(paragraph).toHaveCount(1);
-    await expect(paragraph).toContainText('Park, Wensing and Kim plan stance time from stride length and desired speed');
-    await expect(paragraph).toContainText('modulate the duty cycle via vertical impulse scaling');
-    await expect(paragraph).toContainText('only up to 3 m/s and is fixed above it');
-    await expect(paragraph).toContainText('6.4 m/s bounding result with cost of transport 0.47');
-    await expect(paragraph).toContainText('qualified by side-wall contact and roll instability');
+    await expect(paragraph).toContainText('Park, Wensing and Kim plan stance time from stride length and');
+    await expect(paragraph).toContainText('modulate duty cycle by vertical impulse scaling');
+    await expect(paragraph).toContainText('only up to 3 m/s');
+    await expect(paragraph).toContainText('The minimum cost of transport, 0.47, came at 4 m/s');
+    await expect(paragraph).toContainText('Roll instability ended the 6.4 m/s top-speed treadmill run');
     // The drift gloss is gone: the paper's own impulse-scaling mechanism and
     // the Sec. 7 stride schedule replace the all-speed duty-cycle scaling.
     await expect(paragraph).not.toContainText('scaling the duty cycle with speed');
@@ -67,8 +67,8 @@ test.describe('legged-locomotion module', () => {
     // Probe phrases that do not collide with citation tooltip titles.
     for (const name of [
       /series-elastic actuators/,
-      /temporal convolutional network/,
-      /Etzel mountain hike covered 2\.2 km with 120 m of elevation gain in 78 minutes/,
+      /temporal convolutional/,
+      /Etzel hike covered 2\.2 km and 120 m of climb in 78 minutes/,
       /beach sand at 3\.03/,
       /retargeted human motion/,
       /450M-parameter diffusion transformer/,
@@ -118,7 +118,7 @@ test.describe('legged-locomotion module', () => {
     await expect(page.getByRole('button', { name: 'Play gait cycle' })).toHaveCount(0);
     await expect(page.getByRole('slider', { name: /gait phase/i })).toHaveCount(0);
     await expect(prose).toContainText(
-      'Press Play on the scene below, then try Step forward from walk to trot to bound and watch the support readout',
+      'is the control of walking and running robots, and the area where sim-to-real reinforcement learning reached shipping products',
     );
 
     const poster = scene.getByRole('button', { name: /^play the motion scene/i });

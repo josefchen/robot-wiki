@@ -29,9 +29,9 @@ test.describe('sim2real-transfer module', () => {
       /domain randomization/i,
       /teacher/,
       /RMA/,
-      /delta action model/,
-      /3DGS twin/,
-      /real2sim2real/,
+      /delta action added before the simulator step/,
+      /Gaussian splats/,
+      /real-to-sim reconstruction/,
     ]) {
       await expect(
         main.getByText(name).filter({ visible: true }).first(),
@@ -69,15 +69,15 @@ test.describe('sim2real-transfer module', () => {
     await page.goto(ROUTE);
     await expect(friction(page)).toHaveCount(1);
 
-    // Default: a real floor more slippery than the practice floor, where
-    // the one-floor robot has already failed and the many-floor robot holds.
-    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.50');
-    await expect(friction(page).getByTestId('point-readout')).toHaveText('0%');
+    // Default: the real floor is the practice floor itself, where the
+    // one-floor robot is ahead of the many-floor robot.
+    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.80');
+    await expect(friction(page).getByTestId('point-readout')).toHaveText('97%');
     await expect(friction(page).getByTestId('dr-readout')).toHaveText('74%');
     await expect(friction(page).getByTestId('delta-readout')).toHaveText(
-      /DR \+\d+ pts/,
+      /point \+\d+ pts/,
     );
-    await expect(friction(page).locator('[data-figure-annotation]')).toContainText('one-floor robot fails');
+    await expect(friction(page).locator('[data-figure-annotation]')).toContainText('one-floor robot wins, 97% against 74%');
     await expect(friction(page).getByTestId('point-curve')).toBeVisible();
     await expect(friction(page).getByTestId('dr-curve')).toBeVisible();
     await expect(friction(page).getByTestId('real-line')).toBeVisible();
@@ -114,7 +114,7 @@ test.describe('sim2real-transfer module', () => {
     // Reset, in Adjust more, restores everything.
     await openAdjustMore(friction(page));
     await friction(page).getByRole('button', { name: 'Reset' }).click();
-    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.50');
+    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.80');
     await expect(friction(page).getByTestId('dr-readout')).toHaveText('74%');
   });
 
@@ -182,15 +182,15 @@ test.describe('sim2real-transfer module', () => {
       await expect(stat).toContainText('86.25%');
       await expect(stat).toContainText('vs 97.5% real-data; 4 tasks, 40 trials/task');
       for (const text of [
-        'PyBullet supplies the physics', '40 trials per task', 'training augmentations',
+        'PyBullet supplies physics', 'with 40 trials each', 'training augmentations',
         'Robotiq 2F-85', 'two RealSense D455', 'manual robot segmentation', 'ICP alignment',
-        'CAD-derived link bounds', 'lists RGB observations plus end-effector position and orientation',
-        'solely on RGB at test time', 'Those descriptions disagree', 'August 2025 revision',
+        'CAD-derived link bounds', 'lists RGB plus end-effector pose as inputs',
+        'uses only RGB at test time', 'August 2025 revision',
         'Gaussian Reconstructor', 'Digital Twins Builder', 'Scene Composer', 'Interactive Engine',
-        'mesh assets and measured layout alignment', 'inverse kinematics', 'collisions',
-        'resulting state drives the next rendering', 'ten trials with up to three grasp attempts per trial',
-        '90% placement', '30% in RoboGSim', 'no demonstrated safety guarantee',
-        'trajectory replay separately from closed-loop policy evaluation',
+        'mesh assets and measured layout', 'collisions',
+        'Closed-loop policies act on splat renders', 'ten trials with up to three grasps each',
+        'placed 90% on the real robot', '30% in RoboGSim', 'cannot replace real-robot tests',
+        'trajectory replay are evaluated separately',
       ]) await expect(prose).toContainText(text);
       await expect(prose).not.toContainText("SplatSim replaces the simulator's mesh renderer");
       await expect(prose).not.toContainText('RoboGSim packages the same loop');

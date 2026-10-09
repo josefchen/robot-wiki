@@ -31,10 +31,8 @@ test.describe('parallel-sim-rl module', () => {
       ).toBeVisible();
     }
     // Both headline throughput figures appear.
-    await expect(main.getByText(/900,000 frames per second/)).toBeVisible();
-    await expect(
-      main.getByText(/Franka cabinet-drawer task exceeds 1\.6 million/),
-    ).toBeVisible();
+    await expect(main.getByText(/exceeds 900,000 FPS and Franka cabinet 1\.6 million/)).toBeVisible();
+    await expect(main.getByText(/With eight GPUs and 16,384 environments/)).toBeVisible();
     // Sidebar marks this module active.
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
@@ -71,7 +69,9 @@ test.describe('parallel-sim-rl module', () => {
       await expect(page.getByTestId(id)).toHaveCount(0);
     }
     await expect(page.getByRole('slider', { name: /parallel environments/i })).toHaveCount(0);
-    await expect(prose).toContainText('Press Play, then try Step forward from 64 environments upward');
+    await expect(prose).toContainText(
+      'Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once',
+    );
 
     const poster = scene.getByRole('button', { name: /^play the motion scene/i });
     await expect(poster).toHaveText('Play');

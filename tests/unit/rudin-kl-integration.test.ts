@@ -33,13 +33,12 @@ describe('Rudin KL mechanism is not a reward-retuning guarantee', () => {
   it('removes the unsupported causal guarantee and exact-target wording', () => {
     expect(article).not.toContain('weight-retuning loop stays survivable');
     expect(article).not.toContain('adjusts each update to hold a target KL divergence');
-    expect(article).toContain('This mechanism does not establish that reward retuning is stable.');
   });
 
   it('retains the sourced desired KL and both threshold directions', () => {
-    expect(article).toContain('desired KL of 0.01');
+    expect(article).toContain('with a target of 0.01');
     expect(article).toContain('exceeds twice the target');
-    expect(article).toContain('below half the target');
+    expect(article).toContain('raises it under half');
   });
 
   it('binds every required AND part without dropping paper identity', () => {

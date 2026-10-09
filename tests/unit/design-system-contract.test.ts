@@ -449,7 +449,10 @@ describe('identity geometry and typography stay aligned', () => {
     expect(jepaChart).toMatch(/<LegendSwatch role="state" mark="line" \/>\}>\s*path so far\s*</);
     expect(jepaChart).not.toMatch(/ACCENT|--color-accent/);
     expect(jepaChart).not.toMatch(/green/i);
-    expect(sim2real).toContain('Widening the half-width lowers the plateau by construction; the cited papers establish no universal tradeoff of that shape');
+    // VAL-OPUS-068: the friction chart's authored status is labelled once, in
+    // its frame next to the controls, and the prose disclaimer is gone.
+    expect(sim2real).not.toContain('authored toy');
+    expect(frictionChart).toContain('<StageStatus>Illustrative, not measured</StageStatus>');
     expect(frictionChart).toMatch(/points=\{polyline\(drCurvePoints\(range\)\)\}[\s\S]*?stroke=\{valueColour\}/);
     expect(advantage).not.toContain('elapsed portion green');
     expect(advantage).not.toMatch(/green (?:line|trace)/i);

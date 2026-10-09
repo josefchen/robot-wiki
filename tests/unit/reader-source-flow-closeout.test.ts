@@ -124,8 +124,9 @@ describe('bounded remaining reader Source flow, zero original completions', () =
     const path = cases[2].path;
     const lineage = (text: string) => text.split('\n\n')
       .find(p => p.startsWith('The continuous-control lineage'));
-    expect(lineage(read(path))).toBe(lineage(before(path)));
-    expect(lineage(read(path))).toContain('reduced its effects with clipped double critics, delayed policy updates and target policy smoothing');
+    const prePass = preDomainPass(path).toString('utf8');
+    expect(lineage(prePass)).toBe(lineage(before(path)));
+    expect(lineage(prePass)).toContain('reduced its effects with clipped double critics, delayed policy updates and target policy smoothing');
   });
 
   it('attaches Eureka to its scientific qualification rather than the following navigation sentence', () => {

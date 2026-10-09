@@ -10,6 +10,7 @@
  *
  * Every number below comes from the cited primary source (see the module's
  * Cite chips): the Helix 02 announcement, the Isaac GR00T N1.7 repo README,
+ * the GR00T-WholeBodyControl README (the 50 Hz GEAR-SONIC controller rate)
  * and the Gemini Robotics 2 announcement. Rates and parameter counts the
  * sources do not disclose are null / "not disclosed", never guessed.
  *
@@ -65,7 +66,7 @@ export const WBC_APPROACHES: WbcApproach[] = [
       {
         name: 'S2 semantic reasoning',
         output: 'latent goals',
-        rate: 'on demand',
+        rate: 'not disclosed',
         rateHz: null,
       },
       {
@@ -101,14 +102,14 @@ export const WBC_APPROACHES: WbcApproach[] = [
       {
         name: 'GR00T N1.7 VLA',
         output: 'latent action tokens',
-        rate: 'policy rate',
+        rate: 'not disclosed',
         rateHz: null,
       },
       {
         name: 'GEAR-SONIC whole-body controller',
         output: 'full-body joint commands',
-        rate: 'not disclosed',
-        rateHz: null,
+        rate: '50 Hz',
+        rateHz: 50,
       },
     ],
     stats: [
@@ -131,7 +132,7 @@ export const WBC_APPROACHES: WbcApproach[] = [
       {
         name: 'ER 2 orchestrator',
         output: 'plans and tool calls',
-        rate: 'on demand',
+        rate: 'not disclosed',
         rateHz: null,
       },
       {
@@ -197,7 +198,7 @@ export interface Gr2ResultRow {
 /**
  * Gemini Robotics 2 success rates as published in the 2026-07-30 DeepMind
  * announcement. Vendor-reported; no external replication exists and there
- * is no standardized humanoid benchmark to compare against.
+ * is no standardized real-world humanoid benchmark to compare against.
  */
 export const GR2_RESULTS: Gr2ResultRow[] = [
   {

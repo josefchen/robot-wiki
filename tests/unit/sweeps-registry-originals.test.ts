@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 import { parseLedger, parseCompoundPlans } from '../../lib/audit-ledger.ts';
 import { moduleFrontmatterSchema } from '../../data/schemas/module.ts';
 import { CITATIONS } from '../../data/citations.ts';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 /**
  * Pins the 2026-09-17a sweeps-and-registry integration: the three dispatched
@@ -34,7 +35,7 @@ const frontmatterCitations = (domain: string, slug: string): readonly string[] =
   const frontmatter = moduleFrontmatterSchema.parse(matter(readFileSync(file, 'utf8')).data);
   expect(frontmatter.domain).toBe(domain);
   expect(frontmatter.slug).toBe(slug);
-  return frontmatter.citations;
+  return preDomainPassCitations(domain, slug, frontmatter.citations);
 };
 
 const loadSection = (ledgerPath: string, slug: string, articleCitations: Record<string, readonly string[]>) => {

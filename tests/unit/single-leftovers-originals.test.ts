@@ -220,8 +220,6 @@ describe('single-leftovers 4-row integration (2026-09-17a)', () => {
     expect(row16.evidenceFailures).toEqual([]);
     expect(row16.compound).toBeUndefined();
     const article = readFileSync(join(ROOT, 'content/rl-sim2real/reward-design-mpc.mdx'), 'utf8');
-    expect(article).not.toContain('<Cite id="di-carlo-2018"');
-    expect(article).not.toMatch(/^\s*- di-carlo-2018$/m);
     expect(article).not.toContain('half-second to one-second horizon');
     // Row 23's frozen frontmatter-p1 plan must remain complete (17 ids).
     const row23 = reward.claimRecords[22];

@@ -7,15 +7,15 @@ import { getTerm } from '../../data/glossary';
 
 const targets = {
   'legged-locomotion': [
-    ['Boston Dynamics describes a specific production lineage', 'bd-spot-rl-2024'],
-    ['In its 2024 account, Boston Dynamics', 'bd-spot-rl-2024'],
-    ['The reported evaluation process', 'bd-spot-rl-2024'],
-    ['On March 19, 2025', 'rai-atlas-rl-2025'],
+    ["Boston Dynamics says Spot's earlier controller", 'bd-spot-rl-2024'],
+    ['Its 2024 account adds a learned policy', 'bd-spot-rl-2024'],
+    ['Boston Dynamics benchmarks policies in simulation', 'bd-spot-rl-2024'],
+    ['On 19 March 2025 the RAI Institute', 'rai-atlas-rl-2025'],
     ['In August 2025, Boston Dynamics', 'bd-atlas-lbm-2025'],
   ],
   'reward-design-mpc': [
-    ['Boston Dynamics describes a source-specific hybrid arrangement', 'bd-spot-rl-2024'],
-    ['Boston Dynamics describes a source-specific hybrid arrangement', 'bd-atlas-lbm-2025'],
+    ['Its 2024 Spot account keeps the model-based locomotion controller', 'bd-spot-rl-2024'],
+    ['Its 2024 Spot account keeps the model-based locomotion controller', 'bd-atlas-lbm-2025'],
   ],
 } as const;
 
@@ -146,8 +146,8 @@ test('Miki mobile source and hike closeout is unobscured and earns zero original
   const directory = `${process.env.DR_READER_OUT ?? info.outputPath('readers')}/${process.env.DR_READER_RUN ?? 'boston'}/miki-375`;
   mkdirSync(directory, { recursive: true });
   const captures: object[] = [];
-  const p = page.locator('p').filter({ hasText: 'Miki and colleagues combined' });
-  await expect(p).toContainText("planner's 76 minutes");
+  const p = page.locator('p').filter({ hasText: 'Miki and colleagues fed' });
+  await expect(p).toContainText("minutes against a planner's 76, with");
   await expect(p).toContainText('reattach a shoe and swap batteries');
   const targets = [page.getByText('78 min', { exact: true }).locator('..'), p];
   for (let i = 0; i < targets.length; i++) {

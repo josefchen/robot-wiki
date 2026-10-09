@@ -3,7 +3,7 @@
   "name": "domain-pass-reader",
   "reviewedBy": "integration worker for the domain passes of 2026-10-06 (not independent acceptance)",
   "rationale": "The domain passes bring the assertions of a few historical verification suites up to date with the rewritten articles. The checker lists each such suite with the one live version its retained snapshot stays compatible with, so each of those entries gets the suite's new live hash. Every edit swaps one currentTestHash line inside its own suite entry; no computation, threshold, ledger rule, snapshot or negative check changes.",
-  "observedAt": "2026-10-06T15:16:18Z",
+  "observedAt": "2026-10-06T18:55:57Z",
   "archivedFrom": "5856973cc0ccc4fc276c6bf323f4f1806c5139c3",
   "before": {
     "path": "lib/audit-local-basis.ts",
@@ -13,9 +13,19 @@
   "after": {
     "path": "lib/audit-local-basis.ts",
     "bytes": 114290,
-    "sha256": "593edb1358888d4ca8a827ddd9360540ea8f75808e6a9737b8a8348899397294"
+    "sha256": "d3d470a19efd97f496dd29869c314b5026f63b496fe7595856e0d6c490732b80"
   },
   "edits": [
+    {
+      "suite": "tests/unit/sim2real-local-evidence.test.ts",
+      "before": "    currentTestHash: 'fa3ddf33752b00ca7fa32bbc36c401379d1c461ab271389c84986ef3a4c4aa9c',\n",
+      "after": "    currentTestHash: '80d4605b1eefcfc82ca7f1f5dd8bd3744f7cda62570e523796be856670b4fc6a',\n"
+    },
+    {
+      "suite": "tests/unit/parallel-local-evidence.test.ts",
+      "before": "    currentTestHash: '3eb55f085478bdce21262a25627e07c6c50004123cb243e6ce682f13194dd7ef',\n",
+      "after": "    currentTestHash: '246b135fb34347c92ff0b5d675ffb5eaa3050372c9c388912f4c4348a242a442',\n"
+    },
     {
       "suite": "tests/unit/classical-closure-evidence.test.ts",
       "before": "    currentTestHash: 'cf53d3e938e03ddeef8028aa289edecaee34eb30e5a943756fad8d3bf35b4eb9',\n",

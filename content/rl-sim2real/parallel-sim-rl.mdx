@@ -15,6 +15,31 @@ citations:
   - isaac-lab-2025
   - newton-manipulation-blog-2026
   - state-of-simulation-2026
+  - ppo-2017
+  - mujoco-2012
+  - mujoco-overview-docs-2026
+  - mjx-docs-2026
+  - mjlab-2026
+  - sapg-2024
+  - beukman-2026
+  - pql-2023
+  - fasttd3-2025
+  - orbit-2023
+  - dextrah-g-2024
+  - isaac-lab-3-ea-2026
+  - newton-lf-2025
+  - nvidia-warp-repo-2026
+  - newton-repo-2026
+  - isaac-sim-v6-1-0-2026
+  - isaac-sim-6-1-release-notes-2026
+  - newton-v1-6-0-2026
+  - vbd-2024
+  - elandt-2019
+  - mjwarp-docs-2026
+  - gpusimbench-2026
+  - mujoco-warp-repo-2026
+  - shac-2022
+  - schwarke-2024
 seeAlso:
   - "world-models/world-models-vs-simulators"
   - "rl-sim2real/legged-locomotion"
@@ -23,9 +48,7 @@ seeAlso:
 
 import { BatchScale } from '@/components/motion/scenes/batch-scale';
 
-Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once, with the physics running on a GPU. The four-minute training run from the [previous module](/rl-sim2real/why-rl-locomotion) came from a change in infrastructure. <Term id="ppo">PPO</Term> was already four years old when Rudin and colleagues used it to train ANYmal to walk in minutes <Cite id="rudin-2021" />. Between 2021 and 2026, physics moved onto the GPU, environment counts went from dozens to tens of thousands, and the wall-clock cost of a walking policy collapsed by orders of magnitude. This module examines those throughput numbers and the remaining bottleneck.
-
-The scene below illustrates the cost arithmetic before the history. The paused scene reveals how the fixed-transition calculation changes as the number of parallel environments rises. Press Play, then try Step forward from 64 environments upward: in the default model, fixed CPU-and-transfer work takes a smaller share of each iteration and the chosen experience budget takes less wall-clock time. This is a constructed comparison assembled from chosen costs, with no repeated measurement of one training run.
+Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once, with the physics on a GPU. It produced the four-minute walking run in the [previous module](/rl-sim2real/why-rl-locomotion), trained by Rudin and colleagues <Cite id="rudin-2021" /> with the 2017 <Term id="ppo">PPO</Term> algorithm <Cite id="ppo-2017" />.
 
 <BatchScale className="my-6" />
 
@@ -38,50 +61,56 @@ The scene below illustrates the cost arithmetic before the history. The paused s
 
 ## The 2021 break: physics moved onto the GPU
 
-Isaac Gym ran an end-to-end GPU accelerated training pipeline for complex robot tasks on a single GPU. PhysX simulated on the GPU and exposed the simulation state directly as PyTorch tensors, so the physics buffers and the policy network never round-tripped through the CPU. The authors report two to three orders of magnitude improvement over the conventional split of a CPU simulator feeding a GPU network <Cite id="isaac-gym-2021" />.
+Isaac Gym kept physics and policy training on one GPU, passing PhysX buffers straight to PyTorch tensors without CPU round trips. Its authors report 2 to 3 orders of magnitude improvement over a CPU simulator feeding a GPU network <Cite id="isaac-gym-2021" />.
 
-Rudin and colleagues report flat-terrain walking policies trained in under four minutes on a single workstation GPU. Separately, their documented simulation-and-deployment policy used 4,096 parallel ANYmal robots, batches of 98,304 RL transitions (24 steps per robot), and 1,500 policy updates in under twenty minutes on an i9-11900k CPU and NVIDIA RTX A6000 GPU. Their game-inspired terrain <Term id="curriculum-learning">curriculum</Term> promotes robots that cross a tile boundary, demotes those that cover less than half the commanded distance, and returns robots that solve the hardest level to a random level <Cite id="rudin-2021" />. The paper links its released training code, `legged_gym`; the pinned October 2021 repository identifies itself as the Isaac Gym environment used to train ANYmal on rough terrain <span className="max-sm:[&_[role=tooltip]]:-left-32"><Cite id="legged-gym-repo-2021" /></span>.
+Rudin and colleagues scaled from 128 robots, typical of CPU implementations, to 16,384 on one workstation GPU. Flat terrain took under four minutes and uneven terrain twenty, "a speedup of multiple orders of magnitude compared to previous work". Their deployment policy used 4,096 robots, 98,304-transition batches (24 steps per robot) and 1,500 updates in under 20 minutes on an i9-11900k CPU and RTX A6000 GPU <Cite id="rudin-2021" />.
 
-The <Term id="parallel-simulation">massively parallel</Term> regime inverts the usual PPO instincts. Rollouts are short (a few dozen steps per environment per iteration, with bootstrapping covering the rest), batches are enormous (on the order of 100k transitions), and the learning rate adapts to a KL-divergence target instead of following a fixed schedule. This regime depends on the 4,096-environment scale; 16 environments do not yield the same batch economics.
+Their game-inspired <Term id="curriculum-learning">curriculum</Term> promotes robots that cross their tile, demotes those covering under half the commanded distance, and loops hardest-level solvers back to a random level <Cite id="rudin-2021" />. The paper's released `legged_gym` repository (October 2021) is the Isaac Gym environment used to train ANYmal on rough terrain <span className="max-sm:[&_[role=tooltip]]:-left-32"><Cite id="legged-gym-repo-2021" /></span>.
+
+In the <Term id="parallel-simulation">massively parallel</Term> regime, Rudin's PPO also bootstraps the critic at time-outs and adapts the learning rate to a KL target of 0.01 <Cite id="rudin-2021" />.
 
 ## The JAX line: Brax, MJX, MuJoCo Playground
 
-Brax, from Google in 2021, wrote the physics and the learning algorithms in JAX so both compile onto the same accelerator, training performant policies on MuJoCo-like tasks in minutes <Cite id="brax-2021" />. MuJoCo XLA (MJX) later brought MuJoCo's contact model into that batched-GPU setting, and MuJoCo Playground (2025) packaged it as an open robot-learning framework spanning locomotion and manipulation. Sim-to-real transfer was among its stated goals <Cite id="mujoco-playground-2025" />.
+MuJoCo, a physics engine for model-based control <Cite id="mujoco-2012" />, became free in October 2021 and open source in 2022 under Google DeepMind <Cite id="mujoco-overview-docs-2026" />. Brax (Google, 2021) compiled physics and learning algorithms in JAX on one accelerator, training performant policies on MuJoCo-like tasks in minutes <Cite id="brax-2021" />.
+
+MuJoCo XLA (MJX) ran it on the GPU. MuJoCo Playground (2025) built on it an open framework for quadrupeds, humanoids, hands and arms, with sim-to-real transfer as an express goal <Cite id="mujoco-playground-2025" />. MJX-Warp, built for NVIDIA GPUs, fixes contact and constraint bottlenecks but lacks automatic differentiation <Cite id="mjx-docs-2026" />. mjlab pairs MuJoCo Warp with Isaac Lab's manager-based API <Cite id="mjlab-2026" />.
 
 ## What the environment count actually buys
 
-This authored fixed-transitions model is not a benchmark. We choose a budget of 220 million transitions and 24 rollout steps per environment per iteration, with 4,096 environments and the CPU toggle off by default. Each iteration costs 0.02 seconds plus 0.000004 seconds per environment for simulation, 0.04 seconds for learning, and 0.03 seconds for CPU and transfer work. The toggle adds 0.000022 seconds per environment to the CPU bucket. These costs and the fixed budget are illustrative choices, not estimates recovered from either paper. The curve uses 49 logarithmically spaced environment counts from 64 to 16,384, rounded to integers, and sample times rounded to 0.01 minute. Its near-four-minute default is a chosen calibration, not validation by the flat-terrain result. The flat diamond also uses a chosen 4,096-environment position; only the separate rough-run protocol establishes that count.
+The interactive scene is an unbenchmarked toy with a fixed 220-million-transition budget, an assumed CPU-cost curve that raises per-iteration costs, and a calibrated near-four-minute default at 4,096 environments. Only Rudin's separate deployment run ties 4,096 robots to a reported bound <Cite id="rudin-2021" />.
 
-The CPU toggle illustrates a possible bottleneck; it draws no measured Isaac Lab curve. In the paper’s state-based Franka cabinet-drawer benchmark, a GeForce RTX 5090 workstation with an AMD 9800X3D CPU approaches a two-GPU RTX PRO 6000 server with two AMD EPYC 9554 CPUs. The authors attribute the task-dependent comparison to CPU bottlenecks in parts of PhysX and the main training loop, together with the workstation’s fast single-core CPU. The finding is specific to those systems and does not establish a universal CPU limit<br />Source: <Cite id="isaac-lab-2025" />.
+That curve illustrates a bottleneck the Isaac Lab paper reports: on a state-based Franka drawer task, an RTX 5090 workstation with an AMD 9800X3D nearly matches a server with two RTX PRO 6000 GPUs and two 64-core EPYC 9554 CPUs. The authors attribute this task-dependent result to CPU bottlenecks in PhysX and the training loop, and the workstation's fast single core <Cite id="isaac-lab-2025" />.
 
-<Callout variant="warn" title="How to read this chart">
-  The curve uses an illustrative fixed-transitions model, with no benchmark measurements behind its shape. The diamonds mark reported time bounds: under four minutes for the flat-terrain result and under twenty minutes for the documented 4,096-robot simulation-and-deployment run on an i9-11900k CPU and RTX A6000 GPU. The flat diamond is placed at 4,096 environments for illustration; the inspected paper leaves the flat result's environment count unbound to the detailed rough-run configuration. Both diamonds show bounds; neither is a measured equality or a validation of the toy curve <Cite id="rudin-2021" />.
-</Callout>
+Environment count also changes learning. At fixed batch size, more robots cut Rudin's training time but hurt the policy past a point <Cite id="rudin-2021" />. SAPG reports PPO saturating beyond a certain count <Cite id="sapg-2024" />, while Beukman and colleagues avoid plateaus with over 1M environments, improving monotonically to one trillion transitions <Cite id="beukman-2026" />. Parallel Q-Learning scales off-policy learning to tens of thousands of environments <Cite id="pql-2023" />, and FastTD3 solves a range of HumanoidBench tasks in under 3 hours on one A100 <Cite id="fasttd3-2025" />.
 
 ## Isaac Lab and the framework era
 
-The 2025 Isaac Lab paper describes OpenUSD scene graphs, PhysX simulation, RTX rendering, and camera tiling that batches cameras into one render pass. Warp ray-casting supplies height-scanner and LiDAR-like distance queries; those geometric sensors omit photorealistic rendering effects. The framework includes implicit and explicit actuator models, including nonlinear effort limits and learned actuator networks, plus a manager-based environment API and built-in support for RSL-RL, RL-Games, SKRL, Stable-Baselines3, and Ray<br />Source: <Cite id="isaac-lab-2025" />.
+Isaac Lab grew out of Orbit <Cite id="isaac-lab-2025" />, a 2023 framework on Isaac Sim <Cite id="orbit-2023" />. Its 2025 paper describes OpenUSD scene graphs, PhysX, RTX rendering, tiled camera rendering in one pass, and Warp ray-cast height scanners and LiDAR-like sensors without photoreal effects. It adds implicit and explicit actuator models, from nonlinear effort limits to learned networks, a manager-based API, and built-in RSL-RL, RL-Games, SKRL, Stable-Baselines3 and Ray <Cite id="isaac-lab-2025" />.
 
-In the paper’s headless state-based benchmarks, distributed training on RTX PRO 6000 GPUs scales "almost perfectly linearly" over the tested configurations. At the reported eight-GPU, 16,384-environment setting, the DextrAH teacher grasp-and-lift task exceeds 900,000 frames per second and the Franka cabinet-drawer task exceeds 1.6 million. These environment-learning FPS divide environment steps by simulation plus learning time. They do not report camera-only FPS or robot control frequency. The RTX PRO 6000 server uses two AMD EPYC 9554 64-core processors<br />Source: <Cite id="isaac-lab-2025" />.
+Headless state-based training on RTX PRO 6000 GPUs scales "almost perfectly linearly". With eight GPUs and 16,384 environments, the DextrAH <Cite id="dextrah-g-2024" /> teacher grasp-and-lift task exceeds 900,000 FPS and Franka cabinet 1.6 million, counting environment steps over simulation plus learning time <Cite id="isaac-lab-2025" />.
 
-NVIDIA's 2026 overview describes Isaac Lab 3.0 as separating backend-specific code from the core API. Developers can use Isaac Sim with PhysX and RTX for photorealistic, sensor-rich workflows, or run headless Newton physics for high-throughput simulation. The overview also describes adding photoreal sensors through the standalone OVRTX renderer, or using Newton's renderer for vision-based RL with many environments <Cite id="state-of-simulation-2026" />.
+NVIDIA's 2026 overview says Isaac Lab 3.0 splits backend code from the core API. Users choose Isaac Sim's PhysX and RTX for sensor-rich work or headless Newton for throughput, adding photoreal sensors through the standalone OVRTX renderer, or using Newton's renderer for many-environment vision RL <Cite id="state-of-simulation-2026" />. Isaac Lab 3.0 Early Access shipped on 16 September 2026 for Isaac Sim 6.1 and Newton 1.5.2, with general availability targeted for late October 2026 <Cite id="isaac-lab-3-ea-2026" />.
 
 ## Newton: physics as a multi-solver library
 
-NVIDIA's March 16, 2026 release post announces Newton 1.0 GA at GTC 2026 and describes an open-source, GPU-accelerated physics engine built on NVIDIA Warp and OpenUSD. It identifies Newton as a Linux Foundation project founded by NVIDIA, Google DeepMind, and Disney Research. The post calls Isaac Sim 6.0 and Isaac Lab 3.0 early access releases <span className="max-sm:[&_[role=tooltip]]:-left-24"><Cite id="newton-manipulation-blog-2026" /></span>. The later NVIDIA overview describes the engine as differentiable, while noting that differentiation support differs between solvers <span className="max-sm:[&_[role=tooltip]]:-left-16"><Cite id="state-of-simulation-2026" /></span>.
+The Linux Foundation welcomed Newton, an open-source GPU physics engine co-developed by Disney Research, Google DeepMind and NVIDIA, on 29 September 2025 <Cite id="newton-lf-2025" />. Newton generalizes the deprecated `warp.sim` module of NVIDIA Warp, a Python GPU framework <Cite id="nvidia-warp-repo-2026" />, and uses MuJoCo Warp as its primary backend <Cite id="newton-repo-2026" />.
 
-Newton puts multiple solvers behind a unified API. NVIDIA's overview lists MuJoCo and Featherstone for generalized-coordinate articulated rigid bodies; SemiImplicit, XPBD, and Kamino for maximal-coordinate formulations; VBD for rigid bodies, particles, cloth, and soft bodies, with limited joint support; implicit MPM for particle-based continuum materials; and Style3D for cloth <Cite id="state-of-simulation-2026" />. The release post describes Disney Research's Kamino as handling closed-chain mechanisms, and describes coupling VBD and iMPM with MuJoCo Warp for deformable manipulation and locomotion <Cite id="newton-manipulation-blog-2026" />.
+NVIDIA's 16 March 2026 post announced Newton 1.0 GA at GTC 2026, built on Warp and OpenUSD, and called Isaac Sim 6.0 and Isaac Lab 3.0 early access releases <span className="max-sm:[&_[role=tooltip]]:-left-24"><Cite id="newton-manipulation-blog-2026" /></span>. Isaac Sim 6.1.0 reached general availability on 10 September 2026 <Cite id="isaac-sim-v6-1-0-2026" />. Newton v1.6.0 shipped the same day with faster CUDA collision detection, experimental graph-friendly robot controllers and an opt-in compliant mode for the VBD solver <Cite id="newton-v1-6-0-2026" />.
 
-The release post describes SDF-based collision built from CAD-exported meshes and hydroelastic contacts inspired by Drake: pressure is distributed across finite-area contact patches instead of isolated points. Its assembly code example precomputes sparse SDFs with `narrow_band_range=(-0.01, 0.01)`, a plus-or-minus 10 mm band around the surface. That band belongs to the example configuration; the post makes no engine-wide requirement <span className="max-sm:[&_[role=tooltip]]:-left-32"><Cite id="newton-manipulation-blog-2026" /></span>.
+Behind one API, NVIDIA's overview lists MuJoCo and Featherstone solvers in generalized coordinates, and SemiImplicit, XPBD and Kamino in maximal coordinates. VBD (vertex block descent <Cite id="vbd-2024" />) handles rigid bodies, particles, cloth and soft bodies with limited joints, implicit MPM particle-based continuum materials, and Style3D cloth <Cite id="state-of-simulation-2026" />. The release post credits Disney Research's Kamino with closed-chain mechanisms and describes coupling VBD and MPM with MuJoCo Warp for deformable manipulation and locomotion <Cite id="newton-manipulation-blog-2026" />.
 
-For GPU rack assembly, NVIDIA says Skild AI is training RL policies with Isaac Lab's Newton backend, using SDF collision and hydroelastic contact modeling for tasks including connector insertion. The same post says Samsung "will use Newton" for synthetic data generation to train VLA models and describes Lightwheel's work on calibrated SimReady assets. Its refrigerator-assembly example is a simulated RB-Y1 cable-insertion task using two-way coupled MuJoCo Warp and VBD; the text describes inserting a water-hose connector into its housing <Cite id="newton-manipulation-blog-2026" />. These workflow descriptions come from NVIDIA; independent production-deployment results are not established here.
+The post describes SDF collision from CAD meshes and Drake-inspired hydroelastic contact over finite-area patches, and its assembly example sets a plus or minus 10 mm sparse-SDF band, `narrow_band_range=(-0.01, 0.01)` <span className="max-sm:[&_[role=tooltip]]:-left-32"><Cite id="newton-manipulation-blog-2026" /></span>. Isaac Sim 6.1 added hydroelastic contact, a pressure-field model <Cite id="elandt-2019" />, to its experimental Newton integration <Cite id="isaac-sim-6-1-release-notes-2026" />.
 
-In its MuJoCo 3.5 (MJWarp) release summary, NVIDIA reports speedups over MJX of 252x for locomotion and 475x for manipulation on NVIDIA RTX PRO 6000 Blackwell Series hardware <Cite id="newton-manipulation-blog-2026" />. The post does not specify benchmark task variants, environment counts, numeric precision, or the timing definition for those ratios. Do not read them as end-to-end policy-training-time or control-frequency measurements.
+NVIDIA reports that Skild AI trains GPU-rack-assembly RL policies, including connector insertion, with Isaac Lab's Newton backend, SDF and hydroelastic contact. It says Samsung "will use Newton" for synthetic VLA training data and that Lightwheel tunes SimReady assets on real measurements. Its refrigerator example couples MuJoCo Warp two-way with a VBD cable solver for RB-Y1 cable insertion, and mentions a water-hose connector insertion <Cite id="newton-manipulation-blog-2026" />.
 
-## The honest ledger
+NVIDIA also reports MuJoCo 3.5 (MJWarp) speedups over MJX of 252x for locomotion and 475x for manipulation on RTX PRO 6000 Blackwell GPUs, without stating task variants, environment counts, precision or timing definition <Cite id="newton-manipulation-blog-2026" />. MJWarp optimizes throughput, where MuJoCo optimizes single-step latency <Cite id="mjwarp-docs-2026" />.
 
-A few caveats belong with the headline numbers. The Isaac Lab figures come from the framework's own paper, but the hardware, environment counts, and tasks are named, which makes them checkable. The Newton speedups are vendor-reported.
+## Limits
 
-The Isaac Lab paper identifies CPU bottlenecks in its tested systems as a target for future releases. For <Term id="domain-randomization">domain randomization</Term>, it distinguishes GPU-resident simulation state from physics parameters such as mass, friction, contact offsets, and joint armature, which use PhysX CPU APIs. Most of those parameters can change at runtime; mesh scale and collider type can only be randomized before simulation starts<br />Source: <Cite id="isaac-lab-2025" />.
+GPUSimBench finds GPU batching in Isaac Lab and Genesis adds significant run-to-run and inter-environment variability under identical initial conditions <Cite id="gpusimbench-2026" />.
 
- Newton's differentiability is advertised, but practical use for policy learning remains early compared with <Term id="system-identification">system identification</Term> and design optimization. Johnny Nuñez Cano and his NVIDIA coauthors call Drake the "gold standard" for contact-implicit trajectory optimisation and rigorous numerics, while distinguishing that criterion from throughput <span className="max-sm:[&_[role=tooltip]]:-left-4"><Cite id="state-of-simulation-2026" /></span>. The overview positions Drake in this way; it reports no comparative benchmark.
+Isaac Lab targets its CPU bottlenecks in future Isaac Lab and Newton releases. For <Term id="domain-randomization">domain randomization</Term>, simulation state sits on the GPU, but mass, friction, contact offsets and joint armature go through PhysX CPU APIs. Mesh scale and collider type change only before simulation starts, most other parameters at runtime <Cite id="isaac-lab-2025" />.
+
+Newton's README lists differentiability <Cite id="newton-repo-2026" />, and support differs between solvers <span className="max-sm:[&_[role=tooltip]]:-left-16"><Cite id="state-of-simulation-2026" /></span>. Its primary backend states: "Differentiability via Warp is not yet available" <Cite id="mujoco-warp-repo-2026" />. SHAC cut training time over 17x against the best established RL algorithm on muscle-actuated locomotion <Cite id="shac-2022" />. Schwarke and colleagues report the first legged sim-to-real transfer learned entirely in differentiable simulation <Cite id="schwarke-2024" />.
+
+Isaac Sim 6.1 adds beta <Term id="system-identification">system identification</Term> tools for headless and interactive optimization of robot simulation parameters <Cite id="isaac-sim-6-1-release-notes-2026" />. The overview's authors call Drake the "gold standard" when contact-implicit trajectory optimisation and rigorous numerics matter more than throughput <span className="max-sm:[&_[role=tooltip]]:-left-4"><Cite id="state-of-simulation-2026" /></span>.

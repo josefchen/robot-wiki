@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "688b412c5ff3a48bc9bea7446e29f55ae89dae1f268f8d205248623ba7441e67",
+  "fingerprint": "e8182183559590610e009a51b1b27ba57592bacdc4e6b8450d7cae8670587f30",
   "viewport": "1440x900",
   "routes": [
     "/",
@@ -81,7 +81,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3343,
+      "visibleTextLength": 3376,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2717,7 +2717,7 @@
       }
     },
     {
-      "visibleTextLength": 29789,
+      "visibleTextLength": 29911,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2973,7 +2973,7 @@
       }
     },
     {
-      "visibleTextLength": 40805,
+      "visibleTextLength": 40810,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6765,7 +6765,7 @@
       }
     },
     {
-      "visibleTextLength": 25435,
+      "visibleTextLength": 25985,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -7645,7 +7645,7 @@
       }
     },
     {
-      "visibleTextLength": 84289,
+      "visibleTextLength": 84359,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -13797,7 +13797,7 @@
       }
     },
     {
-      "visibleTextLength": 20724,
+      "visibleTextLength": 25637,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -14041,7 +14041,7 @@
       }
     },
     {
-      "visibleTextLength": 18780,
+      "visibleTextLength": 21780,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -14285,7 +14285,7 @@
       }
     },
     {
-      "visibleTextLength": 14227,
+      "visibleTextLength": 20335,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -14529,7 +14529,7 @@
       }
     },
     {
-      "visibleTextLength": 16141,
+      "visibleTextLength": 18933,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -14773,7 +14773,7 @@
       }
     },
     {
-      "visibleTextLength": 27904,
+      "visibleTextLength": 30963,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -15017,7 +15017,7 @@
       }
     },
     {
-      "visibleTextLength": 27646,
+      "visibleTextLength": 27632,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -15261,7 +15261,7 @@
       }
     },
     {
-      "visibleTextLength": 23619,
+      "visibleTextLength": 29259,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -15505,7 +15505,7 @@
       }
     },
     {
-      "visibleTextLength": 12249,
+      "visibleTextLength": 17937,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -16597,7 +16597,7 @@
       }
     },
     {
-      "visibleTextLength": 19773,
+      "visibleTextLength": 20730,
       "ariaCurrentNodes": [
         {
           "tag": "a",

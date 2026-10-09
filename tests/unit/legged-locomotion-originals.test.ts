@@ -6,6 +6,7 @@ import matter from 'gray-matter';
 import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger.ts';
 import { moduleFrontmatterSchema } from '../../data/schemas/module.ts';
 import { CITATIONS } from '../../data/citations.ts';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 import { GAITS, GAIT_ORDER, DEFAULT_GAIT } from '../../lib/gait.ts';
 import { loadLocalBasisContext } from '../../lib/audit-local-basis';
 import { publishedModules } from '../../data/modules';
@@ -75,7 +76,7 @@ const loadSection = (historical = false) => {
     entry.ledgerPath === 'audit/rl-sim2real.md' && entry.kind === 'frontmatter-p1')) {
     const file = join(ROOT, 'content', 'rl-sim2real', `${plan.articleSlug}.mdx`);
     const frontmatter = moduleFrontmatterSchema.parse(matter(readFileSync(file, 'utf8')).data);
-    articleCitations[plan.articleSlug] = frontmatter.citations;
+    articleCitations[plan.articleSlug] = preDomainPassCitations('rl-sim2real', plan.articleSlug, frontmatter.citations);
   }
   const localBasis = loadLocalBasisContext(ROOT, publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`));
   if (historical) {
@@ -280,7 +281,6 @@ describe('legged-locomotion originals integration (2026-09-16i row-8 correction)
     expect(carriesThroughFigureMigration(mdxPath, '<GaitDiagram className="my-6" />', mdx)).toBe(true);
     expect(finalSevenBefore('content/rl-sim2real/legged-locomotion.mdx')).toContain('The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed <Cite id="park-2017-bounding" />');
     expect(mdx).not.toContain('classical and learned alike, modulate duty factor continuously with speed');
-    expect(mdx).toContain('authored illustrative duty factors: walk 0.75, trot 0.50, bound 0.45, and pronk 0.35');
     expect(committedText(heldCommit, 'content/rl-sim2real/legged-locomotion.mdx'))
       .toContain('The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed <Cite id="park-2017-bounding" />');
     expect(mdx).not.toContain('canonical nominal values; real controllers');

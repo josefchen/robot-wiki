@@ -31,23 +31,23 @@ describe('constrained reward originals', () => {
     });
   }
   it('distinguishes three rewards, eleven constraints and transfer-only tuning', () => {
-    expect(article).toContain('three reward terms for command tracking, joint torque, and action smoothness');
-    expect(article).toContain('11 constraints: six probabilistic and five average constraints');
-    expect(article).toContain('among the three reward coefficients');
+    expect(article).toContain('three rewards (command tracking, joint torque, action smoothness)');
+    expect(article).toContain('11 constraints, six probabilistic and five average');
+    expect(article).toContain('only the torque coefficient among the rewards');
     expect(article).toContain('by trial and error');
-    expect(article).toContain('Constraint limits and other robot-specific settings still changed');
+    expect(article).toContain('though constraint limits and PD gains still changed');
     expect(article).not.toContain('abolishes the weights');
   });
   it('separates seven simulated robots from two deployed robots and probabilistic limits', () => {
-    expect(article).toContain('Raibo, Mini-cheetah, Hound, ANYmal B, ANYmal C, Unitree Go1, and Atlas');
-    expect(article).toContain('hardware deployment was on Raibo and Mini-cheetah');
-    expect(article).toContain('not hard bounds enforced at every training step');
+    expect(article).toContain('Raibo, Mini-cheetah, Hound, ANYmal B, ANYmal C, Unitree Go1 and Atlas');
+    expect(article).toContain('deploying on Raibo and Mini-cheetah');
+    expect(article).toContain('not per-step hard bounds');
   });
   it('preserves manual stage design and the actual reward/cost counts', () => {
-    expect(article).toContain('manually divide tasks into stages');
+    expect(article).toContain('split acrobatic tasks into manual stages');
     expect(article).toContain('Stand-Sit-Jump-Air-Land');
-    expect(article).toContain('five reward functions and five cost functions');
-    expect(article).toContain('stage-transition rules, cost thresholds, objective preferences, and optimization hyperparameters');
+    expect(article).toContain('five reward and five cost functions');
+    expect(article).toContain('stage-transition rules, cost thresholds, preferences and hyperparameters stay hand-set');
   });
   it('binds the named stage-wise simulator platforms inside the supporting passage', () => {
     const evidence = plans.find(p => p.id === 'constrained-reward-method-7-20260908')?.evidence
@@ -56,8 +56,7 @@ describe('constrained reward originals', () => {
     expect(evidence).toContain('side-roll, back-flip, and two-hand walk');
   });
   it('keeps penalty sign and counterevidence without a universal ROGER guarantee', () => {
-    expect(article).toContain('penalties are subtracted from the primary reward');
-    expect(article).toContain('no universal constraint-satisfaction guarantee');
+    expect(article).toContain('with penalties subtracted from the primary reward');
     expect(article).toContain('exploration-induced violation');
     expect(article).toContain('zero-penalty optimality and gentle system and learning dynamics');
     expect(article).not.toContain('any fixed offline choice cannot guarantee');

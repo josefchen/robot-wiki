@@ -6,6 +6,7 @@ import { showAt } from './helpers/continuation-merge-ledger';
 import { loadLocalBasisContext } from '../../lib/audit-local-basis';
 import { publishedModules } from '../../data/modules';
 import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 const ROOT = join(__dirname, '..', '..');
 const ARTICLE = join(ROOT, 'content', 'rl-sim2real', 'reward-design-mpc.mdx');
@@ -38,7 +39,8 @@ function frontmatterCitations(): Record<string, readonly string[]> {
   const fm = article.split('---')[1];
   const list = fm.split('citations:')[1].split('seeAlso:')[0];
   return {
-    'reward-design-mpc': [...list.matchAll(/- ([\w-]+)/g)].map((m) => m[1]),
+    'reward-design-mpc': preDomainPassCitations('rl-sim2real', 'reward-design-mpc',
+      [...list.matchAll(/- ([\w-]+)/g)].map((m) => m[1])),
   };
 }
 
@@ -66,14 +68,13 @@ function sectionRows(historical = false) {
 describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)', { timeout: 30_000 }, () => {
   it('row 19 endpoint drops the unsourced "pushes" claim and superlative', () => {
     const article = readFileSync(ARTICLE, 'utf8');
-    expect(article).toContain('sim-trained controllers handle terrain, unknown payloads, and hardware variation');
-    expect(article).toContain('beyond the reach of prior published work in legged locomotion (in the papers\' own words)');
+    expect(article).toContain('"beyond the reach of prior published work in legged locomotion"');
     expect(article).not.toContain('pushes, and hardware variation that hand-designed stacks never achieved');
   });
 
   it('row 21 endpoint drops the contact-implicit import and the 2025-2026 span', () => {
     const article = readFileSync(ARTICLE, 'utf8');
-    expect(article).toContain("Newton's hydroelastic contact modeling is inspired by Drake's contact model");
+    expect(article).toContain("Newton's hydroelastic contact modeling is inspired by Drake's");
     expect(article).toContain('<Cite id="newton-manipulation-blog-2026" />');
     expect(article).not.toContain('spent 2025 and 2026 importing model-based contact research');
     expect(article).not.toContain('hydroelastic pressure fields and contact-implicit optimization');
@@ -141,7 +142,7 @@ describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)'
 
   it('row 16 applies the 2026-09-17b rdm16 rewording under the frontmatter constraint', () => {
     const article = readFileSync(ARTICLE, 'utf8');
-    expect(article).toContain('The classical stack for legged control is a hierarchy: a footstep and contact planner');
+    expect(article).toContain('Classical legged control simplifies the model in its <Term id="mpc">MPC</Term> layer.');
     expect(article).toContain('"model hierarchies commonly seen in traditional model-based MPC"');
     expect(article).toContain('"reduced-order models and hierarchical control approaches"');
     expect(article).toContain('<Cite id="mujoco-ilqr-2026" />');
@@ -251,7 +252,7 @@ describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)'
     const reward = readFileSync(join(ROOT, 'lib/reward-shaping.ts'), 'utf8');
     const controls = readFileSync(join(ROOT, 'components/interactive/reward-shaping.tsx'), 'utf8');
     const replay = readFileSync(join(ROOT, 'components/interactive/eureka-loop.tsx'), 'utf8');
-    expect(article).toContain('Twelve weighted terms sit on the illustrative behavior preview below');
+    expect(article).toContain('This local teaching model uses twelve authored terms');
     expect(controls).toContain('TERMS.map');
     expect(reward.replace(/\n\s*\*\s?/g, ' ')).toContain('illustrative failure attractors (freeze, prance, chatter)');
     expect(replay).toContain('Scripted replay of the Eureka loop');

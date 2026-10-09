@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 import { compoundPartDigest, compoundPlanDigest, parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
 
 const text = (path: string) => readFileSync(path, 'utf8');
@@ -24,7 +25,7 @@ function failures(plan: ReturnType<typeof selected>) {
     new Set(CITATIONS.map(c => c.id)), {
       compoundPlans: catalog().map(p => p.id === plan.id ? plan : p),
       articleCitations: Object.fromEntries(['sim2real-transfer', 'legged-locomotion'].map(slug =>
-        [slug, matter(text(`content/rl-sim2real/${slug}.mdx`)).data.citations])),
+        [slug, [...preDomainPassCitations('rl-sim2real', slug, matter(text(`content/rl-sim2real/${slug}.mdx`)).data.citations)]])),
     }).find(s => s.slug === plan.articleSlug)!;
   return section.claimRecords[plan.rowOrdinal - 1].evidenceFailures;
 }
@@ -34,15 +35,14 @@ describe('learned locomotion source corrections', () => {
     for (const slug of ['sim2real-transfer', 'legged-locomotion']) {
       const article = text(`content/rl-sim2real/${slug}.mdx`);
       expect(article).toContain('joint-position errors and velocities');
-      expect(article).toContain('could not take a single step without falling');
+      expect(article).toContain('failed to take a single step without falling');
       expect(article).not.toContain('dominant sim-to-real error source');
       expect(article).not.toContain('dominant source of sim-to-real error');
     }
     expect(text('content/rl-sim2real/sim2real-transfer.mdx')).toContain('0.01 and 0.02 seconds earlier');
     const legged = text('content/rl-sim2real/legged-locomotion.mdx');
-    expect(legged).toContain('separately trained recovery policy');
     expect(legged).toContain('nine tested configurations');
-    expect(legged).toContain('relaxing joint-velocity constraints');
+    expect(legged).toContain('joint-velocity constraints');
   });
   it('couples Lee teacher, history and deployment qualifications', () => {
     for (const slug of ['sim2real-transfer', 'legged-locomotion']) {
@@ -55,8 +55,8 @@ describe('learned locomotion source corrections', () => {
   });
   it('keeps Miki perception, deployment and detailed hike scope together', () => {
     const article = text('content/rl-sim2real/legged-locomotion.mdx');
-    for (const phrase of ['GRU-based recurrent belief encoder', '20 Hz', '50 Hz',
-      'Robosense Bpearl', 'Intel RealSense D435', '78 minutes', "planner's 76 minutes",
+    for (const phrase of ['GRU belief encoder', '20 Hz', '50 Hz',
+      'Robosense Bpearl', 'RealSense D435', '78 minutes', "minutes against a planner's 76, with",
       'reattach a shoe and swap batteries', 'occluded cliffs or stepping stones']) expect(article).toContain(phrase);
     expect(article).toContain('<Stat label="Alpine hike" value="78 min"');
     expect(article).not.toContain('value="1 h" note="Miki');

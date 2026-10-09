@@ -170,7 +170,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'parallel-simulation',
     term: 'parallel simulation',
     definition:
-      'Running thousands of physics simulator instances at once on a single GPU so a reinforcement learning agent collects experience at a rate no CPU cluster matches. Isaac Gym made the setup practical by keeping both physics and policy training on the GPU and passing data straight from physics buffers to PyTorch tensors, skipping the CPU round-trip entirely, which bought two to three orders of magnitude in throughput over a CPU simulator feeding a GPU learner. Rudin and colleagues showed what that buys: four thousand parallel ANYmal instances trained with PPO learned flat-terrain walking in under four minutes and uneven terrain in twenty, on one workstation GPU.',
+      'Running thousands of physics simulator instances at once on a single GPU, so one workstation collects reinforcement learning experience at rates that once needed CPU clusters. Isaac Gym made the setup practical by keeping both physics and policy training on the GPU and passing data straight from physics buffers to PyTorch tensors, skipping the CPU round-trip entirely, which bought two to three orders of magnitude in throughput over a CPU simulator feeding a GPU learner. Rudin and colleagues showed what that buys: four thousand parallel ANYmal instances trained with PPO learned flat-terrain walking in under four minutes and uneven terrain in twenty, on one workstation GPU.',
     citations: ['isaac-gym-2021', 'rudin-2021'],
   },
   {
@@ -198,7 +198,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'mpc',
     term: 'model predictive control',
     definition:
-      'Control by constant re-planning: at each control step, optimize a short sequence of future actions against an explicit dynamics model, execute only the first action, and solve again from the freshly measured state. Because the plan is recomputed online, model error is rejected by feedback at every step instead of being frozen into a policy\'s weights, so a model-predictive controller shows less of the frozen-policy sim-to-real failure mode, though a wrong dynamics model still costs it closed-loop performance. Long assumed too slow for a robot\'s full dynamics, the method reached whole-body scale in 2026, when Zhang and colleagues solved iLQR against MuJoCo\'s physics fast enough to close the loop in real time on real hardware.',
+      'Control by constant re-planning: at each control step, optimize a short sequence of future actions against an explicit dynamics model, execute only the first action, and solve again from the freshly measured state. Because the plan is recomputed online, model error is rejected by feedback at every step instead of being frozen into a policy\'s weights, so a model-predictive controller shows less of the frozen-policy sim-to-real failure mode, though a wrong dynamics model still costs it closed-loop performance. Long assumed too slow for a robot\'s full dynamics, whole-body MPC now runs in real time on legged hardware: Zhang and colleagues\' MuJoCo-based iLQR controller, first posted in 2025 and revised in 2026 to appear at ICRA 2026, closes the loop on quadruped and humanoid robots.',
     citations: ['mujoco-ilqr-2026'],
   },
   {

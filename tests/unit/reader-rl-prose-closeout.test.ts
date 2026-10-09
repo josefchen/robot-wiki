@@ -167,7 +167,7 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
     expect(read('audit/evidence/motion-rl-sim2real-20260927/sim2real-transfer-before.mdx')).toContain(old);
     for (const phrase of ['DextrAH-RGB example', 'privileged state', 'KUKA arm and Allegro hand',
       'stereo RGB pairs', '<Cite id="isaac-lab-2025" />'])
-      expect(read(destinations[1])).toContain(phrase);
+      expect(preDomain(destinations[1])).toContain(phrase);
     expect(summary.split(/\s+/).length).toBeLessThan(old.split(/\s+/).length);
     for (const phrase of [
       'privileged-state RL teacher', 'stereo-RGB student',
@@ -212,7 +212,12 @@ describe('bounded RL reader prose closeout, zero original completions', () => {
         ]);
         expect(data.description).toContain('EXPO-FT');
       } else expect(data).toEqual(beforeData);
-      expect(read(path).match(/<\/?span\b[^>]*>/g)).toEqual(before(path).match(/<\/?span\b[^>]*>/g));
+      const spans = (text: string): string[] => text.match(/<\/?span\b[^>]*>/g) ?? [];
+      expect(spans(preDomain(path))).toEqual(spans(before(path)));
+      // The 2026-10-06 domain pass adds only self-closing anchor spans that keep a renamed heading's old fragment.
+      const added = spans(read(path)).filter(span => !spans(before(path)).includes(span));
+      expect(added.every(span => /^<span id="[a-z0-9-]+" \/>$/.test(span))).toBe(true);
+      expect(spans(read(path)).filter(span => !added.includes(span))).toEqual(spans(before(path)));
       for (const id of cites(read(path))) expect(CITATIONS.some(citation => citation.id === id)).toBe(true);
     }
     // Whole-file/catalog preservation is checked in the checkpoint receipt, not

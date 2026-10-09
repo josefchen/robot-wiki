@@ -2881,11 +2881,11 @@ export const CITATIONS: Citation[] = [
     year: 2025,
     venue: 'CoRL 2025',
     arxiv: '2502.20396',
-    // Versioned URL, per the audit/README.md quote policy: the article
-    // quotes a sentence ("...much more laborious real-to-sim engineering
-    // efforts...") that exists only in arXiv v1; v2 dropped it, so the
-    // unversioned abs URL would serve a text the reader cannot find.
-    url: 'https://arxiv.org/abs/2502.20396v1',
+    // Unversioned URL: since the 2026-10-06 domain pass the article cites the
+    // current version's sentence (dexterous sim-to-real RL "remains largely
+    // limited to single-hand ... or state-based setups"), which arXiv v1
+    // does not hold; the earlier v1-only quote is no longer on the page.
+    url: 'https://arxiv.org/abs/2502.20396',
     type: 'paper',
   },
   {
@@ -2928,6 +2928,9 @@ export const CITATIONS: Citation[] = [
       'Jeannette Bohg',
     ],
     year: 2026,
+    // Accepted at CoRL 2026: the project page (play2perfect.github.io), fetched 2026-10-07,
+    // prints "Conference on Robot Learning (CoRL) 2026" under the byline.
+    venue: 'CoRL 2026',
     arxiv: '2606.26428',
     url: 'https://arxiv.org/abs/2606.26428',
     type: 'paper',
@@ -14774,6 +14777,1984 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.24318',
     type: 'paper',
   },
+  // bd-atlas-hand-2026: domain pass 2026-10-06, KOL intake note of Boston Dynamics, added 2026-10-09.
+  // Boston Dynamics blog post, datePublished 2026-10-01T13:10:02Z in the page's JSON-LD, read
+  // 2026-10-09. The byline is a site account, so the company stands as author.
+  {
+    id: 'bd-atlas-hand-2026',
+    title: 'Robot Hands for Modern AI and Real Work',
+    authors: ['Boston Dynamics'],
+    year: 2026,
+    url: 'https://bostondynamics.com/blog/robot-hands-for-modern-ai-and-real-work/',
+    type: 'blog',
+  },
+  // runway-gwm-robotics-eval-2026: domain pass 2026-10-06, KOL intake note of The Robot Report on
+  // Praxis-1, added 2026-10-09; the id is the one the owner's world-models evaluation draft uses.
+  // Runway Research post dated 27 February 2026 on the page (datePublished 2026-02-27 in its JSON-LD),
+  // byline Runway Robotics (Andy Chen, Lucas Eager Leavitt, Rik Heijdens, Robin Kahlow), read 2026-10-09.
+  {
+    id: 'runway-gwm-robotics-eval-2026',
+    title: 'Accelerating Robot Policy Evaluation with General World Models',
+    authors: ['Andy Chen', 'Lucas Eager Leavitt', 'Rik Heijdens', 'Robin Kahlow'],
+    year: 2026,
+    venue: 'Runway Research',
+    url: 'https://runway.com/research/accelerating-robot-policy-evaluation',
+    type: 'blog',
+  },
+  // runway-praxis-1-2026: domain pass 2026-10-06, KOL intake note of The Robot Report on Praxis-1,
+  // added 2026-10-09. Runway Research post headed "Research · September 2026" (datePublished
+  // 2026-09-30T17:00Z in its JSON-LD), no named author, read 2026-10-09.
+  {
+    id: 'runway-praxis-1-2026',
+    title: 'Introducing Praxis-1',
+    authors: ['Runway'],
+    year: 2026,
+    venue: 'Runway Research',
+    url: 'https://runway.com/research/introducing-praxis-1',
+    type: 'blog',
+  },
+  // omniretarget-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 2509.26633 (v1 2025-09-30). Abstract: "A dominant paradigm for teaching humanoid robots
+  // complex skills is to retarget human motions as kinematic references to train reinforcement
+  // learning (RL) policies."
+  {
+    id: 'omniretarget-2025',
+    title: 'OmniRetarget: Interaction-Preserving Data Generation for Humanoid Whole-Body Loco-Manipulation and Scene Interaction',
+    authors: ['Lujie Yang', 'Xiaoyu Huang', 'Zhen Wu', 'Angjoo Kanazawa', 'Pieter Abbeel', 'Carmelo Sferrazza', 'C. Karen Liu', 'Rocky Duan', 'Guanya Shi'],
+    year: 2025,
+    arxiv: '2509.26633',
+    url: 'https://arxiv.org/abs/2509.26633',
+    type: 'paper',
+  },
+  // deepmimic-2018: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 1804.02717 (v1 2018-04-08). Abstract: "We show that well-known reinforcement learning (RL)
+  // methods can be adapted to learn robust control policies capable of imitating a broad range of
+  // example motion clips", "Our method handles keyframed motions, highly-dynamic actions such as
+  // motion-captured flips and spins, and retargeted motions" and "We demonstrate results using
+  // multiple characters (human, Atlas robot, bipedal dinosaur, dragon)".
+  {
+    id: 'deepmimic-2018',
+    title: 'DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills',
+    authors: ['Xue Bin Peng', 'Pieter Abbeel', 'Sergey Levine', 'Michiel van de Panne'],
+    year: 2018,
+    arxiv: '1804.02717',
+    url: 'https://arxiv.org/abs/1804.02717',
+    type: 'paper',
+  },
+  // amass-2019: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 1904.03278 (v1 2019-04-05). Abstract: "AMASS, a large and varied database of human motion
+  // that unifies 15 different optical marker-based mocap datasets by representing them within a
+  // common framework and parameterization" and "having more than 40 hours of motion data, spanning
+  // over 300 subjects, more than 11,000 motions".
+  {
+    id: 'amass-2019',
+    title: 'AMASS: Archive of Motion Capture as Surface Shapes',
+    authors: ['Naureen Mahmood', 'Nima Ghorbani', 'Nikolaus F. Troje', 'Gerard Pons-Moll', 'Michael J. Black'],
+    year: 2019,
+    arxiv: '1904.03278',
+    url: 'https://arxiv.org/abs/1904.03278',
+    type: 'paper',
+  },
+  // pulse-2023: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 2310.04582 (v1 2023-10-06; ICLR 2024 Spotlight). Abstract: "we first learn a motion
+  // imitator that can imitate all of human motion from a large, unstructured motion dataset. We then
+  // create our motion representation by distilling skills directly from the imitator."
+  {
+    id: 'pulse-2023',
+    title: 'Universal Humanoid Motion Representations for Physics-Based Control',
+    authors: ['Zhengyi Luo', 'Jinkun Cao', 'Josh Merel', 'Alexander Winkler', 'Jing Huang', 'Kris Kitani', 'Weipeng Xu'],
+    year: 2023,
+    venue: 'arXiv preprint (ICLR 2024)',
+    arxiv: '2310.04582',
+    url: 'https://arxiv.org/abs/2310.04582',
+    type: 'paper',
+  },
+  // twist-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 2505.02833 (v1 2025-05-05). Abstract: "We first generate reference motion clips by
+  // retargeting human motion capture data to the humanoid robot. We then develop a robust, adaptive,
+  // and responsive whole-body controller using a combination of reinforcement learning and behavior
+  // cloning (RL+BC)." and "spanning whole-body manipulation, legged manipulation, locomotion, and
+  // expressive movement--using a single unified neural network controller".
+  {
+    id: 'twist-2025',
+    title: 'TWIST: Teleoperated Whole-Body Imitation System',
+    authors: ['Yanjie Ze', 'Zixuan Chen', 'João Pedro Araújo', 'Zi-ang Cao', 'Xue Bin Peng', 'Jiajun Wu', 'C. Karen Liu'],
+    year: 2025,
+    arxiv: '2505.02833',
+    url: 'https://arxiv.org/abs/2505.02833',
+    type: 'paper',
+  },
+  // exbody-2024: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 2402.16796 (v1 2024-02-26). Abstract: "encouraging the upper humanoid body to imitate a
+  // reference motion, while relaxing the imitation constraint on its two legs and only requiring
+  // them to follow a given velocity robustly".
+  {
+    id: 'exbody-2024',
+    title: 'Expressive Whole-Body Control for Humanoid Robots',
+    authors: ['Xuxin Cheng', 'Yandong Ji', 'Junming Chen', 'Ruihan Yang', 'Ge Yang', 'Xiaolong Wang'],
+    year: 2024,
+    arxiv: '2402.16796',
+    url: 'https://arxiv.org/abs/2402.16796',
+    type: 'paper',
+  },
+  // kungfubot2-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 2509.16638 (v1 2025-09-20). Abstract: "we present VMS, a unified whole-body controller
+  // that enables humanoid robots to learn diverse and dynamic behaviors within a single policy", "an
+  // Orthogonal Mixture-of-Experts (OMoE) architecture" and "stable performance over minute-long
+  // sequences".
+  {
+    id: 'kungfubot2-2025',
+    title: 'KungfuBot2: Learning Versatile Motion Skills for Humanoid Whole-Body Control',
+    authors: ['Jinrui Han', 'Weiji Xie', 'Jiakun Zheng', 'Jiyuan Shi', 'Weinan Zhang', 'Ting Xiao', 'Chenjia Bai'],
+    year: 2025,
+    arxiv: '2509.16638',
+    url: 'https://arxiv.org/abs/2509.16638',
+    type: 'paper',
+  },
+  // humanup-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 2502.12152 (v1 2025-02-17; RSS 2025). Abstract: "enable a real-world G1 humanoid robot to
+  // get up from two main situations that we considered: a) lying face up and b) lying face down".
+  {
+    id: 'humanup-2025',
+    title: 'Learning Getting-Up Policies for Real-World Humanoid Robots',
+    authors: ['Xialin He', 'Runpei Dong', 'Zixuan Chen', 'Saurabh Gupta'],
+    year: 2025,
+    venue: 'Robotics: Science and Systems (RSS) 2025',
+    arxiv: '2502.12152',
+    url: 'https://arxiv.org/abs/2502.12152',
+    type: 'paper',
+  },
+  // beyondmimic-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2508.08241 (v1 2025-08-11). Abstract: "mastering a wide range of radically agile
+  // behaviors, including aerial cartwheels, spin-kicks, flip-kicks, and sprinting, with a single
+  // setup and shared hyperparameters", "a unified latent diffusion model", "Leveraging classifier
+  // guidance" and "transfers these skills zero-shot to real hardware".
+  {
+    id: 'beyondmimic-2025',
+    title: 'BeyondMimic: From Motion Tracking to Versatile Humanoid Control via Guided Diffusion',
+    authors: ['Qiayuan Liao', 'Takara E. Truong', 'Xiaoyu Huang', 'Yuman Gao', 'Guy Tevet', 'Koushil Sreenath', 'C. Karen Liu'],
+    year: 2025,
+    arxiv: '2508.08241',
+    url: 'https://arxiv.org/abs/2508.08241',
+    type: 'paper',
+  },
+  // hover-2024: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 2410.21229 (v1 2024-10-28; ICRA 2025). Abstract: "We present the key insight that
+  // full-body kinematic motion imitation can serve as a common abstraction for all these tasks" and
+  // "a multi-mode policy distillation framework that consolidates diverse control modes into a
+  // unified policy".
+  {
+    id: 'hover-2024',
+    title: 'HOVER: Versatile Neural Whole-Body Controller for Humanoid Robots',
+    authors: ['Tairan He', 'Wenli Xiao', 'Toru Lin', 'Zhengyi Luo', 'Zhenjia Xu', 'Zhenyu Jiang', 'Jan Kautz', 'Changliu Liu', 'Guanya Shi', 'Xiaolong Wang', 'Linxi Fan', 'Yuke Zhu'],
+    year: 2024,
+    venue: 'arXiv preprint (ICRA 2025)',
+    arxiv: '2410.21229',
+    url: 'https://arxiv.org/abs/2410.21229',
+    type: 'paper',
+  },
+  // figure-s0-2026: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts; also drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // Figure AI news post dated April 29, 2026 (no personal byline). "Helix's System 0 (S0), an AI
+  // model for human-like whole-body control", "S0 now has a new capability: it is conditioned on
+  // camera perception." and "The policy is trained end-to-end with reinforcement learning in
+  // simulation, across thousands of randomized terrains, and the same network weights that learn to
+  // climb procedurally generated staircases in sim now traverse real-world stairs on the robot."
+  // (company's own account) This draft relies on: "Until now, S0 reasoned only about the robot's own
+  // body - joint state, base motion, and proprioception."
+  {
+    id: 'figure-s0-2026',
+    title: 'Ramping Figure 03 Production',
+    authors: ['Figure AI'],
+    year: 2026,
+    venue: 'Figure AI news',
+    url: 'https://www.figure.ai/news/ramping-figure-03-production',
+    type: 'blog',
+  },
+  // sonic-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 2511.07820 (v1 2025-11-11); arXiv journal reference "Science Robotics 11 (117), eaed4592
+  // (2026)" (DOI 10.1126/scirobotics.aed4592). Abstract: "network size (1.2M to 42M parameters),
+  // dataset volume (100M+ frames from 700 hours of motion capture), and compute (21k GPU hours)" and
+  // "a unified token space that supports virtual reality (VR) teleoperation and
+  // vision-language-action (VLA) models with a single policy".
+  {
+    id: 'sonic-2025',
+    title: 'SONIC: Supersizing Motion Tracking for Natural Humanoid Whole-Body Control',
+    authors: ['Zhengyi Luo', 'Ye Yuan', 'Tingwu Wang', 'Chenran Li', 'Fernando Castañeda', 'Sirui Chen', 'Zi-Ang Cao', 'Jiefeng Li', 'David Minor', 'Qingwei Ben', 'Jinhyung Park', 'David Sami', 'Zi Wang', 'Xingye Da', 'Runyu Ding', 'Cyrus Hogg', 'Lina Song', 'Edy Lim', 'Eugene Jeong', 'Tairan He', 'Haoru Xue', 'Wenli Xiao', 'Simon Yuen', 'Jan Kautz', 'Yan Chang', 'Umar Iqbal', 'Linxi "Jim" Fan', 'Yuke Zhu'],
+    year: 2025,
+    venue: 'arXiv preprint (Science Robotics 11(117), 2026)',
+    arxiv: '2511.07820',
+    url: 'https://arxiv.org/abs/2511.07820',
+    type: 'paper',
+  },
+  // humanoidbench-2024: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts; also drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-03-15, 5 authors. This draft relies on
+  // (abstract, re-read 2026-10-04): "we present a high-dimensional, simulated robot learning
+  // benchmark, HumanoidBench" and "state-of-the-art reinforcement learning algorithms struggle with
+  // most tasks, whereas a hierarchical learning approach achieves superior performance when
+  // supported by robust low-level policies, such as walking or reaching".
+  {
+    id: 'humanoidbench-2024',
+    title: 'HumanoidBench: Simulated Humanoid Benchmark for Whole-Body Locomotion and Manipulation',
+    authors: ['Carmelo Sferrazza', 'Dun-Ming Huang', 'Xingyu Lin', 'Youngwoon Lee', 'Pieter Abbeel'],
+    year: 2024,
+    arxiv: '2403.10506',
+    url: 'https://arxiv.org/abs/2403.10506',
+    type: 'paper',
+  },
+  // wbc-motion-gen-2026: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 2604.17335 (v1 2026-04-19). Abstract: "We first train a diffusion model on retargeted
+  // human motions for real-time prediction of terrain-aware reference motions", "we further
+  // fine-tune the tracker with a frozen motion generator in a closed-loop setting" (to "improve
+  // robustness under imperfectly generated references") and "The hardware experiments demonstrate
+  // successful traversal over boxes, hurdles, stairs, and mixed terrain combinations" on "a Unitree
+  // G1 humanoid robot".
+  {
+    id: 'wbc-motion-gen-2026',
+    title: 'Learning Whole-Body Humanoid Locomotion via Motion Generation and Motion Tracking',
+    authors: ['Zewei Zhang', 'Kehan Wen', 'Michael Xu', 'Junzhe He', 'Chenhao Li', 'Takahiro Miki', 'Clemens Schwarke', 'Chong Zhang', 'Xue Bin Peng', 'Marco Hutter'],
+    year: 2026,
+    arxiv: '2604.17335',
+    url: 'https://arxiv.org/abs/2604.17335',
+    type: 'paper',
+  },
+  // hdmi-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // arXiv 2509.16757 (v1 2025-09-20). Abstract: "learns whole-body humanoid-object interaction
+  // skills directly from monocular RGB videos", "trains a reinforcement learning (RL) policy to
+  // co-track robot and object states" and "HDMI achieves 67 consecutive door traversals and
+  // successfully performs 6 distinct loco-manipulation tasks in the real world and 14 tasks in
+  // simulation".
+  {
+    id: 'hdmi-2025',
+    title: 'HDMI: Learning Interactive Humanoid Whole-Body Control from Human Videos',
+    authors: ['Haoyang Weng', 'Yitang Li', 'Nikhil Sobanbabu', 'Zihan Wang', 'Zhengyi Luo', 'Tairan He', 'Deva Ramanan', 'Guanya Shi'],
+    year: 2025,
+    arxiv: '2509.16757',
+    url: 'https://arxiv.org/abs/2509.16757',
+    type: 'paper',
+  },
+  // bd-atlas-hard-work-2026: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts; also drafts/rl-sim2real/legged-locomotion.citations.ts, drafts/rl-sim2real/reward-design-mpc.citations.ts, drafts/rl-sim2real/sim2real-transfer.citations.ts, drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // Boston Dynamics blog, datePublished 2026-05-18. Byline on the page (re-read 2026-10-04): "This
+  // article was written by Alberto Rodriguez, Director of Robot Behavior for Atlas, Shane
+  // Rozen-Levy, Research Engineer, and Vinay Kamidi, Research Engineer." "All are rotary actuators
+  // that are much easier to represent well in simulation, key to the high performance RL work with
+  // proprioceptive feedback discussed above." and "Atlas uses reinforcement learning (RL) to learn
+  // how to lift a fridge ... This is a combined control and perception problem, where perception is
+  // done implicitly from body proprioception." (company's own account) This draft relies on: "For
+  // the fridge move, we started with a simple animation" and "the policy for moving the fridge was
+  // trained for 50-70 pound loads, but the robot successfully moved a loaded fridge with a total
+  // weight of more than 100 pounds".
+  {
+    id: 'bd-atlas-hard-work-2026',
+    title: 'Training a Humanoid Robot for Hard Work',
+    authors: ['Alberto Rodriguez', 'Shane Rozen-Levy', 'Vinay Kamidi'],
+    year: 2026,
+    venue: 'Boston Dynamics blog',
+    url: 'https://bostondynamics.com/blog/training-a-humanoid-robot-for-hard-work/',
+    type: 'blog',
+  },
+  // anymal-parkour-2023: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // arXiv 2306.14874 (v1 2023-06-26; Science Robotics 9(88), 2024). Abstract: "training advanced
+  // locomotion skills for several types of obstacles, such as walking, jumping, climbing, and
+  // crouching, and then using a high-level policy to select and control those skills across the
+  // terrain" and "the robot navigates and crosses consecutive challenging obstacles with speeds of
+  // up to two meters per second".
+  {
+    id: 'anymal-parkour-2023',
+    title: 'ANYmal Parkour: Learning Agile Navigation for Quadrupedal Robots',
+    authors: ['David Hoeller', 'Nikita Rudin', 'Dhionis Sako', 'Marco Hutter'],
+    year: 2023,
+    venue: 'arXiv preprint (Science Robotics 2024)',
+    arxiv: '2306.14874',
+    url: 'https://arxiv.org/abs/2306.14874',
+    type: 'paper',
+  },
+  // agarwal-vision-2022: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 2211.07638 (CoRL 2022 oral) abstract: "first, we train a policy using reinforcement
+  // learning with a cheap-to-compute variant of depth image and then in phase 2 distill it into the
+  // final policy that uses depth using supervised learning". This draft relies on (re-read
+  // 2026-10-04): "we present the first end-to-end locomotion system capable of traversing stairs,
+  // curbs, stepping stones, and gaps. We show this result on a medium-sized quadruped robot using a
+  // single front-facing depth camera."
+  {
+    id: 'agarwal-vision-2022',
+    title: 'Legged Locomotion in Challenging Terrains using Egocentric Vision',
+    authors: ['Ananye Agarwal', 'Ashish Kumar', 'Jitendra Malik', 'Deepak Pathak'],
+    year: 2022,
+    venue: 'CoRL 2022',
+    arxiv: '2211.07638',
+    url: 'https://arxiv.org/abs/2211.07638',
+    type: 'paper',
+  },
+  // walk-these-ways-2022: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2212.03238 (v1 2022-12-06; CoRL 2022 oral). PDF body (v1, Sec. 3): "θcmd = (θcmd1, θcmd2,
+  // θcmd3) are the timing offsets between pairs of feet. These express gaits including pronking
+  // (θcmd = (0.0, 0, 0)), trotting (θcmd = (0.5, 0, 0)), bounding, (θcmd = (0, 0.5, 0))" and "fcmd
+  // is the stepping frequency expressed in Hz". Abstract: "can execute diverse gaits with variable
+  // footswing, posture, and speed".
+  {
+    id: 'walk-these-ways-2022',
+    title: 'Walk These Ways: Tuning Robot Control for Generalization with Multiplicity of Behavior',
+    authors: ['Gabriel B. Margolis', 'Pulkit Agrawal'],
+    year: 2022,
+    venue: 'Conference on Robot Learning (CoRL) 2022',
+    arxiv: '2212.03238',
+    url: 'https://arxiv.org/abs/2212.03238',
+    type: 'paper',
+  },
+  // alexander-1984: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // Crossref 10.1177/027836498400300205 (IJRR 3(2):49-59, June 1984). Crossref abstract: "It is
+  // shown that mammals of different sizes tend to move in dy namically similar fashion whenever
+  // their Froude numbers u^2/gh are equal: here u is speed, g is the acceleration of free fall, and
+  // h is the height of the hip joint from the ground." ("dy namically" as printed; superscript
+  // rendered as ^2.) The publisher page is paywalled; the quote is the Crossref abstract.
+  {
+    id: 'alexander-1984',
+    title: 'The Gaits of Bipedal and Quadrupedal Animals',
+    authors: ['R. McN. Alexander'],
+    year: 1984,
+    venue: 'International Journal of Robotics Research 3(2)',
+    url: 'https://doi.org/10.1177/027836498400300205',
+    type: 'paper',
+  },
+  // margolis-rapid-2022: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2205.02824 (v1 2022-05-05; RSS 2022). Abstract: "We present an end-to-end learned
+  // controller that achieves record agility for the MIT Mini Cheetah, sustaining speeds up to 3.9
+  // m/s." (authors' own claim)
+  {
+    id: 'margolis-rapid-2022',
+    title: 'Rapid Locomotion via Reinforcement Learning',
+    authors: ['Gabriel B. Margolis', 'Ge Yang', 'Kartik Paigwar', 'Tao Chen', 'Pulkit Agrawal'],
+    year: 2022,
+    venue: 'Robotics: Science and Systems (RSS) 2022',
+    arxiv: '2205.02824',
+    url: 'https://arxiv.org/abs/2205.02824',
+    type: 'paper',
+  },
+  // siekmann-2020: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // arXiv 2011.01387 (v1 2020-11-02; ICRA 2021). Abstract: "a parametric reward function with
+  // intuitive settings for all common bipedal gaits - standing, walking, hopping, running, and
+  // skipping. Using this function we demonstrate successful sim-to-real transfer of the learned
+  // gaits to the bipedal robot Cassie".
+  {
+    id: 'siekmann-2020',
+    title: 'Sim-to-Real Learning of All Common Bipedal Gaits via Periodic Reward Composition',
+    authors: ['Jonah Siekmann', 'Yesh Godse', 'Alan Fern', 'Jonathan Hurst'],
+    year: 2020,
+    venue: 'arXiv preprint (ICRA 2021)',
+    arxiv: '2011.01387',
+    url: 'https://arxiv.org/abs/2011.01387',
+    type: 'paper',
+  },
+  // radosavovic-2023: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 2303.03381 (v1 2023-03-06; Science Robotics 2024). Abstract: "Our controller is a causal
+  // transformer that takes the history of proprioceptive observations and actions as input and
+  // predicts the next action." and "deploy it to the real world zero-shot". This draft also relies
+  // on: "we present a fully learning-based approach for real-world humanoid locomotion".
+  {
+    id: 'radosavovic-2023',
+    title: 'Real-World Humanoid Locomotion with Reinforcement Learning',
+    authors: ['Ilija Radosavovic', 'Tete Xiao', 'Bike Zhang', 'Trevor Darrell', 'Jitendra Malik', 'Koushil Sreenath'],
+    year: 2023,
+    venue: 'arXiv preprint (Science Robotics 2024)',
+    arxiv: '2303.03381',
+    url: 'https://arxiv.org/abs/2303.03381',
+    type: 'paper',
+  },
+  // li-cassie-2024: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // arXiv 2401.16889 (v1 2024-01-30; IJRR 2024). Abstract: "Our RL-based controller incorporates a
+  // novel dual-history architecture", "The resulting control policies can be successfully deployed
+  // on Cassie" and "fast running with a demonstration of a 400-meter dash".
+  {
+    id: 'li-cassie-2024',
+    title: 'Reinforcement Learning for Versatile, Dynamic, and Robust Bipedal Locomotion Control',
+    authors: ['Zhongyu Li', 'Xue Bin Peng', 'Pieter Abbeel', 'Sergey Levine', 'Glen Berseth', 'Koushil Sreenath'],
+    year: 2024,
+    venue: 'International Journal of Robotics Research',
+    arxiv: '2401.16889',
+    url: 'https://arxiv.org/abs/2401.16889',
+    type: 'paper',
+  },
+  // haarnoja-soccer-2023: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 2304.13653 (v1 2023-04-26; Science Robotics 2024) abstract: "We found that a combination
+  // of sufficiently high-frequency control, targeted dynamics randomization, and perturbations
+  // during training in simulation enabled good-quality transfer." This draft relies on (re-read
+  // 2026-10-04): "a low-cost, miniature humanoid robot" and "they walked 181% faster, turned 302%
+  // faster, took 63% less time to get up, and kicked a ball 34% faster than a scripted baseline".
+  {
+    id: 'haarnoja-soccer-2023',
+    title: 'Learning Agile Soccer Skills for a Bipedal Robot with Deep Reinforcement Learning',
+    authors: ['Tuomas Haarnoja', 'Ben Moran', 'Guy Lever', 'Sandy H. Huang', 'Dhruva Tirumala', 'Jan Humplik', 'Markus Wulfmeier', 'Saran Tunyasuvunakool', 'Noah Y. Siegel', 'Roland Hafner', 'Michael Bloesch', 'Kristian Hartikainen', 'Arunkumar Byravan', 'Leonard Hasenclever', 'Yuval Tassa', 'Fereshteh Sadeghi', 'Nathan Batchelor', 'Federico Casarini', 'Stefano Saliceti', 'Charles Game', 'Neil Sreendra', 'Kushal Patel', 'Marlon Gwira', 'Andrea Huber', 'Nicole Hurley', 'Francesco Nori', 'Raia Hadsell', 'Nicolas Heess'],
+    year: 2023,
+    venue: 'arXiv preprint (Science Robotics 2024)',
+    arxiv: '2304.13653',
+    url: 'https://arxiv.org/abs/2304.13653',
+    type: 'paper',
+  },
+  // humanoid-parkour-2024: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // arXiv 2406.10759 (v1 2024-06-15; CoRL 2024). Abstract: "an end-to-end vision-based
+  // whole-body-control parkour policy for humanoid robots that overcomes multiple parkour skills
+  // without any motion prior" and "the humanoid robot can jump on a 0.42m platform, leap over
+  // hurdles, 0.8m gaps, and much more".
+  {
+    id: 'humanoid-parkour-2024',
+    title: 'Humanoid Parkour Learning',
+    authors: ['Ziwen Zhuang', 'Shenzhe Yao', 'Hang Zhao'],
+    year: 2024,
+    venue: 'Conference on Robot Learning (CoRL) 2024',
+    arxiv: '2406.10759',
+    url: 'https://arxiv.org/abs/2406.10759',
+    type: 'paper',
+  },
+  // hiking-wild-2026: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // arXiv 2601.07718 (v1 2026-01-12). Abstract: "mapping raw depth inputs and proprioception
+  // directly to joint actions, without relying on external state estimation" and "our policy enables
+  // robust traversal of complex terrains at speeds up to 2.5 m/s".
+  {
+    id: 'hiking-wild-2026',
+    title: 'Hiking in the Wild: A Scalable Perceptive Parkour Framework for Humanoids',
+    authors: ['Shaoting Zhu', 'Ziwen Zhuang', 'Mengjie Zhao', 'Kun-Ying Lee', 'Hang Zhao'],
+    year: 2026,
+    arxiv: '2601.07718',
+    url: 'https://arxiv.org/abs/2601.07718',
+    type: 'paper',
+  },
+  // agility-wbc-2025: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // Agility Robotics blog, "Published August 28, 2025" (no personal byline). "we've developed a
+  // whole-body control foundation model for our humanoid robot, Digit", "This model is a relatively
+  // small LSTM neural network with fewer than one million parameters, which is trained in NVIDIA's
+  // Isaac Sim physics simulator for decades of simulated time over three or four days." and "Digit's
+  // motor cortex is learned purely in simulation and transfers zero-shot to the real world."
+  // (company's own account)
+  {
+    id: 'agility-wbc-2025',
+    title: 'Training a Whole-Body Control Foundation Model',
+    authors: ['Agility Robotics'],
+    year: 2025,
+    venue: 'Agility Robotics blog',
+    url: 'https://www.agilityrobotics.com/content/training-a-whole-body-control-foundation-model',
+    type: 'blog',
+  },
+  // acosta-2021: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 2110.00541 abstract: "Handling dynamic contact is the computational bottleneck for most
+  // simulations" and "simulators capture inelastic impacts well while failing to capture elastic
+  // impacts".
+  {
+    id: 'acosta-2021',
+    title: 'Validating Robotics Simulators on Real-World Impacts',
+    authors: ['Brian Acosta', 'William Yang', 'Michael Posa'],
+    year: 2021,
+    venue: 'arXiv preprint (IEEE RA-L / IROS 2022)',
+    arxiv: '2110.00541',
+    url: 'https://arxiv.org/abs/2110.00541',
+    type: 'paper',
+  },
+  // dreureka-2024: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts, drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-06-04, 8 authors. This draft relies on
+  // (abstract, re-read 2026-10-04): "automatically constructs suitable reward functions and domain
+  // randomization distributions to support real-world transfer" and "quadruped balancing and walking
+  // atop a yoga ball".
+  {
+    id: 'dreureka-2024',
+    title: 'DrEureka: Language Model Guided Sim-To-Real Transfer',
+    authors: ['Yecheng Jason Ma', 'William Liang', 'Hung-Ju Wang', 'Sam Wang', 'Yuke Zhu', 'Linxi Fan', 'Osbert Bastani', 'Dinesh Jayaraman'],
+    year: 2024,
+    venue: 'RSS 2024',
+    arxiv: '2406.01967',
+    url: 'https://arxiv.org/abs/2406.01967',
+    type: 'paper',
+  },
+  // bear-2019: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 1906.00949 abstract: "Bootstrapping error is due to bootstrapping from actions that lie
+  // outside of the training data distribution, and it accumulates via the Bellman backup operator."
+  {
+    id: 'bear-2019',
+    title: 'Stabilizing Off-Policy Q-Learning via Bootstrapping Error Reduction',
+    authors: ['Aviral Kumar', 'Justin Fu', 'George Tucker', 'Sergey Levine'],
+    year: 2019,
+    venue: 'arXiv preprint (NeurIPS 2019)',
+    arxiv: '1906.00949',
+    url: 'https://arxiv.org/abs/1906.00949',
+    type: 'paper',
+  },
+  // real-orl-2022: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2210.06479 abstract: "6500+ trajectories collected over 800+ robot hours and 270+ human
+  // labor hour" and "ORL and imitation learning prefer different action spaces, and that ORL
+  // algorithms can generalize from leveraging offline heterogeneous data sources and outperform
+  // imitation learning".
+  {
+    id: 'real-orl-2022',
+    title: 'Real World Offline Reinforcement Learning with Realistic Data Source',
+    authors: ['Gaoyue Zhou', 'Liyiming Ke', 'Siddhartha Srinivasa', 'Abhinav Gupta', 'Aravind Rajeswaran', 'Vikash Kumar'],
+    year: 2022,
+    arxiv: '2210.06479',
+    url: 'https://arxiv.org/abs/2210.06479',
+    type: 'paper',
+  },
+  // d4rl-2020: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2004.07219 abstract: "datasets generated via hand-designed controllers and human
+  // demonstrators, multitask datasets where an agent performs different tasks in the same
+  // environment, and datasets collected with mixtures of policies".
+  {
+    id: 'd4rl-2020',
+    title: 'D4RL: Datasets for Deep Data-Driven Reinforcement Learning',
+    authors: ['Justin Fu', 'Aviral Kumar', 'Ofir Nachum', 'George Tucker', 'Sergey Levine'],
+    year: 2020,
+    arxiv: '2004.07219',
+    url: 'https://arxiv.org/abs/2004.07219',
+    type: 'paper',
+  },
+  // cog-2020: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2010.14500 abstract: "even when the prior data does not actually succeed at solving the
+  // new task, it can still be utilized for learning a better policy" and "composing four robotic
+  // skills in a row: picking, placing, drawer opening, and grasping, where a +1/0 sparse reward is
+  // provided only on task completion".
+  {
+    id: 'cog-2020',
+    title: 'COG: Connecting New Skills to Past Experience with Offline Reinforcement Learning',
+    authors: ['Avi Singh', 'Albert Yu', 'Jonathan Yang', 'Jesse Zhang', 'Aviral Kumar', 'Sergey Levine'],
+    year: 2020,
+    venue: 'arXiv preprint (CoRL 2020)',
+    arxiv: '2010.14500',
+    url: 'https://arxiv.org/abs/2010.14500',
+    type: 'paper',
+  },
+  // time-limits-2017: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 1712.00378 (ICML 2018, PMLR 80) abstract: "explain why not doing so can cause state
+  // aliasing and invalidation of experience replay" and, for time limits used only to aid training,
+  // "bootstrapping from the value of the state at the end of each partial episode".
+  {
+    id: 'time-limits-2017',
+    title: 'Time Limits in Reinforcement Learning',
+    authors: ['Fabio Pardo', 'Arash Tavakoli', 'Vitaly Levdik', 'Petar Kormushev'],
+    year: 2017,
+    venue: 'arXiv preprint (ICML 2018)',
+    arxiv: '1712.00378',
+    url: 'https://arxiv.org/abs/1712.00378',
+    type: 'paper',
+  },
+  // ptr-2022: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts; also drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // arXiv 2210.05178 abstract: "PTR is the first RL method that succeeds at learning new tasks in a
+  // new domain on a real WidowX robot with as few as 10 task demonstrations".
+  {
+    id: 'ptr-2022',
+    title: 'Pre-Training for Robots: Offline RL Enables Learning New Tasks from a Handful of Trials',
+    authors: ['Aviral Kumar', 'Anikait Singh', 'Frederik Ebert', 'Mitsuhiko Nakamoto', 'Yanlai Yang', 'Chelsea Finn', 'Sergey Levine'],
+    year: 2022,
+    arxiv: '2210.05178',
+    url: 'https://arxiv.org/abs/2210.05178',
+    type: 'paper',
+  },
+  // park-bottleneck-2024: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2406.09329 (NeurIPS 2024) abstract: "the choice of a policy extraction algorithm
+  // significantly affects the performance and scalability of offline RL, often more so than the
+  // value learning objective" and "a big barrier to improving offline RL performance is often
+  // imperfect policy generalization on test-time states out of the support of the training data".
+  {
+    id: 'park-bottleneck-2024',
+    title: 'Is Value Learning Really the Main Bottleneck in Offline RL?',
+    authors: ['Seohong Park', 'Kevin Frans', 'Sergey Levine', 'Aviral Kumar'],
+    year: 2024,
+    venue: 'arXiv preprint (NeurIPS 2024)',
+    arxiv: '2406.09329',
+    url: 'https://arxiv.org/abs/2406.09329',
+    type: 'paper',
+  },
+  // rankq-2026: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2605.11151 abstract: "this essentially acts as a behavior cloning anchor and can hinder
+  // downstream online policy improvement when dataset actions are suboptimal", "a self-supervised
+  // multi-term ranking loss" and "increasing real-world cube stacking success from 43.1% to 88.9%
+  // relative to the VLA's initial performance".
+  {
+    id: 'rankq-2026',
+    title: 'RankQ: Offline-to-Online Reinforcement Learning via Self-Supervised Action Ranking',
+    authors: ['Andrew Choi', 'Wei Xu'],
+    year: 2026,
+    arxiv: '2605.11151',
+    url: 'https://arxiv.org/abs/2605.11151',
+    type: 'paper',
+  },
+  // flow-q-learning-2025: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2502.02538 (ICML 2025) abstract: "training an expressive one-step policy with RL, rather
+  // than directly guiding an iterative flow policy to maximize values" and "strong performance
+  // across 73 challenging state- and pixel-based OGBench and D4RL tasks".
+  {
+    id: 'flow-q-learning-2025',
+    title: 'Flow Q-Learning',
+    authors: ['Seohong Park', 'Qiyang Li', 'Sergey Levine'],
+    year: 2025,
+    venue: 'arXiv preprint (ICML 2025)',
+    arxiv: '2502.02538',
+    url: 'https://arxiv.org/abs/2502.02538',
+    type: 'paper',
+  },
+  // horizon-reduction-2025: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2506.04168 (NeurIPS 2025) abstract: "using datasets up to 1000x larger than typical
+  // offline RL datasets", "many existing offline RL algorithms exhibit poor scaling behavior,
+  // saturating well below the maximum performance" and "long horizons indeed present a fundamental
+  // barrier to scaling up offline RL".
+  {
+    id: 'horizon-reduction-2025',
+    title: 'Horizon Reduction Makes RL Scalable',
+    authors: ['Seohong Park', 'Kevin Frans', 'Deepinder Mann', 'Benjamin Eysenbach', 'Aviral Kumar', 'Sergey Levine'],
+    year: 2025,
+    venue: 'arXiv preprint (NeurIPS 2025)',
+    arxiv: '2506.04168',
+    url: 'https://arxiv.org/abs/2506.04168',
+    type: 'paper',
+  },
+  // robo-valuerl-2026: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2607.09866 abstract: "Across 240 hours of offline demonstrations and over 3,000 online
+  // rollout trajectories, our extensive experiments show that downstream performance is strongly
+  // associated with value reliability.", "allowing value-guided offline RL to scale more effectively
+  // than quality-agnostic behavior cloning" and "86% success on millimeter-level precise chip
+  // insertion".
+  {
+    id: 'robo-valuerl-2026',
+    title: 'Robo-ValueRL: Reliable Value Estimation for Offline-to-Online Reinforcement Learning',
+    authors: ['Wenke Xia', 'Pei Ren', 'Wenbo Yu', 'Yizhuo Zhang', 'Jifan Li', 'Yixue Zhang', 'Yinuo Zhao', 'Qingyang Gao', 'Jianlong Fu', 'Jian Tang', 'Ji-Rong Wen', 'Zhengping Che', 'Di Hu'],
+    year: 2026,
+    arxiv: '2607.09866',
+    url: 'https://arxiv.org/abs/2607.09866',
+    type: 'paper',
+  },
+  // co-rft-2025: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2508.02219 abstract: "fine-tuning VLA models using a limited set of demonstrations (30 to
+  // 60 samples)" and "CO-RFT outperforms previous supervised methods, achieving a 57% improvement in
+  // success rate and a 22.3% reduction in cycle time".
+  {
+    id: 'co-rft-2025',
+    title: 'CO-RFT: Efficient Fine-Tuning of Vision-Language-Action Models through Chunked Offline Reinforcement Learning',
+    authors: ['Dongchi Huang', 'Zhirui Fang', 'Tianle Zhang', 'Yihang Li', 'Lin Zhao', 'Chunhe Xia'],
+    year: 2025,
+    arxiv: '2508.02219',
+    url: 'https://arxiv.org/abs/2508.02219',
+    type: 'paper',
+  },
+  // paine-hparam-2020: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2007.09055 abstract: "1) offline RL algorithms are not robust to hyperparameter choices,
+  // 2) factors such as the offline RL algorithm and method for estimating Q values can have a big
+  // impact on hyperparameter selection, and 3) when we control those factors carefully, we can
+  // reliably rank policies across hyperparameter choices".
+  {
+    id: 'paine-hparam-2020',
+    title: 'Hyperparameter Selection for Offline Reinforcement Learning',
+    authors: ['Tom Le Paine', 'Cosmin Paduraru', 'Andrea Michi', 'Caglar Gulcehre', 'Konrad Zolna', 'Alexander Novikov', 'Ziyu Wang', 'Nando de Freitas'],
+    year: 2020,
+    arxiv: '2007.09055',
+    url: 'https://arxiv.org/abs/2007.09055',
+    type: 'paper',
+  },
+  // offline-rl-workflow-2021: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2109.10813 (CoRL 2021) abstract: "Our workflow is derived from a conceptual understanding
+  // of the behavior of conservative offline RL algorithms and cross-validation in supervised
+  // learning", "producing effective policies without any online tuning" and "for three tasks on two
+  // distinct real robots".
+  {
+    id: 'offline-rl-workflow-2021',
+    title: 'A Workflow for Offline Model-Free Robotic Reinforcement Learning',
+    authors: ['Aviral Kumar', 'Anikait Singh', 'Stephen Tian', 'Chelsea Finn', 'Sergey Levine'],
+    year: 2021,
+    venue: 'arXiv preprint (CoRL 2021)',
+    arxiv: '2109.10813',
+    url: 'https://arxiv.org/abs/2109.10813',
+    type: 'paper',
+  },
+  // rvs-2021: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2112.10751 abstract: "simply maximizing likelihood with a two-layer feedforward MLP is
+  // competitive with state-of-the-art results of substantially more complex methods based on TD
+  // learning or sequence modeling with Transformers", "choosing which information to condition on
+  // (e.g., goals or rewards) are critical" and "comparatively weak on random data".
+  {
+    id: 'rvs-2021',
+    title: 'RvS: What is Essential for Offline RL via Supervised Learning?',
+    authors: ['Scott Emmons', 'Benjamin Eysenbach', 'Ilya Kostrikov', 'Sergey Levine'],
+    year: 2021,
+    arxiv: '2112.10751',
+    url: 'https://arxiv.org/abs/2112.10751',
+    type: 'paper',
+  },
+  // edac-2021: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2110.01548 (NeurIPS 2021) abstract: "the clipped Q-learning, a technique widely used in
+  // online RL, can be leveraged to successfully penalize OOD data points with high prediction
+  // uncertainties".
+  {
+    id: 'edac-2021',
+    title: 'Uncertainty-Based Offline Reinforcement Learning with Diversified Q-Ensemble',
+    authors: ['Gaon An', 'Seungyong Moon', 'Jang-Hyun Kim', 'Hyun Oh Song'],
+    year: 2021,
+    venue: 'arXiv preprint (NeurIPS 2021)',
+    arxiv: '2110.01548',
+    url: 'https://arxiv.org/abs/2110.01548',
+    type: 'paper',
+  },
+  // score-2026: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2606.27475 abstract: "constrains RL in simulation to the support of a generative policy
+  // pretrained on real data" and "Across eight real-world dexterous multi-fingered robotic
+  // manipulation tasks, SCORE improves average success rate from 37.8% to 89.9%, compared to 59.5%
+  // for the best baseline".
+  {
+    id: 'score-2026',
+    title: 'Support-Constrained RL Enables Real-World Policy Improvement without Real-World Experience',
+    authors: ['Raymond Yu', 'William Huey', 'Mustafa Mukadam', 'Anusha Nagabandi', 'Abhishek Gupta'],
+    year: 2026,
+    arxiv: '2606.27475',
+    url: 'https://arxiv.org/abs/2606.27475',
+    type: 'paper',
+  },
+  // trifinger-offline-2023: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2307.15690 (ICLR 2023) abstract: "the option to execute learned policies on a real-world
+  // robotic system and a simulation for efficient debugging" and "provide a reproducible
+  // experimental setup for offline reinforcement learning on real systems".
+  {
+    id: 'trifinger-offline-2023',
+    title: 'Benchmarking Offline Reinforcement Learning on Real-Robot Hardware',
+    authors: ['Nico Gürtler', 'Sebastian Blaes', 'Pavel Kolev', 'Felix Widmaier', 'Manuel Wüthrich', 'Stefan Bauer', 'Bernhard Schölkopf', 'Georg Martius'],
+    year: 2023,
+    venue: 'ICLR 2023',
+    arxiv: '2307.15690',
+    url: 'https://arxiv.org/abs/2307.15690',
+    type: 'paper',
+  },
+  // cal-ql-2023: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts; also drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // arXiv 2303.05479 (NeurIPS 2023) abstract: "existing offline RL methods tend to behave poorly
+  // during fine-tuning", "Cal-QL can be implemented on top of the conservative Q learning (CQL) for
+  // offline RL within a one-line code change" and "outperforms state-of-the-art methods on 9/11
+  // fine-tuning benchmark tasks".
+  {
+    id: 'cal-ql-2023',
+    title: 'Cal-QL: Calibrated Offline RL Pre-Training for Efficient Online Fine-Tuning',
+    authors: ['Mitsuhiko Nakamoto', 'Yuexiang Zhai', 'Anikait Singh', 'Max Sobol Mark', 'Yi Ma', 'Chelsea Finn', 'Aviral Kumar', 'Sergey Levine'],
+    year: 2023,
+    venue: 'arXiv preprint (NeurIPS 2023)',
+    arxiv: '2303.05479',
+    url: 'https://arxiv.org/abs/2303.05479',
+    type: 'paper',
+  },
+  // wsrl-2024: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2412.07762 (ICLR 2025) abstract: "we show that retaining offline data is unnecessary as
+  // long as we use a properly-designed online RL approach for fine-tuning offline RL
+  // initializations" and "continued training on offline data is mostly useful for preventing a
+  // sudden divergence in the value function at the onset of fine-tuning".
+  {
+    id: 'wsrl-2024',
+    title: 'Efficient Online Reinforcement Learning Fine-Tuning Need Not Retain Offline Data',
+    authors: ['Zhiyuan Zhou', 'Andy Peng', 'Qiyang Li', 'Sergey Levine', 'Aviral Kumar'],
+    year: 2024,
+    venue: 'arXiv preprint (ICLR 2025)',
+    arxiv: '2412.07762',
+    url: 'https://arxiv.org/abs/2412.07762',
+    type: 'paper',
+  },
+  // dong-q-pretrain-2026: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2607.27203 abstract: "naive Q-function pretraining often provides little benefit over
+  // random initialization" and "the Q-function learned during pretraining targets the pretrained
+  // policy's Q-function, not the Q-function that online fine-tuning converges to".
+  {
+    id: 'dong-q-pretrain-2026',
+    title: 'Do You Really Need to Pretrain Q-Functions for Online RL Fine-Tuning?',
+    authors: ['Perry Dong', 'Ron Polonsky', 'Dorsa Sadigh', 'Chelsea Finn'],
+    year: 2026,
+    arxiv: '2607.27203',
+    url: 'https://arxiv.org/abs/2607.27203',
+    type: 'paper',
+  },
+  // bora-2026: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // arXiv 2605.30226 abstract: "reuses the learned critic for frozen-base residual adaptation",
+  // "Online robot rollouts and human corrections are mixed with offline data to update only a
+  // lightweight residual actor, avoiding full-model fine-tuning." and "With only 20 online
+  // trajectories per task, BORA improves average success from 60.8% to 82.5% on standard objects".
+  {
+    id: 'bora-2026',
+    title: 'BORA: Bridging Offline Reinforcement Learning and Online Residual Adaptation for Real-World Dexterous VLA Models',
+    authors: ['Zhongxi Chen', 'Yifan Han', 'Bin Qiu', 'Zhangliang Gao', 'Yanming Shao', 'Huanming Liu', 'Congsheng Xu', 'Xiaoyu Chen', 'Xingyu Ye', 'Yao Mu', 'Wenzhao Lian'],
+    year: 2026,
+    arxiv: '2605.30226',
+    url: 'https://arxiv.org/abs/2605.30226',
+    type: 'paper',
+  },
+  // mujoco-overview-docs-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // MuJoCo documentation, Overview page, fetched 2026-10-04: "Initially developed by Roboti LLC, it
+  // was acquired and made freely available by Google DeepMind in October 2021, and open sourced in
+  // May 2022."
+  {
+    id: 'mujoco-overview-docs-2026',
+    title: 'Overview',
+    authors: ['Google DeepMind'],
+    year: 2026,
+    venue: 'MuJoCo Documentation, as of 2026-10-04',
+    url: 'https://mujoco.readthedocs.io/en/stable/overview.html',
+    type: 'docs',
+  },
+  // mjx-docs-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // MuJoCo documentation, MJX page, fetched 2026-10-04: "MJX-JAX runs on: Nvidia and AMD GPUs, Apple
+  // Silicon, and Google Cloud TPUs. A Warp implementation of MuJoCo (MJX-Warp) optimizes performance
+  // specifically for NVIDIA GPUs" and "MJX-Warp resolves key performance bottlenecks exhibited in
+  // MJX-JAX around contacts and constraints. Note that unlike MJX-JAX, MJX-Warp does not support
+  // automatic differentiation".
+  {
+    id: 'mjx-docs-2026',
+    title: 'MuJoCo XLA (MJX)',
+    authors: ['Google DeepMind'],
+    year: 2026,
+    venue: 'MuJoCo Documentation, as of 2026-10-04',
+    url: 'https://mujoco.readthedocs.io/en/stable/mjx.html',
+    type: 'docs',
+  },
+  // mjlab-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // arXiv 2601.22074 abstract: "mjlab adopts the manager-based API introduced by Isaac Lab, where
+  // users compose modular building blocks for observations, rewards, and events, and pairs it with
+  // MuJoCo Warp for GPU-accelerated physics".
+  {
+    id: 'mjlab-2026',
+    title: 'mjlab: A Lightweight Framework for GPU-Accelerated Robot Learning',
+    authors: ['Kevin Zakka', 'Qiayuan Liao', 'Brent Yi', 'Louis Le Lay', 'Koushil Sreenath', 'Pieter Abbeel'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2601.22074',
+    url: 'https://arxiv.org/abs/2601.22074',
+    type: 'paper',
+  },
+  // sapg-2024: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // arXiv 2407.20230 (ICML 2024 oral) abstract: "we show that current RL methods, e.g. PPO, fail to
+  // ingest the benefit of parallelized environments beyond a certain point and their performance
+  // saturates".
+  {
+    id: 'sapg-2024',
+    title: 'SAPG: Split and Aggregate Policy Gradients',
+    authors: ['Jayesh Singla', 'Ananye Agarwal', 'Deepak Pathak'],
+    year: 2024,
+    venue: 'ICML 2024',
+    arxiv: '2407.20230',
+    url: 'https://arxiv.org/abs/2407.20230',
+    type: 'paper',
+  },
+  // beukman-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // arXiv 2603.06009 (accepted to RLC 2026) abstract: "increasing the number of parallel
+  // environments is a simple way to avoid these plateaus by simultaneously altering both these
+  // factors" and "scaling PPO to more than 1M parallel environments enables monotonic performance
+  // improvement up to one trillion transitions".
+  {
+    id: 'beukman-2026',
+    title: 'Preventing Learning Stagnation in PPO by Scaling to 1 Million Parallel Environments',
+    authors: ['Michael Beukman', 'Khimya Khetarpal', 'Zeyu Zheng', 'Will Dabney', 'Jakob Foerster', 'Michael Dennis', 'Clare Lyle'],
+    year: 2026,
+    venue: 'RLC 2026',
+    arxiv: '2603.06009',
+    url: 'https://arxiv.org/abs/2603.06009',
+    type: 'paper',
+  },
+  // pql-2023: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts; also drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // arXiv 2307.12983 (ICML 2023) abstract: "a Parallel $Q$-Learning (PQL) scheme that outperforms
+  // PPO in wall-clock time while maintaining superior sample efficiency of off-policy learning" and
+  // "$Q$-learning can be scaled to \textit{tens of thousands of parallel environments}".
+  {
+    id: 'pql-2023',
+    title: 'Parallel Q-Learning: Scaling Off-policy Reinforcement Learning under Massively Parallel Simulation',
+    authors: ['Zechu Li', 'Tao Chen', 'Zhang-Wei Hong', 'Anurag Ajay', 'Pulkit Agrawal'],
+    year: 2023,
+    venue: 'ICML 2023',
+    arxiv: '2307.12983',
+    url: 'https://arxiv.org/abs/2307.12983',
+    type: 'paper',
+  },
+  // fasttd3-2025: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts; also drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // arXiv 2505.22642 abstract: "FastTD3 solves a range of HumanoidBench tasks in under 3 hours on a
+  // single A100 GPU, while remaining stable during training."
+  {
+    id: 'fasttd3-2025',
+    title: 'FastTD3: Simple, Fast, and Capable Reinforcement Learning for Humanoid Control',
+    authors: ['Younggyo Seo', 'Carmelo Sferrazza', 'Haoran Geng', 'Michal Nauman', 'Zhao-Heng Yin', 'Pieter Abbeel'],
+    year: 2025,
+    venue: 'arXiv preprint',
+    arxiv: '2505.22642',
+    url: 'https://arxiv.org/abs/2505.22642',
+    type: 'paper',
+  },
+  // orbit-2023: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // arXiv 2301.04195 (v1 2023-01-10; IEEE RA-L 8(6), 2023). Abstract: "We present Orbit, a unified
+  // and modular framework for robot learning powered by NVIDIA Isaac Sim." Isaac Lab (arXiv
+  // 2511.04831v1, Acknowledgments): "The development of Isaac Lab initiated from the Orbit framework
+  // (Mittal et al., 2023)."
+  {
+    id: 'orbit-2023',
+    title: 'Orbit: A Unified Simulation Framework for Interactive Robot Learning Environments',
+    authors: ['Mayank Mittal', 'Calvin Yu', 'Qinxi Yu', 'Jingzhou Liu', 'Nikita Rudin', 'David Hoeller', 'Jia Lin Yuan', 'Ritvik Singh', 'Yunrong Guo', 'Hammad Mazhar', 'Ajay Mandlekar', 'Buck Babich', 'Gavriel State', 'Marco Hutter', 'Animesh Garg'],
+    year: 2023,
+    venue: 'IEEE Robotics and Automation Letters 8(6)',
+    arxiv: '2301.04195',
+    url: 'https://arxiv.org/abs/2301.04195',
+    type: 'paper',
+  },
+  // dextrah-g-2024: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // arXiv 2407.02274 abstract: "a depth-based dexterous grasping policy trained entirely in
+  // simulation that combines reinforcement learning, geometric fabrics, and teacher-student
+  // distillation" and "enables a 23 motor arm-hand robot". Isaac Lab (arXiv 2511.04831v1, Sec.
+  // 4.1.1) benchmarks "the DextrAH (Lum et al., 2024b) task to grasp and lift an object", and its
+  // reference [49] is this paper.
+  {
+    id: 'dextrah-g-2024',
+    title: 'DextrAH-G: Pixels-to-Action Dexterous Arm-Hand Grasping with Geometric Fabrics',
+    authors: ['Tyler Ga Wei Lum', 'Martin Matak', 'Viktor Makoviychuk', 'Ankur Handa', 'Arthur Allshire', 'Tucker Hermans', 'Nathan D. Ratliff', 'Karl Van Wyk'],
+    year: 2024,
+    venue: 'arXiv preprint',
+    arxiv: '2407.02274',
+    url: 'https://arxiv.org/abs/2407.02274',
+    type: 'paper',
+  },
+  // isaac-lab-3-ea-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // GitHub release v3.0.0-EA, published 2026-09-16T22:34:03Z, fetched 2026-10-04: "This release is
+  // built for Isaac Sim 6.1, Python 3.12, PyTorch 2.11, NVIDIA Warp 1.16, and Newton 1.5.2." and
+  // "General Availability is targeted toward the end of October 2026."
+  {
+    id: 'isaac-lab-3-ea-2026',
+    title: 'Isaac Lab 3.0 Early Access',
+    authors: ['NVIDIA'],
+    year: 2026,
+    venue: 'GitHub release v3.0.0-EA, isaac-sim/IsaacLab',
+    url: 'https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0-EA',
+    type: 'docs',
+  },
+  // newton-lf-2025: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts; also drafts/world-models/world-models-vs-simulators.citations.ts.
+  // Linux Foundation press release fetched 2026-10-04: dated 29 September 2025 (SAN JOSE, Calif.,
+  // Sept. 29, 2025); "Built on NVIDIA Warp and OpenUSD, Newton delivers GPU-accelerated simulation
+  // with a flexible, extensible architecture that supports multiple physics solvers. This enables
+  // complex, contact-rich robot behaviors". This draft also relies on: "today welcomed Newton, an
+  // open source, GPU-accelerated, extensible physics engine" and "Co-developed by Disney Research,
+  // Google DeepMind, and NVIDIA".
+  {
+    id: 'newton-lf-2025',
+    title: 'Linux Foundation Announces Contribution of Newton by Disney Research, Google DeepMind and NVIDIA to Accelerate Open Robot Learning',
+    authors: ['The Linux Foundation'],
+    year: 2025,
+    venue: 'Linux Foundation press release',
+    url: 'https://www.linuxfoundation.org/press/linux-foundation-announces-contribution-of-newton-by-disney-research-google-deepmind-and-nvidia-to-accelerate-open-robot-learning',
+    type: 'press',
+  },
+  // nvidia-warp-repo-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // NVIDIA/warp README (H1 "NVIDIA Warp"), fetched 2026-10-04: "Warp is a Python framework for
+  // GPU-accelerated simulation, robotics, and machine learning."
+  {
+    id: 'nvidia-warp-repo-2026',
+    title: 'NVIDIA Warp',
+    authors: ['NVIDIA'],
+    year: 2026,
+    venue: 'GitHub repository NVIDIA/warp, README as of 2026-10-04',
+    url: 'https://github.com/NVIDIA/warp',
+    type: 'docs',
+  },
+  // newton-repo-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // newton-physics/newton README (H1 "Newton"), fetched 2026-10-04: "Newton extends and generalizes
+  // Warp's (deprecated) warp.sim module, and integrates MuJoCo Warp as its primary backend. Newton
+  // emphasizes GPU-based computation, OpenUSD support, differentiability, and user-defined
+  // extensibility". Licence badge: Apache-2.0.
+  {
+    id: 'newton-repo-2026',
+    title: 'Newton',
+    authors: ['Newton project (Linux Foundation)'],
+    year: 2026,
+    venue: 'GitHub repository newton-physics/newton, README as of 2026-10-04',
+    url: 'https://github.com/newton-physics/newton',
+    type: 'docs',
+  },
+  // isaac-sim-v6-1-0-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/parallel-sim-rl framework status
+  // (first-party replacement for the forum announcement isaac-sim-6-1-ga-2026). GitHub release v6.1.0,
+  // published 2026-09-10T02:27:28Z, fetched 2026-10-07: "Isaac Sim 6.1.0 GA".
+  {
+    id: 'isaac-sim-v6-1-0-2026',
+    title: 'Isaac Sim 6.1.0 GA',
+    authors: ['NVIDIA'],
+    year: 2026,
+    venue: 'GitHub release v6.1.0, isaac-sim/IsaacSim',
+    url: 'https://github.com/isaac-sim/IsaacSim/releases/tag/v6.1.0',
+    type: 'docs',
+  },
+  // isaac-sim-6-1-release-notes-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/parallel-sim-rl framework
+  // status (first-party replacement for the forum announcement isaac-sim-6-1-ga-2026). Release notes, section
+  // "6.1.0 GA", fetched 2026-10-07: "Updated the experimental Newton integration to Newton 1.5.0." and "Added
+  // support for hydroelastic contacts."; "Added beta System Identification tools for headless and interactive
+  // optimization of robot simulation parameters."
+  {
+    id: 'isaac-sim-6-1-release-notes-2026',
+    title: 'Isaac Sim 6.1.0 Release Notes',
+    authors: ['NVIDIA'],
+    year: 2026,
+    venue: 'Isaac Sim documentation',
+    url: 'https://docs.isaacsim.omniverse.nvidia.com/6.1.0/overview/release_notes.html',
+    type: 'docs',
+  },
+  // newton-v1-6-0-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/parallel-sim-rl Newton row (README §7
+  // Newton 1.6). GitHub release v1.6.0, published 2026-09-10T14:37:28Z, fetched 2026-10-07: "Newton v1.6.0 is a
+  // feature release following v1.5.1."; "CUDA collision work is faster across broad-phase, narrow-phase, and
+  // deterministic contact processing."; "Experimental: graph-friendly robot control."; "An opt-in compliant ALM
+  // mode for `SolverVBD` covers contacts, structural joints, drives, and limits."
+  {
+    id: 'newton-v1-6-0-2026',
+    title: 'Newton v1.6.0',
+    authors: ['Newton project (Linux Foundation)'],
+    year: 2026,
+    venue: 'GitHub release v1.6.0, newton-physics/newton',
+    url: 'https://github.com/newton-physics/newton/releases/tag/v1.6.0',
+    type: 'docs',
+  },
+  // vbd-2024: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // arXiv 2403.06321 abstract: "We introduce vertex block descent, a block coordinate descent
+  // solution for the variational form of implicit Euler through vertex-level Gauss-Seidel
+  // iterations." and "This forms a physics solver that can achieve numerical convergence with
+  // unconditional stability".
+  {
+    id: 'vbd-2024',
+    title: 'Vertex Block Descent',
+    authors: ['Anka He Chen', 'Ziheng Liu', 'Yin Yang', 'Cem Yuksel'],
+    year: 2024,
+    venue: 'arXiv preprint',
+    arxiv: '2403.06321',
+    url: 'https://arxiv.org/abs/2403.06321',
+    type: 'paper',
+  },
+  // elandt-2019: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // arXiv 1904.11433 (IROS 2019 camera-ready revision) abstract: "The model combines and generalizes
+  // two ideas: a bed of springs (an "elastic foundation") and hydrostatic pressure." and "When two
+  // objects nominally overlap, a contact surface is defined where the two pressure fields are
+  // equal." Drake's hydroelastic contact user guide
+  // (drake.mit.edu/doxygen_cxx/group__hydroelastic__user__guide.html, fetched 2026-10-04) lists
+  // "[Elandt 2019]" as its source.
+  {
+    id: 'elandt-2019',
+    title: 'A pressure field model for fast, robust approximation of net contact force and moment between nominally rigid objects',
+    authors: ['Ryan Elandt', 'Evan Drumwright', 'Michael Sherman', 'Andy Ruina'],
+    year: 2019,
+    venue: 'IROS 2019',
+    arxiv: '1904.11433',
+    url: 'https://arxiv.org/abs/1904.11433',
+    type: 'paper',
+  },
+  // mjwarp-docs-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // MuJoCo documentation, MJWarp page, fetched 2026-10-04: "MJWarp is optimized for throughput: the
+  // total number of simulation steps per unit time whereas MuJoCo is optimized for latency: time for
+  // one simulation step." Authors follow the mujoco_warp README ("maintained by Google DeepMind and
+  // NVIDIA").
+  {
+    id: 'mjwarp-docs-2026',
+    title: 'MuJoCo Warp (MJWarp)',
+    authors: ['Google DeepMind', 'NVIDIA'],
+    year: 2026,
+    venue: 'MuJoCo Documentation, as of 2026-10-04',
+    url: 'https://mujoco.readthedocs.io/en/latest/mjwarp/',
+    type: 'docs',
+  },
+  // gpusimbench-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // arXiv 2607.13059 (accepted by IROS 2026) abstract: "mainstream GPU-based robotic simulators
+  // (e.g., Isaac Lab, Genesis)" and "we unveil and quantify the inherent non-determinism introduced
+  // by GPU-batched execution, characterized by significant run-to-run and inter-environment
+  // variability even under identical initial conditions".
+  {
+    id: 'gpusimbench-2026',
+    title: 'GPUSimBench: Towards Scalable and Reliable GPU-Accelerated Simulators in Embodied AI',
+    authors: ['Huzhenyu Zhang', 'Shenghai Yuan', 'Wenrui Yan', 'Li Ma', 'Hengjie Li', 'Jingcheng Pang', 'Dmitry Yudin'],
+    year: 2026,
+    venue: 'IROS 2026',
+    arxiv: '2607.13059',
+    url: 'https://arxiv.org/abs/2607.13059',
+    type: 'paper',
+  },
+  // mujoco-warp-repo-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // google-deepmind/mujoco_warp README (H1 "MuJoCo Warp (MJWarp)"), fetched 2026-10-04: "MJWarp is
+  // maintained by Google DeepMind and NVIDIA as part of the Newton project." and "Differentiability
+  // via Warp is not yet available."
+  {
+    id: 'mujoco-warp-repo-2026',
+    title: 'MuJoCo Warp (MJWarp)',
+    authors: ['Google DeepMind', 'NVIDIA'],
+    year: 2026,
+    venue: 'GitHub repository google-deepmind/mujoco_warp, README as of 2026-10-04',
+    url: 'https://github.com/google-deepmind/mujoco_warp',
+    type: 'docs',
+  },
+  // shac-2022: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // arXiv 2204.07137 (ICLR 2022) abstract: "applying it to the challenging high-dimensional problem
+  // of muscle-actuated locomotion with a large action space, achieving a greater than 17x reduction
+  // in training time over the best-performing established RL algorithm".
+  {
+    id: 'shac-2022',
+    title: 'Accelerated Policy Learning with Parallel Differentiable Simulation',
+    authors: ['Jie Xu', 'Viktor Makoviychuk', 'Yashraj Narang', 'Fabio Ramos', 'Wojciech Matusik', 'Animesh Garg', 'Miles Macklin'],
+    year: 2022,
+    venue: 'ICLR 2022',
+    arxiv: '2204.07137',
+    url: 'https://arxiv.org/abs/2204.07137',
+    type: 'paper',
+  },
+  // schwarke-2024: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2404.02887 (v1 2024-04-03; CoRL 2025) abstract: "we propose a differentiable contact model
+  // designed to provide informative gradients while maintaining high physical fidelity" and "this
+  // represents the first successful sim-to-real transfer of a legged locomotion policy learned
+  // entirely within a differentiable simulator".
+  {
+    id: 'schwarke-2024',
+    title: 'Learning Deployable Locomotion Control via Differentiable Simulation',
+    authors: ['Clemens Schwarke', 'Victor Klemm', 'Joshua Bagajo', 'Jean-Pierre Sleiman', 'Ignat Georgiev', 'Jesus Tordesillas', 'Marco Hutter'],
+    year: 2024,
+    venue: 'arXiv preprint (CoRL 2025)',
+    arxiv: '2404.02887',
+    url: 'https://arxiv.org/abs/2404.02887',
+    type: 'paper',
+  },
+  // specification-gaming-2020: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // Google DeepMind blog dated April 21, 2020; byline "Victoria Krakovna, Jonathan Uesato, Vladimir
+  // Mikulik, Matthew Rahtz, Tom Everitt, Ramana Kumar, Zac Kenton, Jan Leike, Shane Legg".
+  // "Specification gaming is a behaviour that satisfies the literal specification of an objective
+  // without achieving the intended outcome." and "we have collected around 60 examples so far".
+  {
+    id: 'specification-gaming-2020',
+    title: 'Specification gaming: the flip side of AI ingenuity',
+    authors: ['Victoria Krakovna', 'Jonathan Uesato', 'Vladimir Mikulik', 'Matthew Rahtz', 'Tom Everitt', 'Ramana Kumar', 'Zac Kenton', 'Jan Leike', 'Shane Legg'],
+    year: 2020,
+    venue: 'Google DeepMind blog',
+    url: 'https://deepmind.google/blog/specification-gaming-the-flip-side-of-ai-ingenuity/',
+    type: 'blog',
+  },
+  // fey-athletic-2025: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2502.10894 (v1 2025-02-15). Abstract: "training solely with task rewards introduces two
+  // major challenges: these rewards are prone to exploitation (reward hacking)", "the Unsupervised
+  // Actuator Net (UAN), which leverages real-world data to bridge the sim-to-real gap for complex
+  // actuation mechanisms" and "UAN mitigates reward hacking".
+  {
+    id: 'fey-athletic-2025',
+    title: 'Bridging the Sim-to-Real Gap for Athletic Loco-Manipulation',
+    authors: ['Nolan Fey', 'Gabriel B. Margolis', 'Martin Peticco', 'Pulkit Agrawal'],
+    year: 2025,
+    arxiv: '2502.10894',
+    url: 'https://arxiv.org/abs/2502.10894',
+    type: 'paper',
+  },
+  // mapl-2026: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2606.25398 (v1 2026-06-24). Abstract: "MAPL prompts a large language model to compare
+  // trajectories independently along semantically meaningful criteria" and "Across four quadruped
+  // locomotion environments, MAPL trains policies using only LLM-generated preferences and achieves
+  // performance comparable to or better than expert-designed rewards".
+  {
+    id: 'mapl-2026',
+    title: 'MAPL: Multi-Objective Preference Learning for Robot Locomotion',
+    authors: ['Xiyue Chen', 'Muhan Lin', 'Shuyang Shi', 'Joseph Campbell'],
+    year: 2026,
+    arxiv: '2606.25398',
+    url: 'https://arxiv.org/abs/2606.25398',
+    type: 'paper',
+  },
+  // eurekaverse-2024: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2411.01775 (v1 2024-11-04; CoRL 2024). Abstract: "environments are often naturally
+  // represented as code", "uses LLMs to sample progressively more challenging, diverse, and
+  // learnable environments for skill training" and "can successfully transfer to the real-world,
+  // outperforming manual training courses designed by humans" (quadrupedal parkour).
+  {
+    id: 'eurekaverse-2024',
+    title: 'Eurekaverse: Environment Curriculum Generation via Large Language Models',
+    authors: ['William Liang', 'Sam Wang', 'Hung-Ju Wang', 'Osbert Bastani', 'Dinesh Jayaraman', 'Yecheng Jason Ma'],
+    year: 2024,
+    venue: 'Conference on Robot Learning (CoRL) 2024',
+    arxiv: '2411.01775',
+    url: 'https://arxiv.org/abs/2411.01775',
+    type: 'paper',
+  },
+  // mppi-whole-body-2024: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2409.10469 (v1 2024-09-16). Abstract: "climbing over a box whose height is comparable to
+  // the robot" and "To our knowledge, this is the first successful deployment of whole-body
+  // sampling-based MPC on real-world legged robot hardware." (authors' own claim)
+  {
+    id: 'mppi-whole-body-2024',
+    title: 'Real-Time Whole-Body Control of Legged Robots with Model-Predictive Path Integral Control',
+    authors: ['Juan Alvarez-Padilla', 'John Z. Zhang', 'Sofia Kwok', 'John M. Dolan', 'Zachary Manchester'],
+    year: 2024,
+    arxiv: '2409.10469',
+    url: 'https://arxiv.org/abs/2409.10469',
+    type: 'paper',
+  },
+  // miller-spot-2025: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 2504.17857 abstract: "We utilize Wasserstein Distance and Maximum Mean Discrepancy to
+  // quantify the distributional dissimilarity of data collected on hardware and in simulation to
+  // measure our sim2real gap. We use these measures as a scoring function for the Covariance Matrix
+  // Adaptation Evolution Strategy to optimize simulated parameters that are unknown or difficult to
+  // measure from Spot." This draft relies on (abstract): "We deploy policies capable of over 5.2ms
+  // locomotion, more than triple Spots default controller maximum speed" ("5.2ms" as printed; the
+  // draft writes 5.2 m/s and attributes the claim to the authors).
+  {
+    id: 'miller-spot-2025',
+    title: 'High-Performance Reinforcement Learning on Spot: Optimizing Simulation Parameters with Distributional Measures',
+    authors: ['AJ Miller', 'Fangzhou Yu', 'Michael Brauckmann', 'Farbod Farshidian'],
+    year: 2025,
+    venue: 'arXiv preprint',
+    arxiv: '2504.17857',
+    url: 'https://arxiv.org/abs/2504.17857',
+    type: 'paper',
+  },
+  // grandia-2022: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2208.08373 (v1 2022-08-17). Abstract: "a complete perception, planning, and control
+  // pipeline, that can optimize motions for all degrees of freedom of the robot in real-time", "a
+  // sequence of convex inequality constraints is extracted as local approximations of foothold
+  // feasibility and embedded into an online model predictive controller", "precomputed per elevation
+  // map" and "experimentally on the ANYmal quadruped platform".
+  {
+    id: 'grandia-2022',
+    title: 'Perceptive Locomotion through Nonlinear Model Predictive Control',
+    authors: ['Ruben Grandia', 'Fabian Jenelten', 'Shaohui Yang', 'Farbod Farshidian', 'Marco Hutter'],
+    year: 2022,
+    arxiv: '2208.08373',
+    url: 'https://arxiv.org/abs/2208.08373',
+    type: 'paper',
+  },
+  // schramm-2025: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2511.19204 (v1 2025-11-24; ICRA 2026). Abstract: "enables emergent locomotion without
+  // relying on handcrafted gait patterns or predefined contact sequences", "discovers diverse motion
+  // patterns, ranging from trotting to galloping" and "This sample efficiency enables real-time
+  // control on standard CPU hardware".
+  {
+    id: 'schramm-2025',
+    title: 'Reference-Free Sampling-Based Model Predictive Control',
+    authors: ['Fabian Schramm', 'Pierre Fabre', 'Nicolas Perrin-Gilbert', 'Justin Carpentier'],
+    year: 2025,
+    venue: 'arXiv preprint (ICRA 2026)',
+    arxiv: '2511.19204',
+    url: 'https://arxiv.org/abs/2511.19204',
+    type: 'paper',
+  },
+  // mpc-gps-2015: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 1509.06791 (v1 2015-09-22). Abstract: "MPC is used to generate data at training time,
+  // under full state observations provided by an instrumented training environment", "at a fraction
+  // of the computational cost of MPC" and "learning obstacle avoidance policies for a simulated
+  // quadrotor".
+  {
+    id: 'mpc-gps-2015',
+    title: 'Learning Deep Control Policies for Autonomous Aerial Vehicles with MPC-Guided Policy Search',
+    authors: ['Tianhao Zhang', 'Gregory Kahn', 'Sergey Levine', 'Pieter Abbeel'],
+    year: 2015,
+    arxiv: '1509.06791',
+    url: 'https://arxiv.org/abs/1509.06791',
+    type: 'paper',
+  },
+  // dtc-2023: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // arXiv 2309.15462 (v1 2023-09-27). Abstract: "Our approach utilizes a model-based planner to roll
+  // out a reference motion during training. A deep neural network policy is trained in simulation,
+  // aiming to track the optimized footholds." and "we demonstrate superior robustness in the
+  // presence of slippery or deformable ground when compared to model-based counterparts".
+  {
+    id: 'dtc-2023',
+    title: 'DTC: Deep Tracking Control',
+    authors: ['Fabian Jenelten', 'Junzhe He', 'Farbod Farshidian', 'Marco Hutter'],
+    year: 2023,
+    arxiv: '2309.15462',
+    url: 'https://arxiv.org/abs/2309.15462',
+    type: 'paper',
+  },
+  // ibarz-2021: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // arXiv 2102.02915 (v1 2021-02-04; journal reference "International Journal of Robotics Research
+  // (IJRR), February 2021"). Abstract: "we present a number of case studies involving robotic deep
+  // RL" and "an overview of other outstanding challenges, many of which are unique to the real-world
+  // robotics setting and are not often the focus of mainstream RL research"; "a large portion of
+  // deep RL research has focused on applications in video games and simulated control".
+  {
+    id: 'ibarz-2021',
+    title: 'How to Train Your Robot with Deep Reinforcement Learning; Lessons We\'ve Learned',
+    authors: ['Julian Ibarz', 'Jie Tan', 'Chelsea Finn', 'Mrinal Kalakrishnan', 'Peter Pastor', 'Sergey Levine'],
+    year: 2021,
+    venue: 'International Journal of Robotics Research',
+    arxiv: '2102.02915',
+    url: 'https://arxiv.org/abs/2102.02915',
+    type: 'paper',
+  },
+  // tang-drl-survey-2025: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts; also drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // Crossref 10.1146/annurev-control-030323-022510 (Annual Review of Control, Robotics, and
+  // Autonomous Systems 8, 2025). annualreviews.org returned 403 to automated fetches; the quote was
+  // matched in the abstract of the arXiv version (2408.03539) on 2026-10-04: "Robotics problems,
+  // however, pose fundamental difficulties for the application of RL, stemming from the complexity
+  // and cost of interacting with the physical world." This draft relies on (arXiv 2408.03539
+  // abstract): "emphasizing the need for stable and sample-efficient real-world RL paradigms".
+  {
+    id: 'tang-drl-survey-2025',
+    title: 'Deep Reinforcement Learning for Robotics: A Survey of Real-World Successes',
+    authors: ['Chen Tang', 'Ben Abbatematteo', 'Jiaheng Hu', 'Rohan Chandra', 'Roberto Martín-Martín', 'Peter Stone'],
+    year: 2025,
+    venue: 'Annual Review of Control, Robotics, and Autonomous Systems',
+    url: 'https://doi.org/10.1146/annurev-control-030323-022510',
+    type: 'paper',
+  },
+  // seo-2025: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts; also drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 2512.01996 abstract: "enables rapid training of humanoid locomotion policies in just 15
+  // minutes with a single RTX 4090 GPU" and "a simple and practical recipe based on off-policy RL
+  // algorithms". This draft also relies on: "We demonstrate rapid end-to-end learning of humanoid
+  // locomotion controllers on Unitree G1 and Booster T1 robots under strong domain randomization".
+  {
+    id: 'seo-2025',
+    title: 'Learning Sim-to-Real Humanoid Locomotion in 15 Minutes',
+    authors: ['Younggyo Seo', 'Carmelo Sferrazza', 'Juyue Chen', 'Guanya Shi', 'Rocky Duan', 'Pieter Abbeel'],
+    year: 2025,
+    arxiv: '2512.01996',
+    url: 'https://arxiv.org/abs/2512.01996',
+    type: 'paper',
+  },
+  // walk-in-the-park-2022: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // arXiv 2208.07860 (v1 2022-08-16). Abstract: "lead to learning quadruped locomotion in only 20
+  // minutes in the real world" (model-free RL, per the title).
+  {
+    id: 'walk-in-the-park-2022',
+    title: 'A Walk in the Park: Learning to Walk in 20 Minutes With Model-Free Reinforcement Learning',
+    authors: ['Laura Smith', 'Ilya Kostrikov', 'Sergey Levine'],
+    year: 2022,
+    arxiv: '2208.07860',
+    url: 'https://arxiv.org/abs/2208.07860',
+    type: 'paper',
+  },
+  // bcq-2018: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // arXiv 1812.02900 (v1 2018-12-07; ICML 2019). Abstract: "due to errors introduced by
+  // extrapolation, standard off-policy deep reinforcement learning algorithms, such as DQN and DDPG,
+  // are incapable of learning with data uncorrelated to the distribution under the current policy,
+  // making them ineffective for this fixed batch setting".
+  {
+    id: 'bcq-2018',
+    title: 'Off-Policy Deep Reinforcement Learning without Exploration',
+    authors: ['Scott Fujimoto', 'David Meger', 'Doina Precup'],
+    year: 2018,
+    venue: 'arXiv preprint (ICML 2019)',
+    arxiv: '1812.02900',
+    url: 'https://arxiv.org/abs/1812.02900',
+    type: 'paper',
+  },
+  // leave-no-trace-2017: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // arXiv 1711.06782 (v1 2017-11-18). Abstract: "simultaneously learns a forward and reset policy,
+  // with the reset policy resetting the environment for a subsequent attempt", "By learning a value
+  // function for the reset policy, we can automatically determine when the forward policy is about
+  // to enter a non-reversible state, providing for uncertainty-aware safety aborts" and "can greatly
+  // reduce the number of manual resets required to learn a task".
+  {
+    id: 'leave-no-trace-2017',
+    title: 'Leave no Trace: Learning to Reset for Safe and Autonomous Reinforcement Learning',
+    authors: ['Benjamin Eysenbach', 'Shixiang Gu', 'Julian Ibarz', 'Sergey Levine'],
+    year: 2017,
+    arxiv: '1711.06782',
+    url: 'https://arxiv.org/abs/1711.06782',
+    type: 'paper',
+  },
+  // vaprl-2021: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // arXiv 2107.12931 (v1 2021-07-27). Abstract: "We observe that VaPRL reduces the interventions
+  // required by three orders of magnitude compared to episodic RL" and "on a variety of simulated
+  // robotics problems". Same group as autonomous-rl-2022 (Sharma, Gupta, Levine, Hausman, Finn).
+  {
+    id: 'vaprl-2021',
+    title: 'Autonomous Reinforcement Learning via Subgoal Curricula',
+    authors: ['Archit Sharma', 'Abhishek Gupta', 'Sergey Levine', 'Karol Hausman', 'Chelsea Finn'],
+    year: 2021,
+    arxiv: '2107.12931',
+    url: 'https://arxiv.org/abs/2107.12931',
+    type: 'paper',
+  },
+  // ref-hil-2026: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // arXiv 2609.37131 (v1 2026-09-29). Abstract: "ReF-HIL reaches 90% autonomous success in only
+  // 18-63 minutes of active training and achieves final success rates of 91.7-100%." (authors' own
+  // figures)
+  {
+    id: 'ref-hil-2026',
+    title: 'ReF-HIL: Shaping the Critic around Human Action Neighborhoods for Efficient Human-in-the-Loop Reinforcement Learning',
+    authors: ['Shaoyin Luo', 'Song Wang', 'Shibo Xia', 'Tianle Zhang', 'Zhaowei Liang', 'Guanghui Shen', 'Bin Wang', 'Dan Wu'],
+    year: 2026,
+    arxiv: '2609.37131',
+    url: 'https://arxiv.org/abs/2609.37131',
+    type: 'paper',
+  },
+  // jakobi-1995: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // Springer chapter page (doi 10.1007/3-540-59496-5_337) fetched 2026-10-04, abstract: "The level
+  // of correspondence varied according to how much noise was used in the simulation, with very good
+  // results achieved when realistic quantities were applied." Crossref: LNCS, pp. 704-720, 1995
+  // (Advances in Artificial Life, ECAL 1995).
+  {
+    id: 'jakobi-1995',
+    title: 'Noise and the reality gap: The use of simulation in evolutionary robotics',
+    authors: ['Nick Jakobi', 'Phil Husbands', 'Inman Harvey'],
+    year: 1995,
+    venue: 'Advances in Artificial Life (ECAL 1995), Lecture Notes in Computer Science, pp. 704-720',
+    url: 'https://doi.org/10.1007/3-540-59496-5_337',
+    type: 'paper',
+  },
+  // openai-dactyl-2018: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts; also drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 1808.00177 abstract: "Our method does not rely on any human demonstrations, but many
+  // behaviors found in human manipulation emerge naturally, including finger gaiting, multi-finger
+  // coordination, and the controlled use of gravity." arXiv lists OpenAI as first author. This draft
+  // relies on: "we randomize many of the physical properties of the system like friction
+  // coefficients and an object's appearance. Our policies transfer to the physical robot despite
+  // being trained entirely in simulation."
+  {
+    id: 'openai-dactyl-2018',
+    title: 'Learning Dexterous In-Hand Manipulation',
+    authors: ['OpenAI', 'Marcin Andrychowicz', 'Bowen Baker', 'Maciek Chociej', 'Rafal Jozefowicz', 'Bob McGrew', 'Jakub Pachocki', 'Arthur Petron', 'Matthias Plappert', 'Glenn Powell', 'Alex Ray', 'Jonas Schneider', 'Szymon Sidor', 'Josh Tobin', 'Peter Welinder', 'Lilian Weng', 'Wojciech Zaremba'],
+    year: 2018,
+    arxiv: '1808.00177',
+    url: 'https://arxiv.org/abs/1808.00177',
+    type: 'paper',
+  },
+  // chen-dr-theory-2021: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 2110.03239 abstract: "We provide sharp bounds on the sim-to-real gap -- the difference
+  // between the value of policy returned by domain randomization and the value of an optimal policy
+  // for the real world." and "Our theory also highlights the importance of using memory (i.e.,
+  // history-dependent policies) in domain randomization."
+  {
+    id: 'chen-dr-theory-2021',
+    title: 'Understanding Domain Randomization for Sim-to-real Transfer',
+    authors: ['Xiaoyu Chen', 'Jiachen Hu', 'Chi Jin', 'Lihong Li', 'Liwei Wang'],
+    year: 2021,
+    venue: 'arXiv preprint',
+    arxiv: '2110.03239',
+    url: 'https://arxiv.org/abs/2110.03239',
+    type: 'paper',
+  },
+  // learning-by-cheating-2019: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 1912.12294 (CoRL 2019) abstract: "We first train an agent that has access to privileged
+  // information." and "In the second stage, the privileged agent acts as a teacher that trains a
+  // purely vision-based sensorimotor agent."
+  {
+    id: 'learning-by-cheating-2019',
+    title: 'Learning by Cheating',
+    authors: ['Dian Chen', 'Brady Zhou', 'Vladlen Koltun', 'Philipp Krähenbühl'],
+    year: 2019,
+    venue: 'CoRL 2019',
+    arxiv: '1912.12294',
+    url: 'https://arxiv.org/abs/1912.12294',
+    type: 'paper',
+  },
+  // asymmetric-ac-2017: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 1710.06542 abstract: "employing an actor-critic training algorithm in which the critic is
+  // trained on full states while the actor (or policy) gets rendered images as input".
+  {
+    id: 'asymmetric-ac-2017',
+    title: 'Asymmetric Actor Critic for Image-Based Robot Learning',
+    authors: ['Lerrel Pinto', 'Marcin Andrychowicz', 'Peter Welinder', 'Wojciech Zaremba', 'Pieter Abbeel'],
+    year: 2017,
+    venue: 'arXiv preprint',
+    arxiv: '1710.06542',
+    url: 'https://arxiv.org/abs/1710.06542',
+    type: 'paper',
+  },
+  // viral-2025: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 2511.15200 abstract: "scaling simulation to tens of GPUs (up to 64) makes both teacher and
+  // student training reliable, while low-compute regimes often fail" and "the resulting RGB-based
+  // policy performs continuous loco-manipulation for up to 54 cycles".
+  {
+    id: 'viral-2025',
+    title: 'VIRAL: Visual Sim-to-Real at Scale for Humanoid Loco-Manipulation',
+    authors: ['Tairan He', 'Zi Wang', 'Haoru Xue', 'Qingwei Ben', 'Zhengyi Luo', 'Wenli Xiao', 'Ye Yuan', 'Xingye Da', 'Fernando Castañeda', 'Shankar Sastry', 'Changliu Liu', 'Guanya Shi', 'Linxi Fan', 'Yuke Zhu'],
+    year: 2025,
+    venue: 'arXiv preprint',
+    arxiv: '2511.15200',
+    url: 'https://arxiv.org/abs/2511.15200',
+    type: 'paper',
+  },
+  // up-osi-2017: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 1702.02453 (RSS 2017) abstract: "uses the recent state and action history of the system to
+  // predict the dynamics model parameters mu. The value of mu from the Online System Identification
+  // is then provided as input to the control policy".
+  {
+    id: 'up-osi-2017',
+    title: 'Preparing for the Unknown: Learning a Universal Policy with Online System Identification',
+    authors: ['Wenhao Yu', 'Jie Tan', 'C. Karen Liu', 'Greg Turk'],
+    year: 2017,
+    venue: 'RSS 2017',
+    arxiv: '1702.02453',
+    url: 'https://arxiv.org/abs/1702.02453',
+    type: 'paper',
+  },
+  // tan-quadruped-2018: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 1804.10332 abstract: "We improve the simulation using system identification, developing an
+  // accurate actuator model and simulating latency. We learn robust controllers by randomizing the
+  // physical environments, adding perturbations and designing a compact observation space."
+  {
+    id: 'tan-quadruped-2018',
+    title: 'Sim-to-Real: Learning Agile Locomotion For Quadruped Robots',
+    authors: ['Jie Tan', 'Tingnan Zhang', 'Erwin Coumans', 'Atil Iscen', 'Yunfei Bai', 'Danijar Hafner', 'Steven Bohez', 'Vincent Vanhoucke'],
+    year: 2018,
+    venue: 'arXiv preprint',
+    arxiv: '1804.10332',
+    url: 'https://arxiv.org/abs/1804.10332',
+    type: 'paper',
+  },
+  // rialto-2024: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts; also drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-03-06, 7 authors. This draft relies on
+  // (abstract): "robustifying real-world imitation learning policies via reinforcement learning in
+  // "digital twin" simulation environments constructed on the fly from small amounts of real-world
+  // data" and "RialTo increases (over 67%) in policy robustness".
+  {
+    id: 'rialto-2024',
+    title: 'Reconciling Reality through Simulation: A Real-to-Sim-to-Real Approach for Robust Manipulation',
+    authors: ['Marcel Torne', 'Anthony Simeonov', 'Zechu Li', 'April Chan', 'Tao Chen', 'Abhishek Gupta', 'Pulkit Agrawal'],
+    year: 2024,
+    arxiv: '2403.03949',
+    url: 'https://arxiv.org/abs/2403.03949',
+    type: 'paper',
+  },
+  // softbody-splat-eval-2025: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 2511.04665 abstract: "constructs soft-body digital twins from real-world videos and
+  // renders robots, objects, and environments with photorealistic fidelity using 3D Gaussian
+  // Splatting" and "demonstrating that simulated rollouts correlate strongly with real-world
+  // execution performance".
+  {
+    id: 'softbody-splat-eval-2025',
+    title: 'Real-to-Sim Robot Policy Evaluation with Gaussian Splatting Simulation of Soft-Body Interactions',
+    authors: ['Kaifeng Zhang', 'Shuo Sha', 'Hanxiao Jiang', 'Matthew Loper', 'Hyunjong Song', 'Guangyan Cai', 'Zhuo Xu', 'Xiaochen Hu', 'Changxi Zheng', 'Yunzhu Li'],
+    year: 2025,
+    venue: 'arXiv preprint',
+    arxiv: '2511.04665',
+    url: 'https://arxiv.org/abs/2511.04665',
+    type: 'paper',
+  },
+  // polaris-2025: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts, drafts/world-models/evaluation.citations.ts.
+  {
+    id: 'polaris-2025',
+    title: 'PolaRiS: Scalable Real-to-Sim Evaluations for Generalist Robot Policies',
+    authors: ['Arhan Jain', 'Mingtong Zhang', 'Kanav Arora', 'William Chen', 'Marcel Torne', 'Muhammad Zubair Irshad', 'Sergey Zakharov', 'Yue Wang', 'Sergey Levine', 'Chelsea Finn', 'Wei-Chiu Ma', 'Dhruv Shah', 'Abhishek Gupta', 'Karl Pertsch'],
+    year: 2025,
+    arxiv: '2512.16881',
+    url: 'https://arxiv.org/abs/2512.16881',
+    type: 'paper',
+  },
+  // kadian-2019: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 1912.06321 (IEEE RA-L 2020) abstract: "We find that SRCC for Habitat as used for the
+  // CVPR19 challenge is low (0.18 for the success metric)"; "AI agents learning to exploit simulator
+  // imperfections, abusing collision dynamics to 'slide' along walls"; "improving $SRCC_{Succ}$ from
+  // 0.18 to 0.844"; "We 3D-scan a physical lab space to create a virtualized replica".
+  {
+    id: 'kadian-2019',
+    title: 'Sim2Real Predictivity: Does Evaluation in Simulation Predict Real-World Performance?',
+    authors: ['Abhishek Kadian', 'Joanne Truong', 'Aaron Gokaslan', 'Alexander Clegg', 'Erik Wijmans', 'Stefan Lee', 'Manolis Savva', 'Sonia Chernova', 'Dhruv Batra'],
+    year: 2019,
+    venue: 'IEEE Robotics and Automation Letters 2020',
+    arxiv: '1912.06321',
+    url: 'https://arxiv.org/abs/1912.06321',
+    type: 'paper',
+  },
+  // sim-real-cotraining-2025: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  {
+    id: 'sim-real-cotraining-2025',
+    title: 'Sim-and-Real Co-Training: A Simple Recipe for Vision-Based Robotic Manipulation',
+    authors: ['Abhiram Maddukuri', 'Zhenyu Jiang', 'Lawrence Yunliang Chen', 'Soroush Nasiriany', 'Yuqi Xie', 'Yu Fang', 'Wenqi Huang', 'Zu Wang', 'Zhenjia Xu', 'Nikita Chernyadev', 'Scott Reed', 'Ken Goldberg', 'Ajay Mandlekar', 'Linxi Fan', 'Yuke Zhu'],
+    year: 2025,
+    arxiv: '2503.24361',
+    url: 'https://arxiv.org/abs/2503.24361',
+    type: 'paper',
+  },
+  // lei-cotraining-2026: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 2604.13645 abstract: "We investigate the mechanism of sim-and-real co-training through
+  // theoretical analysis and empirical study, and identify two intrinsic effects governing
+  // performance. The first, "structured representation alignment", ... plays a primary role in
+  // downstream performance."
+  {
+    id: 'lei-cotraining-2026',
+    title: 'A Mechanistic Analysis of Sim-and-Real Co-Training in Generative Robot Policies',
+    authors: ['Yu Lei', 'Minghuan Liu', 'Abhiram Maddukuri', 'Zhenyu Jiang', 'Yuke Zhu'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2604.13645',
+    url: 'https://arxiv.org/abs/2604.13645',
+    type: 'paper',
+  },
+  // industreal-2023: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 2305.17110 (RSS 2023) abstract: "we propose 1) simulation-aware policy updates, 2)
+  // signed-distance-field rewards, and 3) sampling-based curricula" and "We then propose 4) a
+  // policy-level action integrator to minimize error at policy deployment time."
+  {
+    id: 'industreal-2023',
+    title: 'IndustReal: Transferring Contact-Rich Assembly Tasks from Simulation to Reality',
+    authors: ['Bingjie Tang', 'Michael A. Lin', 'Iretiayo Akinola', 'Ankur Handa', 'Gaurav S. Sukhatme', 'Fabio Ramos', 'Dieter Fox', 'Yashraj Narang'],
+    year: 2023,
+    venue: 'RSS 2023',
+    arxiv: '2305.17110',
+    url: 'https://arxiv.org/abs/2305.17110',
+    type: 'paper',
+  },
+  // actuator-reality-shaping-2026: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // arXiv 2607.02205 abstract: "Instead of modifying the simulator to match the real world, our
+  // method shapes the closed-loop behavior of physical actuators to match the idealized second-order
+  // reference dynamics used in simulation."
+  {
+    id: 'actuator-reality-shaping-2026',
+    title: 'Actuator Reality Shaping for Zero-Shot Sim-to-Real Robot Learning',
+    authors: ['Satoshi Yamamori', 'Koji Ishihara', 'Kenjiro Minamikawa', 'Ryosei Ohmori', 'Taiyo Yasaki', 'Norikazu Sugimoto', 'Jun Morimoto'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2607.02205',
+    url: 'https://arxiv.org/abs/2607.02205',
+    type: 'paper',
+  },
+  // nvidia-simready-2026: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // NVIDIA Glossary page (undated; read 2026-10-04): "These include physics properties such as mass,
+  // friction, inertia tensors, collision, and geometry; semantic labels such as object class,
+  // function, and material type; and behavioral metadata such as articulation limits, actuator
+  // properties, and state-machine definitions where required by the use case."
+  {
+    id: 'nvidia-simready-2026',
+    title: 'What Is SimReady?',
+    authors: ['NVIDIA'],
+    year: 2026,
+    venue: 'NVIDIA Glossary, as of 2026-10-04',
+    url: 'https://www.nvidia.com/en-us/glossary/simready/',
+    type: 'docs',
+  },
+  // fazeli-2017: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 1710.04979 abstract: "establish a task specific upper bound on the performance of the
+  // models and the rigid-body contact model paradigm" and "the care that should be taken in
+  // parameter selection, which are ultimately difficult to give a physical interpretation".
+  {
+    id: 'fazeli-2017',
+    title: 'Fundamental Limitations in Performance and Interpretability of Common Planar Rigid-Body Contact Models',
+    authors: ['Nima Fazeli', 'Samuel Zapolsky', 'Evan Drumwright', 'Alberto Rodriguez'],
+    year: 2017,
+    arxiv: '1710.04979',
+    url: 'https://arxiv.org/abs/1710.04979',
+    type: 'paper',
+  },
+  // factory-2022: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 2205.03532 abstract: "accurately, efficiently, and robustly simulating the range of
+  // contact-rich interactions in assembly remains a longstanding challenge" and "including
+  // simultaneous simulation of 1000 nut-and-bolt interactions".
+  {
+    id: 'factory-2022',
+    title: 'Factory: Fast Contact for Robotic Assembly',
+    authors: ['Yashraj Narang', 'Kier Storey', 'Iretiayo Akinola', 'Miles Macklin', 'Philipp Reist', 'Lukasz Wawrzyniak', 'Yunrong Guo', 'Adam Moravanszky', 'Gavriel State', 'Michelle Lu', 'Ankur Handa', 'Dieter Fox'],
+    year: 2022,
+    venue: 'Robotics: Science and Systems (RSS) 2022',
+    arxiv: '2205.03532',
+    url: 'https://arxiv.org/abs/2205.03532',
+    type: 'paper',
+  },
+  // visual-dexterity-2022: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 2211.11744 (v1 2022-11-21; Science Robotics 8(84), 2023). Abstract: "with the median
+  // reorientation time being close to seven seconds" and "Our hardware platform only uses
+  // open-source components that cost less than five thousand dollars."
+  {
+    id: 'visual-dexterity-2022',
+    title: 'Visual Dexterity: In-Hand Reorientation of Novel and Complex Object Shapes',
+    authors: ['Tao Chen', 'Megha Tippur', 'Siyang Wu', 'Vikash Kumar', 'Edward Adelson', 'Pulkit Agrawal'],
+    year: 2022,
+    venue: 'arXiv preprint (Science Robotics 2023)',
+    arxiv: '2211.11744',
+    url: 'https://arxiv.org/abs/2211.11744',
+    type: 'paper',
+  },
+  // dextrah-rgb-2024: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 2412.01791 abstract: "To our knowledge, this is the first work that is able to demonstrate
+  // robust sim2real transfer of an end2end RGB-based policy for complex, dynamic, contact-rich tasks
+  // such as dexterous grasping."
+  {
+    id: 'dextrah-rgb-2024',
+    title: 'DextrAH-RGB: Visuomotor Policies to Grasp Anything with Dexterous Hands',
+    authors: ['Ritvik Singh', 'Arthur Allshire', 'Ankur Handa', 'Nathan Ratliff', 'Karl Van Wyk'],
+    year: 2024,
+    arxiv: '2412.01791',
+    url: 'https://arxiv.org/abs/2412.01791',
+    type: 'paper',
+  },
+  // automate-2024: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 2407.08028 abstract: "a generalist policy that jointly solves 20 assemblies with an 80%+
+  // success rate" and "zero-shot sim-to-real transfer that achieves similar (or better) performance
+  // than simulation".
+  {
+    id: 'automate-2024',
+    title: 'AutoMate: Specialist and Generalist Assembly Policies over Diverse Geometries',
+    authors: ['Bingjie Tang', 'Iretiayo Akinola', 'Jie Xu', 'Bowen Wen', 'Ankur Handa', 'Karl Van Wyk', 'Dieter Fox', 'Gaurav S. Sukhatme', 'Fabio Ramos', 'Yashraj Narang'],
+    year: 2024,
+    arxiv: '2407.08028',
+    url: 'https://arxiv.org/abs/2407.08028',
+    type: 'paper',
+  },
+  // sparr-2026: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 2602.23253 abstract: "Compared to the state-of-the-art zero-shot sim-to-real methods,
+  // SPARR improves success rates by 38.4% while reducing cycle time by 29.7%."
+  {
+    id: 'sparr-2026',
+    title: 'SPARR: Simulation-based Policies with Asymmetric Real-world Residuals for Assembly',
+    authors: ['Yijie Guo', 'Iretiayo Akinola', 'Lars Johannsmeier', 'Hugo Hadfield', 'Abhishek Gupta', 'Yashraj Narang'],
+    year: 2026,
+    arxiv: '2602.23253',
+    url: 'https://arxiv.org/abs/2602.23253',
+    type: 'paper',
+  },
+  // zhao-force-grasp-2026: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 2601.02778 abstract: "a computationally fast tactile simulation", "a current-to-torque
+  // calibration", "actuator dynamics modeling" and "the first demonstration of controllable grasping
+  // on a multi-finger dexterous hand trained entirely in simulation and transferred zero-shot on
+  // real hardware".
+  {
+    id: 'zhao-force-grasp-2026',
+    title: 'Closing the Reality Gap: Zero-Shot Sim-to-Real Deployment for Dexterous Force-Based Grasping and Manipulation',
+    authors: ['Zhe Zhao', 'Haoyu Dong', 'Zhengmao He', 'Yang Li', 'Xinyu Yi', 'Zhibin Li'],
+    year: 2026,
+    arxiv: '2601.02778',
+    url: 'https://arxiv.org/abs/2601.02778',
+    type: 'paper',
+  },
+  // simtoolreal-2026: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 2602.16863 abstract: "prior approaches typically require substantial engineering effort to
+  // model objects and tune reward functions for each task", "train a single RL policy", "matching
+  // the performance of specialist RL policies trained on specific target objects and tasks" and
+  // "strong zero-shot performance over 120 real-world rollouts spanning 24 tasks".
+  {
+    id: 'simtoolreal-2026',
+    title: 'SimToolReal: An Object-Centric Policy for Zero-Shot Dexterous Tool Manipulation',
+    authors: ['Kushal Kedia', 'Tyler Ga Wei Lum', 'Jeannette Bohg', 'C. Karen Liu'],
+    year: 2026,
+    arxiv: '2602.16863',
+    url: 'https://arxiv.org/abs/2602.16863',
+    type: 'paper',
+  },
+  // doorman-2025: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // arXiv 2512.01061 (v1 2025-11-30; CVPR 2026). Abstract: "achieves robust zero-shot performance
+  // across diverse door types and outperforms human teleoperators by up to 31.7% in task completion
+  // time" and "using pure RGB perception".
+  {
+    id: 'doorman-2025',
+    title: 'Opening the Sim-to-Real Door for Humanoid Pixel-to-Action Policy Transfer',
+    authors: ['Haoru Xue', 'Tairan He', 'Zi Wang', 'Qingwei Ben', 'Wenli Xiao', 'Zhengyi Luo', 'Xingye Da', 'Fernando Castañeda', 'Guanya Shi', 'Shankar Sastry', 'Linxi "Jim" Fan', 'Yuke Zhu'],
+    year: 2025,
+    venue: 'arXiv preprint (CVPR 2026)',
+    arxiv: '2512.01061',
+    url: 'https://arxiv.org/abs/2512.01061',
+    type: 'paper',
+  },
+  // needlework-2026: domain pass 2026-10-06, KOL intake note of Shuran Song, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // Refresh 2026-10-06 against mission HEAD 8c34ffbb, KOL intake note of Shuran Song.
+  // Title, authors and abstract read on the arXiv abstract page on 2026-10-06 (v1 1 Oct 2026). Comment: submitted to ICLR 2027.
+  {
+    id: 'needlework-2026',
+    title: 'NEEDLEWORK: Offline Rewriting of Robot Data with Verified Local Stitches',
+    authors: ['Juntao Ren', 'Yifan Hou', 'Shuran Song'],
+    year: 2026,
+    arxiv: '2610.02339',
+    url: 'https://arxiv.org/abs/2610.02339',
+    type: 'paper',
+  },
+  // bver-2026: domain pass 2026-10-06, KOL intake note of Marco Hutter, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // Refresh 2026-10-06 against mission HEAD 8c34ffbb, KOL intake note of Marco Hutter.
+  // Title, authors and abstract read on the arXiv abstract page on 2026-10-06 (v1 2 Oct 2026).
+  {
+    id: 'bver-2026',
+    title: 'Bidirectional Voronoi-biased Exploration Curriculum for Reinforcement Learning',
+    authors: ['Juri Pfammatter', 'Kaixian Qu', 'Clemens Schwarke', 'Victor Klemm', 'Marco Hutter'],
+    year: 2026,
+    arxiv: '2610.03395',
+    url: 'https://arxiv.org/abs/2610.03395',
+    type: 'paper',
+  },
+  // hitter-2025: domain pass 2026-10-06, KOL intake note of Chris Paxton, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // Refresh 2026-10-06, primary source named in the KOL intake note of Chris Paxton.
+  // arXiv abstract page read 2026-10-06 (v1 28 Aug 2025, v2 4 Sep 2025): "up to 106 consecutive shots with a human opponent".
+  {
+    id: 'hitter-2025',
+    title: 'HITTER: A HumanoId Table TEnnis Robot via Hierarchical Planning and Learning',
+    authors: ['Zhi Su', 'Bike Zhang', 'Nima Rahmanian', 'Yuman Gao', 'Qiayuan Liao', 'Caitlin Regan', 'Koushil Sreenath', 'S. Shankar Sastry'],
+    year: 2025,
+    arxiv: '2508.21043',
+    url: 'https://arxiv.org/abs/2508.21043',
+    type: 'paper',
+  },
+  // latent-tennis-2026: domain pass 2026-10-06, KOL intake note of Chris Paxton, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // Refresh 2026-10-06, primary source named in the KOL intake note of Chris Paxton.
+  // arXiv abstract page read 2026-10-06 (v1 13 Mar 2026): LATENT, deployed on the Unitree G1, "stably sustain multi-shot rallies with human players".
+  {
+    id: 'latent-tennis-2026',
+    title: 'Learning Athletic Humanoid Tennis Skills from Imperfect Human Motion Data',
+    authors: ['Zhikai Zhang', 'Haofei Lu', 'Yunrui Lian', 'Ziqing Chen', 'Yun Liu', 'Chenghuai Lin', 'Han Xue', 'Zicheng Zeng', 'Zekun Qi', 'Shaolin Zheng', 'Qing Luan', 'Jingbo Wang', 'Junliang Xing', 'He Wang', 'Li Yi'],
+    year: 2026,
+    arxiv: '2603.12686',
+    url: 'https://arxiv.org/abs/2603.12686',
+    type: 'paper',
+  },
+  // paxton-robot-sports-2026: domain pass 2026-10-06, KOL intake note of Chris Paxton, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // Refresh 2026-10-06, KOL intake note of Chris Paxton. Newsletter post dated 3 October 2026,
+  // fetched 2026-10-06: "many of these systems still use external motion trackers to perceive the ball".
+  // Same venue string as paxton-autonomous-trucks-2026.
+  {
+    id: 'paxton-robot-sports-2026',
+    title: 'What Do Robot Sports Teach Us?',
+    authors: ['Chris Paxton'],
+    year: 2026,
+    venue: 'It Can Think!',
+    url: 'https://itcanthink.substack.com/p/what-do-robot-sports-teach-us',
+    type: 'blog',
+  },
+  // gr00t-n1-7-release-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/humanoid-wbc dates (GR00T N1.7).
+  // GitHub release "n1.7 release" (tag n1.7-release), published 2026-04-18T14:45:14Z, fetched 2026-10-07:
+  // "Early Access n1.7 release".
+  {
+    id: 'gr00t-n1-7-release-2026',
+    title: 'n1.7 release',
+    authors: ['NVIDIA'],
+    year: 2026,
+    venue: 'GitHub release n1.7-release, NVIDIA/Isaac-GR00T',
+    url: 'https://github.com/NVIDIA/Isaac-GR00T/releases/tag/n1.7-release',
+    type: 'docs',
+  },
+  // q2rl-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/rl-for-robotics and rl-sim2real/offline-rl (Q2RL, 2026-10-08).
+  // arXiv 2605.05172 abstract (v3 27 Jun 2026; comments: "Robotics: Science and Systems, 2026"): "Q-Estimation
+  // extracts a Q-function from a BC policy using a few interaction steps with the environment, followed by online RL
+  // with (2) Q-Gating, which switches between BC and RL policy actions based on their respective Q-values" and
+  // "learning robust policies for contact-rich and high precision manipulation tasks such as pipe assembly and
+  // kitting, in 1-2 hours of online interaction".
+  {
+    id: 'q2rl-2026',
+    title: 'When Life Gives You BC, Make Q-functions: Extracting Q-values from Behavior Cloning for On-Robot Reinforcement Learning',
+    authors: ['Lakshita Dodeja', 'Ondrej Biza', 'Shivam Vats', 'Stephen Hart', 'Stefanie Tellex', 'Robin Walters', 'Karl Schmeckpeper', 'Thomas Weng'],
+    year: 2026,
+    venue: 'RSS 2026',
+    arxiv: '2605.05172',
+    url: 'https://arxiv.org/abs/2605.05172',
+    type: 'paper',
+  },
+  // insertanything-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/why-rl-locomotion (InsertAnything, 2026-10-08).
+  // arXiv 2609.24511 abstract (v1 21 Sep 2026): "A single policy trained only on a simulated hexagonal insertion task
+  // achieved an overall success rate of 95.0% across eight unseen real-world insertion tasks."
+  {
+    id: 'insertanything-2026',
+    title: 'InsertAnything: Generalizable Contact-Rich Precision Insertion from Simulation to Reality',
+    authors: ['Zhenghua Ma', 'Xinpan Meng', 'Zeyu Liu', 'Muyuan Ma', 'Hengdi Zhang', 'Houcheng Li', 'Long Cheng'],
+    year: 2026,
+    arxiv: '2609.24511',
+    url: 'https://arxiv.org/abs/2609.24511',
+    type: 'paper',
+  },
+  // zest-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/sim2real-transfer, legged-locomotion, humanoid-wbc and reward-design-mpc (ZEST, 2026-10-08).
+  // arXiv 2602.00401 abstract (v1 30 Jan 2026): "trains policies via reinforcement learning from diverse sources --
+  // high-fidelity motion capture, noisy monocular video, and non-physics-constrained animation -- and deploys them to
+  // hardware zero-shot", "avoiding contact labels, reference or observation windows, state estimators, and extensive
+  // reward shaping", "an automatic curriculum using a model-based assistive wrench", "a procedure for selecting
+  // joint-level gains from approximate analytical armature values for closed-chain actuators, along with a refined
+  // model of actuators", "Trained entirely in simulation", "On Boston Dynamics' Atlas humanoid, ZEST learns dynamic,
+  // multi-contact skills (e.g., army crawl, breakdancing) from motion capture" and "to Atlas and the Unitree G1" and
+  // "to the Spot quadruped".
+  {
+    id: 'zest-2026',
+    title: 'ZEST: Zero-shot Embodied Skill Transfer for Athletic Robot Control',
+    authors: [
+      'Jean Pierre Sleiman', 'He Li', 'Alphonsus Adu-Bredu', 'Robin Deits', 'Arun Kumar', 'Kevin Bergamin', 'Mohak Bhardwaj',
+      'Scott Biddlestone', 'Nicola Burger', 'Matthew A. Estrada', 'Francesco Iacobelli', 'Twan Koolen', 'Alexander Lambert',
+      'Erica Lin', 'M. Eva Mungai', 'Zach Nobles', 'Shane Rozen-Levy', 'Yuyao Shi', 'Jiashun Wang', 'Jakob Welner',
+      'Fangzhou Yu', 'Mike Zhang', 'Alfred Rizzi', 'Jessica Hodgins', 'Sylvain Bertrand', 'Yeuhi Abe', 'Scott Kuindersma',
+      'Farbod Farshidian',
+    ],
+    year: 2026,
+    arxiv: '2602.00401',
+    url: 'https://arxiv.org/abs/2602.00401',
+    type: 'paper',
+  },
+  // fetchman-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/humanoid-wbc (FetchMan, 2026-10-08).
+  // arXiv 2608.17027 abstract (v2 29 Aug 2026): "deploy it zero-shot on a real Unitree G1, where our single-object
+  // reach-and-pick policy walks to and grasps a target across unseen scenes at 73.3% success".
+  {
+    id: 'fetchman-2026',
+    title: 'FetchMan: Learning Visual Humanoid Loco-Manipulation Policies from Simulated Experiences',
+    authors: ['Omar Rayyan', 'Zhi Li', 'Max Argus', 'Yuxin Jiang', 'Chang Yu', 'Chenfanfu Jiang', 'Yuchen Cui'],
+    year: 2026,
+    arxiv: '2608.17027',
+    url: 'https://arxiv.org/abs/2608.17027',
+    type: 'paper',
+  },
+  // sleiman-wbmpc-2021: domain pass 2026-10-06, owner sweep item rl-sim2real/reward-design-mpc (Sleiman 2021, 2026-10-08).
+  // arXiv 2103.00946 abstract (v1 1 Mar 2021; comments: RA-L and ICRA 2021): "unifies dynamic locomotion and
+  // manipulation tasks by formulating a single multi-contact optimal control problem", "could be solved on the robot's
+  // onboard computer in real-time within a model predictive control scheme" and "while pushing/pulling a heavy
+  // resistive door".
+  {
+    id: 'sleiman-wbmpc-2021',
+    title: 'A Unified MPC Framework for Whole-Body Dynamic Locomotion and Manipulation',
+    authors: ['Jean-Pierre Sleiman', 'Farbod Farshidian', 'Maria Vittoria Minniti', 'Marco Hutter'],
+    year: 2021,
+    venue: 'IEEE Robotics and Automation Letters',
+    arxiv: '2103.00946',
+    url: 'https://arxiv.org/abs/2103.00946',
+    type: 'paper',
+  },
+  // rai-iros-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/reward-design-mpc (RAI IROS 2026 whole-body MPC, 2026-10-08).
+  // RAI Institute blog, datePublished 2026-09-25, fetched 2026-10-08 (HTTP 200), entry "Whole-Body Model Predictive
+  // Control for Spin-Aware Quadrupedal Table Tennis": "a novel continuous-time model predictive controller (MPC) for
+  // agile full-body control of a quadrupedal robot equipped with an arm", "We demonstrate the system on hardware with a
+  // Spot quadruped" and "aim and return balls with varying spin types" and "the system is able to rally with human
+  // players". The KOL queue note of 2026-09-25 on the same round-up is consumed by this entry.
+  {
+    id: 'rai-iros-2026',
+    title: 'IROS 2026 Publication Round-Up',
+    authors: ['Robotics and AI Institute'],
+    year: 2026,
+    venue: 'RAI Institute blog',
+    url: 'https://rai-inst.com/resources/blog/iros-2026-publication-round-up/',
+    type: 'blog',
+  },
+  // bd-atlas-ces-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/legged-locomotion (Atlas product launch, 2026-10-08).
+  // Boston Dynamics news post, datePublished 2026-01-05, fetched 2026-10-08 (HTTP 200): "LAS VEGAS (Jan. 5, 2026) –
+  // Boston Dynamics, the global leader in mobile robotics, unveiled the product version of its new Atlas robot at the
+  // Consumer Electronics Show in Las Vegas today", "The company will begin production of the new Atlas robots at its
+  // Boston headquarters immediately" and "All Atlas deployments are already fully committed for 2026, with fleets
+  // scheduled to ship to Hyundai's Robotics Metaplant Application Center (RMAC) and Google DeepMind".
+  {
+    id: 'bd-atlas-ces-2026',
+    title: 'Boston Dynamics Unveils New Atlas Robot to Revolutionize Industry',
+    authors: ['Boston Dynamics'],
+    year: 2026,
+    url: 'https://bostondynamics.com/blog/boston-dynamics-unveils-new-atlas-robot-to-revolutionize-industry/',
+    type: 'press',
+  },
+  // gu-humanoid-review-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/legged-locomotion (Science Robotics review, 2026-10-08).
+  // Crossref 10.1126/scirobotics.aed3973, read 2026-10-08: "Evolution of humanoid locomotion control", Science
+  // Robotics 11(117), published 19 Aug 2026, 13 authors from Yan Gu to Koushil Sreenath. Abstract: "The locomotion
+  // control of humanoids has evolved from classical model–based methods to reinforcement learning powered by
+  // large-scale simulation and now to generative models that produce adaptive, whole-body behaviors".
+  {
+    id: 'gu-humanoid-review-2026',
+    title: 'Evolution of Humanoid Locomotion Control',
+    authors: [
+      'Yan Gu', 'Guanya Shi', 'Fan Shi', 'I-Chia Chang', 'Yen-Jen Wang', 'Qilong Cheng', 'Zachary Olkin',
+      'Ivan Lopez-Sanchez', 'Yunchu Feng', 'Jian Zhang', 'Aaron D. Ames', 'Hao Su', 'Koushil Sreenath',
+    ],
+    year: 2026,
+    venue: 'Science Robotics',
+    url: 'https://doi.org/10.1126/scirobotics.aed3973',
+    type: 'paper',
+  },
+  // resgac-2026: domain pass 2026-10-06, KOL intake note of Guanya Shi (rl-sim2real/humanoid-wbc, ResGAC; disposition of 2026-10-08).
+  // arXiv 2610.09479 abstract (v1 7 Oct 2026): "combines geometric admittance control (GAC) with residual
+  // reinforcement learning", "ResGAC is validated on a real Unitree G1 humanoid" and "ResGAC achieves 90% success in
+  // a standing peg-in-hole task compared with 50% for SONIC". PDF author block: Guanya Shi, Amazon FAR and Carnegie
+  // Mellon University.
+  {
+    id: 'resgac-2026',
+    title: 'Precise SE(3) End-Effector Tracking in Whole-Body Humanoid Control',
+    authors: ['Joohwan Seo', 'Xiaofeng Guo', 'Jinkun Cao', 'Roberto Horowitz', 'Rocky Duan', 'Guanya Shi', 'Koushil Sreenath'],
+    year: 2026,
+    arxiv: '2610.09479',
+    url: 'https://arxiv.org/abs/2610.09479',
+    type: 'paper',
+  },
+  // roborender-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu (rl-sim2real/sim2real-transfer, RoboRender; disposition of 2026-10-08).
+  // arXiv 2610.09254 abstract (v1 7 Oct 2026): "a framework that converts simulated trajectories into photorealistic
+  // RGB videos for policy learning" and "policies trained on RoboRender-generated data achieve a 71% average success
+  // rate, outperforming raw simulation renderings and conventional visual domain randomization by approximately 7.1x
+  // and 3.6x, respectively". PDF author block: Li Fei-Fei and Jiajun Wu, Stanford University.
+  {
+    id: 'roborender-2026',
+    title: 'RoboRender: Robot-Oriented Video Generation for Visual Sim-to-Real Transfer',
+    authors: ['Huang Huang', 'Wensi Ai', 'Ziyu Chen', 'Youhui Wang', 'Zijian Du', 'Yang Liu', 'Jiaolong Yang', 'Li Fei-Fei', 'Jiajun Wu'],
+    year: 2026,
+    arxiv: '2610.09254',
+    url: 'https://arxiv.org/abs/2610.09254',
+    type: 'paper',
+  },
+  // workhorse-2026: domain pass 2026-10-06, KOL intake note of Pieter Abbeel (rl-sim2real/humanoid-wbc, Workhorse; disposition of 2026-10-08).
+  // arXiv 2610.09117 abstract (v1 6 Oct 2026): "A visual planner predicts five-link targets", "A reinforcement-learning
+  // whole-body tracker follows them on the robot", "Both policies train separately on the same recorded human poses,
+  // without retargeting" and "In a simulated copy of the demonstration room, the system completes box sorting in 77 %
+  // of episodes, and in 64 % under 40 N·s pushes". PDF author block: all authors, University of California, Berkeley.
+  {
+    id: 'workhorse-2026',
+    title: 'Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data',
+    authors: ['Songbo Hu', 'Qiayuan Liao', 'Yufeng Chi', 'Kevin Zakka', 'Yakun Sophia Shao', 'Pieter Abbeel', 'Koushil Sreenath'],
+    year: 2026,
+    arxiv: '2610.09117',
+    url: 'https://arxiv.org/abs/2610.09117',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -14837,6 +16818,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Skild Team', 'Skild Team'],
   ['Symbotic Inc.', 'Symbotic'],
   ['Tesla, Inc.', 'Tesla'],
+  ['The Linux Foundation', 'The Linux Foundation'],
   ['The Robot Report', 'The Robot Report'],
   ['TRI LBM Team', 'TRI LBM Team'],
   ['Trossen Robotics', 'Trossen Robotics'],

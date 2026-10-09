@@ -40,6 +40,7 @@ function fixture() {
     'audit/evidence/seo-pass-20261002/source-transition.json',
     'audit/evidence/seo-pass-20261002/checker-transition.json',
     'audit/evidence/domain-pass-20261006/checker-transition.json',
+    'audit/evidence/domain-pass-20261006/source-transition.json',
     ...entries.flatMap((entry) => [entry.snapshot.path, entry.current.path]),
   ]) {
     const to = join(destination, path);
@@ -212,8 +213,8 @@ it('rejects population changes, unreviewed claims and active article drift', () 
   const destination = fixture();
   const current = join(destination, entries[0].current.path);
   writeFileSync(current, readFileSync(current, 'utf8').replace(
-    'This authored fixed-transitions model is not a benchmark.',
-    'This model is a measured benchmark.',
+    'The interactive scene is an unbenchmarked toy',
+    'The interactive scene is a measured benchmark',
   ));
   expect(() => currentRlMotionArticle(destination, entries[0].historical, entries))
     .toThrow(/identity drift|artifact bytes\/hash|first-screen cd article continuity drift/);
@@ -240,7 +241,7 @@ it('rechecks each member, root and fresh article/catalog bytes with one parsed-i
   const articlePath = join(destination, entries[0].current.path);
   const original = readFileSync(articlePath);
   writeFileSync(articlePath, original.toString().replace(
-    'This authored fixed-transitions model is not a benchmark.', 'This model is a measured benchmark.',
+    'The interactive scene is an unbenchmarked toy', 'The interactive scene is a measured benchmark',
   ));
   expect(() => verify(destination, 0))
     .toThrow(/identity drift|artifact bytes\/hash|first-screen cd article continuity drift/);

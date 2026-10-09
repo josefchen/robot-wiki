@@ -1227,12 +1227,12 @@ const HISTORICAL_VERIFICATION_INPUTS: Readonly<Record<string, {
   'tests/unit/sim2real-local-evidence.test.ts': {
     bytes: 9706, sha256: 'c3678122420b6d6ef1f4bc3becc363fe8b46a4f9577f2342d4fd3324f77a078b',
     snapshot: 'sim2real-local-evidence.pre-portability.test.ts.txt',
-    currentTestHash: 'fa3ddf33752b00ca7fa32bbc36c401379d1c461ab271389c84986ef3a4c4aa9c',
+    currentTestHash: '80d4605b1eefcfc82ca7f1f5dd8bd3744f7cda62570e523796be856670b4fc6a',
   },
   'tests/unit/parallel-local-evidence.test.ts': {
     bytes: 5364, sha256: '959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb',
     snapshot: 'parallel-local-evidence.pre-portability.test.ts.txt',
-    currentTestHash: '3eb55f085478bdce21262a25627e07c6c50004123cb243e6ce682f13194dd7ef',
+    currentTestHash: '246b135fb34347c92ff0b5d675ffb5eaa3050372c9c388912f4c4348a242a442',
   },
   'tests/unit/classical-closure-evidence.test.ts': {
     bytes: 12839, sha256: '9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7',

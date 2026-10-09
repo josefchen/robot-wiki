@@ -57,29 +57,27 @@ describe('three independently whole reward and MPC originals', () => {
   }
   it('scopes Jeon to its fixed PPO experiment and non-invariant practical discount', () => {
     const text = read('legged-locomotion');
-    for (const phrase of ['compared reward formulations with PPO-Clip', 'ten leg joints controlled',
-      'Ten runs per nominal case', '0.1 to 10 times', "PPO's discount of 0.99",
-      'sacrifices policy invariance', 'does not establish that algorithm choice is irrelevant']) {
+    for (const phrase of ['Jeon and colleagues compared rewards for a simulated 18-DoF MIT Humanoid', 'ten leg joints controlled',
+      'Ten runs per case', '0.1 to 10 times', "against PPO's 0.99",
+      'sacrifices policy invariance', 'and IsaacGym fixed']) {
       expect(text.includes(phrase), phrase).toBe(true);
     }
     expect(text.includes('the training recipe is the commodity')).toBe(false);
   });
   it('separates RDA success, visual alignment and the original Eureka human-feedback extension', () => {
     const text = read('reward-design-mpc');
-    for (const phrase of ['same GPT-5 backbone', 'SAC with SimbaV2', '0.70 versus',
-      '0.47', 'success at 0.42', 'GPT-4.1 ratings of five rollout videos',
-      'each queried four times', 'human-written reward reflection',
-      'Eureka acknowledged the underlying limitation earlier']) {
+    for (const phrase of ['same language-model backbone', 'SAC and SimbaV2', '0.70 against',
+      '0.47', 'success of 0.42', 'rates five rollout videos',
+      'each queried four times', 'human-written reward reflection']) {
       expect(text.includes(phrase), phrase).toBe(true);
     }
     expect(text.includes('which is an admission')).toBe(false);
   });
   it('keeps the MPC computational, sensing, intervention and venue limits explicit', () => {
     const text = read('reward-design-mpc');
-    for (const phrase of ['to appear at ICRA 2026', 'analytical norm derivatives', 'approximate cost Hessians',
-      '50 Hz and 300 Hz', '100-Hz OptiTrack', '500-Hz joint measurements',
-      'ten active joint actuators', '12th-generation i7', 'gantry-assisted recovery',
-      'not establish calibration-free operation']) {
+    for (const phrase of ['to appear at ICRA 2026', 'finite-difference derivatives', 'one warm-started iLQR update per solve',
+      '50 Hz and 300 Hz', '100 Hz OptiTrack', '500 Hz joint data',
+      '20-core 13th-generation Intel i9', 'onboard-only deployment is untested']) {
       expect(text.includes(phrase), phrase).toBe(true);
     }
     expect(text.includes('presented at ICRA 2026')).toBe(false);

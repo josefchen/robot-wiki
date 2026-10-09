@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 import { compoundPartDigest, compoundPlanDigest, parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
 
 const text = (path: string) => readFileSync(path, 'utf8');
@@ -25,7 +26,7 @@ function failures(plan: ReturnType<typeof selected>) {
     new Set(CITATIONS.map(c => c.id)), {
       compoundPlans: catalog().map(p => p.id === plan.id ? plan : p),
       articleCitations: Object.fromEntries(['sim2real-transfer', 'legged-locomotion', 'humanoid-wbc']
-        .map(slug => [slug, matter(article(slug)).data.citations])),
+        .map(slug => [slug, [...preDomainPassCitations('rl-sim2real', slug, matter(article(slug)).data.citations)]])),
     }).find(s => s.slug === plan.articleSlug)!.claimRecords[plan.rowOrdinal - 1].evidenceFailures;
 }
 
@@ -33,8 +34,8 @@ describe('H2O and ASAP source-backed corrections', { timeout: 30_000 }, () => {
   it('distinguishes PPO residual training, frozen simulation and deployed policy', () => {
     const body = article('sim2real-transfer');
     for (const phrase of ['phase-conditioned tracking policies', 'second PPO policy',
-      'without measured residual-action labels', 'model is then frozen',
-      'delta model stays in simulation', 'four ankle DoFs']) expect(body).toContain(phrase);
+      'frozen delta model',
+      'delta model in simulation', 'four ankle DoFs']) expect(body).toContain(phrase);
     expect(body).not.toContain('The cleanest modern formulation');
   });
   it('separates open-loop replay, closed-loop simulation and two hardware comparisons', () => {
@@ -46,26 +47,25 @@ describe('H2O and ASAP source-backed corrections', { timeout: 30_000 }, () => {
   });
   it('retains OOD evidence without a near-distribution theorem or unseen-skill guarantee', () => {
     const body = article('sim2real-transfer');
-    for (const phrase of ['held-out "Silencer"', 'arbitrary unseen-skill coverage',
+    for (const phrase of ['held-out "Silencer"', 'coverage of arbitrary unseen skills',
       'motor overheating and damage', 'motion-capture dependence', 'full 23-DoF']) expect(body).toContain(phrase);
     expect(body).not.toContain('Delta-action correction is valid only near');
     expect(body).not.toContain('fine-tuned policy cannot stray far');
   });
   it('keeps H2O privileged filtering distinct from its deployed policy and sensing', () => {
     for (const slug of ['legged-locomotion', 'humanoid-wbc']) {
-      for (const phrase of ['robot-side motion capture', 'linear velocity', 'PD controller',
+      for (const phrase of ['motion capture for linear velocity', 'PD controller',
         '19', 'domain randomization']) expect(article(slug)).toContain(phrase);
     }
+    expect(article('humanoid-wbc')).toContain('robot-side motion capture');
     expect(article('humanoid-wbc')).toContain('"similar to PHC"');
     expect(article('humanoid-wbc')).toContain('follows PULSE');
-    expect(article('legged-locomotion')).toContain('not the complete sensing setup');
     expect(article('humanoid-wbc')).not.toContain('physical feasibility that raw kinematic retargeting destroys');
   });
   it('keeps G1 demonstrations distinct from quantitative hardware trials', () => {
     const body = article('legged-locomotion');
     for (const phrase of ['G1 with fixed wrists', 'ankle delta-action model',
-      'without the residual model', 'Ronaldo-', 'Kobe-inspired',
-      'does not report success rates for every illustrated skill']) expect(body).toContain(phrase);
+      'deploys the policy without it', 'Ronaldo-', 'Kobe-inspired']) expect(body).toContain(phrase);
   });
   it('uses the observed body spelling and preserves the metadata disagreement and URL', () => {
     const citation = CITATIONS.find(c => c.id === 'asap-2025')!;

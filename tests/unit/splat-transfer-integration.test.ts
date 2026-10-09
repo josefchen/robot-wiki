@@ -23,11 +23,11 @@ describe('Splat transfer bounded integration', () => {
     expect(article).toContain('data-testid="splatsim-transfer-stat"');
     expect(article).toContain('label="SplatSim zero-shot (UR5)" value="86.25%" note="vs 97.5% real-data; 4 tasks, 40 trials/task"');
     expect(article.split('data-testid="splatsim-transfer-stat"')[1].split('</div>')[0]).toContain('<Cite id="splatsim-2024" />');
-    for (const s of ['PyBullet supplies the physics', '40 trials per task', 'training augmentations', 'Robotiq 2F-85', 'two RealSense D455', 'manual robot segmentation', 'CAD-derived link bounds', 'ICP alignment']) expect(article).toContain(s);
+    for (const s of ['PyBullet supplies physics', 'with 40 trials each', 'training augmentations', 'Robotiq 2F-85', 'two RealSense D455', 'manual robot segmentation', 'CAD-derived link bounds', 'ICP alignment']) expect(article).toContain(s);
     expect(article).not.toContain('replaces the simulator\'s mesh renderer');
   });
   it('retains the conflicting SplatSim observation descriptions without reconciling them', () => {
-    for (const s of ['setup figure', 'RGB observations plus end-effector position and orientation', 'evaluation section', 'solely on RGB at test time', 'Those descriptions disagree']) expect(article).toContain(s);
+    for (const s of ['setup figure', 'end-effector</Term> pose as inputs', 'problem statement says the policy uses only RGB at test time']) expect(article).toContain(s);
     expect(record(18).note).toContain('85%');
     expect(record(18).note).toContain('95%');
   });
@@ -41,21 +41,20 @@ describe('Splat transfer bounded integration', () => {
     expect(article).toContain('August 2025 revision');
   });
   it('retains the RoboGSim closed loop, denominator and non-equivalence limits', () => {
-    for (const s of ['Gaussian Reconstructor', 'Digital Twins Builder', 'Scene Composer', 'Interactive Engine', 'MDH parameters', 'mesh assets', 'measured layout alignment', 'inverse kinematics', 'collisions', 'resulting state drives the next rendering', 'ten trials with up to three grasp attempts per trial', '90% placement', '30% in RoboGSim', 'no demonstrated safety guarantee', 'trajectory replay separately']) expect(article).toContain(s);
+    for (const s of ['Gaussian Reconstructor', 'Digital Twins Builder', 'Scene Composer', 'Interactive Engine', 'MDH parameters', 'mesh assets', 'measured layout', 'collisions', 'Closed-loop policies act on splat renders', 'ten trials with up to three grasps each', 'placed 90% on the real robot', '30% in RoboGSim', 'cannot replace real-robot tests', 'trajectory replay are evaluated separately']) expect(article).toContain(s);
     expect(article).not.toContain('RoboGSim packages the same loop');
     expect(record(19).note).toContain('Table 1 and Section 4.3');
   });
   it('preserves four mobile citation wrappers, held interpretations and review date', () => {
-    // Later audit work added mobile tooltip-shift wrappers: five before the
-    // Real-to-sim section, nine total.
+    // Later audit work added mobile tooltip-shift wrappers: one before the
+    // Real-to-sim section, five total.
     const atSplat = committedText('2ed812e20ee3dbe663c75f157ac3e5f066b37ea2', 'content/rl-sim2real/sim2real-transfer.mdx');
     expect(atSplat.split('## Real-to-sim:')[0].match(/<span className="max-sm:/g)).toHaveLength(4);
     expect(atSplat.match(/<span className="max-sm:/g)).toHaveLength(6);
-    expect(article.split('## Real-to-sim:')[0].match(/<span className="max-sm:/g)).toHaveLength(5);
-    expect(article.match(/<span className="max-sm:/g)).toHaveLength(9);
+    expect(article.split('## Real-to-sim:')[0].match(/<span className="max-sm:/g)).toHaveLength(1);
+    expect(article.match(/<span className="max-sm:/g)).toHaveLength(5);
     expect(article).toContain('lastReviewed: "2026-08-17"');
-    expect(article).toContain('Real-to-sim twins freeze the scene they captured.');
-    expect(article).toContain('Treating such a twin as a learned simulator is the most common misreading');
+    expect(article).toContain('A rebuilt twin can still mislead.');
     // Original 21 was held when this pin was written but a later packet
     // completed it; 23 and 24 remain held.
     expect(record(21).evidenceFailures).toEqual([]);

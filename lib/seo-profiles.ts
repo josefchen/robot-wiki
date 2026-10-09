@@ -306,7 +306,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'GPU-Parallel Simulation for Robot RL',
     headTerm: 'GPU-parallel simulation',
     description:
-      'How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp and MJX, with measured throughput.',
+      'How GPU-parallel simulation trains robot policies in minutes: Isaac Gym, Isaac Lab 3.0, Newton, MuJoCo Warp, MJX and Genesis, with measured throughput.',
     queries: ['GPU parallel simulation reinforcement learning', 'Isaac Lab vs MuJoCo Playground'],
   },
   '/rl-sim2real/sim2real-transfer/': {
@@ -327,14 +327,14 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Humanoid Whole-Body Control and Motion Tracking',
     headTerm: 'humanoid whole-body control',
     description:
-      'Humanoid whole-body control via RL motion tracking, from PHC and ASAP to SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.',
+      'Humanoid whole-body control via RL motion tracking, from PHC and ASAP to BeyondMimic and SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.',
     queries: ['humanoid whole-body control', 'humanoid motion tracking RL'],
   },
   '/rl-sim2real/reward-design-mpc/': {
     title: 'Reward Design and MPC vs RL for Robots',
     headTerm: 'reward design',
     description:
-      'Robot reward design, from hand-tuned terms and constraints to Eureka, and when whole-body model predictive control beats a learned policy.',
+      'Robot reward design, from hand-tuned terms and constraints to Eureka and DrEureka, and when whole-body model predictive control beats a learned policy.',
     queries: ['reward design reinforcement learning robotics', 'MPC vs reinforcement learning'],
   },
   '/rl-sim2real/offline-rl/': {

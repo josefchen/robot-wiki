@@ -472,13 +472,14 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "rawOpeningTags": 7,
+      "rawOpeningTags": 8,
       "termIds": [
         "legged-locomotion",
         "proprioception",
         "curriculum-learning",
         "teleoperation",
         "retargeting",
+        "ppo",
         "mpc",
         "flow-matching"
       ]

@@ -4,9 +4,9 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { getCitation } from '../../data/citations';
 
 const targets = [
-  ['The first approach reduces reward tuning', 'rewards-constraints-2024'],
-  ['Dohyeong Kim and colleagues take a different', 'stagewise-cmorl-2024'],
-  ['The second approach adapts reward weights', 'gain-adaptation-2025'],
+  ['The first answer adds constraints', 'rewards-constraints-2024'],
+  ['Dohyeong Kim and colleagues split acrobatic tasks', 'stagewise-cmorl-2024'],
+  ['The second answer adapts weights during training', 'gain-adaptation-2025'],
 ] as const;
 
 for (const width of [375, 1440]) {

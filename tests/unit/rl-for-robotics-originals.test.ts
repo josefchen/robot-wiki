@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseLedger, parseCompoundPlans } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 /**
  * Pins the 2026-09-16k rl-for-robotics-originals integration (rows 49 DROID/
@@ -89,7 +90,8 @@ describe('rl-for-robotics originals integration (2026-09-16k evidence completion
     const mdx = readFileSync(join(ROOT, 'content/rl-sim2real/rl-for-robotics.mdx'), 'utf8');
     const frontmatter = mdx.split('---')[1];
     const cites = /citations:\n((?:\s*-\s+\S+\n)+)/.exec(frontmatter)![1];
-    const ids = cites.match(/-\s+(\S+)/g)!.map((x) => x.replace(/-\s+/, ''));
+    const ids = [...preDomainPassCitations('rl-sim2real', 'rl-for-robotics',
+      cites.match(/-\s+(\S+)/g)!.map((x) => x.replace(/-\s+/, '')))];
     expect(ids).toHaveLength(27);
     const plan = compoundPlans.find((p) => p.id === EXPECTED_20260916K[50])!;
     expect(plan.parts[0].requiredCitationIds).toEqual(ids);
