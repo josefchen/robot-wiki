@@ -143,7 +143,7 @@ test.describe('legged-locomotion module', () => {
     await forward.click();
     await expect(readout).toContainText(/trot:\s*at least 2 feet on the ground/i);
     await forward.click();
-    await expect(readout).toContainText(/bound:\s*at times no feet on the ground/i);
+    await expect(readout).toContainText(/hop:\s*at times no feet on the ground/i);
   });
 
   test('zero axe violations', async ({ page }) => {

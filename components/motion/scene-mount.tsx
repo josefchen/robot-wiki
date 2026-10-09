@@ -54,6 +54,8 @@ export interface SceneMountProps {
   textAlternative: string;
   /** Method, sources and caveats for the "How this was made" fold. */
   method?: ReactNode;
+  /** An id on the frame, for a scene that needs a stable anchor URL. */
+  anchorId?: string;
   className?: string;
 }
 
@@ -65,8 +67,13 @@ export function SceneMount({
   statusLine,
   textAlternative,
   method,
-  className,
+  anchorId,
+  className: frameClassName,
 }: SceneMountProps) {
+  // An anchored frame clears the sticky mobile header when its link is followed.
+  const className = anchorId
+    ? ['scroll-mt-16 lg:scroll-mt-4', frameClassName].filter(Boolean).join(' ')
+    : frameClassName;
   const [active, setActive] = useState(false);
   const [autoPlay, setAutoPlay] = useState(false);
   const [initialStep, setInitialStep] = useState<1 | -1 | undefined>();
@@ -99,6 +106,7 @@ export function SceneMount({
   const posterView = (
     <FigureFrame
       as="div"
+      id={anchorId}
       figureId={sceneFigureId(scene.id)}
       data-motion-scene={scene.id}
       data-figure-beat-words={sceneBeatWords(scene)}
@@ -194,6 +202,7 @@ export function SceneMount({
       method={method}
       autoPlayOnMount={autoPlay}
       initialStep={initialStep}
+      anchorId={anchorId}
       className={className}
     >
       {stage}

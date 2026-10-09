@@ -6,23 +6,26 @@
     "375": "evidence/reader-first/rl-sim2real--humanoid-wbc--wbc-decomposition.375.png",
     "1280": "evidence/reader-first/rl-sim2real--humanoid-wbc--wbc-decomposition.1280.png"
   },
-  "takeaway": "Humanoid control is split into layers, slow decisions on top and fast balancing below, and designs differ in where they draw the lines.",
-  "sentence": "A humanoid robot's control is split into layers: a slow top layer works out what to do, and a fast bottom layer keeps the body balanced and moves the joints about 1,000 times a second.",
+  "takeaway": "Humanoid control is split into layers, slow decisions on top and fast balancing below.",
+  "sentence": "The figure shows a robot's control split into three stacked layers, from deciding what to do down to driving the motors very fast, with the fastest bottom layer keeping the robot balanced.",
   "unclearTerms": [
-    "Design",
-    "Copies human motion",
-    "Learned movement codes",
-    "One big network",
-    "body poses",
-    "the purple arrow running from the bottom box to the figure's hips",
-    "control stacks",
-    "loop rates"
+    "Figure AI / NVIDIA / Google DeepMind buttons: I recognise some as companies, but not why I would pick one or what would change if I did",
+    "Figure AI: I was not sure whether this is a company name or means 'this figure'",
+    "joint motor: I guessed it means the motors at the elbows and knees, but was not sure",
+    "Plans how each arm and leg moves vs Drives every joint motor: the difference between planning a movement and driving the motors was not clear to me",
+    "top box has no speed: the title says 'slow thinking', but no number tells me how slow the top layer is",
+    "200 / 1,000 times a second: I could not tell whether these speeds are large or small for a robot",
+    "downward arrows between boxes: I guessed they mean one layer passes instructions to the next",
+    "arrow from the bottom box to the body: unclear whether only the bottom layer controls the body",
+    "green upward arrow under the bottom box: unclear why it points up at the box and what the green colour means",
+    "thicker outline on the bottom box: I could not tell whether it is highlighted on purpose",
+    "purple dots: I needed the key to learn they are joint motors"
   ],
-  "samePoint": "no",
-  "reason": "I got the slow top layer and the fast balancing layer below, but my sentence leaves out that designs differ in where they draw the lines between layers, so it states only part of the point.",
+  "samePoint": "yes",
+  "reason": "Both describe control split into stacked layers, with deciding at the top and the fastest layer at the bottom keeping balance.",
   "verdict": "fail",
-  "screenshotCommit": "37c392c813e3f544f479de8c962f27f3a6302d74",
+  "screenshotCommit": "ee211309e71b215f470d068a95f8b2fb1dd45c3a",
   "date": "2026-10-09",
-  "reviewerSession": "reader-session-b34f3e09",
-  "sourceDigest": "acc9b94e07781c8c9f64709dcff8f1c8240d7067cd19e1ba75b720985df2cf30"
+  "reviewerSession": "reader-session-b5cda415",
+  "sourceDigest": "f895af7ed7a21478daab117ac828babaa8f507b75a4b97fd1f8b4e2150ec680c"
 }

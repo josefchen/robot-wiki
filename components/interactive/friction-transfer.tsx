@@ -41,6 +41,7 @@ import {
   pointCurvePoints,
   pointSuccess,
 } from '@/lib/sim2real';
+import { MOTION_STAGE } from '@/lib/motion-tokens';
 
 /**
  * FrictionTransfer draws authored success curves, not trained policies.
@@ -95,7 +96,7 @@ const floorSpan = (range: number) =>
 /** The real floor in words, against the one practice floor. */
 function floorWords(mu: number): string {
   const gap = mu - MU_TRAIN;
-  if (Math.abs(gap) < 0.05) return 'like the practice floor';
+  if (Math.abs(gap) < 0.05) return 'same as the practice floor';
   if (gap < -0.25) return 'much more slippery';
   if (gap < 0) return 'a bit more slippery';
   return gap > 0.25 ? 'much grippier' : 'a bit grippier';
@@ -105,8 +106,38 @@ function floorWords(mu: number): string {
 const spreadWords = (range: number) =>
   range <= 0.15 ? 'a narrow spread' : range <= 0.4 ? 'a middling spread' : 'a wide spread';
 
+/** Clearance between the two dot labels, in stage units: one label line. */
+const VALUE_LABEL_GAP = CHART_TYPE.labelPx * 1.2;
+
+/**
+ * Where the two dots' value labels sit: beside the real-floor line, on the
+ * side with room, each at its dot's height and pushed apart when the dots
+ * are close, inside the plot.
+ */
+export function valueLabelSpots(lineX: number, pointY: number, drY: number) {
+  const right = lineX <= PLOT.right - 44;
+  const x = f(right ? lineX + 9 : lineX - 9);
+  const anchor = right ? ('start' as const) : ('end' as const);
+  let [p, d] = [pointY, drY];
+  if (Math.abs(p - d) < VALUE_LABEL_GAP) {
+    const mid = (p + d) / 2;
+    const half = VALUE_LABEL_GAP / 2;
+    [p, d] = p <= d ? [mid - half, mid + half] : [mid + half, mid - half];
+  }
+  const top = PLOT.top + CHART_TYPE.labelPx * 0.7;
+  const bottom = PLOT.bottom - CHART_TYPE.labelPx * 0.4;
+  const shift = Math.max(0, top - Math.min(p, d)) - Math.max(0, Math.max(p, d) - bottom);
+  const baseline = (y: number) => f(y + shift + CHART_TYPE.labelPx * 0.35);
+  return { x, anchor, point: baseline(p), dr: baseline(d) };
+}
+
 function annotationLines(realMu: number, point: number, dr: number): string[] {
-  if (point >= dr) return ['On the practice floor itself the', `one-floor robot wins, ${formatPct(point)} against ${formatPct(dr)}`];
+  if (point >= dr) {
+    return [
+      Math.abs(realMu - MU_TRAIN) < 0.05 ? 'Real floor same as the practice floor:' : 'Real floor close to the practice floor:',
+      `the one-floor robot wins, ${formatPct(point)} against ${formatPct(dr)}`,
+    ];
+  }
   if (dr < 0.2) return ['Far from every practice floor,', 'both robots mostly fail'];
   if (point < 0.1) {
     return [
@@ -174,19 +205,18 @@ export function FrictionTransfer({
   const widthMark = range >= 0.5 ? 'wide' : 'ordinary';
 
   const descriptionText =
-    `Illustrative, not measured robot data. At selected friction ${formatMu(realMu)}, the point curve is ${formatPct(point)} and the DR curve is ${formatPct(dr)}. The assumed DR half-width is ${formatMu(range)} and its plateau is ${formatPct(drPeakValue)}. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. Dashed edges mark an assumed range, not a confidence interval. The randomization band is marked ${widthMark} at the selected half-width. Reset restores this panel to friction ${formatMu(defaultRealMu)} and half-width ${formatMu(defaultRange)}. Selecting friction samples the formulas; no training or adaptation runs.`;
+    `Illustrative, not measured robot data. At selected friction ${formatMu(realMu)}, the point curve is ${formatPct(point)} and the DR curve is ${formatPct(dr)}. The assumed DR half-width is ${formatMu(range)} and its plateau is ${formatPct(drPeakValue)}. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. The shaded band marks an assumed range, not a confidence interval. The randomization band is marked ${widthMark} at the selected half-width. Reset restores this panel to friction ${formatMu(defaultRealMu)} and half-width ${formatMu(defaultRange)}. Selecting friction samples the formulas; no training or adaptation runs.`;
 
   const lineX = xFor(realMu);
-  const bandEdges = [MU_TRAIN - range, MU_TRAIN + range].filter(
-    (mu) => mu >= MU_MIN && mu <= MU_MAX,
-  );
   const bandLeft = xFor(Math.max(MU_MIN, MU_TRAIN - range));
   const bandRight = xFor(Math.min(MU_MAX, MU_TRAIN + range));
   const valueColour = roleColour('value');
   const greyColour = roleColour('reference');
   const highlightColour = roleColour('highlight');
   const realLabelX = Math.min(PLOT.right - 34, Math.max(PLOT.left + 34, lineX));
+  const values = valueLabelSpots(lineX, yFor(point), yFor(dr));
   const practiceX = xFor(MU_TRAIN);
+  const onPracticeFloor = Math.abs(realMu - MU_TRAIN) < 0.05;
   const higher = point > dr ? 'point curve is higher' : 'DR curve is higher';
 
   return (
@@ -194,28 +224,33 @@ export function FrictionTransfer({
       figureId="friction-transfer"
       className={className}
       kicker="Domain randomization"
-      heading="A specialist wins on one floor; a generalist survives many"
+      heading="One-floor robot wins on its floor; many-floor robot copes widely"
       controls={
+        <ControlField>
+          {/* The setting reads as one phrase: a value on its own read as a second label. */}
+          <ControlLabel htmlFor={`${uid}-real-mu`} className="justify-start">
+            <span>
+              Real floor: <span className="text-text">{floorWords(realMu)}</span>
+            </span>
+          </ControlLabel>
+          <input
+            id={`${uid}-real-mu`}
+            type="range"
+            data-brand-control-id="control:input"
+            min={Math.round(MU_MIN * 100)}
+            max={Math.round(MU_MAX * 100)}
+            step={1}
+            value={Math.round(realMu * 100)}
+            onChange={(e) => setRealMu(Number(e.target.value) / 100)}
+            aria-label={`Real robot friction, currently ${formatMu(realMu)}`}
+            className={INSTRUMENT_SLIDER_CLASS}
+          />
+          <SliderEnds low="slippery" high="grippy" />
+        </ControlField>
+      }
+      adjust={
         <>
-          <ControlField>
-            <ControlLabel htmlFor={`${uid}-real-mu`} value={floorWords(realMu)}>
-              Real floor
-            </ControlLabel>
-            <input
-              id={`${uid}-real-mu`}
-              type="range"
-              data-brand-control-id="control:input"
-              min={Math.round(MU_MIN * 100)}
-              max={Math.round(MU_MAX * 100)}
-              step={1}
-              value={Math.round(realMu * 100)}
-              onChange={(e) => setRealMu(Number(e.target.value) / 100)}
-              aria-label={`Real robot friction, currently ${formatMu(realMu)}`}
-              className={INSTRUMENT_SLIDER_CLASS}
-            />
-            <SliderEnds low="slippery" high="grippy" />
-          </ControlField>
-          <ControlField>
+          <ControlField className="w-full basis-full content-start sm:max-w-sm">
             <ControlLabel htmlFor={`${uid}-range`} value={spreadWords(range)}>
               Range of practice floors
             </ControlLabel>
@@ -233,22 +268,19 @@ export function FrictionTransfer({
             />
             <SliderEnds low="nearly one floor" high="many floors" />
           </ControlField>
+          <InstrumentReset onClick={reset} />
         </>
       }
-      adjust={<InstrumentReset onClick={reset} />}
       stage={
         <FigureStage
           footer={
             <>
               <InstrumentLegend>
                 <LegendItem series="point-policy" swatch={<LegendSwatch role="reference" mark="dash" />}>
-                  trained on one floor
+                  one-floor robot
                 </LegendItem>
-                <LegendItem series="dr-policy" swatch={<LegendSwatch role="value" mark="line" />}>
-                  trained on many floors
-                </LegendItem>
-                <LegendItem series="training-range" swatch={<BandSwatch />}>
-                  the many practice floors
+                <LegendItem series="dr-policy" swatch={<ManyFloorsSwatch />}>
+                  many-floor robot, practised on the shaded floors
                 </LegendItem>
               </InstrumentLegend>
               <StageStatus>Illustrative, not measured</StageStatus>
@@ -277,7 +309,7 @@ export function FrictionTransfer({
               fontSize={CHART_TYPE.axisPx}
               fill={CHART_STRUCTURE.labelSecondary}
             >
-              chance of success
+              tries without a fall
             </text>
             <g data-chart-axes="">
               <line
@@ -310,7 +342,8 @@ export function FrictionTransfer({
               ))}
             </g>
 
-            <g data-testid="dr-band" data-series="training-range">
+            {/* The band belongs to the many-floor robot's series: one legend entry names both. */}
+            <g data-testid="dr-band" data-series="dr-policy">
               <rect
                 x={bandLeft}
                 y={PLOT.top}
@@ -319,21 +352,6 @@ export function FrictionTransfer({
                 fill={CHART_STRUCTURE.grid}
                 opacity={CHART_STRUCTURE.gridOpacity}
               />
-              {bandEdges.map((mu) => (
-                <line
-                  key={mu}
-                  data-chart-mark="line"
-                  data-chart-role="reference"
-                  x1={xFor(mu)}
-                  x2={xFor(mu)}
-                  y1={PLOT.top}
-                  y2={PLOT.bottom}
-                  stroke={greyColour}
-                  strokeWidth={CHART_STROKE.structure}
-                  strokeDasharray={CHART_STROKE.dash}
-                  opacity={0.6}
-                />
-              ))}
             </g>
 
             <polyline
@@ -369,10 +387,6 @@ export function FrictionTransfer({
                 stroke={highlightColour}
                 strokeWidth={CHART_STROKE.reference}
               />
-              <path
-                d={`M ${f(lineX - 5)},${PLOT.top - 10} L ${f(lineX + 5)},${PLOT.top - 10} L ${lineX},${PLOT.top - 2} Z`}
-                fill={highlightColour}
-              />
               {/* Fat unpainted hit area for pointer drag. */}
               <rect
                 x={f(lineX - 12)}
@@ -389,8 +403,9 @@ export function FrictionTransfer({
                 }}
               />
             </g>
-            <DirectLabel x={realLabelX} y={PLOT.top - 14} anchor="middle" role="highlight">
-              real floor
+            {/* On the practice floor the two would share one line, so the label says so. */}
+            <DirectLabel x={realLabelX} y={PLOT.top - 8} anchor="middle" role="highlight">
+              {onPracticeFloor ? 'real floor is the practice floor' : 'real floor'}
             </DirectLabel>
 
             <g data-testid="point-marker" data-series="point-policy">
@@ -399,14 +414,32 @@ export function FrictionTransfer({
             <g data-testid="dr-marker" data-series="dr-policy">
               <PointMarker x={lineX} y={yFor(dr)} role="value" />
             </g>
+            {/* Each robot's chance of success on the real floor, haloed so a curve under it never cuts the digits. */}
+            <g
+              data-testid="real-floor-values"
+              stroke={MOTION_STAGE.background}
+              strokeWidth={4}
+              strokeLinejoin="round"
+              paintOrder="stroke"
+              fontWeight={600}
+            >
+              <DirectLabel x={values.x} y={values.point} anchor={values.anchor} role="reference">
+                {formatPct(point)}
+              </DirectLabel>
+              <DirectLabel x={values.x} y={values.dr} anchor={values.anchor} role="value">
+                {formatPct(dr)}
+              </DirectLabel>
+            </g>
           </PlotStage>
         </FigureStage>
       }
-      caption="Real floors never match the simulator exactly, so engineers vary the practice world on purpose to get robots that cope everywhere."
+      caption="Robots practise on computer-simulated floors that never match a real floor exactly, so engineers vary them on purpose."
       method={
         <>
           <p>
-            Friction is the ground friction coefficient, mu: low is slippery, high is grippy. The robot trained on one
+            The task in this example is walking across the floor without falling, and the chart shows the share of
+            tries that end without a fall. Friction is the ground friction
+            coefficient, mu: low is slippery, high is grippy. The robot trained on one
             floor is a point policy trained at mu {formatMu(MU_TRAIN)} only. The robot trained on many floors is a
             domain-randomized (DR) policy trained over uniform mu in [{formatMu(MU_TRAIN - range)},{' '}
             {formatMu(MU_TRAIN + range)}], a half-width of {formatMu(range)} either side of the practice floor; the
@@ -452,16 +485,16 @@ export function FrictionTransfer({
           />
         </>
       }
-      source="All curves are authored formulas, not trained policies or robot data; every value and the falling DR peak are local assumptions."
     />
   );
 }
 
-/** The practice-floor band's legend swatch: the band's own quiet fill. */
-function BandSwatch() {
+/** The many-floor robot's legend swatch: its line over the band's own quiet fill. */
+function ManyFloorsSwatch() {
   return (
     <svg aria-hidden="true" focusable="false" width={28} height={14} viewBox="0 0 28 14" className="shrink-0">
       <rect x={0} y={0} width={28} height={14} fill={CHART_STRUCTURE.grid} opacity={CHART_STRUCTURE.gridOpacity} />
+      <line x1={2} x2={26} y1={7} y2={7} stroke={roleColour('value')} strokeWidth={CHART_STROKE.trace} />
     </svg>
   );
 }

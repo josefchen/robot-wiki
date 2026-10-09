@@ -129,9 +129,9 @@ test('preserved H2O and ASAP chips retain hover/focus containment', async ({ pag
 });
 
 test('existing WBC selection, readouts and reset remain functional', async ({ page }) => {
-  // The three designs are the frame's visible choice; Reset waits in Adjust more.
+  // The three companies' robot brains are the frame's visible choice; Reset waits in Adjust more.
   const frame = page.locator('main [data-figure-frame="wbc-decomposition"]');
-  const group = frame.getByRole('group', { name: 'Design' });
+  const group = frame.getByRole('group', { name: 'Robot brain by' });
   const buttons = group.getByRole('button');
   await expect(buttons).toHaveCount(3);
   const initial = await group.locator('[aria-pressed="true"]').innerText();

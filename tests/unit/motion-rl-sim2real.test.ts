@@ -6,7 +6,13 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { beatSpans, posterTime } from '@/components/motion/timeline';
 import { BatchScale, BATCH_SCALE_SCENE, batchScaleFrame } from '@/components/motion/scenes/batch-scale';
-import { GaitSupport, GAIT_SUPPORT_SAMPLES, GAIT_SUPPORT_SCENE, gaitSupportFrame } from '@/components/motion/scenes/gait-support';
+import {
+  GaitSupport,
+  GAIT_SUPPORT_SAMPLES,
+  GAIT_SUPPORT_SCENE,
+  LINE_UP,
+  gaitSupportFrame,
+} from '@/components/motion/scenes/gait-support';
 import { DEFAULT_GAIT, GAITS, GAIT_ORDER, minStanceCount, stanceLegs } from '@/lib/gait';
 import { DEFAULT_ENVS, MAX_ENVS, MIN_ENVS, wallClockSeconds } from '@/lib/parallel-sim';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
@@ -92,9 +98,10 @@ describe('RL and sim-to-real scene models', () => {
 
   it('uses the authored gait definitions without presenting a measured footfall trace', () => {
     const spans = beatSpans(GAIT_SUPPORT_SCENE.beats);
-    expect(GAIT_SUPPORT_SCENE.beats).toHaveLength(GAIT_ORDER.length);
+    // One beat per gait in the line-up, then the recap; the method note keeps every authored gait.
+    expect(GAIT_SUPPORT_SCENE.beats).toHaveLength(LINE_UP.length + 1);
     expect(gaitSupportFrame(spans[0].end).visibleGaits).toEqual([DEFAULT_GAIT]);
-    expect(gaitSupportFrame(posterTime(spans)).visibleGaits).toEqual(GAIT_ORDER);
+    expect(gaitSupportFrame(posterTime(spans)).visibleGaits).toEqual(LINE_UP);
     for (const id of GAIT_ORDER) {
       expect(gaitSupportFrame(posterTime(spans)).minimumSupport[id])
         .toBe(minStanceCount(GAITS[id]));
@@ -112,17 +119,20 @@ describe('RL and sim-to-real scene models', () => {
   });
 
   it('gives every beat a standalone sentence and a still final overview', () => {
+    expect(BATCH_SCALE_SCENE.beats).toHaveLength(4);
+    expect(GAIT_SUPPORT_SCENE.beats).toHaveLength(4);
     for (const scene of [BATCH_SCALE_SCENE, GAIT_SUPPORT_SCENE]) {
-      expect(scene.beats).toHaveLength(4);
+      expect(scene.beats.at(-1)?.id).toBe('recap');
       for (const beat of scene.beats) expect(beat.caption).toMatch(/[.!?]$/);
     }
   });
 
-  it('marks the gait pair/phase and batch axis labels for rendered-size checks', () => {
+  it('marks the gait names, the trade words and the batch axis labels for rendered-size checks', () => {
     const gait = renderToStaticMarkup(createElement(GaitSupport));
     const batch = renderToStaticMarkup(createElement(BatchScale));
     const count = (html: string) => [...html.matchAll(/data-scene-stage-label=/g)].length;
-    expect(count(gait)).toBeGreaterThanOrEqual(10);
+    // One name per gait in the line-up and the two ends of the trade-off arrow.
+    expect(count(gait)).toBeGreaterThanOrEqual(LINE_UP.length + 2);
     expect(count(batch)).toBeGreaterThanOrEqual(4);
   });
 });

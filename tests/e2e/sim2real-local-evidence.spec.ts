@@ -54,7 +54,8 @@ test('sim2real raw mounted evidence covers the friction mount and teacher transi
     await expect(panel.getByTestId('real-mu-readout')).toHaveText(mu.toFixed(2));
     await expect(panel.getByTestId('point-readout')).toHaveText(expected.pointDisplay);
     await expect(panel.getByTestId('dr-readout')).toHaveText(expected.drDisplay);
-    await expect(panel.getByRole('slider', { name: /randomization half-width/i })).toHaveValue(String(Math.round(range * 100)));
+    // The range slider sits in Adjust more, closed at first, so it is found by its label attribute.
+    await expect(panel.locator('input[aria-label^="Randomization half-width"]')).toHaveValue(String(Math.round(range * 100)));
     const line = await panel.getByTestId('real-line').locator('line').getAttribute('x1');
     const curve = await panel.getByTestId('dr-curve').getAttribute('points');
     expect(line).not.toBeNull();
@@ -74,10 +75,11 @@ test('sim2real raw mounted evidence covers the friction mount and teacher transi
   const far = await frictionState(ordinary, 'friction-far', 1.5, 0.35);
   expect(far.line).not.toEqual(initial.line);
   await setSlider(ordinary.getByRole('slider', { name: /real robot friction/i }), 80);
+  // The range of practice floors and Reset wait in Adjust more.
+  await openAdjustMore(ordinary);
   await setSlider(ordinary.getByRole('slider', { name: /randomization half-width/i }), 65);
   const wide = await frictionState(ordinary, 'friction-wide', 0.8, 0.65);
   expect(wide.curve).not.toEqual(initial.curve);
-  await openAdjustMore(ordinary);
   await ordinary.getByRole('button', { name: 'Reset', exact: true }).click();
   expect(await frictionState(ordinary, 'friction-reset', 0.8, 0.35)).toEqual(initial);
 

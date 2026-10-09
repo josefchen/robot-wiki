@@ -158,10 +158,10 @@ const CHARTS: Array<{
     route: '/rl-sim2real/humanoid-wbc',
     name: 'wbc',
     control: 'button',
-    // The design presets name each approach in plain words; the takeaway
+    // The design presets name whose robot brain each stack is; the takeaway
     // still names the technical approach.
-    moves: ['Learned movement codes', 'One big network'],
-    def: 'Copies human motion',
+    moves: ['NVIDIA', 'Google DeepMind'],
+    def: 'Figure AI',
     match: 'Motion-tracking RL',
   },
   {

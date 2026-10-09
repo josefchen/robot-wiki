@@ -106,15 +106,15 @@ test.describe('sim2real-transfer module', () => {
     await expect(friction(page).getByTestId('point-readout')).toHaveText('97%');
     await expect(friction(page).getByTestId('delta-readout')).toHaveText(/point \+\d+ pts/);
 
-    // Widen the randomization range: the DR peak drops.
+    // Widen the randomization range, in Adjust more: the DR peak drops.
+    await openAdjustMore(friction(page));
     const rangeSlider = friction(page).getByRole('slider', {
       name: /randomization half-width/i,
     });
     await setSlider(rangeSlider, 65);
     await expect(friction(page).getByTestId('dr-readout')).toHaveText('57%');
 
-    // Reset, in Adjust more, restores everything.
-    await openAdjustMore(friction(page));
+    // Reset, beside it in Adjust more, restores everything.
     await friction(page).getByRole('button', { name: 'Reset' }).click();
     await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.80');
     await expect(friction(page).getByTestId('dr-readout')).toHaveText('74%');

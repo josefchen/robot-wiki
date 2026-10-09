@@ -1363,150 +1363,59 @@
     {
       "id": "gait-support",
       "route": "/rl-sim2real/legged-locomotion/",
-      "sourceSha256": "7c972cd92e15f5b48a6c3b5d78684bf30a2799994f4f75e08bbaa15ab261eaa1",
+      "sourceSha256": "10b43d1cd40e1bedcaf6eec668e28c53f83bf33935a279ce8e6520b70b3a0c55",
       "marks": [
         {
-          "mark": "bound-phase-0",
+          "mark": "trot-foot-0",
           "role": "state",
           "hex": "#007A91",
           "beats": [
-            3
-          ]
-        },
-        {
-          "mark": "bound-phase-2",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            3
-          ]
-        },
-        {
-          "mark": "bound-phase-4",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            3
-          ]
-        },
-        {
-          "mark": "bound-phase-6",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            3
-          ]
-        },
-        {
-          "mark": "pronk-phase-0",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
+            2,
+            3,
             4
           ]
         },
         {
-          "mark": "pronk-phase-2",
+          "mark": "trot-foot-3",
           "role": "state",
           "hex": "#007A91",
           "beats": [
+            2,
+            3,
             4
           ]
         },
         {
-          "mark": "pronk-phase-4",
+          "mark": "walk-foot-0",
           "role": "state",
           "hex": "#007A91",
           "beats": [
+            1,
+            2,
+            3,
             4
           ]
         },
         {
-          "mark": "pronk-phase-6",
+          "mark": "walk-foot-2",
           "role": "state",
           "hex": "#007A91",
           "beats": [
+            1,
+            2,
+            3,
             4
           ]
         },
         {
-          "mark": "trot-phase-0",
+          "mark": "walk-foot-3",
           "role": "state",
           "hex": "#007A91",
           "beats": [
-            2
-          ]
-        },
-        {
-          "mark": "trot-phase-2",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            2
-          ]
-        },
-        {
-          "mark": "trot-phase-4",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            2
-          ]
-        },
-        {
-          "mark": "trot-phase-6",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            2
-          ]
-        },
-        {
-          "mark": "walk-phase-0",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            1
-          ]
-        },
-        {
-          "mark": "walk-phase-2",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            1
-          ]
-        },
-        {
-          "mark": "walk-phase-3",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            1
-          ]
-        },
-        {
-          "mark": "walk-phase-4",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            1
-          ]
-        },
-        {
-          "mark": "walk-phase-6",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            1
-          ]
-        },
-        {
-          "mark": "walk-phase-7",
-          "role": "state",
-          "hex": "#007A91",
-          "beats": [
-            1
+            1,
+            2,
+            3,
+            4
           ]
         }
       ]

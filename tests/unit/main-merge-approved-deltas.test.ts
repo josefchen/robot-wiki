@@ -1472,6 +1472,10 @@ describe('two-parent exact approval reconciliation', () => {
     expect(merged.slice(afterKolQueue20261009).map(x => x.id)).toEqual(rlPass20261009Appends);
     expect(rlPass20261009Appends).toEqual([
       'article-metadata-rl-for-robotics',
+      'accessible-names-eureka-loop-literal-aria-label-1',
+      'accessible-names-eureka-loop-expression-aria-label-1',
+      'accessible-names-mpc-vs-rl-literal-aria-label-1',
+      'accessible-names-mpc-vs-rl-expression-aria-label-1',
     ].map(suffix => `rl-sim2real-pass-20261009-${suffix}`));
     for (const id of rlPass20261009Appends) {
       const entry = merged.find(x => x.id === id)!;

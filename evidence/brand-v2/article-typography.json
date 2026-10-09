@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "1ffead105b5ae01029584ebf87ffa546420d5ebe9b1f26b2ecec9098fc5f9e66",
+  "fingerprint": "44f7572f6aac194185c05b35dd90545a126771551dc68c8feca74c8c4dff8ccf",
   "viewports": [
     "375x812",
     "1440x900"
@@ -41934,7 +41934,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 25136,
+      "visibleTextLength": 24951,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42083,7 +42083,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Original schematic; speeds are published values"
+          "text": "Schematic; speeds as published by Figure AI"
         },
         {
           "familyHead": "ibm plex sans",
@@ -42092,7 +42092,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The three designs are the three whole-body control decomposi"
+          "text": "The three robot brains are the three whole-body control deco"
         },
         {
           "familyHead": "ibm plex sans",
@@ -42652,7 +42652,7 @@
         },
         {
           "tag": "button",
-          "text": "Copies human motion",
+          "text": "Figure AI",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -42660,7 +42660,7 @@
         },
         {
           "tag": "button",
-          "text": "Learned movement codes",
+          "text": "NVIDIA",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -42668,7 +42668,7 @@
         },
         {
           "tag": "button",
-          "text": "One big network",
+          "text": "Google DeepMind",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -42829,7 +42829,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21296,
+      "visibleTextLength": 21146,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42970,19 +42970,10 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 268,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 Hop (pronk): at times no feet on the ground"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.38,
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Schematic, not measured robot footfalls"
+          "text": "beat 4 / 4 Walk lifts one foot at a time, trot a diagonal pa"
         },
         {
           "familyHead": "ibm plex sans",
@@ -43000,7 +42991,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "In robotics papers the paws are written LF, RF, LH and RH: l"
+          "text": "In robotics papers the feet are written LF, RF, LH and RH: l"
         },
         {
           "familyHead": "ibm plex sans",
@@ -43009,7 +43000,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Paws on the ground at four moments of the stride:"
+          "text": "Feet on the ground at four moments of the stride:"
         },
         {
           "familyHead": "ibm plex sans",
@@ -43018,7 +43009,25 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The four steps, in order:"
+          "text": "The line-up stops each dog at one moment of its stride, walk"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The line-up leaves out the bound, which sits between the tro"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The steps, in order:"
         },
         {
           "familyHead": "newsreader",
@@ -45501,7 +45510,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29759,
+      "visibleTextLength": 28599,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45568,11 +45577,11 @@
           "Reward Design and the MPC Debate"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 15,
+        "readingMinutes": 14,
         "citationCount": 42,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "15 min",
+        "readingTimeText": "14 min",
         "citationCountText": "42",
         "bibliographyIds": [
           "rudin-2021",
@@ -45782,10 +45791,73 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 203,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Points for speed, and nothing else."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Only speed earns points, so it sprints into a fall. Next: po"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 77,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Round 1 of 3"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative example, not a recorded run"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Scripted replay of the Eureka loop (propose reward code, tra"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Generation 0 of 2Fitness: 0.31"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Fitness is the task score after training with this reward, f"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Fitness is low. base_lin_vel_x spikes to 2.8 m/s, nearly thr"
         },
         {
           "familyHead": "newsreader",
@@ -45908,19 +45980,64 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 289,
+          "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Peak deviation: MPC 6.00 cm, RL policy 8.00 cm"
+          "text": "Illustrative, not measured"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Plans ahead: Model-based MPC (iLQR + MuJoCo). Compute per st"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Learned by practice: Learned policy (sim RL). Compute per st"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Each surprise in the literature's terms: Sideways shove, lat"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The model assumes a friction coefficient the patch does not "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 335,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Friction was randomized over a wide band at training time, s"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "After a lateral push at step 4 the MPC base-height deviation"
+          "text": "After a low-friction patch at step 4 the MPC base-height dev"
         },
         {
           "familyHead": "newsreader",
@@ -46390,7 +46507,7 @@
         },
         {
           "tag": "button",
-          "text": "Run next generation",
+          "text": "Next round",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -46405,8 +46522,16 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
-          "text": "lateral push",
+          "text": "Sideways shove",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -46414,7 +46539,7 @@
         },
         {
           "tag": "button",
-          "text": "low-friction patch",
+          "text": "Slippery patch",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -46422,7 +46547,7 @@
         },
         {
           "tag": "button",
-          "text": "+5 kg payload",
+          "text": "Heavy backpack",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -46430,15 +46555,31 @@
         },
         {
           "tag": "button",
-          "text": "torque-limit cut",
+          "text": "Weaker motors",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -47464,7 +47605,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28765,
+      "visibleTextLength": 28601,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47621,7 +47762,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Friction is the ground friction coefficient, mu: low is slip"
+          "text": "The task in this example is walking across the floor without"
         },
         {
           "familyHead": "ibm plex sans",
@@ -98183,7 +98324,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 25627,
+      "visibleTextLength": 25442,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98332,7 +98473,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Original schematic; speeds are published values"
+          "text": "Schematic; speeds as published by Figure AI"
         },
         {
           "familyHead": "ibm plex sans",
@@ -98341,7 +98482,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The three designs are the three whole-body control decomposi"
+          "text": "The three robot brains are the three whole-body control deco"
         },
         {
           "familyHead": "ibm plex sans",
@@ -98901,7 +99042,7 @@
         },
         {
           "tag": "button",
-          "text": "Copies human motion",
+          "text": "Figure AI",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -98909,7 +99050,7 @@
         },
         {
           "tag": "button",
-          "text": "Learned movement codes",
+          "text": "NVIDIA",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -98917,7 +99058,7 @@
         },
         {
           "tag": "button",
-          "text": "One big network",
+          "text": "Google DeepMind",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -99078,7 +99219,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21787,
+      "visibleTextLength": 21637,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -99219,19 +99360,10 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 268,
+          "widthPx": 432,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "beat 4 / 4 Hop (pronk): at times no feet on the ground"
-        },
-        {
-          "familyHead": "ibm plex sans",
-          "sizePx": 14,
-          "lineHeightRatio": 1.38,
-          "widthPx": 715,
-          "zeroAdvancePx": 8,
-          "insideRegisteredFrame": true,
-          "text": "Schematic, not measured robot footfalls"
+          "text": "beat 4 / 4 Walk lifts one foot at a time, trot a diagonal pa"
         },
         {
           "familyHead": "ibm plex sans",
@@ -99249,7 +99381,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "In robotics papers the paws are written LF, RF, LH and RH: l"
+          "text": "In robotics papers the feet are written LF, RF, LH and RH: l"
         },
         {
           "familyHead": "ibm plex sans",
@@ -99258,7 +99390,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Paws on the ground at four moments of the stride:"
+          "text": "Feet on the ground at four moments of the stride:"
         },
         {
           "familyHead": "ibm plex sans",
@@ -99267,7 +99399,25 @@
           "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "The four steps, in order:"
+          "text": "The line-up stops each dog at one moment of its stride, walk"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The line-up leaves out the bound, which sits between the tro"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The steps, in order:"
         },
         {
           "familyHead": "newsreader",
@@ -101750,7 +101900,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30250,
+      "visibleTextLength": 29090,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101817,11 +101967,11 @@
           "Reward Design and the MPC Debate"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 15,
+        "readingMinutes": 14,
         "citationCount": 42,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "15 min",
+        "readingTimeText": "14 min",
         "citationCountText": "42",
         "bibliographyIds": [
           "rudin-2021",
@@ -102031,10 +102181,73 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 203,
+          "widthPx": 199.09,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Points for speed, and nothing else."
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 199.09,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Only speed earns points, so it sprints into a fall. Next: po"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 77,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Round 1 of 3"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative example, not a recorded run"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Scripted replay of the Eureka loop (propose reward code, tra"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
           "text": "Generation 0 of 2Fitness: 0.31"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Fitness is the task score after training with this reward, f"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Fitness is low. base_lin_vel_x spikes to 2.8 m/s, nearly thr"
         },
         {
           "familyHead": "newsreader",
@@ -102157,19 +102370,64 @@
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "lineHeightRatio": 1.38,
-          "widthPx": 289,
+          "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Peak deviation: MPC 6.00 cm, RL policy 8.00 cm"
+          "text": "Illustrative, not measured"
         },
         {
           "familyHead": "ibm plex sans",
-          "sizePx": 13,
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Plans ahead: Model-based MPC (iLQR + MuJoCo). Compute per st"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Learned by practice: Learned policy (sim RL). Compute per st"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Each surprise in the literature's terms: Sideways shove, lat"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "The model assumes a friction coefficient the patch does not "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "lineHeightRatio": 1.38,
+          "widthPx": 715,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Friction was randomized over a wide band at training time, s"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "lineHeightRatio": 1.38,
           "widthPx": 1,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "After a lateral push at step 4 the MPC base-height deviation"
+          "text": "After a low-friction patch at step 4 the MPC base-height dev"
         },
         {
           "familyHead": "newsreader",
@@ -102639,7 +102897,7 @@
         },
         {
           "tag": "button",
-          "text": "Run next generation",
+          "text": "Next round",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -102654,8 +102912,16 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
-          "text": "lateral push",
+          "text": "Sideways shove",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -102663,7 +102929,7 @@
         },
         {
           "tag": "button",
-          "text": "low-friction patch",
+          "text": "Slippery patch",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -102671,7 +102937,7 @@
         },
         {
           "tag": "button",
-          "text": "+5 kg payload",
+          "text": "Heavy backpack",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -102679,15 +102945,31 @@
         },
         {
           "tag": "button",
-          "text": "torque-limit cut",
+          "text": "Weaker motors",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
           "text": "Reset",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -103713,7 +103995,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29256,
+      "visibleTextLength": 29092,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103870,7 +104152,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 8,
           "insideRegisteredFrame": true,
-          "text": "Friction is the ground friction coefficient, mu: low is slip"
+          "text": "The task in this example is walking across the floor without"
         },
         {
           "familyHead": "ibm plex sans",
