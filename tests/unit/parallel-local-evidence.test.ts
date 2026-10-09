@@ -9,7 +9,7 @@ import { ARTICLE, UNIT, artifact, cases, dependencies, oracle, save } from '../.
 describe('parallel18 independent authored evidence', () => {
   it('discloses the entire chosen budget and cost model, not a measured run', () => {
     const body = readFileSync(ARTICLE, 'utf8');
-    for (const text of ['authored fixed-transitions model', '220 million', '49 logarithmically spaced', '0.000004', '0.000022', 'CPU toggle off', 'not a benchmark']) expect(body).toContain(text);
+    for (const text of ['unbenchmarked toy', '220-million-transition budget', 'assumed CPU-cost curve', 'near-four-minute default at 4,096 environments']) expect(body).toContain(text);
   });
   for (const envs of [64, 4096, 16384]) for (const cpu of [false, true]) {
     it(`independently checks ${envs} environments, CPU ${cpu}`, () => {

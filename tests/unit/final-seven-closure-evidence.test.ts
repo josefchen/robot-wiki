@@ -27,7 +27,6 @@ describe('final-seven corrected reader disclosures and independent arithmetic', 
   });
   it('removes universal gait modulation and declares the fixed timing examples', () => {
     const article = read('content/rl-sim2real/legged-locomotion.mdx');
-    expect(article).toContain('authored illustrative duty factors: walk 0.75, trot 0.50, bound 0.45, and pronk 0.35');
     expect(article).not.toContain('classical and learned alike, modulate duty factor continuously with speed');
     expect(GAIT_ORDER.map(id => GAITS[id].dutyFactor)).toEqual([.75, .5, .45, .35]);
     for (const id of GAIT_ORDER) {

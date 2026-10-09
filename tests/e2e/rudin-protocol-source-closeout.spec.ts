@@ -1,10 +1,14 @@
 import { test, expect, type Locator } from '@playwright/test';
-import { openAdjustMore } from './helpers/figure-fold';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { getCitation } from '../../data/citations';
 import { getTerm } from '../../data/glossary';
-import { setSlider } from './slider';
+import { oracle } from '../../audit/evidence/parallel-local-20260923/support';
+
+/** The batch-scale scene's stated training time: hours or minutes to one decimal, else seconds. */
+const trainingTime = (seconds: number) => seconds >= 3600 ? `${(seconds / 3600).toFixed(1)} hours`
+  : seconds >= 60 ? `${(seconds / 60).toFixed(1)} minutes` : `${Math.round(seconds)} seconds`;
 
 for (const width of [375, 1440]) test(`Rudin scoped source readers ${width}`, async ({ browser }, info) => {
   const height = width === 375 ? 812 : 900;
@@ -122,22 +126,43 @@ for (const width of [375, 1440]) test(`Rudin scoped source readers ${width}`, as
         await fontAndContrast(reference.locator('[data-author-names]'), `${slug}-${id}-authors`);
       }
       if (slug === 'parallel-sim-rl') {
-        const flat = page.getByTestId('rudin-marker-flat');
-        await expect(flat).toContainText('x illustrative');
-        await expect(page.getByTestId('rudin-marker-uneven')).toContainText('< 20 min');
-        const chart = flat.locator('..').locator('..');
-        await capture(chart, 'chart-default');
-        const slider = page.getByRole('slider', { name: /parallel environments/i });
-        await setSlider(slider, 6); await capture(chart, 'chart-minimum');
-        await setSlider(slider, 14); await capture(chart, 'chart-maximum');
-        await page.getByRole('button', { name: /cpu single-core bottleneck/i }).click();
-        await capture(chart, 'chart-cpu-maximum');
-        await page.getByRole('button', { name: 'Reset', exact: true }).click();
-        await expect(page.getByTestId('envs-readout')).toHaveText('4,096');
-        await slider.focus(); await page.keyboard.press('ArrowLeft');
-        await expect(page.getByTestId('envs-readout')).toHaveText('2,048');
-        await capture(slider, 'chart-keyboard-focus');
-        await page.getByRole('button', { name: 'Reset', exact: true }).click();
+        // The Rudin bounds sit in the prose and the stat tiles; the batch-scale
+        // scene that replaced TrainingTimeChart draws the authored model only.
+        await expect(prose).toContainText('Flat terrain took under four minutes and uneven terrain twenty');
+        await expect(prose).toContainText('Flat-terrain walk');
+        await expect(prose).toContainText('< 4 min');
+        const chart = prose.locator('[data-motion-scene="batch-scale"]');
+        await expect(chart).toHaveCount(1);
+        const caption = chart.getByTestId('motion-caption');
+        const readout = chart.getByTestId('motion-readout');
+        // Each beat states the solid-curve time for its robot count, checked
+        // against the independent closed-form oracle, not the scene's model.
+        const beatState = async (text: RegExp, envs: number, name: string) => {
+          await expect(caption, name).toHaveText(text);
+          await expect(readout).toContainText(
+            `${envs.toLocaleString('en-US')} robots at once: ${trainingTime(oracle(envs, false).seconds)} of training`);
+          await capture(chart, name);
+        };
+        // The poster is the recap beat: 16,384 robots.
+        await beatState(/16,384 virtual robots/i, 16384, 'chart-default');
+        await openAdjustMore(chart);
+        const back = chart.getByRole('button', { name: 'Step back one beat' });
+        const forward = chart.getByRole('button', { name: 'Step forward one beat' });
+        await back.click(); await beatState(/dashed line flattens/i, 4096, 'chart-cpu');
+        await back.click(); await beatState(/4,096 robots/i, 4096, 'chart-default-scale');
+        await back.click(); await beatState(/64 virtual robots/i, 64, 'chart-minimum');
+        for (let i = 0; i < 3; i++) await forward.click();
+        await beatState(/16,384 virtual robots/i, 16384, 'chart-maximum');
+        const method = await openHowThisWasMade(chart);
+        const solid = [64, 4096, 16384].map(envs => trainingTime(oracle(envs, false).seconds));
+        const dashed = [64, 4096, 16384].map(envs => trainingTime(oracle(envs, true).seconds));
+        await expect(method).toContainText(`64 robots, ${solid[0]}; 4,096 robots, ${solid[1]}; 16,384 robots, ${solid[2]}`);
+        await expect(method).toContainText(`Along the dashed curve: ${dashed[0]}, ${dashed[1]} and ${dashed[2]}`);
+        await back.focus(); await page.keyboard.press('Enter');
+        await expect(caption).toHaveText(/dashed line flattens/i);
+        await capture(back, 'chart-keyboard-focus');
+        await chart.getByRole('button', { name: 'Reset the scene to its poster still' }).click();
+        await expect(caption).toHaveText(/16,384 virtual robots/i);
         await capture(chart, 'chart-reset');
         const term = prose.locator('[data-term-id="curriculum-learning"]').first();
         if (await term.count()) {

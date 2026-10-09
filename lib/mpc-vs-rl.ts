@@ -192,13 +192,13 @@ export const MPC_RL_COMPARISON_ROWS: ComparisonRow[] = [
   {
     key: 'contact-discovery',
     dimension: 'contact-mode discovery',
-    mpc: 'Hard: contact schedules are combinatorial, usually given or found by contact-implicit methods.',
+    mpc: 'Harder: contact schedules are combinatorial and often given, though sampling-based MPC now finds gaits and contact sequences without handcrafted patterns.',
     rl: 'Emergent from exploration across thousands of parallel environments.',
   },
   {
     key: 'perception',
     dimension: 'rich perception',
-    mpc: 'Awkward: there is no clean way to put an RGB image into a QP.',
+    mpc: 'Indirect: perceptive MPC plans against constraints extracted from elevation maps; there is no clean way to put an RGB image into a QP.',
     rl: 'Natural: end-to-end from images or heightscans.',
   },
   {

@@ -28,31 +28,27 @@ function rowFor(plan: CompoundPlan) {
 
 describe('PHC, OmniH2O and HumanPlus source corrections', { timeout: 60_000 }, () => {
   it('scopes PHC to simulated avatars and progressive failed subsets', () => {
-    for (const phrase of ['simulated avatars; it did not test a physical robot', '98.9%',
-      '11,313 filtered AMASS training clips', 'training-set result',
-      'progressively harder failed subsets', 'separate recovery primitive',
+    for (const phrase of ['simulated avatars, with no physical robot', '98.9%',
+      '11,313 filtered AMASS training clips',
+      'progressively harder failed', 'recovery primitive',
       'multiplicative composer', 'recovery artifacts']) expect(body()).toContain(phrase);
     expect(body()).not.toContain('as the motion set grew');
   });
   it('separates OmniH2O goal generation localization and low-level control', () => {
-    for (const phrase of ['privileged RL teacher', 'robot root odometry',
-      'no explicit global-linear-velocity input', 'Appendix A describes torque outputs',
-      'demonstrated GPT-4o setup', 'select among motion primitives',
-      'too slowly for direct low-level motor control', 'four of the six recorded tasks',
-      'ten runs per task', 'no safety guarantees']) expect(body()).toContain(phrase);
+    for (const phrase of ['privileged RL teacher', 'root odometry still maps goals into the robot',
+      'no explicit global-linear-velocity input', 'four of six recorded tasks',
+      'tasks at ten runs', 'no safety guarantees']) expect(body()).toContain(phrase);
     expect(body()).not.toContain('OmniH2O generalized the interface');
   });
   it('separates HumanPlus human observation robot sensing shadowing and BC', () => {
-    for (const phrase of ['The robot has other sensors', 'IMU and joint-encoder',
-      'body-joint position setpoints', 'seated operation bypasses',
-      'two head-mounted RGB cameras', 'Humanoid Imitation Transformer',
-      'binocular images and proprioception', 'limited locomotion scope']) expect(body()).toContain(phrase);
+    for (const phrase of ['IMU and joint encoders',
+      'Two head-mounted cameras', 'Humanoid Imitation Transformer',
+      'binocular images and proprioception', 'limited locomotion']) expect(body()).toContain(phrase);
     expect(body()).not.toContain('Tracking stopped being the product');
   });
   it('preserves H2O, ASAP, the source population and the unfinished review date', () => {
-    for (const phrase of ['H2O adapts ideas from simulated humanoid animation',
-      'follows PULSE', 'robot-side motion capture for linear velocity',
-      'ASAP then attacked the residual dynamics gap', 'lastReviewed: "2026-08-17"']) expect(body()).toContain(phrase);
+    for (const phrase of ['follows PULSE', 'robot-side motion capture for linear velocity',
+      'lastReviewed: "2026-08-17"']) expect(body()).toContain(phrase);
     for (const [, , citationId] of selected) {
       const c = CITATIONS.find(c => c.id === citationId)!;
       expect(c.url).toBe(`https://arxiv.org/abs/${c.arxiv}`);

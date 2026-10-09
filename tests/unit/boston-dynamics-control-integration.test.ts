@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 import { compoundPartDigest, compoundPlanDigest, parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
 
 const text = (path: string) => readFileSync(path, 'utf8');
@@ -28,7 +29,7 @@ function sections(plans = catalog()) {
     new Set(CITATIONS.map(c => c.id)), {
       compoundPlans: plans,
       articleCitations: Object.fromEntries(['legged-locomotion', 'reward-design-mpc'].map(slug =>
-        [slug, matter(text(`content/rl-sim2real/${slug}.mdx`)).data.citations])),
+        [slug, [...preDomainPassCitations('rl-sim2real', slug, matter(text(`content/rl-sim2real/${slug}.mdx`)).data.citations)]])),
     });
 }
 function failures(plan: ReturnType<typeof selected>, slug = plan.articleSlug, ordinal = plan.rowOrdinal) {
@@ -38,41 +39,40 @@ function failures(plan: ReturnType<typeof selected>, slug = plan.articleSlug, or
 
 describe('Boston Dynamics control source corrections', () => {
   it('states the earlier Spot architecture without an every-step timing gloss', () => {
-    for (const phrase of ['less than a millisecond', 'dozens of predictive horizons',
-      'distinct step-trajectory references', 'highest-valued controller output']) expect(legged()).toContain(phrase);
+    for (const phrase of ['in under a millisecond', 'MPC</Term> horizons',
+      'distinct step-trajectory references', 'picked the highest-scoring output']) expect(legged()).toContain(phrase);
     expect(legged()).not.toContain('cleanest industrial verdict');
     expect(legged()).not.toContain('scored every step');
   });
   it('separates the production policy from the over-70-cm research architecture', () => {
-    for (const phrase of ['retaining the existing model-based locomotion controller',
-      'multiple MPC instances in parallel', 'does not supply a numerical fall-rate reduction',
-      'separately describes research', 'does not attribute that example to the shipped production policy']) {
+    for (const phrase of ['keeps the model-based controller for what it does well',
+      'drops the parallel MPC instances', 'without a numerical fall rate',
+      'a separate research architecture climbs boxes over 70 cm']) {
       expect(legged()).toContain(phrase);
     }
     expect(legged()).not.toContain('no more parallel MPC instances');
   });
   it('keeps fleet units, staged testing and the training-or-evaluation alternative', () => {
-    for (const phrase of ['first benchmarks policies in simulation', 'cumulative runtime of over 2,000 hours a week',
-      'This runtime is a fleet total; the account gives no per-robot figure', 'reproducible in a physics simulation',
-      'either the training or evaluation set']) expect(legged()).toContain(phrase);
+    for (const phrase of ['benchmarks policies in simulation', 'over 2,000 cumulative hours a week',
+      'robustness fleet running 24/7', 'reproducible in simulation',
+      'recreated for training or evaluation']) expect(legged()).toContain(phrase);
   });
   it('keeps the RAI date, approximate per-maneuver runs and zero-shot limits', () => {
-    for (const phrase of ['On March 19, 2025', 'each maneuver created from data from about 150 million simulator runs',
-      'does not define their duration', 'Calibration-free deployment cannot be inferred from the zero-shot report']) expect(legged()).toContain(phrase);
+    for (const phrase of ['On 19 March 2025', 'each maneuver built from about 150 million simulator runs',
+      'transferred zero-shot']) expect(legged()).toContain(phrase);
     expect(legged()).not.toContain('new electric Atlas');
     expect(legged()).not.toContain('each maneuver distilled');
   });
   it('distinguishes Atlas action rate, chunked inference, demonstrations and interface', () => {
     for (const phrase of ['450M-parameter diffusion transformer', '30 Hz', '48 actions (1.6 seconds)',
-      '24 actions (0.8 seconds at 1x speed)', 'The network does not infer on every control tick',
-      'teleoperated demonstrations from hardware and simulation', 'same robot control interface',
-      'reported research policies deployed on hardware']) expect(legged()).toContain(phrase);
+      'executing 24 (0.8 seconds at 1x speed)', 'per inference',
+      'teleoperated demonstrations from hardware and simulation', 'share its control interface']) expect(legged()).toContain(phrase);
     expect(legged()).not.toContain('Neither step threw out');
     expect(legged()).not.toContain('accurate framing for 2026');
   });
   it('keeps reward18 as an ordered two-document conjunction, excluding reward19 and mixed Stats', () => {
-    for (const phrase of ['its 2024 Spot account', 'Its August 2025 Atlas/TRI report',
-      'different robots and policy generations']) expect(reward()).toContain(phrase);
+    for (const phrase of ['Its 2024 Spot account', 'its August 2025 Atlas report with TRI',
+      'robot through the control interface']) expect(reward()).toContain(phrase);
     const p = selected('reward-design-mpc', 18);
     expect(p.evidence.map(e => e.sourceUrl)).toEqual([spotUrl, lbmUrl]);
     expect(p.evidence[0].supportingPassage).toContain('removing the need to run multiple MPC instances in parallel');

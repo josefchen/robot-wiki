@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import matter from 'gray-matter';
 import { parseLedger, parseCompoundPlans } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
+import { preDomainPassCitations } from '../helpers/domain-pass';
 
 /**
  * Pins the 2026-09-16g why-rl-locomotion originals integration: the seven
@@ -46,7 +47,7 @@ const loadSection = () => {
   );
   const sections = parseLedger('audit/rl-sim2real.md', markdown, registryIds, {
     compoundPlans,
-    articleCitations: { 'why-rl-locomotion': frontmatter.data.citations },
+    articleCitations: { 'why-rl-locomotion': [...preDomainPassCitations('rl-sim2real', 'why-rl-locomotion', frontmatter.data.citations)] },
   });
   return { sections, compoundPlans, registryIds, markdown };
 };

@@ -58,7 +58,8 @@ const articleCitations = Object.fromEntries([
     return [slug, withoutKolBacklog20261005Citations(`manipulation/${slug}.mdx`,
       { ...data, citations: [...preDomainPassCitations('manipulation', slug, data.citations as string[])] }).citations];
   }),
-  ['rl-for-robotics', matter(read('content/rl-sim2real/rl-for-robotics.mdx')).data.citations],
+  ['rl-for-robotics', [...preDomainPassCitations('rl-sim2real', 'rl-for-robotics',
+    matter(read('content/rl-sim2real/rl-for-robotics.mdx')).data.citations as string[])]],
 ]);
 function row(id: string, compoundPlans = plans) {
   const [path, slug, ordinal] = id.split(':');
@@ -119,8 +120,8 @@ describe('manipulation and RL retained-source integration', () => {
     expect(98_304 * 1500 / 1200).toBe(122_880);
     expect(160_000 / (2 * 3600)).toBeCloseTo(22.22, 2);
     expect(rl).toContain('122,880');
-    expect(rl).toContain('nearly all tasks');
-    expect(rl).toContain('six hours');
+    expect(rl).toContain('Nearly all tasks');
+    expect(rl).toContain('timing-belt assembly six');
     expect(rl).toContain('100 evaluation trials');
     expect(rl).not.toContain('every from-scratch hardware result below learns');
     expect(rl).not.toContain('strongest real-robot RL results');

@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-08T21:26:09Z",
+  "observedAt": "2026-10-09T00:12:03Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -1356,8 +1356,8 @@
       },
       "after": {
         "path": "components/interactive/friction-transfer.tsx",
-        "bytes": 18564,
-        "sha256": "661f580d2f912b0c3acdcdee6fad16141ae146924525cd55f0a295d119301cff"
+        "bytes": 18555,
+        "sha256": "737c23a44ff62e6ff16e4f1d65879bb22f3a103567365ffab40e66e64d128f0b"
       },
       "edits": [
         {
@@ -1390,7 +1390,7 @@
         },
         {
           "before": " *\n",
-          "after": " *\n * The robot trained on one floor (the point curve) is the grey dashed\n * spike; the robot trained on many floors (the domain-randomized curve) is\n * the solid value-coloured plateau. The real floor starts at 0.50, where\n * the spike has already fallen to zero and the plateau still holds, so the\n * first frame shows why randomization is used.\n *\n"
+          "after": " *\n * The robot trained on one floor (the point curve) is the grey dashed\n * spike; the robot trained on many floors (the domain-randomized curve) is\n * the solid value-coloured plateau. The real floor starts on the practice\n * floor (0.80), where the one-floor robot wins 97% against 74%; moving it\n * off that floor shows why randomization is used.\n *\n"
         },
         {
           "before": " * (keyboard-accessible) plus pointer drag on the real-robot line, visible\n * readouts, reset control, fixed SVG viewport (no layout shift), no\n",
@@ -1398,7 +1398,7 @@
         },
         {
           "before": "const HEIGHT = 244;\nconst PLOT = { left: 48, right: 322, top: 38, bottom: 198 } as const;\n",
-          "after": "const HEIGHT = 242;\nconst PLOT = { left: 72, right: 326, top: 86, bottom: 210 } as const;\n\n/** The real floor the figure opens on: more slippery than the practice floor. */\nexport const OPENING_REAL_MU = 0.5;\n"
+          "after": "const HEIGHT = 242;\nconst PLOT = { left: 72, right: 326, top: 86, bottom: 210 } as const;\n\n/** The real floor the figure opens on: the practice floor itself. */\nexport const OPENING_REAL_MU = 0.8;\n"
         },
         {
           "before": "// The 0.20 origin tick is drawn apart from these: centred like the others,\n// its label ran into the 0% tick label at narrow widths, so it starts at\n// its tick. The axis still labels both ends of the plotted range, which\n// the sampled table's first and last rows carry.\nconst X_TICKS = [0.5, 0.8, 1.1, 1.5] as const;\nconst Y_TICKS = [0, 0.25, 0.5, 0.75, 1] as const;\n",
@@ -1419,6 +1419,10 @@
         {
           "before": "  defaultRealMu = DEFAULT_REAL_MU,\n",
           "after": "  defaultRealMu = OPENING_REAL_MU,\n"
+        },
+        {
+          "before": "    `Authored toy, not measured robot data. At selected friction ${formatMu(realMu)}, the point curve is ${formatPct(point)} and the DR curve is ${formatPct(dr)}. The assumed DR half-width is ${formatMu(range)} and its plateau is ${formatPct(drPeakValue)}. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. Dashed edges mark an assumed range, not a confidence interval. The randomization band is marked ${widthMark} at the selected half-width. Reset restores this panel to friction ${formatMu(defaultRealMu)} and half-width ${formatMu(defaultRange)}. Selecting friction samples the formulas; no training or adaptation runs.`;\n",
+          "after": "    `Illustrative, not measured robot data. At selected friction ${formatMu(realMu)}, the point curve is ${formatPct(point)} and the DR curve is ${formatPct(dr)}. The assumed DR half-width is ${formatMu(range)} and its plateau is ${formatPct(drPeakValue)}. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. Dashed edges mark an assumed range, not a confidence interval. The randomization band is marked ${widthMark} at the selected half-width. Reset restores this panel to friction ${formatMu(defaultRealMu)} and half-width ${formatMu(defaultRange)}. Selecting friction samples the formulas; no training or adaptation runs.`;\n"
         },
         {
           "before": "  const bandRight = xFor(Math.min(MU_MAX, MU_TRAIN + range));\n  const drLabel = drLabelPlacement(range, drPeakValue);\n  const valueColour = roleColour('value');\n  const highlightColour = roleColour('highlight');\n",
@@ -3131,8 +3135,8 @@
       },
       "after": {
         "path": "components/interactive/wbc-decomposition.tsx",
-        "bytes": 13637,
-        "sha256": "b03b9ae89698e49d6ad91d48614ae2d287cee947a9cd6518dba60355224c5715"
+        "bytes": 13656,
+        "sha256": "275d8d8241a194c9463c5b5455087bc085edf3f5e820fd74b9851880d8976549"
       },
       "edits": [
         {
@@ -3161,7 +3165,11 @@
         },
         {
           "before": "/** Baseline that centres one line of the given type size between two edges. */\nfunction centredBaseline(top: number, bottom: number, px: number): number {\n  return Number(((top + bottom) / 2 + ((CHART_TYPE.ascent - CHART_TYPE.descent) / 2) * px).toFixed(2));\n}\n",
-          "after": "/** Each layer in plain words, two short lines, keyed by approach and layer order. */\nconst PLAIN_LAYERS: Record<WbcApproachId, readonly (readonly [string, string])[]> = {\n  'tracking-rl': [\n    ['Decides the task,', 'when asked'],\n    ['Turns what it sees into body', 'poses, 200 times a second'],\n    ['Keeps balance and moves every', 'joint, 1,000 times a second'],\n  ],\n  'latent-action': [\n    ['Sees, reads the instruction and', 'writes compact movement codes'],\n    ['Turns the codes into joint', 'commands; speed not disclosed'],\n  ],\n  'end-to-end-vla': [\n    ['Plans the task and calls', 'tools, when asked'],\n    ['One network moves the whole', 'body; speed not disclosed'],\n  ],\n};\n\n/** The plain names on the design buttons. */\nconst DESIGN_LABELS: Record<WbcApproachId, string> = {\n  'tracking-rl': 'Copies human motion',\n  'latent-action': 'Learned movement codes',\n  'end-to-end-vla': 'One big network',\n};\n\nconst ANNOTATIONS: Record<WbcApproachId, readonly [string, string]> = {\n  'tracking-rl': ['Fastest layer: adjusts every joint', '1,000 times a second'],\n  'latent-action': ['Only compact movement codes pass', 'between the two networks'],\n  'end-to-end-vla': ['No separate balance layer: one', 'network drives every joint'],\n};\n"
+          "after": "/** Each layer in plain words, two short lines, keyed by approach and layer order. */\nconst PLAIN_LAYERS: Record<WbcApproachId, readonly (readonly [string, string])[]> = {\n  'tracking-rl': [\n    ['Works out the goal, slowly;', 'speed not disclosed'],\n    ['Turns what it sees into body', 'poses, 200 times a second'],\n    ['Keeps balance and moves every', 'joint, 1,000 times a second'],\n  ],\n  'latent-action': [\n    ['Sees, reads the instruction and', 'writes compact movement codes'],\n    ['Turns the codes into joint', 'commands, 50 times a second'],\n  ],\n  'end-to-end-vla': [\n    ['Plans the task and calls', 'tools; speed not disclosed'],\n    ['One network moves the whole', 'body; speed not disclosed'],\n  ],\n};\n\n/** The plain names on the design buttons. */\nconst DESIGN_LABELS: Record<WbcApproachId, string> = {\n  'tracking-rl': 'Copies human motion',\n  'latent-action': 'Learned movement codes',\n  'end-to-end-vla': 'One big network',\n};\n\nconst ANNOTATIONS: Record<WbcApproachId, readonly [string, string]> = {\n  'tracking-rl': ['Fastest layer: adjusts every joint', '1,000 times a second'],\n  'latent-action': ['Only compact movement codes pass', 'between the two networks'],\n  'end-to-end-vla': ['No separate balance layer: one', 'network drives every joint'],\n};\n"
+        },
+        {
+          "before": "    return `Latent-action hierarchy, represented by ${approach.representative}, splits the stack into ${approach.layers.length} layers (3B-parameter VLA over an undisclosed-rate controller); the lime bar still marks the actuator-facing box, and latent tokens are the interface so the VLA never names a joint.`;\n",
+          "after": "    return `Latent-action hierarchy, represented by ${approach.representative}, splits the stack into ${approach.layers.length} layers (3B-parameter VLA over a ${fastest} controller); the lime bar still marks the actuator-facing box, and latent tokens are the interface so the VLA never names a joint.`;\n"
         },
         {
           "before": "/**\n * One layer box, its loop rate, and the labelled arrow carrying its output\n * down to the next layer or to the actuators.\n */\n",
@@ -4514,10 +4522,18 @@
       },
       "after": {
         "path": "data/glossary.ts",
-        "bytes": 83323,
-        "sha256": "f49695a231461c8a5e3f416d732570de32b1d9fbc83ff7eda7a9d7834471fe10"
+        "bytes": 83393,
+        "sha256": "faa41958b0cf820beab5660e64985f90dcb6b3f336d76c683fb96d688ca91cdc"
       },
       "edits": [
+        {
+          "before": "      'Running thousands of physics simulator instances at once on a single GPU so a reinforcement learning agent collects experience at a rate no CPU cluster matches. Isaac Gym made the setup practical by keeping both physics and policy training on the GPU and passing data straight from physics buffers to PyTorch tensors, skipping the CPU round-trip entirely, which bought two to three orders of magnitude in throughput over a CPU simulator feeding a GPU learner. Rudin and colleagues showed what that buys: four thousand parallel ANYmal instances trained with PPO learned flat-terrain walking in under four minutes and uneven terrain in twenty, on one workstation GPU.',\n",
+          "after": "      'Running thousands of physics simulator instances at once on a single GPU, so one workstation collects reinforcement learning experience at rates that once needed CPU clusters. Isaac Gym made the setup practical by keeping both physics and policy training on the GPU and passing data straight from physics buffers to PyTorch tensors, skipping the CPU round-trip entirely, which bought two to three orders of magnitude in throughput over a CPU simulator feeding a GPU learner. Rudin and colleagues showed what that buys: four thousand parallel ANYmal instances trained with PPO learned flat-terrain walking in under four minutes and uneven terrain in twenty, on one workstation GPU.',\n"
+        },
+        {
+          "before": "      'Control by constant re-planning: at each control step, optimize a short sequence of future actions against an explicit dynamics model, execute only the first action, and solve again from the freshly measured state. Because the plan is recomputed online, model error is rejected by feedback at every step instead of being frozen into a policy\\'s weights, so a model-predictive controller shows less of the frozen-policy sim-to-real failure mode, though a wrong dynamics model still costs it closed-loop performance. Long assumed too slow for a robot\\'s full dynamics, the method reached whole-body scale in 2026, when Zhang and colleagues solved iLQR against MuJoCo\\'s physics fast enough to close the loop in real time on real hardware.',\n",
+          "after": "      'Control by constant re-planning: at each control step, optimize a short sequence of future actions against an explicit dynamics model, execute only the first action, and solve again from the freshly measured state. Because the plan is recomputed online, model error is rejected by feedback at every step instead of being frozen into a policy\\'s weights, so a model-predictive controller shows less of the frozen-policy sim-to-real failure mode, though a wrong dynamics model still costs it closed-loop performance. Long assumed too slow for a robot\\'s full dynamics, whole-body MPC now runs in real time on legged hardware: Zhang and colleagues\\' MuJoCo-based iLQR controller, first posted in 2025 and revised in 2026 to appear at ICRA 2026, closes the loop on quadruped and humanoid robots.',\n"
+        },
         {
           "before": "      'The last link of a robot arm and whatever is attached to it: the gripper, hand, or tool whose pose the arm exists to place. Kinematics is conventionally written as the map from joint angles to the end-effector pose, and most action spaces in learned manipulation are defined as end-effector deltas rather than joint targets, because a task is specified in the space where the hand meets the world.',\n    citations: ['modern-robotics-2017'],\n",
           "after": "      'The last link of a robot arm and whatever is attached to it: the gripper, hand, or tool whose pose the arm exists to place. Kinematics is conventionally written as the map from joint angles to the end-effector pose. Many learned manipulation policies act in end-effector deltas and others in joint targets; across 13,000+ real rollouts, joint space favored control stability and task space favored generalization.',\n    citations: ['modern-robotics-2017', 'action-space-design-2026', 'act-aloha-2023'],\n"
@@ -4711,7 +4727,7 @@
       "after": {
         "path": "lib/chart-descriptions.ts",
         "bytes": 26670,
-        "sha256": "737b4e7e756f460524a1e1bf52afb68c5a8911ad204d8a7c63f103185a3ed797"
+        "sha256": "3cab1a0a13d081a488c84836eeeb0af0c784f296caaa85f262a18e03d3ff6759"
       },
       "edits": [
         {
@@ -4729,6 +4745,10 @@
         {
           "before": "    text: 'Across the 24-tick hand-off at 0 ms of delay the real-time chunking action stays flat on the committed mode at 0.80 while the ensembled action holds within tolerance and ends at 0.80; the shaded band between the two dashed mode lines is the invalid middle no demonstration ever commanded, and those lines are the modelled modes rather than measured actions.',\n",
           "after": "    text: 'Across the 24-tick hand-off at 200 ms of delay the real-time chunking action stays on the committed go-left mode at 0.80 while the ensembled action leaves both valid modes, ends at 0.16 and runs into the obstacle; the obstacle between the two dashed plan routes is drawn for illustration, and those routes are the modelled modes rather than measured actions.',\n"
+        },
+        {
+          "before": "    text: 'Authored toy, not measured robot data. At selected friction 0.80, the point curve is 97% and the DR curve is 74%. The assumed DR half-width is 0.35 and its plateau is 74%. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. Dashed edges mark an assumed range, not a confidence interval. The randomization band is marked ordinary at the selected half-width. Reset restores this panel to friction 0.80 and half-width 0.35. Selecting friction samples the formulas; no training or adaptation runs.',\n",
+          "after": "    text: 'Illustrative, not measured robot data. At selected friction 0.80, the point curve is 97% and the DR curve is 74%. The assumed DR half-width is 0.35 and its plateau is 74%. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. Dashed edges mark an assumed range, not a confidence interval. The randomization band is marked ordinary at the selected half-width. Reset restores this panel to friction 0.80 and half-width 0.35. Selecting friction samples the formulas; no training or adaptation runs.',\n"
         },
         {
           "before": "    text: 'On the torque-controlled arm at depth 2.0 mm, stiffness 800 N/m and damping 40 N·s/m, the contact peaks at 23.7 N and settles at 1.6 N against the 255 N research-basis transient limit: task succeeded.',\n",
@@ -5748,25 +5768,17 @@
       },
       "after": {
         "path": "tests/component/friction-transfer.test.tsx",
-        "bytes": 7153,
-        "sha256": "165e34728e0411798ab5b782ef375da5948a61ceae3587980f7d5c0c03942bf3"
+        "bytes": 7210,
+        "sha256": "905d2dc860ace881be2adae3878ac3a9f7cd960502c2d70bc6b4f8c7a67665fa"
       },
       "edits": [
         {
           "before": "  it('defaults to the training friction with the point policy ahead', () => {\n    render(<FrictionTransfer />);\n",
-          "after": "  it('opens on a floor more slippery than practised, where the many-floor robot wins', () => {\n    const { container } = render(<FrictionTransfer />);\n    expect(readout('real-mu-readout')).toBe('0.50');\n    expect(readout('point-readout')).toBe('0%');\n    expect(readout('dr-readout')).toBe('74%');\n    expect(readout('delta-readout')).toMatch(/DR \\+\\d+ pts/);\n    expect(container.querySelector('[data-figure-title]')).toHaveTextContent(\n      'A specialist wins on one floor; a generalist survives many',\n    );\n    const note = container.querySelectorAll('[data-figure-annotation]');\n    expect(note).toHaveLength(1);\n    expect(note[0]).toHaveTextContent(/one-floor robot fails/);\n    // Both sliders are in view, named in plain words; Reset sits in Adjust more.\n    const controls = container.querySelector('[data-figure-controls]')!;\n    expect(controls).toContainElement(realMuSlider());\n    expect(controls).toContainElement(rangeSlider());\n    expect(controls).toHaveTextContent('much more slippery');\n    expect(controls).toHaveTextContent('a middling spread');\n    expect(container.querySelector('details[data-figure-fold=\"adjust\"]')).toContainElement(\n      screen.getByRole('button', { name: /reset/i }),\n    );\n  });\n\n  it('on the training friction itself the point policy is ahead', () => {\n    render(<FrictionTransfer />);\n    fireEvent.change(realMuSlider(), { target: { value: '80' } });\n"
-        },
-        {
-          "before": "    await user.click(screen.getByRole('button', { name: /reset/i }));\n    expect(readout('real-mu-readout')).toBe('0.80');\n    expect(readout('point-readout')).toBe('97%');\n",
-          "after": "    await user.click(screen.getByRole('button', { name: /reset/i }));\n    expect(readout('real-mu-readout')).toBe('0.50');\n    expect(readout('point-readout')).toBe('0%');\n"
-        },
-        {
-          "before": "    const before = desc?.textContent ?? '';\n    fireEvent.change(realMuSlider(), { target: { value: '50' } });\n",
-          "after": "    const before = desc?.textContent ?? '';\n    fireEvent.change(realMuSlider(), { target: { value: '80' } });\n"
+          "after": "  it('opens on the practice floor, where the one-floor robot wins', () => {\n    const { container } = render(<FrictionTransfer />);\n    expect(readout('real-mu-readout')).toBe('0.80');\n    expect(readout('point-readout')).toBe('97%');\n    expect(readout('dr-readout')).toBe('74%');\n    expect(readout('delta-readout')).toMatch(/point \\+\\d+ pts/);\n    expect(container.querySelector('[data-figure-title]')).toHaveTextContent(\n      'A specialist wins on one floor; a generalist survives many',\n    );\n    const note = container.querySelectorAll('[data-figure-annotation]');\n    expect(note).toHaveLength(1);\n    expect(note[0]).toHaveTextContent(/one-floor robot wins, 97% against 74%/);\n    // Both sliders are in view, named in plain words; Reset sits in Adjust more.\n    const controls = container.querySelector('[data-figure-controls]')!;\n    expect(controls).toContainElement(realMuSlider());\n    expect(controls).toContainElement(rangeSlider());\n    expect(controls).toHaveTextContent('like the practice floor');\n    expect(controls).toHaveTextContent('a middling spread');\n    expect(container.querySelector('details[data-figure-fold=\"adjust\"]')).toContainElement(\n      screen.getByRole('button', { name: /reset/i }),\n    );\n  });\n\n  it('on the training friction itself the point policy is ahead', () => {\n    render(<FrictionTransfer />);\n    fireEvent.change(realMuSlider(), { target: { value: '80' } });\n"
         },
         {
           "before": "    fireEvent.click(screen.getByRole('button', { name: /reset/i }));\n    expect(readout('real-mu-readout')).toBe('0.80');\n",
-          "after": "    fireEvent.click(screen.getByRole('button', { name: /reset/i }));\n    expect(readout('real-mu-readout')).toBe('0.50');\n"
+          "after": "    fireEvent.click(screen.getByRole('button', { name: /reset/i }));\n    expect(readout('real-mu-readout')).toBe('0.80');\n    expect(readout('point-readout')).toBe('97%');\n"
         }
       ]
     },
@@ -6585,13 +6597,13 @@
       },
       "after": {
         "path": "tests/component/wbc-decomposition.test.tsx",
-        "bytes": 6886,
-        "sha256": "867390e1c9fd7f5f1f51c390d1dd1401dc9993502bab07e2afb8a55b56e51f6e"
+        "bytes": 6964,
+        "sha256": "f3bbc2047f7fe73b05b1a685bff36abd3ef51ea9f23c97b3f413a386827ef80b"
       },
       "edits": [
         {
           "before": "    expect(approachButton(/motion-tracking rl/i)).toBeInTheDocument();\n    expect(approachButton(/latent-action hierarchy/i)).toBeInTheDocument();\n    expect(approachButton(/end-to-end vla/i)).toBeInTheDocument();\n    expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();\n    expect(screen.getByTestId('wbc-diagram')).toBeInTheDocument();\n    expect(screen.getByTestId('representative-readout')).toBeInTheDocument();\n    expect(screen.getByTestId('layers-readout')).toBeInTheDocument();\n    expect(screen.getByTestId('fastest-loop-readout')).toBeInTheDocument();\n    expect(screen.getByTestId('wbc-stats')).toBeInTheDocument();\n  });\n\n  it('defaults to the Helix 02 S0 motion-tracking stack with sourced figures', () => {\n    render(<WbcDecomposition />);\n    expect(approachButton(/motion-tracking rl/i)).toHaveAttribute(\n      'aria-pressed',\n      'true',\n    );\n    expect(screen.getByTestId('representative-readout')).toHaveTextContent(\n      /Helix 02 S0/,\n    );\n    expect(screen.getByTestId('layers-readout')).toHaveTextContent('3');\n    expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(\n      '1000 Hz',\n    );\n    expect(screen.getByTestId('wbc-diagram')).toHaveTextContent(/S0/);\n    expect(screen.getByTestId('wbc-diagram')).toHaveTextContent(/S1/);\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('10M');\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('200,000+');\n  });\n\n  it('switching to the latent-action hierarchy updates the diagram and stats', async () => {\n    const user = userEvent.setup();\n    render(<WbcDecomposition />);\n    const before = screen.getByTestId('wbc-diagram').innerHTML;\n    await user.click(approachButton(/latent-action hierarchy/i));\n    expect(approachButton(/latent-action hierarchy/i)).toHaveAttribute(\n      'aria-pressed',\n      'true',\n    );\n    expect(screen.getByTestId('wbc-diagram').innerHTML).not.toBe(before);\n    expect(screen.getByTestId('representative-readout')).toHaveTextContent(\n      /GEAR-SONIC/,\n    );\n    expect(screen.getByTestId('layers-readout')).toHaveTextContent('2');\n    expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(\n      /not disclosed/,\n    );\n    expect(screen.getByTestId('wbc-diagram')).toHaveTextContent(/GR00T/);\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('3B');\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('20,000 h');\n  });\n\n  it('switching to the end-to-end VLA shows one policy feet to fingertips', async () => {\n    const user = userEvent.setup();\n    render(<WbcDecomposition />);\n    await user.click(approachButton(/end-to-end vla/i));\n    expect(screen.getByTestId('representative-readout')).toHaveTextContent(\n      /Gemini Robotics 2/,\n    );\n    expect(screen.getByTestId('layers-readout')).toHaveTextContent('2');\n    expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(\n      /not disclosed/,\n    );\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('22');\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent(\n      '< 200 examples',\n    );\n    expect(screen.getByTestId('wbc-diagram')).toHaveTextContent(\n      /feet to fingertips/i,\n    );\n  });\n\n  it('reset restores the default approach after interaction', async () => {\n    const user = userEvent.setup();\n    render(<WbcDecomposition />);\n    await user.click(approachButton(/end-to-end vla/i));\n    await user.click(screen.getByRole('button', { name: /reset/i }));\n    expect(approachButton(/motion-tracking rl/i)).toHaveAttribute(\n      'aria-pressed',\n      'true',\n    );\n    expect(screen.getByTestId('representative-readout')).toHaveTextContent(\n      /Helix 02 S0/,\n    );\n    expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(\n      '1000 Hz',\n    );\n  });\n\n  it('describes the default Helix stack and tracks the approach buttons', () => {\n    const { container } = render(<WbcDecomposition />);\n    const img = screen.getByTestId('wbc-diagram');\n    const id = img.getAttribute('aria-describedby');\n    expect(id).toBeTruthy();\n    const desc = container.querySelector(`[id=\"${CSS.escape(id!)}\"]`);\n    expect(desc?.textContent).toMatch(/Motion-tracking RL/);\n    expect(desc?.textContent).toMatch(/1000 Hz/);\n    fireEvent.click(approachButton(/latent-action hierarchy/i));\n    const moved = container.querySelector('[data-chart-description]')\n      ?.textContent ?? '';\n    expect(moved).toMatch(/Latent-action hierarchy/);\n    expect(moved).not.toMatch(/Motion-tracking RL/);\n  });\n\n  it('exposes an accessible svg label that tracks the selected approach', async () => {\n    const user = userEvent.setup();\n    render(<WbcDecomposition />);\n    const diagram = screen.getByRole('img');\n    expect(diagram).toHaveAccessibleName(/motion-tracking/i);\n    await user.click(approachButton(/latent-action hierarchy/i));\n",
-          "after": "    expect(approachButton(/copies human motion/i)).toBeInTheDocument();\n    expect(approachButton(/learned movement codes/i)).toBeInTheDocument();\n    expect(approachButton(/one big network/i)).toBeInTheDocument();\n    expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();\n    expect(screen.getByTestId('wbc-diagram')).toBeInTheDocument();\n    expect(screen.getByTestId('representative-readout')).toBeInTheDocument();\n    expect(screen.getByTestId('layers-readout')).toBeInTheDocument();\n    expect(screen.getByTestId('fastest-loop-readout')).toBeInTheDocument();\n    expect(screen.getByTestId('wbc-stats')).toBeInTheDocument();\n  });\n\n  it('names the designs in plain words and keeps the technical names one click away', () => {\n    const { container } = render(<WbcDecomposition />);\n    expect(container.querySelector('[data-figure-title]')).toHaveTextContent(\n      'Robot brains are layered: slow thinking above, fast reflexes below',\n    );\n    expect(screen.getByTestId('humanoid')).toBeInTheDocument();\n    const diagram = screen.getByTestId('wbc-diagram');\n    expect(diagram).toHaveTextContent('Keeps balance and moves every');\n    expect(diagram).toHaveTextContent('joint, 1,000 times a second');\n    expect(diagram).not.toHaveTextContent(/S0|Hz/);\n    const note = container.querySelectorAll('[data-figure-annotation]');\n    expect(note).toHaveLength(1);\n    expect(note[0]).toHaveTextContent(/Fastest layer: adjusts every joint\\s*1,000 times a second/);\n    const method = container.querySelector('details[data-figure-fold=\"method\"]')!;\n    expect(method).toContainElement(screen.getByTestId('wbc-stats'));\n    expect(method).toHaveTextContent('motion-tracking RL');\n    expect(method).toHaveTextContent('latent-action hierarchy');\n    expect(method).toHaveTextContent('end-to-end VLA');\n    expect(container.querySelector('details[data-figure-fold=\"adjust\"]')).toContainElement(\n      screen.getByRole('button', { name: /reset/i }),\n    );\n  });\n\n  it('defaults to the Helix 02 S0 motion-tracking stack with sourced figures', () => {\n    render(<WbcDecomposition />);\n    expect(approachButton(/copies human motion/i)).toHaveAttribute(\n      'aria-pressed',\n      'true',\n    );\n    expect(screen.getByTestId('representative-readout')).toHaveTextContent(\n      /Helix 02 S0/,\n    );\n    expect(screen.getByTestId('layers-readout')).toHaveTextContent('3');\n    expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(\n      '1000 Hz',\n    );\n    expect(screen.getByTestId('wbc-layers')).toHaveTextContent(/S0/);\n    expect(screen.getByTestId('wbc-layers')).toHaveTextContent(/S1/);\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('10M');\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('200,000+');\n  });\n\n  it('switching to the latent-action hierarchy updates the diagram and stats', async () => {\n    const user = userEvent.setup();\n    render(<WbcDecomposition />);\n    const before = screen.getByTestId('wbc-diagram').innerHTML;\n    await user.click(approachButton(/learned movement codes/i));\n    expect(approachButton(/learned movement codes/i)).toHaveAttribute(\n      'aria-pressed',\n      'true',\n    );\n    expect(screen.getByTestId('wbc-diagram').innerHTML).not.toBe(before);\n    expect(screen.getByTestId('representative-readout')).toHaveTextContent(\n      /GEAR-SONIC/,\n    );\n    expect(screen.getByTestId('layers-readout')).toHaveTextContent('2');\n    expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(\n      /not disclosed/,\n    );\n    expect(screen.getByTestId('wbc-layers')).toHaveTextContent(/GR00T/);\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('3B');\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('20,000 h');\n  });\n\n  it('switching to the end-to-end VLA shows one policy feet to fingertips', async () => {\n    const user = userEvent.setup();\n    render(<WbcDecomposition />);\n    await user.click(approachButton(/one big network/i));\n    expect(screen.getByTestId('representative-readout')).toHaveTextContent(\n      /Gemini Robotics 2/,\n    );\n    expect(screen.getByTestId('layers-readout')).toHaveTextContent('2');\n    expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(\n      /not disclosed/,\n    );\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('22');\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent(\n      '< 200 examples',\n    );\n    expect(screen.getByTestId('wbc-layers')).toHaveTextContent(\n      /feet to fingertips/i,\n    );\n    expect(screen.getByTestId('wbc-diagram')).toHaveTextContent(\n      /one network moves the whole\\s*body/i,\n    );\n  });\n\n  it('reset restores the default approach after interaction', async () => {\n    const user = userEvent.setup();\n    render(<WbcDecomposition />);\n    await user.click(approachButton(/one big network/i));\n    await user.click(screen.getByRole('button', { name: /reset/i }));\n    expect(approachButton(/copies human motion/i)).toHaveAttribute(\n      'aria-pressed',\n      'true',\n    );\n    expect(screen.getByTestId('representative-readout')).toHaveTextContent(\n      /Helix 02 S0/,\n    );\n    expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(\n      '1000 Hz',\n    );\n  });\n\n  it('describes the default Helix stack and tracks the approach buttons', () => {\n    const { container } = render(<WbcDecomposition />);\n    const img = screen.getByTestId('wbc-diagram');\n    const id = img.getAttribute('aria-describedby');\n    expect(id).toBeTruthy();\n    const desc = container.querySelector(`[id=\"${CSS.escape(id!)}\"]`);\n    expect(desc?.textContent).toMatch(/Motion-tracking RL/);\n    expect(desc?.textContent).toMatch(/1000 Hz/);\n    fireEvent.click(approachButton(/learned movement codes/i));\n    const moved = container.querySelector('[data-chart-description]')\n      ?.textContent ?? '';\n    expect(moved).toMatch(/Latent-action hierarchy/);\n    expect(moved).not.toMatch(/Motion-tracking RL/);\n  });\n\n  it('exposes an accessible svg label that tracks the selected approach', async () => {\n    const user = userEvent.setup();\n    render(<WbcDecomposition />);\n    const diagram = screen.getByRole('img');\n    expect(diagram).toHaveAccessibleName(/motion-tracking/i);\n    await user.click(approachButton(/learned movement codes/i));\n"
+          "after": "    expect(approachButton(/copies human motion/i)).toBeInTheDocument();\n    expect(approachButton(/learned movement codes/i)).toBeInTheDocument();\n    expect(approachButton(/one big network/i)).toBeInTheDocument();\n    expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();\n    expect(screen.getByTestId('wbc-diagram')).toBeInTheDocument();\n    expect(screen.getByTestId('representative-readout')).toBeInTheDocument();\n    expect(screen.getByTestId('layers-readout')).toBeInTheDocument();\n    expect(screen.getByTestId('fastest-loop-readout')).toBeInTheDocument();\n    expect(screen.getByTestId('wbc-stats')).toBeInTheDocument();\n  });\n\n  it('names the designs in plain words and keeps the technical names one click away', () => {\n    const { container } = render(<WbcDecomposition />);\n    expect(container.querySelector('[data-figure-title]')).toHaveTextContent(\n      'Robot brains are layered: slow thinking above, fast reflexes below',\n    );\n    expect(screen.getByTestId('humanoid')).toBeInTheDocument();\n    const diagram = screen.getByTestId('wbc-diagram');\n    expect(diagram).toHaveTextContent('Keeps balance and moves every');\n    expect(diagram).toHaveTextContent('joint, 1,000 times a second');\n    expect(diagram).not.toHaveTextContent(/S0|Hz/);\n    const note = container.querySelectorAll('[data-figure-annotation]');\n    expect(note).toHaveLength(1);\n    expect(note[0]).toHaveTextContent(/Fastest layer: adjusts every joint\\s*1,000 times a second/);\n    const method = container.querySelector('details[data-figure-fold=\"method\"]')!;\n    expect(method).toContainElement(screen.getByTestId('wbc-stats'));\n    expect(method).toHaveTextContent('motion-tracking RL');\n    expect(method).toHaveTextContent('latent-action hierarchy');\n    expect(method).toHaveTextContent('end-to-end VLA');\n    expect(container.querySelector('details[data-figure-fold=\"adjust\"]')).toContainElement(\n      screen.getByRole('button', { name: /reset/i }),\n    );\n  });\n\n  it('defaults to the Helix 02 S0 motion-tracking stack with sourced figures', () => {\n    render(<WbcDecomposition />);\n    expect(approachButton(/copies human motion/i)).toHaveAttribute(\n      'aria-pressed',\n      'true',\n    );\n    expect(screen.getByTestId('representative-readout')).toHaveTextContent(\n      /Helix 02 S0/,\n    );\n    expect(screen.getByTestId('layers-readout')).toHaveTextContent('3');\n    expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(\n      '1000 Hz',\n    );\n    expect(screen.getByTestId('wbc-layers')).toHaveTextContent(/S0/);\n    expect(screen.getByTestId('wbc-layers')).toHaveTextContent(/S1/);\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('10M');\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('200,000+');\n  });\n\n  it('switching to the latent-action hierarchy updates the diagram and stats', async () => {\n    const user = userEvent.setup();\n    render(<WbcDecomposition />);\n    const before = screen.getByTestId('wbc-diagram').innerHTML;\n    await user.click(approachButton(/learned movement codes/i));\n    expect(approachButton(/learned movement codes/i)).toHaveAttribute(\n      'aria-pressed',\n      'true',\n    );\n    expect(screen.getByTestId('wbc-diagram').innerHTML).not.toBe(before);\n    expect(screen.getByTestId('representative-readout')).toHaveTextContent(\n      /GEAR-SONIC/,\n    );\n    expect(screen.getByTestId('layers-readout')).toHaveTextContent('2');\n    expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(\n      '50 Hz',\n    );\n    expect(screen.getByTestId('wbc-diagram')).toHaveTextContent(/50 times a second/);\n    expect(screen.getByTestId('wbc-layers')).toHaveTextContent(/GR00T/);\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('3B');\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('20,000 h');\n  });\n\n  it('switching to the end-to-end VLA shows one policy feet to fingertips', async () => {\n    const user = userEvent.setup();\n    render(<WbcDecomposition />);\n    await user.click(approachButton(/one big network/i));\n    expect(screen.getByTestId('representative-readout')).toHaveTextContent(\n      /Gemini Robotics 2/,\n    );\n    expect(screen.getByTestId('layers-readout')).toHaveTextContent('2');\n    expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(\n      /not disclosed/,\n    );\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('22');\n    expect(screen.getByTestId('wbc-stats')).toHaveTextContent(\n      '< 200 examples',\n    );\n    expect(screen.getByTestId('wbc-layers')).toHaveTextContent(\n      /feet to fingertips/i,\n    );\n    expect(screen.getByTestId('wbc-diagram')).toHaveTextContent(\n      /one network moves the whole\\s*body/i,\n    );\n  });\n\n  it('reset restores the default approach after interaction', async () => {\n    const user = userEvent.setup();\n    render(<WbcDecomposition />);\n    await user.click(approachButton(/one big network/i));\n    await user.click(screen.getByRole('button', { name: /reset/i }));\n    expect(approachButton(/copies human motion/i)).toHaveAttribute(\n      'aria-pressed',\n      'true',\n    );\n    expect(screen.getByTestId('representative-readout')).toHaveTextContent(\n      /Helix 02 S0/,\n    );\n    expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(\n      '1000 Hz',\n    );\n  });\n\n  it('describes the default Helix stack and tracks the approach buttons', () => {\n    const { container } = render(<WbcDecomposition />);\n    const img = screen.getByTestId('wbc-diagram');\n    const id = img.getAttribute('aria-describedby');\n    expect(id).toBeTruthy();\n    const desc = container.querySelector(`[id=\"${CSS.escape(id!)}\"]`);\n    expect(desc?.textContent).toMatch(/Motion-tracking RL/);\n    expect(desc?.textContent).toMatch(/1000 Hz/);\n    fireEvent.click(approachButton(/learned movement codes/i));\n    const moved = container.querySelector('[data-chart-description]')\n      ?.textContent ?? '';\n    expect(moved).toMatch(/Latent-action hierarchy/);\n    expect(moved).not.toMatch(/Motion-tracking RL/);\n  });\n\n  it('exposes an accessible svg label that tracks the selected approach', async () => {\n    const user = userEvent.setup();\n    render(<WbcDecomposition />);\n    const diagram = screen.getByRole('img');\n    expect(diagram).toHaveAccessibleName(/motion-tracking/i);\n    await user.click(approachButton(/learned movement codes/i));\n"
         }
       ]
     },
@@ -7730,13 +7742,17 @@
       },
       "after": {
         "path": "tests/e2e/final-seven-closure-evidence.spec.ts",
-        "bytes": 8005,
-        "sha256": "c54d4c42963fe006a9a92c70708417d7b1a9ed52ad9dfb467859534864b8bf4b"
+        "bytes": 7904,
+        "sha256": "5ef9167e6772d7edc8273a148aa758593d8a4f754838e2ff553d4ee91fc0385c"
       },
       "edits": [
         {
           "before": "import { createHash } from 'node:crypto';\n",
           "after": "import { createHash } from 'node:crypto';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+        },
+        {
+          "before": "    await visit(gaitRoute);\n    await expect(page.locator('#main-content')).toContainText('authored illustrative duty factors');\n",
+          "after": "    await visit(gaitRoute);\n"
         },
         {
           "before": "    // The page's one data-scale chart is the reveal of its prediction step.\n",
@@ -8072,13 +8088,17 @@
       },
       "after": {
         "path": "tests/e2e/humanoid-tracking-source-audit.spec.ts",
-        "bytes": 7754,
-        "sha256": "ca67998e7680a743c3adf0e6b8781e2b8cc33bc5f92ca1c9d8ee03f5464fe4a7"
+        "bytes": 7586,
+        "sha256": "b897ea2ddf3c8fe9c8fd319329fc65f6854d0c5ed9c3302e699692e5c777548d"
       },
       "edits": [
         {
           "before": "import { CITATIONS } from '../../data/citations';\n",
           "after": "import { CITATIONS } from '../../data/citations';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+        },
+        {
+          "before": "  for (const text of ['simulated avatars; it did not test a physical robot',\n    '11,313 filtered AMASS training clips', '0.5 m at any point',\n    'progressively harder failed subsets', 'robot root odometry',\n    'Appendix A describes torque outputs', 'four of the six recorded tasks',\n    'The robot has other sensors.', 'seated operation bypasses',\n    'Humanoid Imitation Transformer', 'H2O adapts ideas', 'ASAP then attacked']) {\n",
+          "after": "  for (const text of ['simulated avatars, with no physical robot',\n    '11,313 filtered AMASS training clips',\n    'progressively harder failed', 'root odometry still maps goals into the robot',\n    'four of six recorded tasks', 'Humanoid Imitation Transformer']) {\n"
         },
         {
           "before": "  const group = page.getByRole('group', { name: 'Whole-body control decomposition' });\n",
@@ -8474,10 +8494,30 @@
       },
       "after": {
         "path": "tests/e2e/legged-locomotion.spec.ts",
-        "bytes": 7445,
-        "sha256": "0622a6803c8225ab9a6e8508bfdf706f9899831a3bf3f7780315c1fcc7d4f3fd"
+        "bytes": 7394,
+        "sha256": "7a2e2c951bf71756e33061b65c4d0d09235a9d236eee646043dc68fef099db5a"
       },
       "edits": [
+        {
+          "before": "    const paragraph = page.locator('p').filter({ hasText: 'Lee and colleagues used a privileged' });\n",
+          "after": "    const paragraph = page.locator('p').filter({ hasText: 'Lee and colleagues trained a privileged' });\n"
+        },
+        {
+          "before": "    const paragraph = page.locator('p').filter({ hasText: 'In the MIT Cheetah 2 control design' });\n",
+          "after": "    const paragraph = page.locator('p').filter({ hasText: 'In the MIT Cheetah 2 design' });\n"
+        },
+        {
+          "before": "    await expect(paragraph).toContainText('Park, Wensing and Kim plan stance time from stride length and desired speed');\n    await expect(paragraph).toContainText('modulate the duty cycle via vertical impulse scaling');\n    await expect(paragraph).toContainText('only up to 3 m/s and is fixed above it');\n    await expect(paragraph).toContainText('6.4 m/s bounding result with cost of transport 0.47');\n    await expect(paragraph).toContainText('qualified by side-wall contact and roll instability');\n",
+          "after": "    await expect(paragraph).toContainText('Park, Wensing and Kim plan stance time from stride length and');\n    await expect(paragraph).toContainText('modulate duty cycle by vertical impulse scaling');\n    await expect(paragraph).toContainText('only up to 3 m/s');\n    await expect(paragraph).toContainText('The minimum cost of transport, 0.47, came at 4 m/s');\n    await expect(paragraph).toContainText('Roll instability ended the 6.4 m/s top-speed treadmill run');\n"
+        },
+        {
+          "before": "      /temporal convolutional network/,\n      /Etzel mountain hike covered 2\\.2 km with 120 m of elevation gain in 78 minutes/,\n",
+          "after": "      /temporal convolutional/,\n      /Etzel hike covered 2\\.2 km and 120 m of climb in 78 minutes/,\n"
+        },
+        {
+          "before": "      'Press Play on the scene below, then try Step forward from walk to trot to bound and watch the support readout',\n",
+          "after": "      'is the control of walking and running robots, and the area where sim-to-real reinforcement learning reached shipping products',\n"
+        },
         {
           "before": "    await expect(readout).toContainText(/walk\\s*minimum support 3 feet/i);\n",
           "after": "    await expect(readout).toContainText(/walk:\\s*at least 3 feet on the ground/i);\n"
@@ -8907,10 +8947,18 @@
       },
       "after": {
         "path": "tests/e2e/parallel-sim-rl.spec.ts",
-        "bytes": 4252,
-        "sha256": "e620f9f452d38d76c127ffbe391e6c6a140bbf4a098a69e5891c81ae9ed604ff"
+        "bytes": 4329,
+        "sha256": "aed3776613ecf45b4ae25f64d73f05dbbd085213835f1d2e3cefc42b103e2dc0"
       },
       "edits": [
+        {
+          "before": "    await expect(main.getByText(/900,000 frames per second/)).toBeVisible();\n    await expect(\n      main.getByText(/Franka cabinet-drawer task exceeds 1\\.6 million/),\n    ).toBeVisible();\n",
+          "after": "    await expect(main.getByText(/exceeds 900,000 FPS and Franka cabinet 1\\.6 million/)).toBeVisible();\n    await expect(main.getByText(/With eight GPUs and 16,384 environments/)).toBeVisible();\n"
+        },
+        {
+          "before": "    await expect(prose).toContainText('Press Play, then try Step forward from 64 environments upward');\n",
+          "after": "    await expect(prose).toContainText(\n      'Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once',\n    );\n"
+        },
         {
           "before": "    await expect(scene.getByTestId('motion-caption')).toHaveText(/64 parallel environments/i);\n",
           "after": "    await expect(scene.getByTestId('motion-caption')).toHaveText(/64 virtual robots/i);\n"
@@ -9282,8 +9330,8 @@
       },
       "after": {
         "path": "tests/e2e/randomization-reader-closeout.spec.ts",
-        "bytes": 19825,
-        "sha256": "d08dc3cb2455f5ede0cf86a4e67a424fc117fca0d543e350ce05162b575dc02c"
+        "bytes": 19817,
+        "sha256": "def5340afb84ef0eb54cc32c7d7a647919bbd9db0bdb447293324230f4aae549"
       },
       "edits": [
         {
@@ -9320,15 +9368,15 @@
         },
         {
           "before": "  // Open the accessible chart description, and retain any independent scoped red.\n  const summary = panel.locator('summary');\n  if (await summary.count()) { await summary.focus(); await summary.press('Enter'); }\n  await axe(page, row, `[aria-describedby=\"${await panel.locator('svg').getAttribute('aria-describedby')}\"]`, 'chart');\n",
-          "after": "  // The accessible chart description sits open in the method fold; retain any independent scoped red.\n  await expect(figureFold(panel, 'method')).toHaveJSProperty('open', true);\n  await expect(panel.locator(`[id=\"${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}\"]`)).toContainText('Authored toy, not measured robot data');\n  await axe(page, row, `[aria-describedby=\"${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}\"]`, 'chart');\n"
+          "after": "  // The accessible chart description sits open in the method fold; retain any independent scoped red.\n  await expect(figureFold(panel, 'method')).toHaveJSProperty('open', true);\n  await expect(panel.locator(`[id=\"${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}\"]`)).toContainText('Illustrative, not measured robot data');\n  await axe(page, row, `[aria-describedby=\"${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}\"]`, 'chart');\n"
         },
         {
           "before": "        const panel = page.locator('div.prose > div:has(> [data-testid=\"ft-explanation\"])');\n",
-          "after": "        // One friction figure on the page; it opens on a floor more slippery than the practice floor.\n        const panel = page.locator('main [data-figure-frame=\"friction-transfer\"]');\n"
+          "after": "        // One friction figure on the page; it opens on the practice floor itself.\n        const panel = page.locator('main [data-figure-frame=\"friction-transfer\"]');\n"
         },
         {
           "before": "        await exercisePanel(page, panel, info, row, 0.35);\n",
-          "after": "        await exercisePanel(page, panel, info, row, 0.35, 0.5);\n"
+          "after": "        await exercisePanel(page, panel, info, row, 0.35, 0.8);\n"
         },
         {
           "before": "    test(`prediction friction reader at ${width}`, async ({ page }, info) => {\n",
@@ -9340,11 +9388,11 @@
         },
         {
           "before": "        await expect(prediction).toContainText('do not come from Peng paper results');\n        await expect(prediction).toContainText('no measured universal law of this shape');\n        const panel = prediction.locator('div:has(> [data-testid=\"ft-explanation\"])');\n        await exercisePanel(page, panel, info, row, 0.65);\n        await expect(page.locator('div.prose > div:has(> [data-testid=\"ft-explanation\"])').getByRole('slider').nth(1)).toHaveValue('35');\n        await summary.focus(); await summary.press('Enter');\n        await expect(details).not.toHaveAttribute('open', '');\n        await summary.press('Enter');\n        await expect(details).toHaveAttribute('open', '');\n",
-          "after": "        await expect(panel).toContainText('do not come from Peng paper results');\n        await expect(panel).toContainText('no measured universal law of this shape');\n        await expect(panel.getByTestId('ft-explanation')).toContainText('74% at half-width 0.35 and 57% at 0.65');\n        await modelState(panel, row, 0.5, 0.35);\n        await expect(panel.locator('[data-figure-annotation]')).toContainText('the one-floor robot fails');\n        const mu = panel.getByRole('slider').nth(0);\n        const range = panel.getByRole('slider').nth(1);\n        await setRange(mu, 80, 1);\n        await setRange(range, 65, 5);\n        await focusProof(range, row);\n"
+          "after": "        await expect(panel).toContainText('do not come from Peng paper results');\n        await expect(panel).toContainText('no measured universal law of this shape');\n        await expect(panel.getByTestId('ft-explanation')).toContainText('74% at half-width 0.35 and 57% at 0.65');\n        await modelState(panel, row, 0.8, 0.35);\n        await expect(panel.locator('[data-figure-annotation]')).toContainText('one-floor robot wins, 97% against 74%');\n        const mu = panel.getByRole('slider').nth(0);\n        const range = panel.getByRole('slider').nth(1);\n        await setRange(mu, 80, 1);\n        await setRange(range, 65, 5);\n        await focusProof(range, row);\n"
         },
         {
           "before": "        row.steps.push({ chooseRevealChangeResetAndNativeDisclosure: true, independentMountDefaults: true });\n        await axe(page, row, '[data-predict]', 'prediction-revealed');\n",
-          "after": "        await expect(panel.getByTestId('dr-readout')).toHaveText('57%');\n        await expect(panel.getByTestId('dr-peak-label')).toHaveText('DR 57%');\n        await expect(panel.locator('[data-figure-annotation]')).toContainText('one-floor robot wins, 97% against 57%');\n        await centered(range);\n        await capture(page, info, row, 'wide-range');\n        const reset = panel.getByRole('button', { name: 'Reset', exact: true });\n        await reset.focus(); await reset.press('Enter');\n        await expect(range).toHaveValue('35');\n        await modelState(panel, row, 0.5, 0.35);\n        row.steps.push({ wideRangeNativeDisclosureCaveatsAndReset: true, retiredPredictionMount: true });\n        await axe(page, row, 'main [data-figure-frame=\"friction-transfer\"]', 'friction-folds-open');\n"
+          "after": "        await expect(panel.getByTestId('dr-readout')).toHaveText('57%');\n        await expect(panel.getByTestId('dr-peak-label')).toHaveText('DR 57%');\n        await expect(panel.locator('[data-figure-annotation]')).toContainText('one-floor robot wins, 97% against 57%');\n        await centered(range);\n        await capture(page, info, row, 'wide-range');\n        const reset = panel.getByRole('button', { name: 'Reset', exact: true });\n        await reset.focus(); await reset.press('Enter');\n        await expect(range).toHaveValue('35');\n        await modelState(panel, row, 0.8, 0.35);\n        row.steps.push({ wideRangeNativeDisclosureCaveatsAndReset: true, retiredPredictionMount: true });\n        await axe(page, row, 'main [data-figure-frame=\"friction-transfer\"]', 'friction-folds-open');\n"
         }
       ]
     },
@@ -9408,13 +9456,17 @@
       },
       "after": {
         "path": "tests/e2e/residual-release-final-seven.spec.ts",
-        "bytes": 8515,
-        "sha256": "ee12949e0a9d3dc52517e3639fa702c4c92f7014475d3a8784e7370f03d218c9"
+        "bytes": 8414,
+        "sha256": "ab048ffe53ba61ba6e58395aadb53ffb59a4e40b4d554a44d61154fd1b8938f6"
       },
       "edits": [
         {
           "before": "import { createHash } from 'node:crypto';\n",
           "after": "import { createHash } from 'node:crypto';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\n"
+        },
+        {
+          "before": "    await visit(gaitRoute);\n    await expect(page.locator('#main-content')).toContainText('authored illustrative duty factors');\n",
+          "after": "    await visit(gaitRoute);\n"
         },
         {
           "before": "    // The page's one data-scale chart is the reveal of its prediction step.\n",
@@ -9588,6 +9640,29 @@
       ]
     },
     {
+      "archivedFrom": "aa9856f420182055574b040acd1f64a6bd8231b5",
+      "before": {
+        "path": "tests/e2e/rma-kl-reader.spec.ts",
+        "bytes": 13532,
+        "sha256": "ccb91ae7ee0129b4480d5e95515253ef484501856e4230dc500338288e9d5883"
+      },
+      "after": {
+        "path": "tests/e2e/rma-kl-reader.spec.ts",
+        "bytes": 13423,
+        "sha256": "9379e30dbaa93975abcc60c064d1e251db06034002fbff4442cde16e114ca027"
+      },
+      "edits": [
+        {
+          "before": "   const para=page.locator('p').filter({hasText:kind==='kl'?'Rudin and colleagues use an adaptive learning rate':'RMA uses a different two-stage construction:'});await expect(para).toHaveCount(1);\n   const prose=await para.innerText();if(kind==='kl'){for(const s of ['desired KL of 0.01','exceeds twice the target','below half the target','This mechanism does not establish that reward retuning is stable.'])expect(prose).toContain(s);expect(prose).not.toContain('weight-retuning loop stays survivable');}else{for(const s of ['50 state-action steps (0.5 seconds of history)','about 10 Hz','100 Hz using the latest estimate','These processes perform inference without online gradient updates.','without real-world fine-tuning','multiple leg obstructions','without guaranteeing recovery of each physical parameter'])expect(prose).toContain(s);await expect(page.getByText('RMA reported adaptation',{exact:true})).toBeVisible();await expect(page.getByText('A1: latent ~10 Hz; base policy 100 Hz',{exact:true})).toBeVisible();await capture('stat',page.getByText('RMA reported adaptation',{exact:true}).locator('..'));}\n",
+          "after": "   const para=page.locator('p').filter({hasText:kind==='kl'?'adapts its learning rate from the KL divergence':'RMA trains a base policy and an environment-factor encoder'});await expect(para).toHaveCount(1);\n   const prose=await para.innerText();if(kind==='kl'){for(const s of ['with a target of 0.01','exceeds twice the target','raises it under half'])expect(prose).toContain(s);expect(prose).not.toContain('weight-retuning loop stays survivable');}else{for(const s of ['50 state-action steps (0.5 seconds)','about 10 Hz','100 Hz on the latest estimate','with no online gradient updates','without real-world fine-tuning','multiple leg obstructions','without guaranteeing each physical parameter'])expect(prose).toContain(s);await expect(page.getByText('RMA reported adaptation',{exact:true})).toBeVisible();await expect(page.getByText('A1: latent ~10 Hz; base policy 100 Hz',{exact:true})).toBeVisible();await capture('stat',page.getByText('RMA reported adaptation',{exact:true}).locator('..'));}\n"
+        },
+        {
+          "before": "   const id=kind==='kl'?'rudin-2021':'rma-2021';const cite=para.locator(`[data-cite-id=\"${id}\"]`);const link=cite.getByRole('link',{name:kind==='kl'?'Rudin et al. 2021':'Kumar et al. 2021',exact:true});await expect(link).toHaveCount(1);await expect(link).toHaveAttribute('href',kind==='kl'?'https://arxiv.org/abs/2109.11978':'https://arxiv.org/abs/2107.04034');\n",
+          "after": "   const id=kind==='kl'?'rudin-2021':'rma-2021';const cite=para.locator(`[data-cite-id=\"${id}\"]`).last();const link=cite.getByRole('link',{name:kind==='kl'?'Rudin et al. 2021':'Kumar et al. 2021',exact:true});await expect(link).toHaveCount(1);await expect(link).toHaveAttribute('href',kind==='kl'?'https://arxiv.org/abs/2109.11978':'https://arxiv.org/abs/2107.04034');\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "f9e1a826d63b409da4cd2438c9d120b02b500131",
       "before": {
         "path": "tests/e2e/safety-and-assurance.spec.ts",
@@ -9702,8 +9777,8 @@
       },
       "after": {
         "path": "tests/e2e/sim2real-local-evidence.spec.ts",
-        "bytes": 10444,
-        "sha256": "6098bdce6d76b790445c5cc8244349d2b5deb64733514591e436e0b5a5741618"
+        "bytes": 10407,
+        "sha256": "841d3a3c086506b155033161256731030f47daa9c9857f66f8affd43178f5d2e"
       },
       "edits": [
         {
@@ -9711,16 +9786,12 @@
           "after": "import { setSlider } from './slider';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
         },
         {
-          "before": "  const initial = await frictionState(ordinary, 'friction-default', 0.8, 0.35);\n",
-          "after": "  // The figure opens on a floor more slippery than the practice floor (0.50).\n  const initial = await frictionState(ordinary, 'friction-default', 0.5, 0.35);\n"
+          "before": "  }\n\n",
+          "after": "  }\n\n  // The figure opens on the practice floor itself (0.80).\n"
         },
         {
           "before": "  expect(wide.curve).not.toEqual(initial.curve);\n",
           "after": "  expect(wide.curve).not.toEqual(initial.curve);\n  await openAdjustMore(ordinary);\n"
-        },
-        {
-          "before": "  expect(await frictionState(ordinary, 'friction-reset', 0.8, 0.35)).toEqual(initial);\n",
-          "after": "  expect(await frictionState(ordinary, 'friction-reset', 0.5, 0.35)).toEqual(initial);\n"
         },
         {
           "before": "  const teacher = page.getByTestId('teacher-panel')\n    .locator('xpath=ancestor::*[@data-figure-frame][1]');\n  const degradationSlider = teacher.getByRole('slider', { name: /proprioceptive degradation/i });\n",
@@ -9737,6 +9808,10 @@
         {
           "before": "  expect(reconColors).toEqual(teacherColors);\n",
           "after": "  // With no degradation the student's guess is the real ground: one unbroken run on the same points.\n  const reconLines = teacher.getByTestId('recon-panel').locator('polyline');\n  await expect(reconLines).toHaveCount(1);\n  expect(await reconLines.getAttribute('points'))\n    .toEqual(await teacher.getByTestId('teacher-panel').locator('polyline').getAttribute('points'));\n"
+        },
+        {
+          "before": "  await expect(page.locator('div.prose[data-pagefind-body]')).toContainText('not inferred from the displayed input strip');\n",
+          "after": "  await expect(page.locator('div.prose[data-pagefind-body]')).toContainText('authored terrain and noise');\n"
         }
       ]
     },
@@ -9749,8 +9824,8 @@
       },
       "after": {
         "path": "tests/e2e/sim2real-transfer.spec.ts",
-        "bytes": 11461,
-        "sha256": "d7b10157da292b08fa92d4137d1f66b879e8e635cf5d992825945aa4e595e483"
+        "bytes": 11393,
+        "sha256": "e356324c06ced9931cfd8b76f626638b545dc4800cffbeaf60fe40001f76c051"
       },
       "edits": [
         {
@@ -9762,24 +9837,40 @@
           "after": "import { splatTransferReaderProof } from './splat-transfer-reader-proof';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
         },
         {
-          "before": "    // Default: real robot at the training friction, point policy ahead.\n    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.80');\n    await expect(friction(page).getByTestId('point-readout')).toHaveText('97%');\n",
-          "after": "    // Default: a real floor more slippery than the practice floor, where\n    // the one-floor robot has already failed and the many-floor robot holds.\n    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.50');\n    await expect(friction(page).getByTestId('point-readout')).toHaveText('0%');\n"
+          "before": "      /delta action model/,\n      /3DGS twin/,\n      /real2sim2real/,\n",
+          "after": "      /delta action added before the simulator step/,\n      /Gaussian splats/,\n      /real-to-sim reconstruction/,\n"
         },
         {
-          "before": "      /point \\+\\d+ pts/,\n    );\n",
-          "after": "      /DR \\+\\d+ pts/,\n    );\n    await expect(friction(page).locator('[data-figure-annotation]')).toContainText('one-floor robot fails');\n"
+          "before": "    // Default: real robot at the training friction, point policy ahead.\n",
+          "after": "    // Default: the real floor is the practice floor itself, where the\n    // one-floor robot is ahead of the many-floor robot.\n"
+        },
+        {
+          "before": "    );\n",
+          "after": "    );\n    await expect(friction(page).locator('[data-figure-annotation]')).toContainText('one-floor robot wins, 97% against 74%');\n"
         },
         {
           "before": "    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.36');\n\n    // Widen the randomization range: the DR peak drops.\n    await setSlider(muSlider, 80);\n",
           "after": "    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.36');\n\n    // On the training friction itself the point policy is ahead.\n    await setSlider(muSlider, 80);\n    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.80');\n    await expect(friction(page).getByTestId('point-readout')).toHaveText('97%');\n    await expect(friction(page).getByTestId('delta-readout')).toHaveText(/point \\+\\d+ pts/);\n\n    // Widen the randomization range: the DR peak drops.\n"
         },
         {
-          "before": "    // Reset restores everything.\n    await friction(page).getByRole('button', { name: 'Reset' }).click();\n    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.80');\n",
-          "after": "    // Reset, in Adjust more, restores everything.\n    await openAdjustMore(friction(page));\n    await friction(page).getByRole('button', { name: 'Reset' }).click();\n    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.50');\n"
+          "before": "    // Reset restores everything.\n",
+          "after": "    // Reset, in Adjust more, restores everything.\n    await openAdjustMore(friction(page));\n"
         },
         {
           "before": "    await expect(page.getByTestId('recon-panel')).toBeVisible();\n\n",
           "after": "    await expect(page.getByTestId('recon-panel')).toBeVisible();\n\n    // Clean, Some noise and Very noisy are the visible presets; the slider is in Adjust more.\n    const teacher = page.locator('div.prose [data-figure-frame=\"teacher-student\"]');\n    await expect(teacher.getByRole('button', { name: 'Some noise' })).toHaveAttribute('aria-pressed', 'true');\n    const clean = teacher.getByRole('button', { name: 'Clean' });\n    await waitForHydration(clean);\n    await clean.click();\n    await expect(clean).toHaveAttribute('aria-pressed', 'true');\n    await expect(page.getByTestId('divergence-readout')).toHaveText('0.00');\n    await openAdjustMore(teacher);\n"
+        },
+        {
+          "before": "        'PyBullet supplies the physics', '40 trials per task', 'training augmentations',\n",
+          "after": "        'PyBullet supplies physics', 'with 40 trials each', 'training augmentations',\n"
+        },
+        {
+          "before": "        'CAD-derived link bounds', 'lists RGB observations plus end-effector position and orientation',\n        'solely on RGB at test time', 'Those descriptions disagree', 'August 2025 revision',\n",
+          "after": "        'CAD-derived link bounds', 'lists RGB plus end-effector pose as inputs',\n        'uses only RGB at test time', 'August 2025 revision',\n"
+        },
+        {
+          "before": "        'mesh assets and measured layout alignment', 'inverse kinematics', 'collisions',\n        'resulting state drives the next rendering', 'ten trials with up to three grasp attempts per trial',\n        '90% placement', '30% in RoboGSim', 'no demonstrated safety guarantee',\n        'trajectory replay separately from closed-loop policy evaluation',\n",
+          "after": "        'mesh assets and measured layout', 'collisions',\n        'Closed-loop policies act on splat renders', 'ten trials with up to three grasps each',\n        'placed 90% on the real robot', '30% in RoboGSim', 'cannot replace real-robot tests',\n        'trajectory replay are evaluated separately',\n"
         }
       ]
     },
@@ -9886,13 +9977,21 @@
       },
       "after": {
         "path": "tests/e2e/why-rl-locomotion.spec.ts",
-        "bytes": 5014,
-        "sha256": "22f94f07128a16eedb4b9d46bbfe5040dbecce0bfbd9f51930069ea97cf130dd"
+        "bytes": 5041,
+        "sha256": "2a0377ca5049411af190a5cfc785dbb9a46dad3663910c42a9cb76aa84470e13"
       },
       "edits": [
         {
           "before": "import { setSlider } from './slider';\n",
           "after": "import { setSlider } from './slider';\nimport { waitForHydration } from './interaction-ready';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+        },
+        {
+          "before": "      main.getByText(/default production approach for quadruped locomotion/i),\n",
+          "after": "      main.getByText(/made legged locomotion robust well before general manipulation/i),\n"
+        },
+        {
+          "before": "      main.getByText(/difficult to simulate cheaply/i).first(),\n",
+          "after": "      main.getByText(/perfect fidelity is computationally infeasible/i).first(),\n"
         },
         {
           "before": "  test('contact geometry interactive: scenario switch, slider, and reset', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n",
@@ -10116,6 +10215,25 @@
       ]
     },
     {
+      "archivedFrom": "aa9856f420182055574b040acd1f64a6bd8231b5",
+      "before": {
+        "path": "tests/unit/final-seven-closure-evidence.test.ts",
+        "bytes": 8224,
+        "sha256": "2fde42e7f7c25696f5bf154e22c59f2099a8736b2650c1078326b1ebdd64b283"
+      },
+      "after": {
+        "path": "tests/unit/final-seven-closure-evidence.test.ts",
+        "bytes": 8105,
+        "sha256": "e2591c622ca23b1415aa48e2e53605426d4668b4180bfad71f2d198a0b32b27f"
+      },
+      "edits": [
+        {
+          "before": "    const article = read('content/rl-sim2real/legged-locomotion.mdx');\n    expect(article).toContain('authored illustrative duty factors: walk 0.75, trot 0.50, bound 0.45, and pronk 0.35');\n",
+          "after": "    const article = read('content/rl-sim2real/legged-locomotion.mdx');\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "1d7319ce83d92621c5b51dd24bffe106b10e924f",
       "before": {
         "path": "tests/unit/main-merge-approved-deltas.test.ts",
@@ -10124,29 +10242,29 @@
       },
       "after": {
         "path": "tests/unit/main-merge-approved-deltas.test.ts",
-        "bytes": 98391,
-        "sha256": "1b2fef1d17dcdc4b21df28ee465425b402bb0dcb809ad0e3fc1bf3c469bc4319"
+        "bytes": 101220,
+        "sha256": "2421ca2f7287eec2328f0b7f748b1e80495ceec2d7f83c1e4cb60369f43cea3c"
       },
       "edits": [
         {
           "before": "const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !allReaderFirstAppends.includes(x.id));\n",
-          "after": "// The 2026-10-05 KOL backlog batch appends its block last, per domain commit\n// in the same shape as the 2026-10-01 batch: plain edges for each changed\n// article member and new citation, a resolution where a chain already holds\n// one, and one resolution for the shared citation rendering.\nconst kolBacklog20261005Appends = merged.filter(x => x.id.startsWith('kol-backlog-20261005-')).map(x => x.id);\n// The 2026-10-05 explainer work on /how-robots-work/ appends its block after\n// that: the accessible names its page markup gained after the page shipped.\nconst howRobotsWork20261005Appends = [\n  'how-robots-work-20261005-accessible-names-explainers-as-text',\n  'how-robots-work-20261005-accessible-names-poster-alt',\n];\n// The 2026-10-06 opus-pass domain passes append theirs after that, one block\n// per article group, in the same shape as the KOL backlog batch.\nconst domainPass20261006Appends = merged.filter(x => x.id.startsWith('domain-pass-20261006-')).map(x => x.id);\n// The 2026-10-07 classical pass, continued on 2026-10-08, appends its block\n// after that, in commit order: the accessible names its reader-first figure\n// rewrites moved, the prose edges of articles that mount a new figure, the\n// edges its text and registry fixes move, and the plain-words rework that\n// followed its five-second reader tests.\nconst classicalPass20261007Appends = merged\n  .filter(x => /^(reader-first|figure-mounts|domain-pass)-2026100[78]-/.test(x.id)).map(x => x.id);\nconst laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,\n  ...domainPass20261006Appends, ...classicalPass20261007Appends];\nconst beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));\n"
+          "after": "// The 2026-10-05 KOL backlog batch appends its block last, per domain commit\n// in the same shape as the 2026-10-01 batch: plain edges for each changed\n// article member and new citation, a resolution where a chain already holds\n// one, and one resolution for the shared citation rendering.\nconst kolBacklog20261005Appends = merged.filter(x => x.id.startsWith('kol-backlog-20261005-')).map(x => x.id);\n// The 2026-10-05 explainer work on /how-robots-work/ appends its block after\n// that: the accessible names its page markup gained after the page shipped.\nconst howRobotsWork20261005Appends = [\n  'how-robots-work-20261005-accessible-names-explainers-as-text',\n  'how-robots-work-20261005-accessible-names-poster-alt',\n];\n// The 2026-10-06 opus-pass domain passes append theirs after that, one block\n// per article group, in the same shape as the KOL backlog batch.\nconst domainPass20261006Appends = merged.filter(x => x.id.startsWith('domain-pass-20261006-')).map(x => x.id);\n// The 2026-10-07 classical pass, continued on 2026-10-08, appends its block\n// after that, in commit order: the accessible names its reader-first figure\n// rewrites moved, the prose edges of articles that mount a new figure, the\n// edges its text and registry fixes move, and the plain-words rework that\n// followed its five-second reader tests.\nconst classicalPass20261007Appends = merged\n  .filter(x => /^(reader-first|figure-mounts|domain-pass)-2026100[78]-/.test(x.id)).map(x => x.id);\n// The 2026-10-09 overdue KOL queue step appends its block last, in the\n// domain-pass layer's shape: prose, relationships and frontmatter edges for\n// dexterity and generative video, one citation-rendering resolution and one\n// edge per new citation record.\nconst kolQueue20261009Appends = merged.filter(x => x.id.startsWith('domain-pass-20261009-kol-')).map(x => x.id);\nconst laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,\n  ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends];\nconst beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));\n"
         },
         {
           "before": "const afterHowRobotsWork = merged.length - readerFirstManipulationAppends.length;\n",
-          "after": "const kolBacklog20261005Edges = (manifest: string, memberId: string) => merged\n  .filter(x => kolBacklog20261005Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)\n  .map(x => x.id);\nconst domainPass20261006Edges = (manifest: string, memberId: string) => merged\n  .filter(x => domainPass20261006Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)\n  .map(x => x.id);\nconst classicalPass20261007Edges = (manifest: string, memberId: string) => merged\n  .filter(x => classicalPass20261007Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)\n  .map(x => x.id);\nconst afterDomainPass20261006 = merged.length - classicalPass20261007Appends.length;\nconst afterHowRobotsWork20261005 = afterDomainPass20261006 - domainPass20261006Appends.length;\nconst afterKolBacklog20261005 = afterHowRobotsWork20261005 - howRobotsWork20261005Appends.length;\nconst afterReaderFirstManipulation = afterKolBacklog20261005 - kolBacklog20261005Appends.length;\nconst afterHowRobotsWork = afterReaderFirstManipulation - readerFirstManipulationAppends.length;\n"
+          "after": "const kolBacklog20261005Edges = (manifest: string, memberId: string) => merged\n  .filter(x => kolBacklog20261005Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)\n  .map(x => x.id);\nconst domainPass20261006Edges = (manifest: string, memberId: string) => merged\n  .filter(x => domainPass20261006Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)\n  .map(x => x.id);\nconst classicalPass20261007Edges = (manifest: string, memberId: string) => merged\n  .filter(x => classicalPass20261007Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)\n  .map(x => x.id);\nconst kolQueue20261009Edges = (manifest: string, memberId: string) => merged\n  .filter(x => kolQueue20261009Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)\n  .map(x => x.id);\nconst afterClassicalPass20261007 = merged.length - kolQueue20261009Appends.length;\nconst afterDomainPass20261006 = afterClassicalPass20261007 - classicalPass20261007Appends.length;\nconst afterHowRobotsWork20261005 = afterDomainPass20261006 - domainPass20261006Appends.length;\nconst afterKolBacklog20261005 = afterHowRobotsWork20261005 - howRobotsWork20261005Appends.length;\nconst afterReaderFirstManipulation = afterKolBacklog20261005 - kolBacklog20261005Appends.length;\nconst afterHowRobotsWork = afterReaderFirstManipulation - readerFirstManipulationAppends.length;\n"
         },
         {
           "before": "    // the how-robots-work page appends its block, and the reader-first\n    // manipulation batch appends its block last.\n",
-          "after": "    // the how-robots-work page appends its block, the reader-first\n    // manipulation batch appends its block, the 2026-10-05 KOL backlog\n    // batch appends its block, the 2026-10-05 how-robots-work names append\n    // theirs, and the 2026-10-06 domain passes and the 2026-10-07 classical\n    // pass append theirs last.\n"
+          "after": "    // the how-robots-work page appends its block, the reader-first\n    // manipulation batch appends its block, the 2026-10-05 KOL backlog\n    // batch appends its block, the 2026-10-05 how-robots-work names append\n    // theirs, the 2026-10-06 domain passes and the 2026-10-07 classical pass\n    // append theirs, and the 2026-10-09 overdue KOL step appends its block\n    // last.\n"
         },
         {
           "before": "        + readerFirstManipulationAppends.length]);\n",
-          "after": "        + readerFirstManipulationAppends.length + kolBacklog20261005Appends.length\n        + howRobotsWork20261005Appends.length + domainPass20261006Appends.length\n        + classicalPass20261007Appends.length]);\n"
+          "after": "        + readerFirstManipulationAppends.length + kolBacklog20261005Appends.length\n        + howRobotsWork20261005Appends.length + domainPass20261006Appends.length\n        + classicalPass20261007Appends.length + kolQueue20261009Appends.length]);\n"
         },
         {
           "before": "      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends]);\n",
-          "after": "      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends]);\n"
+          "after": "      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends]);\n"
         },
         {
           "before": "    expect(merged.slice(afterHowRobotsWork).map(x => [x.manifest, x.memberId])).toEqual([\n",
@@ -10162,7 +10280,7 @@
         },
         {
           "before": "        ...readerFirstEdges('prose', memberId),\n",
-          "after": "        ...readerFirstEdges('prose', memberId),\n        ...domainPass20261006Edges('prose', memberId),\n        ...classicalPass20261007Edges('prose', memberId),\n"
+          "after": "        ...readerFirstEdges('prose', memberId),\n        ...domainPass20261006Edges('prose', memberId),\n        ...classicalPass20261007Edges('prose', memberId),\n        ...kolQueue20261009Edges('prose', memberId),\n"
         },
         {
           "before": "      // Only a named figure-migration, SEO pass or reader-first edge may follow\n      // the restore; the restore is checked against the chain it closed.\n",
@@ -10170,7 +10288,7 @@
         },
         {
           "before": "        ...seoPassEdges('prose', memberId), ...readerFirstEdges('prose', memberId)]);\n",
-          "after": "        ...seoPassEdges('prose', memberId), ...readerFirstEdges('prose', memberId),\n        ...kolBacklog20261005Edges('prose', memberId), ...domainPass20261006Edges('prose', memberId),\n        ...classicalPass20261007Edges('prose', memberId)]);\n"
+          "after": "        ...seoPassEdges('prose', memberId), ...readerFirstEdges('prose', memberId),\n        ...kolBacklog20261005Edges('prose', memberId), ...domainPass20261006Edges('prose', memberId),\n        ...classicalPass20261007Edges('prose', memberId), ...kolQueue20261009Edges('prose', memberId)]);\n"
         },
         {
           "before": "      // A later reader-first batch may close the chain again; this edge is\n      // checked against the chain as it stood when it was appended.\n",
@@ -10182,7 +10300,7 @@
         },
         {
           "before": "        expect(entry.oldHash).toBe(previous);\n      }\n",
-          "after": "        expect(entry.oldHash).toBe(previous);\n      }\n    }\n  });\n\n  it('binds each 2026-10-05 KOL backlog edge to its previous endpoint and to the sealed hash', () => {\n    expect(kolBacklog20261005Appends.length).toBeGreaterThan(1);\n    for (const id of kolBacklog20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);\n      }\n      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n    }\n    expect(kolBacklog20261005Appends.filter(id => id.endsWith('-citation-rendering')))\n      .toEqual(['world-models', 'manipulation', 'adjacent', 'frontier', 'data-hardware', 'classical'].map(domain => `kol-backlog-20261005-${domain}-citation-rendering`));\n  });\n\n  it('binds each 2026-10-06 domain pass edge to its previous endpoint and to the sealed hash', () => {\n    expect(domainPass20261006Appends.length).toBeGreaterThan(1);\n    expect(merged.slice(afterHowRobotsWork20261005, afterDomainPass20261006).map(x => x.id))\n      .toEqual(domainPass20261006Appends);\n    for (const id of domainPass20261006Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);\n      }\n      // A positional value-state cell can return to an endpoint its chain\n      // already approved; every other edge must be the first to approve it.\n      if (!(entry.manifest === 'value-states' && prior.some(x => x.newHash === entry.newHash))) {\n        expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n      }\n    }\n    // One shared citation-rendering resolution per article group that registers\n    // or corrects a citation record, in group order. A prose-only group leaves\n    // every rendered label unchanged, so it has no resolution to approve.\n    const groups = [...new Set(domainPass20261006Appends.map(id => id.split('-')[3]))];\n    expect(groups).toEqual(groups.map((_, index) => `g${index + 1}`));\n    const citing = groups.filter(group => domainPass20261006Appends.some(id =>\n      id.startsWith(`domain-pass-20261006-${group}-citation-`) && !id.endsWith('-citation-rendering')));\n    expect(citing.length).toBeGreaterThan(0);\n    expect(domainPass20261006Appends.filter(id => id.endsWith('-citation-rendering')))\n      .toEqual(citing.map(group => `domain-pass-20261006-${group}-citation-rendering`));\n  });\n\n  it('binds each 2026-10-07 classical pass edge to its previous endpoint and to the sealed hash', () => {\n    expect(classicalPass20261007Appends.length).toBeGreaterThan(1);\n    expect(merged.slice(afterDomainPass20261006).map(x => x.id)).toEqual(classicalPass20261007Appends);\n    for (const id of classicalPass20261007Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      const previous = prior.at(-1)?.newHash ?? sealed;\n      expect(entry.newHash).not.toBe(previous);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(previous);\n      }\n      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n    }\n  });\n\n  it('binds each 2026-10-05 how-robots-work name to an absent seal as one plain edge', () => {\n    expect(merged.filter(x => x.id.startsWith('how-robots-work-20261005-')).map(x => x.id))\n      .toEqual(howRobotsWork20261005Appends);\n    for (const id of howRobotsWork20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      expect(sealedManifest.members.some(x => x.id === entry.memberId)).toBe(false);\n      expect(merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId)).toEqual([entry]);\n      expect(entry.reconciles).toBeUndefined();\n      expect(entry.oldHash).toBe(MISSING_MEMBER);\n      const path = approvedDeltaPath([entry], MISSING_MEMBER, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(approvedDeltaPath([], MISSING_MEMBER, entry.newHash).status).not.toBe('approved');\n"
+          "after": "        expect(entry.oldHash).toBe(previous);\n      }\n    }\n  });\n\n  it('binds each 2026-10-05 KOL backlog edge to its previous endpoint and to the sealed hash', () => {\n    expect(kolBacklog20261005Appends.length).toBeGreaterThan(1);\n    for (const id of kolBacklog20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);\n      }\n      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n    }\n    expect(kolBacklog20261005Appends.filter(id => id.endsWith('-citation-rendering')))\n      .toEqual(['world-models', 'manipulation', 'adjacent', 'frontier', 'data-hardware', 'classical'].map(domain => `kol-backlog-20261005-${domain}-citation-rendering`));\n  });\n\n  it('binds each 2026-10-06 domain pass edge to its previous endpoint and to the sealed hash', () => {\n    expect(domainPass20261006Appends.length).toBeGreaterThan(1);\n    expect(merged.slice(afterHowRobotsWork20261005, afterDomainPass20261006).map(x => x.id))\n      .toEqual(domainPass20261006Appends);\n    for (const id of domainPass20261006Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(prior.at(-1)?.newHash ?? sealed);\n      }\n      // A positional value-state cell can return to an endpoint its chain\n      // already approved; every other edge must be the first to approve it.\n      if (!(entry.manifest === 'value-states' && prior.some(x => x.newHash === entry.newHash))) {\n        expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n      }\n    }\n    // One shared citation-rendering resolution per article group that registers\n    // or corrects a citation record, in group order. A prose-only group leaves\n    // every rendered label unchanged, so it has no resolution to approve.\n    const groups = [...new Set(domainPass20261006Appends.map(id => id.split('-')[3]))];\n    expect(groups).toEqual(groups.map((_, index) => `g${index + 1}`));\n    const citing = groups.filter(group => domainPass20261006Appends.some(id =>\n      id.startsWith(`domain-pass-20261006-${group}-citation-`) && !id.endsWith('-citation-rendering')));\n    expect(citing.length).toBeGreaterThan(0);\n    expect(domainPass20261006Appends.filter(id => id.endsWith('-citation-rendering')))\n      .toEqual(citing.map(group => `domain-pass-20261006-${group}-citation-rendering`));\n  });\n\n  it('binds each 2026-10-07 classical pass edge to its previous endpoint and to the sealed hash', () => {\n    expect(classicalPass20261007Appends.length).toBeGreaterThan(1);\n    expect(merged.slice(afterDomainPass20261006, afterClassicalPass20261007).map(x => x.id))\n      .toEqual(classicalPass20261007Appends);\n    for (const id of classicalPass20261007Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      const previous = prior.at(-1)?.newHash ?? sealed;\n      expect(entry.newHash).not.toBe(previous);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(previous);\n      }\n      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n    }\n  });\n\n  it('binds each 2026-10-09 overdue KOL step edge to its previous endpoint and to the sealed hash', () => {\n    expect(merged.slice(afterClassicalPass20261007).map(x => x.id)).toEqual(kolQueue20261009Appends);\n    expect(kolQueue20261009Appends).toEqual([\n      'prose-dexterity', 'prose-generative-video', 'relationships-dexterity', 'relationships-generative-video',\n      'frontmatter-dexterity', 'frontmatter-generative-video', 'citation-rendering',\n      'citation-bd-atlas-hand-2026', 'citation-runway-gwm-robotics-eval-2026', 'citation-runway-praxis-1-2026',\n    ].map(suffix => `domain-pass-20261009-kol-${suffix}`));\n    for (const id of kolQueue20261009Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;\n      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      const prior = edges.slice(0, edges.indexOf(entry));\n      const previous = prior.at(-1)?.newHash ?? sealed;\n      expect(entry.newHash).not.toBe(previous);\n      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(path.path.at(-1)).toBe(entry);\n      if (prior.some(x => x.reconciles !== undefined)) {\n        expect(entry.oldHash).toBe(sealed);\n        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));\n      } else {\n        expect(entry.reconciles).toBeUndefined();\n        expect(entry.oldHash).toBe(previous);\n      }\n      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');\n    }\n  });\n\n  it('binds each 2026-10-05 how-robots-work name to an absent seal as one plain edge', () => {\n    expect(merged.filter(x => x.id.startsWith('how-robots-work-20261005-')).map(x => x.id))\n      .toEqual(howRobotsWork20261005Appends);\n    for (const id of howRobotsWork20261005Appends) {\n      const entry = merged.find(x => x.id === id)!;\n      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(\n        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));\n      expect(sealedManifest.members.some(x => x.id === entry.memberId)).toBe(false);\n      expect(merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId)).toEqual([entry]);\n      expect(entry.reconciles).toBeUndefined();\n      expect(entry.oldHash).toBe(MISSING_MEMBER);\n      const path = approvedDeltaPath([entry], MISSING_MEMBER, entry.newHash);\n      expect(path.status).toBe('approved');\n      expect(approvedDeltaPath([], MISSING_MEMBER, entry.newHash).status).not.toBe('approved');\n"
         }
       ]
     },
@@ -10288,6 +10406,25 @@
       ]
     },
     {
+      "archivedFrom": "aa9856f420182055574b040acd1f64a6bd8231b5",
+      "before": {
+        "path": "tests/unit/parallel-local-evidence.test.ts",
+        "bytes": 5383,
+        "sha256": "3eb55f085478bdce21262a25627e07c6c50004123cb243e6ce682f13194dd7ef"
+      },
+      "after": {
+        "path": "tests/unit/parallel-local-evidence.test.ts",
+        "bytes": 5372,
+        "sha256": "246b135fb34347c92ff0b5d675ffb5eaa3050372c9c388912f4c4348a242a442"
+      },
+      "edits": [
+        {
+          "before": "    for (const text of ['authored fixed-transitions model', '220 million', '49 logarithmically spaced', '0.000004', '0.000022', 'CPU toggle off', 'not a benchmark']) expect(body).toContain(text);\n",
+          "after": "    for (const text of ['unbenchmarked toy', '220-million-transition budget', 'assumed CPU-cost curve', 'near-four-minute default at 4,096 environments']) expect(body).toContain(text);\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "1d7319ce83d92621c5b51dd24bffe106b10e924f",
       "before": {
         "path": "tests/unit/reader-release-integration.test.ts",
@@ -10342,6 +10479,25 @@
         {
           "before": "    expect(adjacentHash(read(adjacentPath))).toBe(readerFirst[0].newHash);\n",
           "after": "    // The optional prediction step then shortened the step's question and\n    // hint with one more plain edge, from that endpoint to the live article.\n    const predict = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries.filter(\n      (a: { id: string; manifest: string; memberId: string; oldHash: string }) => a.manifest === 'prose'\n        && a.memberId === 'article:data-hardware/data-bottleneck' && a.oldHash === readerFirst[0].newHash);\n    expect(predict.map((a: { id: string }) => a.id))\n      .toEqual(['reader-first-20261003-predict-prose-data-hardware-data-bottleneck']);\n    expect(predict[0].reconciles).toBeUndefined();\n    expect(adjacentHash(preKolBacklog(adjacentPath).toString('utf8'))).toBe(predict[0].newHash);\n    // The 2026-10-05 KOL backlog batch added one dated paragraph with one more\n    // plain edge, from the prediction endpoint to the live article.\n    const kol = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries.filter(\n      (a: { id: string; manifest: string; memberId: string; oldHash: string }) => a.manifest === 'prose'\n        && a.memberId === 'article:data-hardware/data-bottleneck' && a.oldHash === predict[0].newHash);\n    expect(kol.map((a: { id: string }) => a.id)).toEqual(['kol-backlog-20261005-data-hardware-prose-data-bottleneck']);\n    expect(kol[0].reconciles).toBeUndefined();\n    expect(adjacentHash(read(adjacentPath))).toBe(kol[0].newHash);\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "aa9856f420182055574b040acd1f64a6bd8231b5",
+      "before": {
+        "path": "tests/unit/sim2real-local-evidence.test.ts",
+        "bytes": 9753,
+        "sha256": "fa3ddf33752b00ca7fa32bbc36c401379d1c461ab271389c84986ef3a4c4aa9c"
+      },
+      "after": {
+        "path": "tests/unit/sim2real-local-evidence.test.ts",
+        "bytes": 9669,
+        "sha256": "80d4605b1eefcfc82ca7f1f5dd8bd3744f7cda62570e523796be856670b4fc6a"
+      },
+      "edits": [
+        {
+          "before": "    expect(article).toContain('chosen terrain and noise');\n    expect(article).toContain('2.2 times the unrounded reconstruction MAE');\n    expect(article).toContain('not inferred from the displayed input strip');\n",
+          "after": "    expect(article).toContain('authored terrain and noise');\n    expect(article).toContain('so its errors rise by construction');\n"
         }
       ]
     }

@@ -29,7 +29,7 @@ export const DID_YOU_KNOW: readonly DidYouKnowFact[] = [
     linked: 'learned to walk',
     after: ' on flat ground in under four minutes on one GPU',
     passage:
-      'trained an ANYmal quadruped to walk on flat ground in under four minutes, and on uneven terrain in twenty minutes, on a single workstation GPU',
+      'learned to walk on flat ground in under four minutes, and on uneven terrain in twenty, on one workstation GPU',
   },
   {
     id: 'act-ten-minutes',

@@ -78,8 +78,9 @@ describe('WbcDecomposition', () => {
     );
     expect(screen.getByTestId('layers-readout')).toHaveTextContent('2');
     expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(
-      /not disclosed/,
+      '50 Hz',
     );
+    expect(screen.getByTestId('wbc-diagram')).toHaveTextContent(/50 times a second/);
     expect(screen.getByTestId('wbc-layers')).toHaveTextContent(/GR00T/);
     expect(screen.getByTestId('wbc-stats')).toHaveTextContent('3B');
     expect(screen.getByTestId('wbc-stats')).toHaveTextContent('20,000 h');

@@ -64,16 +64,16 @@ const LINE_STEP_EM = 1.25;
 /** Each layer in plain words, two short lines, keyed by approach and layer order. */
 const PLAIN_LAYERS: Record<WbcApproachId, readonly (readonly [string, string])[]> = {
   'tracking-rl': [
-    ['Decides the task,', 'when asked'],
+    ['Works out the goal, slowly;', 'speed not disclosed'],
     ['Turns what it sees into body', 'poses, 200 times a second'],
     ['Keeps balance and moves every', 'joint, 1,000 times a second'],
   ],
   'latent-action': [
     ['Sees, reads the instruction and', 'writes compact movement codes'],
-    ['Turns the codes into joint', 'commands; speed not disclosed'],
+    ['Turns the codes into joint', 'commands, 50 times a second'],
   ],
   'end-to-end-vla': [
-    ['Plans the task and calls', 'tools, when asked'],
+    ['Plans the task and calls', 'tools; speed not disclosed'],
     ['One network moves the whole', 'body; speed not disclosed'],
   ],
 };
@@ -96,7 +96,7 @@ function wbcTakeaway(approach: WbcApproach, fastest: string): string {
     return `Motion-tracking RL, represented by ${approach.representative}, stacks ${approach.layers.length} control layers ending at a ${fastest} S0 actuator loop; the lime bar marks the layer that talks to the actuators, and the retargeted human motion is the interface so layers above never name a torque.`;
   }
   if (approach.id === 'latent-action') {
-    return `Latent-action hierarchy, represented by ${approach.representative}, splits the stack into ${approach.layers.length} layers (3B-parameter VLA over an undisclosed-rate controller); the lime bar still marks the actuator-facing box, and latent tokens are the interface so the VLA never names a joint.`;
+    return `Latent-action hierarchy, represented by ${approach.representative}, splits the stack into ${approach.layers.length} layers (3B-parameter VLA over a ${fastest} controller); the lime bar still marks the actuator-facing box, and latent tokens are the interface so the VLA never names a joint.`;
   }
   return `End-to-end VLA, represented by ${approach.representative}, keeps ${approach.layers.length} layers and no separate whole-body controller; the lime bar marks the VLA itself as the layer that talks to the actuators across 3 embodiments, because there is no internal interface between policy and robot.`;
 }

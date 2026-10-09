@@ -211,7 +211,7 @@ async function exercisePanel(page: Page, panel: Locator, info: TestInfo, row: Ev
   await capture(page, info, row, 'reset-focus');
   // The accessible chart description sits open in the method fold; retain any independent scoped red.
   await expect(figureFold(panel, 'method')).toHaveJSProperty('open', true);
-  await expect(panel.locator(`[id="${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}"]`)).toContainText('Authored toy, not measured robot data');
+  await expect(panel.locator(`[id="${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}"]`)).toContainText('Illustrative, not measured robot data');
   await axe(page, row, `[aria-describedby="${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}"]`, 'chart');
 }
 
@@ -296,10 +296,10 @@ for (const width of [375, 1440]) {
       const row = evidence(info);
       try {
         await open(page, row, 'sim2real-transfer');
-        // One friction figure on the page; it opens on a floor more slippery than the practice floor.
+        // One friction figure on the page; it opens on the practice floor itself.
         const panel = page.locator('main [data-figure-frame="friction-transfer"]');
         await expect(panel).toHaveCount(1);
-        await exercisePanel(page, panel, info, row, 0.35, 0.5);
+        await exercisePanel(page, panel, info, row, 0.35, 0.8);
         const quiz = page.locator('[data-self-check]');
         const choice = quiz.getByRole('radio', { name: 'A separately trained adaptation module', exact: true });
         await choice.focus(); await choice.press('Space');
@@ -338,8 +338,8 @@ for (const width of [375, 1440]) {
         await expect(panel).toContainText('do not come from Peng paper results');
         await expect(panel).toContainText('no measured universal law of this shape');
         await expect(panel.getByTestId('ft-explanation')).toContainText('74% at half-width 0.35 and 57% at 0.65');
-        await modelState(panel, row, 0.5, 0.35);
-        await expect(panel.locator('[data-figure-annotation]')).toContainText('the one-floor robot fails');
+        await modelState(panel, row, 0.8, 0.35);
+        await expect(panel.locator('[data-figure-annotation]')).toContainText('one-floor robot wins, 97% against 74%');
         const mu = panel.getByRole('slider').nth(0);
         const range = panel.getByRole('slider').nth(1);
         await setRange(mu, 80, 1);
@@ -354,7 +354,7 @@ for (const width of [375, 1440]) {
         const reset = panel.getByRole('button', { name: 'Reset', exact: true });
         await reset.focus(); await reset.press('Enter');
         await expect(range).toHaveValue('35');
-        await modelState(panel, row, 0.5, 0.35);
+        await modelState(panel, row, 0.8, 0.35);
         row.steps.push({ wideRangeNativeDisclosureCaveatsAndReset: true, retiredPredictionMount: true });
         await axe(page, row, 'main [data-figure-frame="friction-transfer"]', 'friction-folds-open');
         await finish(page, info, row);

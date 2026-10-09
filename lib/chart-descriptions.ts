@@ -141,7 +141,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/friction-transfer.tsx',
     route: '/rl-sim2real/sim2real-transfer/',
     quantityNames: ['friction', 'half-width'],
-    text: 'Authored toy, not measured robot data. At selected friction 0.80, the point curve is 97% and the DR curve is 74%. The assumed DR half-width is 0.35 and its plateau is 74%. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. Dashed edges mark an assumed range, not a confidence interval. The randomization band is marked ordinary at the selected half-width. Reset restores this panel to friction 0.80 and half-width 0.35. Selecting friction samples the formulas; no training or adaptation runs.',
+    text: 'Illustrative, not measured robot data. At selected friction 0.80, the point curve is 97% and the DR curve is 74%. The assumed DR half-width is 0.35 and its plateau is 74%. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. Dashed edges mark an assumed range, not a confidence interval. The randomization band is marked ordinary at the selected half-width. Reset restores this panel to friction 0.80 and half-width 0.35. Selecting friction samples the formulas; no training or adaptation runs.',
   },
   {
     component: 'LatentImagination',

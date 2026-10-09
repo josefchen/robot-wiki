@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ee62e71ebe3a5e3607dfc4c12aca192c9aa2d841b2fef824843b21269ed00cd1",
+  "fingerprint": "41faa98a3bd5ea23ffc863f512d929881f8a3b2e561679ed8718b45c97b2bb13",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1950,7 +1950,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 29352,
+      "visibleTextLength": 29474,
       "tables": [
         {
           "index": 0,
@@ -2770,7 +2770,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 40368,
+      "visibleTextLength": 40373,
       "tables": [],
       "equations": [
         {
@@ -4540,7 +4540,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25084,
+      "visibleTextLength": 25634,
       "tables": [
         {
           "index": 0,
@@ -6921,7 +6921,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20233,
+      "visibleTextLength": 25146,
       "tables": [
         {
           "index": 0,
@@ -6972,7 +6972,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18289,
+      "visibleTextLength": 21289,
       "tables": [],
       "equations": [
         {
@@ -6993,6 +6993,22 @@
         },
         {
           "index": 1,
+          "display": false,
+          "mathmlText": "u2/ghu^2/gh",
+          "annotationTex": "u^2/gh",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "u2/gh",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
           "display": false,
           "mathmlText": "Tst=L/vdT_{st} = L/v_d",
           "annotationTex": "T_{st} = L/v_d",
@@ -7019,7 +7035,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 13736,
+      "visibleTextLength": 19844,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7033,7 +7049,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15650,
+      "visibleTextLength": 18442,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7047,7 +7063,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27413,
+      "visibleTextLength": 30472,
       "tables": [
         {
           "index": 0,
@@ -7144,7 +7160,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27155,
+      "visibleTextLength": 27141,
       "tables": [
         {
           "index": 0,
@@ -7195,7 +7211,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23128,
+      "visibleTextLength": 28768,
       "tables": [
         {
           "index": 0,
@@ -7246,7 +7262,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 11758,
+      "visibleTextLength": 17446,
       "tables": [
         {
           "index": 0,
@@ -7379,7 +7395,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19273,
+      "visibleTextLength": 20230,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -9487,7 +9503,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 29789,
+      "visibleTextLength": 29911,
       "tables": [
         {
           "index": 0,
@@ -10307,7 +10323,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 40805,
+      "visibleTextLength": 40810,
       "tables": [],
       "equations": [
         {
@@ -12077,7 +12093,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25435,
+      "visibleTextLength": 25985,
       "tables": [
         {
           "index": 0,
@@ -14458,7 +14474,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20724,
+      "visibleTextLength": 25637,
       "tables": [
         {
           "index": 0,
@@ -14509,7 +14525,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18780,
+      "visibleTextLength": 21780,
       "tables": [],
       "equations": [
         {
@@ -14530,6 +14546,22 @@
         },
         {
           "index": 1,
+          "display": false,
+          "mathmlText": "u2/ghu^2/gh",
+          "annotationTex": "u^2/gh",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "u2/gh",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
           "display": false,
           "mathmlText": "Tst=L/vdT_{st} = L/v_d",
           "annotationTex": "T_{st} = L/v_d",
@@ -14556,7 +14588,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14227,
+      "visibleTextLength": 20335,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -14570,7 +14602,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16141,
+      "visibleTextLength": 18933,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -14584,7 +14616,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27904,
+      "visibleTextLength": 30963,
       "tables": [
         {
           "index": 0,
@@ -14681,7 +14713,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27646,
+      "visibleTextLength": 27632,
       "tables": [
         {
           "index": 0,
@@ -14732,7 +14764,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23619,
+      "visibleTextLength": 29259,
       "tables": [
         {
           "index": 0,
@@ -14783,7 +14815,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 12249,
+      "visibleTextLength": 17937,
       "tables": [
         {
           "index": 0,
@@ -14916,7 +14948,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19773,
+      "visibleTextLength": 20730,
       "tables": [],
       "equations": [],
       "scrollRegions": [],

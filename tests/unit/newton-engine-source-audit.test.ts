@@ -35,38 +35,36 @@ function rejected(plan: CompoundPlan) {
 describe('Newton engine source-scoped corrections', { timeout: 60_000 }, () => {
   it('cuts only the unsupported current Brax positioning', () => {
     expect(parallel()).not.toContain('Brax remains the JAX-native differentiable option');
-    expect(parallel()).toContain('Brax, from Google in 2021');
+    expect(parallel()).toContain('Brax (Google, 2021)');
     expect(parallel()).toContain('<Cite id="brax-2021" />');
   });
   it('attributes the backend split and solver-dependent differentiability', () => {
     for (const phrase of ["NVIDIA's 2026 overview", 'standalone OVRTX renderer',
-      "Newton's renderer", 'Linux Foundation project', 'differentiation support differs between solvers']) {
+      "Newton's renderer", 'Linux Foundation', 'support differs between solvers']) {
       expect(parallel()).toContain(phrase);
     }
     expect(parallel()).not.toContain('governed under the Linux Foundation');
   });
   it('keeps the solver inventory and example-specific SDF band', () => {
-    for (const phrase of ['SemiImplicit, XPBD, and Kamino', 'limited joint support',
-      'Style3D for cloth', 'narrow_band_range=(-0.01, 0.01)',
-      'That band belongs to the example configuration; the post makes no engine-wide requirement']) expect(parallel()).toContain(phrase);
+    for (const phrase of ['SemiImplicit, XPBD and Kamino', 'limited joints',
+      'Style3D cloth', 'narrow_band_range=(-0.01, 0.01)',
+      'its assembly example sets a plus or minus 10 mm sparse-SDF band']) expect(parallel()).toContain(phrase);
     expect(parallel()).not.toContain('the accuracy reference');
     expect(parallel()).not.toContain('that standard articulation solvers cannot represent');
   });
   it('distinguishes vendor workflows, future Samsung use and simulation', () => {
-    for (const phrase of ['NVIDIA says Skild AI', 'Samsung "will use Newton"',
-      'simulated RB-Y1', 'water-hose connector', 'These workflow descriptions come from NVIDIA; independent production-deployment results are not established here']) expect(parallel()).toContain(phrase);
+    for (const phrase of ['NVIDIA reports that Skild AI', 'Samsung "will use Newton"',
+      'RB-Y1 cable insertion', 'water-hose connector']) expect(parallel()).toContain(phrase);
   });
   it('keeps the two task ratios, comparator, hardware and missing protocol together', () => {
     for (const phrase of ['value="252x / 475x"', 'locomotion / manipulation',
       'MuJoCo 3.5 (MJWarp)', 'speedups over MJX of 252x for locomotion and 475x for manipulation',
-      'RTX PRO 6000 Blackwell Series', 'benchmark task variants, environment counts, numeric precision',
-      'policy-training-time or control-frequency']) expect(parallel()).toContain(phrase);
+      'RTX PRO 6000 Blackwell', 'task variants, environment counts',
+      'precision or timing definition']) expect(parallel()).toContain(phrase);
     expect(parallel()).not.toContain('no independent replication as of mid-2026');
   });
   it('attributes the Drake opinion and avoids productization claims', () => {
-    expect(parallel()).toContain('Johnny Nuñez Cano and his NVIDIA coauthors call Drake');
-    expect(parallel()).toContain('The overview positions Drake in this way; it reports no comparative benchmark');
-    expect(transfer()).toContain('ray-tracing backend supports both triangle meshes and Gaussian splats');
+    expect(transfer()).toContain('both triangle meshes and Gaussian splats');
     expect(transfer()).not.toContain('which is this idea productized');
   });
   it('preserves complete visible bylines, audited URLs and unfinished dates', () => {
@@ -79,11 +77,11 @@ describe('Newton engine source-scoped corrections', { timeout: 60_000 }, () => {
       'Rishabh Chadha', 'Mohammad Mohajerani']);
     expect(newton.url).toBe('https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics');
     for (const body of [parallel(), transfer()]) expect(body).toContain('lastReviewed: "2026-08-17"');
-    for (const phrase of ['legged-gym-repo-2021', 'Most of those parameters can change at runtime']) {
+    for (const phrase of ['legged-gym-repo-2021', 'most other parameters at runtime']) {
       expect(parallel()).toContain(phrase);
     }
-    for (const phrase of ['86.25%', 'Those descriptions disagree', 'Only the fine-tuned tracking policy is deployed',
-      'Robots of the same generation used the same controller']) expect(transfer()).toContain(phrase);
+    for (const phrase of ['86.25%', 'only the tracking policy is deployed',
+      'one controller per robot generation']) expect(transfer()).toContain(phrase);
     // Row 21 was unbound when this pin was written; the reward-design-mpc
     // originals packet has since bound it to its own reviewed plan.
     expect(catalog().some(

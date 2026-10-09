@@ -2,10 +2,11 @@
 // article path under content/. The token-continuity tests compare an article
 // with an older commit; they remove exactly these paragraphs first, so any
 // other numeric or citation change still fails, and so does a reworded one.
-// The 2026-10-05 batch's and the 2026-10-07 step's paragraphs are removed the
-// same way.
+// The 2026-10-05 batch's, the 2026-10-07 step's and the 2026-10-09 step's
+// paragraphs are removed the same way.
 import { KOL_BACKLOG_20261005_PARAGRAPHS } from './kol-backlog-20261005';
 import { KOL_BACKLOG_20261007_PARAGRAPHS } from './kol-backlog-20261007';
+import { KOL_BACKLOG_20261009_PARAGRAPHS } from './kol-backlog-20261009';
 
 export const KOL_BACKLOG_PARAGRAPHS: Readonly<Record<string, readonly string[]>> = {
   'world-models/evaluation.mdx': [
@@ -27,7 +28,7 @@ export const KOL_BACKLOG_PARAGRAPHS: Readonly<Record<string, readonly string[]>>
 export function withoutKolBacklogParagraphs(file: string, text: string): string {
   let result = text;
   for (const paragraph of [...KOL_BACKLOG_PARAGRAPHS[file] ?? [], ...KOL_BACKLOG_20261005_PARAGRAPHS[file] ?? [],
-    ...KOL_BACKLOG_20261007_PARAGRAPHS[file] ?? []]) {
+    ...KOL_BACKLOG_20261007_PARAGRAPHS[file] ?? [], ...KOL_BACKLOG_20261009_PARAGRAPHS[file] ?? []]) {
     const parts = result.split(`\n${paragraph}\n`);
     if (parts.length !== 2) {
       throw new Error(`${file} must hold the KOL backlog paragraph exactly once: ${paragraph.slice(0, 60)}`);

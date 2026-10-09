@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "daf762ba4ab0a89f33d74c600e5d4404bf26b65a82f36c8c108a111b617f1cd6",
+  "fingerprint": "2033d716df4532a8ed78a16fbee2b0183e750b1fa9659c4a869df52d39f88e56",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2953,
+  "visibleTextLength": 2986,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -610,8 +610,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Generative Simulation",
-      "href": "/world-models/generative-sim/",
+      "accessibleName": "World Models vs Physics Simulators",
+      "href": "/world-models/world-models-vs-simulators/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 932.28,
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Control",
-      "href": "/classical/control/",
+      "accessibleName": "Humanoid Whole-Body Control",
+      "href": "/rl-sim2real/humanoid-wbc/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2392.34,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Grasp Planning",
-      "href": "/classical/grasp-planning/",
+      "accessibleName": "Legged Locomotion Lineage",
+      "href": "/rl-sim2real/legged-locomotion/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2423.34,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Motion Planning",
-      "href": "/classical/motion-planning/",
+      "accessibleName": "Offline Reinforcement Learning for Robotics",
+      "href": "/rl-sim2real/offline-rl/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2454.34,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Perception for Manipulation",
-      "href": "/classical/perception/",
+      "accessibleName": "Massively Parallel Sim RL",
+      "href": "/rl-sim2real/parallel-sim-rl/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2485.34,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Scene Representation and Mapping",
-      "href": "/classical/scene-representation/",
+      "accessibleName": "Reward Design and the MPC Debate",
+      "href": "/rl-sim2real/reward-design-mpc/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2516.34,
@@ -795,7 +795,7 @@
       "carriers": [
         "background"
       ],
-      "text": "883 sources",
+      "text": "1022 sources",
       "nonColourCue": "mark-element",
       "rejectedStateCues": [],
       "annotation": "home-source-count",
@@ -933,7 +933,7 @@
       "headingSizePx": null
     }
   ],
-  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 883 sources 119 glossary terms Search | Robot Wiki | Search |  | Search | Contents | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | Featured article | Featured scene | The last stretch of episode reliability Play Adjust more toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative model: all 30 decisions succeed independently at the same rate. The same horizon exposes the last stretch. From The Reliability Gap | Play |  |  |  | Did you know | Recently updated | Tools Playground How robots work Market Map | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | Motion scene: The last stretch of episode reliability | Play the motion scene: The last stretch of episode reliability | Step back one beat | Step forward one beat | Reset the scene to its poster still | Tools",
+  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 1022 sources 119 glossary terms Search | Robot Wiki | Search |  | Search | Contents | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | Featured article | Featured scene | The last stretch of episode reliability Play Adjust more toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative model: all 30 decisions succeed independently at the same rate. The same horizon exposes the last stretch. From The Reliability Gap | Play |  |  |  | Did you know | Recently updated | Tools Playground How robots work Market Map | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | Motion scene: The last stretch of episode reliability | Play the motion scene: The last stretch of episode reliability | Step back one beat | Step forward one beat | Reset the scene to its poster still | Tools",
   "domainAnchorCounts": {
     "Manipulation & Learned Policies": 1,
     "RL, Sim-to-Real & Locomotion": 1,
@@ -950,7 +950,9 @@
     },
     {
       "label": "Featured article",
-      "names": []
+      "names": [
+        "World Models"
+      ]
     },
     {
       "label": "Featured scene",
@@ -973,8 +975,8 @@
     {
       "label": "Introduction",
       "signature": "sheet/display-lockup/search-form",
-      "prose": "Citation-first encyclopedia of modern robot learning. 57 articles 883 sources 119 glossary terms",
-      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 883 sources 119 glossary terms Search"
+      "prose": "Citation-first encyclopedia of modern robot learning. 57 articles 1022 sources 119 glossary terms",
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles 1022 sources 119 glossary terms Search"
     },
     {
       "label": "Contents",
@@ -985,8 +987,8 @@
     {
       "label": "Featured article",
       "signature": "plain/module-heading/lead-excerpt",
-      "prose": "Generative simulation is the use of generative models to author a simulator's content while the dynamics stay in a physics engine.",
-      "text": "Featured article Generative Simulation Generative simulation is the use of generative models to author a simulator's content while the dynamics stay in a physics engine."
+      "prose": "Learned world models and physics simulators are both models of what happens under an action.",
+      "text": "Featured article World Models vs Physics Simulators Learned world models and physics simulators are both models of what happens under an action."
     },
     {
       "label": "Featured scene",
@@ -1004,7 +1006,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-08 Control 2026-10-08 Grasp Planning 2026-10-08 Motion Planning 2026-10-08 Perception for Manipulation 2026-10-08 Scene Representation and Mapping"
+      "text": "Recently updated 2026-10-09 Humanoid Whole-Body Control 2026-10-09 Legged Locomotion Lineage 2026-10-09 Offline Reinforcement Learning for Robotics 2026-10-09 Massively Parallel Sim RL 2026-10-09 Reward Design and the MPC Debate"
     },
     {
       "label": "Tools",

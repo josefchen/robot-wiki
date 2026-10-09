@@ -69,9 +69,9 @@ for (const width of [1440, 375]) {
     await page.goto('/rl-sim2real/reward-design-mpc/');
     const prose = page.locator('div.prose[data-pagefind-body]');
     await expect(prose).toContainText(
-      'matching or exceeding the human reward on all nine Isaac tasks and 15 of the 20 Dexterity tasks');
-    await expect(prose).toContainText('maximum task fitness over ten fixed-interval checkpoints');
-    await expect(prose).toContainText('does not express a 52-percentage-point increase');
+      'matches or beats the human reward on all nine Isaac tasks and 15 of 20 Dexterity tasks');
+    await expect(prose).toContainText('maximum task fitness over ten checkpoints');
+    await expect(prose).toContainText('so 52% measures normalized reward improvement');
     const eureka = prose.locator('p').filter({ hasText: /^Eureka searches over reward code/ })
       .locator('[data-cite-id="eureka-2024"]');
     await eureka.locator('a[href^="http"]').focus();

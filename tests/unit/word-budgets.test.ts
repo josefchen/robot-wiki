@@ -16,7 +16,7 @@ describe('word budgets', () => {
     expect(wordBudgetFindings(measured, budgets)).toEqual([]);
   });
 
-  it.each(['manipulation', 'classical'])('budgets every published %s article', (domain) => {
+  it.each(['manipulation', 'classical', 'rl-sim2real'])('budgets every published %s article', (domain) => {
     const pages = publishedModules()
       .filter((entry) => entry.domain === domain)
       .map((entry) => `${entry.domain}/${entry.slug}`);
@@ -24,7 +24,7 @@ describe('word budgets', () => {
     for (const page of pages) expect(budgets[page], page).toBeGreaterThan(0);
   });
 
-  it.each(['manipulation/bc-foundations', 'classical/calibration'])(
+  it.each(['manipulation/bc-foundations', 'classical/calibration', 'rl-sim2real/sim2real-transfer'])(
     'fails %s when it grows by one planted sentence, and when it disappears',
     (page) => {
       const planted = 'A planted sentence that adds words the budget does not allow.';

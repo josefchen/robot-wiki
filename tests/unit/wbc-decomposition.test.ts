@@ -77,9 +77,19 @@ describe('WBC decomposition model', () => {
 
   it('reports the fastest disclosed loop rate per approach', () => {
     expect(fastestRateHz(approachById('tracking-rl'))).toBe(1000);
-    // Latent-action and end-to-end rates are not disclosed by the sources.
-    expect(fastestRateHz(approachById('latent-action'))).toBeNull();
+    // GR00T-WholeBodyControl runs the GEAR-SONIC controller at 50 Hz; the
+    // end-to-end rates are not disclosed by the sources.
+    expect(fastestRateHz(approachById('latent-action'))).toBe(50);
     expect(fastestRateHz(approachById('end-to-end-vla'))).toBeNull();
+  });
+
+  it('states every layer rate as a published rate or exactly "not disclosed"', () => {
+    for (const approach of WBC_APPROACHES) {
+      for (const layer of approach.layers) {
+        if (layer.rateHz === null) expect(layer.rate).toBe('not disclosed');
+        else expect(layer.rate).toBe(layer.rateHz >= 1000 ? `${layer.rateHz / 1000} kHz` : `${layer.rateHz} Hz`);
+      }
+    }
   });
 
   it('approachById throws on an unknown id', () => {
