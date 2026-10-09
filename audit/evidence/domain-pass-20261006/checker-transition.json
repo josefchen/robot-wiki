@@ -3,7 +3,7 @@
   "name": "domain-pass-reader",
   "reviewedBy": "integration worker for the domain passes of 2026-10-06 (not independent acceptance)",
   "rationale": "The domain passes bring the assertions of a few historical verification suites up to date with the rewritten articles. The checker lists each such suite with the one live version its retained snapshot stays compatible with, so each of those entries gets the suite's new live hash. Every edit swaps one currentTestHash line inside its own suite entry; no computation, threshold, ledger rule, snapshot or negative check changes.",
-  "observedAt": "2026-10-06T18:55:57Z",
+  "observedAt": "2026-10-09T05:13:08Z",
   "archivedFrom": "5856973cc0ccc4fc276c6bf323f4f1806c5139c3",
   "before": {
     "path": "lib/audit-local-basis.ts",
@@ -13,9 +13,14 @@
   "after": {
     "path": "lib/audit-local-basis.ts",
     "bytes": 114290,
-    "sha256": "d3d470a19efd97f496dd29869c314b5026f63b496fe7595856e0d6c490732b80"
+    "sha256": "6d377744d0d141a2605683c9b083d043e47f7ba17e7b4d651329d877b6cd9962"
   },
   "edits": [
+    {
+      "suite": "tests/unit/reward-local-evidence.test.ts",
+      "before": "    currentTestHash: '5a3c6d529e0fc3ec006aad3a075ac02540ec3476e3f391193b998b89d78b8488',\n",
+      "after": "    currentTestHash: 'a5d166d0b11e1cce9ce19a093d328ccfc45c2057e61cb856ee08857cf2241c12',\n"
+    },
     {
       "suite": "tests/unit/sim2real-local-evidence.test.ts",
       "before": "    currentTestHash: 'fa3ddf33752b00ca7fa32bbc36c401379d1c461ab271389c84986ef3a4c4aa9c',\n",
@@ -24,7 +29,7 @@
     {
       "suite": "tests/unit/parallel-local-evidence.test.ts",
       "before": "    currentTestHash: '3eb55f085478bdce21262a25627e07c6c50004123cb243e6ce682f13194dd7ef',\n",
-      "after": "    currentTestHash: '246b135fb34347c92ff0b5d675ffb5eaa3050372c9c388912f4c4348a242a442',\n"
+      "after": "    currentTestHash: 'd2c39b3c94fad8f22da07efe5fa4517aef9325dc77477f510c65275e421fb687',\n"
     },
     {
       "suite": "tests/unit/classical-closure-evidence.test.ts",

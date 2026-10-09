@@ -37,7 +37,7 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 932323, sha256: '4565b271e72ac5e1d53825ec2df75ffd9a71f25c70d07dd6eb953394f603d03e' };
+const reviewPin = { bytes: 934619, sha256: 'e3e7753802179dfff8d82c33e8c7f15d41b4f8c005addf6dcc32601ac9419d5b' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -67,12 +67,12 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/manipulation/robot-learning-roadmap.mdx', [9916, 'c10473a9d9a52893fe18ce799007c4d7612a23da2934c68a303f33fe9b156aa6']],
   ['content/manipulation/vla-models.mdx', [14391, '3e0f91826050ffdb4b69bd6a39622c315f4497ccfbe931b02f7787a83c3ce854']],
   ['content/rl-sim2real/humanoid-wbc.mdx', [15587, 'ac79e9e0469ad9cd67e6668ba7c67bcacc3c43000593f03186889715033d1fa3']],
-  ['content/rl-sim2real/legged-locomotion.mdx', [13658, '168073434064239c8b082adc4cbc54ea144b15803ca22df6e07ca2d2504a09c8']],
+  ['content/rl-sim2real/legged-locomotion.mdx', [13665, 'b0eb1751dafd4db9a39773bca129998c0c5e55c75bafb8315d6709f6529f4d41']],
   ['content/rl-sim2real/offline-rl.mdx', [13146, 'f7dbcd6b92dc1ddf6a1b81e019a98f699ab4b1f7cab9f6d2c064cd7937e23123']],
-  ['content/rl-sim2real/parallel-sim-rl.mdx', [11687, 'f7215ea4125084343e7ec50ead6ce239314112bbe847ecc0573b1faa6f1e9017']],
-  ['content/rl-sim2real/reward-design-mpc.mdx', [18332, '71a2742e5ae8e75b8b686253afcd0aa7973bd6103ac0e3924e7996d77d9529b7']],
-  ['content/rl-sim2real/rl-for-robotics.mdx', [17566, '7288c55f691604bc59d14e4837be07ebc655862771a53f707d5538ebec484fa5']],
-  ['content/rl-sim2real/sim2real-transfer.mdx', [19381, 'ea7c5cded915d24e7ef5d164786bbaea51390b0d9c2542c1d684c5186f80b275']],
+  ['content/rl-sim2real/parallel-sim-rl.mdx', [11661, '76dcd6c4a0cff54b79bd17ac1f36a16c7707f2bc71bca71e2a3f8ad5e20e74b6']],
+  ['content/rl-sim2real/reward-design-mpc.mdx', [17619, '9b2613dd3e3925941380497f2b7f94c407062ae125d3ffacee5d92ac3fb9896c']],
+  ['content/rl-sim2real/rl-for-robotics.mdx', [17542, '13dbff145d8f6d7bb73c53a08408f250bba23aee330042017e28a4b32f14e7e0']],
+  ['content/rl-sim2real/sim2real-transfer.mdx', [19378, 'c0b26865883fc734683b8bc0c5ccecaced7ced82c349badb06095fb641cab74b']],
   ['content/rl-sim2real/why-rl-locomotion.mdx', [8908, 'db029a747a92b75e5f56e716cf548de6c3acd95ea8ffd7215625851ff9f3727c']],
   ['content/world-models/generative-video.mdx', [16559, '3b2752c33d7a823851e51270f7fa7a25ea6ce25e181b854fa0863031b55d30ea']],
 ]);
@@ -167,6 +167,25 @@ const CORRECTED_MOUNTS: ReadonlyMap<string, ReadonlyMap<string, string>> = new M
   ]])],
 ]);
 
+/**
+ * Frontmatter descriptions a pass corrected, each one exact swap of the whole
+ * description line on one article. rl-for-robotics called its constant-rate
+ * figure "a labelled ... toy" and closed on "what those assumptions do and do
+ * not measure", both residue the rl-sim2real measures named; the figure is an
+ * illustrative model shown beside cited training times. Every other
+ * frontmatter line still has to match its predecessor exactly.
+ */
+const CORRECTED_DESCRIPTIONS: ReadonlyMap<string, readonly [string, string]> = new Map([
+  ['content/rl-sim2real/rl-for-robotics.mdx', [
+    'description: "Environment-step budgets connect reinforcement learning to the cost of collecting robot ' +
+      'experience. A labelled constant-rate toy contrasts simulation, one robot and a fleet; cited experiments ' +
+      'explain what those assumptions do and do not measure."',
+    'description: "Environment-step budgets connect reinforcement learning to the cost of collecting robot ' +
+      'experience. An illustrative constant-rate model compares simulation, one robot and a fleet, with cited ' +
+      'training times from real runs."',
+  ]],
+]);
+
 function applyExact(text: string, edits: readonly (readonly [string, string])[], message = drift): string {
   let result = text;
   for (const [from, to] of edits) {
@@ -180,7 +199,8 @@ function applyExact(text: string, edits: readonly (readonly [string, string])[],
 
 /**
  * The article obligations of a domain-pass rewrite: the frontmatter differs
- * only by citation ids appended to its citations list, every citation the
+ * only by citation ids appended to its citations list (and the corrected
+ * descriptions above), every citation the
  * body had is still cited, and the figure and component mounts are the same
  * mounts in the same order with the same attributes. Prose may change.
  */
@@ -199,7 +219,11 @@ export function keepsDomainPassObligations(path: string, prior: string, current:
   }
   const withoutAdded = head.replace(/\ncitations:\n(?: {2}- [^\n]+\n)*/, (block) =>
     block.split('\n').filter((line) => !added.some((id) => line === `  - ${id}`)).join('\n'));
-  if (withoutAdded !== priorHead) return false;
+  const description = CORRECTED_DESCRIPTIONS.get(path);
+  const expectedHead = description
+    ? priorHead.split('\n').map((line) => (line === description[0] ? description[1] : line)).join('\n')
+    : priorHead;
+  if (withoutAdded !== expectedHead) return false;
   const kept = citedIds(current);
   if ([...citedIds(prior)].some((id) => !kept.has(id))) return false;
   const corrected = CORRECTED_MOUNTS.get(path);
@@ -330,11 +354,11 @@ export type DomainPassCheckerReview = {
 
 // BEGIN domain-pass checker pins (written by scripts/record-domain-pass-continuity.ts --checker)
 /** The reviewed checker evidence file; a changed review needs a reviewed code change too. */
-const checkerReviewPin = { bytes: 1956, sha256: '4f0f0e633b680b114ad8a3220a4cda5a2f58057d558f919a37c3c6b8e9333680' };
+const checkerReviewPin = { bytes: 2246, sha256: 'f2348ba4034c9262347087272c1e4d80035826293611260bce3ee67f1d321bcc' };
 
 /** The SEO-pass reader head the revision edits, and the reviewed revision. */
 const checkerBefore = { bytes: 114290, sha256: 'f115c68135aaac380af0e10ebecc721bcb613d5434f24b007f51879ed6829f3e' };
-const checkerAfter = { bytes: 114290, sha256: 'd3d470a19efd97f496dd29869c314b5026f63b496fe7595856e0d6c490732b80' };
+const checkerAfter = { bytes: 114290, sha256: '6d377744d0d141a2605683c9b083d043e47f7ba17e7b4d651329d877b6cd9962' };
 // END domain-pass checker pins
 
 /** The one checker line a domain-pass revision may change: a suite's reviewed live hash. */

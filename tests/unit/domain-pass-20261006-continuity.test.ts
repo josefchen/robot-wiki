@@ -120,6 +120,24 @@ describe('domain pass 2026-10-06 article successors', () => {
     expect(keepsDomainPassObligations(path, fixed, prior)).toBe(false);
   });
 
+  it('admits the corrected rl-for-robotics description exactly, and only on that article', () => {
+    const path = 'content/rl-sim2real/rl-for-robotics.mdx';
+    const source = review.sources.find(({ after }) => after.path === path)!;
+    const live = read(path);
+    const line = (bytes: Buffer) => String(bytes).match(/^description: .*$/m)![0];
+    const article = (description: string) => ['---', 'title: "R"', description, '---', '', 'Prose.', ''].join('\n');
+    const prior = article(line(domainPassPredecessor(root, source.before, live)));
+    const fixed = article(line(live));
+    expect(prior).toContain('A labelled constant-rate toy contrasts simulation');
+    expect(fixed).toContain('An illustrative constant-rate model compares simulation');
+    expect(keepsDomainPassObligations(path, prior, fixed)).toBe(true);
+    // The same swap on another article, any other wording or its reverse is still a changed field.
+    expect(keepsDomainPassObligations('content/rl-sim2real/offline-rl.mdx', prior, fixed)).toBe(false);
+    expect(keepsDomainPassObligations(path, prior, fixed.replace('real runs', 'robot runs'))).toBe(false);
+    expect(keepsDomainPassObligations(path, fixed, prior)).toBe(false);
+    expect(keepsDomainPassObligations(path, prior, fixed.replace('title: "R"', 'title: "S"'))).toBe(false);
+  });
+
   it('rejects a review that drifted from its pinned bytes', () => {
     const tmp = mkdtempSync(join(tmpdir(), 'domain-pass-continuity-test-'));
     scratchRoots.push(tmp);

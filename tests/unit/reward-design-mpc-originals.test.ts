@@ -252,7 +252,11 @@ describe('reward-design-mpc originals integration (packet bc05468c, 2026-09-16)'
     const reward = readFileSync(join(ROOT, 'lib/reward-shaping.ts'), 'utf8');
     const controls = readFileSync(join(ROOT, 'components/interactive/reward-shaping.tsx'), 'utf8');
     const replay = readFileSync(join(ROOT, 'components/interactive/eureka-loop.tsx'), 'utf8');
-    expect(article).toContain('This local teaching model uses twelve authored terms');
+    // Every article paragraph must cite a source, so each figure carries its own disclosure.
+    expect(article).not.toContain('This local teaching model');
+    expect(article).not.toContain('scripted teaching example');
+    expect(controls).toContain('Illustrative teaching model. No policy is trained here.');
+    expect(controls).toContain('This is a local teaching model, not a trained robot.');
     expect(controls).toContain('TERMS.map');
     expect(reward.replace(/\n\s*\*\s?/g, ' ')).toContain('illustrative failure attractors (freeze, prance, chatter)');
     expect(replay).toContain('Scripted replay of the Eureka loop');

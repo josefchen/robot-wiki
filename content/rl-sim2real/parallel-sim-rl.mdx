@@ -48,7 +48,7 @@ seeAlso:
 
 import { BatchScale } from '@/components/motion/scenes/batch-scale';
 
-Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once, with the physics on a GPU. It produced the four-minute walking run in the [previous module](/rl-sim2real/why-rl-locomotion), trained by Rudin and colleagues <Cite id="rudin-2021" /> with the 2017 <Term id="ppo">PPO</Term> algorithm <Cite id="ppo-2017" />.
+Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once, with the physics on a GPU. It produced Rudin and colleagues' four-minute [ANYmal walking run](/rl-sim2real/why-rl-locomotion) <Cite id="rudin-2021" />, trained with the 2017 <Term id="ppo">PPO</Term> algorithm <Cite id="ppo-2017" />.
 
 <BatchScale className="my-6" />
 
@@ -77,7 +77,7 @@ MuJoCo XLA (MJX) ran it on the GPU. MuJoCo Playground (2025) built on it an open
 
 ## What the environment count actually buys
 
-The interactive scene is an unbenchmarked toy with a fixed 220-million-transition budget, an assumed CPU-cost curve that raises per-iteration costs, and a calibrated near-four-minute default at 4,096 environments. Only Rudin's separate deployment run ties 4,096 robots to a reported bound <Cite id="rudin-2021" />.
+The opening scene is an illustrative calculation: a fixed 220-million-transition budget, an assumed CPU-cost curve that raises per-iteration costs, and a calibrated near-four-minute time at 4,096 environments. Only Rudin's separate deployment run ties 4,096 robots to a reported bound <Cite id="rudin-2021" />.
 
 That curve illustrates a bottleneck the Isaac Lab paper reports: on a state-based Franka drawer task, an RTX 5090 workstation with an AMD 9800X3D nearly matches a server with two RTX PRO 6000 GPUs and two 64-core EPYC 9554 CPUs. The authors attribute this task-dependent result to CPU bottlenecks in PhysX and the training loop, and the workstation's fast single core <Cite id="isaac-lab-2025" />.
 

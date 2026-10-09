@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "cf38fce00d17be8f717938e83a10916941434b87108b6087f168490957c312e2",
+  "fingerprint": "a0d8ddacfb82a1b733e8268817f1d606fd758299ad5386eaa71d2138b0c4a71e",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2940,
+  "visibleTextLength": 2928,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Humanoid Whole-Body Control",
-      "href": "/rl-sim2real/humanoid-wbc/",
+      "accessibleName": "Legged Locomotion Lineage",
+      "href": "/rl-sim2real/legged-locomotion/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2392.34,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Legged Locomotion Lineage",
-      "href": "/rl-sim2real/legged-locomotion/",
+      "accessibleName": "Massively Parallel Sim RL",
+      "href": "/rl-sim2real/parallel-sim-rl/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2423.34,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Massively Parallel Sim RL",
-      "href": "/rl-sim2real/parallel-sim-rl/",
+      "accessibleName": "RL for Robotics",
+      "href": "/rl-sim2real/rl-for-robotics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2454.34,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Reward Design and the MPC Debate",
-      "href": "/rl-sim2real/reward-design-mpc/",
+      "accessibleName": "Sim-to-Real Transfer",
+      "href": "/rl-sim2real/sim2real-transfer/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2485.34,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Sim-to-Real Transfer",
-      "href": "/rl-sim2real/sim2real-transfer/",
+      "accessibleName": "Reward Design and the MPC Debate",
+      "href": "/rl-sim2real/reward-design-mpc/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2516.34,
@@ -1004,7 +1004,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-09 Humanoid Whole-Body Control 2026-10-09 Legged Locomotion Lineage 2026-10-09 Massively Parallel Sim RL 2026-10-09 Reward Design and the MPC Debate 2026-10-09 Sim-to-Real Transfer"
+      "text": "Recently updated 2026-10-09 Legged Locomotion Lineage 2026-10-09 Massively Parallel Sim RL 2026-10-09 RL for Robotics 2026-10-09 Sim-to-Real Transfer 2026-10-09 Reward Design and the MPC Debate"
     },
     {
       "label": "Tools",

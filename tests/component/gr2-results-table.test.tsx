@@ -36,6 +36,12 @@ describe('Gr2ResultsTable', () => {
     expect(table).toHaveTextContent('Franka Duo');
   });
 
+  it('heads the row names as tasks or categories, because whole-body and gripper rows are category averages', () => {
+    render(<Gr2ResultsTable />);
+    const headers = screen.getAllByRole('columnheader').map((th) => th.textContent?.trim());
+    expect(headers).toEqual(['Group', 'Task or category', 'Embodiment', 'Success', 'Evidence']);
+  });
+
   it('states the vendor-reported caveat alongside the numbers', () => {
     render(<Gr2ResultsTable />);
     expect(screen.getByTestId('gr2-caveat')).toHaveTextContent(

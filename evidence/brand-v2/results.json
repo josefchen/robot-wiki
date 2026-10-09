@@ -5374,11 +5374,11 @@
                   "Reward Design and the MPC Debate"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 16,
+                "readingMinutes": 15,
                 "citationCount": 42,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "16 min",
+                "readingTimeText": "15 min",
                 "citationCountText": "42",
                 "bibliographyIds": [
                   "rudin-2021",
@@ -70668,11 +70668,11 @@
                   "Reward Design and the MPC Debate"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 16,
+                "readingMinutes": 15,
                 "citationCount": 42,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "16 min",
+                "readingTimeText": "15 min",
                 "citationCountText": "42",
                 "bibliographyIds": [
                   "rudin-2021",
@@ -90776,7 +90776,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-metadata:rl-sim2real/rl-for-robotics moved from 5069c5d1f6791ddf8c73a0cd56f80de2e0eb12ff6bf16fbefc3d9d1ff4191c32 to e1b8c251826ae2d139adc35a41d94c00c140e27a74d7dc22ac63a0ac85782ed6 exactly as approved delta rl-source-closeouts-20260908-6 permits: Sixteen source-bound RL corrections: scoped campaign units/interventions, offline training/coverage, conditional Kumar comparison, qualified HER protocol and literal bylines. Immediate-before hash 5069c5d1f6791ddf8c73a0cd56f80de2e0eb12ff6bf16fbefc3d9d1ff4191c32; current hash e1b8c251826ae2d139adc35a41d94c00c140e27a74d7dc22ac63a0ac85782ed6. Exact source and endpoint bindings: validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/row-integration.json and applied-product-endpoints.json. Sources: https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/1603.02199v4 ; https://ar5iv.labs.arxiv.org/html/2109.11978 ; https://ar5iv.labs.arxiv.org/html/1812.11103 ; https://ar5iv.labs.arxiv.org/html/1806.10293 ; https://arxiv.org/pdf/2204.05618 ; https://arxiv.org/pdf/1707.01495 ; https://arxiv.org/pdf/2005.01643 ; https://arxiv.org/pdf/2309.10150. Illustrative toy arithmetic is unchanged; no whole-article/P1 or independent acceptance.",
+      "actual": "article-metadata member article-metadata:rl-sim2real/rl-for-robotics moved from 5069c5d1f6791ddf8c73a0cd56f80de2e0eb12ff6bf16fbefc3d9d1ff4191c32 to 0120842852b50e374df16e4ff3a47bc02dc4aa87dd8d35ef1a989e73eb5e0409 exactly as approved delta rl-sim2real-pass-20261009-article-metadata-rl-for-robotics permits: rl-sim2real residue fix of 2026-10-09 (VAL-OPUS-068) on the rl-for-robotics frontmatter description, which no page renders (the meta description comes from the route's SEO profile): \"A labelled constant-rate toy contrasts simulation, one robot and a fleet; cited experiments explain what those assumptions do and do not measure.\" becomes \"An illustrative constant-rate model compares simulation, one robot and a fleet, with cited training times from real runs.\" The first sentence, the title, dates, citations and every other field are unchanged. The domain-pass continuity layer admits exactly this description swap on this article (CORRECTED_DESCRIPTIONS). This edge moves the member from its last approved endpoint (rl-source-closeouts-20260908-6).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90788,9 +90788,9 @@
           "manifest": "article-metadata",
           "member": "article-metadata:rl-sim2real/rl-for-robotics",
           "baselineHash": "5069c5d1f6791ddf8c73a0cd56f80de2e0eb12ff6bf16fbefc3d9d1ff4191c32",
-          "currentHash": "e1b8c251826ae2d139adc35a41d94c00c140e27a74d7dc22ac63a0ac85782ed6",
+          "currentHash": "0120842852b50e374df16e4ff3a47bc02dc4aa87dd8d35ef1a989e73eb5e0409",
           "status": "approved-delta",
-          "approvedDelta": "rl-source-closeouts-20260908-6"
+          "approvedDelta": "rl-sim2real-pass-20261009-article-metadata-rl-for-robotics"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -121436,7 +121436,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/legged-locomotion moved from 0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998 to d7a1ad274d8d50dc271cfc43ea66ae539fddc595028e2b5c7aca1f0fdcb80288 exactly as approved delta domain-pass-20261006-g9-prose-legged-locomotion permits: Domain pass of 2026-10-06 on rl-sim2real/legged-locomotion: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/rl-sim2real.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the rl-sim2real domain pass extends this edge to the current text: the ETH terrain-aware diffusion tracker (wbc-motion-gen-2026), the 2026 Science Robotics review (gu-humanoid-review-2026), ZEST on Atlas (zest-2026) and the 5 January 2026 Atlas product launch (bd-atlas-ces-2026). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. The no-JS tooltip offsets around the citation chips follow where each chip now falls on a 375 px line: a chip that opens a line takes no offset, so its tooltip stays on screen before the page hydrates.",
+      "actual": "prose member article:rl-sim2real/legged-locomotion moved from 0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998 to f925453243761ef54a9fa6a8f681e11063deee22aff54bb25b59dc32bce0b7fe exactly as approved delta domain-pass-20261006-g9-prose-legged-locomotion permits: Domain pass of 2026-10-06 on rl-sim2real/legged-locomotion: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/rl-sim2real.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the rl-sim2real domain pass extends this edge to the current text: the ETH terrain-aware diffusion tracker (wbc-motion-gen-2026), the 2026 Science Robotics review (gu-humanoid-review-2026), ZEST on Atlas (zest-2026) and the 5 January 2026 Atlas product launch (bd-atlas-ces-2026). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. The no-JS tooltip offsets around the citation chips follow where each chip now falls on a 375 px line: a chip that opens a line takes no offset, so its tooltip stays on screen before the page hydrates. The rl-sim2real residue fix of 2026-10-09 (VAL-OPUS-068) replaces the meta reference \"the [first module in this domain]\" (why-rl-locomotion is order 2) with \"the [locomotion-manipulation comparison]\", same link target (/rl-sim2real/why-rl-locomotion). No cited fact, number, citation or mount changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -121448,7 +121448,7 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/legged-locomotion",
           "baselineHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
-          "currentHash": "d7a1ad274d8d50dc271cfc43ea66ae539fddc595028e2b5c7aca1f0fdcb80288",
+          "currentHash": "f925453243761ef54a9fa6a8f681e11063deee22aff54bb25b59dc32bce0b7fe",
           "status": "approved-delta",
           "approvedDelta": "domain-pass-20261006-g9-prose-legged-locomotion"
         },
@@ -121492,7 +121492,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/parallel-sim-rl moved from d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb to 583e5fcf9d342185578edb98d0bc4cecefda8eb6a4e8230f2ac3232fbffdca64 exactly as approved delta domain-pass-20261006-g9-prose-parallel-sim-rl permits: Domain pass of 2026-10-06 on rl-sim2real/parallel-sim-rl: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/rl-sim2real.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. Owner-sweep text pass of 2026-10-07 (coordinator decision, owner proxy, 04:10): the forum announcement isaac-sim-6-1-ga-2026 (a banned forum host) gives way to NVIDIA's GitHub release isaac-sim-v6-1-0-2026 and release notes isaac-sim-6-1-release-notes-2026, so the GA date reads 10 September 2026 and the system identification tools read beta; Newton v1.6.0 (newton-v1-6-0-2026) is added as VAL-OPUS-070 names; the heading 'The honest ledger' becomes 'Limits'. Every mount and every citation the article had before the domain pass stays. The no-JS tooltip offsets around the citation chips follow where each chip now falls on a 375 px line: a chip that opens a line takes no offset, so its tooltip stays on screen before the page hydrates.",
+      "actual": "prose member article:rl-sim2real/parallel-sim-rl moved from d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb to aa1d55d0fbac082870f5c604346f86d1f7caa8addd4e126e91ea66921360b485 exactly as approved delta domain-pass-20261006-g9-prose-parallel-sim-rl permits: Domain pass of 2026-10-06 on rl-sim2real/parallel-sim-rl: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/rl-sim2real.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. Owner-sweep text pass of 2026-10-07 (coordinator decision, owner proxy, 04:10): the forum announcement isaac-sim-6-1-ga-2026 (a banned forum host) gives way to NVIDIA's GitHub release isaac-sim-v6-1-0-2026 and release notes isaac-sim-6-1-release-notes-2026, so the GA date reads 10 September 2026 and the system identification tools read beta; Newton v1.6.0 (newton-v1-6-0-2026) is added as VAL-OPUS-070 names; the heading 'The honest ledger' becomes 'Limits'. Every mount and every citation the article had before the domain pass stays. The no-JS tooltip offsets around the citation chips follow where each chip now falls on a 375 px line: a chip that opens a line takes no offset, so its tooltip stays on screen before the page hydrates. The rl-sim2real residue fix of 2026-10-09 (VAL-OPUS-068) rewords two sentences. The lead's \"the four-minute walking run in the [previous module]\" becomes \"Rudin and colleagues' four-minute [ANYmal walking run]\", still linked to why-rl-locomotion and cited to rudin-2021 and ppo-2017. \"The interactive scene is an unbenchmarked toy ... and a calibrated near-four-minute default at 4,096 environments\" becomes \"The opening scene is an illustrative calculation: ... and a calibrated near-four-minute time at 4,096 environments\", because the mounted BatchScale scene has no default control and calls itself an illustrative calculation. No cited fact, number, citation or mount changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -121504,7 +121504,7 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/parallel-sim-rl",
           "baselineHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
-          "currentHash": "583e5fcf9d342185578edb98d0bc4cecefda8eb6a4e8230f2ac3232fbffdca64",
+          "currentHash": "aa1d55d0fbac082870f5c604346f86d1f7caa8addd4e126e91ea66921360b485",
           "status": "approved-delta",
           "approvedDelta": "domain-pass-20261006-g9-prose-parallel-sim-rl"
         },
@@ -121520,7 +121520,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/reward-design-mpc moved from aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699 to 81557df2b0eee89b55e1e03928a08e478bbe070620cc71a75e06cfc8671fbe17 exactly as approved delta domain-pass-20261006-g9-prose-reward-design-mpc permits: Domain pass of 2026-10-06 on rl-sim2real/reward-design-mpc: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/rl-sim2real.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. Owner-sweep text pass of 2026-10-07 (coordinator decision, owner proxy, 04:10): the Gemini Robotics 2 checkpoint claim becomes a link to /rl-sim2real/humanoid-wbc/, which holds the Gemini Robotics 2 results (VAL-OPUS-065); the citation stays. Claim-audit fixes of 2026-10-08 (coordinator approval, 03:06): the uncited friction-cone sentence now cites di-carlo-2018 (MIT Cheetah 3 convex MPC, 'a square pyramid approximation of the friction cone'), already in the article's citation list; every mount and citation stays. The owner sweep pass of 2026-10-08 on the rl-sim2real domain pass extends this edge to the current text: Sleiman 2021 whole-body MPC (sleiman-wbmpc-2021), the RAI Institute IROS 2026 whole-body MPC (rai-iros-2026) and ZEST's model-based curriculum (zest-2026), and the heading \"The debate, steelmanned\" renamed \"The case for each side\" with its old anchor kept. Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. The no-JS tooltip offsets around the citation chips follow where each chip now falls on a 375 px line: a chip that opens a line takes no offset, so its tooltip stays on screen before the page hydrates.",
+      "actual": "prose member article:rl-sim2real/reward-design-mpc moved from aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699 to f7cca618eac94f970a68e2085daa3489a4aec337f15d3240789526c588d59418 exactly as approved delta domain-pass-20261006-g9-prose-reward-design-mpc permits: Domain pass of 2026-10-06 on rl-sim2real/reward-design-mpc: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/rl-sim2real.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. Owner-sweep text pass of 2026-10-07 (coordinator decision, owner proxy, 04:10): the Gemini Robotics 2 checkpoint claim becomes a link to /rl-sim2real/humanoid-wbc/, which holds the Gemini Robotics 2 results (VAL-OPUS-065); the citation stays. Claim-audit fixes of 2026-10-08 (coordinator approval, 03:06): the uncited friction-cone sentence now cites di-carlo-2018 (MIT Cheetah 3 convex MPC, 'a square pyramid approximation of the friction cone'), already in the article's citation list; every mount and citation stays. The owner sweep pass of 2026-10-08 on the rl-sim2real domain pass extends this edge to the current text: Sleiman 2021 whole-body MPC (sleiman-wbmpc-2021), the RAI Institute IROS 2026 whole-body MPC (rai-iros-2026) and ZEST's model-based curriculum (zest-2026), and the heading \"The debate, steelmanned\" renamed \"The case for each side\" with its old anchor kept. Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. The no-JS tooltip offsets around the citation chips follow where each chip now falls on a 375 px line: a chip that opens a line takes no offset, so its tooltip stays on screen before the page hydrates. The rl-sim2real pass of 2026-10-09 (VAL-OPUS-152) cuts the two uncited paragraphs that introduced the reward-shaping and Eureka figures as authored teaching material (\"This local teaching model uses twelve authored terms ...\" and \"The panel below is a scripted teaching example ...\"): no primary source states them, and each figure already says so in its own frame (\"Illustrative teaching model. No policy is trained here.\" and \"Eureka loop, scripted replay\"). No cited sentence, number, citation or mount changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -121532,7 +121532,7 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/reward-design-mpc",
           "baselineHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
-          "currentHash": "81557df2b0eee89b55e1e03928a08e478bbe070620cc71a75e06cfc8671fbe17",
+          "currentHash": "f7cca618eac94f970a68e2085daa3489a4aec337f15d3240789526c588d59418",
           "status": "approved-delta",
           "approvedDelta": "domain-pass-20261006-g9-prose-reward-design-mpc"
         },
@@ -121576,7 +121576,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:rl-sim2real/sim2real-transfer moved from e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b to 5da829ce946a48e5dba72cc4b38a42ab935cdef66e9a7bbd03d36724eee83178 exactly as approved delta domain-pass-20261006-g9-prose-sim2real-transfer permits: Domain pass of 2026-10-06 on rl-sim2real/sim2real-transfer: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/rl-sim2real.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. Owner-sweep text pass of 2026-10-07 (coordinator decision, owner proxy, 04:10): removes the 'authored toy' prose sentence (VAL-OPUS-068); the friction figure keeps its one in-frame label, 'Illustrative, not measured', next to its controls. The owner sweep pass of 2026-10-08 on the rl-sim2real domain pass extends this edge to the current text: ZEST actuator modelling (zest-2026), SimFoundry (simfoundry-2026) and GRAIL (grail-2026). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. Coordinator decision of 2026-10-08 16:40 on the rl-sim2real KOL dispositions (owner proxy, item 14): RoboRender under domain randomization (roborender-2026), its affiliation confirmed against the paper's PDF author block. The new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. The no-JS tooltip offsets around the citation chips follow where each chip now falls on a 375 px line: a chip that opens a line takes no offset, so its tooltip stays on screen before the page hydrates. The domain-randomization passage links \"that dynamics distribution\" to the Practising in a thousand worlds explainer at /how-robots-work/#worlds, the curriculum's link from its second home article (VAL-OPUS-153).",
+      "actual": "prose member article:rl-sim2real/sim2real-transfer moved from e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b to 594cf0b0b97bfbda030bd66235956509892f7f0853115491738776ebcaf82126 exactly as approved delta domain-pass-20261006-g9-prose-sim2real-transfer permits: Domain pass of 2026-10-06 on rl-sim2real/sim2real-transfer: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/rl-sim2real.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. Owner-sweep text pass of 2026-10-07 (coordinator decision, owner proxy, 04:10): removes the 'authored toy' prose sentence (VAL-OPUS-068); the friction figure keeps its one in-frame label, 'Illustrative, not measured', next to its controls. The owner sweep pass of 2026-10-08 on the rl-sim2real domain pass extends this edge to the current text: ZEST actuator modelling (zest-2026), SimFoundry (simfoundry-2026) and GRAIL (grail-2026). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. Coordinator decision of 2026-10-08 16:40 on the rl-sim2real KOL dispositions (owner proxy, item 14): RoboRender under domain randomization (roborender-2026), its affiliation confirmed against the paper's PDF author block. The new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. The no-JS tooltip offsets around the citation chips follow where each chip now falls on a 375 px line: a chip that opens a line takes no offset, so its tooltip stays on screen before the page hydrates. The domain-randomization passage links \"that dynamics distribution\" to the Practising in a thousand worlds explainer at /how-robots-work/#worlds, the curriculum's link from its second home article (VAL-OPUS-153). The rl-sim2real residue fix of 2026-10-09 (VAL-OPUS-068) replaces the meta reference \"Isaac Lab, the framework from the [previous module]\" with \"Isaac Lab, the [GPU-parallel training framework]\", same link target (/rl-sim2real/parallel-sim-rl). No cited fact, number, citation or mount changes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -121588,7 +121588,7 @@
           "manifest": "prose",
           "member": "article:rl-sim2real/sim2real-transfer",
           "baselineHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
-          "currentHash": "5da829ce946a48e5dba72cc4b38a42ab935cdef66e9a7bbd03d36724eee83178",
+          "currentHash": "594cf0b0b97bfbda030bd66235956509892f7f0853115491738776ebcaf82126",
           "status": "approved-delta",
           "approvedDelta": "domain-pass-20261006-g9-prose-sim2real-transfer"
         },
@@ -148664,7 +148664,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6422 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6398 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -150359,7 +150359,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1479 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1488 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -151346,7 +151346,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/humanoid-wbc/ rendered no v1 identity spelling and no v1 descriptor in 50783 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/humanoid-wbc/ rendered no v1 identity spelling and no v1 descriptor in 50763 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -151393,7 +151393,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/legged-locomotion/ rendered no v1 identity spelling and no v1 descriptor in 43069 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/legged-locomotion/ rendered no v1 identity spelling and no v1 descriptor in 43083 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -151487,7 +151487,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/parallel-sim-rl/ rendered no v1 identity spelling and no v1 descriptor in 37375 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/parallel-sim-rl/ rendered no v1 identity spelling and no v1 descriptor in 37323 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -151534,7 +151534,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/reward-design-mpc/ rendered no v1 identity spelling and no v1 descriptor in 61435 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/reward-design-mpc/ rendered no v1 identity spelling and no v1 descriptor in 60009 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -151628,7 +151628,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/sim2real-transfer/ rendered no v1 identity spelling and no v1 descriptor in 58027 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/sim2real-transfer/ rendered no v1 identity spelling and no v1 descriptor in 58021 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -218384,7 +218384,7 @@
             {
               "id": "/rl-sim2real/reward-design-mpc/",
               "observed": {
-                "paragraphCount": 25,
+                "paragraphCount": 23,
                 "familyHeads": [
                   "newsreader"
                 ],
@@ -225595,7 +225595,7 @@
             {
               "id": "/rl-sim2real/reward-design-mpc/",
               "observed": {
-                "paragraphCount": 50,
+                "paragraphCount": 46,
                 "registeredFrameParagraphCount": 20,
                 "offendingFamilies": []
               }

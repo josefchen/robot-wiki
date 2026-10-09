@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3092,
+      "visibleTextLength": 3080,
       "header": {
         "present": true,
         "display": "flex",
@@ -9349,7 +9349,7 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "visibleTextLength": 25146,
+      "visibleTextLength": 25136,
       "header": {
         "present": true,
         "display": "flex",
@@ -9512,7 +9512,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "visibleTextLength": 21289,
+      "visibleTextLength": 21296,
       "header": {
         "present": true,
         "display": "flex",
@@ -9838,7 +9838,7 @@
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "visibleTextLength": 18442,
+      "visibleTextLength": 18416,
       "header": {
         "present": true,
         "display": "flex",
@@ -10001,7 +10001,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "visibleTextLength": 30472,
+      "visibleTextLength": 29759,
       "header": {
         "present": true,
         "display": "flex",
@@ -10327,7 +10327,7 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "visibleTextLength": 28768,
+      "visibleTextLength": 28765,
       "header": {
         "present": true,
         "display": "flex",

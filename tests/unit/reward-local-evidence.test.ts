@@ -12,8 +12,16 @@ import { publishedModules } from '../../data/modules';
 describe('reward local evidence', () => {
   it('discloses the authored reward and complete scripted Eureka transcript to readers', () => {
     const article = readFileSync(ARTICLE, 'utf8');
-    expect(article).toContain(rewardDisclosure);
-    expect(article).toContain(eurekaDisclosure);
+    // Every article paragraph must cite a source, so the disclosure lives in each
+    // figure's own frame; the plans below still bind the reviewed predecessor
+    // text through the domain-pass continuity layer.
+    expect(article).not.toContain(rewardDisclosure);
+    expect(article).not.toContain(eurekaDisclosure);
+    const shaping = readFileSync('components/interactive/reward-shaping.tsx', 'utf8');
+    const replay = readFileSync('components/interactive/eureka-loop.tsx', 'utf8');
+    expect(shaping).toContain('Illustrative teaching model. No policy is trained here.');
+    expect(replay).toContain('Eureka loop, scripted replay');
+    expect(replay).toContain('with authored teaching data');
     expect(article).not.toContain("Each generation's mutation is justified by what the training statistics showed");
   });
 
