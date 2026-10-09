@@ -37,7 +37,7 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 932949, sha256: '2919e0920f24e42e4d6d24d37abfcebb9bb4a7473eba9f745b4fb97129eeabae' };
+const reviewPin = { bytes: 932323, sha256: '4565b271e72ac5e1d53825ec2df75ffd9a71f25c70d07dd6eb953394f603d03e' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -66,13 +66,13 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/manipulation/rl-finetuning.mdx', [23458, '8486f78b8c0c574a54d907f207fa3c7638d842b4e4036fa49d09c7483f71a791']],
   ['content/manipulation/robot-learning-roadmap.mdx', [9916, 'c10473a9d9a52893fe18ce799007c4d7612a23da2934c68a303f33fe9b156aa6']],
   ['content/manipulation/vla-models.mdx', [14391, '3e0f91826050ffdb4b69bd6a39622c315f4497ccfbe931b02f7787a83c3ce854']],
-  ['content/rl-sim2real/humanoid-wbc.mdx', [15618, '44fc129387a235508e910dc8439be047f87b09a9c33fb5bb992873ad8c20f7d7']],
-  ['content/rl-sim2real/legged-locomotion.mdx', [13838, 'beaeda9ad6a8151a78a8f13342240e4c4dfc91db20a0ec6ddeff7fbc44cc3000']],
+  ['content/rl-sim2real/humanoid-wbc.mdx', [15587, 'ac79e9e0469ad9cd67e6668ba7c67bcacc3c43000593f03186889715033d1fa3']],
+  ['content/rl-sim2real/legged-locomotion.mdx', [13658, '168073434064239c8b082adc4cbc54ea144b15803ca22df6e07ca2d2504a09c8']],
   ['content/rl-sim2real/offline-rl.mdx', [13146, 'f7dbcd6b92dc1ddf6a1b81e019a98f699ab4b1f7cab9f6d2c064cd7937e23123']],
-  ['content/rl-sim2real/parallel-sim-rl.mdx', [11748, 'a0848280960cb971b8e665ac14c247a54a0f26a71c82745b37bd124b5a0e5339']],
-  ['content/rl-sim2real/reward-design-mpc.mdx', [18453, 'd42af0128313cf8bd0050d2decd1d24a6a9054dfb883a65f53e2dda7288d0d5d']],
+  ['content/rl-sim2real/parallel-sim-rl.mdx', [11687, 'f7215ea4125084343e7ec50ead6ce239314112bbe847ecc0573b1faa6f1e9017']],
+  ['content/rl-sim2real/reward-design-mpc.mdx', [18332, '71a2742e5ae8e75b8b686253afcd0aa7973bd6103ac0e3924e7996d77d9529b7']],
   ['content/rl-sim2real/rl-for-robotics.mdx', [17566, '7288c55f691604bc59d14e4837be07ebc655862771a53f707d5538ebec484fa5']],
-  ['content/rl-sim2real/sim2real-transfer.mdx', [19592, 'd344470980400b624cd3dfb60732fa7f44d9962708d747d570d860d9c726896e']],
+  ['content/rl-sim2real/sim2real-transfer.mdx', [19381, 'ea7c5cded915d24e7ef5d164786bbaea51390b0d9c2542c1d684c5186f80b275']],
   ['content/rl-sim2real/why-rl-locomotion.mdx', [8908, 'db029a747a92b75e5f56e716cf548de6c3acd95ea8ffd7215625851ff9f3727c']],
   ['content/world-models/generative-video.mdx', [16559, '3b2752c33d7a823851e51270f7fa7a25ea6ce25e181b854fa0863031b55d30ea']],
 ]);

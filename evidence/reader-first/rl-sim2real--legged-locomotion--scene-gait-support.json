@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/rl-sim2real/legged-locomotion/",
+  "mount": "scene:gait-support",
+  "screenshots": {
+    "375": "evidence/reader-first/rl-sim2real--legged-locomotion--scene-gait-support.375.png",
+    "1280": "evidence/reader-first/rl-sim2real--legged-locomotion--scene-gait-support.1280.png"
+  },
+  "takeaway": "Going from walking to hopping, a four-legged robot keeps fewer feet on the ground, trading steadiness for bounce.",
+  "sentence": "A four-legged robot can move in different ways, from walking to hopping, and the faster ways keep fewer of its feet on the ground, until in a hop all four feet are in the air at the same time.",
+  "unclearTerms": [
+    "pronk",
+    "Bound",
+    "Trot",
+    "stride",
+    "the tall black vertical line crossing the four bars",
+    "the grey shadow copies behind the dog's legs",
+    "the small slanted dashes under the ground line"
+  ],
+  "samePoint": "no",
+  "reason": "I got that faster gaits keep fewer feet on the ground, but my sentence leaves out the trade of steadiness for bounce, so it states only part of the point.",
+  "verdict": "fail",
+  "screenshotCommit": "37c392c813e3f544f479de8c962f27f3a6302d74",
+  "date": "2026-10-09",
+  "reviewerSession": "reader-session-b34f3e09",
+  "sourceDigest": "28140edf4a1492ee19141d441a24245cb585205dd13e7b762e222d14d54e33f4"
+}

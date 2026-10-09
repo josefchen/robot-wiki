@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-09T00:12:03Z",
+  "observedAt": "2026-10-09T01:18:31Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -9330,8 +9330,8 @@
       },
       "after": {
         "path": "tests/e2e/randomization-reader-closeout.spec.ts",
-        "bytes": 19817,
-        "sha256": "def5340afb84ef0eb54cc32c7d7a647919bbd9db0bdb447293324230f4aae549"
+        "bytes": 19981,
+        "sha256": "d2eb0c71a30d4a7c4d809511da6b3dff6fe3bdbe58ed6238117971c89114e401"
       },
       "edits": [
         {
@@ -9369,6 +9369,10 @@
         {
           "before": "  // Open the accessible chart description, and retain any independent scoped red.\n  const summary = panel.locator('summary');\n  if (await summary.count()) { await summary.focus(); await summary.press('Enter'); }\n  await axe(page, row, `[aria-describedby=\"${await panel.locator('svg').getAttribute('aria-describedby')}\"]`, 'chart');\n",
           "after": "  // The accessible chart description sits open in the method fold; retain any independent scoped red.\n  await expect(figureFold(panel, 'method')).toHaveJSProperty('open', true);\n  await expect(panel.locator(`[id=\"${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}\"]`)).toContainText('Illustrative, not measured robot data');\n  await axe(page, row, `[aria-describedby=\"${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}\"]`, 'chart');\n"
+        },
+        {
+          "before": "            const plain = norm(paragraph.replace(/<Cite[^>]+\\/>/g, '').replace(/<[^>]+>/g, '').replace(/\\*\\*/g, ''));\n",
+          "after": "            // A markdown link renders as its text, and an escaped dollar as a dollar.\n            const plain = norm(paragraph.replace(/<Cite[^>]+\\/>/g, '').replace(/<[^>]+>/g, '').replace(/\\*\\*/g, '')\n              .replace(/\\[([^\\]]+)\\]\\([^)]+\\)/g, '$1').replace(/\\\\\\$/g, '$'));\n"
         },
         {
           "before": "        const panel = page.locator('div.prose > div:has(> [data-testid=\"ft-explanation\"])');\n",
@@ -9824,8 +9828,8 @@
       },
       "after": {
         "path": "tests/e2e/sim2real-transfer.spec.ts",
-        "bytes": 11393,
-        "sha256": "e356324c06ced9931cfd8b76f626638b545dc4800cffbeaf60fe40001f76c051"
+        "bytes": 11625,
+        "sha256": "3912d62373471be1acb796856055a8507f12a82854c3ac771e2de43048c1bec8"
       },
       "edits": [
         {
@@ -9839,6 +9843,14 @@
         {
           "before": "      /delta action model/,\n      /3DGS twin/,\n      /real2sim2real/,\n",
           "after": "      /delta action added before the simulator step/,\n      /Gaussian splats/,\n      /real-to-sim reconstruction/,\n"
+        },
+        {
+          "before": "    ).toHaveAttribute('href', 'https://arxiv.org/abs/2107.04034');\n",
+          "after": "    ).toHaveAttribute('href', 'https://arxiv.org/abs/2107.04034');\n    // Two He et al. 2025 papers are cited (ASAP and VIRAL), so the ASAP chip\n    // is addressed by its id.\n"
+        },
+        {
+          "before": "      main.getByRole('link', { name: /He et al\\. 2025/ }).first(),\n",
+          "after": "      main.locator('[data-cite-id=\"asap-2025\"]').getByRole('link', { name: /He et al\\. 2025/ }).first(),\n"
         },
         {
           "before": "    // Default: real robot at the training friction, point policy ahead.\n",
@@ -9866,11 +9878,15 @@
         },
         {
           "before": "        'CAD-derived link bounds', 'lists RGB observations plus end-effector position and orientation',\n        'solely on RGB at test time', 'Those descriptions disagree', 'August 2025 revision',\n",
-          "after": "        'CAD-derived link bounds', 'lists RGB plus end-effector pose as inputs',\n        'uses only RGB at test time', 'August 2025 revision',\n"
+          "after": "        // \"end-effector\" is a glossary term whose definition renders inline.\n        'CAD-derived link bounds', 'The setup figure lists RGB plus', 'pose as inputs',\n        'uses only RGB at test time', 'August 2025 revision',\n"
         },
         {
           "before": "        'mesh assets and measured layout alignment', 'inverse kinematics', 'collisions',\n        'resulting state drives the next rendering', 'ten trials with up to three grasp attempts per trial',\n        '90% placement', '30% in RoboGSim', 'no demonstrated safety guarantee',\n        'trajectory replay separately from closed-loop policy evaluation',\n",
           "after": "        'mesh assets and measured layout', 'collisions',\n        'Closed-loop policies act on splat renders', 'ten trials with up to three grasps each',\n        'placed 90% on the real robot', '30% in RoboGSim', 'cannot replace real-robot tests',\n        'trajectory replay are evaluated separately',\n"
+        },
+        {
+          "before": "        ['robogsim-2024', 'https://arxiv.org/abs/2411.11839', 2],\n",
+          "after": "        ['robogsim-2024', 'https://arxiv.org/abs/2411.11839', 1],\n"
         }
       ]
     },
