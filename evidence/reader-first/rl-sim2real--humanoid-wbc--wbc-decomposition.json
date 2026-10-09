@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/rl-sim2real/humanoid-wbc/",
+  "mount": "mount:/rl-sim2real/humanoid-wbc/:WbcDecomposition:1",
+  "screenshots": {
+    "375": "evidence/reader-first/rl-sim2real--humanoid-wbc--wbc-decomposition.375.png",
+    "1280": "evidence/reader-first/rl-sim2real--humanoid-wbc--wbc-decomposition.1280.png"
+  },
+  "takeaway": "Humanoid control is split into layers, slow decisions on top and fast balancing below, and designs differ in where they draw the lines.",
+  "sentence": "A humanoid robot's control is split into layers: a slow top layer works out what to do, and a fast bottom layer keeps the body balanced and moves the joints about 1,000 times a second.",
+  "unclearTerms": [
+    "Design",
+    "Copies human motion",
+    "Learned movement codes",
+    "One big network",
+    "body poses",
+    "the purple arrow running from the bottom box to the figure's hips",
+    "control stacks",
+    "loop rates"
+  ],
+  "samePoint": "no",
+  "reason": "I got the slow top layer and the fast balancing layer below, but my sentence leaves out that designs differ in where they draw the lines between layers, so it states only part of the point.",
+  "verdict": "fail",
+  "screenshotCommit": "37c392c813e3f544f479de8c962f27f3a6302d74",
+  "date": "2026-10-09",
+  "reviewerSession": "reader-session-b34f3e09",
+  "sourceDigest": "acc9b94e07781c8c9f64709dcff8f1c8240d7067cd19e1ba75b720985df2cf30"
+}

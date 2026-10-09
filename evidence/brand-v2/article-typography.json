@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "857e4203457a9000992e0355fcfda0bbf947f6efc8f651f91f5fa6363cd5161c",
+  "fingerprint": "bb6d4ed85f6744af57ce86914a995cb87c8f7815d366ac5b46af796efc716bd4",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3138,
+      "visibleTextLength": 3092,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42532,7 +42532,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -42542,7 +42542,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -48169,7 +48169,7 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -48179,7 +48179,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -56410,7 +56410,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3376,
+      "visibleTextLength": 3330,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98799,7 +98799,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 9,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -98809,7 +98809,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 9,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -104436,7 +104436,7 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 6,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -104446,7 +104446,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|newsreader|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 6,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",

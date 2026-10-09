@@ -4,8 +4,8 @@ import { CITATIONS } from '../../data/citations';
 const sources = [
   { slug: 'legged-locomotion', id: 'mit-humanoid-rewards-2023', count: 1 },
   { slug: 'reward-design-mpc', id: 'rda-2026', count: 1 },
-  { slug: 'reward-design-mpc', id: 'mujoco-ilqr-2026', count: 3 },
-  { slug: 'reward-design-mpc', id: 'eureka-2024', count: 5 },
+  { slug: 'reward-design-mpc', id: 'mujoco-ilqr-2026', count: 5 },
+  { slug: 'reward-design-mpc', id: 'eureka-2024', count: 4 },
 ];
 
 for (const source of sources) {

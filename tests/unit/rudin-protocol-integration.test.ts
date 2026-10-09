@@ -62,15 +62,17 @@ describe('Rudin protocol and code integration', () => {
     expect(GLOSSARY.find(g => g.id === 'curriculum-learning')!.definition).toContain('separate flat-terrain headline');
   });
   it('allows the exact long revision token to wrap without changing its value', () => {
-    for (const [slug, ids] of [
-      ['parallel-sim-rl', ['legged-gym-repo-2021']],
-      ['legged-locomotion', ['rudin-2021', 'legged-gym-repo-2021']],
-      ['reward-design-mpc', ['rudin-2021']],
+    // The no-JS offset follows where the chip falls on a 375 px line: a chip
+    // that opens a line takes no offset, or the tooltip would leave the screen.
+    for (const [slug, id, offset] of [
+      ['parallel-sim-rl', 'legged-gym-repo-2021', '-left-32'],
+      ['legged-locomotion', 'rudin-2021', '-left-4'],
+      ['legged-locomotion', 'legged-gym-repo-2021', null],
+      ['reward-design-mpc', 'rudin-2021', null],
     ] as const) {
       const article = text(`content/rl-sim2real/${slug}.mdx`);
-      for (const id of ids) expect(article).toContain(
-        `<span className="max-sm:[&_[role=tooltip]]:-left-32"><Cite id="${id}" /></span>`,
-      );
+      if (offset) expect(article).toContain(`<span className="max-sm:[&_[role=tooltip]]:${offset}"><Cite id="${id}" /></span>`);
+      else expect(article).not.toMatch(new RegExp(`role=tooltip\\]\\]:[^"]+"><Cite id="${id}" />`));
     }
     // a7c35d3 (round-5 SURF-010 closeout) removed the hand-authored 40-hex
     // code span from reward-design-mpc prose: the sentence now points at the

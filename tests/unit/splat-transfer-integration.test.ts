@@ -46,13 +46,14 @@ describe('Splat transfer bounded integration', () => {
     expect(record(19).note).toContain('Table 1 and Section 4.3');
   });
   it('preserves four mobile citation wrappers, held interpretations and review date', () => {
-    // Later audit work added mobile tooltip-shift wrappers: one before the
-    // Real-to-sim section, five total.
+    // Later audit work re-measured the mobile tooltip-shift wrappers at
+    // 375 px and dropped those on chips that start a line: none before the
+    // Real-to-sim section, one in total.
     const atSplat = committedText('2ed812e20ee3dbe663c75f157ac3e5f066b37ea2', 'content/rl-sim2real/sim2real-transfer.mdx');
     expect(atSplat.split('## Real-to-sim:')[0].match(/<span className="max-sm:/g)).toHaveLength(4);
     expect(atSplat.match(/<span className="max-sm:/g)).toHaveLength(6);
-    expect(article.split('## Real-to-sim:')[0].match(/<span className="max-sm:/g)).toHaveLength(1);
-    expect(article.match(/<span className="max-sm:/g)).toHaveLength(5);
+    expect(article.split('## Real-to-sim:')[0].match(/<span className="max-sm:/g) ?? []).toHaveLength(0);
+    expect(article.match(/<span className="max-sm:/g)).toHaveLength(1);
     expect(article).toContain('lastReviewed: "2026-08-17"');
     expect(article).toContain('A rebuilt twin can still mislead.');
     // Original 21 was held when this pin was written but a later packet

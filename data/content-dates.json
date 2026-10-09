@@ -166,11 +166,11 @@
     },
     "rl-sim2real/humanoid-wbc": {
       "published": "2026-08-08T19:09:26+01:00",
-      "modified": "2026-10-09T02:14:17+02:00"
+      "modified": "2026-10-09T03:44:41+02:00"
     },
     "rl-sim2real/legged-locomotion": {
       "published": "2026-08-08T18:47:53+01:00",
-      "modified": "2026-10-09T02:14:17+02:00"
+      "modified": "2026-10-09T03:44:41+02:00"
     },
     "rl-sim2real/offline-rl": {
       "published": "2026-09-16T07:39:57+02:00",
@@ -178,11 +178,11 @@
     },
     "rl-sim2real/parallel-sim-rl": {
       "published": "2026-08-08T17:36:09+01:00",
-      "modified": "2026-10-09T02:14:17+02:00"
+      "modified": "2026-10-09T03:44:41+02:00"
     },
     "rl-sim2real/reward-design-mpc": {
       "published": "2026-08-08T19:46:55+01:00",
-      "modified": "2026-10-09T02:14:17+02:00"
+      "modified": "2026-10-09T03:44:41+02:00"
     },
     "rl-sim2real/rl-for-robotics": {
       "published": "2026-08-22T16:07:21+01:00",
@@ -190,7 +190,7 @@
     },
     "rl-sim2real/sim2real-transfer": {
       "published": "2026-08-08T18:11:48+01:00",
-      "modified": "2026-10-09T02:14:17+02:00"
+      "modified": "2026-10-09T03:44:41+02:00"
     },
     "rl-sim2real/why-rl-locomotion": {
       "published": "2026-08-08T17:03:04+01:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-10-09T02:14:17+02:00"
+      "modified": "2026-10-09T03:44:41+02:00"
     },
     "/manipulation/": {
       "modified": "2026-10-08T13:41:50+02:00"

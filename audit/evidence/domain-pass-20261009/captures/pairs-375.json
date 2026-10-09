@@ -1,0 +1,156 @@
+[
+ {
+  "route": "/rl-sim2real/humanoid-wbc/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Humanoids split control into layers, slow deciding on top and fast balancing below; designs differ in where they draw th",
+   "file": "rl-sim2real__humanoid-wbc__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Humanoids split control into layers, slow deciding on top and fast balancing below; designs differ in where they draw th",
+   "file": "rl-sim2real__humanoid-wbc__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/legged-locomotion/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Foot support over an authored stride cycle",
+   "file": "rl-sim2real__legged-locomotion__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Foot support over an authored stride cycle",
+   "file": "rl-sim2real__legged-locomotion__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/legged-locomotion/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "ANYmal, the ANYbotics quadruped behind the ETH Zurich locomotion lineage, on an industrial inspection floor. The actuato",
+   "file": "rl-sim2real__legged-locomotion__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "ANYmal, the ANYbotics quadruped behind the ETH Zurich locomotion lineage, on an industrial inspection floor. The actuato",
+   "file": "rl-sim2real__legged-locomotion__01.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/parallel-sim-rl/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Parallel rollouts change a fixed training budget",
+   "file": "rl-sim2real__parallel-sim-rl__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Parallel rollouts change a fixed training budget",
+   "file": "rl-sim2real__parallel-sim-rl__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/reward-design-mpc/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Robots learning by trial and error do whatever earns points; the scoring rules, not hand-written steps, decide what kind",
+   "file": "rl-sim2real__reward-design-mpc__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Robots learning by trial and error do whatever earns points; the scoring rules, not hand-written steps, decide what kind",
+   "file": "rl-sim2real__reward-design-mpc__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/reward-design-mpc/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Each generation pairs the training statistics with the reflection written before the reward code mutates.",
+   "file": "rl-sim2real__reward-design-mpc__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Each generation pairs the training statistics with the reflection written before the reward code mutates.",
+   "file": "rl-sim2real__reward-design-mpc__01.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/reward-design-mpc/",
+  "changed": true,
+  "before": {
+   "idx": 2,
+   "label": "Same robot, same perturbation, two controllers; each trace is the base-height deviation after the disturbance.",
+   "file": "rl-sim2real__reward-design-mpc__02.png"
+  },
+  "after": {
+   "idx": 2,
+   "label": "Same robot, same perturbation, two controllers; each trace is the base-height deviation after the disturbance.",
+   "file": "rl-sim2real__reward-design-mpc__02.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/rl-for-robotics/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Robots learn by trial and error, which takes millions of tries; simulation turns months of real robot time into minutes.",
+   "file": "rl-sim2real__rl-for-robotics__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Robots learn by trial and error, which takes millions of tries; simulation turns months of real robot time into minutes.",
+   "file": "rl-sim2real__rl-for-robotics__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/sim2real-transfer/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Real floors never match the simulator exactly, so engineers vary the practice world on purpose to get robots that cope e",
+   "file": "rl-sim2real__sim2real-transfer__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Real floors never match the simulator exactly, so engineers vary the practice world on purpose to get robots that cope e",
+   "file": "rl-sim2real__sim2real-transfer__00.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/sim2real-transfer/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Robots trained in simulation with a perfect map must later walk without one; learning to read the ground from leg sensat",
+   "file": "rl-sim2real__sim2real-transfer__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Robots trained in simulation with a perfect map must later walk without one; learning to read the ground from leg sensat",
+   "file": "rl-sim2real__sim2real-transfer__01.png"
+  }
+ },
+ {
+  "route": "/rl-sim2real/why-rl-locomotion/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Simulators never get surfaces exactly right; legs adjust step by step, but a tight-fitting part leaves almost no room fo",
+   "file": "rl-sim2real__why-rl-locomotion__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Simulators never get surfaces exactly right; legs adjust step by step, but a tight-fitting part leaves almost no room fo",
+   "file": "rl-sim2real__why-rl-locomotion__00.png"
+  }
+ }
+]

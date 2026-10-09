@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/rl-sim2real/sim2real-transfer/",
+  "mount": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+  "screenshots": {
+    "375": "evidence/reader-first/rl-sim2real--sim2real-transfer--friction-transfer.375.png",
+    "1280": "evidence/reader-first/rl-sim2real--sim2real-transfer--friction-transfer.1280.png"
+  },
+  "takeaway": "A robot trained on one floor does best there, while one trained on many varied floors copes with all of them.",
+  "sentence": "A robot trained on only one practice floor does best on that exact floor but fails on others, while a robot trained on many different floors does a bit worse there but still works on many more floors.",
+  "unclearTerms": [
+    "DR peak",
+    "authored formulas",
+    "trained policies",
+    "the green triangle marker labelled 'real floor'",
+    "the grey and green dots on the vertical green line",
+    "what moving the 'Real floor' slider changes on the chart"
+  ],
+  "samePoint": "yes",
+  "reason": "My sentence says the robot trained on one floor does best there, and the robot trained on many floors still works on many more floors, which matches the intended message.",
+  "verdict": "fail",
+  "screenshotCommit": "37c392c813e3f544f479de8c962f27f3a6302d74",
+  "date": "2026-10-09",
+  "reviewerSession": "reader-session-b34f3e09",
+  "sourceDigest": "37f82d9c816c390eca76fe40b164e6779a8b51f6f065e0ea5a312b263422e7fe"
+}
