@@ -278,7 +278,9 @@ for (const width of [375, 1440]) {
             return copy.textContent!.replace(/\s+/g, ' ').trim();
           }));
           for (const paragraph of paragraphs) {
-            const plain = norm(paragraph.replace(/<Cite[^>]+\/>/g, '').replace(/<[^>]+>/g, '').replace(/\*\*/g, ''));
+            // A markdown link renders as its text, and an escaped dollar as a dollar.
+            const plain = norm(paragraph.replace(/<Cite[^>]+\/>/g, '').replace(/<[^>]+>/g, '').replace(/\*\*/g, '')
+              .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\\\$/g, '$'));
             expect(rendered).toContain(plain);
           }
           row.steps.push({ fullSourceCorrectParagraphs: paragraphs.length });

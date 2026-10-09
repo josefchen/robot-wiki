@@ -126,9 +126,9 @@ export async function splatTransferReaderProof(page: Page, info: TestInfo) {
       await capture(`changed-section-${index}`);
     }
     steps.push({ changedSection: section, sliceStride: stride, visualCoverage: 'Changed section only; remaining article is a section-start survey.' });
-    const sourceParagraphs = prose.locator('p').filter({ hasText: /The newest family attacks|The setup uses a Robotiq|This simulated evaluation cannot stand in|Keep the division of labor straight/ });
-    await expect(sourceParagraphs).toHaveCount(4);
-    for (let index = 0; index < 4; index++) {
+    const sourceParagraphs = prose.locator('p').filter({ hasText: /^(SplatSim replaces mesh rendering|The setup uses a Robotiq|RoboGSim's August 2025 revision)/ });
+    await expect(sourceParagraphs).toHaveCount(3);
+    for (let index = 0; index < 3; index++) {
       const paragraph = sourceParagraphs.nth(index);
       const measured = await paragraph.evaluate(element => {
         const s = getComputedStyle(element), r = element.getBoundingClientRect();
@@ -141,7 +141,7 @@ export async function splatTransferReaderProof(page: Page, info: TestInfo) {
       expect(parseFloat(measured.size)).toBeLessThanOrEqual(21);
     }
 
-    for (const [id, count] of [['splatsim-2024', 3], ['robogsim-2024', 2]] as const) {
+    for (const [id, count] of [['splatsim-2024', 3], ['robogsim-2024', 1]] as const) {
       const citation = CITATIONS.find(item => item.id === id)!;
       const chips = prose.locator(`[data-cite-id="${id}"]`);
       await expect(chips).toHaveCount(count);

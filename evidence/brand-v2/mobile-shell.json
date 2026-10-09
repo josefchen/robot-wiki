@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3138,
+      "visibleTextLength": 3092,
       "header": {
         "present": true,
         "display": "flex",

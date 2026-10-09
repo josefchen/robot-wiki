@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "2033d716df4532a8ed78a16fbee2b0183e750b1fa9659c4a869df52d39f88e56",
+  "fingerprint": "cf38fce00d17be8f717938e83a10916941434b87108b6087f168490957c312e2",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2986,
+  "visibleTextLength": 2940,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -610,8 +610,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "World Models vs Physics Simulators",
-      "href": "/world-models/world-models-vs-simulators/",
+      "accessibleName": "Space Robotics",
+      "href": "/adjacent/space/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 932.28,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Offline Reinforcement Learning for Robotics",
-      "href": "/rl-sim2real/offline-rl/",
+      "accessibleName": "Massively Parallel Sim RL",
+      "href": "/rl-sim2real/parallel-sim-rl/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2454.34,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Massively Parallel Sim RL",
-      "href": "/rl-sim2real/parallel-sim-rl/",
+      "accessibleName": "Reward Design and the MPC Debate",
+      "href": "/rl-sim2real/reward-design-mpc/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2485.34,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Reward Design and the MPC Debate",
-      "href": "/rl-sim2real/reward-design-mpc/",
+      "accessibleName": "Sim-to-Real Transfer",
+      "href": "/rl-sim2real/sim2real-transfer/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2516.34,
@@ -950,9 +950,7 @@
     },
     {
       "label": "Featured article",
-      "names": [
-        "World Models"
-      ]
+      "names": []
     },
     {
       "label": "Featured scene",
@@ -987,8 +985,8 @@
     {
       "label": "Featured article",
       "signature": "plain/module-heading/lead-excerpt",
-      "prose": "Learned world models and physics simulators are both models of what happens under an action.",
-      "text": "Featured article World Models vs Physics Simulators Learned world models and physics simulators are both models of what happens under an action."
+      "prose": "Space robotics is the domain where the two assumptions of everyday robotics fail at once.",
+      "text": "Featured article Space Robotics Space robotics is the domain where the two assumptions of everyday robotics fail at once."
     },
     {
       "label": "Featured scene",
@@ -1006,7 +1004,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-09 Humanoid Whole-Body Control 2026-10-09 Legged Locomotion Lineage 2026-10-09 Offline Reinforcement Learning for Robotics 2026-10-09 Massively Parallel Sim RL 2026-10-09 Reward Design and the MPC Debate"
+      "text": "Recently updated 2026-10-09 Humanoid Whole-Body Control 2026-10-09 Legged Locomotion Lineage 2026-10-09 Massively Parallel Sim RL 2026-10-09 Reward Design and the MPC Debate 2026-10-09 Sim-to-Real Transfer"
     },
     {
       "label": "Tools",

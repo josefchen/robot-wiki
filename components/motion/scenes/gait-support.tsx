@@ -1,5 +1,6 @@
 'use client';
 
+import type { CSSProperties } from 'react';
 import { AnimatedElement, AnimatedGroup, AnimatedPath } from '@/components/motion/animated';
 import { clamp01 } from '@/components/motion/easing';
 import { AnimatedRobotDog, type DogFeet, type DogPose } from '@/components/motion/robot-dog';
@@ -98,9 +99,10 @@ export function supportWords(id: GaitId): string {
     : `${GAIT_WORDS[id]}: at times no feet on the ground`;
 }
 
-// Stage layout, in the 340 by 272 stage.
-const GROUND_Y = 108;
-const HIP_Y = 70;
+// Stage layout, in the 340 by 272 stage. The dog stands low enough that the
+// top of its head stays clear of the current-gait bar at the height of the hop.
+const GROUND_Y = 113;
+const HIP_Y = 75;
 const REAR_HIP = 150;
 const FRONT_HIP = 212;
 const SEGMENT = 22;
@@ -115,8 +117,17 @@ const ROW_H = 14;
 const ROW_GAP = 8;
 const AXIS_Y = ROW_TOP + LEGS.length * (ROW_H + ROW_GAP) + 2;
 const GAIT_NAME_X = [8, 66, 124, 196];
-/** Approximate drawn widths of the gait names, for the bar under the current one. */
+/**
+ * Approximate drawn widths of the gait names at the stage's base scale, for
+ * the bar under the current one. Stage text keeps its CSS pixel size as the
+ * stage widens, so the bar shrinks by the same type scale (BAR_TYPE_SCALE).
+ */
 const GAIT_NAME_WIDTH = [31, 29, 41, 78];
+const BAR_TYPE_SCALE: CSSProperties = {
+  transformBox: 'fill-box',
+  transformOrigin: 'left center',
+  transform: 'scaleX(calc(1 / var(--motion-stage-type-scale, 1)))',
+};
 const HATCH_COUNT = 9;
 const HATCH_SPACING = 24;
 const stripX = (phase: number) => r(STRIP_LEFT + phase * STRIP_W);
@@ -180,7 +191,7 @@ function GaitSupportStage() {
         </AnimatedElement>
       ))}
       <g data-scene-structure="current-gait">
-        <AnimatedPath stroke={INK} strokeWidth={2} fill="none" bindings={{
+        <AnimatedPath stroke={INK} strokeWidth={2} fill="none" style={BAR_TYPE_SCALE} bindings={{
           d: (t) => {
             const i = GAIT_ORDER.indexOf(gaitSupportFrame(t).gait);
             return `M${GAIT_NAME_X[i]} 27h${GAIT_NAME_WIDTH[i]}`;

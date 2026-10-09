@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1541055, sha256: 'a30557a84aa459cc3468d8fc30817af45b1afadf16b1290e9510db6982b3861f' };
+const reviewPin = { bytes: 1542388, sha256: 'b98e21d394d0417951c952807b943d53e721387b5ecedd6144ffb2bb2d6c7840' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -190,7 +190,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/perception.spec.ts', [37417, '7ad6e146b37c8b85d53dc66e169a5db76ec6d6e1d7229c208d8be73d5636a585']],
   ['tests/e2e/pi-helix-theses-readers.spec.ts', [3798, 'd4d426d40a5d6ab1020e7e955e2c4d0c10e55d1a04ae6ac062b763743f2d9686']],
   ['tests/e2e/predict-then-reveal.spec.ts', [41092, '8fe64fe8441b66d0564c12575262d8883fd94999f7d28d07aec41b334128b3da']],
-  ['tests/e2e/randomization-reader-closeout.spec.ts', [19817, 'def5340afb84ef0eb54cc32c7d7a647919bbd9db0bdb447293324230f4aae549']],
+  ['tests/e2e/randomization-reader-closeout.spec.ts', [19981, 'd2eb0c71a30d4a7c4d809511da6b3dff6fe3bdbe58ed6238117971c89114e401']],
   ['tests/e2e/residual-release-classical.spec.ts', [9970, 'cc144bbf81ab277e9be9bbc920f0a98559efe6e44663cd637d1f4dc1bcf39955']],
   ['tests/e2e/residual-release-final-seven.spec.ts', [8414, 'ab048ffe53ba61ba6e58395aadb53ffb59a4e40b4d554a44d61154fd1b8938f6']],
   ['tests/e2e/residual-release-industrial.spec.ts', [7926, '0599bcf96efc6477c6da0e4e5000b4d2c72c0bb760e02398bca448ebde2dd0ea']],
@@ -200,7 +200,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/safety-and-assurance.spec.ts', [23544, 'd8eb080ba5f910c343430f63f9e0d2a6c8b7e34d3cd814d292d42ea77d61e0fd']],
   ['tests/e2e/scene-representation.spec.ts', [25615, '91b39f565d61de6930e96d2a801ea678af8c1f66aa001cf0662cd1d9813f0e6c']],
   ['tests/e2e/sim2real-local-evidence.spec.ts', [10407, '841d3a3c086506b155033161256731030f47daa9c9857f66f8affd43178f5d2e']],
-  ['tests/e2e/sim2real-transfer.spec.ts', [11393, 'e356324c06ced9931cfd8b76f626638b545dc4800cffbeaf60fe40001f76c051']],
+  ['tests/e2e/sim2real-transfer.spec.ts', [11625, '3912d62373471be1acb796856055a8507f12a82854c3ac771e2de43048c1bec8']],
   ['tests/e2e/state-estimation.spec.ts', [14104, 'acf481dfb999c01b3e0739d399eb1bfe848eae10b3a2d6f122a236cd1ee062bb']],
   ['tests/e2e/thesis-economics-readers.spec.ts', [6170, '25b0c7ae3b7cdcbe6a2b604f55d6bc6aa51de094f1e2209e1ee00325c52da0d3']],
   ['tests/e2e/why-rl-locomotion.spec.ts', [5041, '2a0377ca5049411af190a5cfc785dbb9a46dad3663910c42a9cb76aa84470e13']],

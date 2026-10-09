@@ -78,7 +78,9 @@ for (const width of [375, 1440]) for (const slug of ['legged-locomotion', 'rewar
         }
         const chip = paragraph.locator(`[data-cite-id="${id}"]`), link = chip.locator('a').first();
         await chip.evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
-        await link.focus(); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Tab');
+        // Arrive from the chip's own jump link: a glossary tooltip that
+        // overflows at 375 is a focus stop of its own just before the chip.
+        await link.focus(); await page.keyboard.press('Tab'); await page.keyboard.press('Shift+Tab');
         await expect(link).toBeFocused();
         const tooltip = chip.getByRole('tooltip');
         for (const state of ['keyboard-focus', 'hover']) {

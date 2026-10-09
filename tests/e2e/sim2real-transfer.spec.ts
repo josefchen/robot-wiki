@@ -52,8 +52,10 @@ test.describe('sim2real-transfer module', () => {
     await expect(
       main.getByRole('link', { name: /Kumar et al\. 2021/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2107.04034');
+    // Two He et al. 2025 papers are cited (ASAP and VIRAL), so the ASAP chip
+    // is addressed by its id.
     await expect(
-      main.getByRole('link', { name: /He et al\. 2025/ }).first(),
+      main.locator('[data-cite-id="asap-2025"]').getByRole('link', { name: /He et al\. 2025/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2502.01143');
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip deleted its 12 registry anchors alone still passed this floor.
@@ -184,7 +186,8 @@ test.describe('sim2real-transfer module', () => {
       for (const text of [
         'PyBullet supplies physics', 'with 40 trials each', 'training augmentations',
         'Robotiq 2F-85', 'two RealSense D455', 'manual robot segmentation', 'ICP alignment',
-        'CAD-derived link bounds', 'lists RGB plus end-effector pose as inputs',
+        // "end-effector" is a glossary term whose definition renders inline.
+        'CAD-derived link bounds', 'The setup figure lists RGB plus', 'pose as inputs',
         'uses only RGB at test time', 'August 2025 revision',
         'Gaussian Reconstructor', 'Digital Twins Builder', 'Scene Composer', 'Interactive Engine',
         'mesh assets and measured layout', 'collisions',
@@ -199,7 +202,7 @@ test.describe('sim2real-transfer module', () => {
       const geometry: unknown[] = [];
       for (const [id, url, count] of [
         ['splatsim-2024', 'https://arxiv.org/abs/2409.10161', 3],
-        ['robogsim-2024', 'https://arxiv.org/abs/2411.11839', 2],
+        ['robogsim-2024', 'https://arxiv.org/abs/2411.11839', 1],
       ] as const) {
         const clusters = prose.locator(`[data-cite-id="${id}"]`);
         await expect(clusters).toHaveCount(count);
