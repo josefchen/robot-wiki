@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { CITATIONS } from '../../data/citations';
+import { waitForHydration } from './interaction-ready';
 
 const sources = [
   { slug: 'legged-locomotion', id: 'mit-humanoid-rewards-2023', count: 1 },
@@ -59,10 +60,13 @@ for (const source of sources) {
 
 test('retained Eureka generation control remains operable', async ({ page }) => {
   await page.goto('/rl-sim2real/reward-design-mpc/');
-  const next = page.getByRole('button', { name: 'Run next generation' });
+  const next = page.getByRole('button', { name: 'Next round' });
   await expect(next).toBeEnabled();
   await next.click();
   await expect(next).toBeEnabled();
-  await expect(page.getByRole('group', { name: 'Perturbation' }).getByRole('button').first()).toBeEnabled();
-  await page.getByRole('group', { name: 'Perturbation' }).getByRole('button').last().click();
+  const surprises = page.getByRole('group', { name: 'Surprise for the robot' }).getByRole('button');
+  await expect(surprises.first()).toBeEnabled();
+  await waitForHydration(surprises.last());
+  await surprises.last().click();
+  await expect(surprises.last()).toHaveAttribute('aria-pressed', 'true');
 });

@@ -25,7 +25,7 @@
     "element": "GaitSupport",
     "decision": "add",
     "sceneId": "gait-support",
-    "teachingGoal": "Reveal walk, diagonal trot, bounding flight and pronking flight in four reader-paced stills.",
+    "teachingGoal": "Line up the walk, trot and hop with the camera on each dog as it steps, then hold a still recap of the trade from steadier to more bounce; the bound's numbers stay in the method note.",
     "reason": "The order shows the loss of continuous support without presenting the examples as measured robot footfalls."
   },
   {
@@ -68,7 +68,7 @@
     "article": "reward-design-mpc",
     "element": "EurekaLoop",
     "decision": "keep",
-    "teachingGoal": "Inspect the source-qualified propose, train, reflect and mutate sequence with code differences.",
+    "teachingGoal": "Follow three rounds in which an AI writes the scoring rules, a robot dog acts out the result, and the AI rewrites the rule that rewarded the wrong thing.",
     "reason": "Its reader-selected states already express the loop; a second playback clock would duplicate the teaching path."
   },
   {
@@ -82,8 +82,8 @@
     "article": "reward-design-mpc",
     "element": "MpcVsRl",
     "decision": "keep",
-    "teachingGoal": "Choose disturbances and inspect how each controller responds in the explicit toy.",
-    "reason": "The reader's disturbance choice is the experiment, rather than an authored disturbance schedule."
+    "teachingGoal": "Choose a surprise and see whether the planner or the trained reflex falls, with all four verdicts kept in view.",
+    "reason": "The reader's choice of surprise is the experiment, rather than an authored disturbance schedule."
   },
   {
     "article": "rl-for-robotics",

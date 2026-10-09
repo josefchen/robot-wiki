@@ -76,12 +76,13 @@ const CHARTS: Array<{
   { route: '/manipulation/rl-finetuning', name: 'advantage', control: 'range', moves: ['12', '32'], def: '40' },
   { route: '/rl-sim2real/sim2real-transfer', name: 'friction', control: 'range', moves: ['50', '120'], def: '80', match: 'selected friction' },
   { route: '/world-models/latent-dynamics', name: 'latent', control: 'range', moves: ['30', '50'], def: '15', match: 'shaded band' },
+  // The planner-or-reflex figure opens on the slippery patch.
   {
     route: '/rl-sim2real/reward-design-mpc',
     name: 'mpc-vs-rl',
     control: 'button',
-    moves: ['low-friction patch', '+5 kg payload'],
-    def: 'lateral push',
+    moves: ['Sideways shove', 'Heavy backpack'],
+    def: 'Slippery patch',
     match: 'MPC base-height',
   },
 ];

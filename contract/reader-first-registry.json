@@ -189,6 +189,7 @@
       "figure": "scene:gait-support",
       "audit": "A16",
       "sources": [
+        "components/motion/robot-dog.tsx",
         "components/motion/scenes/gait-support.tsx",
         "lib/gait.ts"
       ],
@@ -204,7 +205,7 @@
         "components/interactive/wbc-decomposition.tsx",
         "lib/wbc-decomposition.ts"
       ],
-      "takeaway": "Humanoid control is split into layers, slow decisions on top and fast balancing below, and designs differ in where they draw the lines."
+      "takeaway": "Humanoid control is split into layers, slow decisions on top and fast balancing below."
     },
     {
       "id": "rl-sim2real--reward-design-mpc--reward-shaping",
@@ -405,9 +406,10 @@
       "audit": "A34",
       "sources": [
         "components/interactive/eureka-loop.tsx",
-        "lib/eureka.ts"
+        "lib/eureka.ts",
+        "components/motion/robot-dog.tsx"
       ],
-      "takeaway": ""
+      "takeaway": "An AI writes the scoring rules a robot learns from, reads how the robot did, and fixes rules that reward the wrong thing."
     },
     {
       "id": "rl-sim2real--reward-design-mpc--mpc-vs-rl",
@@ -417,9 +419,10 @@
       "audit": "A35",
       "sources": [
         "components/interactive/mpc-vs-rl.tsx",
-        "lib/mpc-vs-rl.ts"
+        "lib/mpc-vs-rl.ts",
+        "components/motion/robot-dog.tsx"
       ],
-      "takeaway": ""
+      "takeaway": "A robot that plans ahead fails when its guesses about the world are wrong, and one that learned by practice fails on surprises it never practised."
     },
     {
       "id": "world-models--generative-video--action-conditioning",

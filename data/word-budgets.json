@@ -23,12 +23,12 @@
   "manipulation/rl-finetuning": 4214,
   "manipulation/robot-learning-roadmap": 1093,
   "manipulation/vla-models": 2101,
-  "rl-sim2real/humanoid-wbc": 2272,
-  "rl-sim2real/legged-locomotion": 1971,
+  "rl-sim2real/humanoid-wbc": 2249,
+  "rl-sim2real/legged-locomotion": 1943,
   "rl-sim2real/offline-rl": 1625,
-  "rl-sim2real/parallel-sim-rl": 1608,
-  "rl-sim2real/reward-design-mpc": 3119,
+  "rl-sim2real/parallel-sim-rl": 1603,
+  "rl-sim2real/reward-design-mpc": 2852,
   "rl-sim2real/rl-for-robotics": 2510,
-  "rl-sim2real/sim2real-transfer": 2549,
+  "rl-sim2real/sim2real-transfer": 2518,
   "rl-sim2real/why-rl-locomotion": 1303
 }

@@ -152,7 +152,8 @@ export const PERTURBATIONS: Perturbation[] = [
   },
 ];
 
-export const DEFAULT_PERTURBATION = 'push';
+/** The figure opens on the surprise where one controller falls and the other copes. */
+export const DEFAULT_PERTURBATION = 'low-friction';
 
 /* ------------------------------------------------------------------ */
 /* Comparison table                                                    */

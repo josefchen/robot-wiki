@@ -38,20 +38,41 @@ describe('FrictionTransfer', () => {
     expect(readout('dr-readout')).toBe('74%');
     expect(readout('delta-readout')).toMatch(/point \+\d+ pts/);
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'A specialist wins on one floor; a generalist survives many',
+      'One-floor robot wins on its floor; many-floor robot copes widely',
     );
+    // The headline names the robots the way the legend and the note do, and the axis says what the share counts.
+    expect(container.querySelector('[data-legend-series="point-policy"]')).toHaveTextContent('one-floor robot');
+    expect(container.querySelector('[data-scene-axis]')).toHaveTextContent('tries without a fall');
     const note = container.querySelectorAll('[data-figure-annotation]');
     expect(note).toHaveLength(1);
-    expect(note[0]).toHaveTextContent(/one-floor robot wins, 97% against 74%/);
-    // Both sliders are in view, named in plain words; Reset sits in Adjust more.
+    expect(note[0]).toHaveTextContent(/Real floor same as the practice floor:\s*the one-floor robot wins, 97% against 74%/);
+    // The real floor is the one slider in view, its setting read as one phrase;
+    // the range of practice floors and Reset sit in Adjust more.
     const controls = container.querySelector('[data-figure-controls]')!;
+    const adjust = container.querySelector('details[data-figure-fold="adjust"]')!;
     expect(controls).toContainElement(realMuSlider());
-    expect(controls).toContainElement(rangeSlider());
-    expect(controls).toHaveTextContent('like the practice floor');
-    expect(controls).toHaveTextContent('a middling spread');
-    expect(container.querySelector('details[data-figure-fold="adjust"]')).toContainElement(
-      screen.getByRole('button', { name: /reset/i }),
+    expect(adjust).not.toContainElement(realMuSlider());
+    expect(controls).toHaveTextContent('Real floor: same as the practice floor');
+    expect(adjust).toContainElement(rangeSlider());
+    expect(adjust).toHaveTextContent('a middling spread');
+    expect(adjust).toContainElement(screen.getByRole('button', { name: /reset/i }));
+    // One legend entry names the many-floor robot's line and its shaded range together.
+    expect(screen.getByTestId('dr-band')).toHaveAttribute('data-series', 'dr-policy');
+    expect(container.querySelector('[data-legend-series="dr-policy"]')).toHaveTextContent(
+      'many-floor robot, practised on the shaded floors',
     );
+    expect(container.querySelector('[data-legend-series="training-range"]')).toBeNull();
+  });
+
+  it('labels each dot with its robot\'s chance on the real floor and keeps the method note in the fold', () => {
+    const { container } = render(<FrictionTransfer />);
+    const values = () => [...screen.getByTestId('real-floor-values').querySelectorAll('text')].map((t) => t.textContent);
+    expect(values()).toEqual(['97%', '74%']);
+    fireEvent.change(realMuSlider(), { target: { value: '35' } });
+    expect(values()).toEqual([readout('point-readout'), readout('dr-readout')]);
+    // The authored-formula note lives in "How this was made", not on a source line under the caption.
+    expect(container.querySelector('[data-figure-source]')).toBeNull();
+    expect(screen.getByTestId('ft-explanation')).toHaveTextContent('authored formulas');
   });
 
   it('on the training friction itself the point policy is ahead', () => {
@@ -94,12 +115,12 @@ describe('FrictionTransfer', () => {
     expect(readout('dr-readout')).toBe('74%');
   });
 
-  it('renders a table-form chart description that names the assumed range and dashed edges', () => {
+  it('renders a table-form chart description that names the assumed range and its shaded band', () => {
     const { container } = render(<FrictionTransfer />);
     const desc = container.querySelector('[data-chart-description]');
     expect(desc?.textContent).toMatch(/assumed DR half-width is 0.35/i);
     expect(desc?.textContent).toMatch(/not a confidence interval/i);
-    expect(desc?.textContent).toMatch(/dashed edges/i);
+    expect(desc?.textContent).toMatch(/shaded band marks an assumed range/i);
     const details = container.querySelector('details[data-chart-data]');
     expect(details).toHaveAttribute('data-chart-form', 'table');
     const rows = details?.querySelectorAll('tbody tr').length ?? 0;

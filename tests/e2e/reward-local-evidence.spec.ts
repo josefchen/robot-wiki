@@ -8,6 +8,10 @@ import {
 
 const route = '/rl-sim2real/reward-design-mpc/';
 const producing = process.env.REWARD_LOCAL_CAPTURE === '1';
+// Every article paragraph cites a source, so the article's two disclosure
+// paragraphs left it and each figure states its own status in its frame.
+const rewardStatus = 'Illustrative teaching model. No policy is trained here.';
+const eurekaStatus = 'Illustrative example, not a recorded run';
 
 test('observes the mounted authored reward and complete scripted replay', async ({ page }) => {
   test.setTimeout(180_000);
@@ -16,10 +20,12 @@ test('observes the mounted authored reward and complete scripted replay', async 
   page.on('pageerror', error => errors.push(error.message));
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto(route);
-  await expect(page.getByText(rewardDisclosure, { exact: true })).toBeVisible();
-  await expect(page.getByText(eurekaDisclosure, { exact: true })).toBeAttached();
   const reward = page.locator('[data-figure-frame="reward-shaping"]');
   const eureka = page.locator('[data-figure-frame="eureka-loop"]');
+  await expect(page.getByText(rewardDisclosure, { exact: true })).toHaveCount(0);
+  await expect(page.getByText(eurekaDisclosure, { exact: true })).toHaveCount(0);
+  await expect(reward.getByText(rewardStatus, { exact: true })).toBeVisible();
+  await expect(eureka.getByText(eurekaStatus, { exact: true })).toBeVisible();
   const observations: unknown[] = [];
   async function capture(name: string, family: 'reward' | 'eureka', recipe: unknown, target: Locator) {
     const expected = extract(recipe);
@@ -31,7 +37,7 @@ test('observes the mounted authored reward and complete scripted replay', async 
     expect(texts).toEqual(values.display);
     await target.scrollIntoViewIfNeeded();
     const text = await page.locator('body').innerText();
-    expect(text).toContain(family === 'reward' ? rewardDisclosure : eurekaDisclosure);
+    expect(text).toContain(family === 'reward' ? rewardStatus : eurekaStatus);
     if (producing) {
       const dom = save(`${name}.dom.json`, {
         url: page.url(), viewport: page.viewportSize(), text,
@@ -89,12 +95,16 @@ test('observes the mounted authored reward and complete scripted replay', async 
   const script = extract({ id: 'eureka', mode: 'parameters', inputs: {} }).values as {
     generations: { code: string[]; stats: { label: string; value: string }[]; reflection: string }[];
   };
+  // The generation, fitness, code, statistics and reflection sit in the
+  // replay's "How this was made"; the main view tells each round in words.
+  await openHowThisWasMade(eureka);
   for (let n = 0; n < 3; n++) {
     if (n) {
       // Actual keyboard activation also witnesses the registered focus case.
-      await eureka.getByRole('button', { name: 'Run next generation' }).focus();
-      await eureka.getByRole('button', { name: 'Run next generation' }).press('Enter');
+      await eureka.getByRole('button', { name: 'Next round' }).focus();
+      await eureka.getByRole('button', { name: 'Next round' }).press('Enter');
     }
+    await expect(eureka.getByTestId('round-readout')).toHaveText(`Round ${n + 1} of 3`);
     await expect(page.getByTestId('generation-readout')).toHaveText(`Generation ${n} of 2`);
     await expect(page.getByTestId('eureka-code')).toHaveText(script.generations[n].code.join('\n'));
     await expect(page.getByTestId('eureka-reflection')).toHaveText(script.generations[n].reflection);
@@ -102,14 +112,14 @@ test('observes the mounted authored reward and complete scripted replay', async 
       await expect(page.getByTestId('eureka-stats').getByText(stat.label, { exact: true })).toBeVisible();
       await expect(page.getByTestId('eureka-stats').getByText(stat.value, { exact: true })).toBeVisible();
     }
-    if (n === 2) await expect(eureka.getByRole('button', { name: 'Run next generation' })).toBeDisabled();
-    else await expect(eureka.getByRole('button', { name: 'Run next generation' })).toBeEnabled();
+    if (n === 2) await expect(eureka.getByRole('button', { name: 'Next round' })).toBeDisabled();
+    else await expect(eureka.getByRole('button', { name: 'Next round' })).toBeEnabled();
     await capture(`eureka-${n}`, 'eureka', eurekaRecipe(n), eureka);
   }
   await eureka.getByRole('button', { name: 'Reset', exact: true }).click();
   await expect(page.getByTestId('generation-readout')).toHaveText('Generation 0 of 2');
   await expect(page.getByTestId('eureka-diff')).toHaveCount(0);
-  await expect(eureka.getByRole('button', { name: 'Run next generation' })).toBeEnabled();
+  await expect(eureka.getByRole('button', { name: 'Next round' })).toBeEnabled();
   await capture('eureka-reset', 'eureka', eurekaRecipe(0), eureka);
   expect(errors).toEqual([]);
   expect((await new AxeBuilder({ page }).include('main').analyze()).violations).toEqual([]);
@@ -123,10 +133,10 @@ test('observes the mounted authored reward and complete scripted replay', async 
 test('renders both disclosures without horizontal overflow on mobile', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto(route);
-  await expect(page.getByText(rewardDisclosure, { exact: true })).toBeVisible();
-  await expect(page.getByText(eurekaDisclosure, { exact: true })).toBeAttached();
+  await expect(page.locator('[data-figure-frame="reward-shaping"]').getByText(rewardStatus, { exact: true })).toBeVisible();
+  await expect(page.locator('[data-figure-frame="eureka-loop"]').getByText(eurekaStatus, { exact: true })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
-  await page.getByTestId('generation-readout').scrollIntoViewIfNeeded();
+  await page.getByTestId('round-readout').scrollIntoViewIfNeeded();
   if (producing) {
     save('reader-mobile.dom.json', { url: page.url(), text: await page.locator('body').innerText() });
     await page.screenshot({ path: `${DIRECTORY}/reader-mobile.png`, animations: 'disabled' });

@@ -11,12 +11,14 @@ const scenes = [
   {
     id: 'gait-support',
     route: '/rl-sim2real/legged-locomotion/',
-    captions: [/walk/i, /trot/i, /bound/i, /pronk/i],
+    captions: [/walk/i, /trot/i, /hop/i, /which feet move together/i],
   },
 ] as const;
 
 for (const { id, route, captions } of scenes) {
-  test(`${id} stays legible and reader-controlled through four beats`, async ({ browser }) => {
+  // The last caption is the recap, which is also the poster's.
+  const recap = captions[captions.length - 1];
+  test(`${id} stays legible and reader-controlled through every beat`, async ({ browser }) => {
     for (const width of [375, 1440]) {
       const context = await browser.newContext({ viewport: { width, height: width === 375 ? 800 : 900 } });
       try {
@@ -32,7 +34,7 @@ for (const { id, route, captions } of scenes) {
         const scene = page.locator(`[data-motion-scene="${id}"]`);
         await expect(scene.getByTestId('motion-poster')).toBeVisible();
         await expect(scene.getByTestId('motion-scrubber')).toHaveCount(0);
-        await expect(scene.getByTestId('motion-caption')).toHaveText(captions[3]);
+        await expect(scene.getByTestId('motion-caption')).toHaveText(recap);
         const audit = async (state: string) => {
           const result = await scene.evaluate(auditSceneElement);
           expect(result.intersections, `${id} ${width} ${state}: overlap`).toEqual([]);
@@ -53,13 +55,15 @@ for (const { id, route, captions } of scenes) {
         await page.keyboard.press('Home');
         for (let index = 0; index < captions.length; index += 1) {
           await page.keyboard.press('ArrowRight');
-          await expect(scene.getByTestId('motion-beat-count')).toHaveText(`beat ${index + 1} / 4`);
+          await expect(scene.getByTestId('motion-beat-count')).toHaveText(`beat ${index + 1} / ${captions.length}`);
           await expect(scene.getByTestId('motion-caption')).toHaveText(captions[index]);
           await expect(scrubber).toHaveAttribute('aria-valuetext', captions[index]);
           await audit(`beat ${index + 1}`);
         }
         const alternative = page.locator(`#${await scene.getAttribute('aria-describedby')}`);
         for (const caption of captions) await expect(alternative).toContainText(caption);
+        // The flagship keeps its anchor once the player replaces the poster.
+        if (id === 'gait-support') await expect(page.locator('#gait-support')).toHaveAttribute('data-motion-scene', id);
         expect(missingAssets, `${id} ${width}: missing development chunks`).toEqual([]);
       } finally {
         await context.close();
@@ -75,13 +79,13 @@ for (const { id, route, captions } of scenes) {
       const scene = page.locator(`[data-motion-scene="${id}"]`);
       await scene.getByTestId('motion-poster').click();
       await expect(scene.getByTestId('motion-scrubber')).toBeVisible();
-      await expect(scene.getByTestId('motion-caption')).toHaveText(captions[3]);
+      await expect(scene.getByTestId('motion-caption')).toHaveText(recap);
       await openAdjustMore(scene);
       await scene.getByRole('button', { name: /step back one beat/i }).click();
-      await expect(scene.getByTestId('motion-caption')).toHaveText(captions[2]);
+      await expect(scene.getByTestId('motion-caption')).toHaveText(captions[captions.length - 2]);
       await openAdjustMore(scene);
       await scene.getByRole('button', { name: /step forward one beat/i }).click();
-      await expect(scene.getByTestId('motion-caption')).toHaveText(captions[3]);
+      await expect(scene.getByTestId('motion-caption')).toHaveText(recap);
       await scene.getByTestId('motion-scrubber').fill('0');
       await expect(scene.getByTestId('motion-caption')).toHaveText(captions[0]);
     } finally {
@@ -120,7 +124,8 @@ test('paired RL scenes keep value, constraint, highlight and stance roles in bot
           await page.keyboard.press('k');
           await page.keyboard.press('Home');
           await page.keyboard.press('ArrowRight');
-          await expect(scene.getByTestId('motion-beat-count')).toHaveText('beat 1 / 4');
+          const beats = scenes.find((entry) => entry.id === id)!.captions.length;
+          await expect(scene.getByTestId('motion-beat-count')).toHaveText(`beat 1 / ${beats}`);
         };
 
         await page.goto('/rl-sim2real/parallel-sim-rl/', { waitUntil: 'networkidle' });
@@ -138,7 +143,8 @@ test('paired RL scenes keep value, constraint, highlight and stance roles in bot
         await expect(page.locator(gait)).toBeVisible();
         for (const state of ['poster', 'beat 1']) {
           if (state === 'beat 1') await stepToFirstBeat('gait-support');
-          expect(await style(`${gait} [data-scene-mark="walk-phase-0"]`, 'fill'), state).toBe(await role('state-stage'));
+          // A foot on the ground is the stance role at the poster and after the first beat.
+          expect(await style(`${gait} [data-scene-mark="walk-foot-0"]`, 'fill'), state).toBe(await role('state-stage'));
         }
       } finally {
         await context.close();
@@ -148,7 +154,7 @@ test('paired RL scenes keep value, constraint, highlight and stance roles in bot
 });
 
 test('paired RL stage labels render at least twelve CSS pixels across every reveal', async ({ browser }) => {
-  for (const { id, route } of scenes) {
+  for (const { id, route, captions } of scenes) {
     for (const width of [375, 1440]) {
       const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
       try {
@@ -185,8 +191,15 @@ test('paired RL stage labels render at least twelve CSS pixels across every reve
           );
           if (id === 'gait-support') {
             expect(texts, `${id} ${width} ${beat} toy disclosure`).toEqual(
-              expect.arrayContaining(['schematic,', 'not measured']),
+              expect.arrayContaining(['schematic, not measured']),
             );
+            if (beat === 'poster' || beat === `beat ${captions.length}`) {
+              expect(texts, `${id} ${width} ${beat} recap`).toEqual(
+                expect.arrayContaining(['Walk', 'Trot', 'Hop', 'steadier', 'more bounce']),
+              );
+              // The bound left the line-up: beside the hop it also showed no feet down and hid the trend.
+              expect(texts, `${id} ${width} ${beat} no bound`).not.toContain('Bound');
+            }
           } else if (beat === 'poster' || beat === 'beat 4') {
             expect(texts, `${id} ${width} ${beat} recap`).toEqual(
               expect.arrayContaining(['16,384 at once:', 'about 1.5 minutes']),
@@ -203,7 +216,7 @@ test('paired RL stage labels render at least twelve CSS pixels across every reve
         await expect(scrubber).toBeVisible();
         await page.keyboard.press('k');
         await page.keyboard.press('Home');
-        for (let index = 0; index < 4; index += 1) {
+        for (let index = 0; index < captions.length; index += 1) {
           await page.keyboard.press('ArrowRight');
           await measure(`beat ${index + 1}`);
         }

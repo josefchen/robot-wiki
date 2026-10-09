@@ -11171,7 +11171,6 @@
         "components/interactive/eureka-loop.tsx",
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/mot-insulation.tsx",
-        "components/interactive/mpc-vs-rl.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/training-time-chart.tsx",
@@ -11219,7 +11218,6 @@
         "components/interactive/eureka-loop.tsx",
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/mot-insulation.tsx",
-        "components/interactive/mpc-vs-rl.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/wm-disambiguator.tsx",
@@ -11251,7 +11249,7 @@
         "mdx-components.tsx"
       ],
       "mountState": "production",
-      "fingerprint": "c94bbf008bd9b0a0db6bfe980f3370bac6f03ac9ab79f7189b119b29de0a4bd6"
+      "fingerprint": "9606bdfcbb83a0253b9d459b145d8d2f66e6737570ea4a6e1741e9453e257337"
     },
     {
       "id": "surface:raised",
@@ -11626,7 +11624,6 @@
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/milestones-watchlist.tsx",
         "components/interactive/mot-insulation.tsx",
-        "components/interactive/mpc-vs-rl.tsx",
         "components/interactive/perception-error-budget.tsx",
         "components/interactive/pi-generation-timeline.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
@@ -11658,7 +11655,6 @@
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/milestones-watchlist.tsx",
         "components/interactive/mot-insulation.tsx",
-        "components/interactive/mpc-vs-rl.tsx",
         "components/interactive/perception-error-budget.tsx",
         "components/interactive/pi-generation-timeline.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
@@ -11686,7 +11682,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "4bc7f348df2e2d822b0a5c3b735297c8de63f36c42be503574928fc4b33ff039"
+      "fingerprint": "7fec7e96ad03c1c7d1caffa325c9a5820b9e68029a867b8a649ce9475935b4ae"
     },
     {
       "id": "control:link-focus",
@@ -12028,5 +12024,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "d12da14f8ba2fcae4ae16390cb3c8410d3451717698fefc917fbec37f248dd36"
+  "rootFingerprint": "0c1a791203ef3721ecae3bf9ab15ef5a9acb8b468587fabd45b17c3a78646c8e"
 }
