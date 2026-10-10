@@ -60,7 +60,7 @@ const WALL_X = 300;
 export const SENSE_AVOID_PX_PER_M = (WALL_X - TRACK_LEFT) / STEREO.rangeM;
 const QUICK_Y = 88;
 const SLOW_Y = 158;
-const TRACK_H = 10;
+const TRACK_H = 3;
 
 const r = (v: number) => Number(v.toFixed(2));
 const kmh = (ms: number) => Math.round(ms * 3.6);
@@ -90,23 +90,23 @@ const QUICK_DIST = senseAvoidDistances(STEREO.latencyS);
 /** The method note: the model and what is authored rather than measured. */
 export const SENSE_AVOID_METHOD_NOTE = `The starting model is Falanga, Kim and Scaramuzza's: an ${STEREO.rangeM} m sensing range, ${DEFAULT_AGILITY} m/s² of sideways agility and the stereo camera's ${formatSeconds(STEREO.latencyS)} latency, which give ${formatSpeed(QUICK.maxSpeedMs)}. The slow camera's ${INTERACTIVE_MAX_LATENCY_MS} ms is an authored setting, not a published camera measurement; it gives ${formatSpeed(SLOW.maxSpeedMs)}. Both drones swerve for the same fixed avoidance duration of about ${formatSeconds(QUICK.avoidanceTimeS)}, which depends only on the agility and the ${OBSTACLE_RADIUS_M} m it must move sideways. The figure above lets you set the delay directly, under "Adjust more".`;
 
-/** A quadcopter seen from the side: body, arms, motor posts, spinning rotors, skids, nose camera. */
+/** A quadcopter seen from the side, as a line drawing: body, arms, motor posts, rotors, skids, nose camera. */
 function Drone({ y }: { y: number }) {
   const x = TRACK_LEFT - 32;
   const ink = 'var(--motion-stage-label)';
   return (
-    <g data-scene-structure="drone" fill="none" stroke={ink} strokeWidth={2} strokeLinecap="round">
-      <rect x={x - 8} y={y - 5} width={16} height={9} rx={3} fill={ink} />
+    <g data-scene-structure="drone" fill="none" stroke={ink} strokeWidth={1.25} strokeLinecap="round">
+      <rect x={x - 8} y={y - 5} width={16} height={9} rx={1.5} fill="var(--motion-stage)" />
       <line x1={x - 20} y1={y - 8} x2={x - 6} y2={y - 3} />
       <line x1={x + 20} y1={y - 8} x2={x + 6} y2={y - 3} />
       <line x1={x - 20} y1={y - 8} x2={x - 20} y2={y - 12} />
       <line x1={x + 20} y1={y - 8} x2={x + 20} y2={y - 12} />
-      <ellipse cx={x - 20} cy={y - 13} rx={10} ry={1.6} strokeWidth={1.5} />
-      <ellipse cx={x + 20} cy={y - 13} rx={10} ry={1.6} strokeWidth={1.5} />
-      <line x1={x - 5} y1={y + 4} x2={x - 8} y2={y + 9} strokeWidth={1.5} />
-      <line x1={x + 5} y1={y + 4} x2={x + 8} y2={y + 9} strokeWidth={1.5} />
-      <line x1={x - 11} y1={y + 9} x2={x + 11} y2={y + 9} strokeWidth={1.5} />
-      <circle cx={x + 10} cy={y} r={2.5} fill={ink} />
+      <ellipse cx={x - 20} cy={y - 13} rx={10} ry={1.4} strokeWidth={1} />
+      <ellipse cx={x + 20} cy={y - 13} rx={10} ry={1.4} strokeWidth={1} />
+      <line x1={x - 5} y1={y + 4} x2={x - 8} y2={y + 9} strokeWidth={1} />
+      <line x1={x + 5} y1={y + 4} x2={x + 8} y2={y + 9} strokeWidth={1} />
+      <line x1={x - 11} y1={y + 9} x2={x + 11} y2={y + 9} strokeWidth={1} />
+      <circle cx={x + 10} cy={y} r={2} fill="var(--motion-stage)" />
     </g>
   );
 }
@@ -156,12 +156,12 @@ function SenseAvoidStage() {
         data-figure-annotation=""
         bindings={{ opacity: (t) => senseAvoidFrame(t).recap }}
       >
-        <text x={10} y={22} fontSize={14} fontWeight={600} fill="var(--role-highlight-stage)">
+        <text x={10} y={22} fontSize={14} fill="var(--role-highlight-stage)">
           <tspan x={10} dy={0}>Same wall, same swerve: the slow camera</tspan>
           <tspan x={10} dy={17.5}>cuts top speed from about {QUICK_DIST.speedKmh} to {senseAvoidDistances(SLOW_LATENCY_S).speedKmh} km/h</tspan>
         </text>
         {/* Points at the slow drone's lower top speed. */}
-        <g stroke="var(--role-highlight-stage)" strokeWidth={2} strokeLinecap="round" fill="none">
+        <g stroke="var(--role-highlight-stage)" strokeWidth={1} strokeLinecap="round" fill="none">
           <line x1={30} y1={SLOW_Y + 27} x2={56} y2={SLOW_Y + 27} />
           <polyline points={`50,${SLOW_Y + 22} 56,${SLOW_Y + 27} 50,${SLOW_Y + 32}`} />
         </g>
@@ -176,19 +176,11 @@ function SenseAvoidStage() {
         strokeWidth={1.5}
         bindings={{ opacity: (t) => r(0.3 + 0.7 * senseAvoidFrame(t).detected) }}
       >
+        {Array.from({ length: 19 }, (_, i) => (
+          <line key={i} x1={WALL_X} x2={WALL_X + 16} y1={r(Math.min(184, 72 + i * 6))} y2={r(Math.max(66, 56 + i * 6))}
+            stroke="var(--motion-stage-grid)" strokeWidth={1} />
+        ))}
         <rect x={WALL_X} y={66} width={16} height={118} />
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-          <line key={i} x1={WALL_X} x2={WALL_X + 16} y1={r(66 + i * 13.1)} y2={r(66 + i * 13.1)} />
-        ))}
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-          <line
-            key={`joint-${i}`}
-            x1={WALL_X + (i % 2 ? 5 : 11)}
-            x2={WALL_X + (i % 2 ? 5 : 11)}
-            y1={r(66 + i * 13.1)}
-            y2={r(Math.min(184, 66 + (i + 1) * 13.1))}
-          />
-        ))}
       </AnimatedElement>
       <text x={WALL_X + 8} y={198} textAnchor="middle" fontSize={14}
         fill="var(--motion-stage-label-secondary)">
@@ -209,9 +201,11 @@ function SenseAvoidStage() {
         as="rect"
         data-scene-structure="quick-swerve"
         x={r(quickBlindX)}
-        y={QUICK_Y}
-        height={TRACK_H}
-        fill="var(--role-action-stage)"
+        y={QUICK_Y + 0.5}
+        height={TRACK_H - 1}
+        fill="none"
+        stroke="var(--role-action-stage)"
+        strokeWidth={1}
         bindings={{ width: (t) => r((WALL_X - quickBlindX) * senseAvoidFrame(t).camera) }}
       />
       <AnimatedElement
@@ -243,9 +237,11 @@ function SenseAvoidStage() {
       <AnimatedElement
         as="rect"
         data-scene-mark="avoidance-budget"
-        y={SLOW_Y}
-        height={TRACK_H}
-        fill="var(--role-action-stage)"
+        y={SLOW_Y + 0.5}
+        height={TRACK_H - 1}
+        fill="none"
+        stroke="var(--role-action-stage)"
+        strokeWidth={1}
         bindings={{
           x: (t) => r(TRACK_LEFT + senseAvoidDistances(senseAvoidFrame(t).latency).blindM * SENSE_AVOID_PX_PER_M),
           width: (t) => r(senseAvoidDistances(senseAvoidFrame(t).latency).swerveM * SENSE_AVOID_PX_PER_M),
@@ -259,7 +255,7 @@ function SenseAvoidStage() {
         <line x1={TRACK_LEFT} x2={TRACK_LEFT} y1={205} y2={215} />
         <line x1={WALL_X} x2={WALL_X} y1={205} y2={215} />
       </g>
-      <text x={(TRACK_LEFT + WALL_X) / 2} y={232} textAnchor="middle" fontSize={14}
+      <text x={(TRACK_LEFT + WALL_X) / 2} y={230} textAnchor="middle" fontSize={14}
         fill="var(--motion-stage-label-secondary)">
         it can see {STEREO.rangeM} metres ahead
       </text>
@@ -296,10 +292,10 @@ export function SenseAvoid({ className }: { className?: string }) {
       stage={<SenseAvoidStage />}
       className={className}
       legend={<>
-        <LegendItem series="perception-delay" swatch={<span aria-hidden className="inline-block h-2.5 w-3"
+        <LegendItem series="perception-delay" swatch={<span aria-hidden className="inline-block h-1.5 w-3"
           style={{ backgroundColor: 'var(--role-constraint-graphic)' }} />}>flown before the camera reports</LegendItem>
-        <LegendItem series="avoidance-time" swatch={<span aria-hidden className="inline-block h-2.5 w-3"
-          style={{ backgroundColor: 'var(--role-action-graphic)' }} />}>swerving</LegendItem>
+        <LegendItem series="avoidance-time" swatch={<span aria-hidden className="inline-block h-1.5 w-3 border"
+          style={{ borderColor: 'var(--role-action-graphic)' }} />}>swerving</LegendItem>
       </>}
       readout={() => <SenseAvoidReadout />}
       statusLine="illustrative"

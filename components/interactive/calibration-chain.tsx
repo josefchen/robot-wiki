@@ -186,20 +186,22 @@ const LINKS: readonly Link[] = [
 const PATH_ROLE: Record<PathKind, ChartRole> = { robot: 'action', camera: 'measurement' };
 const PATH_SERIES: Record<PathKind, string> = { robot: 'robot-links', camera: 'camera-links' };
 
+/** The camera links are dashed, so the two kinds of link part in grayscale too. */
+const PATH_DASH: Record<PathKind, string | undefined> = { robot: undefined, camera: CHART_STROKE.dash };
+
 const DOT_R = CHART_STROKE.markerRadius;
 /** Arrows stop this far from a frame's centre, so every dot stays visible. */
 const DOT_GAP = DOT_R + 3;
-const HEAD_LEN = 8;
-const HEAD_HALF = 4;
-const ARM_W = 12;
-const MOUNT_W = 6;
+const HEAD_LEN = 7;
+const HEAD_HALF = 3.5;
+/** The arm's links as outlined bodies: a hairline either side of a paper core, in CSS px. */
+const ARM_W = 9;
+const MOUNT_W = 5;
 const OUTLINE = 1;
-const JOINT_R = 7;
-const JOINT_HUB_R = 2;
+const JOINT_R = 4.5;
 
 const ink = CHART_STRUCTURE.label;
-const graphite = CHART_STRUCTURE.labelSecondary;
-const concrete = CHART_STRUCTURE.grid;
+const context = 'var(--chart-medium)';
 const paper = MOTION_STAGE.background;
 
 /** A point `d` units from `a` towards `b`. */
@@ -223,30 +225,27 @@ function linkArrow(link: Link) {
   };
 }
 
-/** The robot, camera, box and table in greys: context under the links. */
+/**
+ * The robot, camera, box and table as a line drawing: the arm's links are
+ * outlined bodies in the context grey, so the ink link arrows read on top;
+ * the table and the box are ink hairlines.
+ */
 function Scene() {
   const { base, wrist, camera, tip } = FRAMES;
   const lens = { x: camera.x, y: camera.y + 12 };
+  const hairline = { fill: 'none', stroke: context, strokeWidth: CHART_STROKE.structure };
   return (
     <g data-scene="robot">
-      <line x1={8} y1={TABLE_Y} x2={VIEW_W - 8} y2={TABLE_Y} stroke={graphite} strokeWidth={CHART_STROKE.trace} />
-      <rect
-        x={PEDESTAL.x}
-        y={base.y}
-        width={PEDESTAL.w}
-        height={TABLE_Y - base.y}
-        fill={concrete}
-        stroke={graphite}
-        strokeWidth={CHART_STROKE.structure}
-      />
-      {/* Each part is an outlined solid: a graphite band under a narrower concrete one. */}
+      <line x1={8} y1={TABLE_Y} x2={VIEW_W - 8} y2={TABLE_Y} stroke={ink} strokeWidth={CHART_STROKE.structure} />
+      <rect x={PEDESTAL.x} y={base.y} width={PEDESTAL.w} height={TABLE_Y - base.y} {...hairline} />
+      {/* Each part is an outlined body: a grey band under a narrower paper one. */}
       {[ARM_W + OUTLINE * 2, ARM_W].map((width) => (
         <path
           key={`arm-${width}`}
           data-scene-part={width === ARM_W ? 'arm' : undefined}
           d={`M ${base.x} ${base.y} L ${SHOULDER.x} ${SHOULDER.y} L ${ELBOW.x} ${ELBOW.y} L ${wrist.x} ${wrist.y}`}
           fill="none"
-          stroke={width === ARM_W ? concrete : graphite}
+          stroke={width === ARM_W ? paper : context}
           strokeWidth={width}
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -259,34 +258,29 @@ function Scene() {
           y1={wrist.y}
           x2={camera.x}
           y2={camera.y}
-          stroke={width === MOUNT_W ? concrete : graphite}
+          stroke={width === MOUNT_W ? paper : context}
           strokeWidth={width}
         />
       ))}
       {[SHOULDER, ELBOW].map((joint) => (
         <g key={`${joint.x}-${joint.y}`} data-scene-part="joint">
-          <circle cx={joint.x} cy={joint.y} r={JOINT_R} fill={paper} stroke={graphite} strokeWidth={CHART_STROKE.trace} />
-          <circle cx={joint.x} cy={joint.y} r={JOINT_HUB_R} fill={graphite} />
+          <circle cx={joint.x} cy={joint.y} r={JOINT_R} fill={paper} stroke={context} strokeWidth={CHART_STROKE.structure} />
         </g>
       ))}
-      <g data-scene-part="gripper" fill="none" stroke={graphite} strokeLinecap="round">
-        <path d={`M ${wrist.x} ${wrist.y} V ${wrist.y + 14}`} strokeWidth={6} />
-        <path d={`M ${wrist.x - 13} ${wrist.y + 14} H ${wrist.x + 13}`} strokeWidth={4} />
-        <path
-          d={`M ${wrist.x - 12} ${wrist.y + 14} V ${tip.y - 2} M ${wrist.x + 12} ${wrist.y + 14} V ${tip.y - 2}`}
-          strokeWidth={3}
-        />
+      <g data-scene-part="gripper" {...hairline} strokeLinecap="square">
+        <path d={`M ${wrist.x} ${wrist.y} V ${wrist.y + 14}`} />
+        <path d={`M ${wrist.x - 12} ${tip.y - 2} V ${wrist.y + 14} H ${wrist.x + 12} V ${tip.y - 2}`} />
       </g>
       <g data-scene-part="camera">
-        <rect x={camera.x - 14} y={camera.y - 10} width={28} height={20} rx={2} fill={paper} stroke={graphite} strokeWidth={CHART_STROKE.trace} />
-        <rect x={lens.x - 5} y={lens.y - 2} width={10} height={4} fill={graphite} />
+        <rect x={camera.x - 14} y={camera.y - 10} width={28} height={20} fill={paper} stroke={context} strokeWidth={CHART_STROKE.structure} />
+        <rect x={lens.x - 5} y={lens.y - 2} width={10} height={4} {...hairline} />
       </g>
-      <rect x={BOX.x} y={BOX.y} width={BOX.w} height={BOX.h} fill={concrete} stroke={graphite} strokeWidth={CHART_STROKE.structure} />
+      <rect x={BOX.x} y={BOX.y} width={BOX.w} height={BOX.h} fill="none" stroke={ink} strokeWidth={CHART_STROKE.structure} />
     </g>
   );
 }
 
-/** A link's label, in the path colour. */
+/** A link's label, in the path colour at the label weight. */
 function LinkCallout({ link }: { link: Link }) {
   const { x, y, anchor, hold = 'first', name } = link.callout;
   const colour = roleColour(PATH_ROLE[link.path]);
@@ -304,7 +298,6 @@ function LinkCallout({ link }: { link: Link }) {
           dy={dy(i)}
           textAnchor={anchor}
           fontSize={CHART_TYPE.labelPx}
-          fontWeight={600}
           fill={colour}
         >
           {line}
@@ -356,7 +349,7 @@ export function CalibrationChain({ className }: { className?: string }) {
                 <LegendItem series="robot-links" swatch={<LegendSwatch role="action" mark="line" />}>
                   what the arm measures
                 </LegendItem>
-                <LegendItem series="camera-links" swatch={<LegendSwatch role="measurement" mark="line" />}>
+                <LegendItem series="camera-links" swatch={<LegendSwatch role="measurement" mark="dash" />}>
                   what the camera measures
                 </LegendItem>
               </InstrumentLegend>
@@ -388,6 +381,7 @@ export function CalibrationChain({ className }: { className?: string }) {
                     fill="none"
                     stroke={colour}
                     strokeWidth={CHART_STROKE.trace}
+                    strokeDasharray={PATH_DASH[link.path]}
                     strokeLinejoin="round"
                   />
                   <path d={head} fill={colour} />

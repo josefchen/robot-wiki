@@ -86,7 +86,7 @@ const objY = (y: number) => f(BOX.cy - BOX.scale * y);
 
 /** Fingertip drawing, in stage units outward along the finger from the contact. */
 const PAD_R = 6;
-const FINGER_W = 11;
+const FINGER_W = 8;
 /** The finger's rounded end touches the box: its cap reaches back to the contact. */
 const FINGER_START = FINGER_W / 2;
 const JOINT_AT = 20;
@@ -109,7 +109,7 @@ const FAN_FILL_OPACITY = 0.18;
 
 /** The grip-margin meter: epsilon from 0 (bottom) to EPSILON_FULL (top). */
 export const EPSILON_FULL = 1;
-const METER = { x: 244, top: 128, bottom: 260, width: 14 };
+const METER = { x: 244, top: 128, bottom: 260, width: 8 };
 
 /**
  * The wedge label, top right. Its last line is held at `y` and the arrow
@@ -136,6 +136,28 @@ const FACET_STROKE_OPACITY = 0.6;
 const ink = CHART_STRUCTURE.label;
 const graphite = CHART_STRUCTURE.labelSecondary;
 const paper = MOTION_STAGE.background;
+
+/**
+ * A finger in outline, seen from above: two thin sides out from a round
+ * pad whose cap touches the contact, closed square at the knuckle end.
+ * The cap is two quarter circles in cubic form, so it turns the right way
+ * whatever side of the box the finger presses.
+ */
+function fingerOutline(g: ContactGeometry): string {
+  const r = FINGER_W / 2;
+  const k = 0.552 * r;
+  const p = (along: number, side: number) => {
+    const q = fingerPoint(g, along, side);
+    return `${q.x} ${q.y}`;
+  };
+  return [
+    `M ${p(FINGER_END, -r)}`,
+    `L ${p(FINGER_START, -r)}`,
+    `C ${p(FINGER_START - k, -r)} ${p(FINGER_START - r, -k)} ${p(FINGER_START - r, 0)}`,
+    `C ${p(FINGER_START - r, k)} ${p(FINGER_START - k, r)} ${p(FINGER_START, r)}`,
+    `L ${p(FINGER_END, r)} Z`,
+  ].join(' ');
+}
 
 /** A stage point `along` units out from a contact and `side` units across the finger. */
 function fingerPoint(g: ContactGeometry, along: number, side = 0) {
@@ -393,23 +415,20 @@ export function GraspWrenchLab({ className }: { className?: string }) {
       })}
       {geoms.map((g, i) => {
         const tip = fingerPoint(g, PAD_R);
-        const start = fingerPoint(g, FINGER_START);
-        const end = fingerPoint(g, FINGER_END);
-        const joint = [fingerPoint(g, JOINT_AT, -FINGER_W / 2), fingerPoint(g, JOINT_AT, FINGER_W / 2)];
         const number = fingerPoint(g, NUMBER_ALONG, NUMBER_SIDE);
         return (
           <g key={i} data-finger={i + 1}>
             <path
-              d={`M ${start.x} ${start.y} L ${end.x} ${end.y}`}
-              fill="none"
-              stroke={graphite}
-              strokeWidth={FINGER_W}
-              strokeLinecap="round"
+              d={fingerOutline(g)}
+              fill={paper}
+              stroke={ink}
+              strokeWidth={CHART_STROKE.trace}
+              strokeLinejoin="round"
             />
             <path
-              d={`M ${joint[0].x} ${joint[0].y} L ${joint[1].x} ${joint[1].y}`}
-              stroke={paper}
-              strokeWidth={CHART_STROKE.structure * 2}
+              d={`M ${fingerPoint(g, JOINT_AT, -FINGER_W / 2).x} ${fingerPoint(g, JOINT_AT, -FINGER_W / 2).y} L ${fingerPoint(g, JOINT_AT, FINGER_W / 2).x} ${fingerPoint(g, JOINT_AT, FINGER_W / 2).y}`}
+              stroke={ink}
+              strokeWidth={CHART_STROKE.structure}
             />
             <text
               data-chart-label=""

@@ -149,7 +149,7 @@ const DIFF_PREFIX: Record<'same' | 'add' | 'del', string> = { same: '  ', add: '
 const TONE_WORD: Record<'ok' | 'warn' | 'err', string> = { ok: 'ok', warn: 'watch', err: 'fail' };
 
 const CODE_BLOCK_CLASS =
-  'm-0! overflow-x-auto rounded-md border border-border bg-surface px-4 py-3.5 font-mono text-[13px] leading-relaxed text-text';
+  'm-0! overflow-x-auto rounded-[7px] border-0 bg-[var(--paper-deep,var(--color-surface-2))] px-4 py-3.5 font-mono text-[13px] leading-relaxed text-text';
 
 /**
  * All three rounds side by side, so the whole loop reads at once: this

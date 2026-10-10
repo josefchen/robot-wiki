@@ -28,39 +28,32 @@ import { cx } from '@/lib/utils';
 const INSTRUMENT_SIGNATURE = 'instrument-frame';
 
 /*
- * Figure controls are the site's quiet controls: a hairline button on the
- * white surface, sans labels with no underline, and no colour fill. The
- * selected option of a choice reads in weight and a tinted tile, which
- * survives forced colours as the bolder label; lime stays a data mark and
- * never fills a control.
+ * Figure controls (owner-approved figure standard, 10 October 2026) are
+ * text: a small muted text action for Replay, Step and Reset, the one
+ * action that starts a figure in ink, and text tabs for choices, muted at
+ * rest and ink over a 1 px underline when chosen, separated by hairlines.
+ * No fills, pills or boxes; stage.css paints the figure-action and
+ * figure-tab classes and the 1 px keyboard focus outline.
  */
-const INSTRUMENT_CONTROL_BASE =
-  'inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xs border py-1.5 font-sans text-sm font-medium transition-colors active:translate-y-[1px]';
-const QUIET_DISABLED =
-  'disabled:cursor-not-allowed disabled:text-text-dim disabled:active:translate-y-0';
-export const INSTRUMENT_PRIMARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} border-transparent bg-action px-3 text-on-action hover:bg-graphite`;
-export const INSTRUMENT_SECONDARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} justify-self-start border-border-strong bg-surface px-3 text-text hover:bg-surface-2 ${QUIET_DISABLED}`;
+const INSTRUMENT_CONTROL_BASE = 'figure-action font-sans text-[13px]';
+export const INSTRUMENT_PRIMARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} figure-action-primary`;
+export const INSTRUMENT_SECONDARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} justify-self-start`;
 
 /**
- * A toggle. At rest it is the quiet secondary button with a dim label; when
- * pressed the label turns ink and semibold on a tinted tile with an ink
- * hairline, so the state shows in weight and line as well as colour. Pair
- * it with `aria-pressed` (or `aria-checked` on a radio) so the paint and
- * the announced state never disagree.
+ * A toggle: a text tab. Pair it with `aria-pressed` (or `aria-checked` on a
+ * radio) so the paint, which reads ink and underlined when pressed, and the
+ * announced state never disagree.
  */
-export const INSTRUMENT_TOGGLE_CLASS = `${INSTRUMENT_CONTROL_BASE} border-border-strong bg-surface px-3 text-text-dim hover:text-text aria-pressed:border-text aria-pressed:bg-surface-2 aria-pressed:font-semibold aria-pressed:text-ink aria-checked:border-text aria-checked:bg-surface-2 aria-checked:font-semibold aria-checked:text-ink ${QUIET_DISABLED}`;
+export const INSTRUMENT_TOGGLE_CLASS = 'figure-tab font-sans text-[13px]';
+
+/** One option inside a segmented row: the same text tab. */
+const SEGMENT_CLASS = 'figure-tab font-sans text-[13px]';
 
 /**
- * One option inside a segmented row: the row draws the single outer
- * hairline, so an option has no box of its own until it is selected.
+ * A labelled slider among the figure controls: a 1 px ink track and a
+ * 12 px ink thumb (stage.css), at a 32px target height.
  */
-const SEGMENT_CLASS = `${INSTRUMENT_CONTROL_BASE} -my-px border-transparent px-3 text-text-dim hover:text-text aria-pressed:border-border-strong aria-pressed:bg-surface-2 aria-pressed:font-semibold aria-pressed:text-ink ${QUIET_DISABLED}`;
-
-/**
- * A labelled slider among the figure controls: a thin native track in the
- * page's graphite, at a 44px touch-target height.
- */
-export const INSTRUMENT_SLIDER_CLASS = 'block h-11 w-full min-w-40 cursor-pointer accent-graphite';
+export const INSTRUMENT_SLIDER_CLASS = 'figure-range block h-8 w-full min-w-40 cursor-pointer';
 
 type InstrumentFrameProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
@@ -83,7 +76,7 @@ export function InstrumentFrame({
       data-brand-module-signature={INSTRUMENT_SIGNATURE}
       data-brand-frame-depth="1"
       className={cx(
-        'rounded-none border border-border bg-surface p-4 text-left text-text sm:p-6',
+        'rounded-none border p-4 text-left text-text [border-color:var(--line)] sm:p-6',
         className,
       )}
       {...props}
@@ -121,7 +114,7 @@ export function ControlField({
   return (
     <div
       data-figure-control-field=""
-      className={cx('grid min-w-44 flex-1 gap-1 sm:max-w-72', className)}
+      className={cx('grid min-w-44 flex-1 gap-0.5 sm:max-w-80', className)}
       {...props}
     >
       {children}
@@ -159,7 +152,7 @@ export function InstrumentHeader({
       {...props}
     >
       {label ? (
-        <span className="font-sans text-sm text-text-dim">
+        <span className="font-sans text-[13px] text-text-dim">
           {label}
         </span>
       ) : null}
@@ -167,11 +160,48 @@ export function InstrumentHeader({
       {meta ? (
         <span
           data-instrument-meta
-          className="ml-auto font-sans text-sm tabular-nums text-text-dim"
+          className="ml-auto font-mono text-[12px] tabular-nums text-text-dim"
         >
           {meta}
         </span>
       ) : null}
+    </div>
+  );
+}
+
+/**
+ * One slider on one line: the label in muted 13 px, the 1 px ink track,
+ * and the current value in the mono face at its right. The caller keeps
+ * its own input (id, range, ARIA); `value` is a node so test ids and live
+ * regions stay with the caller. The row wraps on a phone, the label first.
+ */
+export function SliderRow({
+  htmlFor,
+  label,
+  value,
+  className,
+  children,
+}: {
+  htmlFor: string;
+  label: ReactNode;
+  value: ReactNode;
+  className?: string;
+  /** The range input. */
+  children: ReactNode;
+}) {
+  return (
+    <div
+      data-figure-control-field=""
+      data-figure-control-row=""
+      className={cx('flex basis-full flex-wrap items-center gap-x-4 gap-y-0.5', className)}
+    >
+      <label htmlFor={htmlFor} className="basis-full font-sans text-[13px] leading-snug text-text-dim sm:basis-auto sm:max-w-48 sm:shrink-0">
+        {label}
+      </label>
+      <div className="min-w-24 max-w-[340px] flex-1">{children}</div>
+      <span data-figure-control-value="" className="shrink-0 whitespace-nowrap font-mono text-[13px] tabular-nums text-text">
+        {value}
+      </span>
     </div>
   );
 }
@@ -196,14 +226,14 @@ export function ControlLabel({
   return (
     <label
       className={cx(
-        'flex items-baseline justify-between gap-2 font-sans text-sm text-text-dim',
+        'flex items-baseline justify-between gap-3 font-sans text-[13px] text-text-dim',
         className,
       )}
       {...props}
     >
       {children}
       {value ? (
-        <span className="whitespace-nowrap font-sans text-sm tabular-nums text-text">
+        <span data-figure-control-value="" className="whitespace-nowrap font-mono text-[13px] tabular-nums text-text">
           {value}
         </span>
       ) : null}
@@ -233,11 +263,11 @@ export function PresetGroup<T extends string>({ label, presets, value, onChange,
   const id = useId();
   return (
     <div role="group" aria-labelledby={id} data-preset-group="" className="grid justify-items-start gap-1">
-      <span id={id} className="font-sans text-sm text-text-dim">{label}</span>
+      <span id={id} className="font-sans text-[13px] text-text-dim">{label}</span>
       <div
         data-brand-control-id="control:segmented"
         data-brand-surface-id="surface:flat"
-        className="inline-flex max-w-full flex-wrap rounded-xs border border-border-strong bg-surface"
+        className="figure-tab-row inline-flex max-w-full flex-wrap"
       >
         {presets.map((preset) => (
           <button
@@ -260,7 +290,7 @@ export function PresetGroup<T extends string>({ label, presets, value, onChange,
 /** The two ends of a slider in words, under its track. */
 export function SliderEnds({ low, high }: { low: ReactNode; high: ReactNode }) {
   return (
-    <div aria-hidden="true" data-slider-ends="" className="flex justify-between gap-3 font-sans text-sm text-text-dim">
+    <div aria-hidden="true" data-slider-ends="" className="flex justify-between gap-3 font-sans text-[12px] text-text-dim">
       <span>{low}</span>
       <span>{high}</span>
     </div>
@@ -285,7 +315,7 @@ export function InstrumentReadout({
     <p
       aria-live="polite"
       data-figure-readout=""
-      className={cx('font-sans text-sm leading-snug tabular-nums text-text', className)}
+      className={cx('font-sans text-[12px] leading-normal tabular-nums text-text', className)}
       {...props}
     >
       {children}
@@ -313,7 +343,7 @@ export function InstrumentLegend({
       data-instrument-legend
       data-figure-legend=""
       className={cx(
-        'flex flex-wrap items-center gap-x-4 gap-y-1 font-sans text-sm leading-snug text-text-dim',
+        'flex flex-wrap items-center gap-x-4 gap-y-1 font-sans text-[12px] leading-normal text-text-dim',
         className,
       )}
       {...props}
@@ -402,7 +432,7 @@ type PlotStageProps = SVGAttributes<SVGSVGElement> & {
  * data it plots.
  *
  * It is a stage svg: stage.css paints its text on the shared type scale
- * (every role at 14 CSS px at every width), in the brand sans, against
+ * (12 CSS px labels, 11 px ticks, at every width), in the sans, against
  * the viewBox width passed through
  * `--motion-stage-view-width`. Mark text with `data-scene-tick`,
  * `data-scene-axis`, `data-scene-note` or `data-scene-readout` to take a

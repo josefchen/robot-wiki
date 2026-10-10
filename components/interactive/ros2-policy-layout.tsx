@@ -226,6 +226,7 @@ function Arrow({
   y2,
   colour,
   edge,
+  dashed = false,
 }: {
   x1: number;
   y1: number;
@@ -233,6 +234,8 @@ function Arrow({
   y2: number;
   colour: string;
   edge: string;
+  /** Sensor data is dashed and moves are solid, so the two read apart in grayscale. */
+  dashed?: boolean;
 }) {
   const { shaft, head } = arrowPaths(x1, y1, x2, y2);
   return (
@@ -242,6 +245,7 @@ function Arrow({
         fill="none"
         stroke={colour}
         strokeWidth={CHART_STROKE.trace}
+        strokeDasharray={dashed ? CHART_STROKE.dash : undefined}
       />
       <path d={head} fill={colour} />
     </g>
@@ -304,42 +308,36 @@ function NodeBox({ id, x, y, w, label }: { id: NodeId; x: number; y: number; w: 
   );
 }
 
-const ARM_W = 10;
-const JOINT_R = 6;
+const JOINT_R = 4;
 
-/** The robot hardware as a side view of an arm: a base, two parts, two joints and a gripper. */
+/**
+ * The robot hardware as a side view of an arm, as a line drawing: an
+ * outlined pedestal, two thin links, two small joint rings and a
+ * two-finger gripper outline.
+ */
 function RobotArm() {
   const { elbow, shoulder, wrist, ground } = ARM;
-  const outline = CHART_STRUCTURE.labelSecondary;
-  const palmY = wrist.y + 12;
+  const ink = CHART_STRUCTURE.label;
+  const palmY = wrist.y + 10;
   const label = NODES.find((node) => node.id === 'hardware')!.label;
   return (
     <g data-node="hardware">
-      <line x1={BOX.x} y1={ground} x2={wrist.x + 40} y2={ground} stroke={outline} strokeWidth={CHART_STROKE.trace} />
-      <rect
-        x={shoulder.x - 14}
-        y={shoulder.y}
-        width={28}
-        height={ground - shoulder.y}
-        fill={CHART_STRUCTURE.grid}
-        stroke={outline}
-        strokeWidth={CHART_STROKE.structure}
+      <line x1={BOX.x} y1={ground} x2={wrist.x + 40} y2={ground} stroke="var(--line-strong)" strokeWidth={CHART_STROKE.structure} />
+      <g fill="none" stroke={ink} strokeWidth={CHART_STROKE.structure}>
+        <rect x={shoulder.x - 5} y={shoulder.y + JOINT_R} width={10} height={ground - 4 - shoulder.y - JOINT_R} />
+        <rect x={shoulder.x - 15} y={ground - 4} width={30} height={4} />
+      </g>
+      <path
+        d={`M ${shoulder.x} ${shoulder.y} L ${elbow.x} ${elbow.y} L ${wrist.x} ${wrist.y}`}
+        fill="none"
+        stroke={ink}
+        strokeWidth={CHART_STROKE.trace}
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      {[ARM_W + 2, ARM_W].map((width) => (
-        <path
-          key={width}
-          d={`M ${shoulder.x} ${shoulder.y} L ${elbow.x} ${elbow.y} L ${wrist.x} ${wrist.y}`}
-          fill="none"
-          stroke={width === ARM_W ? CHART_STRUCTURE.grid : outline}
-          strokeWidth={width}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      ))}
-      <g fill="none" stroke={outline} strokeLinecap="round">
-        <path d={`M ${wrist.x} ${wrist.y} V ${palmY}`} strokeWidth={5} />
-        <path d={`M ${wrist.x - 10} ${palmY} H ${wrist.x + 10}`} strokeWidth={3} />
-        <path d={`M ${wrist.x - 9} ${palmY} v 16 M ${wrist.x + 9} ${palmY} v 16`} strokeWidth={3} />
+      <g fill="none" stroke={ink} strokeWidth={CHART_STROKE.trace} strokeLinecap="square">
+        <path d={`M ${wrist.x} ${wrist.y} V ${palmY}`} />
+        <path d={`M ${wrist.x - 7} ${palmY + 12} V ${palmY} H ${wrist.x + 7} V ${palmY + 12}`} />
       </g>
       {[shoulder, elbow].map((joint) => (
         <circle
@@ -348,7 +346,7 @@ function RobotArm() {
           cy={joint.y}
           r={JOINT_R}
           fill={MOTION_STAGE.background}
-          stroke={outline}
+          stroke={ink}
           strokeWidth={CHART_STROKE.trace}
         />
       ))}
@@ -409,8 +407,8 @@ function PolicyGraph({ descriptionId }: { descriptionId: string }) {
       })}
 
       <g data-series="sensing" data-chart-role="state">
-        <Arrow edge="drivers-to-state" x1={ARROW_X} y1={below('drivers')} x2={ARROW_X} y2={BOX_Y.state} colour={sensing} />
-        <Arrow edge="state-to-policy" x1={ARROW_X} y1={below('state')} x2={ARROW_X} y2={BOX_Y.policy} colour={sensing} />
+        <Arrow edge="drivers-to-state" x1={ARROW_X} y1={below('drivers')} x2={ARROW_X} y2={BOX_Y.state} colour={sensing} dashed />
+        <Arrow edge="state-to-policy" x1={ARROW_X} y1={below('state')} x2={ARROW_X} y2={BOX_Y.policy} colour={sensing} dashed />
       </g>
       <g data-series="commands" data-chart-role="action">
         <Arrow edge="policy-to-gate" x1={ARROW_X} y1={below('policy')} x2={ARROW_X} y2={BOX_Y.gate} colour={command} />
@@ -453,7 +451,7 @@ export function Ros2PolicyLayout({ className }: { className?: string }) {
           footer={
             <>
               <InstrumentLegend>
-                <LegendItem series="sensing" swatch={<LegendSwatch role="state" mark="line" />}>
+                <LegendItem series="sensing" swatch={<LegendSwatch role="state" mark="dash" />}>
                   what the robot senses
                 </LegendItem>
                 <LegendItem series="commands" swatch={<LegendSwatch role="action" mark="line" />}>

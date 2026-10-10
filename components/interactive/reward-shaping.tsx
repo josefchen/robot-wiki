@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useId, useRef, useState } from 'react';
-import { Pause, Play } from '@phosphor-icons/react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ControlField,
@@ -280,11 +279,6 @@ export function RewardShaping({ className }: { className?: string }) {
             aria-label={playing ? 'Pause rollout preview' : 'Play rollout preview'}
             className={`${INSTRUMENT_SECONDARY_CONTROL_CLASS} self-end`}
           >
-            {playing ? (
-              <Pause size={14} weight="bold" aria-hidden />
-            ) : (
-              <Play size={14} weight="bold" aria-hidden />
-            )}
             {playing ? 'Pause' : 'Play'}
           </button>
         </>

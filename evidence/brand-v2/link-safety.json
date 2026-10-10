@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "ddd3755cea57338e95b105d6c91bf7232622587f22a47200e5818ebf00cb0064",
+  "fingerprint": "865d991cb09c032e3d02d3beb24128e79c7b1f9e2b72bdb5e2aa86fee13c3ebb",
   "source": "out/ static export",
   "routes": [
     {
@@ -99,7 +99,7 @@
     },
     {
       "route": "/classical/calibration/",
-      "outboundAnchors": 82,
+      "outboundAnchors": 85,
       "distinctHrefs": 41,
       "shapes": [
         "citation-chip",
@@ -169,7 +169,7 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "outboundAnchors": 80,
+      "outboundAnchors": 82,
       "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
@@ -813,14 +813,14 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 4926,
+  "outboundAnchors": 4931,
   "distinctOutboundHrefs": 1442,
   "anchorsByShape": {
     "citation-chip": 2267,
     "footer": 152,
     "reference-entry": 1620,
     "other": 563,
-    "figure-credit": 324
+    "figure-credit": 329
   },
   "anchorsWithoutNoopener": 0,
   "anchorsWithNoreferrer": 4369,
@@ -907,11 +907,11 @@
     },
     {
       "route": "/classical/calibration/",
-      "outboundInDom": 82,
-      "reachedByTab": 82,
+      "outboundInDom": 85,
+      "reachedByTab": 85,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 196
+      "tabStops": 203
     },
     {
       "route": "/classical/control/",
@@ -955,11 +955,11 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "outboundInDom": 80,
-      "reachedByTab": 80,
+      "outboundInDom": 82,
+      "reachedByTab": 82,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 189
+      "tabStops": 199
     },
     {
       "route": "/classical/scene-representation/",
@@ -1079,7 +1079,7 @@
       "reachedByTab": 71,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 208
+      "tabStops": 207
     },
     {
       "route": "/frontier/dexterity/",

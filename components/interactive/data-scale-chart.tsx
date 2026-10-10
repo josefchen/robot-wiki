@@ -44,7 +44,7 @@ import {
   type CollectionRateId,
   type DataScalePoint,
 } from '@/lib/data-scaling';
-import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
+import { MOTION_STAGE, MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
 
 /**
  * DataScaleChart: how small robot training data is next to chatbot
@@ -53,7 +53,7 @@ import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
  * The stage has two panels with separate units, because no honest exchange
  * rate between an hour of robot practice and a token of text exists. Panel
  * A is two rulers: chatbot corpora in tokens, and robot and human-video
- * datasets in hours, each dataset on its own row with an icon for its kind.
+ * datasets in hours, each dataset on its own row, its marker filled or open for its kind.
  * Panel B is the farm projection: the hours a year the chosen number of
  * robots would collect, against the goal, with the years to reach it named
  * on the stage.
@@ -104,7 +104,7 @@ const TOKEN_TICKS = [
 ];
 
 /* Panel A, bottom ruler: practice data in hours, 100 to 100,000. */
-const NAME_X = LEFT + 22;
+const NAME_X = LEFT;
 const HOURS_X0 = 142;
 const HOURS_X = logRuler(2, 5, HOURS_X0, RIGHT);
 const HOURS_TITLE_Y = f(TOKEN_AXIS_Y + TICK + LINE + 28);
@@ -138,32 +138,19 @@ const HEIGHT = f(FARM_NAME_Y + 8);
 /** Rough stage width of a label on the narrowest stage, to keep it inside. */
 const textWidth = (text: string) => text.length * TEXT_H * 0.55;
 
-/** A small robot arm: base, two links, a gripper. */
-function RobotIcon({ x, y, colour }: { x: number; y: number; colour: string }) {
-  return (
-    <g data-chart-mark="robot-icon" aria-hidden="true" fill="none" stroke={colour} strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-      <path d={`M${x - 6} ${y + 7} H${x + 6}`} />
-      <path d={`M${x - 3} ${y + 7} L${x - 3} ${y + 4} L${x - 5} ${y - 3} L${x + 4} ${y - 6}`} />
-      <path d={`M${x + 4} ${y - 6} L${x + 7} ${y - 8} M${x + 4} ${y - 6} L${x + 7} ${y - 3}`} />
-    </g>
-  );
-}
-
-/** A small video camera: body and lens. */
-function CameraIcon({ x, y, colour }: { x: number; y: number; colour: string }) {
-  return (
-    <g data-chart-mark="camera-icon" aria-hidden="true" fill="none" stroke={colour} strokeWidth={1.5} strokeLinejoin="round">
-      <rect x={x - 7} y={y - 4} width={10} height={8} rx={1.5} />
-      <path d={`M${x + 3} ${y - 1.5} L${x + 7} ${y - 4} V${y + 4} L${x + 3} ${y + 1.5} Z`} />
-    </g>
-  );
-}
-
-function IconSwatch({ kind }: { kind: 'robot' | 'camera' }) {
+/** The kind of a dataset in its marker: robot data a filled dot, human video an open ring. */
+function KindSwatch({ kind }: { kind: 'robot' | 'camera' }) {
   const h = CHART_TYPE.tickPx;
   return (
-    <svg aria-hidden="true" focusable="false" width={h * 1.4} height={h * 1.2} viewBox="-10 -10 20 20" className="shrink-0">
-      {kind === 'robot' ? <RobotIcon x={0} y={0} colour={MEASUREMENT} /> : <CameraIcon x={0} y={0} colour={MEASUREMENT} />}
+    <svg aria-hidden="true" focusable="false" width={h} height={h} viewBox={`0 0 ${h} ${h}`} className="shrink-0">
+      <circle
+        cx={h / 2}
+        cy={h / 2}
+        r={MARKER_R}
+        fill={kind === 'robot' ? MEASUREMENT : MOTION_STAGE.background}
+        stroke={MEASUREMENT}
+        strokeWidth={CHART_STROKE.structure}
+      />
     </svg>
   );
 }
@@ -345,10 +332,10 @@ export function DataScaleChart({
                 <span data-testid="frontier-years-readout">{durationInWords(largerTargetYears)}</span>
               </StageReadout>
               <InstrumentLegend className="basis-full">
-                <LegendItem series="robot-data" swatch={<IconSwatch kind="robot" />}>
+                <LegendItem series="robot-data" swatch={<KindSwatch kind="robot" />}>
                   robot data
                 </LegendItem>
-                <LegendItem series="human-video" swatch={<IconSwatch kind="camera" />}>
+                <LegendItem series="human-video" swatch={<KindSwatch kind="camera" />}>
                   human video
                 </LegendItem>
                 <LegendItem series="farm-projection" swatch={<LegendSwatch role="value" mark="dot" />}>
@@ -425,15 +412,19 @@ export function DataScaleChart({
                     data-picked={picked ? 'true' : 'false'}
                     opacity={picked ? 1 : 0.3}
                   >
-                    {human ? (
-                      <CameraIcon x={LEFT + 7} y={y} colour={MEASUREMENT} />
-                    ) : (
-                      <RobotIcon x={LEFT + 7} y={y} colour={MEASUREMENT} />
-                    )}
                     <DirectLabel x={NAME_X} y={f(y + MIDDLE)}>
                       {p.label}
                     </DirectLabel>
-                    <circle data-chart-mark="dot" data-chart-role="measurement" cx={x} cy={y} r={MARKER_R} fill={MEASUREMENT} />
+                    <circle
+                      data-chart-mark="dot"
+                      data-chart-role="measurement"
+                      cx={x}
+                      cy={y}
+                      r={MARKER_R}
+                      fill={human ? MOTION_STAGE.background : MEASUREMENT}
+                      stroke={MEASUREMENT}
+                      strokeWidth={CHART_STROKE.structure}
+                    />
                     <DirectLabel x={right ? f(x + MARKER_R + 6) : f(x - MARKER_R - 6)} y={f(y + MIDDLE)} anchor={right ? 'start' : 'end'}>
                       {value}
                     </DirectLabel>

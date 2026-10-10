@@ -15,7 +15,10 @@ import {
 import tokens from '@/motion-tokens.json';
 import { ChartFixtureFigure } from '../fixtures/figure-system/chart-fixture';
 
-const TOKEN_PAINT = /^(none|url\(#[\w-]+\)|var\(--(role-[a-z]+-stage|color-[a-z-]+)\))$/;
+// Owner-approved successor (owner directive of 2026-10-10 02:00, figures to
+// the Pantheon research-page standard): structure paints the figure palette's
+// custom properties (ink, muted, the hairline) next to the role tokens.
+const TOKEN_PAINT = /^(none|url\(#[\w-]+\)|var\(--(role-[a-z]+-stage|color-[a-z-]+|ink|muted|line|line-strong|chart-(?:background|medium|dark))\))$/;
 
 function fixture() {
   const { container } = render(<ChartFixtureFigure />);
@@ -28,8 +31,11 @@ function marks(container: HTMLElement, kind: string) {
 
 describe('chart primitives on the light page stage', () => {
   it('reads every size from the motion tokens', () => {
-    expect(CHART_STROKE.trace).toBe(2);
-    expect(CHART_STROKE.reference).toBe(1.5);
+    // Successor (2026-10-10 figure standard): a 1.5 px trace and a 1 px dashed
+    // reference, painted at CSS pixels by stage.css whatever the stage scale.
+    expect(CHART_STROKE.trace).toBe(1.5);
+    expect(CHART_STROKE.reference).toBe(1);
+    expect(CHART_STROKE.structure).toBe(1);
     expect(CHART_HATCH.angle).toBe(45);
     expect(CHART_UNCERTAINTY.fillAlpha).toBe(tokens.uncertainty.fillAlpha);
     expect(CHART_TYPE.minPx).toBe(tokens.stage.labelMinPx);
@@ -44,32 +50,32 @@ describe('chart primitives on the light page stage', () => {
     expect(stage?.querySelectorAll('svg[data-chart]').length).toBe(2);
   });
 
-  it('axes: graphite structure lines with tick and axis labels at 12 px or more', () => {
+  it('axes: ink hairline axes over a hairline grid, tick labels at 11 px and axis names at 12 px', () => {
     const axes = fixture().querySelector('[data-chart-axes]')!;
     const lines = [...axes.querySelectorAll('line')];
     expect(lines.length).toBeGreaterThan(0);
-    // Axis and tick lines are graphite; grid lines are the lighter concrete.
+    // Successor (2026-10-10 figure standard): axis and tick lines are ink;
+    // grid lines are the page hairline.
     for (const line of lines) {
       expect(line.getAttribute('stroke')).toBe(
-        line.hasAttribute('data-chart-grid') ? 'var(--color-concrete)' : 'var(--color-graphite)',
+        line.hasAttribute('data-chart-grid') ? 'var(--line)' : 'var(--ink)',
       );
     }
     const ticks = [...axes.querySelectorAll('text[data-scene-tick]')];
     const names = [...axes.querySelectorAll('text[data-scene-axis]')];
     expect(ticks.map((t) => t.textContent)).toEqual(['0', '5', '10', '0', '0.5', '1']);
     expect(names.map((t) => t.textContent)).toEqual(['steps', 'success']);
-    for (const text of [...ticks, ...names]) {
-      expect(Number(text.getAttribute('font-size'))).toBeGreaterThanOrEqual(12);
-    }
+    for (const text of ticks) expect(Number(text.getAttribute('font-size'))).toBe(11);
+    for (const text of names) expect(Number(text.getAttribute('font-size'))).toBe(12);
   });
 
   it('line trace: state role at the trace width; reference dashed at its width', () => {
     const [state, reference] = marks(fixture(), 'line');
     expect(state.getAttribute('stroke')).toBe(roleColour('state'));
-    expect(state.getAttribute('stroke-width')).toBe('2');
+    expect(state.getAttribute('stroke-width')).toBe('1.5');
     expect(state.getAttribute('stroke-dasharray')).toBeNull();
     expect(reference.getAttribute('stroke')).toBe('var(--role-reference-stage)');
-    expect(reference.getAttribute('stroke-width')).toBe('1.5');
+    expect(reference.getAttribute('stroke-width')).toBe('1');
     expect(reference.getAttribute('stroke-dasharray')).toBe(CHART_STROKE.dash);
   });
 
@@ -117,10 +123,10 @@ describe('chart primitives on the light page stage', () => {
     expect(items.map((i) => i.getAttribute('data-legend-series'))).toEqual([
       'state', 'reference', 'measurement', 'value', 'constraint', 'state',
     ]);
-    expect(legend.className).toContain('text-sm');
+    expect(legend.className).toContain('text-[12px]');
   });
 
-  it('paints only token colours, on three text sizes of at least 12 px', () => {
+  it('paints only token colours, on at most three text sizes of at least 11 px', () => {
     const container = fixture();
     for (const node of container.querySelectorAll('svg *')) {
       for (const attribute of ['fill', 'stroke']) {
@@ -131,7 +137,7 @@ describe('chart primitives on the light page stage', () => {
     const sizes = new Set(
       [...container.querySelectorAll('svg text')].map((t) => Number(t.getAttribute('font-size'))),
     );
-    expect(Math.min(...sizes)).toBeGreaterThanOrEqual(12);
+    expect(Math.min(...sizes)).toBeGreaterThanOrEqual(11);
     expect(sizes.size).toBeLessThanOrEqual(3);
   });
 

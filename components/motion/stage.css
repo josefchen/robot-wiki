@@ -1,16 +1,27 @@
 /*
  * One type scale on every stage. The viewBox stretches with the article
  * rail, so each text role's size is divided by the stage's current scale
- * (container width over viewBox width) and paints at the same CSS pixels
+ * (drawing width over viewBox width) and paints at the same CSS pixels
  * at every width. Below the minimum width the scale stops following the
  * container, so a narrower stage shrinks as a whole and keeps the layout
  * that was checked at that width. The sizes come from motion-tokens.json.
  * Write glyphs keep their own sizes because the primitive lays out each
  * advance from them.
+ *
+ * A drawing grows to at most 1.6 times its authored viewBox width
+ * (--motion-stage-max-scale, which a figure may set on its svg), centred
+ * in the frame, so a figure authored
+ * for the phone column never balloons into a poster on a wide page.
  */
 [data-motion-stage],
 [data-figure-stage] {
   container-type: inline-size;
+}
+
+.motion-stage-svg {
+  --motion-stage-max-scale: 1.6;
+  max-width: calc(var(--motion-stage-view-width, 340px) * var(--motion-stage-max-scale));
+  margin-inline: auto;
 }
 
 /* Hinted glyph advances snap to whole pixels at the stretched size and
@@ -19,10 +30,20 @@
   text-rendering: geometricPrecision;
 }
 
-/* Stage labels are the brand sans whatever face the markup names; only a
-   numeric readout takes the mono. */
+/*
+ * Every stroke on a stage is a CSS-pixel line whatever the drawing's
+ * scale: a 1.5 px trace stays 1.5 px on a phone and on a 1440 page.
+ */
+.motion-stage-svg :is(path, line, polyline, polygon, rect, circle, ellipse) {
+  vector-effect: non-scaling-stroke;
+}
+
+/* Stage labels are the sans whatever face the markup names, at the
+   regular weight whatever weight the markup names (labels are never bold);
+   only a numeric readout takes the mono. */
 .motion-stage-svg text:not([data-scene-glyph]) {
   font-family: var(--motion-stage-label-font);
+  font-weight: 400;
 }
 
 .motion-stage-svg text[data-scene-readout] {
@@ -36,7 +57,11 @@
        below its nominal pixel value. */
     --motion-stage-type-scale: calc(
       tan(atan2(
-        max(100cqw, var(--motion-stage-type-min-width)),
+        clamp(
+          var(--motion-stage-type-min-width),
+          100cqw,
+          var(--motion-stage-view-width, 340px) * var(--motion-stage-max-scale)
+        ),
         var(--motion-stage-view-width, 340px)
       )) * 0.999
     );
@@ -74,8 +99,433 @@
 }
 
 /* A citation chip inside a figure is words, so it reads in the frame's
-   sans at the source-line size rather than the prose chip's small mono. */
+   sans at the caption size rather than the prose chip's small mono. */
 [data-figure-frame] [data-cite-id] > span {
   font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+/*
+ * The figure frame (owner-approved figure standard, 10 October 2026).
+ *
+ * Every figure is a 1 px hairline box with no fill, no radius and no
+ * shadow. Inside it, in reading order on the page: the controls, the
+ * drawing, a hairline rule, then the caption block, which opens with
+ * "Figure N." in ink and continues in muted 13 px sans. N counts the
+ * figures of one page (one article), in document order, with a CSS
+ * counter, so the served HTML, hydration and every lazy mount agree.
+ *
+ * The header keeps its place in the DOM (title and controls first, so the
+ * figure-system check and assistive technology read the same structure);
+ * it only stops being a box, and flex order lays the title out under the
+ * rule as the start of the caption block.
+ */
+/* main and the article are size containers, and container-type implies
+   style containment: a counter reset on the container itself does not
+   reach inside it, so each nested figure would start its own count. A
+   reset's scope covers the element's following siblings, so the count
+   starts on the container's first rendered child (an unrendered script
+   carries no counter) and runs through the article. */
+:where(main, main article) > :not(script, style, template, link) {
+  counter-reset: figure-number;
+}
+
+:where(main, main article) > :not(script, style, template, link) ~ * {
+  counter-reset: none;
+}
+
+[data-figure-frame],
+figure[data-figure-kind='photograph'],
+figure[data-figure-kind='official-mark'] {
+  /* The site's text, border and accent utilities resolve to the figure
+     palette inside a figure, so every primitive and figure that paints
+     through them repaints in ink, muted, hairlines and the one accent. */
+  --color-text: var(--ink);
+  --color-text-dim: var(--muted);
+  --color-ink: var(--ink);
+  --color-graphite: var(--chart-dark);
+  --color-border: var(--line);
+  --color-border-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-link: var(--ink);
+  --color-focus: var(--ink);
+  /* No panels behind figure text: a surface is the page ground itself, so
+     it still masks a line it sits on; a selection is the rare inset; the
+     highlight is the one accent, never the lime. */
+  --color-surface: var(--paper, var(--color-paper));
+  --color-surface-2: var(--paper, var(--color-paper));
+  --color-selection: var(--paper-deep, var(--color-concrete));
+  --color-highlight: var(--accent);
+  counter-increment: figure-number;
+  display: flex;
+  flex-direction: column;
+  margin-block: 36px 40px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  padding: 24px 26px 18px;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* A frame nested in another frame's fold is part of that figure. */
+[data-figure-frame] [data-figure-frame] {
+  counter-increment: none;
+  margin-block: 12px;
+  padding: 16px;
+}
+
+@media (width < 40rem) {
+  [data-figure-frame],
+  figure[data-figure-kind='photograph'],
+  figure[data-figure-kind='official-mark'] {
+    padding: 16px 16px 14px;
+    margin-block: 28px 32px;
+  }
+}
+
+[data-figure-frame] > [data-figure-header] {
+  display: contents;
+}
+
+[data-figure-frame] > [data-figure-header] > [data-figure-controls] {
+  order: 0;
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+
+[data-figure-frame] > [data-figure-stage] {
+  order: 1;
+  margin-top: 0;
+}
+
+[data-figure-frame] > [data-figure-header] > [data-figure-heading] {
+  order: 2;
+  display: block;
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+[data-figure-frame] > [data-figure-caption] {
+  order: 3;
+}
+
+[data-figure-frame] > details {
+  order: 4;
+}
+
+[data-figure-frame] > [data-figure-source] {
+  order: 5;
+}
+
+[data-figure-frame] > :not([data-figure-header], [data-figure-stage], [data-figure-caption], details, [data-figure-source]) {
+  order: 6;
+}
+
+/* The technical name stays for assistive technology and the record; the
+   caption block carries the figure's words on the page. */
+[data-figure-frame] [data-figure-kicker] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* The caption block reads as one muted paragraph: the headline, then the
+   caption sentence straight under it. Only "Figure N." is ink. */
+[data-figure-frame] [data-figure-title],
+figure[data-figure-kind] > figcaption {
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+[data-figure-frame] [data-figure-title]::before,
+figure[data-figure-kind='photograph'] > figcaption::before,
+figure[data-figure-kind='official-mark'] > figcaption::before {
+  content: 'Figure ' counter(figure-number) '.\00a0';
+  font-weight: 600;
+  color: var(--ink);
+}
+
+[data-figure-frame] [data-figure-frame] [data-figure-title]::before {
+  content: none;
+}
+
+[data-figure-frame] > [data-figure-caption],
+[data-figure-frame] > [data-figure-source],
+figure[data-figure-kind] > [data-image-credit] {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+[data-figure-frame] > [data-figure-source] {
+  margin-top: 2px;
+}
+
+[data-figure-frame] a[href],
+figure[data-figure-kind='photograph'] a[href],
+figure[data-figure-kind='official-mark'] a[href] {
+  --color-link: var(--color-signal);
+  --color-accent: var(--color-signal);
+  --color-focus: var(--color-signal);
+}
+
+[data-figure-frame] a[href]:not(.term-link),
+figure[data-figure-kind] > [data-image-credit] a[href] {
+  color: var(--color-link);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* Photographs and marks: the picture sits square inside the box, then the
+   rule, then the caption block. */
+figure[data-figure-kind] > [data-photo-frame],
+figure[data-figure-kind] > [data-photo-frame] img {
+  border-radius: 0;
+}
+
+figure[data-figure-kind] > [data-photo-frame] img {
+  border: 0;
+}
+
+figure[data-figure-kind='photograph'] > figcaption,
+figure[data-figure-kind='official-mark'] > figcaption {
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+/* The method fold: a quiet muted line with a hairline chevron. */
+[data-figure-frame] > details > summary,
+[data-figure-frame] [data-figure-controls] details > summary {
+  min-height: 32px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+[data-figure-frame] > details > summary:hover,
+[data-figure-frame] [data-figure-controls] details > summary:hover {
+  color: var(--ink);
+}
+
+[data-figure-frame] [data-figure-fold-body] {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/*
+ * The stage bands: legend, readout and status line under the drawing.
+ * Twelve pixels, ink for the one status line or readout, muted for the
+ * label that says how the figure was made.
+ */
+[data-figure-frame] [data-figure-stage-band] {
   font-size: 12px;
+  line-height: 1.5;
+}
+
+[data-figure-frame] [data-figure-status],
+[data-figure-frame] [data-scene-status] {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+[data-figure-frame] [data-figure-readout] {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+[data-figure-frame] [data-figure-number] {
+  font-family: var(--font-mono);
+  font-weight: 400;
+}
+
+[data-figure-frame] :is([data-figure-legend], [data-instrument-legend]) {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/*
+ * Controls. A slider is a 1 px ink track with a 12 px ink thumb; the value
+ * beside its label reads in the mono face. Toggles and presets are text
+ * tabs: muted at rest, ink with a 1 px underline when chosen, separated by
+ * hairlines, never a filled pill. Focus is a 1 px ink outline offset 2 px,
+ * for the keyboard only.
+ */
+[data-figure-frame] input[type='range'] {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  height: 32px;
+  cursor: pointer;
+  accent-color: var(--ink);
+}
+
+[data-figure-frame] input[type='range']::-webkit-slider-runnable-track {
+  height: 1px;
+  background: var(--ink);
+  border: 0;
+}
+
+[data-figure-frame] input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-top: -5.5px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+[data-figure-frame] input[type='range']::-moz-range-track {
+  height: 1px;
+  background: var(--ink);
+  border: 0;
+}
+
+[data-figure-frame] input[type='range']::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+[data-figure-frame] input[type='range']:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-figure-frame] :is(button, summary, input, select, a):focus {
+  outline: none;
+}
+
+[data-figure-frame] :is(button, summary, input, select, a):focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+[data-figure-frame] select {
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+[data-figure-control-value] {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+/* A text tab. The chosen one reads in ink over a 1 px underline. */
+.figure-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-width: 24px;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.figure-tab:hover {
+  color: var(--ink);
+}
+
+.figure-tab:is([aria-pressed='true'], [aria-checked='true'], [aria-selected='true']) {
+  color: var(--ink);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+
+.figure-tab:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+/* Hairline separators between neighbouring tabs. */
+.figure-tab + .figure-tab::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 14px;
+  width: 1px;
+  transform: translateY(-50%);
+  background: var(--line-strong);
+}
+
+[data-preset-group] .figure-tab:first-child,
+.figure-tab-row > .figure-tab:first-child {
+  padding-left: 0;
+}
+
+/* A phone wraps a tab row, and a separator would then open the new line;
+   there the tabs stand apart by their spacing and the chosen underline. */
+@media (width < 40rem) {
+  .figure-tab + .figure-tab::before {
+    content: none;
+  }
+
+  .figure-tab {
+    padding-inline: 0 16px;
+  }
+}
+
+/* A small text action: Replay, Step, Reset. */
+.figure-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 24px;
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.figure-action:hover {
+  color: var(--ink);
+}
+
+.figure-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+/* The one action that starts a figure: the same text action, in ink. */
+.figure-action.figure-action-primary {
+  color: var(--ink);
 }

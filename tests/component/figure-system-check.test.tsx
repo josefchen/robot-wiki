@@ -50,8 +50,9 @@ describe('figure-system check', () => {
 
   it('fails sub-scale text and names the figure', () => {
     // The legend set below the 12px floor. (Text inside the stage svg is
-    // sized by stage.css, which overrides a font-size attribute.)
-    const planted = plant(clean, /(data-figure-legend=""[^>]*?)text-sm/, '$1text-[10px]');
+    // sized by stage.css, which overrides a font-size attribute.) The legend
+    // is set at 12 px since the 2026-10-10 figure standard.
+    const planted = plant(clean, /(data-figure-legend=""[^>]*?)text-\[12px\]/, '$1text-[10px]');
     expect(rulesFor(planted)).toContainEqual([FIGURE, 'sub-scale-text']);
     // Text in an svg that is not on the stage scale fails as well.
     const offStage = plant(clean, /class="motion-stage-svg /, 'class="');

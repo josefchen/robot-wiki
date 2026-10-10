@@ -15,6 +15,7 @@ import {
   SliderEnds,
 } from '@/components/ui/instrument';
 import { FigureStage, StageNumber, StageReadout, StageStatus } from '@/components/motion/figure-frame';
+import { MOTION_STAGE } from '@/lib/motion-tokens';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
@@ -111,7 +112,7 @@ function PushArrow({ tip, length }: { tip: number; length: number }) {
   const colour = roleColour('action');
   return (
     <g data-testid="force-arrow" data-series="push" data-chart-role="action">
-      <line x1={tip - length} x2={tip - HEAD + 1} y1={PUSH_Y} y2={PUSH_Y} stroke={colour} strokeWidth={CHART_STROKE.trace * 1.5} />
+      <line x1={tip - length} x2={tip - HEAD + 1} y1={PUSH_Y} y2={PUSH_Y} stroke={colour} strokeWidth={CHART_STROKE.trace} />
       <polygon points={`${tip},${PUSH_Y} ${tip - HEAD},${PUSH_Y - HEAD / 1.6} ${tip - HEAD},${PUSH_Y + HEAD / 1.6}`} fill={colour} />
     </g>
   );
@@ -121,8 +122,8 @@ function PushArrow({ tip, length }: { tip: number; length: number }) {
 function Table() {
   const legHeight = TABLE.floor - TABLE.y - TABLE.slab;
   return (
-    <g data-testid="table-appearance" data-scene-structure="table" fill={CHART_STRUCTURE.grid}>
-      <rect x={TABLE.left} y={TABLE.y} width={TABLE.right - TABLE.left} height={TABLE.slab} rx={1.5} />
+    <g data-testid="table-appearance" data-scene-structure="table" fill="none" stroke={roleColour('reference')} strokeWidth={CHART_STROKE.structure}>
+      <rect x={TABLE.left} y={TABLE.y} width={TABLE.right - TABLE.left} height={TABLE.slab} />
       <rect x={TABLE.left + TABLE.legInset} y={TABLE.y + TABLE.slab} width={TABLE.leg} height={legHeight} />
       <rect x={TABLE.right - TABLE.legInset - TABLE.leg} y={TABLE.y + TABLE.slab} width={TABLE.leg} height={legHeight} />
       <line
@@ -132,19 +133,18 @@ function Table() {
         y2={TABLE.y}
         stroke={CHART_STRUCTURE.axes}
         strokeOpacity={CHART_STRUCTURE.axesOpacity}
-        strokeWidth={CHART_STROKE.structure * 2}
       />
     </g>
   );
 }
 
-/** The rendered mug: a rounded body and a handle. */
+/** The rendered mug in outline: a body with rounded foot corners and a handle. */
 function MugPicture({ colour }: { colour: string }) {
   return (
-    <>
-      <path d={MUG_BODY} fill={colour} />
-      <path d={MUG_HANDLE} fill="none" stroke={colour} strokeWidth={CHART_STROKE.trace * 2} />
-    </>
+    <g fill="none" stroke={colour} strokeWidth={CHART_STROKE.trace} strokeLinejoin="round">
+      <path d={MUG_BODY} fill={MOTION_STAGE.background} />
+      <path d={MUG_HANDLE} />
+    </g>
   );
 }
 

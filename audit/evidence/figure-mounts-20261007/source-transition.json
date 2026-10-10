@@ -3,7 +3,7 @@
   "name": "figure-mounts-20261007",
   "reviewedBy": "implementation worker for the classical figure mounts of 2026-10-07 (not independent acceptance)",
   "rationale": "The classical articles on calibration and on ROS 2 for ML engineers each gained their first interactive figure on 2026-10-07 (VAL-OPUS-057): one import line after the frontmatter and one mount on its own line between blank lines, beside the paragraph the figure illustrates. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted import and mount gives the earlier bytes exactly, so no prose, number, citation, frontmatter field or other mount moved and older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-07T21:04:25Z",
+  "observedAt": "2026-10-09T23:03:51Z",
   "sources": [
     {
       "archivedFrom": "3a55248b22152efb944c45d498488de33f9e946c",
@@ -14,17 +14,25 @@
       },
       "after": {
         "path": "content/classical/calibration.mdx",
-        "bytes": 9808,
-        "sha256": "1fb3072f6ea0bb40679ee0f43572269399608d5e54ad8635add8bda998d4b724"
+        "bytes": 10030,
+        "sha256": "ffc769f31d4b00ea8624283b9af7d4d9d0b71bcd6ff55ec6887f5cf83429fdf5"
       },
       "edits": [
         {
           "before": "---\n\n",
-          "after": "---\n\nimport { CalibrationChain } from '@/components/interactive/calibration-chain';\n\n"
+          "after": "---\n\nimport { CalibrationChain } from '@/components/interactive/calibration-chain';\n\nimport { HandEyePoses } from '@/components/interactive/hand-eye-poses';\n\nimport { TimeOffsetMiss } from '@/components/interactive/time-offset-miss';\n\n"
         },
         {
-          "before": "A manipulation system carries <Term id=\"camera-intrinsics\">camera intrinsics</Term>, depth alignment, camera extrinsics, joint zeroes and link parameters, tool and payload parameters, timestamps and latency, and actuator response. Each stage feeds the next. FoundationPose estimates and tracks novel-object poses with or without a model <Cite id=\"foundationpose-2024\" />, yet a wrong hand-eye transform still sends the gripper to the wrong place. HALO first calibrates a humanoid's nominal model from real data, then identifies an unknown payload's mass distribution <Cite id=\"halo-payload-2026\" />.\n",
-          "after": "A manipulation system carries <Term id=\"camera-intrinsics\">camera intrinsics</Term>, depth alignment, camera extrinsics, joint zeroes and link parameters, tool and payload parameters, timestamps and latency, and actuator response. Each stage feeds the next. FoundationPose estimates and tracks novel-object poses with or without a model <Cite id=\"foundationpose-2024\" />, yet a wrong hand-eye transform still sends the gripper to the wrong place. HALO first calibrates a humanoid's nominal model from real data, then identifies an unknown payload's mass distribution <Cite id=\"halo-payload-2026\" />.\n\n<CalibrationChain className=\"my-6\" />\n"
+          "before": "A manipulation system carries <Term id=\"camera-intrinsics\">camera intrinsics</Term>, depth alignment, camera extrinsics, joint zeroes and link parameters, tool and payload parameters, timestamps and latency, and actuator response. Each stage feeds the next. FoundationPose estimates and tracks novel-object poses with or without a model <Cite id=\"foundationpose-2024\" />, yet a wrong hand-eye transform still sends the gripper to the wrong place. HALO first calibrates a humanoid's nominal model from real data, then identifies an unknown payload's mass distribution <Cite id=\"halo-payload-2026\" />.\n\n",
+          "after": "A manipulation system carries <Term id=\"camera-intrinsics\">camera intrinsics</Term>, depth alignment, camera extrinsics, joint zeroes and link parameters, tool and payload parameters, timestamps and latency, and actuator response. Each stage feeds the next. FoundationPose estimates and tracks novel-object poses with or without a model <Cite id=\"foundationpose-2024\" />, yet a wrong hand-eye transform still sends the gripper to the wrong place. HALO first calibrates a humanoid's nominal model from real data, then identifies an unknown payload's mass distribution <Cite id=\"halo-payload-2026\" />.\n\n<CalibrationChain className=\"my-6\" />\n\n"
+        },
+        {
+          "before": "OpenCV needs at least two motions with non-parallel rotation axes, so three poses, and strongly recommends many more <Cite id=\"opencv-hand-eye-docs-2026\" />. MoveIt's tutorial reports that accuracy plateaus after about 12 or 15 samples in most cases <Cite id=\"moveit-hand-eye-tutorial-2026\" />. Validation belongs in robot coordinates, because reprojection error alone does not close that loop.\n\n",
+          "after": "OpenCV needs at least two motions with non-parallel rotation axes, so three poses, and strongly recommends many more <Cite id=\"opencv-hand-eye-docs-2026\" />. MoveIt's tutorial reports that accuracy plateaus after about 12 or 15 samples in most cases <Cite id=\"moveit-hand-eye-tutorial-2026\" />. Validation belongs in robot coordinates, because reprojection error alone does not close that loop.\n\n<HandEyePoses className=\"my-6\" />\n\n"
+        },
+        {
+          "before": "A camera frame at time $t$ paired with joint state at $t + \\Delta t$ creates a pose error proportional to speed. Kalibr estimates time offsets jointly with spatial transforms, to a fraction of the smallest measurement period <Cite id=\"kalibr-2013\" />. IEEE 1588 clock synchronization reaches sub-microsecond accuracy across networked devices <Cite id=\"ieee-1588-2019\" />. On a RealSense D435 and Airbot Play rig, Realtime-VLA V2 measured camera, proprioception and motion delays of 55, 50 and 150 ms <Cite id=\"realtime-vla-v2-2026\" />.\n",
+          "after": "A camera frame at time $t$ paired with joint state at $t + \\Delta t$ creates a pose error proportional to speed. Kalibr estimates time offsets jointly with spatial transforms, to a fraction of the smallest measurement period <Cite id=\"kalibr-2013\" />. IEEE 1588 clock synchronization reaches sub-microsecond accuracy across networked devices <Cite id=\"ieee-1588-2019\" />. On a RealSense D435 and Airbot Play rig, Realtime-VLA V2 measured camera, proprioception and motion delays of 55, 50 and 150 ms <Cite id=\"realtime-vla-v2-2026\" />.\n\n<TimeOffsetMiss className=\"my-6\" />\n"
         }
       ]
     },
@@ -37,13 +45,21 @@
       },
       "after": {
         "path": "content/classical/ros2-for-ml-engineers.mdx",
-        "bytes": 9712,
-        "sha256": "c7fc3dba96e143c0ac3d505bd94a0e50709394d4052f7a5b366d46cecc00c125"
+        "bytes": 9930,
+        "sha256": "65fb50d6229dde8c3446194236429481a1ac0799e99753471a29c95317731fb7"
       },
       "edits": [
         {
           "before": "---\n\n",
-          "after": "---\n\nimport { Ros2PolicyLayout } from '@/components/interactive/ros2-policy-layout';\n\n"
+          "after": "---\n\nimport { Ros2PolicyLayout } from '@/components/interactive/ros2-policy-layout';\n\nimport { Ros2Interfaces } from '@/components/interactive/ros2-interfaces';\n\nimport { QosQueueAge } from '@/components/interactive/qos-queue-age';\n\n"
+        },
+        {
+          "before": "A node is one participant in the graph, such as a camera driver, policy server or controller bridge. Nodes talk through topics for continuous streams, services for short request-response calls, and actions for long-running goals with feedback, cancellation and a result <Cite id=\"ros2-interfaces-2026\" />. ROS-LLM attaches language-model agents through the same actions and services <Cite id=\"ros-llm-2024\" />. A `geometry_msgs/PoseStamped` carries the timestamp and frame identifier that a bare array lacks. REP 103 standardizes ROS on SI units <Cite id=\"rep-103-2010\" />.\n\n",
+          "after": "A node is one participant in the graph, such as a camera driver, policy server or controller bridge. Nodes talk through topics for continuous streams, services for short request-response calls, and actions for long-running goals with feedback, cancellation and a result <Cite id=\"ros2-interfaces-2026\" />. ROS-LLM attaches language-model agents through the same actions and services <Cite id=\"ros-llm-2024\" />. A `geometry_msgs/PoseStamped` carries the timestamp and frame identifier that a bare array lacks. REP 103 standardizes ROS on SI units <Cite id=\"rep-103-2010\" />.\n\n<Ros2Interfaces className=\"my-6\" />\n\n"
+        },
+        {
+          "before": "A reliable camera subscription with a deep queue can make a policy act on old images, so log message age at the policy boundary. End-to-end latency depends strongly on the DDS implementation, and ROS 2 can add 50% over raw DDS <Cite id=\"ros2-latency-2021\" />. Since Kilted Kaiju (May 2025), Zenoh's `rmw_zenoh_cpp` is a Tier 1 middleware <Cite id=\"ros2-kilted-2025\" />.\n\n",
+          "after": "A reliable camera subscription with a deep queue can make a policy act on old images, so log message age at the policy boundary. End-to-end latency depends strongly on the DDS implementation, and ROS 2 can add 50% over raw DDS <Cite id=\"ros2-latency-2021\" />. Since Kilted Kaiju (May 2025), Zenoh's `rmw_zenoh_cpp` is a Tier 1 middleware <Cite id=\"ros2-kilted-2025\" />.\n\n<QosQueueAge className=\"my-6\" />\n\n"
         },
         {
           "before": "One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n",

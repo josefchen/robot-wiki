@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3103,
+      "visibleTextLength": 3121,
       "header": {
         "present": true,
         "display": "flex",
@@ -1541,7 +1541,7 @@
     },
     {
       "route": "/classical/calibration/",
-      "visibleTextLength": 17084,
+      "visibleTextLength": 17000,
       "header": {
         "present": true,
         "display": "flex",
@@ -2519,7 +2519,7 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "visibleTextLength": 14924,
+      "visibleTextLength": 15236,
       "header": {
         "present": true,
         "display": "flex",
@@ -3497,7 +3497,7 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "visibleTextLength": 17216,
+      "visibleTextLength": 17210,
       "header": {
         "present": true,
         "display": "flex",
@@ -3823,7 +3823,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 26591,
+      "visibleTextLength": 26583,
       "header": {
         "present": true,
         "display": "flex",
@@ -4793,7 +4793,7 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "visibleTextLength": 15741,
+      "visibleTextLength": 15765,
       "header": {
         "present": true,
         "display": "flex",
@@ -4956,7 +4956,7 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "visibleTextLength": 22651,
+      "visibleTextLength": 22669,
       "header": {
         "present": true,
         "display": "flex",
@@ -8053,7 +8053,7 @@
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "visibleTextLength": 20908,
+      "visibleTextLength": 20909,
       "header": {
         "present": true,
         "display": "flex",
@@ -8216,7 +8216,7 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "visibleTextLength": 37174,
+      "visibleTextLength": 37153,
       "header": {
         "present": true,
         "display": "flex",

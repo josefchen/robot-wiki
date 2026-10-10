@@ -84,12 +84,13 @@ async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-kol-backlog-continuity.ts');
   const { domainPassPredecessor } = await import('../lib/audit-domain-pass-continuity.ts');
   const { figureMountPredecessor } = await import('../lib/audit-figure-mount-continuity.ts');
+  const { wordBudgetTrimPredecessor } = await import('../lib/audit-word-budget-trim-continuity.ts');
   let ok = true;
   for (const source of layer.loadKolBacklogReview(root).sources) {
     try {
-      // The newer figure-mount and domain-pass layers hand back the KOL backlog successor first.
-      const live = domainPassPredecessor(root, source.before,
-        figureMountPredecessor(root, source.before, readFileSync(join(root, source.after.path))));
+      // The newer word-budget trim, figure-mount and domain-pass layers hand back the KOL backlog successor first.
+      const live = domainPassPredecessor(root, source.before, figureMountPredecessor(root, source.before,
+        wordBudgetTrimPredecessor(root, source.before, readFileSync(join(root, source.after.path)))));
       const prior = layer.kolBacklogPredecessor(root, source.before, live);
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {

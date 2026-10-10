@@ -32,7 +32,7 @@ const NOT_DISCLOSED: ReactNode = (
   <span className="text-text-dim">not disclosed</span>
 );
 
-const HIGHLIGHTED_CELL = 'bg-selection';
+const HIGHLIGHTED_CELL = 'bg-[var(--paper-deep,var(--color-surface-2))]';
 
 function formatUsd(value: number): string {
   return `$${value.toLocaleString('en-US')}`;
@@ -119,7 +119,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
             <span>
               <span
                 data-brand-surface-id="surface:flat"
-                className="inline-flex items-center rounded-xs border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-xs leading-none tracking-wide text-text"
+                className="font-mono text-xs leading-none text-text"
               >
                 {rating}
               </span>
@@ -183,10 +183,10 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
           aria-label="Highlight a comparison dimension"
           className="flex flex-col gap-1"
         >
-          <span className="font-sans text-xs text-text-dim">
+          <span className="font-sans text-[13px] text-text-dim">
             Highlight a dimension
           </span>
-          <div className="flex flex-wrap gap-1.5">
+          <div className="figure-tab-row flex flex-wrap">
             {RIG_FIELDS.map((field) => (
               <button
                 data-brand-control-id="control:selection"
@@ -195,13 +195,10 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
                 aria-pressed={highlight === field.id}
                 onClick={() => toggleHighlight(field.id)}
                 className={cx(
-                  'inline-flex min-h-6 cursor-pointer items-center gap-1 rounded-xs border px-2 py-1 font-sans text-xs transition-colors active:translate-y-[1px]',
-                  highlight === field.id
-                    ? 'border-highlight bg-selection font-semibold text-ink'
-                    : 'border-border bg-surface text-text hover:border-border-strong',
+                  'figure-tab font-sans text-[13px]',
+                  highlight === field.id ? 'text-text' : 'text-text-dim',
                 )}
               >
-                {highlight === field.id ? <span aria-hidden="true">✓</span> : null}
                 {field.label}
               </button>
             ))}
@@ -220,9 +217,9 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
         <section
           role="region"
           aria-label="Dimension detail"
-          className="mt-4 rounded-sm border border-border bg-surface-2 p-4"
+          className="mt-4 border-t pt-4 [border-color:var(--line)]"
         >
-          <p className="font-sans text-xs font-semibold text-text">
+          <p className="font-sans text-[13px] text-text">
             {activeField.label} highlighted
           </p>
           <p className="mt-1 font-sans text-xs text-text-dim">

@@ -30,7 +30,6 @@ import {
   type ReactNode,
 } from 'react';
 import { useMotionValue } from 'motion/react';
-import { Pause, Play } from '@phosphor-icons/react';
 import {
   InstrumentReset,
   INSTRUMENT_PRIMARY_CONTROL_CLASS,
@@ -326,11 +325,6 @@ export function ScenePlayer({
           aria-label={playing ? 'Pause the scene' : 'Play the scene'}
           className={INSTRUMENT_PRIMARY_CONTROL_CLASS}
         >
-          {playing ? (
-            <Pause size={14} weight="bold" aria-hidden />
-          ) : (
-            <Play size={14} weight="bold" aria-hidden />
-          )}
           {playing ? 'Pause' : 'Play'}
         </button>
       }

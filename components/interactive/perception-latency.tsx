@@ -35,6 +35,7 @@ import {
   formatSpeed,
   latencyOutcome,
 } from '@/lib/aerial-latency';
+import { MOTION_STAGE } from '@/lib/motion-tokens';
 
 /**
  * PerceptionLatency: how fast is too fast, for the adjacent/drones module.
@@ -54,7 +55,7 @@ const HEIGHT = 240;
 const TRACK_LEFT = 66;
 const WALL_X = 298;
 const TRACK_Y = 108;
-const TRACK_H = 12;
+const TRACK_H = 4;
 const DIM_Y = 132;
 const DIAL_X = 40;
 const DIAL_Y = 230;
@@ -100,42 +101,35 @@ const cameraFor = (latencyMs: number): CameraId =>
 function Drone({ x, y }: { x: number; y: number }) {
   const ink = CHART_STRUCTURE.label;
   return (
-    <g data-testid="drone" fill="none" stroke={ink} strokeWidth={2} strokeLinecap="round">
-      <rect x={x - 8} y={y - 5} width={16} height={10} rx={3} fill={ink} />
+    <g data-testid="drone" fill="none" stroke={ink} strokeWidth={CHART_STROKE.trace} strokeLinecap="round">
+      <rect x={x - 8} y={y - 5} width={16} height={10} rx={1.5} fill={MOTION_STAGE.background} />
       <line x1={x - 22} y1={y - 8} x2={x + 22} y2={y - 8} />
-      <line x1={x - 16} y1={y - 8} x2={x - 6} y2={y - 3} />
-      <line x1={x + 16} y1={y - 8} x2={x + 6} y2={y - 3} />
+      <line x1={x - 16} y1={y - 8} x2={x - 6} y2={y - 5} />
+      <line x1={x + 16} y1={y - 8} x2={x + 6} y2={y - 5} />
       <line x1={x - 30} y1={y - 12} x2={x - 14} y2={y - 12} />
       <line x1={x + 14} y1={y - 12} x2={x + 30} y2={y - 12} />
       <line x1={x - 22} y1={y - 12} x2={x - 22} y2={y - 8} />
       <line x1={x + 22} y1={y - 12} x2={x + 22} y2={y - 8} />
       {/* The camera on the nose, looking at the wall. */}
-      <circle cx={x + 11} cy={y} r={3} fill={ink} />
+      <circle cx={x + 11} cy={y} r={2.5} fill={MOTION_STAGE.background} />
     </g>
   );
 }
 
+/** The wall: a solid part, drawn as one ink outline with a light hatch inside. */
 function Wall({ x }: { x: number }) {
   const ink = CHART_STRUCTURE.label;
   const top = TRACK_Y - 44;
   const bottom = TRACK_Y + 44;
-  const rows = [0, 1, 2, 3, 4, 5, 6, 7];
-  const rowH = (bottom - top) / rows.length;
+  const lines = Array.from({ length: Math.floor((bottom - top) / 6) }, (_, i) => top + 6 + i * 6);
   return (
-    <g data-testid="wall" data-chart-role="obstacle" fill="none" stroke={ink} strokeWidth={1.5}>
+    <g data-testid="wall" data-chart-role="obstacle" fill="none" stroke={ink} strokeWidth={CHART_STROKE.trace}>
+      <g stroke={CHART_STRUCTURE.grid} strokeWidth={CHART_STROKE.structure}>
+        {lines.map((ly) => (
+          <line key={ly} x1={x} y1={f(Math.min(bottom, ly))} x2={x + 18} y2={f(Math.max(top, ly - 18))} />
+        ))}
+      </g>
       <rect x={x} y={top} width={18} height={bottom - top} />
-      {rows.slice(1).map((i) => (
-        <line key={i} x1={x} y1={f(top + i * rowH)} x2={x + 18} y2={f(top + i * rowH)} />
-      ))}
-      {rows.map((i) => (
-        <line
-          key={`j${i}`}
-          x1={x + (i % 2 ? 6 : 12)}
-          y1={f(top + i * rowH)}
-          x2={x + (i % 2 ? 6 : 12)}
-          y2={f(top + (i + 1) * rowH)}
-        />
-      ))}
     </g>
   );
 }
@@ -151,10 +145,10 @@ function Speedometer({ speedKmh }: { speedKmh: number }) {
         d={`M ${DIAL_X - DIAL_R} ${DIAL_Y} A ${DIAL_R} ${DIAL_R} 0 0 1 ${DIAL_X + DIAL_R} ${DIAL_Y}`}
         fill="none"
         stroke={ink}
-        strokeWidth={2}
+        strokeWidth={CHART_STROKE.structure}
       />
-      <line x1={DIAL_X} y1={DIAL_Y} x2={nx} y2={ny} stroke={ink} strokeWidth={3} strokeLinecap="round" />
-      <circle cx={DIAL_X} cy={DIAL_Y} r={3} fill={ink} />
+      <line x1={DIAL_X} y1={DIAL_Y} x2={nx} y2={ny} stroke={ink} strokeWidth={CHART_STROKE.trace} strokeLinecap="round" />
+      <circle cx={DIAL_X} cy={DIAL_Y} r={2} fill={ink} />
       <DirectLabel x={DIAL_X + DIAL_R + 14} y={DIAL_Y - 4}>
         top safe speed: <tspan data-testid="speedometer-reading">{`about ${speedKmh} km/h`}</tspan>
       </DirectLabel>

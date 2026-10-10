@@ -83,10 +83,13 @@ function main(paths: string[]): void {
 /** Reads every recorded successor back through the written layer. */
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-figure-mount-continuity.ts');
+  const { wordBudgetTrimPredecessor } = await import('../lib/audit-word-budget-trim-continuity.ts');
   let ok = true;
   for (const source of layer.loadFigureMountReview(root).sources) {
     try {
-      const prior = layer.figureMountPredecessor(root, source.before, readFileSync(join(root, source.after.path)));
+      // The newer word-budget trim layer hands back the figure-mount successor first.
+      const prior = layer.figureMountPredecessor(root, source.before,
+        wordBudgetTrimPredecessor(root, source.before, readFileSync(join(root, source.after.path))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {
       ok = false;

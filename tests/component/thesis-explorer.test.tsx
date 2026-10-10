@@ -35,9 +35,11 @@ describe('ThesisExplorer', () => {
       const scope = within(screen.getByTestId(`thesis-card-${thesis.id}`));
       expect(scope.getByRole('button', { name: plainThesisName(thesis.id) })).toBeInTheDocument();
       expect(scope.getByText(/wrong/)).toHaveAttribute('data-thesis-wrong-if');
-      const drawing = screen.getByTestId(`thesis-card-${thesis.id}`).querySelector('svg');
-      expect(drawing).toHaveAttribute('aria-hidden', 'true');
-      expect(drawing?.querySelectorAll('rect, line, path, circle, ellipse').length).toBeGreaterThan(2);
+      // Approved successor (owner, 10 October 2026, figure standard): a card
+      // carries its number in the mono face and no pictogram.
+      const card = screen.getByTestId(`thesis-card-${thesis.id}`);
+      expect(card.querySelector('svg')).toBeNull();
+      expect(card).toHaveTextContent(String(THESES.indexOf(thesis) + 1).padStart(2, '0'));
     }
     expect(screen.getByTestId('thesis-wrong-if-note')).toHaveTextContent(
       'Each bet names the result that would prove it wrong',

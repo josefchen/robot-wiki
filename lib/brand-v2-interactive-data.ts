@@ -408,6 +408,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // frame self-labels the duty factors as authored teaching values.
     kind: 'authored-model',
   },
+  'interactive:HandEyePoses': {
+    // Illustrative square-root ring; the 3-pose minimum (OpenCV) and the 12 to 15 sample plateau (MoveIt) are cited.
+    kind: 'authored-model',
+  },
   'interactive:HierarchyTimescales': {
     // Loop-rate lanes for published system stacks; the overlay sweep is
     // authored. Header vocabulary already carries the disclosure.
@@ -429,6 +433,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // "Authored teaching model": RSS-composed magnitudes, not measurements.
     kind: 'authored-model',
   },
+  'interactive:QosQueueAge': {
+    // Illustrative camera rate; the 10-message default queue is the ROS 2 QoS default profile.
+    kind: 'authored-model',
+  },
   'interactive:ReliabilityCompounding': {
     // The compounding calculator over reader-set per-step probabilities;
     // every mount self-labels as an illustrative probability model.
@@ -444,6 +452,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:TeacherStudent': {
     // The caption self-labels ("In this authored toy").
+    kind: 'authored-model',
+  },
+  'interactive:TimeOffsetMiss': {
+    // Illustrative arm and motion; the 55 ms camera delay is Realtime-VLA V2's measurement.
     kind: 'authored-model',
   },
   'interactive:TrainingTimeChart': {
@@ -505,6 +517,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:RecedingHorizon': {
     // The T_p / T_a replanning dial.
+    kind: 'schematic',
+  },
+  'interactive:Ros2Interfaces': {
+    // Message sequences for the three ROS 2 interface types, with example node names.
     kind: 'schematic',
   },
   'interactive:Ros2PolicyLayout': {

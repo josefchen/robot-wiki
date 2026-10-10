@@ -2,9 +2,9 @@ import { AnimatedElement, AnimatedGroup } from '@/components/motion/animated';
 import { MOTION_STAGE } from '@/lib/motion-tokens';
 
 /**
- * A four-legged robot seen from the side, drawn so a lay reader knows it
- * at a glance: a rounded body, a head with an eye, and four legs that each
- * bend at a knee and end in a foot. The two near legs are drawn in full
+ * A four-legged robot seen from the side, as a technical line drawing: a
+ * body outline with a small sensor head at the front, and four thin legs
+ * that each bend at a knee and end in a small foot. The two near legs are drawn in full
  * ink, the far pair lighter behind them unless `farLegOpacity` says
  * otherwise; first-time readers can take the lighter pair for ghosts.
  * Hips and knees are drawn as small rings unless `joints` is false: the
@@ -113,32 +113,28 @@ export function robotDogFallen(
   };
 }
 
-/** Tail, neck, head and body outline for a dog whose hips sit at `hipY`. */
+/** Stroke widths of the line drawing, in CSS px (stage strokes do not scale). */
+const BODY_STROKE = 1.5;
+const LEG_STROKE = 1.5;
+const JOINT_STROKE = 1;
+
+/** Body outline and the sensor head at its front, for a dog whose hips sit at `hipY`. */
 function DogBody({ rear, front, hipY, ink }: { rear: number; front: number; hipY: number; ink: string }) {
   const bodyTop = hipY - 17;
-  const neckX = front + 8;
-  const headX = front + 10;
-  const headY = bodyTop - 15;
   const paper = MOTION_STAGE.background;
   return (
     <>
-      {/* Tail, neck and head behind the body's outline. */}
-      <g fill="none" stroke={ink} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-        <path d={`M ${rear - 9} ${bodyTop + 5} q -7 -4 -9 -12`} />
-        <line x1={neckX - 4} y1={bodyTop + 4} x2={neckX + 2} y2={headY + 10} strokeWidth={5} />
-      </g>
-      <rect x={headX - 4} y={headY} width={20} height={13} rx={5} fill={paper} stroke={ink} strokeWidth={2} />
-      <rect x={headX + 13} y={headY + 6} width={7} height={6} rx={2.5} fill={paper} stroke={ink} strokeWidth={2} />
-      <circle cx={headX + 9} cy={headY + 5} r={1.8} fill={ink} />
+      <rect x={front + 4} y={hipY - 31} width={20} height={11} rx={1.5} fill={paper} stroke={ink} strokeWidth={BODY_STROKE} />
+      <line x1={front + 8} y1={hipY - 20} x2={front + 8} y2={bodyTop} stroke={ink} strokeWidth={BODY_STROKE} />
       <rect
         x={rear - 12}
         y={bodyTop}
         width={r(front - rear + 24)}
-        height={19}
-        rx={8}
+        height={17}
+        rx={2}
         fill={paper}
         stroke={ink}
-        strokeWidth={2}
+        strokeWidth={BODY_STROKE}
       />
     </>
   );
@@ -148,7 +144,7 @@ function HipJoints({ rear, front, hipY, ink }: { rear: number; front: number; hi
   return (
     <>
       {[rear, front].map((x) => (
-        <circle key={x} cx={x} cy={hipY} r={3.2} fill={MOTION_STAGE.background} stroke={ink} strokeWidth={1.5} />
+        <circle key={x} cx={x} cy={hipY} r={2.8} fill={MOTION_STAGE.background} stroke={ink} strokeWidth={JOINT_STROKE} />
       ))}
     </>
   );
@@ -197,17 +193,17 @@ export function RobotDog({
           points={`${hip[0]},${hip[1]} ${knee[0]},${knee[1]} ${foot[0]},${foot[1]}`}
           fill="none"
           stroke={ink}
-          strokeWidth={4}
+          strokeWidth={LEG_STROKE}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        {joints ? <circle cx={knee[0]} cy={knee[1]} r={2.6} fill={paper} stroke={ink} strokeWidth={1.5} /> : null}
+        {joints ? <circle cx={knee[0]} cy={knee[1]} r={2.2} fill={paper} stroke={ink} strokeWidth={JOINT_STROKE} /> : null}
         <ellipse
           data-dog-foot={i}
           cx={foot[0]}
-          cy={r(foot[1] - 2)}
-          rx={4.5}
-          ry={2.6}
+          cy={r(foot[1] - 1.5)}
+          rx={2.6}
+          ry={1.6}
           fill={footFill?.(i) ?? ink}
         />
       </g>
@@ -294,7 +290,7 @@ export function AnimatedRobotDog({
         as="polyline"
         fill="none"
         stroke={ink}
-        strokeWidth={4}
+        strokeWidth={LEG_STROKE}
         strokeLinecap="round"
         strokeLinejoin="round"
         bindings={{
@@ -307,21 +303,21 @@ export function AnimatedRobotDog({
       {joints ? (
         <AnimatedElement
           as="circle"
-          r={2.6}
+          r={2.2}
           fill={paper}
           stroke={ink}
-          strokeWidth={1.5}
+          strokeWidth={JOINT_STROKE}
           bindings={{ cx: (t) => at(t).legs[i].knee[0], cy: (t) => at(t).legs[i].knee[1] }}
         />
       ) : null}
       <AnimatedElement
         as="ellipse"
         data-dog-foot={i}
-        rx={4.5}
-        ry={2.6}
+        rx={2.6}
+        ry={1.6}
         bindings={{
           cx: (t) => at(t).legs[i].foot[0],
-          cy: (t) => r(at(t).legs[i].foot[1] - 2),
+          cy: (t) => r(at(t).legs[i].foot[1] - 1.5),
           fill: (t) => at(t).pose.footFill?.[i] ?? ink,
         }}
       />
@@ -329,11 +325,11 @@ export function AnimatedRobotDog({
         <AnimatedElement
           as="ellipse"
           data-scene-mark={footMarks[i]}
-          rx={8}
-          ry={3.8}
+          rx={4.5}
+          ry={2.4}
           bindings={{
             cx: (t) => at(t).legs[i].foot[0],
-            cy: (t) => r(at(t).legs[i].foot[1] - 2),
+            cy: (t) => r(at(t).legs[i].foot[1] - 1.5),
             fill: (t) => at(t).pose.footFill?.[i] ?? 'none',
             opacity: (t) => (at(t).pose.footFill?.[i] ? 1 : 0),
           }}
