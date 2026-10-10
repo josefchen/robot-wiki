@@ -8,9 +8,11 @@ import {
   FIGURE_MOUNT_CONTINUITY_DIR, figureMountPredecessor, figureMountSuccessorPaths,
   keepsFigureMountObligations, loadFigureMountReview, verifyFigureMountSource, withoutFigureMounts,
 } from '../../lib/audit-figure-mount-continuity';
+import { preWordBudgetTrim } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-const read = (path: string) => readFileSync(join(root, path));
+// The newer word-budget trim layer hands back the figure-mount successor first.
+const read = (path: string) => preWordBudgetTrim(path);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /figure mount continuity drift/;
 const blank = { bytes: 0, sha256: '' };

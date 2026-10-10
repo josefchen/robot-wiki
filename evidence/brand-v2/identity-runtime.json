@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "891cc71dae6035796e134733d75587ed9ac931d02d846abe1ec80da8076fce7d",
+  "fingerprint": "1602b0da675c59b519287c65bee76c4c6d00f09776d2820a11158e3094f05cf7",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -254,7 +254,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3341,
+      "visibleTextLength": 3359,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -1397,7 +1397,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17521,
+      "visibleTextLength": 17437,
       "route": "/classical/calibration/",
       "viewport": "1440x900"
     },
@@ -2159,7 +2159,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15361,
+      "visibleTextLength": 15673,
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "1440x900"
     },
@@ -2921,7 +2921,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17611,
+      "visibleTextLength": 17605,
       "route": "/data-hardware/datasets/",
       "viewport": "1440x900"
     },
@@ -3175,7 +3175,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26986,
+      "visibleTextLength": 26978,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "1440x900"
     },
@@ -3937,7 +3937,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16092,
+      "visibleTextLength": 16116,
       "route": "/frontier/bear-case/",
       "viewport": "1440x900"
     },
@@ -4064,7 +4064,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23002,
+      "visibleTextLength": 23020,
       "route": "/frontier/competing-theses/",
       "viewport": "1440x900"
     },
@@ -6477,7 +6477,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21551,
+      "visibleTextLength": 21552,
       "route": "/manipulation/realtime-execution/",
       "viewport": "1440x900"
     },
@@ -6604,7 +6604,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 37817,
+      "visibleTextLength": 37796,
       "route": "/manipulation/rl-finetuning/",
       "viewport": "1440x900"
     },
@@ -9825,7 +9825,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3103,
+      "visibleTextLength": 3121,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10968,7 +10968,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17084,
+      "visibleTextLength": 17000,
       "route": "/classical/calibration/",
       "viewport": "375x812"
     },
@@ -11730,7 +11730,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14924,
+      "visibleTextLength": 15236,
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "375x812"
     },
@@ -12492,7 +12492,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17216,
+      "visibleTextLength": 17210,
       "route": "/data-hardware/datasets/",
       "viewport": "375x812"
     },
@@ -12746,7 +12746,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26591,
+      "visibleTextLength": 26583,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "375x812"
     },
@@ -13508,7 +13508,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15741,
+      "visibleTextLength": 15765,
       "route": "/frontier/bear-case/",
       "viewport": "375x812"
     },
@@ -13635,7 +13635,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22651,
+      "visibleTextLength": 22669,
       "route": "/frontier/competing-theses/",
       "viewport": "375x812"
     },
@@ -16048,7 +16048,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20908,
+      "visibleTextLength": 20909,
       "route": "/manipulation/realtime-execution/",
       "viewport": "375x812"
     },
@@ -16175,7 +16175,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 37174,
+      "visibleTextLength": 37153,
       "route": "/manipulation/rl-finetuning/",
       "viewport": "375x812"
     },
@@ -19544,14 +19544,14 @@
     },
     {
       "literal": "robot-wiki",
-      "fileCount": 311,
+      "fileCount": 312,
       "fileKinds": [
         ".html",
         ".js",
         ".txt",
         ".xml"
       ],
-      "occurrences": 11005
+      "occurrences": 11006
     },
     {
       "literal": "robot-wiki.com",

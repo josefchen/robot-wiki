@@ -1,75 +1,88 @@
 {
   "version": 1,
-  "description": "Single source of truth for the site motion language. Generated into lib/motion-tokens.ts (TypeScript), components/motion/motion-tokens.css (CSS custom properties), and scripts/motion/motion_theme.py (offline clip theme). Edit this file, then run npm run generate:motion-tokens. The binding design input is docs/design/motion-language.md.",
+  "description": "Single source of truth for the site motion language. Generated into lib/motion-tokens.ts (TypeScript), components/motion/motion-tokens.css (CSS custom properties), and scripts/motion/motion_theme.py (offline clip theme). Edit this file, then run npm run generate:motion-tokens. The binding design input is docs/design/motion-language.md; the palette, stroke and type values follow the owner-approved figure standard of 10 October 2026 (paper and ink, hairlines, grayscale series, one muted blue accent).",
+  "palette": {
+    "note": "The figure palette, written into motion-tokens.css as low-specificity fallbacks for the page-level custom properties of the same names. A role or stage colour that equals one of these hexes resolves to its var(), so the page palette repaints every figure.",
+    "ink": "#1C1C1A",
+    "muted": "#6C6B66",
+    "line": "rgba(28, 28, 26, 0.14)",
+    "line-strong": "rgba(28, 28, 26, 0.22)",
+    "chart-background": "#DEDEDB",
+    "chart-medium": "#A3A39E",
+    "chart-dark": "#3F3F3B",
+    "accent": "#3B6EA8",
+    "ok": "#3F8F4F",
+    "fail": "#C4473A"
+  },
   "stage": {
-    "background": "#F5F6F7",
-    "backgroundToken": "var(--color-paper)",
-    "axes": "#242D33",
-    "axesOpacity": 0.6,
-    "grid": "#D9DADB",
-    "gridOpacity": 0.7,
-    "label": "#0B0B0C",
-    "labelSecondary": "#242D33",
+    "background": "#FFFFFF",
+    "backgroundToken": "var(--paper, var(--color-paper))",
+    "axes": "#1C1C1A",
+    "axesOpacity": 1,
+    "grid": "rgba(28, 28, 26, 0.14)",
+    "gridOpacity": 1,
+    "label": "#1C1C1A",
+    "labelSecondary": "#6C6B66",
     "labelFont": "var(--font-sans)",
-    "labelMinPx": 14
+    "labelMinPx": 11
   },
   "roles": {
     "state": {
       "means": "estimate, belief, position, the main object",
-      "stage": "#007A91",
-      "stageContrast": 4.6,
-      "lightText": "#007A91",
-      "lightGraphic": "#007A91",
-      "encoding": "solid 2 px stroke"
+      "stage": "#1C1C1A",
+      "stageContrast": 17.1,
+      "lightText": "#1C1C1A",
+      "lightGraphic": "#1C1C1A",
+      "encoding": "solid 1.5 px stroke"
     },
     "measurement": {
       "means": "observation, sensor reading, data point",
-      "stage": "#8E6A00",
-      "stageContrast": 4.6,
-      "lightText": "#8E6A00",
-      "lightGraphic": "#8E6A00",
+      "stage": "#3F3F3B",
+      "stageContrast": 10.7,
+      "lightText": "#3F3F3B",
+      "lightGraphic": "#3F3F3B",
       "encoding": "cross or dot markers"
     },
     "action": {
       "means": "policy output, control input, command",
-      "stage": "#866299",
-      "stageContrast": 4.6,
-      "lightText": "#866299",
-      "lightGraphic": "#866299",
+      "stage": "#1C1C1A",
+      "stageContrast": 17.1,
+      "lightText": "#1C1C1A",
+      "lightGraphic": "#1C1C1A",
       "encoding": "arrows, arrowheads"
     },
     "value": {
       "means": "reward, return, value, cost, score",
-      "stage": "#56793D",
-      "stageContrast": 4.6,
-      "lightText": "#56793D",
-      "lightGraphic": "#56793D",
+      "stage": "#3F3F3B",
+      "stageContrast": 10.7,
+      "lightText": "#3F3F3B",
+      "lightGraphic": "#3F3F3B",
       "encoding": "filled bars or areas"
     },
     "constraint": {
       "means": "obstacle, collision, error, limit, failure",
-      "stage": "#CB3B32",
-      "stageContrast": 4.6,
-      "lightText": "#CB3B32",
-      "lightGraphic": "#CB3B32",
+      "stage": "#1C1C1A",
+      "stageContrast": 17.1,
+      "lightText": "#1C1C1A",
+      "lightGraphic": "#1C1C1A",
       "encoding": "45 degree hatch fill"
     },
     "reference": {
       "means": "ground truth, target, baseline",
-      "stage": "#6E6F70",
-      "stageContrast": 4.6,
-      "lightText": "#6E6F70",
-      "lightGraphic": "#6E6F70",
-      "encoding": "dashed 1.5 px"
+      "stage": "#A3A39E",
+      "stageContrast": 2.5,
+      "lightText": "#6C6B66",
+      "lightGraphic": "#A3A39E",
+      "encoding": "dashed 1 px"
     },
     "highlight": {
       "means": "Indicate, selection, the thing to look at now",
-      "stage": "#507C00",
-      "stageContrast": 4.6,
-      "lightText": "#507C00",
-      "lightGraphic": "#C6FF19",
-      "lightGraphicTreatment": "lime halo or underlay behind the one highlighted mark",
-      "encoding": "dark-green note and leader line; a lime halo marks at most one point, never a control fill"
+      "stage": "#3B6EA8",
+      "stageContrast": 5.4,
+      "lightText": "#3B6EA8",
+      "lightGraphic": "#3B6EA8",
+      "lightGraphicTreatment": "the one accent series or mark per figure, in the muted blue",
+      "encoding": "the one accent: the highlighted series, its marker and its plain note, never a control fill"
     }
   },
   "uncertainty": {
@@ -110,16 +123,16 @@
   },
   "type": {
     "stageLabelFont": "var(--font-sans)",
-    "stageLabelMinPx": 14,
-    "stageLabelFill": "#0B0B0C",
-    "stageSecondaryFill": "#242D33",
-    "stageReadoutFont": "var(--font-sans)",
+    "stageLabelMinPx": 11,
+    "stageLabelFill": "#1C1C1A",
+    "stageSecondaryFill": "#6C6B66",
+    "stageReadoutFont": "var(--font-mono)",
     "stageScale": {
-      "note": "Painted CSS pixels at any stage at least fullSizeMinStagePx wide (the stage of the 375 px article layout). Every stage role paints at 14 px, the smallest size a reader with no engineering background reads at a glance; roles differ by weight and colour, not size. Readouts use the brand sans with tabular figures; the mono face is for code only. A narrower stage shrinks the whole figure, text included, so its layout still fits.",
-      "labelPx": 14,
-      "axisPx": 14,
-      "tickPx": 14,
-      "readoutPx": 14,
+      "note": "Painted CSS pixels at any stage at least fullSizeMinStagePx wide. Labels and axis titles paint at 12 px and tick numerals at 11 px, the figure standard of 10 October 2026; readouts take the mono face with tabular figures. A narrower stage shrinks the whole figure, text included, so its layout still fits.",
+      "labelPx": 12,
+      "axisPx": 12,
+      "tickPx": 11,
+      "readoutPx": 12,
       "fullSizeMinStagePx": 299
     }
   }

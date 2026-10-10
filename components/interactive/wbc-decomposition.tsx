@@ -30,6 +30,7 @@ import {
   type WbcApproach,
   type WbcApproachId,
 } from '@/lib/wbc-decomposition';
+import { MOTION_STAGE } from '@/lib/motion-tokens';
 
 /**
  * WbcDecomposition: the three-decomposition comparison for the humanoid
@@ -147,10 +148,10 @@ function Humanoid() {
   const ink = CHART_STRUCTURE.label;
   return (
     <g data-testid="robot-boundary">
-      <g data-testid="humanoid" fill="none" stroke={ink} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-        <rect x={BODY_X - 10} y={by(56)} width={20} height={22} rx={6} />
+      <g data-testid="humanoid" fill="none" stroke={ink} strokeWidth={CHART_STROKE.trace} strokeLinecap="round" strokeLinejoin="round">
+        <rect x={BODY_X - 10} y={by(56)} width={20} height={22} rx={2} />
         <line x1={BODY_X} y1={by(78)} x2={BODY_X} y2={by(84)} />
-        <rect x={BODY_X - 16} y={by(84)} width={32} height={58} rx={6} />
+        <rect x={BODY_X - 16} y={by(84)} width={32} height={58} rx={2} />
         <polyline points={`${BODY_X - 16},${by(92)} ${BODY_X - 27},${by(120)} ${BODY_X - 30},${by(146)}`} />
         <polyline points={`${BODY_X + 16},${by(92)} ${BODY_X + 27},${by(120)} ${BODY_X + 30},${by(146)}`} />
         <polyline points={`${BODY_X - 8},${by(142)} ${BODY_X - 9},${by(178)} ${BODY_X - 10},${by(212)} ${BODY_X - 20},${by(212)}`} />
@@ -158,7 +159,7 @@ function Humanoid() {
       </g>
       <g data-series="motors" data-chart-role="action">
         {MOTORS.map(([x, y]) => (
-          <circle key={`${x}-${y}`} cx={x} cy={y} r={3.5} fill={roleColour('action')} />
+          <circle key={`${x}-${y}`} cx={x} cy={y} r={2.75} fill={MOTION_STAGE.background} stroke={roleColour('action')} strokeWidth={CHART_STROKE.structure} />
         ))}
       </g>
     </g>
@@ -211,9 +212,8 @@ function StackLayer({
         y={top}
         width={BAND_RIGHT - BAND_LEFT}
         height={BAND_H}
-        rx={4}
         fill="none"
-        stroke={noted ? CHART_STRUCTURE.label : CHART_STRUCTURE.axes}
+        stroke={noted ? CHART_STRUCTURE.label : 'var(--chart-medium)'}
         strokeWidth={noted ? CHART_STROKE.trace : CHART_STROKE.reference}
       />
       <text x={TEXT_X} y={midY} fill={CHART_STRUCTURE.label}>

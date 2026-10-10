@@ -98,38 +98,6 @@ function NotDisclosed() {
   );
 }
 
-/** A five-fingered hand drawn in line: palm, jointed fingers, thumb. */
-function HandDrawing() {
-  const finger = (x: number, top: number) => (
-    <g key={x}>
-      <line x1={x} y1={30} x2={x} y2={top + 9} />
-      <line x1={x} y1={top + 7} x2={x} y2={top} />
-    </g>
-  );
-  return (
-    <svg
-      viewBox="0 0 48 60"
-      aria-hidden="true"
-      focusable="false"
-      className="h-14 w-11 shrink-0 text-text-dim"
-      fill="none"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12 30 Q12 54 24 56 Q36 54 38 30 Z" strokeWidth={2} />
-      <g strokeWidth={5}>
-        {finger(15, 10)}
-        {finger(22, 4)}
-        {finger(29, 5)}
-        {finger(36, 12)}
-        <line x1={12} y1={40} x2={6} y2={30} />
-        <line x1={5} y1={28} x2={3} y2={22} />
-      </g>
-    </svg>
-  );
-}
-
 function SourceLink({ id, label }: { id: string; label: string }) {
   const citationFor = useCitationLookup();
   const citation = citationFor(id);
@@ -157,13 +125,12 @@ function HandCard({ hand, selected }: { hand: DexterousHand; selected: boolean }
       data-testid={`hand-card-${hand.id}`}
       data-selected={selected || undefined}
       className={cx(
-        'm-0! flex gap-3 border-t border-border-strong pt-3',
-        selected && 'outline-2 outline-offset-2 outline-highlight',
+        'm-0! flex gap-3 border-t pt-3',
+        selected ? 'border-text' : 'border-border-strong',
       )}
     >
-      <HandDrawing />
       <div className="min-w-0 flex-1">
-        <div className="font-medium text-text">{hand.name}</div>
+        <div className={cx('text-text', selected && 'font-semibold')}>{hand.name}</div>
         <div className="text-text-dim">{hand.maker}</div>
         <dl className="m-0 mt-1.5 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 sm:grid-cols-1">
           <div className="contents sm:block">

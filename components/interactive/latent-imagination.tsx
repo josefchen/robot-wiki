@@ -36,6 +36,7 @@ import {
   imagineDeviation,
   rewardPredictionError,
 } from '@/lib/latent-imagination';
+import { MOTION_STAGE } from '@/lib/motion-tokens';
 
 /**
  * LatentImagination: an illustrative compounding-error toy, drawn as a
@@ -118,7 +119,7 @@ function path(points: readonly ChartPoint[]): string {
   return points.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(2)} ${y.toFixed(2)}`).join(' ');
 }
 
-/** The thrower: a base on the floor and a two-segment arm ending at the ball. */
+/** The thrower, as a line drawing: an outlined base on the floor and a two-link arm ending at the ball. */
 function RobotArm() {
   const shoulder: ChartPoint = [22, GROUND - 7];
   const elbow: ChartPoint = [17, GROUND - 30];
@@ -127,14 +128,16 @@ function RobotArm() {
     <g
       data-scene-structure="robot-arm"
       stroke={CHART_STRUCTURE.label}
-      strokeWidth={5}
+      strokeWidth={CHART_STROKE.trace}
       strokeLinecap="round"
       strokeLinejoin="round"
       fill="none"
     >
-      <rect x={8} y={GROUND - 7} width={28} height={7} rx={2} fill={CHART_STRUCTURE.label} stroke="none" />
+      <rect x={10} y={GROUND - 6} width={24} height={6} />
       <path d={path([shoulder, elbow, hand])} />
-      <circle cx={elbow[0]} cy={elbow[1]} r={4} fill={CHART_STRUCTURE.label} stroke="none" />
+      {[shoulder, elbow].map(([cx, cy]) => (
+        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={2.5} fill={MOTION_STAGE.background} />
+      ))}
     </g>
   );
 }

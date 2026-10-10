@@ -469,11 +469,11 @@ function Robot() {
       data-scene-structure="robot"
       bindings={{ transform: (t) => `translate(${r2(xScale(kalmanFrameAt(t).robot))} 0)` }}
     >
-      <rect x={-11} y={RAIL - 17} width={22} height={10} rx={3} fill={ink} />
-      <line x1={3} y1={RAIL - 17} x2={3} y2={RAIL - 21} stroke={ink} strokeWidth={1.6} />
-      <rect x={-1} y={RAIL - 26} width={9} height={5} rx={1.5} fill={ink} />
-      <circle cx={-6} cy={RAIL - 4} r={4} fill="var(--color-surface)" stroke={ink} strokeWidth={1.6} />
-      <circle cx={6} cy={RAIL - 4} r={4} fill="var(--color-surface)" stroke={ink} strokeWidth={1.6} />
+      <rect x={-11} y={RAIL - 17} width={22} height={10} fill="var(--color-surface)" stroke={ink} strokeWidth={1.25} />
+      <line x1={3} y1={RAIL - 17} x2={3} y2={RAIL - 21} stroke={ink} strokeWidth={1} />
+      <rect x={-1} y={RAIL - 26} width={9} height={5} fill="var(--color-surface)" stroke={ink} strokeWidth={1} />
+      <circle cx={-6} cy={RAIL - 4} r={3.5} fill="var(--color-surface)" stroke={ink} strokeWidth={1.25} />
+      <circle cx={6} cy={RAIL - 4} r={3.5} fill="var(--color-surface)" stroke={ink} strokeWidth={1.25} />
     </AnimatedGroup>
   );
 }
@@ -605,7 +605,7 @@ function TrackLayer() {
         bump={(t) => kalmanFrameAt(t).guess}
         shown={(t) => 1 - 0.5 * kalmanFrameAt(t).settled}
         fillAlpha={MOTION_UNCERTAINTY.fillAlpha}
-        strokeWidth={1.75}
+        strokeWidth={1.5}
       />
       <Bell
         mark="reading"
@@ -614,7 +614,7 @@ function TrackLayer() {
         shown={(t) => (kalmanFrameAt(t).rise > 0 ? 1 - 0.5 * kalmanFrameAt(t).settled : 0)}
         lift={(t) => kalmanFrameAt(t).rise}
         fillAlpha={MOTION_UNCERTAINTY.fillAlpha}
-        strokeWidth={1.75}
+        strokeWidth={1.5}
       />
       <Bell
         mark="blend"
@@ -622,12 +622,12 @@ function TrackLayer() {
         bump={(t) => kalmanFrameAt(t).blend}
         shown={(t) => kalmanFrameAt(t).blendShown}
         fillAlpha={MOTION_UNCERTAINTY.fillAlpha}
-        strokeWidth={2.5}
+        strokeWidth={2}
       />
       <Robot />
       {/* The bracket from the guess to the reading, with the blend riding along it. */}
       <AnimatedGroup bindings={{ opacity: (t) => fade(kalmanFrameAt(t).bracket) }}>
-        <path data-scene-mark="blend-share" d={SHARE_PATH} fill="none" stroke="var(--role-highlight-stage)" strokeWidth={1.75} />
+        <path data-scene-mark="blend-share" d={SHARE_PATH} fill="none" stroke="var(--role-highlight-stage)" strokeWidth={1.25} />
         <AnimatedElement
           as="circle"
           data-scene-mark="blend-point"

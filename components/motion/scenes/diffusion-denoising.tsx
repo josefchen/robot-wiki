@@ -54,7 +54,7 @@ const PLOT: PlotArea = { left: 96, right: 244, top: 56, bottom: 208 };
 const X_DOMAIN = { min: -3.1, max: 2.7 };
 const Y_DOMAIN = { min: -2.75, max: 2.85 };
 const FONT = 14;
-const DOT_R = 2.8;
+const DOT_R = 1.6;
 
 const TRAJECTORY = generateDenoisingTrajectory();
 /**
@@ -465,7 +465,7 @@ function ActionSpace() {
         data-scene-mark="observed-state"
         cx={r2(ORIGIN[0])}
         cy={r2(ORIGIN[1])}
-        r={4.5}
+        r={3}
         fill="var(--role-state-stage)"
         bindings={{ opacity: (t) => Number(smooth(clamp01(beatProgress(0)(t) * 3)).toFixed(3)) }}
       />
@@ -482,7 +482,7 @@ function ActionSpace() {
               d={arrow.shaft}
               progress={arrowProgress(index)}
               roleVar="var(--role-action-stage)"
-              strokeWidth={2}
+              strokeWidth={1.5}
             />
             <AnimatedElement
               as="polygon"
@@ -715,7 +715,7 @@ function DiffusionStage() {
 
       {/* The one highlight note, pointing at both finished clusters. */}
       <AnimatedElement as="g" data-figure-annotation="" bindings={{ opacity: noteShare }}>
-        <g data-scene-structure="note-leaders" stroke="var(--role-highlight-stage)" strokeWidth={1.5}>
+        <g data-scene-structure="note-leaders" stroke="var(--role-highlight-stage)" strokeWidth={1}>
           <line x1={r2(MODE_ONE[0])} y1={STATUS_Y + NOTE_LINE + 8} x2={r2(MODE_ONE[0])} y2={r2(clusterTop(0) - 3)} />
           <line x1={r2(MODE_TWO[0])} y1={STATUS_Y + NOTE_LINE + 8} x2={r2(MODE_TWO[0])} y2={r2(clusterTop(1) - 3)} />
         </g>

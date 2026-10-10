@@ -153,11 +153,11 @@ function BatchScaleStage() {
         virtual robots practising at once
       </text>
 
-      <g data-scene-mark="fixed-budget-time" fill="none" stroke="var(--role-value-stage)" strokeWidth={2.4} strokeLinecap="round">
+      <g data-scene-mark="fixed-budget-time" fill="none" stroke="var(--role-value-stage)" strokeWidth={1.5} strokeLinecap="round">
         {gpuSegments.map(({ d }) => <path key={d} d={d} />)}
       </g>
-      <AnimatedGroup data-scene-mark="cpu-cost-time" fill="none" stroke="var(--role-constraint-stage)" strokeWidth={2}
-        strokeDasharray="6 4" bindings={{ opacity: (t) => batchScaleFrame(t).cpuVisible }}>
+      <AnimatedGroup data-scene-mark="cpu-cost-time" fill="none" stroke="var(--role-constraint-stage)" strokeWidth={1.5}
+        strokeDasharray="5 4" bindings={{ opacity: (t) => batchScaleFrame(t).cpuVisible }}>
         {cpuSegments.map(({ d, offset }) => <path key={d} d={d} strokeDashoffset={offset} />)}
       </AnimatedGroup>
       <AnimatedGroup bindings={{ opacity: (t) => batchScaleFrame(t).cpuVisible }}>
@@ -166,10 +166,10 @@ function BatchScaleStage() {
       </AnimatedGroup>
       <text data-scene-stage-label="gpu-label" x={RIGHT + 6} y={160} fontSize={14} fill={INK}>no overhead</text>
 
-      <AnimatedPath data-robot-dots="" fill={DIM}
+      <AnimatedPath data-robot-dots="" fill="var(--chart-medium)"
         bindings={{ d: (t) => dotGrid(batchScaleFrame(t).environments) }} />
 
-      <AnimatedCircle data-scene-mark="selected-environment-count" r={5}
+      <AnimatedCircle data-scene-mark="selected-environment-count" r={3.5}
         fill="var(--role-highlight-stage)" stroke="var(--motion-stage)" strokeWidth={1.5}
         bindings={{
           cx: (t) => x(batchScaleFrame(t).environments),
@@ -179,10 +179,10 @@ function BatchScaleStage() {
 
       {/* The settle note sits in the empty corner under the curves, led to the lime dot. */}
       <AnimatedGroup data-figure-annotation="" bindings={{ opacity: (t) => batchScaleFrame(t).recap }}>
-        <text data-scene-stage-label="annotation" x={68} y={136} fontSize={14} fontWeight={600} fill={INK}>
+        <text data-scene-stage-label="annotation" x={68} y={136} fontSize={14} fill={INK}>
           16,384 at once:
         </text>
-        <text data-scene-stage-label="annotation" x={68} y={158} fontSize={14} fontWeight={600} fill={INK}>
+        <text data-scene-stage-label="annotation" x={68} y={158} fontSize={14} fill={INK}>
           about {trainingTimeWords(finalSeconds)}
         </text>
         <g data-scene-structure="annotation-leader">

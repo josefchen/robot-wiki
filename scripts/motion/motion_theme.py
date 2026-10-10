@@ -5,31 +5,31 @@ smooth() is a different sigmoid, so smooth() here overrides it with the
 motion language's curve. Keep this file generated.
 """
 
-STAGE_BACKGROUND = "#F5F6F7"
-STAGE_AXES = "#242D33"
-STAGE_AXES_OPACITY = 0.6
-STAGE_GRID_OPACITY = 0.7
-STAGE_LABEL = "#0B0B0C"
-STAGE_LABEL_SECONDARY = "#242D33"
+STAGE_BACKGROUND = "#FFFFFF"
+STAGE_AXES = "#1C1C1A"
+STAGE_AXES_OPACITY = 1
+STAGE_GRID_OPACITY = 1
+STAGE_LABEL = "#1C1C1A"
+STAGE_LABEL_SECONDARY = "#6C6B66"
 
 ROLE_COLORS = {
-    'state': '#007A91',
-    'measurement': '#8E6A00',
-    'action': '#866299',
-    'value': '#56793D',
-    'constraint': '#CB3B32',
-    'reference': '#6E6F70',
-    'highlight': '#507C00',
+    'state': '#1C1C1A',
+    'measurement': '#3F3F3B',
+    'action': '#1C1C1A',
+    'value': '#3F3F3B',
+    'constraint': '#1C1C1A',
+    'reference': '#A3A39E',
+    'highlight': '#3B6EA8',
 }
 
 ROLE_ENCODINGS = {
-    'state': "solid 2 px stroke",
+    'state': "solid 1.5 px stroke",
     'measurement': "cross or dot markers",
     'action': "arrows, arrowheads",
     'value': "filled bars or areas",
     'constraint': "45 degree hatch fill",
-    'reference': "dashed 1.5 px",
-    'highlight': "dark-green note and leader line; a lime halo marks at most one point, never a control fill",
+    'reference': "dashed 1 px",
+    'highlight': "the one accent: the highlighted series, its marker and its plain note, never a control fill",
 }
 
 UNCERTAINTY_FILL_ALPHA = 0.22
@@ -59,23 +59,23 @@ FONT_FILE = "fonts/IBMPlexSans-wdth-wght.ttf"
 CLIP_STAGE_PX = 299
 
 TYPE_PX = {
-    'label': 14,
-    'axis': 14,
-    'tick': 14,
+    'label': 12,
+    'axis': 12,
+    'tick': 11,
 }
 
 STROKE_PX = {
-    'trace': 2,
-    'reference': 1.5,
-    'structure': 1,
+    'trace': 1.5,
+    'reference': 1,
+    'structure': 0.75,
 }
 
-DASH_PX = (6, 3)
-TICK_LENGTH_PX = 7
+DASH_PX = (4, 2)
+TICK_LENGTH_PX = 5.5
 
 MARKER_RADIUS_PX = {
-    'single': 4,
-    'dense': 1,
+    'single': 3,
+    'dense': 0.75,
 }
 
 

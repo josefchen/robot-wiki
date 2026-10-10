@@ -10,6 +10,7 @@ import {
   PresetGroup,
 } from '@/components/ui/instrument';
 import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
+import { ArmSketch, GRIPPER_SIZE, armIk } from '@/components/motion/arm-sketch';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
@@ -124,7 +125,7 @@ const INK = CHART_STRUCTURE.label;
 const SOFT = CHART_STRUCTURE.labelSecondary;
 const STATE = roleColour('state');
 const ACTION = roleColour('action');
-const LIME = 'var(--role-highlight-graphic)';
+const ACCENT = roleColour('highlight');
 /** How strongly a form the selected group does not predict is drawn. */
 const FADED = 0.32;
 
@@ -194,90 +195,59 @@ function StageText({
   x,
   y,
   colour = INK,
-  strong = false,
   children,
 }: {
   x: number;
   y: number;
   colour?: string;
-  strong?: boolean;
   children: ReactNode;
 }) {
   return (
-    <text x={x} y={y} fontSize={CHART_TYPE.labelPx} fontWeight={strong ? 600 : undefined} fill={colour}>
+    <text x={x} y={y} fontSize={CHART_TYPE.labelPx} fill={colour}>
       {children}
     </text>
   );
 }
 
-/** A cup: a tapered body with a handle, `s` times its base size. */
+/** A cup in outline: a tapered body with a handle, `s` times its base size. */
 function Cup({ cx, bottom, s }: { cx: number; bottom: number; s: number }) {
   const top = bottom - 13 * s;
   return (
-    <g fill={INK}>
+    <g fill="none" stroke={INK} strokeWidth={CHART_STROKE.structure} strokeLinejoin="round">
       <path d={`M${f(cx - 6 * s)} ${f(top)} H${f(cx + 6 * s)} L${f(cx + 5 * s)} ${f(bottom)} H${f(cx - 5 * s)} Z`} />
       <path
         d={`M${f(cx + 5.6 * s)} ${f(top + 3 * s)} q${f(5 * s)} ${f(0.5 * s)} ${f(4.4 * s)} ${f(4.6 * s)} q${f(-0.6 * s)} ${f(3.2 * s)} ${f(-5.2 * s)} ${f(3.4 * s)}`}
-        fill="none"
-        stroke={INK}
-        strokeWidth={f(1.6 * s)}
       />
     </g>
   );
 }
 
 /**
- * A robot arm on a table beside a cup, drawn into a box: the arm reaches
- * over the cup with its gripper open, or, `lifted`, holds the cup in the
- * air. Sizes follow the box, so the scene reads the same small and large.
+ * A robot arm on a table beside a cup, drawn into a square hairline box as
+ * a thin line drawing: the arm reaches over the cup with its gripper open,
+ * or, `lifted`, holds the cup in the air. Sizes follow the box, so the
+ * scene reads the same small and large.
  */
 function Scene({ x, y, w, h, lifted }: { x: number; y: number; w: number; h: number; lifted: boolean }) {
   const s = Math.min(w / 100, h / 62);
   const table = y + h - 9 * s;
   const cx = x + w * 0.7;
   const cupBottom = lifted ? table - 14 * s : table;
-  const tip = lifted ? cupBottom - 4 * s : cupBottom - 20 * s;
-  const span = (lifted ? 17 : 24) * s;
-  const palm = tip - 10 * s;
-  const wrist = palm - 3 * s;
-  const shoulder = { x: x + 18 * s, y: table - 5 * s };
-  const elbow = { x: shoulder.x + (cx - shoulder.x) * 0.3, y: y + 7 * s };
-  const finger = 3 * s;
+  const cupTop = cupBottom - 13 * s;
+  const tipBelowWrist = GRIPPER_SIZE * 1.15;
+  const wrist = { x: cx, y: lifted ? cupTop + 5 * s - tipBelowWrist : cupTop - 7 * s - tipBelowWrist };
+  const base = { x: x + 18 * s, y: table - 7 * s };
+  const link = Math.hypot(wrist.x - base.x, wrist.y - base.y) * 0.66;
+  const angles = armIk(base, link, link, wrist, 'up') ?? { shoulder: Math.PI / 3, elbow: -Math.PI / 2 };
   return (
     <g data-scene-structure="">
-      <rect
-        x={x}
-        y={y}
-        width={w}
-        height={h}
-        rx={4}
-        fill="none"
-        stroke={CHART_STRUCTURE.axes}
-        strokeOpacity={CHART_STRUCTURE.axesOpacity}
-        strokeWidth={CHART_STROKE.structure * 2}
-      />
-      <g fill={SOFT}>
-        <rect x={f(x + 4)} y={f(table)} width={f(w - 8)} height={f(2.5 * s)} rx={1} opacity={0.7} />
-        <rect x={f(shoulder.x - 7 * s)} y={f(table - 5 * s)} width={f(14 * s)} height={f(5 * s)} rx={f(1.5 * s)} />
-      </g>
-      <polyline
-        points={`${f(shoulder.x)},${f(shoulder.y)} ${f(elbow.x)},${f(elbow.y)} ${f(cx)},${f(wrist - 8 * s)} ${f(cx)},${f(wrist)}`}
-        fill="none"
-        stroke={SOFT}
-        strokeWidth={f(4.5 * s)}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <g fill={INK}>
-        <circle cx={f(shoulder.x)} cy={f(shoulder.y)} r={f(2.4 * s)} />
-        <circle cx={f(elbow.x)} cy={f(elbow.y)} r={f(2.4 * s)} />
+      <rect x={x} y={y} width={w} height={h} fill="none" stroke={CHART_STRUCTURE.axes} strokeWidth={CHART_STROKE.structure} />
+      <g fill="none" strokeWidth={CHART_STROKE.structure}>
+        <line x1={f(x + 4)} y1={f(table)} x2={f(x + w - 4)} y2={f(table)} stroke="var(--line-strong)" />
+        <rect x={f(base.x - 5 * s)} y={f(base.y)} width={f(10 * s)} height={f(table - base.y)} stroke={INK} />
       </g>
       <Cup cx={cx} bottom={cupBottom} s={s} />
-      <g fill={SOFT}>
-        <rect x={f(cx - span / 2)} y={f(wrist)} width={f(span)} height={f(3 * s)} rx={1} />
-        <rect x={f(cx - span / 2)} y={f(palm)} width={f(finger)} height={f(10 * s)} rx={1} />
-        <rect x={f(cx + span / 2 - finger)} y={f(palm)} width={f(finger)} height={f(10 * s)} rx={1} />
-      </g>
+      <ArmSketch base={base} l1={link} l2={link} angles={angles} pointDown />
     </g>
   );
 }
@@ -295,7 +265,7 @@ function Beads({ marked }: { marked: boolean }) {
           fill={STATE}
           fillOpacity={level}
           stroke={STATE}
-          strokeWidth={CHART_STROKE.structure * 2}
+          strokeWidth={CHART_STROKE.structure}
         />
       ))}
     </g>
@@ -311,7 +281,6 @@ function FactTag({ marked }: { marked: boolean }) {
         y={TAG.y}
         width={TAG.w}
         height={TAG.h}
-        rx={4}
         fill="none"
         stroke={STATE}
         strokeOpacity={marked ? undefined : FADED}
@@ -343,7 +312,7 @@ function NextMoves() {
 /** One form's label: dark and bold when it is the selected group's form. */
 function FormLabel({ form, marked }: { form: Form; marked: boolean }) {
   return (
-    <StageText x={OUT_X} y={ROW[form].label} colour={marked ? INK : SOFT} strong={marked}>
+    <StageText x={OUT_X} y={ROW[form].label} colour={marked ? INK : SOFT}>
       {FORM_LABEL[form]}
     </StageText>
   );
@@ -371,17 +340,16 @@ function PanelArt({ id, hidden, describedBy }: { id: WmParadigmId; hidden: boole
       data-testid={`panel-art-${id}`}
       data-form={form}
     >
-      <rect
+      <line
         data-chart-role="highlight"
-        x={OUT_X - 6}
-        y={band.top}
-        width={W - OUT_X + 4}
-        height={band.bottom - band.top}
-        rx={4}
-        fill={LIME}
-        fillOpacity={0.35}
+        x1={OUT_X - 8}
+        y1={band.top + 4}
+        x2={OUT_X - 8}
+        y2={band.bottom - 4}
+        stroke={ACCENT}
+        strokeWidth={CHART_STROKE.trace}
       />
-      <StageText x={NOW.x} y={ROW.pictures.label} strong>
+      <StageText x={NOW.x} y={ROW.pictures.label}>
         Now
       </StageText>
       <Scene {...NOW} lifted={false} />
@@ -396,7 +364,7 @@ function PanelArt({ id, hidden, describedBy }: { id: WmParadigmId; hidden: boole
             y1={FAN_FROM.y}
             x2={OUT_X - 5}
             y2={ROW[row].mid}
-            colour={row === form ? INK : SOFT}
+            colour={row === form ? ACCENT : SOFT}
             width={row === form ? CHART_STROKE.trace : CHART_STROKE.reference}
             dashed={row !== form}
           />
@@ -467,7 +435,7 @@ function UsedFor({ selected }: { selected: WmParadigm }) {
                   data-brand-surface-id="surface:flat"
                   data-active={served}
                   className={cx(
-                    'rounded-xs border px-2 py-0.5 font-sans text-sm leading-snug',
+                    'rounded-none border px-2 py-0.5 font-sans text-[13px] leading-snug',
                     served ? USE_LINE.served : USE_LINE.unserved,
                   )}
                 >
@@ -582,17 +550,17 @@ export function WmDisambiguator({
                 aria-pressed={p.id === selectedId}
                 aria-label={`${p.short}: predicts ${PREDICTS_NOTE[p.id]}`}
                 onClick={() => setSelectedId(p.id)}
-                className="group grid content-start justify-items-start gap-1 rounded-xs py-1 text-left font-sans active:translate-y-[1px]"
+                className="group grid content-start justify-items-start gap-1 rounded-none py-1 text-left font-sans"
               >
                 <span
                   data-brand-surface-id="surface:flat"
-                  className="rounded-xs px-2 py-1 text-sm font-medium text-text underline decoration-border-strong decoration-1 underline-offset-4 transition-colors group-hover:decoration-text group-aria-pressed:bg-highlight group-aria-pressed:text-ink group-aria-pressed:no-underline"
+                  className="py-1 text-[13px] text-text-dim underline decoration-transparent decoration-1 underline-offset-4 transition-colors group-hover:text-text group-aria-pressed:text-text group-aria-pressed:decoration-current"
                 >
                   {p.short}
                 </span>
                 <span
                   data-testid={`predicts-${p.id}`}
-                  className="px-2 text-sm leading-snug text-text-dim group-hover:text-text group-aria-pressed:text-text"
+                  className="text-[13px] leading-snug text-text-dim group-hover:text-text group-aria-pressed:text-text"
                 >
                   {`Predicts ${PREDICTS_NOTE[p.id]}`}
                 </span>

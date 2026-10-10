@@ -23,7 +23,7 @@ describe('AdvantageScrubber', () => {
     );
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Advantage tags');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'Tagging each step as helping or hurting lets the robot learn from its own failures',
+      'Tagging each step as helping or hurting lets the robot trace a failure to a cause long before it.',
     );
     expect(screen.getByRole('button', { name: /^play$/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /^the attempt$/i })).toHaveAttribute('aria-pressed', 'true');
@@ -40,7 +40,7 @@ describe('AdvantageScrubber', () => {
     expect(adjust).toContainElement(screen.getByRole('button', { name: /reset/i }));
   });
 
-  it('draws one pictogram per step, worded ends on the value line and one note', () => {
+  it('draws one numbered marker per step, worded ends on the value line and one note', () => {
     const { container } = render(<AdvantageScrubber />);
     const steps = container.querySelectorAll('[data-step]');
     expect(steps).toHaveLength(EPISODE_SEGMENTS.length);

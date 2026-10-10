@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "4e1345fe09d6bf0cc41abdd2e7734e98216a18209b9191f3ea7b1a59fa5501f6",
+  "fingerprint": "37d90117294e54e42d83e3bfea8122d6040881da15796dc941199b2813d63f84",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -11,8 +11,8 @@
     "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
     "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
     "graphicTag": "svg",
-    "graphicTopPx": 1196,
-    "graphicHeightPx": 689,
+    "graphicTopPx": 1191,
+    "graphicHeightPx": 384,
     "posterMarkCount": 3,
     "playerMountedAtFirstPaint": false,
     "posterControls": [
@@ -25,10 +25,10 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 49,
-    "focusOutlineWidthPx": 2,
+    "playingFrameRequests": 50,
+    "focusOutlineWidthPx": 1,
     "focusOutlineStyle": "solid",
-    "focusOutlineColour": "rgb(36, 95, 255)",
+    "focusOutlineColour": "rgb(28, 28, 26)",
     "steps": [
       {
         "key": "Home",
@@ -78,8 +78,8 @@
     "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
     "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
     "graphicTag": "svg",
-    "graphicTopPx": 1196,
-    "graphicHeightPx": 689,
+    "graphicTopPx": 1191,
+    "graphicHeightPx": 384,
     "posterMarkCount": 3,
     "playerMountedAtFirstPaint": false,
     "posterControls": [
@@ -92,10 +92,10 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 49,
-    "focusOutlineWidthPx": 2,
+    "playingFrameRequests": 50,
+    "focusOutlineWidthPx": 1,
     "focusOutlineStyle": "solid",
-    "focusOutlineColour": "rgb(36, 95, 255)",
+    "focusOutlineColour": "rgb(28, 28, 26)",
     "steps": [
       {
         "key": "Home",
@@ -141,17 +141,17 @@
       {
         "text": "Playground",
         "path": "/playground/",
-        "topPx": 2595
+        "topPx": 2324
       },
       {
         "text": "How robots work",
         "path": "/how-robots-work/",
-        "topPx": 2595
+        "topPx": 2324
       },
       {
         "text": "Market Map",
         "path": "/market-map/",
-        "topPx": 2595
+        "topPx": 2324
       }
     ],
     "graphics": [],
@@ -2893,7 +2893,7 @@
       "documentScrollWidthPx": 320,
       "documentClientWidthPx": 320,
       "failures": [],
-      "measuredMembers": 285
+      "measuredMembers": 284
     },
     {
       "id": "profile:home-zoom-200-equivalent",
@@ -2904,7 +2904,7 @@
       "documentScrollWidthPx": 720,
       "documentClientWidthPx": 720,
       "failures": [],
-      "measuredMembers": 285
+      "measuredMembers": 284
     },
     {
       "id": "profile:home-text-200",
@@ -3091,13 +3091,13 @@
         "family": "IBM Plex Sans"
       }
     ],
-    "borderedBoxCount": 1,
+    "borderedBoxCount": 2,
     "chartDisclosureSummaries": [
       {
         "text": "Adjust more",
         "textTransform": "none",
         "letterSpacing": "normal",
-        "fontSizePx": 14,
+        "fontSizePx": 13,
         "borderTopWidthPx": 0,
         "borderBottomWidthPx": 0
       }

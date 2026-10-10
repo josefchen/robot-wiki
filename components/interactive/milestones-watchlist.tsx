@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useRef, useState, type ReactNode } from 'react';
+import { useId, useRef, useState } from 'react';
 import { CiteRef } from '@/components/article/citation-records';
 import { TableScroll } from '@/components/ui';
 import {
@@ -22,7 +22,7 @@ import { cx } from '@/lib/utils';
 /**
  * MilestonesWatchlist: the scoreboard for the bear-case module. Eight
  * results that would prove the skeptics wrong, drawn as tiles with a
- * small icon and a gauge that is empty (not yet), half full (partly
+ * number and a gauge that is empty (not yet), half full (partly
  * there) or full (done). The big number states the score. Tapping a tile
  * opens the published evidence behind its status call and the observation
  * that would flip it; the filter narrows the board by status.
@@ -73,62 +73,6 @@ const PLAIN_NAME: Record<string, string> = {
 export function plainMilestoneName(id: string): string {
   return PLAIN_NAME[id] ?? MILESTONES.find((milestone) => milestone.id === id)?.name ?? id;
 }
-
-/** One line icon per milestone, drawn in a 40 × 32 box. */
-const ICONS: Record<string, ReactNode> = {
-  // A house.
-  'unseen-homes-policy': <path d="M6 16 L20 5 L34 16 M10 13 V28 H30 V13 M17 28 V20 H23 V28" />,
-  // A row of humanoids.
-  'ten-thousand-unit-deployment': (
-    <>
-      {[6, 17, 28].map((x) => (
-        <g key={x}>
-          <circle cx={x + 3} cy={8} r={3} />
-          <path d={`M${x + 3} 11 V21 M${x} 14 H${x + 6} M${x + 3} 21 L${x + 1} 28 M${x + 3} 21 L${x + 5} 28`} />
-        </g>
-      ))}
-    </>
-  ),
-  // A shared checklist.
-  'open-benchmark': (
-    <>
-      <rect x={10} y={4} width={20} height={25} rx={2} />
-      <path d="M14 11 L16 13 L19 9 M22 11 H27 M14 18 L16 20 L19 16 M22 18 H27 M14 25 H27" />
-    </>
-  ),
-  // A target.
-  'broad-rl-reliability': (
-    <>
-      <circle cx={20} cy={16} r={12} />
-      <circle cx={20} cy={16} r={7} />
-      <circle cx={20} cy={16} r={2} />
-    </>
-  ),
-  // A fingertip with touch waves.
-  'tactile-foundation-model': (
-    <>
-      <path d="M12 30 V12 Q12 6 17 6 Q22 6 22 12 V30" />
-      <path d="M26 10 Q29 14 26 18 M30 7 Q35 14 30 21" />
-    </>
-  ),
-  // A screen with a cube, beside a cube for real.
-  'sim-to-real-contact': (
-    <>
-      <rect x={3} y={6} width={20} height={15} rx={1.5} />
-      <path d="M10 26 H16 M13 21 V26 M10 12 H16 V18 H10 Z M27 14 H31 M29 12 L31 14 L29 16" />
-      <rect x={33} y={11} width={6} height={6} />
-    </>
-  ),
-  // A price tag.
-  'cost-per-task-parity': (
-    <>
-      <path d="M6 6 H20 L34 20 L22 32 L8 18 Z" transform="translate(0 -2)" />
-      <circle cx={13} cy={11} r={2} />
-    </>
-  ),
-  // Bars growing.
-  'data-scaling-law': <path d="M5 29 H35 M8 29 V24 M15 29 V19 M22 29 V13 M29 29 V6" />,
-};
 
 /** Empty, half or full gauge: the status without relying on colour. */
 function StatusGauge({ status }: { status: MilestoneStatus }) {
@@ -240,9 +184,9 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
         <FigureStage
           footer={<InstrumentReadout data-testid="watchlist-readout">{readout}</InstrumentReadout>}
         >
-          <div className="px-3 pt-3 pb-2 font-sans text-sm leading-snug">
+          <div className="pt-1 pb-2 font-sans text-[13px] leading-snug">
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-              <div data-testid="watchlist-score" className="m-0 text-2xl font-semibold text-text">
+              <div data-testid="watchlist-score" className="m-0 text-[15px] text-text">
                 {tally('met')} of {MILESTONES.length} done
               </div>
               <StageCallout data-testid="watchlist-tally">
@@ -258,7 +202,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
               <ul
                 data-testid="watchlist-tiles"
                 aria-label="Milestones. Tap one to read the evidence behind its status."
-                className="m-0! mt-3 grid list-none grid-cols-1 gap-2 p-0! sm:grid-cols-2 md:grid-cols-4"
+                className="m-0! mt-3 grid list-none grid-cols-1 gap-x-6 gap-y-3 p-0! sm:grid-cols-2 md:grid-cols-4"
               >
                 {visible.map((milestone, index) => {
                   const isSelected = milestone.id === selected?.id;
@@ -284,23 +228,13 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
                         onClick={() => setSelectedId(milestone.id)}
                         onKeyDown={(event) => handleTileKeyDown(event, index)}
                         className={cx(
-                          'flex h-full min-h-11 w-full gap-3 rounded-xs border p-2.5 text-left transition-colors md:flex-col md:gap-1.5',
-                          isSelected ? 'border-highlight' : 'border-border-strong hover:border-text-dim',
+                          'flex h-full min-h-11 w-full gap-3 border-t pt-2.5 pb-1 text-left transition-colors md:flex-col md:gap-1.5',
+                          isSelected ? 'border-text' : 'border-border-strong hover:border-text-dim',
                         )}
                       >
-                        <svg
-                          viewBox="0 0 40 32"
-                          aria-hidden="true"
-                          focusable="false"
-                          className="h-8 w-10 shrink-0 text-text-dim"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth={1.5}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          {ICONS[milestone.id]}
-                        </svg>
+                        <span aria-hidden="true" className="shrink-0 font-mono text-[12px] tabular-nums text-text-dim">
+                          {String(MILESTONES.findIndex((m) => m.id === milestone.id) + 1).padStart(2, '0')}
+                        </span>
                         <span className="flex min-w-0 flex-col gap-1">
                           <span id={nameId} className="text-text">
                             {plainMilestoneName(milestone.id)}

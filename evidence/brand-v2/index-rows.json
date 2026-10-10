@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "fingerprint": "3190bbedb6e98d9ca97987418b45eaabbaf21486c3c6dfa03dc2252e1e3e36b4",
+  "fingerprint": "f91baee7160eaf3e1c098aea94a1802b63c40947b8180f69de20516ab8eaef80",
   "viewport": "1440x900",
   "surfaces": [
     {
       "route": "/",
-      "visibleTextLength": 4183,
+      "visibleTextLength": 4201,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Robot Wiki",

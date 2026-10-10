@@ -103,6 +103,9 @@ export const GraspWrenchLab = dynamic(() =>
 export const HandComparison = dynamic(() =>
   import('@/components/interactive/hand-comparison').then((m) => m.HandComparison),
 );
+export const HandEyePoses = dynamic(() =>
+  import('@/components/interactive/hand-eye-poses').then((m) => m.HandEyePoses),
+);
 export const HardwareGuide = dynamic(() =>
   import('@/components/interactive/hardware-guide').then((m) => m.HardwareGuide),
 );
@@ -145,6 +148,9 @@ export const PiGenerationTimeline = dynamic(() =>
 export const PlanarFkArm = dynamic(() =>
   import('@/components/interactive/planar-fk-arm').then((m) => m.PlanarFkArm),
 );
+export const QosQueueAge = dynamic(() =>
+  import('@/components/interactive/qos-queue-age').then((m) => m.QosQueueAge),
+);
 export const RecedingHorizon = dynamic(() =>
   import('@/components/interactive/receding-horizon').then((m) => m.RecedingHorizon),
 );
@@ -153,6 +159,9 @@ export const ReliabilityCompounding = dynamic(() =>
 );
 export const RewardShaping = dynamic(() =>
   import('@/components/interactive/reward-shaping').then((m) => m.RewardShaping),
+);
+export const Ros2Interfaces = dynamic(() =>
+  import('@/components/interactive/ros2-interfaces').then((m) => m.Ros2Interfaces),
 );
 export const RrtExplorer = dynamic(() =>
   import('@/components/interactive/rrt-explorer').then((m) => m.RrtExplorer),
@@ -174,6 +183,9 @@ export const TeleopRigMatrix = dynamic(() =>
 );
 export const ThesisExplorer = dynamic(() =>
   import('@/components/interactive/thesis-explorer').then((m) => m.ThesisExplorer),
+);
+export const TimeOffsetMiss = dynamic(() =>
+  import('@/components/interactive/time-offset-miss').then((m) => m.TimeOffsetMiss),
 );
 export const TrainingTimeChart = dynamic(() =>
   import('@/components/interactive/training-time-chart').then((m) => m.TrainingTimeChart),

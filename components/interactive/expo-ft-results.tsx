@@ -51,10 +51,10 @@ const PANEL_GAP = 8;
 /** Room right of a full-length bar for its count label. */
 const COUNT_ROOM = 20;
 export const ROW_PITCH = 44;
-export const BAR_THICKNESS = 12;
+export const BAR_THICKNESS = 2.5;
 /** A row's name line, then its bars below it. */
 const NAME_BASELINE = 14;
-const BAR_OFFSET = 21;
+const BAR_OFFSET = 24;
 export const HEIGHT = PLOT.bottom + 40;
 
 /** SSR-stable to 2 decimals. */
@@ -102,7 +102,6 @@ export function ExpoFtResults({ className }: { className?: string }) {
   const descriptionId = `${useId()}-description`;
   const value = roleColour('value');
   const leadIndex = METHODS.findIndex((m) => m.id === LEAD_ID);
-  const leadBand = rowTop(leadIndex);
   const noteY = PLOT.bottom + 30;
 
   return (
@@ -155,21 +154,10 @@ export function ExpoFtResults({ className }: { className?: string }) {
               );
             })}
 
-            {/* The lead row's shading sits behind its name and bars. */}
-            <rect
-              data-expo-lead-row=""
-              x={0}
-              y={f(leadBand + 1)}
-              width={WIDTH}
-              height={ROW_PITCH - 4}
-              fill={CHART_STRUCTURE.grid}
-              opacity={0.45}
-            />
-
             {METHODS.map((method, mi) => {
               const lead = method.id === LEAD_ID;
               return (
-                <g key={method.id} data-expo-row={method.id}>
+                <g key={method.id} data-expo-row={method.id} data-expo-lead-row={lead ? '' : undefined}>
                   <text
                     data-scene-tick=""
                     x={PLOT.left}

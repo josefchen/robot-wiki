@@ -302,7 +302,7 @@ const STRIP = {
   headerY: 14,
   rowY0: 36,
   rowStep: 22,
-  dotR: 4,
+  dotR: 3,
   dotStep: 10,
 } as const;
 const STRIP_COL_W = (STRIP.width - STRIP.colX0) / YEARS.length;
@@ -408,8 +408,8 @@ function MethodCard({ method, highlighted }: { method: Method; highlighted: bool
       data-method-card={method.id}
       data-highlighted={highlighted || undefined}
       className={cx(
-        'm-0! scroll-mt-24 border-l-2 pl-3',
-        highlighted ? 'border-highlight' : 'border-transparent',
+        'm-0! scroll-mt-24 border-l pl-3',
+        highlighted ? '[border-color:var(--accent)]' : 'border-transparent',
       )}
     >
       <div className="flex items-baseline gap-2">
@@ -498,7 +498,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
               value={filters.query}
               onChange={(event) => patchFilters({ query: event.target.value })}
               placeholder="name, backbone, conditioning"
-              className="h-9 w-full rounded-sm border border-border bg-surface-2 px-2.5 font-sans text-sm text-text placeholder:text-text-dim"
+              className="h-9 w-full rounded-none border-0 border-b bg-transparent px-0 font-sans text-[13px] text-text [border-color:var(--line-strong)] placeholder:text-text-dim"
             />
           </ControlField>
           <InstrumentReset onClick={reset} className="self-end" />

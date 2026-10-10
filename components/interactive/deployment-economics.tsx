@@ -167,7 +167,7 @@ const CHART = { left: 40, right: WIDTH - 14, top: 22 + LINE * 3, bottom: 22 + LI
 const AXIS_BAND = LINE * 2 + 10;
 /** The hour bar of the current case, under the chart. */
 const BAR_TOP = CHART.bottom + AXIS_BAND + LINE + 10;
-const BAR_HEIGHT = 26;
+const BAR_HEIGHT = 3;
 const BAR = { left: 14, right: WIDTH - 14, top: BAR_TOP, bottom: BAR_TOP + BAR_HEIGHT };
 const HEIGHT = BAR.bottom + AXIS_BAND;
 
@@ -196,16 +196,6 @@ const SEGMENTS = [
   { key: 'jamClearing', title: 'Jam clearing', series: 'economics-jam-clearing' },
   { key: 'downtime', title: 'Downtime', series: 'economics-downtime' },
 ] as const;
-
-/** A person, drawn small beside the jam label: the one who fixes it. */
-function PersonIcon({ x, y, colour }: { x: number; y: number; colour: string }) {
-  return (
-    <g data-chart-mark="person" aria-hidden="true" fill="none" stroke={colour} strokeWidth={1.4} strokeLinecap="round">
-      <circle cx={x} cy={y - 9} r={2.6} fill={colour} stroke="none" />
-      <path d={`M${x} ${y - 6} V${y - 1} M${x - 3.5} ${y - 4.5} L${x + 3.5} ${y - 4.5} M${x} ${y - 1} L${x - 3} ${y + 4} M${x} ${y - 1} L${x + 3} ${y + 4}`} />
-    </g>
-  );
-}
 
 export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
   const uid = useId();
@@ -485,8 +475,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
 
             {/* The hour bar of the current case. */}
             <g data-series="economics-jam-label">
-              <PersonIcon x={jamCentre} y={jamLabelY - 2} colour={constraint} />
-              <DirectLabel x={jamCentre - 8} y={jamLabelY} anchor="end">
+              <DirectLabel x={jamCentre - 4} y={jamLabelY} anchor="end">
                 {`fixing jams: ${formatSeconds(breakdown.jamClearing)}`}
               </DirectLabel>
               <line
@@ -495,7 +484,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
                 y1={jamLabelY + 5}
                 y2={BAR.top}
                 stroke={constraint}
-                strokeWidth={CHART_STROKE.structure * 2}
+                strokeWidth={CHART_STROKE.structure}
               />
             </g>
             {segments.map((segment) => (

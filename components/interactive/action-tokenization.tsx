@@ -342,20 +342,21 @@ export function ActionTokenization({
                   word {bin}
                 </span>
               </StageReadout>
-              <div className="basis-full font-sans text-sm">
+              <div className="basis-full font-sans text-[12px]">
                 <div className="text-text-dim">The seven words for this moment, written one after another:</div>
-                <ol data-testid="token-stream" className="mt-1.5 flex flex-wrap gap-1.5">
+                <ol data-testid="token-stream" className="mt-1 flex flex-wrap gap-x-4 gap-y-1">
                   {ACTION_DIMS.map((d, i) => (
                     <li
                       key={d.id}
                       data-brand-surface-id="surface:flat"
+                      data-selected={i === dim ? '' : undefined}
                       className={cx(
-                        'inline-flex items-baseline gap-1.5 border px-2 py-0.5',
-                        i === dim ? 'border-highlight' : 'border-border-strong',
+                        'inline-flex items-baseline gap-1.5',
+                        i === dim && 'underline decoration-1 underline-offset-4',
                       )}
                     >
-                      <span className="text-text">{motionGloss(i)}</span>
-                      <span style={{ color: action }}>word {stepBins[i]}</span>
+                      <span className={i === dim ? 'text-text' : 'text-text-dim'}>{motionGloss(i)}</span>
+                      <span className="text-text">word {stepBins[i]}</span>
                     </li>
                   ))}
                 </ol>
@@ -370,9 +371,9 @@ export function ActionTokenization({
             aria-label={`Continuous action chunk: ${ACTION_DIMS.length} dimensions over ${CHUNK_STEPS} control steps, drawn as a gripper with its ${ACTION_DIMS.length} motions. The marker at step ${step} selects the action vector being tokenized.`}
             aria-describedby={descriptionId}
           >
-            <g data-testid="tok-gripper" fill="none" stroke={CHART_STRUCTURE.label} strokeWidth={2.5} strokeLinejoin="round">
+            <g data-testid="tok-gripper" fill="none" stroke={CHART_STRUCTURE.label} strokeWidth={CHART_STROKE.trace} strokeLinejoin="round">
               <rect x={HAND.x - 8} y={HAND.y - 50} width={16} height={18} />
-              <rect x={HAND.x - 32} y={HAND.y - 32} width={64} height={12} rx={3} />
+              <rect x={HAND.x - 32} y={HAND.y - 32} width={64} height={12} />
               <path d={`M${HAND.x - 26} ${HAND.y - 20} V${HAND.y + 26} l6 6`} strokeLinecap="round" />
               <path d={`M${HAND.x + 26} ${HAND.y - 20} V${HAND.y + 26} l-6 6`} strokeLinecap="round" />
             </g>

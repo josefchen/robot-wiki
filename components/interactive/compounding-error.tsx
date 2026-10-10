@@ -484,14 +484,14 @@ export function CompoundingError({
                 data-testid="drift-first-half"
                 d={rollout.firstHalf}
                 fill={state}
-                fillOpacity={CHART_UNCERTAINTY.fillAlpha}
+                fillOpacity={CHART_UNCERTAINTY.fillAlpha / 2}
                 stroke="none"
               />
               <path
                 data-testid="drift-second-half"
                 d={rollout.secondHalf}
                 fill={state}
-                fillOpacity={Math.min(1, CHART_UNCERTAINTY.fillAlpha * 2.5)}
+                fillOpacity={CHART_UNCERTAINTY.fillAlpha}
                 stroke="none"
               />
               <line

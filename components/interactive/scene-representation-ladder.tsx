@@ -552,7 +552,7 @@ function SceneSwatch({ kind }: { kind: SwatchKind }) {
 
 /** The answer's shape, so Yes, No and the half answer differ without colour. */
 function AnswerMark({ state }: { state: CapabilityState }) {
-  const stroke = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.75, strokeLinecap: 'round' as const };
+  const stroke = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.5, strokeLinecap: 'round' as const };
   return (
     <svg aria-hidden="true" focusable="false" width={14} height={14} viewBox="0 0 14 14" className="shrink-0">
       {state === 'yes' && <path d="M2.5 7.5 L5.75 10.5 L11.5 3.5" {...stroke} strokeLinejoin="round" />}
@@ -730,7 +730,7 @@ export function SceneRepresentationLadder({
             <span>{QUESTION[capability.id]}</span>
             <span
               className={cx(
-                'inline-flex items-center gap-1.5 font-semibold',
+                'inline-flex items-center gap-1.5',
                 graded.state === 'no' ? 'text-text-dim' : 'text-text',
               )}
             >

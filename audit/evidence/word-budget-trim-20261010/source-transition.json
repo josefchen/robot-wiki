@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "word-budget-trim-continuity-v1",
+  "name": "word-budget-trim-20261010",
+  "reviewedBy": "implementation helper for the word-budget trim of 2026-10-10 (not independent acceptance)",
+  "rationale": "The figure restyle of 2026-10-10 mounted two new figures in each of the classical articles on calibration and on ROS 2 for ML engineers, and their rendered words took both pages past the word budgets their domain pass set. The budgets stay; the trim shortens the body prose, cutting repetition, filler and uncited sentences the new figures now carry, and keeps every cited fact. Each change is recorded here as exact edits over the bytes the article had before the trim. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and the frontmatter, imports, mounts, headings, citation and glossary ids, link targets and numbers are unchanged and in order, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
+  "observedAt": "2026-10-10T19:23:45Z",
+  "sources": [
+    {
+      "archivedFrom": "e32a065d49267adc8f3c3dd287d72c2bb0072af1",
+      "before": {
+        "path": "content/classical/calibration.mdx",
+        "bytes": 10030,
+        "sha256": "ffc769f31d4b00ea8624283b9af7d4d9d0b71bcd6ff55ec6887f5cf83429fdf5"
+      },
+      "after": {
+        "path": "content/classical/calibration.mdx",
+        "bytes": 9327,
+        "sha256": "32bbaa807e2e11972de9bf679d45e80222299f912ce045f633fba81672b70a28"
+      },
+      "edits": [
+        {
+          "before": "Robot calibration is the estimation of the parameters that make a robot's measurements and commands refer to the same physical world. Classical kinematic calibration has four steps: modeling, measurement, identification and correction <Cite id=\"roth-mooring-ravani-1987\" />. A learning system adds cameras, depth, clocks and actuators to the chain.\n",
+          "after": "Robot calibration estimates the parameters that make a robot's measurements and commands agree on the physical world. Classical kinematic calibration has four steps: modeling, measurement, identification and correction <Cite id=\"roth-mooring-ravani-1987\" />.\n"
+        },
+        {
+          "before": "  prompt=\"A grasp misses by almost the same small offset in one direction across many objects, and the miss grows as targets move farther from the wrist camera. What should you inspect first?\"\n",
+          "after": "  prompt=\"A grasp misses by the same small offset in one direction on many objects, and the miss grows with distance from the wrist camera. What should you inspect first?\"\n"
+        },
+        {
+          "before": "      label: 'Inspect the hand-eye rotation and its validation residual',\n",
+          "after": "      label: 'Check the hand-eye rotation and its residual',\n"
+        },
+        {
+          "before": "      label: 'Collect more demonstrations for the same policy',\n",
+          "after": "      label: 'Collect more demonstrations',\n"
+        },
+        {
+          "before": "      label: 'Increase the vision encoder parameter count',\n",
+          "after": "      label: 'Use a larger vision encoder',\n"
+        },
+        {
+          "before": "A manipulation system carries <Term id=\"camera-intrinsics\">camera intrinsics</Term>, depth alignment, camera extrinsics, joint zeroes and link parameters, tool and payload parameters, timestamps and latency, and actuator response. Each stage feeds the next. FoundationPose estimates and tracks novel-object poses with or without a model <Cite id=\"foundationpose-2024\" />, yet a wrong hand-eye transform still sends the gripper to the wrong place. HALO first calibrates a humanoid's nominal model from real data, then identifies an unknown payload's mass distribution <Cite id=\"halo-payload-2026\" />.\n",
+          "after": "A manipulation system chains <Term id=\"camera-intrinsics\">camera intrinsics</Term>, depth alignment, extrinsics, joint zeroes, link and tool parameters, payload, timing and actuator response. FoundationPose estimates and tracks novel-object poses with or without a model <Cite id=\"foundationpose-2024\" />, yet a wrong hand-eye transform still misplaces the grasp. HALO calibrates a humanoid's nominal model from real data, then identifies an unknown payload's mass distribution <Cite id=\"halo-payload-2026\" />.\n"
+        },
+        {
+          "before": "Intrinsics map pixels to rays through focal lengths, principal point and lens distortion. Zhang's method recovers them from a planar pattern seen at a few unknown orientations, with a closed-form solution and nonlinear refinement <Cite id=\"zhang-2000-calibration\" />. Kannala and Brandt's generic model covers conventional, wide-angle and fisheye lenses <Cite id=\"kannala-brandt-2006\" />. AnyCalib estimates intrinsics from one in-the-wild image for pinhole, Brown-Conrady and Kannala-Brandt models <Cite id=\"anycalib-2025\" />. Intrinsics need revalidation after any change of focus, resolution or crop.\n",
+          "after": "Intrinsics map pixels to rays through focal lengths, principal point and lens distortion. Zhang's method recovers them from a planar pattern seen at a few unknown orientations, with a closed-form solution and nonlinear refinement <Cite id=\"zhang-2000-calibration\" />. Kannala and Brandt's generic model covers conventional, wide-angle and fisheye lenses <Cite id=\"kannala-brandt-2006\" />. AnyCalib estimates intrinsics from one in-the-wild image for pinhole, Brown-Conrady and Kannala-Brandt models <Cite id=\"anycalib-2025\" />. Refit them after any focus, resolution or crop change.\n"
+        },
+        {
+          "before": "Stereo depth error scales with the square of distance, and repetitive structures make matches ambiguous <Cite id=\"realsense-tuning-2026\" />. The D400 datasheet lists false depth from repetitive patterns and saturation from specular reflections <Cite id=\"realsense-d400-datasheet-2026\" />. Kinect random error grows from a few millimeters to about 4 cm at maximum range <Cite id=\"khoshelham-kinect-2012\" />, and a joint depth-color calibration with a depth-distortion model beat the manufacturer's calibration <Cite id=\"herrera-depth-color-2012\" />. Learned camera depth models reach nearly simulation-level depth accuracy for manipulation <Cite id=\"camera-depth-models-2025\" />.\n",
+          "after": "Stereo depth error scales with the square of distance, and repetitive structures make matches ambiguous <Cite id=\"realsense-tuning-2026\" />. The D400 datasheet lists false depth from repetitive patterns and saturation from specular reflections <Cite id=\"realsense-d400-datasheet-2026\" />. Kinect random error grows from a few millimeters to about 4 cm at maximum range <Cite id=\"khoshelham-kinect-2012\" />, and a joint depth-color calibration with a depth-distortion model beat the manufacturer's <Cite id=\"herrera-depth-color-2012\" />. Learned camera depth models reach nearly simulation-level accuracy for manipulation <Cite id=\"camera-depth-models-2025\" />.\n"
+        },
+        {
+          "before": "OpenCV needs at least two motions with non-parallel rotation axes, so three poses, and strongly recommends many more <Cite id=\"opencv-hand-eye-docs-2026\" />. MoveIt's tutorial reports that accuracy plateaus after about 12 or 15 samples in most cases <Cite id=\"moveit-hand-eye-tutorial-2026\" />. Validation belongs in robot coordinates, because reprojection error alone does not close that loop.\n",
+          "after": "OpenCV needs at least two motions with non-parallel rotation axes, so three poses, and strongly recommends many more <Cite id=\"opencv-hand-eye-docs-2026\" />. MoveIt's tutorial reports accuracy plateaus after about 12 or 15 samples in most cases <Cite id=\"moveit-hand-eye-tutorial-2026\" />.\n"
+        },
+        {
+          "before": "Manufacturing errors and joint compliance shift an assembled arm from its nominal [kinematics](/classical/kinematics) <Cite id=\"modern-robotics-2017\" />. A tool center point is checked by touching one fixed point from several orientations. Fitting every parameter without an observability check lets errors trade off. Nguyen and colleagues calibrated a humanoid from 31 chosen postures and cut RMS error 2.3-fold against the manufacturer's model <Cite id=\"humanoid-geometric-calibration-2025\" />. OmniCalib found CAD wrist-camera extrinsics off by up to 10.56 mm and 1.74 degrees, and writes back only corrections its observability checks support <Cite id=\"omnicalib-2026\" />.\n",
+          "after": "Manufacturing errors and joint compliance shift an assembled arm from its nominal [kinematics](/classical/kinematics) <Cite id=\"modern-robotics-2017\" />. Nguyen and colleagues calibrated a humanoid from 31 chosen postures and cut RMS error 2.3-fold against the manufacturer's model <Cite id=\"humanoid-geometric-calibration-2025\" />. OmniCalib found CAD wrist-camera extrinsics off by up to 10.56 mm and 1.74 degrees, and writes back only corrections its observability checks support <Cite id=\"omnicalib-2026\" />.\n"
+        },
+        {
+          "before": "A camera frame at time $t$ paired with joint state at $t + \\Delta t$ creates a pose error proportional to speed. Kalibr estimates time offsets jointly with spatial transforms, to a fraction of the smallest measurement period <Cite id=\"kalibr-2013\" />. IEEE 1588 clock synchronization reaches sub-microsecond accuracy across networked devices <Cite id=\"ieee-1588-2019\" />. On a RealSense D435 and Airbot Play rig, Realtime-VLA V2 measured camera, proprioception and motion delays of 55, 50 and 150 ms <Cite id=\"realtime-vla-v2-2026\" />.\n",
+          "after": "Late frames misplace a moving arm. Kalibr estimates time offsets jointly with spatial transforms, to a fraction of the smallest measurement period <Cite id=\"kalibr-2013\" />. IEEE 1588 clock synchronization reaches sub-microsecond accuracy across networked devices <Cite id=\"ieee-1588-2019\" />. On a RealSense D435 and Airbot Play rig, Realtime-VLA V2 measured camera, proprioception and motion delays of 55, 50 and 150 ms <Cite id=\"realtime-vla-v2-2026\" />.\n"
+        },
+        {
+          "before": "Hwangbo and colleagues found actuator dynamics central to ANYmal's transfer gap and learned an actuator network from real measurements <Cite id=\"hwangbo-2019\" />. SPI-Active chooses identification data actively and beats baselines by 42 to 63% in locomotion transfer <Cite id=\"spi-active-2025\" />. Bjelonic and colleagues transferred policies to 13 legged robots without randomizing dynamics <Cite id=\"bjelonic-sim2real-2025\" />. A dataset that stores commands without measured response cannot separate policy error from tracking error.\n",
+          "after": "Hwangbo and colleagues found actuator dynamics central to ANYmal's transfer gap and learned an actuator network from real measurements <Cite id=\"hwangbo-2019\" />. SPI-Active chooses identification data actively and beats baselines by 42 to 63% in locomotion transfer <Cite id=\"spi-active-2025\" />. Bjelonic and colleagues transferred policies to 13 legged robots without randomizing dynamics <Cite id=\"bjelonic-sim2real-2025\" />. Without measured response, a dataset confuses policy and tracking error.\n"
+        },
+        {
+          "before": "Calibrations drift. DROID's per-session checkerboard calibrations were not always accurate, and the dataset provides camera-to-base calibrations for about 36,000 scenes <Cite id=\"droid-2024\" />. Most public datasets lack extrinsics, and CalibAll recovered them for about 97,000 episodes across 16 datasets <Cite id=\"calib-all-2025\" />. Each calibration should be stored with hardware serials, camera settings, tool, software version, date, procedure and residuals, and redone after a remount, collision, tool or firmware change.\n",
+          "after": "DROID's per-session checkerboard calibrations were not always accurate, and the dataset provides camera-to-base calibrations for about 36,000 scenes <Cite id=\"droid-2024\" />. Most public datasets lack extrinsics, and CalibAll recovered them for about 97,000 episodes across 16 datasets <Cite id=\"calib-all-2025\" />. Store each calibration with hardware serials, camera settings, tool, software version, date, procedure and residuals; redo it after a remount, collision, tool or firmware change.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "e32a065d49267adc8f3c3dd287d72c2bb0072af1",
+      "before": {
+        "path": "content/classical/ros2-for-ml-engineers.mdx",
+        "bytes": 9930,
+        "sha256": "65fb50d6229dde8c3446194236429481a1ac0799e99753471a29c95317731fb7"
+      },
+      "after": {
+        "path": "content/classical/ros2-for-ml-engineers.mdx",
+        "bytes": 9506,
+        "sha256": "137a5e00e657e36a9363858d920c084322b1f0c4c11319ffc26c08ce4d849468"
+      },
+      "edits": [
+        {
+          "before": "ROS 2 is the second generation of the Robot Operating System, a modular framework of freely available robot software, rebuilt from the ground up because ROS 1 lacked production-grade features <Cite id=\"ros2-science-robotics-2022\" />. Lyrical Luth, the current long-term-support release, shipped on 22 May 2026 and is supported until May 2031 <Cite id=\"ros2-lyrical-2026\" /> <Cite id=\"ros2-distributions-2026\" />.\n",
+          "after": "ROS 2 is the second generation of the Robot Operating System, a modular framework of freely available robot software, rebuilt because ROS 1 lacked production-grade features <Cite id=\"ros2-science-robotics-2022\" />. Lyrical Luth, the current long-term-support release, shipped on 22 May 2026 and is supported until May 2031 <Cite id=\"ros2-lyrical-2026\" /> <Cite id=\"ros2-distributions-2026\" />.\n"
+        },
+        {
+          "before": "  prompt=\"A task request tells the robot to fetch an object, takes 30 seconds, reports progress and may need to be cancelled. Which ROS 2 interface fits?\"\n",
+          "after": "  prompt=\"A fetch task takes 30 seconds, reports progress and may need cancelling. Which ROS 2 interface fits?\"\n"
+        },
+        {
+          "before": "      label: 'Publish the request repeatedly on a sensor topic',\n",
+          "after": "      label: 'Publish the request repeatedly on a topic',\n"
+        },
+        {
+          "before": "      label: 'Block on a synchronous service call until the task finishes',\n",
+          "after": "      label: 'Block on a service call until it finishes',\n"
+        },
+        {
+          "before": "A node is one participant in the graph, such as a camera driver, policy server or controller bridge. Nodes talk through topics for continuous streams, services for short request-response calls, and actions for long-running goals with feedback, cancellation and a result <Cite id=\"ros2-interfaces-2026\" />. ROS-LLM attaches language-model agents through the same actions and services <Cite id=\"ros-llm-2024\" />. A `geometry_msgs/PoseStamped` carries the timestamp and frame identifier that a bare array lacks. REP 103 standardizes ROS on SI units <Cite id=\"rep-103-2010\" />.\n",
+          "after": "A node is one participant, such as a camera driver, policy server or controller bridge. Nodes talk through topics for continuous streams, services for short request-response calls, and actions for long-running goals with feedback, cancellation and a result <Cite id=\"ros2-interfaces-2026\" />. ROS-LLM attaches language-model agents through the same actions and services <Cite id=\"ros-llm-2024\" />. A `geometry_msgs/PoseStamped` carries the timestamp and frame a bare array lacks. REP 103 standardizes ROS on SI units <Cite id=\"rep-103-2010\" />.\n"
+        },
+        {
+          "before": "A reliable camera subscription with a deep queue can make a policy act on old images, so log message age at the policy boundary. End-to-end latency depends strongly on the DDS implementation, and ROS 2 can add 50% over raw DDS <Cite id=\"ros2-latency-2021\" />. Since Kilted Kaiju (May 2025), Zenoh's `rmw_zenoh_cpp` is a Tier 1 middleware <Cite id=\"ros2-kilted-2025\" />.\n",
+          "after": "End-to-end latency depends strongly on the DDS implementation, and ROS 2 can add 50% over raw DDS <Cite id=\"ros2-latency-2021\" />. Since Kilted Kaiju (May 2025), Zenoh's `rmw_zenoh_cpp` is a Tier 1 middleware <Cite id=\"ros2-kilted-2025\" />.\n"
+        },
+        {
+          "before": "Camera, depth, joint and force streams arrive at different rates, so a policy's inputs need acquisition timestamps as well as arrival times. MCAP records both a publish time and a log time for every message <Cite id=\"mcap-spec-2026\" />. Logging source, receipt and inference-completion times splits latency into sensing, transport, model execution and command delivery, and ros2_tracing instruments ROS 2 at an average overhead of 0.0033 ms per message <Cite id=\"ros2-tracing-2022\" />. With `use_sim_time` set, ROS time follows the latest `/clock` message <Cite id=\"ros2-clock-design\" />, so nodes that mix it with wall time see spurious timeouts. The [calibration guide](/classical/calibration) covers spatial and temporal alignment.\n",
+          "after": "Camera, depth, joint and force streams arrive at different rates, so inputs need acquisition and arrival timestamps. MCAP records both a publish time and a log time for every message <Cite id=\"mcap-spec-2026\" />. Logging source, receipt and inference-completion times splits latency into sensing, transport, model execution and command delivery, and ros2_tracing instruments ROS 2 at an average overhead of 0.0033 ms per message <Cite id=\"ros2-tracing-2022\" />. With `use_sim_time` set, ROS time follows the latest `/clock` message <Cite id=\"ros2-clock-design\" />, so nodes that mix it with wall time see spurious timeouts. The [calibration guide](/classical/calibration) covers spatial and temporal alignment.\n"
+        },
+        {
+          "before": "URDF, the most common robot-description format <Cite id=\"urdf-dataset-2023\" />, lists links, joints, geometry and limits, and `robot_state_publisher` combines it with joint states to publish the frame tree. MoveIt 2's Planning Scene combines robot state, robot model and world geometry for forward and inverse kinematics, constraint checks and collision checking <Cite id=\"moveit-planning-scene-2026\" />. A learned policy can use it to plan a collision-free approach, reject waypoints in collision, or provide a classical baseline.\n",
+          "after": "URDF, the most common robot-description format <Cite id=\"urdf-dataset-2023\" />, lists links, joints, geometry and limits, and `robot_state_publisher` combines it with joint states to publish the frame tree. MoveIt 2's Planning Scene combines robot state, robot model and world geometry for forward and inverse kinematics, constraint checks and collision checking <Cite id=\"moveit-planning-scene-2026\" />. A learned policy can plan or check collision-free motion with it.\n"
+        },
+        {
+          "before": "rosbag2 records timestamped messages for replay, in MCAP by default since Iron Irwini <Cite id=\"ros2-iron-mcap-2023\" />. Since Kilted, `ros2 bag play --message-order sent` replays in publication order instead of the default receipt order <Cite id=\"ros2-kilted-2025\" />. A bag is a raw record. Learning pipelines convert it to episode formats such as RLDS, a standard lossless format <Cite id=\"rlds-2021\" />.\n",
+          "after": "rosbag2 records timestamped messages for replay, in MCAP by default since Iron Irwini <Cite id=\"ros2-iron-mcap-2023\" />. Since Kilted, `ros2 bag play --message-order sent` replays in publication order instead of the default receipt order <Cite id=\"ros2-kilted-2025\" />. Learning pipelines convert bags to episode formats such as RLDS, a standard lossless format <Cite id=\"rlds-2021\" />.\n"
+        },
+        {
+          "before": "One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n",
+          "after": "A learned-policy graph can separate drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n"
+        },
+        {
+          "before": "Nav2 uses a behavior tree to orchestrate planner, controller and recovery servers <Cite id=\"nav2-2020\" />. Its standard planner, Smac Planner, powers thousands of robots, its authors report <Cite id=\"smac-planner-2024\" />. Costmap 2D accepts sensor-processing plugins for AI outputs and semantic information <Cite id=\"nav2-costmap-2d-2026\" />, so a learned local controller can consume the same costmap and goal interface as a classical one and keep its test harness and fallback. The [scene-representation module](/classical/scene-representation) explains the map choices.\n",
+          "after": "Nav2 uses a behavior tree to orchestrate planner, controller and recovery servers <Cite id=\"nav2-2020\" />. Its standard planner, Smac Planner, powers thousands of robots, its authors report <Cite id=\"smac-planner-2024\" />. Costmap 2D accepts sensor-processing plugins for AI outputs and semantic information <Cite id=\"nav2-costmap-2d-2026\" />, so a learned local controller can reuse a classical one's costmap, goal interface, test harness and fallback. The [scene-representation module](/classical/scene-representation) explains the map choices.\n"
+        },
+        {
+          "before": "Frequent failures are a policy deployed in a different frame from its training data, a reliable queue that hides latency, and two command publishers without arbitration. Others are bags without transforms, wall-time assumptions under `/clock`, and one node holding drivers, inference and hardware commands. DDS implementations are compatible only in limited circumstances, so a system should use one ROS version and one RMW implementation <Cite id=\"ros2-middleware-vendors-2026\" />. Nodes are not guaranteed to communicate across distributions; Jazzy is supported until May 2029 and Humble until May 2027 <Cite id=\"ros2-distributions-2026\" />. ROS 1 ended when Noetic reached end of life in May 2025 <Cite id=\"noetic-eol-2025\" />.\n",
+          "after": "Frequent failures include a policy deployed in a different frame from its training data, a queue that hides latency, two unarbitrated command publishers, bags without transforms, wall-time assumptions under `/clock`, and one node holding drivers, inference and hardware commands. DDS implementations are compatible only in limited circumstances, so a system should use one ROS version and one RMW implementation <Cite id=\"ros2-middleware-vendors-2026\" />. Nodes are not guaranteed to communicate across distributions; Jazzy is supported until May 2029 and Humble until May 2027 <Cite id=\"ros2-distributions-2026\" />. ROS 1 ended when Noetic reached end of life in May 2025 <Cite id=\"noetic-eol-2025\" />.\n"
+        }
+      ]
+    }
+  ]
+}

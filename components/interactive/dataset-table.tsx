@@ -160,10 +160,8 @@ const TASK_OPTIONS: Array<{ value: TaskFilter; label: string }> = [
 // each source's own markup).
 const filterButtonClasses = (active: boolean) =>
   cx(
-    'inline-flex min-h-6 cursor-pointer items-center gap-1 rounded-xs border px-2 py-1 font-sans text-xs transition-colors active:translate-y-[1px]',
-    active
-      ? 'border-highlight bg-selection font-semibold text-ink'
-      : 'border-border bg-surface text-text hover:border-border-strong',
+    'figure-tab font-sans text-[13px]',
+    active ? 'text-text' : 'text-text-dim',
   );
 
 type FilterGroupProps<T extends string> = {
@@ -181,8 +179,8 @@ function FilterGroup<T extends string>({
 }: FilterGroupProps<T>) {
   return (
     <div role="group" aria-label={label} className="flex flex-col gap-1">
-      <span className="font-sans text-xs text-text-dim">{label}</span>
-      <div className="flex flex-wrap gap-1.5">
+      <span className="font-sans text-[13px] text-text-dim">{label}</span>
+      <div className="figure-tab-row flex flex-wrap">
         {options.map((option) => (
           <button
             data-brand-control-id="control:selection"
@@ -192,7 +190,6 @@ function FilterGroup<T extends string>({
             onClick={() => onSelect(option.value)}
             className={filterButtonClasses(active === option.value)}
           >
-            {active === option.value ? <span aria-hidden="true">✓</span> : null}
             {option.label}
           </button>
         ))}
@@ -264,7 +261,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
       {rows.length === 0 ? (
         <div
           role="status"
-          className="mt-4 rounded-sm border border-dashed border-border bg-surface-2 px-4 py-6 text-center"
+          className="mt-4 rounded-none border border-dashed px-4 py-6 text-center [border-color:var(--line-strong)]"
         >
           <p className="font-sans text-sm text-text">
             No datasets match these filters.
@@ -278,7 +275,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
             data-pagefind-ignore
             type="button"
             onClick={clearFilters}
-            className="mt-3 cursor-pointer rounded-sm border border-border bg-surface px-3 py-1.5 font-sans text-xs text-text transition-colors hover:border-border-strong active:translate-y-[1px]"
+            className="figure-action mt-3 font-sans text-[13px]"
           >
             Clear filters
           </button>

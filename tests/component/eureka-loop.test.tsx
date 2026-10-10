@@ -40,9 +40,11 @@ describe('EurekaLoop', () => {
     expect(Math.abs(tipX - 56)).toBeLessThan(3);
     expect(tipY).toBeGreaterThan(84);
     expect(tipY).toBeLessThan(110);
-    // No rings at the hips or knees: the bend in each leg shows the knee, and the eye is the only circle.
+    // No rings at the hips or knees: the bend in each leg shows the knee. The
+    // line drawing has no eye either (owner-approved figure standard, 10 Oct 2026),
+    // so the robot draws no circle at all.
     expect(screen.getByTestId('eureka-robot').querySelectorAll('[data-dog-foot]')).toHaveLength(4);
-    expect(screen.getByTestId('eureka-robot').querySelectorAll('circle')).toHaveLength(1);
+    expect(screen.getByTestId('eureka-robot').querySelectorAll('circle')).toHaveLength(0);
     await user.click(nextButton());
     expect(container.querySelector('[data-round="2"]')).toHaveAttribute('data-outcome', 'stands');
     expect(container.querySelector('[data-round="1"]')).not.toHaveAttribute('data-outcome');

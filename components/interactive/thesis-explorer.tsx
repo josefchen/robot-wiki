@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment, useId, useRef, useState, type ReactNode } from 'react';
+import { Fragment, useId, useRef, useState } from 'react';
 import { CiteRef } from '@/components/article/citation-records';
 import { TableScroll } from '@/components/ui';
 import { InstrumentFigure, InstrumentReadout, InstrumentReset } from '@/components/ui/instrument';
@@ -34,96 +34,6 @@ const STAGE_ITEM = 'm-0! text-sm leading-relaxed';
 
 const TABLE_HEADER_CELL = 'px-3 py-2 text-left font-sans text-sm font-medium text-text-dim';
 const TABLE_CELL = 'px-3 py-2 align-top';
-
-/** A small robot head: the shared figure in the drawings. */
-function RobotHead({ x, y, s = 1 }: { x: number; y: number; s?: number }) {
-  return (
-    <g transform={`translate(${x} ${y}) scale(${s})`}>
-      <rect x={0} y={4} width={16} height={13} rx={2} />
-      <line x1={8} y1={4} x2={8} y2={0} />
-      <circle cx={5} cy={10} r={1.2} fill="currentColor" />
-      <circle cx={11} cy={10} r={1.2} fill="currentColor" />
-      <line x1={3} y1={17} x2={13} y2={17} />
-      <rect x={2} y={19} width={12} height={10} rx={1.5} />
-    </g>
-  );
-}
-
-function StickPerson({ x, y }: { x: number; y: number }) {
-  return (
-    <g transform={`translate(${x} ${y})`}>
-      <circle cx={6} cy={4} r={4} />
-      <line x1={6} y1={8} x2={6} y2={20} />
-      <line x1={6} y1={11} x2={0} y2={16} />
-      <line x1={6} y1={11} x2={12} y2={15} />
-      <line x1={6} y1={20} x2={2} y2={29} />
-      <line x1={6} y1={20} x2={10} y2={29} />
-    </g>
-  );
-}
-
-/** One line drawing per bet, keyed by thesis id. */
-const DRAWINGS: Record<string, ReactNode> = {
-  // Data piling into a robot.
-  'end-to-end-vla': (
-    <>
-      <rect x={4} y={26} width={18} height={5} />
-      <rect x={6} y={20} width={18} height={5} />
-      <rect x={3} y={14} width={18} height={5} />
-      <rect x={7} y={8} width={18} height={5} />
-      <path d="M28 20 H36 M33 17 L36 20 L33 23" />
-      <RobotHead x={42} y={5} />
-    </>
-  ),
-  // A manager robot handing tasks to worker skills.
-  'hierarchical-planner': (
-    <>
-      <RobotHead x={24} y={0} s={0.75} />
-      <path d="M30 23 V28 M10 28 H52 M10 28 V31 M31 28 V31 M52 28 V31" />
-      <rect x={4} y={31} width={12} height={8} rx={1.5} />
-      <rect x={25} y={31} width={12} height={8} rx={1.5} />
-      <rect x={46} y={31} width={12} height={8} rx={1.5} />
-    </>
-  ),
-  // A robot imagining a scene in a thought bubble.
-  'world-model-training': (
-    <>
-      <RobotHead x={4} y={9} />
-      <circle cx={24} cy={12} r={1.5} />
-      <circle cx={29} cy={8} r={2.2} />
-      <ellipse cx={46} cy={12} rx={14} ry={10} />
-      <path d="M40 16 L46 8 L52 16 Z" />
-    </>
-  ),
-  // A robot practising, with a tally of tries.
-  'rl-finetuning': (
-    <>
-      <RobotHead x={4} y={9} />
-      <path d="M30 10 V24 M34 10 V24 M38 10 V24 M42 10 V24 M28 21 L45 13" />
-      <path d="M50 10 V24 M54 10 V24" />
-    </>
-  ),
-  // A person with a remote control beside a robot.
-  'teleop-bridge': (
-    <>
-      <StickPerson x={4} y={8} />
-      <rect x={16} y={20} width={7} height={5} rx={1} />
-      <path d="M26 16 Q31 12 36 16" strokeDasharray="2 2" />
-      <RobotHead x={42} y={9} />
-    </>
-  ),
-  // A human-shaped robot next to a single-purpose arm.
-  'form-factor': (
-    <>
-      <RobotHead x={6} y={0} s={0.8} />
-      <path d="M10 24 L8 38 M16 24 L18 38 M7 17 L3 28 M19 17 L23 28" />
-      <path d="M38 38 H58 M48 38 V28 L40 18 L50 10" />
-      <circle cx={48} cy={28} r={2} />
-      <circle cx={40} cy={18} r={2} />
-      <path d="M50 10 L54 8 M50 10 L53 13" />
-    </>
-  ),
-};
 
 /** Plain names, one-line bets and "wrong if" sentences for the main view. */
 const PLAIN: Record<string, { name: string; bet: string; wrongIf: string }> = {
@@ -306,28 +216,18 @@ export function ThesisExplorer({ className }: { className?: string }) {
                       onClick={() => setSelectedId(thesis.id)}
                       onKeyDown={(event) => handleCardKeyDown(event, index)}
                       className={cx(
-                        'flex h-full min-h-11 w-full flex-col gap-1.5 rounded-xs border p-3 text-left transition-colors',
+                        'flex h-full min-h-11 w-full flex-col gap-1.5 border-t pt-3 pb-1 text-left transition-colors',
                         isSelected
-                          ? 'border-highlight'
+                          ? 'border-text'
                           : 'border-border-strong hover:border-text-dim',
                       )}
                     >
-                      <svg
-                        viewBox="0 0 64 42"
-                        aria-hidden="true"
-                        focusable="false"
-                        className="h-11 w-16 text-text-dim"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={1.5}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        {DRAWINGS[thesis.id]}
-                      </svg>
+                      <span aria-hidden="true" className="font-mono text-[12px] tabular-nums text-text-dim">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
                       <span
                         id={`${captionId}-name-${thesis.id}`}
-                        className="font-medium text-text underline decoration-border-strong decoration-1 underline-offset-4">
+                        className="font-semibold text-text">
                         {plain.name}
                       </span>
                       <span id={`${captionId}-bet-${thesis.id}`} className="text-text-dim">
@@ -336,10 +236,7 @@ export function ThesisExplorer({ className }: { className?: string }) {
                       <span
                         id={`${captionId}-wrong-${thesis.id}`}
                         data-thesis-wrong-if=""
-                        className={cx(
-                          'mt-auto text-text',
-                          index === 0 && 'border-l-2 border-highlight pl-2',
-                        )}
+                        className="mt-auto text-text"
                       >
                         {plain.wrongIf}
                       </span>

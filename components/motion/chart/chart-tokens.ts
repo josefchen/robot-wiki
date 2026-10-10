@@ -50,24 +50,25 @@ const reference = encodedNumber(MOTION_ROLES.reference.encoding, 'px');
 
 /**
  * Stroke geometry. The trace and reference widths are the token encodings;
- * structural lines (axes, grid, ticks) take half the trace width so they sit
- * under every data mark, and dashes and tick lengths scale from the widths
- * and the tick type size.
+ * structural lines (axes, grid, ticks) are one hairline, the thinnest line
+ * the page draws. stage.css paints every stage stroke without scaling, so
+ * these widths are CSS pixels at any stage width. Dashes and tick lengths
+ * scale from the widths and the tick type size; markers stay small.
  */
 export const CHART_STROKE = {
   trace,
   reference,
-  structure: trace / 2,
-  dash: `${reference * 4} ${reference * 2}`,
+  structure: 1,
+  dash: `${reference * 4} ${reference * 3}`,
   tickLength: MOTION_STAGE_TYPE.tickPx / 2,
-  markerRadius: trace * 2,
+  markerRadius: trace + 1,
 } as const;
 
 /** The constraint hatch: its angle from the token, spaced by the tick size. */
 export const CHART_HATCH = {
   angle: encodedNumber(MOTION_ROLES.constraint.encoding, 'degree'),
   spacing: MOTION_STAGE_TYPE.tickPx / 2,
-  width: trace / 2,
+  width: 1,
 } as const;
 
 export const CHART_UNCERTAINTY = {

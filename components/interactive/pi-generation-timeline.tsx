@@ -50,7 +50,7 @@ const YEAR_Y = MONTH_Y + 19;
 const BRACKET_Y = YEAR_Y + 12;
 const BRACKET_LABEL_Y = BRACKET_Y + 18;
 const HEIGHT = BRACKET_LABEL_Y + 6;
-const NODE_R = 4.5;
+const NODE_R = 3.5;
 
 /** Time axis bounds (month precision), one month past the data each side. */
 const AXIS_MIN = '2024-09';
@@ -104,7 +104,7 @@ const COLUMNS: Column[] = PI_GENERATIONS.reduce<Column[]>((columns, g) => {
 const NARROW_RAISED = new Set(['pi0-fast']);
 
 const NAME_CLASS =
-  'inline-flex min-h-8 items-center justify-center whitespace-nowrap rounded-xs border border-transparent px-1.5 font-sans text-sm text-text-dim transition-colors hover:text-text aria-pressed:border-border-strong aria-pressed:bg-surface-2 aria-pressed:font-semibold aria-pressed:text-ink';
+  'inline-flex min-h-8 items-center justify-center whitespace-nowrap px-1.5 font-sans text-[13px] text-text-dim transition-colors hover:text-text aria-pressed:text-ink aria-pressed:underline aria-pressed:decoration-1 aria-pressed:underline-offset-4';
 const TABLE_HEADER_CELL = 'px-3 py-2 text-left font-sans text-sm font-medium text-text-dim';
 const TABLE_CELL = 'px-3 py-2 align-top';
 
@@ -260,14 +260,21 @@ export function PiGenerationTimeline({
                 const band = yearBand(year);
                 return (
                   <g key={year} data-year-band={year}>
+                    {/* The year's extent, unpainted; a hairline marks where it starts. */}
                     {index % 2 === 1 ? (
                       <rect
                         x={band.from}
                         y={0}
                         width={f(band.to - band.from)}
                         height={YEAR_Y + 6}
-                        fill={CHART_STRUCTURE.grid}
-                        fillOpacity={0.35}
+                        fill="none"
+                      />
+                    ) : null}
+                    {index > 0 ? (
+                      <path
+                        d={`M${band.from} 0 V${YEAR_Y + 6}`}
+                        stroke={CHART_STRUCTURE.grid}
+                        strokeWidth={CHART_STROKE.structure}
                       />
                     ) : null}
                     <text
@@ -314,7 +321,7 @@ export function PiGenerationTimeline({
                         r={NODE_R + 3}
                         fill="none"
                         stroke={highlight}
-                        strokeWidth={CHART_STROKE.trace}
+                        strokeWidth={CHART_STROKE.structure}
                       />
                     ) : null}
                     <text
@@ -335,7 +342,7 @@ export function PiGenerationTimeline({
                   d={`M${bracket.from} ${BRACKET_Y - 4} V${BRACKET_Y} H${bracket.to} V${BRACKET_Y - 4}`}
                   fill="none"
                   stroke={measurement}
-                  strokeWidth={CHART_STROKE.structure * 2}
+                  strokeWidth={CHART_STROKE.structure}
                 />
                 <text
                   data-scene-note=""

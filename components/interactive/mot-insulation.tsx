@@ -464,9 +464,10 @@ function LanguageMeter({ score }: { score: number }) {
         aria-valuemin={0}
         aria-valuemax={100}
         aria-label={`Language-following score, ${score} of 100`}
-        className="mt-1 h-2 w-full overflow-hidden border border-border-strong"
+        className="mt-1.5 h-[3px] w-full max-w-[340px] overflow-hidden"
       >
-        <svg viewBox="0 0 200 8" preserveAspectRatio="none" aria-hidden className="block h-full w-full">
+        <svg viewBox="0 0 200 3" preserveAspectRatio="none" aria-hidden className="block h-full w-full">
+          <rect x={0} y={1} width={200} height={1} fill="var(--line-strong)" />
           <rect
             data-testid="language-meter-fill"
             data-chart-mark="bar"
@@ -474,7 +475,7 @@ function LanguageMeter({ score }: { score: number }) {
             x={0}
             y={0}
             width={f(score * 2)}
-            height={8}
+            height={3}
             fill={roleColour('value')}
           />
         </svg>

@@ -102,13 +102,13 @@ const OUTCOME_TEXT: Record<TaskOutcome, string> = {
 /**
  * A hardware option in the shared toggle look. Its native radio covers the
  * whole option, transparent, so the option is the radio's own hit target;
- * the checked option reads like a selected preset (weight, an ink hairline
- * and a tinted tile; lime never fills a figure control) and the focused one
+ * the checked option reads like a selected text tab (ink over a 1 px
+ * underline; nothing fills a figure control) and the focused one
  * takes the focus ring the hidden radio cannot paint.
  */
 const HARDWARE_OPTION_CLASS = cx(
   INSTRUMENT_TOGGLE_CLASS,
-  'relative cursor-pointer has-[:checked]:border-text has-[:checked]:bg-surface-2 has-[:checked]:font-semibold has-[:checked]:text-ink has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-focus',
+  'relative cursor-pointer has-[:checked]:text-text has-[:checked]:underline has-[:checked]:decoration-1 has-[:checked]:underline-offset-[6px] has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[var(--ink)]',
 );
 
 const DISABLED_SLIDER_CLASS = 'disabled:cursor-not-allowed disabled:opacity-40';
@@ -146,6 +146,8 @@ function ContactSketch({ hardware, outcome }: { hardware: HardwareMode; outcome:
   const top = OBJECT.y - OBJECT.ry;
   const left = OBJECT.x - 7;
   const cracked = outcome === 'crushed' || outcome === 'over-limit';
+  // The pushing rod as a line drawing: an ink outline on the paper.
+  const pusher = { fill: MOTION_STAGE.background, stroke: push, strokeWidth: CHART_STROKE.trace } as const;
   const spring = Array.from({ length: 7 }, (_, i) => `${OBJECT.x + (i % 2 === 0 ? 0 : i % 4 === 1 ? 6 : -6)},${8 + i * (16 / 6)}`);
   return (
     <g data-testid="impedance-contact-sketch" data-hardware={hardware}>
@@ -155,10 +157,10 @@ function ContactSketch({ hardware, outcome }: { hardware: HardwareMode; outcome:
         x={30}
         y={TABLE_Y}
         width={94}
-        height={6}
-        rx={1}
-        fill={CHART_STRUCTURE.axes}
-        opacity={CHART_STRUCTURE.axesOpacity}
+        height={4}
+        fill="none"
+        stroke={CHART_STRUCTURE.axes}
+        strokeWidth={CHART_STROKE.structure}
       />
       <ellipse
         data-testid="impedance-object"
@@ -181,12 +183,12 @@ function ContactSketch({ hardware, outcome }: { hardware: HardwareMode; outcome:
       ) : null}
       {hardware === 'sea' ? (
         <>
-          <rect x={left} y={-8} width={14} height={16} rx={3} fill={push} />
+          <rect x={left} y={-8} width={14} height={16} {...pusher} />
           <polyline points={spring.join(' ')} fill="none" stroke={push} strokeWidth={CHART_STROKE.trace} />
-          <rect x={left} y={24} width={14} height={top - 24} rx={7} fill={push} />
+          <rect x={left} y={24} width={14} height={top - 24} {...pusher} />
         </>
       ) : (
-        <rect x={left} y={-8} width={14} height={top + 8} rx={hardware === 'position' ? 2 : 7} fill={push} />
+        <rect x={left} y={-8} width={14} height={top + 8} rx={hardware === 'position' ? 0 : 3} {...pusher} />
       )}
       <LabelLines
         x={96}

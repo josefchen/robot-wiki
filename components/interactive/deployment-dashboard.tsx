@@ -177,7 +177,7 @@ export function DeploymentDashboard({ className, deploymentRows = DEPLOYMENT_ROW
                   if (group.length === 0) return null;
                   return (
                     <div key={status} data-testid={`deployment-group-${status}`} className="grid gap-y-2">
-                      <div className="font-semibold">{DEPLOYMENT_STATUS_LABEL[status]}</div>
+                      <div className="text-text">{DEPLOYMENT_STATUS_LABEL[status]}</div>
                       {group.map((row) => {
                         const hours = recordHours(row);
                         const focus = row.id === biggest?.id;
@@ -196,7 +196,7 @@ export function DeploymentDashboard({ className, deploymentRows = DEPLOYMENT_ROW
                             ) : (
                               <div className={ROW_GRID}>
                                 <div className="tabular-nums">{hoursLabel(row)}</div>
-                                <div className="relative h-3.5">
+                                <div className="relative h-[3px]">
                                   <div
                                     data-chart-mark="bar"
                                     data-chart-role={demo ? 'reference' : 'value'}
@@ -211,7 +211,7 @@ export function DeploymentDashboard({ className, deploymentRows = DEPLOYMENT_ROW
                                   {focus ? (
                                     <span
                                       data-figure-pointer=""
-                                      className="absolute top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2"
+                                      className="absolute top-1/2 size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full border bg-[var(--paper,var(--color-paper))]"
                                       style={{ left: `${hoursPercent(hours)}%`, borderColor: 'var(--role-highlight-stage)' }}
                                     />
                                   ) : null}

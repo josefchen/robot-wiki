@@ -16,9 +16,9 @@ import { FigureStage, StageReadout, StageStatus } from '@/components/motion/figu
 import { GripperGlyph } from '@/components/motion/gripper-glyph';
 import {
   CHART_STROKE,
-  CHART_STRUCTURE,
   CHART_VIEW_WIDTH,
   ChartAxes,
+  ConstraintHatch,
   DirectLabel,
   LineTrace,
   PointMarker,
@@ -169,20 +169,17 @@ function PlanRoutes() {
   );
 }
 
-/** The thing both plans steer around. */
+/** The thing both plans steer around: a solid part, outlined and hatched. */
 function Obstacle() {
+  const hatchId = `${useId().replace(/:/g, '')}-lc-obstacle`;
   return (
     <g data-series="lc-obstacle">
-      <rect
+      <ConstraintHatch
+        id={hatchId}
         x={CX - OBSTACLE_HALF}
         y={OBSTACLE_TOP}
         width={OBSTACLE_HALF * 2}
         height={OBSTACLE_BOTTOM - OBSTACLE_TOP}
-        rx={4}
-        fill={CHART_STRUCTURE.labelSecondary}
-        fillOpacity={0.16}
-        stroke={CHART_STRUCTURE.labelSecondary}
-        strokeWidth={CHART_STROKE.structure}
       />
       <DirectLabel x={CX} y={f((OBSTACLE_TOP + OBSTACLE_BOTTOM) / 2 + 5)} anchor="middle">
         in the way

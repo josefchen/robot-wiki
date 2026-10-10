@@ -2,7 +2,7 @@
  * Which citation records each client widget may render, resolved on the
  * server.
  *
- * Sixteen interactive widgets link to primary sources, either from their
+ * Twenty interactive widgets link to primary sources, either from their
  * rows or through inline <CiteRef> chips. They used to import the whole
  * citation registry (data/citations.ts) into the browser, directly or via
  * the MDX chip resolver, to look up a handful of ids; the registry is the
@@ -66,6 +66,10 @@ export const WIDGET_CITATION_IDS = {
     'ros2-lifecycle-design-2015',
     'ros2-interfaces-2026',
   ],
+  HandEyePoses: () => ['opencv-hand-eye-docs-2026', 'moveit-hand-eye-tutorial-2026'],
+  QosQueueAge: () => ['ros2-qos-2026'],
+  Ros2Interfaces: () => ['ros2-interfaces-2026'],
+  TimeOffsetMiss: () => ['realtime-vla-v2-2026'],
   // Inline <CiteRef> chips. Row-driven chips derive from their rows; the
   // literal ids are the chips written into the widget's own JSX, which
   // tests/unit/widget-citations.test.tsx reads back out of the source.

@@ -44,9 +44,9 @@ export interface PlotRect {
 type Scale = (value: number) => number;
 
 /**
- * Concrete axes at the token opacity, an optional quiet grid, ticks and
- * their labels. Tick labels use the tick size, axis names the axis size,
- * both in the brand sans.
+ * Hairline ink axes, an optional hairline grid, ticks and their labels.
+ * Tick numerals are muted at the tick size; axis titles, with their units,
+ * are ink at the axis size, both in the sans.
  */
 export function ChartAxes({
   plot,
@@ -107,7 +107,8 @@ export function ChartAxes({
           <text
             data-scene-tick=""
             x={x(value)}
-            y={plot.bottom + tick + CHART_TYPE.tickPx}
+            y={plot.bottom + tick + tick / 2}
+            dominantBaseline="hanging"
             textAnchor="middle"
             fontSize={CHART_TYPE.tickPx}
             fill={CHART_STRUCTURE.labelSecondary}
@@ -136,16 +137,12 @@ export function ChartAxes({
         <text
           data-scene-axis=""
           x={plot.right}
-          y={
-            plot.bottom +
-            tick +
-            CHART_TYPE.tickPx * (1 + CHART_TYPE.descent) +
-            CHART_TYPE.axisPx * CHART_TYPE.ascent +
-            tick / 4
-          }
+          y={plot.bottom + tick + tick / 2}
+          dy={`${(CHART_TYPE.tickPx / CHART_TYPE.axisPx) * (CHART_TYPE.ascent + CHART_TYPE.descent) + 0.25}em`}
+          dominantBaseline="hanging"
           textAnchor="end"
           fontSize={CHART_TYPE.axisPx}
-          fill={CHART_STRUCTURE.labelSecondary}
+          fill={CHART_STRUCTURE.label}
         >
           {xLabel}
         </text>
@@ -157,7 +154,7 @@ export function ChartAxes({
           y={plot.top - tick}
           textAnchor="start"
           fontSize={CHART_TYPE.axisPx}
-          fill={CHART_STRUCTURE.labelSecondary}
+          fill={CHART_STRUCTURE.label}
         >
           {yLabel}
         </text>

@@ -128,11 +128,11 @@
     "minutes": 10
   },
   "data-hardware/datasets": {
-    "words": 2123,
+    "words": 2120,
     "minutes": 11
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3531,
+    "words": 3527,
     "minutes": 18
   },
   "data-hardware/teleop-rigs": {
@@ -180,11 +180,11 @@
     "minutes": 14
   },
   "classical/calibration": {
-    "words": 1191,
+    "words": 1190,
     "minutes": 6
   },
   "classical/ros2-for-ml-engineers": {
-    "words": 1234,
+    "words": 1285,
     "minutes": 6
   },
   "frontier/reliability-gap": {
@@ -200,11 +200,11 @@
     "minutes": 11
   },
   "frontier/competing-theses": {
-    "words": 2698,
-    "minutes": 13
+    "words": 2704,
+    "minutes": 14
   },
   "frontier/bear-case": {
-    "words": 1566,
+    "words": 1574,
     "minutes": 8
   },
   "frontier/safety-and-assurance": {

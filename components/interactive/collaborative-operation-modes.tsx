@@ -47,6 +47,7 @@ import {
   verdict,
   type ModeId,
 } from '@/lib/safety-modes';
+import { MOTION_STAGE } from '@/lib/motion-tokens';
 import { cx } from '@/lib/utils';
 
 /**
@@ -123,36 +124,37 @@ function RobotArm({ x, stopped }: { x: number; stopped: boolean }) {
     <g data-chart-mark="robot" data-chart-role="state" fill="none" stroke={ROBOT} strokeLinejoin="round">
       <path
         d={`M${ROBOT_BASE_X - 15} ${FLOOR_Y} L${ROBOT_BASE_X - 10} ${FLOOR_Y - 14} H${ROBOT_BASE_X + 10} L${ROBOT_BASE_X + 15} ${FLOOR_Y} Z`}
-        strokeWidth={CHART_STROKE.reference}
+        strokeWidth={CHART_STROKE.structure}
       />
-      <line x1={ROBOT_BASE_X} y1={FLOOR_Y - 14} x2={shoulder[0]} y2={shoulder[1]} strokeWidth={CHART_STROKE.trace * 2} />
+      <line x1={ROBOT_BASE_X} y1={FLOOR_Y - 14} x2={shoulder[0]} y2={shoulder[1]} strokeWidth={CHART_STROKE.trace} />
       <polyline
         points={`${shoulder[0]},${shoulder[1]} ${elbow[0]},${elbow[1]} ${wrist[0]},${wrist[1]}`}
-        strokeWidth={CHART_STROKE.trace * 2.2}
+        strokeWidth={CHART_STROKE.trace}
         strokeDasharray={dash}
         strokeLinecap="round"
       />
-      <circle cx={shoulder[0]} cy={shoulder[1]} r={4} strokeWidth={CHART_STROKE.reference} fill="var(--stage-surface, none)" />
-      <circle cx={elbow[0]} cy={elbow[1]} r={4} strokeWidth={CHART_STROKE.reference} fill="var(--stage-surface, none)" />
+      <circle cx={shoulder[0]} cy={shoulder[1]} r={3.5} strokeWidth={CHART_STROKE.structure} fill={MOTION_STAGE.background} />
+      <circle cx={elbow[0]} cy={elbow[1]} r={3} strokeWidth={CHART_STROKE.structure} fill={MOTION_STAGE.background} />
       <path
         d={`M${wrist[0]} ${wrist[1]} V${wrist[1] + 6} M${wrist[0] - 6} ${wrist[1] + 6} H${wrist[0] + 6} M${wrist[0] - 6} ${wrist[1] + 6} V${wrist[1] + 15} M${wrist[0] + 6} ${wrist[1] + 6} V${wrist[1] + 15}`}
-        strokeWidth={CHART_STROKE.reference}
+        strokeWidth={CHART_STROKE.structure}
         strokeDasharray={dash}
       />
     </g>
   );
 }
 
-/** A person mid-stride, walking toward the robot. */
+/**
+ * Where the person stands: a hairline post from the floor to head height
+ * with a small open marker, labelled "you" under the floor. A position
+ * marker, not a pictogram.
+ */
 function WalkingPerson({ x }: { x: number }) {
-  const stroke = { stroke: PERSON, strokeWidth: CHART_STROKE.reference, fill: 'none' };
   const top = FLOOR_Y - 66;
   return (
-    <g data-chart-mark="operator" strokeLinecap="round">
-      <circle cx={f(x)} cy={top} r={7} {...stroke} />
-      <line x1={f(x)} y1={top + 7} x2={f(x + 2)} y2={top + 36} {...stroke} />
-      <path d={`M${f(x)} ${top + 14} L${f(x - 9)} ${top + 30} M${f(x)} ${top + 14} L${f(x + 9)} ${top + 28}`} {...stroke} />
-      <path d={`M${f(x + 2)} ${top + 36} L${f(x - 9)} ${FLOOR_Y} M${f(x + 2)} ${top + 36} L${f(x + 12)} ${FLOOR_Y}`} {...stroke} />
+    <g data-chart-mark="operator" fill="none" stroke={PERSON} strokeWidth={CHART_STROKE.structure}>
+      <line x1={f(x)} y1={top + 4} x2={f(x)} y2={FLOOR_Y} strokeDasharray={CHART_STROKE.dash} />
+      <circle cx={f(x)} cy={top} r={4} fill={MOTION_STAGE.background} />
     </g>
   );
 }
@@ -168,8 +170,8 @@ const GAP_PARTS = [
 function GapBar({ terms }: { terms: ReturnType<typeof separationTerms> }) {
   const constraint = roleColour('constraint');
   return (
-    <div data-testid="gap-bar" className="px-3 pb-2 font-sans text-sm">
-      <div className="flex h-3 w-full overflow-hidden rounded-xs" aria-hidden="true">
+    <div data-testid="gap-bar" className="pb-2 pt-3 font-sans text-[12px]">
+      <div className="flex h-1.5 w-full overflow-hidden" aria-hidden="true">
         {GAP_PARTS.map((part) => (
           <span
             key={part.key}
@@ -178,7 +180,7 @@ function GapBar({ terms }: { terms: ReturnType<typeof separationTerms> }) {
               backgroundColor: constraint,
               opacity: part.opacity,
             }}
-            className="border-r border-[var(--stage-surface,transparent)] last:border-r-0"
+            className="border-r [border-color:var(--paper,var(--color-paper))] last:border-r-0"
           />
         ))}
       </div>
@@ -187,7 +189,7 @@ function GapBar({ terms }: { terms: ReturnType<typeof separationTerms> }) {
           <li key={part.key} className="m-0! flex items-center gap-1.5 text-text-dim">
             <span
               aria-hidden="true"
-              className="inline-block h-2.5 w-2.5 shrink-0 rounded-xs"
+              className="inline-block size-2 shrink-0"
               style={{ backgroundColor: constraint, opacity: part.opacity }}
             />
             {part.label}: <span className="text-text">{terms[part.key].toFixed(2)} metres</span>
@@ -203,17 +205,17 @@ function ForceBar({ force }: { force: number }) {
   const scale = Math.max(force, CONTACT_LIMIT_N) * 1.15;
   const over = force > CONTACT_LIMIT_N;
   return (
-    <div data-testid="force-bar" className="px-3 pb-2 font-sans text-sm">
-      <div className="relative h-3 w-full rounded-xs border border-border-strong" aria-hidden="true">
+    <div data-testid="force-bar" className="pb-2 pt-3 font-sans text-[12px]">
+      <div className="relative h-1.5 w-full border [border-color:var(--line-strong)]" aria-hidden="true">
         <span
-          className="absolute inset-y-0 left-0 rounded-xs"
+          className="absolute inset-y-0 left-0"
           style={{
             width: `${(force / scale) * 100}%`,
             backgroundColor: over ? roleColour('constraint') : ROBOT,
           }}
         />
         <span
-          className="absolute -inset-y-1 w-0.5 bg-text"
+          className="absolute -inset-y-1.5 w-px bg-text"
           style={{ left: `${(CONTACT_LIMIT_N / scale) * 100}%` }}
         />
       </div>

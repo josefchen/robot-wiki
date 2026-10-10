@@ -105,7 +105,7 @@ export function LegendSwatch({ role, mark }: { role: ChartRole; mark: LegendMark
           strokeDasharray={CHART_STROKE.dash}
         />
       ) : null}
-      {mark === 'bar' ? <rect x={0} y={0} width={w} height={h} fill={colour} /> : null}
+      {mark === 'bar' ? <rect x={0} y={h / 3} width={w} height={h / 3} fill={colour} /> : null}
       {mark === 'dot' ? <circle cx={w / 2} cy={h / 2} r={r} fill={colour} /> : null}
       {mark === 'cross' ? (
         <path

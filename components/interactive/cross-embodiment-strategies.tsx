@@ -134,7 +134,7 @@ function EmbodimentRow({
   return (
     <div data-testid={`row-${embodimentId}`}>
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 font-sans text-[13px] leading-snug">
-        <span className="font-medium text-text">{body.label}</span>
+        <span className="text-text">{body.label}</span>
         <span className="text-text-dim">{body.note}</span>
         <span
           data-testid={`readout-${embodimentId}`}
@@ -215,14 +215,6 @@ const PLAIN_BODY: Record<EmbodimentId, [string, string?]> = {
   'human-hand': ['Person', 'on video'],
 };
 
-/** One line drawing per body, in a 24-unit box. */
-const BODY_DRAWING: Record<EmbodimentId, string> = {
-  arm: 'M3 22h10M8 22v-7l7-6 5 4M20 13l2.5-2M20 13l2.5 2',
-  bimanual: 'M1 22h22M5 22v-6l4-5 3 3M12 14l1.5-1.5M19 22v-6l-4-5-3 3',
-  humanoid: 'M12 3.5a2 2 0 1 1 0 4a2 2 0 1 1 0-4M12 7.5v8M7 11l5-2 5 2M9 23l3-7.5 3 7.5',
-  'human-hand': 'M2 4h20v17H2zM9 18v-6M11 18v-8M13 18v-8M15 18v-6M9 18h6M15 14l2-2',
-};
-
 const OVERVIEW = {
   width: CHART_VIEW_WIDTH,
   left: 4,
@@ -230,7 +222,7 @@ const OVERVIEW = {
   headY: 12,
   rowTop: 46,
   rowH: 34,
-  barH: 12,
+  barH: 8,
   colPad: 5,
 };
 const COL_W = f((OVERVIEW.width - OVERVIEW.left - OVERVIEW.labelW) / STRATEGY_ORDER.length);
@@ -297,7 +289,7 @@ function MiniBar({
       {empty ? (
         <text
           x={f(x + width / 2)}
-          y={f(y + OVERVIEW.barH - 3)}
+          y={f(y + OVERVIEW.barH / 2 + 4)}
           textAnchor="middle"
           fontSize={CHART_TYPE.tickPx}
           fill={CHART_STRUCTURE.labelSecondary}
@@ -332,23 +324,13 @@ function Overview({ selected, describedBy }: { selected: StrategyId; describedBy
         const on = id === selected;
         return (
           <g key={id} data-overview-column={id} data-selected={on ? 'true' : 'false'}>
-            {on ? (
-              <rect
-                x={colX(c) + 1}
-                y={0}
-                width={COL_W - 2}
-                height={OVERVIEW_GRID_BOTTOM}
-                rx={3}
-                fill={CHART_STRUCTURE.axes}
-                fillOpacity={0.06}
-              />
-            ) : null}
+            {/* The chosen way reads like a chosen tab: its head in ink and its
+                bars at full strength, the others muted. No panel behind it. */}
             <text
               x={f(colX(c) + COL_W / 2)}
               y={OVERVIEW.headY}
               textAnchor="middle"
               fontSize={CHART_TYPE.tickPx}
-              fontWeight={on ? 600 : 400}
               fill={on ? CHART_STRUCTURE.label : CHART_STRUCTURE.labelSecondary}
             >
               {PLAIN_STRATEGY[id].head.map((line, i) => (
@@ -378,24 +360,15 @@ function Overview({ selected, describedBy }: { selected: StrategyId; describedBy
         const cy = rowY(r) + OVERVIEW.rowH / 2;
         return (
           <g key={body} data-overview-body={body}>
-            <path
-              transform={`translate(${OVERVIEW.left} ${f(cy - 12)})`}
-              d={BODY_DRAWING[body]}
-              fill="none"
-              stroke={CHART_STRUCTURE.label}
-              strokeWidth={1.3}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
             <text
-              x={OVERVIEW.left + 28}
+              x={OVERVIEW.left}
               y={f(cy + (second ? -1 : 4))}
               fontSize={CHART_TYPE.tickPx}
               fill={CHART_STRUCTURE.label}
             >
-              <tspan x={OVERVIEW.left + 28}>{first}</tspan>
+              <tspan x={OVERVIEW.left}>{first}</tspan>
               {second ? (
-                <tspan x={OVERVIEW.left + 28} dy="1.15em">
+                <tspan x={OVERVIEW.left} dy="1.15em">
                   {second}
                 </tspan>
               ) : null}

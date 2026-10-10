@@ -22,7 +22,6 @@
  * does. A playing clip pauses when it leaves the viewport or the tab
  * hides, matching the player contract the live scenes keep.
  */
-import { Pause, Play } from '@phosphor-icons/react';
 import { useEffect, useRef, useState } from 'react';
 import { FigureStage } from '@/components/motion/figure-frame';
 import {
@@ -191,11 +190,6 @@ function ClipPlayButton({
       aria-label={playing ? 'Pause the run' : 'Play the run'}
       className={INSTRUMENT_PRIMARY_CONTROL_CLASS}
     >
-      {playing ? (
-        <Pause size={14} weight="bold" aria-hidden />
-      ) : (
-        <Play size={14} weight="bold" aria-hidden />
-      )}
       {playing ? 'Pause' : 'Play the run'}
     </button>
   );

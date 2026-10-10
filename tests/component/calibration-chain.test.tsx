@@ -129,11 +129,14 @@ describe('CalibrationChain', () => {
       const swatch = entry.querySelector('svg path');
       const marks = Array.from(stage.querySelectorAll(`[data-series="${series}"] path[fill="none"]`));
       expect(marks.length, series ?? '').toBe(2);
+      // Owner-approved successor (figure standard of 2026-10-10): the series
+      // are grayscale, so the camera links are dashed and the arm's are
+      // solid; each swatch carries the dash of the marks it names.
       for (const mark of marks) {
         expect(mark.getAttribute('stroke')).toBe(swatch?.getAttribute('stroke'));
-        expect(mark.getAttribute('stroke-dasharray')).toBeNull();
+        expect(mark.getAttribute('stroke-dasharray')).toBe(swatch?.getAttribute('stroke-dasharray'));
       }
-      expect(swatch?.getAttribute('stroke-dasharray')).toBeNull();
+      expect(swatch?.getAttribute('stroke-dasharray') === null, series ?? '').toBe(series === 'robot-links');
     }
   });
 

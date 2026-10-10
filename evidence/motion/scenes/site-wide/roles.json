@@ -1,24 +1,24 @@
 {
   "palette": {
-    "state": "#007A91",
-    "measurement": "#8E6A00",
-    "action": "#866299",
-    "value": "#56793D",
-    "constraint": "#CB3B32",
-    "reference": "#6E6F70",
-    "highlight": "#507C00"
+    "state": "#1C1C1A",
+    "measurement": "#3F3F3B",
+    "action": "#1C1C1A",
+    "value": "#3F3F3B",
+    "constraint": "#1C1C1A",
+    "reference": "#A3A39E",
+    "highlight": "#3B6EA8"
   },
-  "motionSpecSha256": "247c58b56abd556370ae227cd3076ea6059f5565bdf6d15debba3083dd41b686",
+  "motionSpecSha256": "c5d58f5adc79d9dbd965a3b7cae308f21b26185a2be147e93738a743836ef583",
   "scenes": [
     {
       "id": "kalman-predict-update",
       "route": "/classical/state-estimation/",
-      "sourceSha256": "006c20ada161f9ad30f75b77daf38c311f01bb9905e8f640b6611c12ad9cd3e4",
+      "sourceSha256": "d81996fda746115c7613552355425caf8a33d8cc88c305cb110640e65fa51512",
       "marks": [
         {
           "mark": "blend-area",
           "role": "state",
-          "hex": "#007A91",
+          "hex": "#1C1C1A",
           "beats": [
             3,
             4,
@@ -28,7 +28,7 @@
         {
           "mark": "blend-curve",
           "role": "state",
-          "hex": "#007A91",
+          "hex": "#1C1C1A",
           "beats": [
             3,
             4,
@@ -38,7 +38,7 @@
         {
           "mark": "blend-point",
           "role": "highlight",
-          "hex": "#507C00",
+          "hex": "#3B6EA8",
           "beats": [
             3,
             4,
@@ -48,7 +48,7 @@
         {
           "mark": "blend-share",
           "role": "highlight",
-          "hex": "#507C00",
+          "hex": "#3B6EA8",
           "beats": [
             3,
             4,
@@ -58,7 +58,7 @@
         {
           "mark": "guess-area",
           "role": "state",
-          "hex": "#007A91",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             2,
@@ -70,7 +70,7 @@
         {
           "mark": "guess-curve",
           "role": "state",
-          "hex": "#007A91",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             2,
@@ -82,7 +82,7 @@
         {
           "mark": "reading-area",
           "role": "measurement",
-          "hex": "#8E6A00",
+          "hex": "#3F3F3B",
           "beats": [
             2,
             3,
@@ -93,7 +93,7 @@
         {
           "mark": "reading-curve",
           "role": "measurement",
-          "hex": "#8E6A00",
+          "hex": "#3F3F3B",
           "beats": [
             2,
             3,
@@ -106,12 +106,12 @@
     {
       "id": "diffusion-denoising",
       "route": "/manipulation/diffusion-policy/",
-      "sourceSha256": "8946e436554e945991c0e10978e0eab865d169acb97c95d514790f69815f1fa9",
+      "sourceSha256": "b6d6cb41a9d639624727fe8eba1e654ef095c0a07f6688f8582d5b1714d06fd4",
       "marks": [
         {
           "mark": "action-0",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -122,7 +122,7 @@
         {
           "mark": "action-1",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -133,7 +133,7 @@
         {
           "mark": "action-10",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -144,7 +144,7 @@
         {
           "mark": "action-11",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -155,7 +155,7 @@
         {
           "mark": "action-12",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -166,7 +166,7 @@
         {
           "mark": "action-13",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -177,7 +177,7 @@
         {
           "mark": "action-14",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -188,7 +188,7 @@
         {
           "mark": "action-15",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -199,7 +199,7 @@
         {
           "mark": "action-16",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -210,7 +210,7 @@
         {
           "mark": "action-17",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -221,7 +221,7 @@
         {
           "mark": "action-18",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -232,7 +232,7 @@
         {
           "mark": "action-19",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -243,7 +243,7 @@
         {
           "mark": "action-2",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -254,7 +254,7 @@
         {
           "mark": "action-20",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -265,7 +265,7 @@
         {
           "mark": "action-21",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -276,7 +276,7 @@
         {
           "mark": "action-22",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -287,7 +287,7 @@
         {
           "mark": "action-23",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -298,7 +298,7 @@
         {
           "mark": "action-24",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -309,7 +309,7 @@
         {
           "mark": "action-25",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -320,7 +320,7 @@
         {
           "mark": "action-26",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -331,7 +331,7 @@
         {
           "mark": "action-27",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -342,7 +342,7 @@
         {
           "mark": "action-28",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -353,7 +353,7 @@
         {
           "mark": "action-29",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -364,7 +364,7 @@
         {
           "mark": "action-3",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -375,7 +375,7 @@
         {
           "mark": "action-30",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -386,7 +386,7 @@
         {
           "mark": "action-31",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -397,7 +397,7 @@
         {
           "mark": "action-32",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -408,7 +408,7 @@
         {
           "mark": "action-33",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -419,7 +419,7 @@
         {
           "mark": "action-34",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -430,7 +430,7 @@
         {
           "mark": "action-35",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -441,7 +441,7 @@
         {
           "mark": "action-36",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -452,7 +452,7 @@
         {
           "mark": "action-37",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -463,7 +463,7 @@
         {
           "mark": "action-38",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -474,7 +474,7 @@
         {
           "mark": "action-39",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -485,7 +485,7 @@
         {
           "mark": "action-4",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -496,7 +496,7 @@
         {
           "mark": "action-40",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -507,7 +507,7 @@
         {
           "mark": "action-41",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -518,7 +518,7 @@
         {
           "mark": "action-42",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -529,7 +529,7 @@
         {
           "mark": "action-43",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -540,7 +540,7 @@
         {
           "mark": "action-44",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -551,7 +551,7 @@
         {
           "mark": "action-45",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -562,7 +562,7 @@
         {
           "mark": "action-46",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -573,7 +573,7 @@
         {
           "mark": "action-47",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -584,7 +584,7 @@
         {
           "mark": "action-48",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -595,7 +595,7 @@
         {
           "mark": "action-49",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -606,7 +606,7 @@
         {
           "mark": "action-5",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -617,7 +617,7 @@
         {
           "mark": "action-50",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -628,7 +628,7 @@
         {
           "mark": "action-51",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -639,7 +639,7 @@
         {
           "mark": "action-52",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -650,7 +650,7 @@
         {
           "mark": "action-53",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -661,7 +661,7 @@
         {
           "mark": "action-54",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -672,7 +672,7 @@
         {
           "mark": "action-55",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -683,7 +683,7 @@
         {
           "mark": "action-56",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -694,7 +694,7 @@
         {
           "mark": "action-57",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -705,7 +705,7 @@
         {
           "mark": "action-58",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -716,7 +716,7 @@
         {
           "mark": "action-59",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -727,7 +727,7 @@
         {
           "mark": "action-6",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -738,7 +738,7 @@
         {
           "mark": "action-7",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -749,7 +749,7 @@
         {
           "mark": "action-8",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -760,7 +760,7 @@
         {
           "mark": "action-9",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -771,7 +771,7 @@
         {
           "mark": "action-arrow-0",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -782,7 +782,7 @@
         {
           "mark": "action-arrow-1",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -793,7 +793,7 @@
         {
           "mark": "demonstration-0",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -804,7 +804,7 @@
         {
           "mark": "demonstration-1",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             3,
@@ -815,7 +815,7 @@
         {
           "mark": "noise-0",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -823,7 +823,7 @@
         {
           "mark": "noise-1",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -831,7 +831,7 @@
         {
           "mark": "noise-10",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -839,7 +839,7 @@
         {
           "mark": "noise-11",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -847,7 +847,7 @@
         {
           "mark": "noise-12",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -855,7 +855,7 @@
         {
           "mark": "noise-13",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -863,7 +863,7 @@
         {
           "mark": "noise-14",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -871,7 +871,7 @@
         {
           "mark": "noise-15",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -879,7 +879,7 @@
         {
           "mark": "noise-16",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -887,7 +887,7 @@
         {
           "mark": "noise-17",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -895,7 +895,7 @@
         {
           "mark": "noise-18",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -903,7 +903,7 @@
         {
           "mark": "noise-19",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -911,7 +911,7 @@
         {
           "mark": "noise-2",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -919,7 +919,7 @@
         {
           "mark": "noise-20",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -927,7 +927,7 @@
         {
           "mark": "noise-21",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -935,7 +935,7 @@
         {
           "mark": "noise-22",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -943,7 +943,7 @@
         {
           "mark": "noise-23",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -951,7 +951,7 @@
         {
           "mark": "noise-24",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -959,7 +959,7 @@
         {
           "mark": "noise-25",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -967,7 +967,7 @@
         {
           "mark": "noise-26",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -975,7 +975,7 @@
         {
           "mark": "noise-27",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -983,7 +983,7 @@
         {
           "mark": "noise-28",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -991,7 +991,7 @@
         {
           "mark": "noise-29",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -999,7 +999,7 @@
         {
           "mark": "noise-3",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1007,7 +1007,7 @@
         {
           "mark": "noise-30",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1015,7 +1015,7 @@
         {
           "mark": "noise-31",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1023,7 +1023,7 @@
         {
           "mark": "noise-32",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1031,7 +1031,7 @@
         {
           "mark": "noise-33",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1039,7 +1039,7 @@
         {
           "mark": "noise-34",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1047,7 +1047,7 @@
         {
           "mark": "noise-35",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1055,7 +1055,7 @@
         {
           "mark": "noise-36",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1063,7 +1063,7 @@
         {
           "mark": "noise-37",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1071,7 +1071,7 @@
         {
           "mark": "noise-38",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1079,7 +1079,7 @@
         {
           "mark": "noise-39",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1087,7 +1087,7 @@
         {
           "mark": "noise-4",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1095,7 +1095,7 @@
         {
           "mark": "noise-40",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1103,7 +1103,7 @@
         {
           "mark": "noise-41",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1111,7 +1111,7 @@
         {
           "mark": "noise-42",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1119,7 +1119,7 @@
         {
           "mark": "noise-43",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1127,7 +1127,7 @@
         {
           "mark": "noise-44",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1135,7 +1135,7 @@
         {
           "mark": "noise-45",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1143,7 +1143,7 @@
         {
           "mark": "noise-46",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1151,7 +1151,7 @@
         {
           "mark": "noise-47",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1159,7 +1159,7 @@
         {
           "mark": "noise-48",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1167,7 +1167,7 @@
         {
           "mark": "noise-49",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1175,7 +1175,7 @@
         {
           "mark": "noise-5",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1183,7 +1183,7 @@
         {
           "mark": "noise-50",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1191,7 +1191,7 @@
         {
           "mark": "noise-51",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1199,7 +1199,7 @@
         {
           "mark": "noise-52",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1207,7 +1207,7 @@
         {
           "mark": "noise-53",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1215,7 +1215,7 @@
         {
           "mark": "noise-54",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1223,7 +1223,7 @@
         {
           "mark": "noise-55",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1231,7 +1231,7 @@
         {
           "mark": "noise-56",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1239,7 +1239,7 @@
         {
           "mark": "noise-57",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1247,7 +1247,7 @@
         {
           "mark": "noise-58",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1255,7 +1255,7 @@
         {
           "mark": "noise-59",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1263,7 +1263,7 @@
         {
           "mark": "noise-6",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1271,7 +1271,7 @@
         {
           "mark": "noise-7",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1279,7 +1279,7 @@
         {
           "mark": "noise-8",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1287,7 +1287,7 @@
         {
           "mark": "noise-9",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1295,7 +1295,7 @@
         {
           "mark": "observed-state",
           "role": "state",
-          "hex": "#007A91",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             2,
@@ -1307,7 +1307,7 @@
         {
           "mark": "reference-arrow-0",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1315,7 +1315,7 @@
         {
           "mark": "reference-arrow-1",
           "role": "reference",
-          "hex": "#6E6F70",
+          "hex": "#A3A39E",
           "beats": [
             2
           ]
@@ -1325,12 +1325,12 @@
     {
       "id": "batch-scale",
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "sourceSha256": "4dac97d8131e38417a753b1f66d22c489f4b57a9d4f5de0188589fcae468a144",
+      "sourceSha256": "07bd9e9882c36047595cc4d91c6bdb2db4ef069bfbbbd2c1aaf9d9e7db6e7be5",
       "marks": [
         {
           "mark": "cpu-cost-time",
           "role": "constraint",
-          "hex": "#CB3B32",
+          "hex": "#1C1C1A",
           "beats": [
             3,
             4
@@ -1339,7 +1339,7 @@
         {
           "mark": "fixed-budget-time",
           "role": "value",
-          "hex": "#56793D",
+          "hex": "#3F3F3B",
           "beats": [
             1,
             2,
@@ -1350,7 +1350,7 @@
         {
           "mark": "selected-environment-count",
           "role": "highlight",
-          "hex": "#507C00",
+          "hex": "#3B6EA8",
           "beats": [
             1,
             2,
@@ -1368,7 +1368,7 @@
         {
           "mark": "trot-foot-0",
           "role": "state",
-          "hex": "#007A91",
+          "hex": "#1C1C1A",
           "beats": [
             2,
             3,
@@ -1378,7 +1378,7 @@
         {
           "mark": "trot-foot-3",
           "role": "state",
-          "hex": "#007A91",
+          "hex": "#1C1C1A",
           "beats": [
             2,
             3,
@@ -1388,7 +1388,7 @@
         {
           "mark": "walk-foot-0",
           "role": "state",
-          "hex": "#007A91",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             2,
@@ -1399,7 +1399,7 @@
         {
           "mark": "walk-foot-2",
           "role": "state",
-          "hex": "#007A91",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             2,
@@ -1410,7 +1410,7 @@
         {
           "mark": "walk-foot-3",
           "role": "state",
-          "hex": "#007A91",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             2,
@@ -1423,12 +1423,12 @@
     {
       "id": "jam-overhead",
       "route": "/data-hardware/industrial-deployment/",
-      "sourceSha256": "8dadaa6843e1ab336c5786206ba844fccca253064fc41320dfa6b944f35185ce",
+      "sourceSha256": "e974e17b5b735fd9b0c3f711b86948e639819c302d34a365959a4cd62d618f31",
       "marks": [
         {
           "mark": "clearing-time",
           "role": "constraint",
-          "hex": "#CB3B32",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             1,
@@ -1443,7 +1443,7 @@
         {
           "mark": "downtime",
           "role": "constraint",
-          "hex": "#CB3B32",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             1,
@@ -1458,7 +1458,7 @@
         {
           "mark": "productive-time",
           "role": "value",
-          "hex": "#56793D",
+          "hex": "#3F3F3B",
           "beats": [
             1,
             1,
@@ -1475,12 +1475,12 @@
     {
       "id": "reliability-threshold",
       "route": "/",
-      "sourceSha256": "e028e66e667e2567f0753b904d53c6213ea0df3210706fe08d2e7afe1afb9fbc",
+      "sourceSha256": "50d68a826a06583ffb0a581edf9f588d58bcbd9e4d08c270a629e7086080ee86",
       "marks": [
         {
           "mark": "episode-0",
           "role": "value",
-          "hex": "#56793D",
+          "hex": "#3F3F3B",
           "beats": [
             1,
             2,
@@ -1491,7 +1491,7 @@
         {
           "mark": "episode-1",
           "role": "value",
-          "hex": "#56793D",
+          "hex": "#3F3F3B",
           "beats": [
             1,
             2,
@@ -1502,7 +1502,7 @@
         {
           "mark": "episode-2",
           "role": "value",
-          "hex": "#56793D",
+          "hex": "#3F3F3B",
           "beats": [
             1,
             2,
@@ -1515,12 +1515,12 @@
     {
       "id": "tactile-slip",
       "route": "/frontier/dexterity/",
-      "sourceSha256": "8c3b451df94096363373e3afeb7a8a382b24ad98a9e03d04dfc43d06e95d0c67",
+      "sourceSha256": "e668acee16db7514642adb318bc7e3641d0dc23f6fc9d08679031aee000a3a5c",
       "marks": [
         {
           "mark": "held-object",
           "role": "state",
-          "hex": "#007A91",
+          "hex": "#1C1C1A",
           "beats": [
             1,
             2,
@@ -1531,7 +1531,7 @@
         {
           "mark": "left-touch",
           "role": "measurement",
-          "hex": "#8E6A00",
+          "hex": "#3F3F3B",
           "beats": [
             1,
             2,
@@ -1542,7 +1542,7 @@
         {
           "mark": "right-touch",
           "role": "measurement",
-          "hex": "#8E6A00",
+          "hex": "#3F3F3B",
           "beats": [
             1,
             2,
@@ -1555,12 +1555,12 @@
     {
       "id": "sense-avoid",
       "route": "/adjacent/drones/",
-      "sourceSha256": "e18f668521d04e8bd5946508ab9cad990d2d76827fa7873b1e383f3911f001b7",
+      "sourceSha256": "8b59423fdf992d349ec11787003b1f1e5b13ff1dd96e2d4216c5eb99769396ba",
       "marks": [
         {
           "mark": "avoidance-budget",
           "role": "action",
-          "hex": "#866299",
+          "hex": "#1C1C1A",
           "beats": [
             3,
             4
@@ -1569,7 +1569,7 @@
         {
           "mark": "latency-budget",
           "role": "constraint",
-          "hex": "#CB3B32",
+          "hex": "#1C1C1A",
           "beats": [
             3,
             4

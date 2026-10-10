@@ -40,7 +40,6 @@ import {
   peakDeltaV,
   type ExecutionMode,
 } from '@/lib/execution-modes';
-import { MOTION_STAGE } from '@/lib/motion-tokens';
 
 /**
  * ExecutionModes: what the arm does when a new plan arrives while it is
@@ -177,17 +176,17 @@ function ModePanel({
             width={f(pauseToX - pauseFromX)}
             height={PANEL_H}
           />
-          {/* A stopped clock over the wait. */}
-          <g
-            transform={`translate(${f((pauseFromX + pauseToX) / 2)} ${f(panel.top + 12)})`}
-            fill={MOTION_STAGE.background}
-            stroke={roleColour('constraint')}
-            strokeWidth={1.4}
-            strokeLinecap="round"
+          {/* The wait, named in words over the hatch. */}
+          <text
+            data-scene-tick=""
+            x={f((pauseFromX + pauseToX) / 2)}
+            y={f(panel.top + 12)}
+            textAnchor="middle"
+            fontSize={CHART_TYPE.tickPx}
+            fill={CHART_STRUCTURE.label}
           >
-            <circle r={7} />
-            <path d="M0 0V-4.5M0 0H3.5" fill="none" />
-          </g>
+            waits
+          </text>
         </g>
       ) : null}
       <g data-series="em-old-plan">
@@ -350,7 +349,7 @@ export function ExecutionModes({ className }: { className?: string }) {
         <FigureStage
           footer={
             <StageStatus>
-              Each solid line is the arm&apos;s speed; the grey dashed line is the old plan, had
+              Each solid line is the arm&apos;s speed; the dashed line is the old plan, had
               nothing changed.
             </StageStatus>
           }

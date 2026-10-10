@@ -13,7 +13,6 @@ import {
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
-  CHART_UNCERTAINTY,
   CHART_VIEW_WIDTH,
   StageAnnotation,
   roleColour,
@@ -50,7 +49,7 @@ type ActionConditioningProps = {
 
 const WIDTH = CHART_VIEW_WIDTH;
 const HEIGHT = 262;
-const FRAME = { w: 150, h: 80, rx: 6 };
+const FRAME = { w: 150, h: 80 };
 const OUTCOME_X = WIDTH - 6 - FRAME.w;
 const OUTCOME_Y = { a: 22, b: 130 } as const;
 const START = { x: 6, y: (OUTCOME_Y.a + OUTCOME_Y.b + FRAME.h) / 2 - FRAME.h / 2 };
@@ -94,16 +93,14 @@ function FrameScenery({ goalLabel = false }: { goalLabel?: boolean }) {
           y={0}
           width={FRAME.w}
           height={FRAME.h}
-          rx={FRAME.rx}
           fill="none"
           stroke={CHART_STRUCTURE.axes}
           strokeOpacity={CHART_STRUCTURE.axesOpacity}
-          strokeWidth={CHART_STROKE.structure * 2}
+          strokeWidth={CHART_STROKE.structure}
         />
-        <g fill={CHART_STRUCTURE.grid}>
-          <rect x={MARGIN} y={SLAB_Y} width={FRAME.w - 2 * MARGIN} height={SLAB} rx={1.5} />
-          <rect x={MARGIN + 12} y={SLAB_Y + SLAB} width={4} height={FRAME.h - SLAB_Y - SLAB - 4} />
-          <rect x={FRAME.w - MARGIN - 16} y={SLAB_Y + SLAB} width={4} height={FRAME.h - SLAB_Y - SLAB - 4} />
+        <g fill="none" stroke={roleColour('reference')} strokeWidth={CHART_STROKE.structure}>
+          <rect x={MARGIN} y={SLAB_Y} width={FRAME.w - 2 * MARGIN} height={SLAB} />
+          <path d={`M${MARGIN + 14} ${SLAB_Y + SLAB}V${FRAME.h - 4}M${FRAME.w - MARGIN - 14} ${SLAB_Y + SLAB}V${FRAME.h - 4}`} />
         </g>
       </g>
       <rect
@@ -143,13 +140,14 @@ function Gripper({ gripperY, ghost = false }: { gripperY: number; ghost?: boolea
     <g
       data-series={ghost ? 'gripper-earlier' : 'gripper'}
       data-chart-role="action"
-      fill={roleColour('action')}
-      opacity={ghost ? CHART_UNCERTAINTY.fillAlpha : 1}
+      fill="none"
+      stroke={roleColour(ghost ? 'reference' : 'action')}
+      strokeWidth={ghost ? CHART_STROKE.reference : CHART_STROKE.trace}
+      strokeDasharray={ghost ? CHART_STROKE.dash : undefined}
+      strokeLinejoin="round"
     >
-      {ghost ? null : <rect x={GRIPPER_X - 2} y={0} width={4} height={palmY} />}
-      <rect x={GRIPPER_X - reach} y={palmY} width={2 * reach} height={PALM} rx={1} />
-      <rect x={GRIPPER_X - reach} y={palmY + PALM} width={4} height={FINGER} rx={1} />
-      <rect x={GRIPPER_X + reach - 4} y={palmY + PALM} width={4} height={FINGER} rx={1} />
+      {ghost ? null : <line x1={GRIPPER_X} y1={0} x2={GRIPPER_X} y2={palmY} />}
+      <path d={`M${GRIPPER_X - reach} ${palmY + PALM + FINGER}V${palmY}H${GRIPPER_X + reach}V${palmY + PALM + FINGER}`} />
     </g>
   );
 }
@@ -165,9 +163,10 @@ function Block({ state, final, testId }: { state: SceneState; final: boolean; te
       y={SLAB_Y - BLOCK}
       width={BLOCK}
       height={BLOCK}
-      rx={2}
-      fill={roleColour('state')}
-      fillOpacity={final ? 1 : CHART_UNCERTAINTY.fillAlpha}
+      fill={final ? roleColour('state') : 'none'}
+      stroke={final ? undefined : roleColour('reference')}
+      strokeWidth={final ? undefined : CHART_STROKE.reference}
+      strokeDasharray={final ? undefined : CHART_STROKE.dash}
     />
   );
 }
@@ -175,7 +174,7 @@ function Block({ state, final, testId }: { state: SceneState; final: boolean; te
 /** One frame's label, set just above the frame's top edge. */
 function FrameLabel({ x, y, children }: { x: number; y: number; children: string }) {
   return (
-    <text x={x} y={y - LABEL_RISE} fontSize={CHART_TYPE.labelPx} fontWeight={600} fill={CHART_STRUCTURE.label}>
+    <text x={x} y={y - LABEL_RISE} fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.label}>
       {children}
     </text>
   );
@@ -196,7 +195,7 @@ function Fork() {
         const left = [toX - head * Math.cos(angle - 0.5), toY - head * Math.sin(angle - 0.5)];
         const right = [toX - head * Math.cos(angle + 0.5), toY - head * Math.sin(angle + 0.5)];
         return (
-          <g key={top} strokeWidth={CHART_STROKE.structure * 2}>
+          <g key={top} strokeWidth={CHART_STROKE.structure}>
             <path d={`M${fromX} ${fromY}H${splitX}L${toX} ${toY}`} />
             <path d={`M${left[0]} ${left[1]}L${toX} ${toY}L${right[0]} ${right[1]}`} strokeLinejoin="round" />
           </g>

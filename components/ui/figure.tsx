@@ -149,7 +149,7 @@ function SchematicFigure({
         <FigureStage>
           <span
             data-figure-label
-            className="block pb-1 font-sans text-sm font-medium leading-snug text-text-dim"
+            className="block pb-2 font-sans text-[12px] leading-normal text-text-dim"
           >
             {SCHEMATIC_LABEL}
           </span>
@@ -206,6 +206,8 @@ export function Figure({
     <figure
       data-figure-kind={figureKind}
       data-image-id={imageId}
+      data-brand-surface-id="surface:flat"
+      data-brand-surface-level="flat"
       className={cx(
         'my-6',
         // Every photograph takes one width at a given viewport, whatever

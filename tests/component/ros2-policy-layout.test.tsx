@@ -128,7 +128,13 @@ describe('Ros2PolicyLayout', () => {
     }
     expect(container.querySelectorAll('[data-series="sensing"] [data-edge]')).toHaveLength(2);
     expect(container.querySelectorAll('[data-series="commands"] [data-edge]')).toHaveLength(3);
-    expect(container.querySelectorAll('svg [stroke-dasharray]')).toHaveLength(0);
+    // Owner-approved successor (figure standard of 2026-10-10): sensing and
+    // moves are both ink, so sensor data is dashed and moves are solid, and
+    // each legend swatch carries the dash of its series.
+    expect(container.querySelectorAll('[data-series="sensing"] path[stroke-dasharray]')).toHaveLength(2);
+    expect(container.querySelectorAll('[data-series="commands"] [stroke-dasharray]')).toHaveLength(0);
+    expect(container.querySelector('[data-legend-series="sensing"] svg path')?.getAttribute('stroke-dasharray')).not.toBeNull();
+    expect(container.querySelector('[data-legend-series="commands"] svg path')?.getAttribute('stroke-dasharray')).toBeNull();
   });
 
   it('puts every QoS detail and a linked source for each citation in the method fold', () => {

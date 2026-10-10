@@ -13,6 +13,8 @@ const RATES = [0.95, 0.99, 0.999] as const;
 const X = [60, 151, 242] as const;
 const BAR_BASE = 172;
 const BAR_HEIGHT = 91;
+/** Thin bars, centred on each column, all in the value role. */
+const BAR_WIDTH = 14;
 
 export const RELIABILITY_THRESHOLD_SCENE: SceneDefinition = {
   id: 'reliability-threshold',
@@ -60,7 +62,7 @@ function ReliabilityThresholdStage() {
         return (
           <g key={rate}>
             <AnimatedElement as="rect" data-scene-mark={`episode-${index}`}
-              x={X[index]} y={BAR_BASE - height} width={44}
+              x={X[index] + 22 - BAR_WIDTH / 2} y={BAR_BASE - height} width={BAR_WIDTH}
               fill="var(--role-value-stage)"
               bindings={{ height: (t) => height * visibility(t),
                 y: (t) => BAR_BASE - height * visibility(t) }} />
@@ -91,7 +93,7 @@ export function ReliabilityThreshold({ className }: { className?: string }) {
       stage={<ReliabilityThresholdStage />}
       className={className}
       legend={<LegendItem series="episode-probability" swatch={
-        <span aria-hidden className="inline-block h-2.5 w-3"
+        <span aria-hidden className="inline-block h-2.5 w-1.5"
           style={{ backgroundColor: 'var(--role-value-graphic)' }} />
       }>episode success</LegendItem>}
       readout={({ beatIndex }) => {

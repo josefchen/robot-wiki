@@ -64,7 +64,7 @@ const LANE_TOP = 66;
 const LANE_STEP = 34;
 /** From a lane label's baseline to the top of its bar, clear of descenders. */
 const BAR_DY = 6;
-const BAR_H = 10;
+const BAR_H = 2;
 const EXAMPLES_LABEL_Y = 172;
 const EXAMPLES_Y = 184;
 const AXIS_Y = 198;

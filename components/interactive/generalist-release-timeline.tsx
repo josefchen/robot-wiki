@@ -66,7 +66,7 @@ const ROWS_TOP = NOTE_BAND;
 const ROW_H = 22;
 /** Room below the last row for the tick marks and month labels. */
 const AXIS_BAND = 30;
-const NODE_SIZE = 4.5;
+const NODE_SIZE = 3.5;
 
 /** Time axis bounds (month precision), slightly padded past the data. */
 const AXIS_MIN = '2025-01';
@@ -411,17 +411,16 @@ export function GeneralistReleaseTimeline({
                     y={f(cy - ROW_H / 2)}
                     width={WIDTH}
                     height={ROW_H}
-                    fill={isSelected ? CHART_STRUCTURE.grid : 'transparent'}
-                    opacity={isSelected ? 0.35 : undefined}
+                    fill="transparent"
                   />
                   <line
                     x1={AXIS_LEFT}
                     x2={AXIS_RIGHT}
                     y1={cy}
                     y2={cy}
-                    stroke={CHART_STRUCTURE.grid}
+                    stroke={isSelected ? CHART_STRUCTURE.label : CHART_STRUCTURE.grid}
                     strokeWidth={CHART_STROKE.structure}
-                    opacity={CHART_STRUCTURE.gridOpacity}
+                    opacity={isSelected ? 1 : CHART_STRUCTURE.gridOpacity}
                   />
                   <TierGlyph
                     tier={showSourceType ? r.provenance : 'paper'}

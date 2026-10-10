@@ -743,6 +743,50 @@
         "components/interactive/ros2-policy-layout.tsx"
       ],
       "takeaway": "The AI never drives the motors itself: every move it suggests passes a safety check first."
+    },
+    {
+      "id": "classical--calibration--time-offset-miss",
+      "route": "/classical/calibration/",
+      "mount": "mount:/classical/calibration/:TimeOffsetMiss:1",
+      "figure": "time-offset-miss",
+      "audit": null,
+      "sources": [
+        "components/interactive/time-offset-miss.tsx"
+      ],
+      "takeaway": "The faster the arm moves, the further a late camera photo misplaces its hand."
+    },
+    {
+      "id": "classical--calibration--hand-eye-poses",
+      "route": "/classical/calibration/",
+      "mount": "mount:/classical/calibration/:HandEyePoses:1",
+      "figure": "hand-eye-poses",
+      "audit": null,
+      "sources": [
+        "components/interactive/hand-eye-poses.tsx"
+      ],
+      "takeaway": "Hand-eye calibration needs at least three poses, and after about a dozen more poses barely help."
+    },
+    {
+      "id": "classical--ros2-for-ml-engineers--qos-queue-age",
+      "route": "/classical/ros2-for-ml-engineers/",
+      "mount": "mount:/classical/ros2-for-ml-engineers/:QosQueueAge:1",
+      "figure": "qos-queue-age",
+      "audit": null,
+      "sources": [
+        "components/interactive/qos-queue-age.tsx"
+      ],
+      "takeaway": "A camera queue that keeps the last ten pictures makes the model act on pictures a third of a second old."
+    },
+    {
+      "id": "classical--ros2-for-ml-engineers--ros2-interfaces",
+      "route": "/classical/ros2-for-ml-engineers/",
+      "mount": "mount:/classical/ros2-for-ml-engineers/:Ros2Interfaces:1",
+      "figure": "ros2-interfaces",
+      "audit": null,
+      "sources": [
+        "components/interactive/ros2-interfaces.tsx"
+      ],
+      "takeaway": "Nodes stream with topics, ask quick questions with services, and run long cancellable jobs with actions."
     }
   ]
 }

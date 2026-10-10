@@ -93,7 +93,7 @@ const STEP_PRESETS: ReadonlyArray<{ id: StepPreset; steps: number; label: string
  */
 const MODE_LABELS = [
   { name: 'a good move', dx: -12, dy: 4, anchor: 'end' as const },
-  { name: 'another good move', dx: 8, dy: -12, anchor: 'middle' as const },
+  { name: 'another good move', dx: 0, dy: -22, anchor: 'middle' as const },
 ];
 
 function regimeFor(steps: number): string {

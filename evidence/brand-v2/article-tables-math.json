@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "bb931ae59bef6611fd64d09ed87f080ccf112a54a550de675984eac7576ce27a",
+  "fingerprint": "81c41e7e91163328fbd0d2c113c9402905a0da33ab73af0444944b6e1999feb5",
   "viewports": [
     "375x812",
     "1440x900"
@@ -276,7 +276,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17084,
+      "visibleTextLength": 17000,
       "tables": [
         {
           "index": 0,
@@ -294,7 +294,55 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "The four links and their measured errors",
-            "clientWidth": 335,
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Poses and how much tighter the estimate gets",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 5,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Poses and how much tighter the estimate gets",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "accessibleName": "Gap between the photographed and the real hand",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Gap between the photographed and the real hand",
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -351,38 +399,6 @@
           "role": null,
           "accessibleName": "",
           "viewportOverflowPx": 0
-        },
-        {
-          "index": 3,
-          "display": false,
-          "mathmlText": "tt",
-          "annotationTex": "t",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "t",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 4,
-          "display": false,
-          "mathmlText": "t+Δtt + \\Delta t",
-          "annotationTex": "t + \\Delta t",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "t+Δt",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
         }
       ],
       "scrollRegions": [
@@ -393,7 +409,29 @@
           "role": "region",
           "accessibleName": "The four links and their measured errors",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Poses and how much tighter the estimate gets",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 2,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Gap between the photographed and the real hand",
+          "tabIndex": 0,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -3219,10 +3257,82 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 14924,
-      "tables": [],
+      "visibleTextLength": 15236,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "The messages each way of talking sends",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 3,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "The messages each way of talking sends",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "How old the picture the model uses is",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "How old the picture the model uses is",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "The messages each way of talking sends",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "How old the picture the model uses is",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        }
+      ],
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "375x812"
     },
@@ -4101,7 +4211,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Datasets and corpora by scale, with the farm projection",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4143,7 +4253,7 @@
           "role": "region",
           "accessibleName": "Datasets and corpora by scale, with the farm projection",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -4169,7 +4279,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17216,
+      "visibleTextLength": 17210,
       "tables": [
         {
           "index": 0,
@@ -4238,7 +4348,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4256,7 +4366,7 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -4271,7 +4381,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26591,
+      "visibleTextLength": 26583,
       "tables": [
         {
           "index": 0,
@@ -4340,7 +4450,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Months to pay back by jam-clearing time",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4358,7 +4468,7 @@
           "role": "region",
           "accessibleName": "Months to pay back by jam-clearing time",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -4438,7 +4548,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15741,
+      "visibleTextLength": 15765,
       "tables": [
         {
           "index": 0,
@@ -4456,7 +4566,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 809,
             "scrolledBy": 40
           },
@@ -4474,7 +4584,7 @@
           "role": "region",
           "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 809,
           "scrolledBy": 40
         }
@@ -4489,7 +4599,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22651,
+      "visibleTextLength": 22669,
       "tables": [
         {
           "index": 0,
@@ -4507,7 +4617,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 591,
             "scrolledBy": 40
           },
@@ -4525,7 +4635,7 @@
           "role": "region",
           "accessibleName": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 591,
           "scrolledBy": 40
         }
@@ -4558,7 +4668,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 649,
             "scrolledBy": 40
           },
@@ -4576,7 +4686,7 @@
           "role": "region",
           "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 649,
           "scrolledBy": 40
         }
@@ -4609,7 +4719,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled loss and completion by pretraining hours",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4676,7 +4786,7 @@
           "role": "region",
           "accessibleName": "Sampled loss and completion by pretraining hours",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -4709,7 +4819,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4733,7 +4843,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Deployment programs with their reported value, what backs each record, and the source behind it. The filter above the chart narrows these rows too.",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 600,
             "scrolledBy": 40
           },
@@ -4800,7 +4910,7 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -4811,7 +4921,7 @@
           "role": "region",
           "accessibleName": "Deployment programs with their reported value, what backs each record, and the source behind it. The filter above the chart narrows these rows too.",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 600,
           "scrolledBy": 40
         }
@@ -4858,7 +4968,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled success rate and decision count by chunk size",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4882,7 +4992,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy throughput scores by added delay",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -4906,7 +5016,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled executed action across the hand-off",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -5045,7 +5155,7 @@
           "role": "region",
           "accessibleName": "Sampled success rate and decision count by chunk size",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -5078,7 +5188,7 @@
           "role": "region",
           "accessibleName": "Sampled toy throughput scores by added delay",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -5089,7 +5199,7 @@
           "role": "region",
           "accessibleName": "Sampled executed action across the hand-off",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -5184,7 +5294,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -5587,7 +5697,7 @@
           "role": "region",
           "accessibleName": "Sampled toy deviation and reference scalings by horizon",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -5653,7 +5763,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
-            "clientWidth": 90,
+            "clientWidth": 85,
             "scrollWidth": 1183,
             "scrolledBy": 40
           },
@@ -5704,7 +5814,7 @@
           "role": "region",
           "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
           "tabIndex": 0,
-          "clientWidth": 90,
+          "clientWidth": 85,
           "scrollWidth": 1183,
           "scrolledBy": 40
         }
@@ -6256,7 +6366,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "The 13 records with maker, month, download status and source type.",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 624,
             "scrolledBy": 40
           },
@@ -6274,7 +6384,7 @@
           "role": "region",
           "accessibleName": "The 13 records with maker, month, download status and source type.",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 624,
           "scrolledBy": 40
         }
@@ -6335,7 +6445,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 843,
             "scrolledBy": 40
           },
@@ -6466,7 +6576,7 @@
           "role": "region",
           "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 843,
           "scrolledBy": 40
         }
@@ -6481,7 +6591,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20908,
+      "visibleTextLength": 20909,
       "tables": [
         {
           "index": 0,
@@ -6499,7 +6609,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -6523,7 +6633,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled commanded velocity across the hand-off",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -6638,7 +6748,7 @@
           "role": "region",
           "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -6649,7 +6759,7 @@
           "role": "region",
           "accessibleName": "Sampled commanded velocity across the hand-off",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -6664,7 +6774,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 37174,
+      "visibleTextLength": 37153,
       "tables": [
         {
           "index": 0,
@@ -6682,7 +6792,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Toy value along the fictional espresso episode",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -6706,7 +6816,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Per-task successes out of 30",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -6797,7 +6907,7 @@
           "role": "region",
           "accessibleName": "Toy value along the fictional espresso episode",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -6830,7 +6940,7 @@
           "role": "region",
           "accessibleName": "Per-task successes out of 30",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         },
@@ -6888,7 +6998,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled action value along the selected dimension",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -6906,7 +7016,7 @@
           "role": "region",
           "accessibleName": "Sampled action value along the selected dimension",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -7101,7 +7211,7 @@
           "notDisclosedCells": 0,
           "notApplicableCells": 0,
           "scrollContainer": null,
-          "tableWidth": 335,
+          "tableWidth": 301,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -7121,7 +7231,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled base-height deviation for both controllers",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -7135,13 +7245,13 @@
         {
           "index": 0,
           "kind": "code",
-          "outline": "<pre class=\"m-0! overflow-x-auto rounded-md border border-border bg-surf\">",
+          "outline": "<pre class=\"m-0! overflow-x-auto rounded-[7px] border-0 bg-[var(--paper-\">",
           "role": "region",
           "accessibleName": "Proposed reward code, generation 0",
           "tabIndex": 0,
-          "clientWidth": 333,
-          "scrollWidth": 333,
-          "scrolledBy": 0
+          "clientWidth": 299,
+          "scrollWidth": 312,
+          "scrolledBy": 13
         },
         {
           "index": 1,
@@ -7161,7 +7271,7 @@
           "role": "region",
           "accessibleName": "Sampled base-height deviation for both controllers",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -7194,7 +7304,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Modelled wall-clock cost of this budget under each source",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -7212,7 +7322,7 @@
           "role": "region",
           "accessibleName": "Modelled wall-clock cost of this budget under each source",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -7245,7 +7355,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled task success against ground friction",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -7263,7 +7373,7 @@
           "role": "region",
           "accessibleName": "Sampled task success against ground friction",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -7457,7 +7567,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled latent deviation by imagination step",
-            "clientWidth": 335,
+            "clientWidth": 301,
             "scrollWidth": 480,
             "scrolledBy": 40
           },
@@ -7475,7 +7585,7 @@
           "role": "region",
           "accessibleName": "Sampled latent deviation by imagination step",
           "tabIndex": 0,
-          "clientWidth": 335,
+          "clientWidth": 301,
           "scrollWidth": 480,
           "scrolledBy": 40
         }
@@ -7845,7 +7955,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17521,
+      "visibleTextLength": 17437,
       "tables": [
         {
           "index": 0,
@@ -7863,11 +7973,59 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "The four links and their measured errors",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Poses and how much tighter the estimate gets",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 5,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Poses and how much tighter the estimate gets",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "accessibleName": "Gap between the photographed and the real hand",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Gap between the photographed and the real hand",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -7920,38 +8078,6 @@
           "role": null,
           "accessibleName": "",
           "viewportOverflowPx": 0
-        },
-        {
-          "index": 3,
-          "display": false,
-          "mathmlText": "tt",
-          "annotationTex": "t",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "t",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
-        },
-        {
-          "index": 4,
-          "display": false,
-          "mathmlText": "t+Δtt + \\Delta t",
-          "annotationTex": "t + \\Delta t",
-          "htmlLayerHidden": true,
-          "renderError": false,
-          "renderedText": "t+Δt",
-          "fontFamilyHead": "KaTeX_Main",
-          "scrollWidth": 0,
-          "clientWidth": 0,
-          "tabIndex": -1,
-          "role": null,
-          "accessibleName": "",
-          "viewportOverflowPx": 0
         }
       ],
       "scrollRegions": [
@@ -7962,8 +8088,30 @@
           "role": "region",
           "accessibleName": "The four links and their measured errors",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Poses and how much tighter the estimate gets",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        },
+        {
+          "index": 2,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Gap between the photographed and the real hand",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -10788,10 +10936,82 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 15361,
-      "tables": [],
+      "visibleTextLength": 15673,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "The messages each way of talking sends",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 3,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "The messages each way of talking sends",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "How old the picture the model uses is",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "How old the picture the model uses is",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "The messages each way of talking sends",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "How old the picture the model uses is",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        }
+      ],
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "1440x900"
     },
@@ -11670,11 +11890,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Datasets and corpora by scale, with the farm projection",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -11712,8 +11932,8 @@
           "role": "region",
           "accessibleName": "Datasets and corpora by scale, with the farm projection",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         },
         {
@@ -11738,7 +11958,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17611,
+      "visibleTextLength": 17605,
       "tables": [
         {
           "index": 0,
@@ -11807,11 +12027,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11825,8 +12045,8 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -11840,7 +12060,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26986,
+      "visibleTextLength": 26978,
       "tables": [
         {
           "index": 0,
@@ -11909,11 +12129,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Months to pay back by jam-clearing time",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -11927,8 +12147,8 @@
           "role": "region",
           "accessibleName": "Months to pay back by jam-clearing time",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -12007,7 +12227,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 16092,
+      "visibleTextLength": 16116,
       "tables": [
         {
           "index": 0,
@@ -12025,11 +12245,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
-            "clientWidth": 1104,
-            "scrollWidth": 1104,
+            "clientWidth": 1050,
+            "scrollWidth": 1050,
             "scrolledBy": 0
           },
-          "tableWidth": 1104,
+          "tableWidth": 1050,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -12043,8 +12263,8 @@
           "role": "region",
           "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
           "tabIndex": 0,
-          "clientWidth": 1104,
-          "scrollWidth": 1104,
+          "clientWidth": 1050,
+          "scrollWidth": 1050,
           "scrolledBy": 0
         }
       ],
@@ -12058,7 +12278,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23002,
+      "visibleTextLength": 23020,
       "tables": [
         {
           "index": 0,
@@ -12076,11 +12296,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
-            "clientWidth": 1104,
-            "scrollWidth": 1104,
+            "clientWidth": 1050,
+            "scrollWidth": 1050,
             "scrolledBy": 0
           },
-          "tableWidth": 1104,
+          "tableWidth": 1050,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -12094,8 +12314,8 @@
           "role": "region",
           "accessibleName": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
           "tabIndex": 0,
-          "clientWidth": 1104,
-          "scrollWidth": 1104,
+          "clientWidth": 1050,
+          "scrollWidth": 1050,
           "scrolledBy": 0
         }
       ],
@@ -12127,11 +12347,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -12145,8 +12365,8 @@
           "role": "region",
           "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -12178,11 +12398,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled loss and completion by pretraining hours",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -12245,8 +12465,8 @@
           "role": "region",
           "accessibleName": "Sampled loss and completion by pretraining hours",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -12278,11 +12498,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled episode success by episode length",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12302,11 +12522,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Deployment programs with their reported value, what backs each record, and the source behind it. The filter above the chart narrows these rows too.",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -12369,8 +12589,8 @@
           "role": "region",
           "accessibleName": "Sampled episode success by episode length",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         },
         {
@@ -12380,8 +12600,8 @@
           "role": "region",
           "accessibleName": "Deployment programs with their reported value, what backs each record, and the source behind it. The filter above the chart narrows these rows too.",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -12427,11 +12647,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled success rate and decision count by chunk size",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12451,11 +12671,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy throughput scores by added delay",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12475,11 +12695,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled executed action across the hand-off",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -12614,8 +12834,8 @@
           "role": "region",
           "accessibleName": "Sampled success rate and decision count by chunk size",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         },
         {
@@ -12647,8 +12867,8 @@
           "role": "region",
           "accessibleName": "Sampled toy throughput scores by added delay",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         },
         {
@@ -12658,8 +12878,8 @@
           "role": "region",
           "accessibleName": "Sampled executed action across the hand-off",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         },
         {
@@ -12753,11 +12973,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -13156,8 +13376,8 @@
           "role": "region",
           "accessibleName": "Sampled toy deviation and reference scalings by horizon",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         },
         {
@@ -13222,7 +13442,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
-            "clientWidth": 90,
+            "clientWidth": 85,
             "scrollWidth": 1183,
             "scrolledBy": 40
           },
@@ -13273,7 +13493,7 @@
           "role": "region",
           "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.",
           "tabIndex": 0,
-          "clientWidth": 90,
+          "clientWidth": 85,
           "scrollWidth": 1183,
           "scrolledBy": 40
         }
@@ -13825,11 +14045,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "The 13 records with maker, month, download status and source type.",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -13843,8 +14063,8 @@
           "role": "region",
           "accessibleName": "The 13 records with maker, month, download status and source type.",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -13904,7 +14124,7 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
-            "clientWidth": 715,
+            "clientWidth": 661,
             "scrollWidth": 843,
             "scrolledBy": 40
           },
@@ -14035,7 +14255,7 @@
           "role": "region",
           "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
           "tabIndex": 0,
-          "clientWidth": 715,
+          "clientWidth": 661,
           "scrollWidth": 843,
           "scrolledBy": 40
         }
@@ -14050,7 +14270,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21551,
+      "visibleTextLength": 21552,
       "tables": [
         {
           "index": 0,
@@ -14068,11 +14288,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -14092,11 +14312,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled commanded velocity across the hand-off",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14207,8 +14427,8 @@
           "role": "region",
           "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         },
         {
@@ -14218,8 +14438,8 @@
           "role": "region",
           "accessibleName": "Sampled commanded velocity across the hand-off",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -14233,7 +14453,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 37817,
+      "visibleTextLength": 37796,
       "tables": [
         {
           "index": 0,
@@ -14251,11 +14471,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Toy value along the fictional espresso episode",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -14275,11 +14495,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Per-task successes out of 30",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -14366,8 +14586,8 @@
           "role": "region",
           "accessibleName": "Toy value along the fictional espresso episode",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         },
         {
@@ -14399,8 +14619,8 @@
           "role": "region",
           "accessibleName": "Per-task successes out of 30",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         },
         {
@@ -14457,11 +14677,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled action value along the selected dimension",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14475,8 +14695,8 @@
           "role": "region",
           "accessibleName": "Sampled action value along the selected dimension",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -14670,7 +14890,7 @@
           "notDisclosedCells": 0,
           "notApplicableCells": 0,
           "scrollContainer": null,
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },
@@ -14690,11 +14910,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled base-height deviation for both controllers",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14704,12 +14924,12 @@
         {
           "index": 0,
           "kind": "code",
-          "outline": "<pre class=\"m-0! overflow-x-auto rounded-md border border-border bg-surf\">",
+          "outline": "<pre class=\"m-0! overflow-x-auto rounded-[7px] border-0 bg-[var(--paper-\">",
           "role": "region",
           "accessibleName": "Proposed reward code, generation 0",
           "tabIndex": 0,
-          "clientWidth": 713,
-          "scrollWidth": 713,
+          "clientWidth": 659,
+          "scrollWidth": 659,
           "scrolledBy": 0
         },
         {
@@ -14730,8 +14950,8 @@
           "role": "region",
           "accessibleName": "Sampled base-height deviation for both controllers",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -14763,11 +14983,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Modelled wall-clock cost of this budget under each source",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14781,8 +15001,8 @@
           "role": "region",
           "accessibleName": "Modelled wall-clock cost of this budget under each source",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -14814,11 +15034,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled task success against ground friction",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -14832,8 +15052,8 @@
           "role": "region",
           "accessibleName": "Sampled task success against ground friction",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -15026,11 +15246,11 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled latent deviation by imagination step",
-            "clientWidth": 715,
-            "scrollWidth": 715,
+            "clientWidth": 661,
+            "scrollWidth": 661,
             "scrolledBy": 0
           },
-          "tableWidth": 715,
+          "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -15044,8 +15264,8 @@
           "role": "region",
           "accessibleName": "Sampled latent deviation by imagination step",
           "tabIndex": 0,
-          "clientWidth": 715,
-          "scrollWidth": 715,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],

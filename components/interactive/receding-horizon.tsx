@@ -262,6 +262,9 @@ export function RecedingHorizon({
             {chunks.map((c) => {
               const top = laneTop(c.index);
               const commitWidth = f(Math.max(0, x(Math.min(c.commitEnd, domainEnd)) - x(c.start)));
+              // Thin bars: a quarter of the lane, at most 5 units, centred on it.
+              const barHeight = f(Math.min(2.5, Math.max(2, laneHeight / 6)));
+              const barTop = f(top + (laneHeight - barHeight) / 2);
               const tailWidth = f(Math.max(0, x(Math.min(c.planEnd, domainEnd)) - x(c.commitEnd)));
               return (
                 <g key={c.index}>
@@ -282,9 +285,9 @@ export function RecedingHorizon({
                     data-testid="rh-committed"
                     data-series="committed"
                     x={x(c.start)}
-                    y={top}
+                    y={barTop}
                     width={commitWidth}
-                    height={laneHeight}
+                    height={barHeight}
                     fill={action}
                   />
                   {tailWidth > 0 && (
@@ -292,9 +295,9 @@ export function RecedingHorizon({
                       data-testid="rh-predicted"
                       data-series="predicted"
                       x={x(c.commitEnd)}
-                      y={top}
+                      y={barTop}
                       width={tailWidth}
-                      height={laneHeight}
+                      height={barHeight}
                       fill="none"
                       stroke={action}
                       strokeWidth={CHART_STROKE.reference}

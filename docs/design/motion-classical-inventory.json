@@ -14,6 +14,20 @@
     "reason": "A static frame graph: every link and its sourced error are visible at once, so no animation or control would add to it."
   },
   {
+    "article": "calibration",
+    "element": "TimeOffsetMiss",
+    "decision": "keep",
+    "teachingGoal": "See that an unmeasured camera delay misplaces a moving hand by its speed times the delay.",
+    "reason": "One speed slider glides the photographed hand away from the real one, so cause and effect show in one move."
+  },
+  {
+    "article": "calibration",
+    "element": "HandEyePoses",
+    "decision": "keep",
+    "teachingGoal": "See why hand-eye calibration needs at least three poses and why gains level off after about 12 to 15.",
+    "reason": "One pose-count slider adds camera poses and shrinks the uncertainty ring, so the minimum and the plateau are felt directly."
+  },
+  {
     "article": "control",
     "element": "PendulumController",
     "decision": "keep",
@@ -132,6 +146,20 @@
     "decision": "keep",
     "teachingGoal": "See the six-node policy layout with each edge's interface and QoS, and that only the command gate reaches the controller.",
     "reason": "A static node graph: the layout and its edge labels are the content, so the figure has no controls or motion."
+  },
+  {
+    "article": "ros2-for-ml-engineers",
+    "element": "QosQueueAge",
+    "decision": "keep",
+    "teachingGoal": "See that a deep reliable queue hands a slower model its oldest picture.",
+    "reason": "Two queue presets glide the queue and the age bar, so the cost of the default depth shows at a glance."
+  },
+  {
+    "article": "ros2-for-ml-engineers",
+    "element": "Ros2Interfaces",
+    "decision": "keep",
+    "teachingGoal": "Tell topics, services and actions apart by the messages each sends.",
+    "reason": "Picking a channel draws its message sequence in step by step, a short temporal story the reader replays."
   },
   {
     "article": "scene-representation",
