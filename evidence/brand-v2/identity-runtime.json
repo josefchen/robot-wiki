@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "712ad1b370e3a1d6990287de9e68470ad0afb24f135076b47bda3fabf18ba66d",
+  "fingerprint": "891cc71dae6035796e134733d75587ed9ac931d02d846abe1ec80da8076fce7d",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -254,7 +254,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3318,
+      "visibleTextLength": 3341,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -3937,7 +3937,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16121,
+      "visibleTextLength": 16092,
       "route": "/frontier/bear-case/",
       "viewport": "1440x900"
     },
@@ -4699,7 +4699,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 84359,
+      "visibleTextLength": 84343,
       "route": "/glossary/",
       "viewport": "1440x900"
     },
@@ -9825,7 +9825,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3080,
+      "visibleTextLength": 3103,
       "route": "/",
       "viewport": "375x812"
     },
@@ -13508,7 +13508,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15770,
+      "visibleTextLength": 15741,
       "route": "/frontier/bear-case/",
       "viewport": "375x812"
     },
@@ -14270,7 +14270,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 84121,
+      "visibleTextLength": 84105,
       "route": "/glossary/",
       "viewport": "375x812"
     },

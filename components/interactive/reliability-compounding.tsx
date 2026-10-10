@@ -118,7 +118,7 @@ const TEXT_H = CHART_TYPE.labelPx * TEXT_UNITS;
 const LINE = TEXT_H * 1.25;
 const LABEL_ASCENT = TEXT_H * CHART_TYPE.ascent;
 const CHART_HEIGHT = 196;
-const PAD = { top: 30, right: 14, bottom: 46, left: 44 };
+const PAD = { top: 30, right: 14, bottom: 46, left: 58 };
 
 const PLOT = {
   left: PAD.left,

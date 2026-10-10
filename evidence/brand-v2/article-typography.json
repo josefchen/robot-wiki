@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "44f7572f6aac194185c05b35dd90545a126771551dc68c8feca74c8c4dff8ccf",
+  "fingerprint": "243c3063926eda85c724af03c862ce2178b324be929d5de7780e6fbe0be28db9",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3080,
+      "visibleTextLength": 3103,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19394,7 +19394,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 15770,
+      "visibleTextLength": 15741,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24766,7 +24766,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 84121,
+      "visibleTextLength": 84105,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56533,7 +56533,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3318,
+      "visibleTextLength": 3341,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75784,7 +75784,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16121,
+      "visibleTextLength": 16092,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81156,7 +81156,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 84359,
+      "visibleTextLength": 84343,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

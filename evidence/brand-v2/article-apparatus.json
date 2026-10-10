@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "db6a7fa19e6468f5a78ec7618dc77a2e609af8940514e535a53a16ec981b98dc",
+  "fingerprint": "5fa29b81245647518da5b03efac3d7fffd6685518b1f3bbbcf73280e565f6252",
   "viewports": [
     "375x812",
     "1440x900"
@@ -818,7 +818,7 @@
           "href": "/glossary/#operational-design-domain",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "operational design domain (ODD)The specific operating conditions an automated driving system is designed for: geography, road types, speed range, weather, and time of day. SAE J3016 makes the ODD part of the level definitions, which is why a Level 4 robotaxi that works in Phoenix and fails in a blizzard is not a contradiction but an ODD boundary. Crash-rate comparisons against human benchmarks align the human baseline to the same vehicle types, road types, and locations as the system's ODD, precisely so the comparison is not rigged.",
+          "tooltipText": "operational design domain (ODD)The specific operating conditions an automated driving system is designed for: geography, road types, speed range, weather, and time of day. SAE J3016 makes the ODD part of the level definitions, so a Level 4 robotaxi can work in Phoenix and fail in a blizzard: the blizzard lies outside its ODD. Crash-rate comparisons against human benchmarks match the human baseline to the same vehicle types, road types, and locations as the system's ODD, so both sides are measured on the same driving.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true
@@ -25892,7 +25892,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 15770,
+      "visibleTextLength": 15741,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -74881,7 +74881,7 @@
           "href": "/glossary/#operational-design-domain",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "operational design domain (ODD)The specific operating conditions an automated driving system is designed for: geography, road types, speed range, weather, and time of day. SAE J3016 makes the ODD part of the level definitions, which is why a Level 4 robotaxi that works in Phoenix and fails in a blizzard is not a contradiction but an ODD boundary. Crash-rate comparisons against human benchmarks align the human baseline to the same vehicle types, road types, and locations as the system's ODD, precisely so the comparison is not rigged.",
+          "tooltipText": "operational design domain (ODD)The specific operating conditions an automated driving system is designed for: geography, road types, speed range, weather, and time of day. SAE J3016 makes the ODD part of the level definitions, so a Level 4 robotaxi can work in Phoenix and fail in a blizzard: the blizzard lies outside its ODD. Crash-rate comparisons against human benchmarks match the human baseline to the same vehicle types, road types, and locations as the system's ODD, so both sides are measured on the same driving.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true
@@ -99955,7 +99955,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 16121,
+      "visibleTextLength": 16092,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
