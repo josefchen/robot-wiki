@@ -74210,6 +74210,317 @@
       ]
     },
     {
+      "id": "domain-pass-20261008-qa-prose-frontier-bear-case",
+      "manifest": "prose",
+      "memberId": "article:frontier/bear-case",
+      "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+      "newHash": "baa6d8cd5ea54a6f47e1a8904cb49f21bd8d3028cda37d2106d440a41027b9ee",
+      "reason": "robot-wiki-qa report 20261008-1141, finding 007: the Morgan Stanley paragraph under \"The skeptic record\" closed on \"This is not a short call; it is a bank telling clients the bottleneck has moved from capability to proof.\", a not-X-but-Y contrast. The two closing sentences become one: \"The bank kept its 50,000-unit China shipment estimate for 2026 while telling clients that the bottleneck has moved from capability to proof.\" The estimate, the claim and the citation morgan-stanley-pr-problem-2026 are unchanged, and no other text changes. The edge starts from the sealed bytes and reconciles the member's 25 earlier approved edges exactly.",
+      "ownerApproval": "Owner directive of 2026-10-08 01:30 in robot-wiki-out/HOUSE-STYLE.md (Pantheon-grade clarity): article and site prose carries no AI writing tells, including no \"not X but Y\" contrast. Applied to the open findings of the robot-wiki-qa report 20261008-1141 at the coordinator's request of 2026-10-10, while the mission is paused. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "bc-b1-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b2-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b3-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b4-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b5-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b6-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b7-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b8-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b9-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b10-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b11-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b13-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b14-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b15-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b16-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "seo-merge-20260916-prose-12",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc"
+        },
+        {
+          "id": "single-leftovers-b12-20260917-1",
+          "oldHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+          "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc"
+        },
+        {
+          "id": "round5-closeout-bear-case-prose",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc"
+        },
+        {
+          "id": "reader-f20-dates-20260923-3",
+          "oldHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+          "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "cfdf501ea057007bf575b7f2f69a864cb984a64f592eba42f14310c4564faafd"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "14e01223255123acd903423c97c66fbafb9773d84d1031230616b9e92134c347"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "cf9ecfe4893d7663eea5ae83f5a2ae1e9385356a9fab7eb35516d0f96b6d1a71"
+        },
+        {
+          "id": "reader-first-20261002-prose-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "4aa83a510ad0baeae217a62f1fa5639205c1bc5369285017b47f37ea2a4e7233"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261008-qa-article-metadata-canonical-metadata-source-data-glossary-ts",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "035a626523b15daecb92b29fbab328194a48bcc3092515568082f3d17ba04896",
+      "reason": "robot-wiki-qa report 20261008-1141, finding 008: the operational design domain definition, shown in the glossary tooltip on adjacent/autonomous-vehicles and on /glossary/, said a Level 4 robotaxi that works in Phoenix and fails in a blizzard \"is not a contradiction but an ODD boundary\". It now says the robotaxi \"can work in Phoenix and fail in a blizzard: the blizzard lies outside its ODD\", and the crash-rate sentence says the comparison matches the human baseline to the ODD \"so both sides are measured on the same driving\" in place of \"align ... precisely so the comparison is not rigged\". The term, id, order and citations sae-j3016-2021 and waymo-crash-rates-2025 are unchanged, and no other glossary entry changes. The edge starts from the sealed bytes and reconciles the member's 30 earlier approved edges exactly.",
+      "ownerApproval": "Owner directive of 2026-10-08 01:30 in robot-wiki-out/HOUSE-STYLE.md (Pantheon-grade clarity): article and site prose carries no AI writing tells, including no \"not X but Y\" contrast. Applied to the open findings of the robot-wiki-qa report 20261008-1141 at the coordinator's request of 2026-10-10, while the mission is paused. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "content-audit-2026-09-06-reset-free-learning-definition",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "5249db7c6a0745fa1476476baa774f348b144c987a9c52a4e56ef58f97d09783"
+        },
+        {
+          "id": "act-convention-20260907-6",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "19d552e44dbc558f75aef732f7631a5e9f4b9d62ee2d11bb501538f8d20d1323"
+        },
+        {
+          "id": "bc-foundations-20260907-5",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "903c86c1741dff258d369946b200b87efc631e5c33982180829039349968e127"
+        },
+        {
+          "id": "rl-source-closeouts-20260908-7",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "31131fdea3f2edd57e6849c2076506510645724575b8112347c5f7a0fe0258f5"
+        },
+        {
+          "id": "rl-autonomy-three-originals-20260908-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "54b359bab5e47d0ffb5ffbb7931ca37f612bf71f9d7af322dab1f97eded1c850"
+        },
+        {
+          "id": "scene-pointmaps-simulation-costmaps-20260908-2",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "cd69e3ea47360f9d04dbd6d422a622579e6a84d6b039e441f88a59b619dfc261"
+        },
+        {
+          "id": "pose-metrics-bop-four-originals-20260908-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "24da92bbe13bbacda8f8f8b2dee8c196fb5c30761a5b01a1ebcf7750723d3811"
+        },
+        {
+          "id": "servo-apollo-integration-20260909-4",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "ac40375fa6c72ab6db017f5e8446e37c328f281c6b573cc020d6af69770370ab"
+        },
+        {
+          "id": "industrial-systems-integrator-glossary-source-alignment-20260909",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "644008c1d1ab70e06f038b17c1b249880f43af991670f596736573312b6c9380"
+        },
+        {
+          "id": "rma-asynchronous-latent-2-20260909",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "800c8e6054f44e9a9523bfbc264aab4b2d6feaff66c22aa9b3a22d6ca4b5dec5"
+        },
+        {
+          "id": "rudin-protocol-20260909-093964af7407f036f6",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "2fef924d2a039c249aa72ae639cdbbf13c6eb6799b3ca8859d4f00e87377c749"
+        },
+        {
+          "id": "evaluation-statistics-originals-20260913-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "b08ca7b4e3f52fe110bf2ca09f2ccc729ac15853cd5230c1ac2a97995b217992"
+        },
+        {
+          "id": "perception-foundations-20260913-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "1504fc5e7270074c24ef7c672036ab97ba1d856021722415e3b6e7eb99fb62e9"
+        },
+        {
+          "id": "perception-geometric-20260913-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "6ff6250556a17eacbaa2cd6f1cb926caaa16a98d2477437b7d4f5861ae0df310"
+        },
+        {
+          "id": "perception-servo-origins-20260913-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "e6cdb0e9a8441a988d76e02a50dcc71b4f51033fb75d3c44fb5e08055ebd3939"
+        },
+        {
+          "id": "trajectory-optimization-20260913-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "230bb678c5caa2fc31b7911a62735e5b81aa481fffcf3476117604c1b58b5abc"
+        },
+        {
+          "id": "state-smoothing-20260913-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "1e5690e276c8e2b2cc1d09bf85a5d9ccc4934504388b368d4d8e8e962fffaeb4"
+        },
+        {
+          "id": "rrt-hierarchy-20260914-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "03b171d31c22ab29248e1ee7e63f639a61b00fc1b3c8ad8b5d4b65e574aa147e"
+        },
+        {
+          "id": "saycan-cap-two-20260914-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "c6265b6fb157858cf2824eccb84a2a2ba05dbd5c635d5d20e505943c6c1c0e71"
+        },
+        {
+          "id": "orb-scene-four-20260914-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "b0edba9547f2d96bc4476c0a5ae7995321187b06e81e5fe73253061b55325c3c"
+        },
+        {
+          "id": "scene-tsdf-10-20260922-3",
+          "oldHash": "b0edba9547f2d96bc4476c0a5ae7995321187b06e81e5fe73253061b55325c3c",
+          "newHash": "9dc0e573a7878c7133d16e5596cc678a249141e6d0a6b60b89806e738f251fdc"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-7",
+          "oldHash": "9dc0e573a7878c7133d16e5596cc678a249141e6d0a6b60b89806e738f251fdc",
+          "newHash": "73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096"
+        },
+        {
+          "id": "industrial-closure-20260923-2",
+          "oldHash": "73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096",
+          "newHash": "33ed8e2bf7f45a5c423254945ad75b5304772a0158e06245b548d78c8979b5e9"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "33ed8e2bf7f45a5c423254945ad75b5304772a0158e06245b548d78c8979b5e9"
+        },
+        {
+          "id": "classical-closure-20260923-3",
+          "oldHash": "33ed8e2bf7f45a5c423254945ad75b5304772a0158e06245b548d78c8979b5e9",
+          "newHash": "8c028d2510298aeaf36b459ffadd1297e1068b60af4ab174d9e7fade1b57e05c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "8c028d2510298aeaf36b459ffadd1297e1068b60af4ab174d9e7fade1b57e05c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "8c028d2510298aeaf36b459ffadd1297e1068b60af4ab174d9e7fade1b57e05c"
+        },
+        {
+          "id": "domain-pass-20261006-g8-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "e9c191b36ff9fed815adbad2006c17f04b6a93fd713f0d2b604f593b8d0bf7f9"
+        },
+        {
+          "id": "domain-pass-20261006-g9-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "f32bf52d883b3e4ad13a7e2f47722bda20ba8b2461153b15714ab3fe584e3f66"
+        }
+      ]
+    },
+    {
       "id": "domain-pass-20261009-kol-prose-dexterity",
       "manifest": "prose",
       "memberId": "article:frontier/dexterity",

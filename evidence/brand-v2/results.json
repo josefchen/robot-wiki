@@ -91264,7 +91264,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member canonical-metadata-source:data/glossary.ts moved from c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc to f32bf52d883b3e4ad13a7e2f47722bda20ba8b2461153b15714ab3fe584e3f66 exactly as approved delta domain-pass-20261006-g9-article-metadata-canonical-metadata-source-data-glossary-ts permits: Glossary fixes in the rl-sim2real domain pass of 2026-10-06 (patches/rl-sim2real.md, Glossary fixes): the mpc definition drops its 'reached whole-body scale in 2026' dating and says whole-body MPC now runs in real time on legged hardware, within its existing mujoco-ilqr-2026 citation and with no first-ever claim; the parallel-simulation definition replaces 'at a rate no CPU cluster matches' with 'so one workstation collects reinforcement learning experience at rates that once needed CPU clusters'. No other glossary term, id or order changes.",
+      "actual": "article-metadata member canonical-metadata-source:data/glossary.ts moved from c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc to 035a626523b15daecb92b29fbab328194a48bcc3092515568082f3d17ba04896 exactly as approved delta domain-pass-20261008-qa-article-metadata-canonical-metadata-source-data-glossary-ts permits: robot-wiki-qa report 20261008-1141, finding 008: the operational design domain definition, shown in the glossary tooltip on adjacent/autonomous-vehicles and on /glossary/, said a Level 4 robotaxi that works in Phoenix and fails in a blizzard \"is not a contradiction but an ODD boundary\". It now says the robotaxi \"can work in Phoenix and fail in a blizzard: the blizzard lies outside its ODD\", and the crash-rate sentence says the comparison matches the human baseline to the ODD \"so both sides are measured on the same driving\" in place of \"align ... precisely so the comparison is not rigged\". The term, id, order and citations sae-j3016-2021 and waymo-crash-rates-2025 are unchanged, and no other glossary entry changes. The edge starts from the sealed bytes and reconciles the member's 30 earlier approved edges exactly.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91276,9 +91276,9 @@
           "manifest": "article-metadata",
           "member": "canonical-metadata-source:data/glossary.ts",
           "baselineHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
-          "currentHash": "f32bf52d883b3e4ad13a7e2f47722bda20ba8b2461153b15714ab3fe584e3f66",
+          "currentHash": "035a626523b15daecb92b29fbab328194a48bcc3092515568082f3d17ba04896",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261006-g9-article-metadata-canonical-metadata-source-data-glossary-ts"
+          "approvedDelta": "domain-pass-20261008-qa-article-metadata-canonical-metadata-source-data-glossary-ts"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -120916,7 +120916,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/bear-case moved from 6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2 to 4aa83a510ad0baeae217a62f1fa5639205c1bc5369285017b47f37ea2a4e7233 exactly as approved delta reader-first-20261002-prose-frontier-bear-case permits: Reader-first figure pass of 2026-10-02 on frontier/bear-case: the prose that sends the reader to a figure now names the plain-words controls and folds the figure prints, in 2 passages. For example it reads \"Pick \"Done\" under \"Show\" and the board empties; pick \"Partly\" and four tiles survive, each opening onto the published evidence behind the call.\" where it read \"Switch the status filter to Met and the board empties; switch it to Partial and four rows survive, each with the published evidence behind the call.\". Every cited fact, number and citation in the article is unchanged, and the exact edits over the pre-pass text are recorded in audit/evidence/reader-first-20261002/source-transition.json.",
+      "actual": "prose member article:frontier/bear-case moved from 6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2 to baa6d8cd5ea54a6f47e1a8904cb49f21bd8d3028cda37d2106d440a41027b9ee exactly as approved delta domain-pass-20261008-qa-prose-frontier-bear-case permits: robot-wiki-qa report 20261008-1141, finding 007: the Morgan Stanley paragraph under \"The skeptic record\" closed on \"This is not a short call; it is a bank telling clients the bottleneck has moved from capability to proof.\", a not-X-but-Y contrast. The two closing sentences become one: \"The bank kept its 50,000-unit China shipment estimate for 2026 while telling clients that the bottleneck has moved from capability to proof.\" The estimate, the claim and the citation morgan-stanley-pr-problem-2026 are unchanged, and no other text changes. The edge starts from the sealed bytes and reconciles the member's 25 earlier approved edges exactly.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -120928,9 +120928,9 @@
           "manifest": "prose",
           "member": "article:frontier/bear-case",
           "baselineHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
-          "currentHash": "4aa83a510ad0baeae217a62f1fa5639205c1bc5369285017b47f37ea2a4e7233",
+          "currentHash": "baa6d8cd5ea54a6f47e1a8904cb49f21bd8d3028cda37d2106d440a41027b9ee",
           "status": "approved-delta",
-          "approvedDelta": "reader-first-20261002-prose-frontier-bear-case"
+          "approvedDelta": "domain-pass-20261008-qa-prose-frontier-bear-case"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -148779,7 +148779,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6398 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6444 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -150145,7 +150145,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/bear-case/ rendered no v1 identity spelling and no v1 descriptor in 31891 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/bear-case/ rendered no v1 identity spelling and no v1 descriptor in 31833 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -150427,7 +150427,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/glossary/ rendered no v1 identity spelling and no v1 descriptor in 168480 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/glossary/ rendered no v1 identity spelling and no v1 descriptor in 168448 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",

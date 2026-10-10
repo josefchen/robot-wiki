@@ -15,6 +15,7 @@ const root = resolve(import.meta.dirname, '../..');
 const read = (path: string) => figureMountPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(join(root, path)));
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /domain pass continuity drift/;
+const correctedSources = ['components/interactive/reliability-compounding.tsx', 'data/glossary.ts'];
 
 const scratchRoots: string[] = [];
 afterEach(() => {
@@ -28,7 +29,9 @@ describe('domain pass 2026-10-06 article successors', () => {
     expect(review.sources.map(({ after }) => after.path)).toEqual(domainPassSuccessorPaths());
     expect(review.sources.length).toBeGreaterThan(0);
     for (const source of review.sources) {
-      expect(source.after.path).toMatch(/^content\/[a-z0-9-]+\/[a-z0-9-]+\.mdx$/);
+      if (!correctedSources.includes(source.after.path)) {
+        expect(source.after.path).toMatch(/^content\/[a-z0-9-]+\/[a-z0-9-]+\.mdx$/);
+      }
       const live = read(source.after.path);
       const prior = domainPassPredecessor(root, source.before, live);
       expect([prior.length, sha(prior)]).toEqual([source.before.bytes, source.before.sha256]);
@@ -136,6 +139,22 @@ describe('domain pass 2026-10-06 article successors', () => {
     expect(keepsDomainPassObligations(path, prior, fixed.replace('real runs', 'robot runs'))).toBe(false);
     expect(keepsDomainPassObligations(path, fixed, prior)).toBe(false);
     expect(keepsDomainPassObligations(path, prior, fixed.replace('title: "R"', 'title: "S"'))).toBe(false);
+  });
+
+  it('admits the two QA source corrections exactly, and only on their own files', () => {
+    for (const path of correctedSources) {
+      const source = review.sources.find(({ after }) => after.path === path)!;
+      const live = read(path).toString();
+      const prior = domainPassPredecessor(root, source.before, read(path)).toString();
+      expect(live).not.toEqual(prior);
+      expect(keepsDomainPassObligations(path, prior, live)).toBe(true);
+      expect(keepsDomainPassObligations(correctedSources.find((other) => other !== path)!, prior, live)).toBe(false);
+      expect(keepsDomainPassObligations(path, prior, `${live}\n`)).toBe(false);
+      expect(keepsDomainPassObligations(path, live, prior)).toBe(false);
+    }
+    const chart = read(correctedSources[0]).toString();
+    expect(chart).toContain('const PAD = { top: 30, right: 14, bottom: 46, left: 58 };');
+    expect(read(correctedSources[1]).toString()).not.toContain('not a contradiction but');
   });
 
   it('rejects a review that drifted from its pinned bytes', () => {
