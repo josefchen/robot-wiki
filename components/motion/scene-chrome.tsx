@@ -96,7 +96,7 @@ export function SceneStageFooter({
       {hint ? (
         <span
           data-scene-hint=""
-          className="font-sans text-sm leading-snug text-text"
+          className="font-sans text-[12px] leading-normal text-text"
         >
           {hint}
         </span>
@@ -104,7 +104,7 @@ export function SceneStageFooter({
       {statusLine ? (
         <p
           data-scene-status=""
-          className="basis-full font-sans text-sm leading-snug text-text-dim"
+          className="basis-full font-sans text-[12px] leading-normal text-text-dim"
         >
           {statusLine}
         </p>
@@ -113,19 +113,24 @@ export function SceneStageFooter({
   );
 }
 
-/** The timeline at the poster's position: the end of the last beat. */
+/**
+ * The timeline at the poster's position, the end of the last beat: the
+ * scrubber's 1 px track with its thumb at the right end, so the still
+ * reads as a timeline rather than a rule.
+ */
 export function SceneTimelineAtEnd() {
   return (
     <div
       aria-hidden="true"
       data-scene-timeline="poster"
-      className="flex h-11 items-center"
+      className="relative flex h-8 items-center"
     >
-      <span className="block h-1 w-full rounded-xs bg-graphite" />
+      <span className="block h-px w-full" style={{ backgroundColor: 'var(--ink)' }} />
+      <span className="absolute right-0 block size-3 rounded-full" style={{ backgroundColor: 'var(--ink)' }} />
     </div>
   );
 }
 
-/** The live scrubber: a thin graphite track inside a 44px touch target. */
+/** The live scrubber: a 1 px ink track and a 12 px thumb inside a 32px target (stage.css). */
 export const SCENE_SCRUBBER_CLASS =
-  'block h-11 w-full cursor-pointer accent-graphite';
+  'figure-range block h-8 w-full cursor-pointer';

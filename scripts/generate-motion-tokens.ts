@@ -32,6 +32,8 @@ export interface MotionRole {
 export interface MotionTokens {
   version: number;
   description: string;
+  /** The figure palette, keyed by custom property name (without the dashes). */
+  palette: Record<string, string>;
   stage: {
     background: string;
     backgroundToken: string;
@@ -96,6 +98,23 @@ const BRAND_VAR_BY_HEX: Record<string, string> = {
   '#FFFFFF': 'var(--color-white)',
 };
 
+/** The palette entries: every key but the note, in authored order. */
+export function paletteEntries(tokens: MotionTokens): Array<[string, string]> {
+  return Object.entries(tokens.palette).filter(([name]) => name !== 'note');
+}
+
+/**
+ * A role or stage colour resolves to the page custom property it equals:
+ * a figure palette entry first, then a brand foundation, else the literal.
+ */
+export function colourVar(tokens: MotionTokens, value: string): string {
+  const key = value.replace(/\s+/g, '').toUpperCase();
+  for (const [name, colour] of paletteEntries(tokens)) {
+    if (colour.replace(/\s+/g, '').toUpperCase() === key) return `var(--${name})`;
+  }
+  return BRAND_VAR_BY_HEX[value] ?? value;
+}
+
 const roleNames = (tokens: MotionTokens): string[] => Object.keys(tokens.roles);
 
 function cssVarName(role: string, variant: 'stage' | 'text' | 'graphic') {
@@ -115,27 +134,33 @@ export function buildCss(tokens: MotionTokens): string {
     ' * Do not edit: change motion-tokens.json and regenerate. This is the only',
     ' * file under components/motion/ allowed to carry colour literals; the',
     ' * token check enforces that everywhere else.',
+    ' *',
+    ' * The first block is the figure palette as fallbacks: :where() keeps it',
+    ' * at zero specificity, so a page-level :root declaration of the same',
+    ' * custom property wins wherever it is declared.',
     ' */',
+    ':where(:root) {',
+    ...paletteEntries(tokens).map(([name, colour]) => `  --${name}: ${colour};`),
+    '}',
+    '',
     ':root {',
   ];
   for (const role of roleNames(tokens)) {
     lines.push(
-      `  ${cssVarName(role, 'stage')}: ${tokens.roles[role].stage};`,
-      `  ${cssVarName(role, 'text')}: ${tokens.roles[role].lightText};`,
-      `  ${cssVarName(role, 'graphic')}: ${tokens.roles[role].lightGraphic};`,
+      `  ${cssVarName(role, 'stage')}: ${colourVar(tokens, tokens.roles[role].stage)};`,
+      `  ${cssVarName(role, 'text')}: ${colourVar(tokens, tokens.roles[role].lightText)};`,
+      `  ${cssVarName(role, 'graphic')}: ${colourVar(tokens, tokens.roles[role].lightGraphic)};`,
     );
   }
   const stage = tokens.stage;
   lines.push(
     `  --motion-stage: ${stage.backgroundToken};`,
-    `  --motion-stage-axes: ${BRAND_VAR_BY_HEX[stage.axes] ?? stage.axes};`,
+    `  --motion-stage-axes: ${colourVar(tokens, stage.axes)};`,
     `  --motion-stage-axes-opacity: ${stage.axesOpacity};`,
-    `  --motion-stage-grid: ${BRAND_VAR_BY_HEX[stage.grid] ?? stage.grid};`,
+    `  --motion-stage-grid: ${colourVar(tokens, stage.grid)};`,
     `  --motion-stage-grid-opacity: ${stage.gridOpacity};`,
-    `  --motion-stage-label: ${BRAND_VAR_BY_HEX[stage.label] ?? stage.label};`,
-    `  --motion-stage-label-secondary: ${
-      BRAND_VAR_BY_HEX[stage.labelSecondary] ?? stage.labelSecondary
-    };`,
+    `  --motion-stage-label: ${colourVar(tokens, stage.label)};`,
+    `  --motion-stage-label-secondary: ${colourVar(tokens, stage.labelSecondary)};`,
     `  --motion-stage-label-font: ${stage.labelFont};`,
     `  --motion-stage-readout-font: ${tokens.type.stageReadoutFont};`,
     `  --motion-stage-label-size: ${tokens.type.stageScale.labelPx}px;`,
@@ -225,17 +250,15 @@ export function motionRoleVar(
   return \`var(--role-\${role}-\${variant})\`;
 }
 
-/** The figure stage (the page ground) and its structure, resolved from the brand tokens. */
+/** The figure stage (the page ground) and its structure, resolved from the figure palette. */
 export const MOTION_STAGE = {
   background: '${tokens.stage.backgroundToken}',
-  axes: '${BRAND_VAR_BY_HEX[tokens.stage.axes] ?? tokens.stage.axes}',
+  axes: '${colourVar(tokens, tokens.stage.axes)}',
   axesOpacity: ${tokens.stage.axesOpacity},
-  grid: '${BRAND_VAR_BY_HEX[tokens.stage.grid] ?? tokens.stage.grid}',
+  grid: '${colourVar(tokens, tokens.stage.grid)}',
   gridOpacity: ${tokens.stage.gridOpacity},
-  label: '${BRAND_VAR_BY_HEX[tokens.stage.label] ?? tokens.stage.label}',
-  labelSecondary: '${
-    BRAND_VAR_BY_HEX[tokens.stage.labelSecondary] ?? tokens.stage.labelSecondary
-  }',
+  label: '${colourVar(tokens, tokens.stage.label)}',
+  labelSecondary: '${colourVar(tokens, tokens.stage.labelSecondary)}',
   labelFont: '${tokens.stage.labelFont}',
   labelMinPx: ${tokens.stage.labelMinPx},
 } as const;

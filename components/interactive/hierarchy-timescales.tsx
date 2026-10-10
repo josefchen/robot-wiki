@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
@@ -70,8 +70,7 @@ const LANE_PITCH = 40;
 /** Lane label baseline and lane line, measured from the top of each lane block. */
 const LABEL_DY = 14;
 const LINE_DY = 29;
-const ICON = 14;
-const LABEL_X = PLOT.left + ICON + 6;
+const LABEL_X = PLOT.left;
 const FIRED_HALF = 6;
 const PLAYHEAD_HALF = 9;
 /** A pending update is a short broken tick, so it differs from a fired one without its hue. */
@@ -92,20 +91,6 @@ const AXIS_TICKS: Array<[number, string]> = [
   [0, '0'],
   [1000, '1 second'],
   [HORIZON_MS, '2 seconds'],
-];
-
-/**
- * One small line icon per level, slowest first: the spoken task, the next
- * step as a checklist, a short plan of moves, and the motors as a gear.
- */
-const LANE_ICONS: ReactNode[] = [
-  <path key="task" d="M1.5 2.5h11v7h-6l-3 3v-3h-2z" />,
-  <path key="step" d="M1.5 3l1.5 1.5 2.5-2.5M7.5 3.5h5M1.5 8l1.5 1.5 2.5-2.5M7.5 8.5h5" />,
-  <path key="plan" d="M1.5 11c2-6 5-8 9-8M8 1.5l2.5 1.5-1.5 2.5" />,
-  <g key="gear">
-    <circle cx={7} cy={7} r={2.5} />
-    <path d="M7 1v2M7 11v2M1 7h2M11 7h2M2.8 2.8l1.4 1.4M9.8 9.8l1.4 1.4M2.8 11.2l1.4-1.4M9.8 4.2l1.4-1.4" />
-  </g>,
 ];
 
 const timesWord = (n: number) => (n === 1 ? 'once' : n === 2 ? 'twice' : `${n} times`);
@@ -287,9 +272,9 @@ export function HierarchyTimescales({
         <FigureStage
           footer={
             <>
-              <div data-testid="system-detail" className="basis-full font-sans text-sm leading-snug">
+              <div data-testid="system-detail" className="basis-full font-sans text-[12px] leading-normal text-text-dim">
                 <p className="m-0! max-w-[65ch] text-text">
-                  <span className="font-medium">{system.name}</span>{' '}
+                  <span>{system.name}</span>{' '}
                   <span className="text-text-dim">({system.org})</span>: {system.plainPattern}
                 </p>
                 {citation && (
@@ -425,17 +410,6 @@ export function HierarchyTimescales({
               const baseline = laneTop(i) + LABEL_DY;
               return (
                 <g key={lane.id}>
-                  <g
-                    aria-hidden="true"
-                    transform={`translate(${PLOT.left} ${baseline - ICON + 2})`}
-                    fill="none"
-                    stroke={CHART_STRUCTURE.label}
-                    strokeWidth={1.2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    {LANE_ICONS[i] ?? LANE_ICONS[LANE_ICONS.length - 1]}
-                  </g>
                   <text
                     data-scene-axis=""
                     x={LABEL_X}

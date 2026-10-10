@@ -86,9 +86,9 @@ export function jamOverheadFrame(t: number) {
 }
 
 const FONT = 14;
-const BAR_LEFT = 44;
-const BAR_WIDTH = 284;
-const BAR_HEIGHT = 24;
+const BAR_LEFT = 12;
+const BAR_WIDTH = 316;
+const BAR_HEIGHT = 4;
 const ROW_1 = 62;
 const ROW_2 = 124;
 const AXIS_Y = ROW_2 + BAR_HEIGHT + 8;
@@ -97,29 +97,6 @@ const NOTE_LINE = FONT * 1.3;
 const HEIGHT = NOTE_Y + NOTE_LINE + 12;
 const r1 = (v: number) => Number(v.toFixed(1));
 const partWidth = (seconds: number) => (seconds / SECONDS_PER_HOUR) * BAR_WIDTH;
-
-/** A small robot arm: base, two links, a gripper. */
-function RobotArm({ x, y }: { x: number; y: number }) {
-  return (
-    <g data-scene-structure="robot-arm" fill="none" stroke="var(--motion-stage-label-secondary)" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <path d={`M${x - 8} ${y + 11} H${x + 8}`} />
-      <path d={`M${x - 3} ${y + 11} V${y + 7} H${x + 3} V${y + 11}`} />
-      <path d={`M${x} ${y + 7} L${x - 5} ${y - 3} L${x + 7} ${y - 9}`} />
-      <circle cx={x - 5} cy={y - 3} r={1.6} fill="var(--motion-stage-label-secondary)" />
-      <path d={`M${x + 7} ${y - 9} L${x + 11} ${y - 12} M${x + 7} ${y - 9} L${x + 11} ${y - 5}`} />
-    </g>
-  );
-}
-
-/** A person, standing in the jam time: the one who clears each jam. */
-function Person({ x, y }: { x: number; y: number }) {
-  return (
-    <g data-scene-structure="person" fill="none" stroke="var(--motion-stage-label)" strokeWidth={1.6} strokeLinecap="round">
-      <circle cx={x} cy={y - 7} r={2.6} fill="var(--motion-stage-label)" stroke="none" />
-      <path d={`M${x} ${y - 4} V${y + 3} M${x - 4} ${y - 2} L${x + 4} ${y - 2} M${x} ${y + 3} L${x - 3.5} ${y + 9} M${x} ${y + 3} L${x + 3.5} ${y + 9}`} />
-    </g>
-  );
-}
 
 function HourBar({
   y,
@@ -134,7 +111,6 @@ function HourBar({
 }) {
   return (
     <AnimatedGroup bindings={{ opacity: (t) => Number(shown(t).toFixed(3)) }}>
-      <RobotArm x={BAR_LEFT - 22} y={y + BAR_HEIGHT / 2} />
       <AnimatedElement
         as="rect"
         data-scene-mark="productive-time"
@@ -186,7 +162,7 @@ function JamOverheadStage() {
     <StageSvg viewBox={`0 0 340 ${HEIGHT}`}>
       <defs>
         <pattern id={hatchId} width={5} height={5} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <line x1={0} y1={0} x2={0} y2={5} stroke="var(--role-constraint-stage)" strokeWidth={1.5} />
+          <line x1={0} y1={0} x2={0} y2={5} stroke="var(--role-constraint-stage)" strokeWidth={1} />
         </pattern>
       </defs>
       <text x={12} y={22} fontSize={FONT} fill="var(--motion-stage-label)">
@@ -223,17 +199,16 @@ function JamOverheadStage() {
       <text x={BAR_LEFT + BAR_WIDTH / 2} y={AXIS_Y + 18} fontSize={FONT} data-scene-tick textAnchor="middle" fill="var(--motion-stage-label-secondary)">30</text>
       <text x={BAR_LEFT + BAR_WIDTH} y={AXIS_Y + 18} fontSize={FONT} data-scene-tick textAnchor="end" fill="var(--motion-stage-label-secondary)">60 min</text>
 
-      {/* The settle note: the slow cell's jam time, with a person in it. */}
+      {/* The settle note: the slow cell's jam time. */}
       <AnimatedGroup
         data-figure-annotation=""
         bindings={{ opacity: (t) => Number(jamOverheadFrame(t).recap.toFixed(3)) }}
       >
-        <Person x={r1(slowJamCentre)} y={ROW_2 + BAR_HEIGHT / 2 - 1} />
         <g data-scene-structure="settle-note-leader">
           <line x1={r1(slowJamCentre)} x2={r1(slowJamCentre)} y1={ROW_2 + BAR_HEIGHT + 2} y2={NOTE_Y - FONT - 2}
-            stroke="var(--role-highlight-stage)" strokeWidth={1.5} />
+            stroke="var(--role-highlight-stage)" strokeWidth={1} />
         </g>
-        <text data-scene-label="settle-note" x={12} y={NOTE_Y - 2} fontSize={FONT} fontWeight={600}
+        <text data-scene-label="settle-note" x={12} y={NOTE_Y - 2} fontSize={FONT}
           fill="var(--role-highlight-stage)">
           <tspan x={12} dy={0}>{`A person fixing jams: ${SLOW_JAM_MINUTES} minutes`}</tspan>
           <tspan x={12} dy={NOTE_LINE}>of every hour, while the robot waits</tspan>

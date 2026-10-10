@@ -137,7 +137,8 @@ const REFERENCE_M = 0.01;
 const GRIP = { x: 44, y: 120 };
 const TIP_X = 168;
 const ARROW_HEAD = 7;
-const ARROW_WIDTH = 4;
+/** The heaviest arrow's width in CSS px: weights stay proportional, the drawing stays a line drawing. */
+const ARROW_WIDTH = 2.5;
 
 const RAW_WEIGHTS = [0, 1, 2].map((i) => Math.exp(-ILLUSTRATIVE_M * i));
 const WEIGHT_SUM = RAW_WEIGHTS.reduce((sum, weight) => sum + weight, 0);

@@ -69,10 +69,10 @@ const f = (v: number) => Number(v.toFixed(2));
 
 const BRAIN_LABEL_Y = f(4 + LABEL_ASCENT);
 const BAR_TOP = BRAIN_LABEL_Y + 8;
-const BAR_H = 16;
+const BAR_H = 5;
 const ARM_LABEL_Y = f(BAR_TOP + BAR_H + 18 + LABEL_ASCENT);
 const BEAT_Y = ARM_LABEL_Y + 18;
-const BEAT_R = 4.5;
+const BEAT_R = 3;
 const NOTE_Y = BEAT_Y + 30;
 const HEIGHT = Math.ceil(NOTE_Y + CHART_TYPE.labelPx * 1.25 * 3 + 6);
 
@@ -320,7 +320,7 @@ export function ControlLoopBudget({
             {inferenceMs > WINDOW_MS ? (
               <path
                 data-clb-runs-on=""
-                d={`M${RIGHT + 4},${BAR_TOP + 3} l6,${BAR_H / 2 - 3} l-6,${BAR_H / 2 - 3}`}
+                d={`M${RIGHT + 4},${BAR_TOP} l5,${BAR_H / 2} l-5,${BAR_H / 2}`}
                 fill="none"
                 stroke={roleColour('constraint')}
                 strokeWidth={CHART_STROKE.trace}

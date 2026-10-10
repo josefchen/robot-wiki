@@ -74521,6 +74521,150 @@
       ]
     },
     {
+      "id": "figure-mounts-20261007-reskin-20261010-prose-classical-calibration",
+      "manifest": "prose",
+      "memberId": "article:classical/calibration",
+      "oldHash": "ce5510613284f52312bf7182459871dd3b4503220200977b13e78079f5ccf125",
+      "newHash": "e24d8b31f586a63cb18600b140ab612c382be299f3747859984d54e546ca6f22",
+      "reason": "Figure restyle of 2026-10-10 (commit 2c66acda) on classical/calibration: mounts the two new calibration figures where the prose introduces them, HandEyePoses after the paragraph on the three-pose minimum and the plateau after about 12 or 15 samples, and TimeOffsetMiss after the paragraph on the 55, 50 and 150 ms delays Realtime-VLA V2 measured, as two import lines and two mount lines, and trims the page back to its word budget of 1,191: the lead drops its restated chain sentence, the chain list is condensed, and the uncited sentences on validation, tool-center checks and fitting without observability checks are cut or shortened, with every cited fact, number and citation kept. This edge moves the prose member from its figure-mount endpoint of 2026-10-07 to the mounted text.",
+      "ownerApproval": "Owner decision of 2026-10-10 02:00 (Josef Chen): every figure moves to the research-page standard of robot-wiki-out/PANTHEON-SPEC.md (\"These figures look super cheap ... Want everything to feel like this website\"), and the four classical figures of the classical-b01 batch (HandEyePoses and TimeOffsetMiss in calibration, Ros2Interfaces and QosQueueAge in ROS 2 for ML engineers) ship redrawn to that standard (robot-wiki-out/patches/reskin/figure-system.md). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "figure-mounts-20261007-reskin-20261010-prose-classical-ros2-for-ml-engineers",
+      "manifest": "prose",
+      "memberId": "article:classical/ros2-for-ml-engineers",
+      "oldHash": "a697dbdb64d64b29ce5f876e2d696ced100a3cd855a408099e43576a68970b3c",
+      "newHash": "d534ef5162ca23f467604f5fe32492bf4de3e14408c1d735f328d14daeed78a2",
+      "reason": "Figure restyle of 2026-10-10 (commit 2c66acda) on classical/ros2-for-ml-engineers: mounts the two new ROS 2 figures where the prose introduces them, Ros2Interfaces after the paragraph on topics, services and actions, and QosQueueAge after the paragraph on deep reliable queues and message age, as two import lines and two mount lines, and trims the page back to its word budget of 1,288: the uncited sentence the QosQueueAge caption now carries is cut, and the self-check, the bag, layout, MoveIt, Nav2 and failure sentences are shortened, with every cited fact, number and citation kept. This edge moves the prose member from its figure-mount endpoint of 2026-10-07 to the mounted text.",
+      "ownerApproval": "Owner decision of 2026-10-10 02:00 (Josef Chen): every figure moves to the research-page standard of robot-wiki-out/PANTHEON-SPEC.md (\"These figures look super cheap ... Want everything to feel like this website\"), and the four classical figures of the classical-b01 batch (HandEyePoses and TimeOffsetMiss in calibration, Ros2Interfaces and QosQueueAge in ROS 2 for ML engineers) ship redrawn to that standard (robot-wiki-out/patches/reskin/figure-system.md). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "figure-mounts-20261007-reskin-20261010-accessible-names-hand-eye-poses-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/hand-eye-poses.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "34801ac028e142b778e47f3439760771c13d49bf151e2217806dc66b26cb49bc",
+      "reason": "Figure restyle of 2026-10-10 (commit 2c66acda): the new HandEyePoses figure in calibration. Its one slider is named after the label it prints plus its current value, \"Camera poses, currently N\".",
+      "ownerApproval": "Owner decision of 2026-10-10 02:00 (Josef Chen): every figure moves to the research-page standard of robot-wiki-out/PANTHEON-SPEC.md (\"These figures look super cheap ... Want everything to feel like this website\"), and the four classical figures of the classical-b01 batch (HandEyePoses and TimeOffsetMiss in calibration, Ros2Interfaces and QosQueueAge in ROS 2 for ML engineers) ship redrawn to that standard (robot-wiki-out/patches/reskin/figure-system.md). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "figure-mounts-20261007-reskin-20261010-accessible-names-hand-eye-poses-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/hand-eye-poses.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6c03e9a39dda5bdb05b7a513aecea44906bc54f454b5524191801c0dac62ca05",
+      "reason": "Figure restyle of 2026-10-10 (commit 2c66acda): the new HandEyePoses figure in calibration. Its drawing is named in the stage's plain words: the arm shows the target to its wrist camera from N poses on an arc, then either the uncertainty ring around the camera or, below three poses, that there are too few poses to solve.",
+      "ownerApproval": "Owner decision of 2026-10-10 02:00 (Josef Chen): every figure moves to the research-page standard of robot-wiki-out/PANTHEON-SPEC.md (\"These figures look super cheap ... Want everything to feel like this website\"), and the four classical figures of the classical-b01 batch (HandEyePoses and TimeOffsetMiss in calibration, Ros2Interfaces and QosQueueAge in ROS 2 for ML engineers) ship redrawn to that standard (robot-wiki-out/patches/reskin/figure-system.md). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "figure-mounts-20261007-reskin-20261010-accessible-names-qos-queue-age-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/qos-queue-age.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8df977a718f4b123fd163ff9a6fd34285cf5fe6b0bfae9b4db8881e965f91b72",
+      "reason": "Figure restyle of 2026-10-10 (commit 2c66acda): the new QosQueueAge figure in ROS 2 for ML engineers. Its drawing is named in the stage's plain words: the queue depth (one picture or N pictures) and the age in seconds of the oldest picture, the one the model takes.",
+      "ownerApproval": "Owner decision of 2026-10-10 02:00 (Josef Chen): every figure moves to the research-page standard of robot-wiki-out/PANTHEON-SPEC.md (\"These figures look super cheap ... Want everything to feel like this website\"), and the four classical figures of the classical-b01 batch (HandEyePoses and TimeOffsetMiss in calibration, Ros2Interfaces and QosQueueAge in ROS 2 for ML engineers) ship redrawn to that standard (robot-wiki-out/patches/reskin/figure-system.md). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "figure-mounts-20261007-reskin-20261010-accessible-names-ros2-interfaces-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/ros2-interfaces.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b13a48b43cd4bc32775af0894a783b014f9cbe3a7cfc24e88ec2e4b1cb5983ce",
+      "reason": "Figure restyle of 2026-10-10 (commit 2c66acda): the new Ros2Interfaces figure in ROS 2 for ML engineers. Its drawing is named from the chosen channel: the two nodes, the topic, service or action between them, and its messages in order.",
+      "ownerApproval": "Owner decision of 2026-10-10 02:00 (Josef Chen): every figure moves to the research-page standard of robot-wiki-out/PANTHEON-SPEC.md (\"These figures look super cheap ... Want everything to feel like this website\"), and the four classical figures of the classical-b01 batch (HandEyePoses and TimeOffsetMiss in calibration, Ros2Interfaces and QosQueueAge in ROS 2 for ML engineers) ship redrawn to that standard (robot-wiki-out/patches/reskin/figure-system.md). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "figure-mounts-20261007-reskin-20261010-accessible-names-time-offset-miss-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/time-offset-miss.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ff70ba23b2e946106d33a6f995db013e32d5934fbc677b41779cf3a33fa22382",
+      "reason": "Figure restyle of 2026-10-10 (commit 2c66acda): the new TimeOffsetMiss figure in calibration. Its one slider is named after the label it prints plus its current value, \"Hand speed, in centimetres a second, currently N\".",
+      "ownerApproval": "Owner decision of 2026-10-10 02:00 (Josef Chen): every figure moves to the research-page standard of robot-wiki-out/PANTHEON-SPEC.md (\"These figures look super cheap ... Want everything to feel like this website\"), and the four classical figures of the classical-b01 batch (HandEyePoses and TimeOffsetMiss in calibration, Ros2Interfaces and QosQueueAge in ROS 2 for ML engineers) ship redrawn to that standard (robot-wiki-out/patches/reskin/figure-system.md). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "figure-mounts-20261007-reskin-20261010-accessible-names-time-offset-miss-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/time-offset-miss.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "79c9cad7c50888f795d4a906db19d924c171b13e06924d65cf80c84158572d1b",
+      "reason": "Figure restyle of 2026-10-10 (commit 2c66acda): the new TimeOffsetMiss figure in calibration. Its drawing is named in the stage's plain words: the hand speed and how many millimetres behind the late camera photo puts the hand (27.5 mm at 50 cm a second for the measured 55 ms).",
+      "ownerApproval": "Owner decision of 2026-10-10 02:00 (Josef Chen): every figure moves to the research-page standard of robot-wiki-out/PANTHEON-SPEC.md (\"These figures look super cheap ... Want everything to feel like this website\"), and the four classical figures of the classical-b01 batch (HandEyePoses and TimeOffsetMiss in calibration, Ros2Interfaces and QosQueueAge in ROS 2 for ML engineers) ship redrawn to that standard (robot-wiki-out/patches/reskin/figure-system.md). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "figure-mounts-20261007-reskin-20261010-accessible-names-figure-frame-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/motion/figure-frame.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9c4bc44b38d93579517bff770a3b8577297752c23e913843e5825aad98640d6c",
+      "reason": "Figure restyle of 2026-10-10 (commit 2c66acda): the shared figure frame gains OutcomeMark, the small check or cross after a sub-panel label such as \"(a) Joint space\" under small multiples. It is a text glyph with role img, so it is named \"succeeds\" or \"fails\" from its outcome instead of reading out the glyph.",
+      "ownerApproval": "Owner decision of 2026-10-10 02:00 (Josef Chen): every figure moves to the research-page standard of robot-wiki-out/PANTHEON-SPEC.md (\"These figures look super cheap ... Want everything to feel like this website\"), and the four classical figures of the classical-b01 batch (HandEyePoses and TimeOffsetMiss in calibration, Ros2Interfaces and QosQueueAge in ROS 2 for ML engineers) ship redrawn to that standard (robot-wiki-out/patches/reskin/figure-system.md). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
       "id": "domain-pass-20261009-kol-prose-dexterity",
       "manifest": "prose",
       "memberId": "article:frontier/dexterity",

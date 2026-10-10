@@ -22,7 +22,6 @@ import {
   type SceneDefinition,
 } from './timeline';
 import { usePrefersReducedMotion } from './use-reduced-motion';
-import { Play } from '@phosphor-icons/react';
 import {
   InstrumentReset,
   INSTRUMENT_PRIMARY_CONTROL_CLASS,
@@ -126,7 +125,6 @@ export function SceneMount({
           aria-label={`Play the motion scene: ${scene.title}`}
           className={INSTRUMENT_PRIMARY_CONTROL_CLASS}
         >
-          <Play size={14} weight="bold" aria-hidden />
           Play
         </button>
       }

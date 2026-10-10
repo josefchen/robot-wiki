@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "21241600cfe73870bfbe933cc66776723c23f217767879fc43d9ecfee48fa988",
+  "fingerprint": "d0147cb56eca7a2e654a53f04630f0bd45ab5593343c3826ec134358cbbf12a2",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2951,
+  "visibleTextLength": 2969,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -621,37 +621,37 @@
       "controlId": "control:primary-action",
       "accessibleName": "Play",
       "href": null,
-      "backgroundColour": "rgb(11, 11, 12)",
-      "colour": "rgb(255, 255, 255)",
-      "topPx": 1139.53,
-      "bottomPx": 1183.53
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(28, 28, 26)",
+      "topPx": 1142.53,
+      "bottomPx": 1174.53
     },
     {
       "controlId": "control:secondary-action",
       "accessibleName": "",
       "href": null,
-      "backgroundColour": "rgb(255, 255, 255)",
-      "colour": "rgb(11, 11, 12)",
-      "topPx": 1187.53,
-      "bottomPx": 1231.53
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(108, 107, 102)",
+      "topPx": 1178.53,
+      "bottomPx": 1210.53
     },
     {
       "controlId": "control:secondary-action",
       "accessibleName": "",
       "href": null,
-      "backgroundColour": "rgb(255, 255, 255)",
-      "colour": "rgb(11, 11, 12)",
-      "topPx": 1239.53,
-      "bottomPx": 1293.53
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(108, 107, 102)",
+      "topPx": 1218.53,
+      "bottomPx": 1250.53
     },
     {
       "controlId": "control:secondary-action",
       "accessibleName": "",
       "href": null,
-      "backgroundColour": "rgb(255, 255, 255)",
-      "colour": "rgb(11, 11, 12)",
-      "topPx": 1301.53,
-      "bottomPx": 1345.53
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(108, 107, 102)",
+      "topPx": 1258.53,
+      "bottomPx": 1290.53
     },
     {
       "controlId": "control:link-focus",
@@ -659,8 +659,8 @@
       "href": "/frontier/reliability-gap/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2018.84,
-      "bottomPx": 2033.84
+      "topPx": 1742.53,
+      "bottomPx": 1759.53
     },
     {
       "controlId": "control:link-focus",
@@ -668,8 +668,8 @@
       "href": "/rl-sim2real/why-rl-locomotion/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2134.34,
-      "bottomPx": 2154.34
+      "topPx": 1863.03,
+      "bottomPx": 1883.03
     },
     {
       "controlId": "control:link-focus",
@@ -677,8 +677,8 @@
       "href": "https://arxiv.org/abs/2109.11978",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 2158.34,
-      "bottomPx": 2178.34
+      "topPx": 1887.03,
+      "bottomPx": 1907.03
     },
     {
       "controlId": "control:link-focus",
@@ -686,8 +686,8 @@
       "href": "/data-hardware/teleop-rigs/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2197.34,
-      "bottomPx": 2246.34
+      "topPx": 1926.03,
+      "bottomPx": 1975.03
     },
     {
       "controlId": "control:link-focus",
@@ -695,8 +695,8 @@
       "href": "https://arxiv.org/abs/2304.13705",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 2221.34,
-      "bottomPx": 2241.34
+      "topPx": 1950.03,
+      "bottomPx": 1970.03
     },
     {
       "controlId": "control:link-focus",
@@ -704,8 +704,8 @@
       "href": "/frontier/dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2260.34,
-      "bottomPx": 2280.34
+      "topPx": 1989.03,
+      "bottomPx": 2009.03
     },
     {
       "controlId": "control:link-focus",
@@ -713,8 +713,26 @@
       "href": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 2284.34,
-      "bottomPx": 2304.34
+      "topPx": 2013.03,
+      "bottomPx": 2033.03
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Robot Calibration",
+      "href": "/classical/calibration/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 95, 255)",
+      "topPx": 2121.03,
+      "bottomPx": 2145.03
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "ROS 2 for Machine Learning Engineers",
+      "href": "/classical/ros2-for-ml-engineers/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 95, 255)",
+      "topPx": 2152.03,
+      "bottomPx": 2176.03
     },
     {
       "controlId": "control:link-focus",
@@ -722,8 +740,8 @@
       "href": "/frontier/bear-case/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2392.34,
-      "bottomPx": 2416.34
+      "topPx": 2183.03,
+      "bottomPx": 2207.03
     },
     {
       "controlId": "control:link-focus",
@@ -731,8 +749,8 @@
       "href": "/rl-sim2real/legged-locomotion/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2423.34,
-      "bottomPx": 2447.34
+      "topPx": 2214.03,
+      "bottomPx": 2238.03
     },
     {
       "controlId": "control:link-focus",
@@ -740,26 +758,8 @@
       "href": "/rl-sim2real/parallel-sim-rl/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2454.34,
-      "bottomPx": 2478.34
-    },
-    {
-      "controlId": "control:link-focus",
-      "accessibleName": "RL for Robotics",
-      "href": "/rl-sim2real/rl-for-robotics/",
-      "backgroundColour": "rgba(0, 0, 0, 0)",
-      "colour": "rgb(36, 95, 255)",
-      "topPx": 2485.34,
-      "bottomPx": 2509.34
-    },
-    {
-      "controlId": "control:link-focus",
-      "accessibleName": "Sim-to-Real Transfer",
-      "href": "/rl-sim2real/sim2real-transfer/",
-      "backgroundColour": "rgba(0, 0, 0, 0)",
-      "colour": "rgb(36, 95, 255)",
-      "topPx": 2516.34,
-      "bottomPx": 2540.34
+      "topPx": 2245.03,
+      "bottomPx": 2269.03
     },
     {
       "controlId": "control:link-focus",
@@ -767,8 +767,8 @@
       "href": "/playground/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2595.34,
-      "bottomPx": 2614.34
+      "topPx": 2324.03,
+      "bottomPx": 2343.03
     },
     {
       "controlId": "control:link-focus",
@@ -776,8 +776,8 @@
       "href": "/how-robots-work/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2595.34,
-      "bottomPx": 2614.34
+      "topPx": 2324.03,
+      "bottomPx": 2343.03
     },
     {
       "controlId": "control:link-focus",
@@ -785,8 +785,8 @@
       "href": "/market-map/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2595.34,
-      "bottomPx": 2614.34
+      "topPx": 2324.03,
+      "bottomPx": 2343.03
     }
   ],
   "highlights": [
@@ -900,8 +900,8 @@
       "index": 3,
       "label": "Featured scene",
       "signature": "plain/module-heading/motion-scene",
-      "derivedSignature": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgb(255, 255, 255)/rgb(11, 11, 12)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=2,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
-      "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgb(255, 255, 255)/rgb(11, 11, 12)/1]",
+      "derivedSignature": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14)|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],button[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14)|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],button[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0]",
       "headingTag": "h2",
       "headingSizePx": 20
     },
@@ -1004,7 +1004,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-10 The Bear Case 2026-10-09 Legged Locomotion Lineage 2026-10-09 Massively Parallel Sim RL 2026-10-09 RL for Robotics 2026-10-09 Sim-to-Real Transfer"
+      "text": "Recently updated 2026-10-10 Robot Calibration 2026-10-10 ROS 2 for Machine Learning Engineers 2026-10-10 The Bear Case 2026-10-09 Legged Locomotion Lineage 2026-10-09 Massively Parallel Sim RL"
     },
     {
       "label": "Tools",
@@ -1014,7 +1014,7 @@
     }
   ],
   "progressMetadataMatches": [],
-  "borderedCardCount": 1,
+  "borderedCardCount": 2,
   "structureTable": [
     {
       "index": 0,
@@ -1052,7 +1052,7 @@
       "declaredSignature": "plain/module-heading/motion-scene",
       "registeredOwner": "opus-pass-homepage",
       "registeredPurpose": "The featured scene: one registered motion scene on its poster frame that plays only when the reader starts it.",
-      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgb(11, 11, 12)/rgb(255, 255, 255)/1],button[rgb(255, 255, 255)/rgb(11, 11, 12)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=2,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14)|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],button[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
       "derivedForm": "form:4",
       "derivedSurfaceHeadingActionForm": "form:4"
     },

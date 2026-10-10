@@ -242,7 +242,7 @@ export function annotationArrow(
 
 /**
  * The plain-words note that points at what the figure shows: the label in
- * the highlight role, one line per entry of `lines`, with an optional
+ * the highlight role (the figure's one accent), at the label weight, one line per entry of `lines`, with an optional
  * leader from the label to the point it names. The leader ends in a ring on
  * that point, or with `pointer="arrow"` in an arrowhead just short of it,
  * which first-time readers take for a pointer rather than for data.
@@ -256,6 +256,7 @@ export function StageAnnotation({
   target,
   from,
   pointer = 'ring',
+  stack = 'down',
 }: {
   x: number;
   y: number;
@@ -267,6 +268,8 @@ export function StageAnnotation({
   from?: ChartPoint;
   /** How the leader marks its target. */
   pointer?: 'ring' | 'arrow';
+  /** `up` keeps the last line's baseline on `y` and stacks earlier lines above it, at any stage width. */
+  stack?: 'down' | 'up';
 }) {
   const colour = roleColour('highlight');
   const block = CHART_TYPE.labelPx * LINE_STEP_EM * (lines.length - 1);
@@ -278,23 +281,23 @@ export function StageAnnotation({
   // from under the note keeps the last line where it was planned and the
   // earlier lines stack up from it, so the note never drifts off its leader.
   const fromBelow = target !== undefined && lines.length > 1 && fy > y + block / 2;
-  const firstDy = fromBelow ? `${-LINE_STEP_EM * (lines.length - 1)}em` : 0;
+  const firstDy = fromBelow || stack === 'up' ? `${-LINE_STEP_EM * (lines.length - 1)}em` : 0;
   return (
     <g data-figure-annotation="">
       {target && pointer === 'arrow' ? (
         arrow ? (
           <g data-annotation-pointer="arrow">
-            <line x1={fx} y1={fy} x2={arrow.end[0]} y2={arrow.end[1]} stroke={colour} strokeWidth={CHART_STROKE.structure * 2} />
+            <line x1={fx} y1={fy} x2={arrow.end[0]} y2={arrow.end[1]} stroke={colour} strokeWidth={CHART_STROKE.structure} />
             <polygon points={arrow.head.map(([px, py]) => `${px},${py}`).join(' ')} fill={colour} />
           </g>
         ) : null
       ) : target ? (
         <>
-          <line x1={fx} y1={fy} x2={target[0]} y2={target[1]} stroke={colour} strokeWidth={CHART_STROKE.structure * 2} />
-          <circle cx={target[0]} cy={target[1]} r={CHART_STROKE.markerRadius + 1} fill="none" stroke={colour} strokeWidth={CHART_STROKE.structure * 2} />
+          <line x1={fx} y1={fy} x2={target[0]} y2={target[1]} stroke={colour} strokeWidth={CHART_STROKE.structure} />
+          <circle cx={target[0]} cy={target[1]} r={CHART_STROKE.markerRadius + 1} fill="none" stroke={colour} strokeWidth={CHART_STROKE.structure} />
         </>
       ) : null}
-      <text x={x} y={fromBelow ? y + block : y} textAnchor={anchor} fontSize={CHART_TYPE.labelPx} fontWeight={600} fill={colour}>
+      <text x={x} y={fromBelow ? y + block : y} textAnchor={anchor} fontSize={CHART_TYPE.labelPx} fill={colour}>
         {lines.map((line, i) => (
           <tspan key={line} x={x} dy={i === 0 ? firstDy : `${LINE_STEP_EM}em`}>{line}</tspan>
         ))}

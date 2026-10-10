@@ -2,19 +2,20 @@ import type { HTMLAttributes, ReactNode, Ref } from 'react';
 import { cx } from '@/lib/utils';
 
 /**
- * The one frame every explanatory figure renders in, in this order: a
+ * The one frame every explanatory figure renders in, in this DOM order: a
  * header (an optional kicker, the takeaway headline, at most two visible
  * controls and the "Adjust more" fold), the stage, one caption sentence,
  * the "How this was made" fold, and at most one source line. Legends,
  * readouts and the scene timeline live on the stage, so nothing else sits
  * between the stage and the prose that follows it.
  *
- * A figure belongs to the page: it sits on the paper ground in the page's
- * own faces, set off from the prose by space, with no panel, shadow or
- * border around it. Colour is for data only. The frame draws no rule
- * either: a rule above and below every figure would outnumber the two
- * full-width rules an article may carry (VAL-EDU-031), and the article
- * sheet requires every rule it does carry to have a registered owner.
+ * On the page (owner-approved figure standard, 10 October 2026) the frame
+ * is a 1 px hairline box with no fill: the controls, then the drawing,
+ * then a hairline rule and the caption block. The caption block opens
+ * with "Figure N." in ink, numbered per page by a CSS counter, followed by
+ * the headline, the caption sentence, the method fold and the source line
+ * in muted 13 px sans. stage.css owns that layout: the header keeps its
+ * place in the DOM and flex order moves the headline under the rule.
  *
  * The data-figure-* hooks are what scripts/check-figure-system.ts reads in
  * the static export, so a figure that drops out of this frame fails the
@@ -22,17 +23,18 @@ import { cx } from '@/lib/utils';
  */
 
 /**
- * Frame text on three sizes: 16px for the headline, 14px for the caption,
- * the controls and everything on the stage, 12px for the kicker and the
- * source line.
+ * Frame text on three sizes: 13px for the caption block (headline, caption,
+ * folds, source), 12px on the stage (legend, readout, status line) and
+ * for the hidden kicker. The caption block is muted; only its "Figure N."
+ * label reads in ink.
  */
 export const FIGURE_TEXT_CLASS = {
-  kicker: 'font-sans text-xs font-medium leading-snug text-text-dim',
-  title: 'font-sans text-base font-semibold leading-snug text-text',
-  caption: 'font-sans text-sm leading-snug text-text',
-  source: 'font-sans text-xs leading-snug text-text-dim',
-  stage: 'font-sans text-sm leading-snug text-text',
-  fold: 'font-sans text-sm leading-snug text-text',
+  kicker: 'font-sans text-[12px] leading-normal text-text-dim',
+  title: 'font-sans text-[13px] leading-normal text-text-dim',
+  caption: 'font-sans text-[13px] leading-normal text-text-dim',
+  source: 'font-sans text-[13px] leading-normal text-text-dim',
+  stage: 'font-sans text-[12px] leading-normal text-text',
+  fold: 'font-sans text-[13px] leading-normal text-text-dim',
 } as const;
 
 /** The exact summaries of the two folds the frame owns. */
@@ -42,14 +44,14 @@ export const FIGURE_FOLD_LABEL = {
 } as const;
 
 const FOLD_SUMMARY_CLASS =
-  'inline-flex min-h-11 cursor-pointer select-none list-none items-center gap-1.5 font-sans text-sm font-medium text-text-dim transition-colors hover:text-text [&::-webkit-details-marker]:hidden';
+  'inline-flex min-h-8 cursor-pointer select-none list-none items-center gap-2 font-sans text-[13px] text-text-dim transition-colors hover:text-text [&::-webkit-details-marker]:hidden';
 
-/** A border-drawn chevron: no glyph, so the summary's text is its label alone. */
+/** A hairline chevron: no glyph, so the summary's text is its label alone. */
 function FoldMarker() {
   return (
     <span
       aria-hidden="true"
-      className="inline-block size-1.5 -rotate-45 border-b-[1.5px] border-r-[1.5px] border-current transition-transform group-open/fold:rotate-45"
+      className="inline-block size-1.5 -rotate-45 border-b border-r border-current transition-transform group-open/fold:rotate-45"
     />
   );
 }
@@ -166,10 +168,10 @@ export function FigureFrame({
   ref,
   ...props
 }: FigureFrameProps) {
-  const captionClass = cx(FIGURE_TEXT_CLASS.caption, 'mt-2', captionProps?.className);
+  const captionClass = cx(FIGURE_TEXT_CLASS.caption, captionProps?.className);
   const rootProps = {
     'data-figure-frame': figureId,
-    className: cx('my-8 py-4 text-left', className),
+    className: cx('my-9 text-left', className),
     ...props,
   };
   // No frame text is a <p>: the article sheet measures every paragraph in
@@ -234,11 +236,21 @@ export function FigureFrame({
     </>
   );
   return as === 'figure' ? (
-    <figure ref={ref} {...rootProps}>
+    <figure
+      ref={ref}
+      data-brand-surface-id="surface:flat"
+      data-brand-surface-level="flat"
+      {...rootProps}
+    >
       {body}
     </figure>
   ) : (
-    <div ref={ref as Ref<HTMLDivElement>} {...rootProps}>
+    <div
+      ref={ref as Ref<HTMLDivElement>}
+      data-brand-surface-id="surface:flat"
+      data-brand-surface-level="flat"
+      {...rootProps}
+    >
       {body}
     </div>
   );
@@ -257,8 +269,8 @@ type FigureStageProps = HTMLAttributes<HTMLDivElement> & {
 
 /**
  * The stage: the drawing on the page ground. It is the flat content plane
- * with no fill of its own, so the paper shows through, and the role colours
- * are the ones every page uses.
+ * with no fill of its own, so the paper shows through; the drawing paints
+ * in ink and greys with the one accent.
  */
 export function FigureStage({
   as: Component = 'div',
@@ -273,14 +285,14 @@ export function FigureStage({
       data-brand-surface-id="surface:flat"
       data-brand-surface-level="flat"
       data-figure-stage=""
-      className={cx('mt-3 overflow-hidden text-text', className)}
+      className={cx('overflow-hidden text-text', className)}
       {...props}
     >
       {children}
       {footer ? (
         <div
           data-figure-stage-band="footer"
-          className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 pt-2"
+          className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 pt-3"
         >
           {footer}
         </div>
@@ -351,7 +363,7 @@ export function StageStatus({
   return (
     <p
       data-figure-status=""
-      className={cx('basis-full font-sans text-sm leading-snug text-text-dim', className)}
+      className={cx('basis-full font-sans text-[12px] leading-normal text-text-dim', className)}
       {...props}
     >
       {children}
@@ -368,7 +380,7 @@ export function StageNumber({
   return (
     <span
       data-figure-number=""
-      className={cx('font-medium tabular-nums', className)}
+      className={cx('font-mono tabular-nums', className)}
       {...props}
     >
       {children}
@@ -378,8 +390,8 @@ export function StageNumber({
 
 /**
  * The plain-words note on an HTML stage (a table, cards, a list): the
- * highlight-role text that names what the reader should see. One per
- * figure, two at most, visible at settle.
+ * accent text that names what the reader should see, at the stage size and
+ * the regular weight. One per figure, two at most, visible at settle.
  */
 export function StageCallout({
   className,
@@ -389,11 +401,48 @@ export function StageCallout({
   return (
     <p
       data-figure-annotation=""
-      className={cx('font-sans text-sm font-semibold leading-snug', className)}
+      className={cx('font-sans text-[12px] leading-normal', className)}
       style={{ color: 'var(--role-highlight-text)' }}
       {...props}
     >
       {children}
     </p>
+  );
+}
+
+/**
+ * The outcome mark after a sub-panel label, "(a) Joint space ✓": a small
+ * green check or red cross in text, never a fill or a series colour.
+ */
+export function OutcomeMark({ outcome }: { outcome: 'ok' | 'fail' }) {
+  return (
+    <span
+      data-figure-outcome={outcome}
+      aria-label={outcome === 'ok' ? 'succeeds' : 'fails'}
+      role="img"
+      style={{ color: outcome === 'ok' ? 'var(--ok)' : 'var(--fail)' }}
+    >
+      {outcome === 'ok' ? '\u2713' : '\u00d7'}
+    </span>
+  );
+}
+
+/** A sub-panel label under small multiples: "(a) RP-1 ✓" in 12 px. */
+export function PanelLabel({
+  letter,
+  outcome,
+  className,
+  children,
+}: {
+  letter: string;
+  outcome?: 'ok' | 'fail';
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <div data-figure-panel-label="" className={cx('text-center font-sans text-[12px] leading-normal text-text', className)}>
+      ({letter})&nbsp;&nbsp;{children}
+      {outcome ? <OutcomeMark outcome={outcome} /> : null}
+    </div>
   );
 }

@@ -21,7 +21,6 @@ import {
   roleColour,
   CHART_STROKE,
   CHART_TYPE,
-  CHART_UNCERTAINTY,
   CHART_VIEW_WIDTH,
 } from '@/components/motion/chart';
 import {
@@ -262,15 +261,15 @@ export function ChunkSizeCurve({
               yLabel="task success"
               grid={false}
             />
-            {/* The taper past the measured peak is an estimate: a pale band
-                with its own label, not a line that reads as data. */}
+            {/* The taper past the measured peak is an estimate: a thin grey
+                dashed line with its own label, not a line that reads as data. */}
             <g data-series="illustrative-taper">
               <path
                 d={taperPath}
                 fill="none"
-                stroke={value}
-                strokeOpacity={CHART_UNCERTAINTY.fillAlpha * 2}
-                strokeWidth={CHART_STROKE.trace * 4}
+                stroke="var(--role-reference-stage)"
+                strokeWidth={CHART_STROKE.reference}
+                strokeDasharray={CHART_STROKE.dash}
                 strokeLinecap="round"
               />
               <DirectLabel x={PLOT.right} y={taperEnd + 22} role="value" anchor="end">

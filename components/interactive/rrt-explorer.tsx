@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
-import { Pause, Play } from '@phosphor-icons/react';
 import { ChartDescription } from '@/components/ui';
 import {
   ControlField,
@@ -332,11 +331,6 @@ export function RrtExplorer({ className }: { className?: string }) {
             aria-label={playing ? 'Pause the growth' : undefined}
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
-            {playing ? (
-              <Pause size={14} weight="bold" aria-hidden />
-            ) : (
-              <Play size={14} weight="bold" aria-hidden />
-            )}
             {playing ? 'Pause' : 'Grow the tree'}
           </button>
           <ControlField>

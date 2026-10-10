@@ -58,8 +58,8 @@ export const SHOULDER_RANGE_DEG = [0, 180] as const;
 const OPENING_GHOST: readonly number[] = [DEFAULT_ANGLES_DEG[0] - 40, DEFAULT_ANGLES_DEG[1], DEFAULT_ANGLES_DEG[2]];
 /** Moves on one control closer together than this are one gesture. */
 const GESTURE_GAP_MS = 600;
-/** Each link's full width in stage units at its parent and child ends. */
-const LINK_WIDTHS: readonly (readonly [number, number])[] = [[14, 10], [10, 8], [8, 6]];
+/** Joint circle radii in stage units, shoulder first: small rings on thin links. */
+const JOINT_RADII: readonly number[] = [4.5, 3.5, 3];
 
 type PoseId = 'up' | 'out' | 'tuck';
 const POSES: readonly (Preset<PoseId> & { angles: readonly number[] })[] = [
@@ -75,7 +75,7 @@ const f = (v: number) => Number(v.toFixed(2));
 const NOTE_FROM = [146, 195] as const;
 const NOTE_TARGET = (() => {
   const [fx, fy] = NOTE_FROM;
-  const rim = LINK_WIDTHS[0][0] / 2 + 3;
+  const rim = JOINT_RADII[0] + 3;
   const d = Math.hypot(ORIGIN_X - fx, ORIGIN_Y - fy);
   return [f(ORIGIN_X - ((ORIGIN_X - fx) / d) * rim), f(ORIGIN_Y - ((ORIGIN_Y - fy) / d) * rim)] as const;
 })();
@@ -90,37 +90,32 @@ const sx = (p: Point2) => f(ORIGIN_X + p.x * SCALE);
 const sy = (p: Point2) => f(ORIGIN_Y - p.y * SCALE);
 const samePose = (a: readonly number[], b: readonly number[]) => a.every((v, i) => v === b[i]);
 
-/** A link as a bar that tapers from its parent joint to its child joint. */
-function linkOutline(from: Point2, to: Point2, [w0, w1]: readonly [number, number]): string {
-  const [x0, y0, x1, y1] = [sx(from), sy(from), sx(to), sy(to)];
-  const length = Math.hypot(x1 - x0, y1 - y0) || 1;
-  const [nx, ny] = [-(y1 - y0) / length, (x1 - x0) / length];
-  return [
-    [x0 + (nx * w0) / 2, y0 + (ny * w0) / 2],
-    [x1 + (nx * w1) / 2, y1 + (ny * w1) / 2],
-    [x1 - (nx * w1) / 2, y1 - (ny * w1) / 2],
-    [x0 - (nx * w0) / 2, y0 - (ny * w0) / 2],
-  ].map(([x, y]) => `${f(x)},${f(y)}`).join(' ');
-}
-
-/** The arm in one pose: tapered links, joint discs and a two-finger hand. */
+/**
+ * The arm in one pose as a line drawing: each link one thin stroke, small
+ * paper-filled joint rings and a two-finger gripper outline. The arm before
+ * the last move is the same drawing dashed in the reference grey.
+ */
 function ArmDrawing({ angles, ghost = false }: { angles: readonly number[]; ghost?: boolean }) {
   const { pivots, effector } = planarForwardKinematics(LINK_LENGTHS, angles);
   const points = [...pivots, effector];
   const role = ghost ? 'reference' : 'state';
   const colour = roleColour(role);
+  const width = ghost ? CHART_STROKE.reference : CHART_STROKE.trace;
   return (
-    <g data-testid={ghost ? 'fk-ghost' : undefined} data-chart-role={role} opacity={ghost ? 0.4 : undefined}>
+    <g data-testid={ghost ? 'fk-ghost' : undefined} data-chart-role={role}>
       <g data-series={ghost ? undefined : 'fk-links'}>
         {points.slice(0, -1).map((p, i) => (
-          <polygon
+          <line
             key={`link-${i}`}
             data-testid={ghost ? undefined : `fk-link-${i + 1}`}
-            points={linkOutline(p, points[i + 1], LINK_WIDTHS[i])}
-            fill={colour}
+            x1={sx(p)}
+            y1={sy(p)}
+            x2={sx(points[i + 1])}
+            y2={sy(points[i + 1])}
             stroke={colour}
-            strokeWidth={1}
-            strokeLinejoin="round"
+            strokeWidth={width}
+            strokeDasharray={ghost ? CHART_STROKE.dash : undefined}
+            strokeLinecap="round"
           />
         ))}
         {pivots.map((p, i) => (
@@ -128,10 +123,10 @@ function ArmDrawing({ angles, ghost = false }: { angles: readonly number[]; ghos
             key={`joint-${i}`}
             cx={sx(p)}
             cy={sy(p)}
-            r={LINK_WIDTHS[i][0] / 2 + 2}
+            r={JOINT_RADII[i]}
             fill={MOTION_STAGE.background}
             stroke={colour}
-            strokeWidth={CHART_STROKE.trace}
+            strokeWidth={width}
           />
         ))}
       </g>
@@ -139,21 +134,23 @@ function ArmDrawing({ angles, ghost = false }: { angles: readonly number[]; ghos
         x={sx(effector)}
         y={sy(effector)}
         angle={-angles.reduce((sum, a) => sum + a, 0)}
-        size={18}
+        size={14}
         role={role}
+        dashed={ghost}
         testId={ghost ? undefined : 'fk-effector-marker'}
       />
     </g>
   );
 }
 
-/** The fixed post the shoulder sits on. */
+/** The fixed post the shoulder sits on: an outlined column, a foot plate and the floor hairline. */
 function Pedestal() {
   const [x, y] = [ORIGIN_X, ORIGIN_Y];
   return (
-    <g data-scene-structure="pedestal" fill={roleColour('reference')} opacity={0.55}>
-      <polygon points={`${x - 9},${y} ${x + 9},${y} ${x + 15},${y + 36} ${x - 15},${y + 36}`} />
-      <rect x={x - 32} y={y + 36} width={64} height={7} rx={2} />
+    <g data-scene-structure="pedestal" fill="none" stroke={roleColour('state')} strokeWidth={CHART_STROKE.structure}>
+      <line x1={x - 70} y1={y + 43} x2={x + 70} y2={y + 43} stroke="var(--line-strong)" />
+      <rect x={x - 6} y={y + JOINT_RADII[0]} width={12} height={f(38 - JOINT_RADII[0])} />
+      <rect x={x - 18} y={y + 38} width={36} height={5} />
     </g>
   );
 }

@@ -42,7 +42,7 @@ import { cx } from '@/lib/utils';
  * Conditioning illustrates a requested distribution, not guaranteed removal
  * of a failure. Numeric calculations are unchanged.
  *
- * The stage draws one pictogram per step, the value score as "chance this
+ * The stage draws one numbered marker per step, the value score as "chance this
  * ends well" with worded ends, and one note: the arc from the failed lock
  * back to the crooked grip. It settles at the end of the episode; Play runs
  * it from the start. A two-way toggle swaps the attempt for what the robot
@@ -73,7 +73,7 @@ const V_MIN = 5;
 const V_MAX = 45;
 const PLAY_MS = 4000;
 
-/** Plain step names, drawn under each pictogram (one or two lines). */
+/** Plain step names, drawn under each step marker (one or two lines). */
 const STEP_LINES: Record<string, readonly string[]> = {
   reach: ['Reach'],
   grasp: ['Crooked', 'grip'],
@@ -129,72 +129,41 @@ function stepCentre(segment: TaggedSegment): number {
   return x((segment.start + segment.end) / 2);
 }
 
+/** The step's place in the episode, from 1; every step id the episode tags. */
+const STEP_ORDER = ['reach', 'grasp', 'tamp', 'insert'] as const;
+const stepNumber = (id: string) => {
+  const index = (STEP_ORDER as readonly string[]).indexOf(id);
+  return index === -1 ? STEP_ORDER.length + 1 : index + 1;
+};
+
 /**
- * One line pictogram per step, drawn in a 24-unit box. The portafilter is
- * a basket with a handle; the bad steps tilt it or cross it out.
+ * The step marker, drawn in a 24-unit box: the step's number in the mono
+ * face, like a numbered list, the same mark for every step, so the drawing
+ * stays a diagram rather than a row of pictograms. A step that hurt reads
+ * in ink, the others muted.
  */
-function StepIcon({ id, colour }: { id: string; colour: string }): ReactNode {
-  const common = {
-    fill: 'none',
-    stroke: colour,
-    strokeWidth: 1.6,
-    strokeLinecap: 'round' as const,
-    strokeLinejoin: 'round' as const,
-  };
-  switch (id) {
-    case 'reach':
-      return (
-        <g {...common}>
-          <polyline points="3,21 10,13 18,13" />
-          <polyline points="15,9.5 19.5,13 15,16.5" />
-        </g>
-      );
-    case 'grasp':
-      return (
-        <g {...common}>
-          <g transform="rotate(-28 12 13)">
-            <path d="M3 11 h9 v4 a4.5 4.5 0 0 1 -9 0 z" />
-            <line x1="12" y1="13" x2="22" y2="13" />
-          </g>
-          <path d="M16 3 v4 M20 3 v4 M16 3 h4" />
-        </g>
-      );
-    case 'tamp':
-      return (
-        <g {...common}>
-          <line x1="12" y1="2" x2="12" y2="11" />
-          <rect x="7" y="11" width="10" height="3" />
-          <path d="M4 15 v5 h16 v-5" />
-        </g>
-      );
-    case 'insert':
-      return (
-        <g {...common}>
-          <rect x="3" y="2" width="18" height="5" />
-          <g transform="rotate(-18 12 14)">
-            <path d="M4 11 h8 v3 a4 4 0 0 1 -8 0 z" />
-            <line x1="12" y1="12.5" x2="21" y2="12.5" />
-          </g>
-          <path d="M16 18 l4 4 M20 18 l-4 4" />
-        </g>
-      );
-    default:
-      return (
-        <g {...common}>
-          <path d="M5 9 l1.5 12 h9 l1.5 -12 z" />
-          <path d="M17 12 h2.5 a2.5 2.5 0 0 1 0 5 h-2" />
-          <path d="M8 2 l5 5 M13 2 l-5 5" />
-        </g>
-      );
-  }
+function StepIcon({ id, bad = false }: { id: string; bad?: boolean }): ReactNode {
+  return (
+    <text
+      data-scene-readout=""
+      x={12}
+      y={12}
+      textAnchor="middle"
+      dominantBaseline="central"
+      fontSize={CHART_TYPE.readoutPx}
+      fill={bad ? CHART_STRUCTURE.label : CHART_STRUCTURE.labelSecondary}
+    >
+      {String(stepNumber(id)).padStart(2, '0')}
+    </text>
+  );
 }
 
-/** A step pictogram as a small inline image for the HTML views. */
+/** The step number for the HTML views, in the mono face like a numbered list. */
 function InlineStepIcon({ id, bad }: { id: string; bad: boolean }) {
   return (
-    <svg aria-hidden="true" focusable="false" width={22} height={22} viewBox="0 0 24 24" className="shrink-0">
-      <StepIcon id={id} colour={bad ? roleColour('constraint') : CHART_STRUCTURE.label} />
-    </svg>
+    <span aria-hidden="true" data-step-number="" className={cx('w-6 shrink-0 font-mono text-[13px] tabular-nums', bad ? 'text-text' : 'text-text-dim')}>
+      {String(stepNumber(id)).padStart(2, '0')}
+    </span>
   );
 }
 
@@ -212,7 +181,6 @@ export function AdvantageScrubber({ className }: { className?: string }) {
   const highCount = tagged.filter((s) => s.tag === 'high').length;
   const lowCount = tagged.length - highCount;
   const valueColour = roleColour('value');
-  const warning = roleColour('constraint');
   const highlight = roleColour('highlight');
   const failureSeen = playhead >= CREDIT_ASSIGNMENT.failureAtS;
   const settled = playhead >= EPISODE_LENGTH_S;
@@ -450,14 +418,14 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             d={`M ${arcRight} ${arcEndY} C ${arcRight} ${ARC_APEX_CONTROL}, ${arcLeft} ${ARC_APEX_CONTROL}, ${arcLeft} ${arcEndY}`}
             fill="none"
             stroke={highlight}
-            strokeWidth={CHART_STROKE.structure * 2}
+            strokeWidth={CHART_STROKE.structure}
             strokeDasharray={CHART_STROKE.dash}
           />
           <polyline
             points={`${f(arcLeft - 3.5)},${arcEndY - 5} ${arcLeft},${arcEndY} ${f(arcLeft + 3.5)},${arcEndY - 5}`}
             fill="none"
             stroke={highlight}
-            strokeWidth={CHART_STROKE.structure * 2}
+            strokeWidth={CHART_STROKE.structure}
           />
           <text
             data-testid="credit-annotation"
@@ -477,7 +445,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
         </g>
       ) : null}
 
-      {/* One pictogram per step; the steps that hurt take the warning colour
+      {/* One numbered marker per step; the steps that hurt fill theirs
           and tint their stretch of the plot. */}
       {tagged.map((segment, i) => {
         const centre = stepCentre(segment);
@@ -499,12 +467,12 @@ export function AdvantageScrubber({ className }: { className?: string }) {
                 y={PLOT_TOP}
                 width={f(x(segment.end) - x(segment.start) - 2)}
                 height={PLOT_BOTTOM - PLOT_TOP}
-                fill={warning}
-                fillOpacity={0.1}
+                fill="var(--chart-background)"
+                fillOpacity={0.6}
               />
             ) : null}
             <g transform={`translate(${f(centre - ICON / 2)} ${ICON_TOP}) scale(${ICON / 24})`}>
-              <StepIcon id={segment.id} colour={bad ? warning : CHART_STRUCTURE.label} />
+              <StepIcon id={segment.id} bad={bad} />
             </g>
             <text
               data-scene-tick=""
@@ -628,7 +596,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             y1={PLOT_TOP}
             y2={AXIS_Y + CHART_STROKE.tickLength}
             stroke={highlight}
-            strokeWidth={CHART_STROKE.structure * 2}
+            strokeWidth={CHART_STROKE.structure}
           />
           <circle cx={x(playhead)} cy={y(value)} r={CHART_STROKE.markerRadius} fill={highlight} />
         </g>
@@ -668,12 +636,9 @@ export function AdvantageScrubber({ className }: { className?: string }) {
     <div data-testid="execution-view" className="px-1 pt-2 pb-3 font-sans text-sm">
       <div className="flex flex-wrap items-center gap-1.5">
         <span className="text-text-dim">Asked for</span>
-        <span className="rounded-sm border border-border-strong px-1.5 py-0.5 text-text">
-          task: make espresso
-        </span>
-        <span className="rounded-sm border border-border-strong px-1.5 py-0.5 text-text">
-          advantage: high
-        </span>
+        <span className="font-mono text-[13px] text-text">task: make espresso</span>
+        <span aria-hidden="true" className="text-text-dim">·</span>
+        <span className="font-mono text-[13px] text-text">advantage: high</span>
       </div>
       <p className="mt-2 max-w-[65ch] leading-relaxed text-text-dim">
         When it runs, the robot is asked to act like its &ldquo;helped&rdquo; examples. The default
@@ -717,7 +682,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           {view === 'episode' ? episodePlot : view === 'training' ? trainingView : executionView}
         </FigureStage>
       }
-      caption="Tagging each step as helping or hurting lets the robot learn from its own failures, even when the cause came long before the failure."
+      caption="Tagging each step as helping or hurting lets the robot trace a failure to a cause long before it."
       method={
         <>
           <div>

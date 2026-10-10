@@ -70,7 +70,9 @@ const GLASS_TOP = 70;
 const SLIP_PX = 22;
 const RECOVER_PX = 10;
 const CONTACT_Y = 112;
-const FINGER_STROKE = 10;
+/** The finger is a thin line drawing set just outside the glass wall. */
+const FINGER_STROKE = 1.75;
+const FINGER_GAP = 2;
 const SQUEEZE_PX = 1.5;
 
 const glassTop = (t: number) => {
@@ -90,7 +92,7 @@ const squeeze = (t: number) => r(tactileSlipFrame(t).correction * SQUEEZE_PX);
 
 function Finger({ side }: { side: 'left' | 'right' }) {
   const sign = side === 'left' ? 1 : -1;
-  const x = side === 'left' ? GLASS_LEFT - FINGER_STROKE / 2 : GLASS_LEFT + GLASS_WIDTH + FINGER_STROKE / 2;
+  const x = side === 'left' ? GLASS_LEFT - FINGER_GAP : GLASS_LEFT + GLASS_WIDTH + FINGER_GAP;
   return (
     <AnimatedElement
       as="path"
@@ -115,8 +117,8 @@ function TactileSlipStage() {
     <StageSvg viewBox="0 0 340 240">
       {/* The wrist and palm the fingers hang from. */}
       <g data-scene-structure="hand" fill="none" stroke="var(--role-action-stage)" strokeLinejoin="round">
-        <rect x={160} y={0} width={20} height={30} strokeWidth={2} />
-        <rect x={134} y={30} width={72} height={20} rx={4} strokeWidth={2.5} />
+        <rect x={160} y={0} width={20} height={30} strokeWidth={1.5} />
+        <rect x={134} y={30} width={72} height={20} rx={1} strokeWidth={1.5} />
       </g>
       <Finger side="left" />
       <Finger side="right" />
@@ -129,7 +131,7 @@ function TactileSlipStage() {
         y={GLASS_TOP}
         width={GLASS_WIDTH}
         height={GLASS_HEIGHT}
-        rx={3}
+        rx={1.5}
         fill="none"
         stroke="var(--motion-stage-label-secondary)"
         strokeDasharray="4 3"
@@ -146,11 +148,11 @@ function TactileSlipStage() {
           y={GLASS_TOP}
           width={GLASS_WIDTH}
           height={GLASS_HEIGHT}
-          rx={3}
+          rx={1.5}
           fill="var(--role-state-stage)"
-          fillOpacity={0.22}
+          fillOpacity={0.12}
           stroke="var(--role-state-stage)"
-          strokeWidth={2}
+          strokeWidth={1.5}
         />
         <line
           x1={GLASS_LEFT + 3}
@@ -158,7 +160,7 @@ function TactileSlipStage() {
           y1={GLASS_TOP + 26}
           y2={GLASS_TOP + 26}
           stroke="var(--role-state-stage)"
-          strokeWidth={1.5}
+          strokeWidth={1}
         />
       </AnimatedElement>
       <AnimatedElement
@@ -184,8 +186,8 @@ function TactileSlipStage() {
       </AnimatedElement>
 
       {/* The camera, whose line of sight the left finger blocks. */}
-      <g data-scene-structure="camera" fill="none" stroke="var(--motion-stage-label)" strokeWidth={2} strokeLinejoin="round">
-        <rect x={22} y={100} width={34} height={24} rx={3} />
+      <g data-scene-structure="camera" fill="none" stroke="var(--motion-stage-label)" strokeWidth={1.5} strokeLinejoin="round">
+        <rect x={22} y={100} width={34} height={24} rx={1} />
         <path d="M56 106 L68 101 V123 L56 118" />
         <rect x={28} y={95} width={10} height={5} />
       </g>
@@ -193,7 +195,7 @@ function TactileSlipStage() {
         data-scene-structure="camera-sight"
         x1={72}
         y1={CONTACT_Y}
-        x2={GLASS_LEFT - FINGER_STROKE - 3}
+        x2={GLASS_LEFT - FINGER_GAP - 3}
         y2={CONTACT_Y}
         stroke="var(--motion-stage-label-secondary)"
         strokeDasharray="3 4"
@@ -207,7 +209,7 @@ function TactileSlipStage() {
         data-scene-mark="left-touch"
         cx={GLASS_LEFT}
         cy={CONTACT_Y}
-        r={5}
+        r={3.5}
         fill="var(--role-measurement-stage)"
         bindings={{ opacity: touchOpacity }}
       />
@@ -216,7 +218,7 @@ function TactileSlipStage() {
         data-scene-mark="right-touch"
         cx={GLASS_LEFT + GLASS_WIDTH}
         cy={CONTACT_Y}
-        r={5}
+        r={3.5}
         fill="var(--role-measurement-stage)"
         bindings={{ opacity: touchOpacity }}
       />
@@ -233,9 +235,9 @@ function TactileSlipStage() {
           x2={GLASS_LEFT + GLASS_WIDTH + 6}
           y2={CONTACT_Y + 4}
           stroke="var(--role-highlight-stage)"
-          strokeWidth={1.5}
+          strokeWidth={1}
         />
-        <text x={330} y={188} textAnchor="end" fontSize={14} fontWeight={600} fill="var(--role-highlight-stage)">
+        <text x={330} y={188} textAnchor="end" fontSize={14} fill="var(--role-highlight-stage)">
           <tspan x={330} dy={0}>The camera&rsquo;s view is blocked here,</tspan>
           <tspan x={330} dy={17.5}>but the fingertips feel</tspan>
           <tspan x={330} dy={17.5}>the glass sliding</tspan>
@@ -252,11 +254,11 @@ export function TactileSlip({ className }: { className?: string }) {
       stage={<TactileSlipStage />}
       className={className}
       legend={<>
-        <LegendItem series="held-object" swatch={<span aria-hidden className="inline-block h-2.5 w-3"
-          style={{ backgroundColor: 'var(--role-state-graphic)' }} />}>glass</LegendItem>
-        <LegendItem series="contact-action" swatch={<span aria-hidden className="inline-block h-3 w-1"
+        <LegendItem series="held-object" swatch={<span aria-hidden className="inline-block h-2.5 w-3 border"
+          style={{ borderColor: 'var(--role-state-graphic)' }} />}>glass</LegendItem>
+        <LegendItem series="contact-action" swatch={<span aria-hidden className="inline-block h-3 w-0.5"
           style={{ backgroundColor: 'var(--role-action-graphic)' }} />}>robot fingers</LegendItem>
-        <LegendItem series="contact-signal" swatch={<span aria-hidden className="inline-block size-2 rounded-full"
+        <LegendItem series="contact-signal" swatch={<span aria-hidden className="inline-block size-1.5 rounded-full"
           style={{ backgroundColor: 'var(--role-measurement-graphic)' }} />}>fingertip sensor</LegendItem>
       </>}
       statusLine="schematic"

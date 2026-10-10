@@ -38,12 +38,12 @@ export type FigureMountReview = {
 
 // BEGIN figure-mount pins (written by scripts/record-figure-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 5167, sha256: 'e8c9a6d3016757a3f8e1ccc3a7458cb924bc743496854bf3d7420153dec8f333' };
+const reviewPin = { bytes: 9716, sha256: 'f849da1ad021c6da69339663f6473ce3c6831f03bfedc7429ce4e6edb2b2e0ee' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
-  ['content/classical/calibration.mdx', [9808, '1fb3072f6ea0bb40679ee0f43572269399608d5e54ad8635add8bda998d4b724']],
-  ['content/classical/ros2-for-ml-engineers.mdx', [9712, 'c7fc3dba96e143c0ac3d505bd94a0e50709394d4052f7a5b366d46cecc00c125']],
+  ['content/classical/calibration.mdx', [10030, 'ffc769f31d4b00ea8624283b9af7d4d9d0b71bcd6ff55ec6887f5cf83429fdf5']],
+  ['content/classical/ros2-for-ml-engineers.mdx', [9930, '65fb50d6229dde8c3446194236429481a1ac0799e99753471a29c95317731fb7']],
 ]);
 // END figure-mount pins
 
@@ -51,6 +51,10 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
 const FIGURE_MOUNTS: Readonly<Record<string, string>> = {
   CalibrationChain: 'calibration-chain',
   Ros2PolicyLayout: 'ros2-policy-layout',
+  HandEyePoses: 'hand-eye-poses',
+  QosQueueAge: 'qos-queue-age',
+  Ros2Interfaces: 'ros2-interfaces',
+  TimeOffsetMiss: 'time-offset-miss',
 };
 
 const importLine = (name: string, file: string) => `\nimport { ${name} } from '@/components/interactive/${file}';\n\n`;

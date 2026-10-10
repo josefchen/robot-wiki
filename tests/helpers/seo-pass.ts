@@ -6,6 +6,7 @@ import { figureMountPredecessor } from '../../lib/audit-figure-mount-continuity.
 import { kolBacklogPredecessor } from '../../lib/audit-kol-backlog-continuity.ts';
 import { readerFirstPredecessor } from '../../lib/audit-reader-first-continuity.ts';
 import { seoPassCheckerPredecessor, seoPassPredecessor } from '../../lib/audit-seo-pass-continuity.ts';
+import { wordBudgetTrimPredecessor } from '../../lib/audit-word-budget-trim-continuity.ts';
 
 const root = resolve(import.meta.dirname, '../..');
 type Artifact = { path: string; bytes: number; sha256: string };
@@ -40,7 +41,16 @@ export function preDomainPass(path: string): Buffer {
  * the reviewed successor, otherwise the live bytes.
  */
 export function preFigureMounts(path: string): Buffer {
-  return figureMountPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return figureMountPredecessor(root, { path, bytes: 0, sha256: '' }, preWordBudgetTrim(path));
+}
+
+/**
+ * The bytes the word-budget trim layer of 2026-10-10 hands every check older
+ * than the trim: the rebuilt pre-trim article while the live article is the
+ * reviewed successor, otherwise the live bytes.
+ */
+export function preWordBudgetTrim(path: string): Buffer {
+  return wordBudgetTrimPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
 }
 
 /**

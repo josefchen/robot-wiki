@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useId, useRef, useState } from 'react';
-import { Pause, Play } from '@phosphor-icons/react';
 import {
   DEFAULT_GAINS,
   GAIN_SPECS,
@@ -75,8 +74,8 @@ const HEIGHT = 226;
 const GROUND_Y = 214;
 const PIVOT = { x: 196, y: 116 };
 const ROD_PX = 92;
-const ROD_WIDTH = CHART_STROKE.trace * 1.5;
-const MASS_R = 10;
+const ROD_WIDTH = CHART_STROKE.trace;
+const MASS_R = 6;
 const MOTOR_R = 11;
 const PUSH_ARC_R = 25;
 /** How far beyond the push arc its word sits, so the word never touches the arc or the rod. */
@@ -171,7 +170,7 @@ function PendulumSupport() {
         {Array.from({ length: 21 }, (_, i) => 46 + i * 13).map((x) => (
           <line key={x} x1={x} y1={GROUND_Y + 0.5} x2={x - 4} y2={GROUND_Y + 5} strokeWidth={CHART_STROKE.structure} />
         ))}
-        <rect x={PIVOT.x - 4} y={PIVOT.y + MOTOR_R} width={8} height={GROUND_Y - PIVOT.y - MOTOR_R} fill={CHART_STRUCTURE.axes} stroke="none" />
+        <rect x={PIVOT.x - 4} y={PIVOT.y + MOTOR_R} width={8} height={GROUND_Y - PIVOT.y - MOTOR_R} fill="none" strokeWidth={CHART_STROKE.structure} />
       </g>
     </g>
   );
@@ -468,7 +467,7 @@ export function PendulumController({
                 fill={pastFallLine ? MOTION_STAGE.background : state}
                 stroke={state}
                 strokeWidth={pastFallLine ? CHART_STROKE.trace : 0}
-                strokeDasharray={pastFallLine ? '5 3' : undefined}
+                strokeDasharray={pastFallLine ? CHART_STROKE.dash : undefined}
               />
             </g>
             <circle cx={PIVOT.x} cy={PIVOT.y} r={3} fill={CHART_STRUCTURE.axes} />
@@ -522,11 +521,6 @@ export function PendulumController({
             }
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
-            {playing ? (
-              <Pause size={14} weight="bold" aria-hidden />
-            ) : (
-              <Play size={14} weight="bold" aria-hidden />
-            )}
             {playing ? 'Pause' : 'Run'}
           </button>
           <InstrumentReset

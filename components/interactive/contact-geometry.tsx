@@ -116,8 +116,8 @@ const PEG_CONTACT_AT: Record<string, readonly [number, number]> = {
 const JAM_CONTACTS = new Set(['rim-r', 'chamfer-r']);
 
 const ink = CHART_STRUCTURE.label;
-const LINE = { fill: 'none', stroke: ink, strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' } as const;
-const DASHED = { ...LINE, strokeWidth: 1.5, strokeDasharray: CHART_STROKE.dash } as const;
+const LINE = { fill: 'none', stroke: ink, strokeWidth: 1.5, strokeLinecap: 'round', strokeLinejoin: 'round' } as const;
+const DASHED = { ...LINE, strokeWidth: 1.25, strokeDasharray: CHART_STROKE.dash } as const;
 
 type PresetId = 'thin' | 'coin' | 'thumb';
 
@@ -181,19 +181,26 @@ function DogScene({ errorMm }: { errorMm: number }) {
   );
 }
 
-/** A two-finger gripper holding the peg: wrist, palm, and a finger with a pad on each side. */
+/** A two-finger gripper holding the peg, as a line drawing: wrist, palm and a finger on each side with its pad. */
 function Gripper({ pegLeft, pegTop }: { pegLeft: number; pegTop: number }) {
   const pegRight = f(pegLeft + PEG_W);
   const palmY = f(pegTop - 8);
   const centre = f(pegLeft + PEG_W / 2);
+  const outline = { fill: 'none', stroke: ink, strokeWidth: CHART_STROKE.trace } as const;
   return (
     <g data-testid="gripper">
-      <line x1={centre} x2={centre} y1={f(palmY - 18)} y2={palmY} stroke={ink} strokeWidth={6} strokeLinecap="round" />
-      <rect x={f(pegLeft - 10)} y={f(palmY - 2)} width={PEG_W + 20} height={7} rx={2.5} fill={ink} />
-      {[f(pegLeft - 9), pegRight].map((x) => (
+      <line x1={centre} x2={centre} y1={f(palmY - 18)} y2={palmY} {...outline} />
+      <rect x={f(pegLeft - 10)} y={palmY} width={PEG_W + 20} height={4} {...outline} />
+      {[f(pegLeft - 8), pegRight].map((x) => (
         <g key={x}>
-          <rect x={x} y={f(palmY + 4)} width={9} height={30} rx={2} fill={MOTION_STAGE.background} stroke={ink} strokeWidth={2} />
-          <rect x={x === pegRight ? x : f(x + 6)} y={f(pegTop + 6)} width={3} height={16} fill={ink} />
+          <rect x={x} y={f(palmY + 4)} width={8} height={30} {...outline} fill={MOTION_STAGE.background} />
+          <line
+            x1={x === pegRight ? f(x + 1.5) : f(x + 6.5)}
+            x2={x === pegRight ? f(x + 1.5) : f(x + 6.5)}
+            y1={f(pegTop + 8)}
+            y2={f(pegTop + 20)}
+            {...outline}
+          />
         </g>
       ))}
     </g>

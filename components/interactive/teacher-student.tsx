@@ -224,7 +224,7 @@ export function TeacherStudent({
                   fillOpacity={cellShade(h)}
                 />
               ))}
-              <polyline points={groundPoints} fill="none" stroke={ink} strokeWidth={2} strokeLinejoin="round" />
+              <polyline points={groundPoints} fill="none" stroke={ink} strokeWidth={CHART_STROKE.trace} strokeLinejoin="round" />
             </g>
             <StandingDog />
             <g data-testid="recon-panel" data-series="reconstruction">
@@ -270,7 +270,7 @@ export function TeacherStudent({
                       y1={STRIP.baseline - 1}
                       y2={STRIP.baseline - 1}
                       stroke={CHART_STRUCTURE.axes}
-                      strokeWidth={2}
+                      strokeWidth={CHART_STROKE.trace}
                       strokeDasharray="2 2"
                     />
                   );
@@ -344,7 +344,7 @@ export function TeacherStudent({
 function GroundSwatch() {
   return (
     <svg aria-hidden="true" focusable="false" width={28} height={14} viewBox="0 0 28 14" className="shrink-0">
-      <path d="M1 7 H27" stroke={CHART_STRUCTURE.label} strokeWidth={2} strokeLinecap="round" fill="none" />
+      <path d="M1 7 H27" stroke={CHART_STRUCTURE.label} strokeWidth={CHART_STROKE.trace} strokeLinecap="round" fill="none" />
     </svg>
   );
 }
