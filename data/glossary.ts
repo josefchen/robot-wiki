@@ -429,7 +429,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'operational-design-domain',
     term: 'operational design domain (ODD)',
     definition:
-      'The specific operating conditions an automated driving system is designed for: geography, road types, speed range, weather, and time of day. SAE J3016 makes the ODD part of the level definitions, which is why a Level 4 robotaxi that works in Phoenix and fails in a blizzard is not a contradiction but an ODD boundary. Crash-rate comparisons against human benchmarks align the human baseline to the same vehicle types, road types, and locations as the system\'s ODD, precisely so the comparison is not rigged.',
+      'The specific operating conditions an automated driving system is designed for: geography, road types, speed range, weather, and time of day. SAE J3016 makes the ODD part of the level definitions, so a Level 4 robotaxi can work in Phoenix and fail in a blizzard: the blizzard lies outside its ODD. Crash-rate comparisons against human benchmarks match the human baseline to the same vehicle types, road types, and locations as the system\'s ODD, so both sides are measured on the same driving.',
     citations: ['sae-j3016-2021', 'waymo-crash-rates-2025'],
   },
   {

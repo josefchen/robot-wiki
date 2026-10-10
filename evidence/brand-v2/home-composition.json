@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "0425ceea4be1fa1f03add5ad547a054ef14bcf0b6d7e900b60b1fc24ad22d4f6",
+  "fingerprint": "21241600cfe73870bfbe933cc66776723c23f217767879fc43d9ecfee48fa988",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2928,
+  "visibleTextLength": 2951,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -610,8 +610,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Space Robotics",
-      "href": "/adjacent/space/",
+      "accessibleName": "Diffusion Policy",
+      "href": "/manipulation/diffusion-policy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 932.28,
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Legged Locomotion Lineage",
-      "href": "/rl-sim2real/legged-locomotion/",
+      "accessibleName": "The Bear Case",
+      "href": "/frontier/bear-case/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2392.34,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Massively Parallel Sim RL",
-      "href": "/rl-sim2real/parallel-sim-rl/",
+      "accessibleName": "Legged Locomotion Lineage",
+      "href": "/rl-sim2real/legged-locomotion/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2423.34,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "RL for Robotics",
-      "href": "/rl-sim2real/rl-for-robotics/",
+      "accessibleName": "Massively Parallel Sim RL",
+      "href": "/rl-sim2real/parallel-sim-rl/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2454.34,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Sim-to-Real Transfer",
-      "href": "/rl-sim2real/sim2real-transfer/",
+      "accessibleName": "RL for Robotics",
+      "href": "/rl-sim2real/rl-for-robotics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2485.34,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Reward Design and the MPC Debate",
-      "href": "/rl-sim2real/reward-design-mpc/",
+      "accessibleName": "Sim-to-Real Transfer",
+      "href": "/rl-sim2real/sim2real-transfer/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2516.34,
@@ -985,8 +985,8 @@
     {
       "label": "Featured article",
       "signature": "plain/module-heading/lead-excerpt",
-      "prose": "Space robotics is the domain where the two assumptions of everyday robotics fail at once.",
-      "text": "Featured article Space Robotics Space robotics is the domain where the two assumptions of everyday robotics fail at once."
+      "prose": "Diffusion Policy is a visuomotor robot policy that generates an action sequence by conditional denoising, from Chi et al. (2023).",
+      "text": "Featured article Diffusion Policy Diffusion Policy is a visuomotor robot policy that generates an action sequence by conditional denoising, from Chi et al. (2023)."
     },
     {
       "label": "Featured scene",
@@ -1004,7 +1004,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-09 Legged Locomotion Lineage 2026-10-09 Massively Parallel Sim RL 2026-10-09 RL for Robotics 2026-10-09 Sim-to-Real Transfer 2026-10-09 Reward Design and the MPC Debate"
+      "text": "Recently updated 2026-10-10 The Bear Case 2026-10-09 Legged Locomotion Lineage 2026-10-09 Massively Parallel Sim RL 2026-10-09 RL for Robotics 2026-10-09 Sim-to-Real Transfer"
     },
     {
       "label": "Tools",

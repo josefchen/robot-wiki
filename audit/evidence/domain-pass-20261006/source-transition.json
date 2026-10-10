@@ -3,8 +3,27 @@
   "name": "domain-pass-20261006",
   "reviewedBy": "implementation worker for the opus-pass domain passes of 2026-10-06 (not independent acceptance)",
   "rationale": "The opus-pass domain passes rewrite each article from the owner's verified draft: shorter prose, at least 30 cited sources, no Callout or Aside boxes, every non-OK audit finding fixed. Each rewrite is recorded here as exact edits over the bytes the article had before the pass. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, its frontmatter differs only by appended citation ids, every citation it had is still cited and every figure and component mount is unchanged, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-09T05:13:00Z",
+  "observedAt": "2026-10-10T08:52:50Z",
   "sources": [
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/interactive/reliability-compounding.tsx",
+        "bytes": 19076,
+        "sha256": "b07a31b6b8b2156598fe9d2e90473578e472245b123a97c75ed4863b953db2bd"
+      },
+      "after": {
+        "path": "components/interactive/reliability-compounding.tsx",
+        "bytes": 19076,
+        "sha256": "b601ed74a2548aa1b2f1d64e90b8a0fb1e97401d61efe125b46faf018b8d06af"
+      },
+      "edits": [
+        {
+          "before": "const PAD = { top: 30, right: 14, bottom: 46, left: 44 };\n",
+          "after": "const PAD = { top: 30, right: 14, bottom: 46, left: 58 };\n"
+        }
+      ]
+    },
     {
       "archivedFrom": "8d03b39a6a04cab51d863b586bb2e1156bf137cd",
       "before": {
@@ -617,6 +636,25 @@
         {
           "before": "Test the pipeline in that order: verify clock domains and timestamp monotonicity, measure sensor latency, validate transforms, then tune process and measurement noise. Replay a recorded motion and inspect innovations by sensor; persistent directional residuals suggest calibration or timing bias instead of random noise. The [calibration guide](/classical/calibration) covers spatial and temporal residuals, while the [ROS 2 guide](/classical/ros2-for-ml-engineers) covers timestamped message and transform interfaces. A larger covariance can express uncertainty. It cannot repair misassociated time.\n",
           "after": "Persistent directional residuals in per-sensor innovations point to calibration or timing bias instead of random noise. GrandTour, which its authors call the largest open-access legged-robotics dataset, supplies RTK-GNSS and total-station ground truth <Cite id=\"grandtour-2026\" />. The [calibration guide](/classical/calibration) covers temporal residuals, and the [ROS 2 guide](/classical/ros2-for-ml-engineers) covers timestamped interfaces.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 11038,
+        "sha256": "76effed4c8661a0fdd96e4558a76f1d835ef939cd0bc31a6caa4eec65c952e01"
+      },
+      "after": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 11009,
+        "sha256": "da38d2ada46bd26ff5a82a564e68f262ac5cb5467e226a3ee6c8cf6bc37152cd"
+      },
+      "edits": [
+        {
+          "before": "Evidence: Morgan Stanley's July 2026 note argues the industry has a \"PR problem\": humanoids are publicly framed as direct substitutes for workers instead of tools for hazardous or labor-constrained tasks, so \"the industry's social license to deploy may matter just as much as technical performance\" <Cite id=\"morgan-stanley-pr-problem-2026\" />. The same note says investors \"are increasingly looking for tangible evidence of real-world return on investment\" beyond polished videos, and flags the US ban on Chinese humanoid imports as an R&D cost increase. The bank kept its 50,000-unit China shipment estimate for 2026. This is not a short call; it is a bank telling clients the bottleneck has moved from capability to proof.\n",
+          "after": "Evidence: Morgan Stanley's July 2026 note argues the industry has a \"PR problem\": humanoids are publicly framed as direct substitutes for workers instead of tools for hazardous or labor-constrained tasks, so \"the industry's social license to deploy may matter just as much as technical performance\" <Cite id=\"morgan-stanley-pr-problem-2026\" />. The same note says investors \"are increasingly looking for tangible evidence of real-world return on investment\" beyond polished videos, and flags the US ban on Chinese humanoid imports as an R&D cost increase. The bank kept its 50,000-unit China shipment estimate for 2026 while telling clients that the bottleneck has moved from capability to proof.\n"
         }
       ]
     },
@@ -2476,6 +2514,25 @@
         {
           "before": "RoboWorld combines an autoregressive video world model with a task-progress-aware VLM scorer. Step Forcing trains on self-forwarded denoising priors while retaining data-grounded anchor contexts; four-step denoising and contextual KV caching support fast inference. In its fourth revision, 4,186 generated 30-second closed-loop rollouts yield eight policy-level aggregate scores compared with the 26 February 2026 RoboArena leaderboard: Pearson r = 0.989 and Spearman rho = 0.970, with p < 0.001 reported for both. GPT-4o scores task progress from 0 to 5, using fixed external views for success and the wrist view only to identify world-model errors. The eight aggregates are the correlation points; 4,186 rollouts are neither independent points nor a per-task correlation. The result is also not calibrated success probability or absolute agreement: the paper reports contact-induced object artifacts and VLM scores about one point above human scores in approximately 100 sampled rollouts. Its separate 256-trajectory held-out open-loop video test does not establish an independent tuning/test split for the headline closed-loop correlation <Cite id=\"roboworld-2026\" />.\n",
           "after": "RoboWorld combines an autoregressive video world model with a task-progress-aware VLM scorer. Step Forcing trains on self-forwarded denoising priors while retaining data-grounded anchor contexts; four-step denoising and contextual KV caching support fast inference. In its fourth revision, 4,186 generated 30-second closed-loop rollouts yield eight policy-level aggregate scores compared with the 26 February 2026 RoboArena leaderboard: Pearson r = 0.989 and Spearman rho = 0.970, with p < 0.001 reported for both. GPT-4o scores task progress from 0 to 5, using fixed external views for success and the wrist view only to identify world-model errors. The eight aggregates are the correlation points; 4,186 rollouts are neither independent points nor a per-task correlation. The result is also not calibrated success probability or absolute agreement: the paper reports contact-induced object artifacts and VLM scores about one point above human scores in approximately 100 sampled rollouts. Its separate 256-trajectory held-out open-loop video test does not establish an independent tuning/test split for the headline closed-loop correlation <Cite id=\"roboworld-2026\" />.\n\nIn February 2026 Runway reported a similar ranking test for its GWM-Robotics world model: across eight vision-language-action policies from RoboArena, with 1,450 simulated rollouts scored by human graders, the policies' simulated and real progress scores had a Pearson correlation of 0.95 <Cite id=\"runway-gwm-robotics-eval-2026\" />. Runway says the study tests policy ranking only and does not predict absolute success rates <Cite id=\"runway-gwm-robotics-eval-2026\" />. In September 2026 it announced Praxis-1, a world action model built on the video pretraining behind its general world models, which it is testing with partners before an open-weight release <Cite id=\"runway-praxis-1-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "data/glossary.ts",
+        "bytes": 83393,
+        "sha256": "faa41958b0cf820beab5660e64985f90dcb6b3f336d76c683fb96d688ca91cdc"
+      },
+      "after": {
+        "path": "data/glossary.ts",
+        "bytes": 83377,
+        "sha256": "3b84caa631eb21499d2a75176ec8a90ddc982eafc03a7a7b8d3d1e1c9e86488d"
+      },
+      "edits": [
+        {
+          "before": "      'The specific operating conditions an automated driving system is designed for: geography, road types, speed range, weather, and time of day. SAE J3016 makes the ODD part of the level definitions, which is why a Level 4 robotaxi that works in Phoenix and fails in a blizzard is not a contradiction but an ODD boundary. Crash-rate comparisons against human benchmarks align the human baseline to the same vehicle types, road types, and locations as the system\\'s ODD, precisely so the comparison is not rigged.',\n",
+          "after": "      'The specific operating conditions an automated driving system is designed for: geography, road types, speed range, weather, and time of day. SAE J3016 makes the ODD part of the level definitions, so a Level 4 robotaxi can work in Phoenix and fail in a blizzard: the blizzard lies outside its ODD. Crash-rate comparisons against human benchmarks match the human baseline to the same vehicle types, road types, and locations as the system\\'s ODD, so both sides are measured on the same driving.',\n"
         }
       ]
     }

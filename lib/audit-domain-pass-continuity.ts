@@ -37,10 +37,11 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 934619, sha256: 'e3e7753802179dfff8d82c33e8c7f15d41b4f8c005addf6dcc32601ac9419d5b' };
+const reviewPin = { bytes: 938837, sha256: '8a0cdcbc1b1099b6aee0089b5c06d7068ea8b3965169fb845fd7973debc4aa64' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
+  ['components/interactive/reliability-compounding.tsx', [19076, 'b601ed74a2548aa1b2f1d64e90b8a0fb1e97401d61efe125b46faf018b8d06af']],
   ['content/classical/calibration.mdx', [9689, 'f05b9f74bfefac02ed215bb3f4110b0afd3ec2ef1ed5cc5679c9e51be0943500']],
   ['content/classical/control.mdx', [20015, '5deb9961e56c1c5f4cfa3847fe479cddf795e00f255874e4276841e8953b9ba3']],
   ['content/classical/grasp-planning.mdx', [14228, 'd8646bbd77d25693e25e87aef575c5d3fefb45357bf7c03e5b056a1a75591605']],
@@ -50,6 +51,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/ros2-for-ml-engineers.mdx', [9592, '1dfd445c34d55ac5c92957fa838df7e4a4918c9a13e7309546bebc7f13b34f34']],
   ['content/classical/scene-representation.mdx', [20121, 'aaae84fb8b176dcffd8cb88e3085b9e4559ad1f46051248edcceb8c4a6bf9e21']],
   ['content/classical/state-estimation.mdx', [15410, '96b92f0aa260583ff52b6cd3e7867c14891b61fe8bb1379d04bea15d7ca30329']],
+  ['content/frontier/bear-case.mdx', [11009, 'da38d2ada46bd26ff5a82a564e68f262ac5cb5467e226a3ee6c8cf6bc37152cd']],
   ['content/frontier/dexterity.mdx', [19208, '313886eb5ae0defac6fe89b0b66820a002c3fde5fa780b0291fcf4c29ad7e18f']],
   ['content/manipulation/action-chunking.mdx', [12714, 'a08054d5b2b91c7f0a47b42a5f1851087634420845b7fba5f89f42d4c2d4ed84']],
   ['content/manipulation/action-spaces.mdx', [10574, '885130648006e720419bc1e074513c2c5631d3d1e2f5be6acab2c1ae41df7320']],
@@ -75,6 +77,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/rl-sim2real/sim2real-transfer.mdx', [19378, 'c0b26865883fc734683b8bc0c5ccecaced7ced82c349badb06095fb641cab74b']],
   ['content/rl-sim2real/why-rl-locomotion.mdx', [8908, 'db029a747a92b75e5f56e716cf548de6c3acd95ea8ffd7215625851ff9f3727c']],
   ['content/world-models/generative-video.mdx', [16559, '3b2752c33d7a823851e51270f7fa7a25ea6ce25e181b854fa0863031b55d30ea']],
+  ['data/glossary.ts', [83377, '3b84caa631eb21499d2a75176ec8a90ddc982eafc03a7a7b8d3d1e1c9e86488d']],
 ]);
 // END domain-pass pins
 
@@ -186,6 +189,32 @@ const CORRECTED_DESCRIPTIONS: ReadonlyMap<string, readonly [string, string]> = n
   ]],
 ]);
 
+/**
+ * Non-article sources a pass corrected, each one exact swap of one passage
+ * on one file, from the QA findings of 2026-10-08. The
+ * reliability-compounding chart cut the leading "1" of its "100%" y tick at
+ * 390 px, so its left pad grows from 44 to 58 stage units. The operational
+ * design domain glossary entry carried a "not a contradiction but" contrast,
+ * now stated directly. A listed file must equal its predecessor with exactly
+ * these swaps; no other non-article source is admitted.
+ */
+const CORRECTED_SOURCES: ReadonlyMap<string, readonly (readonly [string, string])[]> = new Map([
+  ['components/interactive/reliability-compounding.tsx', [[
+    'const PAD = { top: 30, right: 14, bottom: 46, left: 44 };',
+    'const PAD = { top: 30, right: 14, bottom: 46, left: 58 };',
+  ]]],
+  ['data/glossary.ts', [[
+    'SAE J3016 makes the ODD part of the level definitions, which is why a Level 4 robotaxi that works in ' +
+      'Phoenix and fails in a blizzard is not a contradiction but an ODD boundary. Crash-rate comparisons ' +
+      'against human benchmarks align the human baseline to the same vehicle types, road types, and ' +
+      'locations as the system\\\'s ODD, precisely so the comparison is not rigged.',
+    'SAE J3016 makes the ODD part of the level definitions, so a Level 4 robotaxi can work in Phoenix and ' +
+      'fail in a blizzard: the blizzard lies outside its ODD. Crash-rate comparisons against human ' +
+      'benchmarks match the human baseline to the same vehicle types, road types, and locations as the ' +
+      'system\\\'s ODD, so both sides are measured on the same driving.',
+  ]]],
+]);
+
 function applyExact(text: string, edits: readonly (readonly [string, string])[], message = drift): string {
   let result = text;
   for (const [from, to] of edits) {
@@ -205,6 +234,11 @@ function applyExact(text: string, edits: readonly (readonly [string, string])[],
  * mounts in the same order with the same attributes. Prose may change.
  */
 export function keepsDomainPassObligations(path: string, prior: string, current: string): boolean {
+  const corrections = CORRECTED_SOURCES.get(path);
+  if (corrections) {
+    return corrections.every(([from]) => prior.split(from).length === 2) &&
+      applyExact(prior, corrections) === current;
+  }
   if (!path.startsWith('content/') || !path.endsWith('.mdx')) return false;
   const priorHead = frontmatter(prior);
   const head = frontmatter(current);

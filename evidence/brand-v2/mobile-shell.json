@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3080,
+      "visibleTextLength": 3103,
       "header": {
         "present": true,
         "display": "flex",
@@ -4793,7 +4793,7 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "visibleTextLength": 15770,
+      "visibleTextLength": 15741,
       "header": {
         "present": true,
         "display": "flex",
@@ -5771,7 +5771,7 @@
     },
     {
       "route": "/glossary/",
-      "visibleTextLength": 84121,
+      "visibleTextLength": 84105,
       "header": {
         "present": true,
         "display": "flex",
