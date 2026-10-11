@@ -59,11 +59,18 @@ function applyExact(text: string, edits: readonly (readonly [string, string])[],
   return result;
 }
 
+// Older checks read the checker through this layer many times; the review is
+// parsed and the predecessor rebuilt once per root and exact review bytes.
+const checkerReviewCache = new Map<string, ParallelLocalCheckerReview>();
+const checkerPriorCache = new WeakMap<ParallelLocalCheckerReview, Buffer>();
+
 export function loadParallelLocalCheckerReview(root: string): ParallelLocalCheckerReview {
   let bytes: Buffer;
   let review: ParallelLocalCheckerReview;
   try {
     bytes = readFileSync(join(root, checkerReviewFile));
+    const cached = checkerReviewCache.get(`${root}\0${digest(bytes)}`);
+    if (cached) return cached;
     review = JSON.parse(bytes.toString()) as ParallelLocalCheckerReview;
   } catch (error) {
     throw new Error(`${checkerDrift}: ${(error as Error).message}`);
@@ -78,6 +85,7 @@ export function loadParallelLocalCheckerReview(root: string): ParallelLocalCheck
       !before || !after || before === after)) {
     throw new Error(checkerDrift);
   }
+  checkerReviewCache.set(`${root}\0${digest(bytes)}`, review);
   return review;
 }
 
@@ -90,6 +98,8 @@ export function loadParallelLocalCheckerReview(root: string): ParallelLocalCheck
 export function parallelLocalCheckerPredecessor(root: string, live: Buffer): Buffer {
   if (live.length !== checkerAfter.bytes || digest(live) !== checkerAfter.sha256) return live;
   const review = loadParallelLocalCheckerReview(root);
+  const cached = checkerPriorCache.get(review);
+  if (cached) return Buffer.from(cached);
   const current = live.toString();
   const edits = review.edits.map(({ before, after }) => [before, after] as const);
   const rebuilt = applyExact(current, edits.map(([from, to]) => [to, from] as const).reverse());
@@ -97,7 +107,8 @@ export function parallelLocalCheckerPredecessor(root: string, live: Buffer): Buf
   if (!same(review.before, checkerPath, prior.length, digest(prior)) || applyExact(rebuilt, edits) !== current) {
     throw new Error(checkerDrift);
   }
-  return prior;
+  checkerPriorCache.set(review, prior);
+  return Buffer.from(prior);
 }
 
 /*
