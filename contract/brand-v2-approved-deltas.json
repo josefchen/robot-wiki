@@ -75428,6 +75428,814 @@
         "VAL-B2-BASE-012"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-prose-humanoid-wbc",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/humanoid-wbc",
+      "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+      "newHash": "f33b14d51eb91039755b5a8ffcc91b08c32dbd290a1cbe6cc3e405bb18dfe409",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd) on rl-sim2real/humanoid-wbc: mounts HumanoidPickHeight and RetargetingGap as two import lines and two one-line mounts. No prose, number or citation changes; this merge resolution reconciles every prior approved edge for the member, whose last endpoint is the 19684251 text, and moves it to the mounted text.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "reconciles": [
+        {
+          "id": "humanoid-motion-20260909-a23d20d64ea736f000",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "892e08801025df819f1cad25d541bc8ee4b6f66ed7e4e0d37ac3eb2262b00f97"
+        },
+        {
+          "id": "humanoid-placement-20260909-e63998046475510500",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "98a85d01809b619ce821fea6490be0d6e27f25d282f088fbc88e6ad5bca36560"
+        },
+        {
+          "id": "humanoid-tracking-20260912-7cafdd67a0649db61f",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "041f005709bad57c91f6d6aec0e365d6001f7fde18faae417baeff811067c935"
+        },
+        {
+          "id": "humanoid-advanced-motion-20260912-6b67ecef9f56bb3866",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13"
+        },
+        {
+          "id": "hwbc-r1-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r9-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r10-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r11-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r12-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r13-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r14-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r15-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r16-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r17-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r18-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r19-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "seo-merge-20260916-prose-23",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "sweeps-registry-hwbc20-20260917-1",
+          "oldHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "round5-closeout-humanoid-wbc-prose",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-humanoid-wbc",
+          "oldHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+          "newHash": "eb000da1b9ee4e934f861b6448d6cdf58a38993b91e2208dea2f2ce6d057a74b"
+        },
+        {
+          "id": "motion-rl-sim2real-20260927-reconcile-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "eb000da1b9ee4e934f861b6448d6cdf58a38993b91e2208dea2f2ce6d057a74b"
+        },
+        {
+          "id": "round6-prose-restores-20260929-prose-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "2a4a04969819d9d38e75c4ae07d975a1a3fc1ee0f4af833d631c6947c053515e"
+        },
+        {
+          "id": "seo-pass-20261002-prose-rl-sim2real-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "9aa90fa59fac88ccb0042faa1b6fe073a7e256ca3cc270f7c78888daf49114ef"
+        },
+        {
+          "id": "domain-pass-20261006-g9-prose-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "3036486725845ffe5ec939d36b22309132342d3b03913e5ef67cea8a5cdc89f0"
+        }
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-prose-legged-locomotion",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "f925453243761ef54a9fa6a8f681e11063deee22aff54bb25b59dc32bce0b7fe",
+      "newHash": "fa4305fee5fe34837913998f58fd2a8a66a323c9aefc38f3138ec9b2faa1395b",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd) on rl-sim2real/legged-locomotion: mounts ActuatorGap and TerrainCurriculum as two import lines and two one-line mounts. No prose, number or citation changes; this edge moves the prose member from its 19684251 endpoint to the mounted text.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-prose-offline-rl",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/offline-rl",
+      "oldHash": "71e1ebdb101992e01043a2fb543636dc7d32cf8e290b62954a695fbaaac8b0f7",
+      "newHash": "557d58c9a28f70b57733fbe98f4ffad9e73b8a5cd724ede4c19e146a6d73f484",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd) on rl-sim2real/offline-rl: mounts OfflineValueOverreach, TrajectoryStitching and RealRobotRlGains as three import lines and three one-line mounts. No prose, number or citation changes; this edge moves the prose member from its 19684251 endpoint to the mounted text.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-prose-parallel-sim-rl",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+      "newHash": "bfe97876dacd5cdf5592aa9c3c413ad8ffbc875c5c1caddc79ecb74f195cfaef",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd) on rl-sim2real/parallel-sim-rl: mounts RobotsPerGpu and NewtonSolvers as two import lines and two one-line mounts. No prose, number or citation changes; this merge resolution reconciles every prior approved edge for the member, whose last endpoint is the 19684251 text, and moves it to the mounted text.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "reconciles": [
+        {
+          "id": "isaac-v1-twelve-originals-1-20260908",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "03922c2d4ac019087ce635755701f7f6fb1c70c582880393a7b3cb46586a4831"
+        },
+        {
+          "id": "rudin-protocol-20260909-b1d210de386473c2d5",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "06bd5d64a999f11ab74db05d4bf9a112a0c6c2b213fa45680559c2f4016f85c8"
+        },
+        {
+          "id": "rudin-four-placement-20260909-a981a05d2fe91c6e7d",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "b6827e2ea6b4cfac9e072192741290dd270ff1460007d6130312771ee9242caf"
+        },
+        {
+          "id": "newton-engine-20260912-2f6e8bc798bf35e18a",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r3-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r5-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r6-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r18-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r1-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "seo-merge-20260916-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "round5-closeout-parallel-sim-rl-prose",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "parallel-local-20260923-1",
+          "oldHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-0740-prose-article-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-parallel-sim-rl",
+          "oldHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5",
+          "newHash": "18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5"
+        },
+        {
+          "id": "motion-rl-sim2real-20260927-reconcile-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5"
+        },
+        {
+          "id": "round5-first-screen-cd-20260929-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "16a9970b03691a66d3ad57e002e4875957a185c31515387e279cecb913c04013"
+        },
+        {
+          "id": "opus-figure-migration-20261001-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "5e923e1dc6c8037aa9205edf6694d9ee6633968ba629e73f3494b385705eda33"
+        },
+        {
+          "id": "seo-pass-20261002-prose-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "f87992f7ffd95c1e0bdbb5ad3bdd53cd48ee5b3b342ab3ef023380d24571f712"
+        },
+        {
+          "id": "domain-pass-20261006-g9-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "aa1d55d0fbac082870f5c604346f86d1f7caa8addd4e126e91ea66921360b485"
+        }
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-prose-rl-for-robotics",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "9aefdda30880690421677850c6855c84f33c3a9bff9d507b955a8b183023c403",
+      "newHash": "0d152e1c4eb13abe57996895d031cb14330b057f33e165e45f0601842fa551d2",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd) on rl-sim2real/rl-for-robotics: mounts ReplayReuse and HindsightRelabel as two import lines and two one-line mounts. No prose, number or citation changes; this edge moves the prose member from its 19684251 endpoint to the mounted text.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-prose-sim2real-transfer",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "5200899ea9023f2682f2836cf1f87de9e49cf1706a9216cdbac3c85a5dda9c83",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd) on rl-sim2real/sim2real-transfer: mounts ScannedTwinCheck as one import line and one one-line mount. No prose, number or citation changes; this merge resolution reconciles every prior approved edge for the member, whose last endpoint is the 19684251 text, and moves it to the mounted text.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "reconciles": [
+        {
+          "id": "isaac-v1-twelve-originals-3-20260908",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "b61ad004390917d5f117905e6d08747b16b21b7d1ce0d5fdfb87ca3a5340ec36"
+        },
+        {
+          "id": "rma-asynchronous-latent-1-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "ea1eebe9d2c019c630660f0c93f48569d536a39a8306a41f67948ba7bbc9db1a"
+        },
+        {
+          "id": "domain-randomization-source-1-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "e69163064966555ef0c762bf7254b51518a04b399df291c59540677bc3c1a739"
+        },
+        {
+          "id": "randomization-local-citation-placement-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "bb2ed4c749dabe4b0d34cbf9d5e8e07e2f569630f174359de5fe1599d83835d3"
+        },
+        {
+          "id": "splat-transfer-prose-1-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "9ecfc2ec34476dd0b6a32a3d41b481b5496ab255ffaa9490d43e6bc09287e8e7"
+        },
+        {
+          "id": "splat-transfer-mobile-citation-position-20260909",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "dd918afc1e63563815a79a7e8ac1296ac2e8ed326a92c84f7c5d14a9047eb03d"
+        },
+        {
+          "id": "learned-locomotion-20260909-da83a3636f6fbbbc7d",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "34c5fb9b01ec0bcd4f25f85668de7105ade19d8a32312e522c48e3e1bff9e60f"
+        },
+        {
+          "id": "humanoid-motion-20260909-160f56bf40a985daf6",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "8dffcd50cc04f689da54d3f2a8b42810413ee7126e539376b33e4f29d9782055"
+        },
+        {
+          "id": "humanoid-placement-20260909-c76fa386485b9c9a4c",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "88c4ad4d990ea57dc1f8ae0dbb7a00afc57130a337121d4fddaf96562c8bf841"
+        },
+        {
+          "id": "newton-engine-20260912-6a115dfde665c0aa65",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r1-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r7-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r21-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-transfer-r22-20260916-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b"
+        },
+        {
+          "id": "sim2real-local-20260923-1",
+          "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+          "newHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-0740-prose-article-rl-sim2real-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "af5abaaadbf67aedaa2a15a54a36fc65f385a448c303c6ec1a60e85124038656"
+        },
+        {
+          "id": "educational-convergence-20260926-prose-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "7c03a6d64301dbc245ef7f8172e316d0b28b28efd3f3bf470154341a8673c1b3"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-sim2real-transfer",
+          "oldHash": "7c03a6d64301dbc245ef7f8172e316d0b28b28efd3f3bf470154341a8673c1b3",
+          "newHash": "e2d60b86f053241afc7ddcc3565bb56d4322ccb399c807f0265b80479f6bab9e"
+        },
+        {
+          "id": "motion-rl-sim2real-20260927-reconcile-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "e2d60b86f053241afc7ddcc3565bb56d4322ccb399c807f0265b80479f6bab9e"
+        },
+        {
+          "id": "round6-prose-restores-20260929-prose-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "281dc1bf11a08eee65687477ea62fd20b84b3513c89329fe87dd30ef3719e7c5"
+        },
+        {
+          "id": "opus-figure-migration-20261001-prose-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "bc6d26bca16c8d13d485b162541534997b3278587e936b41890995580c32c080"
+        },
+        {
+          "id": "seo-pass-20261002-prose-rl-sim2real-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "932f84490e11e0fe5999824cc54b8f7d199acd87de47e640b7d45c8a72e38e93"
+        },
+        {
+          "id": "domain-pass-20261006-g9-prose-sim2real-transfer",
+          "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+          "newHash": "594cf0b0b97bfbda030bd66235956509892f7f0853115491738776ebcaf82126"
+        }
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-prose-why-rl-locomotion",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/why-rl-locomotion",
+      "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+      "newHash": "3d474872500da645f8e240aa70825fc40940c5aff26c767b058f94beb872cd82",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd) on rl-sim2real/why-rl-locomotion: mounts DemoOrSim and CubeTrials as two import lines and two one-line mounts. No prose, number or citation changes; this merge resolution reconciles every prior approved edge for the member, whose last endpoint is the 19684251 text, and moves it to the mounted text.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "reconciles": [
+        {
+          "id": "isaac-v1-twelve-originals-4-20260908",
+          "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+          "newHash": "e3021d9e898e14975dad869d49e4fc12df28947848e9bdd973dd44c177e0083d"
+        },
+        {
+          "id": "domain-randomization-source-2-20260909",
+          "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r2-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r4-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r7-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r9-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r10-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r11-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "why-rl-locomotion-r12-20260916-1",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670"
+        },
+        {
+          "id": "reader-rl-prose-20260923-2",
+          "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+          "newHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-rl-sim2real-why-rl-locomotion",
+          "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+          "newHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-why-rl-locomotion",
+          "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+          "newHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-why-rl-locomotion",
+          "oldHash": "a618ffaad4991637c93386a59dae2ddde60563b47a4326636c542d0fbd4ee91e",
+          "newHash": "4338a48ae8fe68e1eaf2b27357aebe4863e7de19abbe840ef36f135d0eece376"
+        },
+        {
+          "id": "motion-rl-sim2real-20260927-reconcile-why-rl-locomotion",
+          "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+          "newHash": "4338a48ae8fe68e1eaf2b27357aebe4863e7de19abbe840ef36f135d0eece376"
+        },
+        {
+          "id": "seo-pass-20261002-prose-rl-sim2real-why-rl-locomotion",
+          "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+          "newHash": "591a69a1cd8db6c31e8c54bf15651099176d549dbac63e8f83a44ef8cb071e36"
+        },
+        {
+          "id": "domain-pass-20261006-g9-prose-why-rl-locomotion",
+          "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+          "newHash": "d322c8ba5848b963fe62c3c5b364d3cda9c8954ff1c247deebfdb9a8556016bc"
+        }
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-actuator-gap-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/actuator-gap.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a5be25e5839c8a96a5efbcda4f09f00208a974b06a5172e68b83cc40b3de6119",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new ActuatorGap figure in rl-sim2real/legged-locomotion. The drawing is named in the stage's plain words: a joint is told to move, the real motor follows late and overshoots, the simulated motor either arrives at once or follows the real curve, and what the trained robot dog then does on the real robot.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-cube-trials-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/cube-trials.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "dbe7e2858219aa767d8dd9637389927567d86da771443c58c8940c4ab6b1584e",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new CubeTrials figure in rl-sim2real/why-rl-locomotion. The drawing is named as ten squares, one per trial of the same scramble, with how many the hand finished under the chosen sensing.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-demo-or-sim-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/demo-or-sim.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3ec093f4eba4ed50cfa1413faf88f944a859a71e351b004944f21908216ca5e7",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new DemoOrSim figure in rl-sim2real/why-rl-locomotion. The drawing is named as three steps from training to the real robot, saying whether the policy learned against an approximate simulated contact model or copied real demonstrations.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-hindsight-relabel-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/hindsight-relabel.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9a8775f8fc191e7405acc910b15231addc9db0bf167e9eeaec18b68d387ad1e5",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new HindsightRelabel figure in rl-sim2real/rl-for-robotics. The drawing is named as a pushed puck that stopped short of its goal, and the reward the push earns when judged against the given goal or the spot where the puck ended.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-humanoid-pick-height-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/humanoid-pick-height.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0feabb7e3f68cf79f0f5a941467681c971bc8bcd54c4b7af9e08a877750be4f2",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new HumanoidPickHeight figure in rl-sim2real/humanoid-wbc. The drawing is named as a humanoid reaching for an object at the chosen height, with the three whole-body pick success rates (shelf, table, floor) the bars show.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-newton-solvers-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/newton-solvers.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "357ceed50c123a122837088e080765630a37da541ad596753f0e114034296135",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new NewtonSolvers figure in rl-sim2real/parallel-sim-rl. The drawing is named as four materials above four solvers joined through one Newton interface, and which solver the chosen material goes to.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-offline-value-overreach-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/offline-value-overreach.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "61490ea3e893fb387f37562e648cee08ea60e559e34121ba35a2aa61555e5da8",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new OfflineValueOverreach figure in rl-sim2real/offline-rl. Its one slider is named after the label it prints plus its current value, \"Caution about untried actions, from 0 to N, currently N\".",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-offline-value-overreach-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/offline-value-overreach.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e9f8c363d2b123096f3c497e2d8f88c44fe4a072944643572ed929fa97c37108",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new OfflineValueOverreach figure in rl-sim2real/offline-rl. The drawing is named as a learner's guess of how well each grip works against the real results, and whether it picks the best tried grip or an untried one it overrates.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-real-robot-rl-gains-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/real-robot-rl-gains.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4b51fd257c290ee7ff8a28d9dbd10a45e36c76d04ba18d7621284677808831bf",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new RealRobotRlGains figure in rl-sim2real/offline-rl. The chart is named as real-robot success in four studies before or after reinforcement learning, listing each study's task and percentage.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-replay-reuse-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/replay-reuse.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b573558ea4d097c273137a5fc30793378ef40da4941964bdcb888843b20614d1",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new ReplayReuse figure in rl-sim2real/rl-for-robotics. The drawing is named as batches of robot experience above the policy update, saying whether the update learns from the newest batch only or from every batch kept in a replay buffer.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-retargeting-gap-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/retargeting-gap.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9e58b08daa1800a2a14d760a390ea5569d5d8b19775f63df91ea56dc45230403",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new RetargetingGap figure in rl-sim2real/humanoid-wbc. Its one slider is named after the label it prints plus its current value, \"Robot's leg length as a percentage of the person's, currently N\".",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-retargeting-gap-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/retargeting-gap.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8c86f43ba258ff1a34a0681210b84747d3dd311d2b379fade0cc4fa245b01107",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new RetargetingGap figure in rl-sim2real/humanoid-wbc. The drawing is named as a person walking and a robot given the same joint angles and hip height with legs of the chosen length, plus the stage note.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-robots-per-gpu-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/robots-per-gpu.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3fc54f0ab5410a682a43beca606d10f57417245fd385a4383915782ef10b1695",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new RobotsPerGpu figure in rl-sim2real/parallel-sim-rl. The drawing is named as a grid of squares of 128 simulated robots each, with how many robots fill how many squares at the chosen count.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-scanned-twin-check-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/scanned-twin-check.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3b57b1ff57bc83832bb9718a7f1cc71e0b9e60ab20b2bde59f05004f4f92df55",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new ScannedTwinCheck figure in rl-sim2real/sim2real-transfer. The chart is named as a bar from 0 to 1 showing how well simulated success predicts real success, for the scanned and the tuned simulator.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-terrain-curriculum-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/terrain-curriculum.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2acd40cea7f860b0cafa7b8a8a5e8a22d34038f12365020392d0ecc2d968c96f",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new TerrainCurriculum figure in rl-sim2real/legged-locomotion. The drawing is named as the simulated robots spread over the terrain levels, easy to hard, after the chosen round, plus the round's status line.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
+    },
+    {
+      "id": "rl-sim2real-figures-20261011-accessible-names-trajectory-stitching-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/trajectory-stitching.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "96342509f79775b9d4023be4c1ea9725562816869e63f77c61630eac7a470e67",
+      "reason": "rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new TrajectoryStitching figure in rl-sim2real/offline-rl. The drawing is named as a map with two recorded runs that cross, saying whether the robot copies run 1 and stops short or joins the two runs to reach the goal.",
+      "ownerApproval": "Owner brief of 2026-10-10 (Josef Chen, robot-wiki-out/FIGURE-BRIEF.md): \"Didn't we agree to have a lot of very simple interactive animations in the wiki?\", setting 3 to 5 simple figures per article on real cited data, and the owner decision of 2026-10-11 on the rl-sim2real figure batch (robot-wiki-out/patches/figures/rl-sim2real-b05.md): trim the new figures' text and move the seven page budgets to the measured counts, as 4ef2e97e did, with no article prose changed. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "disposition": "permanent",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ]
     }
   ]
 }

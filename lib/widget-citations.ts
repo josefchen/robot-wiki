@@ -37,6 +37,7 @@ import { GENERALIST_RELEASES } from '@/lib/generalist-policies';
 import { HIERARCHY_SYSTEMS } from '@/lib/hierarchy-timescales';
 import { KNOWLEDGE_INSULATION_CITATION_ID } from '@/lib/knowledge-insulation';
 import { PI_GENERATIONS } from '@/lib/pi-generations';
+import { GAIN_STUDIES } from '@/lib/real-robot-rl-gains';
 
 export const WIDGET_CITATION_IDS = {
   // Row-driven source links (useCitationLookup).
@@ -70,6 +71,20 @@ export const WIDGET_CITATION_IDS = {
   QosQueueAge: () => ['ros2-qos-2026'],
   Ros2Interfaces: () => ['ros2-interfaces-2026'],
   TimeOffsetMiss: () => ['realtime-vla-v2-2026'],
+  OfflineValueOverreach: () => ['offline-rl-tutorial-2020', 'cql-2020'],
+  HumanoidPickHeight: () => ['gemini-robotics-2-2026'],
+  RealRobotRlGains: () => GAIN_STUDIES.map((study) => study.citationId),
+  TrajectoryStitching: () => ['offline-rl-vs-bc-2022', 'cog-2020'],
+  ActuatorGap: () => ['hwangbo-2019'],
+  RetargetingGap: () => ['gmr-retargeting-2025', 'h2o-2024'],
+  RobotsPerGpu: () => ['rudin-2021', 'isaac-gym-2021'],
+  TerrainCurriculum: () => ['rudin-2021'],
+  NewtonSolvers: () => ['state-of-simulation-2026', 'newton-manipulation-blog-2026'],
+  ReplayReuse: () => ['ppo-2017', 'sutton-barto-2018'],
+  HindsightRelabel: () => ['her-2017'],
+  ScannedTwinCheck: () => ['kadian-2019'],
+  CubeTrials: () => ['openai-rubiks-cube-2019'],
+  DemoOrSim: () => ['reality-gap-survey-2026', 'rudin-2021', 'act-aloha-2023'],
   // Inline <CiteRef> chips. Row-driven chips derive from their rows; the
   // literal ids are the chips written into the widget's own JSX, which
   // tests/unit/widget-citations.test.tsx reads back out of the source.

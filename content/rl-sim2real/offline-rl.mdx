@@ -54,6 +54,12 @@ seeAlso:
   - "manipulation/pi-line"
 ---
 
+import { OfflineValueOverreach } from '@/components/interactive/offline-value-overreach';
+
+import { TrajectoryStitching } from '@/components/interactive/trajectory-stitching';
+
+import { RealRobotRlGains } from '@/components/interactive/real-robot-rl-gains';
+
 Offline reinforcement learning is training a robot policy from a fixed dataset of past experience, without new transitions. Levine and colleagues name its central difficulty: a learned value function can overrate actions the data never tested, and no live environment corrects it <Cite id="offline-rl-tutorial-2020" />.
 
 <SelfCheck
@@ -82,6 +88,8 @@ Offline reinforcement learning is training a robot policy from a fixed dataset o
 ## The fixed-data bargain
 
 <Term id="offline-reinforcement-learning">Offline RL</Term> learns from a static set of transitions `(observation, action, reward, next observation, termination)` produced by one or more behavior policies <Cite id="offline-rl-tutorial-2020" />. Value learning bootstraps, so error from actions outside the data accumulates through the Bellman backup <Cite id="bear-2019" />. For robots, support also spans commanded frame, controller mode, action magnitude, contact regime, task stage and recovery. Real-ORL, built on over 6,500 trajectories from 800 robot hours, found that offline RL and imitation prefer different action spaces <Cite id="real-orl-2022" />.
+
+<OfflineValueOverreach className="my-6" />
 
 NEEDLE, from Shuran Song (Stanford) and colleagues (October 2026), adds short, verified action bridges between recorded observations, using only images, proprioception and episode outcomes, so training can skip detours and reuse failed episodes. On real-robot tasks it beat the strongest baseline on each task by 21 percentage points on average <Cite id="needlework-2026" />.
 
@@ -129,6 +137,8 @@ In SeeQ (September 2026), Aviral Kumar (Carnegie Mellon) and colleagues shorten 
 
 Behavior cloning is the default for clean expert demonstrations: it fits the action labels and has no bootstrapped critic. Robomimic found recurrent cloning a strong baseline on human demonstrations, where batch-RL methods struggled <Cite id="robomimic-2021" />. Kumar and colleagues favor offline RL for sparse rewards, suboptimal or noisy data, and long horizons with composable trajectories <Cite id="offline-rl-vs-bc-2022" />.
 
+<TrajectoryStitching className="my-6" />
+
 Neither method repairs missing support. Robo-ValueRL ties success to value reliability over 240 hours of demonstrations and over 3,000 rollouts; reliable values let offline RL scale better than quality-agnostic cloning <Cite id="robo-valuerl-2026" />. With online improvement added, the full system reaches 86% on millimeter-level chip insertion <Cite id="robo-valuerl-2026" />. From 30 to 60 demonstrations, CO-RFT's chunked offline RL raised a VLA's success rate 57% over supervised fine-tuning <Cite id="co-rft-2025" />. The [behavior-cloning guide](/manipulation/bc-foundations) covers the baseline.
 
 <span id="an-evaluation-protocol-that-does-not-flatter-the-critic" />
@@ -167,6 +177,8 @@ RLPD mixes offline data into off-policy online learning without separate conserv
 Action bounds and command validation sit outside the learned policy, interventions and resets are defined, and each promotion is compared with the frozen offline checkpoint. Retaining offline data in replay is a safety default; WSRL shows it is unnecessary with a well-designed online method <Cite id="wsrl-2024" />. Dong and colleagues find naive Q-function pretraining often helps little over random initialization <Cite id="dong-q-pretrain-2026" />.
 
 PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% real-world success in 40 minutes <Cite id="pa-rl-2024" />. Physical Intelligence pretrains π\*0.6 with offline RL and reports more than doubled throughput on some of the hardest tasks <Cite id="pistar06-2025" />. LWD applies offline-to-online RL to a pretrained VLA across a fleet of 16 dual-arm robots and reports 95% average success over eight tasks <Cite id="lwd-2026" />. Q2RL keeps a behavior-cloning policy's good actions by gating between cloned and RL actions on their Q-values, and learned contact-rich pipe assembly and kitting on a robot in one to two hours <Cite id="q2rl-2026" />. BORA updates only a residual actor on a frozen VLA, raising success on standard objects from 60.8% to 82.5% with 20 online trajectories per task <Cite id="bora-2026" />. The [RL fine-tuning guide](/manipulation/rl-finetuning) covers this phase.
+
+<RealRobotRlGains className="my-6" />
 
 ## A compact go/no-go checklist
 

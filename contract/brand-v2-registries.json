@@ -4448,6 +4448,61 @@
         "fingerprint": "cef0341deae8824f4d5426940993e76dd0f841b7112289d87ad91eb433d70465"
       },
       {
+        "id": "interactive:ActuatorGap",
+        "component": "ActuatorGap",
+        "sourcePath": "components/interactive/actuator-gap.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "9806c8c5993ebcd2bf2da65a00c3d100e9becfa073edf37bd7289551d37cb4d6"
+      },
+      {
         "id": "interactive:AdvantageScrubber",
         "component": "AdvantageScrubber",
         "sourcePath": "components/interactive/advantage-scrubber.tsx",
@@ -5064,6 +5119,61 @@
         "fingerprint": "28fb118a2d8ed7373e7c40cff4db01cc812cdce915e0d2bdc78d95a11c4de669"
       },
       {
+        "id": "interactive:CubeTrials",
+        "component": "CubeTrials",
+        "sourcePath": "components/interactive/cube-trials.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "50d4e26bc60c5e5e7db0a2888c78c28f57f463f23d4636fc1c247ee35c800206"
+      },
+      {
         "id": "interactive:DataScaleChart",
         "component": "DataScaleChart",
         "sourcePath": "components/interactive/data-scale-chart.tsx",
@@ -5183,6 +5293,61 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "2904be3a5b8b7c32c41204db90c163f900733424c27dd4e3753842e690b503ed"
+      },
+      {
+        "id": "interactive:DemoOrSim",
+        "component": "DemoOrSim",
+        "sourcePath": "components/interactive/demo-or-sim.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "3744257c58b924fd1b407b1ec2fde4cc553eeef12b9595186cd59b13835cd4a5"
       },
       {
         "id": "interactive:DeploymentDashboard",
@@ -6054,6 +6219,116 @@
         "fingerprint": "934057c8d4e43e819c820d3e62e7e43d2310bd51cb6690201e4b94527578dbe0"
       },
       {
+        "id": "interactive:HindsightRelabel",
+        "component": "HindsightRelabel",
+        "sourcePath": "components/interactive/hindsight-relabel.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "5b593175e28c74a66aab9d721c88115687c466765e51eac67b9d3a2677fc9b52"
+      },
+      {
+        "id": "interactive:HumanoidPickHeight",
+        "component": "HumanoidPickHeight",
+        "sourcePath": "components/interactive/humanoid-pick-height.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "d4fdb9dee7a78d93e720085a7020c53edc8fce02fd9372ac136536ad4e16d5b4"
+      },
+      {
         "id": "interactive:ImpedanceContactLab",
         "component": "ImpedanceContactLab",
         "sourcePath": "components/interactive/impedance-contact-lab.tsx",
@@ -6494,6 +6769,111 @@
         "fingerprint": "f3cbb46bdb260a888a6a0c1edbc1b3d23d47c44a308d3977b3e5c1802f7fc57f"
       },
       {
+        "id": "interactive:NewtonSolvers",
+        "component": "NewtonSolvers",
+        "sourcePath": "components/interactive/newton-solvers.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "74854eb16e94c74d7595ccba75d87bd50e40da3025f7629358db0a099f55e707"
+      },
+      {
+        "id": "interactive:OfflineValueOverreach",
+        "component": "OfflineValueOverreach",
+        "sourcePath": "components/interactive/offline-value-overreach.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "8848ff3547bd839fbebb3b90a0a4902d30af34c7ed28a8ff1d2632f34b949a8f"
+      },
+      {
         "id": "interactive:PendulumController",
         "component": "PendulumController",
         "sourcePath": "components/interactive/pendulum-controller.tsx",
@@ -6868,6 +7248,61 @@
         "fingerprint": "ac85b2bc7ad91a3d0b707e7abf371ed67126645e3a402c8a0332973309932c11"
       },
       {
+        "id": "interactive:RealRobotRlGains",
+        "component": "RealRobotRlGains",
+        "sourcePath": "components/interactive/real-robot-rl-gains.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "025207ce4e94ccfa9cbdb619f659d4ad243649d90bae5206765ff23dbb773414"
+      },
+      {
         "id": "interactive:RecedingHorizon",
         "component": "RecedingHorizon",
         "sourcePath": "components/interactive/receding-horizon.tsx",
@@ -7000,6 +7435,111 @@
         "fingerprint": "ab43ab651494773ef953cc431aa97e5e6678c7a519142246b68d556447d54d8e"
       },
       {
+        "id": "interactive:ReplayReuse",
+        "component": "ReplayReuse",
+        "sourcePath": "components/interactive/replay-reuse.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "784e4800502d71e4115e803ba7f8be97b2c0818a10115ef51aeb6f5ac51b7396"
+      },
+      {
+        "id": "interactive:RetargetingGap",
+        "component": "RetargetingGap",
+        "sourcePath": "components/interactive/retargeting-gap.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "2bd4b1699f858e3892d367b32990520eff9667c5d065817d9068388e74003bf4"
+      },
+      {
         "id": "interactive:RewardShaping",
         "component": "RewardShaping",
         "sourcePath": "components/interactive/reward-shaping.tsx",
@@ -7064,6 +7604,61 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "24f7563202dad1a4f7f8fff97bbf7b3c1bc7aa11e7ab953f5e9d72906c7b493c"
+      },
+      {
+        "id": "interactive:RobotsPerGpu",
+        "component": "RobotsPerGpu",
+        "sourcePath": "components/interactive/robots-per-gpu.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "b10c298434e87390917f41dbba0d4664e2a1b63e2af57861845d40209f6b02dd"
       },
       {
         "id": "interactive:Ros2Interfaces",
@@ -7275,6 +7870,61 @@
         "fingerprint": "f89cfb62ecae3d6aba1cc4bc8d7f8ef5faa52c19b1277855cb2cf6fc80a75e81"
       },
       {
+        "id": "interactive:ScannedTwinCheck",
+        "component": "ScannedTwinCheck",
+        "sourcePath": "components/interactive/scanned-twin-check.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "f49152d9e748a2cf905c0b1f741de7b10428fae1334e5ac3ff4b57e8210b34ed"
+      },
+      {
         "id": "interactive:SceneRepresentationLadder",
         "component": "SceneRepresentationLadder",
         "sourcePath": "components/interactive/scene-representation-ladder.tsx",
@@ -7462,6 +8112,55 @@
         "fingerprint": "644615d1e048fcf9b6100e7bfcbeae0a7493aa9127b288e2f29a8eb4b8706a7f"
       },
       {
+        "id": "interactive:TerrainCurriculum",
+        "component": "TerrainCurriculum",
+        "sourcePath": "components/interactive/terrain-curriculum.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "bab54eb3142517112df4adb9127dd6fb0fd252406cda7b5a2465d1172be63de6"
+      },
+      {
         "id": "interactive:ThesisExplorer",
         "component": "ThesisExplorer",
         "sourcePath": "components/interactive/thesis-explorer.tsx",
@@ -7631,6 +8330,61 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "48965dcda62dc4e8c368461829cce38e77febf6bb103f1f869dd35cf5a4b73ee"
+      },
+      {
+        "id": "interactive:TrajectoryStitching",
+        "component": "TrajectoryStitching",
+        "sourcePath": "components/interactive/trajectory-stitching.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "ccfe807b227b74db0b8b41c13edf5109b64f67b833e9d24dc178fa399518d678"
       },
       {
         "id": "interactive:WbcDecomposition",
@@ -10532,6 +11286,119 @@
         "fingerprint": "56d6d483218d7aae9d7b9a1e0fa2772c5f2d941377615350bd7ba87590e123c7"
       },
       {
+        "id": "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1",
+        "sourceId": "interactive:HumanoidPickHeight",
+        "route": "/rl-sim2real/humanoid-wbc/",
+        "ownerPath": "content/rl-sim2real/humanoid-wbc.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "97df5eb7335c91fc6be218e72905ac1636d48cffbb76dd4fd4ca38b81753a9ab"
+      },
+      {
+        "id": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1",
+        "sourceId": "interactive:RetargetingGap",
+        "route": "/rl-sim2real/humanoid-wbc/",
+        "ownerPath": "content/rl-sim2real/humanoid-wbc.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "d150ab942e23d899022b440d88f38a1ef7d159611ee27da0d1bdb9fbc440726c"
+      },
+      {
         "id": "mount:/rl-sim2real/humanoid-wbc/:WbcDecomposition:1",
         "sourceId": "interactive:WbcDecomposition",
         "route": "/rl-sim2real/humanoid-wbc/",
@@ -10589,6 +11456,408 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "a609088cf8e411f354d4c6b158eb2d11749669150fe006aff2f174601b63d6ba"
+      },
+      {
+        "id": "mount:/rl-sim2real/legged-locomotion/:ActuatorGap:1",
+        "sourceId": "interactive:ActuatorGap",
+        "route": "/rl-sim2real/legged-locomotion/",
+        "ownerPath": "content/rl-sim2real/legged-locomotion.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "b03ea34121dd699663a07b732134b540fb9d6f85eaa5dd8fea8b34b334a1395b"
+      },
+      {
+        "id": "mount:/rl-sim2real/legged-locomotion/:TerrainCurriculum:1",
+        "sourceId": "interactive:TerrainCurriculum",
+        "route": "/rl-sim2real/legged-locomotion/",
+        "ownerPath": "content/rl-sim2real/legged-locomotion.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "fef9ab3a49a7b0d410456beacac46065c105e6c8001d39a7dc53394934e3ec1b"
+      },
+      {
+        "id": "mount:/rl-sim2real/offline-rl/:OfflineValueOverreach:1",
+        "sourceId": "interactive:OfflineValueOverreach",
+        "route": "/rl-sim2real/offline-rl/",
+        "ownerPath": "content/rl-sim2real/offline-rl.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "5edb1c5849ea4eddf8e634f8b4e191250703be028d4be0211177c4ab75d978a0"
+      },
+      {
+        "id": "mount:/rl-sim2real/offline-rl/:RealRobotRlGains:1",
+        "sourceId": "interactive:RealRobotRlGains",
+        "route": "/rl-sim2real/offline-rl/",
+        "ownerPath": "content/rl-sim2real/offline-rl.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "24d2d0a5f8a21b51adf41c9536f56a598d6e68c35654990ceddac615e128096b"
+      },
+      {
+        "id": "mount:/rl-sim2real/offline-rl/:TrajectoryStitching:1",
+        "sourceId": "interactive:TrajectoryStitching",
+        "route": "/rl-sim2real/offline-rl/",
+        "ownerPath": "content/rl-sim2real/offline-rl.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "1df4bd82b49f4be64aba631da6941112a4b1d05b953fe22e63b8ebd977e62067"
+      },
+      {
+        "id": "mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1",
+        "sourceId": "interactive:NewtonSolvers",
+        "route": "/rl-sim2real/parallel-sim-rl/",
+        "ownerPath": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "d7bba07ec12c3b2bb48785c5ab2c2e5a9b401129ad71ab79ab6800bd92d4798e"
+      },
+      {
+        "id": "mount:/rl-sim2real/parallel-sim-rl/:RobotsPerGpu:1",
+        "sourceId": "interactive:RobotsPerGpu",
+        "route": "/rl-sim2real/parallel-sim-rl/",
+        "ownerPath": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "c130f12109cf3804c833783dc68d8656981e081b882660918515bbd5c318518b"
       },
       {
         "id": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
@@ -10773,6 +12042,124 @@
         "fingerprint": "544b118bb2fbbb64e82a9bdc1bd64a197ac14b6c8a368e0e8b8be40a052b9df6"
       },
       {
+        "id": "mount:/rl-sim2real/rl-for-robotics/:HindsightRelabel:1",
+        "sourceId": "interactive:HindsightRelabel",
+        "route": "/rl-sim2real/rl-for-robotics/",
+        "ownerPath": "content/rl-sim2real/rl-for-robotics.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "4ce070853592f8d75663db4b55b9c29b2fe67bc939c5243bbe82c97ef06d8299"
+      },
+      {
+        "id": "mount:/rl-sim2real/rl-for-robotics/:ReplayReuse:1",
+        "sourceId": "interactive:ReplayReuse",
+        "route": "/rl-sim2real/rl-for-robotics/",
+        "ownerPath": "content/rl-sim2real/rl-for-robotics.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "c8d3d950455b7ad0325be57f66b16c9fca7f1cb9be2bbb0200a08b7acf0c6b7d"
+      },
+      {
         "id": "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
         "sourceId": "interactive:SampleEfficiencyLedger",
         "route": "/rl-sim2real/rl-for-robotics/",
@@ -10889,6 +12276,65 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "53fde30dfdf3df5cd8ec248953a47ab553cd137c238be88f2076a4c41faf5346"
+      },
+      {
+        "id": "mount:/rl-sim2real/sim2real-transfer/:ScannedTwinCheck:1",
+        "sourceId": "interactive:ScannedTwinCheck",
+        "route": "/rl-sim2real/sim2real-transfer/",
+        "ownerPath": "content/rl-sim2real/sim2real-transfer.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "47f2953db3aabc50e923e2a3f40dbc25789428f48ee20a6ca6de5a9da8a45f95"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
@@ -11029,6 +12475,124 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "d0fc8c3ceb752917d5c8725f2a95059836e31691a3cb4a0da11b14e5b3a21601"
+      },
+      {
+        "id": "mount:/rl-sim2real/why-rl-locomotion/:CubeTrials:1",
+        "sourceId": "interactive:CubeTrials",
+        "route": "/rl-sim2real/why-rl-locomotion/",
+        "ownerPath": "content/rl-sim2real/why-rl-locomotion.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "5595aa27bd1d29234d7207780f1454c0c694e4b0756bdba49c3c2a4b916774b7"
+      },
+      {
+        "id": "mount:/rl-sim2real/why-rl-locomotion/:DemoOrSim:1",
+        "sourceId": "interactive:DemoOrSim",
+        "route": "/rl-sim2real/why-rl-locomotion/",
+        "ownerPath": "content/rl-sim2real/why-rl-locomotion.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "4cf4b9a1a6033735f7e5a3cf147da35b72a75241c035c8c7aaf237612df28de4"
       },
       {
         "id": "mount:/world-models/generative-sim/:AppearancePhysicsPush:1",
@@ -11902,6 +13466,7 @@
       ],
       "definedIn": [
         "components/explainers/how-robots-work.tsx",
+        "components/interactive/terrain-curriculum.tsx",
         "components/motion/clip.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
@@ -11909,6 +13474,7 @@
       ],
       "ownerRouteOrMount": [
         "components/explainers/how-robots-work.tsx",
+        "components/interactive/terrain-curriculum.tsx",
         "components/motion/clip.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
@@ -11922,7 +13488,7 @@
         "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "8b6d7f4e487134d8bc2a83a30b7e885523b5d16c1b52862e15cec9223b3613ef"
+      "fingerprint": "ef78f9780e4dcb12a3133fb94e2c5ea023ed45cfcc688d51bdf832f56693b467"
     },
     {
       "id": "control:secondary-action",
@@ -12156,24 +13722,38 @@
         "components/explainers/how-robots-work.tsx",
         "components/home/contents-index.tsx",
         "components/home/did-you-know.tsx",
+        "components/interactive/actuator-gap.tsx",
         "components/interactive/calibration-chain.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
+        "components/interactive/cube-trials.tsx",
         "components/interactive/data-scale-chart.tsx",
         "components/interactive/dataset-table.tsx",
+        "components/interactive/demo-or-sim.tsx",
         "components/interactive/deployment-dashboard.tsx",
         "components/interactive/generalist-release-timeline.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hand-eye-poses.tsx",
         "components/interactive/hardware-guide.tsx",
         "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/hindsight-relabel.tsx",
+        "components/interactive/humanoid-pick-height.tsx",
         "components/interactive/mot-insulation.tsx",
+        "components/interactive/newton-solvers.tsx",
+        "components/interactive/offline-value-overreach.tsx",
         "components/interactive/pi-generation-timeline.tsx",
         "components/interactive/qos-queue-age.tsx",
+        "components/interactive/real-robot-rl-gains.tsx",
+        "components/interactive/replay-reuse.tsx",
+        "components/interactive/retargeting-gap.tsx",
+        "components/interactive/robots-per-gpu.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/ros2-policy-layout.tsx",
+        "components/interactive/scanned-twin-check.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
+        "components/interactive/terrain-curriculum.tsx",
         "components/interactive/time-offset-miss.tsx",
+        "components/interactive/trajectory-stitching.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/funding-timeline.tsx",
         "components/motion/figure-reuse.tsx",
@@ -12209,24 +13789,38 @@
         "components/explainers/how-robots-work.tsx",
         "components/home/contents-index.tsx",
         "components/home/did-you-know.tsx",
+        "components/interactive/actuator-gap.tsx",
         "components/interactive/calibration-chain.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
+        "components/interactive/cube-trials.tsx",
         "components/interactive/data-scale-chart.tsx",
         "components/interactive/dataset-table.tsx",
+        "components/interactive/demo-or-sim.tsx",
         "components/interactive/deployment-dashboard.tsx",
         "components/interactive/generalist-release-timeline.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hand-eye-poses.tsx",
         "components/interactive/hardware-guide.tsx",
         "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/hindsight-relabel.tsx",
+        "components/interactive/humanoid-pick-height.tsx",
         "components/interactive/mot-insulation.tsx",
+        "components/interactive/newton-solvers.tsx",
+        "components/interactive/offline-value-overreach.tsx",
         "components/interactive/pi-generation-timeline.tsx",
         "components/interactive/qos-queue-age.tsx",
+        "components/interactive/real-robot-rl-gains.tsx",
+        "components/interactive/replay-reuse.tsx",
+        "components/interactive/retargeting-gap.tsx",
+        "components/interactive/robots-per-gpu.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/ros2-policy-layout.tsx",
+        "components/interactive/scanned-twin-check.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
+        "components/interactive/terrain-curriculum.tsx",
         "components/interactive/time-offset-miss.tsx",
+        "components/interactive/trajectory-stitching.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/funding-timeline.tsx",
         "components/motion/figure-reuse.tsx",
@@ -12261,7 +13855,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "44a673c28ea2000c9406708d518fb3ad882b9aa78f27c0858b1ca05ae420d4fd"
+      "fingerprint": "d911661983739f4d34beab7bab4c66dfcf72d659b52749ffeb8f87555d61ac37"
     },
     {
       "id": "control:segmented",
@@ -12339,12 +13933,14 @@
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/mot-insulation.tsx",
+        "components/interactive/offline-value-overreach.tsx",
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/perception-error-budget.tsx",
         "components/interactive/perception-latency.tsx",
         "components/interactive/planar-fk-arm.tsx",
         "components/interactive/receding-horizon.tsx",
         "components/interactive/reliability-compounding.tsx",
+        "components/interactive/retargeting-gap.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/rrt-explorer.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
@@ -12386,12 +13982,14 @@
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/mot-insulation.tsx",
+        "components/interactive/offline-value-overreach.tsx",
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/perception-error-budget.tsx",
         "components/interactive/perception-latency.tsx",
         "components/interactive/planar-fk-arm.tsx",
         "components/interactive/receding-horizon.tsx",
         "components/interactive/reliability-compounding.tsx",
+        "components/interactive/retargeting-gap.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/rrt-explorer.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
@@ -12420,7 +14018,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "d94b9d1b247eb4122e98236219961aa6bb6a7989d0cf5582b33dc3d71fad13a4"
+      "fingerprint": "d1067829df9b0ced4f33038ee235a6b12302e7256ed1e2d477245447f6c13b87"
     },
     {
       "id": "control:disabled",
@@ -12474,5 +14072,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "57e5d1e55fb4bd048154f651da46d0c82bfb128ee68692352d9f25c66e4d5c78"
+  "rootFingerprint": "67887d96e8f23ba5a56f0cea16262584437c8abe8701853bf34aa92d7e54f3c6"
 }

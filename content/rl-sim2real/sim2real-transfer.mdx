@@ -57,6 +57,8 @@ seeAlso:
 import { FrictionTransfer } from '@/components/interactive/friction-transfer';
 import { TeacherStudent } from '@/components/interactive/teacher-student';
 
+import { ScannedTwinCheck } from '@/components/interactive/scanned-twin-check';
+
 Sim-to-real transfer is getting a policy trained in simulation to work on the physical robot. Its four method families are <Term id="domain-randomization">domain randomization</Term>, <Term id="teacher-student-distillation">teacher-student distillation</Term>, <Term id="system-identification">system identification</Term> and real-to-sim reconstruction. Aljalbout and colleagues' survey covers all four, splitting methods that reduce the gap from those that overcome it <Cite id="reality-gap-survey-2026" />.
 
 <FrictionTransfer className="my-6" />
@@ -124,6 +126,8 @@ RoboGSim's August 2025 revision chains a Gaussian Reconstructor, Digital Twins B
 Newer twins go beyond static appearance. RialTo builds digital twins from small amounts of real data and runs RL in them, raising imitation-policy robustness by over 67% <Cite id="rialto-2024" />. Zhang and colleagues build soft-body splat twins from video whose rollouts correlate strongly with real execution <Cite id="softbody-splat-eval-2025" />. PolaRiS turns short video scans into interactive environments that track real generalist-policy performance better than existing benchmarks <Cite id="polaris-2025" />. SimFoundry builds sim-ready twins from a video and edits them into digital cousins; across 7 tasks and 5 policy architectures its simulated evaluations correlated with real results at a mean Pearson coefficient of 0.911 <Cite id="simfoundry-2026" />. GRAIL generates humanoid interaction data from 3D assets and video-model priors, and visual policies trained only on it reached 84% success on object pick-up and 90% on stair-climbing on a real Unitree G1 <Cite id="grail-2026" />. NVIDIA's Newton 1.0 post describes a Warp-based tiled camera sensor that ray-traces both triangle meshes and Gaussian splats <Cite id="newton-manipulation-blog-2026" />.
 
 A rebuilt twin can still mislead. Kadian and colleagues measured a sim-versus-real success correlation of 0.18 in a 3D-scanned lab because agents exploited collision dynamics, and tuning simulation parameters raised it to 0.844 <Cite id="kadian-2019" />.
+
+<ScannedTwinCheck className="my-6" />
 
 <span id="the-levers-nobody-demos" />
 ## Levers behind successful transfer

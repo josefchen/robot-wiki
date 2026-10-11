@@ -787,6 +787,160 @@
         "components/interactive/ros2-interfaces.tsx"
       ],
       "takeaway": "Nodes stream with topics, ask quick questions with services, and run long cancellable jobs with actions."
+    },
+    {
+      "id": "rl-sim2real--offline-rl--offline-value-overreach",
+      "route": "/rl-sim2real/offline-rl/",
+      "mount": "mount:/rl-sim2real/offline-rl/:OfflineValueOverreach:1",
+      "figure": "offline-value-overreach",
+      "audit": null,
+      "sources": [
+        "components/interactive/offline-value-overreach.tsx"
+      ],
+      "takeaway": "A robot that learns only from old records overrates actions it never tried, unless it is made cautious about them."
+    },
+    {
+      "id": "rl-sim2real--offline-rl--trajectory-stitching",
+      "route": "/rl-sim2real/offline-rl/",
+      "mount": "mount:/rl-sim2real/offline-rl/:TrajectoryStitching:1",
+      "figure": "trajectory-stitching",
+      "audit": null,
+      "sources": [
+        "components/interactive/trajectory-stitching.tsx"
+      ],
+      "takeaway": "Learning from old runs can join the good parts of two runs into a success that neither run reached alone."
+    },
+    {
+      "id": "rl-sim2real--offline-rl--real-robot-rl-gains",
+      "route": "/rl-sim2real/offline-rl/",
+      "mount": "mount:/rl-sim2real/offline-rl/:RealRobotRlGains:1",
+      "figure": "real-robot-rl-gains",
+      "audit": null,
+      "sources": [
+        "components/interactive/real-robot-rl-gains.tsx"
+      ],
+      "takeaway": "Adding reinforcement learning to robots trained on recorded data raised their real-world success in four studies."
+    },
+    {
+      "id": "rl-sim2real--humanoid-wbc--humanoid-pick-height",
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "mount": "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1",
+      "figure": "humanoid-pick-height",
+      "audit": null,
+      "sources": [
+        "components/interactive/humanoid-pick-height.tsx"
+      ],
+      "takeaway": "A humanoid run by one whole-body model picks things up less reliably the lower they sit, worst from the floor."
+    },
+    {
+      "id": "rl-sim2real--legged-locomotion--actuator-gap",
+      "route": "/rl-sim2real/legged-locomotion/",
+      "mount": "mount:/rl-sim2real/legged-locomotion/:ActuatorGap:1",
+      "figure": "actuator-gap",
+      "audit": null,
+      "sources": [
+        "components/interactive/actuator-gap.tsx"
+      ],
+      "takeaway": "A walking robot trained in a simulator with perfect motors falls on real legs; simulating the real motors lets it walk."
+    },
+    {
+      "id": "rl-sim2real--legged-locomotion--terrain-curriculum",
+      "route": "/rl-sim2real/legged-locomotion/",
+      "mount": "mount:/rl-sim2real/legged-locomotion/:TerrainCurriculum:1",
+      "figure": "terrain-curriculum",
+      "audit": null,
+      "sources": [
+        "components/interactive/terrain-curriculum.tsx"
+      ],
+      "takeaway": "Training moves each simulated robot to harder ground when it copes and to easier ground when it struggles."
+    },
+    {
+      "id": "rl-sim2real--humanoid-wbc--retargeting-gap",
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "mount": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1",
+      "figure": "retargeting-gap",
+      "audit": null,
+      "sources": [
+        "components/interactive/retargeting-gap.tsx"
+      ],
+      "takeaway": "Copying a person's movements straight onto a robot with different proportions leaves its feet floating or sinking."
+    },
+    {
+      "id": "rl-sim2real--parallel-sim-rl--robots-per-gpu",
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "mount": "mount:/rl-sim2real/parallel-sim-rl/:RobotsPerGpu:1",
+      "figure": "robots-per-gpu",
+      "audit": null,
+      "sources": [
+        "components/interactive/robots-per-gpu.tsx"
+      ],
+      "takeaway": "One graphics chip can simulate thousands of practising robots at once, far more than older computer simulators."
+    },
+    {
+      "id": "rl-sim2real--parallel-sim-rl--newton-solvers",
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "mount": "mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1",
+      "figure": "newton-solvers",
+      "audit": null,
+      "sources": [
+        "components/interactive/newton-solvers.tsx"
+      ],
+      "takeaway": "Newton keeps several physics solvers behind one interface and hands each kind of material to the one built for it."
+    },
+    {
+      "id": "rl-sim2real--rl-for-robotics--replay-reuse",
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "mount": "mount:/rl-sim2real/rl-for-robotics/:ReplayReuse:1",
+      "figure": "replay-reuse",
+      "audit": null,
+      "sources": [
+        "components/interactive/replay-reuse.tsx"
+      ],
+      "takeaway": "An on-policy learner throws each batch of experience away after using it; an off-policy learner keeps every batch to learn from again."
+    },
+    {
+      "id": "rl-sim2real--rl-for-robotics--hindsight-relabel",
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "mount": "mount:/rl-sim2real/rl-for-robotics/:HindsightRelabel:1",
+      "figure": "hindsight-relabel",
+      "audit": null,
+      "sources": [
+        "components/interactive/hindsight-relabel.tsx"
+      ],
+      "takeaway": "A missed goal can still teach a robot once the push is relabelled with the spot it actually reached."
+    },
+    {
+      "id": "rl-sim2real--sim2real-transfer--scanned-twin-check",
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "mount": "mount:/rl-sim2real/sim2real-transfer/:ScannedTwinCheck:1",
+      "figure": "scanned-twin-check",
+      "audit": null,
+      "sources": [
+        "components/interactive/scanned-twin-check.tsx"
+      ],
+      "takeaway": "A scanned copy of a lab only predicted real robot results after its simulation settings were tuned."
+    },
+    {
+      "id": "rl-sim2real--why-rl-locomotion--demo-or-sim",
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "mount": "mount:/rl-sim2real/why-rl-locomotion/:DemoOrSim:1",
+      "figure": "demo-or-sim",
+      "audit": null,
+      "sources": [
+        "components/interactive/demo-or-sim.tsx"
+      ],
+      "takeaway": "A policy trained in simulation inherits its contact model's mistakes; one copied from real demonstrations needs no contact model."
+    },
+    {
+      "id": "rl-sim2real--why-rl-locomotion--cube-trials",
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "mount": "mount:/rl-sim2real/why-rl-locomotion/:CubeTrials:1",
+      "figure": "cube-trials",
+      "audit": null,
+      "sources": [
+        "components/interactive/cube-trials.tsx"
+      ],
+      "takeaway": "Even the robot hand that solved a Rubik's cube in simulation finished the real scramble in only 2 of 10 tries."
     }
   ]
 }

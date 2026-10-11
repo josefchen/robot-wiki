@@ -3,7 +3,7 @@
   "name": "figure-mounts-20261007",
   "reviewedBy": "implementation worker for the classical figure mounts of 2026-10-07 (not independent acceptance)",
   "rationale": "The classical articles on calibration and on ROS 2 for ML engineers each gained their first interactive figure on 2026-10-07 (VAL-OPUS-057): one import line after the frontmatter and one mount on its own line between blank lines, beside the paragraph the figure illustrates. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted import and mount gives the earlier bytes exactly, so no prose, number, citation, frontmatter field or other mount moved and older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-09T23:03:51Z",
+  "observedAt": "2026-10-11T08:13:53Z",
   "sources": [
     {
       "archivedFrom": "3a55248b22152efb944c45d498488de33f9e946c",
@@ -64,6 +64,195 @@
         {
           "before": "One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n",
           "after": "One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n\n<Ros2PolicyLayout className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "196842519fff4c637799b9e6cd9616ba118b4623",
+      "before": {
+        "path": "content/rl-sim2real/humanoid-wbc.mdx",
+        "bytes": 15587,
+        "sha256": "ac79e9e0469ad9cd67e6668ba7c67bcacc3c43000593f03186889715033d1fa3"
+      },
+      "after": {
+        "path": "content/rl-sim2real/humanoid-wbc.mdx",
+        "bytes": 15826,
+        "sha256": "0286490b18ce62845fa3cb42eeffab3ec64143e1ca3fe10bc4790c177ee3619c"
+      },
+      "edits": [
+        {
+          "before": "import { Gr2ResultsTable } from '@/components/mdx/gr2-results-table';\n\n",
+          "after": "import { Gr2ResultsTable } from '@/components/mdx/gr2-results-table';\n\nimport { HumanoidPickHeight } from '@/components/interactive/humanoid-pick-height';\n\nimport { RetargetingGap } from '@/components/interactive/retargeting-gap';\n\n"
+        },
+        {
+          "before": "DeepMind's whole-body and gripper rates average several tasks per skill category; multi-finger rates are per task. Whole-body picking on Apollo 2 with Inspire hands averages 76.3% from a shelf, 68.4% from a table and 45.7% from the floor. Precise gripper insertion on the Franka Duo averages 89.6%. Multi-finger dexterity on the SharpaWave hand spans 92% for unscrewing a bulb to 32% for a dustpan, and DeepMind says multi-finger dexterous manipulation \"remains challenging\" <Cite id=\"gemini-robotics-2-2026\" />.\n\n",
+          "after": "DeepMind's whole-body and gripper rates average several tasks per skill category; multi-finger rates are per task. Whole-body picking on Apollo 2 with Inspire hands averages 76.3% from a shelf, 68.4% from a table and 45.7% from the floor. Precise gripper insertion on the Franka Duo averages 89.6%. Multi-finger dexterity on the SharpaWave hand spans 92% for unscrewing a bulb to 32% for a dustpan, and DeepMind says multi-finger dexterous manipulation \"remains challenging\" <Cite id=\"gemini-robotics-2-2026\" />.\n\n<HumanoidPickHeight className=\"my-6\" />\n\n"
+        },
+        {
+          "before": "Retargeting is lossy. Artifacts such as foot sliding and self-penetration significantly reduce tracking-policy robustness, particularly for dynamic or long sequences <Cite id=\"gmr-retargeting-2025\" />. Noisy, inconsistent transferred references motivate the 2026 robustness work <Cite id=\"robust-tracking-2026\" />.\n",
+          "after": "Retargeting is lossy. Artifacts such as foot sliding and self-penetration significantly reduce tracking-policy robustness, particularly for dynamic or long sequences <Cite id=\"gmr-retargeting-2025\" />. Noisy, inconsistent transferred references motivate the 2026 robustness work <Cite id=\"robust-tracking-2026\" />.\n\n<RetargetingGap className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "196842519fff4c637799b9e6cd9616ba118b4623",
+      "before": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 13665,
+        "sha256": "b0eb1751dafd4db9a39773bca129998c0c5e55c75bafb8315d6709f6529f4d41"
+      },
+      "after": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 13891,
+        "sha256": "b6f9b61a3bac25c098d0e2843780d4780b0ab8b865bfd7b39a273d2ea7f17dc3"
+      },
+      "edits": [
+        {
+          "before": "import { GaitSupport } from '@/components/motion/scenes/gait-support';\n\n",
+          "after": "import { GaitSupport } from '@/components/motion/scenes/gait-support';\n\nimport { ActuatorGap } from '@/components/interactive/actuator-gap';\n\nimport { TerrainCurriculum } from '@/components/interactive/terrain-curriculum';\n\n"
+        },
+        {
+          "before": "Hwangbo and colleagues learned an actuator network for ANYmal's series-elastic actuators. It predicts joint torque from current and past joint-position errors and velocities, trained on data from exciting the real legs and disturbing the robot by hand. It stands in for actuation in the simulator. Policies trained with ideal or analytical actuator models failed to take a single step without falling. A separate recovery policy flipped ANYmal upright from nine tested configurations, including a nearly upside-down pose and two resting on its own legs, after the authors relaxed joint-velocity constraints following the first hardware attempt <Cite id=\"hwangbo-2019\" />.\n\n",
+          "after": "Hwangbo and colleagues learned an actuator network for ANYmal's series-elastic actuators. It predicts joint torque from current and past joint-position errors and velocities, trained on data from exciting the real legs and disturbing the robot by hand. It stands in for actuation in the simulator. Policies trained with ideal or analytical actuator models failed to take a single step without falling. A separate recovery policy flipped ANYmal upright from nine tested configurations, including a nearly upside-down pose and two resting on its own legs, after the authors relaxed joint-velocity constraints following the first hardware attempt <Cite id=\"hwangbo-2019\" />.\n\n<ActuatorGap className=\"my-6\" />\n\n"
+        },
+        {
+          "before": "Rudin and colleagues trained flat-terrain walking in under four minutes on one workstation GPU. Their deployment policy used 4,096 ANYmal robots, batches of 98,304 transitions (24 steps per robot) and 1,500 updates in under twenty minutes on an i9-11900k CPU and RTX A6000 GPU. Their game-inspired terrain <Term id=\"curriculum-learning\">curriculum</Term> promotes robots that cross a tile, demotes those covering under half the commanded distance, and loops hardest-level solvers back to a random level <span className=\"max-sm:[&_[role=tooltip]]:-left-4\"><Cite id=\"rudin-2021\" /></span>. The released `legged_gym` repository (October 2021) is the Isaac Gym environment used to train ANYmal on rough terrain <Cite id=\"legged-gym-repo-2021\" />.\n",
+          "after": "Rudin and colleagues trained flat-terrain walking in under four minutes on one workstation GPU. Their deployment policy used 4,096 ANYmal robots, batches of 98,304 transitions (24 steps per robot) and 1,500 updates in under twenty minutes on an i9-11900k CPU and RTX A6000 GPU. Their game-inspired terrain <Term id=\"curriculum-learning\">curriculum</Term> promotes robots that cross a tile, demotes those covering under half the commanded distance, and loops hardest-level solvers back to a random level <span className=\"max-sm:[&_[role=tooltip]]:-left-4\"><Cite id=\"rudin-2021\" /></span>. The released `legged_gym` repository (October 2021) is the Isaac Gym environment used to train ANYmal on rough terrain <Cite id=\"legged-gym-repo-2021\" />.\n\n<TerrainCurriculum className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "196842519fff4c637799b9e6cd9616ba118b4623",
+      "before": {
+        "path": "content/rl-sim2real/offline-rl.mdx",
+        "bytes": 13146,
+        "sha256": "f7dbcd6b92dc1ddf6a1b81e019a98f699ab4b1f7cab9f6d2c064cd7937e23123"
+      },
+      "after": {
+        "path": "content/rl-sim2real/offline-rl.mdx",
+        "bytes": 13530,
+        "sha256": "029b258d5819fa7de1e20f053ae79330426f2243fabfe820c96c1bcaa7677735"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { OfflineValueOverreach } from '@/components/interactive/offline-value-overreach';\n\nimport { TrajectoryStitching } from '@/components/interactive/trajectory-stitching';\n\nimport { RealRobotRlGains } from '@/components/interactive/real-robot-rl-gains';\n\n"
+        },
+        {
+          "before": "<Term id=\"offline-reinforcement-learning\">Offline RL</Term> learns from a static set of transitions `(observation, action, reward, next observation, termination)` produced by one or more behavior policies <Cite id=\"offline-rl-tutorial-2020\" />. Value learning bootstraps, so error from actions outside the data accumulates through the Bellman backup <Cite id=\"bear-2019\" />. For robots, support also spans commanded frame, controller mode, action magnitude, contact regime, task stage and recovery. Real-ORL, built on over 6,500 trajectories from 800 robot hours, found that offline RL and imitation prefer different action spaces <Cite id=\"real-orl-2022\" />.\n\n",
+          "after": "<Term id=\"offline-reinforcement-learning\">Offline RL</Term> learns from a static set of transitions `(observation, action, reward, next observation, termination)` produced by one or more behavior policies <Cite id=\"offline-rl-tutorial-2020\" />. Value learning bootstraps, so error from actions outside the data accumulates through the Bellman backup <Cite id=\"bear-2019\" />. For robots, support also spans commanded frame, controller mode, action magnitude, contact regime, task stage and recovery. Real-ORL, built on over 6,500 trajectories from 800 robot hours, found that offline RL and imitation prefer different action spaces <Cite id=\"real-orl-2022\" />.\n\n<OfflineValueOverreach className=\"my-6\" />\n\n"
+        },
+        {
+          "before": "Behavior cloning is the default for clean expert demonstrations: it fits the action labels and has no bootstrapped critic. Robomimic found recurrent cloning a strong baseline on human demonstrations, where batch-RL methods struggled <Cite id=\"robomimic-2021\" />. Kumar and colleagues favor offline RL for sparse rewards, suboptimal or noisy data, and long horizons with composable trajectories <Cite id=\"offline-rl-vs-bc-2022\" />.\n\n",
+          "after": "Behavior cloning is the default for clean expert demonstrations: it fits the action labels and has no bootstrapped critic. Robomimic found recurrent cloning a strong baseline on human demonstrations, where batch-RL methods struggled <Cite id=\"robomimic-2021\" />. Kumar and colleagues favor offline RL for sparse rewards, suboptimal or noisy data, and long horizons with composable trajectories <Cite id=\"offline-rl-vs-bc-2022\" />.\n\n<TrajectoryStitching className=\"my-6\" />\n\n"
+        },
+        {
+          "before": "PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% real-world success in 40 minutes <Cite id=\"pa-rl-2024\" />. Physical Intelligence pretrains π\\*0.6 with offline RL and reports more than doubled throughput on some of the hardest tasks <Cite id=\"pistar06-2025\" />. LWD applies offline-to-online RL to a pretrained VLA across a fleet of 16 dual-arm robots and reports 95% average success over eight tasks <Cite id=\"lwd-2026\" />. Q2RL keeps a behavior-cloning policy's good actions by gating between cloned and RL actions on their Q-values, and learned contact-rich pipe assembly and kitting on a robot in one to two hours <Cite id=\"q2rl-2026\" />. BORA updates only a residual actor on a frozen VLA, raising success on standard objects from 60.8% to 82.5% with 20 online trajectories per task <Cite id=\"bora-2026\" />. The [RL fine-tuning guide](/manipulation/rl-finetuning) covers this phase.\n",
+          "after": "PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% real-world success in 40 minutes <Cite id=\"pa-rl-2024\" />. Physical Intelligence pretrains π\\*0.6 with offline RL and reports more than doubled throughput on some of the hardest tasks <Cite id=\"pistar06-2025\" />. LWD applies offline-to-online RL to a pretrained VLA across a fleet of 16 dual-arm robots and reports 95% average success over eight tasks <Cite id=\"lwd-2026\" />. Q2RL keeps a behavior-cloning policy's good actions by gating between cloned and RL actions on their Q-values, and learned contact-rich pipe assembly and kitting on a robot in one to two hours <Cite id=\"q2rl-2026\" />. BORA updates only a residual actor on a frozen VLA, raising success on standard objects from 60.8% to 82.5% with 20 online trajectories per task <Cite id=\"bora-2026\" />. The [RL fine-tuning guide](/manipulation/rl-finetuning) covers this phase.\n\n<RealRobotRlGains className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "196842519fff4c637799b9e6cd9616ba118b4623",
+      "before": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 11661,
+        "sha256": "76dcd6c4a0cff54b79bd17ac1f36a16c7707f2bc71bca71e2a3f8ad5e20e74b6"
+      },
+      "after": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 11879,
+        "sha256": "de3f835a25ec25e9a63bee2054f64e7ffbaac61861ca5f80b88b1afabe0f3076"
+      },
+      "edits": [
+        {
+          "before": "import { BatchScale } from '@/components/motion/scenes/batch-scale';\n\n",
+          "after": "import { BatchScale } from '@/components/motion/scenes/batch-scale';\n\nimport { RobotsPerGpu } from '@/components/interactive/robots-per-gpu';\n\nimport { NewtonSolvers } from '@/components/interactive/newton-solvers';\n\n"
+        },
+        {
+          "before": "Rudin and colleagues scaled from 128 robots, typical of CPU implementations, to 16,384 on one workstation GPU. Flat terrain took under four minutes and uneven terrain twenty, \"a speedup of multiple orders of magnitude compared to previous work\". Their deployment policy used 4,096 robots, 98,304-transition batches (24 steps per robot) and 1,500 updates in under 20 minutes on an i9-11900k CPU and RTX A6000 GPU <Cite id=\"rudin-2021\" />.\n\n",
+          "after": "Rudin and colleagues scaled from 128 robots, typical of CPU implementations, to 16,384 on one workstation GPU. Flat terrain took under four minutes and uneven terrain twenty, \"a speedup of multiple orders of magnitude compared to previous work\". Their deployment policy used 4,096 robots, 98,304-transition batches (24 steps per robot) and 1,500 updates in under 20 minutes on an i9-11900k CPU and RTX A6000 GPU <Cite id=\"rudin-2021\" />.\n\n<RobotsPerGpu className=\"my-6\" />\n\n"
+        },
+        {
+          "before": "Behind one API, NVIDIA's overview lists MuJoCo and Featherstone solvers in generalized coordinates, and SemiImplicit, XPBD and Kamino in maximal coordinates. VBD (vertex block descent <Cite id=\"vbd-2024\" />) handles rigid bodies, particles, cloth and soft bodies with limited joints, implicit MPM particle-based continuum materials, and Style3D cloth <Cite id=\"state-of-simulation-2026\" />. The release post credits Disney Research's Kamino with closed-chain mechanisms and describes coupling VBD and MPM with MuJoCo Warp for deformable manipulation and locomotion <Cite id=\"newton-manipulation-blog-2026\" />.\n",
+          "after": "Behind one API, NVIDIA's overview lists MuJoCo and Featherstone solvers in generalized coordinates, and SemiImplicit, XPBD and Kamino in maximal coordinates. VBD (vertex block descent <Cite id=\"vbd-2024\" />) handles rigid bodies, particles, cloth and soft bodies with limited joints, implicit MPM particle-based continuum materials, and Style3D cloth <Cite id=\"state-of-simulation-2026\" />. The release post credits Disney Research's Kamino with closed-chain mechanisms and describes coupling VBD and MPM with MuJoCo Warp for deformable manipulation and locomotion <Cite id=\"newton-manipulation-blog-2026\" />.\n\n<NewtonSolvers className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "196842519fff4c637799b9e6cd9616ba118b4623",
+      "before": {
+        "path": "content/rl-sim2real/rl-for-robotics.mdx",
+        "bytes": 17542,
+        "sha256": "13dbff145d8f6d7bb73c53a08408f250bba23aee330042017e28a4b32f14e7e0"
+      },
+      "after": {
+        "path": "content/rl-sim2real/rl-for-robotics.mdx",
+        "bytes": 17765,
+        "sha256": "79f2c2c2674b75442a8b2682648b6b14790f167c90b20553b5fc80eefc892c78"
+      },
+      "edits": [
+        {
+          "before": "import { SampleEfficiencyLedger } from '@/components/interactive/sample-efficiency-ledger';\n\n",
+          "after": "import { SampleEfficiencyLedger } from '@/components/interactive/sample-efficiency-ledger';\n\nimport { ReplayReuse } from '@/components/interactive/replay-reuse';\n\nimport { HindsightRelabel } from '@/components/interactive/hindsight-relabel';\n\n"
+        },
+        {
+          "before": "An <Term id=\"on-policy\">on-policy</Term> method's update is valid only for data the current policy generated, so each batch is collected, consumed and discarded. PPO alternates sampling with optimizing a surrogate objective that allows several minibatch epochs per batch, where plain policy gradient takes one step <Cite id=\"ppo-2017\" />. An <Term id=\"off-policy\">off-policy</Term> method improves one policy from data another produced, so experience accumulates in a <Term id=\"replay-buffer\">replay buffer</Term>. Underneath is <Term id=\"q-learning\">Q-learning</Term>: fit the value of a state-action pair and bootstrap from the best next action, even one never taken <Cite id=\"sutton-barto-2018\" />.\n\n",
+          "after": "An <Term id=\"on-policy\">on-policy</Term> method's update is valid only for data the current policy generated, so each batch is collected, consumed and discarded. PPO alternates sampling with optimizing a surrogate objective that allows several minibatch epochs per batch, where plain policy gradient takes one step <Cite id=\"ppo-2017\" />. An <Term id=\"off-policy\">off-policy</Term> method improves one policy from data another produced, so experience accumulates in a <Term id=\"replay-buffer\">replay buffer</Term>. Underneath is <Term id=\"q-learning\">Q-learning</Term>: fit the value of a state-action pair and bootstrap from the best next action, even one never taken <Cite id=\"sutton-barto-2018\" />.\n\n<ReplayReuse className=\"my-6\" />\n\n"
+        },
+        {
+          "before": "A robot that has never completed a task has no successful trajectory, and a completion-only reward gives its value function nothing to fit. Shaping is one answer ([reward design](/rl-sim2real/reward-design-mpc)). <Term id=\"hindsight-experience-replay\">Hindsight experience replay</Term> targets sparse binary rewards directly, storing transitions under their original goal and alternative goals and recomputing the reward for each. Its simplest strategy uses the goal achieved in the final state, and its future strategy samples goals achieved later in the same episode <Cite id=\"her-2017\" />.\n",
+          "after": "A robot that has never completed a task has no successful trajectory, and a completion-only reward gives its value function nothing to fit. Shaping is one answer ([reward design](/rl-sim2real/reward-design-mpc)). <Term id=\"hindsight-experience-replay\">Hindsight experience replay</Term> targets sparse binary rewards directly, storing transitions under their original goal and alternative goals and recomputing the reward for each. Its simplest strategy uses the goal achieved in the final state, and its future strategy samples goals achieved later in the same episode <Cite id=\"her-2017\" />.\n\n<HindsightRelabel className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "196842519fff4c637799b9e6cd9616ba118b4623",
+      "before": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 19378,
+        "sha256": "c0b26865883fc734683b8bc0c5ccecaced7ced82c349badb06095fb641cab74b"
+      },
+      "after": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 19498,
+        "sha256": "1d99e5e554a7f0800e6c326db4edb90349813de0dfdd768b510e6b4997ce439a"
+      },
+      "edits": [
+        {
+          "before": "import { TeacherStudent } from '@/components/interactive/teacher-student';\n\n",
+          "after": "import { TeacherStudent } from '@/components/interactive/teacher-student';\n\nimport { ScannedTwinCheck } from '@/components/interactive/scanned-twin-check';\n\n"
+        },
+        {
+          "before": "A rebuilt twin can still mislead. Kadian and colleagues measured a sim-versus-real success correlation of 0.18 in a 3D-scanned lab because agents exploited collision dynamics, and tuning simulation parameters raised it to 0.844 <Cite id=\"kadian-2019\" />.\n",
+          "after": "A rebuilt twin can still mislead. Kadian and colleagues measured a sim-versus-real success correlation of 0.18 in a 3D-scanned lab because agents exploited collision dynamics, and tuning simulation parameters raised it to 0.844 <Cite id=\"kadian-2019\" />.\n\n<ScannedTwinCheck className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "196842519fff4c637799b9e6cd9616ba118b4623",
+      "before": {
+        "path": "content/rl-sim2real/why-rl-locomotion.mdx",
+        "bytes": 8908,
+        "sha256": "db029a747a92b75e5f56e716cf548de6c3acd95ea8ffd7215625851ff9f3727c"
+      },
+      "after": {
+        "path": "content/rl-sim2real/why-rl-locomotion.mdx",
+        "bytes": 9108,
+        "sha256": "ba47fe9cd518551edf9ffc5e373e4aa44ab7e7cb29afec62aedcd760430d4c90"
+      },
+      "edits": [
+        {
+          "before": "import { MdpComparison } from '@/components/mdx/mdp-comparison';\n\n",
+          "after": "import { MdpComparison } from '@/components/mdx/mdp-comparison';\n\nimport { DemoOrSim } from '@/components/interactive/demo-or-sim';\n\nimport { CubeTrials } from '@/components/interactive/cube-trials';\n\n"
+        },
+        {
+          "before": "Locomotion papers read \"<Term id=\"ppo\">PPO</Term>, <Term id=\"domain-randomization\">domain randomization</Term>, <Term id=\"curriculum-learning\">curriculum</Term>.\" Manipulation papers often use real demonstrations, which need no contact model. Diffusion Policy beat prior methods by 46.9% on average across 12 tasks <Cite id=\"diffusion-policy-2023\" />, and ACT learned to slot a battery at 80 to 90% success from 10 minutes of [demonstrations](/manipulation/bc-foundations) <Cite id=\"act-aloha-2023\" />.\n\n",
+          "after": "Locomotion papers read \"<Term id=\"ppo\">PPO</Term>, <Term id=\"domain-randomization\">domain randomization</Term>, <Term id=\"curriculum-learning\">curriculum</Term>.\" Manipulation papers often use real demonstrations, which need no contact model. Diffusion Policy beat prior methods by 46.9% on average across 12 tasks <Cite id=\"diffusion-policy-2023\" />, and ACT learned to slot a battery at 80 to 90% success from 10 minutes of [demonstrations](/manipulation/bc-foundations) <Cite id=\"act-aloha-2023\" />.\n\n<DemoOrSim className=\"my-6\" />\n\n"
+        },
+        {
+          "before": "OpenAI's in-hand policy learned finger gaiting without human demonstrations <Cite id=\"openai-dactyl-2018\" />. Its Rubik's-cube policy, trained with automatic domain randomization for a modified Shadow hand, completed one fixed 43-subgoal scramble in two of ten trials with a sensor cube, and zero of ten with vision for face angles <Cite id=\"openai-rubiks-cube-2019\" />. Visual Dexterity reorients novel shapes in a median of about seven seconds on hardware under \\$5,000 <Cite id=\"visual-dexterity-2022\" />. DextrAH-RGB [transfers](/rl-sim2real/sim2real-transfer/) an end-to-end RGB grasping policy <Cite id=\"dextrah-rgb-2024\" />, distilled from a privileged teacher into a stereo-RGB student for a KUKA arm and Allegro hand <Cite id=\"isaac-lab-2025\" />.\n",
+          "after": "OpenAI's in-hand policy learned finger gaiting without human demonstrations <Cite id=\"openai-dactyl-2018\" />. Its Rubik's-cube policy, trained with automatic domain randomization for a modified Shadow hand, completed one fixed 43-subgoal scramble in two of ten trials with a sensor cube, and zero of ten with vision for face angles <Cite id=\"openai-rubiks-cube-2019\" />. Visual Dexterity reorients novel shapes in a median of about seven seconds on hardware under \\$5,000 <Cite id=\"visual-dexterity-2022\" />. DextrAH-RGB [transfers](/rl-sim2real/sim2real-transfer/) an end-to-end RGB grasping policy <Cite id=\"dextrah-rgb-2024\" />, distilled from a privileged teacher into a stereo-RGB student for a KUKA arm and Allegro hand <Cite id=\"isaac-lab-2025\" />.\n\n<CubeTrials className=\"my-6\" />\n"
         }
       ]
     }

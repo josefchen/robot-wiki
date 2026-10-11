@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3c17fcce0e1f03140ee06d5dbc0aba6793e5184fc32db1ac6901a0d8a8deb8ce",
+  "fingerprint": "c73113b72b9f7b082ab741958d0a02c99b0fe6e49530caec0b904d69c4e17d94",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3121,
+      "visibleTextLength": 3145,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42183,7 +42183,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 24951,
+      "visibleTextLength": 25689,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42250,11 +42250,11 @@
           "Humanoid Whole-Body Control"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 11,
+        "readingMinutes": 12,
         "citationCount": 42,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "11 min",
+        "readingTimeText": "12 min",
         "citationCountText": "42",
         "bibliographyIds": [
           "phc-2023",
@@ -42499,6 +42499,24 @@
         {
           "familyHead": "ibm plex sans",
           "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Drawing illustrative; rates as published"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Gemini Robotics 2 on Apollo 2 with Inspire hands succeeds on"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "lineHeightRatio": 1.63,
           "widthPx": 333,
           "zeroAdvancePx": 7,
@@ -42540,6 +42558,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Retargeting is lossy. Artifacts such as foot sliding and sel"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative bodies"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Copying a person's walking pose joint for joint, with the pe"
         },
         {
           "familyHead": "newsreader",
@@ -42770,14 +42806,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 3,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 3,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -42957,6 +43004,62 @@
         },
         {
           "tag": "button",
+          "text": "A shelf",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "A table",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "The floor",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Whole-body pick success by where",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Where the robot's feet end up",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 9 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
@@ -43078,7 +43181,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21146,
+      "visibleTextLength": 22032,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -43288,6 +43391,24 @@
           "text": "Hwangbo and colleagues learned an actuator network for ANYma"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative curves; outcome cited"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "With the ideal, instant motor model, the simulated motor dif"
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -43313,6 +43434,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Rudin and colleagues trained flat-terrain walking in under f"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative robots; rules cited"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "After round 4, the 20 illustrative robots train on levels 2 "
         },
         {
           "familyHead": "newsreader",
@@ -43615,7 +43754,7 @@
         },
         {
           "kind": "external",
-          "count": 2,
+          "count": 4,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -43625,7 +43764,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 4,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -43805,6 +43944,70 @@
         },
         {
           "tag": "button",
+          "text": "Ideal, instant",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Learned from real legs",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How far the simulated motor is f",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Run a training round",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start over",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Where the robots train after eac",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 18 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
@@ -43878,7 +44081,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19844,
+      "visibleTextLength": 21145,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -43945,11 +44148,11 @@
           "Offline Reinforcement Learning for Robotics"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 40,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "8 min",
+        "readingTimeText": "9 min",
         "citationCountText": "40",
         "bibliographyIds": [
           "offline-rl-tutorial-2020",
@@ -44044,6 +44247,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Offline RLoffline reinforcement learningLearning a policy fr"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative curves"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "With caution at 0 of 10, the learner picks a squeeze 100% of"
         },
         {
           "familyHead": "newsreader",
@@ -44154,6 +44375,24 @@
           "text": "Behavior cloning is the default for clean expert demonstrati"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative map"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Rating each place by what can follow it, the learner leaves "
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -44251,6 +44490,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Reported rates; tasks differ"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "After reinforcement learning, real-robot success reads RankQ"
         },
         {
           "familyHead": "newsreader",
@@ -44733,14 +44990,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 8,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 8,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -44871,6 +45139,86 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Which squeeze the learner picks ",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Copy one run",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Join useful pieces",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Where each way of learning takes",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Before RL",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "After RL",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Real-robot success before and af",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Show all 25 authors",
           "familyHead": "ibm plex sans",
@@ -44945,7 +45293,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18416,
+      "visibleTextLength": 19283,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45012,11 +45360,11 @@
           "Massively Parallel Sim RL"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 33,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
+        "readingTimeText": "9 min",
         "citationCountText": "33",
         "bibliographyIds": [
           "rudin-2021",
@@ -45142,6 +45490,15 @@
           "text": "Rudin and colleagues scaled from 128 robots, typical of CPU "
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "16,384 simulated robots practise at once, the most on one wo"
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -45257,6 +45614,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Behind one API, NVIDIA's overview lists MuJoCo and Featherst"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic; four of eight solvers"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Newton routes robot arms and legs to MuJoCo Warp, which hand"
         },
         {
           "familyHead": "newsreader",
@@ -45523,14 +45898,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -45705,6 +46091,94 @@
           "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "128",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4,096",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "16,384",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Simulated robots at once",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Robot arms and legs",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Closed-chain linkages",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Cloth and cables",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Sand-like materials",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Which solver handles which mater",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -46909,7 +47383,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27141,
+      "visibleTextLength": 28019,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47147,6 +47621,24 @@
           "text": "An on-policyon-policyA learning method whose updates are onl"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative batches"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "After 6 rounds of collecting, an on-policy learner like PPO "
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -47262,6 +47754,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A robot that has never completed a task has no successful tr"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative push; rule cited"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Judged against the goal it was given, the recorded push miss"
         },
         {
           "familyHead": "newsreader",
@@ -47583,14 +48093,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 3,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 3,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -47765,6 +48286,70 @@
         },
         {
           "tag": "button",
+          "text": "On-policy, like PPO",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Off-policy, like SAC",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "What the update may learn from a",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "The given goal",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Where the puck ended",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "The same push, judged against tw",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 25 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
@@ -47854,7 +48439,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28601,
+      "visibleTextLength": 29100,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48284,6 +48869,24 @@
           "text": "A rebuilt twin can still mislead. Kadian and colleagues meas"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Correlations as reported"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "In a 3D-scanned lab, success in simulation correlated with s"
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -48530,14 +49133,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 1,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -48743,6 +49357,38 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "button",
+          "text": "As scanned",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Parameters tuned",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How well simulated success predi",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "summary",
           "text": "Read the reasoning",
           "familyHead": "ibm plex sans",
@@ -48897,7 +49543,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17446,
+      "visibleTextLength": 18421,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49113,6 +49759,24 @@
           "text": "Locomotion papers read \"PPOPPOProximal policy optimization, "
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 301,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic; examples cited"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Trained by reinforcement learning in a simulator, the policy"
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -49138,6 +49802,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "OpenAI's in-hand policy learned finger gaiting without human"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "With a sensor cube reporting its face angles, the simulation"
         },
         {
           "familyHead": "newsreader",
@@ -49350,14 +50023,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -49525,6 +50209,70 @@
         {
           "tag": "summary",
           "text": "Current contact-model error",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Simulation, with RL",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Real demonstrations",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "What each recipe needs from a co",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "The cube's own sensors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Cameras",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Trials that finished the scrambl",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,
@@ -56782,7 +57530,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3359,
+      "visibleTextLength": 3383,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98822,7 +99570,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 25442,
+      "visibleTextLength": 26180,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98889,11 +99637,11 @@
           "Humanoid Whole-Body Control"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 11,
+        "readingMinutes": 12,
         "citationCount": 42,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "11 min",
+        "readingTimeText": "12 min",
         "citationCountText": "42",
         "bibliographyIds": [
           "phc-2023",
@@ -99138,6 +99886,24 @@
         {
           "familyHead": "ibm plex sans",
           "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 661,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Drawing illustrative; rates as published"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Gemini Robotics 2 on Apollo 2 with Inspire hands succeeds on"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
           "lineHeightRatio": 1.63,
           "widthPx": 713,
           "zeroAdvancePx": 7,
@@ -99179,6 +99945,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Retargeting is lossy. Artifacts such as foot sliding and sel"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 661,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative bodies"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Copying a person's walking pose joint for joint, with the pe"
         },
         {
           "familyHead": "newsreader",
@@ -99409,14 +100193,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 3,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 3,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -99596,6 +100391,62 @@
         },
         {
           "tag": "button",
+          "text": "A shelf",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "A table",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "The floor",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Whole-body pick success by where",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Where the robot's feet end up",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 9 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
@@ -99717,7 +100568,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21637,
+      "visibleTextLength": 22523,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -99927,6 +100778,24 @@
           "text": "Hwangbo and colleagues learned an actuator network for ANYma"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 661,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative curves; outcome cited"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "With the ideal, instant motor model, the simulated motor dif"
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -99952,6 +100821,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Rudin and colleagues trained flat-terrain walking in under f"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 661,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative robots; rules cited"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "After round 4, the 20 illustrative robots train on levels 2 "
         },
         {
           "familyHead": "newsreader",
@@ -100254,7 +101141,7 @@
         },
         {
           "kind": "external",
-          "count": 2,
+          "count": 4,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -100264,7 +101151,7 @@
           "variants": [
             {
               "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 4,
               "colour": "rgb(36, 95, 255)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -100444,6 +101331,70 @@
         },
         {
           "tag": "button",
+          "text": "Ideal, instant",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Learned from real legs",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How far the simulated motor is f",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Run a training round",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start over",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Where the robots train after eac",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 18 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
@@ -100517,7 +101468,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20335,
+      "visibleTextLength": 21636,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100584,11 +101535,11 @@
           "Offline Reinforcement Learning for Robotics"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 40,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "8 min",
+        "readingTimeText": "9 min",
         "citationCountText": "40",
         "bibliographyIds": [
           "offline-rl-tutorial-2020",
@@ -100683,6 +101634,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Offline RLoffline reinforcement learningLearning a policy fr"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 661,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative curves"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "With caution at 0 of 10, the learner picks a squeeze 100% of"
         },
         {
           "familyHead": "newsreader",
@@ -100793,6 +101762,24 @@
           "text": "Behavior cloning is the default for clean expert demonstrati"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 661,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative map"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Rating each place by what can follow it, the learner leaves "
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -100890,6 +101877,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% "
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 661,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Reported rates; tasks differ"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "After reinforcement learning, real-robot success reads RankQ"
         },
         {
           "familyHead": "newsreader",
@@ -101372,14 +102377,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 8,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 8,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -101510,6 +102526,86 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Which squeeze the learner picks ",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Copy one run",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Join useful pieces",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Where each way of learning takes",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Before RL",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "After RL",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Real-robot success before and af",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Show all 25 authors",
           "familyHead": "ibm plex sans",
@@ -101584,7 +102680,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18907,
+      "visibleTextLength": 19774,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101651,11 +102747,11 @@
           "Massively Parallel Sim RL"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 33,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min",
+        "readingTimeText": "9 min",
         "citationCountText": "33",
         "bibliographyIds": [
           "rudin-2021",
@@ -101781,6 +102877,15 @@
           "text": "Rudin and colleagues scaled from 128 robots, typical of CPU "
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "16,384 simulated robots practise at once, the most on one wo"
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -101896,6 +103001,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Behind one API, NVIDIA's overview lists MuJoCo and Featherst"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 661,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic; four of eight solvers"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Newton routes robot arms and legs to MuJoCo Warp, which hand"
         },
         {
           "familyHead": "newsreader",
@@ -102162,14 +103285,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -102344,6 +103478,94 @@
           "text": "How this was made",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "128",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4,096",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "16,384",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Simulated robots at once",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Robot arms and legs",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Closed-chain linkages",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Cloth and cables",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Sand-like materials",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Which solver handles which mater",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -103548,7 +104770,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27632,
+      "visibleTextLength": 28510,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103786,6 +105008,24 @@
           "text": "An on-policyon-policyA learning method whose updates are onl"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 661,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative batches"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "After 6 rounds of collecting, an on-policy learner like PPO "
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -103901,6 +105141,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A robot that has never completed a task has no successful tr"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 661,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative push; rule cited"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Judged against the goal it was given, the recorded push miss"
         },
         {
           "familyHead": "newsreader",
@@ -104222,14 +105480,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 3,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 3,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -104404,6 +105673,70 @@
         },
         {
           "tag": "button",
+          "text": "On-policy, like PPO",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Off-policy, like SAC",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "What the update may learn from a",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "The given goal",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Where the puck ended",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "The same push, judged against tw",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 25 authors",
           "familyHead": "ibm plex sans",
           "sizePx": 13,
@@ -104493,7 +105826,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29092,
+      "visibleTextLength": 29591,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104923,6 +106256,24 @@
           "text": "A rebuilt twin can still mislead. Kadian and colleagues meas"
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 661,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Correlations as reported"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "In a 3D-scanned lab, success in simulation correlated with s"
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -105169,14 +106520,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 1,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -105382,6 +106744,38 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "button",
+          "text": "As scanned",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Parameters tuned",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How well simulated success predi",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "summary",
           "text": "Read the reasoning",
           "familyHead": "ibm plex sans",
@@ -105536,7 +106930,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17937,
+      "visibleTextLength": 18912,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -105752,6 +107146,24 @@
           "text": "Locomotion papers read \"PPOPPOProximal policy optimization, "
         },
         {
+          "familyHead": "ibm plex sans",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 661,
+          "zeroAdvancePx": 7,
+          "insideRegisteredFrame": true,
+          "text": "Schematic; examples cited"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "Trained by reinforcement learning in a simulator, the policy"
+        },
+        {
           "familyHead": "newsreader",
           "sizePx": 19,
           "lineHeightRatio": 1.7,
@@ -105777,6 +107189,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "OpenAI's in-hand policy learned finger gaiting without human"
+        },
+        {
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 1,
+          "zeroAdvancePx": 8,
+          "insideRegisteredFrame": true,
+          "text": "With a sensor cube reporting its face angles, the simulation"
         },
         {
           "familyHead": "newsreader",
@@ -105989,14 +107410,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(36, 95, 255)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+          "familyHead": "ibm plex sans",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(36, 95, 255)|underline|solid|color(srgb 0.141176 0.372549 1 / 0.45)|ibm plex sans|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(36, 95, 255)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
+              "familyHead": "ibm plex sans",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -106164,6 +107596,70 @@
         {
           "tag": "summary",
           "text": "Current contact-model error",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Simulation, with RL",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Real demonstrations",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "What each recipe needs from a co",
+          "familyHead": "ibm plex sans",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "The cube's own sensors",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Cameras",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "ibm plex sans",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Trials that finished the scrambl",
           "familyHead": "ibm plex sans",
           "sizePx": 14,
           "inProse": true,

@@ -50,6 +50,10 @@ seeAlso:
 import { ContactGeometry } from '@/components/interactive/contact-geometry';
 import { MdpComparison } from '@/components/mdx/mdp-comparison';
 
+import { DemoOrSim } from '@/components/interactive/demo-or-sim';
+
+import { CubeTrials } from '@/components/interactive/cube-trials';
+
 The locomotion and manipulation asymmetry is the pattern in which simulation-trained reinforcement learning (RL) made legged locomotion robust well before general manipulation. In 2021 an ANYmal quadruped learned to walk on flat ground in under four minutes, and on uneven terrain in twenty, on one workstation GPU <Cite id="rudin-2021" />.
 
 <ContactGeometry className="my-6" />
@@ -71,6 +75,8 @@ The 2026 reality-gap survey notes that most simulators assume perfectly rigid bo
 
 Locomotion papers read "<Term id="ppo">PPO</Term>, <Term id="domain-randomization">domain randomization</Term>, <Term id="curriculum-learning">curriculum</Term>." Manipulation papers often use real demonstrations, which need no contact model. Diffusion Policy beat prior methods by 46.9% on average across 12 tasks <Cite id="diffusion-policy-2023" />, and ACT learned to slot a battery at 80 to 90% success from 10 minutes of [demonstrations](/manipulation/bc-foundations) <Cite id="act-aloha-2023" />.
 
+<DemoOrSim className="my-6" />
+
 ## Six properties of the two MDPs
 
 <MdpComparison className="my-6 wide-measure" />
@@ -85,6 +91,8 @@ A gait recovers from a wrong contact force on the next step; a jammed peg cannot
 ## Exceptions in manipulation
 
 OpenAI's in-hand policy learned finger gaiting without human demonstrations <Cite id="openai-dactyl-2018" />. Its Rubik's-cube policy, trained with automatic domain randomization for a modified Shadow hand, completed one fixed 43-subgoal scramble in two of ten trials with a sensor cube, and zero of ten with vision for face angles <Cite id="openai-rubiks-cube-2019" />. Visual Dexterity reorients novel shapes in a median of about seven seconds on hardware under \$5,000 <Cite id="visual-dexterity-2022" />. DextrAH-RGB [transfers](/rl-sim2real/sim2real-transfer/) an end-to-end RGB grasping policy <Cite id="dextrah-rgb-2024" />, distilled from a privileged teacher into a stereo-RGB student for a KUKA arm and Allegro hand <Cite id="isaac-lab-2025" />.
+
+<CubeTrials className="my-6" />
 
 AutoMate's generalist solves 20 assemblies and transfers zero-shot <Cite id="automate-2024" />. Play2Perfect reaches 60% on 0.5 mm-clearance insertions zero-shot <Cite id="play2perfect-2026" />. InsertAnything trained one policy only on a simulated hexagonal insertion, and it succeeded on 95.0% of trials across eight unseen real insertion tasks <Cite id="insertanything-2026" />. In simulation, a single insertion world model trained on up to 90 tasks reached 56% zero-shot success on unseen parts, against 7% for a model-free baseline <Cite id="insertion-world-models-2026" />. SPARR adds a real-world residual, raising success 38.4% over zero-shot transfer <Cite id="sparr-2026" />.
 

@@ -52,6 +52,10 @@ seeAlso:
 
 import { GaitSupport } from '@/components/motion/scenes/gait-support';
 
+import { ActuatorGap } from '@/components/interactive/actuator-gap';
+
+import { TerrainCurriculum } from '@/components/interactive/terrain-curriculum';
+
 <Term id="legged-locomotion">Legged locomotion</Term> is the control of walking and running robots, and the area where sim-to-real reinforcement learning reached shipping products such as Spot <Cite id="bd-spot-rl-2024" />. ETH Zurich's ANYmal line went from simulation-trained policies on hardware in 2019 <Cite id="hwangbo-2019" /> to a 2.2 km alpine hike in 2022 <Cite id="miki-2022" />.
 
 <GaitSupport className="my-6" />
@@ -67,11 +71,15 @@ import { GaitSupport } from '@/components/motion/scenes/gait-support';
 
 Hwangbo and colleagues learned an actuator network for ANYmal's series-elastic actuators. It predicts joint torque from current and past joint-position errors and velocities, trained on data from exciting the real legs and disturbing the robot by hand. It stands in for actuation in the simulator. Policies trained with ideal or analytical actuator models failed to take a single step without falling. A separate recovery policy flipped ANYmal upright from nine tested configurations, including a nearly upside-down pose and two resting on its own legs, after the authors relaxed joint-velocity constraints following the first hardware attempt <Cite id="hwangbo-2019" />.
 
+<ActuatorGap className="my-6" />
+
 Lee and colleagues trained a privileged RL teacher to supervise the actions and latent features of a temporal convolutional student. The deployed student reads two seconds of <Term id="proprioception">proprioceptive</Term> history from joint encoders and an IMU, plus the command and current state, with no terrain map. Trained on rigid procedural terrain, ANYmal-B and ANYmal-C controllers crossed mud, snow, rubble and vegetation without environment-specific tuning. The authors warn that a robot commanded off a cliff will walk off it <Cite id="lee-2020" />. RMA, a base policy plus an adaptation module, deployed on the A1 robot without any fine-tuning <Cite id="rma-2021" />; the [sim-to-real module](/rl-sim2real/sim2real-transfer) covers the distillation mechanics.
 
 Miki and colleagues fed elevation-map height samples and proprioception to a GRU belief encoder whose learned attention gate controls how much exteroception enters. The student imitates a privileged teacher and reconstructs terrain from noisy observations. With covered sensors on stairs and slippery platforms it fell back on proprioception and revised its terrain estimate after contact. ANYmal C used two Robosense Bpearl LiDARs or four RealSense D435 cameras, with mapping at 20 Hz and the policy at 50 Hz. The Etzel hike covered 2.2 km and 120 m of climb in 78 minutes against a planner's 76, with no falls but stops to reattach a shoe and swap batteries. The authors list possible falls at occluded cliffs or stepping stones <Cite id="miki-2022" />.
 
 Rudin and colleagues trained flat-terrain walking in under four minutes on one workstation GPU. Their deployment policy used 4,096 ANYmal robots, batches of 98,304 transitions (24 steps per robot) and 1,500 updates in under twenty minutes on an i9-11900k CPU and RTX A6000 GPU. Their game-inspired terrain <Term id="curriculum-learning">curriculum</Term> promotes robots that cross a tile, demotes those covering under half the commanded distance, and loops hardest-level solvers back to a random level <span className="max-sm:[&_[role=tooltip]]:-left-4"><Cite id="rudin-2021" /></span>. The released `legged_gym` repository (October 2021) is the Isaac Gym environment used to train ANYmal on rough terrain <Cite id="legged-gym-repo-2021" />.
+
+<TerrainCurriculum className="my-6" />
 
 <Image id="anymal-anybotics-2022" />
 

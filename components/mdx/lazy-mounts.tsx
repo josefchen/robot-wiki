@@ -32,6 +32,9 @@ export const ActionConditioning = dynamic(() =>
 export const ActionTokenization = dynamic(() =>
   import('@/components/interactive/action-tokenization').then((m) => m.ActionTokenization),
 );
+export const ActuatorGap = dynamic(() =>
+  import('@/components/interactive/actuator-gap').then((m) => m.ActuatorGap),
+);
 export const AdvantageScrubber = dynamic(() =>
   import('@/components/interactive/advantage-scrubber').then((m) => m.AdvantageScrubber),
 );
@@ -62,11 +65,17 @@ export const ControlLoopBudget = dynamic(() =>
 export const CrossEmbodimentStrategies = dynamic(() =>
   import('@/components/interactive/cross-embodiment-strategies').then((m) => m.CrossEmbodimentStrategies),
 );
+export const CubeTrials = dynamic(() =>
+  import('@/components/interactive/cube-trials').then((m) => m.CubeTrials),
+);
 export const DataScaleChart = dynamic(() =>
   import('@/components/interactive/data-scale-chart').then((m) => m.DataScaleChart),
 );
 export const DatasetTable = dynamic(() =>
   import('@/components/interactive/dataset-table').then((m) => m.DatasetTable),
+);
+export const DemoOrSim = dynamic(() =>
+  import('@/components/interactive/demo-or-sim').then((m) => m.DemoOrSim),
 );
 export const DeploymentDashboard = dynamic(() =>
   import('@/components/interactive/deployment-dashboard').then((m) => m.DeploymentDashboard),
@@ -112,6 +121,12 @@ export const HardwareGuide = dynamic(() =>
 export const HierarchyTimescales = dynamic(() =>
   import('@/components/interactive/hierarchy-timescales').then((m) => m.HierarchyTimescales),
 );
+export const HindsightRelabel = dynamic(() =>
+  import('@/components/interactive/hindsight-relabel').then((m) => m.HindsightRelabel),
+);
+export const HumanoidPickHeight = dynamic(() =>
+  import('@/components/interactive/humanoid-pick-height').then((m) => m.HumanoidPickHeight),
+);
 export const ImpedanceContactLab = dynamic(() =>
   import('@/components/interactive/impedance-contact-lab').then((m) => m.ImpedanceContactLab),
 );
@@ -133,6 +148,12 @@ export const MotInsulation = dynamic(() =>
 export const MpcVsRl = dynamic(() =>
   import('@/components/interactive/mpc-vs-rl').then((m) => m.MpcVsRl),
 );
+export const NewtonSolvers = dynamic(() =>
+  import('@/components/interactive/newton-solvers').then((m) => m.NewtonSolvers),
+);
+export const OfflineValueOverreach = dynamic(() =>
+  import('@/components/interactive/offline-value-overreach').then((m) => m.OfflineValueOverreach),
+);
 export const PendulumController = dynamic(() =>
   import('@/components/interactive/pendulum-controller').then((m) => m.PendulumController),
 );
@@ -151,14 +172,26 @@ export const PlanarFkArm = dynamic(() =>
 export const QosQueueAge = dynamic(() =>
   import('@/components/interactive/qos-queue-age').then((m) => m.QosQueueAge),
 );
+export const RealRobotRlGains = dynamic(() =>
+  import('@/components/interactive/real-robot-rl-gains').then((m) => m.RealRobotRlGains),
+);
 export const RecedingHorizon = dynamic(() =>
   import('@/components/interactive/receding-horizon').then((m) => m.RecedingHorizon),
 );
 export const ReliabilityCompounding = dynamic(() =>
   import('@/components/interactive/reliability-compounding').then((m) => m.ReliabilityCompounding),
 );
+export const ReplayReuse = dynamic(() =>
+  import('@/components/interactive/replay-reuse').then((m) => m.ReplayReuse),
+);
+export const RetargetingGap = dynamic(() =>
+  import('@/components/interactive/retargeting-gap').then((m) => m.RetargetingGap),
+);
 export const RewardShaping = dynamic(() =>
   import('@/components/interactive/reward-shaping').then((m) => m.RewardShaping),
+);
+export const RobotsPerGpu = dynamic(() =>
+  import('@/components/interactive/robots-per-gpu').then((m) => m.RobotsPerGpu),
 );
 export const Ros2Interfaces = dynamic(() =>
   import('@/components/interactive/ros2-interfaces').then((m) => m.Ros2Interfaces),
@@ -172,11 +205,17 @@ export const Ros2PolicyLayout = dynamic(() =>
 export const SampleEfficiencyLedger = dynamic(() =>
   import('@/components/interactive/sample-efficiency-ledger').then((m) => m.SampleEfficiencyLedger),
 );
+export const ScannedTwinCheck = dynamic(() =>
+  import('@/components/interactive/scanned-twin-check').then((m) => m.ScannedTwinCheck),
+);
 export const SceneRepresentationLadder = dynamic(() =>
   import('@/components/interactive/scene-representation-ladder').then((m) => m.SceneRepresentationLadder),
 );
 export const TeacherStudent = dynamic(() =>
   import('@/components/interactive/teacher-student').then((m) => m.TeacherStudent),
+);
+export const TerrainCurriculum = dynamic(() =>
+  import('@/components/interactive/terrain-curriculum').then((m) => m.TerrainCurriculum),
 );
 export const TeleopRigMatrix = dynamic(() =>
   import('@/components/interactive/teleop-rig-matrix').then((m) => m.TeleopRigMatrix),
@@ -186,6 +225,9 @@ export const ThesisExplorer = dynamic(() =>
 );
 export const TimeOffsetMiss = dynamic(() =>
   import('@/components/interactive/time-offset-miss').then((m) => m.TimeOffsetMiss),
+);
+export const TrajectoryStitching = dynamic(() =>
+  import('@/components/interactive/trajectory-stitching').then((m) => m.TrajectoryStitching),
 );
 export const TrainingTimeChart = dynamic(() =>
   import('@/components/interactive/training-time-chart').then((m) => m.TrainingTimeChart),

@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "d0147cb56eca7a2e654a53f04630f0bd45ab5593343c3826ec134358cbbf12a2",
+  "fingerprint": "eb435fdc3e0af3c1edbb6d3f480ffea08f803cda1e23b33545c0202156c959c6",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2969,
+  "visibleTextLength": 2993,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -610,8 +610,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Diffusion Policy",
-      "href": "/manipulation/diffusion-policy/",
+      "accessibleName": "Vision-Language-Action Models",
+      "href": "/manipulation/vla-models/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 932.28,
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Robot Calibration",
-      "href": "/classical/calibration/",
+      "accessibleName": "Humanoid Whole-Body Control",
+      "href": "/rl-sim2real/humanoid-wbc/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2121.03,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "ROS 2 for Machine Learning Engineers",
-      "href": "/classical/ros2-for-ml-engineers/",
+      "accessibleName": "Legged Locomotion Lineage",
+      "href": "/rl-sim2real/legged-locomotion/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2152.03,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Bear Case",
-      "href": "/frontier/bear-case/",
+      "accessibleName": "Offline Reinforcement Learning for Robotics",
+      "href": "/rl-sim2real/offline-rl/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2183.03,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Legged Locomotion Lineage",
-      "href": "/rl-sim2real/legged-locomotion/",
+      "accessibleName": "Massively Parallel Sim RL",
+      "href": "/rl-sim2real/parallel-sim-rl/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2214.03,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Massively Parallel Sim RL",
-      "href": "/rl-sim2real/parallel-sim-rl/",
+      "accessibleName": "RL for Robotics",
+      "href": "/rl-sim2real/rl-for-robotics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
       "topPx": 2245.03,
@@ -985,8 +985,8 @@
     {
       "label": "Featured article",
       "signature": "plain/module-heading/lead-excerpt",
-      "prose": "Diffusion Policy is a visuomotor robot policy that generates an action sequence by conditional denoising, from Chi et al. (2023).",
-      "text": "Featured article Diffusion Policy Diffusion Policy is a visuomotor robot policy that generates an action sequence by conditional denoising, from Chi et al. (2023)."
+      "prose": "A vision-language-action (VLA) model is a robot policy built by adapting a vision-language model to output robot actions.",
+      "text": "Featured article Vision-Language-Action Models A vision-language-action (VLA) model is a robot policy built by adapting a vision-language model to output robot actions."
     },
     {
       "label": "Featured scene",
@@ -1004,7 +1004,7 @@
       "label": "Recently updated",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "Recently updated 2026-10-10 Robot Calibration 2026-10-10 ROS 2 for Machine Learning Engineers 2026-10-10 The Bear Case 2026-10-09 Legged Locomotion Lineage 2026-10-09 Massively Parallel Sim RL"
+      "text": "Recently updated 2026-10-11 Humanoid Whole-Body Control 2026-10-11 Legged Locomotion Lineage 2026-10-11 Offline Reinforcement Learning for Robotics 2026-10-11 Massively Parallel Sim RL 2026-10-11 RL for Robotics"
     },
     {
       "label": "Tools",
