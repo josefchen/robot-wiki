@@ -21,6 +21,7 @@ import { join } from 'node:path';
 import { domainPassCheckerPredecessor, domainPassPredecessor } from './audit-domain-pass-continuity.ts';
 import { figureMountPredecessor } from './audit-figure-mount-continuity.ts';
 import { kolBacklogPredecessor } from './audit-kol-backlog-continuity.ts';
+import { parallelLocalPredecessor } from './audit-parallel-local-continuity.ts';
 import { readerFirstPredecessor } from './audit-reader-first-continuity.ts';
 import { wordBudgetTrimPredecessor } from './audit-word-budget-trim-continuity.ts';
 
@@ -356,15 +357,16 @@ function revealPredecessor(root: string, ref: Artifact, live: Buffer): Buffer {
  * live bytes, a path with no reviewed successor, and any bytes other than the
  * reviewed successor come back unchanged, so those checks still decide them.
  * The reviewed successor is verified, and its rebuilt predecessor returned.
- * The newer layers see the live bytes first: the 2026-10-10 word-budget
- * trim layer, then the 2026-10-07 figure-mount layer, then the 2026-10-06
- * domain-pass layer, then the 2026-10-05 KOL
- * backlog layer, then the reader-first layer.
+ * The newer layers see the live bytes first: the 2026-10-11 parallel-local
+ * suite layer, then the 2026-10-10 word-budget trim layer, then the
+ * 2026-10-07 figure-mount layer, then the 2026-10-06 domain-pass layer, then
+ * the 2026-10-05 KOL backlog layer, then the reader-first layer.
  */
 export function seoPassPredecessor(root: string, ref: Artifact, liveBytes: Buffer): Buffer {
   const live = readerFirstPredecessor(root, ref,
     kolBacklogPredecessor(root, ref, domainPassPredecessor(root, ref,
-      figureMountPredecessor(root, ref, wordBudgetTrimPredecessor(root, ref, liveBytes)))));
+      figureMountPredecessor(root, ref, wordBudgetTrimPredecessor(root, ref,
+        parallelLocalPredecessor(root, ref, liveBytes))))));
   if (ref.path === revealAfter.path) return revealPredecessor(root, ref, live);
   const spec = specSuccessors.get(ref.path);
   if (spec) {

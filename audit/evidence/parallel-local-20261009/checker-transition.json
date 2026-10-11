@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "parallel-local-checker-revision-v1",
+  "name": "parallel-local-reader",
+  "reviewedBy": "implementation worker for the parallel18 BatchScale rebinding (not independent acceptance)",
+  "rationale": "The checker learns scene targets: a target may name a motion scene, whose source and mounts the checker registers itself (the brand-v2 interactive registry does not list scenes), and a plan bound to it pins the scene records instead of interactive ones. It also gains the batch-scale recipe, which recomputes the BatchScale times and wording from lib/parallel-sim.ts, and re-pins the reviewed live hash of each historical verification suite the rebinding brings up to date. Every earlier recipe, input unit, dependency, threshold, ledger rule and negative check is unchanged, and the parallel recipe stays for the retained history.",
+  "observedAt": "2026-10-11T18:58:05Z",
+  "archivedFrom": "79e1d4409ee7bbfe923a15c252bd0a1196b63d91",
+  "before": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 114290,
+    "sha256": "6d377744d0d141a2605683c9b083d043e47f7ba17e7b4d651329d877b6cd9962"
+  },
+  "after": {
+    "path": "lib/audit-local-basis.ts",
+    "bytes": 118664,
+    "sha256": "0168b4db33775ce763ee45637f8bec65120d46e945d6c30d748c40c1ab8b6623"
+  },
+  "edits": [
+    {
+      "before": "import * as parallel from './parallel-sim.ts';\n",
+      "after": "import * as parallel from './parallel-sim.ts';\nimport { SCENE_TARGETS } from './motion-scene-registry.ts';\n"
+    },
+    {
+      "before": "const recipeIds = ['eureka', 'reward', 'friction', 'teacher', 'parallel', 'gait', 'economics', 'economics-examples', 'safety',\n",
+      "after": "const recipeIds = ['eureka', 'reward', 'friction', 'teacher', 'parallel', 'batch-scale', 'gait', 'economics', 'economics-examples', 'safety',\n"
+    },
+    {
+      "before": "      envs: z.number().int().min(64).max(16384), cpuBound: z.boolean(), samples: z.number().int().min(2).max(100),\n    }).strict() }).strict(),\n",
+      "after": "      envs: z.number().int().min(64).max(16384), cpuBound: z.boolean(), samples: z.number().int().min(2).max(100),\n    }).strict() }).strict(),\n    z.object({ id: z.literal('batch-scale'), mode: z.literal('derive'), inputs: z.object({\n      envs: z.union([z.literal(64), z.literal(4096), z.literal(16384)]), cpuBound: z.boolean(),\n    }).strict() }).strict(),\n"
+    },
+    {
+      "before": "type Target = { component: string | null; recipe: RecipeId; mounts: readonly number[] };\n",
+      "after": "/** A scene target binds a motion scene the checker registers itself, never a brand-v2 interactive record. */\ntype Target = { component: string | null; recipe: RecipeId; mounts: readonly number[]; scene?: string };\n"
+    },
+    {
+      "before": "  friction: ['lib/sim2real.ts'], teacher: ['lib/sim2real.ts'], parallel: ['lib/parallel-sim.ts'],\n",
+      "after": "  friction: ['lib/sim2real.ts'], teacher: ['lib/sim2real.ts'], parallel: ['lib/parallel-sim.ts'],\n  'batch-scale': ['lib/parallel-sim.ts'],\n"
+    },
+    {
+      "before": "    proofs.filter(p => p.planId === plan.id && p.partId === partId).map(p => [p.id, localProofDigest(p)])]);\n}\n\n",
+      "after": "    proofs.filter(p => p.planId === plan.id && p.partId === partId).map(p => [p.id, localProofDigest(p)])]);\n}\n\n/** The BatchScale scene's wording of a training time; the checker cannot import the scene's .tsx file. */\nfunction trainingTimeWords(seconds: number): string {\n  if (seconds >= 3600) return `${(seconds / 3600).toFixed(1)} hours`;\n  if (seconds >= 60) return `${(seconds / 60).toFixed(1)} minutes`;\n  return `${Math.round(seconds)} seconds`;\n}\n"
+    },
+    {
+      "before": "        markerX: parallel.RUDIN_MARKERS.map(m => ({ id: m.id, envs: m.envs })) }; units = 'costs:s; envs:count; transitions:count'; break;\n",
+      "after": "        markerX: parallel.RUDIN_MARKERS.map(m => ({ id: m.id, envs: m.envs })) }; units = 'costs:s; envs:count; transitions:count'; break;\n      case 'batch-scale': values = { transitions: parallel.TARGET_TRANSITIONS, rollout: parallel.ROLLOUT_STEPS,\n        costs: [parallel.SIM_FIXED_SECONDS, parallel.SIM_PER_ENV_SECONDS, parallel.LEARN_SECONDS, parallel.TRANSFER_SECONDS, parallel.CPU_PER_ENV_SECONDS],\n        authoredDomainBasis: 'Illustrative robot counts at the scene beat ends and an assumed per-robot main-computer cost, not measured throughput.',\n        beatRobots: { 'one-batch': parallel.MIN_ENVS, scale: parallel.DEFAULT_ENVS, cpu: parallel.DEFAULT_ENVS, recap: parallel.MAX_ENVS },\n        curves: { solid: false, dashed: true } }; units = 'costs:s; robots:count; transitions:count'; break;\n"
+    },
+    {
+      "before": "        units = 'seconds:s; fps:frames/s; curve:envs,minutes'; break;\n      }\n",
+      "after": "        units = 'seconds:s; fps:frames/s; curve:envs,minutes'; break;\n      }\n      case 'batch-scale': {\n        const { envs, cpuBound } = recipe.inputs;\n        const seconds = parallel.wallClockSeconds(envs, cpuBound);\n        const words = trainingTimeWords(seconds);\n        const robots = parallel.formatEnvs(envs);\n        // The scene's readout always reads the solid curve; dashed times appear only in its method text.\n        values = { breakdown: parallel.iterationBreakdown(envs, cpuBound), iterations: parallel.iterationsToTarget(envs),\n          seconds, words, display: cpuBound ? [words] : [`${robots} robots at once: ${words} of training`, `${robots} robots, ${words}`] };\n        units = 'seconds:s; iterations:count; robots:count';\n        precision = 'words: hours or minutes toFixed(1), otherwise whole seconds'; break;\n      }\n"
+    },
+    {
+      "before": "    currentTestHash: 'd2c39b3c94fad8f22da07efe5fa4517aef9325dc77477f510c65275e421fb687',\n",
+      "after": "    currentTestHash: '4e4f8d09ea64ba6606ed517272d3fbadd1287b418a623d4abf980cc84d69476e',\n"
+    },
+    {
+      "before": "  root: string; catalog: LocalCatalog; registry: Registry; publishedRoutes: readonly string[];\n};\n",
+      "after": "  root: string; catalog: LocalCatalog; registry: Registry; publishedRoutes: readonly string[];\n};\nconst sourceIdFor = (target: Target) => `${target.scene ? 'scene' : 'interactive'}:${target.component}`;\n/**\n * Registry records for scene targets, which the brand-v2 interactive registry\n * does not list: one source per scene and one mount per required ordinal the\n * article still mounts. Each fingerprint is the digest of its own record, so a\n * changed beat count or case list reads as fingerprint drift in a bound plan.\n */\nexport function localSceneRegistry(root: string, targets: Readonly<Record<string, Target>>): Registry {\n  const registry: Registry = { sources: [], mounts: [] };\n  for (const [originalId, target] of Object.entries(targets)) {\n    if (!target.scene) continue;\n    const [ledgerPath, articleSlug] = originalId.split(':');\n    const route = `/${ledgerPath.slice(6, -3)}/${articleSlug}/`;\n    const scene = SCENE_TARGETS.find(s => s.id === target.scene);\n    requireThat(target.component && /^[A-Z][A-Za-z0-9]*$/.test(target.component) && scene?.route === route,\n      'scene target identity');\n    const cases = [{ id: 'default', kind: 'default' }, { id: 'step-each-beat', kind: 'scene-beats' }, { id: 'reset', kind: 'reset' }];\n    const source = { id: sourceIdFor(target), sourcePath: `components/motion/scenes/${scene.id}.tsx`,\n      scene: scene.id, beats: scene.beats, cases };\n    registry.sources.push({ ...source, fingerprint: digest(source) });\n    const article = readBoundedLocalFile(root, `content${route.slice(0, -1)}.mdx`).toString('utf8');\n    const mounted = article.match(new RegExp(`<${target.component}[\\\\s/>]`, 'g'))?.length ?? 0;\n    for (const ordinal of target.mounts.filter(n => n <= mounted)) {\n      const mount = { id: `mount:${route}:${target.component}:${ordinal}`, sourceId: source.id, route, ordinal, cases };\n      registry.mounts.push({ ...mount, fingerprint: digest(mount) });\n    }\n  }\n  return registry;\n}\n"
+    },
+    {
+      "before": "  const registry = figureMigrationRegistry(root,\n    JSON.parse(readBoundedLocalFile(root, 'contract/brand-v2-registries.json').toString('utf8')).interactive as Registry);\n",
+      "after": "  const interactive = figureMigrationRegistry(root,\n    JSON.parse(readBoundedLocalFile(root, 'contract/brand-v2-registries.json').toString('utf8')).interactive as Registry);\n  const scenes = localSceneRegistry(root, LOCAL_BASIS_REQUIRED_TARGETS);\n  const registry: Registry = { ...interactive, sources: [...interactive.sources, ...scenes.sources],\n    mounts: [...interactive.mounts, ...scenes.mounts] };\n"
+    },
+    {
+      "before": "  parallel: { envs: 'count', cpuBound: 'boolean', samples: 'count' },\n",
+      "after": "  parallel: { envs: 'count', cpuBound: 'boolean', samples: 'count' },\n  'batch-scale': { envs: 'count', cpuBound: 'boolean' },\n"
+    },
+    {
+      "before": "  const source = context.registry.sources.find(s => s.id === `interactive:${target.component}`);\n",
+      "after": "  const source = context.registry.sources.find(s => s.id === sourceIdFor(target));\n"
+    },
+    {
+      "before": "      requireThat(bound.sourceId === `interactive:${target.component}` && source?.fingerprint === bound.sourceFingerprint &&\n",
+      "after": "      requireThat(bound.sourceId === sourceIdFor(target) && source?.fingerprint === bound.sourceFingerprint &&\n"
+    }
+  ]
+}

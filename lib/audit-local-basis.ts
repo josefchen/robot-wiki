@@ -28,6 +28,7 @@ import * as eureka from './eureka.ts';
 import * as reward from './reward-shaping.ts';
 import * as sim from './sim2real.ts';
 import * as parallel from './parallel-sim.ts';
+import { SCENE_TARGETS } from './motion-scene-registry.ts';
 import * as gait from './gait.ts';
 import * as economics from './deployment-economics.ts';
 import * as safety from './safety-modes.ts';
@@ -99,7 +100,7 @@ const economicInputs = z.object({
   robotCost: finite, integrationMultiple: finite, cycleTimeSeconds: finite, uptimePercent: finite,
   successRatePercent: finite, jamClearSeconds: finite, wageUsdPerHour: finite,
 }).strict();
-const recipeIds = ['eureka', 'reward', 'friction', 'teacher', 'parallel', 'gait', 'economics', 'economics-examples', 'safety',
+const recipeIds = ['eureka', 'reward', 'friction', 'teacher', 'parallel', 'batch-scale', 'gait', 'economics', 'economics-examples', 'safety',
   'data-scale', 'reliability',
   'rrt', 'perception', 'perception-ray', 'perception-stages', 'generalist-selection', 'taxonomy-selection'] as const;
 const perceptionInputs = z.object({
@@ -139,6 +140,9 @@ const recipeSchema = z.union([
     z.object({ id: z.literal('teacher'), mode: z.literal('derive'), inputs: z.object({ degradation: unitInterval }).strict() }).strict(),
     z.object({ id: z.literal('parallel'), mode: z.literal('derive'), inputs: z.object({
       envs: z.number().int().min(64).max(16384), cpuBound: z.boolean(), samples: z.number().int().min(2).max(100),
+    }).strict() }).strict(),
+    z.object({ id: z.literal('batch-scale'), mode: z.literal('derive'), inputs: z.object({
+      envs: z.union([z.literal(64), z.literal(4096), z.literal(16384)]), cpuBound: z.boolean(),
     }).strict() }).strict(),
     z.object({ id: z.literal('gait'), mode: z.literal('derive'), inputs: z.object({
       gait: z.enum(['walk', 'trot', 'bound', 'pronk']), phase: unitInterval, direction: z.union([z.literal(1), z.literal(-1)]),
@@ -201,7 +205,8 @@ export type LocalMember = z.infer<typeof member>;
 export type LocalCatalog = z.infer<typeof catalogSchema>;
 type RecipeId = typeof recipeIds[number];
 type CellTuple = z.infer<typeof cells>;
-type Target = { component: string | null; recipe: RecipeId; mounts: readonly number[] };
+/** A scene target binds a motion scene the checker registers itself, never a brand-v2 interactive record. */
+type Target = { component: string | null; recipe: RecipeId; mounts: readonly number[]; scene?: string };
 export const LOCAL_BASIS_REQUIRED_TARGETS: Readonly<Record<string, Target>> = Object.freeze({
   'audit/manipulation.md:generalist-policies:19': { component: null, recipe: 'generalist-selection', mounts: [] },
   'audit/world-models.md:taxonomy:4': { component: null, recipe: 'taxonomy-selection', mounts: [] },
@@ -235,6 +240,7 @@ export const LOCAL_RECIPE_DEPENDENCIES: Readonly<Record<RecipeId, readonly strin
   'generalist-selection': ['lib/generalist-policies.ts'], 'taxonomy-selection': ['lib/world-model-taxonomy.ts'],
   eureka: ['lib/eureka.ts'], reward: ['lib/reward-shaping.ts', 'lib/gait.ts'],
   friction: ['lib/sim2real.ts'], teacher: ['lib/sim2real.ts'], parallel: ['lib/parallel-sim.ts'],
+  'batch-scale': ['lib/parallel-sim.ts'],
   gait: ['lib/gait.ts'], economics: ['lib/deployment-economics.ts'],
   'economics-examples': ['lib/deployment-economics.ts'],
   safety: ['lib/safety-modes.ts', 'lib/force-limits.ts'],
@@ -280,6 +286,12 @@ export function localPartDigest(plan: LocalPlan, partId: string, proofs: readonl
     proofs.filter(p => p.planId === plan.id && p.partId === partId).map(p => [p.id, localProofDigest(p)])]);
 }
 
+/** The BatchScale scene's wording of a training time; the checker cannot import the scene's .tsx file. */
+function trainingTimeWords(seconds: number): string {
+  if (seconds >= 3600) return `${(seconds / 3600).toFixed(1)} hours`;
+  if (seconds >= 60) return `${(seconds / 60).toFixed(1)} minutes`;
+  return `${Math.round(seconds)} seconds`;
+}
 /** A finite typed dispatch, never a producer-supplied expression or import. */
 export function recomputeLocalDerivation(input: unknown): z.infer<typeof outputSchema> {
   const recipe = recipeSchema.parse(input);
@@ -340,6 +352,11 @@ export function recomputeLocalDerivation(input: unknown): z.infer<typeof outputS
         costs: [parallel.SIM_FIXED_SECONDS, parallel.SIM_PER_ENV_SECONDS, parallel.LEARN_SECONDS, parallel.TRANSFER_SECONDS, parallel.CPU_PER_ENV_SECONDS],
         // Only authored x choices here; paper time bounds remain external.
         markerX: parallel.RUDIN_MARKERS.map(m => ({ id: m.id, envs: m.envs })) }; units = 'costs:s; envs:count; transitions:count'; break;
+      case 'batch-scale': values = { transitions: parallel.TARGET_TRANSITIONS, rollout: parallel.ROLLOUT_STEPS,
+        costs: [parallel.SIM_FIXED_SECONDS, parallel.SIM_PER_ENV_SECONDS, parallel.LEARN_SECONDS, parallel.TRANSFER_SECONDS, parallel.CPU_PER_ENV_SECONDS],
+        authoredDomainBasis: 'Illustrative robot counts at the scene beat ends and an assumed per-robot main-computer cost, not measured throughput.',
+        beatRobots: { 'one-batch': parallel.MIN_ENVS, scale: parallel.DEFAULT_ENVS, cpu: parallel.DEFAULT_ENVS, recap: parallel.MAX_ENVS },
+        curves: { solid: false, dashed: true } }; units = 'costs:s; robots:count; transitions:count'; break;
       case 'gait': values = { presets: gait.GAITS, order: gait.GAIT_ORDER, gait: gait.DEFAULT_GAIT, phase: gait.DEFAULT_PHASE, step: gait.PHASE_STEP, direction: 1, directions: [1, -1], phaseRange: [0, 1], phaseCases: [0, .25, .95, 1] }; break;
       case 'economics': values = { ...economics.DEFAULT_INPUTS, ranges: economics.INPUT_RANGES,
         hours: economics.ROBOT_HOURS_PER_MONTH, amortization: economics.AMORTIZATION_MONTHS, target: economics.PAYBACK_TARGET_MONTHS }; units = 'USD,s,%,hours,months as named'; break;
@@ -451,6 +468,17 @@ export function recomputeLocalDerivation(input: unknown): z.infer<typeof outputS
           crossover: parallel.simulationOvertakeEnvs(cpuBound), curve: parallel.curvePoints(cpuBound, samples),
           display: [parallel.formatEnvs(envs), parallel.formatWallClock(parallel.wallClockSeconds(envs, cpuBound)), parallel.formatFps(parallel.throughputFps(envs, cpuBound))] };
         units = 'seconds:s; fps:frames/s; curve:envs,minutes'; break;
+      }
+      case 'batch-scale': {
+        const { envs, cpuBound } = recipe.inputs;
+        const seconds = parallel.wallClockSeconds(envs, cpuBound);
+        const words = trainingTimeWords(seconds);
+        const robots = parallel.formatEnvs(envs);
+        // The scene's readout always reads the solid curve; dashed times appear only in its method text.
+        values = { breakdown: parallel.iterationBreakdown(envs, cpuBound), iterations: parallel.iterationsToTarget(envs),
+          seconds, words, display: cpuBound ? [words] : [`${robots} robots at once: ${words} of training`, `${robots} robots, ${words}`] };
+        units = 'seconds:s; iterations:count; robots:count';
+        precision = 'words: hours or minutes toFixed(1), otherwise whole seconds'; break;
       }
       case 'gait': {
         const { gait: id, phase, direction } = recipe.inputs;
@@ -1232,7 +1260,7 @@ const HISTORICAL_VERIFICATION_INPUTS: Readonly<Record<string, {
   'tests/unit/parallel-local-evidence.test.ts': {
     bytes: 5364, sha256: '959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb',
     snapshot: 'parallel-local-evidence.pre-portability.test.ts.txt',
-    currentTestHash: 'd2c39b3c94fad8f22da07efe5fa4517aef9325dc77477f510c65275e421fb687',
+    currentTestHash: '4e4f8d09ea64ba6606ed517272d3fbadd1287b418a623d4abf980cc84d69476e',
   },
   'tests/unit/classical-closure-evidence.test.ts': {
     bytes: 12839, sha256: '9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7',
@@ -1286,10 +1314,42 @@ type Registry = {
 export type LocalBasisContext = {
   root: string; catalog: LocalCatalog; registry: Registry; publishedRoutes: readonly string[];
 };
+const sourceIdFor = (target: Target) => `${target.scene ? 'scene' : 'interactive'}:${target.component}`;
+/**
+ * Registry records for scene targets, which the brand-v2 interactive registry
+ * does not list: one source per scene and one mount per required ordinal the
+ * article still mounts. Each fingerprint is the digest of its own record, so a
+ * changed beat count or case list reads as fingerprint drift in a bound plan.
+ */
+export function localSceneRegistry(root: string, targets: Readonly<Record<string, Target>>): Registry {
+  const registry: Registry = { sources: [], mounts: [] };
+  for (const [originalId, target] of Object.entries(targets)) {
+    if (!target.scene) continue;
+    const [ledgerPath, articleSlug] = originalId.split(':');
+    const route = `/${ledgerPath.slice(6, -3)}/${articleSlug}/`;
+    const scene = SCENE_TARGETS.find(s => s.id === target.scene);
+    requireThat(target.component && /^[A-Z][A-Za-z0-9]*$/.test(target.component) && scene?.route === route,
+      'scene target identity');
+    const cases = [{ id: 'default', kind: 'default' }, { id: 'step-each-beat', kind: 'scene-beats' }, { id: 'reset', kind: 'reset' }];
+    const source = { id: sourceIdFor(target), sourcePath: `components/motion/scenes/${scene.id}.tsx`,
+      scene: scene.id, beats: scene.beats, cases };
+    registry.sources.push({ ...source, fingerprint: digest(source) });
+    const article = readBoundedLocalFile(root, `content${route.slice(0, -1)}.mdx`).toString('utf8');
+    const mounted = article.match(new RegExp(`<${target.component}[\\s/>]`, 'g'))?.length ?? 0;
+    for (const ordinal of target.mounts.filter(n => n <= mounted)) {
+      const mount = { id: `mount:${route}:${target.component}:${ordinal}`, sourceId: source.id, route, ordinal, cases };
+      registry.mounts.push({ ...mount, fingerprint: digest(mount) });
+    }
+  }
+  return registry;
+}
 export function loadLocalBasisContext(root: string, publishedRoutes: readonly string[]): LocalBasisContext {
   const catalog = parseLocalBasisCatalog(JSON.parse(readBoundedLocalFile(root, 'audit/local-basis.json').toString('utf8')));
-  const registry = figureMigrationRegistry(root,
+  const interactive = figureMigrationRegistry(root,
     JSON.parse(readBoundedLocalFile(root, 'contract/brand-v2-registries.json').toString('utf8')).interactive as Registry);
+  const scenes = localSceneRegistry(root, LOCAL_BASIS_REQUIRED_TARGETS);
+  const registry: Registry = { ...interactive, sources: [...interactive.sources, ...scenes.sources],
+    mounts: [...interactive.mounts, ...scenes.mounts] };
   distinct(registry.sources.map(s => s.id), 'registry source');
   distinct(registry.mounts.map(m => m.id), 'registry mount');
   for (const plan of catalog.plans) {
@@ -1357,6 +1417,7 @@ const INPUT_UNITS: Record<RecipeId, Record<string, string>> = {
   eureka: { previous: 'index', next: 'index' }, reward: { weights: 'dimensionless', phase: 'cycle' },
   friction: { mu: 'dimensionless', range: 'dimensionless' }, teacher: { degradation: 'dimensionless' },
   parallel: { envs: 'count', cpuBound: 'boolean', samples: 'count' },
+  'batch-scale': { envs: 'count', cpuBound: 'boolean' },
   gait: { gait: 'preset', phase: 'cycle', direction: 'step-direction' },
   economics: { robotCost: 'USD', integrationMultiple: 'dimensionless', cycleTimeSeconds: 's', uptimePercent: '%', successRatePercent: '%', jamClearSeconds: 's', wageUsdPerHour: 'USD/hour' },
   'economics-examples': { robotCost: 'USD', integrationMultiple: 'dimensionless', cycleTimeSeconds: 's', uptimePercent: '%', successRatePercent: '%', jamClearSeconds: 's', wageUsdPerHour: 'USD/hour' },
@@ -1380,7 +1441,7 @@ function checkProof(plan: LocalPlan, proof: LocalProof, context: LocalBasisConte
   requireThat(same(proof.disclosure, plan.disclosure), 'proof/plan disclosure differs');
   const paths = proof.artifacts.map(a => a.file.path);
   distinct(paths, 'dependency file');
-  const source = context.registry.sources.find(s => s.id === `interactive:${target.component}`);
+  const source = context.registry.sources.find(s => s.id === sourceIdFor(target));
   requireThat(target.component === null || source, 'source missing from enumeration');
   for (const path of [...LOCAL_RECIPE_DEPENDENCIES[target.recipe], ...(source ? [source.sourcePath] : []), articlePath,
     'lib/audit-local-basis.ts', proof.provenance.test.path]) {
@@ -1502,7 +1563,7 @@ export function validateLocalBasisPlan(plan: LocalPlan, current: CellTuple, bind
     for (const bound of plan.mounts) {
       const source = context.registry.sources.find(s => s.id === bound.sourceId);
       const mounted = context.registry.mounts.find(m => m.id === bound.mountId);
-      requireThat(bound.sourceId === `interactive:${target.component}` && source?.fingerprint === bound.sourceFingerprint &&
+      requireThat(bound.sourceId === sourceIdFor(target) && source?.fingerprint === bound.sourceFingerprint &&
         mounted?.fingerprint === bound.mountFingerprint && mounted.sourceId === bound.sourceId &&
         mounted.route === bound.route && bound.route === routeFor(plan), 'source/mount/route fingerprint drift');
     }

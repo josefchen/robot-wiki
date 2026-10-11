@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import { domainPassCheckerPredecessor, domainPassPredecessor } from '../../lib/audit-domain-pass-continuity.ts';
 import { figureMountPredecessor } from '../../lib/audit-figure-mount-continuity.ts';
 import { kolBacklogPredecessor } from '../../lib/audit-kol-backlog-continuity.ts';
+import { parallelLocalPredecessor } from '../../lib/audit-parallel-local-continuity.ts';
 import { readerFirstPredecessor } from '../../lib/audit-reader-first-continuity.ts';
 import { seoPassCheckerPredecessor, seoPassPredecessor } from '../../lib/audit-seo-pass-continuity.ts';
 import { wordBudgetTrimPredecessor } from '../../lib/audit-word-budget-trim-continuity.ts';
@@ -50,7 +51,16 @@ export function preFigureMounts(path: string): Buffer {
  * reviewed successor, otherwise the live bytes.
  */
 export function preWordBudgetTrim(path: string): Buffer {
-  return wordBudgetTrimPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return wordBudgetTrimPredecessor(root, { path, bytes: 0, sha256: '' }, preParallelLocal(path));
+}
+
+/**
+ * The bytes the parallel-local suite layer of 2026-10-11 hands every check
+ * older than the BatchScale rebinding: the rebuilt pre-rebinding suite while
+ * the live suite is the reviewed successor, otherwise the live bytes.
+ */
+export function preParallelLocal(path: string): Buffer {
+  return parallelLocalPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
 }
 
 /**
