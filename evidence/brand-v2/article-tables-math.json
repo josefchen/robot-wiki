@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "81c41e7e91163328fbd0d2c113c9402905a0da33ab73af0444944b6e1999feb5",
+  "fingerprint": "fac39871e98c2bfce32ee94f2e5e046a7be75029b06d6cd35bfb7a2644155d96",
   "viewports": [
     "375x812",
     "1440x900"
@@ -7031,10 +7031,34 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24951,
+      "visibleTextLength": 25689,
       "tables": [
         {
           "index": 0,
+          "accessibleName": "Whole-body pick success by where the object sits",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Whole-body pick success by where the object sits",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
           "accessibleName": "Gemini Robotics 2 published success rates",
           "captionText": "",
           "columnHeaders": 5,
@@ -7056,6 +7080,30 @@
           "tableWidth": 560,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "accessibleName": "Where the robot's feet end up",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 6,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Where the robot's feet end up",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -7063,12 +7111,34 @@
         {
           "index": 0,
           "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Whole-body pick success by where the object sits",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
           "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
           "role": "region",
           "accessibleName": "Gemini Robotics 2 published success rates",
           "tabIndex": 0,
           "clientWidth": 333,
           "scrollWidth": 560,
+          "scrolledBy": 40
+        },
+        {
+          "index": 2,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Where the robot's feet end up",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
           "scrolledBy": 40
         }
       ],
@@ -7082,8 +7152,57 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21146,
-      "tables": [],
+      "visibleTextLength": 22032,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "How far the simulated motor is from the real one",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "How far the simulated motor is from the real one",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Where the robots train after each round",
+          "captionText": "",
+          "columnHeaders": 5,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Where the robots train after each round",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [
         {
           "index": 0,
@@ -7134,7 +7253,30 @@
           "viewportOverflowPx": 0
         }
       ],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "How far the simulated motor is from the real one",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Where the robots train after each round",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        }
+      ],
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "375x812"
     },
@@ -7145,10 +7287,117 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19844,
-      "tables": [],
+      "visibleTextLength": 21145,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Which squeeze the learner picks at each caution",
+          "captionText": "",
+          "columnHeaders": 4,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Which squeeze the learner picks at each caution",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Where each way of learning takes the robot",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Where each way of learning takes the robot",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "accessibleName": "Real-robot success before and after RL",
+          "captionText": "",
+          "columnHeaders": 4,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Real-robot success before and after RL",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Which squeeze the learner picks at each caution",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Where each way of learning takes the robot",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 2,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Real-robot success before and after RL",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        }
+      ],
       "route": "/rl-sim2real/offline-rl/",
       "viewport": "375x812"
     },
@@ -7159,10 +7408,82 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18416,
-      "tables": [],
+      "visibleTextLength": 19283,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Simulated robots at once",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 3,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Simulated robots at once",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Which solver handles which material",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Which solver handles which material",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Simulated robots at once",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Which solver handles which material",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        }
+      ],
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "375x812"
     },
@@ -7286,7 +7607,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27141,
+      "visibleTextLength": 28019,
       "tables": [
         {
           "index": 0,
@@ -7311,6 +7632,54 @@
           "tableWidth": 480,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "What the update may learn from after 6 rounds",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "What the update may learn from after 6 rounds",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "accessibleName": "The same push, judged against two goals",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "The same push, judged against two goals",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -7321,6 +7690,28 @@
           "outline": "<div class=\"overflow-x-auto mt-2\">",
           "role": "region",
           "accessibleName": "Modelled wall-clock cost of this budget under each source",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "What the update may learn from after 6 rounds",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 2,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "The same push, judged against two goals",
           "tabIndex": 0,
           "clientWidth": 301,
           "scrollWidth": 480,
@@ -7337,7 +7728,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 28601,
+      "visibleTextLength": 29100,
       "tables": [
         {
           "index": 0,
@@ -7362,6 +7753,30 @@
           "tableWidth": 480,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "How well simulated success predicts real success",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "How well simulated success predicts real success",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -7372,6 +7787,17 @@
           "outline": "<div class=\"overflow-x-auto mt-2\">",
           "role": "region",
           "accessibleName": "Sampled task success against ground friction",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "How well simulated success predicts real success",
           "tabIndex": 0,
           "clientWidth": 301,
           "scrollWidth": 480,
@@ -7388,10 +7814,34 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17446,
+      "visibleTextLength": 18421,
       "tables": [
         {
           "index": 0,
+          "accessibleName": "What each recipe needs from a contact model",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "What each recipe needs from a contact model",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
           "accessibleName": "Locomotion and manipulation MDP properties",
           "captionText": "",
           "columnHeaders": 3,
@@ -7413,6 +7863,30 @@
           "tableWidth": 640,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "accessibleName": "Trials that finished the scramble",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Trials that finished the scramble",
+            "clientWidth": 301,
+            "scrollWidth": 480,
+            "scrolledBy": 40
+          },
+          "tableWidth": 480,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -7420,12 +7894,34 @@
         {
           "index": 0,
           "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "What each recipe needs from a contact model",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
+          "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
           "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
           "role": "region",
           "accessibleName": "Locomotion and manipulation MDP properties",
           "tabIndex": 0,
           "clientWidth": 333,
           "scrollWidth": 640,
+          "scrolledBy": 40
+        },
+        {
+          "index": 2,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Trials that finished the scramble",
+          "tabIndex": 0,
+          "clientWidth": 301,
+          "scrollWidth": 480,
           "scrolledBy": 40
         }
       ],
@@ -14710,10 +15206,34 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 25442,
+      "visibleTextLength": 26180,
       "tables": [
         {
           "index": 0,
+          "accessibleName": "Whole-body pick success by where the object sits",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Whole-body pick success by where the object sits",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
           "accessibleName": "Gemini Robotics 2 published success rates",
           "captionText": "",
           "columnHeaders": 5,
@@ -14735,6 +15255,30 @@
           "tableWidth": 713,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "accessibleName": "Where the robot's feet end up",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 6,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Where the robot's feet end up",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -14742,12 +15286,34 @@
         {
           "index": 0,
           "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Whole-body pick success by where the object sits",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
           "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
           "role": "region",
           "accessibleName": "Gemini Robotics 2 published success rates",
           "tabIndex": 0,
           "clientWidth": 713,
           "scrollWidth": 713,
+          "scrolledBy": 0
+        },
+        {
+          "index": 2,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Where the robot's feet end up",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],
@@ -14761,8 +15327,57 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 21637,
-      "tables": [],
+      "visibleTextLength": 22523,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "How far the simulated motor is from the real one",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "How far the simulated motor is from the real one",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Where the robots train after each round",
+          "captionText": "",
+          "columnHeaders": 5,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Where the robots train after each round",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [
         {
           "index": 0,
@@ -14813,7 +15428,30 @@
           "viewportOverflowPx": 0
         }
       ],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "How far the simulated motor is from the real one",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Where the robots train after each round",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        }
+      ],
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "1440x900"
     },
@@ -14824,10 +15462,117 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 20335,
-      "tables": [],
+      "visibleTextLength": 21636,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Which squeeze the learner picks at each caution",
+          "captionText": "",
+          "columnHeaders": 4,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Which squeeze the learner picks at each caution",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Where each way of learning takes the robot",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Where each way of learning takes the robot",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "accessibleName": "Real-robot success before and after RL",
+          "captionText": "",
+          "columnHeaders": 4,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Real-robot success before and after RL",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Which squeeze the learner picks at each caution",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Where each way of learning takes the robot",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        },
+        {
+          "index": 2,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Real-robot success before and after RL",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        }
+      ],
       "route": "/rl-sim2real/offline-rl/",
       "viewport": "1440x900"
     },
@@ -14838,10 +15583,82 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18907,
-      "tables": [],
+      "visibleTextLength": 19774,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Simulated robots at once",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 3,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Simulated robots at once",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Which solver handles which material",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 4,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Which solver handles which material",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Simulated robots at once",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Which solver handles which material",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        }
+      ],
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "1440x900"
     },
@@ -14965,7 +15782,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27632,
+      "visibleTextLength": 28510,
       "tables": [
         {
           "index": 0,
@@ -14990,6 +15807,54 @@
           "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "What the update may learn from after 6 rounds",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "What the update may learn from after 6 rounds",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "accessibleName": "The same push, judged against two goals",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "The same push, judged against two goals",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -15000,6 +15865,28 @@
           "outline": "<div class=\"overflow-x-auto mt-2\">",
           "role": "region",
           "accessibleName": "Modelled wall-clock cost of this budget under each source",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "What the update may learn from after 6 rounds",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        },
+        {
+          "index": 2,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "The same push, judged against two goals",
           "tabIndex": 0,
           "clientWidth": 661,
           "scrollWidth": 661,
@@ -15016,7 +15903,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 29092,
+      "visibleTextLength": 29591,
       "tables": [
         {
           "index": 0,
@@ -15041,6 +15928,30 @@
           "tableWidth": 661,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "How well simulated success predicts real success",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "How well simulated success predicts real success",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -15051,6 +15962,17 @@
           "outline": "<div class=\"overflow-x-auto mt-2\">",
           "role": "region",
           "accessibleName": "Sampled task success against ground friction",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "How well simulated success predicts real success",
           "tabIndex": 0,
           "clientWidth": 661,
           "scrollWidth": 661,
@@ -15067,10 +15989,34 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17937,
+      "visibleTextLength": 18912,
       "tables": [
         {
           "index": 0,
+          "accessibleName": "What each recipe needs from a contact model",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "What each recipe needs from a contact model",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
           "accessibleName": "Locomotion and manipulation MDP properties",
           "captionText": "",
           "columnHeaders": 3,
@@ -15092,6 +16038,30 @@
           "tableWidth": 1102,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 2,
+          "accessibleName": "Trials that finished the scramble",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 2,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Trials that finished the scramble",
+            "clientWidth": 661,
+            "scrollWidth": 661,
+            "scrolledBy": 0
+          },
+          "tableWidth": 661,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -15099,12 +16069,34 @@
         {
           "index": 0,
           "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "What each recipe needs from a contact model",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
           "outline": "<div class=\"overflow-x-auto rounded-md border border-border bg-surface m\">",
           "role": "region",
           "accessibleName": "Locomotion and manipulation MDP properties",
           "tabIndex": 0,
           "clientWidth": 1102,
           "scrollWidth": 1102,
+          "scrolledBy": 0
+        },
+        {
+          "index": 2,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Trials that finished the scramble",
+          "tabIndex": 0,
+          "clientWidth": 661,
+          "scrollWidth": 661,
           "scrolledBy": 0
         }
       ],

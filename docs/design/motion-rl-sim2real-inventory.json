@@ -14,6 +14,20 @@
     "reason": "A static table keeps the exact protocol and values visible for comparison."
   },
   {
+    "article": "humanoid-wbc",
+    "element": "HumanoidPickHeight",
+    "decision": "keep",
+    "teachingGoal": "See that one whole-body model's pick success falls the lower the object sits, with every published rate in view.",
+    "reason": "One place choice moves the humanoid from its standing reach to its crouch and lights the matching published bar."
+  },
+  {
+    "article": "humanoid-wbc",
+    "element": "RetargetingGap",
+    "decision": "keep",
+    "teachingGoal": "See that copying a person's joint angles and hip height onto a robot of other proportions leaves its feet floating or sunk.",
+    "reason": "One leg-length slider redraws the robot and glides the gap between its foot and the floor, so the artifact grows with the mismatch."
+  },
+  {
     "article": "legged-locomotion",
     "element": "GaitDiagram",
     "decision": "remove",
@@ -36,11 +50,46 @@
     "reason": "External historical imagery retains its native identity and attribution, not the scene palette."
   },
   {
+    "article": "legged-locomotion",
+    "element": "ActuatorGap",
+    "decision": "keep",
+    "teachingGoal": "See that a simulator with instant motors differs from the springy real ones, and that policies trained on it fell on ANYmal.",
+    "reason": "Switching the simulator's motor model morphs its response onto the real curve and shows the paper's outcome for each choice."
+  },
+  {
+    "article": "legged-locomotion",
+    "element": "TerrainCurriculum",
+    "decision": "keep",
+    "teachingGoal": "Watch simulated robots move to harder or easier terrain under Rudin's promotion, demotion and loop-back rules.",
+    "reason": "Each training round is a reader step, so every robot's move up or down follows from the rule it met."
+  },
+  {
     "article": "offline-rl",
     "element": "SelfCheck",
     "decision": "keep",
     "teachingGoal": "Test whether the reader can identify the dataset support problem before seeing an explanation.",
     "reason": "This is a deliberate assessment, not a time-evolving figure."
+  },
+  {
+    "article": "offline-rl",
+    "element": "OfflineValueOverreach",
+    "decision": "keep",
+    "teachingGoal": "See a learner with only recorded data overrate an action nobody tried, and caution pull its choice back into the data.",
+    "reason": "One caution slider marks down untried actions, so the choice glides from the overrated edge to the best tried action."
+  },
+  {
+    "article": "offline-rl",
+    "element": "TrajectoryStitching",
+    "decision": "keep",
+    "teachingGoal": "See how a value learner joins the useful halves of two recorded runs where copying a run misses the goal.",
+    "reason": "Choosing copy or join replays the robot's path along the recorded runs, so the switch at the crossing is seen directly."
+  },
+  {
+    "article": "offline-rl",
+    "element": "RealRobotRlGains",
+    "decision": "keep",
+    "teachingGoal": "Compare four real-robot studies' success before and after reinforcement learning on top of a data-trained policy.",
+    "reason": "One before-and-after toggle moves every study's mark between its reported values, keeping the rows as separate studies."
   },
   {
     "article": "parallel-sim-rl",
@@ -56,6 +105,20 @@
     "sceneId": "batch-scale",
     "teachingGoal": "See the same fixed experience budget pass through fewer iterations as parallel count rises, then reveal the CPU-cost caveat.",
     "reason": "A scene makes the change in model time causal without recasting paper bounds as measured points."
+  },
+  {
+    "article": "parallel-sim-rl",
+    "element": "RobotsPerGpu",
+    "decision": "keep",
+    "teachingGoal": "See the jump from the 128 robots of CPU simulators to the 16,384 Rudin trained at once on one GPU.",
+    "reason": "One count choice fills the grid square by square, so the scale-up is counted rather than read as a number."
+  },
+  {
+    "article": "parallel-sim-rl",
+    "element": "NewtonSolvers",
+    "decision": "keep",
+    "teachingGoal": "See that Newton hands each kind of material to its own solver behind one interface.",
+    "reason": "One material choice moves the route through the shared interface to that material's solver."
   },
   {
     "article": "reward-design-mpc",
@@ -91,6 +154,20 @@
     "decision": "keep",
     "teachingGoal": "Convert a chosen interaction budget into simulator and hardware collection times.",
     "reason": "The calculator needs independent budget and source choices and source-qualified anchors."
+  },
+  {
+    "article": "rl-for-robotics",
+    "element": "ReplayReuse",
+    "decision": "keep",
+    "teachingGoal": "See an on-policy learner discard each batch while an off-policy learner keeps every batch in a replay buffer.",
+    "reason": "One learner choice replays six collection rounds, so the discarding or keeping is watched rather than read."
+  },
+  {
+    "article": "rl-for-robotics",
+    "element": "HindsightRelabel",
+    "decision": "keep",
+    "teachingGoal": "See a missed push become a success to learn from once it is judged against where the puck ended.",
+    "reason": "One goal choice slides the goal ring onto the puck and recomputes the reward from 0 to 1."
   },
   {
     "article": "sim2real-transfer",
@@ -129,6 +206,13 @@
     "reason": "The self-check is an assessment with answer feedback, not a graphical rollout."
   },
   {
+    "article": "sim2real-transfer",
+    "element": "ScannedTwinCheck",
+    "decision": "keep",
+    "teachingGoal": "See that a scanned lab predicted real success poorly until its simulation parameters were tuned.",
+    "reason": "One simulator choice moves the bar between the two published correlations, with the other kept as a reference."
+  },
+  {
     "article": "why-rl-locomotion",
     "element": "ContactGeometry",
     "decision": "keep",
@@ -141,5 +225,19 @@
     "decision": "keep",
     "teachingGoal": "Compare the six MDP properties side by side without collapsing their caveats.",
     "reason": "The static matrix supports simultaneous comparison and needs no playback."
+  },
+  {
+    "article": "why-rl-locomotion",
+    "element": "DemoOrSim",
+    "decision": "keep",
+    "teachingGoal": "See that a simulation-trained policy carries the simulator's contact errors to the real robot while a demonstration-trained one needs no contact model.",
+    "reason": "One recipe choice draws out or retracts the line that carries the contact error to the robot."
+  },
+  {
+    "article": "why-rl-locomotion",
+    "element": "CubeTrials",
+    "decision": "keep",
+    "teachingGoal": "See how rarely the Rubik's-cube hand finished its scramble: 2 of 10 trials with a sensor cube, 0 of 10 with vision.",
+    "reason": "One sensing choice fills or empties the tally of ten trials, so the published counts are counted rather than read."
   }
 ]

@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3121,
+      "visibleTextLength": 3145,
       "header": {
         "present": true,
         "display": "flex",
@@ -9349,7 +9349,7 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "visibleTextLength": 24951,
+      "visibleTextLength": 25689,
       "header": {
         "present": true,
         "display": "flex",
@@ -9512,7 +9512,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "visibleTextLength": 21146,
+      "visibleTextLength": 22032,
       "header": {
         "present": true,
         "display": "flex",
@@ -9675,7 +9675,7 @@
     },
     {
       "route": "/rl-sim2real/offline-rl/",
-      "visibleTextLength": 19844,
+      "visibleTextLength": 21145,
       "header": {
         "present": true,
         "display": "flex",
@@ -9838,7 +9838,7 @@
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "visibleTextLength": 18416,
+      "visibleTextLength": 19283,
       "header": {
         "present": true,
         "display": "flex",
@@ -10164,7 +10164,7 @@
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "visibleTextLength": 27141,
+      "visibleTextLength": 28019,
       "header": {
         "present": true,
         "display": "flex",
@@ -10327,7 +10327,7 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "visibleTextLength": 28601,
+      "visibleTextLength": 29100,
       "header": {
         "present": true,
         "display": "flex",
@@ -10490,7 +10490,7 @@
     },
     {
       "route": "/rl-sim2real/why-rl-locomotion/",
-      "visibleTextLength": 17446,
+      "visibleTextLength": 18421,
       "header": {
         "present": true,
         "display": "flex",

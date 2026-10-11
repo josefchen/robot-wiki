@@ -25,10 +25,20 @@ afterEach(() => {
 describe('figure mounts 2026-10-07 article successors', () => {
   const review = loadFigureMountReview(root);
 
-  it('reviews exactly the classical articles that gained their first figure', () => {
+  // Successor (rl-sim2real simple figures, 2026-10-10): the rl-sim2real
+  // articles that gained simple figures joined the review with their own
+  // import lines and one-line mounts; the list stays exact.
+  it('reviews exactly the articles that gained admitted figure mounts', () => {
     expect(figureMountSuccessorPaths()).toEqual([
       'content/classical/calibration.mdx',
       'content/classical/ros2-for-ml-engineers.mdx',
+      'content/rl-sim2real/humanoid-wbc.mdx',
+      'content/rl-sim2real/legged-locomotion.mdx',
+      'content/rl-sim2real/offline-rl.mdx',
+      'content/rl-sim2real/parallel-sim-rl.mdx',
+      'content/rl-sim2real/rl-for-robotics.mdx',
+      'content/rl-sim2real/sim2real-transfer.mdx',
+      'content/rl-sim2real/why-rl-locomotion.mdx',
     ]);
   });
 

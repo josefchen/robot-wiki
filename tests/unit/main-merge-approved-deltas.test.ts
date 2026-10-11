@@ -678,8 +678,13 @@ const kolQueue20261009Appends = merged.filter(x => x.id.startsWith('domain-pass-
 // its domain-pass block (g9) does not already carry: one plain edge per
 // member from its last approved endpoint.
 const rlPass20261009Appends = merged.filter(x => x.id.startsWith('rl-sim2real-pass-20261009-')).map(x => x.id);
+// The 2026-10-11 rl-sim2real figure batch appends its block last: one prose
+// edge per article that mounts a new figure (a reconciling resolution where
+// the member's history already carries one) and one edge from an absent
+// seal per new figure name.
+const rlFigures20261011Appends = merged.filter(x => x.id.startsWith('rl-sim2real-figures-20261011-')).map(x => x.id);
 const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,
-  ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends];
+  ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends];
 const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));
 const howRobotsWorkAppends = [
   'how-robots-work-20261002-accessible-names-explainers-rail',
@@ -709,7 +714,11 @@ const classicalPass20261007Edges = (manifest: string, memberId: string) => merge
 const kolQueue20261009Edges = (manifest: string, memberId: string) => merged
   .filter(x => kolQueue20261009Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
   .map(x => x.id);
-const afterKolQueue20261009 = merged.length - rlPass20261009Appends.length;
+const rlFigures20261011Edges = (manifest: string, memberId: string) => merged
+  .filter(x => rlFigures20261011Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const afterRlPass20261009 = merged.length - rlFigures20261011Appends.length;
+const afterKolQueue20261009 = afterRlPass20261009 - rlPass20261009Appends.length;
 const afterClassicalPass20261007 = afterKolQueue20261009 - kolQueue20261009Appends.length;
 const afterDomainPass20261006 = afterClassicalPass20261007 - classicalPass20261007Appends.length;
 const afterHowRobotsWork20261005 = afterDomainPass20261006 - domainPass20261006Appends.length;
@@ -750,16 +759,18 @@ describe('two-parent exact approval reconciliation', () => {
     // batch appends its block, the 2026-10-05 how-robots-work names append
     // theirs, the 2026-10-06 domain passes and the 2026-10-07 classical pass
     // append theirs, the 2026-10-09 overdue KOL step appends its block, and
-    // the 2026-10-09 rl-sim2real pass appends its block last.
+    // the 2026-10-09 rl-sim2real pass appends its block, and the 2026-10-11
+    // rl-sim2real figure batch appends its block last.
     expect([main.length, local.length, localOnly.length, merged.length])
       .toEqual([1558, 1104, 7, 2026 + readerFirstAppends.length + howRobotsWorkAppends.length
         + readerFirstManipulationAppends.length + kolBacklog20261005Appends.length
         + howRobotsWork20261005Appends.length + domainPass20261006Appends.length
-        + classicalPass20261007Appends.length + kolQueue20261009Appends.length + rlPass20261009Appends.length]);
+        + classicalPass20261007Appends.length + kolQueue20261009Appends.length + rlPass20261009Appends.length
+        + rlFigures20261011Appends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -1050,6 +1061,7 @@ describe('two-parent exact approval reconciliation', () => {
         ...domainPass20261006Edges('prose', memberId),
         ...classicalPass20261007Edges('prose', memberId),
         ...kolQueue20261009Edges('prose', memberId),
+        ...rlFigures20261011Edges('prose', memberId),
       ]);
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       expect(edges.at(-1)?.newHash).toBe(newHash);
@@ -1095,14 +1107,15 @@ describe('two-parent exact approval reconciliation', () => {
       readFileSync('evidence/brand-v2/baseline/prose.json', 'utf8'));
     for (const [index, [memberId, previous, current]] of round6ProseRestoreEndpoints.entries()) {
       const all = merged.filter(x => x.manifest === 'prose' && x.memberId === memberId);
-      // Only a named figure-migration, SEO pass, reader-first or 2026-10-05 KOL
-      // backlog edge may follow the restore; the restore is checked against the
+      // Only a named figure-migration, SEO pass, reader-first, 2026-10-05 KOL
+      // backlog or later pass edge may follow the restore; the restore is checked against the
       // chain it closed.
       const edges = all.slice(0, all.findIndex(x => x.id === round6ProseRestoreAppends[index]) + 1);
       expect(all.slice(edges.length).map(x => x.id)).toEqual([...opusFigureMigrationEdges('prose', memberId),
         ...seoPassEdges('prose', memberId), ...readerFirstEdges('prose', memberId),
         ...kolBacklog20261005Edges('prose', memberId), ...domainPass20261006Edges('prose', memberId),
-        ...classicalPass20261007Edges('prose', memberId), ...kolQueue20261009Edges('prose', memberId)]);
+        ...classicalPass20261007Edges('prose', memberId), ...kolQueue20261009Edges('prose', memberId),
+        ...rlFigures20261011Edges('prose', memberId)]);
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       const entry = edges.at(-1)!;
       const prior = edges.slice(0, -1);
@@ -1469,7 +1482,7 @@ describe('two-parent exact approval reconciliation', () => {
   });
 
   it('binds each 2026-10-09 rl-sim2real pass edge to its previous endpoint and to the sealed hash', () => {
-    expect(merged.slice(afterKolQueue20261009).map(x => x.id)).toEqual(rlPass20261009Appends);
+    expect(merged.slice(afterKolQueue20261009, afterRlPass20261009).map(x => x.id)).toEqual(rlPass20261009Appends);
     expect(rlPass20261009Appends).toEqual([
       'article-metadata-rl-for-robotics',
       'accessible-names-eureka-loop-literal-aria-label-1',
@@ -1491,6 +1504,44 @@ describe('two-parent exact approval reconciliation', () => {
       const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
       expect(path.status).toBe('approved');
       expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
+  });
+
+  it('binds each 2026-10-11 rl-sim2real figure edge to its previous endpoint and to the sealed hash', () => {
+    expect(merged.slice(afterRlPass20261009).map(x => x.id)).toEqual(rlFigures20261011Appends);
+    expect(rlFigures20261011Appends).toEqual([
+      ...['humanoid-wbc', 'legged-locomotion', 'offline-rl', 'parallel-sim-rl', 'rl-for-robotics', 'sim2real-transfer',
+        'why-rl-locomotion'].map(article => `prose-${article}`),
+      ...['actuator-gap-expression-aria-label-1', 'cube-trials-expression-aria-label-1',
+        'demo-or-sim-expression-aria-label-1', 'hindsight-relabel-expression-aria-label-1',
+        'humanoid-pick-height-expression-aria-label-1', 'newton-solvers-expression-aria-label-1',
+        'offline-value-overreach-expression-aria-label-1', 'offline-value-overreach-expression-aria-label-2',
+        'real-robot-rl-gains-expression-aria-label-1', 'replay-reuse-expression-aria-label-1',
+        'retargeting-gap-expression-aria-label-1', 'retargeting-gap-expression-aria-label-2',
+        'robots-per-gpu-expression-aria-label-1', 'scanned-twin-check-expression-aria-label-1',
+        'terrain-curriculum-expression-aria-label-1', 'trajectory-stitching-expression-aria-label-1',
+      ].map(name => `accessible-names-${name}`),
+    ].map(suffix => `rl-sim2real-figures-20261011-${suffix}`));
+    for (const id of rlFigures20261011Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      const previous = prior.at(-1)?.newHash ?? sealed;
+      expect(entry.newHash).not.toBe(previous);
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      if (prior.some(x => x.reconciles !== undefined)) {
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));
+      } else {
+        expect(entry.reconciles).toBeUndefined();
+        expect(entry.oldHash).toBe(previous);
+      }
       expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
     }
   });
