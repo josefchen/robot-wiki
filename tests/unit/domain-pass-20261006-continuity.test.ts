@@ -7,12 +7,15 @@ import {
   DOMAIN_PASS_CONTINUITY_DIR, domainPassCheckerPredecessor, domainPassPredecessor, domainPassSuccessorPaths,
   keepsDomainPassObligations, loadDomainPassCheckerReview, loadDomainPassReview, verifyDomainPassSource,
 } from '../../lib/audit-domain-pass-continuity';
+import { parallelLocalCheckerPredecessor } from '../../lib/audit-parallel-local-continuity';
 import { seoPassCheckerPredecessor, seoPassPredecessor } from '../../lib/audit-seo-pass-continuity';
 import { preFigureMounts } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-// The newer word-budget trim and figure-mount layers hand back the domain-pass successor first.
-const read = (path: string) => preFigureMounts(path);
+// The newer word-budget trim and figure-mount layers hand back the domain-pass successor first,
+// and the parallel-local checker layer hands back the domain-pass checker.
+const read = (path: string) => path === 'lib/audit-local-basis.ts'
+  ? parallelLocalCheckerPredecessor(root, preFigureMounts(path)) : preFigureMounts(path);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /domain pass continuity drift/;
 const correctedSources = ['components/interactive/reliability-compounding.tsx', 'data/glossary.ts'];

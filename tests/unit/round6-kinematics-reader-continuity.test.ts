@@ -210,7 +210,8 @@ it.each(['missing-review', 'missing-predecessor', 'corrupt-predecessor', 'review
       'audit/evidence/figure-migration-20261001/checker-transition.json',
       'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt',
       'audit/evidence/seo-pass-20261002/checker-transition.json',
-      'audit/evidence/domain-pass-20261006/checker-transition.json']);
+      'audit/evidence/domain-pass-20261006/checker-transition.json',
+      'audit/evidence/parallel-local-20261009/checker-transition.json']);
     try {
       const live = read('lib/audit-local-basis.ts');
       expect(round6KinematicsReaderCheckerPredecessor(destination, live)).toEqual(read(predecessorPath));

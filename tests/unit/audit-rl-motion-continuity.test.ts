@@ -9,6 +9,7 @@ import {
   parseRlMotionContinuity,
   rlMotionContinuityDigest,
 } from '../../lib/audit-rl-motion-continuity.ts';
+import { parallelLocalCheckerPredecessor } from '../../lib/audit-parallel-local-continuity.ts';
 import { preDomainPass, preSeoPass } from '../helpers/seo-pass.ts';
 
 const root = join(import.meta.dirname, '../..');
@@ -99,6 +100,8 @@ it('retains all four exact historical articles and independently pins active dis
     'audit/evidence/seo-pass-20261002/checker-transition.json'), 'utf8'));
   const domainPassChecker = JSON.parse(readFileSync(join(root,
     'audit/evidence/domain-pass-20261006/checker-transition.json'), 'utf8'));
+  const parallelLocalChecker = JSON.parse(readFileSync(join(root,
+    'audit/evidence/parallel-local-20261009/checker-transition.json'), 'utf8'));
   expect(checker.after.bytes).toBe(worldChecker.before.bytes);
   expect(checker.after.sha256).toBe(worldChecker.before.sha256);
   expect(worldChecker.after.bytes).toBe(dataHardwareChecker.before.bytes);
@@ -131,6 +134,8 @@ it('retains all four exact historical articles and independently pins active dis
   expect(figureMigrationChecker.after.sha256).toBe(seoPassChecker.before.sha256);
   expect(seoPassChecker.after.bytes).toBe(domainPassChecker.before.bytes);
   expect(seoPassChecker.after.sha256).toBe(domainPassChecker.before.sha256);
+  expect(domainPassChecker.after.bytes).toBe(parallelLocalChecker.before.bytes);
+  expect(domainPassChecker.after.sha256).toBe(parallelLocalChecker.before.sha256);
   expect(domainPairsChecker.before.path)
     .toBe('audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt');
   expect(domainPairsChecker.after.path).toBe('lib/audit-local-basis.ts');
@@ -172,6 +177,9 @@ it('retains all four exact historical articles and independently pins active dis
   // from the live checker as well.
   expect(domainPassChecker.before.path).toBe('lib/audit-local-basis.ts');
   expect(domainPassChecker.after.path).toBe('lib/audit-local-basis.ts');
+  // The parallel-local revision rebuilds the domain-pass endpoint from the live checker too.
+  expect(parallelLocalChecker.before.path).toBe('lib/audit-local-basis.ts');
+  expect(parallelLocalChecker.after.path).toBe('lib/audit-local-basis.ts');
   for (const artifact of [checker.before, worldChecker.before, dataHardwareChecker.before,
     frontierChecker.before, domainPairsChecker.before, domainPairsChecker.after,
     proofReaderChecker.before, proofReaderChecker.after, articleTruthChecker.before,
@@ -181,7 +189,8 @@ it('retains all four exact historical articles and independently pins active dis
     proseRestoresChecker.before, proseRestoresChecker.after,
     remainingRepairsChecker.before, remainingRepairsChecker.after,
     figureMigrationChecker.before, figureMigrationChecker.after,
-    seoPassChecker.before, seoPassChecker.after, domainPassChecker.before, domainPassChecker.after]) {
+    seoPassChecker.before, seoPassChecker.after, domainPassChecker.before, domainPassChecker.after,
+    parallelLocalChecker.before, parallelLocalChecker.after]) {
     const path = artifact === domainPairsChecker.after ? proofReaderChecker.before.path :
       artifact === proofReaderChecker.after ? articleTruthChecker.before.path :
       artifact === articleTruthChecker.after ? sharedUiChecker.before.path :
@@ -195,7 +204,9 @@ it('retains all four exact historical articles and independently pins active dis
     const bytes = artifact === figureMigrationChecker.after || artifact === seoPassChecker.before
       ? preSeoPass(path)
       : artifact === seoPassChecker.after || artifact === domainPassChecker.before
-        ? preDomainPass(path) : readFileSync(join(root, path));
+        ? preDomainPass(path)
+        : artifact === domainPassChecker.after || artifact === parallelLocalChecker.before
+          ? parallelLocalCheckerPredecessor(root, readFileSync(join(root, path))) : readFileSync(join(root, path));
     expect(bytes.length).toBe(artifact.bytes);
     expect(createHash('sha256').update(bytes).digest('hex')).toBe(artifact.sha256);
   }

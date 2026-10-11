@@ -17,6 +17,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { figureMountPredecessor } from './audit-figure-mount-continuity.ts';
+import { parallelLocalCheckerPredecessor } from './audit-parallel-local-continuity.ts';
 import { wordBudgetTrimPredecessor } from './audit-word-budget-trim-continuity.ts';
 
 export const DOMAIN_PASS_CONTINUITY_DIR = 'audit/evidence/domain-pass-20261006/';
@@ -435,9 +436,11 @@ export function loadDomainPassCheckerReview(root: string): DomainPassCheckerRevi
  * still decide them. The reviewed revision is admitted only as edits that
  * each swap the reviewed live hash of one historical verification suite
  * whose assertions a domain pass brought up to date, inside that suite's own
- * entry, and the SEO-pass head is rebuilt from it and returned.
+ * entry, and the SEO-pass head is rebuilt from it and returned. The
+ * parallel-local checker layer of 2026-10-11 sees the live checker first.
  */
-export function domainPassCheckerPredecessor(root: string, live: Buffer): Buffer {
+export function domainPassCheckerPredecessor(root: string, checker: Buffer): Buffer {
+  const live = parallelLocalCheckerPredecessor(root, checker);
   if (live.length !== checkerAfter.bytes || digest(live) !== checkerAfter.sha256) return live;
   const review = loadDomainPassCheckerReview(root);
   const current = live.toString();

@@ -484,6 +484,7 @@ describe('authored-local-basis-v1 compatibility cases', () => {
       'audit/evidence/figure-migration-20261001/audit-local-basis-before.ts.txt',
       'audit/evidence/seo-pass-20261002/checker-transition.json',
       'audit/evidence/domain-pass-20261006/checker-transition.json',
+      'audit/evidence/parallel-local-20261009/checker-transition.json',
     ]) f.put(path, readFileSync(join(project, path)));
     const bind = (path: string, snapshot: string) => {
       const retained = `audit/evidence/local-proof-compat-20260923/${snapshot}`;
@@ -643,6 +644,15 @@ describe('authored-local-basis-v1 compatibility cases', () => {
     expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
       ? /domain pass checker continuity drift: ENOENT.*domain-pass-20261006\/checker-transition\.json/
       : /domain pass checker continuity drift/);
+  });
+  it.each(['missing', 'corrupt'] as const)('rejects %s parallel local checker input', change => {
+    const f = historicalFixture();
+    const review = 'audit/evidence/parallel-local-20261009/checker-transition.json';
+    if (change === 'missing') rmSync(join(f.root, review));
+    else f.put(review, 'corrupt checker review');
+    expect(f.validate().failures.join(' ')).toMatch(change === 'missing'
+      ? /parallel local checker continuity drift: ENOENT.*parallel-local-20261009\/checker-transition\.json/
+      : /parallel local checker continuity drift/);
   });
   it.each(['missing', 'corrupt'] as const)('rejects %s article-truth predecessor input', change => {
     const f = historicalFixture();
