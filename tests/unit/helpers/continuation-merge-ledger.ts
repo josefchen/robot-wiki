@@ -84,15 +84,32 @@ function todayLocalBasis(): { plans: LocalPlan[]; proofs: LocalProof[] } | null 
 }
 
 /**
+ * Plans a later rebinding moved onto new proof ids, archived with the proofs
+ * and pins they held when they left today's catalog. A retired proof id has
+ * no live counterpart, so a historical render takes its pins from here.
+ */
+export const RETIRED_LOCAL_BASIS_ARCHIVES = [
+  'audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json',
+] as const;
+let retiredProofs: LocalProof[] | undefined;
+function retiredLocalBasisProofs(): LocalProof[] {
+  retiredProofs ??= RETIRED_LOCAL_BASIS_ARCHIVES.flatMap(path =>
+    (JSON.parse(readFileSync(resolve(root, path), 'utf8')) as { proofs: LocalProof[] }).proofs);
+  return retiredProofs;
+}
+
+/**
  * A historical local-basis catalog under the neutral vocabulary: like the
  * compound catalog, its recorded digests pin cell and artifact text, so the
  * rendered catalog recomputes them over the rendered same-revision sources.
  * Artifact and run pins describe present-day files, so they adopt today's
- * regenerated pin values for the same proof identities.
+ * regenerated pin values for the same proof identities, or the archived
+ * values for a proof identity a rebinding retired.
  */
 function renderLocalBasis(commit: string, rendered: string): string {
   const today = todayLocalBasis();
-  const todayProofs = new Map((today?.proofs ?? []).map((proof) => [proof.id, proof]));
+  const todayProofs = new Map([...retiredLocalBasisProofs(), ...(today?.proofs ?? [])]
+    .map((proof) => [proof.id, proof]));
   const lb = JSON.parse(rendered) as { plans: LocalPlan[]; proofs: LocalProof[] };
   const snapshots = new Map<string, ReturnType<typeof parseOriginalLedgerSection> | null>();
   for (const plan of lb.plans) {
