@@ -15,12 +15,6 @@ const variantLabel: Record<CalloutVariant, string> = {
   error: 'Error',
 };
 
-const borderColor: Record<CalloutVariant, string> = {
-  info: 'border-l-signal',
-  warn: 'border-l-warn',
-  error: 'border-l-error',
-};
-
 const titleColor: Record<CalloutVariant, string> = {
   info: 'text-text',
   warn: 'text-warn',
@@ -35,10 +29,7 @@ export function Callout({ variant = 'info', title, children }: CalloutProps) {
       data-variant={variant}
       data-brand-surface-id="surface:flat"
       data-brand-frame-depth="1"
-      className={cx(
-        'my-6 rounded-sm border border-border border-l-2 bg-surface p-4',
-        borderColor[variant],
-      )}
+      className="my-6 border border-border bg-surface p-5"
     >
       <p
         className={cx(
@@ -48,7 +39,7 @@ export function Callout({ variant = 'info', title, children }: CalloutProps) {
       >
         {title ?? variantLabel[variant]}
       </p>
-      <div className="mt-1 text-sm leading-relaxed text-text-dim [&_a]:text-accent">
+      <div className="mt-1 text-sm leading-relaxed text-text-dim [&_a]:text-ink [&_a]:underline">
         {children}
       </div>
     </div>

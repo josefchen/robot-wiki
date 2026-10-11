@@ -161,21 +161,21 @@ export function CommitToReveal({
         // ground, so the step paints no panel of its own.
         predict
           ? 'my-6'
-          : 'rounded-md border border-border bg-surface p-4 sm:p-5',
+          : 'my-9 border border-border p-5 sm:px-6 sm:py-6',
         className,
       )}
     >
-      <p className="font-mono text-xs text-text-dim">{kicker}</p>
-      <fieldset className="mt-2">
-        <legend id={`${uid}-prompt`} className="font-medium">
+      <p className="eyebrow">{kicker}</p>
+      <fieldset className="mt-3">
+        <legend id={`${uid}-prompt`} className="font-display text-[16px] font-semibold leading-snug">
           {prompt}
         </legend>
-        <div className="mt-3 grid gap-2">
+        <div className="mt-4 grid gap-1">
           {options.map((option) => (
             <label
               key={option.value}
               data-chosen={chosen === option.value ? 'true' : undefined}
-              className="flex cursor-pointer items-start gap-2 rounded-sm px-2 py-1.5 text-sm transition-colors hover:bg-surface-2 has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent"
+              className="flex cursor-pointer items-start gap-2.5 py-1 text-[15px] transition-colors hover:text-text-dim has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-ink"
             >
               <input
                 type="radio"
@@ -184,7 +184,7 @@ export function CommitToReveal({
                 checked={chosen === option.value}
                 onChange={() => commit(option.value)}
                 data-brand-control-id="control:selection"
-                className="mt-0.5 accent-accent"
+                className="mt-[5px] accent-ink"
               />
               <span>{option.label}</span>
             </label>
@@ -207,14 +207,13 @@ export function CommitToReveal({
       <details
         ref={detailsRef}
         data-reveal=""
-        className="mt-3 bg-surface-2 p-3 text-sm"
+        className="mt-4 border-t border-border pt-3 text-[14px]"
       >
         <summary
           data-brand-control-id="control:secondary-action"
-          // `font-sans` is explicit rather than inherited: this disclosure
-          // mounts inside `.prose`, which sets Newsreader, and design-system
-          // 4.1 assigns controls to IBM Plex Sans.
-          className="cursor-pointer font-sans text-text-dim"
+          // `font-sans` is explicit rather than inherited: controls are
+          // Geist wherever they mount.
+          className="cursor-pointer font-sans text-[14px] text-text-dim hover:text-text"
         >
           {chosen === null ? 'Read the reasoning' : 'Reasoning'}
         </summary>
@@ -254,7 +253,7 @@ export function CommitToReveal({
                   {chosen === option.value ? (
                     <span
                       data-pick-marker=""
-                      className="ml-2 align-baseline font-mono text-[0.72em] font-normal text-text-dim"
+                      className="eyebrow ml-2 align-baseline font-normal"
                     >
                       your pick
                     </span>
@@ -263,19 +262,13 @@ export function CommitToReveal({
                 <span>
                   {option.why}
                   {option.cite ? (
-                    // House cite-chip idiom (components/ui/cite.tsx): the
-                    // border and chip surface live on a non-interactive
-                    // wrapping span, and the anchor itself carries no
-                    // border. A bordered anchor inside the fully bordered
-                    // reveal shell is a doubly boxed control (VAL-EDU-031).
-                    <span
-                      data-brand-surface-id="surface:flat"
-                      className="ml-1 inline-block rounded-xs border border-border bg-surface-2 align-baseline transition-colors hover:border-accent"
-                    >
+                    // The source label as a quiet text link to its References
+                    // entry: no chip, no box inside the reveal's frame.
+                    <span data-brand-surface-id="surface:flat" className="ml-1">
                       <a
                         href={`#ref-${option.cite}`}
                         data-brand-control-id="control:link-focus"
-                        className="px-1 font-mono text-[0.72em] leading-5 text-text-dim no-underline transition-colors hover:text-accent"
+                        className="cite-label text-[0.9em]"
                       >
                         {option.citeLabel ?? option.cite}
                       </a>
@@ -285,7 +278,7 @@ export function CommitToReveal({
                     <a
                       href={option.anchorHref}
                       data-brand-control-id="control:link-focus"
-                      className="ml-1 text-[0.72em] text-text-dim underline decoration-border transition-colors hover:text-accent"
+                      className="cite-label ml-1 text-[0.9em]"
                     >
                       {option.anchorLabel}
                     </a>

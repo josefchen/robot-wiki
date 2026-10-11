@@ -13,7 +13,7 @@ import {
   referenceSheetVerdicts,
   relationshipPreservationVerdicts,
   relationshipSourceDrift,
-  SIGNAL_BLUE_RENDERED,
+  LINK_INK_RENDERED,
   termAffordanceVerdicts,
   type ApparatusObservation,
   type FurnitureLinkObservation,
@@ -71,14 +71,16 @@ async function settleForMeasurement(page: Page) {
 /**
  * Runs inside the page. Everything is discovered from the rendered document.
  *
- * The two tooltip families are read at rest rather than by driving a
- * pointer: the definition and the reference metadata are in the DOM the
- * whole time and CSS reveals them, so their CONTENT and their
- * `aria-describedby` wiring are structural facts that need no interaction.
- * The reveal itself is a separate claim and is driven for real in
- * `glossary.spec.ts` and `brand-v2-article-interactions.spec.ts`; reading
- * the text here as well is what makes the corpus-wide check affordable at
- * 94 page loads instead of several thousand hover round-trips.
+ * The term tooltips and the citation notes are read at rest rather than by
+ * driving a pointer: the definition and the reference metadata are in the
+ * DOM the whole time and CSS reveals them (a term on hover or focus, a
+ * citation's sidenote in the margin or inline when its number is pressed),
+ * so their CONTENT and their `aria-describedby` wiring are structural facts
+ * that need no interaction. The reveal itself is a separate claim and is
+ * driven for real in `glossary.spec.ts` and
+ * `brand-v2-article-interactions.spec.ts`; reading the text here as well is
+ * what makes the corpus-wide check affordable at 94 page loads instead of
+ * several thousand hover round-trips.
  *
  * Focus indication is measured by outline STYLE and WIDTH, never by colour.
  * `.transition-colors` lists `outline-color` among its transitioned
@@ -180,10 +182,17 @@ function collectApparatus(): Omit<
   );
 
   const here = window.location.pathname;
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): the article carries a sticky "Contents" rail whose links are
+  // fragments of this page (`#section`). A fragment names a place on the
+  // page, not the route as a destination, and the rail marks it with
+  // aria-current="location", so a fragment link is not a navigation item
+  // that has to carry aria-current="page".
   const hasMatchingNavLink = taxonomy.some((nav) =>
-    Array.from(nav.querySelectorAll('a[href]')).some(
-      (link) => new URL((link as HTMLAnchorElement).href).pathname === here,
-    ),
+    Array.from(nav.querySelectorAll('a[href]')).some((link) => {
+      if ((link.getAttribute('href') ?? '').startsWith('#')) return false;
+      return new URL((link as HTMLAnchorElement).href).pathname === here;
+    }),
   );
 
   /**
@@ -262,22 +271,44 @@ function collectApparatus(): Omit<
       (li) => li.getAttribute('data-article-key') ?? '',
     );
 
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): a citation is a superscript number (`sup.cite-mark a`, the
+  // number its References entry carries, leading to `#ref-<id>`) plus a
+  // sidenote (`[data-sidenote]`) whose author-year label links to the
+  // source. Outside the numbered prose it is the author-year link alone,
+  // described by a hidden note. The tooltip is retired.
   const citations = Array.from(
     document.querySelectorAll('[data-cite-id]'),
   ).map((chip) => {
-    const link = chip.querySelector<HTMLAnchorElement>('a[href]');
-    const tooltip = chip.querySelector('[role="tooltip"]');
+    const mark = chip.querySelector<HTMLAnchorElement>('sup.cite-mark a[href]');
+    const note = chip.querySelector('[data-sidenote]');
+    const link =
+      note?.querySelector<HTMLAnchorElement>('a[href]') ??
+      chip.querySelector<HTMLAnchorElement>('a.cite-label[href]');
+    const described = mark ?? link;
+    const describedBy = described?.getAttribute('aria-describedby');
+    const noteHost = describedBy ? document.getElementById(describedBy) : null;
     const jump = Array.from(chip.querySelectorAll<HTMLAnchorElement>('a[href]')).find(
       (candidate) => (candidate.getAttribute('href') ?? '').startsWith('#ref-'),
     );
+    const markHref = mark?.getAttribute('href') ?? null;
+    const number = mark
+      ? clean(mark).replace(/^Source\s*/, '')
+      : null;
     return {
       id: chip.getAttribute('data-cite-id') ?? '',
       label: clean(link),
       href: link?.href ?? '',
       opensExternally: link?.getAttribute('target') === '_blank',
-      tooltipText: clean(tooltip),
-      describedByResolves: link ? describedByResolves(link) : false,
+      noteText: clean(noteHost),
+      describedByResolves: described ? describedByResolves(described) : false,
       referenceHref: jump?.getAttribute('href') ?? null,
+      number,
+      markHref,
+      markTargetResolves:
+        markHref !== null &&
+        markHref.startsWith('#') &&
+        document.getElementById(markHref.slice(1)) !== null,
       // Containment, never identity with the first match: an article carries
       // six `data-pagefind-body` regions (components mark their own), so
       // comparing against `querySelector`'s first hit called every chip in
@@ -321,6 +352,27 @@ function collectApparatus(): Omit<
       label: trail?.getAttribute('aria-label') ?? null,
       distinctFromTaxonomyNav:
         trail !== null && !taxonomy.some((nav) => nav.contains(trail)),
+      structuredTrail: Array.from(
+        document.querySelectorAll('script[type="application/ld+json"]'),
+      ).flatMap((script) => {
+        try {
+          const data = JSON.parse(script.textContent ?? '');
+          if (data?.['@type'] !== 'BreadcrumbList') return [];
+          return (data.itemListElement ?? []).map(
+            (item: { name?: unknown; item?: unknown }) => {
+              let href: string | null = null;
+              try {
+                href = new URL(String(item.item)).pathname;
+              } catch {
+                href = null;
+              }
+              return { name: String(item.name ?? ''), href };
+            },
+          );
+        } catch {
+          return [];
+        }
+      }),
       items: Array.from(trail?.querySelectorAll('li') ?? []).map((item) => {
         const link = item.querySelector<HTMLAnchorElement>('a[href]');
         const carrier = (link ?? item.querySelector('span') ?? item) as Element;
@@ -629,6 +681,15 @@ test.describe('brand-v2 article wiki apparatus', () => {
      */
     const plantLateStylesheet = async (page: Page) => {
       await page.evaluate(async () => {
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the reference links lost their `transition-colors`
+        // utility with the re-skin, so the plant brings its own colour
+        // transition. Any link the site gives a transition later is the case
+        // this guards, and the guarded half must still read the at-rest ink.
+        const transition = document.createElement('style');
+        transition.textContent =
+          'a[data-reference-source-link] { transition: color 900ms linear; }';
+        document.head.append(transition);
         const linked = Array.from(document.styleSheets).filter(
           (sheet) => sheet.ownerNode instanceof HTMLLinkElement,
         );
@@ -660,7 +721,7 @@ test.describe('brand-v2 article wiki apparatus', () => {
       const during = await referenceColours(control);
       expect(during.length, 'the route carries reference source links').toBeGreaterThan(0);
       expect(
-        during.some((colour) => colour !== SIGNAL_BLUE_RENDERED),
+        during.some((colour) => colour !== LINK_INK_RENDERED),
         `the plant no longer starts a colour transition, so this guard proves nothing (saw ${[...new Set(during)].join(', ')})`,
       ).toBe(true);
     } finally {
@@ -677,7 +738,7 @@ test.describe('brand-v2 article wiki apparatus', () => {
       await settleForMeasurement(guarded);
       const settled = await referenceColours(guarded);
       expect(settled.length).toBeGreaterThan(0);
-      expect([...new Set(settled)]).toEqual([SIGNAL_BLUE_RENDERED]);
+      expect([...new Set(settled)]).toEqual([LINK_INK_RENDERED]);
     } finally {
       await guarded.close();
     }

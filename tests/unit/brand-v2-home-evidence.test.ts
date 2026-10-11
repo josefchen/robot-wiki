@@ -64,6 +64,28 @@ function failingAnchors(
     .sort();
 }
 
+/**
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * the committed sweep paints no highlight, so the highlight cases plant one,
+ * lime on a span, in the first viewport, and vary only the cue under test.
+ */
+function plantHighlight(
+  evidence: HomeCompositionEvidence,
+  cue: Partial<HomeCompositionEvidence['highlights'][number]> = {},
+): void {
+  evidence.highlights.push({
+    tag: 'span',
+    carriers: ['background-color: rgb(198, 255, 25)'],
+    text: 'sources',
+    nonColourCue: null,
+    rejectedStateCues: [],
+    annotation: null,
+    topPx: 200,
+    bottomPx: 220,
+    ...cue,
+  });
+}
+
 function anchorFailures(
   change: (evidence: HomeCompositionEvidence) => void,
 ): string {
@@ -189,7 +211,16 @@ describe('home composition evidence', () => {
         }),
         LITERALS,
       ).flatMap(({ failures }) => failures).join(' '),
-    ).toMatch(/not Tektur/);
+      // Owner-approved successor (Josef, 2026-10-10): the hero is DM Sans.
+    ).toMatch(/not DM Sans/);
+    expect(
+      heroLockupVerdicts(
+        mutate((evidence) => {
+          evidence.heroLockups[0].fontFamilyHead = 'Tektur';
+        }),
+        LITERALS,
+      ).flatMap(({ failures }) => failures).join(' '),
+    ).toMatch(/not DM Sans/);
     expect(
       heroLockupVerdicts(
         mutate((evidence) => {
@@ -247,14 +278,15 @@ describe('home composition evidence', () => {
         }
       }),
     ).toMatch(/not the on-action white/);
-    // Lime carried by colour alone, with no cue a non-sighted reader gets.
+    // Owner-approved successor (Josef, 2026-10-10): any painted highlight
+    // fails the anchor, with or without a cue beside the colour.
+    expect(failingAnchors((evidence) => plantHighlight(evidence))).toEqual([
+      'anchor:home-lime-highlight',
+    ]);
     expect(
-      failingAnchors((evidence) => {
-        for (const highlight of evidence.highlights) {
-          highlight.tag = 'span';
-          highlight.nonColourCue = null;
-        }
-      }),
+      failingAnchors((evidence) =>
+        plantHighlight(evidence, { tag: 'mark', nonColourCue: 'mark' }),
+      ),
     ).toEqual(['anchor:home-lime-highlight']);
     expect(
       failingAnchors((evidence) => {
@@ -287,13 +319,9 @@ describe('home composition evidence', () => {
     // carrying it satisfied the anchor while a reader in greyscale or forced
     // colours met nothing at all where the emphasis was supposed to be.
     expect(
-      anchorFailures((evidence) => {
-        for (const highlight of evidence.highlights) {
-          highlight.tag = 'span';
-          highlight.nonColourCue = null;
-          highlight.annotation = 'home-premise';
-        }
-      }),
+      anchorFailures((evidence) =>
+        plantHighlight(evidence, { annotation: 'home-premise' }),
+      ),
     ).toMatch(/is an annotation addressed to this sweep/);
   });
 
@@ -304,28 +332,22 @@ describe('home composition evidence', () => {
     // as nothing — counted as the cue standing between a lime-only
     // highlight and a reader who cannot perceive the lime.
     expect(
-      anchorFailures((evidence) => {
-        for (const highlight of evidence.highlights) {
-          highlight.tag = 'span';
-          highlight.nonColourCue = null;
-          highlight.annotation = null;
-          highlight.rejectedStateCues = [
+      anchorFailures((evidence) =>
+        plantHighlight(evidence, {
+          rejectedStateCues: [
             'aria-selected="false" asserts no state (positive values: true)',
-          ];
-        }
-      }),
+          ],
+        }),
+      ),
     ).toMatch(/aria-selected="false" asserts no state/);
     expect(
-      anchorFailures((evidence) => {
-        for (const highlight of evidence.highlights) {
-          highlight.tag = 'span';
-          highlight.nonColourCue = null;
-          highlight.annotation = null;
-          highlight.rejectedStateCues = [
+      anchorFailures((evidence) =>
+        plantHighlight(evidence, {
+          rejectedStateCues: [
             'aria-pressed="true" sits on role "none", which does not carry that state',
-          ];
-        }
-      }),
+          ],
+        }),
+      ),
     ).toMatch(/does not carry that state/);
     // The vocabulary is a fixed list of states and their positive values,
     // not "any attribute beginning with aria-".
@@ -341,6 +363,7 @@ describe('home composition evidence', () => {
     expect(() =>
       accept(
         mutate((evidence) => {
+          plantHighlight(evidence);
           for (const highlight of evidence.highlights) {
             delete (highlight as { rejectedStateCues?: string[] })
               .rejectedStateCues;

@@ -22,18 +22,24 @@ describe('Cite', () => {
     );
   });
 
-  it('exposes citation metadata through a described-by tooltip', () => {
+  // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard):
+  // the floating tooltip is retired. Outside an article the metadata stays
+  // the link's accessible description; inside one it is the sidenote
+  // (tests/component/ui/cite-placement.test.tsx).
+  it('exposes citation metadata as the link description', () => {
     render(<Cite {...props} />);
     const link = screen.getByRole('link', { name: /Zhao 2023/ });
-    const tooltip = screen.getByRole('tooltip');
-    expect(tooltip).toHaveTextContent(props.title);
-    expect(tooltip).toHaveTextContent('arXiv 2023');
-    expect(link).toHaveAttribute('aria-describedby', tooltip.id);
-    expect(tooltip.id).not.toBe('');
-    expect(tooltip).toHaveAttribute(
-      'data-brand-surface-id',
-      'surface:floating',
+    const description = document.getElementById(
+      link.getAttribute('aria-describedby') ?? '',
     );
+    expect(description).not.toBeNull();
+    expect(description).toHaveTextContent(props.title);
+    expect(description).toHaveTextContent('arXiv 2023');
+    expect(description).toHaveAttribute('data-pagefind-ignore');
+    expect(link).toHaveAccessibleDescription(
+      expect.stringContaining(props.title),
+    );
+    expect(screen.queryByRole('tooltip')).toBeNull();
   });
 
   it('renders no in-page reference affordance without a referenceHref', () => {

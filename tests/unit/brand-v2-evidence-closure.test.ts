@@ -17,16 +17,28 @@ import {
 
 const ROOT = process.cwd();
 
-const FONT_BINARY = 'public/fonts/Tektur-latin-wdth-wght.woff2';
+const FONT_BINARY = 'assets/fonts/tektur/Tektur-SemiBold.ttf';
 const GEOMETRY_MODEL = 'public/models/so101/so101.urdf';
 
 /**
  * The route that draws the shipped robot. Its loader names the URDF by URL,
- * so the model reaches the page without an import.
+ * so the model reaches the page without an import. Since the site-foundation
+ * re-skin of 2026-10-10 the pages load their faces through
+ * `next/font/google`, so the route names no font binary and declares only
+ * the model class.
  */
 const PLAYGROUND_CLOSURE = {
   entries: ['app/layout.tsx', 'app/playground/page.tsx'],
-  nonImportClasses: [WEB_FONT_BINARY_CLASS, SHIPPED_GEOMETRY_MODEL_CLASS],
+  nonImportClasses: [SHIPPED_GEOMETRY_MODEL_CLASS],
+} as const;
+
+/**
+ * The Open Graph face registry names its static binaries by path string, so
+ * after the re-skin it is the closure the font class still has members in.
+ */
+const OG_FACE_CLOSURE = {
+  entries: ['lib/og-renderer-fonts.ts'],
+  nonImportClasses: [WEB_FONT_BINARY_CLASS],
 } as const;
 
 /** Bytes to put back, whatever the assertion in between did. */
@@ -56,6 +68,10 @@ function homeFingerprint(): string {
 
 function playgroundFingerprint(): string {
   return deriveEvidenceClosure({ root: ROOT, ...PLAYGROUND_CLOSURE }).fingerprint;
+}
+
+function ogFaceFingerprint(): string {
+  return deriveEvidenceClosure({ root: ROOT, ...OG_FACE_CLOSURE }).fingerprint;
 }
 
 describe('evidence closure derivation', () => {
@@ -241,7 +257,12 @@ describe('evidence closure derivation', () => {
         members.files,
       ]),
     );
-    expect(byClass.get(WEB_FONT_BINARY_CLASS.id)).toContain(FONT_BINARY);
+    const fontClosure = deriveEvidenceClosure({ root: ROOT, ...OG_FACE_CLOSURE });
+    const fontMembers = fontClosure.nonImportDependencies.find(
+      (members) => members.classId === WEB_FONT_BINARY_CLASS.id,
+    )?.files;
+    expect(fontMembers).toContain(FONT_BINARY);
+    for (const path of fontMembers ?? []) expect(fontClosure.files).toContain(path);
     expect(byClass.get(SHIPPED_GEOMETRY_MODEL_CLASS.id)).toContain(
       GEOMETRY_MODEL,
     );
@@ -259,19 +280,34 @@ describe('evidence closure derivation', () => {
     // The accepted half: the same derivation is stable while nothing moves.
     const baseline = playgroundFingerprint();
     expect(playgroundFingerprint()).toEqual(baseline);
+    const fontBaseline = ogFaceFingerprint();
+    expect(ogFaceFingerprint()).toEqual(fontBaseline);
     const homeBaseline = homeFingerprint();
 
     // One plant per class, so neither class is carried by the other.
     plantByte(FONT_BINARY);
-    const withPlantedFont = playgroundFingerprint();
-    expect(withPlantedFont).not.toEqual(baseline);
-    expect(homeFingerprint()).not.toEqual(homeBaseline);
-    const homeWithPlantedFont = homeFingerprint();
+    const withPlantedFont = ogFaceFingerprint();
+    expect(withPlantedFont).not.toEqual(fontBaseline);
+    // No page loads the OG binary, so the page readings do not move.
+    expect(playgroundFingerprint()).toEqual(baseline);
+    expect(homeFingerprint()).toEqual(homeBaseline);
 
     plantByte(GEOMETRY_MODEL);
-    expect(playgroundFingerprint()).not.toEqual(withPlantedFont);
+    expect(playgroundFingerprint()).not.toEqual(baseline);
+    expect(ogFaceFingerprint()).toEqual(withPlantedFont);
     // Home draws nothing from the robot model, so its reading does not move.
-    expect(homeFingerprint()).toEqual(homeWithPlantedFont);
+    expect(homeFingerprint()).toEqual(homeBaseline);
+  });
+
+  it('refuses the web font class on a page closure, which names no font binary', () => {
+    // Since the 2026-10-10 re-skin the pages load their faces through
+    // next/font/google, so declaring the class for a page would read as
+    // coverage it does not provide.
+    for (const entries of [HOME_CLOSURE_ENTRIES, PLAYGROUND_CLOSURE.entries]) {
+      expect(() =>
+        deriveEvidenceClosure({ root: ROOT, entries, nonImportClasses: [WEB_FONT_BINARY_CLASS] }),
+      ).toThrow(/covers nothing/);
+    }
   });
 
   it('refuses a declared class home cannot reach', () => {
@@ -300,17 +336,21 @@ describe('evidence closure derivation', () => {
   });
 
   it('leaves the non-import classes out of a closure that does not declare them', () => {
-    const declared = deriveEvidenceClosure({
-      root: ROOT,
-      entries: HOME_CLOSURE_ENTRIES,
-      nonImportClasses: HOME_NON_IMPORT_CLASSES,
-    });
-    const undeclared = deriveEvidenceClosure({
-      root: ROOT,
-      entries: HOME_CLOSURE_ENTRIES,
-    });
-    expect(undeclared.files).not.toContain(FONT_BINARY);
-    expect(declared.fingerprint).not.toEqual(undeclared.fingerprint);
+    // Home declares no class since the 2026-10-10 re-skin, so the check runs
+    // on the closures that still declare one.
+    for (const [fixture, member] of [
+      [PLAYGROUND_CLOSURE, GEOMETRY_MODEL],
+      [OG_FACE_CLOSURE, FONT_BINARY],
+    ] as const) {
+      const declared = deriveEvidenceClosure({ root: ROOT, ...fixture });
+      const undeclared = deriveEvidenceClosure({
+        root: ROOT,
+        entries: fixture.entries,
+      });
+      expect(declared.files).toContain(member);
+      expect(undeclared.files).not.toContain(member);
+      expect(declared.fingerprint).not.toEqual(undeclared.fingerprint);
+    }
   });
 
   it('derives route entries covering every public segment file', () => {

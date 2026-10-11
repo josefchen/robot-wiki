@@ -58,7 +58,10 @@ describe('brand-v2 shared primitives', () => {
       'data-brand-control-id',
       'control:selection',
     );
-    expect(selected).toHaveClass('bg-selection', 'text-ink');
+    // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard):
+    // selection is an ink rule and weight, not a colour fill.
+    expect(selected).toHaveClass('border-ink', 'font-medium', 'text-ink');
+    expect(selected).not.toHaveClass('bg-selection');
 
     const link = screen.getByRole('link', { name: 'Search' });
     expect(link).toHaveAttribute(

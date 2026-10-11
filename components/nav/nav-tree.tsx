@@ -1,12 +1,10 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { CaretDown } from '@phosphor-icons/react';
 import { useState, type ReactNode } from 'react';
 import { IntentLink } from '@/components/ui/intent-link';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
 import type { Domain } from '@/data/modules';
-import { BrandDevice } from '@/components/ui/brand-device';
 import { cx } from '@/lib/utils';
 
 /**
@@ -17,8 +15,8 @@ import { cx } from '@/lib/utils';
  * drafts are excluded from the sidebar taxonomy entirely, so
  * no reader surface can hint at work that does not exist yet.
  * The group containing the current route is expanded
- * on load and the active link carries aria-current="page", ink text, one
- * extra weight step, and the lime active-interval rail.
+ * on load and the active link carries aria-current="page", ink text and
+ * one extra weight step. No rail, no pill: plain text on the sheet.
  */
 type NavTreeProps = {
   /** Prefix for element ids so desktop and drawer instances never collide. */
@@ -54,52 +52,25 @@ function domainOf(pathname: string): Domain | null {
 }
 
 const moduleLinkBase =
-  'relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors';
-const moduleLinkIdle = 'text-text-dim hover:bg-surface-2 hover:text-text';
+  'block py-[5px] pl-5 font-sans text-[14px] leading-snug transition-colors';
+const moduleLinkIdle = 'text-text-dim hover:text-text';
 const moduleLinkActive = 'font-medium text-text';
 
 const entryLinkBase =
-  'relative block rounded-sm px-2 py-1.5 font-sans text-sm transition-colors';
-const entryLinkIdle = 'font-medium text-text hover:bg-surface-2';
-const entryLinkActive = 'font-semibold text-text';
-
-/**
- * The active-route marker: the lime active-interval rail, pinned to the left
- * edge of the link box at full row height.
- *
- * It replaces an inset box-shadow, which the link's rounded-sm corners
- * clipped into a broken bracket; a real element means zero radius on every
- * corner. Every category of entry renders it at `left-0` of its own link
- * box, and every category's link box starts at the taxonomy rail, so module
- * links, Domain overview links and standalone entries all mark at one depth.
- * It is aria-hidden and empty, so it can never pollute the link's accessible
- * name, and colour is never its only signal: the active link also shifts to
- * ink and gains one weight step.
- */
-function ActiveMarker({ railAnchorId }: { railAnchorId: string }) {
-  return (
-    <BrandDevice
-      device="active-interval-rail"
-      anchorSelector={`#${railAnchorId}`}
-      deviceEdge="left"
-      anchorEdge="left"
-      className="left-0 top-0 h-full"
-    />
-  );
-}
+  'block py-[5px] font-sans text-[14px] leading-snug transition-colors';
+const entryLinkIdle = 'text-text hover:text-text-dim';
+const entryLinkActive = 'font-medium text-text';
 
 /** A sidebar entry link with the shared active-marker treatment. */
 function NavEntryLink({
   href,
   active,
-  railAnchorId,
   onNavigate,
   className,
   children,
 }: {
   href: string;
   active: boolean;
-  railAnchorId: string;
   onNavigate?: () => void;
   className?: string;
   children: ReactNode;
@@ -112,7 +83,6 @@ function NavEntryLink({
       onClick={onNavigate}
       className={className}
     >
-      {active ? <ActiveMarker railAnchorId={railAnchorId} /> : null}
       {children}
     </IntentLink>
   );
@@ -167,15 +137,9 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
     return activePath === normalize(href);
   }
 
-  // The rail the active marker aligns to is this instance's own taxonomy
-  // landmark: desktop sidebar and mobile drawer both render a tree, and a
-  // shared selector would measure one instance's marker against the other
-  // instance's box.
-  const railAnchorId = `${idPrefix}-taxonomy`;
-
   return (
-    <nav id={railAnchorId} aria-label={ariaLabel} className={className}>
-      <ul className="flex flex-col gap-0.5">
+    <nav id={`${idPrefix}-taxonomy`} aria-label={ariaLabel} className={className}>
+      <ul className="flex flex-col">
         {DOMAINS.map((domain) => {
           const meta = DOMAIN_META[domain];
           const mods = grouped[domain] ?? [];
@@ -189,25 +153,22 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
                 aria-controls={panelId}
                 data-brand-control-id="control:secondary-action"
                 onClick={() => toggle(domain)}
-                className="flex w-full items-center gap-1.5 rounded-sm px-2 py-1.5 text-left font-sans text-sm font-medium text-text transition-colors hover:bg-surface-2"
+                className="flex w-full cursor-pointer items-baseline gap-2 py-[7px] text-left font-sans text-[15px] text-text transition-colors hover:text-text-dim"
               >
-                <CaretDown
-                  size={14}
+                <span
                   aria-hidden
-                  className={cx(
-                    'shrink-0 text-text-dim transition-transform',
-                    !expanded && '-rotate-90',
-                  )}
-                />
+                  className="w-3 shrink-0 font-mono text-[13px] text-text-dim"
+                >
+                  {expanded ? '\u2212' : '+'}
+                </span>
                 <span>{meta.name}</span>
               </button>
               {expanded ? (
-                <ul id={panelId} className="mt-0.5 mb-1.5 flex flex-col gap-0.5">
+                <ul id={panelId} className="mb-2 flex flex-col">
                   <li>
                     <NavEntryLink
                       href={`/${domain}`}
                       active={isActive(`/${domain}`)}
-                      railAnchorId={railAnchorId}
                       onNavigate={onNavigate}
                       className={linkClass(`/${domain}`)}
                     >
@@ -221,8 +182,7 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
                         <NavEntryLink
                           href={`/${m.domain}/${m.slug}`}
                           active={isActive(`/${m.domain}/${m.slug}`)}
-                          railAnchorId={railAnchorId}
-                          onNavigate={onNavigate}
+                              onNavigate={onNavigate}
                           className={linkClass(`/${m.domain}/${m.slug}`)}
                         >
                           {m.title}
@@ -235,13 +195,12 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
           );
         })}
       </ul>
-      <ul className="mt-3 flex flex-col gap-0.5 border-t border-border pt-3">
+      <ul className="mt-5 flex flex-col border-t border-border pt-4">
         {TOP_LEVEL_ENTRIES.map((entry) => (
           <li key={entry.href}>
             <NavEntryLink
               href={entry.href}
               active={isActive(entry.href)}
-              railAnchorId={railAnchorId}
               onNavigate={onNavigate}
               className={cx(
                 entryLinkBase,

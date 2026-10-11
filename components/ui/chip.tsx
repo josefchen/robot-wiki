@@ -19,8 +19,8 @@ export function Chip({
   const classes = cx(
     'inline-flex min-h-6 items-center gap-1 rounded-xs border px-2 py-1 font-sans text-xs',
     selected
-      ? 'border-highlight bg-selection font-semibold text-ink'
-      : 'border-border bg-surface text-text',
+      ? 'border-ink font-medium text-ink'
+      : 'border-border text-text-dim hover:text-text',
     disabled && 'cursor-not-allowed bg-surface-2 text-text-dim',
     className,
   );

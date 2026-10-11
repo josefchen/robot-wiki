@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   ACTIVE_INTERVAL_RAIL_DEVICE_ID,
+  INK_RGB,
   SELECTION_LIME_RGB,
   SHELL_RUNTIME_EVIDENCE_PATH,
   SHELL_VIEWPORT,
@@ -194,21 +195,32 @@ describe('shell runtime evidence', () => {
   });
 
   it('fails a current-route mark that only colour carries, or that colour carries in signal blue', () => {
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the title is a stable id. The current entry is ink plus
+    // weight, so signal blue, the retired lime, or any other paint on it
+    // fails by name.
     const index = markedRouteIndex(committed());
-    const signal = currentRouteVerdicts(
-      accept(
-        mutate((evidence) => {
-          const entry = evidence.observations[index].navEntries.find(
-            ({ ariaCurrent }) => ariaCurrent === 'page',
-          );
-          if (entry?.marker) entry.marker.borderLeftColour = 'rgb(36, 95, 255)';
-        }),
-      ),
-      DEVICE_IDS,
-    );
-    expect(
-      [...signal.values()].flatMap(({ failures }) => failures).join(' '),
-    ).toMatch(/signal blue|not the sealed/);
+    for (const colour of ['rgb(36, 95, 255)', SELECTION_LIME_RGB]) {
+      const painted = [
+        ...currentRouteVerdicts(
+          accept(
+            mutate((evidence) => {
+              const entry = evidence.observations[index].navEntries.find(
+                ({ ariaCurrent }) => ariaCurrent === 'page',
+              );
+              if (entry) entry.colour = colour;
+            }),
+          ),
+          DEVICE_IDS,
+        ).values(),
+      ]
+        .flatMap(({ failures }) => failures)
+        .join(' ');
+      expect(painted, colour).toMatch(
+        new RegExp(`paints the current entry ${colour.replace(/[()]/g, '\\$&')}, not ink`),
+      );
+      expect(painted, colour).toMatch(/signal blue or the retired lime/);
+    }
 
     const colourOnly = currentRouteVerdicts(
       accept(
@@ -232,12 +244,30 @@ describe('shell runtime evidence', () => {
   });
 
   it('fails an unregistered mark, a clipped mark, and a mark that names the link', () => {
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the title is a stable id. The rail is retired, so the
+    // committed sweep carries no mark, and a mark planted on the current
+    // entry fails whatever it is: unregistered, the former rail, another
+    // registered device, an invented one, or one placed and hidden exactly
+    // as the rail used to be.
     const index = markedRouteIndex(committed());
-    const withMarker = (
-      change: (marker: NonNullable<
-        ShellRuntimeEvidence['observations'][number]['navEntries'][number]['marker']
-      >) => void,
-    ) =>
+    type Marker = NonNullable<
+      ShellRuntimeEvidence['observations'][number]['navEntries'][number]['marker']
+    >;
+    const planted: Marker = {
+      deviceId: ACTIVE_INTERVAL_RAIL_DEVICE_ID,
+      anchorSelector: null,
+      ariaHidden: 'true',
+      pointerEvents: 'none',
+      borderLeftColour: INK_RGB,
+      borderLeftWidthPx: 1,
+      leftPx: 0,
+      heightPx: 26,
+      alignmentErrorPx: 0,
+      ownerHeightPx: 26,
+      contributedText: '',
+    };
+    const withMarker = (change: (marker: Marker) => void) =>
       [
         ...currentRouteVerdicts(
           accept(
@@ -245,7 +275,10 @@ describe('shell runtime evidence', () => {
               const entry = evidence.observations[index].navEntries.find(
                 ({ ariaCurrent }) => ariaCurrent === 'page',
               );
-              if (entry?.marker) change(entry.marker);
+              if (!entry) throw new Error('the marked route has no current entry');
+              const marker = { ...planted };
+              change(marker);
+              entry.marker = marker;
             }),
           ),
           DEVICE_IDS,
@@ -253,58 +286,51 @@ describe('shell runtime evidence', () => {
       ]
         .flatMap(({ failures }) => failures)
         .join(' ');
+    expect(withMarker(() => {})).toMatch(
+      new RegExp(
+        `marks the current entry with ${ACTIVE_INTERVAL_RAIL_DEVICE_ID} where the research-page standard sets it in ink and weight alone`,
+      ),
+    );
 
     expect(
       withMarker((marker) => {
         marker.deviceId = null;
       }),
     ).toMatch(/unregistered element/);
-    // The input that used to pass: any non-null device id at all counted as
-    // the registered rail, so a mark annotated with another registered
-    // device's id — with that device's own geometry — read as compliant.
     expect(
       withMarker((marker) => {
         marker.deviceId = 'device:section-rule';
       }),
-    ).toMatch(
-      new RegExp(
-        `marks the current entry with device:section-rule, not the registered ${ACTIVE_INTERVAL_RAIL_DEVICE_ID}`,
-      ),
-    );
+    ).toMatch(/marks the current entry with device:section-rule where/);
     expect(
       withMarker((marker) => {
         marker.deviceId = 'device:invented-for-this-mark';
       }),
     ).toMatch(/device:invented-for-this-mark, which is not in the device registry/);
-    // And the reconciliation cannot be run against a registry that does not
-    // hold the rail at all.
-    expect(() =>
-      currentRouteVerdicts(
-        accept(committed()),
-        DEVICE_IDS.filter((id) => id !== ACTIVE_INTERVAL_RAIL_DEVICE_ID),
-      ),
-    ).toThrow(/is not in the device registry/);
+    // A device can still only be named against a registry that exists.
+    expect(() => currentRouteVerdicts(accept(committed()), [])).toThrow(
+      /device registry is empty/,
+    );
+    // The wordmark keeps its own exemption wording, with no device at all.
     expect(
-      withMarker((marker) => {
-        marker.alignmentErrorPx = 9;
-      }),
-    ).toMatch(/from its registered anchor/);
-    expect(
-      withMarker((marker) => {
-        marker.heightPx = 2;
-        marker.ownerHeightPx = 26;
-      }),
-    ).toMatch(/not full-row/);
-    expect(
-      withMarker((marker) => {
-        marker.contributedText = 'current page';
-      }),
-    ).toMatch(/contribute "current page"/);
-    expect(
-      withMarker((marker) => {
-        marker.ariaHidden = null;
-      }),
-    ).toMatch(/exposed or pointer-active/);
+      [
+        ...currentRouteVerdicts(
+          accept(
+            mutate((evidence) => {
+              for (const observation of evidence.observations) {
+                const lockup = observation.navEntries.find(
+                  (entry) => entry.category === 'lockup' && entry.ariaCurrent === 'page',
+                );
+                if (lockup) lockup.marker = { ...planted };
+              }
+            }),
+          ),
+          DEVICE_IDS,
+        ).values(),
+      ]
+        .flatMap(({ failures }) => failures)
+        .join(' '),
+    ).toMatch(/on the wordmark lockup, which the owner decision of 2026-09-25 excludes/);
   });
 
   it('fails aria-current parked on a heading, and a route that keeps it with no navigation item', () => {
@@ -481,14 +507,16 @@ describe('shell runtime evidence', () => {
   });
 
   it('holds the sweep to the sealed lime, and the fingerprint to the rail registrations', () => {
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the title is a stable id. The sweep carries no current-route
+    // mark anywhere, and every current entry is set in ink.
     const evidence = accept(committed());
-    const markers = evidence.observations
-      .flatMap(({ navEntries }) => navEntries)
-      .map(({ marker }) => marker)
-      .filter((marker) => marker !== null);
-    expect(markers.length).toBeGreaterThan(0);
-    for (const marker of markers) {
-      expect(marker.borderLeftColour).toBe(SELECTION_LIME_RGB);
+    const entries = evidence.observations.flatMap(({ navEntries }) => navEntries);
+    expect(entries.filter(({ marker }) => marker !== null)).toEqual([]);
+    const current = entries.filter(({ ariaCurrent }) => ariaCurrent === 'page');
+    expect(current.length).toBeGreaterThan(0);
+    for (const entry of current) {
+      expect(entry.colour, entry.href).toBe(INK_RGB);
     }
     expect(() =>
       shellEvidenceFingerprint({ root: ROOT, deviceRegistryRows: [] }),

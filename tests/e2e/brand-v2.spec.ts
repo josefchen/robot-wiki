@@ -145,10 +145,14 @@ test.describe('brand-v2 core visual authority', () => {
       signal: canonicalToken(signal),
       focus: canonicalToken(focus),
       selection: canonicalToken(selection),
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the one accent is the muted blue #3B6EA8, focus is the ink
+    // outline, and selection is the neutral concrete grey, in place of the
+    // brand-v2 signal #245FFF and lime #C6FF19.
     }).toEqual({
-      signal: '#245FFF',
-      focus: '#245FFF',
-      selection: '#C6FF19',
+      signal: '#3B6EA8',
+      focus: '#1C1C1A',
+      selection: '#DEDEDB',
     });
   });
 
@@ -201,13 +205,17 @@ test.describe('brand-v2 core visual authority', () => {
       ),
       spacing: canonical.slice(FOUNDATION.length + SEMANTIC.length),
     }).toEqual({
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): ink, the dark and background chart tones, paper, white
+      // and the medium chart tone, in place of the brand-v2 foundation
+      // #0B0B0C, #242D33, #D9DADB, #F5F6F7, #FFFFFF and lime #C6FF19.
       foundation: [
-        '#0B0B0C',
-        '#242D33',
-        '#D9DADB',
-        '#F5F6F7',
+        '#1C1C1A',
+        '#3F3F3B',
+        '#DEDEDB',
+        '#FAFAF8',
         '#FFFFFF',
-        '#C6FF19',
+        '#A3A39E',
       ],
       semantic: ['#1A6F45', '#8A5A00', '#A52A1E', '#6B1839'],
       spacing: [

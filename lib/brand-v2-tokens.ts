@@ -3,13 +3,13 @@
  * properties. app/globals.css mirrors these literals for the browser.
  */
 export const BRAND_COLORS = {
-  ink: '#0B0B0C',
-  graphite: '#242D33',
-  concrete: '#D9DADB',
-  paper: '#F5F6F7',
+  ink: '#1C1C1A',
+  graphite: '#3F3F3B',
+  concrete: '#DEDEDB',
+  paper: '#FAFAF8',
   white: '#FFFFFF',
-  highlight: '#C6FF19',
-  signal: '#245FFF',
+  highlight: '#A3A39E',
+  signal: '#3B6EA8',
   ok: '#1A6F45',
   warn: '#8A5A00',
   error: '#A52A1E',

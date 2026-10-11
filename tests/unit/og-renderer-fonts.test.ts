@@ -27,8 +27,12 @@ const source = (path: string): string =>
 
 describe('OG renderer font delivery contract', () => {
   it('registers only first-party role families (VAL-B2-TYPE-001)', () => {
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the web roles moved to DM Sans, Geist and Geist Mono, and
+    // the cards keep their vendored offline faces, which each role records
+    // as its OG family. A face must serve its role's OG family.
     const roleFamilies = new Map(
-      FIRST_PARTY_TYPE_ROLES.map(({ id, family }) => [id, family]),
+      FIRST_PARTY_TYPE_ROLES.map(({ id, family, ogFamily }) => [id, ogFamily ?? family]),
     );
     expect(OG_RENDERER_FACES.length).toBeGreaterThan(0);
     for (const face of OG_RENDERER_FACES) {
@@ -169,7 +173,7 @@ describe('OG renderer font mutation gates', () => {
       'og-face:data: KaTeX_Typewriter is a scoped exception family and must never serve a first-party role',
     );
     expect(report.failures).toContain(
-      'og-face:data: family KaTeX_Typewriter does not serve the data role family IBM Plex Mono',
+      'og-face:data: family KaTeX_Typewriter does not serve the data role OG family IBM Plex Mono',
     );
   });
 

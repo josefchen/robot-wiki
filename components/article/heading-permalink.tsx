@@ -12,11 +12,11 @@ import { useEffect, useRef, useState } from 'react';
  * "Copied" confirmation is only mounted while it is showing, for the same
  * reason: at rest it is absent from the prerendered markup.
  *
- * The glyph is painted at rest rather than revealed on hover. It is the
- * non-colour half of the pair that says a heading addresses a section: the
- * other half is the signal-blue rule under the heading, and a reader who
- * cannot separate that blue from the text colour has nothing left if the
- * shape only appears under a pointer they may not have.
+ * The glyph is quiet at rest (the page's muted grey at low opacity) and
+ * comes up to full strength when the heading is hovered or the control
+ * has keyboard focus, so a section head reads as plain type, as on the
+ * reference page, while the control stays reachable and visible to a
+ * keyboard reader.
  */
 export function HeadingPermalink({
   headingId,
@@ -57,15 +57,10 @@ export function HeadingPermalink({
         onClick={copy}
         aria-label={`Copy link to this section, ${headingText}`}
         data-brand-control-id="control:secondary-action"
-        // Painted at full strength rather than dimmed: a non-text graphic
-        // has to clear 3:1 against the page in every state, and signal blue
-        // held at 70% opacity over paper measures 2.2:1. The glyph stays
-        // 15px; the hit box is a 24px square so the control meets the
-        // WCAG 2.2 target-size minimum on its own geometry instead of
-        // leaning on the SC 2.5.8 spacing exception, which fails wherever
-        // the heading's own autolink anchor or an adjacent instrument
-        // comes within 24px of the icon.
-        className="ml-2 inline-flex size-6 cursor-pointer items-center justify-center text-accent transition-colors hover:text-ink"
+        // The glyph stays 15px; the hit box is a 24px square so the control
+        // meets the WCAG 2.2 target-size minimum on its own geometry
+        // instead of leaning on the SC 2.5.8 spacing exception.
+        className="ml-2 inline-flex size-6 cursor-pointer items-center justify-center align-[-2px] text-text-dim opacity-35 transition-opacity group-hover/heading:opacity-100 hover:text-ink focus-visible:opacity-100"
       >
         <LinkSimple size={15} aria-hidden />
       </button>
@@ -73,7 +68,7 @@ export function HeadingPermalink({
         <span
           data-pagefind-ignore
           role="status"
-          className="pointer-events-none absolute left-full top-1/2 ml-2 -translate-y-1/2 font-mono text-[11px] font-normal tracking-normal text-accent"
+          className="pointer-events-none absolute left-full top-1/2 ml-2 -translate-y-1/2 font-sans text-[11px] font-normal normal-case tracking-normal text-text-dim"
         >
           Copied
         </span>

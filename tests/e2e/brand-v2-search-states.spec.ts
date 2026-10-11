@@ -11,6 +11,7 @@ import {
   SEARCH_RESULT_STATE_IDS,
   SEARCH_MOBILE_STATE_IDS,
   SEARCH_FACET_OPTIONS,
+  SEARCH_SELECTION_INK_RGB,
   SEARCH_SELECTION_RGB,
   facetStateId,
   readSearchStatesEvidence,
@@ -314,10 +315,13 @@ test.describe('brand-v2-search-states', () => {
     const methods = bar.getByRole('button', { name: /^Methods/ });
     await methods.click();
 
-    // Selection is lime plus an independent shape marker plus semantics,
-    // never colour alone (VAL-B2-DISC-003).
+    // Selection is ink on a 1px ink rule plus an independent shape marker
+    // plus semantics, never colour alone (VAL-B2-DISC-003). Owner-approved
+    // successor (Josef, 2026-10-10, the research-page standard): the lime
+    // fill became the ink rule of a text tab.
     await expect(methods).toHaveAttribute('aria-pressed', 'true');
-    await expect(methods).toHaveCSS('background-color', 'rgb(198, 255, 25)');
+    await expect(methods).toHaveCSS('border-bottom-color', SEARCH_SELECTION_INK_RGB);
+    await expect(methods).toHaveCSS('background-color', SEARCH_SELECTION_RGB);
     await expect(methods.locator('[data-facet-check]')).toBeVisible();
     await expect(methods).toContainText('Methods');
 
@@ -345,7 +349,7 @@ test.describe('brand-v2-search-states', () => {
     await methods.focus();
     await page.keyboard.press('Enter');
     await expect(methods).toHaveAttribute('aria-pressed', 'true');
-    await expect(methods).toHaveCSS('background-color', 'rgb(198, 255, 25)');
+    await expect(methods).toHaveCSS('border-bottom-color', SEARCH_SELECTION_INK_RGB);
   });
 
   test('the input clear control returns to idle, syncs the URL, and holds focus', async ({
@@ -414,7 +418,7 @@ test.describe('brand-v2-search-states', () => {
 
     const methods = page.getByRole('button', { name: /^Methods/ });
     await methods.click();
-    await expect(methods).toHaveCSS('background-color', 'rgb(198, 255, 25)');
+    await expect(methods).toHaveCSS('border-bottom-color', SEARCH_SELECTION_INK_RGB);
     const clear = page.getByRole('button', { name: 'Clear search' });
     await expect(clear).toBeVisible();
 
@@ -479,6 +483,9 @@ async function collectState(
       const pressedByOption: Record<string, boolean> = {};
       let selected = 'none';
       let selectedBackgroundRgb = '';
+      let selectedColourRgb = '';
+      let selectedRuleRgb = '';
+      let selectedRuleWidthPx = 0;
       let selectedHasCheckMarker = false;
       for (const button of facetButtons) {
         const option = button.getAttribute('data-facet-option');
@@ -487,7 +494,11 @@ async function collectState(
         pressedByOption[option] = pressed;
         if (pressed) {
           selected = option;
-          selectedBackgroundRgb = getComputedStyle(button).backgroundColor;
+          const style = getComputedStyle(button);
+          selectedBackgroundRgb = style.backgroundColor;
+          selectedColourRgb = style.color;
+          selectedRuleRgb = style.borderBottomColor;
+          selectedRuleWidthPx = Number.parseFloat(style.borderBottomWidth) || 0;
           selectedHasCheckMarker =
             button.querySelector('[data-facet-check]') !== null;
         }
@@ -503,6 +514,9 @@ async function collectState(
               selected,
               pressedByOption,
               selectedBackgroundRgb,
+              selectedColourRgb,
+              selectedRuleRgb,
+              selectedRuleWidthPx,
               selectedHasCheckMarker,
               rowTypes: structuredRowTypes,
             }
@@ -568,6 +582,9 @@ function passingObservation(
       SEARCH_FACET_OPTIONS.map((option) => [option, option === selected]),
     ),
     selectedBackgroundRgb: SEARCH_SELECTION_RGB,
+    selectedColourRgb: SEARCH_SELECTION_INK_RGB,
+    selectedRuleRgb: SEARCH_SELECTION_INK_RGB,
+    selectedRuleWidthPx: 1,
     selectedHasCheckMarker: true,
     rowTypes: selected === 'all' ? ['method', 'company', 'dataset'] : [selected],
   });
@@ -855,11 +872,11 @@ test.describe('brand-v2 search states sweep', () => {
       await button.focus();
       await page.keyboard.press('Enter');
       await expect(button).toHaveAttribute('aria-pressed', 'true');
-      // The facet colours transition; read the computed lime only once it
-      // has settled, so the recorded value is the resting treatment.
+      // The facet colours transition; read the computed ink rule only once
+      // it has settled, so the recorded value is the resting treatment.
       await expect(button).toHaveCSS(
-        'background-color',
-        SEARCH_SELECTION_RGB,
+        'border-bottom-color',
+        SEARCH_SELECTION_INK_RGB,
       );
       optionActivatedByKeyboard[option] = true;
       if (option !== 'all') {
@@ -1085,7 +1102,10 @@ test.describe('brand-v2 search states sweep', () => {
         // Freeze the transition so the plant reads its own mutation, not a
         // frame of the colour fading out.
         element.style.transition = 'none';
-        element.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the selected treatment is the ink rule, so the plant
+        // strips the rule where it used to strip the lime fill.
+        element.style.borderBottomColor = 'rgba(0, 0, 0, 0)';
       }
     });
     const mutated = await collectState(
@@ -1098,10 +1118,10 @@ test.describe('brand-v2 search states sweep', () => {
       ({ failures: entry }) => entry,
     );
     // The exact serialized colour is the engine's business; the plant's
-    // claim is that a selected facet whose fill is not lime fails by name.
+    // claim is that a selected facet whose rule is not ink fails by name.
     expect(failures.length).toBe(1);
     expect(failures[0]).toMatch(
-      /^the selected method facet computes to .+, not lime$/,
+      /^the selected method facet draws its rule .+, not 1px ink$/,
     );
   });
 

@@ -469,7 +469,8 @@ describe('article table and math evidence', () => {
       observation.proseWidthPx = observation.zeroAdvancePx * 40;
     }
     expect(failuresOf(tableContainmentVerdicts(squeezed)).join('\n')).toMatch(
-      /under the .*ch readable floor/,
+      // Owner-approved successor (Josef, 2026-10-10): the measure is in px.
+      /under the \d+px readable floor/,
     );
   });
 

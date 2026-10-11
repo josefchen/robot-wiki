@@ -36,7 +36,7 @@ export const metadata: Metadata = {
  */
 export default function SearchPage() {
   return (
-    <div data-pagefind-ignore className="mx-auto w-full max-w-3xl px-6 py-12">
+    <div data-pagefind-ignore className="sheet sheet-masthead pb-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -51,13 +51,10 @@ export default function SearchPage() {
       {/* No aria-current: the shell reaches /search through a form, not a
           nav link, and a route with no corresponding navigation item exposes
           none rather than moving the state onto a heading to keep a count. */}
-      <h1
-        data-tektur-role="page-h1"
-        className="font-display-page text-3xl tracking-tight text-text"
-      >
+      <h1 data-tektur-role="page-h1" className="display-h1">
         Search
       </h1>
-      <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
+      <p className="page-lead mt-[30px]">
         Search article prose together with the structured data layer of
         methods, companies, and datasets. Queries run locally in your browser.
       </p>

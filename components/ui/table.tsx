@@ -119,25 +119,25 @@ export function Table<T extends Record<string, unknown>>({
       data-brand-frame-depth="1"
       data-brand-frame-interior-registered="table"
       className={cx(
-        'overflow-x-auto rounded-sm border border-border [container-type:inline-size]',
+        'overflow-x-auto [container-type:inline-size]',
         className,
       )}
     >
-      <table className="w-full border-collapse text-sm">
+      <table className="booktabs">
         <caption
           id={captionId}
-          className="border-b border-border bg-surface-2 px-3 py-2 text-left font-sans text-xs text-text-dim"
+          className="pb-3 text-left font-sans text-[13px] leading-normal text-text-dim [caption-side:top]"
         >
           {/* A caption box is as wide as the table, which on a narrow screen
               runs past the scroll region. Capping the text at the region's
               visible width (cqw resolves against the region) and pinning it
               keeps every caption line readable without scrolling sideways. */}
-          <span className="sticky left-3 block max-w-[calc(100cqw_-_1.5rem)]">
+          <span className="sticky left-0 block max-w-[100cqw]">
             {caption}
           </span>
         </caption>
         <thead>
-          <tr className="border-b border-border bg-surface-2">
+          <tr>
             {columns.map((column) => {
               const isSorted = sort?.key === column.key;
               return (
@@ -152,7 +152,7 @@ export function Table<T extends Record<string, unknown>>({
                       : undefined
                   }
                   className={cx(
-                    'px-3 py-2 font-sans text-xs font-medium text-text-dim',
+                    'font-sans text-[13px]',
                     column.numeric ? 'text-right' : 'text-left',
                   )}
                 >
@@ -194,19 +194,17 @@ export function Table<T extends Record<string, unknown>>({
               id={anchor}
               data-entity-id={anchor}
               className={cx(
-                'scroll-mt-24 border-t border-border bg-surface',
-                // Flat functional 2px left rule (a real border, not an
-                // inset box-shadow): selected-row chrome must be shadow-
-                // free per VAL-DSSURFACE-022, and the quiet surface
-                // change keeps the state legible without colour alone.
-                highlighted && 'border-l-2 border-l-accent bg-surface-2',
+                'scroll-mt-24',
+                // The selected row is set in weight 600, the booktabs mark
+                // for the row the reader asked for: no fill, no bar.
+                highlighted && 'font-semibold',
               )}
             >
               {columns.map((column) => (
                 <td
                   key={column.key}
                   className={cx(
-                    'px-3 py-2 text-text',
+                    'text-text',
                     column.numeric && 'text-right font-mono tabular-nums',
                     column.cellClassName,
                   )}

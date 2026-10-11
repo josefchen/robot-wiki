@@ -74,20 +74,45 @@ export const DESKTOP_VIEWPORT_ID = '1440x900';
  */
 export const SIGNAL_BLUE_FORMS = ['rgb(36, 95, 255)', '#245fff'] as const;
 
-/** The sealed ranges, read off the contract rows they belong to. */
+/**
+ * The two text tones a source path may be painted in. Owner-approved
+ * successor (Josef, 2026-10-10, the research-page standard): links are ink
+ * plus an underline, and a citation's margin note sets its source link in
+ * the muted note tone, so a source path is one of these two and never the
+ * accent, which is kept for the one highlighted series.
+ */
+export const LINK_TEXT_TONES = ['rgb(28, 28, 26)', 'rgb(108, 107, 102)'] as const;
+export const INK_RENDERED = 'rgb(28, 28, 26)';
+
+/**
+ * The sealed ranges, read off the contract rows they belong to.
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * the display H1 is DM Sans 400 at about 88px on a wide screen and about
+ * 44px on a phone with 0.93 leading, and the home H1 is that same display
+ * H1; body prose is Geist 16px at 1.62 in a column of at most 960px. The
+ * brand-v2 Tektur and Newsreader ranges these replace were 34-44/48-64px at
+ * 1.00-1.10 (article title), 52-68/88-120px at 0.88-0.98 (home wordmark)
+ * and 18-21px at 1.60-1.80 in 62-68ch (prose).
+ */
 export const ARTICLE_H1_SIZE_PX = {
-  [MOBILE_VIEWPORT_ID]: { min: 34, max: 44 },
-  [DESKTOP_VIEWPORT_ID]: { min: 48, max: 64 },
+  [MOBILE_VIEWPORT_ID]: { min: 40, max: 48 },
+  [DESKTOP_VIEWPORT_ID]: { min: 84, max: 92 },
 } as const;
-export const ARTICLE_H1_LINE_HEIGHT = { min: 1.0, max: 1.1 } as const;
+export const ARTICLE_H1_LINE_HEIGHT = { min: 0.9, max: 0.96 } as const;
 export const HOME_WORDMARK_SIZE_PX = {
-  [MOBILE_VIEWPORT_ID]: { min: 52, max: 68 },
-  [DESKTOP_VIEWPORT_ID]: { min: 88, max: 120 },
+  [MOBILE_VIEWPORT_ID]: { min: 40, max: 48 },
+  [DESKTOP_VIEWPORT_ID]: { min: 84, max: 92 },
 } as const;
-export const HOME_WORDMARK_LINE_HEIGHT = { min: 0.88, max: 0.98 } as const;
-export const PROSE_SIZE_PX = { min: 18, max: 21 } as const;
-export const PROSE_LINE_HEIGHT = { min: 1.6, max: 1.8 } as const;
-export const PROSE_MEASURE_CH = { min: 62, max: 68 } as const;
+export const HOME_WORDMARK_LINE_HEIGHT = { min: 0.9, max: 0.96 } as const;
+export const PROSE_SIZE_PX = { min: 16, max: 16 } as const;
+export const PROSE_LINE_HEIGHT = { min: 1.6, max: 1.65 } as const;
+/**
+ * The widest running paragraph at the desktop width. The standard measures
+ * the column in pixels (one column, 960px at most), so the band is held in
+ * pixels: wide enough that the column is the reading column and not a
+ * narrowed sidebar, never wider than the cap.
+ */
+export const PROSE_MEASURE_PX = { min: 880, max: 960 } as const;
 export const MOBILE_SIDE_PADDING_PX = 20;
 export const DESKTOP_BREATHING_ROOM_PX = 32;
 export const REGISTRATION_TRACKING_EM = { min: 0.08, max: 0.14 } as const;
@@ -227,7 +252,8 @@ export function articleEvidenceFingerprint(input: { root: string }): string {
     `wordmark-leading:${HOME_WORDMARK_LINE_HEIGHT.min}-${HOME_WORDMARK_LINE_HEIGHT.max}`,
     `prose:${PROSE_SIZE_PX.min}-${PROSE_SIZE_PX.max}`,
     `prose-leading:${PROSE_LINE_HEIGHT.min}-${PROSE_LINE_HEIGHT.max}`,
-    `measure:${PROSE_MEASURE_CH.min}-${PROSE_MEASURE_CH.max}`,
+    `measure-px:${PROSE_MEASURE_PX.min}-${PROSE_MEASURE_PX.max}`,
+    `section-affordance-opacity:${SECTION_AFFORDANCE_REST_OPACITY}`,
     `padding:${MOBILE_SIDE_PADDING_PX}/${DESKTOP_BREATHING_ROOM_PX}`,
     `tracking:${REGISTRATION_TRACKING_EM.min}-${REGISTRATION_TRACKING_EM.max}@${REGISTRATION_TRACKING_SPREAD_EM}`,
     `rule-tolerance:${RULE_ALIGNMENT_TOLERANCE_PX}`,
@@ -605,10 +631,20 @@ function inRange(value: number, range: { min: number; max: number }): boolean {
   return value >= range.min && value <= range.max;
 }
 
-const TEKTUR_HEAD = 'tektur';
-const NEWSREADER_HEAD = 'newsreader';
-const PLEX_SANS_HEAD = 'ibm plex sans';
-const PLEX_MONO_HEAD = 'ibm plex mono';
+/**
+ * The faces each role computes to. Owner-approved successor (Josef,
+ * 2026-10-10, the research-page standard): DM Sans displays, Geist sets the
+ * prose and the interface, and Geist Mono carries code, numerals and
+ * readouts, all through next/font. The brand-v2 heads they replace were
+ * Tektur, Newsreader, IBM Plex Sans and IBM Plex Mono; a route that still
+ * computes to any of them fails every row below. The text and mono heads are
+ * compared exactly, because "geist" is a prefix of "geist mono".
+ */
+const DISPLAY_HEAD = 'dm sans';
+const TEXT_HEAD = 'geist';
+const MONO_HEAD = 'geist mono';
+const isTextFace = (head: string) => head === TEXT_HEAD;
+const isMonoFace = (head: string) => head === MONO_HEAD;
 
 /**
  * `VAL-B2-ART-001`: an article's title sheet renders its context, one Tektur
@@ -641,10 +677,10 @@ export function titleSheetVerdicts(
       ({ tag }) => tag === 'h1',
     );
     if (!titleRole) {
-      failures.push(`${route} carries no Tektur role on its h1`);
-    } else if (!titleRole.face.familyHead.includes(TEKTUR_HEAD)) {
+      failures.push(`${route} carries no display role on its h1`);
+    } else if (titleRole.face.familyHead !== DISPLAY_HEAD) {
       failures.push(
-        `${route} renders its h1 in ${titleRole.face.familyHead}, not Tektur`,
+        `${route} renders its h1 in ${titleRole.face.familyHead}, not DM Sans`,
       );
     }
     if (block.summaryCount !== 1) {
@@ -652,7 +688,15 @@ export function titleSheetVerdicts(
         `${route} renders ${block.summaryCount} summary paragraphs, not one`,
       );
     }
-    if (block.breadcrumbLabels.length < 2) {
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the visible trail is the eyebrow, which names the domain
+    // the page belongs to; the top bar names the site and the H1 the page.
+    // The full declared trail is held by VAL-WIKI-016 through the page's
+    // structured data. A trail of only "Home", or none, names no context.
+    const named = block.breadcrumbLabels.filter(
+      (label) => label.trim().length > 0 && label.trim() !== 'Home',
+    );
+    if (named.length === 0) {
       failures.push(
         `${route} renders ${block.breadcrumbLabels.length} breadcrumb crumbs, so it names no domain context`,
       );
@@ -737,9 +781,12 @@ function readingTimeFailures(
       `${route} prints a ${block.readingMinutes} min read where ${READING_TIMES_PATH} measured ${facts.readingMinutes}`,
     );
   }
-  if (block.readingTimeText !== `${facts.readingMinutes} min`) {
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): the meta line reads "6 min read" in place of the labelled
+  // "Reading time" cell's "6 min".
+  if (block.readingTimeText !== `${facts.readingMinutes} min read`) {
     failures.push(
-      `${route} shows the reader "${block.readingTimeText}", not "${facts.readingMinutes} min"`,
+      `${route} shows the reader "${block.readingTimeText}", not "${facts.readingMinutes} min read"`,
     );
   }
   return failures;
@@ -759,9 +806,13 @@ function citationCountFailures(
       `${route} claims ${block.citationCount} citation(s) where its resolved References list holds ${expected}`,
     );
   }
-  if (block.citationCountText !== String(expected)) {
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): the meta line reads "38 sources" in place of the labelled
+  // "Citations" cell's bare "38".
+  const expectedText = `${expected} ${expected === 1 ? 'source' : 'sources'}`;
+  if (block.citationCountText !== expectedText) {
     failures.push(
-      `${route} shows the reader "${block.citationCountText}" citations, not "${expected}"`,
+      `${route} shows the reader "${block.citationCountText}" citations, not "${expectedText}"`,
     );
   }
   const rendered = block.bibliographyIds;
@@ -827,13 +878,16 @@ export function readingSheetVerdicts(
       paragraph === null
         ? 0
         : Math.round((paragraph.widthPx / paragraph.zeroAdvancePx) * 100) / 100;
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the measure is the 960px column, held in pixels, in place
+    // of the brand-v2 62-68ch Newsreader measure.
     if (paragraph === null) {
       failures.push(
         `${route} renders no running prose paragraph, so it has no measure`,
       );
-    } else if (!inRange(measureCh, PROSE_MEASURE_CH)) {
+    } else if (!inRange(paragraph.widthPx, PROSE_MEASURE_PX)) {
       failures.push(
-        `${route} sets its prose measure at ${measureCh}ch, outside ${PROSE_MEASURE_CH.min}-${PROSE_MEASURE_CH.max}ch`,
+        `${route} sets its prose measure at ${paragraph.widthPx}px, outside ${PROSE_MEASURE_PX.min}-${PROSE_MEASURE_PX.max}px`,
       );
     }
     const mobilePadding = Math.min(
@@ -920,11 +974,11 @@ const DISTINGUISHED_LINK_KINDS = Object.values(
 ).flat() as readonly string[];
 
 /**
- * The kinds §4.4 assigns the signal-blue-plus-underline source-path
- * treatment: the inline citation chip, a bare external URL in prose, and
- * every entry of the generated References list.
+ * The kinds §4.4 assigns the source-path treatment: the inline citation, a
+ * bare external URL in prose, and every entry of the generated References
+ * list.
  */
-const SIGNAL_BLUE_LINK_KINDS: readonly string[] = [
+const SOURCE_PATH_LINK_KINDS: readonly string[] = [
   'citation',
   'external',
   'reference',
@@ -998,32 +1052,41 @@ export function linkTreatmentVerdicts(
         }
       }
     }
-    // §4.4 gives inline citations and source links one treatment: "inline
-    // citations and source links use signal blue plus underline", under a
+    // §4.4 gives inline citations and source links one treatment under a
     // clause that "underline, label, or icon MUST supplement colour". Both
     // halves are graded on every occurrence of all three kinds, including
     // the generated References list, because the row requires treatments
     // "matching their semantics" and not merely differing from each other:
     // repainting the whole citation class one wrong colour keeps every
     // class distinct while telling the reader the wrong thing.
+    //
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): links are ink plus an underline, and a citation is a
+    // superscript number with its note in the margin, the note's source link
+    // in the muted note tone. So the colour must be one of the two text
+    // tones, never the accent or the retired signal blue, and the non-colour
+    // mark is the underline, or, for the citation number, the superscript
+    // it sits in.
     let gradedSourcePathOccurrences = 0;
     for (const treatment of present.filter(({ kind }) =>
-      SIGNAL_BLUE_LINK_KINDS.includes(kind),
+      SOURCE_PATH_LINK_KINDS.includes(kind),
     )) {
       for (const variant of treatment.variants) {
         gradedSourcePathOccurrences += variant.count;
         if (
-          !SIGNAL_BLUE_FORMS.includes(
-            variant.colour.toLowerCase() as (typeof SIGNAL_BLUE_FORMS)[number],
+          !(LINK_TEXT_TONES as readonly string[]).includes(
+            variant.colour.toLowerCase(),
           )
         ) {
           failures.push(
-            `${route} paints ${variant.count} ${treatment.kind} link(s) ${variant.colour}, not the signal blue §4.4 locks for inline citations and source links`,
+            `${route} paints ${variant.count} ${treatment.kind} link(s) ${variant.colour}, not the ink or muted text tone §4.4 locks for inline citations and source links`,
           );
         }
-        if (!variant.decorationLine.includes('underline')) {
+        const superscript =
+          treatment.kind === 'citation' && /\bsup\b/.test(variant.shape);
+        if (!variant.decorationLine.includes('underline') && !superscript) {
           failures.push(
-            `${route} draws ${variant.count} ${treatment.kind} link(s) with text-decoration-line "${variant.decorationLine}", so colour is the only mark separating a source path from surrounding text`,
+            `${route} draws ${variant.count} ${treatment.kind} link(s) with text-decoration-line "${variant.decorationLine}" and no superscript, so colour is the only mark separating a source path from surrounding text`,
           );
         }
       }
@@ -1069,7 +1132,11 @@ export function titleSheetResidueVerdicts(
         `${route} paints ${block.backgroundImage} behind its title sheet`,
       );
     }
-    const domainCrumb = block.breadcrumbLabels.at(-2) ?? '';
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the eyebrow is the trail, so the domain is its last visible
+    // crumb, and the sweep reads eyebrows from outside the trail, so a second
+    // eyebrow repeating the domain is still found.
+    const domainCrumb = block.breadcrumbLabels.at(-1) ?? '';
     const repeated = block.eyebrowTexts.filter(
       (text) => text.toLowerCase() === domainCrumb.toLowerCase(),
     );
@@ -1102,12 +1169,12 @@ export function displayFaceVerdicts(
     );
     const failures: string[] = [];
     if (roles.length === 0) {
-      failures.push(`${route} writes no Tektur display role at all`);
+      failures.push(`${route} writes no display role at all`);
     }
     for (const role of roles) {
-      if (!role.face.familyHead.includes(TEKTUR_HEAD)) {
+      if (role.face.familyHead !== DISPLAY_HEAD) {
         failures.push(
-          `${route} renders its ${role.role} <${role.tag}> in ${role.face.familyHead} at ${role.id}, not Tektur`,
+          `${route} renders its ${role.role} <${role.tag}> in ${role.face.familyHead} at ${role.id}, not DM Sans`,
         );
       }
     }
@@ -1155,9 +1222,9 @@ export function proseFaceVerdicts(
         ? 0
         : Math.round((widest.widthPx / widest.zeroAdvancePx) * 100) / 100;
     for (const paragraph of running) {
-      if (!paragraph.familyHead.includes(NEWSREADER_HEAD)) {
+      if (!isTextFace(paragraph.familyHead)) {
         failures.push(
-          `${route} sets "${paragraph.text}" in ${paragraph.familyHead}, not Newsreader`,
+          `${route} sets "${paragraph.text}" in ${paragraph.familyHead}, not Geist`,
         );
       }
       if (!inRange(paragraph.sizePx, PROSE_SIZE_PX)) {
@@ -1171,9 +1238,9 @@ export function proseFaceVerdicts(
         );
       }
     }
-    if (widest !== null && !inRange(measureCh, PROSE_MEASURE_CH)) {
+    if (widest !== null && !inRange(widest.widthPx, PROSE_MEASURE_PX)) {
       failures.push(
-        `${route} sets its maximum measure at ${measureCh}ch, outside ${PROSE_MEASURE_CH.min}-${PROSE_MEASURE_CH.max}ch`,
+        `${route} sets its maximum measure at ${widest.widthPx}px, outside ${PROSE_MEASURE_PX.min}-${PROSE_MEASURE_PX.max}px`,
       );
     }
     verdicts.set(route, {
@@ -1272,34 +1339,37 @@ export function roleFaceVerdicts(
   for (const route of evidence.routes) {
     const observation = at(evidence, route, DESKTOP_VIEWPORT_ID);
     const failures: string[] = [];
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the interface face is Geist and the data face Geist Mono,
+    // in the roles brand-v2 gave IBM Plex Sans and IBM Plex Mono.
     for (const element of observation.monoRequired) {
-      if (!element.familyHead.includes(PLEX_MONO_HEAD)) {
+      if (!isMonoFace(element.familyHead)) {
         failures.push(
-          `${route} sets <${element.tag}> in ${element.familyHead}, not IBM Plex Mono`,
+          `${route} sets <${element.tag}> in ${element.familyHead}, not Geist Mono`,
         );
       }
     }
     for (const control of observation.interfaceControls) {
-      if (control.familyHead.includes(PLEX_SANS_HEAD)) continue;
+      if (isTextFace(control.familyHead)) continue;
       if (instructionIds.has(control.controlId)) {
         failures.push(
-          `${route} sets the control "${control.text}" (<${control.tag}>, ${control.sizePx}px, ${control.controlId}) in ${control.familyHead}: a control registered to act carries an instruction, not a value, and computes to IBM Plex Sans at every size`,
+          `${route} sets the control "${control.text}" (<${control.tag}>, ${control.sizePx}px, ${control.controlId}) in ${control.familyHead}: a control registered to act carries an instruction, not a value, and computes to Geist at every size`,
         );
         continue;
       }
       const dataControl =
-        control.familyHead.includes(PLEX_MONO_HEAD) &&
+        isMonoFace(control.familyHead) &&
         control.sizePx >= MONO_CONTROL_SIZE_PX.min &&
         control.sizePx <= MONO_CONTROL_SIZE_PX.max;
       if (dataControl) continue;
       failures.push(
-        `${route} sets the control "${control.text}" (<${control.tag}>, ${control.sizePx}px) in ${control.familyHead}, which is neither IBM Plex Sans nor the specified ${MONO_CONTROL_SIZE_PX.min}-${MONO_CONTROL_SIZE_PX.max}px Plex Mono data/control or registration-label role`,
+        `${route} sets the control "${control.text}" (<${control.tag}>, ${control.sizePx}px) in ${control.familyHead}, which is neither Geist nor the specified ${MONO_CONTROL_SIZE_PX.min}-${MONO_CONTROL_SIZE_PX.max}px Geist Mono data/control or registration-label role`,
       );
     }
     for (const label of observation.registrationLabels) {
-      if (!label.familyHead.includes(PLEX_MONO_HEAD)) {
+      if (!isMonoFace(label.familyHead)) {
         failures.push(
-          `${route} sets the registration label "${label.text}" in ${label.familyHead}, not IBM Plex Mono`,
+          `${route} sets the registration label "${label.text}" in ${label.familyHead}, not Geist Mono`,
         );
       }
     }
@@ -1548,7 +1618,15 @@ export function proseResidueVerdicts(
         }
         running += 1;
         const head = paragraph.familyHead;
-        if (head.includes(TEKTUR_HEAD) || head.includes(PLEX_MONO_HEAD)) {
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the display and data faces are DM Sans and Geist Mono.
+        // The retired Tektur and IBM Plex Mono stay refused too.
+        if (
+          head === DISPLAY_HEAD ||
+          isMonoFace(head) ||
+          head.includes('tektur') ||
+          head.includes('ibm plex mono')
+        ) {
           offending.push(head);
           failures.push(
             `${route} sets the prose paragraph "${paragraph.text}" in ${head} at ${id}`,
@@ -1584,6 +1662,12 @@ export function proseResidueVerdicts(
 }
 
 /**
+ * The opacity the copy-link glyph keeps at rest: quiet beside the plain
+ * section head, but never gone.
+ */
+export const SECTION_AFFORDANCE_REST_OPACITY = 0.3;
+
+/**
  * `VAL-B2-TYPE-009`: a linked section heading says so with two marks, one of
  * which is not a colour, and stays reachable by keyboard. Members are the
  * headings themselves, not the routes that hold them: a route with one
@@ -1600,27 +1684,21 @@ export function sectionHeadingVerdicts(
       if (!link.linked) {
         failures.push(`${id} is addressable but carries no self-link`);
       }
-      if (!link.decorationLine.includes('underline')) {
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): a section head reads as plain DM Sans type in ink, as on
+      // the reference page, in place of the brand-v2 signal-blue underline.
+      // The non-colour mark is the copy-link control beside it, which stays
+      // rendered, named and keyboard reachable at rest, as a quiet glyph
+      // that comes to full strength on hover and focus.
+      if (link.linked && link.colour !== INK_RENDERED) {
         failures.push(
-          `${id} draws no underline (text-decoration-line: ${link.decorationLine})`,
+          `${id} paints its self-link ${link.colour}, not the ink of the heading it names`,
         );
-      }
-      if (
-        !SIGNAL_BLUE_FORMS.includes(
-          link.decorationColour.toLowerCase() as (typeof SIGNAL_BLUE_FORMS)[number],
-        )
-      ) {
-        failures.push(
-          `${id} underlines in ${link.decorationColour}, not signal blue`,
-        );
-      }
-      if (link.decorationThicknessPx <= 0) {
-        failures.push(`${id} draws an underline of zero thickness`);
       }
       if (link.affordance === null) {
         failures.push(`${id} carries no non-colour link affordance`);
       } else {
-        if (link.affordance.opacity <= 0.5) {
+        if (link.affordance.opacity < SECTION_AFFORDANCE_REST_OPACITY) {
           failures.push(
             `${id} holds its link affordance at opacity ${link.affordance.opacity}, so it is not there at rest`,
           );

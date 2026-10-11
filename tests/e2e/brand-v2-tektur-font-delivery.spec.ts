@@ -12,16 +12,19 @@ import {
 import { BRAND_V2_RESPONSIVE_VIEWPORTS } from '../../lib/brand-v2-responsive-viewports';
 import {
   FONT_PAYLOAD_SIGNATURES,
+  FRAMEWORK_FONT_PATH_PREFIX,
   SCOPED_FONT_FAMILY_EXCEPTIONS,
   TEKTUR_DELIVERY_EVIDENCE_PATH,
+  TEKTUR_DELIVERY_EVIDENCE_VERSION,
   classifyCapturedRequest,
   deriveTypographyStackProperties,
+  displayRuntimeKey,
   fontFamilyHead,
   fontFamilyKey,
   isDecidedNonFontContentType,
   isFontContentType,
-  measureRuntimeFamilyAliases,
   measureTekturEvidence,
+  measureWebFamilyDeliveries,
   tekturDeliveryFingerprint,
   type CapturedRequestClassification,
   type TekturDeliveryEvidence,
@@ -146,10 +149,9 @@ function measureDocument(input: {
   }
 
   // `@font-face` rules are what bind a runtime family name to a payload, so
-  // they are measured rather than assumed: `next/font/local` publishes the
-  // registered `Tektur Variable` under the runtime family `tektur`, and the
-  // reader will only accept that rename if a rule declares it and the bytes
-  // its `src` delivered are the registered binary's.
+  // they are measured rather than assumed: the reader accepts a registered
+  // family only if a rule declares it, every source of that rule is
+  // framework-bundled, and the sweep saw one of those sources fetched.
   const fontFaces: Array<{ family: string; sources: string[] }> = [];
   const unreadableStyleSheets: string[] = [];
   for (const sheet of document.styleSheets) {
@@ -411,25 +413,32 @@ type DeliveryProbe = {
   assignedStrings: Array<{
     id: string;
     loaded: boolean;
-    tekturAdvance: number;
+    displayAdvance: number;
     fallbackAdvance: number;
   }>;
-  tekturFamily: string;
+  displayFamily: string;
 };
 
 function measureDelivery(input: {
   stackProperties: string[];
   assignedStrings: Array<{ id: string; text: string }>;
+  wordmarkRole: string;
 }): DeliveryProbe {
   const rootStyle = getComputedStyle(document.documentElement);
-  const family = rootStyle.getPropertyValue('--font-tektur').trim();
+  // Owner-approved successor (Josef, 2026-10-10): the probe measures the
+  // runtime display family, the head of the resolved `--font-display`
+  // stack, where it used to read the retired `--font-tektur` property.
+  const family = (
+    rootStyle.getPropertyValue('--font-display').split(',')[0] ?? ''
+  ).trim();
   // Measured on the page's own wordmark rather than an injected probe: a
   // span this test creates and styles proves only that the test can set a
-  // font-family.
+  // font-family. The element is the registered OG role instance, so the
+  // reader compares it against that instance's registered weight.
   const wordmarkElement = document.querySelector<HTMLElement>(
-    '[data-tektur-role="home-wordmark"]',
+    `[data-tektur-role="${input.wordmarkRole}"]`,
   );
-  if (!wordmarkElement) throw new Error('home wordmark Tektur role missing');
+  if (!wordmarkElement) throw new Error('wordmark display role missing');
   const wordmarkStyle = getComputedStyle(wordmarkElement);
 
   const canvas = document.createElement('canvas');
@@ -438,13 +447,13 @@ function measureDelivery(input: {
   const round = (value: number): number => Math.round(value * 100) / 100;
   const assignedStrings = input.assignedStrings.map(({ id, text }) => {
     context.font = `600 32px ${family}`;
-    const tekturAdvance = round(context.measureText(text).width);
+    const displayAdvance = round(context.measureText(text).width);
     context.font = '600 32px monospace';
     const fallbackAdvance = round(context.measureText(text).width);
     return {
       id,
       loaded: document.fonts.check(`600 32px ${family}`, text),
-      tekturAdvance,
+      displayAdvance,
       fallbackAdvance,
     };
   });
@@ -463,7 +472,7 @@ function measureDelivery(input: {
       variationSettings: wordmarkStyle.fontVariationSettings,
     },
     assignedStrings,
-    tekturFamily: family,
+    displayFamily: family,
   };
 }
 
@@ -543,6 +552,7 @@ async function sweep(page: Page, base: string): Promise<Sweep> {
       id,
       text,
     })),
+    wordmarkRole: TEKTUR_OG_ROLE_ID,
   });
   await capture.settled();
   sweepCache = {
@@ -750,7 +760,7 @@ function buildArtifact(result: Sweep): TekturDeliveryEvidence {
   }
 
   return {
-    version: 1,
+    version: TEKTUR_DELIVERY_EVIDENCE_VERSION,
     fingerprint: tekturDeliveryFingerprint({
       root: ROOT,
       css: CSS,
@@ -812,17 +822,12 @@ test.describe('Tektur role population', () => {
     const result = await sweep(page, staticBase);
     const artifact = buildArtifact(result);
     // The family every role annotation has to compute is the runtime family
-    // the registered binary is actually published under, derived from the
-    // `@font-face` that declares it and the payload checksum that backs it.
-    // `family.includes('tektur')` accepted any stack mentioning the word.
-    const tekturAlias = measureRuntimeFamilyAliases(artifact).find(
-      ({ binarySha256 }) => binarySha256 === TEKTUR_FONT_METADATA.web.sha256,
-    );
-    expect(
-      tekturAlias,
-      'an observed @font-face must publish the registered Tektur payload',
-    ).toBeDefined();
-    const tekturRuntimeKey = tekturAlias?.runtimeKey ?? '';
+    // the display role's registered family is delivered under, derived from
+    // the framework-bundled `@font-face` rules that declare it and the
+    // fetches that backed them. `family.includes('tektur')` accepted any
+    // stack mentioning the word. Owner-approved successor (Josef,
+    // 2026-10-10): that family is DM Sans, and Tektur is offline-only.
+    const displayKey = displayRuntimeKey(measureWebFamilyDeliveries(artifact));
     const measured = result.measured;
     // The sweep has to have visited the whole cross product; a route or a
     // width dropped from the loop would otherwise reduce the population
@@ -871,9 +876,9 @@ test.describe('Tektur role population', () => {
             failures.push(`${at} is not a registered role`);
             return;
           }
-          if (fontFamilyHead(occurrence.family) !== tekturRuntimeKey) {
+          if (fontFamilyHead(occurrence.family) !== displayKey) {
             failures.push(
-              `${at} resolves ${occurrence.family}, whose head is ${fontFamilyHead(occurrence.family)} rather than the registered Tektur runtime family ${tekturRuntimeKey}`,
+              `${at} resolves ${occurrence.family}, whose head is ${fontFamilyHead(occurrence.family)} rather than the registered display runtime family ${displayKey}`,
             );
           }
           if (occurrence.weight !== String(instance.wght)) {
@@ -886,14 +891,11 @@ test.describe('Tektur role population', () => {
               `${at} computes stretch ${occurrence.stretch}, registry says ${instance.wdth}%`,
             );
           }
-          if (!occurrence.variationSettings.includes(`"wght" ${instance.wght}`)) {
+          // The display family is selected by weight alone; a variation
+          // override is drift from the registered instance.
+          if (occurrence.variationSettings !== 'normal') {
             failures.push(
-              `${at} carries ${occurrence.variationSettings}, registry says "wght" ${instance.wght}`,
-            );
-          }
-          if (!occurrence.variationSettings.includes(`"wdth" ${instance.wdth}`)) {
-            failures.push(
-              `${at} carries ${occurrence.variationSettings}, registry says "wdth" ${instance.wdth}`,
+              `${at} carries ${occurrence.variationSettings}, registry selects weight ${instance.wght} alone`,
             );
           }
         });
@@ -1009,35 +1011,36 @@ test.describe('Tektur web typography population', () => {
       ).toBeGreaterThan(0);
     }
 
-    // The approved keys are the runtime families the registered binaries are
-    // published under, one per role, each backed by an observed `@font-face`.
-    // Deriving them from the registry names instead would have to fold
-    // `Tektur Variable` onto `tektur` by a name transformation, and the
-    // transformation that did it also folded `IBM Plex Sans Variable` onto
-    // the approved `IBM Plex Sans`.
+    // The approved keys are the registered family names, each backed by an
+    // observed framework-bundled `@font-face` delivery. Owner-approved
+    // successor (Josef, 2026-10-10): roles may share a family, so there is
+    // one key per distinct registered family rather than one per role, and
+    // no rename is admitted at all.
     const approvedFaces = new Set(
       measurements.families.approved.map(({ runtimeFace }) => runtimeFace),
     );
     expect(
       approvedFaces.size,
-      'one runtime family key per registered first-party role',
-    ).toBe(FIRST_PARTY_TYPE_ROLES.length);
-    const aliased = measurements.families.approved.filter(
-      ({ alias }) => alias !== null,
+      'one runtime family key per distinct registered first-party family',
+    ).toBe(
+      new Set(FIRST_PARTY_TYPE_ROLES.map(({ family }) => fontFamilyKey(family)))
+        .size,
     );
-    expect(
-      aliased.length,
-      'at least one runtime family alias must be observed, or the alias path is untested',
-    ).toBeGreaterThan(0);
-    for (const member of aliased) {
+    for (const member of measurements.families.approved) {
       expect(
-        member.alias?.binarySha256,
-        `${member.family} alias must be backed by a registered binary payload`,
-      ).toBe(TEKTUR_FONT_METADATA.web.sha256);
+        member.runtimeFace,
+        `${member.family} is published under its registered name`,
+      ).toBe(fontFamilyKey(member.family));
       expect(
-        member.alias?.deliveredFrom.length,
-        `${member.family} alias must be backed by a same-origin delivery`,
+        member.delivery.deliveredFrom.length,
+        `${member.family} must be backed by a fetched same-origin source`,
       ).toBeGreaterThan(0);
+      for (const source of member.delivery.declaredBy) {
+        expect(
+          source.startsWith(FRAMEWORK_FONT_PATH_PREFIX),
+          `${member.family} source ${source} must be framework-bundled`,
+        ).toBe(true);
+      }
     }
     const exceptionHeads = new Set(
       measurements.families.scopedExceptions.flatMap(({ heads }) => heads),
@@ -1072,17 +1075,23 @@ test.describe('Tektur web delivery', () => {
     test.setTimeout(1_800_000);
     const result = await sweep(page, staticBase);
     const { delivery } = result;
-    const tekturRuntimeKey =
-      measureRuntimeFamilyAliases(buildArtifact(result)).find(
-        ({ binarySha256 }) => binarySha256 === TEKTUR_FONT_METADATA.web.sha256,
-      )?.runtimeKey ?? '';
+    // Owner-approved successor (Josef, 2026-10-10): the face this title
+    // calls local is now the `next/font` self-hosted display family. The
+    // Tektur web binary is retired, and the checks below require that it is
+    // never fetched.
+    const displayKey = displayRuntimeKey(
+      measureWebFamilyDeliveries(buildArtifact(result)),
+    );
+    const wordmarkInstance = TEKTUR_ROLE_INSTANCES.find(
+      ({ id }) => id === TEKTUR_OG_ROLE_ID,
+    );
+    expect(wordmarkInstance, 'registered wordmark instance').toBeDefined();
 
-    expect(fontFamilyHead(delivery.tekturFamily)).toBe(tekturRuntimeKey);
-    expect(fontFamilyHead(delivery.wordmark.family)).toBe(tekturRuntimeKey);
-    expect(delivery.wordmark.weight).toBe('600');
-    expect(delivery.wordmark.stretch).toBe('100%');
-    expect(delivery.wordmark.variationSettings).toContain('"wght" 600');
-    expect(delivery.wordmark.variationSettings).toContain('"wdth" 100');
+    expect(fontFamilyHead(delivery.displayFamily)).toBe(displayKey);
+    expect(fontFamilyHead(delivery.wordmark.family)).toBe(displayKey);
+    expect(delivery.wordmark.weight).toBe(String(wordmarkInstance?.wght));
+    expect(delivery.wordmark.stretch).toBe(`${wordmarkInstance?.wdth}%`);
+    expect(delivery.wordmark.variationSettings).toBe('normal');
     expect(
       Object.keys(delivery.stacks).sort(),
       'the declared typography stacks must all resolve',
@@ -1097,11 +1106,11 @@ test.describe('Tektur web delivery', () => {
     ).toBe(TEKTUR_ASSIGNED_STRINGS.length);
     for (const probe of delivery.assignedStrings) {
       expect(probe.loaded, `${probe.id} loaded`).toBe(true);
-      expect(probe.tekturAdvance, `${probe.id} Tektur advance`).toBeGreaterThan(
+      expect(probe.displayAdvance, `${probe.id} display advance`).toBeGreaterThan(
         0,
       );
       expect(
-        probe.tekturAdvance,
+        probe.displayAdvance,
         `${probe.id} must not measure the generic fallback advance`,
       ).not.toBe(probe.fallbackAdvance);
     }
@@ -1123,19 +1132,24 @@ test.describe('Tektur web delivery', () => {
         .map(({ transaction }) => transaction.url),
       'the delivery navigation must fetch no third-party font',
     ).toEqual([]);
-    // Identified by payload, not by the shape of a URL: the registered
-    // binary is the one whose bytes hash to the checksum its metadata
-    // records, delivered from the framework's bundled asset path.
+    // Every font the delivery navigation fetched is framework-bundled, and
+    // none of them is the retired Tektur web payload, identified by its
+    // bytes rather than by the shape of a URL.
+    expect(
+      deliveryFonts
+        .map(({ transaction }) => transaction.key)
+        .filter((key) => !key.startsWith(FRAMEWORK_FONT_PATH_PREFIX)),
+      `every runtime font must be delivered from ${FRAMEWORK_FONT_PATH_PREFIX}`,
+    ).toEqual([]);
     expect(
       deliveryFonts
         .filter(
           ({ transaction }) =>
             transaction.sha256 === TEKTUR_FONT_METADATA.web.sha256,
         )
-        .map(({ transaction }) => transaction.key)
-        .filter((key) => key.startsWith('/_next/static/')),
-      'the registered Tektur payload must be delivered from /_next/static/',
-    ).not.toEqual([]);
+        .map(({ transaction }) => transaction.key),
+      'no runtime route may request the retired Tektur web payload',
+    ).toEqual([]);
     expect(
       deliveryFonts
         .filter(

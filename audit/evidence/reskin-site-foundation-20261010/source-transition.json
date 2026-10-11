@@ -1,0 +1,1575 @@
+{
+  "schemaVersion": "reskin-site-foundation-continuity-v1",
+  "name": "reskin-site-foundation-20261010",
+  "reviewedBy": "implementation worker for the site-foundation re-skin of 2026-10-10 (not independent acceptance)",
+  "rationale": "On 2026-10-10 the owner replaced the brand-v2 visual identity with the Pantheon research-page standard (PANTHEON-SPEC.md): paper and ink tokens, DM Sans, Geist and Geist Mono, a single top bar, and an article template with an eyebrow, a display title, a sticky contents rail, margin sidenotes, numbered findings and booktabs tables, carried to the home, hub, glossary, A-Z and search pages. The change is presentation only. Each presentation source it touched is recorded here as exact edits over the bytes it had before, and the earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
+  "observedAt": "2026-10-11T19:12:31Z",
+  "sources": [
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/(content)/[domain]/[slug]/page.tsx",
+        "bytes": 12439,
+        "sha256": "46543a3122d35b2e320dd74b70de6f78ddf91cf4d33610b2b486258bf7fc022e"
+      },
+      "after": {
+        "path": "app/(content)/[domain]/[slug]/page.tsx",
+        "bytes": 12875,
+        "sha256": "81210683f397f374f3989f4700f03948d8b4b98860d2f7aea8c91ff07807774a"
+      },
+      "edits": [
+        {
+          "before": "import { ArticleHeader } from '@/components/article/article-header';\n",
+          "after": "import { ArticleHeader } from '@/components/article/article-header';\nimport { ArticleToc } from '@/components/article/article-toc';\nimport { CitationNumbersProvider } from '@/components/article/citation-numbers';\nimport { ARTICLE_START_ID, articleOutline } from '@/lib/article-outline';\n"
+        },
+        {
+          "before": "  ];\n\n",
+          "after": "  ];\n\n  // One number per source, shared by the superscript in the text, its\n  // sidenote and its References entry: the position in the one array.\n  const citationNumbers = Object.fromEntries(\n    references.map(({ citation }, index) => [citation.id, index + 1]),\n  );\n  const outline = articleOutline(body);\n\n"
+        },
+        {
+          "before": "    // named handle for the article's text column: validators measuring\n    // the full-width rules resolve it here instead of by\n    // ancestor heuristics (library/design-system.md). The column's measure\n    // and gutters live in app/globals.css, because the cap has to be written\n    // in the same face and size as the prose it caps for `ch` to mean the\n    // same thing on both sides of it.\n    <article data-prose-column className=\"mx-auto w-full py-12\">\n",
+          "after": "    // named handle for the article sheet: validators measuring the\n    // full-width rules resolve it here instead of by ancestor heuristics.\n    // The sheet's grid (contents rail, 960px column, sidenote margin) lives\n    // in app/globals.css.\n    <article data-prose-column className=\"pb-8\">\n"
+        },
+        {
+          "before": "          }),\n        }}\n      />\n      <Breadcrumbs\n        items={[...breadcrumbTrail, { label: entry.title }]}\n      />\n",
+          "after": "          }),\n        }}\n      />\n"
+        },
+        {
+          "before": "        citationCount={references.length}\n",
+          "after": "        citationCount={references.length}\n        eyebrow={\n          <Breadcrumbs\n            variant=\"eyebrow\"\n            items={[...breadcrumbTrail, { label: entry.title }]}\n          />\n        }\n"
+        },
+        {
+          "before": "      {/* The title sheet closes on space, not on a rule. It used to close on\n          a bare border-bottom, which is a rule no registry owns and no anchor\n          aligns; the article's one hairline is the apparatus boundary below,\n          so replacing the border with a second device would have cost the\n          separator the meaning of being the only one. */}\n      <div data-pagefind-body className=\"prose mt-10\">\n        <Content />\n",
+          "after": "      <ArticleToc items={outline} startId={ARTICLE_START_ID} />\n      {/* The title sheet closes on space, not on a rule; the article's one\n          hairline is the apparatus boundary below. */}\n      <div\n        id={ARTICLE_START_ID}\n        data-pagefind-body\n        data-article-body\n        className=\"prose article-body\"\n      >\n        <CitationNumbersProvider numbers={citationNumbers}>\n          <Content />\n        </CitationNumbersProvider>\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/(content)/[domain]/page.tsx",
+        "bytes": 6001,
+        "sha256": "0244f76ffc5c14eacc2d51cfbc933934ef5383d640da17f1166ef50e31fd9ee7"
+      },
+      "after": {
+        "path": "app/(content)/[domain]/page.tsx",
+        "bytes": 6080,
+        "sha256": "23df1b3dedcc24f5437de548b27b529911eea340e67351f5ae5f225254b63bb2"
+      },
+      "edits": [
+        {
+          "before": "    <div className=\"mx-auto w-full max-w-3xl px-6 py-12\">\n",
+          "after": "    <div className=\"sheet sheet-masthead pb-8\">\n"
+        },
+        {
+          "before": "      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: meta.name }]} />\n",
+          "after": "      <Breadcrumbs\n        variant=\"eyebrow\"\n        items={[{ label: 'Home', href: '/' }, { label: meta.name }]}\n      />\n"
+        },
+        {
+          "before": "        <header className=\"mb-8 border-b border-border pb-6\">\n          <h1\n            data-tektur-role=\"page-h1\"\n            className=\"font-display-page text-3xl tracking-tight text-text\"\n          >\n",
+          "after": "        <header className=\"mb-16\">\n          <h1 data-tektur-role=\"page-h1\" className=\"display-h1\">\n"
+        },
+        {
+          "before": "          <p className=\"mt-3 leading-relaxed text-text-dim\">{meta.description}</p>\n          <p className=\"mt-3 max-w-[65ch] leading-relaxed text-text-dim\">\n",
+          "after": "          <p className=\"page-lead mt-[30px]\">{meta.description}</p>\n          <p className=\"meta-line mt-6 max-w-[960px]\">\n"
+        },
+        {
+          "before": "        <ol>\n",
+          "after": "        <ol className=\"border-t border-border\">\n"
+        },
+        {
+          "before": "              className=\"border-t border-border py-4 first:border-t-0\"\n            >\n              <div className=\"flex flex-wrap items-baseline gap-x-3 gap-y-1\">\n",
+          "after": "              className=\"grid grid-cols-[44px_minmax(0,1fr)] border-b border-border pt-6 pb-4 sm:grid-cols-[74px_minmax(0,1fr)]\"\n            >\n"
+        },
+        {
+          "before": "                  className=\"pointer-events-none font-mono text-[11px] tracking-[0.14em] text-text-dim\"\n",
+          "after": "                  className=\"pointer-events-none pt-px font-mono text-[14px] font-medium tabular-nums text-text\"\n"
+        },
+        {
+          "before": "                <IntentLink\n                  data-brand-control-id=\"control:link-focus\"\n                  href={`/${m.domain}/${m.slug}/`}\n                  className=\"font-sans text-base font-medium text-text transition-colors hover:text-accent\"\n                >\n                  {m.title}\n                </IntentLink>\n              </div>\n              <p className=\"mt-1 pl-7 text-sm leading-relaxed text-text-dim\">\n                {m.summary}\n              </p>\n",
+          "after": "                <div className=\"min-w-0\">\n                  <IntentLink\n                    data-brand-control-id=\"control:link-focus\"\n                    href={`/${m.domain}/${m.slug}/`}\n                    className=\"font-display text-[16px] font-semibold leading-snug text-text underline decoration-transparent decoration-1 underline-offset-[3px] transition-colors hover:decoration-text\"\n                  >\n                    {m.title}\n                  </IntentLink>\n                  <p className=\"mt-1.5 text-[15px] leading-[1.6] text-text-dim\">\n                    {m.summary}\n                  </p>\n                </div>\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/a-z/page.tsx",
+        "bytes": 6746,
+        "sha256": "d95842c0cd22ae4d52ec69792c97fadbcec941ae7d1a0712c4d496a27a7ddda4"
+      },
+      "after": {
+        "path": "app/a-z/page.tsx",
+        "bytes": 6643,
+        "sha256": "d8c4a0db86fd9959d6b23e8b4a4fb2e5a49380f0b18cc8584b65a339b3af8f3a"
+      },
+      "edits": [
+        {
+          "before": "    <div className=\"mx-auto w-full max-w-[65ch] px-6 py-12\">\n",
+          "after": "    <div className=\"sheet sheet-masthead pb-8\">\n"
+        },
+        {
+          "before": "      <Breadcrumbs\n",
+          "after": "      <Breadcrumbs\n        variant=\"eyebrow\"\n"
+        },
+        {
+          "before": "        <h1\n          data-tektur-role=\"page-h1\"\n          className=\"font-display-page text-3xl tracking-tight text-text\"\n        >\n",
+          "after": "        <h1 data-tektur-role=\"page-h1\" className=\"display-h1 mt-6\">\n"
+        },
+        {
+          "before": "        <p className=\"mt-2 font-mono text-xs text-text-dim\">\n          {articleCount} articles and {termCount} glossary terms\n        </p>\n        <p className=\"mt-5 font-serif text-[1.0625rem] leading-relaxed text-text\">\n",
+          "after": "        <p className=\"page-lead mt-[30px]\">\n"
+        },
+        {
+          "before": "          to their entry in the glossary.\n        </p>\n",
+          "after": "          to their entry in the glossary.\n        </p>\n        <p className=\"meta-line mt-6\">\n          {articleCount} articles and {termCount} glossary terms\n        </p>\n"
+        },
+        {
+          "before": "      <nav aria-label=\"Jump to letter\" className=\"mt-10\">\n        <ul className=\"flex flex-wrap gap-x-3 gap-y-1.5 font-mono text-sm\">\n",
+          "after": "      <nav aria-label=\"Jump to letter\" className=\"mt-14 border-y border-border py-3\">\n        <ul className=\"flex flex-wrap gap-x-3 gap-y-1.5 font-mono text-[14px]\">\n"
+        },
+        {
+          "before": "                className=\"flex h-6 min-w-6 items-center justify-center text-text-dim transition-colors hover:text-accent\"\n",
+          "after": "                className=\"flex h-6 min-w-6 items-center justify-center text-text-dim transition-colors hover:text-text\"\n"
+        },
+        {
+          "before": "      <div className=\"mt-10\">\n",
+          "after": "      <div className=\"mt-6\">\n"
+        },
+        {
+          "before": "            className=\"py-6 first:pt-0\"\n",
+          "after": "            className=\"pt-10\"\n"
+        },
+        {
+          "before": "              className=\"scroll-mt-16 font-sans text-lg font-semibold tracking-tight text-text lg:scroll-mt-4\"\n",
+          "after": "              className=\"section-h2\"\n"
+        },
+        {
+          "before": "                  className=\"flex flex-wrap items-baseline gap-x-3 gap-y-0.5 border-b border-border py-3\"\n",
+          "after": "                  className=\"flex flex-wrap items-baseline justify-between gap-x-6 gap-y-0.5 border-b border-border py-3\"\n"
+        },
+        {
+          "before": "                    className=\"font-sans text-sm font-medium leading-snug text-text transition-colors hover:text-accent\"\n",
+          "after": "                    className=\"font-sans text-[15px] leading-snug text-text underline decoration-transparent decoration-1 underline-offset-[3px] transition-colors hover:decoration-text\"\n"
+        },
+        {
+          "before": "                  <span className=\"font-mono text-[11px] text-text-dim\">\n",
+          "after": "                  <span className=\"eyebrow text-[12px]\">\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/about/page.tsx",
+        "bytes": 6506,
+        "sha256": "07fd9f46fb435c03412350f0db91da441b60d71d728ab5cde678de81120fed95"
+      },
+      "after": {
+        "path": "app/about/page.tsx",
+        "bytes": 6322,
+        "sha256": "f414d1966320ae764e1f122370a0153bd06052f54edd41af89cfb9a74f22fd3b"
+      },
+      "edits": [
+        {
+          "before": "  'text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent';\n",
+          "after": "  'ink-link';\n"
+        },
+        {
+          "before": "                className=\"transition-colors hover:text-accent\"\n",
+          "after": "                className=\"transition-colors hover:text-text-dim\"\n"
+        },
+        {
+          "before": "                    className=\"underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent\"\n",
+          "after": "                    className=\"ink-link\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/credits/page.tsx",
+        "bytes": 8731,
+        "sha256": "cb69145cf99ceaa954b7efd526246c9b1203d6fca29f9ee180b27efccde629e2"
+      },
+      "after": {
+        "path": "app/credits/page.tsx",
+        "bytes": 8488,
+        "sha256": "66a9f71b1879de7fc50dcdaebf78fa6eb15f6cf8e376fd600c71ad0ac3e0040d"
+      },
+      "edits": [
+        {
+          "before": "            href=\"/editorial-policy/\"\n            className=\"text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent\"\n",
+          "after": "            href=\"/editorial-policy/\"\n            className=\"ink-link\"\n"
+        },
+        {
+          "before": "            rel=\"noopener\"\n            className=\"text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent\"\n",
+          "after": "            rel=\"noopener\"\n            className=\"ink-link\"\n"
+        },
+        {
+          "before": "                        className=\"text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent\"\n",
+          "after": "                        className=\"ink-link\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/editorial-policy/page.tsx",
+        "bytes": 5044,
+        "sha256": "980c0486c635faafca3fc17931190609dbcb100b63f49b4811092da1c195fc46"
+      },
+      "after": {
+        "path": "app/editorial-policy/page.tsx",
+        "bytes": 4963,
+        "sha256": "b9deaf6ef5d58ec00e2fb400344d7cefdf4ebf32bc4d37aa48510398eaf12dd1"
+      },
+      "edits": [
+        {
+          "before": "  'text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent';\n",
+          "after": "  'ink-link';\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/globals.css",
+        "bytes": 22557,
+        "sha256": "16282239a80c8430852f8e2704be42eca775dd303dfe4d4488aac7e8f95b2093"
+      },
+      "after": {
+        "path": "app/globals.css",
+        "bytes": 29885,
+        "sha256": "c26707139a76256f915866817766bbcb24d6461e88bb62a117f0aadf4be4f898"
+      },
+      "edits": [
+        {
+          "before": " * Robot Wiki brand-v2 runtime tokens (Tailwind v4 CSS-first).\n * The product is light-led: paper is the page ground, white is the reading\n * surface, and graphite is reserved for bounded technical instruments.\n * Renderer mirrors live in lib/brand-v2-tokens.ts.\n */\n@theme {\n  /* Locked brand foundations. Keep uppercase hex for executable parity. */\n  --color-ink: #0B0B0C;\n  --color-graphite: #242D33;\n  --color-concrete: #D9DADB;\n  --color-paper: #F5F6F7;\n  --color-white: #FFFFFF;\n  --color-highlight: #C6FF19;\n  --color-signal: #245FFF;\n\n  /* Semantic roles are separate from brand accents. */\n  --color-ok: #1A6F45;\n  --color-warn: #8A5A00;\n  --color-error: #A52A1E;\n  --color-destructive: #6B1839;\n  --color-on-ok: #FFFFFF;\n  --color-on-warn: #FFFFFF;\n  --color-on-error: #FFFFFF;\n  --color-on-destructive: #FFFFFF;\n\n  /* Action, selection, focus, and information roles remain distinct. */\n  --color-action: var(--color-ink);\n  --color-on-action: var(--color-white);\n  --color-selection: var(--color-highlight);\n  --color-focus: var(--color-signal);\n  --color-link: var(--color-signal);\n  --color-registration: var(--color-signal);\n  --color-active-path: var(--color-signal);\n\n  /* Light-led surface roles. */\n  --color-bg: var(--color-paper);\n  --color-surface: var(--color-white);\n  --color-surface-2: color-mix(\n    in srgb,\n    var(--color-concrete) 18%,\n    var(--color-white)\n  );\n  --color-border: var(--color-concrete);\n  --color-border-strong: color-mix(\n    in srgb,\n    var(--color-graphite) 42%,\n    var(--color-concrete)\n  );\n  --color-text: var(--color-ink);\n  --color-text-dim: var(--color-graphite);\n\n  /*\n   * Compatibility aliases keep existing consumers stable while later\n   * component features migrate them to the narrower semantic roles.\n   */\n  --color-accent: var(--color-signal);\n  --color-err: var(--color-error);\n\n  /*\n   * The plate a third-party company mark sits on (components/market-map/\n   * company-logo.tsx). Not a surface step: a deliberate mid neutral, because\n   * the mark set spans both extremes and no single light ground holds it.\n   * 35 of the 111 shipped marks are near-white (mean relative luminance\n   * above 0.60) and 41 are near-black, so a paper-coloured tile loses the\n   * first group and a near-black tile loses the second. This value sits at\n   * relative luminance 0.20, the point where pure white and the text colour\n   * are equidistant, giving both about 4.1:1. Every mark gets the same\n   * plate; nothing is special-cased per company.\n   */\n  --color-logo-plate: #7d7a73;\n\n  /* Typography: Tektur display, IBM Plex Sans UI, Newsreader prose,\n     IBM Plex Mono code/data. Variables are set by next/font in layout.tsx. */\n  --font-display: var(--font-tektur), var(--font-plex-sans), ui-sans-serif,\n    system-ui, sans-serif;\n  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;\n  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;\n  --font-mono: var(--font-plex-mono), ui-monospace, 'SF Mono', monospace;\n\n  /* Shape ladder and neutral elevation variants. */\n  --radius-none: 0px;\n  --radius-xs: 2px;\n  --radius-sm: 4px;\n  --radius-md: 8px;\n  --radius-lg: 16px;\n  --radius-xl: 24px;\n  --shadow-raised: 0 2px 8px rgb(11 11 12 / 0.1);\n  --shadow-floating: 0 8px 20px rgb(11 11 12 / 0.16);\n}\n\n/*\n * Measurable Tektur role instances. Keep these in lockstep with\n * data/type-roles.json. Every role names both registered axes rather than\n * relying on a browser default or a font filename to imply an instance.\n */\n.font-display-home,\n.font-display-shell,\n.font-display-page,\n.font-display-article,\n.font-display-section,\n.font-display-numerals {\n  font-family: var(--font-display);\n  font-style: normal;\n  font-weight: 600;\n  font-stretch: 100%;\n  font-variation-settings:\n    'wght' 600,\n    'wdth' 100;\n}\n\n@layer base {\n  :root {\n    color-scheme: light;\n    --space-4: 4px;\n    --space-8: 8px;\n    --space-12: 12px;\n    --space-16: 16px;\n    --space-24: 24px;\n    --space-32: 32px;\n    --space-48: 48px;\n    --space-64: 64px;\n    --space-96: 96px;\n    --space-128: 128px;\n  }\n\n  body {\n    background: var(--color-bg);\n    color: var(--color-text);\n    font-family: var(--font-sans);\n    -webkit-font-smoothing: antialiased;\n    text-rendering: optimizeLegibility;\n  }\n\n  ::selection {\n    background: var(--color-selection);\n    color: var(--color-ink);\n  }\n\n  /* Focus is signal blue. Persistent selection is highlight lime. */\n  :focus-visible {\n    outline: 2px solid var(--color-focus);\n    outline-offset: 2px;\n    border-radius: var(--radius-xs);\n  }\n\n  :focus:not(:focus-visible) {\n    outline: none;\n  }\n\n  /* Global reduced-motion guard. */\n  @media (prefers-reduced-motion: reduce) {\n    *,\n    *::before,\n    *::after {\n      animation-duration: 0.01ms !important;\n      animation-iteration-count: 1 !important;\n      transition-duration: 0.01ms !important;\n      scroll-behavior: auto !important;\n    }\n  }\n}\n\n/*\n * The brand's one graphic device: a literal 32px engineering grid. It is an\n * SVG tile rather than a CSS gradient, and is reserved for title-sheet and\n * social-card fields. The reading surface itself stays plain paper.\n */\n.engineering-grid {\n  background-color: var(--color-surface);\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M.5 32V.5H32' fill='none' stroke='%23D9DADB' stroke-width='1'/%3E%3C/svg%3E\");\n  background-position: center;\n  background-repeat: repeat;\n  background-size: 32px 32px;\n}\n\n.material-paper {\n  background-color: var(--color-paper);\n}\n\n.material-concrete {\n  background-color: var(--color-surface);\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23D9DADB' fill-opacity='.24'%3E%3Ccircle cx='3' cy='5' r='.65'/%3E%3Ccircle cx='18' cy='3' r='.45'/%3E%3Ccircle cx='11' cy='16' r='.55'/%3E%3Ccircle cx='22' cy='20' r='.4'/%3E%3C/g%3E%3C/svg%3E\");\n  background-repeat: repeat;\n}\n\n.material-halftone {\n  background-color: var(--color-surface);\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='4' cy='4' r='1' fill='%23242D33' fill-opacity='.08'/%3E%3Ccircle cx='12' cy='12' r='1' fill='%23242D33' fill-opacity='.08'/%3E%3C/svg%3E\");\n  background-repeat: repeat;\n}\n\n/*\n * The one textured surface, carried over from the accepted paper candidate.\n *\n * The rule between an article's prose and its generated apparatus is painted\n * as a monochrome dot lattice: a base dot at every cell, a mid dot every\n * second cell, a peak dot once per 5-cell block. It is static in every state,\n * carries no information the headings below it do not already carry, and its\n * dot colours sit within 0.06 relative luminance of the page ground.\n *\n * The three layers tile at the SAME row height and differ only in horizontal\n * period, so every row carries all three tiers. Giving the peak layer a\n * 5-cell VERTICAL period as well is the obvious reading of a 5x5 matrix and\n * is wrong here: the band is three rows tall, so the peak dots would land\n * outside it and that tier would never paint.\n *\n * Deliberately the only placement. On a page whose job is reading, one\n * boundary mark is the whole of what a texture has to say.\n */\n:root {\n  /* Documented tonal derivatives of concrete over paper at 12/18/24%. */\n  --dot-base: #F2F3F4;\n  --dot-mid: #F0F1F2;\n  --dot-peak: #EEEFF0;\n  --dot-pitch: 4px;\n}\n\narticle > hr {\n  border: 0;\n  height: calc(var(--dot-pitch) * 3);\n  background-color: transparent;\n  background-repeat: repeat;\n  background-position: center;\n  background-image:\n    radial-gradient(circle at 50% 50%, var(--dot-peak) 0.9px, transparent 1px),\n    radial-gradient(circle at 50% 50%, var(--dot-mid) 0.9px, transparent 1px),\n    radial-gradient(circle at 50% 50%, var(--dot-base) 0.9px, transparent 1px);\n  background-size:\n    calc(var(--dot-pitch) * 5) var(--dot-pitch),\n    calc(var(--dot-pitch) * 2) var(--dot-pitch),\n    var(--dot-pitch) var(--dot-pitch);\n}\n\n/*\n * A run of links set inline, like the article lists in the home contents.\n * The separating dot is generated content with empty alternative text, so\n * it is neither read aloud nor counted as a word of the page. Generated\n * content leaves no gap in the page text either, so each item after the\n * first opens with a real space; without it innerText, copying and reader\n * views join the last word of one title to the first word of the next. The\n * dot's end margin gives up about the width of that space, and a line can\n * break after the dot but not before it.\n */\n.home-run > li {\n  display: inline;\n}\n\n.home-run > li + li::before {\n  content: \"\\00B7\" / \"\";\n  margin-inline: 0.45em 0.2em;\n  color: var(--color-text-dim);\n}\n\n/*\n * The citation chip sets a fixed 20px line box and clips its overflow, so a\n * label enlarged on its own (200% text) is cut off. In the home facts the\n * label's line box grows with it; at the base size max() still resolves to\n * the chip's 20px, so the chip renders unchanged.\n */\n[data-did-you-know] [data-brand-surface-id=\"surface:flat\"] > a {\n  line-height: max(1.25rem, 1.35em);\n}\n\n/*\n * The chip is an inline-flex box, so its link is a flex item, and innerText\n * puts a flex item's text on a line of its own. The full stop after the chip\n * would then count as a word of the fact. As an inline block the chip draws\n * the same box around the same link, and the fact's text ends \"Rudin 2021.\".\n */\n[data-did-you-know] [data-brand-surface-id=\"surface:flat\"] {\n  display: inline-block;\n}\n\n/* Skip-to-content link: first Tab stop on every page.\n   Off-screen until focused. */\n.skip-link {\n  position: fixed;\n  top: 0.75rem;\n  left: 0.75rem;\n  z-index: 100;\n  transform: translateY(-300%);\n  padding: 0.5rem 0.75rem;\n  border: 1px solid var(--color-focus);\n  border-radius: var(--radius-sm);\n  background: var(--color-surface-2);\n  color: var(--color-link);\n  font-family: var(--font-mono);\n  font-size: 0.75rem;\n  text-decoration: none;\n}\n\n.skip-link:focus-visible {\n  transform: none;\n}\n\n/*\n * The article reading sheet: measure, reading size and gutter as one system.\n *\n * `ch` resolves against the element's own font, so a column capped in `ch`\n * while wearing the interface face does not cap the prose that fills it —\n * the two units differ by the ratio of the two `0` advances, and what the\n * reader gets is not the measure the sheet declares. That is how a column\n * written `max-w-[65ch]` in IBM Plex Sans around Newsreader prose rendered\n * 60.2ch at 1440. The column therefore carries the reading face itself and\n * caps at the measure plus its own gutters, which makes the rendered\n * paragraph exactly `--prose-measure` wide wherever the viewport allows it.\n *\n * The gutter widens with the room available for it rather than staying at\n * one value: it is the sheet's breathing room on a wide screen and the only\n * thing between the text and the bezel on a narrow one.\n */\n:root {\n  --prose-size: 1.1875rem;\n  --prose-leading: 1.7;\n  --prose-measure: 65ch;\n  --article-gutter: 20px;\n}\n\n@media (min-width: 640px) {\n  :root {\n    --article-gutter: 32px;\n  }\n}\n\n@media (min-width: 1024px) {\n  :root {\n    --article-gutter: 48px;\n  }\n}\n\n[data-prose-column] {\n  max-width: calc(var(--prose-measure) + 2 * var(--article-gutter));\n  padding-inline: var(--article-gutter);\n  font-family: var(--font-serif);\n  font-size: var(--prose-size);\n}\n\n/*\n * The article title. Sized against the viewport rather than in breakpoint\n * steps, so the sealed range holds across the whole span between the two\n * widths the contract measures and not only at the two.\n */\n.article-title {\n  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.25rem);\n  line-height: 1.05;\n  letter-spacing: -0.02em;\n  /*\n   * The size floor is sealed at 375px, and a title is one long word more\n   * often than any scale allows for: \"Counterargument\" at that floor is\n   * wider than a 320px reflow column. Breaking the word is the only move\n   * left that does not shrink the title below the sealed size.\n   */\n  overflow-wrap: break-word;\n}\n\n/*\n * Registration labels: the small mono caps that name a measured value.\n * One tracking ratio site-wide, so the field labels of an article header,\n * a search box and an instrument panel are the same class of mark.\n */\n.registration-label {\n  font-family: var(--font-mono);\n  text-transform: uppercase;\n  letter-spacing: 0.14em;\n}\n\n/*\n * Long-form prose (.prose): Newsreader body, IBM Plex Sans headings,\n * IBM Plex Mono inline code, capped at the sheet's measure.\n */\n.prose {\n  max-width: var(--prose-measure);\n  color: var(--color-text);\n  font-family: var(--font-serif);\n  font-size: var(--prose-size);\n  line-height: var(--prose-leading);\n}\n\n.prose :where(h1, h2, h3, h4, h5, h6) {\n  color: var(--color-text);\n  font-family: var(--font-sans);\n  font-weight: 600;\n  letter-spacing: -0.01em;\n  line-height: 1.25;\n}\n\n.prose h1 {\n  margin: 0 0 1rem;\n  font-size: 1.875rem;\n}\n\n/*\n * The section ladder is set against the reading size, not against the root:\n * a 22px section heading over 17px prose was a step the eye had to look for,\n * and the same heading over 19px prose is barely a step at all.\n */\n.prose h2 {\n  margin: 2.75rem 0 0.875rem;\n  font-size: 1.625rem;\n}\n\n.prose h3 {\n  margin: 2rem 0 0.5rem;\n  font-size: 1.3125rem;\n}\n\n.prose h4 {\n  margin: 1.5rem 0 0.5rem;\n  font-size: 1.125rem;\n}\n\n.prose p {\n  margin: 0 0 1.25rem;\n}\n\n/*\n * A figure in the reading column keeps the figure frame's own type: the\n * brand sans on the stage scale, with no paragraph rhythm and no reading\n * face or size inherited from the prose around it. Frame parts set their\n * own sizes; anything unset reads as stage text.\n */\n.prose [data-figure-frame] {\n  font-family: var(--font-sans);\n  font-size: 13px;\n  line-height: 1.375;\n}\n\n.prose [data-figure-frame] p {\n  margin: 0;\n}\n\n.prose a {\n  color: var(--color-accent);\n  text-decoration: underline;\n  text-decoration-color: color-mix(in srgb, var(--color-accent) 45%, transparent);\n  text-underline-offset: 2px;\n}\n\n/*\n * rehype-autolink-headings wraps headings in anchors. The heading keeps the\n * text colour, so it does not read as a run of signal-blue prose link, and\n * the fact that it addresses a section is carried by two marks that are both\n * there at rest: a signal-blue rule under the whole heading, and the chain\n * glyph beside it (components/article/heading-permalink.tsx). One of the two\n * survives a reader who cannot see the colour, which is what a hover-only\n * underline in a neutral grey did not.\n */\n.prose :where(h1, h2, h3, h4, h5, h6) a {\n  color: inherit;\n  text-decoration-line: underline;\n  text-decoration-color: var(--color-signal);\n  text-decoration-thickness: 2px;\n  text-underline-offset: 4px;\n}\n\n.prose :where(h1, h2, h3, h4, h5, h6) a:hover {\n  text-decoration-thickness: 3px;\n}\n\n.prose a:hover {\n  text-decoration-color: var(--color-accent);\n}\n\n/*\n * Inline glossary terms (components/ui/term.tsx): a dotted-underline\n * affordance in the text color, visually distinct from signal-blue prose links.\n * The scoped rules below override .prose a, which is unlayered and would\n * otherwise beat the utility layer. The global :focus-visible signal-blue\n * outline still applies, and hover/focus reveal of the definition tooltip\n * is handled by the component's group classes.\n */\n.term-link {\n  color: var(--color-text);\n  text-decoration-line: underline;\n  text-decoration-style: dotted;\n  text-decoration-color: var(--color-text-dim);\n  text-underline-offset: 3px;\n}\n\n.term-link:hover {\n  color: var(--color-accent);\n  text-decoration-color: var(--color-accent);\n}\n\n.prose a.term-link {\n  color: var(--color-text);\n  text-decoration-style: dotted;\n  text-decoration-color: var(--color-text-dim);\n  text-underline-offset: 3px;\n}\n\n.prose a.term-link:hover {\n  color: var(--color-accent);\n  text-decoration-color: var(--color-accent);\n}\n\n.prose :where(ul, ol) {\n  margin: 0 0 1.125rem;\n  padding-left: 1.375rem;\n}\n\n.prose li {\n  margin: 0.25rem 0;\n}\n\n.prose li::marker {\n  color: var(--color-text-dim);\n}\n\n.prose strong {\n  color: var(--color-text);\n  font-weight: 600;\n}\n\n.prose blockquote {\n  margin: 1.5rem 0;\n  border-left: 2px solid var(--color-border);\n  padding-left: 1rem;\n  color: var(--color-text-dim);\n}\n\n.prose hr {\n  margin: 2.5rem 0;\n  border: 0;\n  border-top: 1px solid var(--color-border);\n}\n\n/* Inline code */\n.prose :where(code):not(pre code) {\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-sm);\n  background: var(--color-surface-2);\n  padding: 0.1em 0.3em;\n  color: var(--color-text);\n  font-family: var(--font-mono);\n  font-size: 0.8125em;\n}\n\n/* Fenced code blocks (rehype-pretty-code output and plain pre) */\n.prose pre {\n  margin: 1.5rem 0;\n  overflow-x: auto;\n  border: 1px solid var(--color-border) !important;\n  border-radius: var(--radius-md);\n  background: var(--color-surface) !important;\n  padding: 0.875rem 1rem;\n  font-family: var(--font-mono);\n  font-size: 0.8125rem;\n  line-height: 1.65;\n}\n\n.prose pre code {\n  border: 0;\n  background: transparent;\n  padding: 0;\n  font-size: inherit;\n}\n\n.prose [data-rehype-pretty-code-figure] {\n  margin: 1.5rem 0;\n}\n\n.prose [data-rehype-pretty-code-figure] pre {\n  margin: 0;\n}\n\n.prose [data-rehype-pretty-code-title] {\n  border: 1px solid var(--color-border);\n  border-bottom: 0;\n  border-radius: var(--radius-md) var(--radius-md) 0 0;\n  background: var(--color-surface-2);\n  padding: 0.375rem 0.75rem;\n  color: var(--color-text-dim);\n  font-family: var(--font-mono);\n  font-size: 0.75rem;\n}\n\n.prose [data-rehype-pretty-code-title] + figure pre,\n.prose [data-rehype-pretty-code-figure]:has([data-rehype-pretty-code-title]) pre {\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n}\n\n/*\n * KaTeX's stylesheet and the site's .katex / .katex-display overrides live\n * in components/article/math.css, loaded only by the articles that render\n * math (components/article/math-stylesheet.tsx).\n */\n\n/* Search result snippets: Pagefind wraps matched terms in <mark>. */\n.search-excerpt mark {\n  border-radius: var(--radius-xs);\n  background: var(--color-selection);\n  padding: 0 0.125em;\n  color: var(--color-ink);\n}\n\n/*\n * Dense comparison surfaces (the comparison matrix, dataset and hardware\n * tables) outgrow the 65ch prose measure. At lg+ this utility expands a\n * direct child of the article symmetrically toward the width of the main\n * region, keeping 1.5rem of gutter on each side and capping at 80rem.\n *\n * Both terms are container-relative on purpose, because every viewport-based\n * derivation of this geometry is wrong in a way that is invisible on the\n * page. `100vw` includes the classic-scrollbar gutter that the layout cannot\n * use, and a rail width written as a literal drifts from the rail the moment\n * its border changes; either error moves the element LEFT, where it is\n * painted under the rail and permanently unreachable, since an LTR document\n * cannot scroll to a negative offset and no scrollbar signals the loss.\n * `--wide-measure-available` is resolved on the article against the main\n * region, so it is the inline size actually available beside the rail under\n * both scrollbar models; the registered @property is what forces that\n * resolution there rather than re-resolving `cqw` at the call site.\n *\n * `50cqw` anchors to the article's own content box. A percentage would\n * resolve against `.prose`, which re-applies `max-width: 65ch` in a serif\n * face and computes narrower than the article, and that mismatch is what\n * drove the surface 28.25px left of where it was meant to sit.\n *\n * Measured on the export at 1024, 1152, 1280, 1440, 1600, 1616 and 1920,\n * under both overlay and 15px space-consuming scrollbars: the surface's left\n * edge clears the rail's right edge by 24px at every one, and no route\n * scrolls horizontally at any of those widths (tests/e2e/rail-clearance.spec.ts).\n * Below lg the surface stays in-measure and scrolls horizontally inside its\n * own container.\n *\n * The descendant selector is load-bearing, not stylistic. Only\n * `[data-prose-column]` sets `--wide-measure-available`, and an unset\n * registered `<length>` falls back to its `initial-value`, so a bare\n * `.wide-measure` selector resolves `width` to `min(80rem, -48px)` outside\n * an article and computes to 0px: measured on the export at 1440, such a div\n * on /glossary reported `width: 0px`, `--wide-measure-available: 0px`. It\n * neither overflows nor warns, so the surface vanishes rather than looking\n * wrong. Scoping the rule to the element that supplies the variable makes\n * that state unreachable; the same div then measures 641.52px, the width of\n * the block it sits in. Degrading is still not what an author asking for a\n * wide surface wants, so the misplaced call site also has to fail somewhere:\n * the \"every wide surface is authored inside the article prose column\" test\n * in tests/e2e/rail-clearance.spec.ts names the route and the element.\n */\n@property --wide-measure-available {\n  syntax: '<length>';\n  inherits: true;\n  initial-value: 0px;\n}\n\n@media (min-width: 1024px) {\n  main:has(> [data-prose-column]) {\n    container-type: inline-size;\n  }\n\n  [data-prose-column] {\n    container-type: inline-size;\n    --wide-measure-available: 100cqw;\n  }\n\n  [data-prose-column] .wide-measure {\n    width: min(80rem, calc(var(--wide-measure-available) - 3rem));\n    margin-left: calc(\n      50cqw - min(40rem, (var(--wide-measure-available) - 3rem) / 2)\n",
+          "after": " * Robot Wiki runtime tokens (Tailwind v4 CSS-first), the Pantheon\n * research-page standard (owner decision of 2026-10-10, PANTHEON-SPEC.md).\n * Paper and ink, hairline 1px rules, grayscale chart colours and one muted\n * blue accent. The page is a single paper sheet in the very light warm grey\n * of the owner's prototype (#fafaf8): there is no second \"reading surface\"\n * colour, and the only inset is --paper-deep.\n *\n * The spec's own names live on :root below (--paper, --ink, --line, ...);\n * figures and primitives consume those directly. The --color-* names here\n * are the Tailwind utility layer over the same values. Renderer mirrors\n * live in lib/brand-v2-tokens.ts.\n */\n:root {\n  --paper: #fafaf8;\n  --paper-deep: #f0f3f6;\n  --ink: #1c1c1a;\n  --muted: #6c6b66;\n  --line: rgba(28, 28, 26, 0.14);\n  --line-strong: rgba(28, 28, 26, 0.22);\n  --chart-background: #dededb;\n  --chart-medium: #a3a39e;\n  --chart-dark: #3f3f3b;\n  --accent: #3b6ea8;\n  --ok: #1a6f45;\n  --fail: #a52a1e;\n\n  --page-gutter: clamp(24px, 8vw, 160px);\n  --header-gutter: clamp(16px, 4vw, 80px);\n  --code-radius: 7px;\n}\n\n@theme {\n  /* Palette. Keep uppercase hex for executable parity with the mirror. */\n  --color-ink: #1C1C1A;\n  --color-graphite: #3F3F3B;\n  --color-concrete: #DEDEDB;\n  --color-paper: #FAFAF8;\n  --color-white: #FFFFFF;\n  --color-highlight: #A3A39E;\n  --color-signal: #3B6EA8;\n\n  /* Outcome marks (a small check or cross), never fills or series. */\n  --color-ok: #1A6F45;\n  --color-warn: #8A5A00;\n  --color-error: #A52A1E;\n  --color-destructive: #6B1839;\n  --color-on-ok: #FFFFFF;\n  --color-on-warn: #FFFFFF;\n  --color-on-error: #FFFFFF;\n  --color-on-destructive: #FFFFFF;\n\n  /* Actions and focus are ink; the accent is the one highlighted series.\n     Highlight and selection are neutral greys that ink text reads on. */\n  --color-action: var(--color-ink);\n  --color-on-action: var(--color-white);\n  --color-selection: var(--color-concrete);\n  --color-focus: var(--color-ink);\n  --color-link: var(--color-ink);\n  --color-registration: var(--color-signal);\n  --color-active-path: var(--color-signal);\n\n  /* One paper sheet; the inset is --paper-deep. */\n  --color-bg: var(--color-paper);\n  --color-surface: var(--color-paper);\n  --color-surface-2: #F0F3F6;\n  --color-border: rgba(28, 28, 26, 0.14);\n  --color-border-strong: rgba(28, 28, 26, 0.22);\n  --color-text: var(--color-ink);\n  --color-text-dim: #6C6B66;\n\n  /*\n   * Compatibility aliases keep existing consumers stable while later\n   * component features migrate them to the narrower semantic roles.\n   */\n  --color-accent: var(--color-signal);\n  --color-err: var(--color-error);\n\n  /*\n   * The plate a third-party company mark sits on (components/market-map/\n   * company-logo.tsx). Not a surface step: a deliberate mid neutral, because\n   * the mark set spans both extremes and no single light ground holds it.\n   * 35 of the 111 shipped marks are near-white (mean relative luminance\n   * above 0.60) and 41 are near-black, so a paper-coloured tile loses the\n   * first group and a near-black tile loses the second. This value sits at\n   * relative luminance 0.20, the point where pure white and the text colour\n   * are equidistant, giving both about 4.1:1. Every mark gets the same\n   * plate; nothing is special-cased per company.\n   */\n  --color-logo-plate: #7d7a73;\n\n  /* Typography: DM Sans display, Geist text and interface, Geist Mono for\n     numerals, code and readouts. Variables are set by next/font in\n     layout.tsx. The reading role is Geist too: one text face. */\n  --font-display: var(--font-dm-sans), var(--font-geist), Arial, Helvetica,\n    sans-serif;\n  --font-sans: var(--font-geist), Arial, Helvetica, sans-serif;\n  --font-serif: var(--font-geist), Arial, Helvetica, sans-serif;\n  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Consolas,\n    monospace;\n\n  /* Square corners everywhere; the code block's 7px is --code-radius. */\n  --radius-none: 0px;\n  --radius-xs: 0px;\n  --radius-sm: 0px;\n  --radius-md: 0px;\n  --radius-lg: 0px;\n  --radius-xl: 0px;\n  --shadow-raised: 0 0 #0000;\n  --shadow-floating: 0 0 #0000;\n}\n\n/*\n * Display roles. The H1 is DM Sans 400; section and chrome roles are DM Sans\n * 600. Keep these in lockstep with data/type-roles.json.\n */\n.font-display-home,\n.font-display-page,\n.font-display-article {\n  font-family: var(--font-display);\n  font-style: normal;\n  font-weight: 400;\n}\n\n.font-display-shell,\n.font-display-section,\n.font-display-numerals {\n  font-family: var(--font-display);\n  font-style: normal;\n  font-weight: 600;\n}\n\n/*\n * The page masthead every route shares: an uppercase eyebrow, one DM Sans\n * display H1, a Geist lead and a muted meta line. Measured on the\n * reference: H1 87.36px at 1440 with 0.93 leading, eyebrow 13-14px tracked\n * +0.08em, lead 16/26 capped at 960px.\n */\n.eyebrow {\n  font-family: var(--font-sans);\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 1.2;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n  color: var(--muted);\n}\n\n.eyebrow a {\n  color: inherit;\n  text-decoration: underline;\n  text-decoration-thickness: 1px;\n  text-underline-offset: 3px;\n  text-decoration-color: color-mix(in srgb, var(--muted) 60%, transparent);\n}\n\n.eyebrow a:hover {\n  color: var(--ink);\n}\n\n/* A display numeral set as an eyebrow (the 404 status) keeps the eyebrow's\n   size and tracking and takes the display face at its registered weight. */\n.eyebrow.font-display-numerals {\n  font-family: var(--font-display);\n  font-weight: 600;\n}\n\n.display-h1 {\n  font-family: var(--font-display);\n  font-weight: 400;\n  font-size: clamp(2.75rem, 0.6rem + 5.4vw, 5.46rem);\n  line-height: 0.93;\n  letter-spacing: -0.025em;\n  color: var(--ink);\n  overflow-wrap: break-word;\n}\n\n.page-lead {\n  max-width: 960px;\n  font-family: var(--font-sans);\n  font-size: 16px;\n  line-height: 1.62;\n  color: var(--ink);\n}\n\n.meta-line {\n  font-family: var(--font-sans);\n  font-size: 15px;\n  line-height: 1.5;\n  color: var(--muted);\n}\n\n.meta-line a {\n  color: var(--muted);\n  text-decoration: underline;\n  text-decoration-thickness: 1px;\n  text-underline-offset: 3px;\n}\n\n.meta-line a:hover {\n  color: var(--ink);\n}\n\n/*\n * Section labels outside the article (hub, home, index pages) wear the same\n * H2 as the article: DM Sans 600, 20px, uppercase, +0.055em.\n */\n.section-h2 {\n  font-family: var(--font-display);\n  font-size: 20.32px;\n  font-weight: 600;\n  line-height: 1.3;\n  letter-spacing: 0.055em;\n  text-transform: uppercase;\n  color: var(--ink);\n}\n\n/*\n * The sheet every non-article route sits on: the article's 960px column,\n * centred, with the same gutters, and the same masthead rhythm.\n */\n.sheet {\n  width: 100%;\n  max-width: calc(960px + 2 * var(--article-gutter));\n  margin-inline: auto;\n  padding-inline: var(--article-gutter);\n}\n\n.sheet-masthead {\n  padding-top: clamp(56px, 8vw, 128px);\n}\n\n.sheet-masthead .eyebrow {\n  margin-bottom: 24px;\n}\n\n.sheet-masthead .page-lead {\n  margin-top: 30px;\n}\n\n.sheet-masthead .meta-line {\n  margin-top: 24px;\n}\n\n.sheet-section {\n  margin-top: 76px;\n}\n\n.sheet-section > .section-h2 {\n  margin-bottom: 18px;\n}\n\n/*\n * Home is the one index that has to show its whole contents in the first\n * screen: all seven domains above the fold at 1440x900 and the featured\n * scene starting within 1200px. Its masthead puts the search beside the\n * lead, and its sections close up to 48px, the same rules and type at a\n * front-page density.\n */\n.sheet-masthead.home-masthead {\n  padding-top: 32px;\n}\n\n.home-masthead .page-lead {\n  margin-top: 20px;\n}\n\n.home-masthead .meta-line {\n  margin-top: 12px;\n}\n\n@media (min-width: 1024px) {\n  .home-masthead {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) 22rem;\n    grid-template-rows: 1fr auto;\n    column-gap: 48px;\n  }\n\n  .home-masthead > .home-lockup {\n    grid-column: 1;\n    grid-row: 1 / span 2;\n  }\n\n  /* The counts and the search share the right column; the search's bottom\n     edge lines up with the lead's. */\n  .home-masthead > .meta-line {\n    grid-column: 2;\n    grid-row: 1;\n    align-self: end;\n    margin: 0 0 12px;\n  }\n\n  .home-masthead > .home-masthead-search {\n    grid-column: 2;\n    grid-row: 2;\n    align-self: end;\n    margin-top: 0;\n  }\n}\n\n.sheet-section.home-section {\n  margin-top: 40px;\n}\n\n.home-section > .section-h2 {\n  margin-bottom: 16px;\n}\n\n/* A plain text link in the house manner: ink, 1px underline. */\n.ink-link {\n  color: var(--ink);\n  text-decoration: underline;\n  text-decoration-thickness: 1px;\n  text-decoration-color: color-mix(in srgb, var(--ink) 55%, transparent);\n  text-underline-offset: 3px;\n}\n\n.ink-link:hover {\n  text-decoration-color: var(--ink);\n}\n\n/* A quiet text link: muted until hovered, no underline at rest. */\n.quiet-link {\n  color: var(--muted);\n  text-decoration: none;\n}\n\n.quiet-link:hover {\n  color: var(--ink);\n}\n\n@layer base {\n  html {\n    scroll-padding-top: calc(var(--topbar-height) + 24px);\n  }\n\n  :root {\n    color-scheme: light;\n    --space-4: 4px;\n    --space-8: 8px;\n    --space-12: 12px;\n    --space-16: 16px;\n    --space-24: 24px;\n    --space-32: 32px;\n    --space-48: 48px;\n    --space-64: 64px;\n    --space-96: 96px;\n    --space-128: 128px;\n  }\n\n  body {\n    background: var(--paper);\n    color: var(--ink);\n    font-family: var(--font-sans);\n    font-size: 16px;\n    line-height: 1.5;\n    -webkit-font-smoothing: antialiased;\n    text-rendering: optimizeLegibility;\n  }\n\n  ::selection {\n    background: var(--color-selection);\n    color: var(--ink);\n  }\n\n  /* Focus is a 1px ink outline offset 2px, keyboard only. */\n  :focus-visible {\n    outline: 1px solid var(--color-focus);\n    outline-offset: 2px;\n    border-radius: 0;\n  }\n\n  :focus:not(:focus-visible) {\n    outline: none;\n  }\n\n  /* Global reduced-motion guard. */\n  @media (prefers-reduced-motion: reduce) {\n    *,\n    *::before,\n    *::after {\n      animation-duration: 0.01ms !important;\n      animation-iteration-count: 1 !important;\n      transition-duration: 0.01ms !important;\n      scroll-behavior: auto !important;\n    }\n  }\n}\n\n/*\n * The Pantheon sheet is plain white paper: no grid, no grain pattern, no\n * halftone. The concrete and halftone materials are retired; paper is the one\n * material left, and the grid class survives as a name only.\n */\n.engineering-grid,\n.material-paper {\n  background-color: var(--paper);\n  background-image: none;\n}\n\n/*\n * The rule between an article's prose and its generated apparatus: one\n * hairline, like every other rule on the page.\n */\narticle > hr {\n  border: 0;\n  border-top: 1px solid var(--line);\n  height: 0;\n  background: none;\n}\n\n/*\n * A run of links set inline, like the article lists in the home contents.\n * The separating dot is generated content with empty alternative text, so\n * it is neither read aloud nor counted as a word of the page. Generated\n * content leaves no gap in the page text either, so each item after the\n * first opens with a real space; without it innerText, copying and reader\n * views join the last word of one title to the first word of the next. The\n * dot's end margin gives up about the width of that space, and a line can\n * break after the dot but not before it.\n */\n.home-run > li {\n  display: inline;\n}\n\n.home-run > li + li::before {\n  content: \"\\00B7\" / \"\";\n  margin-inline: 0.45em 0.2em;\n  color: var(--color-text-dim);\n}\n\n/* Skip-to-content link: first Tab stop on every page.\n   Off-screen until focused. */\n.skip-link {\n  position: fixed;\n  top: 0.75rem;\n  left: 0.75rem;\n  z-index: 100;\n  transform: translateY(-300%);\n  padding: 0.5rem 0.75rem;\n  border: 1px solid var(--ink);\n  background: var(--paper);\n  color: var(--ink);\n  font-family: var(--font-sans);\n  font-size: 0.8125rem;\n  text-decoration: none;\n}\n\n.skip-link:focus-visible {\n  transform: none;\n}\n\n/*\n * The article sheet (Pantheon research page). One 960px reading column,\n * centred. From 1200px the sheet is a three-column grid: a sticky table of\n * contents in the left rail, the column, and the right margin the sidenotes\n * float into. Below 1200px it is one column; the contents become a\n * disclosure and the notes expand inline.\n */\n:root {\n  --prose-size: 16px;\n  --prose-leading: 1.62;\n  --prose-measure: 960px;\n  --article-gutter: 24px;\n  --article-col-gap: clamp(24px, 2.2vw, 36px);\n  --rail-width: 172px;\n  --note-width: 180px;\n  --topbar-height: 76px;\n}\n\n@media (min-width: 640px) {\n  :root {\n    --article-gutter: 32px;\n  }\n}\n\n[data-prose-column] {\n  max-width: calc(var(--prose-measure) + 2 * var(--article-gutter));\n  margin-inline: auto;\n  padding-inline: var(--article-gutter);\n  font-family: var(--font-sans);\n  font-size: var(--prose-size);\n}\n\n@media (min-width: 1200px) {\n  [data-prose-column] {\n    max-width: none;\n    display: grid;\n    grid-template-columns:\n      minmax(var(--rail-width), 1fr)\n      minmax(0, var(--prose-measure))\n      minmax(var(--note-width), 1fr);\n    column-gap: var(--article-col-gap);\n    padding-inline: clamp(24px, 3.3vw, 48px);\n  }\n\n  [data-prose-column] > * {\n    grid-column: 2;\n    min-width: 0;\n  }\n\n  [data-prose-column] > [data-article-rail] {\n    grid-column: 1;\n    grid-row: 2 / span 8;\n  }\n}\n\n/* The masthead of an article: eyebrow, H1, lead and meta line. */\n.article-masthead {\n  padding-top: clamp(56px, 8vw, 128px);\n}\n\n.article-masthead .eyebrow {\n  margin-bottom: 24px;\n}\n\n/*\n * The article title: the display H1. Sized against the viewport so it\n * scales continuously from about 44px on a phone to 87px at 1440. A title\n * is one long word more often than any scale allows for (\"Counterargument\"\n * is wider than a 320px column at the floor), so it may break.\n */\n.article-title {\n  font-family: var(--font-display);\n  font-weight: 400;\n  font-size: clamp(2.75rem, 0.6rem + 5.4vw, 5.46rem);\n  line-height: 0.93;\n  letter-spacing: -0.025em;\n  color: var(--ink);\n  overflow-wrap: break-word;\n}\n\n.article-masthead .page-lead {\n  margin-top: 30px;\n}\n\n.article-masthead .meta-line {\n  margin-top: 24px;\n}\n\n/*\n * The left rail: the contents of the page, plain Geist, muted, the current\n * section in ink. Sticky under the top bar at 1200px and up; below that it\n * is the \"Contents\" disclosure at the head of the body.\n */\n.article-toc {\n  display: none;\n}\n\n.article-toc ol,\n.article-contents ol {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n.article-toc li + li {\n  margin-top: 13px;\n}\n\n.article-toc a,\n.article-contents a {\n  display: block;\n  color: var(--muted);\n  font-family: var(--font-sans);\n  font-size: 14.5px;\n  line-height: 1.35;\n  text-decoration: none;\n  transition: color 160ms ease;\n}\n\n.article-toc a:hover,\n.article-contents a:hover {\n  color: var(--ink);\n}\n\n.article-toc a[aria-current],\n.article-contents a[aria-current] {\n  color: var(--ink);\n  font-weight: 500;\n}\n\n.article-contents {\n  margin-top: 48px;\n  border-top: 1px solid var(--line);\n  border-bottom: 1px solid var(--line);\n}\n\n.article-contents summary {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 14px 0;\n  cursor: pointer;\n  list-style: none;\n  color: var(--ink);\n  font-family: var(--font-sans);\n  font-size: 13px;\n  font-weight: 500;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n\n.article-contents summary::-webkit-details-marker {\n  display: none;\n}\n\n.article-contents summary::after {\n  content: '+' / '';\n  font-family: var(--font-mono);\n  font-size: 15px;\n  font-weight: 400;\n  letter-spacing: 0;\n  color: var(--muted);\n}\n\n.article-contents[open] summary::after {\n  content: '\\2212' / '';\n}\n\n.article-contents ol {\n  padding-bottom: 16px;\n}\n\n.article-contents li + li {\n  margin-top: 10px;\n}\n\n@media (min-width: 1200px) {\n  .article-toc {\n    display: block;\n    position: sticky;\n    top: calc(var(--topbar-height) + 40px);\n    align-self: start;\n    max-height: calc(100dvh - var(--topbar-height) - 64px);\n    overflow-y: auto;\n    padding-top: 4px;\n    margin-top: 72px;\n  }\n\n  .article-contents {\n    display: none;\n  }\n}\n\n/*\n * Long-form prose: Geist 16/1.62 in ink, one 960px column, paragraphs\n * separated by space rather than indents, a generous gap before each H2.\n */\n.prose {\n  max-width: var(--prose-measure);\n  color: var(--ink);\n  font-family: var(--font-sans);\n  font-size: var(--prose-size);\n  line-height: var(--prose-leading);\n}\n\n.article-body {\n  margin-top: 56px;\n}\n\n@media (min-width: 1200px) {\n  .article-body {\n    margin-top: 72px;\n  }\n}\n\n.prose :where(h1, h2, h3, h4, h5, h6) {\n  color: var(--ink);\n  font-family: var(--font-display);\n  font-weight: 600;\n}\n\n.prose h1 {\n  margin: 0 0 1rem;\n  font-size: 1.875rem;\n  line-height: 1.2;\n}\n\n/* H2: DM Sans 600, 20px, uppercase, +0.055em. H3: DM Sans 600, 16px. */\n.prose h2 {\n  margin: 76px 0 14px;\n  font-size: 20.32px;\n  line-height: 1.3;\n  letter-spacing: 0.055em;\n  text-transform: uppercase;\n}\n\n.prose h3 {\n  margin: 36px 0 10px;\n  font-size: 16px;\n  line-height: 1.4;\n  letter-spacing: 0;\n}\n\n.prose h4 {\n  margin: 28px 0 8px;\n  font-size: 15px;\n  line-height: 1.4;\n}\n\n.prose > :first-child {\n  margin-top: 0;\n}\n\n.prose p {\n  margin: 0 0 20px;\n}\n\n/*\n * A figure in the reading column keeps the figure frame's own type: the\n * text face on the stage scale, with no paragraph rhythm inherited from the\n * prose around it. Frame parts set their own sizes; anything unset reads as\n * stage text.\n */\n.prose [data-figure-frame] {\n  font-family: var(--font-sans);\n  font-size: 13px;\n  line-height: 1.375;\n}\n\n.prose [data-figure-frame] p {\n  margin: 0;\n}\n\n/* Links are ink with a 1px underline; hover darkens the rule. */\n.prose a {\n  color: var(--ink);\n  text-decoration: underline;\n  text-decoration-thickness: 1px;\n  text-decoration-color: color-mix(in srgb, var(--ink) 50%, transparent);\n  text-underline-offset: 3px;\n}\n\n.prose a:hover {\n  text-decoration-color: var(--ink);\n}\n\n/*\n * rehype-autolink-headings wraps headings in anchors. The heading keeps the\n * text colour and no underline; the copy-link control beside it appears on\n * hover and on keyboard focus (components/article/heading-permalink.tsx).\n */\n.prose :where(h1, h2, h3, h4, h5, h6) a {\n  color: inherit;\n  text-decoration: none;\n}\n\n/*\n * Inline glossary terms (components/ui/term.tsx): a dotted underline in the\n * text colour, distinct from the solid underline of a prose link.\n */\n.term-link {\n  color: var(--ink);\n  text-decoration-line: underline;\n  text-decoration-style: dotted;\n  text-decoration-thickness: 1px;\n  text-decoration-color: var(--muted);\n  text-underline-offset: 3px;\n}\n\n.term-link:hover {\n  text-decoration-color: var(--ink);\n}\n\n.prose a.term-link {\n  color: var(--ink);\n  text-decoration-style: dotted;\n  text-decoration-color: var(--muted);\n  text-underline-offset: 3px;\n}\n\n.prose a.term-link:hover {\n  text-decoration-color: var(--ink);\n}\n\n.prose :where(ul, ol) {\n  margin: 0 0 20px;\n  padding-left: 1.25rem;\n}\n\n.prose ul {\n  list-style: disc;\n}\n\n.prose ol {\n  list-style: decimal;\n}\n\n.prose li {\n  margin: 6px 0;\n  padding-left: 0.25rem;\n}\n\n.prose li::marker {\n  color: var(--muted);\n  font-family: var(--font-mono);\n  font-size: 0.875em;\n}\n\n.prose strong {\n  color: var(--ink);\n  font-weight: 600;\n}\n\n.prose blockquote {\n  margin: 32px 0;\n  border-left: 1px solid var(--line-strong);\n  padding-left: 20px;\n  color: var(--muted);\n}\n\n.prose hr {\n  margin: 48px 0;\n  border: 0;\n  border-top: 1px solid var(--line);\n}\n\n/*\n * Numbered findings (components/article/findings.tsx): \"01\" in Geist Mono\n * at left, a one-line claim in weight 600, a short paragraph, a hairline\n * between items and at both ends.\n */\n.findings {\n  list-style: none;\n  margin: 32px 0;\n  padding: 0;\n  border-top: 1px solid var(--line);\n  counter-reset: finding;\n}\n\n.findings > li {\n  counter-increment: finding;\n}\n\n.findings .finding-index::before {\n  content: counter(finding, decimal-leading-zero);\n}\n\n.prose .findings > li,\n.findings > li {\n  display: grid;\n  grid-template-columns: 44px minmax(0, 1fr);\n  margin: 0;\n  padding: 26px 0 24px;\n  border-bottom: 1px solid var(--line);\n}\n\n@media (min-width: 640px) {\n  .prose .findings > li,\n  .findings > li {\n    grid-template-columns: 74px minmax(0, 1fr);\n  }\n}\n\n.findings .finding-index {\n  padding-top: 1px;\n  color: var(--ink);\n  font-family: var(--font-mono);\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.5;\n  font-variant-numeric: tabular-nums;\n}\n\n.findings .finding-claim {\n  display: block;\n  margin: 0 0 8px;\n  color: var(--ink);\n  font-family: var(--font-display);\n  font-size: 15.5px;\n  font-weight: 600;\n  line-height: 1.45;\n}\n\n.findings .finding-body > :last-child {\n  margin-bottom: 0;\n}\n\n/*\n * Booktabs tables: a heavy top rule, a hairline under the header, a heavy\n * bottom rule, no vertical rules except a dotted group separator. Numerals\n * are tabular so right-aligned columns line up.\n */\n.booktabs {\n  width: 100%;\n  border-collapse: collapse;\n  border-top: 1.5px solid var(--ink);\n  border-bottom: 1.5px solid var(--ink);\n  color: var(--ink);\n  font-family: var(--font-sans);\n  font-size: 14px;\n  line-height: 1.45;\n  font-variant-numeric: tabular-nums;\n}\n\n.booktabs :where(th, td) {\n  padding: 9px 12px;\n  border: 0;\n  vertical-align: top;\n}\n\n.booktabs :where(th, td):first-child {\n  padding-left: 4px;\n}\n\n.booktabs :where(th, td):last-child {\n  padding-right: 4px;\n}\n\n.booktabs thead th {\n  border-bottom: 1px solid var(--line-strong);\n  color: var(--ink);\n  font-weight: 600;\n  vertical-align: bottom;\n}\n\n.booktabs tbody tr:first-child :where(th, td) {\n  padding-top: 11px;\n}\n\n.booktabs tbody tr:last-child :where(th, td) {\n  padding-bottom: 11px;\n}\n\n.booktabs caption {\n  caption-side: bottom;\n  padding-top: 12px;\n  color: var(--muted);\n  font-size: 13px;\n  line-height: 1.5;\n  text-align: left;\n}\n\n.booktabs [data-best],\n.booktabs [data-best] > * {\n  font-weight: 600;\n}\n\n.booktabs .group-separator {\n  border-left: 1px dotted var(--line-strong);\n}\n\n/*\n * The bespoke MDX tables (components/mdx/*-table.tsx and the plain-text\n * tables) are scroll regions placed directly in the prose. Each wears the\n * same booktabs rules as a Markdown table: the boxed wrapper, the row\n * hairlines and the mono header are the old look and give way here.\n */\n.prose > [role='region']:has(> table) {\n  margin: 36px 0;\n  border: 0;\n  border-radius: 0;\n  background: transparent;\n}\n\n.prose > [role='region'] > table {\n  border-collapse: collapse;\n  border-top: 1.5px solid var(--ink);\n  border-bottom: 1.5px solid var(--ink);\n  background: transparent;\n  font-variant-numeric: tabular-nums;\n}\n\n.prose > [role='region'] > table :where(tr, th, td) {\n  border: 0;\n  background: transparent;\n}\n\n.prose > [role='region'] > table thead tr {\n  border-bottom: 1px solid var(--line-strong);\n}\n\n.prose > [role='region'] > table thead th {\n  color: var(--ink);\n  font-family: var(--font-sans);\n  font-size: 13px;\n  font-weight: 600;\n  letter-spacing: 0;\n  text-transform: none;\n  vertical-align: bottom;\n}\n\n.prose > [role='region'] > table tbody :where(th, td) {\n  color: var(--ink);\n  font-family: var(--font-sans);\n  font-size: 14px;\n  line-height: 1.45;\n}\n\n.prose > [role='region'] > table tbody th[scope='row'] {\n  font-weight: 500;\n}\n\n/* Inline code: Geist Mono on the inset, no border, square. */\n.prose :where(code):not(pre code) {\n  border: 0;\n  border-radius: 0;\n  background: var(--paper-deep);\n  padding: 0.12em 0.32em;\n  color: var(--ink);\n  font-family: var(--font-mono);\n  font-size: 0.875em;\n}\n\n/*\n * Code blocks: --paper-deep inside a 1px hairline, 7px corners, Geist Mono\n * 14/23. The hairline is the edge of the box the block scrolls in\n * (VAL-NAV-023), drawn like every other rule.\n */\n.prose pre {\n  margin: 32px 0;\n  overflow-x: auto;\n  border: 1px solid var(--line) !important;\n  border-radius: var(--code-radius);\n  background: var(--paper-deep) !important;\n  padding: 26px 30px;\n  color: var(--ink);\n  font-family: var(--font-mono);\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 23.1px;\n}\n\n.prose pre code {\n  border: 0;\n  background: transparent;\n  padding: 0;\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n.prose [data-rehype-pretty-code-figure] {\n  margin: 32px 0;\n}\n\n.prose [data-rehype-pretty-code-figure] pre {\n  margin: 0;\n}\n\n.prose [data-rehype-pretty-code-title] {\n  border: 1px solid var(--line);\n  border-bottom: 0;\n  border-radius: var(--code-radius) var(--code-radius) 0 0;\n  background: var(--paper-deep);\n  padding: 14px 30px 0;\n  color: var(--muted);\n  font-family: var(--font-mono);\n  font-size: 12px;\n}\n\n.prose [data-rehype-pretty-code-title] + figure pre,\n.prose [data-rehype-pretty-code-figure]:has([data-rehype-pretty-code-title]) pre {\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n}\n\n/*\n * Citations and footnotes as sidenotes (components/ui/cite.tsx). In the text\n * a citation is a small superscript number. Its note (number, then muted\n * 13px text) sits beside the line in the right margin from 1200px, wherever\n * the citation is part of the running prose. Everywhere else (phones,\n * tables, figures, captions) the note opens inline under the line when the\n * number is pressed. The note is outside the reading-time count: it is the\n * citation's apparatus, as the bibliography entry is.\n */\n.cite-mark {\n  font-size: 0.7em;\n  font-weight: 500;\n  line-height: 0;\n  /* The preflight's relative `top: -0.5em` raises the number; a second\n     raise from `vertical-align: super` lifted it to the line above. */\n  vertical-align: baseline;\n  white-space: nowrap;\n  font-variant-numeric: tabular-nums;\n}\n\n.cite-mark a,\n.prose .cite-mark a {\n  padding-left: 1px;\n  color: var(--ink);\n  text-decoration: none;\n}\n\n.cite-mark a:hover,\n.prose .cite-mark a:hover {\n  text-decoration: underline;\n  text-underline-offset: 2px;\n}\n\n.cite-label {\n  color: var(--muted);\n  text-decoration: underline;\n  text-decoration-thickness: 1px;\n  text-decoration-color: color-mix(in srgb, var(--muted) 60%, transparent);\n  text-underline-offset: 2px;\n}\n\n.cite-label:hover,\n.prose .cite-label:hover {\n  color: var(--ink);\n}\n\n.prose .cite-label {\n  color: var(--muted);\n}\n\n.sidenote {\n  font-family: var(--font-sans);\n  font-size: 13px;\n  font-style: normal;\n  font-weight: 400;\n  line-height: 1.45;\n  letter-spacing: normal;\n  text-align: left;\n  text-indent: 0;\n  text-transform: none;\n  white-space: normal;\n  color: var(--muted);\n}\n\n/*\n * Opened in place (a phone, a table, a figure): the note runs inline after\n * its number, muted and a step smaller, so the sentence's own punctuation\n * still closes the line it belongs to.\n */\n.sidenote[data-open='true'] {\n  display: inline;\n}\n\n.sidenote[data-open='true'] .sidenote-index {\n  display: none;\n}\n\n.sidenote .sidenote-index {\n  margin-right: 2px;\n  color: var(--ink);\n  font-weight: 500;\n  font-variant-numeric: tabular-nums;\n}\n\n.sidenote a,\n.prose .sidenote a {\n  color: var(--muted);\n  text-decoration: underline;\n  text-decoration-thickness: 1px;\n  text-decoration-color: color-mix(in srgb, var(--muted) 60%, transparent);\n  text-underline-offset: 2px;\n}\n\n.sidenote a:hover,\n.prose .sidenote a:hover {\n  color: var(--ink);\n}\n\n.sidenote .sidenote-index a,\n.prose .sidenote .sidenote-index a {\n  color: var(--ink);\n  text-decoration: none;\n}\n\n@media (min-width: 1200px) {\n  :where(.prose > p, .prose > ul > li, .prose > ol > li, .prose > blockquote)\n    .sidenote {\n    display: block;\n    float: right;\n    clear: right;\n    position: relative;\n    width: var(--note-width);\n    margin: 0.35em calc(-1 * (var(--note-width) + var(--article-col-gap))) 8px 0;\n    border: 0;\n    padding: 0;\n  }\n\n  /*\n   * In the margin a note is the number and the source's label: one line,\n   * so a densely cited paragraph's notes stay beside their lines. The title\n   * stays in the note for assistive technology (it is the citation's\n   * description) and shows whenever the note opens inline.\n   */\n  :where(.prose > p, .prose > ul > li, .prose > ol > li, .prose > blockquote)\n    .sidenote\n    .sidenote-title {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    overflow: hidden;\n    clip-path: inset(50%);\n    white-space: nowrap;\n  }\n}\n\n/*\n * KaTeX's stylesheet and the site's .katex / .katex-display overrides live\n * in components/article/math.css, loaded only by the articles that render\n * math (components/article/math-stylesheet.tsx).\n */\n\n/* Search result snippets: Pagefind wraps matched terms in <mark>. */\n.search-excerpt mark {\n  border-radius: 0;\n  background: transparent;\n  padding: 0;\n  color: var(--ink);\n  font-weight: 600;\n}\n\n/*\n * Figures and dense surfaces may sit wider than the text, up to about\n * 1020px, centred on the column. In the three-column sheet the extra width\n * is taken from the column gaps only, so a wide surface never reaches the\n * contents rail or the notes. Below 1200px it is the column's width and\n * scrolls inside its own container.\n */\n@media (min-width: 1200px) {\n  [data-prose-column] .wide-measure {\n    width: min(1020px, calc(100% + 2 * var(--article-col-gap) - 8px));\n    margin-left: calc(\n      (100% - min(1020px, calc(100% + 2 * var(--article-col-gap) - 8px))) / 2\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/glossary/page.tsx",
+        "bytes": 4712,
+        "sha256": "acc40fa32c9b33dac3f12b79eeddf40a4fbe80b7919a03a9b7698f11162eb907"
+      },
+      "after": {
+        "path": "app/glossary/page.tsx",
+        "bytes": 4689,
+        "sha256": "a4701f1f96717f1c9374c453daf8585f31f153fd101aa7a5ca4f625d85347c61"
+      },
+      "edits": [
+        {
+          "before": "    <div className=\"mx-auto w-full max-w-[65ch] px-6 py-12\">\n",
+          "after": "    <div className=\"sheet sheet-masthead pb-8\">\n"
+        },
+        {
+          "before": "        <h1\n          data-tektur-role=\"page-h1\"\n          className=\"font-display-page text-3xl tracking-tight text-text\"\n        >\n",
+          "after": "        <h1 data-tektur-role=\"page-h1\" className=\"display-h1\">\n"
+        },
+        {
+          "before": "        <p className=\"mt-2 font-mono text-xs text-text-dim\">\n          {terms.length} terms, every definition written from a cited primary\n          source\n        </p>\n        <p className=\"mt-5 font-serif text-[1.0625rem] leading-relaxed text-text\">\n",
+          "after": "        <p className=\"page-lead mt-[30px]\">\n"
+        },
+        {
+          "before": "          same definition listed here.\n        </p>\n",
+          "after": "          same definition listed here.\n        </p>\n        <p className=\"meta-line mt-6\">\n          <span className=\"font-mono tabular-nums\">{terms.length}</span> terms,\n          every definition written from a cited primary source\n        </p>\n"
+        },
+        {
+          "before": "      <ol className=\"mt-10 list-none border-t border-border\">\n",
+          "after": "      <ol className=\"mt-16 list-none border-t border-border\">\n"
+        },
+        {
+          "before": "              className=\"scroll-mt-16 border-b border-border py-6 lg:scroll-mt-4\"\n",
+          "after": "              className=\"grid gap-x-8 gap-y-2 border-b border-border py-6 md:grid-cols-[15rem_minmax(0,1fr)]\"\n"
+        },
+        {
+          "before": "              <h2 className=\"font-sans text-lg font-semibold tracking-tight text-text\">\n",
+          "after": "              <h2 className=\"font-display text-[16px] font-semibold leading-snug text-text\">\n"
+        },
+        {
+          "before": "              <p className=\"mt-2 font-serif text-[1.0625rem] leading-relaxed text-text\">\n",
+          "after": "              <div className=\"min-w-0\">\n              <p className=\"text-[16px] leading-[1.62] text-text\">\n"
+        },
+        {
+          "before": "                      className=\"break-words font-sans text-[13px] font-medium leading-snug text-text underline decoration-border-strong underline-offset-[3px] transition-colors hover:text-accent hover:decoration-accent\"\n",
+          "after": "                      className=\"break-words font-sans text-[13px] leading-snug text-text-dim underline decoration-border-strong decoration-1 underline-offset-[3px] transition-colors hover:text-text hover:decoration-text\"\n"
+        },
+        {
+          "before": "                    <span className=\"shrink-0 font-mono text-[11px] text-text-dim\">\n",
+          "after": "                    <span className=\"shrink-0 font-sans text-[12px] text-text-dim\">\n"
+        },
+        {
+          "before": "              </ul>\n",
+          "after": "              </ul>\n              </div>\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/layout.tsx",
+        "bytes": 5599,
+        "sha256": "86eb95aa8175903a77c3217b6dc8a00a6a11663f7c701bdecd61bf151b56de9b"
+      },
+      "after": {
+        "path": "app/layout.tsx",
+        "bytes": 4426,
+        "sha256": "7fc799173cdc026fd133d868deac13eaacfe26a6ed7a87a7fde6a5aedfd5c6c5"
+      },
+      "edits": [
+        {
+          "before": "import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from 'next/font/google';\nimport localFont from 'next/font/local';\n",
+          "after": "import { DM_Sans, Geist, Geist_Mono } from 'next/font/google';\n"
+        },
+        {
+          "before": "// The four first-party roles are Tektur display, IBM Plex Sans interface,\n// Newsreader reading, and IBM Plex Mono data/code. Tektur's approved Latin\n// variable binary is local and self-hosted; the separate static TTF used by\n// the offline OG renderer is deliberately not referenced from this layout.\nconst tektur = localFont({\n  src: '../public/fonts/Tektur-latin-wdth-wght.woff2',\n  variable: '--font-tektur',\n  weight: '400 900',\n  style: 'normal',\n  display: 'swap',\n  fallback: [],\n  adjustFontFallback: false,\n});\n\n// IBM Plex Sans and IBM Plex Mono are static-instance families here rather\n// than variable, so the weights in use are enumerated.\nconst plexSans = IBM_Plex_Sans({\n  variable: '--font-plex-sans',\n  weight: ['400', '500', '600'],\n",
+          "after": "// The three first-party roles of the Pantheon standard, all under the SIL\n// Open Font License: DM Sans for the display H1, section heads and the\n// wordmark; Geist for body, interface and captions; Geist Mono for numerals,\n// code and tabular readouts. Geist and Geist Mono are variable families, so\n// one file covers every weight in use. DM Sans is used at 400 (the H1) and\n// 600 (heads). The Tektur files under public/fonts stay for the offline OG\n// renderer only and are not referenced from this layout.\nconst dmSans = DM_Sans({\n  variable: '--font-dm-sans',\n  weight: ['400', '600'],\n"
+        },
+        {
+          "before": "const newsreader = Newsreader({\n  variable: '--font-newsreader',\n",
+          "after": "const geist = Geist({\n  variable: '--font-geist',\n"
+        },
+        {
+          "before": "// IBM Plex Mono is loaded as two faces of one family so each weight can\n// carry its own preload decision. Measured on a 412px viewport, weight 400\n// sets a label or two above the fold on every route (about 55 characters)\n// and weight 500 sets nothing there, so only 400 is preloaded: a late\n// discovered 400 cost home a simulated round trip before first paint, while\n// preloading 500 only spent early bandwidth the LCP font needed (Newsreader\n// on articles, Plex Sans on home). Both calls declare the same\n// `--font-plex-mono` stack for the same family name, so the data role\n// resolves exactly as before; 500 loads as soon as a page uses it, and\n// `swap` with the size-adjusted fallback keeps that text in place meanwhile.\nconst plexMono = IBM_Plex_Mono({\n  variable: '--font-plex-mono',\n  weight: ['400'],\n  subsets: ['latin'],\n  display: 'swap',\n});\n\nconst plexMonoMedium = IBM_Plex_Mono({\n  variable: '--font-plex-mono',\n  weight: ['500'],\n  subsets: ['latin'],\n  display: 'swap',\n",
+          "after": "const geistMono = Geist_Mono({\n  variable: '--font-geist-mono',\n  subsets: ['latin'],\n  display: 'swap',\n"
+        },
+        {
+          "before": "      className={`${tektur.variable} ${plexSans.variable} ${newsreader.variable} ${plexMono.variable} ${plexMonoMedium.variable}`}\n",
+          "after": "      className={`${dmSans.variable} ${geist.variable} ${geistMono.variable}`}\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/not-found.tsx",
+        "bytes": 2844,
+        "sha256": "a895394a23c622dc915b9ff3a6bf5084f3ba258582f0802cbf4a6825a83a8071"
+      },
+      "after": {
+        "path": "app/not-found.tsx",
+        "bytes": 2670,
+        "sha256": "61cefe72130fbe2ad4c18c1d9d3877e236e370f9e11be61b784599f843fe64a9"
+      },
+      "edits": [
+        {
+          "before": "        className=\"font-display-numerals text-sm text-accent\"\n",
+          "after": "        className=\"eyebrow font-display-numerals\"\n"
+        },
+        {
+          "before": "        className=\"font-display-page mt-2 text-3xl tracking-tight text-text\"\n",
+          "after": "        className=\"display-h1 mt-6\"\n"
+        },
+        {
+          "before": "      <p className=\"mt-3 max-w-[55ch] leading-relaxed text-text-dim\">\n",
+          "after": "      <p className=\"page-lead mt-8 max-w-[55ch] text-text-dim\">\n"
+        },
+        {
+          "before": "          className=\"rounded-sm border border-accent px-4 py-2 font-sans text-sm font-medium text-accent transition-colors hover:bg-surface-2 active:translate-y-[1px]\"\n",
+          "after": "          className=\"ink-link font-sans text-[15px]\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/page.tsx",
+        "bytes": 13525,
+        "sha256": "d8419635ab1f1164e64f2dbf0ad0a15a2b3959665d3d93b6316c571a5342cacd"
+      },
+      "after": {
+        "path": "app/page.tsx",
+        "bytes": 10654,
+        "sha256": "879840a280d17a6c7e414f1e34e5b012db56b4403fadb3b9dd7e205f8e995135"
+      },
+      "edits": [
+        {
+          "before": "const container = 'mx-auto w-full max-w-5xl px-6';\n",
+          "after": "const container = 'sheet';\n"
+        },
+        {
+          "before": "const heading =\n  'font-display-section text-xl tracking-tight text-text';\n",
+          "after": "const heading = 'section-h2';\n"
+        },
+        {
+          "before": "        className={`${container} pt-8`}\n",
+          "after": "        className={`${container} sheet-masthead home-masthead`}\n"
+        },
+        {
+          "before": "        {/* VAL-DSHOME-009: below md the grid is an exact 80px band closing\n            the sheet under the lockup; from md it is the right column. */}\n        <div\n          data-brand-surface-id=\"surface:flat\"\n          className=\"flex flex-col border border-border bg-bg md:grid md:grid-cols-[minmax(0,1fr)_13rem]\"\n        >\n          <div className=\"px-6 pb-6 pt-7 sm:px-8 md:py-7\">\n            {/* VAL-B2-TYPE-006 / design-system 4.3 lock the wordmark to\n                52-68px at 375 and 88-120px at 1440 with a 0.88-0.98 line\n                height. Below xl the clamp cannot leave 56-68px and from xl\n                it cannot leave 88-104px. The band switches at xl because\n                the sidebar narrows the hero column to 416px at 1024, where\n                the 88px floor would break the identity in half. */}\n            <h1\n              data-tektur-role=\"home-wordmark\"\n              className=\"font-display-home text-[length:clamp(3.5rem,6.4vw,4.25rem)] leading-[0.92] tracking-[-0.035em] text-text xl:text-[length:clamp(5.5rem,6.4vw,6.5rem)]\"\n            >\n              {PUBLIC_IDENTITY}\n            </h1>\n            {/* The locked string verbatim, sentence case in mono\n                (design-system 3.5). No text-transform: a rendered casing\n                change would fail the byte comparison in VAL-B2-ID-002. */}\n            <p className=\"mt-3 max-w-[56ch] font-mono text-xs leading-relaxed tracking-[0.01em] text-text-dim\">\n              {PUBLIC_DESCRIPTOR}\n            </p>\n          </div>\n          <div\n            id=\"home-engineering-grid\"\n            aria-hidden=\"true\"\n            data-registration-device\n            data-brand-device-id=\"device:dot-grid\"\n            data-brand-anchor-selector=\"#home-engineering-grid\"\n            data-brand-device-edge=\"left\"\n            data-brand-anchor-edge=\"left\"\n            data-brand-motif=\"dot-grid\"\n            className=\"engineering-grid pointer-events-none relative h-20 w-full border-b border-border md:h-auto md:min-h-full md:border-b-0 md:border-l\"\n          >\n            <span\n              aria-hidden=\"true\"\n              data-registration-device\n              data-brand-device-id=\"device:section-rule\"\n              data-brand-anchor-selector=\"#home-engineering-grid\"\n              data-brand-device-edge=\"center-x\"\n              data-brand-anchor-edge=\"center-x\"\n              data-brand-motif=\"registration-cross\"\n              className=\"pointer-events-none absolute left-1/2 top-0 h-full -translate-x-1/2 border-l border-border-strong\"\n            />\n            <span\n              aria-hidden=\"true\"\n              data-registration-device\n              data-brand-device-id=\"device:section-rule\"\n              data-brand-anchor-selector=\"#home-engineering-grid\"\n              data-brand-device-edge=\"center-y\"\n              data-brand-anchor-edge=\"center-y\"\n              data-brand-motif=\"registration-cross\"\n              className=\"pointer-events-none absolute left-0 top-1/2 w-full -translate-y-1/2 border-t border-border-strong\"\n            />\n            <span\n              aria-hidden=\"true\"\n              data-registration-device\n              data-brand-device-id=\"device:registration-cross\"\n              data-brand-anchor-selector=\"#home-engineering-grid\"\n              data-brand-device-edge=\"center-x\"\n              data-brand-anchor-edge=\"center-x\"\n              data-brand-motif=\"registration-cross\"\n              className=\"pointer-events-none absolute left-1/2 top-1/2 size-2 -translate-x-1/2 -translate-y-1/2 bg-accent\"\n            />\n          </div>\n",
+          "after": "        {/* The masthead of the Pantheon standard: one DM Sans display H1,\n            the locked descriptor as the lead, and the live counts as the\n            muted meta line. */}\n        {/* The lockup is the h1 and the descriptor alone in one container:\n            every other text beside the wordmark would read as a descriptor\n            surface (VAL-B2-ID-002), so the counts and the search sit\n            outside it. */}\n        <div className=\"home-lockup\">\n          <h1 data-tektur-role=\"home-wordmark\" className=\"display-h1\">\n            {PUBLIC_IDENTITY}\n          </h1>\n          {/* The locked string verbatim, in sentence case. No\n              text-transform: a rendered casing change would fail the byte\n              comparison in VAL-B2-ID-002. */}\n          <p className=\"page-lead\">{PUBLIC_DESCRIPTOR}</p>\n"
+        },
+        {
+          "before": "        {/* Counted from the registries at build time. The lime mark is the\n            page's selection example (VAL-B2-SHELL-006); <mark> carries it\n            without colour. */}\n        <p\n          data-home-counts\n          className=\"mt-4 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[13px] text-text-dim\"\n        >\n",
+          "after": "        {/* Counted from the registries at build time. */}\n        <p data-home-counts className=\"meta-line\">\n"
+        },
+        {
+          "before": "          <mark\n            data-brand-highlight=\"home-source-count\"\n            className=\"bg-selection px-1 text-ink\"\n          >\n",
+          "after": "          <span aria-hidden=\"true\"> · </span>\n          <span data-brand-highlight=\"home-source-count\">\n"
+        },
+        {
+          "before": "          </mark>\n",
+          "after": "          </span>\n          <span aria-hidden=\"true\"> · </span>\n"
+        },
+        {
+          "before": "        <HomeSearch className=\"mt-3\" />\n",
+          "after": "        <HomeSearch className=\"home-masthead-search mt-8\" />\n"
+        },
+        {
+          "before": "        data-brand-module-signature={SECTION_SIGNATURES.contents}\n        className={`${container} mt-8`}\n",
+          "after": "        data-brand-module-signature={SECTION_SIGNATURES.contents}\n        className={`${container} sheet-section home-section`}\n"
+        },
+        {
+          "before": "          className=\"font-display-section text-2xl tracking-tight text-text\"\n",
+          "after": "          className={heading}\n"
+        },
+        {
+          "before": "        data-brand-module-signature={SECTION_SIGNATURES.featuredArticle}\n        className={`${container} mt-10`}\n",
+          "after": "        data-brand-module-signature={SECTION_SIGNATURES.featuredArticle}\n        className={`${container} sheet-section home-section`}\n"
+        },
+        {
+          "before": "        <p className=\"mt-3 max-w-[65ch] font-medium text-text\">\n",
+          "after": "        <p className=\"font-display text-[16px] font-semibold text-text\">\n"
+        },
+        {
+          "before": "          className=\"mt-1 max-w-[65ch] font-serif text-[1.0625rem] leading-relaxed text-text\"\n",
+          "after": "          className=\"mt-2 text-[16px] leading-[1.62] text-text\"\n"
+        },
+        {
+          "before": "        data-brand-module-signature={SECTION_SIGNATURES.featuredScene}\n        className={`${container} mt-10`}\n",
+          "after": "        data-brand-module-signature={SECTION_SIGNATURES.featuredScene}\n        className={`${container} sheet-section home-section`}\n"
+        },
+        {
+          "before": "        data-brand-module-signature={SECTION_SIGNATURES.didYouKnow}\n        className={`${container} mt-10`}\n",
+          "after": "        data-brand-module-signature={SECTION_SIGNATURES.didYouKnow}\n        className={`${container} sheet-section home-section`}\n"
+        },
+        {
+          "before": "        data-brand-module-signature={SECTION_SIGNATURES.recentlyUpdated}\n        className={`${container} mt-10`}\n",
+          "after": "        data-brand-module-signature={SECTION_SIGNATURES.recentlyUpdated}\n        className={`${container} sheet-section home-section`}\n"
+        },
+        {
+          "before": "        <ol className=\"mt-3 space-y-1.5 text-[15px] leading-6\">\n",
+          "after": "        <ol className=\"border-t border-border text-[15px] leading-6\">\n"
+        },
+        {
+          "before": "              className=\"flex items-baseline gap-x-4\"\n",
+          "after": "              className=\"flex items-baseline gap-x-6 border-b border-border py-3\"\n"
+        },
+        {
+          "before": "                className=\"w-24 shrink-0 font-mono text-[13px] text-text-dim\"\n",
+          "after": "                className=\"w-24 shrink-0 font-mono text-[13px] tabular-nums text-text-dim\"\n"
+        },
+        {
+          "before": "        data-brand-module-signature={SECTION_SIGNATURES.tools}\n        className={`${container} mt-10 pb-16`}\n",
+          "after": "        data-brand-module-signature={SECTION_SIGNATURES.tools}\n        className={`${container} sheet-section home-section`}\n"
+        },
+        {
+          "before": "        <div className=\"flex flex-wrap items-baseline gap-x-4 border-t border-border pt-3 text-[15px]\">\n          <span className=\"text-text-dim\">Tools</span>\n",
+          "after": "        <div className=\"flex flex-wrap items-baseline gap-x-4 border-t border-border pt-4 text-[15px]\">\n          <span className=\"eyebrow\">Tools</span>\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/privacy/page.tsx",
+        "bytes": 4065,
+        "sha256": "2bb48be1e156566f767498750ba00949e4b7b2b313c2ae42af823a249102fdcf"
+      },
+      "after": {
+        "path": "app/privacy/page.tsx",
+        "bytes": 3984,
+        "sha256": "87ba4321fb4de3469891cdb718d997608f8af7c4fa62c3941b702d5557464bd3"
+      },
+      "edits": [
+        {
+          "before": "            className=\"text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent\"\n",
+          "after": "            className=\"ink-link\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "app/search/page.tsx",
+        "bytes": 2551,
+        "sha256": "194ad4196e55e6d530a15dd04a812825034ea52d67f6bfb013a304cd948b416d"
+      },
+      "after": {
+        "path": "app/search/page.tsx",
+        "bytes": 2438,
+        "sha256": "dfdb08e3bcac12514c538ee9a35bd67c1746bd939b32ce8e41ec7c24b46ed74b"
+      },
+      "edits": [
+        {
+          "before": "    <div data-pagefind-ignore className=\"mx-auto w-full max-w-3xl px-6 py-12\">\n",
+          "after": "    <div data-pagefind-ignore className=\"sheet sheet-masthead pb-8\">\n"
+        },
+        {
+          "before": "      <h1\n        data-tektur-role=\"page-h1\"\n        className=\"font-display-page text-3xl tracking-tight text-text\"\n      >\n",
+          "after": "      <h1 data-tektur-role=\"page-h1\" className=\"display-h1\">\n"
+        },
+        {
+          "before": "      <p className=\"mt-5 font-serif text-[1.0625rem] leading-relaxed text-text\">\n",
+          "after": "      <p className=\"page-lead mt-[30px]\">\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/article/article-header.tsx",
+        "bytes": 3772,
+        "sha256": "3cc562a6e7dc5e422d3f32c4cc6fb2e44c09bcea657b82d3a3fc1d7eebc3cc2b"
+      },
+      "after": {
+        "path": "components/article/article-header.tsx",
+        "bytes": 2737,
+        "sha256": "0e6de69a8588c6d716b7ef9969701dfe798b3b44608f305307a99f6a04c8af1c"
+      },
+      "edits": [
+        {
+          "before": "import type { ModuleRegistryEntry } from '@/data/schemas/module';\n",
+          "after": "import type { ReactNode } from 'react';\nimport type { ModuleRegistryEntry } from '@/data/schemas/module';\n"
+        },
+        {
+          "before": " * The scholarly header every published article carries (architecture.md\n * section 6b): title, summary, and a quiet metadata line with the\n * last-reviewed date, the reading time and the citation count. All three\n * values are derived at build time (frontmatter `lastReviewed`,\n * lib/reading-time.ts against the compiled article, and the resolved\n * References list); none of them is hand-written per article.\n",
+          "after": " * The masthead every published article carries, in the Pantheon research\n * page manner: an uppercase eyebrow naming the domain, one DM Sans display\n * H1, the summary as a Geist lead, and one muted meta line with the\n * last-reviewed date, the reading time and the source count linked to the\n * References list. All three values are derived at build time (frontmatter\n * `lastReviewed`, lib/reading-time.ts against the compiled article, and the\n * resolved References list); none of them is hand-written per article.\n"
+        },
+        {
+          "before": " * The breadcrumb trail above the header already names the domain, so the\n * header does not repeat it. Presentation follows the design system as a\n * compact technical title block: a Tektur title, a reading-face summary,\n * and one row of registration labels over their measured values. No badges,\n * pills, portraits, cover art or emoji. The grid reflows at narrow\n * viewports instead of overflowing.\n *\n * The sheet carries no rule of its own. The boundary below it is the\n * registered `device:section-rule` the template mounts, so every rule on an\n * article has a registry owner and a real anchor; the three per-cell\n * vertical rails this row used to draw had neither, and separated cells the\n * grid gap already separates.\n",
+          "after": " * No badges, pills, portraits, cover art or emoji, and no rule: the sheet\n * closes on space.\n"
+        },
+        {
+          "before": "  citationCount: number;\n",
+          "after": "  citationCount: number;\n  /** The eyebrow above the title: the article's breadcrumb trail. */\n  eyebrow?: ReactNode;\n"
+        },
+        {
+          "before": "  citationCount,\n",
+          "after": "  citationCount,\n  eyebrow,\n"
+        },
+        {
+          "before": "    <header data-pagefind-body>\n      <h1\n        data-tektur-role=\"article-h1\"\n        className=\"article-title font-display-article text-text\"\n      >\n",
+          "after": "    <header data-pagefind-body className=\"article-masthead\">\n      {eyebrow}\n      <h1 data-tektur-role=\"article-h1\" className=\"article-title\">\n"
+        },
+        {
+          "before": "      <p className=\"mt-4 text-[1.0625rem] leading-relaxed text-text-dim sm:text-[1.125rem]\">\n        {entry.summary}\n      </p>\n      {/* The metadata row is page chrome, not prose: dates and counts are\n          never legitimate excerpt candidates, and Pagefind joins the dt/dd\n          text without the flex gap that separates them on screen, so an\n          excerpt through the header read \"Last reviewed8 August 2026.\n          Reading time8 min. Citations10.\" (fixed 2026-08-15; decision\n          recorded in library/search.md). data-pagefind-ignore is\n          index-only: the row stays visible and unchanged above. */}\n      <dl\n        data-pagefind-ignore\n        className=\"mt-8 grid grid-cols-2 gap-x-8 gap-y-4 font-mono text-xs leading-relaxed text-text-dim sm:grid-cols-3\"\n      >\n",
+          "after": "      <p className=\"page-lead\">{entry.summary}</p>\n      {/* The meta line is page chrome, not prose: dates and counts are\n          never legitimate excerpt candidates (decision recorded in\n          library/search.md). data-pagefind-ignore is index-only: the line\n          stays visible above. */}\n      <p data-pagefind-ignore data-article-meta className=\"meta-line\">\n"
+        },
+        {
+          "before": "          <div\n            data-header-last-reviewed={lastReviewed}\n            className=\"col-span-2 sm:col-span-1\"\n          >\n            <dt className=\"registration-label text-[10px]\">Last reviewed</dt>\n            <dd className=\"mt-1 text-text\">\n              <time dateTime={lastReviewed}>{formatLongDate(lastReviewed)}</time>\n            </dd>\n          </div>\n",
+          "after": "          <span data-header-last-reviewed={lastReviewed}>\n            Updated <time dateTime={lastReviewed}>{formatLongDate(lastReviewed)}</time>\n            <span aria-hidden=\"true\"> · </span>\n          </span>\n"
+        },
+        {
+          "before": "        <div>\n          <dt className=\"registration-label text-[10px]\">Reading time</dt>\n          <dd data-header-reading-minutes={readingTimeMinutes} className=\"mt-1 text-text\">\n            {`${readingTimeMinutes} min`}\n          </dd>\n        </div>\n        <div>\n          <dt className=\"registration-label text-[10px]\">Citations</dt>\n          <dd data-header-citation-count={citationCount} className=\"mt-1 text-text\">\n            {citationCount}\n          </dd>\n        </div>\n      </dl>\n",
+          "after": "        <span data-header-reading-minutes={readingTimeMinutes}>\n          {`${readingTimeMinutes} min read`}\n        </span>\n        <span aria-hidden=\"true\"> · </span>\n        <a\n          href=\"#references-heading\"\n          data-header-citation-count={citationCount}\n          data-brand-control-id=\"control:link-focus\"\n        >\n          {`${citationCount} ${citationCount === 1 ? 'source' : 'sources'}`}\n        </a>\n      </p>\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/article/breadcrumbs.tsx",
+        "bytes": 3388,
+        "sha256": "7df1b25f048cdbb0c7ce05c10c55f92b4d01653c291d82094847b283088a0a98"
+      },
+      "after": {
+        "path": "components/article/breadcrumbs.tsx",
+        "bytes": 4821,
+        "sha256": "f339ceecb4b0d338067ab20ff3e18b22a07e3ea36575066b52a721748f1002de"
+      },
+      "edits": [
+        {
+          "before": "export function Breadcrumbs({ items }: { items: readonly BreadcrumbItem[] }) {\n",
+          "after": "/**\n * The trail as the masthead eyebrow: the uppercase, tracked, muted line\n * above the title. The top bar already names the site and the H1 already\n * names the page, so the eyebrow carries the ancestors in between, as\n * links; the full trail stays in the BreadcrumbList structured data.\n */\nfunction EyebrowTrail({ items }: { items: readonly BreadcrumbItem[] }) {\n  const linked = items.filter((item, index) => item.href && index < items.length - 1);\n  // Past the site root where the trail has more to say; the root alone\n  // (a top-level page) when it does not.\n  const deeper = linked.filter((item) => item.href !== '/');\n  const ancestors = deeper.length > 0 ? deeper : linked;\n  if (ancestors.length === 0) return null;\n  return (\n    <nav aria-label=\"Breadcrumb\" data-pagefind-ignore className=\"eyebrow\">\n      <ol className=\"flex flex-wrap items-baseline gap-x-2 gap-y-1\">\n        {ancestors.map((item, index) => (\n          <li key={`${item.label}-${index}`} className=\"flex items-baseline gap-2\">\n            <IntentLink href={item.href!} data-brand-control-id=\"control:link-focus\">\n              {item.label}\n            </IntentLink>\n            {index < ancestors.length - 1 ? <span aria-hidden=\"true\">/</span> : null}\n          </li>\n        ))}\n      </ol>\n    </nav>\n  );\n}\n\nexport function Breadcrumbs({\n  items,\n  variant = 'trail',\n}: {\n  items: readonly BreadcrumbItem[];\n  variant?: 'trail' | 'eyebrow';\n}) {\n  if (variant === 'eyebrow') return <EyebrowTrail items={items} />;\n"
+        },
+        {
+          "before": "                  className=\"text-text-dim underline decoration-border-strong underline-offset-[3px] transition-colors hover:text-accent hover:decoration-accent\"\n",
+          "after": "                  className=\"text-text-dim underline decoration-border-strong decoration-1 underline-offset-[3px] transition-colors hover:text-text hover:decoration-text\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/article/commit-to-reveal.tsx",
+        "bytes": 14313,
+        "sha256": "b3892a0853de9f0ab7c89551ba68526b488cf17c87697f329827c5c7a873ee3b"
+      },
+      "after": {
+        "path": "components/article/commit-to-reveal.tsx",
+        "bytes": 13685,
+        "sha256": "0f6725ec5f4f80a4897c32b69ded5979a3fc2271b1bef20d0fdfe008bc9ffb19"
+      },
+      "edits": [
+        {
+          "before": "          : 'rounded-md border border-border bg-surface p-4 sm:p-5',\n",
+          "after": "          : 'my-9 border border-border p-5 sm:px-6 sm:py-6',\n"
+        },
+        {
+          "before": "      <p className=\"font-mono text-xs text-text-dim\">{kicker}</p>\n      <fieldset className=\"mt-2\">\n        <legend id={`${uid}-prompt`} className=\"font-medium\">\n",
+          "after": "      <p className=\"eyebrow\">{kicker}</p>\n      <fieldset className=\"mt-3\">\n        <legend id={`${uid}-prompt`} className=\"font-display text-[16px] font-semibold leading-snug\">\n"
+        },
+        {
+          "before": "        <div className=\"mt-3 grid gap-2\">\n",
+          "after": "        <div className=\"mt-4 grid gap-1\">\n"
+        },
+        {
+          "before": "              className=\"flex cursor-pointer items-start gap-2 rounded-sm px-2 py-1.5 text-sm transition-colors hover:bg-surface-2 has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent\"\n",
+          "after": "              className=\"flex cursor-pointer items-start gap-2.5 py-1 text-[15px] transition-colors hover:text-text-dim has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-ink\"\n"
+        },
+        {
+          "before": "                className=\"mt-0.5 accent-accent\"\n",
+          "after": "                className=\"mt-[5px] accent-ink\"\n"
+        },
+        {
+          "before": "        className=\"mt-3 bg-surface-2 p-3 text-sm\"\n",
+          "after": "        className=\"mt-4 border-t border-border pt-3 text-[14px]\"\n"
+        },
+        {
+          "before": "          // `font-sans` is explicit rather than inherited: this disclosure\n          // mounts inside `.prose`, which sets Newsreader, and design-system\n          // 4.1 assigns controls to IBM Plex Sans.\n          className=\"cursor-pointer font-sans text-text-dim\"\n",
+          "after": "          // `font-sans` is explicit rather than inherited: controls are\n          // Geist wherever they mount.\n          className=\"cursor-pointer font-sans text-[14px] text-text-dim hover:text-text\"\n"
+        },
+        {
+          "before": "                      className=\"ml-2 align-baseline font-mono text-[0.72em] font-normal text-text-dim\"\n",
+          "after": "                      className=\"eyebrow ml-2 align-baseline font-normal\"\n"
+        },
+        {
+          "before": "                    // House cite-chip idiom (components/ui/cite.tsx): the\n                    // border and chip surface live on a non-interactive\n                    // wrapping span, and the anchor itself carries no\n                    // border. A bordered anchor inside the fully bordered\n                    // reveal shell is a doubly boxed control (VAL-EDU-031).\n                    <span\n                      data-brand-surface-id=\"surface:flat\"\n                      className=\"ml-1 inline-block rounded-xs border border-border bg-surface-2 align-baseline transition-colors hover:border-accent\"\n                    >\n",
+          "after": "                    // The source label as a quiet text link to its References\n                    // entry: no chip, no box inside the reveal's frame.\n                    <span data-brand-surface-id=\"surface:flat\" className=\"ml-1\">\n"
+        },
+        {
+          "before": "                        className=\"px-1 font-mono text-[0.72em] leading-5 text-text-dim no-underline transition-colors hover:text-accent\"\n",
+          "after": "                        className=\"cite-label text-[0.9em]\"\n"
+        },
+        {
+          "before": "                      className=\"ml-1 text-[0.72em] text-text-dim underline decoration-border transition-colors hover:text-accent\"\n",
+          "after": "                      className=\"cite-label ml-1 text-[0.9em]\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/article/heading-permalink.tsx",
+        "bytes": 3176,
+        "sha256": "428f62d03f22002db43e3dd10b79eefa8d61d90e0b0cfbeb364099d74c0e88cd"
+      },
+      "after": {
+        "path": "components/article/heading-permalink.tsx",
+        "bytes": 2884,
+        "sha256": "c846ea4836f62164f217826b2a639e3b819bf89d2cd282a4657c775cf80ec8a8"
+      },
+      "edits": [
+        {
+          "before": " * The glyph is painted at rest rather than revealed on hover. It is the\n * non-colour half of the pair that says a heading addresses a section: the\n * other half is the signal-blue rule under the heading, and a reader who\n * cannot separate that blue from the text colour has nothing left if the\n * shape only appears under a pointer they may not have.\n",
+          "after": " * The glyph is quiet at rest (the page's muted grey at low opacity) and\n * comes up to full strength when the heading is hovered or the control\n * has keyboard focus, so a section head reads as plain type, as on the\n * reference page, while the control stays reachable and visible to a\n * keyboard reader.\n"
+        },
+        {
+          "before": "        // Painted at full strength rather than dimmed: a non-text graphic\n        // has to clear 3:1 against the page in every state, and signal blue\n        // held at 70% opacity over paper measures 2.2:1. The glyph stays\n        // 15px; the hit box is a 24px square so the control meets the\n        // WCAG 2.2 target-size minimum on its own geometry instead of\n        // leaning on the SC 2.5.8 spacing exception, which fails wherever\n        // the heading's own autolink anchor or an adjacent instrument\n        // comes within 24px of the icon.\n        className=\"ml-2 inline-flex size-6 cursor-pointer items-center justify-center text-accent transition-colors hover:text-ink\"\n",
+          "after": "        // The glyph stays 15px; the hit box is a 24px square so the control\n        // meets the WCAG 2.2 target-size minimum on its own geometry\n        // instead of leaning on the SC 2.5.8 spacing exception.\n        className=\"ml-2 inline-flex size-6 cursor-pointer items-center justify-center align-[-2px] text-text-dim opacity-35 transition-opacity group-hover/heading:opacity-100 hover:text-ink focus-visible:opacity-100\"\n"
+        },
+        {
+          "before": "          className=\"pointer-events-none absolute left-full top-1/2 ml-2 -translate-y-1/2 font-mono text-[11px] font-normal tracking-normal text-accent\"\n",
+          "after": "          className=\"pointer-events-none absolute left-full top-1/2 ml-2 -translate-y-1/2 font-sans text-[11px] font-normal normal-case tracking-normal text-text-dim\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/article/references.tsx",
+        "bytes": 4126,
+        "sha256": "6510b07a5469b722ce55b7c18377b46a85cbeca016135d3f4626d765af883348"
+      },
+      "after": {
+        "path": "components/article/references.tsx",
+        "bytes": 3739,
+        "sha256": "598596180e8fc3de068cd5755f98775f7ac9400dd5d54e678ecd1b74908e5daa"
+      },
+      "edits": [
+        {
+          "before": "    <section aria-labelledby=\"references-heading\" className=\"mt-14\">\n      <h2\n        id=\"references-heading\"\n        className=\"font-sans text-[1.375rem] font-semibold tracking-tight text-text\"\n      >\n",
+          "after": "    <section aria-labelledby=\"references-heading\" className=\"mt-16\">\n      <h2 id=\"references-heading\" className=\"section-h2\">\n"
+        },
+        {
+          "before": "      <ol className=\"mt-6 list-none space-y-4\">\n",
+          "after": "      <ol className=\"mt-6 list-none space-y-3\">\n"
+        },
+        {
+          "before": "            className=\"grid scroll-mt-16 grid-cols-[1.75rem_minmax(0,1fr)] gap-x-3 rounded-sm px-2 py-1.5 transition-colors target:bg-surface lg:scroll-mt-4 [margin-inline:-0.5rem]\"\n",
+          "after": "            className=\"grid grid-cols-[2rem_minmax(0,1fr)] gap-x-3 py-1 target:[&>div]:border-l target:[&>div]:border-ink target:[&>div]:pl-3\"\n"
+        },
+        {
+          "before": "              className=\"pt-0.5 text-right font-mono text-xs leading-relaxed text-text-dim\"\n",
+          "after": "              className=\"pt-px font-mono text-[13px] leading-relaxed text-text\"\n"
+        },
+        {
+          "before": "                  // Signal blue plus underline: design-system 4.4 assigns\n                  // that treatment to source links, and the approved article\n                  // reference sets its licence link the same way. Internal\n                  // index rows (See also, Linked from) keep the strong-ink\n                  // treatment 14 allows, so a reader can tell an outbound\n                  // source from a move inside the wiki without reading it.\n                  className=\"break-words font-sans text-sm font-medium leading-snug text-accent underline decoration-accent/45 underline-offset-[3px] transition-colors hover:decoration-accent\"\n",
+          "after": "                  // Ink with a 1px underline, like every prose link. Internal\n                  // index rows (See also, Linked from) carry no underline at\n                  // rest, so a reader can tell an outbound source from a\n                  // move inside the wiki without reading it.\n                  className=\"ink-link break-words font-sans text-[14px] font-medium leading-snug\"\n"
+        },
+        {
+          "before": "              <p className=\"mt-1 break-words font-sans text-[13px] leading-relaxed text-text-dim\">\n",
+          "after": "              <p className=\"mt-0.5 break-words font-sans text-[13px] leading-relaxed text-text-dim\">\n"
+        },
+        {
+          "before": "              <p className=\"mt-0.5 break-all font-mono text-xs leading-relaxed text-text-dim\">\n",
+          "after": "              <p className=\"break-all font-mono text-[12px] leading-relaxed text-text-dim\">\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/home/contents-index.tsx",
+        "bytes": 2727,
+        "sha256": "f7ed1b252438696c209aa1885225ead56f9db780a03989a0635b58121c756a53"
+      },
+      "after": {
+        "path": "components/home/contents-index.tsx",
+        "bytes": 2671,
+        "sha256": "b737e6f7c1990c2732b651495c24562d479b630487b69f5d028472fdb19538b6"
+      },
+      "edits": [
+        {
+          "before": "const linkClass =\n  'text-text underline decoration-border-strong underline-offset-2 transition-colors hover:text-link hover:decoration-link';\n",
+          "after": "const linkClass = 'ink-link';\n"
+        },
+        {
+          "before": "    <div className=\"mt-3 divide-y divide-border border-y border-border\">\n",
+          "after": "    <div className=\"divide-y divide-border border-y border-border\">\n"
+        },
+        {
+          "before": "          className=\"grid gap-x-6 gap-y-1 py-2 md:grid-cols-[14rem_minmax(0,1fr)]\"\n",
+          "after": "          className=\"grid items-start gap-x-6 gap-y-1 py-2 md:grid-cols-[15.5rem_minmax(0,1fr)]\"\n"
+        },
+        {
+          "before": "          <p className=\"text-sm leading-5\">\n",
+          "after": "          <p className=\"text-[15px] leading-[1.4]\">\n"
+        },
+        {
+          "before": "              className=\"font-medium text-text transition-colors hover:text-link\"\n",
+          "after": "              className=\"font-display font-semibold text-text transition-colors hover:text-text-dim\"\n"
+        },
+        {
+          "before": "            <span className=\"block text-text-dim\">\n",
+          "after": "            <span className=\"block text-[13px] text-text-dim\">\n"
+        },
+        {
+          "before": "            className=\"home-run text-sm leading-5\"\n",
+          "after": "            className=\"home-run text-[14px] leading-[1.45]\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/home/did-you-know.tsx",
+        "bytes": 2119,
+        "sha256": "ca5a4da678e5402783bb725c17dc014cdd56e22b438e2131a34192f82323390b"
+      },
+      "after": {
+        "path": "components/home/did-you-know.tsx",
+        "bytes": 2070,
+        "sha256": "d0057d92372801782ed7f3d1121a227934c77dab4a1c91ac4102a5a7b74072d1"
+      },
+      "edits": [
+        {
+          "before": "export const HOME_PROSE_LINK_CLASS =\n  'text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent';\n",
+          "after": "export const HOME_PROSE_LINK_CLASS = 'ink-link';\n"
+        },
+        {
+          "before": "    <ul className=\"mt-3 max-w-[65ch] space-y-2 leading-relaxed text-text\">\n",
+          "after": "    <ul className=\"border-t border-border leading-[1.62] text-text\">\n"
+        },
+        {
+          "before": "          <li key={fact.id} data-did-you-know={fact.id}>\n",
+          "after": "          <li key={fact.id} data-did-you-know={fact.id} className=\"border-b border-border py-4\">\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/home/home-search.tsx",
+        "bytes": 1571,
+        "sha256": "752275b88384b607fe631f537e1a76112bd02eacfc58acd74cd59950b3a0ecc4"
+      },
+      "after": {
+        "path": "components/home/home-search.tsx",
+        "bytes": 1560,
+        "sha256": "3df932048880a72c2fdf827890113719c2da2ea9a4692f338fbb047e1bfaaa17"
+      },
+      "edits": [
+        {
+          "before": "      className={cx('flex max-w-xl items-stretch gap-2', className)}\n",
+          "after": "      className={cx('flex max-w-xl items-stretch gap-3', className)}\n"
+        },
+        {
+          "before": "        className=\"min-w-0 flex-1 rounded-sm border border-border-strong bg-surface px-3 py-2 text-[15px] text-text placeholder:text-text-dim\"\n",
+          "after": "        className=\"min-w-0 flex-1 border border-border-strong bg-surface px-3 py-2 text-[15px] text-text placeholder:text-text-dim\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/nav/nav-tree.tsx",
+        "bytes": 9210,
+        "sha256": "adfcfc89a47f5397c134f156d621477505f39ea3d0f6d7663d2c6ecff60d0781"
+      },
+      "after": {
+        "path": "components/nav/nav-tree.tsx",
+        "bytes": 7461,
+        "sha256": "45c349bc17cc35b756995ad76e07e8dc0337cf47d09bd334f143f165b4614602"
+      },
+      "edits": [
+        {
+          "before": "import { usePathname } from 'next/navigation';\nimport { CaretDown } from '@phosphor-icons/react';\n",
+          "after": "import { usePathname } from 'next/navigation';\n"
+        },
+        {
+          "before": "import type { Domain } from '@/data/modules';\nimport { BrandDevice } from '@/components/ui/brand-device';\n",
+          "after": "import type { Domain } from '@/data/modules';\n"
+        },
+        {
+          "before": " * on load and the active link carries aria-current=\"page\", ink text, one\n * extra weight step, and the lime active-interval rail.\n",
+          "after": " * on load and the active link carries aria-current=\"page\", ink text and\n * one extra weight step. No rail, no pill: plain text on the sheet.\n"
+        },
+        {
+          "before": "  'relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors';\nconst moduleLinkIdle = 'text-text-dim hover:bg-surface-2 hover:text-text';\n",
+          "after": "  'block py-[5px] pl-5 font-sans text-[14px] leading-snug transition-colors';\nconst moduleLinkIdle = 'text-text-dim hover:text-text';\n"
+        },
+        {
+          "before": "  'relative block rounded-sm px-2 py-1.5 font-sans text-sm transition-colors';\nconst entryLinkIdle = 'font-medium text-text hover:bg-surface-2';\nconst entryLinkActive = 'font-semibold text-text';\n\n/**\n * The active-route marker: the lime active-interval rail, pinned to the left\n * edge of the link box at full row height.\n *\n * It replaces an inset box-shadow, which the link's rounded-sm corners\n * clipped into a broken bracket; a real element means zero radius on every\n * corner. Every category of entry renders it at `left-0` of its own link\n * box, and every category's link box starts at the taxonomy rail, so module\n * links, Domain overview links and standalone entries all mark at one depth.\n * It is aria-hidden and empty, so it can never pollute the link's accessible\n * name, and colour is never its only signal: the active link also shifts to\n * ink and gains one weight step.\n */\nfunction ActiveMarker({ railAnchorId }: { railAnchorId: string }) {\n  return (\n    <BrandDevice\n      device=\"active-interval-rail\"\n      anchorSelector={`#${railAnchorId}`}\n      deviceEdge=\"left\"\n      anchorEdge=\"left\"\n      className=\"left-0 top-0 h-full\"\n    />\n  );\n}\n\n",
+          "after": "  'block py-[5px] font-sans text-[14px] leading-snug transition-colors';\nconst entryLinkIdle = 'text-text hover:text-text-dim';\nconst entryLinkActive = 'font-medium text-text';\n\n"
+        },
+        {
+          "before": "  active,\n  railAnchorId,\n",
+          "after": "  active,\n"
+        },
+        {
+          "before": "  active: boolean;\n  railAnchorId: string;\n",
+          "after": "  active: boolean;\n"
+        },
+        {
+          "before": "      className={className}\n    >\n      {active ? <ActiveMarker railAnchorId={railAnchorId} /> : null}\n",
+          "after": "      className={className}\n    >\n"
+        },
+        {
+          "before": "    return activePath === normalize(href);\n  }\n\n  // The rail the active marker aligns to is this instance's own taxonomy\n  // landmark: desktop sidebar and mobile drawer both render a tree, and a\n  // shared selector would measure one instance's marker against the other\n  // instance's box.\n  const railAnchorId = `${idPrefix}-taxonomy`;\n\n",
+          "after": "    return activePath === normalize(href);\n  }\n\n"
+        },
+        {
+          "before": "    <nav id={railAnchorId} aria-label={ariaLabel} className={className}>\n      <ul className=\"flex flex-col gap-0.5\">\n",
+          "after": "    <nav id={`${idPrefix}-taxonomy`} aria-label={ariaLabel} className={className}>\n      <ul className=\"flex flex-col\">\n"
+        },
+        {
+          "before": "                className=\"flex w-full items-center gap-1.5 rounded-sm px-2 py-1.5 text-left font-sans text-sm font-medium text-text transition-colors hover:bg-surface-2\"\n",
+          "after": "                className=\"flex w-full cursor-pointer items-baseline gap-2 py-[7px] text-left font-sans text-[15px] text-text transition-colors hover:text-text-dim\"\n"
+        },
+        {
+          "before": "                <CaretDown\n                  size={14}\n",
+          "after": "                <span\n"
+        },
+        {
+          "before": "                  className={cx(\n                    'shrink-0 text-text-dim transition-transform',\n                    !expanded && '-rotate-90',\n                  )}\n                />\n",
+          "after": "                  className=\"w-3 shrink-0 font-mono text-[13px] text-text-dim\"\n                >\n                  {expanded ? '\\u2212' : '+'}\n                </span>\n"
+        },
+        {
+          "before": "                <ul id={panelId} className=\"mt-0.5 mb-1.5 flex flex-col gap-0.5\">\n",
+          "after": "                <ul id={panelId} className=\"mb-2 flex flex-col\">\n"
+        },
+        {
+          "before": "                      active={isActive(`/${domain}`)}\n                      railAnchorId={railAnchorId}\n",
+          "after": "                      active={isActive(`/${domain}`)}\n"
+        },
+        {
+          "before": "                          railAnchorId={railAnchorId}\n                          onNavigate={onNavigate}\n",
+          "after": "                              onNavigate={onNavigate}\n"
+        },
+        {
+          "before": "      <ul className=\"mt-3 flex flex-col gap-0.5 border-t border-border pt-3\">\n",
+          "after": "      <ul className=\"mt-5 flex flex-col border-t border-border pt-4\">\n"
+        },
+        {
+          "before": "              active={isActive(entry.href)}\n              railAnchorId={railAnchorId}\n",
+          "after": "              active={isActive(entry.href)}\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/nav/search-box.tsx",
+        "bytes": 2564,
+        "sha256": "3bd72f45b43b8bbfabbdabd32c679593cd169fcd4fe136b53206c1a8f3e5b237"
+      },
+      "after": {
+        "path": "components/nav/search-box.tsx",
+        "bytes": 2330,
+        "sha256": "b7c20da06d0bad70111694d3ad0611c9d7e02ce34197610ae0f54a8e3210b78b"
+      },
+      "edits": [
+        {
+          "before": "import { useRouter } from 'next/navigation';\nimport { MagnifyingGlass } from '@phosphor-icons/react';\n",
+          "after": "import { useRouter } from 'next/navigation';\n"
+        },
+        {
+          "before": "      className={cx('px-2', className)}\n",
+          "after": "      className={cx(className)}\n"
+        },
+        {
+          "before": "      <label\n        htmlFor={inputId}\n        className=\"mb-1.5 block font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim\"\n      >\n",
+          "after": "      <label htmlFor={inputId} className=\"eyebrow mb-2 block\">\n"
+        },
+        {
+          "before": "      <div className=\"flex items-stretch gap-1.5\">\n",
+          "after": "      <div className=\"flex items-stretch border-b border-border-strong\">\n"
+        },
+        {
+          "before": "          // The rail gives this input a ~187px content box at every desktop\n          // width, so the placeholder has to fit that, not the viewport.\n",
+          "after": "          // The panel gives this input about 280px at every width, so the\n          // placeholder has to fit that, not the viewport.\n"
+        },
+        {
+          "before": "          className=\"min-w-0 flex-1 rounded-sm border border-border bg-surface px-2 py-1.5 text-sm text-text placeholder:text-text-dim\"\n",
+          "after": "          className=\"min-w-0 flex-1 bg-transparent py-2 font-sans text-[15px] text-text placeholder:text-text-dim\"\n"
+        },
+        {
+          "before": "          className=\"flex items-center rounded-sm px-2.5 text-text-dim transition-colors hover:bg-surface-2 hover:text-text active:translate-y-[1px]\"\n",
+          "after": "          className=\"cursor-pointer pl-3 font-sans text-[14px] text-text-dim transition-colors hover:text-text\"\n"
+        },
+        {
+          "before": "          <MagnifyingGlass size={16} aria-hidden />\n",
+          "after": "          Search\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/nav/site-footer.tsx",
+        "bytes": 3874,
+        "sha256": "bc9894b8ea12b943cb3297857c1ba0669f1207a5fcf1b162e6a039d71cfc0b0a"
+      },
+      "after": {
+        "path": "components/nav/site-footer.tsx",
+        "bytes": 4958,
+        "sha256": "fd96f04fd40b1fe84eee17b6355aa69cb8cbd88684617c92588e354a56e0ce47"
+      },
+      "edits": [
+        {
+          "before": " * treatment. It carries no aria-current: the sidebar lockup already marks\n",
+          "after": " * treatment. It carries no aria-current: the top bar lockup already marks\n"
+        },
+        {
+          "before": " * Deliberately not a link farm. The sidebar already navigates the\n",
+          "after": " * Deliberately not a link farm. The \"Articles\" panel navigates the\n"
+        },
+        {
+          "before": " * footer states only what no other chrome does: whose site this is, who\n * made it and where the source lives. The author name is an anchor to the\n",
+          "after": " * footer carries one quiet row of index routes and otherwise states only\n * what no other chrome does: whose site this is, who made it and where\n * the source lives. The author name is an anchor to the\n"
+        },
+        {
+          "before": "  'text-text underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent';\n",
+          "after": "  'text-text-dim underline decoration-border-strong decoration-1 underline-offset-[3px] transition-colors hover:text-text hover:decoration-text';\n\n/**\n * The secondary destinations the top bar does not carry. With the taxonomy\n * moved into the \"Articles\" panel, these are the routes a reader would\n * otherwise reach only through that panel.\n */\nconst INDEX_LINKS = [\n  { href: '/a-z/', label: 'A-Z index' },\n  { href: '/glossary/', label: 'Glossary' },\n  { href: '/search/', label: 'Search' },\n  { href: '/market-map/', label: 'Market map' },\n  { href: '/playground/', label: 'Playground' },\n  { href: '/credits/', label: 'Credits' },\n] as const;\n"
+        },
+        {
+          "before": "      className=\"border-t border-border\"\n",
+          "after": "      className=\"mt-24 border-t border-border\"\n"
+        },
+        {
+          "before": "      <div className=\"mx-auto w-full max-w-[65ch] px-6 py-8\">\n",
+          "after": "      <div className=\"mx-auto w-full max-w-[calc(960px+2*var(--article-gutter))] px-[var(--article-gutter)] pt-8 pb-14\">\n"
+        },
+        {
+          "before": "            className=\"inline-block rounded-sm font-display-shell text-[15px] tracking-[-0.02em] text-text\"\n",
+          "after": "            className=\"inline-block font-display-shell text-[15px] tracking-[-0.01em] text-text\"\n"
+        },
+        {
+          "before": "        <p className=\"mt-2 font-sans text-sm leading-relaxed text-text-dim\">\n",
+          "after": "        <ul className=\"mt-4 flex flex-wrap gap-x-5 gap-y-2 font-sans text-[13.5px] leading-snug\">\n          {INDEX_LINKS.map((entry) => (\n            <li key={entry.href}>\n              <IntentLink\n                href={entry.href}\n                data-brand-control-id=\"control:link-focus\"\n                className=\"quiet-link\"\n              >\n                {entry.label}\n              </IntentLink>\n            </li>\n          ))}\n        </ul>\n        <p className=\"mt-4 font-sans text-[13px] leading-relaxed text-text-dim\">\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/nav/site-shell.tsx",
+        "bytes": 13697,
+        "sha256": "0c1af7ef75fa8efbd83dfa8068cf4ab850429bed38f3f542ef57cf27bd303c01"
+      },
+      "after": {
+        "path": "components/nav/site-shell.tsx",
+        "bytes": 11051,
+        "sha256": "e5af0fb1687850d8846930525949134cc56809b0d1a24b38c0dff4a97ce0cc01"
+      },
+      "edits": [
+        {
+          "before": "import { usePathname } from 'next/navigation';\nimport { List, X } from '@phosphor-icons/react';\n",
+          "after": "import { usePathname } from 'next/navigation';\n"
+        },
+        {
+          "before": "import { BrandDevice } from '@/components/ui/brand-device';\nimport { SkipLink } from '@/components/ui/skip-link';\n",
+          "after": "import { IntentLink } from '@/components/ui/intent-link';\nimport { SkipLink } from '@/components/ui/skip-link';\nimport { cx } from '@/lib/utils';\n"
+        },
+        {
+          "before": "/**\n * The width at which the shell hands the taxonomy from the drawer to the\n * persistent sidebar: Tailwind's `lg`, the same breakpoint the `lg:hidden`\n * header and drawer and the `lg:block` sidebar switch on, written as a\n * media query because a resize past it has to be observable in script.\n * Above it the drawer stops painting, so an open drawer left in state\n * would hold every region inert and the body scroll locked behind a dialog\n * that is no longer on screen to be closed.\n */\nconst DESKTOP_SHELL_QUERY = '(min-width: 64rem)';\n",
+          "after": "const topLink =\n  'font-sans text-[14px] leading-none text-text transition-colors hover:text-text-dim';\n"
+        },
+        {
+          "before": " * The application shell: persistent desktop sidebar, mobile top bar with a\n * hamburger-driven drawer, and the <main> content region.\n",
+          "after": " * The application shell of the Pantheon standard: one top bar with the\n * wordmark at left and two text links at right, a hairline under it once\n * the page has scrolled, and nothing else. \"Articles\" opens the taxonomy\n * panel (search plus every domain and article), the same panel at every\n * width; \"How robots work\" goes to the explainer page.\n"
+        },
+        {
+          "before": " * Accessibility contract: the drawer trigger reports aria-expanded and\n * aria-controls; opening moves focus into the drawer and makes the page\n * behind it inert; Tab wraps inside the drawer in both directions; Escape,\n",
+          "after": " * Accessibility contract: the panel trigger reports aria-expanded and\n * aria-controls; opening moves focus into the panel and makes the page\n * behind it inert; Tab wraps inside the panel in both directions; Escape,\n"
+        },
+        {
+          "before": " * trigger; every link inside the drawer closes it via the onNavigate\n",
+          "after": " * trigger; every link inside the panel closes it via the onNavigate\n"
+        },
+        {
+          "before": "  const [drawerOpen, setDrawerOpen] = useState(false);\n",
+          "after": "  const [drawerOpen, setDrawerOpen] = useState(false);\n  const [scrolled, setScrolled] = useState(false);\n"
+        },
+        {
+          "before": "  const sidebarRef = useRef<HTMLElement>(null);\n  // Set when the drawer closes via Escape, the close control, or the scrim:\n",
+          "after": "  // Set when the panel closes via Escape, the close control, or the scrim:\n"
+        },
+        {
+          "before": "  // Set when the drawer closes because the viewport reached desktop width,\n  // where focus has to go to the sidebar rather than back to the trigger.\n  const handedToSidebar = useRef(false);\n",
+          "after": "\n  // The hairline under the bar appears once the page has moved under it.\n  useEffect(() => {\n    const update = () => setScrolled(window.scrollY > 4);\n    update();\n    window.addEventListener('scroll', update, { passive: true });\n    return () => window.removeEventListener('scroll', update);\n  }, []);\n"
+        },
+        {
+          "before": "  // While open: move focus into the drawer, trap Tab, listen for Escape,\n",
+          "after": "  // While open: move focus into the panel, trap Tab, listen for Escape,\n"
+        },
+        {
+          "before": "      // Making the page behind the drawer inert is not a focus trap: a Tab\n",
+          "after": "      // Making the page behind the panel inert is not a focus trap: a Tab\n"
+        },
+        {
+          "before": "    };\n  }, [drawerOpen]);\n\n  // The drawer is the taxonomy only below lg. Reaching desktop width with\n  // it open has to close it: the dialog stops painting there, and leaving\n  // the state set would keep the visible shell inert and scroll-locked with\n  // nothing on screen to dismiss. Scroll position is untouched, so the\n  // reader stays where they were reading.\n  useEffect(() => {\n    if (!drawerOpen || typeof window.matchMedia !== 'function') return;\n    const query = window.matchMedia(DESKTOP_SHELL_QUERY);\n    function handOffToSidebar() {\n      if (!query.matches) return;\n      handedToSidebar.current = true;\n      setDrawerOpen(false);\n    }\n    handOffToSidebar();\n    query.addEventListener('change', handOffToSidebar);\n    return () => query.removeEventListener('change', handOffToSidebar);\n  }, [drawerOpen]);\n\n",
+          "after": "    };\n  }, [drawerOpen]);\n\n"
+        },
+        {
+          "before": "    if (drawerOpen) return;\n    if (handedToSidebar.current) {\n      handedToSidebar.current = false;\n      restoreFocus.current = false;\n      // The trigger this drawer came from lives in the `lg:hidden` header,\n      // so returning focus there would park it on a control the reader can\n      // no longer see. The sidebar carries the same taxonomy at this width.\n      const sidebarStop =\n        sidebarRef.current?.querySelector<HTMLElement>(DRAWER_TAB_STOPS);\n      (sidebarStop ?? document.getElementById('main-content'))?.focus();\n      return;\n    }\n    if (!restoreFocus.current) return;\n",
+          "after": "    if (drawerOpen || !restoreFocus.current) return;\n"
+        },
+        {
+          "before": "  }\n\n",
+          "after": "  }\n\n  const onExplainer = pathname.startsWith('/how-robots-work');\n\n"
+        },
+        {
+          "before": "          it can stand down while the drawer owns focus. The Suspense\n",
+          "after": "          it can stand down while the panel owns focus. The Suspense\n"
+        },
+        {
+          "before": "      <div className=\"flex min-h-[100dvh] flex-col lg:flex-row\">\n        {/* Mobile top bar (drawer pattern below lg). */}\n",
+          "after": "      <div className=\"flex min-h-[100dvh] flex-col\">\n"
+        },
+        {
+          "before": "          className=\"sticky top-0 z-40 flex items-center gap-3 border-b border-border bg-bg px-4 py-2.5 lg:hidden\"\n",
+          "after": "          data-site-topbar\n          data-scrolled={scrolled ? 'true' : 'false'}\n          className={cx(\n            'sticky top-0 z-40 flex h-[var(--topbar-height)] items-center justify-between gap-6 border-b bg-bg px-[var(--header-gutter)] transition-colors duration-200',\n            scrolled ? 'border-border' : 'border-transparent',\n          )}\n"
+        },
+        {
+          "before": "          <button\n            ref={menuButtonRef}\n            type=\"button\"\n            aria-expanded={drawerOpen}\n            aria-controls=\"mobile-nav-drawer\"\n            aria-label=\"Open navigation menu\"\n            data-brand-control-id=\"control:secondary-action\"\n            onClick={() => setDrawerOpen(true)}\n            className=\"flex items-center rounded-sm p-1.5 text-text transition-colors hover:bg-surface-2 active:translate-y-[1px]\"\n          >\n            <List size={20} aria-hidden />\n          </button>\n          <Link\n            href=\"/\"\n            data-tektur-role=\"shell-wordmark\"\n            data-brand-control-id=\"control:link-focus\"\n            className=\"font-display-shell text-[15px] tracking-[-0.02em] text-text\"\n          >\n            {PUBLIC_IDENTITY}\n          </Link>\n",
+          "after": "          {/* The wordmark is the navigation item for \"/\", so on home it\n              keeps aria-current exactly as a taxonomy entry would. It sits\n              alone in its container: text beside a lockup reads as a\n              descriptor surface (VAL-B2-ID-002), and the bar's links are\n              controls, not a descriptor. */}\n          <div className=\"flex items-center\">\n            <Link\n              href=\"/\"\n              aria-current={pathname === '/' ? 'page' : undefined}\n              data-tektur-role=\"shell-wordmark\"\n              data-brand-control-id=\"control:link-focus\"\n              className=\"font-display-shell text-[17px] leading-none tracking-[-0.01em] text-text\"\n            >\n              {PUBLIC_IDENTITY}\n            </Link>\n          </div>\n          <nav aria-label=\"Site\" className=\"flex items-center gap-4 sm:gap-5\">\n            <button\n              ref={menuButtonRef}\n              type=\"button\"\n              aria-expanded={drawerOpen}\n              aria-controls=\"mobile-nav-drawer\"\n              aria-haspopup=\"dialog\"\n              data-brand-control-id=\"control:secondary-action\"\n              onClick={() => setDrawerOpen(true)}\n              className={cx(topLink, 'cursor-pointer')}\n            >\n              Articles\n            </button>\n            <IntentLink\n              href=\"/how-robots-work/\"\n              aria-current={onExplainer ? 'page' : undefined}\n              data-brand-control-id=\"control:link-focus\"\n              className={topLink}\n            >\n              How robots work\n            </IntentLink>\n          </nav>\n"
+        },
+        {
+          "before": "        {/* Desktop sidebar: sticky, full-height, independently scrollable. */}\n        <aside\n          ref={sidebarRef}\n          id=\"sidebar-rail\"\n          inert={drawerOpen}\n          data-pagefind-ignore\n          className=\"relative hidden w-72 shrink-0 lg:block\"\n        >\n          {/* The registered outer rail is the sidebar's right boundary. It is\n              a device rather than a border on the <aside> so the shell's one\n              structural division carries a registry identity, an owner and an\n              anchor the primitive sweep can measure. */}\n          <BrandDevice\n            device=\"outer-rail\"\n            anchorSelector=\"#sidebar-rail\"\n            deviceEdge=\"right\"\n            anchorEdge=\"right\"\n            className=\"right-0 top-0 h-full\"\n          />\n          <div className=\"sticky top-0 flex h-dvh flex-col gap-5 overflow-y-auto px-3 py-5\">\n            <div>\n              {/* The lockup is the navigation item for \"/\", so on home it\n                  keeps aria-current exactly as every taxonomy entry does.\n                  The lime active-interval rail is wordmark-excluded by the\n                  owner decision of 2026-09-25: no wordmark lockup ever\n                  renders that rail or any other accent bar, on any route. */}\n              <Link\n                href=\"/\"\n                aria-current={pathname === '/' ? 'page' : undefined}\n                data-tektur-role=\"shell-wordmark\"\n                data-brand-control-id=\"control:link-focus\"\n                className=\"relative block rounded-sm px-2 py-0.5 font-display-shell text-[17px] tracking-[-0.025em] text-text\"\n              >\n                {PUBLIC_IDENTITY}\n              </Link>\n            </div>\n            <SearchBox idPrefix=\"sidebar\" />\n            <NavTree idPrefix=\"sidebar\" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />\n          </div>\n        </aside>\n\n        {/* Content column: main plus the site footer. The column wrapper\n            keeps the footer a sibling of <main> (never a descendant, so it\n            resolves as a contentinfo landmark, VAL-DIST-006) while it still\n            spans the content area next to the sidebar on desktop and stacks\n            below main on mobile. */}\n",
+          "after": "        {/* Content column: main plus the site footer. The footer stays a\n            sibling of <main> (never a descendant, so it resolves as a\n            contentinfo landmark, VAL-DIST-006). */}\n"
+        },
+        {
+          "before": "        {/* Mobile drawer. */}\n",
+          "after": "        {/* The taxonomy panel. */}\n"
+        },
+        {
+          "before": "            className=\"fixed inset-0 z-50 lg:hidden\"\n",
+          "after": "            className=\"fixed inset-0 z-50\"\n"
+        },
+        {
+          "before": "                Ink at 60% rather than a wash of the page ground, because the\n                panel is paper and a paper scrim over a paper page composites\n                to the panel's own colour: the edge measured 1.00:1 against it,\n                so nothing separated the drawer at all. */}\n",
+          "after": "                Ink at 60% rather than a light wash, because the panel is\n                paper and a pale scrim over a paper page composites close to\n                the panel's own colour: an ink/15 wash measured 1.35:1\n                against it, under the 3:1 a visible boundary needs. */}\n"
+        },
+        {
+          "before": "            {/* The panel is opaque paper against that scrim, and it is flush\n                with three viewport edges, so its one visible boundary is the\n                inner edge the scrim already carries. A border or a shadow\n                there would be a second edge doing the same work. */}\n",
+          "after": "            {/* The panel is opaque paper against that scrim, flush with\n                three viewport edges, so its one visible boundary is the\n                inner edge the scrim already carries. A border there would\n                be a second edge doing the same work. */}\n"
+        },
+        {
+          "before": "              className=\"relative flex h-full w-[85vw] max-w-80 flex-col bg-bg\"\n",
+          "after": "              className=\"absolute inset-y-0 right-0 flex w-[min(400px,92vw)] flex-col bg-bg\"\n"
+        },
+        {
+          "before": "              <div className=\"flex items-center justify-between border-b border-border px-3 py-2.5\">\n                {/* Same wordmark treatment as the sidebar lockup: the drawer\n                    is the taxonomy at mobile widths, so its lockup is the\n                    navigation item for \"/\" and keeps aria-current on home,\n                    while the lime active-interval rail stays\n                    wordmark-excluded by the owner decision of 2026-09-25. */}\n                <Link\n                  href=\"/\"\n                  aria-current={pathname === '/' ? 'page' : undefined}\n                  onClick={() => setDrawerOpen(false)}\n                  data-tektur-role=\"shell-wordmark\"\n                  data-brand-control-id=\"control:link-focus\"\n                  className=\"relative block rounded-sm px-2 py-0.5 font-display-shell text-[15px] tracking-[-0.02em] text-text\"\n                >\n                  {PUBLIC_IDENTITY}\n                </Link>\n",
+          "after": "              <div className=\"flex h-[var(--topbar-height)] shrink-0 items-center justify-between px-6\">\n                {/* The panel's lockup is the navigation item for \"/\", so it\n                    keeps aria-current on home as the bar's wordmark does,\n                    and sits alone in its container as the bar's does. */}\n                <div className=\"flex items-center\">\n                  <Link\n                    href=\"/\"\n                    aria-current={pathname === '/' ? 'page' : undefined}\n                    onClick={() => setDrawerOpen(false)}\n                    data-tektur-role=\"shell-wordmark\"\n                    data-brand-control-id=\"control:link-focus\"\n                    className=\"font-display-shell text-[17px] leading-none tracking-[-0.01em] text-text\"\n                  >\n                    {PUBLIC_IDENTITY}\n                  </Link>\n                </div>\n"
+        },
+        {
+          "before": "                  className=\"flex items-center rounded-sm p-1.5 text-text transition-colors hover:bg-surface-2 active:translate-y-[1px]\"\n",
+          "after": "                  className={cx(topLink, 'cursor-pointer')}\n"
+        },
+        {
+          "before": "                  <X size={20} aria-hidden />\n",
+          "after": "                  Close\n"
+        },
+        {
+          "before": "              <div className=\"flex-1 overflow-y-auto px-3 py-4\">\n",
+          "after": "              <div className=\"flex-1 overflow-y-auto border-t border-border px-6 pt-6 pb-10\">\n"
+        },
+        {
+          "before": "                  className=\"mt-5\"\n",
+          "after": "                  className=\"mt-8\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/search/results-group.tsx",
+        "bytes": 2839,
+        "sha256": "12aabadad6f6e41187a1188bb3437c5ff29784ae55428bb74ffcc6055419f4a8"
+      },
+      "after": {
+        "path": "components/search/results-group.tsx",
+        "bytes": 2789,
+        "sha256": "6c8d42c17798590e7d958d9f4b06f3c43c8b0e601040c76d7968d174f625bec3"
+      },
+      "edits": [
+        {
+          "before": "          className=\"font-sans text-base font-semibold tracking-tight text-text\"\n",
+          "after": "          className=\"section-h2\"\n"
+        },
+        {
+          "before": "              ? 'mt-4 border-l-2 border-err pl-3 text-sm leading-relaxed text-err'\n",
+          "after": "              ? 'mt-4 border-l border-err pl-3 text-sm leading-relaxed text-err'\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/search/search-interface.tsx",
+        "bytes": 23032,
+        "sha256": "4901928326b1e74fd040b479ebd248ab56730bf160a442db81c65d36909cd64b"
+      },
+      "after": {
+        "path": "components/search/search-interface.tsx",
+        "bytes": 22546,
+        "sha256": "ff0e3a4fef398349a37d57a43fd574cdab97adbea714630fc0a8ab49f62aa1bc"
+      },
+      "edits": [
+        {
+          "before": "          className=\"mb-1.5 block font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim\"\n",
+          "after": "          className=\"eyebrow mb-2 block\"\n"
+        },
+        {
+          "before": "            className=\"min-w-0 flex-1 rounded-sm border border-border bg-surface px-3 py-2 text-base text-text placeholder:text-text-dim\"\n",
+          "after": "            className=\"min-w-0 flex-1 border border-border-strong bg-surface px-3 py-2 text-base text-text placeholder:text-text-dim\"\n"
+        },
+        {
+          "before": "              className=\"flex cursor-pointer items-center rounded-sm border border-border bg-surface-2 px-2 text-text-dim transition-colors hover:border-border-strong hover:text-text\"\n",
+          "after": "              className=\"flex cursor-pointer items-center px-2 text-text-dim transition-colors hover:text-text\"\n"
+        },
+        {
+          "before": "          <p className=\"max-w-[65ch] border-l-2 border-err pl-3 text-sm leading-relaxed text-err\">\n",
+          "after": "          <p className=\"max-w-[65ch] border-l border-err pl-3 text-sm leading-relaxed text-err\">\n"
+        },
+        {
+          "before": "            generated during the production build; run{' '}\n            <code className=\"rounded-sm border border-border bg-surface-2 px-1 py-0.5 font-mono text-xs text-err\">\n",
+          "after": "            generated during the production build; run{' '}\n            <code className=\"bg-surface-2 px-1 py-0.5 font-mono text-xs text-err\">\n"
+        },
+        {
+          "before": "            and serve the{' '}\n            <code className=\"rounded-sm border border-border bg-surface-2 px-1 py-0.5 font-mono text-xs text-err\">\n",
+          "after": "            and serve the{' '}\n            <code className=\"bg-surface-2 px-1 py-0.5 font-mono text-xs text-err\">\n"
+        },
+        {
+          "before": "              className=\"text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent\"\n",
+          "after": "              className=\"ink-link\"\n"
+        },
+        {
+          "before": "                        data-result-title\n                        className=\"font-sans text-sm font-medium text-text underline-offset-2 decoration-accent group-hover:text-accent group-hover:underline group-focus-visible:text-accent group-focus-visible:underline\"\n",
+          "after": "                        data-result-title\n                        className=\"font-sans text-[15px] font-medium text-text decoration-1 underline-offset-[3px] group-hover:underline group-focus-visible:underline\"\n"
+        },
+        {
+          "before": "                    className=\"cursor-pointer text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent\"\n",
+          "after": "                    className=\"ink-link cursor-pointer\"\n"
+        },
+        {
+          "before": "                          className=\"font-sans text-sm font-medium text-text underline-offset-2 decoration-accent group-hover:text-accent group-hover:underline group-focus-visible:text-accent group-focus-visible:underline\"\n",
+          "after": "                          className=\"font-sans text-[15px] font-medium text-text decoration-1 underline-offset-[3px] group-hover:underline group-focus-visible:underline\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/search/type-facet-bar.tsx",
+        "bytes": 3094,
+        "sha256": "35f53a648303ff70906537846eaea22d53aeccaf3575fc0648f35c923a33716c"
+      },
+      "after": {
+        "path": "components/search/type-facet-bar.tsx",
+        "bytes": 3160,
+        "sha256": "48b32a1ed2a34dcabab5bb2090463cb9b78ccae0652c707880cc751213490c56"
+      },
+      "edits": [
+        {
+          "before": " * A selected facet is lime with ink text plus a check marker and\n",
+          "after": " * A selected facet is ink on a 1px ink rule plus a check marker and\n"
+        },
+        {
+          "before": " * (VAL-B2-DISC-003). The same lime/ink/marker treatment the tabs and chips\n",
+          "after": " * (VAL-B2-DISC-003). The same ink/rule/marker treatment the tabs and chips\n"
+        },
+        {
+          "before": "        'mb-4 flex flex-wrap gap-1.5',\n",
+          "after": "        'mb-4 flex flex-wrap gap-x-5 gap-y-1 border-b border-border',\n"
+        },
+        {
+          "before": "              'inline-flex items-center gap-1 rounded-sm border px-2.5 py-1.5 font-mono text-xs',\n",
+          "after": "              // Text tabs: the pressed one in ink on a 1px ink underline,\n              // the rest muted. No boxes, no fills.\n              '-mb-px inline-flex items-center gap-1 border-b py-2 font-sans text-[14px]',\n"
+        },
+        {
+          "before": "                ? 'cursor-not-allowed border-border bg-surface-2 text-text-dim'\n",
+          "after": "                ? 'cursor-not-allowed border-transparent text-text-dim'\n"
+        },
+        {
+          "before": "                    'cursor-pointer transition-colors active:translate-y-[1px]',\n",
+          "after": "                    'cursor-pointer transition-colors',\n"
+        },
+        {
+          "before": "                      ? 'border-highlight bg-selection font-semibold text-ink'\n                      : 'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text',\n",
+          "after": "                      ? 'border-ink font-medium text-ink'\n                      : 'border-transparent text-text-dim hover:text-text',\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/ui/badge.tsx",
+        "bytes": 875,
+        "sha256": "b4528b1aa0596e83730823dc8e951b31c362654f3ae0e6882ca618e78b70928a"
+      },
+      "after": {
+        "path": "components/ui/badge.tsx",
+        "bytes": 896,
+        "sha256": "c8d4976355418852825c23be65fa4a5c4a69d4eab0e2bb222b2d12e1ed04afcc"
+      },
+      "edits": [
+        {
+          "before": "  children: ReactNode;\n};\n\n",
+          "after": "  children: ReactNode;\n};\n\n// No pill: a badge is a short label in small tracked capitals, its words\n// the cue and its colour only a second one.\n"
+        },
+        {
+          "before": "  default: 'border-border bg-surface-2 text-text-dim',\n  accent: 'border-highlight bg-selection font-semibold text-ink',\n  ok: 'border-ok text-ok',\n  warn: 'border-warn text-warn',\n  err: 'border-error text-error',\n",
+          "after": "  default: 'text-text-dim',\n  accent: 'font-semibold text-ink',\n  ok: 'text-ok',\n  warn: 'text-warn',\n  err: 'text-error',\n"
+        },
+        {
+          "before": "        'inline-flex items-center rounded-xs border px-1.5 py-0.5 font-mono text-[11px] leading-none tracking-wide',\n",
+          "after": "        'inline-flex items-center font-sans text-[11px] font-medium uppercase leading-none tracking-[0.08em]',\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/ui/callout.tsx",
+        "bytes": 1363,
+        "sha256": "ac1060f737611908b2c3943aaf9c201768611fae1b18626cd3bb58941062d0c3"
+      },
+      "after": {
+        "path": "components/ui/callout.tsx",
+        "bytes": 1164,
+        "sha256": "121ecba1c09198ca847cb77bcd7bf9e11c6aa2ac641c003e0053c0aa01488f5e"
+      },
+      "edits": [
+        {
+          "before": "  error: 'Error',\n};\n\nconst borderColor: Record<CalloutVariant, string> = {\n  info: 'border-l-signal',\n  warn: 'border-l-warn',\n  error: 'border-l-error',\n};\n\n",
+          "after": "  error: 'Error',\n};\n\n"
+        },
+        {
+          "before": "      className={cx(\n        'my-6 rounded-sm border border-border border-l-2 bg-surface p-4',\n        borderColor[variant],\n      )}\n",
+          "after": "      className=\"my-6 border border-border bg-surface p-5\"\n"
+        },
+        {
+          "before": "      <div className=\"mt-1 text-sm leading-relaxed text-text-dim [&_a]:text-accent\">\n",
+          "after": "      <div className=\"mt-1 text-sm leading-relaxed text-text-dim [&_a]:text-ink [&_a]:underline\">\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/ui/card.tsx",
+        "bytes": 1890,
+        "sha256": "0b5116d80a5ba5d5bc9d84dfb063e6ec871bdf01928dfd78e1cbf697202384c5"
+      },
+      "after": {
+        "path": "components/ui/card.tsx",
+        "bytes": 1948,
+        "sha256": "8125ef184499dd6843e602d5f60bbcc51d16165e9c135d296166324882ded1de"
+      },
+      "edits": [
+        {
+          "before": "            className=\"font-sans text-sm font-medium text-text group-hover:text-accent\"\n",
+          "after": "            className=\"font-sans text-sm font-medium text-text group-hover:underline group-hover:decoration-1 group-hover:underline-offset-[3px]\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/ui/chip.tsx",
+        "bytes": 1416,
+        "sha256": "25ccef4db9e60a0307d10cd592886ddd416bcf78ad0dd719a27ade08a5d33149"
+      },
+      "after": {
+        "path": "components/ui/chip.tsx",
+        "bytes": 1404,
+        "sha256": "ad85270b8f9d35724744af9a598131ac6066d90d64e1b66176798d6a80c14b7c"
+      },
+      "edits": [
+        {
+          "before": "      ? 'border-highlight bg-selection font-semibold text-ink'\n      : 'border-border bg-surface text-text',\n",
+          "after": "      ? 'border-ink font-medium text-ink'\n      : 'border-border text-text-dim hover:text-text',\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/ui/cite.tsx",
+        "bytes": 11563,
+        "sha256": "96b9f9cd9dcc0eb9bf16246b9828879955bd8b53260679ea9381d95746709507"
+      },
+      "after": {
+        "path": "components/ui/cite.tsx",
+        "bytes": 4783,
+        "sha256": "cd028146d7e2b05c0b4ce5269c7fb7518eb45aaefb91c150d03565d77cac2c81"
+      },
+      "edits": [
+        {
+          "before": "import { useId, useLayoutEffect, useRef, useState } from 'react';\n\nconst citeTooltipListeners = new Set<(id: string) => void>();\n\n/** One citation tooltip is exposed at a time. A focus move must not leave the previous chip's hover-grace popup open. */\nfunction claimCiteTooltip(id: string) {\n  for (const listener of citeTooltipListeners) listener(id);\n}\n\n",
+          "after": "import { useId, useRef, useState, type MouseEvent } from 'react';\nimport { useCitationNumber } from '@/components/article/citation-numbers';\n\n"
+        },
+        {
+          "before": "  /** Full title of the source, shown in the hover/focus tooltip. */\n",
+          "after": "  /** Full title of the source. */\n"
+        },
+        {
+          "before": "  /** Authors, venue, year. Shown under the title in the tooltip. */\n",
+          "after": "  /** Authors, venue, year. Read as part of the citation's description. */\n"
+        },
+        {
+          "before": "   * Citation registry id, exposed as data-cite-id so chips and References\n   * entries can be reconciled. Omitted from the DOM when not given.\n",
+          "after": "   * Citation registry id, exposed as data-cite-id so citations and\n   * References entries can be reconciled. Omitted from the DOM when not\n   * given.\n"
+        },
+        {
+          "before": "   * References section. When set, the chip grows a second affordance that\n   * jumps the reader to the full entry.\n",
+          "after": "   * References section.\n"
+        },
+        {
+          "before": " * Inline citation chip. The primary link goes out to the source; a tooltip\n * with the full reference appears on hover and on keyboard focus\n * (aria-describedby). With referenceHref set, a second in-chip affordance\n * jumps to the article's References entry for the same id.\n",
+          "after": " * A citation as a sidenote (the Pantheon research-page standard).\n *\n * Inside an article the citation is a small superscript number, the same\n * number its References entry carries. Its note (the number, the source's\n * author-year label linked to the source, and the title in muted 13px)\n * sits beside the line in the right margin from 1200px wherever the\n * citation is part of the running prose (app/globals.css, `.sidenote`).\n * Where there is no margin to use (a phone, a table cell, a figure), the\n * number opens the note inline instead. When the note is already in the\n * margin, the number jumps to the full References entry.\n *\n * Outside an article there is no numbering, and the citation renders as\n * its author-year label linked to the source.\n"
+        },
+        {
+          "before": "  const tooltipId = useId();\n  const rootRef = useRef<HTMLSpanElement>(null);\n  const tooltipRef = useRef<HTMLSpanElement>(null);\n  const leaveTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);\n  const [hovered, setHovered] = useState(false);\n  const [focused, setFocused] = useState(false);\n  const [dismissed, setDismissed] = useState(false);\n  const revealed = (hovered || focused) && !dismissed;\n",
+          "after": "  const noteId = useId();\n  const noteRef = useRef<HTMLSpanElement>(null);\n  const [open, setOpen] = useState(false);\n  const number = useCitationNumber(citeId);\n  const idAttribute = citeId ? { 'data-cite-id': citeId } : {};\n  const description = meta ? `${title}. ${meta}.` : `${title}.`;\n"
+        },
+        {
+          "before": "  useLayoutEffect(() => {\n    const listener = (id: string) => {\n      if (id === tooltipId) return;\n      // Keyboard focus on this chip outranks a hover claim elsewhere.\n      if (rootRef.current?.contains(document.activeElement)) return;\n      clearTimeout(leaveTimer.current);\n      setHovered(false);\n      setFocused(false);\n    };\n    citeTooltipListeners.add(listener);\n    return () => {\n      citeTooltipListeners.delete(listener);\n    };\n  }, [tooltipId]);\n\n  useLayoutEffect(() => {\n    if (revealed) claimCiteTooltip(tooltipId);\n  }, [revealed, tooltipId]);\n\n  useLayoutEffect(() => {\n    const root = rootRef.current;\n    const tip = tooltipRef.current;\n    if (!root || !tip) return;\n    if (!revealed) {\n      tip.style.display = dismissed ? 'none' : '';\n      tip.tabIndex = -1;\n      return;\n    }\n    const viewport = window.visualViewport;\n    const headers = [...document.querySelectorAll('header')];\n    let frame = 0;\n    // Like Term, prefer a fitting side, otherwise make the larger side\n    // scrollable. The top layer additionally escapes table overflow and\n    // transformed ancestors without moving the tooltip out of its DOM/ARIA\n    // owner. Browsers without Popover retain fixed positioning and the\n    // unhydrated HTML retains the existing CSS-only hover/focus fallback.\n    tip.style.display = 'block';\n    tip.style.position = 'fixed';\n    tip.style.margin = '0';\n    tip.style.right = 'auto';\n    tip.style.bottom = 'auto';\n    // Authored positioning wrappers remain useful for the no-JS fallback.\n    // Measured coordinates supersede only their positioning, not byline,\n    // typography, punctuation, width or source content.\n    tip.style.translate = 'none';\n    tip.style.transform = 'none';\n    if (typeof tip.showPopover === 'function') {\n      tip.setAttribute('popover', 'manual');\n      tip.showPopover();\n    }\n    const place = () => {\n      const rect = root.getBoundingClientRect();\n      const scrollTop = tip.scrollTop;\n      const vx = viewport?.offsetLeft ?? 0;\n      const vy = viewport?.offsetTop ?? 0;\n      const width = viewport?.width ?? (document.documentElement.clientWidth || window.innerWidth);\n      const height = viewport?.height ?? window.innerHeight;\n      tip.style.maxWidth = `min(calc(100vw - 3rem), ${Math.max(0, width - 24)}px)`;\n      tip.style.maxHeight = 'none';\n      const natural = tip.getBoundingClientRect();\n      if (!natural.width || !natural.height) return;\n      const left = Math.max(vx + 12, Math.min(rect.left, vx + width - natural.width - 12));\n      let top = vy + 12;\n      const bottom = vy + height - 12;\n      for (const header of headers) {\n        const style = getComputedStyle(header);\n        const box = header.getBoundingClientRect();\n        if (['sticky', 'fixed'].includes(style.position) &&\n            style.visibility !== 'hidden' && box.width && box.height &&\n            box.top <= vy + (parseFloat(style.top) || 0) &&\n            box.right > left && box.left < left + natural.width) {\n          top = Math.max(top, box.bottom + 12);\n        }\n      }\n      const above = Math.max(0, Math.min(bottom, rect.top - 6) - top);\n      const below = Math.max(0, bottom - Math.max(top, rect.bottom + 6));\n      const useAbove = natural.height <= above || (natural.height > below && above >= below);\n      const available = useAbove ? above : below;\n      const y = useAbove\n        ? Math.max(top, Math.min(bottom, rect.top - 6) - Math.min(natural.height, available))\n        : Math.max(top, rect.bottom + 6);\n      tip.style.left = `${left}px`;\n      tip.style.top = `${y}px`;\n      tip.style.maxHeight = `${available}px`;\n      tip.style.overflowY = 'auto';\n      tip.style.overflowWrap = 'anywhere';\n      tip.style.overscrollBehavior = 'contain';\n      tip.tabIndex = natural.height > available ? 0 : -1;\n      tip.scrollTop = scrollTop;\n    };\n    const schedule = (event?: Event) => {\n      if (event?.target === tip || frame) return;\n      frame = requestAnimationFrame(() => { frame = 0; place(); });\n    };\n    const escape = (event: KeyboardEvent) => {\n      if (event.key !== 'Escape') return;\n      // A scrolling tooltip must not leave focus on a hidden element.\n      if (document.activeElement === tip) root.querySelector('a')?.focus({ preventScroll: true });\n      setDismissed(true);\n    };\n    place();\n    const observer = new ResizeObserver(() => schedule());\n    for (const element of [root, tip, ...tip.children, ...headers]) observer.observe(element);\n    window.addEventListener('scroll', schedule, { capture: true, passive: true });\n    window.addEventListener('resize', schedule);\n    viewport?.addEventListener('scroll', schedule);\n    viewport?.addEventListener('resize', schedule);\n    document.addEventListener('keydown', escape);\n    return () => {\n      cancelAnimationFrame(frame);\n      observer.disconnect();\n      window.removeEventListener('scroll', schedule, true);\n      window.removeEventListener('resize', schedule);\n      viewport?.removeEventListener('scroll', schedule);\n      viewport?.removeEventListener('resize', schedule);\n      document.removeEventListener('keydown', escape);\n      if (tip.hasAttribute('popover')) {\n        tip.hidePopover();\n        tip.removeAttribute('popover');\n      }\n      tip.style.display = '';\n      tip.tabIndex = -1;\n    };\n  }, [revealed, dismissed, title, meta]);\n\n  useLayoutEffect(() => () => clearTimeout(leaveTimer.current), []);\n\n  return (\n    <span\n      ref={rootRef}\n      onMouseEnter={() => {\n        clearTimeout(leaveTimer.current);\n        setHovered(true);\n        setDismissed(false);\n      }}\n      onMouseLeave={() => {\n        // Allow traversal of the 6px gap, including a horizontally clamped\n        // popup outside a scrollable table. Focus is independent of pointer.\n        leaveTimer.current = setTimeout(() => setHovered(false), 120);\n      }}\n      onFocus={(event) => {\n        setFocused(true);\n        if (!event.currentTarget.contains(event.relatedTarget)) setDismissed(false);\n      }}\n      onBlur={(event) => {\n        if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);\n      }}\n      {...(citeId ? { 'data-cite-id': citeId } : {})}\n      className=\"group relative inline-block align-baseline\"\n    >\n      <span\n        data-brand-surface-id=\"surface:flat\"\n        // max-w-full + whitespace-normal: the chip is wrapped in a\n        // whitespace-nowrap span at build time to bind it to its trailing\n        // punctuation, and white-space inherits. A long label such as an\n        // organization name then cannot break and pushes the document wider\n        // than a 375px viewport. The binding is what has to hold, not the\n        // label, so the label wraps inside the chip instead.\n        className=\"inline-flex max-w-full items-stretch overflow-hidden rounded-xs border border-border bg-surface-2 font-mono text-[0.72em] leading-5 whitespace-normal transition-colors group-hover:border-accent group-focus-within:border-accent\"\n      >\n",
+          "after": "  if (number === undefined) {\n    return (\n      <span {...idAttribute} className=\"cite\">\n"
+        },
+        {
+          "before": "          rel=\"noopener noreferrer\"\n          aria-describedby={tooltipId}\n",
+          "after": "          rel=\"noopener noreferrer\"\n          aria-describedby={noteId}\n"
+        },
+        {
+          "before": "          className=\"inline-flex items-center px-1.5 text-text-dim no-underline transition-colors hover:bg-surface hover:text-accent\"\n",
+          "after": "          className=\"cite-label\"\n"
+        },
+        {
+          "before": "        {referenceHref ? (\n          // data-pagefind-ignore on THIS anchor only: the ↓ glyph is pure\n          // excerpt noise (search snippets read \"2024↓.\"), while the chip\n          // label link above must stay indexed. Index-only hint — the\n          // anchor, its aria-label, and keyboard behavior are untouched.\n",
+          "after": "        {referenceHref ? (\n"
+        },
+        {
+          "before": "            href={referenceHref}\n            onClick={() => {\n              // The jump scrolls the entry under the fixed popup, which a\n              // pending hover grace would otherwise keep over its title.\n              clearTimeout(leaveTimer.current);\n              setHovered(false);\n            }}\n",
+          "after": "            href={referenceHref}\n"
+        },
+        {
+          "before": "            className=\"inline-flex items-center border-l border-border px-1 text-text-dim no-underline transition-colors hover:bg-surface hover:text-accent\"\n",
+          "after": "            className=\"cite-label ml-0.5 no-underline\"\n"
+        },
+        {
+          "before": "          </a>\n        ) : null}\n      </span>\n",
+          "after": "          </a>\n        ) : null}\n        <span id={noteId} data-pagefind-ignore className=\"hidden\">\n          {description}\n        </span>\n      </span>\n    );\n  }\n\n  function onMarkClick(event: MouseEvent<HTMLAnchorElement>) {\n    const note = noteRef.current;\n    if (!note) return;\n    // The note already stands in the margin: let the number jump to the\n    // full References entry.\n    const float = getComputedStyle(note).float;\n    if ((float === 'left' || float === 'right') && !open) return;\n    event.preventDefault();\n    setOpen((value) => !value);\n  }\n\n  return (\n    <span {...idAttribute} className=\"cite\">\n      {/* The number is excerpt noise (\"late12\"), so only the note's\n          author-year label stays in the search index, as the chip label\n          did before. */}\n      <sup data-pagefind-ignore className=\"cite-mark\">\n        <a\n          href={referenceHref ?? `#ref-${citeId}`}\n          onClick={onMarkClick}\n          aria-describedby={noteId}\n          data-brand-control-id=\"control:link-focus\"\n        >\n          <span className=\"sr-only\">Source </span>\n          {number}\n        </a>\n      </sup>\n      {/* `hidden` is the note's at-rest state; app/globals.css shows it in\n          the margin or when opened. The title and venue are the citation's\n          apparatus and stay out of the search index. */}\n"
+        },
+        {
+          "before": "        ref={tooltipRef}\n        tabIndex={-1}\n        role=\"tooltip\"\n        id={tooltipId}\n        data-brand-surface-id=\"surface:floating\"\n        data-brand-frame-depth=\"1\"\n        // Hidden copy: excluded from the Pagefind index so search excerpts\n        // never fuse the reference title/authors onto the prose. The\n        // aria-describedby wiring and complete readable text are untouched.\n        // whitespace-normal: the chip is wrapped in a whitespace-nowrap span\n        // at build time (lib/rehype-cite-punctuation.mjs) to bind it to its\n        // trailing punctuation, and white-space inherits — without the reset\n        // the fixed-width tooltip cannot wrap and its text overflows the box.\n        data-pagefind-ignore\n        className=\"absolute bottom-full left-0 z-20 mb-1.5 hidden w-64 max-w-[calc(100vw-3rem)] rounded-sm border border-border bg-surface p-2.5 font-sans text-xs leading-relaxed whitespace-normal text-text shadow-floating group-hover:block group-focus-within:block\"\n",
+          "after": "        ref={noteRef}\n        id={noteId}\n        data-sidenote\n        data-open={open ? 'true' : 'false'}\n        className=\"sidenote hidden\"\n"
+        },
+        {
+          "before": "        <span className=\"block font-medium\">{title}</span>\n",
+          "after": "        <span data-pagefind-ignore className=\"sidenote-index\">\n          {number}\n        </span>\n        {/* A real space, so the indexed label never fuses onto the cited\n            word in the search text. */}{' '}\n        <a\n          href={href}\n          target=\"_blank\"\n          rel=\"noopener noreferrer\"\n          data-brand-control-id=\"control:link-focus\"\n        >\n          {label}\n        </a>\n        <span data-pagefind-ignore className=\"sidenote-title\">{`, ${title}`}</span>\n"
+        },
+        {
+          "before": "          <span className=\"mt-0.5 block text-text-dim\">{meta}</span>\n",
+          "after": "          <span data-pagefind-ignore className=\"sr-only\">{`. ${meta}`}</span>\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/ui/code-block.tsx",
+        "bytes": 1457,
+        "sha256": "18be2892fb85c2ca37ac1aa2e8f32dca33882202d036f8b6e3ee0025b519f452"
+      },
+      "after": {
+        "path": "components/ui/code-block.tsx",
+        "bytes": 1415,
+        "sha256": "8dad0fc0047e962a8d6e3d73bd95c697af6c190d4cf1d7e65cff926514c62524"
+      },
+      "edits": [
+        {
+          "before": "      className=\"my-6 overflow-hidden rounded-sm border border-border bg-surface\"\n",
+          "after": "      className=\"my-8 overflow-hidden rounded-[7px] bg-surface-2\"\n"
+        },
+        {
+          "before": "        className=\"flex items-center justify-between border-b border-border bg-surface-2 px-3 py-1.5\"\n",
+          "after": "        className=\"flex items-center justify-between px-6 pt-3\"\n"
+        },
+        {
+          "before": "        className=\"overflow-x-auto p-3 font-mono text-[13px] leading-relaxed text-text\"\n",
+          "after": "        className=\"overflow-x-auto px-6 pt-3 pb-5 font-mono text-[14px] leading-[23.1px] text-text\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/ui/table.tsx",
+        "bytes": 8679,
+        "sha256": "7d1201d476ba1931d75f09aed870978f15c1b8c20f66af42e7ac9217315eee35"
+      },
+      "after": {
+        "path": "components/ui/table.tsx",
+        "bytes": 8316,
+        "sha256": "59f239fcde4498d01359bf0568a6e23e2188a891c17a524dc665eda132e422d9"
+      },
+      "edits": [
+        {
+          "before": "        'overflow-x-auto rounded-sm border border-border [container-type:inline-size]',\n",
+          "after": "        'overflow-x-auto [container-type:inline-size]',\n"
+        },
+        {
+          "before": "      <table className=\"w-full border-collapse text-sm\">\n",
+          "after": "      <table className=\"booktabs\">\n"
+        },
+        {
+          "before": "          className=\"border-b border-border bg-surface-2 px-3 py-2 text-left font-sans text-xs text-text-dim\"\n",
+          "after": "          className=\"pb-3 text-left font-sans text-[13px] leading-normal text-text-dim [caption-side:top]\"\n"
+        },
+        {
+          "before": "          <span className=\"sticky left-3 block max-w-[calc(100cqw_-_1.5rem)]\">\n",
+          "after": "          <span className=\"sticky left-0 block max-w-[100cqw]\">\n"
+        },
+        {
+          "before": "          <tr className=\"border-b border-border bg-surface-2\">\n",
+          "after": "          <tr>\n"
+        },
+        {
+          "before": "                    'px-3 py-2 font-sans text-xs font-medium text-text-dim',\n",
+          "after": "                    'font-sans text-[13px]',\n"
+        },
+        {
+          "before": "                'scroll-mt-24 border-t border-border bg-surface',\n                // Flat functional 2px left rule (a real border, not an\n                // inset box-shadow): selected-row chrome must be shadow-\n                // free per VAL-DSSURFACE-022, and the quiet surface\n                // change keeps the state legible without colour alone.\n                highlighted && 'border-l-2 border-l-accent bg-surface-2',\n",
+          "after": "                'scroll-mt-24',\n                // The selected row is set in weight 600, the booktabs mark\n                // for the row the reader asked for: no fill, no bar.\n                highlighted && 'font-semibold',\n"
+        },
+        {
+          "before": "                    'px-3 py-2 text-text',\n",
+          "after": "                    'text-text',\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "components/ui/tabs.tsx",
+        "bytes": 2875,
+        "sha256": "2bff91d6d3d63ff6692dbe1443a29c09bb5d00e88edbed69d5d1c0b4e3d590c1"
+      },
+      "after": {
+        "path": "components/ui/tabs.tsx",
+        "bytes": 2844,
+        "sha256": "6b8cd205e909cfff2f5e783de2cc717cab0c864579f6e3fc557d646edf58f00d"
+      },
+      "edits": [
+        {
+          "before": "        'inline-flex overflow-hidden rounded-xs border border-border-strong bg-surface',\n",
+          "after": "        'inline-flex items-stretch',\n"
+        },
+        {
+          "before": "                ? 'bg-selection font-semibold text-ink'\n                : 'bg-surface text-text hover:bg-surface-2',\n",
+          "after": "                ? 'font-medium text-ink underline decoration-1 underline-offset-[6px]'\n                : 'text-text-dim hover:text-text',\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "lib/rehype-cite-punctuation.mjs",
+        "bytes": 4375,
+        "sha256": "5a065cd94e78d6fe436469302c7778534ded607ff56f0c9478fd3e3ac7e8db18"
+      },
+      "after": {
+        "path": "lib/rehype-cite-punctuation.mjs",
+        "bytes": 5290,
+        "sha256": "a66ea5c326b9b0a9b7b0c3f0cfdb7cf2b838a570d85714b1ebf1efbc7a33e6e1"
+      },
+      "edits": [
+        {
+          "before": "      const next = children[i + 1];\n",
+          "after": "      const next = children[i + 1];\n      // A citation renders as a superscript number set against the word it\n      // annotates (\"late¹²\"), so the authored space between that word and\n      // the chip is dropped. A space between two stacked chips stays, so\n      // their numbers never fuse into one.\n      const previous = out[out.length - 1];\n      if (isCiteChip(child) && previous?.type === 'text' && /\\S\\s+$/.test(previous.value)) {\n        out[out.length - 1] = { ...previous, value: previous.value.replace(/\\s+$/, '') };\n      } else if (\n        isCiteChip(child) &&\n        previous?.type === 'text' &&\n        /^\\s+$/.test(previous.value) &&\n        out.length > 1 &&\n        !isCiteChip(out[out.length - 2]) &&\n        !isNowrapWrapper(out[out.length - 2])\n      ) {\n        // The annotated run is an element (inline math, a link, a term):\n        // the space-only text node between it and the chip goes.\n        out.pop();\n      }\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
+      "before": {
+        "path": "mdx-components.tsx",
+        "bytes": 5035,
+        "sha256": "9d9016efae9b544f69d2730a8b0d11d7f2ceab18a6bd2d51724537b8c711672b"
+      },
+      "after": {
+        "path": "mdx-components.tsx",
+        "bytes": 5019,
+        "sha256": "0232bf20edd573c1c38c68c0c830442895b8f790b57c4655b2f0e13468c3b34f"
+      },
+      "edits": [
+        {
+          "before": "import { PredictThenReveal, SelfCheck } from '@/components/article/commit-to-reveal';\n",
+          "after": "import { PredictThenReveal, SelfCheck } from '@/components/article/commit-to-reveal';\nimport { Finding, Findings } from '@/components/article/findings';\n"
+        },
+        {
+          "before": "      className=\"my-6 max-w-full overflow-x-auto rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent\"\n",
+          "after": "      className=\"my-9 max-w-full overflow-x-auto\"\n"
+        },
+        {
+          "before": "        className={`border-collapse text-left text-sm ${className ?? ''}`}\n",
+          "after": "        className={`booktabs text-left ${className ?? ''}`}\n"
+        },
+        {
+          "before": "    FigureReuse,\n",
+          "after": "    FigureReuse,\n    Finding,\n    Findings,\n"
+        }
+      ]
+    }
+  ]
+}

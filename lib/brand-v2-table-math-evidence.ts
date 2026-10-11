@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { z } from 'zod';
 import { publishedModules } from '../data/modules.ts';
 import { moduleBody } from './references.ts';
-import { PROSE_MEASURE_CH } from './brand-v2-article-evidence.ts';
+import { PROSE_MEASURE_PX } from './brand-v2-article-evidence.ts';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
   deriveEvidenceClosure,
@@ -193,7 +193,7 @@ export function codeFenceSourceCounts(root: string): Map<string, number> {
  */
 export function tableMathEvidenceFingerprint(input: { root: string }): string {
   const facts = [
-    `measure:${PROSE_MEASURE_CH.min}-${PROSE_MEASURE_CH.max}`,
+    `measure-px:${PROSE_MEASURE_PX.min}-${PROSE_MEASURE_PX.max}`,
     `containment:${CONTAINMENT_TOLERANCE_PX}`,
     `raw-tex:${RAW_TEX_PATTERN.source}`,
     ...TABLE_MATH_VIEWPORTS.map(({ id }) => `viewport:${id}`),
@@ -634,8 +634,10 @@ export function equationAccessibilityVerdicts(
  * is measured: the table has a scroll container, the container really moved
  * when something scrolled it, and a keyboard can reach it. The measure
  * clause uses the same widest-running-paragraph reading and the same sealed
- * `PROSE_MEASURE_CH` range as `VAL-B2-ART-002`, so the two rows cannot
- * disagree about what a readable measure is.
+ * `PROSE_MEASURE_PX` range as `VAL-B2-ART-002`, so the two rows cannot
+ * disagree about what a readable measure is. Owner-approved successor
+ * (Josef, 2026-10-10, the research-page standard): the measure is held in
+ * pixels against the 960px column, in place of the 62ch Newsreader floor.
  */
 export function tableContainmentVerdicts(
   evidence: TableMathEvidence,
@@ -735,9 +737,9 @@ export function tableContainmentVerdicts(
         failures.push(
           `${observation.route} renders no running prose paragraph beside its table, so the measure clause rests on nothing`,
         );
-      } else if (measureCh < PROSE_MEASURE_CH.min) {
+      } else if (observation.proseWidthPx < PROSE_MEASURE_PX.min) {
         failures.push(
-          `${observation.route} sets its prose measure at ${measureCh}ch beside this table, under the ${PROSE_MEASURE_CH.min}ch readable floor`,
+          `${observation.route} sets its prose measure at ${observation.proseWidthPx}px beside this table, under the ${PROSE_MEASURE_PX.min}px readable floor`,
         );
       }
     }

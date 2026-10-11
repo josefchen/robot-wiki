@@ -115,8 +115,11 @@ function collectArticle(): Omit<ArticleObservation, 'route' | 'viewport' | 'isAr
     ...(column?.querySelectorAll('nav[aria-label="Breadcrumb"] li') ?? []),
   ].map((el) => nameOf(el).replace(/\s*\/\s*$/, ''));
 
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): the masthead closes on one muted meta line, a paragraph of
+  // facts and not a summary, so it is left out of the summary count.
   const summaries = header
-    ? [...header.querySelectorAll(':scope > p')]
+    ? [...header.querySelectorAll(':scope > p:not([data-article-meta])')]
     : [];
   const numberOf = (value: string | undefined) =>
     value === undefined ? null : Number.parseInt(value, 10);
@@ -138,12 +141,14 @@ function collectArticle(): Omit<ArticleObservation, 'route' | 'viewport' | 'isAr
       (header?.querySelector('[data-header-citation-count]') as HTMLElement | null)
         ?.dataset.headerCitationCount,
     ),
-    // What the reader is shown, beside what the markup declares. The value
-    // cell is the `dd`; for the review date the `dd` holds the `<time>` the
-    // machine-readable spelling lives on.
+    // What the reader is shown, beside what the markup declares.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the labelled `dd` cells became one meta line, so the review
+    // date the reader sees is the `<time>` the machine-readable spelling
+    // lives on.
     reviewDateText: nameOf(
-      header?.querySelector('[data-header-last-reviewed] dd') ??
-        document.createElement('dd'),
+      header?.querySelector('[data-header-last-reviewed] time') ??
+        document.createElement('time'),
     ),
     reviewDateTime:
       header
@@ -172,8 +177,11 @@ function collectArticle(): Omit<ArticleObservation, 'route' | 'viewport' | 'isAr
         ).length
       : 0,
     // Small caps text above the title is the shape a domain eyebrow takes.
+    // The eyebrow is the trail itself, so the trail is left out: what is
+    // looked for is a second eyebrow repeating it.
     eyebrowTexts: header
       ? [...header.querySelectorAll('*')]
+          .filter((el) => el.closest('nav[aria-label="Breadcrumb"]') === null)
           .filter((el) => {
             const style = getComputedStyle(el);
             const h1 = header.querySelector('h1');
@@ -361,7 +369,9 @@ function collectArticle(): Omit<ArticleObservation, 'route' | 'viewport' | 'isAr
   const boxShape = (el: Element) => {
     const style = getComputedStyle(el);
     const inChip = el.closest('[data-cite-id]') !== null ? 'chip' : 'inline';
-    return `${inChip} border:${style.borderTopWidth}/${style.borderTopStyle} radius:${style.borderTopLeftRadius}`;
+    // A citation number sits in a superscript, which is its non-colour mark.
+    const raised = el.closest('sup') !== null ? ' sup' : '';
+    return `${inChip}${raised} border:${style.borderTopWidth}/${style.borderTopStyle} radius:${style.borderTopLeftRadius}`;
   };
   /**
    * The bibliography links the shared article template generates. They sit

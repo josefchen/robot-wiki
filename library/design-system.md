@@ -24,6 +24,15 @@ When a reference, this specification, and an implementation detail appear to dis
 
 Current implementation is never evidence that drift is acceptable.
 
+### Owner decision, 10 October 2026: the research-page standard
+
+Josef replaced the brand-v2 visual identity on every page and every figure with the research-page standard in `PANTHEON-SPEC.md`: paper and ink, hairline 1 px rules, grayscale chart tones and one muted blue accent; DM Sans 400 for the display H1 and DM Sans 600 for section heads and the wordmark; Geist 16/1.62 for body and interface text; Geist Mono for numerals, code and readouts; a single top bar, a sticky contents rail, margin sidenotes, numbered findings and booktabs tables. Wherever a brand-v2 section below disagrees, this decision governs.
+
+- The executable palette in section 5, its renderer mirror in `lib/brand-v2-tokens.ts` and the colour rows of `contract/design-integrity.md` carry the new values.
+- Web pages load DM Sans, Geist and Geist Mono through `next/font/google`, self-hosted under `/_next/static/media/`. The Tektur binaries stay checked in for the offline Open Graph renderer only: no stylesheet declares Tektur and no runtime route requests either binary. The Tektur sections below describe that renderer. The type-role registry (`data/type-roles.json`) keeps its role ids and instances; each display instance now computes DM Sans at its registered weight with no variation-axis override, and the interface and reading roles share Geist. The type rows of `contract/design-integrity.md` carry these values.
+- Surfaces are plain paper. The concrete micro-texture and the halftone dot field are retired from the material registry, and `material:paper` is the one material the site paints. The texture rules in section 9 no longer have a web surface to apply to.
+- Public identity, descriptor, technical identifiers, routes, citations, data truth and accessibility obligations are unchanged.
+
 ## 0. Worker execution contract
 
 Before changing any page, component, visualization, navigation surface, social card, font, colour, texture, illustration, photograph, or generated visual asset, a worker MUST read this file and `contract/design-integrity.md` completely and inspect both approved references.
@@ -231,28 +240,29 @@ The article reference is authoritative:
 
 ### 5.1 Core brand palette
 
-The highlight and signal values below are explicit owner decisions and override colour variation caused by JPEG compression in the reference board.
+The values below are the owner decision of 10 October 2026 (`PANTHEON-SPEC.md`) and replace the brand-v2 lime and signal blue. Borders and rules use `--line` (`rgba(28, 28, 26, 0.14)`) and `--line-strong` (`rgba(28, 28, 26, 0.22)`), always 1 px.
 
 | Token | Hex | Role |
 | --- | --- | --- |
-| `--color-ink` | `#0B0B0C` | Primary text, strongest rules, primary actions, inverse grounds |
-| `--color-graphite` | `#242D33` | Body UI text, dark panels, secondary dark marks |
-| `--color-concrete` | `#D9DADB` | Borders, rails, inactive structure, neutral plotting |
-| `--color-paper` | `#F5F6F7` | Page ground |
-| `--color-white` | `#FFFFFF` | Flat and raised reading surfaces |
-| `--color-highlight` | `#C6FF19` | Selection, highlight, active chip, annotation strike, controlled emphasis |
-| `--color-signal` | `#245FFF` | Links, focus, registration, selected data series, live signal |
+| `--color-ink` | `#1C1C1A` | Text, primary lines and data, primary actions, the focus ring |
+| `--color-graphite` | `#3F3F3B` | Dark chart series (`--chart-dark`), secondary dark marks |
+| `--color-concrete` | `#DEDEDB` | Light chart series (`--chart-background`), text selection |
+| `--color-paper` | `#FAFAF8` | The single page sheet, the very light warm grey of the owner's prototype |
+| `--color-white` | `#FFFFFF` | Labels on ink actions |
+| `--color-highlight` | `#A3A39E` | Medium chart series (`--chart-medium`), neutral emphasis |
+| `--color-signal` | `#3B6EA8` | The one muted blue accent: the highlighted series, registration, active information paths |
 
 Near colours MAY be introduced only as named tonal derivatives calculated from these foundations and documented as tokens. They MUST NOT displace the exact foundation values.
 
 ### 5.2 Action hierarchy
 
 - Primary actions are ink/black filled with white text.
-- Selected, toggled, or highlighted states use highlight lime with ink text.
-- Signal blue is for links, focus, registration, and active information paths.
-- A secondary call to action may use highlight lime only as an optional registered emphasized secondary when it cannot be confused with a persistent selected state; ordinary secondary actions are outlined or transparent.
+- Selected, toggled, or highlighted states use ink weight with a 1 px ink rule or underline, never a colour fill.
+- Links and focus are ink: links are underlined, and the focus ring is a 1 px ink outline offset 2 px, shown for keyboard focus only.
+- The muted blue signal is for registration, active information paths and the one highlighted series of a figure.
+- Secondary actions are outlined or transparent text links.
 - Tertiary actions are white or transparent with an ink hairline.
-- Never use lime text on white or paper as the sole carrier of meaning.
+- Never use colour as the sole carrier of meaning.
 - Never default primary buttons to blue.
 
 ### 5.3 Semantic colours

@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "fingerprint": "7f3232429e16f57ee62f549f3786f0d99499157026a49b5527b8aa0c3943facc",
+  "fingerprint": "020630462e4eaf467d2c36532dd95e48e97a98a8b427463623a04a9521b63119",
   "viewport": "1440x900",
   "surfaces": [
     {
       "route": "/",
-      "visibleTextLength": 4225,
+      "visibleTextLength": 4240,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Robot Wiki",
-      "h1FontFamilyHead": "tektur",
-      "h1SizePx": 92.16,
-      "monoMetadataCount": 10,
+      "h1FontFamilyHead": "\"DM Sans\"",
+      "h1SizePx": 87.36,
+      "monoMetadataCount": 5,
       "rowLists": [
         {
           "key": "home-domain-index",
@@ -36,12 +36,12 @@
     },
     {
       "route": "/manipulation/",
-      "visibleTextLength": 8806,
+      "visibleTextLength": 8774,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Manipulation & Learned Policies",
-      "h1FontFamilyHead": "tektur",
-      "h1SizePx": 30,
+      "h1FontFamilyHead": "\"DM Sans\"",
+      "h1SizePx": 87.36,
       "monoMetadataCount": 15,
       "rowLists": [
         {
@@ -49,10 +49,10 @@
           "rowCount": 15,
           "containerDisplay": "block",
           "rowDisplayKinds": [
-            "list-item"
+            "grid"
           ],
           "rowPaddingTopPx": [
-            16
+            24
           ],
           "separatorRuleWidthPx": [
             1
@@ -67,12 +67,12 @@
     },
     {
       "route": "/rl-sim2real/",
-      "visibleTextLength": 5004,
+      "visibleTextLength": 4975,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "RL, Sim-to-Real & Locomotion",
-      "h1FontFamilyHead": "tektur",
-      "h1SizePx": 30,
+      "h1FontFamilyHead": "\"DM Sans\"",
+      "h1SizePx": 87.36,
       "monoMetadataCount": 8,
       "rowLists": [
         {
@@ -80,10 +80,10 @@
           "rowCount": 8,
           "containerDisplay": "block",
           "rowDisplayKinds": [
-            "list-item"
+            "grid"
           ],
           "rowPaddingTopPx": [
-            16
+            24
           ],
           "separatorRuleWidthPx": [
             1
@@ -98,12 +98,12 @@
     },
     {
       "route": "/world-models/",
-      "visibleTextLength": 5145,
+      "visibleTextLength": 5132,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "World Models",
-      "h1FontFamilyHead": "tektur",
-      "h1SizePx": 30,
+      "h1FontFamilyHead": "\"DM Sans\"",
+      "h1SizePx": 87.36,
       "monoMetadataCount": 8,
       "rowLists": [
         {
@@ -111,10 +111,10 @@
           "rowCount": 8,
           "containerDisplay": "block",
           "rowDisplayKinds": [
-            "list-item"
+            "grid"
           ],
           "rowPaddingTopPx": [
-            16
+            24
           ],
           "separatorRuleWidthPx": [
             1
@@ -129,12 +129,12 @@
     },
     {
       "route": "/data-hardware/",
-      "visibleTextLength": 4408,
+      "visibleTextLength": 4380,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Data, Hardware & Evaluation",
-      "h1FontFamilyHead": "tektur",
-      "h1SizePx": 30,
+      "h1FontFamilyHead": "\"DM Sans\"",
+      "h1SizePx": 87.36,
       "monoMetadataCount": 7,
       "rowLists": [
         {
@@ -142,10 +142,10 @@
           "rowCount": 7,
           "containerDisplay": "block",
           "rowDisplayKinds": [
-            "list-item"
+            "grid"
           ],
           "rowPaddingTopPx": [
-            16
+            24
           ],
           "separatorRuleWidthPx": [
             1
@@ -160,12 +160,12 @@
     },
     {
       "route": "/classical/",
-      "visibleTextLength": 5253,
+      "visibleTextLength": 5231,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Classical Foundations",
-      "h1FontFamilyHead": "tektur",
-      "h1SizePx": 30,
+      "h1FontFamilyHead": "\"DM Sans\"",
+      "h1SizePx": 87.36,
       "monoMetadataCount": 9,
       "rowLists": [
         {
@@ -173,10 +173,10 @@
           "rowCount": 9,
           "containerDisplay": "block",
           "rowDisplayKinds": [
-            "list-item"
+            "grid"
           ],
           "rowPaddingTopPx": [
-            16
+            24
           ],
           "separatorRuleWidthPx": [
             1
@@ -191,12 +191,12 @@
     },
     {
       "route": "/frontier/",
-      "visibleTextLength": 3659,
+      "visibleTextLength": 3634,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Frontier & Open Problems",
-      "h1FontFamilyHead": "tektur",
-      "h1SizePx": 30,
+      "h1FontFamilyHead": "\"DM Sans\"",
+      "h1SizePx": 87.36,
       "monoMetadataCount": 6,
       "rowLists": [
         {
@@ -204,10 +204,10 @@
           "rowCount": 6,
           "containerDisplay": "block",
           "rowDisplayKinds": [
-            "list-item"
+            "grid"
           ],
           "rowPaddingTopPx": [
-            16
+            24
           ],
           "separatorRuleWidthPx": [
             1
@@ -222,12 +222,12 @@
     },
     {
       "route": "/adjacent/",
-      "visibleTextLength": 2600,
+      "visibleTextLength": 2583,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Adjacent Domains",
-      "h1FontFamilyHead": "tektur",
-      "h1SizePx": 30,
+      "h1FontFamilyHead": "\"DM Sans\"",
+      "h1SizePx": 87.36,
       "monoMetadataCount": 4,
       "rowLists": [
         {
@@ -235,10 +235,10 @@
           "rowCount": 4,
           "containerDisplay": "block",
           "rowDisplayKinds": [
-            "list-item"
+            "grid"
           ],
           "rowPaddingTopPx": [
-            16
+            24
           ],
           "separatorRuleWidthPx": [
             1
@@ -253,13 +253,13 @@
     },
     {
       "route": "/a-z/",
-      "visibleTextLength": 6258,
+      "visibleTextLength": 6248,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "A-Z Index",
-      "h1FontFamilyHead": "tektur",
-      "h1SizePx": 30,
-      "monoMetadataCount": 178,
+      "h1FontFamilyHead": "\"DM Sans\"",
+      "h1SizePx": 87.36,
+      "monoMetadataCount": 1,
       "rowLists": [
         {
           "key": "az-entry",
@@ -292,16 +292,16 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Glossary",
-      "h1FontFamilyHead": "tektur",
-      "h1SizePx": 30,
-      "monoMetadataCount": 195,
+      "h1FontFamilyHead": "\"DM Sans\"",
+      "h1SizePx": 87.36,
+      "monoMetadataCount": 1,
       "rowLists": [
         {
           "key": "glossary-term",
           "rowCount": 119,
           "containerDisplay": "block",
           "rowDisplayKinds": [
-            "list-item"
+            "grid"
           ],
           "rowPaddingTopPx": [
             24
@@ -327,7 +327,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Credits",
-      "h1FontFamilyHead": "tektur",
+      "h1FontFamilyHead": "\"DM Sans\"",
       "h1SizePx": 30,
       "monoMetadataCount": 3,
       "rowLists": [

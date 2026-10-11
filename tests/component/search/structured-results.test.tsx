@@ -211,11 +211,14 @@ describe('SearchInterface structured results', () => {
     ).toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: /^Companies$/i }));
-    // Selection is lime plus an independent marker plus semantics, never
-    // colour alone (VAL-B2-DISC-003).
+    // Selection is a visual marker plus an independent marker plus
+    // semantics, never colour alone (VAL-B2-DISC-003). Owner-approved
+    // successor (Josef, 2026-10-10, the Pantheon standard): the lime fill
+    // became a text tab, the pressed one in ink on a 1px ink underline.
     const companies = screen.getByRole('button', { name: /^Companies$/i });
     expect(companies).toHaveAttribute('aria-pressed', 'true');
-    expect(companies.className).toContain('bg-selection');
+    expect(companies.className).toContain('border-ink');
+    expect(companies.className).not.toContain('bg-selection');
     expect(companies.className).toContain('text-ink');
     expect(companies.querySelector('[data-facet-check]')).not.toBeNull();
     expect(

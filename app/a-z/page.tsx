@@ -55,7 +55,7 @@ export default function AzIndexPage() {
   const { groups, articleCount, termCount } = buildAzIndex(entries);
 
   return (
-    <div className="mx-auto w-full max-w-[65ch] px-6 py-12">
+    <div className="sheet sheet-masthead pb-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -66,6 +66,7 @@ export default function AzIndexPage() {
         }}
       />
       <Breadcrumbs
+        variant="eyebrow"
         items={[{ label: 'Home', href: '/' }, { label: 'A-Z Index' }]}
       />
       {/* data-pagefind-body: Pagefind excludes every page that declares no
@@ -77,24 +78,21 @@ export default function AzIndexPage() {
           indexing them here would put this page in front of the article a
           reader was looking for. */}
       <header data-pagefind-body>
-        <h1
-          data-tektur-role="page-h1"
-          className="font-display-page text-3xl tracking-tight text-text"
-        >
+        <h1 data-tektur-role="page-h1" className="display-h1 mt-6">
           A-Z Index
         </h1>
-        <p className="mt-2 font-mono text-xs text-text-dim">
-          {articleCount} articles and {termCount} glossary terms
-        </p>
-        <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
+        <p className="page-lead mt-[30px]">
           Every article in the wiki and every glossary term, filed
           alphabetically. Articles are labelled with their domain; terms link
           to their entry in the glossary.
         </p>
+        <p className="meta-line mt-6">
+          {articleCount} articles and {termCount} glossary terms
+        </p>
       </header>
 
-      <nav aria-label="Jump to letter" className="mt-10">
-        <ul className="flex flex-wrap gap-x-3 gap-y-1.5 font-mono text-sm">
+      <nav aria-label="Jump to letter" className="mt-14 border-y border-border py-3">
+        <ul className="flex flex-wrap gap-x-3 gap-y-1.5 font-mono text-[14px]">
           {groups.map((group) => (
             <li key={group.letter}>
               <Link
@@ -103,7 +101,7 @@ export default function AzIndexPage() {
                 /* One letter is a small glyph, but the jump target a reader
                     points at is the whole chip: a 24px box keeps the letter
                     rail on the WCAG 2.2 minimum without inflating the type. */
-                className="flex h-6 min-w-6 items-center justify-center text-text-dim transition-colors hover:text-accent"
+                className="flex h-6 min-w-6 items-center justify-center text-text-dim transition-colors hover:text-text"
               >
                 {group.letter}
               </Link>
@@ -112,12 +110,12 @@ export default function AzIndexPage() {
         </ul>
       </nav>
 
-      <div className="mt-10">
+      <div className="mt-6">
         {groups.map((group) => (
           <section
             key={group.letter}
             aria-labelledby={letterAnchorId(group.letter)}
-            className="py-6 first:pt-0"
+            className="pt-10"
           >
             {/* The jump-link and deep-link target for this letter group.
                 tabIndex={-1} makes fragment navigation move focus to the
@@ -127,7 +125,7 @@ export default function AzIndexPage() {
             <h2
               id={letterAnchorId(group.letter)}
               tabIndex={-1}
-              className="scroll-mt-16 font-sans text-lg font-semibold tracking-tight text-text lg:scroll-mt-4"
+              className="section-h2"
             >
               {group.letter}
             </h2>
@@ -143,16 +141,16 @@ export default function AzIndexPage() {
                   key={entry.href}
                   data-az-entry
                   data-az-group={entry.group}
-                  className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 border-b border-border py-3"
+                  className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-0.5 border-b border-border py-3"
                 >
                   <IntentLink
                     data-brand-control-id="control:link-focus"
                     href={entry.href}
-                    className="font-sans text-sm font-medium leading-snug text-text transition-colors hover:text-accent"
+                    className="font-sans text-[15px] leading-snug text-text underline decoration-transparent decoration-1 underline-offset-[3px] transition-colors hover:decoration-text"
                   >
                     {entry.label}
                   </IntentLink>
-                  <span className="font-mono text-[11px] text-text-dim">
+                  <span className="eyebrow text-[12px]">
                     {entry.group}
                   </span>
                 </li>

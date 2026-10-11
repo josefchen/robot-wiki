@@ -637,12 +637,13 @@ describe('brand-v2 canonical census', () => {
         ),
       ).toBe(true);
     }
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the web type roles are DM Sans, Geist and Geist Mono.
     expect(new Set(registry.typeRoles.map(({ family }) => family))).toEqual(
       new Set([
-        'Tektur Variable',
-        'IBM Plex Sans',
-        'Newsreader',
-        'IBM Plex Mono',
+        'DM Sans',
+        'Geist',
+        'Geist Mono',
       ]),
     );
     expect(registry.rootFingerprint).toMatch(/^[a-f0-9]{64}$/);

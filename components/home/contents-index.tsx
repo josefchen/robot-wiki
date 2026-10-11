@@ -20,8 +20,7 @@ export const HOME_DOMAIN_SUMMARIES: Record<Domain, string> = {
   adjacent: 'Vehicles, drones, surgery and space',
 };
 
-const linkClass =
-  'text-text underline decoration-border-strong underline-offset-2 transition-colors hover:text-link hover:decoration-link';
+const linkClass = 'ink-link';
 
 /**
  * The contents index: every domain, then every published article in it as
@@ -34,28 +33,28 @@ const linkClass =
 export function ContentsIndex() {
   const published = publishedModules();
   return (
-    <div className="mt-3 divide-y divide-border border-y border-border">
+    <div className="divide-y divide-border border-y border-border">
       {DOMAINS.map((domain) => (
         <div
           key={domain}
           data-contents-domain={domain}
-          className="grid gap-x-6 gap-y-1 py-2 md:grid-cols-[14rem_minmax(0,1fr)]"
+          className="grid items-start gap-x-6 gap-y-1 py-2 md:grid-cols-[15.5rem_minmax(0,1fr)]"
         >
-          <p className="text-sm leading-5">
+          <p className="text-[15px] leading-[1.4]">
             <IntentLink
               data-brand-control-id="control:link-focus"
               href={`/${domain}/`}
-              className="font-medium text-text transition-colors hover:text-link"
+              className="font-display font-semibold text-text transition-colors hover:text-text-dim"
             >
               {DOMAIN_META[domain].name}
             </IntentLink>
-            <span className="block text-text-dim">
+            <span className="block text-[13px] text-text-dim">
               {HOME_DOMAIN_SUMMARIES[domain]}
             </span>
           </p>
           <ul
             aria-label={`${DOMAIN_META[domain].name} articles`}
-            className="home-run text-sm leading-5"
+            className="home-run text-[14px] leading-[1.45]"
           >
             {published
               .filter((entry) => entry.domain === domain)

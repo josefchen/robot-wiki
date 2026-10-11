@@ -272,14 +272,6 @@ figure[data-figure-kind] > [data-image-credit] {
   margin-top: 2px;
 }
 
-[data-figure-frame] a[href],
-figure[data-figure-kind='photograph'] a[href],
-figure[data-figure-kind='official-mark'] a[href] {
-  --color-link: var(--color-signal);
-  --color-accent: var(--color-signal);
-  --color-focus: var(--color-signal);
-}
-
 [data-figure-frame] a[href]:not(.term-link),
 figure[data-figure-kind] > [data-image-credit] a[href] {
   color: var(--color-link);

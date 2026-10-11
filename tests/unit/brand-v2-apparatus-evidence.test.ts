@@ -910,24 +910,38 @@ describe('the apparatus verdict families', () => {
   });
 
   it('fails a current crumb that became a link', () => {
-    const mutated = accept(
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the title is a stable id. The visible eyebrow trail ends at
+    // the last ancestor and the H1 names the page, so a current crumb that
+    // reappears as a link is an extra crumb; and the current page's entry in
+    // the structured trail must still point at the route itself.
+    const extra = accept(
       mutate((evidence) => {
         const items = evidence.observations[0].breadcrumb.items;
-        const last = items[items.length - 1];
-        last.isLink = true;
-        last.href = '/somewhere/';
+        items.push({ ...items[items.length - 1], text: 'Current page', href: '/somewhere/' });
       }),
     );
-    const id = `${mutated.observations[0].route}|${mutated.observations[0].viewport}`;
+    const id = `${extra.observations[0].route}|${extra.observations[0].viewport}`;
     expect(
-      breadcrumbTruthVerdicts(mutated, ROOT).get(id)!.failures.join(' '),
-    ).toMatch(/current crumb as a link/);
+      breadcrumbTruthVerdicts(extra, ROOT).get(id)!.failures.join(' '),
+    ).toMatch(/renders 2 crumbs, not the 1 ancestor\(s\) the trail declares/);
+    const relinked = accept(
+      mutate((evidence) => {
+        const trail = evidence.observations[0].breadcrumb.structuredTrail;
+        trail[trail.length - 1].href = '/somewhere/';
+      }),
+    );
+    expect(
+      breadcrumbTruthVerdicts(relinked, ROOT).get(id)!.failures.join(' '),
+    ).toMatch(/carries the structured trail .*@\/somewhere\/, not /);
   });
 
   it('fails a domain crumb pointed at the wrong route', () => {
     const mutated = accept(
       mutate((evidence) => {
-        evidence.observations[0].breadcrumb.items[1].href = '/not-a-domain/';
+        // Owner-approved successor (Josef, 2026-10-10): the eyebrow trail
+        // opens on the domain crumb, so it is the first visible item.
+        evidence.observations[0].breadcrumb.items[0].href = '/not-a-domain/';
       }),
     );
     const id = `${mutated.observations[0].route}|${mutated.observations[0].viewport}`;
@@ -975,18 +989,24 @@ describe('the apparatus verdict families', () => {
   });
 
   it('fails a current-page marker parked on something that is not the navigation link for this route', () => {
+    // Owner-approved successor (Josef, 2026-10-10): the research-page shell
+    // has no navigation item for an article, so the committed sweep records
+    // no marker to repark; the plant adds one, inside a navigation landmark,
+    // on a link to another route.
     const mutated = accept(
       mutate((evidence) => {
-        for (const marker of evidence.observations[0].ariaCurrentPage) {
-          marker.matchesRoute = false;
-          marker.href = 'https://robot.wiki/somewhere-else/';
-        }
+        evidence.observations[0].ariaCurrentPage.push({
+          outline: '<a aria-current="page">elsewhere</a>',
+          href: 'https://robot.wiki/somewhere-else/',
+          insideNavLandmark: true,
+          matchesRoute: false,
+        });
       }),
     );
     const id = `${mutated.observations[0].route}|${mutated.observations[0].viewport}`;
-    expect(
-      breadcrumbTruthVerdicts(mutated, ROOT).get(id)!.failures.join(' '),
-    ).toMatch(/which is not this route/);
+    const failures = breadcrumbTruthVerdicts(mutated, ROOT).get(id)!.failures.join(' ');
+    expect(failures).toMatch(/which is not this route/);
+    expect(failures).toMatch(/exposes 1 aria-current="page" element\(s\) where 0 is truthful/);
   });
 
   it('fails a reference entry below the AA contrast floor', () => {
@@ -1050,9 +1070,25 @@ describe('the apparatus verdict families', () => {
       }),
     );
     const id = `${target.route}|${APPARATUS_DESKTOP_VIEWPORT_ID}|${target.references.entries[0].id}`;
+    // Owner-approved successor (Josef, 2026-10-10): the title is a stable
+    // id. Source links are ink now, so a near-black that is not ink fails,
+    // and so does the retired signal blue.
     expect(
       referenceSheetVerdicts(mutated).get(id)!.failures.join(' '),
-    ).toMatch(/not signal blue/);
+    ).toMatch(/not the ink link colour rgb\(28, 28, 26\)/);
+    const blue = accept(
+      mutate((copy) => {
+        const observation = copy.observations.find(
+          (candidate) =>
+            candidate.route === target.route &&
+            candidate.viewport === APPARATUS_DESKTOP_VIEWPORT_ID,
+        )!;
+        observation.references.entries[0].colour = 'rgb(36, 95, 255)';
+      }),
+    );
+    expect(
+      referenceSheetVerdicts(blue).get(id)!.failures.join(' '),
+    ).toMatch(/sets its source link in rgb\(36, 95, 255\), not the ink link colour/);
   });
 
   it('fails a document that widened past its own viewport', () => {
@@ -1238,7 +1274,7 @@ describe('the apparatus verdict families', () => {
             candidate.route === target.route &&
             candidate.viewport === APPARATUS_DESKTOP_VIEWPORT_ID,
         )!;
-        observation.citations[0].tooltipText =
+        observation.citations[0].noteText =
           'A title with no publication date at all in it';
       }),
     );

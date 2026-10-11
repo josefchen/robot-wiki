@@ -905,8 +905,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "`/manipulation/action-chunking/` renders breadcrumb/domain context, one Tektur h1, one summary, and its existing factual review date, reading time, and citation count.",
-        "expected": "`/manipulation/action-chunking/` renders breadcrumb/domain context, one Tektur h1, one summary, and its existing factual review date, reading time, and citation count.",
+        "statement": "`/manipulation/action-chunking/` renders breadcrumb/domain context, one DM Sans h1, one summary, and its existing factual review date, reading time, and citation count.",
+        "expected": "`/manipulation/action-chunking/` renders breadcrumb/domain context, one DM Sans h1, one summary, and its existing factual review date, reading time, and citation count.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 57,
         "omissionProof": {
@@ -1281,8 +1281,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Article prose measure is 62–68ch with at least 20px mobile side padding and at least 32px desktop breathing room.",
-        "expected": "Article prose measure is 62–68ch with at least 20px mobile side padding and at least 32px desktop breathing room.",
+        "statement": "Article prose sits in a reading column 880–960px wide at the 1440px viewport, with at least 20px mobile side padding and at least 32px desktop breathing room.",
+        "expected": "Article prose sits in a reading column 880–960px wide at the 1440px viewport, with at least 20px mobile side padding and at least 32px desktop breathing room.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 57,
         "omissionProof": {
@@ -1657,8 +1657,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Article section links, inline citations, glossary definitions, and external sources have distinguishable treatments matching their semantics.",
-        "expected": "Article section links, inline citations, glossary definitions, and external sources have distinguishable treatments matching their semantics.",
+        "statement": "Article section links, inline citations, glossary definitions, and external sources have distinguishable treatments matching their semantics: links are ink or muted and carry an underline, and citations are numbered superscripts that open a margin sidenote.",
+        "expected": "Article section links, inline citations, glossary definitions, and external sources have distinguishable treatments matching their semantics: links are ink or muted and carry an underline, and citations are numbered superscripts that open a margin sidenote.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 57,
         "omissionProof": {
@@ -9380,7 +9380,22 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/article/article-toc.tsx:aria-label:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/article/article-toc.tsx:aria-label:2",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/article/breadcrumbs.tsx:aria-label:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/article/breadcrumbs.tsx:aria-label:2",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -16525,7 +16540,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1632,
+        "populationSize": 1635,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -16739,7 +16754,10 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:app/privacy/page.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/privacy/page.tsx:aria-labelledby:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/privacy/page.tsx:aria-labelledby:3",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/article/article-toc.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/article/article-toc.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/article/breadcrumbs.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/article/breadcrumbs.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/article/references.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/explainers/how-robots-work.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/explainers/how-robots-work.tsx:aria-label:2",
@@ -19417,8 +19435,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Runtime highlight token and all renderer mirrors resolve exactly to `#C6FF19`.",
-        "expected": "Runtime highlight token and all renderer mirrors resolve exactly to `#C6FF19`.",
+        "statement": "Runtime highlight token and all renderer mirrors resolve exactly to `#A3A39E`.",
+        "expected": "Runtime highlight token and all renderer mirrors resolve exactly to `#A3A39E`.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -19931,8 +19949,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Runtime signal token and all renderer mirrors resolve exactly to `#245FFF`.",
-        "expected": "Runtime signal token and all renderer mirrors resolve exactly to `#245FFF`.",
+        "statement": "Runtime signal token and all renderer mirrors resolve exactly to `#3B6EA8`.",
+        "expected": "Runtime signal token and all renderer mirrors resolve exactly to `#3B6EA8`.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -20445,8 +20463,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-        "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
+        "statement": "Runtime foundation tokens resolve to ink `#1C1C1A`, graphite `#3F3F3B`, concrete `#DEDEDB`, paper `#FAFAF8`, and white `#FFFFFF`.",
+        "expected": "Runtime foundation tokens resolve to ink `#1C1C1A`, graphite `#3F3F3B`, concrete `#DEDEDB`, paper `#FAFAF8`, and white `#FFFFFF`.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -20599,8 +20617,8 @@
       ],
       "enforcementMode": "autonomous-visual",
       "machinePredicate": {
-        "statement": "Persistent selection/highlight uses lime plus a non-colour indicator and exposes state semantically.",
-        "expected": "Persistent selection/highlight uses lime plus a non-colour indicator and exposes state semantically.",
+        "statement": "Persistent selection uses ink weight with a 1 px ink rule or underline plus a non-colour indicator, exposes state semantically, and is never carried by a colour fill.",
+        "expected": "Persistent selection uses ink weight with a 1 px ink rule or underline plus a non-colour indicator, exposes state semantically, and is never carried by a colour fill.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -20639,8 +20657,8 @@
       ],
       "enforcementMode": "autonomous-visual",
       "machinePredicate": {
-        "statement": "Signal blue is used for links, focus, registration, or active information paths and is not substituted for warning state.",
-        "expected": "Signal blue is used for links, focus, registration, or active information paths and is not substituted for warning state.",
+        "statement": "The muted blue signal is used only for registration, active information paths, or the one highlighted series of a figure and is not substituted for warning state; links and focus are ink.",
+        "expected": "The muted blue signal is used only for registration, active information paths, or the one highlighted series of a figure and is not substituted for warning state; links and focus are ink.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -20679,8 +20697,8 @@
       ],
       "enforcementMode": "autonomous-visual",
       "machinePredicate": {
-        "statement": "Lime is not used as a success semantic and is never the sole carrier of state.",
-        "expected": "Lime is not used as a success semantic and is never the sole carrier of state.",
+        "statement": "Neither the neutral highlight grey nor the signal blue is used as a success semantic, and colour is never the sole carrier of state.",
+        "expected": "Neither the neutral highlight grey nor the signal blue is used as a success semantic, and colour is never the sole carrier of state.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -22216,8 +22234,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Selected facets use lime plus semantic/shape confirmation and can be cleared and reset by keyboard.",
-        "expected": "Selected facets use lime plus semantic/shape confirmation and can be cleared and reset by keyboard.",
+        "statement": "Selected facets are unfilled, with an ink label and a 1 px ink rule plus semantic/shape confirmation, and can be cleared and reset by keyboard.",
+        "expected": "Selected facets are unfilled, with an ink label and a 1 px ink rule plus semantic/shape confirmation, and can be cleared and reset by keyboard.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 4,
         "omissionProof": {
@@ -24833,7 +24851,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ID-005:identity-surface:og-static-instance:home-wordmark",
+          "evidenceRowId": "result:VAL-B2-ID-005:identity-surface:og-static-instance:shell-wordmark",
           "mechanism": "VAL-B2-ID-005 per-member evidence derived from the persisted identity sweep of the built export, over every registered public route at both identity viewports plus every declared interactive identity state, over data/type-roles.json#identityWordmarkRoles"
         },
         {
@@ -24851,8 +24869,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Wordmark text renders in Tektur Variable on web identity surfaces (home, desktop shell, and mobile header); OG/X artwork renders the registered static Tektur instance mapped to the approved web role.",
-        "expected": "Wordmark text renders in Tektur Variable on web identity surfaces (home, desktop shell, and mobile header); OG/X artwork renders the registered static Tektur instance mapped to the approved web role.",
+        "statement": "Wordmark text renders in the DM Sans display family on web identity surfaces (home, top bar, and mobile header); OG/X artwork renders the registered static Tektur instance mapped to the approved web role.",
+        "expected": "Wordmark text renders in the DM Sans display family on web identity surfaces (home, top bar, and mobile header); OG/X artwork renders the registered static Tektur instance mapped to the approved web role.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 3,
         "omissionProof": {
@@ -24865,7 +24883,7 @@
         "resultIds": [
           "result:VAL-B2-ID-005:identity-surface:home-wordmark",
           "result:VAL-B2-ID-005:identity-surface:shell-wordmark",
-          "result:VAL-B2-ID-005:identity-surface:og-static-instance:home-wordmark"
+          "result:VAL-B2-ID-005:identity-surface:og-static-instance:shell-wordmark"
         ]
       }
     },
@@ -25131,8 +25149,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "The home hero contains one dominant `Robot Wiki` h1 and one exact descriptor; duplicate hero lockups are prohibited.",
-        "expected": "The home hero contains one dominant `Robot Wiki` h1 and one exact descriptor; duplicate hero lockups are prohibited.",
+        "statement": "The home hero contains one dominant `Robot Wiki` DM Sans h1 and one exact descriptor as its Geist lead; duplicate hero lockups are prohibited.",
+        "expected": "The home hero contains one dominant `Robot Wiki` DM Sans h1 and one exact descriptor as its Geist lead; duplicate hero lockups are prohibited.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 1,
         "omissionProof": {
@@ -25541,8 +25559,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Mobile header contains the compact `Robot Wiki` wordmark and omits the descriptor.",
-        "expected": "Mobile header contains the compact `Robot Wiki` wordmark and omits the descriptor.",
+        "statement": "Mobile header contains the compact `Robot Wiki` wordmark and the two top-bar controls `Articles` (the panel trigger, so named) and `How robots work`, each exactly once, no other text, and omits the descriptor.",
+        "expected": "Mobile header contains the compact `Robot Wiki` wordmark and the two top-bar controls `Articles` (the panel trigger, so named) and `How robots work`, each exactly once, no other text, and omits the descriptor.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -26743,16 +26761,6 @@
           "mechanism": "VAL-B2-IMG-004 pending rollout evidence over contract/brand-v2-registries.json#materials"
         },
         {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-004:material:concrete",
-          "mechanism": "VAL-B2-IMG-004 pending rollout evidence over contract/brand-v2-registries.json#materials"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-004:material:halftone",
-          "mechanism": "VAL-B2-IMG-004 pending rollout evidence over contract/brand-v2-registries.json#materials"
-        },
-        {
           "kind": "test",
           "file": "tests/unit/brand-v2-figure-evidence.test.ts",
           "title": "the record rows > passes on the shipped registry and quantifies over the right members",
@@ -26776,7 +26784,7 @@
         "statement": "Material texture never impersonates evidence, sensor output, or measured data.",
         "expected": "Material texture never impersonates evidence, sensor output, or measured data.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 3,
+        "populationSize": 1,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26785,9 +26793,7 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-IMG-004:material:paper",
-          "result:VAL-B2-IMG-004:material:concrete",
-          "result:VAL-B2-IMG-004:material:halftone"
+          "result:VAL-B2-IMG-004:material:paper"
         ]
       }
     },
@@ -32468,8 +32474,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
-        "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
+        "statement": "Home renders one dominant hero with a DM Sans h1, the exact descriptor as the Geist lead, an ink primary action with a white label, selection and highlight in ink weight and 1 px ink rules with no lime or accent fill, and the research-page structure without fabricated metrics.",
+        "expected": "Home renders one dominant hero with a DM Sans h1, the exact descriptor as the Geist lead, an ink primary action with a white label, selection and highlight in ink weight and 1 px ink rules with no lime or accent fill, and the research-page structure without fabricated metrics.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 6,
         "omissionProof": {
@@ -33898,8 +33904,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-        "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
+        "statement": "First-party brand/UI/editorial/data typography uses exactly three web families across the four registered roles: DM Sans (display), Geist (interface and reading) and Geist Mono (data), each published by framework-bundled `next/font` `@font-face` rules the browser is seen to fetch. Tektur Variable and IBM Plex Mono are the offline Open Graph renderer faces. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
+        "expected": "First-party brand/UI/editorial/data typography uses exactly three web families across the four registered roles: DM Sans (display), Geist (interface and reading) and Geist Mono (data), each published by framework-bundled `next/font` `@font-face` rules the browser is seen to fetch. Tektur Variable and IBM Plex Mono are the offline Open Graph renderer faces. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 4,
         "omissionProof": {
@@ -33970,8 +33976,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-        "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
+        "statement": "Every runtime font is a same-origin, framework-bundled `/_next/static/media/` payload; no runtime route produces a third-party font request or requests either Tektur binary, identified by checksum or file name.",
+        "expected": "Every runtime font is a same-origin, framework-bundled `/_next/static/media/` payload; no runtime route produces a third-party font request or requests either Tektur binary, identified by checksum or file name.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 2,
         "omissionProof": {
@@ -34381,8 +34387,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Wordmark, page h1, article h1, and major display headings compute to Tektur Variable after `document.fonts.ready`.",
-        "expected": "Wordmark, page h1, article h1, and major display headings compute to Tektur Variable after `document.fonts.ready`.",
+        "statement": "Wordmark, page h1, article h1, and major display headings compute to DM Sans after `document.fonts.ready`.",
+        "expected": "Wordmark, page h1, article h1, and major display headings compute to DM Sans after `document.fonts.ready`.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -34775,8 +34781,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Long-form prose computes to Newsreader at 18–21px, 1.60–1.80 line height, and 62–68ch maximum measure.",
-        "expected": "Long-form prose computes to Newsreader at 18–21px, 1.60–1.80 line height, and 62–68ch maximum measure.",
+        "statement": "Long-form prose computes to Geist at 16px and 1.60–1.65 line height, in a reading column 880–960px wide at the 1440px viewport.",
+        "expected": "Long-form prose computes to Geist at 16px and 1.60–1.65 line height, in a reading column 880–960px wide at the 1440px viewport.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 57,
         "omissionProof": {
@@ -35241,8 +35247,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Interface copy and controls compute to IBM Plex Sans; code, source metadata, technical values, and registration labels compute to IBM Plex Mono where specified.",
-        "expected": "Interface copy and controls compute to IBM Plex Sans; code, source metadata, technical values, and registration labels compute to IBM Plex Mono where specified.",
+        "statement": "Interface copy and controls compute to Geist; code, source metadata, technical values, and registration labels compute to Geist Mono where specified.",
+        "expected": "Interface copy and controls compute to Geist; code, source metadata, technical values, and registration labels compute to Geist Mono where specified.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -35355,8 +35361,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Home wordmark renders at 52–68px on 375px and 88–120px on 1440px, line-height 0.88–0.98, with the approved `wght=600` and `wdth=100` role instance unless a checked-in role registry records an owner-approved replacement.",
-        "expected": "Home wordmark renders at 52–68px on 375px and 88–120px on 1440px, line-height 0.88–0.98, with the approved `wght=600` and `wdth=100` role instance unless a checked-in role registry records an owner-approved replacement.",
+        "statement": "The home `Robot Wiki` h1 is the shared DM Sans 400 display h1: 40–48px on 375px and 84–92px on 1440px, line-height 0.90–0.96, matching the registered `home-wordmark` role instance.",
+        "expected": "The home `Robot Wiki` h1 is the shared DM Sans 400 display h1: 40–48px on 375px and 84–92px on 1440px, line-height 0.90–0.96, matching the registered `home-wordmark` role instance.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 1,
         "omissionProof": {
@@ -35675,8 +35681,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Article h1 renders at 34–44px on 375px viewport and 48–64px on 1440px viewport with line-height between 1.00 and 1.10.",
-        "expected": "Article h1 renders at 34–44px on 375px viewport and 48–64px on 1440px viewport with line-height between 1.00 and 1.10.",
+        "statement": "Article h1 renders in DM Sans 400 at 40–48px on the 375px viewport and 84–92px on the 1440px viewport with line-height between 0.90 and 0.96.",
+        "expected": "Article h1 renders in DM Sans 400 at 40–48px on the 375px viewport and 84–92px on the 1440px viewport with line-height between 0.90 and 0.96.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 57,
         "omissionProof": {
@@ -36051,8 +36057,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "No prose paragraph computes to Tektur or IBM Plex Mono.",
-        "expected": "No prose paragraph computes to Tektur or IBM Plex Mono.",
+        "statement": "No prose paragraph computes to the display family DM Sans or to Geist Mono.",
+        "expected": "No prose paragraph computes to the display family DM Sans or to Geist Mono.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 57,
         "omissionProof": {
@@ -38282,8 +38288,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Linked article section headings expose a signal-blue underline plus a non-colour link affordance and remain keyboard focusable.",
-        "expected": "Linked article section headings expose a signal-blue underline plus a non-colour link affordance and remain keyboard focusable.",
+        "statement": "Linked article section headings read as ink DM Sans type and expose a non-colour link affordance, a copy-link glyph that stays rendered at opacity 0.3 or more at rest, and remain keyboard focusable.",
+        "expected": "Linked article section headings read as ink DM Sans type and expose a non-colour link affordance, a copy-link glyph that stays rendered at opacity 0.3 or more at rest, and remain keyboard focusable.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 428,
         "omissionProof": {
@@ -39251,8 +39257,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-        "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
+        "statement": "The checked-in Tektur Latin-subset variable WOFF2 keeps exactly the `wght` and `wdth` axes but is retired from the website: no stylesheet declares it and no runtime route requests it, while the web families load through `next/font` with no runtime third-party font request.",
+        "expected": "The checked-in Tektur Latin-subset variable WOFF2 keeps exactly the `wght` and `wdth` axes but is retired from the website: no stylesheet declares it and no runtime route requests it, while the web families load through `next/font` with no runtime third-party font request.",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 1,
         "omissionProof": {
@@ -39508,8 +39514,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-        "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
+        "statement": "A checked-in type-role registry assigns measurable weights to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; at every declared viewport each rendered role computes the DM Sans display family at the registered weight and width with no variation-axis override. (Owner decision of 10 October 2026; the brand-v2 row required Tektur `wght`/`wdth` variation values.)",
+        "expected": "A checked-in type-role registry assigns measurable weights to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; at every declared viewport each rendered role computes the DM Sans display family at the registered weight and width with no variation-axis override. (Owner decision of 10 October 2026; the brand-v2 row required Tektur `wght`/`wdth` variation values.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 6,
         "omissionProof": {
@@ -39535,7 +39541,7 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-016:og-static-mapping:home-wordmark",
+          "evidenceRowId": "result:VAL-B2-TYPE-016:og-static-mapping:shell-wordmark",
           "mechanism": "VAL-B2-TYPE-016 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.json#tekturOgRoleMapping"
         },
         {
@@ -39583,7 +39589,7 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-016:og-static-mapping:home-wordmark"
+          "result:VAL-B2-TYPE-016:og-static-mapping:shell-wordmark"
         ]
       }
     },
@@ -39965,8 +39971,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "statement": "Font `cmap` inspection covers every code point in every assigned web and OG string in the checked-in Tektur binaries; a glyph-probe render in the runtime display family proves no assigned string uses per-glyph fallback. OCR is secondary evidence only. (Owner decision of 10 October 2026; the brand-v2 probe rendered in web Tektur.)",
+        "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string in the checked-in Tektur binaries; a glyph-probe render in the runtime display family proves no assigned string uses per-glyph fallback. OCR is secondary evidence only. (Owner decision of 10 October 2026; the brand-v2 probe rendered in web Tektur.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 67,
         "omissionProof": {

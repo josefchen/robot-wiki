@@ -76236,6 +76236,97 @@
         "VAL-B2-BASE-002",
         "VAL-B2-BASE-011"
       ]
+    },
+    {
+      "id": "pantheon-reskin-20261010-accessible-names-article-toc-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/article/article-toc.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ef022367f3ba78211e5065319ab0104db0f63f75368297928d9206004a3ba386",
+      "reason": "New sticky contents rail of the article template (PANTHEON-SPEC.md, page layout: left rail). The rail is a nav landmark named \"Contents\" listing the article's H2 sections from the same outline the headings carry; it adds navigation and changes no article string.",
+      "ownerApproval": "Owner decision of 2026-10-10 (Josef): the Pantheon research-page standard replaces the brand-v2 visual identity on every page (robot-wiki-out/PANTHEON-SPEC.md; mission AGENTS.md, owner directive 2026-10-10 02:00), applied by the site-foundation re-skin. Routes, content, citations, data truth, accessibility and working interactions are preserved. Not release approval.",
+      "responsibleMilestone": "pantheon-reskin-site-foundation",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pantheon-reskin-20261010-accessible-names-article-toc-literal-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/article/article-toc.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ef022367f3ba78211e5065319ab0104db0f63f75368297928d9206004a3ba386",
+      "reason": "The same contents list as the rail, rendered inside the \"Contents\" disclosure the spec asks for on narrow screens. Its nav carries the same name, \"Contents\"; only one of the two is displayed at a given width.",
+      "ownerApproval": "Owner decision of 2026-10-10 (Josef): the Pantheon research-page standard replaces the brand-v2 visual identity on every page (robot-wiki-out/PANTHEON-SPEC.md; mission AGENTS.md, owner directive 2026-10-10 02:00), applied by the site-foundation re-skin. Routes, content, citations, data truth, accessibility and working interactions are preserved. Not release approval.",
+      "responsibleMilestone": "pantheon-reskin-site-foundation",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pantheon-reskin-20261010-accessible-names-breadcrumbs-literal-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/article/breadcrumbs.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ef1b26ddfd553af0290cbb9167a7d5e40453edb881f3ef5a09ca3a281a22bf3b",
+      "reason": "The breadcrumb trail gained an eyebrow variant that sits above the display H1 (PANTHEON-SPEC.md, type: eyebrow). It is the same trail with the same links and the same landmark name, \"Breadcrumb\", so the second literal in the file is that variant's nav; the original variant keeps the first.",
+      "ownerApproval": "Owner decision of 2026-10-10 (Josef): the Pantheon research-page standard replaces the brand-v2 visual identity on every page (robot-wiki-out/PANTHEON-SPEC.md; mission AGENTS.md, owner directive 2026-10-10 02:00), applied by the site-foundation re-skin. Routes, content, citations, data truth, accessibility and working interactions are preserved. Not release approval.",
+      "responsibleMilestone": "pantheon-reskin-site-foundation",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pantheon-reskin-20261010-accessible-names-site-shell-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/nav/site-shell.tsx:aria-label:1",
+      "oldHash": "ff7e397f26a5fba7fa39097a3b487b82237411d15b61d9d0cec68f36f5df739b",
+      "newHash": "9f825cb797c1b330e5e28bdf5b92c2eadb6b60d3606b7ab8bbcedf89850f69e1",
+      "reason": "The shell is now one top bar with the wordmark and two text links (PANTHEON-SPEC.md, page layout: top bar). The icon-only hamburger that needed aria-label \"Open navigation menu\" became a visible text button, \"Articles\", named by its own text, so the first literal aria-label in the file is now the bar's nav landmark, \"Site\". The panel keeps \"Site navigation\" and its close control keeps \"Close navigation menu\".",
+      "ownerApproval": "Owner decision of 2026-10-10 (Josef): the Pantheon research-page standard replaces the brand-v2 visual identity on every page (robot-wiki-out/PANTHEON-SPEC.md; mission AGENTS.md, owner directive 2026-10-10 02:00), applied by the site-foundation re-skin. Routes, content, citations, data truth, accessibility and working interactions are preserved. Not release approval.",
+      "responsibleMilestone": "pantheon-reskin-site-foundation",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pantheon-reskin-20261010-article-metadata-layout-source",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:app/layout.tsx",
+      "oldHash": "4f8ee54d1de53be8f180bd901e31f1ae42dd719ce13df60286fc6f26338046be",
+      "newHash": "a66728e41d955fbd60109f8c9b276bd5d9d0ed717c39a9ef807a69750b0326db",
+      "reason": "The root layout now loads DM Sans, Geist and Geist Mono through next/font/google (all SIL Open Font License) in place of the Tektur, IBM Plex and Newsreader faces, and exposes them as --font-dm-sans, --font-geist and --font-geist-mono. The metadata object (title template, descriptor, author, canonical, Open Graph, X card and robots) is byte-identical.",
+      "ownerApproval": "Owner decision of 2026-10-10 (Josef): the Pantheon research-page standard replaces the brand-v2 visual identity on every page (robot-wiki-out/PANTHEON-SPEC.md; mission AGENTS.md, owner directive 2026-10-10 02:00), applied by the site-foundation re-skin. Routes, content, citations, data truth, accessibility and working interactions are preserved. Not release approval.",
+      "responsibleMilestone": "pantheon-reskin-site-foundation",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pantheon-reskin-20261010-article-metadata-article-header-source",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:components/article/article-header.tsx",
+      "oldHash": "5e8eb054c56501630e98e4323718c3172407b62657ed593301fa3d72c04ffd62",
+      "newHash": "d3fa7e0aed4cde6eabaa03f829fd15f32726fa7bd2f7c0d5fd7542b7b4445e50",
+      "reason": "The article masthead follows the research-page standard: the breadcrumb eyebrow above one display H1, the summary as the lead, and one muted meta line, \"Updated 8 October 2026 · 6 min read · 38 sources\", in place of the labelled monospace list (\"Last reviewed\", \"Reading time\", citation count). The three values, their sources (frontmatter lastReviewed, measured reading time, resolved References length), the ISO datetime and the data-header attributes are unchanged; the source count now links to the References heading.",
+      "ownerApproval": "Owner decision of 2026-10-10 (Josef): the Pantheon research-page standard replaces the brand-v2 visual identity on every page (robot-wiki-out/PANTHEON-SPEC.md; mission AGENTS.md, owner directive 2026-10-10 02:00), applied by the site-foundation re-skin. Routes, content, citations, data truth, accessibility and working interactions are preserved. Not release approval.",
+      "responsibleMilestone": "pantheon-reskin-site-foundation",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-001"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

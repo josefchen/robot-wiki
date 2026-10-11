@@ -23,7 +23,7 @@ const sectionHeading =
   'font-sans text-xl font-semibold tracking-tight text-text';
 const prose = 'mt-4 font-serif text-[1.0625rem] leading-relaxed text-text';
 const inlineLink =
-  'text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent';
+  'ink-link';
 
 /**
  * Scope, reading guidance and citation conventions: the text the home page
@@ -122,7 +122,7 @@ export default function AboutPage() {
               <IntentLink
                 data-brand-control-id="control:link-focus"
                 href={path.hub}
-                className="transition-colors hover:text-accent"
+                className="transition-colors hover:text-text-dim"
               >
                 {path.title}
               </IntentLink>
@@ -136,7 +136,7 @@ export default function AboutPage() {
                   <IntentLink
                     data-brand-control-id="control:link-focus"
                     href={`/${entry.domain}/${entry.slug}/`}
-                    className="underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
+                    className="ink-link"
                   >
                     {entry.title}
                   </IntentLink>

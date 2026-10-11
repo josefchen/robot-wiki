@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  INK_RGB,
   MOBILE_SHELL_EVIDENCE_PATH,
   MOBILE_VIEWPORT,
   SCRIM_SEPARATION_FLOOR,
@@ -257,7 +258,7 @@ describe('mobile shell evidence', () => {
     const shortened = drawerFailures((evidence) => {
       for (const observation of evidence.observations) {
         observation.inert.regions = observation.inert.regions.filter(({ id }) =>
-          ['header', 'the desktop sidebar'].includes(id),
+          ['header'].includes(id),
         );
       }
     });
@@ -266,6 +267,15 @@ describe('mobile shell evidence', () => {
         `recorded no reading for ${id}`,
       );
     }
+    // Owner-approved successor (Josef, 2026-10-10): the retired desktop
+    // sidebar is not a background region of the research-page shell, so a
+    // reading of it is foreign to the set rather than a free pass.
+    expect(
+      drawerFailures((evidence) => {
+        const regions = evidence.observations[0].inert.regions;
+        regions.push({ ...regions[0], id: 'the desktop sidebar' });
+      }),
+    ).toMatch(/records the desktop sidebar, which is not one of the required background regions/);
     // A region the shell stopped rendering is absent, not exempt.
     expect(
       drawerFailures((evidence) => {
@@ -307,7 +317,9 @@ describe('mobile shell evidence', () => {
       /records main more than once in the inert set/,
     );
     expect(contradiction).toMatch(
-      /records 6 inert-region reading\(s\) against the 5 required background regions/,
+      // Owner-approved successor (Josef, 2026-10-10): four required regions
+      // once the retired sidebar left the set, so one duplicate makes five.
+      /records 5 inert-region reading\(s\) against the 4 required background regions/,
     );
     // The contradicting value is never read: the shape is settled first, so
     // the compliant duplicate cannot answer for the non-compliant one.
@@ -461,7 +473,15 @@ describe('mobile shell evidence', () => {
         const lockup = evidence.observations[0].header.lockups[0];
         lockup.fontFamilyHead = 'IBM Plex Sans';
       }),
-    ).toMatch(/not Tektur/);
+    ).toMatch(/not DM Sans/);
+    // Owner-approved successor (Josef, 2026-10-10): the retired display
+    // face is drift too, not just an unrelated family.
+    expect(
+      headerFailures((evidence) => {
+        const lockup = evidence.observations[0].header.lockups[0];
+        lockup.fontFamilyHead = 'Tektur';
+      }),
+    ).toMatch(/not DM Sans/);
     expect(
       headerFailures((evidence) => {
         const lockup = evidence.observations[0].header.lockups[0];
@@ -484,20 +504,54 @@ describe('mobile shell evidence', () => {
         evidence.observations[0].header.trigger = null;
       }),
     ).toMatch(/no drawer trigger/);
+    // Owner-approved successor (Josef, 2026-10-10): the two top-bar
+    // controls are admitted by exact label, each exactly once.
+    expect(
+      headerFailures((evidence) => {
+        const header = evidence.observations[0].header;
+        header.leafTexts = header.leafTexts.filter((text) => text !== 'Articles');
+      }),
+    ).toMatch(/"Articles" control 0 times/);
+    expect(
+      headerFailures((evidence) => {
+        evidence.observations[0].header.leafTexts.push('How robots work');
+      }),
+    ).toMatch(/"How robots work" control 2 times/);
+    expect(
+      headerFailures((evidence) => {
+        evidence.observations[0].header.leafTexts.push('How robots learn');
+      }),
+    ).toMatch(/neither the identity nor a control label/);
+    expect(
+      headerFailures((evidence) => {
+        const header = evidence.observations[0].header;
+        if (header.trigger) header.trigger.accessibleName = '';
+      }),
+    ).toMatch(/unnamed drawer trigger/);
+    expect(
+      headerFailures((evidence) => {
+        const header = evidence.observations[0].header;
+        if (header.trigger) header.trigger.accessibleName = 'Menu';
+      }),
+    ).toMatch(/names the drawer trigger "Menu", not "Articles"/);
   });
 
   it('holds the sweep to the sealed lime and the fingerprint to the rail registrations', () => {
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the title is a stable id. The current drawer entry carries
+    // no device at all, lime or otherwise, and is marked by ink and weight.
     const evidence = accept(committed());
-    const marked = evidence.observations.filter(
-      ({ currentRoute }) => currentRoute.markerDeviceId !== null,
+    for (const { route, currentRoute } of evidence.observations) {
+      expect(currentRoute.markerDeviceId, route).toBeNull();
+      expect(currentRoute.markerColour, route).not.toBe(SELECTION_LIME_RGB);
+    }
+    const current = evidence.observations.filter(
+      ({ currentRoute }) => currentRoute.currentColour !== null,
     );
-    expect(marked.length).toBeGreaterThan(0);
-    for (const { route, currentRoute } of marked) {
-      expect(currentRoute.markerColour, route).toBe(SELECTION_LIME_RGB);
-      expect(currentRoute.markerDeviceId, route).toBe(
-        'device:active-interval-rail',
-      );
-      expect(currentRoute.markerAlignmentErrorPx ?? 99, route).toBeLessThanOrEqual(2);
+    expect(current.length).toBeGreaterThan(0);
+    for (const { route, currentRoute } of current) {
+      expect(currentRoute.currentColour, route).toBe(INK_RGB);
+      expect(currentRoute.currentWeight ?? 0, route).toBeGreaterThanOrEqual(500);
     }
     expect(() =>
       mobileShellEvidenceFingerprint({ root: ROOT, deviceRegistryRows: [] }),

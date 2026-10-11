@@ -1104,22 +1104,13 @@ function staticRegistries() {
       pointerAlternative: 'native pointer activation matching keyboard activation',
     }),
   );
+  // Owner-approved successor (Josef, 2026-10-10): the research-page standard
+  // is plain paper, so the concrete micro-texture and the halftone dot field
+  // are retired and paper is the one material the site paints.
   const materials = [
     {
       id: 'material:paper',
       treatment: 'texture-free reading ground',
-      deterministic: true,
-      ownership: 'owned',
-    },
-    {
-      id: 'material:concrete',
-      treatment: 'owned monochrome SVG micro-texture',
-      deterministic: true,
-      ownership: 'owned',
-    },
-    {
-      id: 'material:halftone',
-      treatment: 'owned monochrome SVG dot field',
       deterministic: true,
       ownership: 'owned',
     },

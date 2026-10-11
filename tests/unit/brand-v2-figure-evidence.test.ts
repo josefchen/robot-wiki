@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
@@ -26,6 +26,7 @@ import {
   provenanceRecordVerdicts,
   reusableContentVerdicts,
   type AssetRow,
+  type MaterialPaint,
   type MaterialRow,
 } from '@/lib/brand-v2-image-record';
 import type { ApprovedDelta } from '@/lib/brand-v2-baseline';
@@ -443,6 +444,45 @@ describe('VAL-B2-IMG-005 alt text and static delivery', () => {
   });
 });
 
+/*
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * surfaces are plain paper, so the concrete micro-texture and the halftone
+ * dot field are retired and `material:paper` is the one registered material.
+ * The tile clauses no longer have a shipped tile to read, so each case below
+ * plants the retired halftone tile (the exact dot field the export used to
+ * ship) on the shipped paper rule and proves the clause still bites.
+ */
+const RETIRED_HALFTONE_ROW: MaterialRow = {
+  id: 'material:halftone',
+  treatment: 'owned monochrome SVG dot field',
+  deterministic: true,
+  ownership: 'owned',
+};
+const RETIRED_HALFTONE_TILE =
+  "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><circle cx='4' cy='4' r='1' fill='#242D33' fill-opacity='.08'/><circle cx='12' cy='12' r='1' fill='#242D33' fill-opacity='.08'/></svg>";
+
+/** The shipped stylesheet text, read where `readMaterialPaints` reads it. */
+function shippedStylesheet(): string {
+  const directory = join(ROOT, 'out', '_next', 'static', 'chunks');
+  return readdirSync(directory)
+    .filter((name) => name.endsWith('.css'))
+    .sort()
+    .map((name) => readFileSync(join(directory, name), 'utf8'))
+    .join('\n');
+}
+
+/** A shipped paint with the retired halftone tile planted on it, repeating. */
+function withPlantedTile(
+  paint: MaterialPaint,
+  tile: string = RETIRED_HALFTONE_TILE,
+): MaterialPaint {
+  return {
+    ...paint,
+    tile,
+    declarations: { ...paint.declarations, 'background-repeat': 'repeat' },
+  };
+}
+
 describe('the record rows', () => {
   const assets = registry.assets;
   const materialPaints = readMaterialPaints(ROOT, registry.materials);
@@ -454,16 +494,14 @@ describe('the record rows', () => {
     expect(
       failuresOf(materialHonestyVerdicts(registry.materials, materialPaints)),
     ).toEqual([]);
-    // Non-vacuity: the clauses that read the shipped stylesheet have
-    // something to read for every registered material.
-    expect(materialPaints.map((paint) => paint.rule === null)).toEqual([
-      false,
-      false,
-      false,
-    ]);
-    expect(
-      materialPaints.filter((paint) => paint.tile !== null).length,
-    ).toBeGreaterThan(0);
+    // Non-vacuity, as a successor: the registry is exactly the one shipped
+    // material, the shipped stylesheet paints a rule for it, and that rule
+    // draws no tile and fetches nothing. A texture painted back onto paper,
+    // or a retired material registered again, fails here.
+    expect(registry.materials.map(({ id }) => id)).toEqual(['material:paper']);
+    expect(materialPaints.map((paint) => paint.rule === null)).toEqual([false]);
+    expect(materialPaints.map((paint) => paint.tile)).toEqual([null]);
+    expect(materialPaints.map((paint) => paint.remoteUrls)).toEqual([[]]);
     expect(
       failuresOf(
         originalSvgSemanticVerdicts(
@@ -514,7 +552,7 @@ describe('the record rows', () => {
       materialHonestyVerdicts(
         [
           {
-            id: 'material:halftone',
+            id: 'material:paper',
             treatment: 'owned monochrome depth map of the scanned workcell',
             deterministic: true,
             ownership: 'owned',
@@ -527,19 +565,45 @@ describe('the record rows', () => {
   });
 
   it('VAL-B2-IMG-004 reads the tile, ground and contrast the export ships', () => {
-    const halftone = materialPaints.find(
-      (paint) => paint.id === 'material:halftone',
-    );
-    expect(halftone?.tile).toMatch(/<circle/);
-    expect(halftone?.remoteUrls).toEqual([]);
-    expect(halftone?.declarations['background-repeat']).toBe('repeat');
-    // The ground is written as var(--color-surface), which is itself a var:
-    // an unresolved chain would leave the contrast clause with nothing.
-    expect(halftone?.groundHex).toMatch(/^#[0-9a-f]{6}$/);
-    expect(halftone?.inkContrast.length).toBeGreaterThan(0);
-    for (const { ratio } of halftone?.inkContrast ?? []) {
+    // Successor: the export ships paper and nothing else, and the paper rule
+    // is read out of the exported stylesheet, not out of the registry.
+    const paper = materialPaints.find((paint) => paint.id === 'material:paper');
+    expect(paper?.rule).not.toBeNull();
+    expect(paper?.tile).toBeNull();
+    expect(paper?.remoteUrls).toEqual([]);
+    expect(paper?.declarations['background-image']).toBe('none');
+    // The ground is written as var(--paper): an unresolved chain would leave
+    // the contrast clause with nothing, so it must resolve to the spec paper.
+    expect(paper?.groundHex).toBe('#fafaf8');
+    expect(paper?.inkContrast).toEqual([]);
+
+    // The retired materials are gone from the export too: registering one
+    // again reads no rule for it.
+    expect(
+      readMaterialPaints(ROOT, [RETIRED_HALFTONE_ROW]).map(({ rule }) => rule),
+    ).toEqual([null]);
+
+    // The tile, ground and contrast reading still works end to end on the
+    // shipped stylesheet: plant the retired dot field on the shipped paper
+    // rule and the reader decodes it, composites its ink over the resolved
+    // ground, and finds it below the non-text threshold.
+    const planted = materialPaintsFromCss(
+      `${shippedStylesheet()}.material-paper{background-image:url("data:image/svg+xml,${encodeURIComponent(
+        RETIRED_HALFTONE_TILE,
+      )}");background-repeat:repeat}`,
+      registry.materials,
+    )[0];
+    expect(planted.tile).toMatch(/<circle/);
+    expect(planted.remoteUrls).toEqual([]);
+    expect(planted.declarations['background-repeat']).toBe('repeat');
+    expect(planted.groundHex).toBe('#fafaf8');
+    expect(planted.inkContrast.length).toBeGreaterThan(0);
+    for (const { ratio } of planted.inkContrast) {
       expect(ratio).toBeLessThan(3);
     }
+    expect(
+      failuresOf(materialHonestyVerdicts(registry.materials, [planted])),
+    ).toEqual([]);
   });
 
   it('VAL-B2-IMG-004 reports ink drawn at reading contrast', () => {
@@ -547,9 +611,9 @@ describe('the record rows', () => {
       materialHonestyVerdicts(
         registry.materials,
         materialPaints.map((paint) =>
-          paint.id === 'material:halftone'
+          paint.id === 'material:paper'
             ? {
-                ...paint,
+                ...withPlantedTile(paint),
                 inkContrast: [{ ink: '#242D33@1', ratio: 12.4 }],
               }
             : paint,
@@ -568,7 +632,7 @@ describe('the record rows', () => {
       materialHonestyVerdicts(
         registry.materials,
         materialPaints.map((paint) =>
-          paint.id === 'material:concrete'
+          paint.id === 'material:paper'
             ? { ...paint, remoteUrls: ['https://cdn.example.com/grain.png'] }
             : paint,
         ),
@@ -588,12 +652,8 @@ describe('the record rows', () => {
       materialHonestyVerdicts(
         registry.materials,
         materialPaints.map((paint) =>
-          paint.id === 'material:halftone'
-            ? {
-                ...paint,
-                tile: '<svg><text x="0" y="8">0.42 m</text></svg>',
-                declarations: { ...paint.declarations },
-              }
+          paint.id === 'material:paper'
+            ? withPlantedTile(paint, '<svg><text x="0" y="8">0.42 m</text></svg>')
             : paint,
         ),
       ),
@@ -605,17 +665,17 @@ describe('the record rows', () => {
     const placedOnce = failuresOf(
       materialHonestyVerdicts(
         registry.materials,
-        materialPaints.map((paint) =>
-          paint.id === 'material:halftone'
-            ? {
-                ...paint,
-                declarations: {
-                  ...paint.declarations,
-                  'background-repeat': 'no-repeat',
-                },
-              }
-            : paint,
-        ),
+        materialPaints.map((paint) => {
+          if (paint.id !== 'material:paper') return paint;
+          const planted = withPlantedTile(paint);
+          return {
+            ...planted,
+            declarations: {
+              ...planted.declarations,
+              'background-repeat': 'no-repeat',
+            },
+          };
+        }),
       ),
     );
     expect(
@@ -624,17 +684,19 @@ describe('the record rows', () => {
   });
 
   it('VAL-B2-IMG-004 reports a material the shipped stylesheet never paints, and refuses when none of them ship', () => {
+    // Successor: with paper the one registered material, the unpainted member
+    // is a retired material registered again and read from the real export,
+    // which no longer paints it.
+    const reregistered = [...registry.materials, RETIRED_HALFTONE_ROW];
     const missing = failuresOf(
       materialHonestyVerdicts(
-        registry.materials,
-        materialPaints.map((paint) =>
-          paint.id === 'material:concrete' ? { ...paint, rule: null } : paint,
-        ),
+        reregistered,
+        readMaterialPaints(ROOT, reregistered),
       ),
     );
     expect(
       missing.some((f) =>
-        /material:concrete is registered as a material the site paints, and the shipped stylesheet has no \.material-concrete rule/.test(
+        /material:halftone is registered as a material the site paints, and the shipped stylesheet has no \.material-halftone rule/.test(
           f,
         ),
       ),
@@ -653,7 +715,7 @@ describe('the record rows', () => {
       materialHonestyVerdicts(
         registry.materials,
         materialPaints.map((paint) =>
-          paint.id === 'material:concrete'
+          paint.id === 'material:paper'
             ? {
                 ...paint,
                 declarations: {
@@ -697,7 +759,7 @@ describe('the record rows', () => {
   });
 
   it('VAL-B2-IMG-004 preserves earlier important declarations across rules and inside one rule', () => {
-    const materials = [registry.materials.find(({ id }) => id === 'material:halftone')!];
+    const materials = [RETIRED_HALFTONE_ROW];
     const important =
       "background-image:url('https://sensors.example/lidar-return.png') !important;background-repeat:no-repeat !IMPORTANT";
     const normal =
@@ -723,7 +785,7 @@ describe('the record rows', () => {
   });
 
   it('VAL-B2-IMG-004 reverses unlayered precedence for important declarations and applies token importance', () => {
-    const materials = [registry.materials.find(({ id }) => id === 'material:halftone')!];
+    const materials = [RETIRED_HALFTONE_ROW];
     const paints = materialPaintsFromCss(
       ':root{--ground:#ffffff !important;--ground:#000000}' +
       '@layer theme{.material-halftone{background-repeat:no-repeat !important}}' +

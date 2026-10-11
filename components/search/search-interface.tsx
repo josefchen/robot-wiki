@@ -318,7 +318,7 @@ export function SearchInterface({
       >
         <label
           htmlFor="search-page-input"
-          className="mb-1.5 block font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+          className="eyebrow mb-2 block"
         >
           Search the wiki
         </label>
@@ -334,7 +334,7 @@ export function SearchInterface({
             placeholder="ALOHA, chunk size"
             autoComplete="off"
             aria-describedby="search-page-hint"
-            className="min-w-0 flex-1 rounded-sm border border-border bg-surface px-3 py-2 text-base text-text placeholder:text-text-dim"
+            className="min-w-0 flex-1 border border-border-strong bg-surface px-3 py-2 text-base text-text placeholder:text-text-dim"
           />
           {/* Functional clear action: keyboard operable, labelled, and
               present exactly while there is a query to clear. It shares
@@ -347,7 +347,7 @@ export function SearchInterface({
               type="button"
               aria-label="Clear search"
               onClick={onClearClick}
-              className="flex cursor-pointer items-center rounded-sm border border-border bg-surface-2 px-2 text-text-dim transition-colors hover:border-border-strong hover:text-text"
+              className="flex cursor-pointer items-center px-2 text-text-dim transition-colors hover:text-text"
             >
               <X aria-hidden="true" size={16} />
             </button>
@@ -391,14 +391,14 @@ export function SearchInterface({
           role="note"
           data-search-unavailable
         >
-          <p className="max-w-[65ch] border-l-2 border-err pl-3 text-sm leading-relaxed text-err">
+          <p className="max-w-[65ch] border-l border-err pl-3 text-sm leading-relaxed text-err">
             The search index is unavailable in this environment. It is
             generated during the production build; run{' '}
-            <code className="rounded-sm border border-border bg-surface-2 px-1 py-0.5 font-mono text-xs text-err">
+            <code className="bg-surface-2 px-1 py-0.5 font-mono text-xs text-err">
               npm run build
             </code>{' '}
             and serve the{' '}
-            <code className="rounded-sm border border-border bg-surface-2 px-1 py-0.5 font-mono text-xs text-err">
+            <code className="bg-surface-2 px-1 py-0.5 font-mono text-xs text-err">
               out/
             </code>{' '}
             directory to search locally.
@@ -423,7 +423,7 @@ export function SearchInterface({
             <Link
               data-brand-control-id="control:link-focus"
               href="/a-z"
-              className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+              className="ink-link"
             >
               the A-Z index
             </Link>
@@ -455,7 +455,7 @@ export function SearchInterface({
                     >
                       <span
                         data-result-title
-                        className="font-sans text-sm font-medium text-text underline-offset-2 decoration-accent group-hover:text-accent group-hover:underline group-focus-visible:text-accent group-focus-visible:underline"
+                        className="font-sans text-[15px] font-medium text-text decoration-1 underline-offset-[3px] group-hover:underline group-focus-visible:underline"
                       >
                         {entry.title}
                       </span>
@@ -486,7 +486,7 @@ export function SearchInterface({
                     data-brand-control-id="control:secondary-action"
                     type="button"
                     onClick={() => setFacetType('all')}
-                    className="cursor-pointer text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
+                    className="ink-link cursor-pointer"
                   >
                     Clear the type filter
                   </button>
@@ -528,7 +528,7 @@ export function SearchInterface({
                             re-pointed at the title/label wrapper. */}
                         <span
                           data-entity-title
-                          className="font-sans text-sm font-medium text-text underline-offset-2 decoration-accent group-hover:text-accent group-hover:underline group-focus-visible:text-accent group-focus-visible:underline"
+                          className="font-sans text-[15px] font-medium text-text decoration-1 underline-offset-[3px] group-hover:underline group-focus-visible:underline"
                         >
                           {entry.title}
                         </span>

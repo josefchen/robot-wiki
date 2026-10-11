@@ -44,7 +44,7 @@ export function Card({
         {title ? (
           <h3
             data-card-title
-            className="font-sans text-sm font-medium text-text group-hover:text-accent"
+            className="font-sans text-sm font-medium text-text group-hover:underline group-hover:decoration-1 group-hover:underline-offset-[3px]"
           >
             {title}
           </h3>

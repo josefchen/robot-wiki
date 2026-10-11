@@ -18,7 +18,7 @@ function passingMeasurements(): ReferenceFeatureMeasurements {
       publicName: 'Robot Wiki',
       descriptor: 'Citation-first encyclopedia of modern robot learning.',
       descriptorRequired: true,
-      webDisplayFamily: 'Tektur Variable',
+      webDisplayFamily: 'DM Sans',
       ogStaticRoleMatched: true,
       alternateSymbolCount: 0,
       v1IdentityCount: 0,
@@ -83,8 +83,13 @@ describe('brand-v2 reference-feature rubric', () => {
     expect(BRAND_V2_REFERENCE_RUBRIC.contractLiterals).toMatchObject({
       publicIdentity: 'Robot Wiki',
       descriptor: 'Citation-first encyclopedia of modern robot learning.',
-      highlight: '#C6FF19',
-      signal: '#245FFF',
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the web display family and the palette moved with it.
+      webDisplayFamily: 'DM Sans',
+      ink: '#1C1C1A',
+      paper: '#FAFAF8',
+      highlight: '#A3A39E',
+      signal: '#3B6EA8',
     });
     expect(BRAND_V2_REFERENCE_RUBRIC.comparisonPolicy).toEqual({
       crossComposition: 'feature-anchors-only',
