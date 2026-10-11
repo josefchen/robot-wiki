@@ -41,6 +41,8 @@ function fixture() {
     'audit/evidence/seo-pass-20261002/checker-transition.json',
     'audit/evidence/domain-pass-20261006/checker-transition.json',
     'audit/evidence/domain-pass-20261006/source-transition.json',
+    // The rl-sim2real simple figures (2026-10-10) rebuild the pre-mount articles from this review.
+    'audit/evidence/figure-mounts-20261007/source-transition.json',
     ...entries.flatMap((entry) => [entry.snapshot.path, entry.current.path]),
   ]) {
     const to = join(destination, path);

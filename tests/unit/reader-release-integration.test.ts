@@ -120,7 +120,21 @@ function throughSeoPass(path: string) {
   const domainEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
     && a.id.startsWith('domain-pass-20261006-'));
   const domainEnd = edge(['domain-pass-20261006-'], preDomain, domainEdges.at(-1)?.newHash ?? preDomain, true);
-  expect(classicalPassEndpoint(approvals, 'prose', id, domainEnd)).toBe(hashOf(readLive(path)));
+  const classicalEnd = classicalPassEndpoint(approvals, 'prose', id, domainEnd);
+  // The rl-sim2real figure batch of 2026-10-11 then mounted figures in some
+  // of these articles, with one edge each that continues the classical
+  // endpoint, plain or as a resolution that reconciles it.
+  const figureEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('rl-sim2real-figures-20261011-'));
+  if (figureEdges.length === 0) {
+    expect(classicalEnd).toBe(hashOf(readLive(path)));
+    return;
+  }
+  expect(figureEdges).toHaveLength(1);
+  const [figures] = figureEdges;
+  expect(figures.oldHash === classicalEnd
+    || (figures.reconciles ?? []).some(r => r.newHash === classicalEnd)).toBe(true);
+  expect(figures.newHash).toBe(hashOf(readLive(path)));
 }
 
 describe('merged reader corrections preserve production additions and exact approvals', () => {

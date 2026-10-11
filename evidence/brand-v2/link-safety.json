@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "865d991cb09c032e3d02d3beb24128e79c7b1f9e2b72bdb5e2aa86fee13c3ebb",
+  "fingerprint": "41b0f0f8ba59e9a44ce09f9905eff0184203deffaafd08587fb12b0252a64d6b",
   "source": "out/ static export",
   "routes": [
     {
@@ -619,10 +619,11 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "outboundAnchors": 96,
+      "outboundAnchors": 99,
       "distinctHrefs": 45,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -630,7 +631,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "outboundAnchors": 84,
+      "outboundAnchors": 86,
       "distinctHrefs": 42,
       "shapes": [
         "citation-chip",
@@ -642,10 +643,11 @@
     },
     {
       "route": "/rl-sim2real/offline-rl/",
-      "outboundAnchors": 86,
+      "outboundAnchors": 94,
       "distinctHrefs": 43,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -653,10 +655,11 @@
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "outboundAnchors": 87,
+      "outboundAnchors": 91,
       "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -675,7 +678,7 @@
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "outboundAnchors": 110,
+      "outboundAnchors": 113,
       "distinctHrefs": 50,
       "shapes": [
         "citation-chip",
@@ -687,10 +690,11 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "outboundAnchors": 99,
+      "outboundAnchors": 100,
       "distinctHrefs": 44,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -698,10 +702,11 @@
     },
     {
       "route": "/rl-sim2real/why-rl-locomotion/",
-      "outboundAnchors": 77,
+      "outboundAnchors": 81,
       "distinctHrefs": 37,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -813,14 +818,14 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 4931,
+  "outboundAnchors": 4956,
   "distinctOutboundHrefs": 1442,
   "anchorsByShape": {
     "citation-chip": 2267,
     "footer": 152,
     "reference-entry": 1620,
     "other": 563,
-    "figure-credit": 329
+    "figure-credit": 354
   },
   "anchorsWithoutNoopener": 0,
   "anchorsWithNoreferrer": 4369,
@@ -1291,35 +1296,35 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "outboundInDom": 96,
-      "reachedByTab": 96,
+      "outboundInDom": 99,
+      "reachedByTab": 99,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 239
+      "tabStops": 248
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "outboundInDom": 84,
-      "reachedByTab": 84,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 202
-    },
-    {
-      "route": "/rl-sim2real/offline-rl/",
       "outboundInDom": 86,
       "reachedByTab": 86,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 228
+      "tabStops": 210
+    },
+    {
+      "route": "/rl-sim2real/offline-rl/",
+      "outboundInDom": 94,
+      "reachedByTab": 94,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 244
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "outboundInDom": 87,
-      "reachedByTab": 87,
+      "outboundInDom": 91,
+      "reachedByTab": 91,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 210
+      "tabStops": 223
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
@@ -1331,27 +1336,27 @@
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "outboundInDom": 110,
-      "reachedByTab": 110,
+      "outboundInDom": 113,
+      "reachedByTab": 113,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 264
+      "tabStops": 273
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "outboundInDom": 99,
-      "reachedByTab": 99,
+      "outboundInDom": 100,
+      "reachedByTab": 100,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 252
+      "tabStops": 256
     },
     {
       "route": "/rl-sim2real/why-rl-locomotion/",
-      "outboundInDom": 77,
-      "reachedByTab": 77,
+      "outboundInDom": 81,
+      "reachedByTab": 81,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 198
+      "tabStops": 208
     },
     {
       "route": "/search/",

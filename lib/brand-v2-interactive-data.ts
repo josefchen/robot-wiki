@@ -299,6 +299,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // Filterable table of published architectural facts.
     kind: 'source-data',
   },
+  'interactive:CubeTrials': {
+    // OpenAI's Rubik's-cube trial counts: 2 of 10 with a sensor cube, 0 of 10 with vision for face angles.
+    kind: 'source-data',
+  },
   'interactive:DatasetTable': {
     // Dataset registry table (sizes, embodiments, licences).
     kind: 'source-data',
@@ -325,6 +329,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // Buyer's-guide table; undisclosed figures render "not disclosed".
     kind: 'source-data',
   },
+  'interactive:HumanoidPickHeight': {
+    // Gemini Robotics 2's published whole-body pick and gripper insertion rates; the humanoid drawing self-labels as illustrative.
+    kind: 'source-data',
+  },
   'interactive:MilestonesWatchlist': {
     // Status board of published milestone outcomes.
     kind: 'source-data',
@@ -337,6 +345,18 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // Source publication months and the pinned openpi catalogue.
     kind: 'source-data',
   },
+  'interactive:RealRobotRlGains': {
+    // Before and after real-robot success rates as RankQ, SCORE, PA-RL and BORA report them.
+    kind: 'source-data',
+  },
+  'interactive:RobotsPerGpu': {
+    // Rudin and colleagues' robot counts (128 CPU-era, 4,096 deployed policy, 16,384 on one GPU), one square per 128.
+    kind: 'source-data',
+  },
+  'interactive:ScannedTwinCheck': {
+    // Kadian and colleagues' sim-versus-real correlations for a 3D-scanned lab (0.18 as scanned, 0.844 tuned).
+    kind: 'source-data',
+  },
   'interactive:TeleopRigMatrix': {
     // Rig comparison across published cost/quality figures.
     kind: 'source-data',
@@ -347,6 +367,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
 
   // --- authored-model: this wiki's own labelled numbers
+  'interactive:ActuatorGap': {
+    // Illustrative motor response curves; the fall-or-walk outcome is Hwangbo and colleagues'.
+    kind: 'authored-model',
+  },
   'interactive:AdvantageScrubber': {
     // "Deterministic teaching toy" over the Recap portafilter illustration.
     kind: 'authored-model',
@@ -429,12 +453,20 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // Authored side-by-side of two controller families' responses.
     kind: 'authored-model',
   },
+  'interactive:OfflineValueOverreach': {
+    // Illustrative value curves ("Illustrative curves"); the problem is the offline RL tutorial's, the penalty CQL's.
+    kind: 'authored-model',
+  },
   'interactive:PerceptionErrorBudget': {
     // "Authored teaching model": RSS-composed magnitudes, not measurements.
     kind: 'authored-model',
   },
   'interactive:QosQueueAge': {
     // Illustrative camera rate; the 10-message default queue is the ROS 2 QoS default profile.
+    kind: 'authored-model',
+  },
+  'interactive:RetargetingGap': {
+    // "Illustrative bodies"; the artifacts are the retargeting studies'.
     kind: 'authored-model',
   },
   'interactive:ReliabilityCompounding': {
@@ -452,6 +484,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:TeacherStudent': {
     // The caption self-labels ("In this authored toy").
+    kind: 'authored-model',
+  },
+  'interactive:TerrainCurriculum': {
+    // Seeded illustrative robots under Rudin and colleagues' three curriculum rules.
     kind: 'authored-model',
   },
   'interactive:TimeOffsetMiss': {
@@ -487,12 +523,20 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // "Original deterministic slot-layout illustration".
     kind: 'schematic',
   },
+  'interactive:DemoOrSim': {
+    // "Schematic pipeline"; the contact-model point is the reality-gap survey's, the two examples Rudin's and ACT's.
+    kind: 'schematic',
+  },
   'interactive:FlowMatchingTrajectory': {
     // Flow-matching sweep from noise to action.
     kind: 'schematic',
   },
   'interactive:GraspWrenchLab': {
     // Wrench-hull lab with computed geometry.
+    kind: 'schematic',
+  },
+  'interactive:HindsightRelabel': {
+    // "Illustrative push"; the relabelling rule and reward recomputation are hindsight experience replay's.
     kind: 'schematic',
   },
   'interactive:ImpedanceContactLab': {
@@ -507,6 +551,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // Layer-by-layer Mixture-of-Transformers architecture view.
     kind: 'schematic',
   },
+  'interactive:NewtonSolvers': {
+    // "Schematic of four of Newton's solvers"; the material-to-solver routing is NVIDIA's overview and release post.
+    kind: 'schematic',
+  },
   'interactive:PendulumController': {
     // Live PID lab; the simulation is the point, not a data claim.
     kind: 'schematic',
@@ -517,6 +565,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:RecedingHorizon': {
     // The T_p / T_a replanning dial.
+    kind: 'schematic',
+  },
+  'interactive:ReplayReuse': {
+    // "Illustrative batches"; the on-policy discard and off-policy replay rules are PPO's and Q-learning's.
     kind: 'schematic',
   },
   'interactive:Ros2Interfaces': {
@@ -533,6 +585,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:SceneRepresentationLadder': {
     // "One fixed synthetic scene, drawn five times".
+    kind: 'schematic',
+  },
+  'interactive:TrajectoryStitching': {
+    // "Illustrative map" of two recorded runs crossing once.
     kind: 'schematic',
   },
   'interactive:WmDisambiguator': {

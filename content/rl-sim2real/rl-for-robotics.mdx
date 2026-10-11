@@ -62,6 +62,10 @@ seeAlso:
 
 import { SampleEfficiencyLedger } from '@/components/interactive/sample-efficiency-ledger';
 
+import { ReplayReuse } from '@/components/interactive/replay-reuse';
+
+import { HindsightRelabel } from '@/components/interactive/hindsight-relabel';
+
 Reinforcement learning (RL) for robotics is the training of robot policies from their own experience of acting, formalized as a Markov decision process of states, actions, transitions and rewards <Cite id="sutton-barto-2018" />. A simulated step is nearly free when thousands of GPU robots act at once <Cite id="rudin-2021" />, while a real step costs machine time and a reset.
 
 ## What a budget buys, and what it forbids
@@ -73,6 +77,8 @@ A review of robotic deep RL case studies lists real-world challenges that mainst
 ## Two ways to spend a transition
 
 An <Term id="on-policy">on-policy</Term> method's update is valid only for data the current policy generated, so each batch is collected, consumed and discarded. PPO alternates sampling with optimizing a surrogate objective that allows several minibatch epochs per batch, where plain policy gradient takes one step <Cite id="ppo-2017" />. An <Term id="off-policy">off-policy</Term> method improves one policy from data another produced, so experience accumulates in a <Term id="replay-buffer">replay buffer</Term>. Underneath is <Term id="q-learning">Q-learning</Term>: fit the value of a state-action pair and bootstrap from the best next action, even one never taken <Cite id="sutton-barto-2018" />.
+
+<ReplayReuse className="my-6" />
 
 DDPG adapted deterministic policy gradients to deep networks and learned pixel-to-torque policies off-policy <Cite id="ddpg-2016" />. TD3 reduced DDPG's overestimation bias with clipped double critics, delayed policy updates and target policy smoothing <Cite id="td3-2018" />. Soft actor-critic added a maximum-entropy objective; its authors named sample complexity and brittle convergence as the two challenges keeping model-free deep RL out of complex real-world domains and designed SAC to address both <Cite id="sac-2018" />.
 
@@ -116,6 +122,8 @@ Offline data can also seed online learning. RLPD starts online off-policy traini
 ## Sparse reward, and learning from failure
 
 A robot that has never completed a task has no successful trajectory, and a completion-only reward gives its value function nothing to fit. Shaping is one answer ([reward design](/rl-sim2real/reward-design-mpc)). <Term id="hindsight-experience-replay">Hindsight experience replay</Term> targets sparse binary rewards directly, storing transitions under their original goal and alternative goals and recomputing the reward for each. Its simplest strategy uses the goal achieved in the final state, and its future strategy samples goals achieved later in the same episode <Cite id="her-2017" />.
+
+<HindsightRelabel className="my-6" />
 
 Andrychowicz and colleagues trained DDPG with HER on a simulated seven-DoF Fetch arm for pushing, sliding and pick-and-place, and the future variant learned all three where DDPG alone did not. Pushing added a contact-penetration penalty, and pick-and-place started half its training episodes with the box already grasped. A simulation-trained pick-and-place policy transferred to a physical Fetch without real-robot fine-tuning, using a separately trained camera estimator. HER needs an achieved-goal mapping and a reward recomputable for any replacement goal, and training on multiple goals can help even when only one matters at deployment <Cite id="her-2017" />.
 

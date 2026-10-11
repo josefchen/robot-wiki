@@ -38,12 +38,19 @@ export type FigureMountReview = {
 
 // BEGIN figure-mount pins (written by scripts/record-figure-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 9716, sha256: 'f849da1ad021c6da69339663f6473ce3c6831f03bfedc7429ce4e6edb2b2e0ee' };
+const reviewPin = { bytes: 33613, sha256: 'f47d0583e8bee93e25fbf2909e5633672ab4b5e9919f5b6058fd7d4fdc02ae6c' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/calibration.mdx', [10030, 'ffc769f31d4b00ea8624283b9af7d4d9d0b71bcd6ff55ec6887f5cf83429fdf5']],
   ['content/classical/ros2-for-ml-engineers.mdx', [9930, '65fb50d6229dde8c3446194236429481a1ac0799e99753471a29c95317731fb7']],
+  ['content/rl-sim2real/humanoid-wbc.mdx', [15826, '0286490b18ce62845fa3cb42eeffab3ec64143e1ca3fe10bc4790c177ee3619c']],
+  ['content/rl-sim2real/legged-locomotion.mdx', [13891, 'b6f9b61a3bac25c098d0e2843780d4780b0ab8b865bfd7b39a273d2ea7f17dc3']],
+  ['content/rl-sim2real/offline-rl.mdx', [13530, '029b258d5819fa7de1e20f053ae79330426f2243fabfe820c96c1bcaa7677735']],
+  ['content/rl-sim2real/parallel-sim-rl.mdx', [11879, 'de3f835a25ec25e9a63bee2054f64e7ffbaac61861ca5f80b88b1afabe0f3076']],
+  ['content/rl-sim2real/rl-for-robotics.mdx', [17765, '79f2c2c2674b75442a8b2682648b6b14790f167c90b20553b5fc80eefc892c78']],
+  ['content/rl-sim2real/sim2real-transfer.mdx', [19498, '1d99e5e554a7f0800e6c326db4edb90349813de0dfdd768b510e6b4997ce439a']],
+  ['content/rl-sim2real/why-rl-locomotion.mdx', [9108, 'ba47fe9cd518551edf9ffc5e373e4aa44ab7e7cb29afec62aedcd760430d4c90']],
 ]);
 // END figure-mount pins
 
@@ -55,6 +62,20 @@ const FIGURE_MOUNTS: Readonly<Record<string, string>> = {
   QosQueueAge: 'qos-queue-age',
   Ros2Interfaces: 'ros2-interfaces',
   TimeOffsetMiss: 'time-offset-miss',
+  OfflineValueOverreach: 'offline-value-overreach',
+  TrajectoryStitching: 'trajectory-stitching',
+  RealRobotRlGains: 'real-robot-rl-gains',
+  HumanoidPickHeight: 'humanoid-pick-height',
+  ActuatorGap: 'actuator-gap',
+  TerrainCurriculum: 'terrain-curriculum',
+  RetargetingGap: 'retargeting-gap',
+  RobotsPerGpu: 'robots-per-gpu',
+  NewtonSolvers: 'newton-solvers',
+  ReplayReuse: 'replay-reuse',
+  HindsightRelabel: 'hindsight-relabel',
+  ScannedTwinCheck: 'scanned-twin-check',
+  DemoOrSim: 'demo-or-sim',
+  CubeTrials: 'cube-trials',
 };
 
 const importLine = (name: string, file: string) => `\nimport { ${name} } from '@/components/interactive/${file}';\n\n`;

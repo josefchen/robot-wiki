@@ -48,6 +48,10 @@ seeAlso:
 
 import { BatchScale } from '@/components/motion/scenes/batch-scale';
 
+import { RobotsPerGpu } from '@/components/interactive/robots-per-gpu';
+
+import { NewtonSolvers } from '@/components/interactive/newton-solvers';
+
 Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once, with the physics on a GPU. It produced Rudin and colleagues' four-minute [ANYmal walking run](/rl-sim2real/why-rl-locomotion) <Cite id="rudin-2021" />, trained with the 2017 <Term id="ppo">PPO</Term> algorithm <Cite id="ppo-2017" />.
 
 <BatchScale className="my-6" />
@@ -64,6 +68,8 @@ Massively parallel simulation is training a robot policy across thousands of sim
 Isaac Gym kept physics and policy training on one GPU, passing PhysX buffers straight to PyTorch tensors without CPU round trips. Its authors report 2 to 3 orders of magnitude improvement over a CPU simulator feeding a GPU network <Cite id="isaac-gym-2021" />.
 
 Rudin and colleagues scaled from 128 robots, typical of CPU implementations, to 16,384 on one workstation GPU. Flat terrain took under four minutes and uneven terrain twenty, "a speedup of multiple orders of magnitude compared to previous work". Their deployment policy used 4,096 robots, 98,304-transition batches (24 steps per robot) and 1,500 updates in under 20 minutes on an i9-11900k CPU and RTX A6000 GPU <Cite id="rudin-2021" />.
+
+<RobotsPerGpu className="my-6" />
 
 Their game-inspired <Term id="curriculum-learning">curriculum</Term> promotes robots that cross their tile, demotes those covering under half the commanded distance, and loops hardest-level solvers back to a random level <Cite id="rudin-2021" />. The paper's released `legged_gym` repository (October 2021) is the Isaac Gym environment used to train ANYmal on rough terrain <span className="max-sm:[&_[role=tooltip]]:-left-32"><Cite id="legged-gym-repo-2021" /></span>.
 
@@ -98,6 +104,8 @@ The Linux Foundation welcomed Newton, an open-source GPU physics engine co-devel
 NVIDIA's 16 March 2026 post announced Newton 1.0 GA at GTC 2026, built on Warp and OpenUSD, and called Isaac Sim 6.0 and Isaac Lab 3.0 early access releases <span className="max-sm:[&_[role=tooltip]]:-left-24"><Cite id="newton-manipulation-blog-2026" /></span>. Isaac Sim 6.1.0 reached general availability on 10 September 2026 <Cite id="isaac-sim-v6-1-0-2026" />. Newton v1.6.0 shipped the same day with faster CUDA collision detection, experimental graph-friendly robot controllers and an opt-in compliant mode for the VBD solver <Cite id="newton-v1-6-0-2026" />.
 
 Behind one API, NVIDIA's overview lists MuJoCo and Featherstone solvers in generalized coordinates, and SemiImplicit, XPBD and Kamino in maximal coordinates. VBD (vertex block descent <Cite id="vbd-2024" />) handles rigid bodies, particles, cloth and soft bodies with limited joints, implicit MPM particle-based continuum materials, and Style3D cloth <Cite id="state-of-simulation-2026" />. The release post credits Disney Research's Kamino with closed-chain mechanisms and describes coupling VBD and MPM with MuJoCo Warp for deformable manipulation and locomotion <Cite id="newton-manipulation-blog-2026" />.
+
+<NewtonSolvers className="my-6" />
 
 The post describes SDF collision from CAD meshes and Drake-inspired hydroelastic contact over finite-area patches, and its assembly example sets a plus or minus 10 mm sparse-SDF band, `narrow_band_range=(-0.01, 0.01)` <span className="max-sm:[&_[role=tooltip]]:-left-4"><Cite id="newton-manipulation-blog-2026" /></span>. Isaac Sim 6.1 added hydroelastic contact, a pressure-field model <Cite id="elandt-2019" />, to its experimental Newton integration <Cite id="isaac-sim-6-1-release-notes-2026" />.
 
