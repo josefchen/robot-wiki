@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import {
-  WEB_FONT_BINARY_CLASS,
+  type NonImportDependencyClass,
   deriveEvidenceClosure,
 } from './brand-v2-evidence-closure.ts';
 import { homeCopyProblems } from './home-copy.ts';
@@ -52,9 +52,18 @@ export const HOME_VIEWPORT = {
 
 export const HOME_ROUTE = '/';
 
-/** The exact sealed values the contract names for the two roles measured. */
+/**
+ * The exact sealed values the contract names for the two roles measured.
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * the primary action is ink `#1C1C1A` with white text, in place of the
+ * brand-v2 ink `#0B0B0C`, and selected or highlighted text is marked with
+ * ink, weight and a 1px rule, never a colour fill. The retired lime
+ * `#C6FF19` and the accent painted as a fill are what the highlight anchor
+ * now refuses.
+ */
 export const SELECTION_LIME_RGB = 'rgb(198, 255, 25)';
-export const ACTION_INK_RGB = 'rgb(11, 11, 12)';
+export const ACCENT_RGB = 'rgb(59, 110, 168)';
+export const ACTION_INK_RGB = 'rgb(28, 28, 26)';
 export const ON_ACTION_RGB = 'rgb(255, 255, 255)';
 
 /** Minimum ratio of the identity to the largest supporting heading. */
@@ -147,7 +156,7 @@ export type HomeActionObservation = {
 
 export type HomeHighlightObservation = {
   tag: string;
-  /** Which CSS properties paint the sealed lime on this element. */
+  /** Which CSS properties paint a highlight colour on this element. */
   carriers: string[];
   text: string;
   /**
@@ -320,20 +329,20 @@ export const HOME_CLOSURE_ENTRIES = [
 /**
  * The dependency classes home renders from without importing them.
  *
- * The import closure alone cannot see one of this page's real inputs: the
- * wordmark, every heading and the descriptor are drawn with the checked-in
- * Tektur binary that `app/layout.tsx` names as a path string. It could be
- * replaced wholesale while the committed sweep still read as current, which
- * is the same omission a handwritten path list makes. Home draws nothing
- * from the shipped robot model, so that class is not declared here: a class
+ * Until the site-foundation re-skin of 2026-10-10 the wordmark, every
+ * heading and the descriptor were drawn with the checked-in Tektur binary
+ * that `app/layout.tsx` named as a path string, so home declared the web
+ * font class. The re-skin loads DM Sans, Geist and Geist Mono through
+ * `next/font/google`, whose family options sit in `app/layout.tsx` itself,
+ * and no closure file names a font binary any more. Home draws nothing from
+ * the shipped robot model either, so no class is declared here: a class
  * whose members the closure never reaches would cover nothing.
  */
-export const HOME_NON_IMPORT_CLASSES = [WEB_FONT_BINARY_CLASS] as const;
+export const HOME_NON_IMPORT_CLASSES: readonly NonImportDependencyClass[] = [];
 
 /**
  * The fingerprint the sweep records and the generator re-derives, over the
- * bytes of the whole home closure, the font binary it renders from without
- * importing, and the exact identity literals the
+ * bytes of the whole home closure and the exact identity literals the
  * hero has to print. Restyling or rewording the page without re-running the
  * sweep is then a stale-evidence failure rather than a silently preserved
  * green row.
@@ -636,9 +645,11 @@ export function heroLockupVerdicts(
         `the home hero h1 renders "${lockup.text}", not the exact public identity "${literals.identity}"`,
       );
     }
-    if (!lockup.fontFamilyHead.toLowerCase().includes('tektur')) {
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the identity is the DM Sans display H1, in place of Tektur.
+    if (lockup.fontFamilyHead.toLowerCase() !== 'dm sans') {
       failures.push(
-        `the home hero h1 resolves ${lockup.fontFamilyHead} as its first family, not Tektur`,
+        `the home hero h1 resolves ${lockup.fontFamilyHead} as its first family, not DM Sans`,
       );
     }
     if (lockup.descriptorText === null) {
@@ -717,9 +728,9 @@ export function homeCompositionVerdicts(
         `the hero prints "${hero.text}" rather than "${literals.identity}"`,
       );
     }
-    if (!hero.fontFamilyHead.toLowerCase().includes('tektur')) {
+    if (hero.fontFamilyHead.toLowerCase() !== 'dm sans') {
       heroFailures.push(
-        `the hero resolves ${hero.fontFamilyHead} rather than Tektur`,
+        `the hero resolves ${hero.fontFamilyHead} rather than DM Sans`,
       );
     }
     if (!insideFirstViewport(hero)) {
@@ -783,21 +794,19 @@ export function homeCompositionVerdicts(
     }
   }
 
-  const limeInFirstViewport = evidence.highlights.filter((highlight) =>
-    insideFirstViewport(highlight),
-  );
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): the anchor id is kept, and its claim is inverted. Brand-v2
+  // asked for a lime highlight in the first viewport; the standard marks
+  // selected and highlighted text with ink, weight and a 1px rule, never a
+  // colour fill, so every painted highlight anywhere on the page fails. A
+  // highlight that also has no cue a reader in greyscale or forced colours
+  // can meet is still named for that, by the same reading as before.
+  const limeInFirstViewport = evidence.highlights;
   const highlightFailures: string[] = [];
-  if (limeInFirstViewport.length === 0) {
-    highlightFailures.push(
-      `no sealed ${SELECTION_LIME_RGB} highlight is painted inside the first ${HOME_VIEWPORT.height}px`,
-    );
-  }
   for (const highlight of limeInFirstViewport) {
-    if (highlight.carriers.length === 0) {
-      highlightFailures.push(
-        `the highlight on "${highlight.text}" carries the lime on no measured property`,
-      );
-    }
+    highlightFailures.push(
+      `the research-page standard marks highlighted text with ink and weight, never a colour fill, yet "${highlight.text}" is painted on ${highlight.carriers.join(', ') || 'no measured property'}`,
+    );
     if (highlight.nonColourCue === null) {
       const rejected = highlight.rejectedStateCues ?? [];
       highlightFailures.push(

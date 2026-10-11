@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { closeCiteNote, citeParts, revealCiteNote } from './helpers/citation-note';
 import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/rl-sim2real/legged-locomotion/';
@@ -9,16 +10,18 @@ for (const width of [375, 1440]) {
     await page.setViewportSize({ width, height: width === 375 ? 812 : 900 });
     await page.goto(ROUTE);
     const paragraph = page.locator('p').filter({ hasText: 'Lee and colleagues trained a privileged' });
-    const chip = paragraph.locator('[data-cite-id="lee-2020"]');
-    const link = chip.locator('a').first();
-    const tooltip = chip.getByRole('tooltip');
-    await link.scrollIntoViewIfNeeded();
-    for (const state of ['hover', 'focus']) {
-      if (state === 'hover') await link.hover();
-      else {
-        await page.mouse.move(0, 0);
-        await link.focus();
-      }
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the tooltip chip became a numbered sidenote. The pointer
+    // and keyboard states now open the note (or find it in the margin at
+    // 1440), and the same placement, title and source link are asserted on
+    // the note.
+    const cite = paragraph.locator('[data-cite-id="lee-2020"]');
+    const { mark, source } = citeParts(cite);
+    await mark.scrollIntoViewIfNeeded();
+    for (const via of ['pointer', 'keyboard'] as const) {
+      await closeCiteNote(cite);
+      if (via === 'keyboard') await page.mouse.move(0, 0);
+      const tooltip = await revealCiteNote(cite, via);
       await expect(tooltip).toBeVisible();
       const box = await tooltip.boundingBox();
       expect(box).not.toBeNull();
@@ -26,7 +29,7 @@ for (const width of [375, 1440]) {
       expect(box!.x + box!.width).toBeLessThanOrEqual(width);
       expect(box!.y).toBeGreaterThanOrEqual(0);
       await expect(tooltip).toContainText('Learning Quadrupedal Locomotion over Challenging Terrain');
-      await expect(link).toHaveAttribute('href', 'https://arxiv.org/abs/2010.11251');
+      await expect(source).toHaveAttribute('href', 'https://arxiv.org/abs/2010.11251');
     }
     await page.screenshot({ path: `${process.env.DR_READER_OUT ?? 'test-results'}/lee-placement-${process.env.DR_READER_RUN ?? 'test'}-${width}.png` });
   });

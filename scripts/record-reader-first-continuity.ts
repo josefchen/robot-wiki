@@ -197,13 +197,15 @@ async function verify(): Promise<boolean> {
   const { figureMountPredecessor } = await import('../lib/audit-figure-mount-continuity.ts');
   const { wordBudgetTrimPredecessor } = await import('../lib/audit-word-budget-trim-continuity.ts');
   const { parallelLocalPredecessor } = await import('../lib/audit-parallel-local-continuity.ts');
+  const { reskinPredecessor } = await import('../lib/audit-reskin-site-foundation-continuity.ts');
   let ok = true;
   for (const source of layer.loadReaderFirstReview(root).sources) {
     try {
-      // The newer parallel-local, word-budget trim, figure-mount, domain-pass and KOL backlog layers hand back the reader-first successor first.
+      // The newer re-skin, parallel-local, word-budget trim, figure-mount, domain-pass and KOL backlog layers hand back the reader-first successor first.
       const live = kolBacklogPredecessor(root, source.before, domainPassPredecessor(root, source.before,
         figureMountPredecessor(root, source.before, wordBudgetTrimPredecessor(root, source.before,
-          parallelLocalPredecessor(root, source.before, readFileSync(join(root, source.after.path)))))));
+          parallelLocalPredecessor(root, source.before,
+            reskinPredecessor(root, source.before, readFileSync(join(root, source.after.path))))))));
       const prior = layer.readerFirstPredecessor(root, source.before, live);
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {

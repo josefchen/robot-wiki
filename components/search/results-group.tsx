@@ -50,7 +50,7 @@ export function ResultsGroup({
       <div className="flex items-baseline justify-between gap-4 border-b border-border pb-2">
         <h2
           id={`${id}-results-heading`}
-          className="font-sans text-base font-semibold tracking-tight text-text"
+          className="section-h2"
         >
           {heading}
         </h2>
@@ -78,7 +78,7 @@ export function ResultsGroup({
           data-search-group-error={noteIsError ? id : undefined}
           className={
             noteIsError
-              ? 'mt-4 border-l-2 border-err pl-3 text-sm leading-relaxed text-err'
+              ? 'mt-4 border-l border-err pl-3 text-sm leading-relaxed text-err'
               : 'mt-4 text-sm leading-relaxed text-text-dim'
           }
         >

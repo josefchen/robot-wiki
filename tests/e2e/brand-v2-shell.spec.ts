@@ -33,9 +33,12 @@ const APPROVED_DELTAS_PATH = join(
  * Runs inside the page. Discovery is structural: it collects every element
  * carrying `aria-current` whatever its tag and whatever its position, so a
  * heading that took the state to satisfy a count is found and then failed
- * rather than never queried. The navigation entries are read from the
- * sidebar's own boxes, and the current-route rail is read off whatever the
- * active link renders, registered or not.
+ * rather than never queried. Owner-approved successor (Josef, 2026-10-10,
+ * the research-page standard): the sidebar is gone and the taxonomy lives
+ * in the "Articles" panel, so the entries are read from the open panel's
+ * own boxes, the page behind it is inert and so outside the accessibility
+ * tree, and any device the active link renders is read off it, registered
+ * or not, so a returning rail is found and failed.
  */
 function collectShell(): Omit<
   ShellRouteObservation,
@@ -58,19 +61,21 @@ function collectShell(): Omit<
               ? box.top + box.height / 2
               : box.left;
 
-  const aside = document.querySelector('aside');
+  const aside = document.querySelector('#mobile-nav-drawer');
   const nav = aside?.querySelector('nav[aria-label]') ?? null;
   const main = document.querySelector('main');
 
   const ariaCurrentNodes = [
     ...document.querySelectorAll('[aria-current]'),
-  ].map((el) => ({
+  ]
+    .filter((el) => el.closest('[inert]') === null)
+    .map((el) => ({
     tag: el.tagName.toLowerCase(),
     href: el.getAttribute('href'),
     navigationLink:
       el.tagName === 'A' &&
       el.hasAttribute('href') &&
-      el.closest('nav, aside, header') !== null,
+      el.closest('nav, aside, header, [role="dialog"]') !== null,
     accessibleName: nameOf(el),
     outline: outlineOf(el),
   }));
@@ -224,7 +229,27 @@ test.describe('brand-v2 desktop shell and navigation', () => {
         expect(response?.status(), route).toBe(200);
         await page.waitForLoadState('networkidle');
         await page.evaluate(() => document.fonts.ready);
-        const collected = await page.evaluate(collectShell);
+        // With the panel closed, nothing outside the shell's navigation
+        // chrome may carry aria-current. A misplaced node found here is kept
+        // in the observation, so the verdict fails it by name.
+        const closedMisplaced = await page.evaluate(() =>
+          [...document.querySelectorAll('[aria-current]')]
+            .filter(
+              (el) =>
+                !(
+                  el.tagName === 'A' &&
+                  el.hasAttribute('href') &&
+                  el.closest('nav, header') !== null
+                ),
+            )
+            .map((el) => ({
+              tag: el.tagName.toLowerCase(),
+              href: el.getAttribute('href'),
+              navigationLink: false,
+              accessibleName: (el.textContent ?? '').replace(/\s+/g, ' ').trim(),
+              outline: el.outerHTML.replace(/\s+/g, ' ').slice(0, 160),
+            })),
+        );
 
         const restTopPx = await page.evaluate(
           () =>
@@ -260,8 +285,13 @@ test.describe('brand-v2 desktop shell and navigation', () => {
           () => (document.activeElement as HTMLElement | null)?.id ?? null,
         );
 
+        await page.getByRole('button', { name: 'Articles' }).click();
+        await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();
+        const collected = await page.evaluate(collectShell);
+
         observations.push({
           ...collected,
+          ariaCurrentNodes: [...collected.ariaCurrentNodes, ...closedMisplaced],
           route,
           skipLink: {
             firstTabStopTag: focused?.tag ?? '',
@@ -280,12 +310,13 @@ test.describe('brand-v2 desktop shell and navigation', () => {
       }
     }
 
-    // The all-expanded taxonomy: only an expanded sidebar exposes every
+    // The all-expanded taxonomy: only an expanded panel exposes every
     // destination, and VAL-B2-SHELL-005 is a claim about all of them.
     await page.goto(`${staticBase}/`);
     await page.waitForLoadState('networkidle');
+    await page.getByRole('button', { name: 'Articles' }).click();
     const groupButtons = page.locator(
-      'aside nav[aria-label] > ul > li > button[aria-controls]',
+      '#mobile-nav-drawer nav[aria-label] > ul > li > button[aria-controls]',
     );
     const groupCount = await groupButtons.count();
     expect(groupCount, 'taxonomy groups').toBeGreaterThan(0);
@@ -336,34 +367,56 @@ test.describe('brand-v2 desktop shell and navigation', () => {
       .sort();
     expect(skipLinkFailures).toEqual([]);
 
-    // VAL-DESIGN-017: one indent depth. Every category marks at the same
-    // offset from the taxonomy rail, so the reader reads depth from the text
-    // indent and never from where the current-route rail sits.
+    // VAL-DESIGN-017: one indent depth. Owner-approved successor (Josef,
+    // 2026-10-10, the research-page standard): with the rail retired, the
+    // current entry's own text box is what a reader sees move, so every
+    // category is observed carrying the current-route state, each category
+    // sets its current entry at one offset on every route, and the domain
+    // overview and its modules share one indent: depth is read from the
+    // text indent alone.
     //
     // The lockup is deliberately absent: it is the wordmark, and the owner
-    // decision of 2026-09-25 excludes the wordmark from the rail and from
-    // every other accent bar. `currentRouteVerdicts` above fails any route
-    // where a lockup renders a device at all, so the wordmark cannot regain
-    // the mark without failing this sweep first.
-    const markerLefts = observations.flatMap(({ route, navEntries }) =>
+    // decision of 2026-09-25 excludes the wordmark from every accent bar.
+    // `currentRouteVerdicts` above fails any route where an entry renders a
+    // device at all.
+    const currentLefts = observations.flatMap(({ route, navEntries }) =>
       navEntries
-        .filter(({ marker }) => marker !== null)
-        .map(({ category, marker }) => ({
-          route,
-          category,
-          left: marker?.leftPx ?? 0,
-        })),
+        .filter(
+          ({ ariaCurrent, category, href }) =>
+            ariaCurrent === 'page' &&
+            category !== 'lockup' &&
+            href.replace(/\/$/, '') === route.replace(/\/$/, ''),
+        )
+        .map(({ category, leftPx }) => ({ route, category, left: leftPx })),
     );
-    const markedCategories = new Set(markerLefts.map(({ category }) => category));
+    const markedCategories = new Set(currentLefts.map(({ category }) => category));
     expect(
       [...markedCategories].sort(),
-      'every taxonomy entry category has to be observed carrying the current-route rail',
+      'every taxonomy entry category has to be observed carrying the current-route state',
     ).toEqual(['domain-overview', 'module', 'standalone']);
-    const lefts = markerLefts.map(({ left }) => left);
+    for (const category of markedCategories) {
+      const lefts = currentLefts
+        .filter((entry) => entry.category === category)
+        .map(({ left }) => left);
+      expect(
+        Math.max(...lefts) - Math.min(...lefts),
+        `the current ${category} entry moves across routes: ${JSON.stringify(currentLefts.filter((entry) => entry.category === category).slice(0, 6))}`,
+      ).toBeLessThanOrEqual(1);
+    }
+    const groupedLefts = currentLefts
+      .filter(({ category }) => category === 'domain-overview' || category === 'module')
+      .map(({ left }) => left);
     expect(
-      Math.max(...lefts) - Math.min(...lefts),
-      `current-route rail depth varies across ${JSON.stringify(markerLefts.slice(0, 6))}`,
+      Math.max(...groupedLefts) - Math.min(...groupedLefts),
+      'a domain overview and its modules sit at different indents, so the taxonomy has two depths',
     ).toBeLessThanOrEqual(1);
+    expect(
+      observations
+        .flatMap(({ navEntries }) => navEntries)
+        .filter(({ marker }) => marker !== null)
+        .map(({ href, marker }) => `${href}: ${marker?.deviceId ?? 'unregistered'}`),
+      'a navigation entry renders a device, which the research-page standard retires',
+    ).toEqual([]);
 
     // VAL-B2-SHELL-005: the rendered taxonomy still hashes to the sealed
     // navigation baseline, entry for entry.

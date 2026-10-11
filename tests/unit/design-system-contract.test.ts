@@ -24,14 +24,17 @@ const ogArtwork = read('lib/og-card-artwork.ts');
 const robotScene = read('components/three/robot-scene.tsx');
 const nextEnv = read('next-env.d.ts');
 
+// Owner-approved successor (Josef, 2026-10-10, the Pantheon standard): the
+// sealed palette is paper and ink, grayscale chart tones and one muted blue
+// accent, in place of the brand-v2 lime and signal blue.
 const palette = {
-  ink: '#0B0B0C',
-  graphite: '#242D33',
-  concrete: '#D9DADB',
-  paper: '#F5F6F7',
+  ink: '#1C1C1A',
+  graphite: '#3F3F3B',
+  concrete: '#DEDEDB',
+  paper: '#FAFAF8',
   white: '#FFFFFF',
-  highlight: '#C6FF19',
-  signal: '#245FFF',
+  highlight: '#A3A39E',
+  signal: '#3B6EA8',
 } as const;
 
 const semanticPalette = {
@@ -152,16 +155,19 @@ describe('design tokens stay aligned', () => {
         `--color-${name}: ${value};`,
       );
     }
-    expect(globals).toContain('--color-focus: var(--color-signal);');
-    expect(globals).toContain('--color-selection: var(--color-highlight);');
+    // Owner-approved successor (Josef, 2026-10-10): focus and links are ink,
+    // selection is the light grey tone, and the focus ring is 1 px.
+    expect(globals).toContain('--color-focus: var(--color-ink);');
+    expect(globals).toContain('--color-link: var(--color-ink);');
+    expect(globals).toContain('--color-selection: var(--color-concrete);');
     expect(globals).toContain('::selection {\n    background: var(--color-selection);');
-    expect(globals).toContain('outline: 2px solid var(--color-focus);');
+    expect(globals).toContain('outline: 1px solid var(--color-focus);');
     expect(spec).toContain('Primary actions are ink/black filled');
     expect(spec).toContain(
-      'Selected, toggled, or highlighted states use highlight lime',
+      'Selected, toggled, or highlighted states use ink weight with a 1 px ink rule or underline, never a colour fill',
     );
     expect(spec).toContain(
-      'Signal blue is for links, focus, registration, and active information paths',
+      'The muted blue signal is for registration, active information paths and the one highlighted series of a figure',
     );
   });
 
@@ -171,10 +177,10 @@ describe('design tokens stay aligned', () => {
     );
     expect(spec).toContain('Mirrors remain explicit and parity-tested');
     expect(integrity).toContain(
-      'Runtime highlight token and all renderer mirrors resolve exactly to `#C6FF19`',
+      'Runtime highlight token and all renderer mirrors resolve exactly to `#A3A39E`',
     );
     expect(integrity).toContain(
-      'Runtime signal token and all renderer mirrors resolve exactly to `#245FFF`',
+      'Runtime signal token and all renderer mirrors resolve exactly to `#3B6EA8`',
     );
     for (const token of [
       'paper',
@@ -237,10 +243,16 @@ describe('design tokens stay aligned', () => {
   });
 
   it('uses semantic warning colour in warning primitives', () => {
-    expect(badge).toContain("warn: 'border-warn text-warn'");
-    expect(callout).toContain("warn: 'border-l-warn'");
+    // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard):
+    // badges lost their outline box and the callout its coloured left bar,
+    // so the warning colour now lives on the text alone ("border-warn
+    // text-warn" became "text-warn"; "border-l-warn" is gone). The accent
+    // must still never stand in for it.
+    expect(badge).toContain("warn: 'text-warn'");
+    expect(callout).not.toContain('border-l-');
     expect(callout).toContain("warn: 'text-warn'");
     expect(badge).not.toContain("warn: 'border-accent text-accent'");
+    expect(badge).not.toContain('text-accent');
     expect(callout).not.toContain("warn: 'border-l-accent'");
     expect(new Set(Object.values(semanticPalette)).size).toBe(4);
     for (const [name, value] of Object.entries(semanticPalette)) {

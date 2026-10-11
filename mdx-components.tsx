@@ -1,6 +1,7 @@
 import type { MDXComponents } from 'mdx/types';
 import type { ComponentPropsWithoutRef } from 'react';
 import { PredictThenReveal, SelfCheck } from '@/components/article/commit-to-reveal';
+import { Finding, Findings } from '@/components/article/findings';
 import {
   Aside,
   Badge,
@@ -40,11 +41,11 @@ function ProseTable({ className, ...props }: ComponentPropsWithoutRef<'table'>) 
       role="region"
       aria-label="Scrollable article table"
       tabIndex={0}
-      className="my-6 max-w-full overflow-x-auto rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      className="my-9 max-w-full overflow-x-auto"
     >
       <table
         {...props}
-        className={`border-collapse text-left text-sm ${className ?? ''}`}
+        className={`booktabs text-left ${className ?? ''}`}
       />
     </div>
   );
@@ -69,6 +70,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     CodeBlock,
     Figure,
     FigureReuse,
+    Finding,
+    Findings,
     Image: ImageRef,
     KeyValue,
     PredictThenReveal,

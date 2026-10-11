@@ -9,8 +9,9 @@ import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
  *
  * All three are claims about a rendered document. Whether exactly one
  * `aria-current="page"` sits on the link that matches the route, whether the
- * current-route marker is a registered device painted in the sealed lime and
- * carried by a non-colour cue as well, whether the skip link is the first
+ * current entry is set in ink with a weight step over its siblings and no
+ * device at all (owner-approved successor, Josef 2026-10-10, the
+ * research-page standard: the lime current-route rail is retired), whether the skip link is the first
  * thing a Tab reaches, and whether the taxonomy still resolves the same
  * hrefs and accessible names are all facts about the DOM a browser built.
  * A source grep decides none of them: a `text-transform`, a class that never
@@ -32,26 +33,28 @@ export const SHELL_RUNTIME_EVIDENCE_PATH =
   'evidence/brand-v2/shell-navigation.json';
 
 /**
- * The one viewport this sweep covers. `VAL-B2-SHELL-002` is a claim about
- * the shell's navigation, and below `lg` the taxonomy lives inside a closed
- * drawer that renders no links at all, so a mobile pass would record an
- * absent navigation rather than a navigation that lost its marker. The
- * drawer is measured by its own assertion, `VAL-B2-SHELL-004`.
+ * The one viewport this sweep covers. Owner-approved successor (Josef,
+ * 2026-10-10, the research-page standard): the shell is one top bar at
+ * every width and the taxonomy lives in the "Articles" panel, so the
+ * desktop sweep opens that panel on every route and measures the
+ * navigation inside it. The phone pass is `VAL-B2-SHELL-004`.
  */
 export const SHELL_VIEWPORT = { id: '1440x900', width: 1440, height: 900 } as const;
 
 /**
- * The one registered device the current-route mark may be. The rail is a
- * registered grid device with sealed geometry, so "carries some device id"
- * is not the claim: any annotation at all satisfied that, including one
- * naming a device with different registered geometry, and the row still read
- * as the registered rail.
+ * The registered device the brand-v2 current-route mark used to be. Owner-
+ * approved successor (Josef, 2026-10-10, the research-page standard): the
+ * rail is retired, so this device, and every other one, is now refused on a
+ * current entry. It stays named so a returning rail is reported by name.
  */
 export const ACTIVE_INTERVAL_RAIL_DEVICE_ID = 'device:active-interval-rail';
 
-/** The exact lime and ink the contract seals for the current-route mark. */
+/**
+ * The retired brand-v2 lime, refused on the current-route treatment, and the
+ * sealed ink the current entry is set in.
+ */
 export const SELECTION_LIME_RGB = 'rgb(198, 255, 25)';
-export const INK_RGB = 'rgb(11, 11, 12)';
+export const INK_RGB = 'rgb(28, 28, 26)';
 /**
  * Signal blue, in the rendered form and in both hex spellings the repository
  * has shipped. Section 11 reserves it for focus and link behaviour, so its
@@ -157,7 +160,7 @@ export type ShellRuntimeEvidence = {
   observations: ShellRouteObservation[];
   /**
    * The taxonomy with every group expanded, captured once. Only an expanded
-   * sidebar exposes all sixty destinations, and `VAL-B2-SHELL-005` is a
+   * panel exposes all sixty destinations, and `VAL-B2-SHELL-005` is a
    * claim about all of them.
    */
   expandedLedger: ShellNavEntry[];
@@ -401,11 +404,12 @@ export type CurrentRouteVerdict = {
  * Decides `VAL-B2-SHELL-002` per route from what the sweep recorded.
  *
  * A route with a taxonomy entry must put exactly one `aria-current="page"`
- * on that entry, paint it in ink, and mark it with the registered lime rail
- * at full row height plus one weight step over its idle siblings, with the
- * marker contributing nothing to the accessible name. A route without an
- * entry must expose none at all. Colour alone never carries the state, and
- * signal blue never carries it.
+ * on that entry, paint it in ink, and give it one weight step over its idle
+ * siblings, with no device inside it at all: owner-approved successor
+ * (Josef, 2026-10-10, the research-page standard), which retired the lime
+ * current-route rail. A route without an entry must expose none at all.
+ * Colour alone never carries the state, and neither signal blue nor the
+ * retired lime carries it.
  *
  * The one exemption is the wordmark. The owner decision of 2026-09-25
  * (owner-decision-no-wordmark-rail-20260925.md) excludes every `Robot Wiki`
@@ -421,9 +425,9 @@ export function currentRouteVerdicts(
   evidence: ShellRuntimeEvidence,
   registeredDeviceIds: readonly string[],
 ): Map<string, CurrentRouteVerdict> {
-  if (!registeredDeviceIds.includes(ACTIVE_INTERVAL_RAIL_DEVICE_ID)) {
+  if (registeredDeviceIds.length === 0) {
     throw new Error(
-      `${ACTIVE_INTERVAL_RAIL_DEVICE_ID} is not in the device registry, so the current-route mark cannot be reconciled against a registered device`,
+      'the device registry is empty, so a device planted on the current entry could not be named',
     );
   }
   const registered = new Set(registeredDeviceIds);
@@ -480,47 +484,19 @@ export function currentRouteVerdicts(
             `${route} renders ${marker.deviceId ?? 'an unregistered device'} on the wordmark lockup, which the owner decision of 2026-09-25 excludes from every accent bar`,
           );
         }
-      } else if (!marker) {
-        failures.push(`${route} marks the current entry with no rail device`);
-      } else {
-        if (marker.deviceId === null) {
-          failures.push(
-            `${route} marks the current entry with an unregistered element`,
-          );
-        } else if (!registered.has(marker.deviceId)) {
-          failures.push(
-            `${route} marks the current entry with ${marker.deviceId}, which is not in the device registry`,
-          );
-        } else if (marker.deviceId !== ACTIVE_INTERVAL_RAIL_DEVICE_ID) {
-          failures.push(
-            `${route} marks the current entry with ${marker.deviceId}, not the registered ${ACTIVE_INTERVAL_RAIL_DEVICE_ID}`,
-          );
-        }
-        if (marker.borderLeftColour !== SELECTION_LIME_RGB) {
-          failures.push(
-            `${route} paints the current-route rail ${marker.borderLeftColour}, not the sealed ${SELECTION_LIME_RGB}`,
-          );
-        }
-        if (marker.alignmentErrorPx > 2) {
-          failures.push(
-            `${route} sets the current-route rail ${marker.alignmentErrorPx}px from its registered anchor`,
-          );
-        }
-        if (marker.heightPx + 0.5 < marker.ownerHeightPx) {
-          failures.push(
-            `${route} renders a ${marker.heightPx}px rail on a ${marker.ownerHeightPx}px row, so the mark is not full-row`,
-          );
-        }
-        if (marker.contributedText.length > 0) {
-          failures.push(
-            `${route} lets the current-route rail contribute "${marker.contributedText}" to the accessible name`,
-          );
-        }
-        if (marker.ariaHidden !== 'true' || marker.pointerEvents !== 'none') {
-          failures.push(
-            `${route} renders the current-route rail exposed or pointer-active`,
-          );
-        }
+      } else if (marker) {
+        // The research-page standard retires the current-route rail: the
+        // current entry is ink plus weight, and any device inside it, the
+        // former rail included, fails the route by name.
+        const named =
+          marker.deviceId === null
+            ? 'an unregistered element'
+            : registered.has(marker.deviceId)
+              ? marker.deviceId
+              : `${marker.deviceId}, which is not in the device registry,`;
+        failures.push(
+          `${route} marks the current entry with ${named} where the research-page standard sets it in ink and weight alone`,
+        );
       }
       if (matchingEntry.colour !== INK_RGB) {
         failures.push(
@@ -535,12 +511,14 @@ export function currentRouteVerdicts(
       const signal = [
         matchingEntry.colour,
         marker?.borderLeftColour ?? '',
-      ].filter((value) =>
-        SIGNAL_BLUE_FORMS.some((form) => value.toLowerCase().includes(form)),
+      ].filter(
+        (value) =>
+          SIGNAL_BLUE_FORMS.some((form) => value.toLowerCase().includes(form)) ||
+          value === SELECTION_LIME_RGB,
       );
       if (signal.length > 0) {
         failures.push(
-          `${route} carries signal blue on the current-route treatment (${signal.join(', ')})`,
+          `${route} carries signal blue or the retired lime on the current-route treatment (${signal.join(', ')})`,
         );
       }
     }

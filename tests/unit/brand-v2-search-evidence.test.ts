@@ -240,19 +240,23 @@ describe('search-states evidence', () => {
         .failures.join('\n'),
     ).toContain('residue');
 
-    // A facet selected without its lime fails, and so does one whose
-    // keyboard activation was never recorded.
-    const unlabeled = mutate((evidence) => {
-      const state = evidence.states.find(
-        ({ stateId }) => stateId === facetStateId('dataset'),
+    // Owner-approved successor (Josef, 2026-10-10): a selected facet is an
+    // unfilled text tab, so a facet selected with a fill fails (the retired
+    // lime included), and so does one whose keyboard activation was never
+    // recorded.
+    for (const fill of ['rgb(250, 250, 247)', 'rgb(198, 255, 25)']) {
+      const filled = mutate((evidence) => {
+        const state = evidence.states.find(
+          ({ stateId }) => stateId === facetStateId('dataset'),
+        );
+        if (state?.facet) state.facet.selectedBackgroundRgb = fill;
+      });
+      expect(
+        searchFacetSelectionVerdicts(filled).flatMap(({ failures }) => failures),
+      ).toContain(
+        `the selected dataset facet computes to ${fill}, not the unfilled text tab`,
       );
-      if (state?.facet) state.facet.selectedBackgroundRgb = 'rgb(250, 250, 247)';
-    });
-    expect(
-      searchFacetSelectionVerdicts(unlabeled).flatMap(({ failures }) => failures),
-    ).toContain(
-      'the selected dataset facet computes to rgb(250, 250, 247), not lime',
-    );
+    }
     const noKeyboard = mutate((evidence) => {
       evidence.facetKeyboard.optionActivatedByKeyboard.company = false;
     });

@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { cx } from '@/lib/utils';
 
-type MaterialTreatment = 'paper' | 'concrete' | 'halftone';
+type MaterialTreatment = 'paper';
 
 type MaterialProps = HTMLAttributes<HTMLDivElement> & {
   treatment?: MaterialTreatment;
@@ -10,8 +10,6 @@ type MaterialProps = HTMLAttributes<HTMLDivElement> & {
 
 const materialClasses: Record<MaterialTreatment, string> = {
   paper: 'material-paper',
-  concrete: 'material-concrete',
-  halftone: 'material-halftone',
 };
 
 export function Material({

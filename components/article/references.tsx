@@ -21,14 +21,11 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
   if (entries.length === 0) return null;
 
   return (
-    <section aria-labelledby="references-heading" className="mt-14">
-      <h2
-        id="references-heading"
-        className="font-sans text-[1.375rem] font-semibold tracking-tight text-text"
-      >
+    <section aria-labelledby="references-heading" className="mt-16">
+      <h2 id="references-heading" className="section-h2">
         References
       </h2>
-      <ol className="mt-6 list-none space-y-4">
+      <ol className="mt-6 list-none space-y-3">
         {entries.map(({ citation, furtherReading }, index) => (
           <li
             key={citation.id}
@@ -38,11 +35,11 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
             // can read the further-reading set without sniffing the badge's
             // own words.
             data-further-reading={furtherReading ? 'true' : 'false'}
-            className="grid scroll-mt-16 grid-cols-[1.75rem_minmax(0,1fr)] gap-x-3 rounded-sm px-2 py-1.5 transition-colors target:bg-surface lg:scroll-mt-4 [margin-inline:-0.5rem]"
+            className="grid grid-cols-[2rem_minmax(0,1fr)] gap-x-3 py-1 target:[&>div]:border-l target:[&>div]:border-ink target:[&>div]:pl-3"
           >
             <span
               aria-hidden="true"
-              className="pt-0.5 text-right font-mono text-xs leading-relaxed text-text-dim"
+              className="pt-px font-mono text-[13px] leading-relaxed text-text"
             >
               {index + 1}
             </span>
@@ -54,19 +51,17 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
                   rel="noopener noreferrer"
                   data-brand-control-id="control:link-focus"
                   data-reference-source-link
-                  // Signal blue plus underline: design-system 4.4 assigns
-                  // that treatment to source links, and the approved article
-                  // reference sets its licence link the same way. Internal
-                  // index rows (See also, Linked from) keep the strong-ink
-                  // treatment 14 allows, so a reader can tell an outbound
-                  // source from a move inside the wiki without reading it.
-                  className="break-words font-sans text-sm font-medium leading-snug text-accent underline decoration-accent/45 underline-offset-[3px] transition-colors hover:decoration-accent"
+                  // Ink with a 1px underline, like every prose link. Internal
+                  // index rows (See also, Linked from) carry no underline at
+                  // rest, so a reader can tell an outbound source from a
+                  // move inside the wiki without reading it.
+                  className="ink-link break-words font-sans text-[14px] font-medium leading-snug"
                 >
                   {citation.title}
                 </a>
                 {furtherReading ? <Badge>Further reading</Badge> : null}
               </div>
-              <p className="mt-1 break-words font-sans text-[13px] leading-relaxed text-text-dim">
+              <p className="mt-0.5 break-words font-sans text-[13px] leading-relaxed text-text-dim">
                 <AuthorList
                   id={citation.id}
                   authors={citation.authors}
@@ -75,7 +70,7 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
                   }.`}
                 />
               </p>
-              <p className="mt-0.5 break-all font-mono text-xs leading-relaxed text-text-dim">
+              <p className="break-all font-mono text-[12px] leading-relaxed text-text-dim">
                 {citation.url}
               </p>
             </div>

@@ -28,9 +28,9 @@ type TypeFacetBarProps = {
  * Entity-type facets for the structured search group. Hairline buttons in
  * open space: they are not nested inside a bordered container.
  *
- * A selected facet is lime with ink text plus a check marker and
+ * A selected facet is ink on a 1px ink rule plus a check marker and
  * `aria-pressed`, so selection never rides on colour alone
- * (VAL-B2-DISC-003). The same lime/ink/marker treatment the tabs and chips
+ * (VAL-B2-DISC-003). The same ink/rule/marker treatment the tabs and chips
  * primitives use, because a facet is a selection control, not a link.
  */
 export function TypeFacetBar({
@@ -44,7 +44,7 @@ export function TypeFacetBar({
       aria-label="Filter by type"
       data-facet-pending={pending ? 'true' : undefined}
       className={cx(
-        'mb-4 flex flex-wrap gap-1.5',
+        'mb-4 flex flex-wrap gap-x-5 gap-y-1 border-b border-border',
         pending ? 'opacity-60' : undefined,
       )}
     >
@@ -60,14 +60,16 @@ export function TypeFacetBar({
             disabled={pending}
             onClick={() => onChange(option.type)}
             className={cx(
-              'inline-flex items-center gap-1 rounded-sm border px-2.5 py-1.5 font-mono text-xs',
+              // Text tabs: the pressed one in ink on a 1px ink underline,
+              // the rest muted. No boxes, no fills.
+              '-mb-px inline-flex items-center gap-1 border-b py-2 font-sans text-[14px]',
               pending
-                ? 'cursor-not-allowed border-border bg-surface-2 text-text-dim'
+                ? 'cursor-not-allowed border-transparent text-text-dim'
                 : cx(
-                    'cursor-pointer transition-colors active:translate-y-[1px]',
+                    'cursor-pointer transition-colors',
                     active
-                      ? 'border-highlight bg-selection font-semibold text-ink'
-                      : 'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text',
+                      ? 'border-ink font-medium text-ink'
+                      : 'border-transparent text-text-dim hover:text-text',
                   ),
             )}
           >

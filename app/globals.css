@@ -5,22 +5,48 @@
 @import '../components/motion/scene-equation.css';
 
 /*
- * Robot Wiki brand-v2 runtime tokens (Tailwind v4 CSS-first).
- * The product is light-led: paper is the page ground, white is the reading
- * surface, and graphite is reserved for bounded technical instruments.
- * Renderer mirrors live in lib/brand-v2-tokens.ts.
+ * Robot Wiki runtime tokens (Tailwind v4 CSS-first), the Pantheon
+ * research-page standard (owner decision of 2026-10-10, PANTHEON-SPEC.md).
+ * Paper and ink, hairline 1px rules, grayscale chart colours and one muted
+ * blue accent. The page is a single paper sheet in the very light warm grey
+ * of the owner's prototype (#fafaf8): there is no second "reading surface"
+ * colour, and the only inset is --paper-deep.
+ *
+ * The spec's own names live on :root below (--paper, --ink, --line, ...);
+ * figures and primitives consume those directly. The --color-* names here
+ * are the Tailwind utility layer over the same values. Renderer mirrors
+ * live in lib/brand-v2-tokens.ts.
  */
-@theme {
-  /* Locked brand foundations. Keep uppercase hex for executable parity. */
-  --color-ink: #0B0B0C;
-  --color-graphite: #242D33;
-  --color-concrete: #D9DADB;
-  --color-paper: #F5F6F7;
-  --color-white: #FFFFFF;
-  --color-highlight: #C6FF19;
-  --color-signal: #245FFF;
+:root {
+  --paper: #fafaf8;
+  --paper-deep: #f0f3f6;
+  --ink: #1c1c1a;
+  --muted: #6c6b66;
+  --line: rgba(28, 28, 26, 0.14);
+  --line-strong: rgba(28, 28, 26, 0.22);
+  --chart-background: #dededb;
+  --chart-medium: #a3a39e;
+  --chart-dark: #3f3f3b;
+  --accent: #3b6ea8;
+  --ok: #1a6f45;
+  --fail: #a52a1e;
 
-  /* Semantic roles are separate from brand accents. */
+  --page-gutter: clamp(24px, 8vw, 160px);
+  --header-gutter: clamp(16px, 4vw, 80px);
+  --code-radius: 7px;
+}
+
+@theme {
+  /* Palette. Keep uppercase hex for executable parity with the mirror. */
+  --color-ink: #1C1C1A;
+  --color-graphite: #3F3F3B;
+  --color-concrete: #DEDEDB;
+  --color-paper: #FAFAF8;
+  --color-white: #FFFFFF;
+  --color-highlight: #A3A39E;
+  --color-signal: #3B6EA8;
+
+  /* Outcome marks (a small check or cross), never fills or series. */
   --color-ok: #1A6F45;
   --color-warn: #8A5A00;
   --color-error: #A52A1E;
@@ -30,31 +56,24 @@
   --color-on-error: #FFFFFF;
   --color-on-destructive: #FFFFFF;
 
-  /* Action, selection, focus, and information roles remain distinct. */
+  /* Actions and focus are ink; the accent is the one highlighted series.
+     Highlight and selection are neutral greys that ink text reads on. */
   --color-action: var(--color-ink);
   --color-on-action: var(--color-white);
-  --color-selection: var(--color-highlight);
-  --color-focus: var(--color-signal);
-  --color-link: var(--color-signal);
+  --color-selection: var(--color-concrete);
+  --color-focus: var(--color-ink);
+  --color-link: var(--color-ink);
   --color-registration: var(--color-signal);
   --color-active-path: var(--color-signal);
 
-  /* Light-led surface roles. */
+  /* One paper sheet; the inset is --paper-deep. */
   --color-bg: var(--color-paper);
-  --color-surface: var(--color-white);
-  --color-surface-2: color-mix(
-    in srgb,
-    var(--color-concrete) 18%,
-    var(--color-white)
-  );
-  --color-border: var(--color-concrete);
-  --color-border-strong: color-mix(
-    in srgb,
-    var(--color-graphite) 42%,
-    var(--color-concrete)
-  );
+  --color-surface: var(--color-paper);
+  --color-surface-2: #F0F3F6;
+  --color-border: rgba(28, 28, 26, 0.14);
+  --color-border-strong: rgba(28, 28, 26, 0.22);
   --color-text: var(--color-ink);
-  --color-text-dim: var(--color-graphite);
+  --color-text-dim: #6C6B66;
 
   /*
    * Compatibility aliases keep existing consumers stable while later
@@ -76,46 +95,252 @@
    */
   --color-logo-plate: #7d7a73;
 
-  /* Typography: Tektur display, IBM Plex Sans UI, Newsreader prose,
-     IBM Plex Mono code/data. Variables are set by next/font in layout.tsx. */
-  --font-display: var(--font-tektur), var(--font-plex-sans), ui-sans-serif,
-    system-ui, sans-serif;
-  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, 'SF Mono', monospace;
+  /* Typography: DM Sans display, Geist text and interface, Geist Mono for
+     numerals, code and readouts. Variables are set by next/font in
+     layout.tsx. The reading role is Geist too: one text face. */
+  --font-display: var(--font-dm-sans), var(--font-geist), Arial, Helvetica,
+    sans-serif;
+  --font-sans: var(--font-geist), Arial, Helvetica, sans-serif;
+  --font-serif: var(--font-geist), Arial, Helvetica, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Consolas,
+    monospace;
 
-  /* Shape ladder and neutral elevation variants. */
+  /* Square corners everywhere; the code block's 7px is --code-radius. */
   --radius-none: 0px;
-  --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --shadow-raised: 0 2px 8px rgb(11 11 12 / 0.1);
-  --shadow-floating: 0 8px 20px rgb(11 11 12 / 0.16);
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --shadow-raised: 0 0 #0000;
+  --shadow-floating: 0 0 #0000;
 }
 
 /*
- * Measurable Tektur role instances. Keep these in lockstep with
- * data/type-roles.json. Every role names both registered axes rather than
- * relying on a browser default or a font filename to imply an instance.
+ * Display roles. The H1 is DM Sans 400; section and chrome roles are DM Sans
+ * 600. Keep these in lockstep with data/type-roles.json.
  */
 .font-display-home,
-.font-display-shell,
 .font-display-page,
-.font-display-article,
+.font-display-article {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.font-display-shell,
 .font-display-section,
 .font-display-numerals {
   font-family: var(--font-display);
   font-style: normal;
   font-weight: 600;
-  font-stretch: 100%;
-  font-variation-settings:
-    'wght' 600,
-    'wdth' 100;
+}
+
+/*
+ * The page masthead every route shares: an uppercase eyebrow, one DM Sans
+ * display H1, a Geist lead and a muted meta line. Measured on the
+ * reference: H1 87.36px at 1440 with 0.93 leading, eyebrow 13-14px tracked
+ * +0.08em, lead 16/26 capped at 960px.
+ */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.eyebrow a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--muted) 60%, transparent);
+}
+
+.eyebrow a:hover {
+  color: var(--ink);
+}
+
+/* A display numeral set as an eyebrow (the 404 status) keeps the eyebrow's
+   size and tracking and takes the display face at its registered weight. */
+.eyebrow.font-display-numerals {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.display-h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 0.6rem + 5.4vw, 5.46rem);
+  line-height: 0.93;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  overflow-wrap: break-word;
+}
+
+.page-lead {
+  max-width: 960px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.62;
+  color: var(--ink);
+}
+
+.meta-line {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.meta-line a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.meta-line a:hover {
+  color: var(--ink);
+}
+
+/*
+ * Section labels outside the article (hub, home, index pages) wear the same
+ * H2 as the article: DM Sans 600, 20px, uppercase, +0.055em.
+ */
+.section-h2 {
+  font-family: var(--font-display);
+  font-size: 20.32px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/*
+ * The sheet every non-article route sits on: the article's 960px column,
+ * centred, with the same gutters, and the same masthead rhythm.
+ */
+.sheet {
+  width: 100%;
+  max-width: calc(960px + 2 * var(--article-gutter));
+  margin-inline: auto;
+  padding-inline: var(--article-gutter);
+}
+
+.sheet-masthead {
+  padding-top: clamp(56px, 8vw, 128px);
+}
+
+.sheet-masthead .eyebrow {
+  margin-bottom: 24px;
+}
+
+.sheet-masthead .page-lead {
+  margin-top: 30px;
+}
+
+.sheet-masthead .meta-line {
+  margin-top: 24px;
+}
+
+.sheet-section {
+  margin-top: 76px;
+}
+
+.sheet-section > .section-h2 {
+  margin-bottom: 18px;
+}
+
+/*
+ * Home is the one index that has to show its whole contents in the first
+ * screen: all seven domains above the fold at 1440x900 and the featured
+ * scene starting within 1200px. Its masthead puts the search beside the
+ * lead, and its sections close up to 48px, the same rules and type at a
+ * front-page density.
+ */
+.sheet-masthead.home-masthead {
+  padding-top: 32px;
+}
+
+.home-masthead .page-lead {
+  margin-top: 20px;
+}
+
+.home-masthead .meta-line {
+  margin-top: 12px;
+}
+
+@media (min-width: 1024px) {
+  .home-masthead {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    grid-template-rows: 1fr auto;
+    column-gap: 48px;
+  }
+
+  .home-masthead > .home-lockup {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  /* The counts and the search share the right column; the search's bottom
+     edge lines up with the lead's. */
+  .home-masthead > .meta-line {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    margin: 0 0 12px;
+  }
+
+  .home-masthead > .home-masthead-search {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: end;
+    margin-top: 0;
+  }
+}
+
+.sheet-section.home-section {
+  margin-top: 40px;
+}
+
+.home-section > .section-h2 {
+  margin-bottom: 16px;
+}
+
+/* A plain text link in the house manner: ink, 1px underline. */
+.ink-link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, var(--ink) 55%, transparent);
+  text-underline-offset: 3px;
+}
+
+.ink-link:hover {
+  text-decoration-color: var(--ink);
+}
+
+/* A quiet text link: muted until hovered, no underline at rest. */
+.quiet-link {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.quiet-link:hover {
+  color: var(--ink);
 }
 
 @layer base {
+  html {
+    scroll-padding-top: calc(var(--topbar-height) + 24px);
+  }
+
   :root {
     color-scheme: light;
     --space-4: 4px;
@@ -131,23 +356,25 @@
   }
 
   body {
-    background: var(--color-bg);
-    color: var(--color-text);
+    background: var(--paper);
+    color: var(--ink);
     font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
     background: var(--color-selection);
-    color: var(--color-ink);
+    color: var(--ink);
   }
 
-  /* Focus is signal blue. Persistent selection is highlight lime. */
+  /* Focus is a 1px ink outline offset 2px, keyboard only. */
   :focus-visible {
-    outline: 2px solid var(--color-focus);
+    outline: 1px solid var(--color-focus);
     outline-offset: 2px;
-    border-radius: var(--radius-xs);
+    border-radius: 0;
   }
 
   :focus:not(:focus-visible) {
@@ -168,74 +395,25 @@
 }
 
 /*
- * The brand's one graphic device: a literal 32px engineering grid. It is an
- * SVG tile rather than a CSS gradient, and is reserved for title-sheet and
- * social-card fields. The reading surface itself stays plain paper.
+ * The Pantheon sheet is plain white paper: no grid, no grain pattern, no
+ * halftone. The concrete and halftone materials are retired; paper is the one
+ * material left, and the grid class survives as a name only.
  */
-.engineering-grid {
-  background-color: var(--color-surface);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M.5 32V.5H32' fill='none' stroke='%23D9DADB' stroke-width='1'/%3E%3C/svg%3E");
-  background-position: center;
-  background-repeat: repeat;
-  background-size: 32px 32px;
-}
-
+.engineering-grid,
 .material-paper {
-  background-color: var(--color-paper);
-}
-
-.material-concrete {
-  background-color: var(--color-surface);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23D9DADB' fill-opacity='.24'%3E%3Ccircle cx='3' cy='5' r='.65'/%3E%3Ccircle cx='18' cy='3' r='.45'/%3E%3Ccircle cx='11' cy='16' r='.55'/%3E%3Ccircle cx='22' cy='20' r='.4'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat;
-}
-
-.material-halftone {
-  background-color: var(--color-surface);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='4' cy='4' r='1' fill='%23242D33' fill-opacity='.08'/%3E%3Ccircle cx='12' cy='12' r='1' fill='%23242D33' fill-opacity='.08'/%3E%3C/svg%3E");
-  background-repeat: repeat;
+  background-color: var(--paper);
+  background-image: none;
 }
 
 /*
- * The one textured surface, carried over from the accepted paper candidate.
- *
- * The rule between an article's prose and its generated apparatus is painted
- * as a monochrome dot lattice: a base dot at every cell, a mid dot every
- * second cell, a peak dot once per 5-cell block. It is static in every state,
- * carries no information the headings below it do not already carry, and its
- * dot colours sit within 0.06 relative luminance of the page ground.
- *
- * The three layers tile at the SAME row height and differ only in horizontal
- * period, so every row carries all three tiers. Giving the peak layer a
- * 5-cell VERTICAL period as well is the obvious reading of a 5x5 matrix and
- * is wrong here: the band is three rows tall, so the peak dots would land
- * outside it and that tier would never paint.
- *
- * Deliberately the only placement. On a page whose job is reading, one
- * boundary mark is the whole of what a texture has to say.
+ * The rule between an article's prose and its generated apparatus: one
+ * hairline, like every other rule on the page.
  */
-:root {
-  /* Documented tonal derivatives of concrete over paper at 12/18/24%. */
-  --dot-base: #F2F3F4;
-  --dot-mid: #F0F1F2;
-  --dot-peak: #EEEFF0;
-  --dot-pitch: 4px;
-}
-
 article > hr {
   border: 0;
-  height: calc(var(--dot-pitch) * 3);
-  background-color: transparent;
-  background-repeat: repeat;
-  background-position: center;
-  background-image:
-    radial-gradient(circle at 50% 50%, var(--dot-peak) 0.9px, transparent 1px),
-    radial-gradient(circle at 50% 50%, var(--dot-mid) 0.9px, transparent 1px),
-    radial-gradient(circle at 50% 50%, var(--dot-base) 0.9px, transparent 1px);
-  background-size:
-    calc(var(--dot-pitch) * 5) var(--dot-pitch),
-    calc(var(--dot-pitch) * 2) var(--dot-pitch),
-    var(--dot-pitch) var(--dot-pitch);
+  border-top: 1px solid var(--line);
+  height: 0;
+  background: none;
 }
 
 /*
@@ -258,26 +436,6 @@ article > hr {
   color: var(--color-text-dim);
 }
 
-/*
- * The citation chip sets a fixed 20px line box and clips its overflow, so a
- * label enlarged on its own (200% text) is cut off. In the home facts the
- * label's line box grows with it; at the base size max() still resolves to
- * the chip's 20px, so the chip renders unchanged.
- */
-[data-did-you-know] [data-brand-surface-id="surface:flat"] > a {
-  line-height: max(1.25rem, 1.35em);
-}
-
-/*
- * The chip is an inline-flex box, so its link is a flex item, and innerText
- * puts a flex item's text on a line of its own. The full stop after the chip
- * would then count as a word of the fact. As an inline block the chip draws
- * the same box around the same link, and the fact's text ends "Rudin 2021.".
- */
-[data-did-you-know] [data-brand-surface-id="surface:flat"] {
-  display: inline-block;
-}
-
 /* Skip-to-content link: first Tab stop on every page.
    Off-screen until focused. */
 .skip-link {
@@ -287,12 +445,11 @@ article > hr {
   z-index: 100;
   transform: translateY(-300%);
   padding: 0.5rem 0.75rem;
-  border: 1px solid var(--color-focus);
-  border-radius: var(--radius-sm);
-  background: var(--color-surface-2);
-  color: var(--color-link);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
   text-decoration: none;
 }
 
@@ -301,26 +458,21 @@ article > hr {
 }
 
 /*
- * The article reading sheet: measure, reading size and gutter as one system.
- *
- * `ch` resolves against the element's own font, so a column capped in `ch`
- * while wearing the interface face does not cap the prose that fills it —
- * the two units differ by the ratio of the two `0` advances, and what the
- * reader gets is not the measure the sheet declares. That is how a column
- * written `max-w-[65ch]` in IBM Plex Sans around Newsreader prose rendered
- * 60.2ch at 1440. The column therefore carries the reading face itself and
- * caps at the measure plus its own gutters, which makes the rendered
- * paragraph exactly `--prose-measure` wide wherever the viewport allows it.
- *
- * The gutter widens with the room available for it rather than staying at
- * one value: it is the sheet's breathing room on a wide screen and the only
- * thing between the text and the bezel on a narrow one.
+ * The article sheet (Pantheon research page). One 960px reading column,
+ * centred. From 1200px the sheet is a three-column grid: a sticky table of
+ * contents in the left rail, the column, and the right margin the sidenotes
+ * float into. Below 1200px it is one column; the contents become a
+ * disclosure and the notes expand inline.
  */
 :root {
-  --prose-size: 1.1875rem;
-  --prose-leading: 1.7;
-  --prose-measure: 65ch;
-  --article-gutter: 20px;
+  --prose-size: 16px;
+  --prose-leading: 1.62;
+  --prose-measure: 960px;
+  --article-gutter: 24px;
+  --article-col-gap: clamp(24px, 2.2vw, 36px);
+  --rail-width: 172px;
+  --note-width: 180px;
+  --topbar-height: 76px;
 }
 
 @media (min-width: 640px) {
@@ -329,102 +481,244 @@ article > hr {
   }
 }
 
-@media (min-width: 1024px) {
-  :root {
-    --article-gutter: 48px;
-  }
-}
-
 [data-prose-column] {
   max-width: calc(var(--prose-measure) + 2 * var(--article-gutter));
+  margin-inline: auto;
   padding-inline: var(--article-gutter);
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--prose-size);
 }
 
+@media (min-width: 1200px) {
+  [data-prose-column] {
+    max-width: none;
+    display: grid;
+    grid-template-columns:
+      minmax(var(--rail-width), 1fr)
+      minmax(0, var(--prose-measure))
+      minmax(var(--note-width), 1fr);
+    column-gap: var(--article-col-gap);
+    padding-inline: clamp(24px, 3.3vw, 48px);
+  }
+
+  [data-prose-column] > * {
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  [data-prose-column] > [data-article-rail] {
+    grid-column: 1;
+    grid-row: 2 / span 8;
+  }
+}
+
+/* The masthead of an article: eyebrow, H1, lead and meta line. */
+.article-masthead {
+  padding-top: clamp(56px, 8vw, 128px);
+}
+
+.article-masthead .eyebrow {
+  margin-bottom: 24px;
+}
+
 /*
- * The article title. Sized against the viewport rather than in breakpoint
- * steps, so the sealed range holds across the whole span between the two
- * widths the contract measures and not only at the two.
+ * The article title: the display H1. Sized against the viewport so it
+ * scales continuously from about 44px on a phone to 87px at 1440. A title
+ * is one long word more often than any scale allows for ("Counterargument"
+ * is wider than a 320px column at the floor), so it may break.
  */
 .article-title {
-  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.25rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  /*
-   * The size floor is sealed at 375px, and a title is one long word more
-   * often than any scale allows for: "Counterargument" at that floor is
-   * wider than a 320px reflow column. Breaking the word is the only move
-   * left that does not shrink the title below the sealed size.
-   */
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 0.6rem + 5.4vw, 5.46rem);
+  line-height: 0.93;
+  letter-spacing: -0.025em;
+  color: var(--ink);
   overflow-wrap: break-word;
 }
 
-/*
- * Registration labels: the small mono caps that name a measured value.
- * One tracking ratio site-wide, so the field labels of an article header,
- * a search box and an instrument panel are the same class of mark.
- */
-.registration-label {
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+.article-masthead .page-lead {
+  margin-top: 30px;
+}
+
+.article-masthead .meta-line {
+  margin-top: 24px;
 }
 
 /*
- * Long-form prose (.prose): Newsreader body, IBM Plex Sans headings,
- * IBM Plex Mono inline code, capped at the sheet's measure.
+ * The left rail: the contents of the page, plain Geist, muted, the current
+ * section in ink. Sticky under the top bar at 1200px and up; below that it
+ * is the "Contents" disclosure at the head of the body.
+ */
+.article-toc {
+  display: none;
+}
+
+.article-toc ol,
+.article-contents ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.article-toc li + li {
+  margin-top: 13px;
+}
+
+.article-toc a,
+.article-contents a {
+  display: block;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.article-toc a:hover,
+.article-contents a:hover {
+  color: var(--ink);
+}
+
+.article-toc a[aria-current],
+.article-contents a[aria-current] {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.article-contents {
+  margin-top: 48px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.article-contents summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  cursor: pointer;
+  list-style: none;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-contents summary::-webkit-details-marker {
+  display: none;
+}
+
+.article-contents summary::after {
+  content: '+' / '';
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+.article-contents[open] summary::after {
+  content: '\2212' / '';
+}
+
+.article-contents ol {
+  padding-bottom: 16px;
+}
+
+.article-contents li + li {
+  margin-top: 10px;
+}
+
+@media (min-width: 1200px) {
+  .article-toc {
+    display: block;
+    position: sticky;
+    top: calc(var(--topbar-height) + 40px);
+    align-self: start;
+    max-height: calc(100dvh - var(--topbar-height) - 64px);
+    overflow-y: auto;
+    padding-top: 4px;
+    margin-top: 72px;
+  }
+
+  .article-contents {
+    display: none;
+  }
+}
+
+/*
+ * Long-form prose: Geist 16/1.62 in ink, one 960px column, paragraphs
+ * separated by space rather than indents, a generous gap before each H2.
  */
 .prose {
   max-width: var(--prose-measure);
-  color: var(--color-text);
-  font-family: var(--font-serif);
+  color: var(--ink);
+  font-family: var(--font-sans);
   font-size: var(--prose-size);
   line-height: var(--prose-leading);
 }
 
+.article-body {
+  margin-top: 56px;
+}
+
+@media (min-width: 1200px) {
+  .article-body {
+    margin-top: 72px;
+  }
+}
+
 .prose :where(h1, h2, h3, h4, h5, h6) {
-  color: var(--color-text);
-  font-family: var(--font-sans);
+  color: var(--ink);
+  font-family: var(--font-display);
   font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
 }
 
 .prose h1 {
   margin: 0 0 1rem;
   font-size: 1.875rem;
+  line-height: 1.2;
 }
 
-/*
- * The section ladder is set against the reading size, not against the root:
- * a 22px section heading over 17px prose was a step the eye had to look for,
- * and the same heading over 19px prose is barely a step at all.
- */
+/* H2: DM Sans 600, 20px, uppercase, +0.055em. H3: DM Sans 600, 16px. */
 .prose h2 {
-  margin: 2.75rem 0 0.875rem;
-  font-size: 1.625rem;
+  margin: 76px 0 14px;
+  font-size: 20.32px;
+  line-height: 1.3;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
 }
 
 .prose h3 {
-  margin: 2rem 0 0.5rem;
-  font-size: 1.3125rem;
+  margin: 36px 0 10px;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0;
 }
 
 .prose h4 {
-  margin: 1.5rem 0 0.5rem;
-  font-size: 1.125rem;
+  margin: 28px 0 8px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.prose > :first-child {
+  margin-top: 0;
 }
 
 .prose p {
-  margin: 0 0 1.25rem;
+  margin: 0 0 20px;
 }
 
 /*
  * A figure in the reading column keeps the figure frame's own type: the
- * brand sans on the stage scale, with no paragraph rhythm and no reading
- * face or size inherited from the prose around it. Frame parts set their
- * own sizes; anything unset reads as stage text.
+ * text face on the stage scale, with no paragraph rhythm inherited from the
+ * prose around it. Frame parts set their own sizes; anything unset reads as
+ * stage text.
  */
 .prose [data-figure-frame] {
   font-family: var(--font-sans);
@@ -436,124 +730,303 @@ article > hr {
   margin: 0;
 }
 
+/* Links are ink with a 1px underline; hover darkens the rule. */
 .prose a {
-  color: var(--color-accent);
+  color: var(--ink);
   text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
-  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, var(--ink) 50%, transparent);
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--ink);
 }
 
 /*
  * rehype-autolink-headings wraps headings in anchors. The heading keeps the
- * text colour, so it does not read as a run of signal-blue prose link, and
- * the fact that it addresses a section is carried by two marks that are both
- * there at rest: a signal-blue rule under the whole heading, and the chain
- * glyph beside it (components/article/heading-permalink.tsx). One of the two
- * survives a reader who cannot see the colour, which is what a hover-only
- * underline in a neutral grey did not.
+ * text colour and no underline; the copy-link control beside it appears on
+ * hover and on keyboard focus (components/article/heading-permalink.tsx).
  */
 .prose :where(h1, h2, h3, h4, h5, h6) a {
   color: inherit;
-  text-decoration-line: underline;
-  text-decoration-color: var(--color-signal);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
-}
-
-.prose :where(h1, h2, h3, h4, h5, h6) a:hover {
-  text-decoration-thickness: 3px;
-}
-
-.prose a:hover {
-  text-decoration-color: var(--color-accent);
+  text-decoration: none;
 }
 
 /*
- * Inline glossary terms (components/ui/term.tsx): a dotted-underline
- * affordance in the text color, visually distinct from signal-blue prose links.
- * The scoped rules below override .prose a, which is unlayered and would
- * otherwise beat the utility layer. The global :focus-visible signal-blue
- * outline still applies, and hover/focus reveal of the definition tooltip
- * is handled by the component's group classes.
+ * Inline glossary terms (components/ui/term.tsx): a dotted underline in the
+ * text colour, distinct from the solid underline of a prose link.
  */
 .term-link {
-  color: var(--color-text);
+  color: var(--ink);
   text-decoration-line: underline;
   text-decoration-style: dotted;
-  text-decoration-color: var(--color-text-dim);
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--muted);
   text-underline-offset: 3px;
 }
 
 .term-link:hover {
-  color: var(--color-accent);
-  text-decoration-color: var(--color-accent);
+  text-decoration-color: var(--ink);
 }
 
 .prose a.term-link {
-  color: var(--color-text);
+  color: var(--ink);
   text-decoration-style: dotted;
-  text-decoration-color: var(--color-text-dim);
+  text-decoration-color: var(--muted);
   text-underline-offset: 3px;
 }
 
 .prose a.term-link:hover {
-  color: var(--color-accent);
-  text-decoration-color: var(--color-accent);
+  text-decoration-color: var(--ink);
 }
 
 .prose :where(ul, ol) {
-  margin: 0 0 1.125rem;
-  padding-left: 1.375rem;
+  margin: 0 0 20px;
+  padding-left: 1.25rem;
+}
+
+.prose ul {
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
 }
 
 .prose li {
-  margin: 0.25rem 0;
+  margin: 6px 0;
+  padding-left: 0.25rem;
 }
 
 .prose li::marker {
-  color: var(--color-text-dim);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.875em;
 }
 
 .prose strong {
-  color: var(--color-text);
+  color: var(--ink);
   font-weight: 600;
 }
 
 .prose blockquote {
-  margin: 1.5rem 0;
-  border-left: 2px solid var(--color-border);
-  padding-left: 1rem;
-  color: var(--color-text-dim);
+  margin: 32px 0;
+  border-left: 1px solid var(--line-strong);
+  padding-left: 20px;
+  color: var(--muted);
 }
 
 .prose hr {
-  margin: 2.5rem 0;
+  margin: 48px 0;
   border: 0;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--line);
 }
 
-/* Inline code */
+/*
+ * Numbered findings (components/article/findings.tsx): "01" in Geist Mono
+ * at left, a one-line claim in weight 600, a short paragraph, a hairline
+ * between items and at both ends.
+ */
+.findings {
+  list-style: none;
+  margin: 32px 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  counter-reset: finding;
+}
+
+.findings > li {
+  counter-increment: finding;
+}
+
+.findings .finding-index::before {
+  content: counter(finding, decimal-leading-zero);
+}
+
+.prose .findings > li,
+.findings > li {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  margin: 0;
+  padding: 26px 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 640px) {
+  .prose .findings > li,
+  .findings > li {
+    grid-template-columns: 74px minmax(0, 1fr);
+  }
+}
+
+.findings .finding-index {
+  padding-top: 1px;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.findings .finding-claim {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.findings .finding-body > :last-child {
+  margin-bottom: 0;
+}
+
+/*
+ * Booktabs tables: a heavy top rule, a hairline under the header, a heavy
+ * bottom rule, no vertical rules except a dotted group separator. Numerals
+ * are tabular so right-aligned columns line up.
+ */
+.booktabs {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+}
+
+.booktabs :where(th, td) {
+  padding: 9px 12px;
+  border: 0;
+  vertical-align: top;
+}
+
+.booktabs :where(th, td):first-child {
+  padding-left: 4px;
+}
+
+.booktabs :where(th, td):last-child {
+  padding-right: 4px;
+}
+
+.booktabs thead th {
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--ink);
+  font-weight: 600;
+  vertical-align: bottom;
+}
+
+.booktabs tbody tr:first-child :where(th, td) {
+  padding-top: 11px;
+}
+
+.booktabs tbody tr:last-child :where(th, td) {
+  padding-bottom: 11px;
+}
+
+.booktabs caption {
+  caption-side: bottom;
+  padding-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.booktabs [data-best],
+.booktabs [data-best] > * {
+  font-weight: 600;
+}
+
+.booktabs .group-separator {
+  border-left: 1px dotted var(--line-strong);
+}
+
+/*
+ * The bespoke MDX tables (components/mdx/*-table.tsx and the plain-text
+ * tables) are scroll regions placed directly in the prose. Each wears the
+ * same booktabs rules as a Markdown table: the boxed wrapper, the row
+ * hairlines and the mono header are the old look and give way here.
+ */
+.prose > [role='region']:has(> table) {
+  margin: 36px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.prose > [role='region'] > table {
+  border-collapse: collapse;
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  background: transparent;
+  font-variant-numeric: tabular-nums;
+}
+
+.prose > [role='region'] > table :where(tr, th, td) {
+  border: 0;
+  background: transparent;
+}
+
+.prose > [role='region'] > table thead tr {
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.prose > [role='region'] > table thead th {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  vertical-align: bottom;
+}
+
+.prose > [role='region'] > table tbody :where(th, td) {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.prose > [role='region'] > table tbody th[scope='row'] {
+  font-weight: 500;
+}
+
+/* Inline code: Geist Mono on the inset, no border, square. */
 .prose :where(code):not(pre code) {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background: var(--color-surface-2);
-  padding: 0.1em 0.3em;
-  color: var(--color-text);
+  border: 0;
+  border-radius: 0;
+  background: var(--paper-deep);
+  padding: 0.12em 0.32em;
+  color: var(--ink);
   font-family: var(--font-mono);
-  font-size: 0.8125em;
+  font-size: 0.875em;
 }
 
-/* Fenced code blocks (rehype-pretty-code output and plain pre) */
+/*
+ * Code blocks: --paper-deep inside a 1px hairline, 7px corners, Geist Mono
+ * 14/23. The hairline is the edge of the box the block scrolls in
+ * (VAL-NAV-023), drawn like every other rule.
+ */
 .prose pre {
-  margin: 1.5rem 0;
+  margin: 32px 0;
   overflow-x: auto;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--radius-md);
-  background: var(--color-surface) !important;
-  padding: 0.875rem 1rem;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--code-radius);
+  background: var(--paper-deep) !important;
+  padding: 26px 30px;
+  color: var(--ink);
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  line-height: 1.65;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 23.1px;
 }
 
 .prose pre code {
@@ -561,10 +1034,11 @@ article > hr {
   background: transparent;
   padding: 0;
   font-size: inherit;
+  font-weight: inherit;
 }
 
 .prose [data-rehype-pretty-code-figure] {
-  margin: 1.5rem 0;
+  margin: 32px 0;
 }
 
 .prose [data-rehype-pretty-code-figure] pre {
@@ -572,20 +1046,155 @@ article > hr {
 }
 
 .prose [data-rehype-pretty-code-title] {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--line);
   border-bottom: 0;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
-  background: var(--color-surface-2);
-  padding: 0.375rem 0.75rem;
-  color: var(--color-text-dim);
+  border-radius: var(--code-radius) var(--code-radius) 0 0;
+  background: var(--paper-deep);
+  padding: 14px 30px 0;
+  color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 12px;
 }
 
 .prose [data-rehype-pretty-code-title] + figure pre,
 .prose [data-rehype-pretty-code-figure]:has([data-rehype-pretty-code-title]) pre {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+/*
+ * Citations and footnotes as sidenotes (components/ui/cite.tsx). In the text
+ * a citation is a small superscript number. Its note (number, then muted
+ * 13px text) sits beside the line in the right margin from 1200px, wherever
+ * the citation is part of the running prose. Everywhere else (phones,
+ * tables, figures, captions) the note opens inline under the line when the
+ * number is pressed. The note is outside the reading-time count: it is the
+ * citation's apparatus, as the bibliography entry is.
+ */
+.cite-mark {
+  font-size: 0.7em;
+  font-weight: 500;
+  line-height: 0;
+  /* The preflight's relative `top: -0.5em` raises the number; a second
+     raise from `vertical-align: super` lifted it to the line above. */
+  vertical-align: baseline;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.cite-mark a,
+.prose .cite-mark a {
+  padding-left: 1px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.cite-mark a:hover,
+.prose .cite-mark a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cite-label {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, var(--muted) 60%, transparent);
+  text-underline-offset: 2px;
+}
+
+.cite-label:hover,
+.prose .cite-label:hover {
+  color: var(--ink);
+}
+
+.prose .cite-label {
+  color: var(--muted);
+}
+
+.sidenote {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-align: left;
+  text-indent: 0;
+  text-transform: none;
+  white-space: normal;
+  color: var(--muted);
+}
+
+/*
+ * Opened in place (a phone, a table, a figure): the note runs inline after
+ * its number, muted and a step smaller, so the sentence's own punctuation
+ * still closes the line it belongs to.
+ */
+.sidenote[data-open='true'] {
+  display: inline;
+}
+
+.sidenote[data-open='true'] .sidenote-index {
+  display: none;
+}
+
+.sidenote .sidenote-index {
+  margin-right: 2px;
+  color: var(--ink);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.sidenote a,
+.prose .sidenote a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, var(--muted) 60%, transparent);
+  text-underline-offset: 2px;
+}
+
+.sidenote a:hover,
+.prose .sidenote a:hover {
+  color: var(--ink);
+}
+
+.sidenote .sidenote-index a,
+.prose .sidenote .sidenote-index a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+@media (min-width: 1200px) {
+  :where(.prose > p, .prose > ul > li, .prose > ol > li, .prose > blockquote)
+    .sidenote {
+    display: block;
+    float: right;
+    clear: right;
+    position: relative;
+    width: var(--note-width);
+    margin: 0.35em calc(-1 * (var(--note-width) + var(--article-col-gap))) 8px 0;
+    border: 0;
+    padding: 0;
+  }
+
+  /*
+   * In the margin a note is the number and the source's label: one line,
+   * so a densely cited paragraph's notes stay beside their lines. The title
+   * stays in the note for assistive technology (it is the citation's
+   * description) and shows whenever the note opens inline.
+   */
+  :where(.prose > p, .prose > ul > li, .prose > ol > li, .prose > blockquote)
+    .sidenote
+    .sidenote-title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
 }
 
 /*
@@ -596,76 +1205,25 @@ article > hr {
 
 /* Search result snippets: Pagefind wraps matched terms in <mark>. */
 .search-excerpt mark {
-  border-radius: var(--radius-xs);
-  background: var(--color-selection);
-  padding: 0 0.125em;
-  color: var(--color-ink);
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--ink);
+  font-weight: 600;
 }
 
 /*
- * Dense comparison surfaces (the comparison matrix, dataset and hardware
- * tables) outgrow the 65ch prose measure. At lg+ this utility expands a
- * direct child of the article symmetrically toward the width of the main
- * region, keeping 1.5rem of gutter on each side and capping at 80rem.
- *
- * Both terms are container-relative on purpose, because every viewport-based
- * derivation of this geometry is wrong in a way that is invisible on the
- * page. `100vw` includes the classic-scrollbar gutter that the layout cannot
- * use, and a rail width written as a literal drifts from the rail the moment
- * its border changes; either error moves the element LEFT, where it is
- * painted under the rail and permanently unreachable, since an LTR document
- * cannot scroll to a negative offset and no scrollbar signals the loss.
- * `--wide-measure-available` is resolved on the article against the main
- * region, so it is the inline size actually available beside the rail under
- * both scrollbar models; the registered @property is what forces that
- * resolution there rather than re-resolving `cqw` at the call site.
- *
- * `50cqw` anchors to the article's own content box. A percentage would
- * resolve against `.prose`, which re-applies `max-width: 65ch` in a serif
- * face and computes narrower than the article, and that mismatch is what
- * drove the surface 28.25px left of where it was meant to sit.
- *
- * Measured on the export at 1024, 1152, 1280, 1440, 1600, 1616 and 1920,
- * under both overlay and 15px space-consuming scrollbars: the surface's left
- * edge clears the rail's right edge by 24px at every one, and no route
- * scrolls horizontally at any of those widths (tests/e2e/rail-clearance.spec.ts).
- * Below lg the surface stays in-measure and scrolls horizontally inside its
- * own container.
- *
- * The descendant selector is load-bearing, not stylistic. Only
- * `[data-prose-column]` sets `--wide-measure-available`, and an unset
- * registered `<length>` falls back to its `initial-value`, so a bare
- * `.wide-measure` selector resolves `width` to `min(80rem, -48px)` outside
- * an article and computes to 0px: measured on the export at 1440, such a div
- * on /glossary reported `width: 0px`, `--wide-measure-available: 0px`. It
- * neither overflows nor warns, so the surface vanishes rather than looking
- * wrong. Scoping the rule to the element that supplies the variable makes
- * that state unreachable; the same div then measures 641.52px, the width of
- * the block it sits in. Degrading is still not what an author asking for a
- * wide surface wants, so the misplaced call site also has to fail somewhere:
- * the "every wide surface is authored inside the article prose column" test
- * in tests/e2e/rail-clearance.spec.ts names the route and the element.
+ * Figures and dense surfaces may sit wider than the text, up to about
+ * 1020px, centred on the column. In the three-column sheet the extra width
+ * is taken from the column gaps only, so a wide surface never reaches the
+ * contents rail or the notes. Below 1200px it is the column's width and
+ * scrolls inside its own container.
  */
-@property --wide-measure-available {
-  syntax: '<length>';
-  inherits: true;
-  initial-value: 0px;
-}
-
-@media (min-width: 1024px) {
-  main:has(> [data-prose-column]) {
-    container-type: inline-size;
-  }
-
-  [data-prose-column] {
-    container-type: inline-size;
-    --wide-measure-available: 100cqw;
-  }
-
+@media (min-width: 1200px) {
   [data-prose-column] .wide-measure {
-    width: min(80rem, calc(var(--wide-measure-available) - 3rem));
+    width: min(1020px, calc(100% + 2 * var(--article-col-gap) - 8px));
     margin-left: calc(
-      50cqw - min(40rem, (var(--wide-measure-available) - 3rem) / 2)
+      (100% - min(1020px, calc(100% + 2 * var(--article-col-gap) - 8px))) / 2
     );
   }
 }

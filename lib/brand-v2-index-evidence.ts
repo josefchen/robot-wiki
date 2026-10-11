@@ -78,7 +78,7 @@ export const INDEX_SURFACE_ROUTES: readonly string[] = [
   ...ROW_RHYTHM_ROUTES,
 ];
 
-/** The registered Tektur role every index-family h1 must resolve to. */
+/** The registered display role every index-family h1 must resolve to. */
 export const INDEX_H1_TEKTUR_ROLE = 'page-h1';
 
 /** The only padding values the spacing ladder permits for index rows. */
@@ -641,14 +641,20 @@ export function discoveryIndexVerdicts(
       failures: wordingFailures,
     });
 
-    // --- shared index treatment: Tektur h1, ruled rows, no boxed cards. ---
+    // --- shared index treatment: display h1, ruled rows, no boxed cards. ---
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the index-family h1 is the DM Sans display H1, in place of
+    // the brand-v2 Tektur role.
     const sharedFailures: string[] = [];
     const sharedObserved: Record<string, unknown> = {
       h1FontFamilyHead: surface.h1FontFamilyHead,
     };
-    if (!surface.h1FontFamilyHead.toLowerCase().includes('tektur')) {
+    if (
+      surface.h1FontFamilyHead.replace(/["']/g, '').trim().toLowerCase() !==
+      'dm sans'
+    ) {
       sharedFailures.push(
-        `${route}'s h1 resolves ${surface.h1FontFamilyHead} as its first family, not Tektur`,
+        `${route}'s h1 resolves ${surface.h1FontFamilyHead} as its first family, not DM Sans`,
       );
     }
     if (list && !list.separatorRuleWidthPx.includes(1)) {

@@ -121,48 +121,54 @@ Full Cartesian products are neither required nor implied. The runner records exp
 
 ## 2. Identity
 
+Owner decision of 10 October 2026 (`PANTHEON-SPEC.md`): the web wordmark and the home h1 render in the DM Sans display family; Tektur stays in the offline Open Graph renderer. The identity strings are unchanged.
+
 | ID | Requirement |
 | --- | --- |
 | `VAL-B2-ID-001` | Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation. |
 | `VAL-B2-ID-002` | Every descriptor surface is exactly `Citation-first encyclopedia of modern robot learning.` |
 | `VAL-B2-ID-003` | The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase. |
 | `VAL-B2-ID-004` | Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps. |
-| `VAL-B2-ID-005` | Wordmark text renders in Tektur Variable on web identity surfaces (home, desktop shell, and mobile header); OG/X artwork renders the registered static Tektur instance mapped to the approved web role. |
+| `VAL-B2-ID-005` | Wordmark text renders in the DM Sans display family on web identity surfaces (home, top bar, and mobile header); OG/X artwork renders the registered static Tektur instance mapped to the approved web role. |
 | `VAL-B2-ID-006` | The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph. |
-| `VAL-B2-ID-007` | The home hero contains one dominant `Robot Wiki` h1 and one exact descriptor; duplicate hero lockups are prohibited. |
-| `VAL-B2-ID-008` | Mobile header contains the compact `Robot Wiki` wordmark and omits the descriptor. |
+| `VAL-B2-ID-007` | The home hero contains one dominant `Robot Wiki` DM Sans h1 and one exact descriptor as its Geist lead; duplicate hero lockups are prohibited. |
+| `VAL-B2-ID-008` | Mobile header contains the compact `Robot Wiki` wordmark and the two top-bar controls `Articles` (the panel trigger, so named) and `How robots work`, each exactly once, no other text, and omits the descriptor. |
 | `VAL-B2-ID-009` | Article OG cards contain compact `Robot Wiki` identity but omit the descriptor; the site card contains both exact strings. |
 
 ## 3. Colour
 
+Owner decision of 10 October 2026 (`PANTHEON-SPEC.md`, recorded in `library/design-system.md`): the rows below carry the research-page palette of paper, ink, grayscale chart tones and one muted blue accent in place of the brand-v2 lime and signal blue.
+
 | ID | Requirement |
 | --- | --- |
-| `VAL-B2-COL-001` | Runtime highlight token and all renderer mirrors resolve exactly to `#C6FF19`. |
-| `VAL-B2-COL-002` | Runtime signal token and all renderer mirrors resolve exactly to `#245FFF`. |
-| `VAL-B2-COL-003` | Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`. |
+| `VAL-B2-COL-001` | Runtime highlight token and all renderer mirrors resolve exactly to `#A3A39E`. |
+| `VAL-B2-COL-002` | Runtime signal token and all renderer mirrors resolve exactly to `#3B6EA8`. |
+| `VAL-B2-COL-003` | Runtime foundation tokens resolve to ink `#1C1C1A`, graphite `#3F3F3B`, concrete `#DEDEDB`, paper `#FAFAF8`, and white `#FFFFFF`. |
 | `VAL-B2-COL-004` | Every primary action has ink/black fill and an accessible light label; signal-blue-filled primary actions are absent. |
-| `VAL-B2-COL-005` | Persistent selection/highlight uses lime plus a non-colour indicator and exposes state semantically. |
-| `VAL-B2-COL-006` | Signal blue is used for links, focus, registration, or active information paths and is not substituted for warning state. |
-| `VAL-B2-COL-007` | Lime is not used as a success semantic and is never the sole carrier of state. |
+| `VAL-B2-COL-005` | Persistent selection uses ink weight with a 1 px ink rule or underline plus a non-colour indicator, exposes state semantically, and is never carried by a colour fill. |
+| `VAL-B2-COL-006` | The muted blue signal is used only for registration, active information paths, or the one highlighted series of a figure and is not substituted for warning state; links and focus are ink. |
+| `VAL-B2-COL-007` | Neither the neutral highlight grey nor the signal blue is used as a success semantic, and colour is never the sole carrier of state. |
 | `VAL-B2-COL-008` | Normal text contrast is at least 4.5:1; large text and essential graphical boundaries are at least 3:1. |
 | `VAL-B2-COL-009` | Decorative UI gradients are absent. A scientific scale is exempt only when labelled, source-appropriate, bounded to the visualization, and textually described. |
 | `VAL-B2-COL-010` | Colour-name legends, labels, documentation, and accessible descriptions agree with the actual rendered tokens. |
 
 ## 4. Type
 
+Owner decision of 10 October 2026 (`PANTHEON-SPEC.md`, recorded in `library/design-system.md` and `data/type-roles.json`): the type rows below carry the research-page roles. DM Sans is the display family, Geist carries interface and reading text, Geist Mono carries data, code and registration labels, and all three load through `next/font`. Tektur Variable stays only in the offline Open Graph renderer. Each row moved at the same strength; the brand-v2 values it replaced were Tektur Variable display, Newsreader prose at 18–21px / 1.60–1.80 in 62–68ch, IBM Plex Sans interface, IBM Plex Mono data, and a signal-blue section-link underline.
+
 | ID | Requirement |
 | --- | --- |
-| `VAL-B2-TYPE-001` | First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role. |
-| `VAL-B2-TYPE-002` | Tektur font files are locally or framework bundled and produce no runtime third-party font request. |
-| `VAL-B2-TYPE-003` | Wordmark, page h1, article h1, and major display headings compute to Tektur Variable after `document.fonts.ready`. |
-| `VAL-B2-TYPE-004` | Long-form prose computes to Newsreader at 18–21px, 1.60–1.80 line height, and 62–68ch maximum measure. |
-| `VAL-B2-TYPE-005` | Interface copy and controls compute to IBM Plex Sans; code, source metadata, technical values, and registration labels compute to IBM Plex Mono where specified. |
-| `VAL-B2-TYPE-006` | Home wordmark renders at 52–68px on 375px and 88–120px on 1440px, line-height 0.88–0.98, with the approved `wght=600` and `wdth=100` role instance unless a checked-in role registry records an owner-approved replacement. |
-| `VAL-B2-TYPE-007` | Article h1 renders at 34–44px on 375px viewport and 48–64px on 1440px viewport with line-height between 1.00 and 1.10. |
-| `VAL-B2-TYPE-008` | No prose paragraph computes to Tektur or IBM Plex Mono. |
-| `VAL-B2-TYPE-009` | Linked article section headings expose a signal-blue underline plus a non-colour link affordance and remain keyboard focusable. |
+| `VAL-B2-TYPE-001` | First-party brand/UI/editorial/data typography uses exactly three web families across the four registered roles: DM Sans (display), Geist (interface and reading) and Geist Mono (data), each published by framework-bundled `next/font` `@font-face` rules the browser is seen to fetch. Tektur Variable and IBM Plex Mono are the offline Open Graph renderer faces. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role. |
+| `VAL-B2-TYPE-002` | Every runtime font is a same-origin, framework-bundled `/_next/static/media/` payload; no runtime route produces a third-party font request or requests either Tektur binary, identified by checksum or file name. |
+| `VAL-B2-TYPE-003` | Wordmark, page h1, article h1, and major display headings compute to DM Sans after `document.fonts.ready`. |
+| `VAL-B2-TYPE-004` | Long-form prose computes to Geist at 16px and 1.60–1.65 line height, in a reading column 880–960px wide at the 1440px viewport. |
+| `VAL-B2-TYPE-005` | Interface copy and controls compute to Geist; code, source metadata, technical values, and registration labels compute to Geist Mono where specified. |
+| `VAL-B2-TYPE-006` | The home `Robot Wiki` h1 is the shared DM Sans 400 display h1: 40–48px on 375px and 84–92px on 1440px, line-height 0.90–0.96, matching the registered `home-wordmark` role instance. |
+| `VAL-B2-TYPE-007` | Article h1 renders in DM Sans 400 at 40–48px on the 375px viewport and 84–92px on the 1440px viewport with line-height between 0.90 and 0.96. |
+| `VAL-B2-TYPE-008` | No prose paragraph computes to the display family DM Sans or to Geist Mono. |
+| `VAL-B2-TYPE-009` | Linked article section headings read as ink DM Sans type and expose a non-colour link affordance, a copy-link glyph that stays rendered at opacity 0.3 or more at rest, and remain keyboard focusable. |
 | `VAL-B2-TYPE-010` | Registration labels use a single site-wide tracking ratio within 0.01em for equivalent label classes. |
-| `VAL-B2-TYPE-011` | Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request. |
+| `VAL-B2-TYPE-011` | The checked-in Tektur Latin-subset variable WOFF2 keeps exactly the `wght` and `wdth` axes but is retired from the website: no stylesheet declares it and no runtime route requests it, while the web families load through `next/font` with no runtime third-party font request. |
 | `VAL-B2-TYPE-012` | OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route. |
 | `VAL-B2-TYPE-013` | Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file. |
 | `VAL-B2-TYPE-014` | Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`. |
@@ -212,6 +218,8 @@ Full Cartesian products are neither required nor implied. The runner records exp
 
 ## 8. Home and shell
 
+Owner decision of 10 October 2026 (`PANTHEON-SPEC.md`): the home hero follows the research-page masthead, and selection and highlight move from lime fills to ink weight and 1 px ink rules.
+
 | ID | Requirement |
 | --- | --- |
 | `VAL-B2-SHELL-001` | Desktop shell, mobile header, drawer, and footer render the v2 identity and share palette, display type, grid/rail, shape, and focus language. |
@@ -219,18 +227,20 @@ Full Cartesian products are neither required nor implied. The runner records exp
 | `VAL-B2-SHELL-003` | The skip link is the first keyboard destination and becomes visible on focus. |
 | `VAL-B2-SHELL-004` | Mobile drawer traps focus, closes on Escape, restores focus to its trigger, and makes obscured content inert. |
 | `VAL-B2-SHELL-005` | Existing navigation hierarchy, accessible names, and href destinations remain unchanged except the visible product lockup string. |
-| `VAL-B2-SHELL-006` | Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics. |
+| `VAL-B2-SHELL-006` | Home renders one dominant hero with a DM Sans h1, the exact descriptor as the Geist lead, an ink primary action with a white label, selection and highlight in ink weight and 1 px ink rules with no lime or accent fill, and the research-page structure without fabricated metrics. |
 | `VAL-B2-SHELL-007` | All seven existing domain destinations remain visible, correctly named, and reachable from home. |
 | `VAL-B2-SHELL-008` | Home and domain surfaces use indexed editorial rows/modules rather than a universal grid of equal marketing cards. |
 | `VAL-B2-SHELL-009` | At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow. |
 
 ## 9. Article
 
+Owner decision of 10 October 2026 (`PANTHEON-SPEC.md`): the article masthead uses one DM Sans h1, the reading column is held in pixels at the standard's 960px cap, and citations are numbered superscripts with margin sidenotes. The brand-v2 values replaced were a Tektur h1 and a 62–68ch measure.
+
 | ID | Requirement |
 | --- | --- |
-| `VAL-B2-ART-001` | `/manipulation/action-chunking/` renders breadcrumb/domain context, one Tektur h1, one summary, and its existing factual review date, reading time, and citation count. |
-| `VAL-B2-ART-002` | Article prose measure is 62–68ch with at least 20px mobile side padding and at least 32px desktop breathing room. |
-| `VAL-B2-ART-003` | Article section links, inline citations, glossary definitions, and external sources have distinguishable treatments matching their semantics. |
+| `VAL-B2-ART-001` | `/manipulation/action-chunking/` renders breadcrumb/domain context, one DM Sans h1, one summary, and its existing factual review date, reading time, and citation count. |
+| `VAL-B2-ART-002` | Article prose sits in a reading column 880–960px wide at the 1440px viewport, with at least 20px mobile side padding and at least 32px desktop breathing room. |
+| `VAL-B2-ART-003` | Article section links, inline citations, glossary definitions, and external sources have distinguishable treatments matching their semantics: links are ink or muted and carry an underline, and citations are numbered superscripts that open a margin sidenote. |
 | `VAL-B2-ART-004` | Dark article diagrams are bounded instruments with accessible inverse labels, a visible boundary, and an equivalent textual description. |
 | `VAL-B2-ART-005` | Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license. |
 | `VAL-B2-ART-006` | Schematics identify themselves and do not imply a source-published mapping or measurement. |
@@ -241,11 +251,13 @@ Full Cartesian products are neither required nor implied. The runner records exp
 
 ## 10. Discovery
 
+Owner decision of 10 October 2026 (`PANTHEON-SPEC.md`): selected facets move from a lime fill to the research-page selected state.
+
 | ID | Requirement |
 | --- | --- |
 | `VAL-B2-DISC-001` | Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist. |
 | `VAL-B2-DISC-002` | Search-result titles, excerpts, facets, counts, and routes remain data-derived and do not fabricate context. |
-| `VAL-B2-DISC-003` | Selected facets use lime plus semantic/shape confirmation and can be cleared and reset by keyboard. |
+| `VAL-B2-DISC-003` | Selected facets are unfilled, with an ink label and a 1 px ink rule plus semantic/shape confirmation, and can be cleared and reset by keyboard. |
 | `VAL-B2-DISC-004` | Search status updates are announced without moving focus unexpectedly. |
 | `VAL-B2-DISC-005` | `/a-z/` and `/glossary/` retain deep links, keyboard reachability, source wording, and the shared v2 index treatment. |
 | `VAL-B2-DISC-006` | Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid. |
@@ -296,6 +308,8 @@ Full Cartesian products are neither required nor implied. The runner records exp
 | `VAL-B2-PLAY-011` | A static playground fallback is used only when WebGL is unavailable; reduced-motion preference alone never selects the static fallback. |
 
 ## 14. Imagery and licensing
+
+Owner decision of 10 October 2026 (`PANTHEON-SPEC.md`): the research-page standard is plain paper, so the concrete micro-texture and the halftone dot field are retired from the material registry. `material:paper` is the one registered material. `VAL-B2-IMG-004` grades it, and still refuses any tile, remote source, animation or reading-contrast ink planted on it.
 
 | ID | Requirement |
 | --- | --- |
@@ -609,9 +623,9 @@ These assertions close the first-pass review gaps. They are additive, collision-
 
 | ID | Requirement |
 | --- | --- |
-| `VAL-B2-TYPE-015` | A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport. |
+| `VAL-B2-TYPE-015` | A checked-in type-role registry assigns measurable weights to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; at every declared viewport each rendered role computes the DM Sans display family at the registered weight and width with no variation-axis override. (Owner decision of 10 October 2026; the brand-v2 row required Tektur `wght`/`wdth` variation values.) |
 | `VAL-B2-TYPE-016` | The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping. |
-| `VAL-B2-TYPE-017` | Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only. |
+| `VAL-B2-TYPE-017` | Font `cmap` inspection covers every code point in every assigned web and OG string in the checked-in Tektur binaries; a glyph-probe render in the runtime display family proves no assigned string uses per-glyph fallback. OCR is secondary evidence only. (Owner decision of 10 October 2026; the brand-v2 probe rendered in web Tektur.) |
 | `VAL-B2-TYPE-018` | Page h1, article h1, section display, supporting h2/h3, UI body, data/control, and registration-label populations each stay inside their sealed mobile/desktop size, line-height, family, weight, and measure ranges, with non-empty populations or an explicit inapplicable verdict. |
 | `VAL-B2-SPACE-001` | Executable spacing tokens expose exactly the fixed ladder `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` px; every first-party spacing value resolves to the ladder unless a registered canvas/viewport or one-pixel optical exception names its geometry reason. |
 | `VAL-B2-SPACE-002` | Page-inline padding is at least 20px mobile, 32px tablet, and 48px desktop on every public destination, except a registered full-bleed canvas whose controls/text retain those insets. |

@@ -70,8 +70,14 @@ export const APPARATUS_VIEWPORTS = [
 export const APPARATUS_MOBILE_VIEWPORT_ID = '375x812';
 export const APPARATUS_DESKTOP_VIEWPORT_ID = '1440x900';
 
-/** Signal blue as the browser reports it, plus both hex spellings shipped. */
-export const SIGNAL_BLUE_RENDERED = 'rgb(36, 95, 255)';
+/**
+ * The link colour as the browser reports it. Owner-approved successor
+ * (Josef, 2026-10-10, the research-page standard): links are ink plus an
+ * underline, in place of the brand-v2 signal blue `rgb(36, 95, 255)`, which
+ * this sweep now refuses on a source link.
+ */
+export const LINK_INK_RENDERED = 'rgb(28, 28, 26)';
+export const RETIRED_SIGNAL_BLUE_RENDERED = 'rgb(36, 95, 255)';
 
 /** WCAG AA for the apparatus, which is all normal-sized text. */
 export const APPARATUS_CONTRAST_FLOOR = 4.5;
@@ -100,7 +106,7 @@ export function apparatusEvidenceFingerprint(input: { root: string }): string {
   const graph = expectedApparatusGraph(input.root);
   const facts = [
     `contrast-floor:${APPARATUS_CONTRAST_FLOOR}`,
-    `signal-blue:${SIGNAL_BLUE_RENDERED}`,
+    `link-ink:${LINK_INK_RENDERED}`,
     ...APPARATUS_VIEWPORTS.map(({ id }) => `viewport:${id}`),
     ...[...graph.entries()]
       .sort(([a], [b]) => a.localeCompare(b))
@@ -590,6 +596,12 @@ export function expectedApparatusGraph(
   return graph;
 }
 
+const structuredCrumbSchema = z.object({
+  name: z.string(),
+  /** Pathname of the crumb's `item` URL; null when it does not parse. */
+  href: z.string().nullable(),
+});
+
 const crumbSchema = z.object({
   text: z.string(),
   tag: z.string(),
@@ -621,14 +633,22 @@ const citationChipSchema = z.object({
   href: z.string(),
   opensExternally: z.boolean(),
   /**
-   * The metadata the chip's tooltip carries. It lives in the DOM at rest
-   * and is revealed by CSS, so its content is readable without driving a
-   * pointer; the reveal itself is asserted by the interaction spec.
+   * The text of the citation's note: the element its mark's
+   * `aria-describedby` names. Owner-approved successor (Josef, 2026-10-10,
+   * the research-page standard): the tooltip became a numbered margin
+   * sidenote (number, author-year label linked to the source, title), so
+   * the metadata is read from the note, in the DOM at rest.
    */
-  tooltipText: z.string(),
+  noteText: z.string(),
   /** Whether `aria-describedby` resolves to the element holding that text. */
   describedByResolves: z.boolean(),
   referenceHref: z.string().nullable(),
+  /** The superscript number, or null for an unnumbered citation. */
+  number: z.string().nullable(),
+  /** Where the superscript number leads, or null without one. */
+  markHref: z.string().nullable(),
+  /** Whether the mark's `#ref-` target exists in the document. */
+  markTargetResolves: z.boolean(),
   inProse: z.boolean(),
 });
 
@@ -680,6 +700,8 @@ const observationSchema = z.object({
     label: z.string().nullable(),
     distinctFromTaxonomyNav: z.boolean(),
     items: z.array(crumbSchema),
+    /** The page's BreadcrumbList structured data, crumb by crumb. */
+    structuredTrail: z.array(structuredCrumbSchema),
   }),
   /** Every `aria-current="page"` in the document, as a short outline. */
   ariaCurrentPage: z.array(
@@ -1398,12 +1420,25 @@ export function breadcrumbTruthVerdicts(
         `${id} exposes the breadcrumb trail inside the taxonomy navigation instead of as its own landmark`,
       );
     }
-    if (breadcrumb.items.length !== expected.breadcrumb.length) {
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the visible trail is the masthead eyebrow. The top bar
+    // names the site and the H1 names the page, so the eyebrow shows the
+    // linked ancestors between them (the root alone only when there is no
+    // deeper ancestor), and the complete declared trail, current page
+    // included, is the page's BreadcrumbList structured data. Both halves
+    // are graded against the derived trail.
+    const linkedAncestors = expected.breadcrumb.filter(
+      (crumb, index) =>
+        crumb.href !== null && index < expected.breadcrumb.length - 1,
+    );
+    const deeper = linkedAncestors.filter((crumb) => crumb.href !== '/');
+    const visible = deeper.length > 0 ? deeper : linkedAncestors;
+    if (breadcrumb.items.length !== visible.length) {
       failures.push(
-        `${id} renders ${breadcrumb.items.length} crumbs, not the ${expected.breadcrumb.length} the trail declares`,
+        `${id} renders ${breadcrumb.items.length} crumbs, not the ${visible.length} ancestor(s) the trail declares between the site and the page`,
       );
     }
-    expected.breadcrumb.forEach((want, index) => {
+    visible.forEach((want, index) => {
       const got = breadcrumb.items[index];
       if (!got) {
         failures.push(`${id} is missing crumb ${index + 1} (${want.label})`);
@@ -1414,34 +1449,41 @@ export function breadcrumbTruthVerdicts(
           `${id} crumb ${index + 1} reads "${got.text}", not "${want.label}"`,
         );
       }
-      if (want.href === null) {
-        if (got.isLink) {
-          failures.push(`${id} renders the current crumb as a link`);
-        }
-        if (got.ariaCurrent !== null) {
-          failures.push(
-            `${id} puts aria-current="${got.ariaCurrent}" on the non-link current crumb`,
-          );
-        }
-      } else {
-        if (!got.isLink) {
-          failures.push(`${id} renders the ${want.label} crumb as plain text`);
-        }
-        if (got.href !== want.href) {
-          failures.push(
-            `${id} points the ${want.label} crumb at ${got.href ?? 'nothing'}, not ${want.href}`,
-          );
-        }
-        // design-system 4.4: a link's affordance must be carried by more
-        // than hue, and an ancestor crumb differs from the non-link current
-        // crumb by colour alone without it.
-        if (!got.decorationLine.includes('underline')) {
-          failures.push(
-            `${id} gives the ${want.label} crumb no non-colour link affordance (text-decoration: ${got.decorationLine})`,
-          );
-        }
+      if (!got.isLink) {
+        failures.push(`${id} renders the ${want.label} crumb as plain text`);
+      }
+      if (got.href !== want.href) {
+        failures.push(
+          `${id} points the ${want.label} crumb at ${got.href ?? 'nothing'}, not ${want.href}`,
+        );
+      }
+      if (got.ariaCurrent !== null) {
+        failures.push(
+          `${id} puts aria-current="${got.ariaCurrent}" on the ${want.label} ancestor crumb`,
+        );
+      }
+      // design-system 4.4: a link's affordance must be carried by more
+      // than hue, and the eyebrow sets its links in the same muted tone as
+      // the line they sit on.
+      if (!got.decorationLine.includes('underline')) {
+        failures.push(
+          `${id} gives the ${want.label} crumb no non-colour link affordance (text-decoration: ${got.decorationLine})`,
+        );
       }
     });
+    const route = observation.route;
+    const structuredExpected = expected.breadcrumb.map((crumb) => ({
+      name: crumb.label,
+      href: crumb.href ?? route,
+    }));
+    if (
+      JSON.stringify(breadcrumb.structuredTrail) !==
+      JSON.stringify(structuredExpected)
+    ) {
+      failures.push(
+        `${id} carries the structured trail ${breadcrumb.structuredTrail.map((crumb) => `${crumb.name}@${crumb.href ?? '-'}`).join(' > ') || '(none)'}, not ${structuredExpected.map((crumb) => `${crumb.name}@${crumb.href}`).join(' > ')}`,
+      );
+    }
 
     // The article route has no shell navigation item of its own on some
     // routes; the contract allows exactly one aria-current="page" and only
@@ -1509,10 +1551,11 @@ export function referenceSheetVerdicts(
       if (!entry.focusable) {
         failures.push(`${id} exposes a source link that Tab cannot reach`);
       }
-      // design-system 4.4: source links are signal blue plus underline.
-      if (entry.colour !== SIGNAL_BLUE_RENDERED) {
+      // design-system 4.4, owner-approved successor (Josef, 2026-10-10):
+      // source links are the ink link colour plus underline.
+      if (entry.colour !== LINK_INK_RENDERED) {
         failures.push(
-          `${id} sets its source link in ${entry.colour}, not signal blue ${SIGNAL_BLUE_RENDERED}`,
+          `${id} sets its source link in ${entry.colour}, not the ink link colour ${LINK_INK_RENDERED}`,
         );
       }
       if (!entry.decorationLine.includes('underline')) {
@@ -1730,16 +1773,36 @@ export function citationChipVerdicts(
           `${id} points aria-describedby at an element that is missing or empty`,
         );
       }
-      // The row asks for title, authors and year. A tooltip carrying only
-      // the title would satisfy a presence check and tell a reader nothing
-      // they could not already see in the chip label.
-      if (chip.tooltipText.trim().length <= chip.label.trim().length) {
+      // The row asks for title, authors and year. A note carrying only
+      // the label would satisfy a presence check and tell a reader nothing
+      // they could not already see beside the number.
+      if (chip.noteText.trim().length <= chip.label.trim().length) {
         failures.push(
           `${id} exposes metadata no longer than its own label, so it adds no title, authors or year`,
         );
       }
-      if (!/\d{4}/.test(chip.tooltipText)) {
+      if (!/\d{4}/.test(chip.noteText)) {
         failures.push(`${id} exposes metadata carrying no year`);
+      }
+      // A numbered citation's superscript is the same number as its
+      // References entry and leads to that entry, so the number a reader
+      // sees always resolves to the full source.
+      if (chip.number !== null) {
+        if (chip.markHref !== `#ref-${chip.id}`) {
+          failures.push(
+            `${id} leads its number to ${chip.markHref ?? 'nothing'}, not its References entry #ref-${chip.id}`,
+          );
+        }
+        if (!chip.markTargetResolves) {
+          failures.push(
+            `${id} leads its number to a References entry the page does not render`,
+          );
+        }
+        if (!chip.noteText.trim().startsWith(chip.number)) {
+          failures.push(
+            `${id} shows number ${chip.number} in the text and a note that does not open with it`,
+          );
+        }
       }
       verdicts.set(id, { id, observed: chip, failures });
     });

@@ -18,29 +18,44 @@ import {
  * display size: the reference board closes a sheet on the identity, and
  * VAL-DESIGN-022 requires the footer to render it. It is the navigation
  * item for "/", so it takes the shared focus control rather than a private
- * treatment. It carries no aria-current: the sidebar lockup already marks
+ * treatment. It carries no aria-current: the top bar lockup already marks
  * the current route, and a second marked "/" would put two current-route
  * nodes on the home page.
  *
- * Deliberately not a link farm. The sidebar already navigates the
+ * Deliberately not a link farm. The "Articles" panel navigates the
  * taxonomy and the page above already says what the page is, so the
- * footer states only what no other chrome does: whose site this is, who
- * made it and where the source lives. The author name is an anchor to the
+ * footer carries one quiet row of index routes and otherwise states only
+ * what no other chrome does: whose site this is, who made it and where
+ * the source lives. The author name is an anchor to the
  * external profile (VAL-DIST-009 clause c); the repository link's
  * accessible name reads as a source destination, not an icon.
  */
 
 const externalLink =
-  'text-text underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent';
+  'text-text-dim underline decoration-border-strong decoration-1 underline-offset-[3px] transition-colors hover:text-text hover:decoration-text';
+
+/**
+ * The secondary destinations the top bar does not carry. With the taxonomy
+ * moved into the "Articles" panel, these are the routes a reader would
+ * otherwise reach only through that panel.
+ */
+const INDEX_LINKS = [
+  { href: '/a-z/', label: 'A-Z index' },
+  { href: '/glossary/', label: 'Glossary' },
+  { href: '/search/', label: 'Search' },
+  { href: '/market-map/', label: 'Market map' },
+  { href: '/playground/', label: 'Playground' },
+  { href: '/credits/', label: 'Credits' },
+] as const;
 
 export function SiteFooter({ inert = false }: { inert?: boolean }) {
   return (
     <footer
       inert={inert}
       data-pagefind-ignore
-      className="border-t border-border"
+      className="mt-24 border-t border-border"
     >
-      <div className="mx-auto w-full max-w-[65ch] px-6 py-8">
+      <div className="mx-auto w-full max-w-[calc(960px+2*var(--article-gutter))] px-[var(--article-gutter)] pt-8 pb-14">
         {/* The lockup keeps its own block. The identity sweep reads a
             lockup's siblings as its descriptor surfaces, and the credit
             sentence below is a separate statement rather than a descriptor:
@@ -51,12 +66,25 @@ export function SiteFooter({ inert = false }: { inert?: boolean }) {
             href="/"
             data-tektur-role="shell-wordmark"
             data-brand-control-id="control:link-focus"
-            className="inline-block rounded-sm font-display-shell text-[15px] tracking-[-0.02em] text-text"
+            className="inline-block font-display-shell text-[15px] tracking-[-0.01em] text-text"
           >
             {PUBLIC_IDENTITY}
           </Link>
         </div>
-        <p className="mt-2 font-sans text-sm leading-relaxed text-text-dim">
+        <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 font-sans text-[13.5px] leading-snug">
+          {INDEX_LINKS.map((entry) => (
+            <li key={entry.href}>
+              <IntentLink
+                href={entry.href}
+                data-brand-control-id="control:link-focus"
+                className="quiet-link"
+              >
+                {entry.label}
+              </IntentLink>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 font-sans text-[13px] leading-relaxed text-text-dim">
           Written and maintained by{' '}
           <a
             href={AUTHOR_PROFILE_URL}

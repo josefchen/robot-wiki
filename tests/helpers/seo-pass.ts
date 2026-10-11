@@ -6,6 +6,7 @@ import { figureMountPredecessor } from '../../lib/audit-figure-mount-continuity.
 import { kolBacklogPredecessor } from '../../lib/audit-kol-backlog-continuity.ts';
 import { parallelLocalPredecessor } from '../../lib/audit-parallel-local-continuity.ts';
 import { readerFirstPredecessor } from '../../lib/audit-reader-first-continuity.ts';
+import { reskinPredecessor } from '../../lib/audit-reskin-site-foundation-continuity.ts';
 import { seoPassCheckerPredecessor, seoPassPredecessor } from '../../lib/audit-seo-pass-continuity.ts';
 import { wordBudgetTrimPredecessor } from '../../lib/audit-word-budget-trim-continuity.ts';
 
@@ -57,10 +58,20 @@ export function preWordBudgetTrim(path: string): Buffer {
 /**
  * The bytes the parallel-local suite layer of 2026-10-11 hands every check
  * older than the BatchScale rebinding: the rebuilt pre-rebinding suite while
- * the live suite is the reviewed successor, otherwise the live bytes.
+ * the live suite is the reviewed successor, otherwise the bytes the newer
+ * re-skin layer hands on.
  */
 export function preParallelLocal(path: string): Buffer {
-  return parallelLocalPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return parallelLocalPredecessor(root, { path, bytes: 0, sha256: '' }, preReskin(path));
+}
+
+/**
+ * The bytes the site-foundation re-skin layer of 2026-10-10 hands every
+ * check older than the re-skin: the rebuilt pre-reskin source while the live
+ * file is the reviewed successor, otherwise the live bytes.
+ */
+export function preReskin(path: string): Buffer {
+  return reskinPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
 }
 
 /**

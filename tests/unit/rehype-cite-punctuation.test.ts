@@ -228,7 +228,10 @@ describe('rehypeCitePunctuation', () => {
     expect(wraps).toHaveLength(2);
     expect(wraps[0].children).toEqual([cite('a'), text('.')]);
     expect(wraps[1].children).toEqual([cite('b'), text(';')]);
-    expect(tree.children).toEqual([wraps[0], text(' Mid '), wraps[1]]);
+    // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard): a
+    // citation is a superscript set against the word it annotates, so the
+    // authored space before a chip is dropped (" Mid " became " Mid").
+    expect(tree.children).toEqual([wraps[0], text(' Mid'), wraps[1]]);
   });
 
   it('does not wrap a chip cluster whose last chip has no punctuation', () => {

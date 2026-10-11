@@ -9,15 +9,15 @@
   "contractLiterals": {
     "publicIdentity": "Robot Wiki",
     "descriptor": "Citation-first encyclopedia of modern robot learning.",
-    "webDisplayFamily": "Tektur Variable",
+    "webDisplayFamily": "DM Sans",
     "ogStaticRole": "registered-static-tektur",
-    "ink": "#0B0B0C",
-    "graphite": "#242D33",
-    "concrete": "#D9DADB",
-    "paper": "#F5F6F7",
+    "ink": "#1C1C1A",
+    "graphite": "#3F3F3B",
+    "concrete": "#DEDEDB",
+    "paper": "#FAFAF8",
     "white": "#FFFFFF",
-    "highlight": "#C6FF19",
-    "signal": "#245FFF"
+    "highlight": "#A3A39E",
+    "signal": "#3B6EA8"
   },
   "comparisonPolicy": {
     "crossComposition": "feature-anchors-only",
@@ -27,7 +27,7 @@
   "anchors": [
     {
       "id": "identity",
-      "threshold": "exact literals and registered Tektur roles; zero alternate symbols or v1 identity"
+      "threshold": "exact literals and the registered DM Sans display role on the web (registered static Tektur on OG cards); zero alternate symbols or v1 identity"
     },
     {
       "id": "hierarchy",

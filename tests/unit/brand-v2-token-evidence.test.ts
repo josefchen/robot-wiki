@@ -97,8 +97,9 @@ describe('brand-v2 token evidence', () => {
       SEMANTIC_ROLE_ASSERTION,
     ].sort());
     const highlight = expectations['VAL-B2-COL-001'][0];
-    expect(highlight.contractHex).toBe('#C6FF19');
-    expect(highlight.authoredHex).toBe('#C6FF19');
+    // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard).
+    expect(highlight.contractHex).toBe('#A3A39E');
+    expect(highlight.authoredHex).toBe('#A3A39E');
     // The value is taken from the contract row, not from the mirror it
     // checks, so a routed token the requirement never names is a routing
     // error rather than a silently accepted expectation.
@@ -185,8 +186,10 @@ describe('brand-v2 token evidence', () => {
     );
 
     const drifted = validRuntimeArtifact();
-    drifted.observedByRoute[ROUTES[0]]['--color-highlight'] = '#C6FF1A';
-    expect(() => readRuntime(drifted)).toThrow(/authors #C6FF19/);
+    // Owner-approved successor (Josef, 2026-10-10): the highlight token is
+    // the medium chart grey.
+    drifted.observedByRoute[ROUTES[0]]['--color-highlight'] = '#A3A39F';
+    expect(() => readRuntime(drifted)).toThrow(/authors #A3A39E/);
 
     const unhexed = validRuntimeArtifact();
     unhexed.observedByRoute[ROUTES[0]]['--color-signal'] = 'rgb(36, 95, 255)';
@@ -258,7 +261,9 @@ describe('brand-v2 token evidence', () => {
         })),
       };
     };
-    for (const hex of ['#245FFF', '#0B0B0C']) {
+    // Owner-approved successor (Josef, 2026-10-10): the cards paint the muted
+    // blue signal and the research-page ink.
+    for (const hex of ['#3B6EA8', '#1C1C1A']) {
       expect(() => readRenderer(dropHex(hex)), hex).toThrow(
         /the card tree paints|the shipped card corpus paints/,
       );

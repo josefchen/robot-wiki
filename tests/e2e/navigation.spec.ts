@@ -37,11 +37,24 @@ const GROUPS = [
   'Adjacent Domains',
 ];
 
+/**
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * the persistent sidebar and the hamburger are gone. The taxonomy lives in
+ * the panel the top bar's "Articles" button opens at every width, so the
+ * desktop checks open it first and read the same groups, links and states
+ * there.
+ */
+async function openArticles(page: import('@playwright/test').Page) {
+  await page.getByRole('button', { name: 'Articles' }).click();
+  await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();
+}
+
 test.describe('navigation shell', () => {
   test('sidebar shows seven groups plus market map and playground', async ({
     page,
   }) => {
     await page.goto('/');
+    await openArticles(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     for (const name of GROUPS) {
       await expect(nav.getByRole('button', { name })).toBeVisible();
@@ -52,6 +65,7 @@ test.describe('navigation shell', () => {
 
   test('group headers toggle their module lists', async ({ page }) => {
     await page.goto('/');
+    await openArticles(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     const toggle = nav.getByRole('button', { name: 'World Models' });
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
@@ -72,6 +86,7 @@ test.describe('navigation shell', () => {
     page,
   }) => {
     await page.goto('/manipulation/action-chunking/');
+    await openArticles(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('button', { name: 'Manipulation & Learned Policies' }),
@@ -109,7 +124,7 @@ test.describe('navigation shell', () => {
   test('mobile drawer opens, navigates, and closes', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
-    const trigger = page.getByRole('button', { name: 'Open navigation menu' });
+    const trigger = page.getByRole('button', { name: 'Articles' });
     await expect(trigger).toBeVisible();
     await trigger.click();
     await expect(trigger).toHaveAttribute('aria-expanded', 'true');
@@ -128,7 +143,7 @@ test.describe('navigation shell', () => {
   test('mobile drawer closes via Escape', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
-    await page.getByRole('button', { name: 'Open navigation menu' }).click();
+    await page.getByRole('button', { name: 'Articles' }).click();
     const dialog = page.getByRole('dialog', { name: 'Site navigation' });
     await expect(dialog).toBeVisible();
     await page.keyboard.press('Escape');
@@ -152,7 +167,7 @@ test.describe('navigation shell', () => {
       page.getByRole('link', { name: 'Skip to content' }),
     ).toBeFocused();
     await page.keyboard.press('Tab');
-    const trigger = page.getByRole('button', { name: 'Open navigation menu' });
+    const trigger = page.getByRole('button', { name: 'Articles' });
     await expect(trigger).toBeFocused();
     // VAL-A11Y-005: opened, cycled and dismissed without a pointer.
     await page.keyboard.press('Enter');
@@ -185,7 +200,7 @@ test.describe('navigation shell', () => {
   }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
-    const trigger = page.getByRole('button', { name: 'Open navigation menu' });
+    const trigger = page.getByRole('button', { name: 'Articles' });
     await expect(trigger).toHaveAttribute('aria-expanded', 'false');
     await expect(trigger).toHaveAttribute(
       'aria-controls',
@@ -203,7 +218,6 @@ test.describe('navigation shell', () => {
       [
         'a[href="#main-content"]',
         'header',
-        'aside#sidebar-rail',
         'main#main-content',
         'footer',
       ].filter(

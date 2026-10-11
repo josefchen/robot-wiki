@@ -3,8 +3,7 @@ import { Cite } from '@/components/ui/cite';
 import { citationLabel, citationMeta, getCitation } from '@/data/citations';
 import { DID_YOU_KNOW } from '@/data/did-you-know';
 
-export const HOME_PROSE_LINK_CLASS =
-  'text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent';
+export const HOME_PROSE_LINK_CLASS = 'ink-link';
 
 /**
  * The three facts, each linked to the article that states it and cited to
@@ -13,7 +12,7 @@ export const HOME_PROSE_LINK_CLASS =
  */
 export function DidYouKnow() {
   return (
-    <ul className="mt-3 max-w-[65ch] space-y-2 leading-relaxed text-text">
+    <ul className="border-t border-border leading-[1.62] text-text">
       {DID_YOU_KNOW.map((fact) => {
         const citation = getCitation(fact.citationId);
         if (!citation) {
@@ -26,7 +25,7 @@ export function DidYouKnow() {
         const cut = fact.after.lastIndexOf(' ');
         const lastWord = fact.after.slice(cut + 1);
         return (
-          <li key={fact.id} data-did-you-know={fact.id}>
+          <li key={fact.id} data-did-you-know={fact.id} className="border-b border-border py-4">
             {fact.before}
             <Link
               data-brand-control-id="control:link-focus"

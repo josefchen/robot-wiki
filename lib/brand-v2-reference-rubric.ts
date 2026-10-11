@@ -40,15 +40,19 @@ const rubricSchema = z
         descriptor: z.literal(
           'Citation-first encyclopedia of modern robot learning.',
         ),
-        webDisplayFamily: z.literal('Tektur Variable'),
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the web display family is DM Sans and the palette is
+        // paper, ink, grayscale chart tones and one muted blue accent. The
+        // static OG role keeps the offline Tektur face.
+        webDisplayFamily: z.literal('DM Sans'),
         ogStaticRole: z.literal('registered-static-tektur'),
-        ink: z.literal('#0B0B0C'),
-        graphite: z.literal('#242D33'),
-        concrete: z.literal('#D9DADB'),
-        paper: z.literal('#F5F6F7'),
+        ink: z.literal('#1C1C1A'),
+        graphite: z.literal('#3F3F3B'),
+        concrete: z.literal('#DEDEDB'),
+        paper: z.literal('#FAFAF8'),
         white: z.literal('#FFFFFF'),
-        highlight: z.literal('#C6FF19'),
-        signal: z.literal('#245FFF'),
+        highlight: z.literal('#A3A39E'),
+        signal: z.literal('#3B6EA8'),
       })
       .strict(),
     comparisonPolicy: z
@@ -457,13 +461,13 @@ export function collectBrowserReferenceFeatures(
   );
 
   const colourPairs = [
-    ['--color-ink', '#0B0B0C'],
-    ['--color-graphite', '#242D33'],
-    ['--color-concrete', '#D9DADB'],
-    ['--color-paper', '#F5F6F7'],
+    ['--color-ink', '#1C1C1A'],
+    ['--color-graphite', '#3F3F3B'],
+    ['--color-concrete', '#DEDEDB'],
+    ['--color-paper', '#FAFAF8'],
     ['--color-white', '#FFFFFF'],
-    ['--color-highlight', '#C6FF19'],
-    ['--color-signal', '#245FFF'],
+    ['--color-highlight', '#A3A39E'],
+    ['--color-signal', '#3B6EA8'],
   ] as const;
   const rootStyle = getComputedStyle(root);
   const matchingColourCount = colourPairs.filter(
@@ -472,10 +476,10 @@ export function collectBrowserReferenceFeatures(
   ).length;
   const roleElements = all('[data-brand-type-role]');
   const roleFamilies: Record<string, string> = {
-    display: 'Tektur',
-    interface: 'IBM Plex Sans',
-    reading: 'Newsreader',
-    data: 'IBM Plex Mono',
+    display: 'DM Sans',
+    interface: 'Geist',
+    reading: 'Geist',
+    data: 'Geist Mono',
   };
   const matchingTypeRoleCount = roleElements.filter((element) => {
     const role = element.dataset.brandTypeRole ?? '';
@@ -496,8 +500,8 @@ export function collectBrowserReferenceFeatures(
       descriptor: descriptor ? normalized(descriptor) : null,
       descriptorRequired: config.descriptorRequired,
       webDisplayFamily:
-        identity && style(identity)?.fontFamily.includes('Tektur')
-          ? 'Tektur Variable'
+        identity && style(identity)?.fontFamily.includes('DM Sans')
+          ? 'DM Sans'
           : style(identity)?.fontFamily ?? null,
       ogStaticRoleMatched: null,
       alternateSymbolCount: all(config.alternateSymbolSelector).length,
@@ -750,7 +754,7 @@ export function evaluateReferenceFeatures(
       ),
       predicate(
         'registered-tektur-role',
-        'web Tektur Variable or registered static OG role',
+        'web DM Sans or registered static OG role',
         {
           web: measurements.identity.webDisplayFamily,
           og: measurements.identity.ogStaticRoleMatched,

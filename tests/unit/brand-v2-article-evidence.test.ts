@@ -335,11 +335,17 @@ describe('the article verdict families', () => {
     // different face than the prose inside it, so the paragraph renders
     // narrower than the cap says. Widening the advance is the same shape of
     // error as widening the column.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the title is a stable id. The measure is the 960px column
+    // in pixels, so the same trap now arrives as prose in another face at
+    // the width a character cap gave it: the column falls under the pixel
+    // floor and the face check names the family.
     const evidence = accept(
       mutate((e) => {
         for (const observation of e.observations) {
           for (const paragraph of observation.proseParagraphs) {
-            paragraph.zeroAdvancePx = paragraph.zeroAdvancePx * 1.3;
+            paragraph.familyHead = 'newsreader';
+            paragraph.widthPx = Math.round(paragraph.widthPx * 0.75);
           }
         }
       }),
@@ -347,7 +353,11 @@ describe('the article verdict families', () => {
     const failures = [...readingSheetVerdicts(evidence).values()].flatMap(
       ({ failures: own }) => own,
     );
-    expect(failures.join('\n')).toMatch(/ch/);
+    expect(failures.join('\n')).toMatch(/sets its prose measure at \d+px, outside 880-960px/);
+    const faces = [...proseFaceVerdicts(evidence).values()].flatMap(
+      ({ failures: own }) => own,
+    );
+    expect(faces.join('\n')).toMatch(/in newsreader, not Geist/);
   });
 
   it('fails an article title outside the sealed sizes or the registered axes', () => {
@@ -356,9 +366,12 @@ describe('the article verdict families', () => {
         for (const observation of e.observations) {
           for (const role of observation.tekturRoles) {
             if (role.tag !== 'h1') continue;
+            // Owner-approved successor (Josef, 2026-10-10): the registered
+            // title instance is DM Sans 400, selected by weight, so the
+            // drift is weight 600 with no axis override.
             role.face.sizePx = 20;
-            role.face.variationSettings = '"wdth" 100, "wght" 400';
-            role.face.weight = 400;
+            role.face.variationSettings = 'normal';
+            role.face.weight = 600;
           }
         }
       }),
@@ -366,8 +379,9 @@ describe('the article verdict families', () => {
     const failures = [...articleTitleVerdicts(evidence).values()].flatMap(
       ({ failures: own }) => own,
     );
-    expect(failures.join('\n')).toMatch(/outside 48-64px/);
-    expect(failures.join('\n')).toMatch(/not the registered instance/);
+    expect(failures.join('\n')).toMatch(/at 20px on 1440x900, outside 84-92px/);
+    expect(failures.join('\n')).toMatch(/at 20px on 375x812, outside 40-48px/);
+    expect(failures.join('\n')).toMatch(/at wght=600 wdth=100 .*not the registered instance wght=400/);
   });
 
   it('fails a section heading that lost its underline, its affordance, or its link', () => {
@@ -387,36 +401,64 @@ describe('the article verdict families', () => {
       ({ failures: own }) => own,
     );
     expect(failures.join('\n')).toMatch(/carries no self-link/);
-    expect(failures.join('\n')).toMatch(/draws no underline/);
     expect(failures.join('\n')).toMatch(/no non-colour link affordance/);
     expect(failures.join('\n')).toMatch(/not reachable by keyboard/);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the title is a stable id. Section heads carry a quiet
+    // affordance in place of a drawn underline, and the self-link keeps the
+    // heading's ink, so a repainted link fails where the underline clause
+    // used to.
+    const repainted = accept(
+      mutate((e) => {
+        for (const observation of e.observations) {
+          for (const link of observation.sectionLinks) {
+            link.colour = 'rgb(36, 95, 255)';
+          }
+        }
+      }),
+    );
+    expect(
+      [...sectionHeadingVerdicts(repainted).values()]
+        .flatMap(({ failures: own }) => own)
+        .join('\n'),
+    ).toMatch(/paints its self-link rgb\(36, 95, 255\), not the ink of the heading it names/);
   });
 
   it('fails a citation class repainted a colour no source path uses', () => {
     // The class stays internally consistent and stays distinct from every
     // other class, so a collision check sees nothing; only holding the
     // citation occurrences to their own locked treatment catches it.
-    const evidence = accept(
-      mutate((e) => {
-        for (const observation of e.observations) {
-          for (const treatment of observation.linkTreatments) {
-            if (treatment.kind !== 'citation') continue;
-            treatment.colour = 'rgb(165, 42, 30)';
-            for (const variant of treatment.variants) {
-              variant.colour = 'rgb(165, 42, 30)';
-              variant.signature = `${variant.signature}|replanted`;
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): citations are ink or muted text, so both a foreign red and
+    // the retired signal blue fail.
+    for (const [colour, pattern] of [
+      ['rgb(165, 42, 30)', 'rgb\\(165, 42, 30\\)'],
+      ['rgb(36, 95, 255)', 'rgb\\(36, 95, 255\\)'],
+    ] as const) {
+      const evidence = accept(
+        mutate((e) => {
+          for (const observation of e.observations) {
+            for (const treatment of observation.linkTreatments) {
+              if (treatment.kind !== 'citation') continue;
+              treatment.colour = colour;
+              for (const variant of treatment.variants) {
+                variant.colour = colour;
+                variant.signature = `${variant.signature}|replanted`;
+              }
             }
           }
-        }
-      }),
-    );
-    const failures = [...linkTreatmentVerdicts(evidence).values()].flatMap(
-      ({ failures: own }) => own,
-    );
-    expect(failures.join('\n')).toMatch(
-      /paints \d+ citation link\(s\) rgb\(165, 42, 30\), not the signal blue §4\.4 locks for inline citations and source links/,
-    );
-    expect(failures.length).toBeGreaterThanOrEqual(ARTICLE_ROUTES.length);
+        }),
+      );
+      const failures = [...linkTreatmentVerdicts(evidence).values()].flatMap(
+        ({ failures: own }) => own,
+      );
+      expect(failures.join('\n')).toMatch(
+        new RegExp(
+          `paints \\d+ citation link\\(s\\) ${pattern}, not the ink or muted text tone §4\\.4 locks for inline citations and source links`,
+        ),
+      );
+      expect(failures.length).toBeGreaterThanOrEqual(ARTICLE_ROUTES.length);
+    }
   });
 
   it('fails a generated References entry that keeps the colour and loses the underline', () => {
@@ -437,7 +479,9 @@ describe('the article verdict families', () => {
       ({ failures: own }) => own,
     );
     expect(failures.join('\n')).toMatch(
-      /draws \d+ reference link\(s\) with text-decoration-line "none", so colour is the only mark separating a source path from surrounding text/,
+      // Owner-approved successor (Josef, 2026-10-10): a superscript is the
+      // other admitted non-colour mark, and this entry has neither.
+      /draws \d+ reference link\(s\) with text-decoration-line "none" and no superscript, so colour is the only mark separating a source path from surrounding text/,
     );
   });
 
@@ -481,45 +525,43 @@ describe('the article verdict families', () => {
       ({ failures: own }) => own,
     );
     expect(failures.join('\n')).toMatch(
-      /sets the control ".*" \(<button>, 12px, control:secondary-action\) in ibm plex mono: a control registered to act carries an instruction, not a value, and computes to IBM Plex Sans at every size/,
+      // Owner-approved successor (Josef, 2026-10-10): the interface face is
+      // Geist where brand-v2 had IBM Plex Sans.
+      /sets the control ".*" \(<button>, 12px, control:secondary-action\) in ibm plex mono: a control registered to act carries an instruction, not a value, and computes to Geist at every size/,
     );
   });
 
   it('keeps the data-face allowance for the controls that carry a value', () => {
-    const evidence = accept(
-      mutate((e) => {
-        for (const observation of e.observations) {
-          for (const control of observation.interfaceControls) {
-            if (control.controlId !== 'control:selection') continue;
-            control.familyHead = 'ibm plex mono';
-            control.sizePx = 12;
-          }
-        }
-      }),
-    );
-    expect(
-      [...roleFaceVerdicts(evidence, ROOT).values()].flatMap(
-        ({ failures }) => failures,
-      ),
-    ).toEqual([]);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the data face is Geist Mono where brand-v2 had IBM Plex
+    // Mono, so the allowance is granted to Geist Mono inside the band, and
+    // the retired mono no longer earns it at any size.
+    const withSelection = (familyHead: string, sizePx: number) =>
+      [
+        ...roleFaceVerdicts(
+          accept(
+            mutate((e) => {
+              for (const observation of e.observations) {
+                for (const control of observation.interfaceControls) {
+                  if (control.controlId !== 'control:selection') continue;
+                  control.familyHead = familyHead;
+                  control.sizePx = sizePx;
+                }
+              }
+            }),
+          ),
+          ROOT,
+        ).values(),
+      ].flatMap(({ failures }) => failures);
+    expect(withSelection('geist mono', 12)).toEqual([]);
     // The same control outside the band is still wrong, so the allowance is
     // the §4.3 row and not a blanket exemption.
-    const oversized = accept(
-      mutate((e) => {
-        for (const observation of e.observations) {
-          for (const control of observation.interfaceControls) {
-            if (control.controlId !== 'control:selection') continue;
-            control.familyHead = 'ibm plex mono';
-            control.sizePx = 20;
-          }
-        }
-      }),
+    expect(withSelection('geist mono', 20).join('\n')).toMatch(
+      /which is neither Geist nor the specified 9-14px Geist Mono/,
     );
-    expect(
-      [...roleFaceVerdicts(oversized, ROOT).values()]
-        .flatMap(({ failures }) => failures)
-        .join('\n'),
-    ).toMatch(/which is neither IBM Plex Sans nor the specified 9-14px/);
+    expect(withSelection('ibm plex mono', 12).join('\n')).toMatch(
+      /\(<button>, 12px\) in ibm plex mono, which is neither Geist nor the specified 9-14px/,
+    );
   });
 
   it('refuses a control sweep that stopped reading which control it measured', () => {

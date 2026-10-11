@@ -22,7 +22,7 @@ const sectionHeading =
 const prose =
   'mt-4 font-serif text-[1.0625rem] leading-relaxed text-text';
 const inlineLink =
-  'text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent';
+  'ink-link';
 
 export default function EditorialPolicyPage() {
   return (

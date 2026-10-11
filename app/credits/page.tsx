@@ -177,7 +177,7 @@ export default function CreditsPage() {
           <Link
             data-brand-control-id="control:link-focus"
             href="/editorial-policy/"
-            className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+            className="ink-link"
           >
             editorial policy
           </Link>{' '}
@@ -187,7 +187,7 @@ export default function CreditsPage() {
             href={CONTENT_CORRECTION_URL}
             target="_blank"
             rel="noopener"
-            className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+            className="ink-link"
           >
             report a factual issue on GitHub
           </a>
@@ -215,7 +215,7 @@ export default function CreditsPage() {
                       <Link
                         data-brand-control-id="control:link-focus"
                         href={link.route}
-                        className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+                        className="ink-link"
                       >
                         {link.title}
                       </Link>

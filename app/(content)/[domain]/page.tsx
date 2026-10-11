@@ -71,7 +71,7 @@ export default async function DomainLandingPage({
   );
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-12">
+    <div className="sheet sheet-masthead pb-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -87,34 +87,33 @@ export default async function DomainLandingPage({
           __html: domainCollectionJsonLd(domain, published),
         }}
       />
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: meta.name }]} />
+      <Breadcrumbs
+        variant="eyebrow"
+        items={[{ label: 'Home', href: '/' }, { label: meta.name }]}
+      />
       {/* data-pagefind-body: once any page in the export declares a body
           region, Pagefind drops every page that does not, so each
           non-article destination has to name its own or stay invisible to
           search (VAL-SEARCH-021). The region is the header and the module
           list, excluding the breadcrumb chrome above it. */}
       <div data-pagefind-body>
-        <header className="mb-8 border-b border-border pb-6">
-          <h1
-            data-tektur-role="page-h1"
-            className="font-display-page text-3xl tracking-tight text-text"
-          >
+        <header className="mb-16">
+          <h1 data-tektur-role="page-h1" className="display-h1">
             {meta.name}
           </h1>
-          <p className="mt-3 leading-relaxed text-text-dim">{meta.description}</p>
-          <p className="mt-3 max-w-[65ch] leading-relaxed text-text-dim">
+          <p className="page-lead mt-[30px]">{meta.description}</p>
+          <p className="meta-line mt-6 max-w-[960px]">
             This domain overview lists {published.length} articles, ordered as{' '}
             {meta.readingOrder}
           </p>
         </header>
-        <ol>
+        <ol className="border-t border-border">
           {published.map((m, index) => (
             <li
               key={m.slug}
               data-domain-article={`${m.domain}/${m.slug}`}
-              className="border-t border-border py-4 first:border-t-0"
+              className="grid grid-cols-[44px_minmax(0,1fr)] border-b border-border pt-6 pb-4 sm:grid-cols-[74px_minmax(0,1fr)]"
             >
-              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 {/* The registered sequence label (device:sequence-label).
                     The ordinal is the reading position the paragraph above
                     names, not ornament, and it is anchored to the left edge
@@ -131,21 +130,22 @@ export default async function DomainLandingPage({
                   data-brand-motif="sequence-label"
                   data-brand-purpose="real-order-or-state"
                   data-brand-owner="app/(content)/[domain]/page.tsx"
-                  className="pointer-events-none font-mono text-[11px] tracking-[0.14em] text-text-dim"
+                  className="pointer-events-none pt-px font-mono text-[14px] font-medium tabular-nums text-text"
                 >
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <IntentLink
-                  data-brand-control-id="control:link-focus"
-                  href={`/${m.domain}/${m.slug}/`}
-                  className="font-sans text-base font-medium text-text transition-colors hover:text-accent"
-                >
-                  {m.title}
-                </IntentLink>
-              </div>
-              <p className="mt-1 pl-7 text-sm leading-relaxed text-text-dim">
-                {m.summary}
-              </p>
+                <div className="min-w-0">
+                  <IntentLink
+                    data-brand-control-id="control:link-focus"
+                    href={`/${m.domain}/${m.slug}/`}
+                    className="font-display text-[16px] font-semibold leading-snug text-text underline decoration-transparent decoration-1 underline-offset-[3px] transition-colors hover:decoration-text"
+                  >
+                    {m.title}
+                  </IntentLink>
+                  <p className="mt-1.5 text-[15px] leading-[1.6] text-text-dim">
+                    {m.summary}
+                  </p>
+                </div>
             </li>
           ))}
         </ol>
