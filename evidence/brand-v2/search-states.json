@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5446e1f4745247970281f7975199d35e1bd1465b587a6a202b110f32ab84904c",
+  "fingerprint": "efb15f8b9860d62d8906fa956a11213012c70471bd64b1b9276ac108afd46466",
   "desktopViewport": "1440x900",
   "mobileViewport": "375x812",
   "states": [
@@ -114,7 +114,10 @@
           "method": false,
           "dataset": false
         },
-        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
+        "selectedColourRgb": "rgb(28, 28, 26)",
+        "selectedRuleRgb": "rgb(28, 28, 26)",
+        "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": []
       }
@@ -138,6 +141,7 @@
         "Comparison Matrix",
         "Action Spaces for Robot Learning",
         "Vision-Language-Action Models",
+        "Manipulation & Learned Policies",
         "RL Fine-Tuning of Policies",
         "Behavior Cloning Foundations",
         "About",
@@ -146,7 +150,6 @@
         "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
-        "Manipulation & Learned Policies",
         "The Pi Line",
         "Offline Reinforcement Learning for Robotics",
         "Drones and Aerial Robotics"
@@ -183,7 +186,10 @@
           "method": false,
           "dataset": false
         },
-        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
+        "selectedColourRgb": "rgb(28, 28, 26)",
+        "selectedRuleRgb": "rgb(28, 28, 26)",
+        "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [
           "method",
@@ -214,6 +220,7 @@
         "Comparison Matrix",
         "Action Spaces for Robot Learning",
         "Vision-Language-Action Models",
+        "Manipulation & Learned Policies",
         "RL Fine-Tuning of Policies",
         "Behavior Cloning Foundations",
         "About",
@@ -222,7 +229,6 @@
         "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
-        "Manipulation & Learned Policies",
         "The Pi Line",
         "Offline Reinforcement Learning for Robotics",
         "Drones and Aerial Robotics"
@@ -257,7 +263,10 @@
           "method": true,
           "dataset": false
         },
-        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
+        "selectedColourRgb": "rgb(28, 28, 26)",
+        "selectedRuleRgb": "rgb(28, 28, 26)",
+        "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [
           "method",
@@ -286,6 +295,7 @@
         "Comparison Matrix",
         "Action Spaces for Robot Learning",
         "Vision-Language-Action Models",
+        "Manipulation & Learned Policies",
         "RL Fine-Tuning of Policies",
         "Behavior Cloning Foundations",
         "About",
@@ -294,7 +304,6 @@
         "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
-        "Manipulation & Learned Policies",
         "The Pi Line",
         "Offline Reinforcement Learning for Robotics",
         "Drones and Aerial Robotics"
@@ -327,7 +336,10 @@
           "method": false,
           "dataset": false
         },
-        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
+        "selectedColourRgb": "rgb(28, 28, 26)",
+        "selectedRuleRgb": "rgb(28, 28, 26)",
+        "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [
           "company",
@@ -354,6 +366,7 @@
         "Comparison Matrix",
         "Action Spaces for Robot Learning",
         "Vision-Language-Action Models",
+        "Manipulation & Learned Policies",
         "RL Fine-Tuning of Policies",
         "Behavior Cloning Foundations",
         "About",
@@ -362,7 +375,6 @@
         "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
-        "Manipulation & Learned Policies",
         "The Pi Line",
         "Offline Reinforcement Learning for Robotics",
         "Drones and Aerial Robotics"
@@ -392,7 +404,10 @@
           "method": false,
           "dataset": true
         },
-        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
+        "selectedColourRgb": "rgb(28, 28, 26)",
+        "selectedRuleRgb": "rgb(28, 28, 26)",
+        "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": []
       }
@@ -437,7 +452,10 @@
           "method": false,
           "dataset": false
         },
-        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
+        "selectedColourRgb": "rgb(28, 28, 26)",
+        "selectedRuleRgb": "rgb(28, 28, 26)",
+        "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": []
       }
@@ -489,7 +507,10 @@
           "method": false,
           "dataset": false
         },
-        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
+        "selectedColourRgb": "rgb(28, 28, 26)",
+        "selectedRuleRgb": "rgb(28, 28, 26)",
+        "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [
           "method",
@@ -588,6 +609,7 @@
         "Comparison Matrix",
         "Action Spaces for Robot Learning",
         "Vision-Language-Action Models",
+        "Manipulation & Learned Policies",
         "RL Fine-Tuning of Policies",
         "Behavior Cloning Foundations",
         "About",
@@ -596,7 +618,6 @@
         "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
-        "Manipulation & Learned Policies",
         "The Pi Line",
         "Offline Reinforcement Learning for Robotics",
         "Drones and Aerial Robotics"
@@ -633,7 +654,10 @@
           "method": false,
           "dataset": false
         },
-        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
+        "selectedColourRgb": "rgb(28, 28, 26)",
+        "selectedRuleRgb": "rgb(28, 28, 26)",
+        "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [
           "method",
@@ -664,6 +688,7 @@
         "Comparison Matrix",
         "Action Spaces for Robot Learning",
         "Vision-Language-Action Models",
+        "Manipulation & Learned Policies",
         "RL Fine-Tuning of Policies",
         "Behavior Cloning Foundations",
         "About",
@@ -672,7 +697,6 @@
         "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
-        "Manipulation & Learned Policies",
         "The Pi Line",
         "Offline Reinforcement Learning for Robotics",
         "Drones and Aerial Robotics"
@@ -707,7 +731,10 @@
           "method": true,
           "dataset": false
         },
-        "selectedBackgroundRgb": "rgb(198, 255, 25)",
+        "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
+        "selectedColourRgb": "rgb(34, 34, 32)",
+        "selectedRuleRgb": "rgba(28, 28, 26, 0.92)",
+        "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [
           "method",

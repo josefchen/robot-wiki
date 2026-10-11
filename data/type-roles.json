@@ -3,25 +3,27 @@
   "firstPartyRoles": [
     {
       "id": "display",
-      "family": "Tektur Variable"
+      "family": "DM Sans",
+      "ogFamily": "Tektur Variable"
     },
     {
       "id": "interface",
-      "family": "IBM Plex Sans"
+      "family": "Geist"
     },
     {
       "id": "reading",
-      "family": "Newsreader"
+      "family": "Geist"
     },
     {
       "id": "data",
-      "family": "IBM Plex Mono"
+      "family": "Geist Mono",
+      "ogFamily": "IBM Plex Mono"
     }
   ],
   "tekturRoleInstances": [
     {
       "id": "home-wordmark",
-      "wght": 600,
+      "wght": 400,
       "wdth": 100,
       "cssClass": "font-display-home",
       "definedIn": [
@@ -40,7 +42,7 @@
     },
     {
       "id": "page-h1",
-      "wght": 600,
+      "wght": 400,
       "wdth": 100,
       "cssClass": "font-display-page",
       "definedIn": [
@@ -57,7 +59,7 @@
     },
     {
       "id": "article-h1",
-      "wght": 600,
+      "wght": 400,
       "wdth": 100,
       "cssClass": "font-display-article",
       "definedIn": [
@@ -83,7 +85,7 @@
       ]
     }
   ],
-  "tekturOgRoleId": "home-wordmark",
+  "tekturOgRoleId": "shell-wordmark",
   "fixedAssignedStrings": [
     {
       "id": "identity",

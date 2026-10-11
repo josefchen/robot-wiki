@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   FONT_PAYLOAD_SIGNATURES,
+  FRAMEWORK_FONT_PATH_PREFIX,
   TEKTUR_ASSERTION_MODES,
   TEKTUR_DELIVERY_EVIDENCE_PATH,
   classifyCapturedRequest,
@@ -54,29 +55,47 @@ function katexHead(
   return head;
 }
 
-/** The captured request whose payload is the registered web binary. */
-function registeredWebRequest(
+/** The display family, the role whose Open Graph face is Tektur. */
+const DISPLAY_FAMILY = (() => {
+  const role = FIRST_PARTY_TYPE_ROLES.find(({ id }) => id === 'display');
+  if (!role) throw new Error('no display role is registered');
+  return role.family;
+})();
+
+/** A captured request that delivered one of the display family's sources. */
+function displayRequest(
   artifact: TekturDeliveryEvidence,
 ): TekturDeliveryEvidence['fontResources']['fontRequests'][number] {
-  const row = artifact.fontResources.fontRequests.find(
-    ({ sha256 }) => sha256 === TEKTUR_FONT_METADATA.web.sha256,
+  const sources = new Set(
+    facesFor(artifact, DISPLAY_FAMILY).flatMap(({ sources: list }) => list),
   );
-  if (!row) throw new Error('the sweep captured no registered Tektur payload');
+  const row = artifact.fontResources.fontRequests.find(({ url }) =>
+    sources.has(url),
+  );
+  if (!row) throw new Error(`the sweep fetched no ${DISPLAY_FAMILY} source`);
   return row;
 }
 
-/** The `@font-face` record that publishes the registered web binary. */
-function aliasFace(
+/** Adds one same-origin font row, keeping the published path set derived. */
+function withFontRequest(
   artifact: TekturDeliveryEvidence,
-): TekturDeliveryEvidence['fontFaces'][number] {
-  const delivered = registeredWebRequest(artifact).url;
-  const face = artifact.fontFaces.find(({ sources }) =>
-    sources.includes(delivered),
-  );
-  if (!face) {
-    throw new Error(`no @font-face declares ${delivered}`);
-  }
-  return face;
+  row: { url: string; sha256: string },
+): TekturDeliveryEvidence {
+  artifact.fontResources.fontRequests = [
+    ...artifact.fontResources.fontRequests,
+    {
+      url: row.url,
+      origin: 'same',
+      resourceTypes: ['font'],
+      contentTypes: ['font/woff2'],
+      payloadSignature: '774f4632',
+      sha256: row.sha256,
+    },
+  ];
+  artifact.fontResources.sameOriginPaths = [
+    ...new Set([...artifact.fontResources.sameOriginPaths, row.url]),
+  ].sort();
+  return artifact;
 }
 
 function facesFor(
@@ -144,7 +163,8 @@ describe('brand-v2 Tektur delivery evidence', () => {
       measurements,
     });
     expect(displayEvidence.observed.unapprovedFamilyHeads).toEqual([]);
-    expect(displayEvidence.actual).toContain('tektur');
+    expect(displayEvidence.actual).toContain('"dm sans"');
+    expect(displayEvidence.actual).not.toContain('tektur');
   });
 
   /**
@@ -159,7 +179,7 @@ describe('brand-v2 Tektur delivery evidence', () => {
     expect(() => measure(stale)).toThrow(/stale/);
 
     const unversioned = clone();
-    (unversioned as { version: number }).version = 2;
+    (unversioned as { version: number }).version = 1;
     expect(() => measure(unversioned)).toThrow(/Unsupported/);
 
     const droppedRoute = clone();
@@ -213,28 +233,46 @@ describe('brand-v2 Tektur delivery evidence', () => {
     expect(() => measure(missingRole)).toThrow(/rendered the roles/);
 
     const driftedAxis = clone();
-    driftedAxis.roleAxes[0].weight = '400';
-    expect(() => measure(driftedAxis)).toThrow(/computed weight 400/);
+    // Owner-approved successor (Josef, 2026-10-10): DM Sans registers 400
+    // and 600, so the drift is a weight no role registers.
+    driftedAxis.roleAxes[0].weight = '300';
+    expect(() => measure(driftedAxis)).toThrow(/computed weight 300/);
 
     const droppedAxis = clone();
     droppedAxis.roleAxes = droppedAxis.roleAxes.slice(1);
     expect(() => measure(droppedAxis)).toThrow(/measured axes for/);
 
-    // Both of these passed a `family.includes('tektur')` substring test.
+    // Both of these passed a `family.includes('tektur')` substring test,
+    // and the same lookalikes of the successor display family fail too.
     const lookalikeAxis = clone();
-    lookalikeAxis.roleAxes[0].family = 'Tektur Clone, sans-serif';
+    lookalikeAxis.roleAxes[0].family = 'DM Sans Clone, sans-serif';
     expect(() => measure(lookalikeAxis)).toThrow(
-      /rather than the registered Tektur runtime family/,
+      /rather than the registered display runtime family dm sans/,
     );
 
     const displacedHead = clone();
-    displacedHead.roleAxes[0].family = 'Arial, tektur, sans-serif';
+    displacedHead.roleAxes[0].family = 'Arial, "DM Sans", sans-serif';
     expect(() => measure(displacedHead)).toThrow(
-      /whose head is arial rather than the registered Tektur runtime family/,
+      /whose head is arial rather than the registered display runtime family/,
+    );
+
+    // The retired display face is drift now, not compliance.
+    const retiredHead = clone();
+    retiredHead.roleAxes[0].family = 'tektur, sans-serif';
+    expect(() => measure(retiredHead)).toThrow(
+      /whose head is tektur rather than the registered display runtime family/,
+    );
+
+    // The display family is selected by weight alone, so the Tektur-era
+    // explicit axis settings are rejected rather than required.
+    const axisOverride = clone();
+    axisOverride.roleAxes[0].variationSettings = '"wdth" 100, "wght" 600';
+    expect(() => measure(axisOverride)).toThrow(
+      /carries the variation settings "wdth" 100, "wght" 600/,
     );
 
     const lookalikeWordmark = clone();
-    lookalikeWordmark.delivery.wordmark.family = 'Tektur Clone, sans-serif';
+    lookalikeWordmark.delivery.wordmark.family = 'DM Sans Clone, sans-serif';
     expect(() => measure(lookalikeWordmark)).toThrow(
       /the registry records wght/,
     );
@@ -248,8 +286,18 @@ describe('brand-v2 Tektur delivery evidence', () => {
     planted.familyObservations[0].heads.push('Arial');
     planted.familyObservations[0].headsOutsideMath.push('Arial');
     expect(() => measure(planted)).toThrow(
-      /neither one of the 4 registered first-party families nor a scoped exception: Arial on/,
+      /neither one of the 3 registered first-party families nor a scoped exception: Arial on/,
     );
+
+    // The superseded families are unapproved now, wherever they appear.
+    for (const retired of ['tektur', 'IBM Plex Sans', 'Newsreader']) {
+      const residue = clone();
+      residue.familyObservations[0].heads.push(retired);
+      residue.familyObservations[0].headsOutsideMath.push(retired);
+      expect(() => measure(residue), retired).toThrow(
+        new RegExp(`nor a scoped exception: ${retired} on`),
+      );
+    }
 
     const unscoped = clone();
     const observation = mathRoute(unscoped);
@@ -268,9 +316,9 @@ describe('brand-v2 Tektur delivery evidence', () => {
     // referent, which is how a family could be "approved" and unused.
     const unusedFamily = clone();
     for (const entry of unusedFamily.familyObservations) {
-      entry.heads = entry.heads.filter((head) => head !== 'Newsreader');
+      entry.heads = entry.heads.filter((head) => head !== 'Geist Mono');
       entry.headsOutsideMath = entry.headsOutsideMath.filter(
-        (head) => head !== 'Newsreader',
+        (head) => head !== 'Geist Mono',
       );
     }
     expect(() => measure(unusedFamily)).toThrow(/has no referent/);
@@ -318,17 +366,18 @@ describe('brand-v2 Tektur delivery evidence', () => {
       /records the same font-family head twice/,
     );
 
-    // Every swept route renders at least one Tektur role, so a scan narrowed
-    // to anything less than the whole document loses the display head.
+    // Every swept route renders at least one display role, so a scan
+    // narrowed to anything less than the whole document loses the display
+    // head.
     const narrowedScan = clone();
     for (const entry of narrowedScan.familyObservations) {
-      entry.heads = entry.heads.filter((head) => !/tektur/i.test(head));
+      entry.heads = entry.heads.filter((head) => head !== DISPLAY_FAMILY);
       entry.headsOutsideMath = entry.headsOutsideMath.filter(
-        (head) => !/tektur/i.test(head),
+        (head) => head !== DISPLAY_FAMILY,
       );
     }
     expect(() => measure(narrowedScan)).toThrow(
-      /role, which computes the head tektur, but the font-family scan resolved only/,
+      /role, which computes the head dm sans, but the font-family scan resolved only/,
     );
   });
 
@@ -348,77 +397,102 @@ describe('brand-v2 Tektur delivery evidence', () => {
       'IBM Plex Sans Variable',
     );
     expect(() => measure(planted)).toThrow(
-      /neither one of the 4 registered first-party families nor a scoped exception: IBM Plex Sans Variable on/,
+      /neither one of the 3 registered first-party families nor a scoped exception: IBM Plex Sans Variable on/,
     );
 
     const suffixed = clone();
-    suffixed.familyObservations[1].heads.push('Newsreader Variable');
-    suffixed.familyObservations[1].headsOutsideMath.push('Newsreader Variable');
+    suffixed.familyObservations[1].heads.push('Geist Variable');
+    suffixed.familyObservations[1].headsOutsideMath.push('Geist Variable');
     expect(() => measure(suffixed)).toThrow(
-      /nor a scoped exception: Newsreader Variable on/,
+      /nor a scoped exception: Geist Variable on/,
     );
   });
 
   /**
-   * The positive control for the same mechanism: the one legitimate rename
-   * still resolves, and it resolves because the sweep saw the `@font-face`
-   * that performs it load the registered payload.
+   * The positive control for the same mechanism: the legitimate families
+   * resolve, and they resolve because the sweep saw framework-bundled
+   * `@font-face` rules for them fetched.
+   *
+   * Owner-approved successor (Josef, 2026-10-10, research-page standard).
+   * The one admitted rename was the Tektur web binary published as
+   * `tektur`; the web families are DM Sans, Geist and Geist Mono now, all
+   * published under their registered names, so no rename is admitted at
+   * all and Tektur declared anywhere at runtime is residue. The title is a
+   * stable enforcement identifier and is kept.
    */
   it('accepts the registered Tektur runtime alias, and only on that evidence', () => {
     const measurements = measure(clone());
     const display = measurements.families.approved.find(
       ({ roleId }) => roleId === 'display',
     );
-    expect(display?.family).toBe('Tektur Variable');
-    expect(display?.alias?.binaryPath).toBe(TEKTUR_FONT_METADATA.web.path);
-    expect(display?.alias?.binarySha256).toBe(TEKTUR_FONT_METADATA.web.sha256);
-    expect(display?.runtimeFace).toBe(display?.alias?.runtimeKey);
-    expect(display?.alias?.deliveredFrom.length).toBeGreaterThan(0);
+    expect(display?.family).toBe('DM Sans');
+    expect(display?.runtimeFace).toBe('dm sans');
+    expect(display?.delivery.deliveredFrom.length).toBeGreaterThan(0);
     expect(display?.observations).toBeGreaterThan(0);
-    // Exactly one alias: the other three families are published under their
-    // registered names, so nothing else may be renamed.
+    for (const member of measurements.families.approved) {
+      expect(member.runtimeFace, member.roleId).toBe(
+        fontFamilyKey(member.family),
+      );
+      for (const source of member.delivery.declaredBy) {
+        expect(source.startsWith(FRAMEWORK_FONT_PATH_PREFIX), source).toBe(
+          true,
+        );
+      }
+    }
+    // Interface and reading share one delivered family.
     expect(
-      measurements.families.approved
-        .filter(({ alias }) => alias !== null)
-        .map(({ roleId }) => roleId),
-    ).toEqual(['display']);
+      measurements.families.deliveries.map(({ family, roleIds }) => [
+        family,
+        roleIds,
+      ]),
+    ).toEqual([
+      ['DM Sans', ['display']],
+      ['Geist', ['interface', 'reading']],
+      ['Geist Mono', ['data']],
+    ]);
 
-    // Without the declaring face, the head the display role resolves is not
-    // an approved family at all.
+    // Without the declaring faces, the display family has no delivery.
     const undeclared = clone();
     undeclared.fontFaces = undeclared.fontFaces.filter(
-      (face) => face !== aliasFace(undeclared),
+      (face) => fontFamilyKey(face.family) !== fontFamilyKey(DISPLAY_FAMILY),
     );
     expect(() => measure(undeclared)).toThrow(
-      /distinct @font-face families declare that payload \(none\)/,
+      /which no observed @font-face declares, so every element naming it falls back/,
     );
 
-    // A second face claiming the same payload leaves the runtime family
-    // ambiguous, so an added alias cannot approve a new name.
-    const ambiguous = clone();
-    ambiguous.fontFaces = [
-      ...ambiguous.fontFaces,
-      {
-        family: '"IBM Plex Sans Variable"',
-        sources: [...aliasFace(ambiguous).sources],
-      },
-    ];
-    expect(() => measure(ambiguous)).toThrow(
-      /2 distinct @font-face families declare that payload/,
+    // A declared source outside the bundle fails even if nothing fetched it.
+    const foreignSource = clone();
+    facesFor(foreignSource, DISPLAY_FAMILY)[0].sources.push(
+      'https://fonts.gstatic.com/s/dmsans/v1/face.woff2',
+    );
+    expect(() => measure(foreignSource)).toThrow(
+      /DM Sans load from outside the framework's bundled asset path/,
     );
 
-    // A declared face pointing somewhere else backs nothing.
+    // A declared face pointing somewhere nothing fetched backs nothing.
     const detached = clone();
-    aliasFace(detached).sources = ['/_next/static/media/not-delivered.woff2'];
+    for (const face of facesFor(detached, DISPLAY_FAMILY)) {
+      face.sources = ['/_next/static/media/not-delivered.woff2'];
+    }
     expect(() => measure(detached)).toThrow(
-      /distinct @font-face families declare that payload \(none\)/,
+      /No captured same-origin font request fetched any of the 1 sources the DM Sans @font-face rules declare/,
+    );
+
+    // A Tektur face declared at runtime is residue of the retired display.
+    const tekturFace = clone();
+    tekturFace.fontFaces = [
+      ...tekturFace.fontFaces,
+      { family: 'tektur', sources: ['/_next/static/media/tektur.woff2'] },
+    ];
+    expect(() => measure(tekturFace)).toThrow(
+      /declares 1 Tektur @font-face rule\(s\) \(tektur\)/,
     );
 
     // A registered family whose runtime name no face declares would resolve
     // to a fallback on every element that names it.
     const unloaded = clone();
-    for (const face of facesFor(unloaded, 'Newsreader')) {
-      face.family = 'Newsreader Unloaded';
+    for (const face of facesFor(unloaded, 'Geist Mono')) {
+      face.family = 'Geist Mono Unloaded';
     }
     expect(() => measure(unloaded)).toThrow(
       /which no observed @font-face declares, so every element naming it falls back/,
@@ -571,53 +645,53 @@ describe('brand-v2 Tektur delivery evidence', () => {
       /lists the same-origin font paths/,
     );
 
-    // Delivery of the registered binary is identified by payload checksum,
-    // not by a `/_next/static/media/*.woff2` URL shape.
-    const noBundle = clone();
-    for (const row of noBundle.fontResources.fontRequests) {
-      if (row.sha256 === TEKTUR_FONT_METADATA.web.sha256) {
-        row.sha256 = 'a'.repeat(64);
-      }
-    }
-    expect(() => measure(noBundle)).toThrow(
-      /No captured same-origin font request delivered/,
+    // Owner-approved successor (Josef, 2026-10-10): the retired Tektur web
+    // binary is caught by its bytes and by its file name, inverting the
+    // clause that used to require it to be delivered.
+    const webLeak = withFontRequest(clone(), {
+      url: '/_next/static/media/display-face',
+      sha256: TEKTUR_FONT_METADATA.web.sha256,
+    });
+    expect(() => measure(webLeak)).toThrow(
+      /requested the retired Tektur web binary/,
+    );
+    const webFileName = TEKTUR_FONT_METADATA.web.path.split('/').at(-1);
+    const namedLeak = withFontRequest(clone(), {
+      url: `/_next/static/media/${webFileName}`,
+      sha256: 'b'.repeat(64),
+    });
+    expect(() => measure(namedLeak)).toThrow(
+      /requested the retired Tektur web binary/,
     );
 
+    // A web family served from outside the framework's bundled asset path.
     const offBundle = clone();
-    const bundled = registeredWebRequest(offBundle);
-    const bundledFace = aliasFace(offBundle);
-    bundledFace.sources = bundledFace.sources.map((source) =>
-      source === bundled.url ? '/vendor/tektur.woff2' : source,
-    );
-    bundled.url = '/vendor/tektur.woff2';
+    const bundled = displayRequest(offBundle);
+    const original = bundled.url;
+    for (const face of facesFor(offBundle, DISPLAY_FAMILY)) {
+      face.sources = face.sources.map((source) =>
+        source === original ? '/vendor/dm-sans.woff2' : source,
+      );
+    }
+    for (const row of offBundle.fontResources.fontRequests) {
+      if (row.url === original) row.url = '/vendor/dm-sans.woff2';
+    }
     offBundle.fontResources.sameOriginPaths = [
       ...offBundle.fontResources.sameOriginPaths.filter(
-        (path) => path !== registeredWebRequest(clone()).url,
+        (path) => path !== original,
       ),
-      '/vendor/tektur.woff2',
+      '/vendor/dm-sans.woff2',
     ].sort();
     expect(() => measure(offBundle)).toThrow(
-      /none of it from the framework's bundled asset path/,
+      /served from outside the framework's bundled asset path/,
     );
 
     // The offline OG binary is caught by its bytes, so a renamed copy is the
     // same leak.
-    const ogLeak = clone();
-    ogLeak.fontResources.fontRequests = [
-      ...ogLeak.fontResources.fontRequests,
-      {
-        url: '/_next/static/media/display-face',
-        origin: 'same',
-        resourceTypes: ['font'],
-        contentTypes: ['font/ttf'],
-        payloadSignature: '00010000',
-        sha256: TEKTUR_FONT_METADATA.og.sha256,
-      },
-    ];
-    ogLeak.fontResources.sameOriginPaths = [
-      ...ogLeak.fontResources.sameOriginPaths,
-      '/_next/static/media/display-face',
-    ].sort();
+    const ogLeak = withFontRequest(clone(), {
+      url: '/_next/static/media/display-face',
+      sha256: TEKTUR_FONT_METADATA.og.sha256,
+    });
     expect(() => measure(ogLeak)).toThrow(/requested the offline OG binary/);
 
     const noRequests = clone();
@@ -630,9 +704,9 @@ describe('brand-v2 Tektur delivery evidence', () => {
 
     const fallbackGlyph = clone();
     fallbackGlyph.assignedStringProbes[0].fallbackAdvance =
-      fallbackGlyph.assignedStringProbes[0].tekturAdvance;
+      fallbackGlyph.assignedStringProbes[0].displayAdvance;
     expect(() => measure(fallbackGlyph)).toThrow(
-      /the same .* advance in Tektur and in the generic fallback/,
+      /the same .* advance in the display face and in the generic fallback/,
     );
 
     const unloadedGlyph = clone();

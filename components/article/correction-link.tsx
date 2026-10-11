@@ -12,7 +12,7 @@ export function CorrectionLink({ articleTitle }: { articleTitle: string }) {
         href={contentCorrectionUrl(articleTitle)}
         target="_blank"
         rel="noopener"
-        className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+        className="text-text underline decoration-border-strong underline-offset-2 hover:decoration-text"
       >
         Report a content correction
       </a>

@@ -92,7 +92,7 @@ export default function PrivacyPage() {
           <Link
             data-brand-control-id="control:link-focus"
             href="/editorial-policy/"
-            className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+            className="ink-link"
           >
             editorial and corrections policy
           </Link>

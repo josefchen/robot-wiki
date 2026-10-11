@@ -72,13 +72,15 @@ function inspectFace(
   const role = FIRST_PARTY_TYPE_ROLES.find(({ id }) => id === face.roleId);
   if (!role) {
     failures.push(`${face.faceId}: role ${face.roleId} is not first-party`);
-  } else if (
-    role.family !== face.family &&
-    role.family !== `${face.family} Variable`
-  ) {
-    failures.push(
-      `${face.faceId}: family ${face.family} does not serve the ${face.roleId} role family ${role.family}`,
-    );
+  } else {
+    // The cards paint each role in its registered OG family (the vendored
+    // offline faces), which the web family no longer is.
+    const ogFamily = role.ogFamily ?? role.family;
+    if (ogFamily !== face.family && ogFamily !== `${face.family} Variable`) {
+      failures.push(
+        `${face.faceId}: family ${face.family} does not serve the ${face.roleId} role OG family ${ogFamily}`,
+      );
+    }
   }
 
   const path = resolve(root, face.path);

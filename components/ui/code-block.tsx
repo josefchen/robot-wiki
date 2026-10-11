@@ -20,11 +20,11 @@ export function CodeBlock({ code, language, title }: CodeBlockProps) {
       data-brand-surface-id="surface:flat"
       data-brand-frame-depth="1"
       data-brand-frame-interior-registered="code"
-      className="my-6 overflow-hidden rounded-sm border border-border bg-surface"
+      className="my-8 overflow-hidden rounded-[7px] bg-surface-2"
     >
       <figcaption
         data-brand-surface-id="surface:flat"
-        className="flex items-center justify-between border-b border-border bg-surface-2 px-3 py-1.5"
+        className="flex items-center justify-between px-6 pt-3"
       >
         <span className="font-mono text-xs text-text-dim">
           {title ?? language ?? 'code'}
@@ -35,7 +35,7 @@ export function CodeBlock({ code, language, title }: CodeBlockProps) {
         {...scrollRegionAttributes({
           label: title ?? language ?? 'Code sample',
         })}
-        className="overflow-x-auto p-3 font-mono text-[13px] leading-relaxed text-text"
+        className="overflow-x-auto px-6 pt-3 pb-5 font-mono text-[14px] leading-[23.1px] text-text"
       >
         <code>{code}</code>
       </pre>

@@ -1,26 +1,18 @@
+import type { ReactNode } from 'react';
 import type { ModuleRegistryEntry } from '@/data/schemas/module';
 import { formatLongDate } from '@/lib/dates';
 
 /**
- * The scholarly header every published article carries (architecture.md
- * section 6b): title, summary, and a quiet metadata line with the
- * last-reviewed date, the reading time and the citation count. All three
- * values are derived at build time (frontmatter `lastReviewed`,
- * lib/reading-time.ts against the compiled article, and the resolved
- * References list); none of them is hand-written per article.
+ * The masthead every published article carries, in the Pantheon research
+ * page manner: an uppercase eyebrow naming the domain, one DM Sans display
+ * H1, the summary as a Geist lead, and one muted meta line with the
+ * last-reviewed date, the reading time and the source count linked to the
+ * References list. All three values are derived at build time (frontmatter
+ * `lastReviewed`, lib/reading-time.ts against the compiled article, and the
+ * resolved References list); none of them is hand-written per article.
  *
- * The breadcrumb trail above the header already names the domain, so the
- * header does not repeat it. Presentation follows the design system as a
- * compact technical title block: a Tektur title, a reading-face summary,
- * and one row of registration labels over their measured values. No badges,
- * pills, portraits, cover art or emoji. The grid reflows at narrow
- * viewports instead of overflowing.
- *
- * The sheet carries no rule of its own. The boundary below it is the
- * registered `device:section-rule` the template mounts, so every rule on an
- * article has a registry owner and a real anchor; the three per-cell
- * vertical rails this row used to draw had neither, and separated cells the
- * grid gap already separates.
+ * No badges, pills, portraits, cover art or emoji, and no rule: the sheet
+ * closes on space.
  */
 
 type ArticleHeaderProps = {
@@ -35,6 +27,8 @@ type ArticleHeaderProps = {
    * share the one array.
    */
   citationCount: number;
+  /** The eyebrow above the title: the article's breadcrumb trail. */
+  eyebrow?: ReactNode;
 };
 
 export function ArticleHeader({
@@ -42,53 +36,38 @@ export function ArticleHeader({
   lastReviewed,
   readingTimeMinutes,
   citationCount,
+  eyebrow,
 }: ArticleHeaderProps) {
   return (
-    <header data-pagefind-body>
-      <h1
-        data-tektur-role="article-h1"
-        className="article-title font-display-article text-text"
-      >
+    <header data-pagefind-body className="article-masthead">
+      {eyebrow}
+      <h1 data-tektur-role="article-h1" className="article-title">
         {entry.title}
       </h1>
-      <p className="mt-4 text-[1.0625rem] leading-relaxed text-text-dim sm:text-[1.125rem]">
-        {entry.summary}
-      </p>
-      {/* The metadata row is page chrome, not prose: dates and counts are
-          never legitimate excerpt candidates, and Pagefind joins the dt/dd
-          text without the flex gap that separates them on screen, so an
-          excerpt through the header read "Last reviewed8 August 2026.
-          Reading time8 min. Citations10." (fixed 2026-08-15; decision
-          recorded in library/search.md). data-pagefind-ignore is
-          index-only: the row stays visible and unchanged above. */}
-      <dl
-        data-pagefind-ignore
-        className="mt-8 grid grid-cols-2 gap-x-8 gap-y-4 font-mono text-xs leading-relaxed text-text-dim sm:grid-cols-3"
-      >
+      <p className="page-lead">{entry.summary}</p>
+      {/* The meta line is page chrome, not prose: dates and counts are
+          never legitimate excerpt candidates (decision recorded in
+          library/search.md). data-pagefind-ignore is index-only: the line
+          stays visible above. */}
+      <p data-pagefind-ignore data-article-meta className="meta-line">
         {lastReviewed ? (
-          <div
-            data-header-last-reviewed={lastReviewed}
-            className="col-span-2 sm:col-span-1"
-          >
-            <dt className="registration-label text-[10px]">Last reviewed</dt>
-            <dd className="mt-1 text-text">
-              <time dateTime={lastReviewed}>{formatLongDate(lastReviewed)}</time>
-            </dd>
-          </div>
+          <span data-header-last-reviewed={lastReviewed}>
+            Updated <time dateTime={lastReviewed}>{formatLongDate(lastReviewed)}</time>
+            <span aria-hidden="true"> · </span>
+          </span>
         ) : null}
-        <div>
-          <dt className="registration-label text-[10px]">Reading time</dt>
-          <dd data-header-reading-minutes={readingTimeMinutes} className="mt-1 text-text">
-            {`${readingTimeMinutes} min`}
-          </dd>
-        </div>
-        <div>
-          <dt className="registration-label text-[10px]">Citations</dt>
-          <dd data-header-citation-count={citationCount} className="mt-1 text-text">
-            {citationCount}
-          </dd>
-        </div>
-      </dl>
+        <span data-header-reading-minutes={readingTimeMinutes}>
+          {`${readingTimeMinutes} min read`}
+        </span>
+        <span aria-hidden="true"> · </span>
+        <a
+          href="#references-heading"
+          data-header-citation-count={citationCount}
+          data-brand-control-id="control:link-focus"
+        >
+          {`${citationCount} ${citationCount === 1 ? 'source' : 'sources'}`}
+        </a>
+      </p>
     </header>
   );
 }

@@ -49,17 +49,17 @@ export default function NotFound() {
           4.2) instead of the mono data face. */}
       <p
         data-tektur-role="display-numerals"
-        className="font-display-numerals text-sm text-accent"
+        className="eyebrow font-display-numerals"
       >
         404
       </p>
       <h1
         data-tektur-role="page-h1"
-        className="font-display-page mt-2 text-3xl tracking-tight text-text"
+        className="display-h1 mt-6"
       >
         Page not found
       </h1>
-      <p className="mt-3 max-w-[55ch] leading-relaxed text-text-dim">
+      <p className="page-lead mt-8 max-w-[55ch] text-text-dim">
         This page does not exist. The link may be out of date, or the address
         may be mistyped.
       </p>
@@ -67,7 +67,7 @@ export default function NotFound() {
         <Link
           data-brand-control-id="control:link-focus"
           href="/"
-          className="rounded-sm border border-accent px-4 py-2 font-sans text-sm font-medium text-accent transition-colors hover:bg-surface-2 active:translate-y-[1px]"
+          className="ink-link font-sans text-[15px]"
         >
           Back to the wiki home
         </Link>

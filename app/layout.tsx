@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from 'next/font/google';
-import localFont from 'next/font/local';
+import { DM_Sans, Geist, Geist_Mono } from 'next/font/google';
 import { AnonymousAnalytics } from '@/components/analytics/anonymous-analytics';
 import { AuthorToggleEarly } from '@/components/article/author-toggle-early';
 import { SiteShell } from '@/components/nav/site-shell';
@@ -21,55 +20,28 @@ import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import { HOME_SEO_TITLE } from '@/lib/seo';
 import './globals.css';
 
-// The four first-party roles are Tektur display, IBM Plex Sans interface,
-// Newsreader reading, and IBM Plex Mono data/code. Tektur's approved Latin
-// variable binary is local and self-hosted; the separate static TTF used by
-// the offline OG renderer is deliberately not referenced from this layout.
-const tektur = localFont({
-  src: '../public/fonts/Tektur-latin-wdth-wght.woff2',
-  variable: '--font-tektur',
-  weight: '400 900',
-  style: 'normal',
-  display: 'swap',
-  fallback: [],
-  adjustFontFallback: false,
-});
-
-// IBM Plex Sans and IBM Plex Mono are static-instance families here rather
-// than variable, so the weights in use are enumerated.
-const plexSans = IBM_Plex_Sans({
-  variable: '--font-plex-sans',
-  weight: ['400', '500', '600'],
+// The three first-party roles of the Pantheon standard, all under the SIL
+// Open Font License: DM Sans for the display H1, section heads and the
+// wordmark; Geist for body, interface and captions; Geist Mono for numerals,
+// code and tabular readouts. Geist and Geist Mono are variable families, so
+// one file covers every weight in use. DM Sans is used at 400 (the H1) and
+// 600 (heads). The Tektur files under public/fonts stay for the offline OG
+// renderer only and are not referenced from this layout.
+const dmSans = DM_Sans({
+  variable: '--font-dm-sans',
+  weight: ['400', '600'],
   subsets: ['latin'],
   display: 'swap',
 });
 
-const newsreader = Newsreader({
-  variable: '--font-newsreader',
+const geist = Geist({
+  variable: '--font-geist',
   subsets: ['latin'],
   display: 'swap',
 });
 
-// IBM Plex Mono is loaded as two faces of one family so each weight can
-// carry its own preload decision. Measured on a 412px viewport, weight 400
-// sets a label or two above the fold on every route (about 55 characters)
-// and weight 500 sets nothing there, so only 400 is preloaded: a late
-// discovered 400 cost home a simulated round trip before first paint, while
-// preloading 500 only spent early bandwidth the LCP font needed (Newsreader
-// on articles, Plex Sans on home). Both calls declare the same
-// `--font-plex-mono` stack for the same family name, so the data role
-// resolves exactly as before; 500 loads as soon as a page uses it, and
-// `swap` with the size-adjusted fallback keeps that text in place meanwhile.
-const plexMono = IBM_Plex_Mono({
-  variable: '--font-plex-mono',
-  weight: ['400'],
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const plexMonoMedium = IBM_Plex_Mono({
-  variable: '--font-plex-mono',
-  weight: ['500'],
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
   subsets: ['latin'],
   display: 'swap',
   preload: false,
@@ -138,7 +110,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${tektur.variable} ${plexSans.variable} ${newsreader.variable} ${plexMono.variable} ${plexMonoMedium.variable}`}
+      className={`${dmSans.variable} ${geist.variable} ${geistMono.variable}`}
     >
       <body>
         <AuthorToggleEarly />

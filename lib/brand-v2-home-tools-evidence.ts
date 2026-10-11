@@ -2,7 +2,6 @@ import { z } from 'zod';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
   SHIPPED_GEOMETRY_MODEL_CLASS,
-  WEB_FONT_BINARY_CLASS,
   deriveEvidenceClosure,
   evidenceClosureGraph,
   routeEntryModules,
@@ -223,7 +222,13 @@ export type ChartDisclosureSummaryObservation = {
 };
 
 export type HomeDesignBoundsObservation = {
-  microLabels: Array<{ text: string; fontSizePx: number; family: string }>;
+  microLabels: Array<{
+    text: string;
+    fontSizePx: number;
+    family: string;
+    tag: string;
+    role: string | null;
+  }>;
   borderedBoxCount: number;
   axeViolationIds: string[];
   consoleErrors: string[];
@@ -261,11 +266,11 @@ export type HomeToolsEvidence = {
  * The closure below reaches every public route, the playground among them,
  * so the shipped kinematic model is still an input: an overflow the
  * playground grows from a new model has to invalidate the responsive rows.
+ * Since the site-foundation re-skin of 2026-10-10 the pages load their
+ * faces through `next/font/google`, so no route names a font binary and the
+ * web font class is no longer declared.
  */
-const HOME_TOOLS_NON_IMPORT_CLASSES = [
-  WEB_FONT_BINARY_CLASS,
-  SHIPPED_GEOMETRY_MODEL_CLASS,
-] as const;
+const HOME_TOOLS_NON_IMPORT_CLASSES = [SHIPPED_GEOMETRY_MODEL_CLASS] as const;
 
 /**
  * The entry points this evidence is about.
@@ -391,7 +396,13 @@ export const homeToolsEvidenceSchema = z.object({
   ),
   designBounds: z.object({
     microLabels: z.array(
-      z.object({ text: z.string(), fontSizePx: z.number(), family: z.string() }),
+      z.object({
+        text: z.string(),
+        fontSizePx: z.number(),
+        family: z.string(),
+        tag: z.string(),
+        role: z.string().nullable(),
+      }),
     ),
     borderedBoxCount: z.number(),
     axeViolationIds: z.array(z.string()),
@@ -1215,14 +1226,43 @@ export function progressCounterVerdicts(
   });
 }
 
+/** The research-page section head floor: H2 is 20px (`PANTHEON-SPEC.md`). */
+export const SECTION_HEAD_MIN_FONT_PX = 20;
+
+/**
+ * True only for the standard's section head: an `h2` carrying the
+ * registered `section-display` role, set in DM Sans at the H2 size. A
+ * small, unregistered or differently set uppercase run is a micro-label.
+ */
+export function isStandardSectionHead(label: {
+  fontSizePx: number;
+  family: string;
+  tag: string;
+  role: string | null;
+}): boolean {
+  return (
+    label.tag === 'h2' &&
+    label.role === 'section-display' &&
+    /^dm sans$/i.test(label.family) &&
+    label.fontSizePx >= SECTION_HEAD_MIN_FONT_PX
+  );
+}
+
 /** Decides `VAL-EDU-027` per bound the assertion names. */
 export function homeDesignBoundVerdicts(evidence: HomeToolsEvidence): Verdict[] {
   const bounds = evidence.designBounds;
 
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): section heads are uppercase DM Sans 600 at 20px by the
+  // standard, so a registered section head is a heading, not a
+  // micro-label. Every other uppercase text still counts.
+  const microLabels = bounds.microLabels.filter(
+    (label) => !isStandardSectionHead(label),
+  );
   const microFailures: string[] = [];
-  if (bounds.microLabels.length > HOME_MAX_MICRO_LABELS) {
+  if (microLabels.length > HOME_MAX_MICRO_LABELS) {
     microFailures.push(
-      `home renders ${bounds.microLabels.length} uppercase micro-labels, over the ${HOME_MAX_MICRO_LABELS} bound: ${bounds.microLabels.map(({ text }) => text).join('; ')}`,
+      `home renders ${microLabels.length} uppercase micro-labels, over the ${HOME_MAX_MICRO_LABELS} bound: ${microLabels.map(({ text }) => text).join('; ')}`,
     );
   }
 

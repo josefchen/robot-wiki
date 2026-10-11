@@ -2,6 +2,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { test, expect } from './brand-v2-static-fixture';
 import {
+  ACCENT_RGB,
   ACTION_INK_RGB,
   HIGHLIGHT_ARIA_STATE_CUES,
   HOME_COMPOSITION_ANCHORS,
@@ -86,6 +87,7 @@ const PROGRESS_PATTERNS = [
 
 type CollectArgs = {
   lime: string;
+  accent: string;
   ink: string;
   progressPatterns: string[];
   domains: Array<{ domain: string; name: string; href: string }>;
@@ -115,6 +117,7 @@ function collectArgs(
 ): CollectArgs {
   return {
     lime: SELECTION_LIME_RGB,
+    accent: ACCENT_RGB,
     ink: ACTION_INK_RGB,
     progressPatterns: PROGRESS_PATTERNS,
     domains: domains.map(({ domain, name, href }) => ({ domain, name, href })),
@@ -165,13 +168,17 @@ function collectHome(args: CollectArgs) {
     const style = getComputedStyle(el);
     const geometry = box(el);
     const lineHeightPx = parseFloat(style.lineHeight);
-    // The descriptor is the mono leaf paragraph inside the same sheet as
-    // the lockup, resolved by computed family so a class rename cannot
-    // quietly turn the check off.
+    // The descriptor is the first text-face paragraph inside the same sheet
+    // as the lockup, resolved by computed family so a class rename cannot
+    // quietly turn the check off. Owner-approved successor (Josef,
+    // 2026-10-10, the research-page standard): the descriptor is the
+    // masthead's Geist lead under the H1, in place of the brand-v2 mono line.
     const sheet = el.closest('section > div') ?? el.parentElement ?? el;
     const descriptor =
-      [...sheet.querySelectorAll('p')].find((candidate) =>
-        getComputedStyle(candidate).fontFamily.toLowerCase().includes('mono'),
+      [...sheet.querySelectorAll('p')].find(
+        (candidate) =>
+          familyHead(getComputedStyle(candidate)).toLowerCase() === 'geist' &&
+          text(candidate).length > 0,
       ) ?? null;
     return {
       index,
@@ -218,6 +225,11 @@ function collectHome(args: CollectArgs) {
     .map((el) => {
       const style = getComputedStyle(el);
       const carriers: string[] = [];
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): a highlight is any retired lime, or the accent laid as a
+      // fill behind text. The accent stays allowed as the colour of the one
+      // highlighted series or value; a fill is what the standard forbids.
+      if (style.backgroundColor === args.accent) carriers.push('background');
       if (style.backgroundColor === args.lime) carriers.push('background');
       if (style.color === args.lime) carriers.push('color');
       for (const side of ['Top', 'Right', 'Bottom', 'Left']) {
@@ -684,12 +696,23 @@ test.describe('brand-v2 home composition', () => {
     expect(response?.status(), HOME_ROUTE).toBe(200);
     await page.waitForLoadState('networkidle');
 
-    for (const lockup of [
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the sidebar and its lockup are gone; the shell's lockups
+    // are the top bar's, the footer's and the "Articles" panel's, which is
+    // only mounted while it is open, so it is opened and read last.
+    const lockups = [
       'h1[data-tektur-role="home-wordmark"]',
-      'aside [data-tektur-role="shell-wordmark"]',
       'header [data-tektur-role="shell-wordmark"]',
       'footer [data-tektur-role="shell-wordmark"]',
-    ]) {
+      '#mobile-nav-drawer [data-tektur-role="shell-wordmark"]',
+    ];
+    for (const lockup of lockups) {
+      if (lockup.startsWith('#mobile-nav-drawer')) {
+        await page.getByRole('button', { name: 'Articles' }).click();
+        await expect(
+          page.getByRole('dialog', { name: 'Site navigation' }),
+        ).toBeVisible();
+      }
       await expect(page.locator(lockup), lockup).toHaveCount(1);
       await expect(
         page.locator(`${lockup} [data-brand-device-id]`),
@@ -741,10 +764,10 @@ test.describe('brand-v2 home composition', () => {
     const failing = verdicts
       .filter(({ failures }) => failures.length > 0)
       .map(({ id }) => id);
-    expect(failing.sort()).toEqual([
-      'anchor:home-black-primary-action',
-      'anchor:home-lime-highlight',
-    ]);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the highlight anchor refuses a colour highlight instead of
+    // requiring one, so with the action gone it is the one anchor that fails.
+    expect(failing.sort()).toEqual(['anchor:home-black-primary-action']);
   });
 
   /**
@@ -816,18 +839,21 @@ test.describe('brand-v2 home composition', () => {
     await page.goto(`${staticBase}${HOME_ROUTE}`);
     await page.waitForLoadState('networkidle');
     await page.evaluate(() => document.fonts.ready);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): home no longer renders a `<mark>` to swap, so the lime span
+    // is planted into the hero's lead line itself.
     const swapped = await page.evaluate((lime) => {
-      let count = 0;
-      for (const mark of [...document.querySelectorAll('main mark')]) {
-        const span = document.createElement('span');
-        span.textContent = mark.textContent;
-        span.style.backgroundColor = lime;
-        span.dataset.brandHighlight =
-          (mark as HTMLElement).dataset.brandHighlight ?? 'home-premise';
-        mark.replaceWith(span);
-        count += 1;
-      }
-      return count;
+      const lead = document
+        .querySelector('main h1')
+        ?.closest('section')
+        ?.querySelector('p');
+      if (!lead) return 0;
+      const span = document.createElement('span');
+      span.textContent = ' a planted premise';
+      span.style.backgroundColor = lime;
+      span.dataset.brandHighlight = 'home-premise';
+      lead.append(span);
+      return 1;
     }, SELECTION_LIME_RGB);
     // The plant has to have replaced something, or the case proves nothing.
     expect(swapped).toBeGreaterThan(0);
@@ -884,18 +910,23 @@ test.describe('brand-v2 home composition', () => {
         // A state value outside the attribute's own vocabulary.
         { attribute: 'aria-current', value: 'false', role: '' },
       ];
+      // Planted into the hero's lead line: home renders no `<mark>` under
+      // the research-page standard (owner-approved successor, Josef,
+      // 2026-10-10).
+      const lead = document
+        .querySelector('main h1')
+        ?.closest('section')
+        ?.querySelector('p');
+      if (!lead) return 0;
       let count = 0;
-      for (const mark of [...document.querySelectorAll('main mark')]) {
-        for (const state of states) {
-          const span = document.createElement('span');
-          span.textContent = mark.textContent;
-          span.style.backgroundColor = lime;
-          span.setAttribute(state.attribute, state.value);
-          if (state.role) span.setAttribute('role', state.role);
-          mark.parentElement?.insertBefore(span, mark);
-          count += 1;
-        }
-        mark.remove();
+      for (const state of states) {
+        const span = document.createElement('span');
+        span.textContent = ` planted state ${count + 1}`;
+        span.style.backgroundColor = lime;
+        span.setAttribute(state.attribute, state.value);
+        if (state.role) span.setAttribute('role', state.role);
+        lead.append(span);
+        count += 1;
       }
       return count;
     }, SELECTION_LIME_RGB);

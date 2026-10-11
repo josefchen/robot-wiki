@@ -516,6 +516,8 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
             text: rendered,
             fontSizePx: parseFloat(style.fontSize),
             family: style.fontFamily.split(',')[0].replace(/["']/g, '').trim(),
+            tag: element.tagName.toLowerCase(),
+            role: element.getAttribute('data-tektur-role'),
           };
         })
         .filter((label): label is NonNullable<typeof label> => label !== null);

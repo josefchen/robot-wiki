@@ -1,7 +1,6 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { MagnifyingGlass } from '@phosphor-icons/react';
 import { useState, type FormEvent } from 'react';
 import { cx } from '@/lib/utils';
 
@@ -38,36 +37,33 @@ export function SearchBox({ idPrefix, onNavigate, className }: SearchBoxProps) {
       action="/search/"
       method="get"
       onSubmit={submit}
-      className={cx('px-2', className)}
+      className={cx(className)}
     >
-      <label
-        htmlFor={inputId}
-        className="mb-1.5 block font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
-      >
+      <label htmlFor={inputId} className="eyebrow mb-2 block">
         Search
       </label>
-      <div className="flex items-stretch gap-1.5">
+      <div className="flex items-stretch border-b border-border-strong">
         <input
           id={inputId}
           name="q"
           type="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          // The rail gives this input a ~187px content box at every desktop
-          // width, so the placeholder has to fit that, not the viewport.
+          // The panel gives this input about 280px at every width, so the
+          // placeholder has to fit that, not the viewport.
           placeholder="ALOHA, chunk size"
           autoComplete="off"
           data-brand-control-id="control:input"
           data-brand-surface-id="surface:flat"
-          className="min-w-0 flex-1 rounded-sm border border-border bg-surface px-2 py-1.5 text-sm text-text placeholder:text-text-dim"
+          className="min-w-0 flex-1 bg-transparent py-2 font-sans text-[15px] text-text placeholder:text-text-dim"
         />
         <button
           type="submit"
           aria-label="Search the wiki"
           data-brand-control-id="control:secondary-action"
-          className="flex items-center rounded-sm px-2.5 text-text-dim transition-colors hover:bg-surface-2 hover:text-text active:translate-y-[1px]"
+          className="cursor-pointer pl-3 font-sans text-[14px] text-text-dim transition-colors hover:text-text"
         >
-          <MagnifyingGlass size={16} aria-hidden />
+          Search
         </button>
       </div>
     </form>

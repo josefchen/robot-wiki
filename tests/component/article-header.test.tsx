@@ -64,13 +64,20 @@ describe('ArticleHeader', () => {
     );
   });
 
+  // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard): the
+  // monospace <dl> of labelled values became one muted meta line,
+  // "Updated 8 August 2026 · 14 min read · 6 sources", with the source count
+  // linked to the References list. The values and their data hooks are
+  // unchanged.
   it('shows the derived reading time and citation count', () => {
     const { container } = renderHeader({
       readingTimeMinutes: 14,
       citationCount: 6,
     });
-    expect(screen.getByText('14 min')).toBeVisible();
-    expect(screen.getByText('6', { selector: 'dd' })).toBeVisible();
+    expect(screen.getByText('14 min read')).toBeVisible();
+    const sources = screen.getByRole('link', { name: '6 sources' });
+    expect(sources).toBeVisible();
+    expect(sources).toHaveAttribute('href', '#references-heading');
     expect(
       container.querySelector('[data-header-reading-minutes]')?.textContent,
     ).toContain('14');
@@ -81,20 +88,29 @@ describe('ArticleHeader', () => {
     ).toBe('6');
   });
 
-  it('keeps the metadata quiet: small monospace labels, no badges', () => {
+  it('names a single source in the singular', () => {
+    renderHeader({ citationCount: 1 });
+    expect(screen.getByRole('link', { name: '1 source' })).toBeVisible();
+  });
+
+  it('keeps the metadata quiet: one muted meta line, no badges', () => {
     const { container } = renderHeader();
-    const meta = container.querySelector('header dl');
+    const meta = container.querySelector('header [data-article-meta]');
     expect(meta).not.toBeNull();
-    expect(meta?.className).toContain('font-mono');
-    expect(meta?.className).toContain('text-xs');
+    expect(meta?.tagName).toBe('P');
+    expect(meta?.className).toContain('meta-line');
     // Quiet metadata, not badges: no Badge primitives, no emoji, no images.
     expect(meta?.querySelectorAll('img, svg')).toHaveLength(0);
     expect(meta?.textContent ?? '').not.toMatch(/[\u{1F300}-\u{1FAFF}]/u);
+    expect(meta?.textContent).toBe('Updated 8 August 2026 · 14 min read · 6 sources');
   });
 
   it('omits only the date item when lastReviewed is absent', () => {
     const { container } = renderHeader({ lastReviewed: undefined });
     expect(container.querySelector('[data-header-last-reviewed]')).toBeNull();
-    expect(screen.getByText('14 min')).toBeVisible();
+    expect(screen.getByText('14 min read')).toBeVisible();
+    expect(
+      container.querySelector('header [data-article-meta]')?.textContent,
+    ).toBe('14 min read · 6 sources');
   });
 });

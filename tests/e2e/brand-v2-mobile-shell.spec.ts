@@ -6,7 +6,7 @@ import {
   MOBILE_VIEWPORT,
   REQUIRED_INERT_REGIONS,
   SCRIM_SEPARATION_FLOOR,
-  SELECTION_LIME_RGB,
+  INK_RGB,
   contrastRatio,
   drawerVerdicts,
   mobileHeaderVerdicts,
@@ -165,7 +165,11 @@ function collectClosed(input: { descriptor: string; tabStops: string }): {
       descriptorMatches,
       trigger: trigger
         ? {
-            accessibleName: trigger.getAttribute('aria-label') ?? '',
+            accessibleName: (
+              trigger.getAttribute('aria-label') ??
+              trigger.textContent ??
+              ''
+            ).trim(),
             ariaExpanded: trigger.getAttribute('aria-expanded'),
             ariaControls: trigger.getAttribute('aria-controls'),
           }
@@ -201,6 +205,7 @@ function collectOpen(input: {
   triggerControlsResolvesWhenOpen: boolean;
   stops: DrawerTabStop[];
   panelRightPx: number;
+  panelLeftPx: number;
   inert: MobileRouteObservation['inert'];
   separation: Omit<MobileRouteObservation['separation'], 'contrastRatio'> & {
     scrimParsedAlpha: number;
@@ -312,6 +317,7 @@ function collectOpen(input: {
       label: labelOf(el),
     })),
     panelRightPx: panelBox ? round(panelBox.right) : -1,
+    panelLeftPx: panelBox ? round(panelBox.left) : -1,
     inert: {
       regions: input.requiredRegions.map(({ selector, id }) => {
         const el = document.querySelector(selector);
@@ -361,6 +367,10 @@ function collectOpen(input: {
               ),
             )
           : null,
+      currentColour: matching ? getComputedStyle(matching).color : null,
+      currentWeight: matching
+        ? Number.parseFloat(getComputedStyle(matching).fontWeight)
+        : null,
     },
   };
 }
@@ -395,7 +405,7 @@ function readFocus(tabStops: string): {
     stopCount: stops.length,
     isTrigger:
       active?.getAttribute('aria-controls') === 'mobile-nav-drawer' &&
-      active.getAttribute('aria-label') === 'Open navigation menu',
+      (active.textContent ?? '').trim() === 'Articles',
     dialogPresent: document.getElementById('mobile-nav-drawer') !== null,
   };
 }
@@ -421,7 +431,10 @@ test.describe('brand-v2 mobile header and drawer', () => {
     });
 
     const dialog = page.locator('#mobile-nav-drawer');
-    const trigger = page.getByRole('button', { name: 'Open navigation menu' });
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the menu trigger is the top bar's "Articles" text button,
+    // and the taxonomy panel opens from the right edge.
+    const trigger = page.getByRole('button', { name: 'Articles' });
     const observations: MobileRouteObservation[] = [];
 
     for (const route of routes) {
@@ -489,11 +502,13 @@ test.describe('brand-v2 mobile header and drawer', () => {
       await dialog.waitFor({ state: 'detached' });
       const afterClose = await page.evaluate(readFocus, TAB_STOPS);
 
-      // Cycle three: the scrim, clicked to the right of the panel.
+      // Cycle three: the scrim, clicked on the side the panel leaves open.
       await trigger.click();
       await dialog.waitFor();
       await page.mouse.click(
-        Math.round((open.panelRightPx + MOBILE_VIEWPORT.width) / 2),
+        open.panelLeftPx > 0
+          ? Math.round(open.panelLeftPx / 2)
+          : Math.round((open.panelRightPx + MOBILE_VIEWPORT.width) / 2),
         Math.round(MOBILE_VIEWPORT.height / 2),
       );
       await dialog.waitFor({ state: 'detached' });
@@ -647,19 +662,23 @@ test.describe('brand-v2 mobile header and drawer', () => {
           }
           return problems;
         }
-        if (currentRoute.markerDeviceId !== 'device:active-interval-rail') {
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the current entry is marked by ink and weight and
+        // carries no device at all, in place of the brand-v2 lime
+        // active-interval rail, so any device on it, lime or not, fails.
+        if (currentRoute.markerDeviceId !== null) {
           problems.push(
-            `${route} marks the current drawer entry with ${String(currentRoute.markerDeviceId)}`,
+            `${route} marks the current drawer entry with ${String(currentRoute.markerDeviceId)}, a device the research-page standard retired`,
           );
         }
-        if (currentRoute.markerColour !== SELECTION_LIME_RGB) {
+        if (currentRoute.currentColour !== INK_RGB) {
           problems.push(
-            `${route} paints the drawer's current-route rail ${String(currentRoute.markerColour)}`,
+            `${route} sets the current drawer entry in ${String(currentRoute.currentColour)}, not ink`,
           );
         }
-        if ((currentRoute.markerAlignmentErrorPx ?? 99) > 2) {
+        if ((currentRoute.currentWeight ?? 0) < 500) {
           problems.push(
-            `${route} sets the drawer's current-route rail ${String(currentRoute.markerAlignmentErrorPx)}px from its rail anchor`,
+            `${route} sets the current drawer entry at weight ${String(currentRoute.currentWeight)}, so only its colour marks it`,
           );
         }
         return problems;

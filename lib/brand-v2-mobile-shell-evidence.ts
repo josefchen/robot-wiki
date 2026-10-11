@@ -49,6 +49,13 @@ export const MOBILE_VIEWPORT = {
 
 /** The exact lime the contract seals for the current-route mark. */
 export const SELECTION_LIME_RGB = 'rgb(198, 255, 25)';
+/**
+ * The ink the current drawer entry is set in. Owner-approved successor
+ * (Josef, 2026-10-10, the research-page standard): current and selected
+ * states are ink and weight, never the lime above, which is kept so a
+ * returning lime mark can still be named.
+ */
+export const INK_RGB = 'rgb(28, 28, 26)';
 
 /**
  * How far the composited scrim has to sit from the panel it separates.
@@ -63,6 +70,13 @@ export const SELECTION_LIME_RGB = 'rgb(198, 255, 25)';
 export const SCRIM_SEPARATION_FLOOR = 3;
 
 /**
+ * The research-page top bar's two text controls (owner decision, Josef,
+ * 2026-10-10). "Articles" is the taxonomy panel trigger.
+ */
+export const COMPACT_HEADER_CONTROL_LABELS = ['Articles', 'How robots work'] as const;
+export const DRAWER_TRIGGER_NAME = COMPACT_HEADER_CONTROL_LABELS[0];
+
+/**
  * The background regions an open drawer must make inert, as a required set
  * rather than as whatever the sweep happened to look at.
  *
@@ -73,10 +87,14 @@ export const SCRIM_SEPARATION_FLOOR = 3;
  * content column and is therefore the one an inert-the-siblings
  * implementation misses. Both the sweep and the verdict quantify over this,
  * so they cannot disagree about what was supposed to be measured.
+ *
+ * Owner-approved successor (Josef, 2026-10-10, the research-page
+ * standard): the shell has no desktop sidebar any more (one top bar and the
+ * taxonomy panel at every width), so `aside#sidebar-rail` left the set.
+ * Every background region the shell still renders stays required.
  */
 export const REQUIRED_INERT_REGIONS = [
   { selector: 'header', id: 'header' },
-  { selector: 'aside#sidebar-rail', id: 'the desktop sidebar' },
   { selector: 'main#main-content', id: 'main' },
   { selector: 'footer', id: 'the site footer' },
   { selector: 'a[href="#main-content"]', id: 'the skip link' },
@@ -204,6 +222,13 @@ export type DrawerCurrentRoute = {
   markerDeviceId: string | null;
   markerColour: string | null;
   markerAlignmentErrorPx: number | null;
+  /**
+   * The current entry's own text colour and weight. Owner-approved successor
+   * (Josef, 2026-10-10, the research-page standard): the current entry is
+   * marked with ink and weight, in place of the lime rail.
+   */
+  currentColour: string | null;
+  currentWeight: number | null;
 };
 
 export type MobileRouteObservation = {
@@ -389,6 +414,8 @@ const routeObservationSchema = z.object({
     markerDeviceId: z.string().nullable(),
     markerColour: z.string().nullable(),
     markerAlignmentErrorPx: z.number().nullable(),
+    currentColour: z.string().nullable(),
+    currentWeight: z.number().nullable(),
   }),
 });
 
@@ -571,9 +598,11 @@ export function mobileHeaderVerdicts(
           `${route} renders the compact wordmark without a registered display role`,
         );
       }
-      if (!/tektur/i.test(lockup.fontFamilyHead)) {
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the wordmark is DM Sans 600, in place of Tektur.
+      if (!/^["']?dm sans["']?$/i.test(lockup.fontFamilyHead.trim())) {
         failures.push(
-          `${route} sets the compact wordmark in ${lockup.fontFamilyHead}, not Tektur`,
+          `${route} sets the compact wordmark in ${lockup.fontFamilyHead}, not DM Sans`,
         );
       }
       if (lockup.lineBoxes !== 1) {
@@ -587,8 +616,22 @@ export function mobileHeaderVerdicts(
         );
       }
     }
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the top bar carries the identity plus exactly the two
+    // control labels the standard names, each once, and no other text.
+    for (const label of COMPACT_HEADER_CONTROL_LABELS) {
+      const count = header.leafTexts.filter((text) => text === label).length;
+      if (count !== 1) {
+        failures.push(
+          `${route} renders the "${label}" control ${count} times in the compact header, not exactly once`,
+        );
+      }
+    }
     for (const text of header.leafTexts) {
       if (text === PUBLIC_IDENTITY) continue;
+      if ((COMPACT_HEADER_CONTROL_LABELS as readonly string[]).includes(text)) {
+        continue;
+      }
       const fragment = fragments.find((candidate) => text.includes(candidate));
       failures.push(
         fragment
@@ -624,6 +667,10 @@ export function mobileHeaderVerdicts(
     } else {
       if (header.trigger.accessibleName.length === 0) {
         failures.push(`${route} renders an unnamed drawer trigger`);
+      } else if (header.trigger.accessibleName !== DRAWER_TRIGGER_NAME) {
+        failures.push(
+          `${route} names the drawer trigger "${header.trigger.accessibleName}", not "${DRAWER_TRIGGER_NAME}"`,
+        );
       }
       if (header.trigger.ariaExpanded !== 'false') {
         failures.push(

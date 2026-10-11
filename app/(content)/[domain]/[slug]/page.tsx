@@ -4,6 +4,9 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { ComponentType } from 'react';
 import { ArticleHeader } from '@/components/article/article-header';
+import { ArticleToc } from '@/components/article/article-toc';
+import { CitationNumbersProvider } from '@/components/article/citation-numbers';
+import { ARTICLE_START_ID, articleOutline } from '@/lib/article-outline';
 import { CorrectionLink } from '@/components/article/correction-link';
 import { MathStylesheet } from '@/components/article/math-stylesheet';
 import { LinkedFrom, SeeAlso } from '@/components/article/article-links';
@@ -196,17 +199,22 @@ export default async function ModulePage({ params }: { params: Params }) {
     { label: entry.title, href: `/${entry.domain}/${entry.slug}/` },
   ];
 
+  // One number per source, shared by the superscript in the text, its
+  // sidenote and its References entry: the position in the one array.
+  const citationNumbers = Object.fromEntries(
+    references.map(({ citation }, index) => [citation.id, index + 1]),
+  );
+  const outline = articleOutline(body);
+
   return (
     // data-pagefind-body scopes the prose search index to the module
     // content (header + body) and excludes the surrounding nav chrome and
     // the generated References bibliography. data-prose-column is the
-    // named handle for the article's text column: validators measuring
-    // the full-width rules resolve it here instead of by
-    // ancestor heuristics (library/design-system.md). The column's measure
-    // and gutters live in app/globals.css, because the cap has to be written
-    // in the same face and size as the prose it caps for `ch` to mean the
-    // same thing on both sides of it.
-    <article data-prose-column className="mx-auto w-full py-12">
+    // named handle for the article sheet: validators measuring the
+    // full-width rules resolve it here instead of by ancestor heuristics.
+    // The sheet's grid (contents rail, 960px column, sidenote margin) lives
+    // in app/globals.css.
+    <article data-prose-column className="pb-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -234,22 +242,30 @@ export default async function ModulePage({ params }: { params: Params }) {
           }),
         }}
       />
-      <Breadcrumbs
-        items={[...breadcrumbTrail, { label: entry.title }]}
-      />
       <ArticleHeader
         entry={entry}
         lastReviewed={mod.frontmatter?.lastReviewed}
         readingTimeMinutes={readingTime}
         citationCount={references.length}
+        eyebrow={
+          <Breadcrumbs
+            variant="eyebrow"
+            items={[...breadcrumbTrail, { label: entry.title }]}
+          />
+        }
       />
-      {/* The title sheet closes on space, not on a rule. It used to close on
-          a bare border-bottom, which is a rule no registry owns and no anchor
-          aligns; the article's one hairline is the apparatus boundary below,
-          so replacing the border with a second device would have cost the
-          separator the meaning of being the only one. */}
-      <div data-pagefind-body className="prose mt-10">
-        <Content />
+      <ArticleToc items={outline} startId={ARTICLE_START_ID} />
+      {/* The title sheet closes on space, not on a rule; the article's one
+          hairline is the apparatus boundary below. */}
+      <div
+        id={ARTICLE_START_ID}
+        data-pagefind-body
+        data-article-body
+        className="prose article-body"
+      >
+        <CitationNumbersProvider numbers={citationNumbers}>
+          <Content />
+        </CitationNumbersProvider>
       </div>
       {hasApparatus ? (
         <hr

@@ -383,9 +383,42 @@ describe('home tools evidence', () => {
           text: `LABEL ${index}`,
           fontSizePx: 11,
           family: 'IBM Plex Mono',
+          tag: 'span',
+          role: null,
         }));
       }),
     ).toEqual(['bound:home-micro-labels']);
+    // Owner-approved successor (Josef, 2026-10-10): the standard's uppercase
+    // section heads are headings, and only they are; an h2 that is small,
+    // unregistered or not DM Sans is still a micro-label.
+    const sectionHead = {
+      text: 'SECTION',
+      fontSizePx: 20.32,
+      family: 'DM Sans',
+      tag: 'h2',
+      role: 'section-display',
+    };
+    expect(
+      planted((e) => {
+        e.designBounds.microLabels = Array.from({ length: 12 }, () => ({ ...sectionHead }));
+      }),
+    ).toEqual([]);
+    for (const drift of [
+      { fontSizePx: 13 },
+      { role: null },
+      { family: 'Geist' },
+      { tag: 'p' },
+    ]) {
+      expect(
+        planted((e) => {
+          e.designBounds.microLabels = Array.from({ length: 6 }, () => ({
+            ...sectionHead,
+            ...drift,
+          }));
+        }),
+        JSON.stringify(drift),
+      ).toEqual(['bound:home-micro-labels']);
+    }
     // Home's one figure carries the frame's "Adjust more" fold, and its
     // summary is measured like any other chart disclosure, not excused.
     expect(

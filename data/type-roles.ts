@@ -4,12 +4,16 @@ import { DOMAIN_META, publishedModules } from './modules.ts';
 
 const firstPartyTypeRoleSchema = z.object({
   id: z.enum(['display', 'interface', 'reading', 'data']),
-  family: z.enum([
-    'Tektur Variable',
-    'IBM Plex Sans',
-    'Newsreader',
-    'IBM Plex Mono',
-  ]),
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): DM Sans displays, Geist reads and runs the interface, Geist
+  // Mono carries data. Tektur is left only to the offline OG renderer.
+  family: z.enum(['DM Sans', 'Geist', 'Geist Mono']),
+  /**
+   * The family the offline OG renderer paints this role in, where it differs
+   * from the web family. The cards keep the vendored static Tektur and IBM
+   * Plex Mono faces; a role without one is not painted on the cards.
+   */
+  ogFamily: z.enum(['Tektur Variable', 'IBM Plex Mono']).optional(),
 });
 
 const tekturRoleInstanceSchema = z.object({
@@ -52,7 +56,10 @@ export const typeRoleRegistrySchema = z.object({
   schemaVersion: z.literal(1),
   firstPartyRoles: z.array(firstPartyTypeRoleSchema).length(4),
   tekturRoleInstances: z.array(tekturRoleInstanceSchema).length(6),
-  tekturOgRoleId: z.literal('home-wordmark'),
+  // The OG face is the wordmark's offline Tektur SemiBold (600), so it maps to
+  // the shell wordmark, the role that still sets the wordmark at 600; the
+  // home H1 now displays at 400.
+  tekturOgRoleId: z.literal('shell-wordmark'),
   fixedAssignedStrings: z.array(tekturAssignedStringSchema).min(1),
 });
 

@@ -41,8 +41,14 @@ export const SEARCH_MOBILE_VIEWPORT = {
   height: 812,
 } as const;
 
-/** The lime a selected facet must compute to (VAL-B2-DISC-003). */
-export const SEARCH_SELECTION_RGB = 'rgb(198, 255, 25)';
+/**
+ * The selected facet's treatment (VAL-B2-DISC-003). Owner-approved successor
+ * (Josef, 2026-10-10, the research-page standard): a selected text tab is
+ * ink on a 1px ink rule with no fill, in place of the brand-v2 lime fill
+ * `rgb(198, 255, 25)`. The marker and the pressed state stay required.
+ */
+export const SEARCH_SELECTION_RGB = 'rgba(0, 0, 0, 0)';
+export const SEARCH_SELECTION_INK_RGB = 'rgb(28, 28, 26)';
 
 /** Every facet option, derived from the shipped entity types plus reset. */
 export const SEARCH_FACET_OPTIONS: readonly string[] = [
@@ -125,6 +131,9 @@ const facetSchema = z.object({
   selected: z.string(),
   pressedByOption: z.record(z.string(), z.boolean()),
   selectedBackgroundRgb: z.string(),
+  selectedColourRgb: z.string(),
+  selectedRuleRgb: z.string(),
+  selectedRuleWidthPx: z.number(),
   selectedHasCheckMarker: z.boolean(),
   rowTypes: z.array(z.string()),
 });
@@ -424,7 +433,7 @@ export function searchDataDerivationVerdicts(
   });
 }
 
-/** VAL-B2-DISC-003: lime plus marker plus keyboard clear/reset per option. */
+/** VAL-B2-DISC-003: ink and rule plus marker plus keyboard clear/reset per option. */
 export function searchFacetSelectionVerdicts(
   evidence: SearchStatesEvidence,
 ): SearchStateVerdict[] {
@@ -449,9 +458,24 @@ export function searchFacetSelectionVerdicts(
       if (state.facet.selected !== option) {
         failures.push(`the selected facet is ${state.facet.selected}`);
       }
+      observed.selectedColourRgb = state.facet.selectedColourRgb;
+      observed.selectedRuleRgb = state.facet.selectedRuleRgb;
       if (state.facet.selectedBackgroundRgb !== SEARCH_SELECTION_RGB) {
         failures.push(
-          `the selected ${option} facet computes to ${state.facet.selectedBackgroundRgb}, not lime`,
+          `the selected ${option} facet computes to ${state.facet.selectedBackgroundRgb}, not the unfilled text tab`,
+        );
+      }
+      if (state.facet.selectedColourRgb !== SEARCH_SELECTION_INK_RGB) {
+        failures.push(
+          `the selected ${option} facet sets its label in ${state.facet.selectedColourRgb}, not ink`,
+        );
+      }
+      if (
+        state.facet.selectedRuleRgb !== SEARCH_SELECTION_INK_RGB ||
+        state.facet.selectedRuleWidthPx < 1
+      ) {
+        failures.push(
+          `the selected ${option} facet draws its rule ${state.facet.selectedRuleWidthPx}px ${state.facet.selectedRuleRgb}, not 1px ink`,
         );
       }
       if (!state.facet.selectedHasCheckMarker) {

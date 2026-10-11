@@ -120,11 +120,18 @@ test.describe('Glossary page', () => {
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(`${BASE}/`);
-    const link = page.locator('aside').getByRole('link', { name: 'Glossary' });
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the sidebar is gone, and the taxonomy opens from the top
+    // bar's "Articles" button at every width.
+    await page.getByRole('button', { name: 'Articles' }).click();
+    const panel = page.getByRole('dialog', { name: 'Site navigation' });
+    const link = panel.getByRole('link', { name: 'Glossary' });
     await expect(link).toBeVisible();
     await link.click();
     await expect(page).toHaveURL(`${BASE}/glossary/`);
-    await expect(link).toHaveAttribute('aria-current', 'page');
+    await expect(panel).toHaveCount(0);
+    await page.getByRole('button', { name: 'Articles' }).click();
+    await expect(panel.getByRole('link', { name: 'Glossary' })).toHaveAttribute('aria-current', 'page');
   });
 
   test('reachable from the mobile drawer at 375px (VAL-GLOSS-003)', async ({
@@ -132,7 +139,8 @@ test.describe('Glossary page', () => {
   }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto(`${BASE}/`);
-    await page.getByRole('button', { name: 'Open navigation menu' }).click();
+    // Owner-approved successor: the drawer trigger is the "Articles" button.
+    await page.getByRole('button', { name: 'Articles' }).click();
     const drawer = page.getByRole('dialog', { name: 'Site navigation' });
     const link = drawer.getByRole('link', { name: 'Glossary' });
     await expect(link).toBeVisible();
@@ -141,7 +149,7 @@ test.describe('Glossary page', () => {
     // The drawer closes after navigating.
     await expect(drawer).toHaveCount(0);
     // The entry point shows the active state on /glossary.
-    await page.getByRole('button', { name: 'Open navigation menu' }).click();
+    await page.getByRole('button', { name: 'Articles' }).click();
     await expect(
       page.getByRole('dialog', { name: 'Site navigation' }).getByRole('link', { name: 'Glossary' }),
     ).toHaveAttribute('aria-current', 'page');

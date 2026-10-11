@@ -68,8 +68,11 @@ function expectedCitationCount(domain: string, slug: string): number {
 }
 
 async function displayedReadingMinutes(page: Page): Promise<number> {
-  const text = (await page.locator('dd[data-header-reading-minutes]').textContent()) ?? '';
-  const match = /^(\d+)\s*min$/.exec(text.trim());
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): the monospace <dl> became one meta line, "Updated … · N min
+  // read · N sources", with the same data hooks.
+  const text = (await page.locator('[data-article-meta] [data-header-reading-minutes]').textContent()) ?? '';
+  const match = /^(\d+)\s*min read$/.exec(text.trim());
   expect(match, `reading-time slot shows "${text.trim()}"`).not.toBeNull();
   return Number(match?.[1]);
 }
@@ -119,7 +122,8 @@ test.describe('Article header metadata', () => {
         // Displayed value: spelled month, day-month-year, no numeric-only
         // form. Derived independently above, not via lib/dates.
         const text = ((await slot.textContent()) ?? '')
-          .replace(/^Last reviewed\s*/, '')
+          .replace(/^Updated\s*/, '')
+          .replace(/\s*·\s*$/, '')
           .trim();
         expect(text).toBe(expectedDateText(iso));
         expect(text).not.toMatch(/^\d{1,4}[\/.]\d{1,2}[\/.]\d{1,4}$/);
@@ -139,9 +143,12 @@ test.describe('Article header metadata', () => {
 
         const headerCount = Number(
           await page
-            .locator('dd[data-header-citation-count]')
-            .textContent()
-            .then((t) => t?.trim()),
+            .locator('[data-article-meta] [data-header-citation-count]')
+            .getAttribute('data-header-citation-count'),
+        );
+        // The visible count is the same number, spelled with its noun.
+        await expect(page.locator('[data-article-meta] [data-header-citation-count]')).toHaveText(
+          `${headerCount} ${headerCount === 1 ? 'source' : 'sources'}`,
         );
         const renderedCount = await page.locator('ol [data-reference-id]').count();
         const resolvedCount = expectedCitationCount(m.domain, m.slug);
@@ -202,15 +209,38 @@ test.describe('Article header metadata', () => {
     );
   });
 
-  test('the metadata renders quiet and small: monospace, no badges, no emoji', async ({
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): the line is muted Geist below the lead, not monospace. Quiet
+  // and small is now measured: smaller than the body text and in the muted
+  // ink, never the full ink.
+  test('the metadata renders quiet and small: muted, smaller than the body, no badges, no emoji', async ({
     page,
   }) => {
     await page.goto(`${BASE}/manipulation/comparison-matrix/`);
-    const meta = page.locator('article header dl');
+    const meta = page.locator('article header [data-article-meta]');
     await expect(meta).toBeVisible();
-    const className = (await meta.getAttribute('class')) ?? '';
-    expect(className).toContain('font-mono');
-    expect(className).toContain('text-xs');
+    const look = await meta.evaluate((el) => {
+      const style = getComputedStyle(el);
+      const body = document.querySelector('article .prose p');
+      const root = getComputedStyle(document.documentElement);
+      const probe = document.createElement('span');
+      probe.style.color = root.getPropertyValue('--muted').trim();
+      document.body.append(probe);
+      const muted = getComputedStyle(probe).color;
+      probe.remove();
+      return {
+        size: parseFloat(style.fontSize),
+        bodySize: body ? parseFloat(getComputedStyle(body).fontSize) : 0,
+        color: style.color,
+        muted,
+        ink: root.getPropertyValue('--ink').trim(),
+        family: style.fontFamily,
+      };
+    });
+    expect(look.bodySize).toBeGreaterThan(0);
+    expect(look.size).toBeLessThan(look.bodySize);
+    expect(look.color).toBe(look.muted);
+    expect(look.family).not.toMatch(/mono/i);
 
     // No badge/pill treatment, no images, no emoji anywhere in the line.
     await expect(meta.locator('img, svg')).toHaveCount(0);
@@ -240,7 +270,7 @@ test.describe('Article header metadata', () => {
     );
     expect(overflow).toBeLessThanOrEqual(0);
 
-    const items = page.locator('article header dl > div');
+    const items = page.locator('article header [data-article-meta] > span, article header [data-article-meta] > a');
     const count = await items.count();
     expect(count).toBeGreaterThan(0);
     for (let i = 0; i < count; i += 1) {
@@ -269,7 +299,7 @@ test.describe('Article header metadata', () => {
     expect(overflow).toBeLessThanOrEqual(0);
 
     const rights = await page
-      .locator('article header dl > div')
+      .locator('article header [data-article-meta] > span, article header [data-article-meta] > a')
       .evaluateAll((els) => els.map((el) => el.getBoundingClientRect().right));
     for (const right of rights) {
       expect(right).toBeLessThanOrEqual(1440);
@@ -288,7 +318,7 @@ test.describe('Article header metadata', () => {
     expect(html).toContain('data-header-last-reviewed="');
     expect(html).toContain('data-header-reading-minutes="');
     expect(html).toContain('data-header-citation-count="');
-    expect(html).toMatch(/Last reviewed/);
+    expect(html).toMatch(/Updated <time/);
 
     // And the hydrated layout matches it: the header bounding box is
     // identical once scripts have settled (no reflow from late metadata).

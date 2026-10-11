@@ -62,7 +62,7 @@ export function Tabs({
       data-brand-surface-id="surface:flat"
       onKeyDown={moveFocus}
       className={cx(
-        'inline-flex overflow-hidden rounded-xs border border-border-strong bg-surface',
+        'inline-flex items-stretch',
         className,
       )}
     >
@@ -83,8 +83,8 @@ export function Tabs({
             className={cx(
               'min-h-8 border-l border-border px-3 py-1.5 font-sans text-sm first:border-l-0',
               selected
-                ? 'bg-selection font-semibold text-ink'
-                : 'bg-surface text-text hover:bg-surface-2',
+                ? 'font-medium text-ink underline decoration-1 underline-offset-[6px]'
+                : 'text-text-dim hover:text-text',
               item.disabled && 'cursor-not-allowed text-text-dim',
               index === 0 && 'border-l-0',
             )}

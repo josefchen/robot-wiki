@@ -32,7 +32,7 @@ export default function GlossaryPage() {
   const terms = glossaryTermsAlphabetical();
 
   return (
-    <div className="mx-auto w-full max-w-[65ch] px-6 py-12">
+    <div className="sheet sheet-masthead pb-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: glossaryJsonLd(terms) }}
@@ -42,25 +42,22 @@ export default function GlossaryPage() {
           route unreachable by the query "Glossary" that the sidebar itself
           invites (VAL-SEARCH-021, VAL-SEARCH-022). */}
       <header data-pagefind-body>
-        <h1
-          data-tektur-role="page-h1"
-          className="font-display-page text-3xl tracking-tight text-text"
-        >
+        <h1 data-tektur-role="page-h1" className="display-h1">
           Glossary
         </h1>
-        <p className="mt-2 font-mono text-xs text-text-dim">
-          {terms.length} terms, every definition written from a cited primary
-          source
-        </p>
-        <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
+        <p className="page-lead mt-[30px]">
           Reference definitions for the jargon of modern robotics, each one
           written from a cited primary source. The articles mark these terms
           up inline; hovering or keyboard-focusing a marked term shows the
           same definition listed here.
         </p>
+        <p className="meta-line mt-6">
+          <span className="font-mono tabular-nums">{terms.length}</span> terms,
+          every definition written from a cited primary source
+        </p>
       </header>
 
-      <ol className="mt-10 list-none border-t border-border">
+      <ol className="mt-16 list-none border-t border-border">
         {terms.map((term) => {
           const sources = term.citations
             .map((id) => getCitation(id))
@@ -77,12 +74,13 @@ export default function GlossaryPage() {
               // reader lands mid-page with no focus context and a screen
               // reader announces nothing about the term it arrived at.
               tabIndex={-1}
-              className="scroll-mt-16 border-b border-border py-6 lg:scroll-mt-4"
+              className="grid gap-x-8 gap-y-2 border-b border-border py-6 md:grid-cols-[15rem_minmax(0,1fr)]"
             >
-              <h2 className="font-sans text-lg font-semibold tracking-tight text-text">
+              <h2 className="font-display text-[16px] font-semibold leading-snug text-text">
                 {term.term}
               </h2>
-              <p className="mt-2 font-serif text-[1.0625rem] leading-relaxed text-text">
+              <div className="min-w-0">
+              <p className="text-[16px] leading-[1.62] text-text">
                 {term.definition}
               </p>
               <ul className="mt-3 flex flex-col gap-1.5">
@@ -93,16 +91,17 @@ export default function GlossaryPage() {
                       href={source.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="break-words font-sans text-[13px] font-medium leading-snug text-text underline decoration-border-strong underline-offset-[3px] transition-colors hover:text-accent hover:decoration-accent"
+                      className="break-words font-sans text-[13px] leading-snug text-text-dim underline decoration-border-strong decoration-1 underline-offset-[3px] transition-colors hover:text-text hover:decoration-text"
                     >
                       {source.title}
                     </a>
-                    <span className="shrink-0 font-mono text-[11px] text-text-dim">
+                    <span className="shrink-0 font-sans text-[12px] text-text-dim">
                       {citationLabel(source)}
                     </span>
                   </li>
                 ))}
               </ul>
+              </div>
             </li>
           );
         })}

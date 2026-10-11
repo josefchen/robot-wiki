@@ -544,7 +544,7 @@ function stubSurface(route: string): IndexSurfaceObservation {
     documentScrollWidthPx: INDEX_VIEWPORT.width,
     documentClientWidthPx: INDEX_VIEWPORT.width,
     h1Text: 'stub',
-    h1FontFamilyHead: 'tektur',
+    h1FontFamilyHead: '"DM Sans"',
     h1SizePx: 30,
     monoMetadataCount: 2,
     rowLists: [

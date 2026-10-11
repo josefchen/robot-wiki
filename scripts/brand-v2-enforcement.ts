@@ -686,21 +686,22 @@ const IDENTITY_WORDMARK_ROLES = new Map(
 /**
  * The runtime face the registered display family is actually published
  * under, taken from the Tektur reconciliation rather than restated here.
- * `next/font/local` serves `Tektur Variable` as the family `tektur`, and
- * that rename is admitted only because a swept document declared the
- * `@font-face` and its same-origin payload hashed to the registered
- * binary. Comparing a lockup's computed head against a hardcoded
- * `Tektur` substring would accept any family whose name contains it.
+ * Owner-approved successor (Josef, 2026-10-10): the display role is the
+ * one whose Open Graph family is Tektur, and its web family is DM Sans,
+ * admitted only because swept documents declared framework-bundled
+ * `@font-face` rules for it and the sweep saw them fetched. Comparing a
+ * lockup's computed head against a hardcoded family substring would accept
+ * any family whose name contains it.
  */
 const DISPLAY_RUNTIME_FACE = (() => {
-  const registered = FIRST_PARTY_TYPE_ROLES.filter(({ family }) =>
-    fontFamilyKey(family).startsWith(
+  const registered = FIRST_PARTY_TYPE_ROLES.filter(({ ogFamily }) =>
+    fontFamilyKey(ogFamily ?? '').startsWith(
       fontFamilyKey(TEKTUR_FONT_METADATA.family),
     ),
   );
   if (registered.length !== 1) {
     throw new Error(
-      `${registered.length} first-party type roles name the ${TEKTUR_FONT_METADATA.family} family; the identity lockups need exactly one display role`,
+      `${registered.length} first-party type roles render the ${TEKTUR_FONT_METADATA.family} family on cards; the identity lockups need exactly one display role`,
     );
   }
   const display = TEKTUR_MEASUREMENTS.families.approved.find(
@@ -715,9 +716,7 @@ const DISPLAY_RUNTIME_FACE = (() => {
   return {
     registeredFamily: display.family,
     runtimeKey,
-    earnedBy: display.alias
-      ? ` by an observed @font-face in ${display.alias.declaredBy.join(', ')} delivering ${display.alias.binarySha256.slice(0, 12)} from ${display.alias.deliveredFrom.join(', ')}`
-      : '',
+    earnedBy: ` by observed framework-bundled @font-face rules delivering ${display.delivery.payloadSha256.map((hash) => hash.slice(0, 12)).join(', ')} from ${display.delivery.deliveredFrom.join(', ')}`,
   };
 })();
 const FIRST_PARTY_VISUAL_ASSETS = new Map(
@@ -2728,18 +2727,31 @@ function identityAssertionEvidence(
         sightings.map(({ fontVariationSettings }) => fontVariationSettings),
       ),
     ].sort();
-    const registered = `"wdth" ${role.wdth}, "wght" ${role.wght}`;
-    // The browser reports the axes in its own order, so the comparison is
-    // over the parsed axis/value pairs; comparing the serialized strings
-    // would fail a compliant lockup and pass a reordered wrong one.
+    // Owner-approved successor (Josef, 2026-10-10): the Tektur lockups
+    // carried explicit `"wdth"`/`"wght"` variation settings. The DM Sans
+    // display instance is selected by `font-weight` alone, so every
+    // sighting must render `normal` axes and the role's measured weight
+    // must be the registered one.
     const offAxis = axes.filter(
-      (setting) => serializeVariationAxes(setting) !== registered,
+      (setting) => serializeVariationAxes(setting) !== 'normal',
     );
     if (offAxis.length > 0) {
       throw new Error(
-        `${assertionId}: the ${role.roleId} lockup rendered variation settings ${offAxis.join(' | ')} rather than the registered ${registered}`,
+        `${assertionId}: the ${role.roleId} lockup rendered variation settings ${offAxis.join(' | ')} rather than normal, the registered instance being selected by weight ${role.wght} alone`,
       );
     }
+    const measured = TEKTUR_MEASUREMENTS.roles[role.roleId];
+    if (!measured) {
+      throw new Error(
+        `${assertionId}: the type-role sweep measured no ${role.roleId} weight, so the lockup's instance was never checked`,
+      );
+    }
+    if (measured.weight !== String(role.wght)) {
+      throw new Error(
+        `${assertionId}: the ${role.roleId} lockup computed weight ${measured.weight} rather than the registered ${role.wght}`,
+      );
+    }
+    const registered = `normal axes at weight ${role.wght}`;
     const routes = [...new Set(sightings.map(({ route }) => route))].sort();
     return {
       actual: `the ${role.roleId} lockup resolved to ${families.join(', ')}, the runtime face the registered ${DISPLAY_RUNTIME_FACE.registeredFamily} is published under${DISPLAY_RUNTIME_FACE.earnedBy}, at the registered ${registered} on ${routes.length} route(s) across ${viewports}, in ${sightings.length} sighting(s)`,

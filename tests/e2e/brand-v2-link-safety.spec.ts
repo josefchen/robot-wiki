@@ -183,6 +183,7 @@ test.describe('outbound links are safe and citation links are keyboard reachable
           href: string;
           visible: boolean;
           opensOutboundDisclosure?: boolean;
+          opensCitationNote?: boolean;
         } = await page.evaluate(() => {
           const el = document.activeElement as HTMLElement | null;
           const blank = { occurrence: null, href: '', visible: false };
@@ -199,10 +200,24 @@ test.describe('outbound links are safe and citation links are keyboard reachable
             };
           }
           if (el.tagName !== 'A') return { wrapped: false, ...blank };
+          // Owner-approved successor (Josef, 2026-10-10, the research-page
+          // standard): a citation is a superscript number plus a sidenote.
+          // Where the note cannot stand in the margin (a table, a figure, a
+          // phone) it is closed until its number is pressed, so its source
+          // link is withheld exactly like a closed <details>.
+          const note = el.closest('sup.cite-mark')
+            ? el.closest('[data-cite-id]')?.querySelector('[data-sidenote]')
+            : null;
+          const opensCitationNote =
+            note !== null &&
+            note !== undefined &&
+            getComputedStyle(note).display === 'none' &&
+            note.querySelector('a[data-link-occurrence]') !== null;
           const style = getComputedStyle(el);
           const outlinePx = Number.parseFloat(style.outlineWidth || '0');
           return {
             wrapped: false,
+            opensCitationNote,
             occurrence: el.getAttribute('data-link-occurrence'),
             href: (el as HTMLAnchorElement).href,
             visible:
@@ -218,6 +233,18 @@ test.describe('outbound links are safe and citation links are keyboard reachable
           await expect(page.locator('summary:focus').locator('..')).toHaveJSProperty(
             'open', true,
           );
+        }
+        if (focused.opensCitationNote) {
+          // The note's own keyboard path: Enter on the number opens it in
+          // place and leaves focus on the number, so the next Tab reaches
+          // the source link. Never forced open by script.
+          await page.keyboard.press('Enter');
+          await expect(
+            page
+              .locator('sup.cite-mark a:focus')
+              .locator('xpath=ancestor::*[@data-cite-id][1]')
+              .locator('[data-sidenote]'),
+          ).toHaveAttribute('data-open', 'true');
         }
         if (focused.occurrence !== null) {
           reached.add(focused.occurrence);
@@ -275,6 +302,28 @@ test.describe('outbound links are safe and citation links are keyboard reachable
     await expect(link).toBeVisible();
     await page.keyboard.press('Tab');
     await expect(link).toBeFocused();
+  });
+
+  test('a closed citation note exposes its source link through the number', async ({
+    page,
+    staticBase,
+  }) => {
+    // A phone width, where no citation note stands in the margin, so every
+    // note starts closed and only its number can open it.
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${staticBase}/classical/calibration/`, {
+      waitUntil: 'networkidle',
+    });
+    const chip = page.locator('[data-cite-id]:has(sup.cite-mark)').first();
+    const note = chip.locator('[data-sidenote]');
+    const source = note.locator('a[href^="http"]');
+    await expect(source).toBeHidden();
+    await chip.locator('sup.cite-mark a').focus();
+    await page.keyboard.press('Enter');
+    await expect(note).toHaveAttribute('data-open', 'true');
+    await expect(source).toBeVisible();
+    await page.keyboard.press('Tab');
+    await expect(source).toBeFocused();
   });
 
   test('the keyboard sweep covers every route the export ships an outbound link on', () => {

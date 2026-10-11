@@ -24,7 +24,43 @@ export type BreadcrumbItem = {
   href?: string;
 };
 
-export function Breadcrumbs({ items }: { items: readonly BreadcrumbItem[] }) {
+/**
+ * The trail as the masthead eyebrow: the uppercase, tracked, muted line
+ * above the title. The top bar already names the site and the H1 already
+ * names the page, so the eyebrow carries the ancestors in between, as
+ * links; the full trail stays in the BreadcrumbList structured data.
+ */
+function EyebrowTrail({ items }: { items: readonly BreadcrumbItem[] }) {
+  const linked = items.filter((item, index) => item.href && index < items.length - 1);
+  // Past the site root where the trail has more to say; the root alone
+  // (a top-level page) when it does not.
+  const deeper = linked.filter((item) => item.href !== '/');
+  const ancestors = deeper.length > 0 ? deeper : linked;
+  if (ancestors.length === 0) return null;
+  return (
+    <nav aria-label="Breadcrumb" data-pagefind-ignore className="eyebrow">
+      <ol className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        {ancestors.map((item, index) => (
+          <li key={`${item.label}-${index}`} className="flex items-baseline gap-2">
+            <IntentLink href={item.href!} data-brand-control-id="control:link-focus">
+              {item.label}
+            </IntentLink>
+            {index < ancestors.length - 1 ? <span aria-hidden="true">/</span> : null}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
+export function Breadcrumbs({
+  items,
+  variant = 'trail',
+}: {
+  items: readonly BreadcrumbItem[];
+  variant?: 'trail' | 'eyebrow';
+}) {
+  if (variant === 'eyebrow') return <EyebrowTrail items={items} />;
   return (
     <nav aria-label="Breadcrumb" data-pagefind-ignore className="mb-8">
       <ol className="flex flex-wrap items-baseline gap-x-2 gap-y-1 font-sans text-[13px] leading-snug">
@@ -47,7 +83,7 @@ export function Breadcrumbs({ items }: { items: readonly BreadcrumbItem[] }) {
                   // The underline is the non-colour cue design-system 4.4
                   // requires: without it an ancestor crumb differs from the
                   // non-link current crumb by hue alone.
-                  className="text-text-dim underline decoration-border-strong underline-offset-[3px] transition-colors hover:text-accent hover:decoration-accent"
+                  className="text-text-dim underline decoration-border-strong decoration-1 underline-offset-[3px] transition-colors hover:text-text hover:decoration-text"
                 >
                   {item.label}
                 </IntentLink>
