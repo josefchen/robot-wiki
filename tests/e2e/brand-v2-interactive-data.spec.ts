@@ -511,6 +511,17 @@ async function runSweep(browser: Browser, staticBase: string): Promise<SweepEvid
             Object.keys(element).some((key) => key.startsWith('__reactFiber$')),
           ),
         );
+        // State controls can sit in the frame's closed "Adjust more" fold
+        // (the JEPA planning lab's goal presets do). Open it through its
+        // summary, as a reader does, so every state control is clickable.
+        const adjustFolds = frameLocator.locator('[data-figure-fold="adjust"]');
+        const adjustCount = await adjustFolds.count();
+        for (let fold = 0; fold < adjustCount; fold += 1) {
+          const adjust = adjustFolds.nth(fold);
+          if (!(await adjust.evaluate((element) => (element as HTMLDetailsElement).open))) {
+            await adjust.locator(':scope > summary').click();
+          }
+        }
         const stateButtons = frameLocator.locator('[aria-pressed]');
         const stateCount = Math.min(await stateButtons.count(), 8);
         for (let button = 0; button < stateCount; button += 1) {

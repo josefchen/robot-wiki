@@ -103,30 +103,33 @@ function FrameScenery({ goalLabel = false }: { goalLabel?: boolean }) {
           <path d={`M${MARGIN + 14} ${SLAB_Y + SLAB}V${FRAME.h - 4}M${FRAME.w - MARGIN - 14} ${SLAB_Y + SLAB}V${FRAME.h - 4}`} />
         </g>
       </g>
-      <rect
-        data-series="goal"
-        data-chart-role="reference"
-        x={goalX}
-        y={SLAB_Y - goalH}
-        width={goalW}
-        height={goalH}
-        fill="none"
-        stroke={roleColour('reference')}
-        strokeWidth={CHART_STROKE.reference}
-        strokeDasharray={CHART_STROKE.dash}
-      />
-      {goalLabel ? (
-        <text
-          data-scene-note=""
-          x={goalX + goalW / 2}
-          y={SLAB_Y - goalH / 2 + CHART_TYPE.axisPx * 0.3}
-          textAnchor="middle"
-          fontSize={CHART_TYPE.axisPx}
-          fill={CHART_STRUCTURE.labelSecondary}
-        >
-          goal
-        </text>
-      ) : null}
+      {/* The "goal" word sits in the series group, so the outline that
+          shares its dash with the earlier block frames carries its own
+          in-plot label. */}
+      <g data-series="goal" data-chart-role="reference">
+        <rect
+          x={goalX}
+          y={SLAB_Y - goalH}
+          width={goalW}
+          height={goalH}
+          fill="none"
+          stroke={roleColour('reference')}
+          strokeWidth={CHART_STROKE.reference}
+          strokeDasharray={CHART_STROKE.dash}
+        />
+        {goalLabel ? (
+          <text
+            data-scene-note=""
+            x={goalX + goalW / 2}
+            y={SLAB_Y - goalH / 2 + CHART_TYPE.axisPx * 0.3}
+            textAnchor="middle"
+            fontSize={CHART_TYPE.axisPx}
+            fill={CHART_STRUCTURE.labelSecondary}
+          >
+            goal
+          </text>
+        ) : null}
+      </g>
     </>
   );
 }
