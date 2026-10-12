@@ -82726,34 +82726,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/action-conditioning.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/interactive/action-conditioning.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/interactive/action-conditioning.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/action-conditioning.tsx:aria-label:1 moved from 4dc263e6a13e5886fbbfbcdaf0da7c6526b9409e66ef6ec0b14bfa3c99406992 to 369c8ec82ab9299a9c66608c510a80321a7f6749ee4dd1f77d34eb4ed03f3ce2 exactly as approved delta reader-first-20261002-name-action-conditioning-expression-aria-label-1 permits: Reader-first rewrite of the action-conditioning figure (VAL-OPUS-138): the two separately labelled rollout strips became one stage, so the names in this file were renumbered. The first aria-label expression now names that stage, \"{`One start frame splits into two imagined futures, ${nameA.toLowerCase()} and ${nameB.toLowerCase()}, from a video model that ${model}. ${noteLines(sameAction, diverged).join(' ')}.`}\", where the first one named each rollout's action picker, \"{`Rollout ${name} action`}\". The pickers are now the \"First command\" and \"Second command\" presets, named by the labels they print, and no figure, unit, fact or attribution changes.",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/interactive/action-conditioning.tsx:aria-label:1",
-          "baselineHash": "4dc263e6a13e5886fbbfbcdaf0da7c6526b9409e66ef6ec0b14bfa3c99406992",
-          "currentHash": "369c8ec82ab9299a9c66608c510a80321a7f6749ee4dd1f77d34eb4ed03f3ce2",
-          "status": "approved-delta",
-          "approvedDelta": "reader-first-20261002-name-action-conditioning-expression-aria-label-1"
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/action-tokenization.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:expression:components/interactive/action-tokenization.tsx:aria-label:1",
@@ -82777,90 +82749,6 @@
           "currentHash": "d354ea6ead9969f1d5b3a200063ea9f7aa1147be2adf59b72f2c808c894e61bc",
           "status": "identical",
           "approvedDelta": null
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/action-tokenization.tsx:aria-label:2",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/interactive/action-tokenization.tsx:aria-label:2",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/interactive/action-tokenization.tsx:aria-label:2"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/action-tokenization.tsx:aria-label:2 moved from be91ca1500d96e4cfefc643f7f7955b613a9614d9f559b945c164f976ecece2b to ca5d5e40c5a3eab672a0802264356ca0460d9c6f7007561ca8f013f84387dab1 exactly as approved delta reader-first-20261003-name-action-tokenization-expression-aria-label-2 permits: Reader-first rewrite of the action tokenization figure (VAL-OPUS-138): the name of the action-chunk drawing now also says it is drawn as a gripper with its seven motions. It reads \"{`Continuous action chunk: ${ACTION_DIMS.length} dimensions over ${CHUNK_STEPS} control steps, drawn as a gripper with its ${ACTION_DIMS.length} motions. The marker at step ${step} selects the action vector being tokenized.`}\" where it read the same sentence without \", drawn as a gripper with its ${ACTION_DIMS.length} motions\". No figure, unit, fact or attribution changes.",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/interactive/action-tokenization.tsx:aria-label:2",
-          "baselineHash": "be91ca1500d96e4cfefc643f7f7955b613a9614d9f559b945c164f976ecece2b",
-          "currentHash": "ca5d5e40c5a3eab672a0802264356ca0460d9c6f7007561ca8f013f84387dab1",
-          "status": "approved-delta",
-          "approvedDelta": "reader-first-20261003-name-action-tokenization-expression-aria-label-2"
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/action-tokenization.tsx:aria-label:3",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/interactive/action-tokenization.tsx:aria-label:3",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/interactive/action-tokenization.tsx:aria-label:3"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/action-tokenization.tsx:aria-label:3 hashes to 7216bbc0f2345866d79b4a54e651a5fed6199f542df63b1b05f738fd88e45cc4 in the current tree, the value the immutable migration baseline sealed",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/interactive/action-tokenization.tsx:aria-label:3",
-          "baselineHash": "7216bbc0f2345866d79b4a54e651a5fed6199f542df63b1b05f738fd88e45cc4",
-          "currentHash": "7216bbc0f2345866d79b4a54e651a5fed6199f542df63b1b05f738fd88e45cc4",
-          "status": "identical",
-          "approvedDelta": null
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/actuator-gap.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/interactive/actuator-gap.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/interactive/actuator-gap.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/actuator-gap.tsx:aria-label:1 moved from null to a5be25e5839c8a96a5efbcda4f09f00208a974b06a5172e68b83cc40b3de6119 exactly as approved delta rl-sim2real-figures-20261011-accessible-names-actuator-gap-expression-aria-label-1 permits: rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new ActuatorGap figure in rl-sim2real/legged-locomotion. The drawing is named in the stage's plain words: a joint is told to move, the real motor follows late and overshoots, the simulated motor either arrives at once or follows the real curve, and what the trained robot dog then does on the real robot.",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/interactive/actuator-gap.tsx:aria-label:1",
-          "baselineHash": null,
-          "currentHash": "a5be25e5839c8a96a5efbcda4f09f00208a974b06a5172e68b83cc40b3de6119",
-          "status": "approved-addition",
-          "approvedDelta": "rl-sim2real-figures-20261011-accessible-names-actuator-gap-expression-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -84078,7 +83966,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/grasp-wrench-lab.tsx:aria-label:3 moved from a47a3268a408a79b507476a215c63dc17712003d1b56eb72d816d485a53abc02 to 8db47a681abd06d114fe56a1568f1c469fed5e6f54f8cec129123db56c619546 exactly as approved delta reader-first-20261007-name-grasp-wrench-lab-expression-aria-label-3 permits: Reader-first rewrite of the grasp wrench lab (VAL-OPUS-142): the stage now draws the box from above with eight test pushes around it, each drawn as resisted or slipping, so its accessible name reports how many of the eight pushes the current fingertips resist. The contact positions, friction cones and force-closure test are unchanged.",
+      "actual": "accessible-names member expression:components/interactive/grasp-wrench-lab.tsx:aria-label:3 moved from a47a3268a408a79b507476a215c63dc17712003d1b56eb72d816d485a53abc02 to 765964f7e6a2d785f5e9bb12fd84e73540b34f772af82052195a89a8785d370b exactly as approved delta anatomy-figures-20261012-accessible-names-grasp-wrench-lab-expression-aria-label-3 permits: First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261007-name-grasp-wrench-lab-expression-aria-label-3). GraspWrenchLab (grasp-planning) is now a grasp test table: a square block on a round table held by fingertip posts, pulled by a cord toward eight stations in turn. The object view keeps its own svg, and its name now describes that table and still reports how many of the eight pulls the current fingertips resist. The contact positions, friction cones and force-closure test are unchanged.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -84090,9 +83978,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:3",
           "baselineHash": "a47a3268a408a79b507476a215c63dc17712003d1b56eb72d816d485a53abc02",
-          "currentHash": "8db47a681abd06d114fe56a1568f1c469fed5e6f54f8cec129123db56c619546",
+          "currentHash": "765964f7e6a2d785f5e9bb12fd84e73540b34f772af82052195a89a8785d370b",
           "status": "approved-delta",
-          "approvedDelta": "reader-first-20261007-name-grasp-wrench-lab-expression-aria-label-3"
+          "approvedDelta": "anatomy-figures-20261012-accessible-names-grasp-wrench-lab-expression-aria-label-3"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -84498,7 +84386,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/jepa-planning.tsx:aria-label:1 moved from b1ddde9e8446c250bab863894d581595f2e356d6c1f68f589c80f1afe9eddd7c to df865227c6df33e6d9493ab0af528570b06abc6274873e001050b26a4ead966e exactly as approved delta reader-first-20261002-name-jepa-planning-expression-aria-label-1 permits: Reader-first rewrite of the jepa-planning figure (VAL-OPUS-138): the figure now leads with the planning stage and its distance chart and puts the options slider after them, so the three aria-label expressions in this file were reordered and reworded. The first now names the stage, \"{`A robot plans by comparing compact summaries: the dot for now, cup on the table, moves step by step toward the ring for the goal, ${GOAL_WORDS[goalId]}. After ${steps} moves ${gapNow}% of the starting distance is left; the last step tried ${fanCount} moves and kept the one closest to the goal.`}\", where the first named the slider, \"{`Search budget in candidate action sequences, currently ${candidateCount}`}\". No figure, unit, fact or attribution changes.",
+      "actual": "accessible-names member expression:components/interactive/jepa-planning.tsx:aria-label:1 moved from b1ddde9e8446c250bab863894d581595f2e356d6c1f68f589c80f1afe9eddd7c to 27e208c84e1d20b78a946a577d8d2db65f5271dbe0d679457571a08d31fdca49 exactly as approved delta anatomy-figures-20261012-accessible-names-jepa-planning-expression-aria-label-1 permits: First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-jepa-planning-expression-aria-label-1). JepaPlanning (jepa) is now a gantry planning table. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop, so the table's name leaves this file's aria-label list and the members after it move up one place: this member is now the distance strip's name (\"Distance left to the goal after each move ...\"), unchanged in wording and kept in the How this was made fold.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -84510,9 +84398,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/jepa-planning.tsx:aria-label:1",
           "baselineHash": "b1ddde9e8446c250bab863894d581595f2e356d6c1f68f589c80f1afe9eddd7c",
-          "currentHash": "df865227c6df33e6d9493ab0af528570b06abc6274873e001050b26a4ead966e",
+          "currentHash": "27e208c84e1d20b78a946a577d8d2db65f5271dbe0d679457571a08d31fdca49",
           "status": "approved-delta",
-          "approvedDelta": "reader-first-20261002-name-jepa-planning-expression-aria-label-1"
+          "approvedDelta": "anatomy-figures-20261012-accessible-names-jepa-planning-expression-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -84526,7 +84414,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/jepa-planning.tsx:aria-label:2 moved from 33a3db044631c484669e1a0057b109ff678dbccd80ca8273b741f93f77d654a5 to 27e208c84e1d20b78a946a577d8d2db65f5271dbe0d679457571a08d31fdca49 exactly as approved delta reader-first-20261002-name-jepa-planning-expression-aria-label-2 permits: Reader-first rewrite of the jepa-planning figure (VAL-OPUS-138): with the stage first and the options slider last, the second aria-label expression in this file now names the distance chart, \"{`Distance left to the goal after each move: it falls from 100% at the start to ${gapNow}% after ${steps} moves.`}\", where the second named the stage, \"{`Latent space planning view. The current latent is at distance ${formatDistance(distance)} from the goal latent after ${steps} planning steps toward ${goal.label}.`}\". No figure, unit, fact or attribution changes.",
+      "actual": "accessible-names member expression:components/interactive/jepa-planning.tsx:aria-label:2 moved from 33a3db044631c484669e1a0057b109ff678dbccd80ca8273b741f93f77d654a5 to 0a0c349e7b2680a3eb96b66ce08188ddb84db9866cbb6f710765b5bfbe5b7311 exactly as approved delta anatomy-figures-20261012-accessible-names-jepa-planning-expression-aria-label-2 permits: First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-jepa-planning-expression-aria-label-2). JepaPlanning: with the planning table's name now passed through the kit's IsoFigure label, this member is the options slider's name (\"Options tried each step, currently ...\"), unchanged in wording; it moved up one place.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -84538,37 +84426,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/jepa-planning.tsx:aria-label:2",
           "baselineHash": "33a3db044631c484669e1a0057b109ff678dbccd80ca8273b741f93f77d654a5",
-          "currentHash": "27e208c84e1d20b78a946a577d8d2db65f5271dbe0d679457571a08d31fdca49",
-          "status": "approved-delta",
-          "approvedDelta": "reader-first-20261002-name-jepa-planning-expression-aria-label-2"
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/jepa-planning.tsx:aria-label:3",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/interactive/jepa-planning.tsx:aria-label:3",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/interactive/jepa-planning.tsx:aria-label:3"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/jepa-planning.tsx:aria-label:3 moved from 18c82ed3f88462df9c9d60473ba8650c4138ea1816c36dd1b1690f3c02dcaa4a to 0a0c349e7b2680a3eb96b66ce08188ddb84db9866cbb6f710765b5bfbe5b7311 exactly as approved delta reader-first-20261002-name-jepa-planning-expression-aria-label-3 permits: Reader-first rewrite of the jepa-planning figure (VAL-OPUS-138): with the stage first and the options slider last, the third aria-label expression in this file now names the slider, \"{`Options tried each step, currently ${candidateCount}`}\", where the third named the distance chart, \"{`Goal-embedding distance per planning step. The distance falls from ${formatDistance(initialDistance)} at step 0 to ${formatDistance(distance)} at step ${steps}.`}\". The slider sets the same candidate count, and no figure, unit, fact or attribution changes.",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/interactive/jepa-planning.tsx:aria-label:3",
-          "baselineHash": "18c82ed3f88462df9c9d60473ba8650c4138ea1816c36dd1b1690f3c02dcaa4a",
           "currentHash": "0a0c349e7b2680a3eb96b66ce08188ddb84db9866cbb6f710765b5bfbe5b7311",
           "status": "approved-delta",
-          "approvedDelta": "reader-first-20261002-name-jepa-planning-expression-aria-label-3"
+          "approvedDelta": "anatomy-figures-20261012-accessible-names-jepa-planning-expression-aria-label-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -84666,7 +84526,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/latent-imagination.tsx:aria-label:1 moved from 86527a72fcad380278b7105f0f17c2d9bc702d18ae5c44872e8673d117ec8d7e to fb5cec36cb55168ba914a6efd48de425afe972a309a3fa1ba7513019e9df6a45 exactly as approved delta reader-first-20261002-name-latent-imagination-expression-aria-label-1 permits: Reader-first rewrite of the latent-imagination figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{`A robot arm throws a ball. The dashed arc is the real flight; the solid arc is the flight the robot imagines ${stepsWord(horizon)} ahead, at ${errorWords}.`}\" where it read \"{`Imagined rollout in latent space over ${horizon} steps, peeling away from the true latent trajectory as one-step errors compound.`}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "actual": "accessible-names member expression:components/interactive/latent-imagination.tsx:aria-label:1 moved from 86527a72fcad380278b7105f0f17c2d9bc702d18ae5c44872e8673d117ec8d7e to d5d4358ab2602a7ea24ef62934c64166dd0245a26bfbab9285d5e6a7c2b52346 exactly as approved delta anatomy-figures-20261012-accessible-names-latent-imagination-expression-aria-label-1 permits: First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-latent-imagination-expression-aria-label-1). LatentImagination (latent-dynamics) is now a round track-laying bench. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop, so the drawing's name leaves this file's aria-label list and the members after it move up one place: this member is now the deviation chart's name (\"Latent deviation versus imagination step ...\"), unchanged in wording.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -84678,9 +84538,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/latent-imagination.tsx:aria-label:1",
           "baselineHash": "86527a72fcad380278b7105f0f17c2d9bc702d18ae5c44872e8673d117ec8d7e",
-          "currentHash": "fb5cec36cb55168ba914a6efd48de425afe972a309a3fa1ba7513019e9df6a45",
+          "currentHash": "d5d4358ab2602a7ea24ef62934c64166dd0245a26bfbab9285d5e6a7c2b52346",
           "status": "approved-delta",
-          "approvedDelta": "reader-first-20261002-name-latent-imagination-expression-aria-label-1"
+          "approvedDelta": "anatomy-figures-20261012-accessible-names-latent-imagination-expression-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -84694,7 +84554,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/latent-imagination.tsx:aria-label:2 moved from f1d3a8209b7ebb87c7f3a9de868d887e35fe1ccdd17bef3fca06a5dbab96e72e to d5d4358ab2602a7ea24ef62934c64166dd0245a26bfbab9285d5e6a7c2b52346 exactly as approved delta opus-figure-migration-20261001-accessible-names-latent-imagination-expression-aria-label-2 permits: In LatentImagination, expression position 2 now holds the latent-deviation chart label (\"Latent deviation versus imagination step in a deterministic toy. …\") that was position 4, unchanged. Both charts now precede the controls slot of the shared instrument figure frame in the source, so they take positions 1 and 2 ahead of the two sliders. No name text, fact, number or citation changed. The edge starts from the sealed bytes f1d3a820.",
+      "actual": "accessible-names member expression:components/interactive/latent-imagination.tsx:aria-label:2 moved from f1d3a8209b7ebb87c7f3a9de868d887e35fe1ccdd17bef3fca06a5dbab96e72e to 78f88ebb2959f2061bf9e92deac497796515c92b5e6e2772b42e4853e5d17b63 exactly as approved delta anatomy-figures-20261012-accessible-names-latent-imagination-expression-aria-label-2 permits: First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (opus-figure-migration-20261001-accessible-names-latent-imagination-expression-aria-label-2). LatentImagination: with the track-laying bench's name now passed through the kit's IsoFigure label, this member is the horizon slider's name (\"How far ahead to imagine, currently ...\"), unchanged in wording; it moved up one place.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -84706,9 +84566,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/latent-imagination.tsx:aria-label:2",
           "baselineHash": "f1d3a8209b7ebb87c7f3a9de868d887e35fe1ccdd17bef3fca06a5dbab96e72e",
-          "currentHash": "d5d4358ab2602a7ea24ef62934c64166dd0245a26bfbab9285d5e6a7c2b52346",
+          "currentHash": "78f88ebb2959f2061bf9e92deac497796515c92b5e6e2772b42e4853e5d17b63",
           "status": "approved-delta",
-          "approvedDelta": "opus-figure-migration-20261001-accessible-names-latent-imagination-expression-aria-label-2"
+          "approvedDelta": "anatomy-figures-20261012-accessible-names-latent-imagination-expression-aria-label-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -84722,7 +84582,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/latent-imagination.tsx:aria-label:3 moved from cbd9f5fbd27779d5e7d2074a7f29d30b7e387739b7e5f8f2bef54c66bc099ca4 to 78f88ebb2959f2061bf9e92deac497796515c92b5e6e2772b42e4853e5d17b63 exactly as approved delta reader-first-20261002-name-latent-imagination-expression-aria-label-3 permits: Reader-first rewrite of the latent-imagination figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{`How far ahead to imagine, currently ${stepsWord(horizon)}`}\" where it read \"{`Imagination horizon in steps, currently ${horizon}`}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
+      "actual": "accessible-names member expression:components/interactive/latent-imagination.tsx:aria-label:3 moved from cbd9f5fbd27779d5e7d2074a7f29d30b7e387739b7e5f8f2bef54c66bc099ca4 to 571c39f1054768d017d75d7721b8b8b192161e1cac6c504d544d0bfefa4ea2a5 exactly as approved delta anatomy-figures-20261012-accessible-names-latent-imagination-expression-aria-label-3 permits: First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-latent-imagination-expression-aria-label-3). LatentImagination: with the track-laying bench's name now passed through the kit's IsoFigure label, this member is the per-step accuracy slider's name (\"How accurate each step is, currently ...\"), unchanged in wording; it moved up one place.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -84734,37 +84594,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/latent-imagination.tsx:aria-label:3",
           "baselineHash": "cbd9f5fbd27779d5e7d2074a7f29d30b7e387739b7e5f8f2bef54c66bc099ca4",
-          "currentHash": "78f88ebb2959f2061bf9e92deac497796515c92b5e6e2772b42e4853e5d17b63",
-          "status": "approved-delta",
-          "approvedDelta": "reader-first-20261002-name-latent-imagination-expression-aria-label-3"
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/latent-imagination.tsx:aria-label:4",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/interactive/latent-imagination.tsx:aria-label:4",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/interactive/latent-imagination.tsx:aria-label:4"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/latent-imagination.tsx:aria-label:4 moved from 1ddc031d6d180c64bfb8f1be090534e2d0d2ae5cd5a1012624c0332fbfc65026 to 571c39f1054768d017d75d7721b8b8b192161e1cac6c504d544d0bfefa4ea2a5 exactly as approved delta reader-first-20261002-name-latent-imagination-expression-aria-label-4 permits: Reader-first rewrite of the latent-imagination figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{`How accurate each step is, currently ${errorWords}`}\" where it read \"{`One-step model error in percent, currently ${epsilonPercent.toFixed(1)}`}\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/interactive/latent-imagination.tsx:aria-label:4",
-          "baselineHash": "1ddc031d6d180c64bfb8f1be090534e2d0d2ae5cd5a1012624c0332fbfc65026",
           "currentHash": "571c39f1054768d017d75d7721b8b8b192161e1cac6c504d544d0bfefa4ea2a5",
           "status": "approved-delta",
-          "approvedDelta": "reader-first-20261002-name-latent-imagination-expression-aria-label-4"
+          "approvedDelta": "anatomy-figures-20261012-accessible-names-latent-imagination-expression-aria-label-3"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -85498,34 +85330,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/qos-queue-age.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/interactive/qos-queue-age.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/interactive/qos-queue-age.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/qos-queue-age.tsx:aria-label:1 moved from null to 8df977a718f4b123fd163ff9a6fd34285cf5fe6b0bfae9b4db8881e965f91b72 exactly as approved delta figure-mounts-20261007-reskin-20261010-accessible-names-qos-queue-age-expression-aria-label-1 permits: Figure restyle of 2026-10-10 (commit 2c66acda): the new QosQueueAge figure in ROS 2 for ML engineers. Its drawing is named in the stage's plain words: the queue depth (one picture or N pictures) and the age in seconds of the oldest picture, the one the model takes.",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/interactive/qos-queue-age.tsx:aria-label:1",
-          "baselineHash": null,
-          "currentHash": "8df977a718f4b123fd163ff9a6fd34285cf5fe6b0bfae9b4db8881e965f91b72",
-          "status": "approved-addition",
-          "approvedDelta": "figure-mounts-20261007-reskin-20261010-accessible-names-qos-queue-age-expression-aria-label-1"
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/real-robot-rl-gains.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:expression:components/interactive/real-robot-rl-gains.tsx:aria-label:1",
@@ -85603,34 +85407,6 @@
           "member": "expression:components/interactive/receding-horizon.tsx:aria-label:2",
           "baselineHash": "87fd4638fa4bffd68621c75c3d368ccbc3edd433432ffeba992bdb96308aaf2a",
           "currentHash": "87fd4638fa4bffd68621c75c3d368ccbc3edd433432ffeba992bdb96308aaf2a",
-          "status": "identical",
-          "approvedDelta": null
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/receding-horizon.tsx:aria-label:3",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/interactive/receding-horizon.tsx:aria-label:3",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/interactive/receding-horizon.tsx:aria-label:3"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/receding-horizon.tsx:aria-label:3 hashes to dd825e19d94e32be31d04cbb7dfd0f7c90b7a54973fce16eb7c3dabaf71c2a43 in the current tree, the value the immutable migration baseline sealed",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/interactive/receding-horizon.tsx:aria-label:3",
-          "baselineHash": "dd825e19d94e32be31d04cbb7dfd0f7c90b7a54973fce16eb7c3dabaf71c2a43",
-          "currentHash": "dd825e19d94e32be31d04cbb7dfd0f7c90b7a54973fce16eb7c3dabaf71c2a43",
           "status": "identical",
           "approvedDelta": null
         },
@@ -85885,62 +85661,6 @@
           "currentHash": "045632e1fbde9b2ac65ab659b94c7989407bdc5e9b06895ddd5488e4e1670f44",
           "status": "approved-delta",
           "approvedDelta": "opus-figure-migration-20261001-accessible-names-reward-shaping-expression-aria-label-3"
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/robots-per-gpu.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/interactive/robots-per-gpu.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/interactive/robots-per-gpu.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/robots-per-gpu.tsx:aria-label:1 moved from null to 3fc54f0ab5410a682a43beca606d10f57417245fd385a4383915782ef10b1695 exactly as approved delta rl-sim2real-figures-20261011-accessible-names-robots-per-gpu-expression-aria-label-1 permits: rl-sim2real figure batch of 2026-10-11 (commit ff420efd): the new RobotsPerGpu figure in rl-sim2real/parallel-sim-rl. The drawing is named as a grid of squares of 128 simulated robots each, with how many robots fill how many squares at the chosen count.",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/interactive/robots-per-gpu.tsx:aria-label:1",
-          "baselineHash": null,
-          "currentHash": "3fc54f0ab5410a682a43beca606d10f57417245fd385a4383915782ef10b1695",
-          "status": "approved-addition",
-          "approvedDelta": "rl-sim2real-figures-20261011-accessible-names-robots-per-gpu-expression-aria-label-1"
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/ros2-interfaces.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/interactive/ros2-interfaces.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/interactive/ros2-interfaces.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/ros2-interfaces.tsx:aria-label:1 moved from null to b13a48b43cd4bc32775af0894a783b014f9cbe3a7cfc24e88ec2e4b1cb5983ce exactly as approved delta figure-mounts-20261007-reskin-20261010-accessible-names-ros2-interfaces-expression-aria-label-1 permits: Figure restyle of 2026-10-10 (commit 2c66acda): the new Ros2Interfaces figure in ROS 2 for ML engineers. Its drawing is named from the chosen channel: the two nodes, the topic, service or action between them, and its messages in order.",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/interactive/ros2-interfaces.tsx:aria-label:1",
-          "baselineHash": null,
-          "currentHash": "b13a48b43cd4bc32775af0894a783b014f9cbe3a7cfc24e88ec2e4b1cb5983ce",
-          "status": "approved-addition",
-          "approvedDelta": "figure-mounts-20261007-reskin-20261010-accessible-names-ros2-interfaces-expression-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -86478,34 +86198,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/time-offset-miss.tsx:aria-label:2",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/interactive/time-offset-miss.tsx:aria-label:2",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/interactive/time-offset-miss.tsx:aria-label:2"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/time-offset-miss.tsx:aria-label:2 moved from null to 79c9cad7c50888f795d4a906db19d924c171b13e06924d65cf80c84158572d1b exactly as approved delta figure-mounts-20261007-reskin-20261010-accessible-names-time-offset-miss-expression-aria-label-2 permits: Figure restyle of 2026-10-10 (commit 2c66acda): the new TimeOffsetMiss figure in calibration. Its drawing is named in the stage's plain words: the hand speed and how many millimetres behind the late camera photo puts the hand (27.5 mm at 50 cm a second for the measured 55 ms).",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/interactive/time-offset-miss.tsx:aria-label:2",
-          "baselineHash": null,
-          "currentHash": "79c9cad7c50888f795d4a906db19d924c171b13e06924d65cf80c84158572d1b",
-          "status": "approved-addition",
-          "approvedDelta": "figure-mounts-20261007-reskin-20261010-accessible-names-time-offset-miss-expression-aria-label-2"
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/training-time-chart.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:expression:components/interactive/training-time-chart.tsx:aria-label:1",
@@ -86697,6 +86389,34 @@
           "currentHash": "0bdc0f3ac9716b6fce244f17e5c1db4cca85ba3a1853e164461f467b9975dfa7",
           "status": "approved-addition",
           "approvedDelta": "reader-first-20261002-name-wm-disambiguator-expression-aria-label-3"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/iso/react/draw.tsx:aria-label:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/iso/react/draw.tsx:aria-label:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/iso/react/draw.tsx:aria-label:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/iso/react/draw.tsx:aria-label:1 moved from null to 7204473944d05a79c79228f09942e708bb1ef64ccc61ee96199dd77c7d94ee20 exactly as approved delta anatomy-figures-20261012-accessible-names-iso-draw-expression-aria-label-1 permits: First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one edge from an absent seal: the member is new. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop, so the drawing's accessible name is the one expression {label}. The eleven redrawn figures pass their own plain-words descriptions of the object and its state: the tracking bench (calibration), the plan-tape reader and the token rack bank with its close-up (manipulation), the twin actuator bench and the graphics-card bench (sim-to-real), the track-laying bench, the twin-screen console and the planning table (world models), and the picture-queue bench and the node bench (ROS 2). The grasp test table keeps its own svg and name.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/iso/react/draw.tsx:aria-label:1",
+          "baselineHash": null,
+          "currentHash": "7204473944d05a79c79228f09942e708bb1ef64ccc61ee96199dd77c7d94ee20",
+          "status": "approved-addition",
+          "approvedDelta": "anatomy-figures-20261012-accessible-names-iso-draw-expression-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -133163,7 +132883,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/calibration/ ships 85 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 85 outbound anchor occurrences on it with a visible focus ring in 196 stops",
+      "actual": "/classical/calibration/ ships 85 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 85 outbound anchor occurrences on it with a visible focus ring in 197 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133183,7 +132903,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 76,
           "reachedByTab": 85,
-          "tabStops": 196,
+          "tabStops": 197,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -133239,7 +132959,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/grasp-planning/ ships 105 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 105 outbound anchor occurrences on it with a visible focus ring in 232 stops",
+      "actual": "/classical/grasp-planning/ ships 105 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 105 outbound anchor occurrences on it with a visible focus ring in 233 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133258,7 +132978,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 102,
           "reachedByTab": 105,
-          "tabStops": 232,
+          "tabStops": 233,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -133389,7 +133109,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/ros2-for-ml-engineers/ ships 82 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 82 outbound anchor occurrences on it with a visible focus ring in 192 stops",
+      "actual": "/classical/ros2-for-ml-engineers/ ships 82 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 82 outbound anchor occurrences on it with a visible focus ring in 193 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133409,7 +133129,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 70,
           "reachedByTab": 82,
-          "tabStops": 192,
+          "tabStops": 193,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -134419,7 +134139,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/diffusion-policy/ ships 81 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 81 outbound anchor occurrences on it with a visible focus ring in 204 stops",
+      "actual": "/manipulation/diffusion-policy/ ships 81 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 81 outbound anchor occurrences on it with a visible focus ring in 205 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134438,7 +134158,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 78,
           "reachedByTab": 81,
-          "tabStops": 204,
+          "tabStops": 205,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -134756,7 +134476,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/vla-models/ ships 91 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 91 outbound anchor occurrences on it with a visible focus ring in 240 stops",
+      "actual": "/manipulation/vla-models/ ships 91 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 91 outbound anchor occurrences on it with a visible focus ring in 241 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134775,7 +134495,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 88,
           "reachedByTab": 91,
-          "tabStops": 240,
+          "tabStops": 241,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -134969,7 +134689,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/rl-sim2real/legged-locomotion/ ships 86 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 86 outbound anchor occurrences on it with a visible focus ring in 200 stops",
+      "actual": "/rl-sim2real/legged-locomotion/ ships 86 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 86 outbound anchor occurrences on it with a visible focus ring in 201 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134989,7 +134709,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 81,
           "reachedByTab": 86,
-          "tabStops": 200,
+          "tabStops": 201,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -135376,7 +135096,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/generative-video/ ships 84 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 84 outbound anchor occurrences on it with a visible focus ring in 225 stops",
+      "actual": "/world-models/generative-video/ ships 84 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 84 outbound anchor occurrences on it with a visible focus ring in 226 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -135395,7 +135115,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 81,
           "reachedByTab": 84,
-          "tabStops": 225,
+          "tabStops": 226,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -135450,7 +135170,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/latent-dynamics/ ships 81 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 81 outbound anchor occurrences on it with a visible focus ring in 195 stops",
+      "actual": "/world-models/latent-dynamics/ ships 81 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 81 outbound anchor occurrences on it with a visible focus ring in 196 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -135469,7 +135189,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 78,
           "reachedByTab": 81,
-          "tabStops": 195,
+          "tabStops": 196,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -148460,6 +148180,9 @@
             "components/article/commit-to-reveal.tsx",
             "components/article/heading-permalink.tsx",
             "components/explainers/how-robots-work.tsx",
+            "components/interactive/action-conditioning.tsx",
+            "components/interactive/action-tokenization.tsx",
+            "components/interactive/actuator-gap.tsx",
             "components/interactive/appearance-physics-push.tsx",
             "components/interactive/comparison-matrix.tsx",
             "components/interactive/dataset-table.tsx",
@@ -148469,10 +148192,14 @@
             "components/interactive/hardware-guide.tsx",
             "components/interactive/hierarchy-timescales.tsx",
             "components/interactive/jepa-planning.tsx",
+            "components/interactive/latent-imagination.tsx",
             "components/interactive/pendulum-controller.tsx",
+            "components/interactive/qos-queue-age.tsx",
+            "components/interactive/receding-horizon.tsx",
             "components/interactive/reward-shaping.tsx",
             "components/interactive/ros2-interfaces.tsx",
             "components/interactive/rrt-explorer.tsx",
+            "components/interactive/time-offset-miss.tsx",
             "components/market-map/company-card.tsx",
             "components/market-map/filter-bar.tsx",
             "components/market-map/funding-timeline.tsx",
@@ -157922,7 +157649,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/calibration/ rendered no v1 identity spelling and no v1 descriptor in 39439 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/calibration/ rendered no v1 identity spelling and no v1 descriptor in 39555 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158016,7 +157743,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/grasp-planning/ rendered no v1 identity spelling and no v1 descriptor in 49655 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/grasp-planning/ rendered no v1 identity spelling and no v1 descriptor in 49451 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158204,7 +157931,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/ros2-for-ml-engineers/ rendered no v1 identity spelling and no v1 descriptor in 34233 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/ros2-for-ml-engineers/ rendered no v1 identity spelling and no v1 descriptor in 34235 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -159191,7 +158918,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1394 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1412 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -159520,7 +159247,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/diffusion-policy/ rendered no v1 identity spelling and no v1 descriptor in 42757 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/diffusion-policy/ rendered no v1 identity spelling and no v1 descriptor in 42557 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -159943,7 +159670,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/vla-models/ rendered no v1 identity spelling and no v1 descriptor in 54517 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/vla-models/ rendered no v1 identity spelling and no v1 descriptor in 54467 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160225,7 +159952,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/legged-locomotion/ rendered no v1 identity spelling and no v1 descriptor in 49535 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/legged-locomotion/ rendered no v1 identity spelling and no v1 descriptor in 49499 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160319,7 +160046,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/parallel-sim-rl/ rendered no v1 identity spelling and no v1 descriptor in 45086 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/parallel-sim-rl/ rendered no v1 identity spelling and no v1 descriptor in 45148 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160742,7 +160469,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/generative-video/ rendered no v1 identity spelling and no v1 descriptor in 51670 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/generative-video/ rendered no v1 identity spelling and no v1 descriptor in 51826 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160789,7 +160516,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 48181 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 48015 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160836,7 +160563,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/latent-dynamics/ rendered no v1 identity spelling and no v1 descriptor in 41412 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/latent-dynamics/ rendered no v1 identity spelling and no v1 descriptor in 41444 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -226701,8 +226428,8 @@
               "id": "/classical/calibration/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 12,
-                "controlsInProse": 7,
+                "interfaceControlCount": 13,
+                "controlsInProse": 8,
                 "registrationLabelCount": 0
               }
             }
@@ -226777,8 +226504,8 @@
               "id": "/classical/grasp-planning/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 12,
-                "controlsInProse": 7,
+                "interfaceControlCount": 13,
+                "controlsInProse": 8,
                 "registrationLabelCount": 0
               }
             }
@@ -226929,8 +226656,8 @@
               "id": "/classical/ros2-for-ml-engineers/",
               "observed": {
                 "monoRequiredCount": 13,
-                "interfaceControlCount": 17,
-                "controlsInProse": 13,
+                "interfaceControlCount": 18,
+                "controlsInProse": 14,
                 "registrationLabelCount": 0
               }
             }
@@ -227993,8 +227720,8 @@
               "id": "/manipulation/diffusion-policy/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 24,
-                "controlsInProse": 12,
+                "interfaceControlCount": 25,
+                "controlsInProse": 13,
                 "registrationLabelCount": 0
               }
             }
@@ -228335,8 +228062,8 @@
               "id": "/manipulation/vla-models/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 37,
-                "controlsInProse": 12,
+                "interfaceControlCount": 38,
+                "controlsInProse": 13,
                 "registrationLabelCount": 0
               }
             }
@@ -228563,8 +228290,8 @@
               "id": "/rl-sim2real/legged-locomotion/",
               "observed": {
                 "monoRequiredCount": 1,
-                "interfaceControlCount": 23,
-                "controlsInProse": 14,
+                "interfaceControlCount": 24,
+                "controlsInProse": 15,
                 "registrationLabelCount": 0
               }
             }
@@ -228981,8 +228708,8 @@
               "id": "/world-models/generative-video/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 34,
-                "controlsInProse": 12,
+                "interfaceControlCount": 35,
+                "controlsInProse": 13,
                 "registrationLabelCount": 0
               }
             }
@@ -229057,8 +228784,8 @@
               "id": "/world-models/latent-dynamics/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 13,
-                "controlsInProse": 7,
+                "interfaceControlCount": 14,
+                "controlsInProse": 8,
                 "registrationLabelCount": 0
               }
             }
@@ -232893,7 +232620,7 @@
               "id": "/manipulation/vla-models/",
               "observed": {
                 "paragraphCount": 48,
-                "registeredFrameParagraphCount": 14,
+                "registeredFrameParagraphCount": 12,
                 "offendingFamilies": []
               }
             }
@@ -233041,7 +232768,7 @@
               "id": "/rl-sim2real/parallel-sim-rl/",
               "observed": {
                 "paragraphCount": 46,
-                "registeredFrameParagraphCount": 16,
+                "registeredFrameParagraphCount": 18,
                 "offendingFamilies": []
               }
             }
@@ -233337,7 +233064,7 @@
               "id": "/world-models/jepa/",
               "observed": {
                 "paragraphCount": 28,
-                "registeredFrameParagraphCount": 12,
+                "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
             }

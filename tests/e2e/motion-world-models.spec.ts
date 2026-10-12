@@ -140,7 +140,7 @@ const figures: Array<{ id: string; route: string; lab: string; beats: Beat[]; af
         reach: (figure) => press(figure.getByRole('slider', { name: /how far ahead to imagine/i }), 'Home'),
         expectState: async (figure) => {
           await expect(figure.getByRole('slider', { name: /how far ahead to imagine/i })).toHaveValue('1');
-          await expect(figure.getByTestId('drift-note')).toContainText('still close to the real flight');
+          await expect(figure.getByTestId('drift-note')).toContainText('still close to the real route');
         },
         describes: /imagines 1 step ahead/,
       },

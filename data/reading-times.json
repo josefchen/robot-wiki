@@ -8,11 +8,11 @@
     "minutes": 11
   },
   "manipulation/diffusion-policy": {
-    "words": 1664,
+    "words": 1643,
     "minutes": 8
   },
   "manipulation/vla-models": {
-    "words": 1890,
+    "words": 1886,
     "minutes": 9
   },
   "manipulation/pi-line": {
@@ -68,7 +68,7 @@
     "minutes": 7
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1558,
+    "words": 1565,
     "minutes": 8
   },
   "rl-sim2real/sim2real-transfer": {
@@ -96,15 +96,15 @@
     "minutes": 9
   },
   "world-models/latent-dynamics": {
-    "words": 1485,
+    "words": 1490,
     "minutes": 7
   },
   "world-models/generative-video": {
-    "words": 1948,
+    "words": 1959,
     "minutes": 10
   },
   "world-models/jepa": {
-    "words": 1723,
+    "words": 1705,
     "minutes": 9
   },
   "world-models/generative-sim": {
@@ -168,7 +168,7 @@
     "minutes": 13
   },
   "classical/grasp-planning": {
-    "words": 1899,
+    "words": 1878,
     "minutes": 9
   },
   "classical/perception": {
@@ -180,11 +180,11 @@
     "minutes": 13
   },
   "classical/calibration": {
-    "words": 1049,
+    "words": 1061,
     "minutes": 5
   },
   "classical/ros2-for-ml-engineers": {
-    "words": 1156,
+    "words": 1159,
     "minutes": 6
   },
   "frontier/reliability-gap": {

@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
   ControlField,
@@ -8,25 +8,39 @@ import {
   INSTRUMENT_SECONDARY_CONTROL_CLASS,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
-  InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
-  LegendItem,
   PlotStage,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
   CHART_VIEW_WIDTH,
-  LegendSwatch,
-  StageAnnotation,
-  annotationArrow,
   roleColour,
 } from '@/components/motion/chart';
-import { MOTION_STAGE } from '@/lib/motion-tokens';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, Line, Solid } from '@/components/iso/react/draw';
+import { Stage, asksForStillness } from '@/components/iso/react/live';
+import { dotsSvg, lineSvg, solidSvg } from '@/components/iso/iso-kit';
+import {
+  EPSILON_FULL,
+  HEIGHT as OBJECT_H,
+  WIDTH as OBJECT_W,
+  carriageInFront,
+  carriageParts,
+  cordPath,
+  eyeBoltParts,
+  restStationFor,
+  modelPointAt,
+  needleDegrees,
+  needlePath,
+  sceneOf,
+  shiftBy,
+  type Group,
+  type Part,
+} from '@/components/iso/figures/grasp-test-table';
 import {
   CONTACT_POSITION_MAX,
   CONTACT_POSITION_MIN,
@@ -37,30 +51,32 @@ import {
   MIN_CONTACTS,
   PUSH_COUNT,
   analyzeGrasp,
-  contactGeometry,
   contactPositionFromPoint,
   pushAngle,
   resistedPushes,
   suggestContactPosition,
-  type ContactGeometry,
   type Vec3,
 } from '@/lib/grasp';
 
 /**
- * GraspWrenchLab: robot fingertips pressing on a box, seen from above.
+ * GraspWrenchLab: robot fingertips holding a block, drawn as a grasp test
+ * table.
  *
- * The box is the lib's unit square and each fingertip a frictional point
- * contact that the reader drags along the edges. The fan inside the box at
- * each fingertip is its friction cone, half-angle arctan(mu); the surface
- * slider sets mu. Eight test pushes act through the box centre, each drawn
- * as resisted when the contacts can cancel it with no net twist (see
- * resistedPushes in lib/grasp); under force closure every push is resisted.
- * The grip-margin meter shows the Ferrari-Canny epsilon, full at 1.00 (four
- * contacts at the edge midpoints on the grippiest surface reach it) and
- * clamped there. Its ends read "no grip" and "very firm": any fill above that
- * is a grip that holds (force closure exactly when epsilon is above zero),
- * so the words stay true at every state. A plain label beside the wedge
- * nearest it says what a wedge means.
+ * The block is the lib's unit square, seen on a round test table, and each
+ * fingertip is a frictional point contact on a post that the reader drags
+ * round the block's sides. The wedge on the block's top at each fingertip
+ * is its friction cone, half-angle arctan(mu); the surface slider sets mu.
+ * A cord from an eye bolt on the block's edge, on the line through its
+ * centre, runs to a force gauge on a carriage that rides the table's rim
+ * and pulls toward eight stations, 45 degrees apart:
+ * a force through the centre in each direction, the same eight test forces
+ * as before. A telltale pin stands up at each station whose pull the
+ * contacts cancel with no net twist (resistedPushes in lib/grasp); under
+ * force closure every pin is up. The dial reads the Ferrari-Canny epsilon,
+ * full at 1.00 and clamped there, and rests on its zero stop exactly when
+ * the grip fails. The standing pins are the one lit set: they answer the
+ * figure's question, which directions the grip holds. "Run the pull test" walks
+ * the carriage round the stations; reduced motion keeps the still pose.
  *
  * The grasp wrench space itself (the hull of cone-edge wrenches in
  * (fx, fy, tau), projected obliquely) sits in "Adjust more" with the
@@ -69,60 +85,16 @@ import {
  * Reproducibility: the scene is a pure function of the contact positions
  * and mu. A dragged fingertip snaps to the sliders' 0.005 perimeter grid,
  * Reset restores the three-contact grasp at mu 0.70, and every rendered
- * coordinate goes through f(), so SSR HTML and hydration agree.
+ * coordinate is rounded, so SSR HTML and hydration agree.
  */
 
 const VIEW_W = CHART_VIEW_WIDTH;
-const VIEW_H = 266;
 const WRENCH_H = 280;
 
 /** Round every rendered geometry value: SSR HTML and hydration agree. */
 const f = (v: number) => Number(v.toFixed(2));
 
-/** The box: the unit square (half side 1) at 40 stage units per unit. */
-const BOX = { cx: 112, cy: 154, scale: 40 };
-const objX = (x: number) => f(BOX.cx + BOX.scale * x);
-const objY = (y: number) => f(BOX.cy - BOX.scale * y);
-
-/** Fingertip drawing, in stage units outward along the finger from the contact. */
-const PAD_R = 6;
-const FINGER_W = 8;
-/** The finger's rounded end touches the box: its cap reaches back to the contact. */
-const FINGER_START = FINGER_W / 2;
-const JOINT_AT = 20;
-const FINGER_END = 34;
-/** Where a finger's number sits: along the finger, and off to one side. */
-const NUMBER_ALONG = 27;
-const NUMBER_SIDE = 14;
-/** Pointer reach around a fingertip, so a finger is easy to grab on a phone. */
-const GRAB_R = 16;
-
-/** The test pushes: arrows on a ring, pointing at the box centre. */
-const PUSH_TIP = 86;
-const PUSH_TAIL = 106;
-const HEAD_LEN = 7;
-const HEAD_HALF = 4.5;
-
-/** The fan drawn for each friction cone, in object units. */
-const FAN_LEN = 0.5;
-const FAN_FILL_OPACITY = 0.18;
-
-/** The grip-margin meter: epsilon from 0 (bottom) to EPSILON_FULL (top). */
-export const EPSILON_FULL = 1;
-const METER = { x: 244, top: 128, bottom: 260, width: 8 };
-
-/**
- * The wedge label, top right. Its last line is held at `y` and the arrow
- * leaves just under that line's start, so the two stay together while the
- * stage type keeps its CSS size on a stretched viewBox.
- */
-const WEDGE_NOTE = {
-  x: 228,
-  y: 88,
-  lines: ['Inside its wedge,', 'a finger can push', 'without slipping'],
-  from: [226, 93] as const,
-};
-const LINE_EM = 1.25;
+export { EPSILON_FULL };
 
 /** Wrench view (in "Adjust more"): oblique projection of (fx, fy, tau). */
 const WR = { cx: VIEW_W / 2, cy: WRENCH_H / 2, scale: 56 };
@@ -135,69 +107,30 @@ const FACET_STROKE_OPACITY = 0.6;
 
 const ink = CHART_STRUCTURE.label;
 const graphite = CHART_STRUCTURE.labelSecondary;
-const paper = MOTION_STAGE.background;
 
-/**
- * A finger in outline, seen from above: two thin sides out from a round
- * pad whose cap touches the contact, closed square at the knuckle end.
- * The cap is two quarter circles in cubic form, so it turns the right way
- * whatever side of the box the finger presses.
- */
-function fingerOutline(g: ContactGeometry): string {
-  const r = FINGER_W / 2;
-  const k = 0.552 * r;
-  const p = (along: number, side: number) => {
-    const q = fingerPoint(g, along, side);
-    return `${q.x} ${q.y}`;
-  };
-  return [
-    `M ${p(FINGER_END, -r)}`,
-    `L ${p(FINGER_START, -r)}`,
-    `C ${p(FINGER_START - k, -r)} ${p(FINGER_START - r, -k)} ${p(FINGER_START - r, 0)}`,
-    `C ${p(FINGER_START - r, k)} ${p(FINGER_START - k, r)} ${p(FINGER_START, r)}`,
-    `L ${p(FINGER_END, r)} Z`,
-  ].join(' ');
-}
+/** One stop of the pull test, in seconds: the carriage travels to a station, then pulls. */
+export const TRAVEL_S = 0.55;
+export const PULL_S = 0.7;
+export const TEST_S = PUSH_COUNT * (TRAVEL_S + PULL_S);
+/** How far a pull the grip cannot cancel drags the block before the fingers catch it, in world units. */
+export const NUDGE = 5;
 
-/** A stage point `along` units out from a contact and `side` units across the finger. */
-function fingerPoint(g: ContactGeometry, along: number, side = 0) {
-  // Outward on screen is the inward normal reversed, with y pointing down.
-  const out = { x: -g.normal.x, y: g.normal.y };
-  return {
-    x: f(BOX.cx + BOX.scale * g.point.x + out.x * along - out.y * side),
-    y: f(BOX.cy - BOX.scale * g.point.y + out.y * along + out.x * side),
-  };
+/** Where the pull test stands `t` seconds in: the station, the carriage's angle on the rim, the pull's share. */
+export function testAt(t: number): { station: number; angle: number; pull: number; done: boolean } {
+  const step = TRAVEL_S + PULL_S;
+  if (t >= TEST_S) return { station: PUSH_COUNT - 1, angle: stationAngle(PUSH_COUNT - 1), pull: 0, done: true };
+  const station = Math.min(PUSH_COUNT - 1, Math.floor(t / step));
+  const into = t - station * step;
+  if (into < TRAVEL_S) {
+    const from = station === 0 ? stationAngle(0) - Math.PI / 4 : stationAngle(station - 1);
+    const u = into / TRAVEL_S;
+    const e = u * u * (3 - 2 * u);
+    return { station, angle: from + (stationAngle(station) - from) * e, pull: 0, done: false };
+  }
+  return { station, angle: stationAngle(station), pull: Math.sin((Math.PI * (into - TRAVEL_S)) / PULL_S), done: false };
 }
-
-/** The friction-cone fan at a contact: apex on the edge, opening into the box. */
-function fanPath(g: ContactGeometry, mu: number) {
-  const half = Math.atan(mu);
-  const base = Math.atan2(g.normal.y, g.normal.x);
-  const end = (a: number) =>
-    `${objX(g.point.x + FAN_LEN * Math.cos(a))} ${objY(g.point.y + FAN_LEN * Math.sin(a))}`;
-  const r = f(FAN_LEN * BOX.scale);
-  // Model-space counterclockwise reads counterclockwise on the y-down
-  // screen too once both axes map through objX/objY, so sweep = 0 keeps the
-  // arc centred on the fingertip and the wedge bulges away from it.
-  return `M ${objX(g.point.x)} ${objY(g.point.y)} L ${end(base - half)} A ${r} ${r} 0 0 0 ${end(base + half)} Z`;
-}
-
-/** The middle of a contact's wedge, on screen. */
-function wedgeCentre(g: ContactGeometry) {
-  const along = FAN_LEN * 0.6;
-  return { x: objX(g.point.x + g.normal.x * along), y: objY(g.point.y + g.normal.y * along) };
-}
-
-/** Test push k as an arrow on the ring, pointing along the push at the box centre. */
-function pushArrow(k: number) {
-  const dx = Math.cos(pushAngle(k));
-  const dy = -Math.sin(pushAngle(k));
-  const at = (r: number, side = 0) => `${f(BOX.cx - dx * r - dy * side)} ${f(BOX.cy - dy * r + dx * side)}`;
-  return {
-    shaft: `M ${at(PUSH_TAIL)} L ${at(PUSH_TIP + HEAD_LEN)}`,
-    head: `M ${at(PUSH_TIP)} L ${at(PUSH_TIP + HEAD_LEN, HEAD_HALF)} L ${at(PUSH_TIP + HEAD_LEN, -HEAD_HALF)} Z`,
-  };
-}
+/** The world angle of station `k` on the rim, unwrapped so the carriage walks one way round. */
+const stationAngle = (k: number) => -pushAngle(k);
 
 /** The surface slider's value in words. */
 function surfaceWords(mu: number) {
@@ -207,11 +140,11 @@ function surfaceWords(mu: number) {
   return 'very rough';
 }
 
-/** The stage note: what the eight test pushes show right now. */
-function noteLines(closed: boolean, slipping: number) {
-  if (closed) return ['Pushes from every direction are', 'resisted: the grip holds'];
-  if (slipping === 0) return ['Every push is resisted, but a twist', 'can turn the box: the grip fails'];
-  return [`${slipping} of ${PUSH_COUNT} pushes ${slipping === 1 ? 'slips' : 'slip'} free:`, 'the grip fails'];
+/** The readout at rest: what the eight test pulls show right now. */
+export function noteText(closed: boolean, slipping: number) {
+  if (closed) return 'Pulls from every direction are resisted: the grip holds';
+  if (slipping === 0) return 'Every pull is resisted, but a twist can turn the block: the grip fails';
+  return `${slipping} of ${PUSH_COUNT} pulls ${slipping === 1 ? 'slips' : 'slip'} free: the grip fails`;
 }
 
 /** The zero-wrench ring: solid in the value colour inside the hull, dashed outside. */
@@ -224,6 +157,60 @@ function ringPaint(closed: boolean) {
   };
 }
 
+const still = () => typeof window !== 'undefined' && typeof window.matchMedia === 'function' && asksForStillness();
+
+function PartView({ part, dragging, onGrab }: { part: Part; dragging: number | null; onGrab: (index: number, pointerId: number, el: Element) => void }): ReactNode {
+  if (part.kind === 'solid') {
+    return (
+      <Solid
+        paths={part.paths}
+        tone={part.tone}
+        lit={part.lit}
+        halo={part.halo}
+        crease={part.crease}
+        inner={part.inner ? <g dangerouslySetInnerHTML={{ __html: part.inner }} /> : undefined}
+      />
+    );
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  if (part.kind === 'dots') return <Dots points={part.points} size={part.size} tone={part.tone} />;
+  if (part.kind === 'fill') return <path className="iso-shade" data-shade={part.shade} d={part.d} />;
+  if (part.kind === 'halo') return <path className="iso-halo" d={part.d} />;
+  const children = 'parts' in part ? part.parts.map((child, index) => <PartView key={index} part={child} dragging={dragging} onGrab={onGrab} />) : null;
+  if (part.kind === 'finger') {
+    return (
+      <g data-finger={part.index + 1}>
+        {children}
+        <circle
+          cx={f(part.grab[0])}
+          cy={f(part.grab[1])}
+          r={16}
+          fill="none"
+          pointerEvents="all"
+          style={{ cursor: dragging === part.index ? 'grabbing' : 'grab', touchAction: 'none' }}
+          onPointerDown={(e) => onGrab(part.index, e.pointerId, e.currentTarget)}
+        />
+      </g>
+    );
+  }
+  if (part.kind === 'station') return <g data-push={part.held ? 'resisted' : 'slips'} data-station={part.index}>{children}</g>;
+  if (part.kind === 'wedges') return <g data-part="cone">{children}</g>;
+  return null;
+}
+
+const carriageSvg = (angle: number) =>
+  carriageParts([Math.cos(angle), Math.sin(angle)])
+    .map((part) =>
+      part.kind === 'solid' ? solidSvg(part.paths, { tone: part.tone }) : part.kind === 'line' ? lineSvg(part.d, { tone: part.tone }) : part.kind === 'dots' ? dotsSvg(part.points, { size: part.size, tone: part.tone }) : '',
+    )
+    .join('');
+
+/** The eye bolt in the active tapped hole and the cord from it to the gauge's hook. */
+const cordSvg = (station: number, nudge: [number, number]) =>
+  eyeBoltParts(station, nudge)
+    .map((part) => (part.kind === 'solid' ? solidSvg(part.paths, { tone: part.tone }) : part.kind === 'dots' ? dotsSvg(part.points, { size: part.size, tone: part.tone }) : ''))
+    .join('') + lineSvg(cordPath(station, nudge), { tone: 'mid' });
+
 export function GraspWrenchLab({ className }: { className?: string }) {
   const uid = useId();
   const objectDescriptionId = `${uid}-object-description`;
@@ -231,11 +218,26 @@ export function GraspWrenchLab({ className }: { className?: string }) {
   const [mu, setMu] = useState(DEFAULT_MU);
   const [contacts, setContacts] = useState<number[]>(DEFAULT_CONTACTS);
   const [dragging, setDragging] = useState<number | null>(null);
+  const [testing, setTesting] = useState(false);
+  /** While the pull test runs, how many stations it has finished. */
+  const [tested, setTested] = useState(PUSH_COUNT);
   const svgRef = useRef<SVGSVGElement | null>(null);
 
   const analysis = useMemo(() => analyzeGrasp(contacts, mu), [contacts, mu]);
-  const geoms = useMemo(() => contacts.map((s) => contactGeometry(s)), [contacts]);
   const resisted = useMemo(() => resistedPushes(analysis.primitives), [analysis]);
+  // Stations not yet reached in a running test keep their pins down; at rest every station is tested.
+  const testedNow = testing ? tested : PUSH_COUNT;
+  const shownHeld = useMemo(() => resisted.map((held, k) => held && k < testedNow), [resisted, testedNow]);
+  const scene = useMemo(() => sceneOf({ contacts, mu, held: shownHeld }), [contacts, mu, shownHeld]);
+  const runs = useMemo(() => {
+    const list: Array<{ group: Group; parts: Part[] }> = [];
+    for (const part of scene) {
+      const last = list[list.length - 1];
+      if (last && last.group === part.group) last.parts.push(part);
+      else list.push({ group: part.group, parts: [part] });
+    }
+    return list;
+  }, [scene]);
 
   // Facets sorted far to near for painter rendering; each facet's points
   // are angle-sorted around their centroid to form the projected polygon.
@@ -248,12 +250,12 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           y: wrY(analysis.hullPoints[i]),
           d: depth(analysis.hullPoints[i]),
         }));
-        const mx = pts.reduce((s, p) => s + p.x, 0) / pts.length;
-        const my = pts.reduce((s, p) => s + p.y, 0) / pts.length;
+        const mx = pts.reduce((sum, p) => sum + p.x, 0) / pts.length;
+        const my = pts.reduce((sum, p) => sum + p.y, 0) / pts.length;
         pts.sort((a, b) => Math.atan2(a.y - my, a.x - mx) - Math.atan2(b.y - my, b.x - mx));
         return {
           points: pts.map((p) => `${p.x},${p.y}`).join(' '),
-          depth: pts.reduce((s, p) => s + p.d, 0) / pts.length,
+          depth: pts.reduce((sum, p) => sum + p.d, 0) / pts.length,
         };
       })
       .sort((a, b) => b.depth - a.depth);
@@ -264,18 +266,86 @@ export function GraspWrenchLab({ className }: { className?: string }) {
   const state = roleColour('state');
   const action = roleColour('action');
   const halfAngle = ((Math.atan(mu) * 180) / Math.PI).toFixed(1);
-  const meterFill = f((Math.min(analysis.epsilon, EPSILON_FULL) / EPSILON_FULL) * (METER.bottom - METER.top));
-  // The wedge label points at whichever wedge sits nearest it, so its arrow
-  // always lands on a wedge wherever the fingers are dragged.
-  const wedgeTarget = geoms
-    .map(wedgeCentre)
-    .reduce((best, c) =>
-      Math.hypot(c.x - WEDGE_NOTE.from[0], c.y - WEDGE_NOTE.from[1]) <
-      Math.hypot(best.x - WEDGE_NOTE.from[0], best.y - WEDGE_NOTE.from[1])
-        ? c
-        : best,
-    );
-  const wedgeArrow = annotationArrow(WEDGE_NOTE.from, [wedgeTarget.x, wedgeTarget.y]);
+  const note = noteText(closed, slipping);
+  // At rest the carriage stands at the first station whose pull slips, or at a clear station facing the viewer.
+  const restStation = restStationFor(contacts, resisted);
+
+  const blockRef = useRef<SVGGElement>(null);
+  const backRef = useRef<SVGGElement>(null);
+  const frontRef = useRef<SVGGElement>(null);
+  const cordRef = useRef<SVGGElement>(null);
+  const readoutEl = useCallback(
+    () => svgRef.current?.closest('[data-anatomy-stage]')?.querySelector<HTMLElement>('[data-readout]') ?? null,
+    [],
+  );
+  const resistedRef = useRef(resisted);
+  useLayoutEffect(() => {
+    resistedRef.current = resisted;
+  }, [resisted]);
+
+  /**
+   * Put the carriage at `angle` and, once it stands at `station`, the cord
+   * taut from that station's eye bolt to its gauge, with the block nudged by
+   * `nudge` toward it. While the carriage travels the cord is unhooked.
+   */
+  const place = useCallback((angle: number, nudge: number, station: number | null) => {
+    const dir: [number, number] = [Math.cos(angle), Math.sin(angle)];
+    const front = carriageInFront(dir);
+    const svg = carriageSvg(angle);
+    if (backRef.current) backRef.current.innerHTML = front ? '' : svg;
+    if (frontRef.current) frontRef.current.innerHTML = front ? svg : '';
+    const offset: [number, number] = [dir[0] * nudge, dir[1] * nudge];
+    if (cordRef.current) cordRef.current.innerHTML = station === null ? '' : cordSvg(station, offset);
+    blockRef.current?.setAttribute('transform', nudge ? shiftBy(offset[0], offset[1]) : '');
+  }, []);
+
+  // The pull test: the carriage walks the eight stations and pulls at each.
+  useEffect(() => {
+    if (!testing) return;
+    let frame = 0;
+    const start = performance.now();
+    let shown = -1;
+    const tick = (now: number) => {
+      const t = (now - start) / 1000;
+      const { station, angle, pull, done } = testAt(t);
+      if (done) {
+        setTested(PUSH_COUNT);
+        setTesting(false);
+        return;
+      }
+      const held = resistedRef.current[station];
+      place(angle, held ? 0 : NUDGE * pull, pull > 0 ? station : null);
+      const finished = pull > 0.5 || t - station * (TRAVEL_S + PULL_S) > TRAVEL_S + PULL_S / 2 ? station + 1 : station;
+      if (finished !== shown) {
+        shown = finished;
+        setTested(finished);
+      }
+      const readout = readoutEl();
+      if (readout) readout.textContent = `pull ${station + 1} of ${PUSH_COUNT} · ${pull > 0 ? (held ? 'held' : 'slips') : 'moving to its station'}`;
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [testing, place, readoutEl]);
+
+  // At rest: every station tested, the carriage at its rest station, the readout says what the pulls show.
+  useEffect(() => {
+    if (testing) return;
+    place(stationAngle(restStation), 0, restStation);
+    const readout = readoutEl();
+    if (readout) readout.textContent = note;
+  }, [testing, restStation, note, contacts, mu, place, readoutEl]);
+
+  // The pull test starts from the reader's control; under reduced motion it does not run.
+  const toggleTest = () => {
+    if (testing) {
+      setTesting(false);
+      return;
+    }
+    if (still()) return;
+    setTested(0);
+    setTesting(true);
+  };
 
   const addContact = () =>
     setContacts((c) =>
@@ -284,6 +354,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
   const removeContact = () =>
     setContacts((c) => (c.length > MIN_CONTACTS ? c.slice(0, -1) : c));
   const reset = () => {
+    setTesting(false);
     setMu(DEFAULT_MU);
     setContacts(DEFAULT_CONTACTS);
   };
@@ -293,12 +364,19 @@ export function GraspWrenchLab({ className }: { className?: string }) {
     const svg = svgRef.current;
     if (!svg) return;
     const rect = svg.getBoundingClientRect();
-    const x = ((clientX - rect.left) / rect.width) * VIEW_W;
-    const y = ((clientY - rect.top) / rect.height) * VIEW_H;
-    const s = contactPositionFromPoint((x - BOX.cx) / BOX.scale, (BOX.cy - y) / BOX.scale);
+    const vx = ((clientX - rect.left) / rect.width) * OBJECT_W;
+    const vy = ((clientY - rect.top) / rect.height) * OBJECT_H;
+    const point = modelPointAt(vx, vy);
+    const s = contactPositionFromPoint(point.x, point.y);
     if (s === null) return;
     setContacts((c) => c.map((v, idx) => (idx === i ? s : v)));
   }
+
+  const grab = (index: number, pointerId: number, el: Element) => {
+    (el as Element & { setPointerCapture?: (id: number) => void }).setPointerCapture?.(pointerId);
+    setTesting(false);
+    setDragging(index);
+  };
 
   const controls = (
     <>
@@ -320,7 +398,16 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         />
         <SliderEnds low="slippery" high="rough" />
       </ControlField>
-      <div className="self-center font-sans text-sm text-text-dim">Drag finger 1, 2 or 3 along the box.</div>
+      <button
+        type="button"
+        data-brand-control-id="control:secondary-action"
+        data-pagefind-ignore
+        data-testid="grasp-run"
+        onClick={toggleTest}
+        className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+      >
+        {testing ? 'Stop the pull test' : 'Run the pull test'}
+      </button>
     </>
   );
 
@@ -356,163 +443,63 @@ export function GraspWrenchLab({ className }: { className?: string }) {
   ));
 
   const objectView = (
-    <PlotStage
-      ref={svgRef}
-      viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
-      aria-label={`A square box seen from above, held by ${contacts.length} fingertips; ${PUSH_COUNT - slipping} of ${PUSH_COUNT} test pushes are resisted.`}
-      aria-describedby={objectDescriptionId}
-      data-testid="grasp-object-view"
-      onPointerMove={(e) => {
-        if (dragging !== null) dragContact(dragging, e.clientX, e.clientY);
-      }}
-      onPointerUp={() => setDragging(null)}
-      onPointerCancel={() => setDragging(null)}
-    >
-      <StageAnnotation x={8} y={16} lines={noteLines(closed, slipping)} />
-      <rect
-        x={objX(-1)}
-        y={objY(1)}
-        width={f(2 * BOX.scale)}
-        height={f(2 * BOX.scale)}
-        fill={state}
-        fillOpacity={0.1}
-        stroke={state}
-        strokeWidth={CHART_STROKE.trace}
-      />
-      <g data-series="cone">
-        {geoms.map((g, i) => (
-          <path
-            key={i}
-            d={fanPath(g, mu)}
-            fill={action}
-            fillOpacity={FAN_FILL_OPACITY}
-            stroke={action}
-            strokeWidth={CHART_STROKE.structure}
-          />
-        ))}
-      </g>
-      {Array.from({ length: PUSH_COUNT }, (_, k) => {
-        const { shaft, head } = pushArrow(k);
-        const held = resisted[k];
-        const colour = roleColour(held ? 'highlight' : 'constraint');
-        return (
-          <g
-            key={k}
-            data-series={held ? 'push-held' : 'push-slips'}
-            data-series-labelled={held ? undefined : ''}
-            data-push={held ? 'resisted' : 'slips'}
-          >
+    <Stage className="iso-stage">
+      <svg
+        ref={svgRef}
+        className="iso-svg"
+        viewBox={`0 0 ${OBJECT_W} ${OBJECT_H}`}
+        role="img"
+        aria-label={`A square block on a round test table, held by ${contacts.length} fingertips; a cord pulls it toward ${PUSH_COUNT} stations in turn, and ${PUSH_COUNT - slipping} of ${PUSH_COUNT} pulls are resisted.`}
+        aria-describedby={objectDescriptionId}
+        focusable="false"
+        data-testid="grasp-object-view"
+        onPointerMove={(e) => {
+          if (dragging !== null) dragContact(dragging, e.clientX, e.clientY);
+        }}
+        onPointerUp={() => setDragging(null)}
+        onPointerCancel={() => setDragging(null)}
+      >
+        {runs.map((run, index) => {
+          if (run.group === 'static') {
+            return (
+              <g key={`static-${index}`}>
+                {run.parts.map((part, k) => (
+                  <PartView key={k} part={part} dragging={dragging} onGrab={grab} />
+                ))}
+              </g>
+            );
+          }
+          if (run.group === 'block') {
+            return (
+              <g key="block" ref={blockRef} data-testid="grasp-block">
+                {run.parts.map((part, k) => (
+                  <PartView key={k} part={part} dragging={dragging} onGrab={grab} />
+                ))}
+              </g>
+            );
+          }
+          const slot = run.parts[0];
+          if (slot.kind !== 'slot') return null;
+          if (slot.name === 'carriage-back') return <g key="carriage-back" ref={backRef} />;
+          if (slot.name === 'carriage-front') return <g key="carriage-front" ref={frontRef} />;
+          if (slot.name === 'cord') {
+            return <g key="cord" ref={cordRef} data-testid="grasp-cord" dangerouslySetInnerHTML={{ __html: cordSvg(restStation, [0, 0]) }} />;
+          }
+          return (
             <path
-              d={shaft}
-              fill="none"
-              stroke={colour}
-              strokeWidth={CHART_STROKE.trace}
-              strokeDasharray={held ? undefined : CHART_STROKE.dash}
+              key="needle"
+              className="iso-line"
+              data-tone="hi"
+              data-free=""
+              data-testid="grasp-margin-needle"
+              data-epsilon={analysis.epsilon.toFixed(3)}
+              data-degrees={needleDegrees(analysis.epsilon).toFixed(1)}
+              d={needlePath(analysis.epsilon)}
             />
-            <path d={head} fill={colour} />
-          </g>
-        );
-      })}
-      {geoms.map((g, i) => {
-        const tip = fingerPoint(g, PAD_R);
-        const number = fingerPoint(g, NUMBER_ALONG, NUMBER_SIDE);
-        return (
-          <g key={i} data-finger={i + 1}>
-            <path
-              d={fingerOutline(g)}
-              fill={paper}
-              stroke={ink}
-              strokeWidth={CHART_STROKE.trace}
-              strokeLinejoin="round"
-            />
-            <path
-              d={`M ${fingerPoint(g, JOINT_AT, -FINGER_W / 2).x} ${fingerPoint(g, JOINT_AT, -FINGER_W / 2).y} L ${fingerPoint(g, JOINT_AT, FINGER_W / 2).x} ${fingerPoint(g, JOINT_AT, FINGER_W / 2).y}`}
-              stroke={ink}
-              strokeWidth={CHART_STROKE.structure}
-            />
-            <text
-              data-chart-label=""
-              x={number.x}
-              y={number.y}
-              textAnchor="middle"
-              dominantBaseline="central"
-              fontSize={CHART_TYPE.labelPx}
-              fill={graphite}
-            >
-              {i + 1}
-            </text>
-            <circle
-              cx={tip.x}
-              cy={tip.y}
-              r={GRAB_R}
-              fill="none"
-              pointerEvents="all"
-              style={{ cursor: dragging === i ? 'grabbing' : 'grab', touchAction: 'none' }}
-              onPointerDown={(e) => {
-                e.currentTarget.setPointerCapture(e.pointerId);
-                setDragging(i);
-              }}
-            />
-          </g>
-        );
-      })}
-      <g data-meter="grip-margin">
-        <text x={METER.x - 8} y={METER.top - 12} fontSize={CHART_TYPE.labelPx} fill={ink}>
-          grip strength
-        </text>
-        <rect
-          x={METER.x}
-          y={METER.top}
-          width={METER.width}
-          height={METER.bottom - METER.top}
-          fill="none"
-          stroke={graphite}
-          strokeWidth={CHART_STROKE.structure}
-        />
-        <rect
-          data-testid="grasp-margin-fill"
-          x={METER.x}
-          y={f(METER.bottom - meterFill)}
-          width={METER.width}
-          height={meterFill}
-          fill={roleColour('value')}
-        />
-        <text x={METER.x + METER.width + 6} y={METER.top + 10} fontSize={CHART_TYPE.labelPx} fill={graphite}>
-          very firm
-        </text>
-        <text x={METER.x + METER.width + 6} y={METER.bottom} fontSize={CHART_TYPE.labelPx} fill={graphite}>
-          no grip
-        </text>
-      </g>
-      <g data-wedge-note="">
-        {wedgeArrow ? (
-          <g data-wedge-pointer="">
-            <line
-              x1={WEDGE_NOTE.from[0]}
-              y1={WEDGE_NOTE.from[1]}
-              x2={f(wedgeArrow.end[0])}
-              y2={f(wedgeArrow.end[1])}
-              stroke={graphite}
-              strokeWidth={CHART_STROKE.structure}
-            />
-            <polygon points={wedgeArrow.head.map(([px, py]) => `${f(px)},${f(py)}`).join(' ')} fill={graphite} />
-          </g>
-        ) : null}
-        {WEDGE_NOTE.lines.map((line, i) => (
-          <text
-            key={line}
-            data-chart-label=""
-            x={WEDGE_NOTE.x}
-            y={WEDGE_NOTE.y}
-            dy={`${(i - (WEDGE_NOTE.lines.length - 1)) * LINE_EM}em`}
-            fontSize={CHART_TYPE.labelPx}
-            fill={ink}
-          >
-            {line}
-          </text>
-        ))}
-      </g>
-    </PlotStage>
+          );
+        })}
+      </svg>
+    </Stage>
   );
 
   const origin = { x: 0, y: 0, z: 0 } as Vec3;
@@ -641,53 +628,47 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         </>
       }
       stage={
-        <FigureStage
-          footer={
-            <>
-              <InstrumentLegend>
-                <LegendItem series="cone" swatch={<LegendSwatch role="action" mark="band" />}>
-                  where a fingertip can push without slipping
-                </LegendItem>
-                <LegendItem series="push-held" swatch={<LegendSwatch role="highlight" mark="line" />}>
-                  an outside push the grip resists
-                </LegendItem>
-              </InstrumentLegend>
-              <StageStatus>Schematic: computed for an ideal box, not measured on a robot</StageStatus>
-            </>
-          }
+        <AnatomyStage
+          viewWidth={OBJECT_W}
+          hint={testing ? 'Pulling toward each station in turn' : 'Drag a finger round the block; inside its wedge a finger can push without slipping'}
+          readout={note}
+          status="Schematic: computed for an ideal block, not measured on a robot"
+          data-testid="grasp-stage-frame"
         >
           {objectView}
-        </FigureStage>
+        </AnatomyStage>
       }
       caption="A robot hand must place its fingers so they can resist a push from any direction, or the object slips."
       method={
         <>
           <p>
-            Seen from above, the box is a square of half side 1 and each fingertip is a point contact. Friction
-            lets a contact push anywhere inside its friction cone, drawn as the wedge at each fingertip, of
-            half-angle arctan μ, but never pull; at μ{' '}
+            Seen on the test table, the block is a square of half side 1 and each fingertip is a point contact.
+            Friction lets a contact push anywhere inside its friction cone, drawn as the wedge on the block&apos;s
+            top at each fingertip, of half-angle arctan μ, but never pull; at μ{' '}
             {mu.toFixed(2)} the half-angle is {halfAngle}°. The surface slider sets μ from 0.05 to 1.00.
           </p>
           <p>
             The two edge forces of each cone, with their torque τ about the centre measured per half side, are
             the primitive wrenches (fx, fy, τ). Their convex hull is the grasp wrench space drawn under Adjust
             more. Force closure holds exactly when the origin sits strictly inside the hull: the fingertips can
-            then balance any push or twist. The grip meter shows the Ferrari-Canny quality ε, the radius of the
-            largest origin-centred ball inside the hull. The meter is empty, at &ldquo;no grip&rdquo;, exactly when ε
-            = 0 and the grip fails; any fill above that is a grip that holds. The three-finger grasp at μ 0.70
-            gives ε = 0.444; the
-            meter is full at ε = 1.00, which four fingertips at the edge midpoints reach on the roughest
-            surface.
+            then balance any push or twist. The dial shows the Ferrari-Canny quality ε, the radius of the
+            largest origin-centred ball inside the hull. The dial rests on its zero stop exactly when ε = 0 and
+            the grip fails; any reading above that is a grip that holds. The three-finger grasp at μ 0.70
+            gives ε = 0.444; the dial reads full at ε = 1.00, which four fingertips at the edge midpoints reach
+            on the roughest surface.
           </p>
           <p>
-            The eight test pushes act through the centre, 45° apart. A push counts as resisted when a
-            non-negative mix of the primitive wrenches supplies the opposite force with no net twist; under
-            force closure every push is resisted.
+            The eight test forces act through the centre, 45° apart: a cord tied to an eye bolt on the block&apos;s
+            edge, on the line through its centre, pulls it toward each station on the rim in turn: the same force
+            as a push through the centre from the opposite side. A pull counts as resisted when a non-negative mix of the primitive wrenches supplies
+            the opposite force with no net twist; its telltale pin then stands up, lit, and under force closure every
+            pin is up. A pull the grip cannot cancel drags the block toward the station during the test.
           </p>
           <p>
-            Contact positions run counterclockwise from 0.000 at the top-right corner, so the edge midpoints
-            are 0.125, 0.375, 0.625 and 0.875. A dragged fingertip snaps to the 0.005 grid of the contact
-            sliders.
+            Contact positions run counterclockwise from 0.000 at the top-right corner of the square as the model
+            draws it, which is the far right corner on the table, so the edge midpoints are 0.125, 0.375, 0.625
+            and 0.875. A dragged fingertip snaps to the 0.005 grid of the contact sliders; the pips on each
+            finger&apos;s base give its number.
           </p>
           <InstrumentReadout>
             <span className="text-text-dim">contacts</span>{' '}

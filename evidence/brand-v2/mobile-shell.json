@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "09484ee5d8593153142fd93065a3941c6770733b8822acc9125998de27c2d6de",
+  "fingerprint": "858f80e1002f15068cf5e5da3939502dcc3e53b794a50d95d6af738a9739032e",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -1532,7 +1532,7 @@
     },
     {
       "route": "/classical/calibration/",
-      "visibleTextLength": 16572,
+      "visibleTextLength": 16630,
       "header": {
         "present": true,
         "display": "flex",
@@ -1856,7 +1856,7 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "visibleTextLength": 20127,
+      "visibleTextLength": 20025,
       "header": {
         "present": true,
         "display": "flex",
@@ -2504,7 +2504,7 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "visibleTextLength": 14825,
+      "visibleTextLength": 14826,
       "header": {
         "present": true,
         "display": "flex",
@@ -7032,7 +7032,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 18200,
+      "visibleTextLength": 18100,
       "header": {
         "present": true,
         "display": "flex",
@@ -8490,7 +8490,7 @@
     },
     {
       "route": "/manipulation/vla-models/",
-      "visibleTextLength": 23161,
+      "visibleTextLength": 23136,
       "header": {
         "present": true,
         "display": "flex",
@@ -8814,7 +8814,7 @@
     },
     {
       "route": "/playground/",
-      "visibleTextLength": 867,
+      "visibleTextLength": 1745,
       "header": {
         "present": true,
         "display": "flex",
@@ -9454,7 +9454,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "visibleTextLength": 21547,
+      "visibleTextLength": 21529,
       "header": {
         "present": true,
         "display": "flex",
@@ -9778,7 +9778,7 @@
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "visibleTextLength": 18665,
+      "visibleTextLength": 18696,
       "header": {
         "present": true,
         "display": "flex",
@@ -11228,7 +11228,7 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "visibleTextLength": 22622,
+      "visibleTextLength": 22700,
       "header": {
         "present": true,
         "display": "flex",
@@ -11390,7 +11390,7 @@
     },
     {
       "route": "/world-models/jepa/",
-      "visibleTextLength": 20408,
+      "visibleTextLength": 20325,
       "header": {
         "present": true,
         "display": "flex",
@@ -11552,7 +11552,7 @@
     },
     {
       "route": "/world-models/latent-dynamics/",
-      "visibleTextLength": 17194,
+      "visibleTextLength": 17210,
       "header": {
         "present": true,
         "display": "flex",

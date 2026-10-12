@@ -2,6 +2,8 @@ import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { LatentImagination } from '@/components/interactive/latent-imagination';
+import { REACH, ROUTE_R, SPREAD, angleOf, offsetOf, trackPoints } from '@/components/iso/figures/track-laying-bench';
+import { MAX_HORIZON, imagineDeviation } from '@/lib/latent-imagination';
 
 function deviationReadout(): number {
   const value = Number.parseFloat(screen.getByTestId('deviation-readout').textContent ?? '');
@@ -29,15 +31,47 @@ describe('LatentImagination', () => {
     expect(within(fold).getByRole('button', { name: /^reset$/i })).toBeInTheDocument();
   });
 
-  it('opens on the insight: the imagined ball is already off the real flight 15 steps ahead', () => {
+  it('opens on the insight: the imagined track head is already off the real route 15 steps ahead', () => {
     render(<LatentImagination />);
     expect(screen.getByTestId('drift-note')).toHaveTextContent('15 steps ahead:');
     expect(screen.getByTestId('drift-note')).toHaveTextContent('already this far off');
     expect(screen.getByTestId('drift-bracket')).toBeInTheDocument();
-    const real = Number(screen.getByTestId('real-ball').getAttribute('cy'));
-    const imagined = Number(screen.getByTestId('imagined-ball').getAttribute('cy'));
-    expect(imagined - real).toBeCloseTo(0.301 * 80, 0);
-    expect(screen.getByTestId('decoded-frames').querySelectorAll('circle')).toHaveLength(3);
+    expect(Number(screen.getByTestId('drift-bracket').getAttribute('data-offset'))).toBeCloseTo(0.301 * SPREAD, 0);
+    expect(Number(screen.getByTestId('imagined-head').getAttribute('data-offset'))).toBeCloseTo(0.301 * SPREAD, 0);
+    const flags = screen.getByTestId('decoded-frames').querySelectorAll('[data-part="flag"]');
+    expect([...flags].map((flag) => flag.getAttribute('data-step'))).toEqual(['4', '8', '11']);
+    expect(screen.getByRole('img', { name: /15 steps ahead, at 2\.0% off per step, the head of the track sits 0\.301 units/ })).toBeInTheDocument();
+  });
+
+  it('lays one section per imagined step, each section ending where the model puts it', () => {
+    const deviation = imagineDeviation({ epsilon: 0.02, horizon: MAX_HORIZON });
+    const points = trackPoints(deviation, 15);
+    expect(points).toHaveLength(16);
+    expect(Math.hypot(...points[0]!)).toBeCloseTo(ROUTE_R, 6);
+    points.forEach((point, k) => {
+      expect(Math.hypot(point[0], point[1])).toBeCloseTo(ROUTE_R - SPREAD * deviation[k]!, 6);
+      expect(Math.atan2(point[1], point[0])).toBeCloseTo(angleOf(k), 6);
+    });
+    // The hub's flange stops a track that drifts further than REACH, and the readout keeps the true number.
+    expect(offsetOf(3.09)).toBe(REACH);
+    expect(offsetOf(0.301)).toBeCloseTo(0.301 * SPREAD, 9);
+  });
+
+  it('lays the track again section by section from a reader control, and stops on request', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<LatentImagination />);
+    const lay = screen.getByRole('button', { name: /lay the track/i });
+    // A secondary action carries no pressed state: its label says what it does next.
+    expect(lay).not.toHaveAttribute('aria-pressed');
+    expect(lay).toHaveAttribute('data-brand-control-id', 'control:secondary-action');
+    await user.click(lay);
+    const stop = screen.getByRole('button', { name: /stop laying/i });
+    expect(stop).toBe(lay);
+    expect(stop).not.toHaveAttribute('aria-pressed');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent(/laying step 1 of 15/);
+    await user.click(stop);
+    expect(screen.getByRole('button', { name: /lay the track/i })).toBe(lay);
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('15 steps ahead · 0.301 off the route');
   });
 
   it('grows the drift monotonically as the robot imagines further ahead', () => {
@@ -56,17 +90,18 @@ describe('LatentImagination', () => {
     render(<LatentImagination />);
     fireEvent.change(horizon(), { target: { value: '1' } });
     expect(screen.getByTestId('drift-note')).toHaveTextContent('1 step ahead:');
-    expect(screen.getByTestId('drift-note')).toHaveTextContent('still close to the real flight');
+    expect(screen.getByTestId('drift-note')).toHaveTextContent('still close to the real route');
     expect(screen.queryByTestId('drift-bracket')).toBeNull();
   });
 
-  it('a sloppier step drifts faster, and far enough the imagined ball hits the floor', () => {
+  it('a sloppier step drifts faster, and far enough the imagined track runs into the hub', () => {
     render(<LatentImagination />);
     const sharp = deviationReadout();
     fireEvent.change(accuracy(), { target: { value: '6' } });
     expect(deviationReadout()).toBeGreaterThan(sharp);
     fireEvent.change(horizon(), { target: { value: '50' } });
-    expect(screen.getByTestId('drift-note')).toHaveTextContent('it has already hit the floor');
+    expect(screen.getByTestId('drift-note')).toHaveTextContent('it has already run into the hub');
+    expect(Number(screen.getByTestId('imagined-head').getAttribute('data-offset'))).toBeCloseTo(REACH, 1);
     expect(screen.getByTestId('deviation-readout')).toHaveTextContent('3.09');
   });
 
@@ -78,7 +113,7 @@ describe('LatentImagination', () => {
     expect(screen.getByTestId('decoder-free-note')).toHaveTextContent(/draws no pictures/i);
     expect(screen.getByTestId('reward-error-bars')).toHaveTextContent(/at step 4/);
     expect(screen.getByTestId('reward-error-readout')).toHaveTextContent('0.105');
-    expect(screen.getByTestId('imagined-path')).toBeInTheDocument();
+    expect(screen.getByTestId('imagined-head')).toBeInTheDocument();
   });
 
   it('reset restores the look-ahead, the step accuracy and the Dreamer view', async () => {
@@ -90,7 +125,7 @@ describe('LatentImagination', () => {
     await user.click(within(adjustFold(container)).getByRole('button', { name: /^reset$/i }));
     expect(horizon()).toHaveValue('15');
     expect(accuracy()).toHaveValue('2');
-    expect(screen.getByTestId('decoded-frames')).toBeInTheDocument();
+    expect(screen.getByTestId('decoded-frames').querySelectorAll('[data-part="flag"]')).toHaveLength(3);
     expect(deviationReadout()).toBeCloseTo(0.301, 3);
   });
 
@@ -106,7 +141,7 @@ describe('LatentImagination', () => {
     expect(details?.open).toBe(true);
   });
 
-  it('describes the throw and the sampled deviation table for the current state', () => {
+  it('describes the track and the sampled deviation table for the current state', () => {
     const { container } = render(<LatentImagination />);
     const texts = [...container.querySelectorAll('[data-chart-description]')].map((el) => el.textContent ?? '');
     expect(texts.some((t) => /latent deviation grows from 0 at step 0 to 0\.301 units at the current 15-step horizon/.test(t))).toBe(true);

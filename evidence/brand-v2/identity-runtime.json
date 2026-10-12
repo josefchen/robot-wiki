@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "b15e0a28ce366c14209b5ccf163cf07f5cb3569c31f40b3344aed4c193dfcf28",
+  "fingerprint": "bf38ba9fe7f1bccf8e5b46f41db5b084408f328f51de29e74196829edad750e8",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -1267,7 +1267,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22867,
+      "visibleTextLength": 22925,
       "route": "/classical/calibration/",
       "viewport": "1440x900"
     },
@@ -1495,7 +1495,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29528,
+      "visibleTextLength": 29426,
       "route": "/classical/grasp-planning/",
       "viewport": "1440x900"
     },
@@ -1951,7 +1951,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19408,
+      "visibleTextLength": 19409,
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "1440x900"
     },
@@ -4345,7 +4345,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 697,
+      "visibleTextLength": 706,
       "route": "/how-robots-work/",
       "viewport": "1440x900"
     },
@@ -5143,7 +5143,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24557,
+      "visibleTextLength": 24457,
       "route": "/manipulation/diffusion-policy/",
       "viewport": "1440x900"
     },
@@ -6169,7 +6169,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 31356,
+      "visibleTextLength": 31331,
       "route": "/manipulation/vla-models/",
       "viewport": "1440x900"
     },
@@ -6853,7 +6853,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27988,
+      "visibleTextLength": 27970,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "1440x900"
     },
@@ -7081,7 +7081,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26421,
+      "visibleTextLength": 26452,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "1440x900"
     },
@@ -7867,14 +7867,14 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Model Evaluation and Benchmarks | Robot Wiki",
-        "description": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.",
+        "description": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena, WorldSimProbe and Veo.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "World Model Evaluation for Robotics",
-        "ogDescription": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.",
+        "ogDescription": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena, WorldSimProbe and Veo.",
         "ogImageAlt": "Open graph card for the Robot Wiki article World Model Evaluation for Robotics",
         "ogImage": "https://robot-wiki.com/og/world-models/evaluation.png",
         "twitterTitle": "World Model Evaluation for Robotics",
-        "twitterDescription": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.",
+        "twitterDescription": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena, WorldSimProbe and Veo.",
         "canonical": "https://robot-wiki.com/world-models/evaluation/"
       },
       "repositoryHref": "https://github.com/josefchen",
@@ -7981,14 +7981,14 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Generative Simulation for Robot Learning | Robot Wiki",
-        "description": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.",
+        "description": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365, SimFoundry, Genesis World, Marble.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Generative Simulation",
-        "ogDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.",
+        "ogDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365, SimFoundry, Genesis World, Marble.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Generative Simulation",
         "ogImage": "https://robot-wiki.com/og/world-models/generative-sim.png",
         "twitterTitle": "Generative Simulation",
-        "twitterDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.",
+        "twitterDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365, SimFoundry, Genesis World, Marble.",
         "canonical": "https://robot-wiki.com/world-models/generative-sim/"
       },
       "repositoryHref": "https://github.com/josefchen",
@@ -8107,7 +8107,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29048,
+      "visibleTextLength": 29126,
       "route": "/world-models/generative-video/",
       "viewport": "1440x900"
     },
@@ -8221,7 +8221,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27773,
+      "visibleTextLength": 27690,
       "route": "/world-models/jepa/",
       "viewport": "1440x900"
     },
@@ -8335,7 +8335,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24218,
+      "visibleTextLength": 24234,
       "route": "/world-models/latent-dynamics/",
       "viewport": "1440x900"
     },
@@ -8437,14 +8437,14 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Model-Based Robot Learning with World Models | Robot Wiki",
-        "description": "Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2 and real excavator and insertion results.",
+        "description": "Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2, SimDist and real excavator and insertion results.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Model-Based Robot Learning",
-        "ogDescription": "Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2 and real excavator and insertion results.",
+        "ogDescription": "Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2, SimDist and real excavator and insertion results.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Model-Based Robot Learning",
         "ogImage": "https://robot-wiki.com/og/world-models/model-based-robot-learning.png",
         "twitterTitle": "Model-Based Robot Learning",
-        "twitterDescription": "Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2 and real excavator and insertion results.",
+        "twitterDescription": "Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2, SimDist and real excavator and insertion results.",
         "canonical": "https://robot-wiki.com/world-models/model-based-robot-learning/"
       },
       "repositoryHref": "https://github.com/josefchen",
@@ -8665,14 +8665,14 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Models vs Physics Simulators for Robotics | Robot Wiki",
-        "description": "Learned world models vs physics simulators like MuJoCo: cost per query, counterfactual coverage, and when to use hybrids.",
+        "description": "Learned world models vs physics simulators like MuJoCo Warp and Newton: cost per query, counterfactual coverage, and when to use hybrids.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "World Models vs Physics Simulators",
-        "ogDescription": "Learned world models vs physics simulators like MuJoCo: cost per query, counterfactual coverage, and when to use hybrids.",
+        "ogDescription": "Learned world models vs physics simulators like MuJoCo Warp and Newton: cost per query, counterfactual coverage, and when to use hybrids.",
         "ogImageAlt": "Open graph card for the Robot Wiki article World Models vs Physics Simulators",
         "ogImage": "https://robot-wiki.com/og/world-models/world-models-vs-simulators.png",
         "twitterTitle": "World Models vs Physics Simulators",
-        "twitterDescription": "Learned world models vs physics simulators like MuJoCo: cost per query, counterfactual coverage, and when to use hybrids.",
+        "twitterDescription": "Learned world models vs physics simulators like MuJoCo Warp and Newton: cost per query, counterfactual coverage, and when to use hybrids.",
         "canonical": "https://robot-wiki.com/world-models/world-models-vs-simulators/"
       },
       "repositoryHref": "https://github.com/josefchen",
@@ -9863,7 +9863,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16572,
+      "visibleTextLength": 16630,
       "route": "/classical/calibration/",
       "viewport": "375x812"
     },
@@ -10091,7 +10091,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20127,
+      "visibleTextLength": 20025,
       "route": "/classical/grasp-planning/",
       "viewport": "375x812"
     },
@@ -10547,7 +10547,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14825,
+      "visibleTextLength": 14826,
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "375x812"
     },
@@ -12941,7 +12941,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 697,
+      "visibleTextLength": 706,
       "route": "/how-robots-work/",
       "viewport": "375x812"
     },
@@ -13739,7 +13739,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18200,
+      "visibleTextLength": 18100,
       "route": "/manipulation/diffusion-policy/",
       "viewport": "375x812"
     },
@@ -14765,7 +14765,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23161,
+      "visibleTextLength": 23136,
       "route": "/manipulation/vla-models/",
       "viewport": "375x812"
     },
@@ -15449,7 +15449,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21547,
+      "visibleTextLength": 21529,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "375x812"
     },
@@ -15677,7 +15677,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18665,
+      "visibleTextLength": 18696,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "375x812"
     },
@@ -16463,14 +16463,14 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Model Evaluation and Benchmarks | Robot Wiki",
-        "description": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.",
+        "description": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena, WorldSimProbe and Veo.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "World Model Evaluation for Robotics",
-        "ogDescription": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.",
+        "ogDescription": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena, WorldSimProbe and Veo.",
         "ogImageAlt": "Open graph card for the Robot Wiki article World Model Evaluation for Robotics",
         "ogImage": "https://robot-wiki.com/og/world-models/evaluation.png",
         "twitterTitle": "World Model Evaluation for Robotics",
-        "twitterDescription": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.",
+        "twitterDescription": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena, WorldSimProbe and Veo.",
         "canonical": "https://robot-wiki.com/world-models/evaluation/"
       },
       "repositoryHref": "https://github.com/josefchen",
@@ -16577,14 +16577,14 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Generative Simulation for Robot Learning | Robot Wiki",
-        "description": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.",
+        "description": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365, SimFoundry, Genesis World, Marble.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Generative Simulation",
-        "ogDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.",
+        "ogDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365, SimFoundry, Genesis World, Marble.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Generative Simulation",
         "ogImage": "https://robot-wiki.com/og/world-models/generative-sim.png",
         "twitterTitle": "Generative Simulation",
-        "twitterDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.",
+        "twitterDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365, SimFoundry, Genesis World, Marble.",
         "canonical": "https://robot-wiki.com/world-models/generative-sim/"
       },
       "repositoryHref": "https://github.com/josefchen",
@@ -16703,7 +16703,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22622,
+      "visibleTextLength": 22700,
       "route": "/world-models/generative-video/",
       "viewport": "375x812"
     },
@@ -16817,7 +16817,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20408,
+      "visibleTextLength": 20325,
       "route": "/world-models/jepa/",
       "viewport": "375x812"
     },
@@ -16931,7 +16931,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17194,
+      "visibleTextLength": 17210,
       "route": "/world-models/latent-dynamics/",
       "viewport": "375x812"
     },
@@ -17033,14 +17033,14 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Model-Based Robot Learning with World Models | Robot Wiki",
-        "description": "Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2 and real excavator and insertion results.",
+        "description": "Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2, SimDist and real excavator and insertion results.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Model-Based Robot Learning",
-        "ogDescription": "Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2 and real excavator and insertion results.",
+        "ogDescription": "Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2, SimDist and real excavator and insertion results.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Model-Based Robot Learning",
         "ogImage": "https://robot-wiki.com/og/world-models/model-based-robot-learning.png",
         "twitterTitle": "Model-Based Robot Learning",
-        "twitterDescription": "Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2 and real excavator and insertion results.",
+        "twitterDescription": "Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2, SimDist and real excavator and insertion results.",
         "canonical": "https://robot-wiki.com/world-models/model-based-robot-learning/"
       },
       "repositoryHref": "https://github.com/josefchen",
@@ -17261,14 +17261,14 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Models vs Physics Simulators for Robotics | Robot Wiki",
-        "description": "Learned world models vs physics simulators like MuJoCo: cost per query, counterfactual coverage, and when to use hybrids.",
+        "description": "Learned world models vs physics simulators like MuJoCo Warp and Newton: cost per query, counterfactual coverage, and when to use hybrids.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "World Models vs Physics Simulators",
-        "ogDescription": "Learned world models vs physics simulators like MuJoCo: cost per query, counterfactual coverage, and when to use hybrids.",
+        "ogDescription": "Learned world models vs physics simulators like MuJoCo Warp and Newton: cost per query, counterfactual coverage, and when to use hybrids.",
         "ogImageAlt": "Open graph card for the Robot Wiki article World Models vs Physics Simulators",
         "ogImage": "https://robot-wiki.com/og/world-models/world-models-vs-simulators.png",
         "twitterTitle": "World Models vs Physics Simulators",
-        "twitterDescription": "Learned world models vs physics simulators like MuJoCo: cost per query, counterfactual coverage, and when to use hybrids.",
+        "twitterDescription": "Learned world models vs physics simulators like MuJoCo Warp and Newton: cost per query, counterfactual coverage, and when to use hybrids.",
         "canonical": "https://robot-wiki.com/world-models/world-models-vs-simulators/"
       },
       "repositoryHref": "https://github.com/josefchen",

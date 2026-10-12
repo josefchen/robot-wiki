@@ -106,7 +106,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/action-tokenization.tsx',
     route: '/manipulation/vla-models/',
     quantityNames: ['action', 'step'],
-    text: 'Along the forward/back (Δx) motion of the 16-step action chunk, the continuous command runs from 0.183 at t = 0 to 0.183 at t = 15, and at the current step 7 the value -0.056 falls in bin 120 of 255; the dashed rule under the trace is the motion\'s zero line, the arrow on the drawn gripper shows that nudge, and the chunk is a fixed synthetic example rather than measured robot data.',
+    text: 'Along the forward/back (Δx) motion of the 16-step action chunk, the continuous command runs from 0.183 at t = 0 to 0.183 at t = 15, and at the current step 7 the value -0.056 falls in bin 120 of 255; the slider on the forward/back rack sits in that notch, the setter writes the seven racks one after another, and the chunk is a fixed synthetic example rather than measured robot data.',
   },
   {
     component: 'LatencyComparisonThroughput',
@@ -154,8 +154,8 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'LatentImaginationRollout',
     file: 'components/interactive/latent-imagination.tsx',
     route: '/world-models/latent-dynamics/',
-    quantityNames: ['imagined', 'real flight'],
-    text: 'In this toy, the ball the robot imagines 15 steps ahead, at 2.0% off per step, is 0.301 units of toy deviation off the real flight; each imagined step starts from the last imagined one, so the gap grows with every step of the 50-step range.',
+    quantityNames: ['track', 'route'],
+    text: 'In this toy, the head of the track the robot imagines 15 steps ahead, at 2.0% off per step, is 0.301 units of toy deviation off the real route; each imagined section is bolted to the last imagined one, so the gap grows with every step of the 50-step range.',
   },
   {
     component: 'PendulumController',
@@ -386,7 +386,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/receding-horizon.tsx',
     route: '/manipulation/diffusion-policy/',
     quantityNames: ['chunks', 'plan'],
-    text: 'A receding-horizon plan with T_p 16 and T_a 8 issues 4 chunks across the 32-step window, replanning at 1.25 Hz and committing 0.8 s per plan; solid bars are executed while the outlined 8-step tails are thrown away.',
+    text: 'A receding-horizon plan with T_p 16 and T_a 8 issues 4 chunks across the 32-step window, replanning at 1.25 Hz and committing 0.8 s per plan; the inked rows are executed while the unread 8-step tails are thrown away into the bin.',
   },
   {
     component: 'ActionTokenizationBin',

@@ -1,38 +1,55 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui/chart-description';
-import { InstrumentFigure, PlotStage, PresetGroup, type Preset } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
+import { INSTRUMENT_SECONDARY_CONTROL_CLASS, InstrumentFigure, PresetGroup, type Preset } from '@/components/ui/instrument';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, IsoFigure, Line, Solid, Wire } from '@/components/iso/react/draw';
+import { asksForStillness } from '@/components/iso/react/live';
+import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
 import {
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_TYPE,
-  DirectLabel,
-  LineTrace,
-  StageAnnotation,
-  roleColour,
-  type ChartPoint,
-} from '@/components/motion/chart';
-import { RobotDog, robotDogFallen, type DogFeet } from '@/components/motion/robot-dog';
-import { useEasedValue } from '@/components/motion/use-eased-value';
+  CART_CLIP,
+  HEIGHT,
+  WINDOW_CLIP,
+  PARTS,
+  SWEEP,
+  WIDTH,
+  cartridgeAt,
+  crankAt,
+  motorSideOf,
+  pensAt,
+  springAt,
+  tracesTo,
+  type Group,
+  type LiveId,
+  type Part,
+  type Station,
+} from '@/components/iso/figures/actuator-twin-bench';
 
 /**
  * ActuatorGap: why ANYmal's simulator had to learn how its real motors
- * respond. A policy asks a joint to move; the real series-elastic motor
- * follows late and springs past the target, while an ideal simulated motor
- * arrives at once. Hwangbo and colleagues found that policies trained with
- * ideal or analytical actuator models could not take a single step on the
- * real robot without falling; an actuator network trained on data from
- * the real legs stood in for the motors in simulation, and the policies
- * transferred.
+ * respond, drawn as a twin actuator bench.
  *
- * The one control is the simulator's motor model. Switching it morphs the
- * simulated response (the accent) from the instant step onto the real
- * curve on the motion curve, and the robot below shows the outcome
- * reported for policies trained each way. The response curves are
- * illustrative; the outcome is the paper's.
+ * Two joint drives stand side by side, each a motor and gearbox turning a
+ * crank over a protractor. The real series-elastic drive has a torsion
+ * spring between its gearbox and its crank; the simulator's twin has a
+ * rigid coupling there, and its crank is the one lit part. A chart
+ * recorder at the back draws the command and both cranks over time. Sent
+ * the same command, the real crank follows late and springs past the
+ * target stop, while an ideal simulated motor is there at once. Hwangbo and
+ * colleagues found that policies trained with ideal or analytical actuator
+ * models could not take a single step on the real robot without falling;
+ * an actuator network trained on data from the real legs stood in for the
+ * motors in simulation, and the policies transferred. On the bench that
+ * network is the cartridge in the twin's model bay: seated, the twin
+ * follows the real swing.
+ *
+ * The one choice is the simulator's motor model. The bench stands still at
+ * the moment the real crank swings furthest past the target; "Run the
+ * bench" sends the command again and again, slowed for the eye. Reduced
+ * motion keeps the still pose. The response curves are illustrative; the
+ * outcome is the paper's.
  */
 
 type ModelId = 'ideal' | 'learned';
@@ -41,6 +58,8 @@ const MODELS: readonly Preset<ModelId>[] = [
   { id: 'learned', label: 'Learned from real legs' },
 ];
 export const DEFAULT_MODEL: ModelId = 'ideal';
+/** The twin's share of the learned model: 0 ideal, 1 learned. */
+const shareOf = (model: ModelId) => (model === 'learned' ? 1 : 0);
 
 /** Time runs from 0 to 1 across the drawing; the command comes at 0.1. */
 const COMMAND_AT = 0.1;
@@ -72,60 +91,236 @@ export const OUTCOME: Record<ModelId, string> = {
   learned: 'walks',
 };
 
-const WIDTH = 340;
-const HEIGHT = 232;
-const LEFT = 8;
-const RIGHT = 332;
-const TOP = 26;
-const BASE_Y = 120;
-const Y_MAX = 1.3;
-const GROUND_Y = 214;
-const sx = (t: number) => LEFT + t * (RIGHT - LEFT);
-const sy = (v: number) => BASE_Y - (v / Y_MAX) * (BASE_Y - TOP);
-const f = (v: number) => Number(v.toFixed(2));
-const curve = (fn: (t: number) => number): ChartPoint[] => SAMPLES.map((t) => [f(sx(t)), f(sy(fn(t)))]);
-const COMMAND_CURVE: ChartPoint[] = [
-  [LEFT, f(sy(0))],
-  [f(sx(COMMAND_AT)), f(sy(0))],
-  [f(sx(COMMAND_AT)), f(sy(1))],
-  [RIGHT, f(sy(1))],
-];
-const REAL_CURVE = curve(realMotor);
+/** The still pose: the moment the real crank swings furthest past the target. */
+export const STILL_AT = 0.25;
+/** A run of the bench: the recorder sweeps its paper, then holds this long before the next command. */
+const HOLD = 0.22;
+/** Page seconds per unit of the model's time, so the eye can follow the swing. */
+const SLOW = 4.2;
 
-const DOG = { rear: -26, front: 26, hipY: -32, segment: 19 } as const;
-const STANDING: DogFeet = [
-  [DOG.rear + 3, 0],
-  [DOG.rear, 0],
-  [DOG.front + 3, 0],
-  [DOG.front, 0],
-];
-const SPLAYED: DogFeet = [
-  [DOG.rear - 4, -2],
-  [DOG.rear - 12, 0],
-  [DOG.front + 8, -4],
-  [DOG.front + 16, 0],
-];
-const FALLEN = robotDogFallen(DOG.rear, DOG.front, DOG.hipY, 0);
-/** The fallen drawing's outline estimate leaves its sensor head short of the ground; this rests it there. */
-const FALLEN_DROP = 8;
-const DOG_X = 62;
+const percent = (share: number) => Math.round(share * 100);
+const modelName = (model: ModelId) => (model === 'ideal' ? 'Ideal motor' : 'Learned motor');
+
+/** The resting readout: the model, its average gap to the real motor and the reported outcome. */
+export const stillReadout = (model: ModelId) => `${modelName(model)} · ${meanGapPercent(shareOf(model))}% average gap · ${OUTCOME[model]}`;
+/** The running readout, from the same instant as the drawing: how far each crank has gone. */
+export const runReadout = (real: number, twin: number) => `simulated ${percent(twin)}% · real ${percent(real)}% of the move`;
+
+/** Both cranks and the command at model time `t`, with the twin's model share `learned`. */
+export function benchAt(t: number, learned: number) {
+  return { command: command(t), real: realMotor(t), twin: simulatedMotor(t, learned) };
+}
 
 function describe(model: ModelId): string {
   const [mine, other] = model === 'ideal' ? [0, 1] : [1, 0];
   return `With the ${model === 'ideal' ? 'ideal, instant' : 'learned'} motor model, the simulated motor differs from the real one by ${meanGapPercent(mine)}% of the move on average in this illustrative response, against ${meanGapPercent(other)}% with the ${model === 'ideal' ? 'learned' : 'ideal'} model; Hwangbo and colleagues report that a policy trained ${model === 'ideal' ? 'with an ideal motor model fails to take a single step on the real ANYmal without falling' : 'with the actuator network learned from data on the real legs walks on the real ANYmal'}.`;
 }
 
+/**
+ * The still moment with the default model settled, drawn by the server and the first client render. Its
+ * paths are module constants, so a later render never rewrites them under the live loop.
+ */
+const REST = benchAt(STILL_AT, shareOf(DEFAULT_MODEL));
+const restSpring = springAt(REST.real, motorSideOf(REST.real, REST.command));
+const restCranks = { real: crankAt('real', REST.real), twin: crankAt('twin', REST.twin) };
+const restTraces = tracesTo(STILL_AT, command, realMotor, (u) => simulatedMotor(u, shareOf(DEFAULT_MODEL)));
+const restPens = pensAt(STILL_AT, REST);
+const REST_CARTRIDGE = cartridgeAt(1 - shareOf(DEFAULT_MODEL));
+
+function PartView({ part }: { part: Part }) {
+  if (part.kind === 'solid') {
+    return (
+      <Solid
+        paths={part.paths}
+        tone={part.tone}
+        lit={part.lit}
+        crease={part.crease}
+        inner={part.inner ? <Line d={part.inner} tone={part.innerTone ?? 'faint'} /> : undefined}
+      />
+    );
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  if (part.kind === 'dots') return <Dots points={part.points} size={part.size} tone={part.tone} />;
+  if (part.kind === 'wire') return <Wire from={part.from} to={part.to} via={part.via} tone={part.tone} />;
+  if (part.kind === 'fill') {
+    if (part.shade === 'paper') return <path className="iso-fill" d={part.d} />;
+    if (part.shade === 'top') return <path className="iso-top" d={part.d} />;
+    return <path className="iso-shade" data-shade={part.shade} d={part.d} />;
+  }
+  return null;
+}
+
+/** Consecutive parts of one group, so the recorder's window and the moving cartridge are each one clipped <g>. */
+const RUNS: Array<{ group: Group; parts: Part[] }> = [];
+for (const part of PARTS) {
+  const last = RUNS[RUNS.length - 1];
+  if (last && last.group === part.group) last.parts.push(part);
+  else RUNS.push({ group: part.group, parts: [part] });
+}
+
+/** The spring wire: a broad stroke with a pale core, so it reads as round wire. */
+const WIRE_STYLE = { strokeWidth: 2.2 } as const;
+const CORE_STYLE = { strokeWidth: 0.9, stroke: 'var(--anatomy-paper)' } as const;
+
+type Refs = {
+  crank: Record<Station, { pin: SVGGElement | null; arm: SVGGElement | null; rule: SVGPathElement | null; screws: SVGGElement | null }>;
+  spring: { back: SVGPathElement | null; backCore: SVGPathElement | null; front: SVGPathElement | null; frontCore: SVGPathElement | null };
+  traces: { command: SVGPathElement | null; real: SVGPathElement | null; twin: SVGPathElement | null };
+  pens: { bar: SVGGElement | null; command: SVGGElement | null; real: SVGGElement | null; twin: SVGGElement | null };
+  cartridge: SVGGElement | null;
+};
+
+/** Draw the whole live state of the bench at model time `t`. */
+function drawBench(refs: Refs, t: number, learned: number, cartridge: number) {
+  const now = benchAt(t, learned);
+  const spring = springAt(now.real, motorSideOf(now.real, now.command));
+  refs.spring.back?.setAttribute('d', spring.back);
+  refs.spring.backCore?.setAttribute('d', spring.back);
+  refs.spring.front?.setAttribute('d', spring.front);
+  refs.spring.frontCore?.setAttribute('d', spring.front);
+  for (const station of ['real', 'twin'] as const) {
+    const crank = crankAt(station, now[station]);
+    const own = refs.crank[station];
+    writeSolid(own.pin, crank.pin);
+    writeSolid(own.arm, crank.arm);
+    own.rule?.setAttribute('d', crank.rule);
+    own.screws?.querySelectorAll('circle').forEach((dot, index) => {
+      const point = crank.screws[index];
+      if (!point) return;
+      dot.setAttribute('cx', String(Math.round(point[0] * 10) / 10));
+      dot.setAttribute('cy', String(Math.round(point[1] * 10) / 10));
+    });
+  }
+  const traces = tracesTo(t, command, realMotor, (u) => simulatedMotor(u, learned));
+  refs.traces.command?.setAttribute('d', traces.command);
+  refs.traces.real?.setAttribute('d', traces.real);
+  refs.traces.twin?.setAttribute('d', traces.twin);
+  const pens = pensAt(t, now);
+  writeSolid(refs.pens.bar, pens.bar);
+  writeSolid(refs.pens.command, pens.command);
+  writeSolid(refs.pens.real, pens.real);
+  writeSolid(refs.pens.twin, pens.twin);
+  refs.cartridge?.setAttribute('transform', cartridgeAt(1 - cartridge));
+  return now;
+}
+
 export function ActuatorGap({ className }: { className?: string }) {
   const uid = useId();
   const descriptionId = `${uid}-description`;
+  const clipId = `${uid.replace(/[^a-zA-Z0-9_-]/g, '')}-cartridge`;
+  const windowId = `${uid.replace(/[^a-zA-Z0-9_-]/g, '')}-window`;
   const citationFor = useCitationLookup();
   const source = citationFor('hwangbo-2019');
   const [model, setModel] = useState<ModelId>(DEFAULT_MODEL);
-  const learned = useEasedValue(model === 'learned' ? 1 : 0);
-  const accent = roleColour('highlight');
-  const settled = model === 'learned' ? learned > 0.5 : learned < 0.5;
-  const shownModel: ModelId = settled ? model : model === 'learned' ? 'ideal' : 'learned';
-  const fallen = shownModel === 'ideal';
+  const [running, setRunning] = useState(false);
+  const learnedTarget = shareOf(model);
+
+  const refs = useRef<Refs>({
+    crank: { real: { pin: null, arm: null, rule: null, screws: null }, twin: { pin: null, arm: null, rule: null, screws: null } },
+    spring: { back: null, backCore: null, front: null, frontCore: null },
+    traces: { command: null, real: null, twin: null },
+    pens: { bar: null, command: null, real: null, twin: null },
+    cartridge: null,
+  });
+  const stageRef = useRef<HTMLDivElement>(null);
+  const shown = useRef({ learned: learnedTarget, cartridge: learnedTarget, t: STILL_AT });
+
+  // One loop: the twin's model and its cartridge ease to the chosen model, and while the bench runs the
+  // command repeats. Resting, the bench returns to the still moment and the readout says the model's result.
+  useEffect(() => {
+    const calm = asksForStillness();
+    const readout = stageRef.current?.closest('[data-anatomy-stage]')?.querySelector<HTMLElement>('[data-readout]');
+    // The loop restarts whenever the chosen model or the run state changes, so its goal is fixed for this run.
+    const goal = { learned: learnedTarget, running };
+    let frame = 0;
+    let last = performance.now();
+    let clock = 0;
+    const tick = (now: number) => {
+      const dt = Math.min(now - last, 64) / 1000;
+      last = now;
+      const s = shown.current;
+      const ease = (value: number, to: number, seconds: number) => (calm ? to : value + (to - value) * (1 - Math.exp(-dt / seconds)));
+      s.learned = Math.abs(goal.learned - s.learned) < 0.002 ? goal.learned : ease(s.learned, goal.learned, 0.22);
+      s.cartridge = Math.abs(goal.learned - s.cartridge) < 0.002 ? goal.learned : ease(s.cartridge, goal.learned, 0.28);
+      const live = goal.running && !calm;
+      if (live) {
+        clock = (clock + dt / SLOW) % (SWEEP + HOLD);
+        s.t = Math.min(clock, SWEEP);
+      } else {
+        s.t = STILL_AT;
+      }
+      const state = drawBench(refs.current, s.t, s.learned, s.cartridge);
+      if (live && readout) readout.textContent = runReadout(state.real, state.twin);
+      const settled = s.learned === goal.learned && s.cartridge === goal.learned;
+      frame = live || !settled ? requestAnimationFrame(tick) : 0;
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [learnedTarget, running]);
+
+  // At rest the readout is the chosen model's result.
+  useEffect(() => {
+    if (running) return;
+    const readout = stageRef.current?.closest('[data-anatomy-stage]')?.querySelector<HTMLElement>('[data-readout]');
+    if (readout) readout.textContent = stillReadout(model);
+  }, [running, model]);
+
+  const r = refs.current;
+
+  const crankView = (station: Station) => {
+    const crank = restCranks[station];
+    const lit = station === 'twin';
+    return (
+      <g key={`${station}-crank`} data-testid={lit ? 'actuator-simulated' : 'actuator-real'} data-model={lit ? model : undefined}>
+        <LiveSolid ref={(el) => void (r.crank[station].pin = el)} paths={crank.pin} lit={lit} />
+        <LiveSolid ref={(el) => void (r.crank[station].arm = el)} paths={crank.arm} lit={lit} />
+        <path ref={(el) => void (r.crank[station].rule = el)} className="iso-line" data-tone="faint" d={crank.rule} />
+        <g ref={(el) => void (r.crank[station].screws = el)} className="iso-dots" data-tone="mid">
+          {crank.screws.map(([x, y], index) => (
+            <circle key={index} cx={Math.round(x * 10) / 10} cy={Math.round(y * 10) / 10} r={0.5} />
+          ))}
+        </g>
+      </g>
+    );
+  };
+
+  const liveView = (id: LiveId) => {
+    if (id === 'real-spring-back') {
+      return (
+        <g key={id}>
+          <path ref={(el) => void (r.spring.back = el)} className="iso-line" data-tone="mid" style={WIRE_STYLE} d={restSpring.back} />
+          <path ref={(el) => void (r.spring.backCore = el)} className="iso-line" style={{ ...CORE_STYLE, stroke: 'var(--anatomy-shade-1)' }} d={restSpring.back} />
+        </g>
+      );
+    }
+    if (id === 'real-spring-front') {
+      return (
+        <g key={id} data-testid="actuator-spring">
+          <path ref={(el) => void (r.spring.front = el)} className="iso-line" data-tone="hi" style={WIRE_STYLE} d={restSpring.front} />
+          <path ref={(el) => void (r.spring.frontCore = el)} className="iso-line" style={{ ...CORE_STYLE, stroke: 'var(--anatomy-top)' }} d={restSpring.front} />
+        </g>
+      );
+    }
+    if (id === 'real-crank') return crankView('real');
+    if (id === 'twin-crank') return crankView('twin');
+    if (id === 'traces') {
+      return (
+        <g key={id} data-testid="actuator-traces">
+          <path ref={(el) => void (r.traces.command = el)} className="iso-line" data-tone="lo" data-free="" d={restTraces.command} />
+          <path ref={(el) => void (r.traces.real = el)} className="iso-line" data-tone="hi" data-free="" d={restTraces.real} />
+          <path ref={(el) => void (r.traces.twin = el)} className="iso-line" data-tone="lit" data-free="" d={restTraces.twin} />
+        </g>
+      );
+    }
+    return (
+      <g key={id}>
+        <LiveSolid ref={(el) => void (r.pens.bar = el)} paths={restPens.bar} tone="mid" />
+        <LiveSolid ref={(el) => void (r.pens.command = el)} paths={restPens.command} tone="mid" />
+        <LiveSolid ref={(el) => void (r.pens.real = el)} paths={restPens.real} />
+        <LiveSolid ref={(el) => void (r.pens.twin = el)} paths={restPens.twin} lit />
+      </g>
+    );
+  };
 
   return (
     <InstrumentFigure
@@ -133,69 +328,59 @@ export function ActuatorGap({ className }: { className?: string }) {
       className={className}
       kicker="Actuator network"
       heading="Simulated motors must respond like the real ones"
-      controls={<PresetGroup label="The simulator's motor model" presets={MODELS} value={model} onChange={setModel} testId="actuator-model" />}
-      stage={
-        <FigureStage footer={<StageStatus>Illustrative curves; outcome cited</StageStatus>}>
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`A joint is told to move. The real motor follows late and springs past the target; the simulated motor ${model === 'ideal' ? 'arrives at once' : 'follows the real curve'}. A robot dog trained this way ${OUTCOME[model]} on the real robot.`}
-            aria-describedby={descriptionId}
-            data-testid="actuator-stage"
+      controls={
+        <>
+          <PresetGroup label="The simulator's motor model" presets={MODELS} value={model} onChange={setModel} testId="actuator-model" />
+          <button
+            type="button"
+            data-brand-control-id="control:secondary-action"
+            onClick={() => setRunning((on) => !on)}
+            data-testid="actuator-run"
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
-            <g data-chart-axes="" stroke={CHART_STRUCTURE.axes} strokeWidth={CHART_STROKE.structure}>
-              <line x1={LEFT} y1={BASE_Y} x2={RIGHT} y2={BASE_Y} />
-            </g>
-            <text data-scene-axis="" x={RIGHT} y={BASE_Y + 6} dominantBaseline="hanging" textAnchor="end" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
-              time after the command
-            </text>
-            <g data-series="command">
-              <LineTrace points={COMMAND_CURVE} role="reference" />
-            </g>
-            <text x={f(sx(0.42))} y={f(sy(1) - 8)} fontSize={CHART_TYPE.labelPx} fill="var(--role-reference-text)">
-              commanded position
-            </text>
-            <g data-series="real">
-              <LineTrace points={REAL_CURVE} role="state" />
-            </g>
-            <DirectLabel x={f(sx(0.36))} y={f(sy(realMotor(0.36)) + 18)}>
-              real motor
-            </DirectLabel>
-            <g data-series="simulated" data-testid="actuator-simulated" data-model={model} data-chart-role="highlight">
-              <path
-                d={curve((t) => simulatedMotor(t, learned)).map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x} ${y}`).join(' ')}
-                fill="none"
-                stroke={accent}
-                strokeWidth={CHART_STROKE.trace + 0.5}
-                strokeLinejoin="round"
-              />
-            </g>
-            <StageAnnotation
-              x={f(sx(COMMAND_AT) + 8)}
-              y={TOP - 8}
-              lines={[model === 'ideal' ? 'Simulated motor: instant' : 'Simulated motor now follows the real one']}
-            />
-            <line x1={LEFT} y1={GROUND_Y} x2={RIGHT} y2={GROUND_Y} stroke={CHART_STRUCTURE.axes} strokeWidth={CHART_STROKE.structure} />
-            <g data-testid="actuator-robot" data-outcome={model === 'ideal' ? 'falls' : 'walks'} data-drawn={fallen ? 'falls' : 'walks'} transform={`translate(${DOG_X} ${GROUND_Y})`}>
-              <RobotDog
-                rear={DOG.rear}
-                front={DOG.front}
-                hipY={DOG.hipY}
-                feet={fallen ? SPLAYED : STANDING}
-                segment={DOG.segment}
-                farLegOpacity={1}
-                joints={false}
-                testId="actuator-dog"
-                transform={fallen ? `translate(0 ${FALLEN_DROP}) ${FALLEN.transform}` : undefined}
-              />
-            </g>
-            <DirectLabel x={DOG_X + 56} y={GROUND_Y - 22}>
-              On the real robot:
-            </DirectLabel>
-            <DirectLabel x={DOG_X + 56} y={GROUND_Y - 6}>
-              {OUTCOME[shownModel]}
-            </DirectLabel>
-          </PlotStage>
-        </FigureStage>
+            {running ? 'Stop the bench' : 'Run the bench'}
+          </button>
+        </>
+      }
+      stage={
+        <AnatomyStage
+          viewWidth={WIDTH}
+          hint={running ? 'Running, slowed for the eye' : 'Lit crank: the simulated motor'}
+          readout={stillReadout(model)}
+          status="Illustrative response; outcome cited"
+          data-testid="actuator-stage"
+          data-outcome={model === 'ideal' ? 'falls' : 'walks'}
+        >
+          <div ref={stageRef}>
+            <IsoFigure
+              width={WIDTH}
+              height={HEIGHT}
+              label={`A joint is told to move on a test bench: two drives get the same command. The real drive's crank, turned through a spring, arrives late and swings past the target stop; the simulated twin ${model === 'ideal' ? 'arrives at once' : 'follows the real curve'}, and a chart recorder draws both. A walking policy trained this way ${OUTCOME[model]} on the real robot.`}
+              describedBy={descriptionId}
+            >
+              <defs>
+                <clipPath id={clipId}>
+                  <path d={CART_CLIP} />
+                </clipPath>
+                <clipPath id={windowId}>
+                  <path d={WINDOW_CLIP} />
+                </clipPath>
+              </defs>
+              {RUNS.map((run, index) => {
+                const body = run.parts.map((part, k) => (part.kind === 'live' ? liveView(part.id) : <PartView key={k} part={part} />));
+                if (run.group === 'static') return <g key={index}>{body}</g>;
+                if (run.group === 'window') return <g key={index} clipPath={`url(#${windowId})`}>{body}</g>;
+                return (
+                  <g key={index} clipPath={`url(#${clipId})`}>
+                    <g ref={(el) => void (r.cartridge = el)} transform={REST_CARTRIDGE} data-testid="actuator-cartridge" data-seated={model === 'learned' ? '' : undefined}>
+                      {body}
+                    </g>
+                  </g>
+                );
+              })}
+            </IsoFigure>
+          </div>
+        </AnatomyStage>
       }
       caption="A policy trained with ideal simulated motors fell at ANYmal's first step; a learned motor model let it walk."
       method={
@@ -208,8 +393,10 @@ export function ActuatorGap({ className }: { className?: string }) {
             with ideal or analytical actuator models failed to take a single step without falling.
           </div>
           <div>
-            The response curves are illustrative, drawn to show the shape of a springy motor, not ANYmal&apos;s
-            measured response. The robot shows the outcome the paper reports for each way of training.
+            The bench is illustrative. The left drive turns its crank through a spring, like the real joint; the
+            right one is the simulator&apos;s twin, with a rigid coupling and the learned model as a cartridge in its
+            bay. The response curves on the recorder show the shape of a springy motor, not ANYmal&apos;s measured
+            response; running, the bench is slowed for the eye. The outcome under each model is the paper&apos;s.
           </div>
           <ChartDescription
             id={descriptionId}

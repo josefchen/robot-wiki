@@ -202,7 +202,7 @@ const CHARTS: Array<{
     control: 'range',
     moves: ['30', '50'],
     def: '15',
-    match: 'the ball the robot imagines',
+    match: 'the track the robot imagines',
   },
   {
     route: '/world-models/jepa',

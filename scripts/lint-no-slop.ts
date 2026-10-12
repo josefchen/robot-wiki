@@ -47,7 +47,8 @@ import { CITATIONS } from '../data/citations.ts';
 
 const sourceOnly = process.argv.includes('--source-only');
 // Report mode (VAL-HUMAN-001, VAL-MOTION-021/022): print the structural-tell
-// rate for every manipulation, classical and RL article and enforce 2/1k.
+// rate for every manipulation, classical, RL and world-model article and
+// enforce 2/1k.
 // The same sweep also runs inside every normal invocation, so postbuild
 // keeps enforcing the floor; the flag exists so the report can be asked
 // for on its own.
@@ -174,7 +175,7 @@ if (!reportOnly) {
 // (source-only, full, report-structural-only) so the floor binds wherever
 // the lint runs, including postbuild.
 {
-  for (const domain of ['manipulation', 'classical', 'rl-sim2real']) {
+  for (const domain of ['manipulation', 'classical', 'rl-sim2real', 'world-models']) {
     const dir = join(contentDir, domain);
     const files = readdirSync(dir).filter((file) => /\.mdx?$/.test(file));
     const rows = files.map((file) => {
