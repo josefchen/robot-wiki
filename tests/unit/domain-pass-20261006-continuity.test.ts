@@ -4,8 +4,9 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
-  DOMAIN_PASS_CONTINUITY_DIR, domainPassCheckerPredecessor, domainPassPredecessor, domainPassSuccessorPaths,
-  keepsDomainPassObligations, loadDomainPassCheckerReview, loadDomainPassReview, verifyDomainPassSource,
+  DOMAIN_PASS_CONTINUITY_DIR, DROPPED_FOR_PRIMARIES, domainPassCheckerPredecessor, domainPassPredecessor,
+  domainPassSuccessorPaths, keepsDomainPassObligations, loadDomainPassCheckerReview, loadDomainPassReview,
+  verifyDomainPassSource,
 } from '../../lib/audit-domain-pass-continuity';
 import { parallelLocalCheckerPredecessor } from '../../lib/audit-parallel-local-continuity';
 import { seoPassCheckerPredecessor, seoPassPredecessor } from '../../lib/audit-seo-pass-continuity';
@@ -158,6 +159,47 @@ describe('domain pass 2026-10-06 article successors', () => {
     const chart = read(correctedSources[0]).toString();
     expect(chart).toContain('const PAD = { top: 30, right: 14, bottom: 46, left: 58 };');
     expect(read(correctedSources[1]).toString()).not.toContain('not a contradiction but');
+  });
+
+  it('exempts only the listed secondary ids on their own articles, for the owner sweep reason', () => {
+    expect(DROPPED_FOR_PRIMARIES.reason).toBe('owner sweep 20260929: secondary sources dropped for primaries');
+    // Named ids per path, no patterns: widening the list is a reviewed gate change that fails here first.
+    expect(Object.fromEntries(DROPPED_FOR_PRIMARIES.ids)).toEqual({
+      'content/frontier/bear-case.mdx': ['unitree-profit-2026'],
+      'content/frontier/competing-theses.mdx': ['figure-8hr-shift-2026'],
+      'content/frontier/dexterity.mdx': ['wikipedia-humanoid-hand-2026'],
+      'content/frontier/reliability-gap.mdx': ['figure-8hr-shift-2026'],
+    });
+    const prior = [
+      '---', 'title: "A"', 'citations:', '  - a-2020', '  - figure-8hr-shift-2026', '  - c-2021', '---', '',
+      'Primary <Cite id="a-2020" />. Press <Cite id="figure-8hr-shift-2026" />.', '',
+      'Other <Cite id="c-2021" />.', '', '<Figure id="f" />', '',
+    ].join('\n');
+    // The press id leaves the body and the list; its primary is appended.
+    const rewritten = prior
+      .replace('  - figure-8hr-shift-2026\n  - c-2021\n', '  - c-2021\n  - b-2026\n')
+      .replace('Press <Cite id="figure-8hr-shift-2026" />', 'Primary <Cite id="b-2026" />');
+    const gap = 'content/frontier/reliability-gap.mdx';
+    expect(keepsDomainPassObligations(gap, prior, rewritten)).toBe(true);
+    expect(keepsDomainPassObligations('content/frontier/competing-theses.mdx', prior, rewritten)).toBe(true);
+    // The same rewrite on an article with no listed ids, or on one that lists another id, still fails.
+    expect(keepsDomainPassObligations('content/x/y.mdx', prior, rewritten)).toBe(false);
+    expect(keepsDomainPassObligations('content/frontier/bear-case.mdx', prior, rewritten)).toBe(false);
+    // Any other dropped id still fails, in the body or in the list.
+    expect(keepsDomainPassObligations(gap, prior, rewritten.replace('Other <Cite id="c-2021" />', 'Other'))).toBe(false);
+    expect(keepsDomainPassObligations(gap, prior, rewritten.replace('  - c-2021\n', ''))).toBe(false);
+    expect(keepsDomainPassObligations(gap, prior, rewritten.replace('  - a-2020\n', ''))).toBe(false);
+    // A look-alike id is not covered: nothing is matched by prefix or pattern.
+    const lookalike = prior.replaceAll('figure-8hr-shift-2026', 'figure-8hr-shift-2025');
+    expect(keepsDomainPassObligations(gap, lookalike,
+      lookalike.replace('  - figure-8hr-shift-2025\n', '').replace('Press <Cite id="figure-8hr-shift-2025" />', 'Primary')))
+      .toBe(false);
+    // A listed id may leave, but it may not move: re-listing it later is a reorder.
+    expect(keepsDomainPassObligations(gap, prior, rewritten.replace('  - b-2026\n', '  - b-2026\n  - figure-8hr-shift-2026\n')))
+      .toBe(false);
+    // Mounts and other frontmatter fields still bind on a listed article.
+    expect(keepsDomainPassObligations(gap, prior, rewritten.replace('<Figure id="f" />', ''))).toBe(false);
+    expect(keepsDomainPassObligations(gap, prior, rewritten.replace('title: "A"', 'title: "B"'))).toBe(false);
   });
 
   it('rejects a review that drifted from its pinned bytes', () => {

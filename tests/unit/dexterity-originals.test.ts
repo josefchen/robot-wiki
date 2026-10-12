@@ -137,7 +137,7 @@ describe('dexterity originals integration (packet convergence-source-c-dexterity
     const tesla = DEXTEROUS_HANDS.find((hand) => hand.id === 'tesla-optimus-gen3')!;
     expect(tesla.secondarySourceId).toBe('teslarati-optimus-hand-2026');
     const unitree = DEXTEROUS_HANDS.find((hand) => hand.id === 'unitree-h2')!;
-    expect(unitree.secondarySourceId).toBe('wikipedia-humanoid-hand-2026');
+    expect(unitree.secondarySourceId).toBe('unitree-dex5-1-2026');
     expect(byOrdinal(24).note).toContain('only maker here publishing a force threshold on its own product page');
   });
 

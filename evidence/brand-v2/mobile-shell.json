@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3204,
+      "visibleTextLength": 3162,
       "header": {
         "present": true,
         "display": "flex",
@@ -2180,7 +2180,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 28524,
+      "visibleTextLength": 29268,
       "header": {
         "present": true,
         "display": "flex",
@@ -3314,7 +3314,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 17532,
+      "visibleTextLength": 19477,
       "header": {
         "present": true,
         "display": "flex",
@@ -4124,7 +4124,7 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "visibleTextLength": 11726,
+      "visibleTextLength": 12625,
       "header": {
         "present": true,
         "display": "flex",
@@ -4764,7 +4764,7 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "visibleTextLength": 15530,
+      "visibleTextLength": 16179,
       "header": {
         "present": true,
         "display": "flex",
@@ -4926,7 +4926,7 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "visibleTextLength": 22244,
+      "visibleTextLength": 21078,
       "header": {
         "present": true,
         "display": "flex",
@@ -5088,7 +5088,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 26040,
+      "visibleTextLength": 27980,
       "header": {
         "present": true,
         "display": "flex",
@@ -5250,7 +5250,7 @@
     },
     {
       "route": "/frontier/generalization/",
-      "visibleTextLength": 16827,
+      "visibleTextLength": 19496,
       "header": {
         "present": true,
         "display": "flex",
@@ -5412,7 +5412,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "visibleTextLength": 13803,
+      "visibleTextLength": 16540,
       "header": {
         "present": true,
         "display": "flex",
@@ -5574,7 +5574,7 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "visibleTextLength": 26523,
+      "visibleTextLength": 27353,
       "header": {
         "present": true,
         "display": "flex",
@@ -5736,7 +5736,7 @@
     },
     {
       "route": "/glossary/",
-      "visibleTextLength": 84186,
+      "visibleTextLength": 84400,
       "header": {
         "present": true,
         "display": "flex",

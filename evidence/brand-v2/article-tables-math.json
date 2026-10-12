@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "e87895e964ac90d292e0581f88af486081202937c62fc031fec728416a3577c5",
+  "fingerprint": "5cdd51d4adfdbbcb29391bd963d949b49211f909743b0ea93aaec8dd920fa098",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1988,7 +1988,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 28524,
+      "visibleTextLength": 29268,
       "tables": [
         {
           "index": 0,
@@ -4193,7 +4193,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 17532,
+      "visibleTextLength": 19477,
       "tables": [
         {
           "index": 0,
@@ -4483,7 +4483,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 11726,
+      "visibleTextLength": 12625,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -4548,7 +4548,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 15530,
+      "visibleTextLength": 16179,
       "tables": [
         {
           "index": 0,
@@ -4599,7 +4599,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 22244,
+      "visibleTextLength": 21078,
       "tables": [
         {
           "index": 0,
@@ -4650,7 +4650,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 26040,
+      "visibleTextLength": 27980,
       "tables": [
         {
           "index": 0,
@@ -4669,10 +4669,10 @@
             "role": "region",
             "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
             "clientWidth": 293,
-            "scrollWidth": 673,
+            "scrollWidth": 722,
             "scrolledBy": 40
           },
-          "tableWidth": 673,
+          "tableWidth": 722,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4687,7 +4687,7 @@
           "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
           "tabIndex": 0,
           "clientWidth": 293,
-          "scrollWidth": 673,
+          "scrollWidth": 722,
           "scrolledBy": 40
         }
       ],
@@ -4701,7 +4701,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 16827,
+      "visibleTextLength": 19496,
       "tables": [
         {
           "index": 0,
@@ -4801,7 +4801,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 13803,
+      "visibleTextLength": 16540,
       "tables": [
         {
           "index": 0,
@@ -4856,11 +4856,11 @@
         {
           "index": 0,
           "display": false,
-          "mathmlText": "pp",
-          "annotationTex": "p",
+          "mathmlText": "NN",
+          "annotationTex": "N",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "p",
+          "renderedText": "N",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -4872,11 +4872,11 @@
         {
           "index": 1,
           "display": false,
-          "mathmlText": "NN",
-          "annotationTex": "N",
+          "mathmlText": "pp",
+          "annotationTex": "p",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "N",
+          "renderedText": "p",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -4893,6 +4893,86 @@
           "htmlLayerHidden": true,
           "renderError": false,
           "renderedText": "pN",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 3,
+          "display": false,
+          "mathmlText": "ε\\varepsilon",
+          "annotationTex": "\\varepsilon",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "ε",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 4,
+          "display": false,
+          "mathmlText": "T2εT^2\\varepsilon",
+          "annotationTex": "T^2\\varepsilon",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "T2ε",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 5,
+          "display": false,
+          "mathmlText": "TT",
+          "annotationTex": "T",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "T",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 6,
+          "display": false,
+          "mathmlText": "nn",
+          "annotationTex": "n",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "n",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 7,
+          "display": false,
+          "mathmlText": "3/n{3/n}",
+          "annotationTex": "{3/n}",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "3/n",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -4936,7 +5016,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 26523,
+      "visibleTextLength": 27353,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -10163,7 +10243,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 40400,
+      "visibleTextLength": 41287,
       "tables": [
         {
           "index": 0,
@@ -12368,7 +12448,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 20595,
+      "visibleTextLength": 22874,
       "tables": [
         {
           "index": 0,
@@ -12658,7 +12738,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 13184,
+      "visibleTextLength": 14237,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -12723,7 +12803,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 19389,
+      "visibleTextLength": 21858,
       "tables": [
         {
           "index": 0,
@@ -12774,7 +12854,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 27843,
+      "visibleTextLength": 28466,
       "tables": [
         {
           "index": 0,
@@ -12825,7 +12905,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 31302,
+      "visibleTextLength": 33550,
       "tables": [
         {
           "index": 0,
@@ -12876,7 +12956,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 19888,
+      "visibleTextLength": 26401,
       "tables": [
         {
           "index": 0,
@@ -12976,7 +13056,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 15697,
+      "visibleTextLength": 21447,
       "tables": [
         {
           "index": 0,
@@ -13031,11 +13111,11 @@
         {
           "index": 0,
           "display": false,
-          "mathmlText": "pp",
-          "annotationTex": "p",
+          "mathmlText": "NN",
+          "annotationTex": "N",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "p",
+          "renderedText": "N",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -13047,11 +13127,11 @@
         {
           "index": 1,
           "display": false,
-          "mathmlText": "NN",
-          "annotationTex": "N",
+          "mathmlText": "pp",
+          "annotationTex": "p",
           "htmlLayerHidden": true,
           "renderError": false,
-          "renderedText": "N",
+          "renderedText": "p",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -13068,6 +13148,86 @@
           "htmlLayerHidden": true,
           "renderError": false,
           "renderedText": "pN",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 3,
+          "display": false,
+          "mathmlText": "ε\\varepsilon",
+          "annotationTex": "\\varepsilon",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "ε",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 4,
+          "display": false,
+          "mathmlText": "T2εT^2\\varepsilon",
+          "annotationTex": "T^2\\varepsilon",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "T2ε",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 5,
+          "display": false,
+          "mathmlText": "TT",
+          "annotationTex": "T",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "T",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 6,
+          "display": false,
+          "mathmlText": "nn",
+          "annotationTex": "n",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "n",
+          "fontFamilyHead": "KaTeX_Main",
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "tabIndex": -1,
+          "role": null,
+          "accessibleName": "",
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 7,
+          "display": false,
+          "mathmlText": "3/n{3/n}",
+          "annotationTex": "{3/n}",
+          "htmlLayerHidden": true,
+          "renderError": false,
+          "renderedText": "3/n",
           "fontFamilyHead": "KaTeX_Main",
           "scrollWidth": 0,
           "clientWidth": 0,
@@ -13111,7 +13271,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 32425,
+      "visibleTextLength": 38540,
       "tables": [],
       "equations": [],
       "scrollRegions": [],

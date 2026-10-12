@@ -42,7 +42,17 @@ test.describe('frontier bear-case module', () => {
     const headings = await main.locator('h2').allTextContents();
     expect(headings.length).toBeGreaterThanOrEqual(4);
     const mainText = (await main.textContent()) ?? '';
-    expect(mainText.length).toBeGreaterThan(4000);
+    const prose = main.locator('div.prose[data-pagefind-body]');
+    const sources = await prose.locator('[data-cite-id]').evaluateAll(
+      (els) => new Set(els.map((el) => el.getAttribute('data-cite-id'))).size,
+    );
+    expect(sources).toBeGreaterThanOrEqual(30);
+    const leadWords = await prose.locator(':scope > p').first().evaluate((p) => {
+      const copy = p.cloneNode(true) as HTMLElement;
+      copy.querySelectorAll('[data-cite-id], [role="tooltip"]').forEach((el) => el.remove());
+      return (copy.textContent ?? '').split(/\s+/).filter((word) => /[\p{L}\p{N}]/u.test(word)).length;
+    });
+    expect(leadWords).toBeLessThanOrEqual(60);
 
     // No raw MDX or component syntax leaks into the rendered page.
     expect(mainText).not.toContain('import {');
@@ -123,7 +133,7 @@ test.describe('frontier bear-case module', () => {
     for (const href of [
       'https://rodneybrooks.com/predictions-scorecard-2026-january-01/',
       'https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html',
-      'https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm',
+      'https://static.sse.com.cn/stock/disclosure/announcement/c/202605/002178_20260525_7RVL.pdf',
       'https://interestingengineering.com/ai-robotics/qualcomm-robot-unexpected-collapse',
       'https://www.briefs.co/news/robotics-startups-raised-23-billion-in-2026-closing-in-on-all-of-2025/',
       'https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/',
@@ -158,7 +168,7 @@ test.describe('frontier bear-case module', () => {
     }
     await expect(page.getByTestId('watchlist-score')).toHaveText('0 of 8 done');
     await expect(page.getByTestId('watchlist-tally')).toHaveText(
-      '4 partly there, 4 not yet, 0 done',
+      '5 partly there, 3 not yet, 0 done',
     );
     await expect(page.getByTestId('watchlist-readout')).toHaveText('Showing all 8');
 
@@ -202,8 +212,8 @@ test.describe('frontier bear-case module', () => {
 
     // Filter narrows the board and the readout follows.
     await panel.getByRole('button', { name: 'Partly', exact: true }).click();
-    await expect(page.getByTestId(/^milestone-tile-/)).toHaveCount(4);
-    await expect(readout).toHaveText('Showing 4 of 8: partly there');
+    await expect(page.getByTestId(/^milestone-tile-/)).toHaveCount(5);
+    await expect(readout).toHaveText('Showing 5 of 8: partly there');
 
     // The Done filter renders the explicit empty state.
     await panel.getByRole('button', { name: 'Done (0)', exact: true }).click();

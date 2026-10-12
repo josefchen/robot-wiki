@@ -33,7 +33,7 @@ const ROWS: Thesis[] = [
     ],
     evidenceFor: [
       {
-        text: 'EgoScale fit a log-linear scaling law (R² = 0.9983) from egocentric human-video pretraining hours to downstream robot performance, with a 54% success-rate gain over the no-pretraining baseline.',
+        text: 'EgoScale fit a log-linear scaling law (R² = 0.9983) between human-video pretraining hours and validation loss, which it reports correlates strongly with downstream robot performance; its full recipe lifts average success by 54% on a 22-DoF hand.',
         citationIds: ['egoscale-2026'],
       },
       {
@@ -218,12 +218,13 @@ const ROWS: Thesis[] = [
       'One side bets a human body is the right interface to a world built for humans; the other bets purpose-built robots win on cost and reliability for any known task.',
     proponents: [
       'Humanoid side: Figure, Tesla, 1X, Apptronik, Unitree',
-      'Task-specific side: Rodney Brooks (Robust.AI), Agility Robotics',
+      'Task-specific side: Rodney Brooks (Robust.AI)',
+      'Between them: Agility Robotics, deploying its Digit humanoid in narrow logistics work',
     ],
     evidenceFor: [
       {
-        text: 'Figure\'s Helix 02 runs whole-body loco-manipulation, including a livestreamed eight-hour autonomous shift on a factory floor.',
-        citationIds: ['helix-02-2026', 'figure-8hr-shift-2026'],
+        text: 'Figure\'s Helix 02 runs whole-body loco-manipulation, and Figure\'s May 2026 package-sorting livestream, planned as one eight-hour shift, ran for 200 hours by Figure\'s account.',
+        citationIds: ['helix-02-2026', 'adcock-figure-livestream-2026', 'helix-2-5-2026'],
       },
       {
         text: 'Gemini Robotics 2 controls full humanoids from feet to fingertips with a single model.',
