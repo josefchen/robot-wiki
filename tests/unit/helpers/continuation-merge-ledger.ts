@@ -332,6 +332,11 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   moved each world-models article and registered its new records, each
  *   member with one edge from its last approved endpoint, or one resolution
  *   from the sealed hash where its chain already holds one.
+ *
+ * - `domain-pass-20261012-kol-citation-rendering`: the KOL triage batch of
+ *   2026-10-12 registered thirteen records for its sentences on ten
+ *   articles, which moved `citation-rendering:label-and-meta` with another
+ *   resolution.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -361,6 +366,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'domain-pass-20261008-sweep-citation-rendering',
   'domain-pass-20261009-kol-citation-rendering',
   'world-models-pass-20261010-',
+  'domain-pass-20261012-kol-citation-rendering',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

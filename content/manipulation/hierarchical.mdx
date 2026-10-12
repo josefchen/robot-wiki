@@ -48,6 +48,7 @@ citations:
   - enpire-2026
   - lbm-cotraining-2026
   - seeq-2026
+  - robo-cop-2026
 seeAlso:
   - "classical/motion-planning"
   - "frontier/competing-theses"
@@ -116,6 +117,8 @@ Hi Robot trains two policies from PaliGemma: a high-level VLM that turns images 
 AgiBot describes GO-2 as a unified system with an asynchronous two-module hierarchy: a lower-frequency System 2 generates action intents through Progressive Refinement, and a higher-frequency System 1 combines them with observations through Residual Refinement. It gives no numerical rates or shared-weights claim; GO-2 trains with teacher forcing <Cite id="agibot-go2-2026" />. Figure's Helix 02 adds S0 beneath S2's behavior sequencing and S1's 200 Hz full-body joint targets from vision, touch and proprioception. S0 is a 10M-parameter network that outputs actuator commands at 1 kHz; Helix 02 does not restate the S2 rate <Cite id="helix-02-2026" />.
 
 With thinking on, Gemini Robotics 1.5 appends natural-language reasoning before acting, and its agentic system adds a separate GR-ER 1.5 orchestrator whose useful thinking budget depends on the task. ER 1.5 also produces point sequences that trace trajectories <Cite id="gemini-robotics-15-2025" />. Google made ER 1.5 broadly available as a high-level model that can call a VLA or user-defined functions <Cite id="gemini-robotics-er-15-dev-2025" />. In [Gemini Robotics 2](/manipulation/generalist-policies/), DeepMind calls ER 2 the robot's high-level brain; it coordinates with the VLA and tracks multi-minute tasks <Cite id="gemini-robotics-2-2026" />. Google says ER 2 hands off motor execution to any lower-level VLA and reports 57.4% accuracy on progress classification <Cite id="gemini-robotics-er-2-2026" />.
+
+Robo-COP, from Xilun Zhang, Jiajun Wu, Marco Pavone and colleagues at Stanford and NVIDIA (October 2026), updates the VLA under an orchestrator during deployment. It fine-tunes the policy on demonstrations curated from its own runs and adopts each update only after it improves the skills it was trained for. Across ten simulated RoboLab tasks, mean held-out success rose from 64.8% with a frozen policy to 73.8%, against 65.8% for fine-tuning on a fixed schedule without that check, and from 38.3% to 50.0% on three real tasks <Cite id="robo-cop-2026" />.
 
 ## The verdict
 

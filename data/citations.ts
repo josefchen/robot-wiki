@@ -18010,6 +18010,177 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/nvidia-cosmos/cosmos-predict2',
     type: 'docs',
   },
+  // mulligan-2026: domain pass 2026-10-06, KOL intake note of Perry Dong, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). Stanford University.
+  {
+    id: 'mulligan-2026',
+    title: 'Mulligan: Performance-Guided Data Collection for Efficient On-Robot Learning',
+    authors: ['Lars Ankile', 'Perry Dong', 'Rohan Bhowmik', 'Aneesh Muppidi', 'David D. Yuan', 'Shuran Song', 'Chelsea Finn'],
+    year: 2026,
+    arxiv: '2610.05882',
+    url: 'https://arxiv.org/abs/2610.05882',
+    type: 'paper',
+  },
+  // ocbench-2026: domain pass 2026-10-06, KOL intake note of Sergey Levine, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). UC Berkeley.
+  {
+    id: 'ocbench-2026',
+    title: 'Behavioral Cloning Mystery',
+    authors: ['Seohong Park', 'Sergey Levine'],
+    year: 2026,
+    arxiv: '2610.07056',
+    url: 'https://arxiv.org/abs/2610.07056',
+    type: 'paper',
+  },
+  // egolap-2026: domain pass 2026-10-06, KOL intake note of Dhruv Shah, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). Princeton University, Toyota
+  // Research Institute and Physical Intelligence.
+  {
+    id: 'egolap-2026',
+    title: 'EgoLAP: Learning from Egocentric Human Data through Language-Action Reasoning',
+    authors: [
+      'Lihan Zha', 'Shresth Grover', 'Tenny Yin', 'Samuel M. Bateman', 'Hengkai Pan', 'Mengchao Zhang', 'Aykut Onol',
+      'Allen Z. Ren', 'Dhruv Shah', 'Anirudha Majumdar',
+    ],
+    year: 2026,
+    arxiv: '2610.08726',
+    url: 'https://arxiv.org/abs/2610.08726',
+    type: 'paper',
+  },
+  // eigendexplore-2026: domain pass 2026-10-06, KOL intake note of Shuran Song, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). Stanford University.
+  {
+    id: 'eigendexplore-2026',
+    title: 'EigenDEXplore: Structured Exploration for Dexterous Manipulation with Human Priors',
+    authors: ['Harsh Gupta', 'Tyler Ga Wei Lum', 'Changhao Wang', 'Chuer Pan', 'C. Karen Liu', 'Jeannette Bohg', 'Shuran Song'],
+    year: 2026,
+    arxiv: '2610.07681',
+    url: 'https://arxiv.org/abs/2610.07681',
+    type: 'paper',
+  },
+  // openwam-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026; the comments say code and project page
+  // were released June 4, 2026). Stanford University.
+  {
+    id: 'openwam-2026',
+    title: 'OpenWAM: An Open Framework for Composable World-Action Models',
+    authors: [
+      'Heng Yu', 'David D. Yuan', 'Juze Zhang', 'Changan Chen', 'Yao Feng', 'Michelle Baldonado', 'Steve Cousins',
+      'Li Fei-Fei', 'Jiajun Wu', 'Ehsan Adeli',
+    ],
+    year: 2026,
+    arxiv: '2610.07922',
+    url: 'https://arxiv.org/abs/2610.07922',
+    type: 'paper',
+  },
+  // jepa-unstable-modes-2026: domain pass 2026-10-06, KOL intake note of Yann LeCun, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). Columbia University, New York
+  // University and AMI Labs.
+  {
+    id: 'jepa-unstable-modes-2026',
+    title: 'Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models',
+    authors: ['Leonardo F. Toso', 'Yann LeCun', 'James Anderson', 'Oumayma Bounou'],
+    year: 2026,
+    arxiv: '2610.07540',
+    url: 'https://arxiv.org/abs/2610.07540',
+    type: 'paper',
+  },
+  // qf3-2026: domain pass 2026-10-06, KOL intake note of Pieter Abbeel, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). UC Berkeley and Amazon FAR.
+  {
+    id: 'qf3-2026',
+    title: 'QF3: Fast Flow RL with Filtered Q-Gradients',
+    authors: [
+      'Chung Min Kim', 'Brent Yi', 'David McAllister', 'Hongsuk Choi', 'Himanshu Gaurav Singh', 'Jinkun Cao', 'Ken Goldberg',
+      'Pieter Abbeel', 'Carmelo Sferrazza', 'Angjoo Kanazawa',
+    ],
+    year: 2026,
+    arxiv: '2610.08789',
+    url: 'https://arxiv.org/abs/2610.08789',
+    type: 'paper',
+  },
+  // robo-cop-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). Stanford University and NVIDIA Research.
+  {
+    id: 'robo-cop-2026',
+    title: 'Co-Evolving Robot Orchestrators and Policies through Deployment',
+    authors: ['Xilun Zhang', 'Maggie Wang', 'Erik Bauer', 'Hong-Xing Yu', 'Huang Huang', 'Jiajun Wu', 'Marco Pavone'],
+    year: 2026,
+    arxiv: '2610.09228',
+    url: 'https://arxiv.org/abs/2610.09228',
+    type: 'paper',
+  },
+  // long-wam-2026: domain pass 2026-10-06, KOL intake note of Jim Fan (Linxi Fan), added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 7 Oct 2026). NVIDIA, MIT, HKU and UCSD.
+  {
+    id: 'long-wam-2026',
+    title: 'Long-WAM: Scaling the Context of World-Action Models',
+    authors: [
+      'Wei Huang', 'Bohan Zhang', 'Chenzhi Liu', 'Isabella Liu', 'Shuai Yang', 'Weian Mao', 'Luozhou Wang', 'Yicheng Xiao',
+      'Weifeng Lin', 'Qixin Hu', 'Bryan Chu', 'Sifei Liu', 'Linxi Fan', 'Xiaojuan Qi', 'Song Han', 'Yukang Chen',
+    ],
+    year: 2026,
+    arxiv: '2610.10528',
+    url: 'https://arxiv.org/abs/2610.10528',
+    type: 'paper',
+  },
+  // ledger-2026: domain pass 2026-10-06, KOL intake note of Homanga Bharadhwaj, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 7 Oct 2026). Johns Hopkins University and the
+  // Johns Hopkins University Applied Physics Laboratory.
+  {
+    id: 'ledger-2026',
+    title: 'Never Look Back: Understanding Persistence in 3D Object Memory from Egocentric Videos',
+    authors: ['Shravan Chaudhari', 'William Paul', 'Suchi Saria', 'Rama Chellappa', 'Homanga Bharadhwaj'],
+    year: 2026,
+    arxiv: '2610.10538',
+    url: 'https://arxiv.org/abs/2610.10538',
+    type: 'paper',
+  },
+  // sgs-2026: domain pass 2026-10-06, KOL intake note of Abhishek Gupta, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 8 Oct 2026; comments: "CoRL 2026"). University of
+  // Washington and NVIDIA.
+  {
+    id: 'sgs-2026',
+    title: 'A Balanced Data Diet: Addressing the Exploration Bottleneck in Mega-Scale RL for Robot Control',
+    authors: [
+      'Octi Zhang', 'Mateo Guaman Castro', 'Patrick Yin', 'Ignacio Dagnino', 'Abhishek Gupta', 'Rosario Scalise', 'Byron Boots',
+    ],
+    year: 2026,
+    venue: 'CoRL 2026',
+    arxiv: '2610.12465',
+    url: 'https://arxiv.org/abs/2610.12465',
+    type: 'paper',
+  },
+  // lac-wm-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 7 Oct 2026). Stanford University; work partly done
+  // at Meta FAIR Robotics.
+  {
+    id: 'lac-wm-2026',
+    title: 'Cross-Embodiment Robot Foundation World Models with Latent Actions',
+    authors: [
+      'Huang Huang', 'Sriram Yenamandra', 'Arjun Majumdar', 'Elie Aljalbout', 'Tushar Nagarajan', 'Tsung-Yen Yang',
+      'Akshara Rai', 'Michael Rabbat', 'Li Fei-Fei', 'Jiajun Wu', 'Tingfan Wu', 'Franziska Meier',
+    ],
+    year: 2026,
+    arxiv: '2610.10846',
+    url: 'https://arxiv.org/abs/2610.10846',
+    type: 'paper',
+  },
+  // luna-legged-2026: domain pass 2026-10-06, KOL intake note of Marco Hutter, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 8 Oct 2026; comments: "Proceeding to the IEEE
+  // iSparo Conference 2026"). All authors at ETH Zurich.
+  {
+    id: 'luna-legged-2026',
+    title: 'Toward Lunar Legged Robots: Field Deployment Lessons at LUNA',
+    authors: [
+      'Adrian Fuhrer', 'Joseph Church', 'Oliver Fischer', 'William Talbot', 'Nicolas Faesch', 'Yannic Hofmann',
+      'Hendrik Kolvenbach', 'Yusuke Tanaka', 'Marco Hutter',
+    ],
+    year: 2026,
+    arxiv: '2610.12276',
+    url: 'https://arxiv.org/abs/2610.12276',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

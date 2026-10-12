@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6162632834db8510539b9b04770dd53c50eefe00a1f01c53864bbe6ea334730d",
+  "fingerprint": "ac7f4e1eb71f2d7a1c3acc4c2f3d5bf0644fe3968d5dcc4f0d943d480b7721ef",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -241,7 +241,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3252,
+      "visibleTextLength": 3204,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -925,7 +925,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21844,
+      "visibleTextLength": 22792,
       "route": "/adjacent/space/",
       "viewport": "1440x900"
     },
@@ -2065,7 +2065,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 43343,
+      "visibleTextLength": 44241,
       "route": "/classical/scene-representation/",
       "viewport": "1440x900"
     },
@@ -3775,7 +3775,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 30334,
+      "visibleTextLength": 31302,
       "route": "/frontier/dexterity/",
       "viewport": "1440x900"
     },
@@ -4801,7 +4801,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25657,
+      "visibleTextLength": 26267,
       "route": "/manipulation/bc-foundations/",
       "viewport": "1440x900"
     },
@@ -5029,7 +5029,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25740,
+      "visibleTextLength": 27540,
       "route": "/manipulation/cross-embodiment/",
       "viewport": "1440x900"
     },
@@ -5485,7 +5485,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 30618,
+      "visibleTextLength": 31497,
       "route": "/manipulation/hierarchical/",
       "viewport": "1440x900"
     },
@@ -5941,7 +5941,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 47135,
+      "visibleTextLength": 48945,
       "route": "/manipulation/rl-finetuning/",
       "viewport": "1440x900"
     },
@@ -7195,7 +7195,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 37191,
+      "visibleTextLength": 38287,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "1440x900"
     },
@@ -8107,7 +8107,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27312,
+      "visibleTextLength": 29048,
       "route": "/world-models/generative-video/",
       "viewport": "1440x900"
     },
@@ -8221,7 +8221,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26840,
+      "visibleTextLength": 27773,
       "route": "/world-models/jepa/",
       "viewport": "1440x900"
     },
@@ -8837,7 +8837,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3252,
+      "visibleTextLength": 3204,
       "route": "/",
       "viewport": "375x812"
     },
@@ -9521,7 +9521,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17782,
+      "visibleTextLength": 18584,
       "route": "/adjacent/space/",
       "viewport": "375x812"
     },
@@ -10661,7 +10661,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 30577,
+      "visibleTextLength": 31301,
       "route": "/classical/scene-representation/",
       "viewport": "375x812"
     },
@@ -12371,7 +12371,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25239,
+      "visibleTextLength": 26040,
       "route": "/frontier/dexterity/",
       "viewport": "375x812"
     },
@@ -13397,7 +13397,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18850,
+      "visibleTextLength": 19374,
       "route": "/manipulation/bc-foundations/",
       "viewport": "375x812"
     },
@@ -13625,7 +13625,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19178,
+      "visibleTextLength": 20673,
       "route": "/manipulation/cross-embodiment/",
       "viewport": "375x812"
     },
@@ -14081,7 +14081,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23588,
+      "visibleTextLength": 24327,
       "route": "/manipulation/hierarchical/",
       "viewport": "375x812"
     },
@@ -14537,7 +14537,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 36335,
+      "visibleTextLength": 37866,
       "route": "/manipulation/rl-finetuning/",
       "viewport": "375x812"
     },
@@ -15791,7 +15791,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27920,
+      "visibleTextLength": 28832,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "375x812"
     },
@@ -16703,7 +16703,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21147,
+      "visibleTextLength": 22622,
       "route": "/world-models/generative-video/",
       "viewport": "375x812"
     },
@@ -16817,7 +16817,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19630,
+      "visibleTextLength": 20408,
       "route": "/world-models/jepa/",
       "viewport": "375x812"
     },

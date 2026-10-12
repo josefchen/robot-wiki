@@ -1,7 +1,7 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1666,
-    "minutes": 8
+    "words": 1729,
+    "minutes": 9
   },
   "manipulation/action-chunking": {
     "words": 2233,
@@ -28,11 +28,11 @@
     "minutes": 8
   },
   "manipulation/hierarchical": {
-    "words": 1930,
+    "words": 2018,
     "minutes": 10
   },
   "manipulation/rl-finetuning": {
-    "words": 3933,
+    "words": 4099,
     "minutes": 20
   },
   "manipulation/realtime-execution": {
@@ -40,8 +40,8 @@
     "minutes": 9
   },
   "manipulation/cross-embodiment": {
-    "words": 1466,
-    "minutes": 7
+    "words": 1612,
+    "minutes": 8
   },
   "manipulation/knowledge-insulation": {
     "words": 1095,
@@ -84,8 +84,8 @@
     "minutes": 11
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 2633,
-    "minutes": 13
+    "words": 2735,
+    "minutes": 14
   },
   "rl-sim2real/offline-rl": {
     "words": 1672,
@@ -100,12 +100,12 @@
     "minutes": 7
   },
   "world-models/generative-video": {
-    "words": 1786,
-    "minutes": 9
+    "words": 1948,
+    "minutes": 10
   },
   "world-models/jepa": {
-    "words": 1638,
-    "minutes": 8
+    "words": 1723,
+    "minutes": 9
   },
   "world-models/generative-sim": {
     "words": 1705,
@@ -176,7 +176,7 @@
     "minutes": 19
   },
   "classical/scene-representation": {
-    "words": 2580,
+    "words": 2660,
     "minutes": 13
   },
   "classical/calibration": {
@@ -192,7 +192,7 @@
     "minutes": 8
   },
   "frontier/dexterity": {
-    "words": 2802,
+    "words": 2882,
     "minutes": 14
   },
   "frontier/generalization": {
@@ -224,7 +224,7 @@
     "minutes": 10
   },
   "adjacent/space": {
-    "words": 2116,
+    "words": 2197,
     "minutes": 11
   }
 }

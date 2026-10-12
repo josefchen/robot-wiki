@@ -66,6 +66,7 @@ citations:
   - scenelm-2026
   - curobo-v2-2026
   - amb3r-slam-2026
+  - ledger-2026
 seeAlso:
   - "world-models/generative-sim"
   - "rl-sim2real/sim2real-transfer"
@@ -143,5 +144,7 @@ Navigation2, built on ROS 2, uses a layered costmap. Its global planner computes
 [Perception](/classical/perception) locates objects in the current frame. Consumers issue different queries: localization needs stable landmarks, collision checking needs occupied volume and a conservative update rule, grasping needs surface pose and identity, and rendering needs appearance. Hydra stacks rungs in one real-time system, building a local ESDF, extracting a topological map of places from it and segmenting places into rooms <Cite id="hydra-2022" />. ConceptFusion fuses pixel-aligned open-set features into 3D maps through traditional SLAM <Cite id="conceptfusion-2023" />. ConceptGraphs builds open-vocabulary, graph-structured 3D scene representations because per-point feature maps do not scale well to larger environments <Cite id="conceptgraphs-2023" />.
 
 SceneLM, from Jitendra Malik (UC Berkeley), Marco Pavone and colleagues (September 2026), keeps the whole map as a structured text list of objects that one vision-language model edits after each image. On language-grounded retrieval and localization benchmarks it performed competitively with complete mapping pipelines, with a map 6 to 12 times more compact, and it ran online on an edge device aboard a quadruped <Cite id="scenelm-2026" />.
+
+Ledger, from Shravan Chaudhari, Homanga Bharadhwaj and colleagues at Johns Hopkins (October 2026), keeps a persistent 3D object memory from a person's egocentric video: each object's resting locations, its moves and a short description, retained after it leaves view. A language model answering from these records as text, without the images, raised GPT-5.4's HD-EPIC accuracy from 29.7% to 42.6%, and on Ego4D the memory located objects with a median error of 0.99 m where it returned a prediction <Cite id="ledger-2026" />.
 
 A deployed map publishes its frame, timestamp, resolution, unknown-state convention, update rate and invalidation rule. In MoveIt 2, the planning scene holds the robot's current state, its model and the world representation for collision checking, and a monitor maintains it from parameters and topic subscriptions <Cite id="moveit-planning-scene-2026" />. Attached or removed objects must reach that view before motion; the [ROS 2 guide](/classical/ros2-for-ml-engineers) covers transforms and the planning scene. A scene representation answers what is present now, while a world model must answer how state changes under an action, as the [simulator comparison](/world-models/world-models-vs-simulators) sets out.
