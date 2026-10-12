@@ -9,7 +9,9 @@ import { BATCH_SCALE_SCENE, batchScaleFrame, trainingTimeWords } from '../../com
 import { beatSpans } from '../../components/motion/timeline';
 import { CITATIONS } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
-import { ARTICLE, UNIT, artifact, cases, dependencies, oracle, save } from '../../audit/evidence/parallel-local-20260923/support';
+import {
+  ARTICLE, MOUNT, UNIT, artifact, batchOracle, cases, dependencies, oracle, runCwd, save,
+} from '../../audit/evidence/parallel-local-20261009/support';
 
 describe('parallel18 independent authored evidence', () => {
   it('discloses the entire chosen budget and cost model, not a measured run', () => {
@@ -42,6 +44,13 @@ describe('parallel18 independent authored evidence', () => {
     expect(plan.parts).toHaveLength(12);
     expect(plan.parts.filter(p => p.kind === 'external-source')).toHaveLength(4);
     expect(plan.parts.filter(p => p.kind === 'observed-behavior').flatMap(p => p.requiredObservations)).toHaveLength(8);
+    // The plan binds the BatchScale scene mount; the retired chart's proofs live only in the archive.
+    expect(plan.mounts.map(m => [m.sourceId, m.mountId])).toEqual([['scene:BatchScale', MOUNT]]);
+    expect(plan.parts.flatMap(p => p.kind === 'observed-behavior' ? p.requiredObservations.map(o => o.mountId) : []))
+      .toEqual(Array(8).fill(MOUNT));
+    const counts = ['64', '4096', '16384'];
+    expect(ctx.catalog.proofs.filter(p => p.planId === plan.id).map(p => p.id)).toEqual([...cases.map(c => c.id),
+      ...counts.flatMap(n => [`p18-batch-observed-${n}-off`, `p18-batch-observed-${n}-on`])]);
     const ids = new Set(CITATIONS.map(c => c.id));
     const scalar = { citationId: '', sourceUrl: '', supportingPassage: '' };
     expect(validateLocalBasisPlan(plan, plan.currentCells, plan.id, scalar, ids, ctx).failures).toEqual([]);
@@ -49,8 +58,8 @@ describe('parallel18 independent authored evidence', () => {
       const broken = structuredClone(ctx);
       const p = broken.catalog.plans.find(p => p.id === plan.id)!;
       if (what === 'part') p.parts.shift();
-      if (what === 'proof') broken.catalog.proofs = broken.catalog.proofs.filter(v => v.id !== 'p18-parameters');
-      if (what === 'basis') broken.catalog.proofs.find(v => v.id === 'p18-64-on')!.bases = [];
+      if (what === 'proof') broken.catalog.proofs = broken.catalog.proofs.filter(v => v.id !== 'p18-batch-parameters');
+      if (what === 'basis') broken.catalog.proofs.find(v => v.id === 'p18-batch-64-on')!.bases = [];
       if (what === 'mount') p.mounts = [];
       if (what === 'review') p.currentCells.note += ' drift';
       expect(validateLocalBasisPlan(p, p.currentCells, p.id, scalar, ids, broken).failures.length).toBeGreaterThan(0);
@@ -62,26 +71,28 @@ describe('parallel18 independent authored evidence', () => {
       const expected = recomputeLocalDerivation(c.recipe);
       if (c.recipe.mode === 'parameters') {
         expect(expected.values).toEqual({
-          envs: 4096, cpuBound: false, samples: 49,
-          authoredDomainBasis: 'Illustrative model environment bounds and CPU toggle choices, not measured throughput.',
-          authoredDomains: { envs: { min: 64, max: 16384 }, cpuBound: { off: false, on: true } },
           transitions: 220_000_000, rollout: 24, costs: [0.02, 0.000004, 0.04, 0.03, 0.000022],
-          markerX: [{ id: 'flat', envs: 4096 }, { id: 'uneven', envs: 4096 }],
+          authoredDomainBasis: 'Illustrative robot counts at the scene beat ends and an assumed per-robot main-computer cost, not measured throughput.',
+          beatRobots: { 'one-batch': 64, scale: 4096, cpu: 4096, recap: 16384 },
+          curves: { solid: false, dashed: true },
         });
       } else {
-        const o = oracle(c.recipe.inputs.envs, c.recipe.inputs.cpuBound);
-        const v = expected.values as Record<string, unknown>;
-        for (const key of ['seconds', 'fps', 'iterations'] as const) expect(v[key]).toBeCloseTo(o[key], 7);
-        expect(v.curve).toEqual(o.curve);
+        const { envs, cpuBound } = c.recipe.inputs;
+        const o = batchOracle(envs, cpuBound);
+        const v = expected.values as { seconds: number; iterations: number; words: string; display: string[];
+          breakdown: Record<'simSeconds' | 'learnSeconds' | 'cpuSeconds' | 'totalSeconds', number> };
+        expect(v.seconds).toBeCloseTo(o.seconds, 9);
+        expect(v.seconds).toBeCloseTo(oracle(envs, cpuBound).seconds, 9);
+        expect(v.iterations).toBeCloseTo(o.iterations, 9);
+        for (const key of ['simSeconds', 'learnSeconds', 'cpuSeconds', 'totalSeconds'] as const) expect(v.breakdown[key]).toBeCloseTo(o.breakdown[key], 12);
+        expect(v.words).toBe(o.words);
         expect(v.display).toEqual(o.display);
-        if (o.crossover === null) expect(v.crossover).toBeNull();
-        else expect(v.crossover).toBeCloseTo(o.crossover, 8);
       }
       return { id: c.id, recipe: c.recipe, expected, dependencies: dependencies() };
     });
     save('numeric-run.json', {
       command: 'NODE_DISABLE_COMPILE_CACHE=1 PARALLEL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/parallel-local-evidence.test.ts -t "records final native outputs" --no-file-parallelism',
-      runner: 'vitest', cwd: process.cwd(), environment: { NODE_DISABLE_COMPILE_CACHE: '1' },
+      runner: 'vitest', cwd: runCwd(), environment: { NODE_DISABLE_COMPILE_CACHE: '1' },
       startedAt, endedAt: new Date().toISOString(), exitCode: 0, test: artifact(UNIT), cases: results,
     });
   });
@@ -118,6 +129,9 @@ describe('parallel18 BatchScale scene binding', () => {
       expect(values.seconds).toBeCloseTo(oracle(envs, cpuBound).seconds, 9);
       expect(values.words).toBe(words(oracle(envs, cpuBound).seconds));
       expect(values.words).toBe(trainingTimeWords(model.wallClockSeconds(envs, cpuBound)));
+      // The evidence runs' own closed-form oracle agrees with the older one and with the recipe.
+      expect(batchOracle(envs, cpuBound).seconds).toBeCloseTo(oracle(envs, cpuBound).seconds, 9);
+      expect(batchOracle(envs, cpuBound).display).toEqual(values.display);
     }
     expect([64, 4096, 16384].map(envs => derive(envs as 64, false).display[1]))
       .toEqual(['64 robots, 3.6 hours', '4,096 robots, 4.0 minutes', '16,384 robots, 1.5 minutes']);

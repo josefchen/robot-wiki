@@ -1,4 +1,5 @@
 import { test, expect, type Locator } from '@playwright/test';
+import { citeParts, closeCiteNote, revealCiteNote } from './helpers/citation-note';
 import { openAdjustMore } from './helpers/figure-fold';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
@@ -76,26 +77,38 @@ for (const width of [375, 1440]) for (const slug of ['legged-locomotion', 'rewar
           await glyphs(paragraph, `prose-${seen.size}`);
           seen.add(start);
         }
-        const chip = paragraph.locator(`[data-cite-id="${id}"]`), link = chip.locator('a').first();
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the tooltip chip became a numbered sidenote. The number
+        // is the keyboard stop, the keyboard and pointer states open its note
+        // (from 1200 px the note already stands in the margin), and the same
+        // placement, title and source link are asserted on the note.
+        const chip = paragraph.locator(`[data-cite-id="${id}"]`);
+        const { mark: link, source } = citeParts(chip);
         await chip.evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
-        // Arrive from the chip's own jump link: a glossary tooltip that
-        // overflows at 375 is a focus stop of its own just before the chip.
+        // Arrive from the stop after the number: a glossary tooltip that
+        // overflows at 375 is a focus stop of its own just before it.
         await link.focus(); await page.keyboard.press('Tab'); await page.keyboard.press('Shift+Tab');
         await expect(link).toBeFocused();
-        const tooltip = chip.getByRole('tooltip');
-        for (const state of ['keyboard-focus', 'hover']) {
-          if (state === 'hover') { await link.blur(); await link.hover(); }
+        for (const state of ['keyboard-focus', 'pointer'] as const) {
+          await closeCiteNote(chip);
+          if (state === 'pointer') { await link.blur(); await page.mouse.move(2, 2); }
+          const tooltip = await revealCiteNote(chip, state === 'pointer' ? 'pointer' : 'keyboard');
           await expect(tooltip).toBeVisible();
+          // The first box read after the keyboard walk can predate the layout
+          // that places the note, so the floor is read once the box settles.
+          await expect.poll(async () => (await tooltip.boundingBox())?.y ?? -1,
+            { message: `${id} note top after it settles` }).toBeGreaterThanOrEqual(width === 375 ? 56 : 0);
           const box = await tooltip.boundingBox();
           expect.soft(box!.x).toBeGreaterThanOrEqual(0);
           expect.soft(box!.x + box!.width).toBeLessThanOrEqual(width);
           expect.soft(box!.y).toBeGreaterThanOrEqual(width === 375 ? 56 : 0);
           expect.soft(box!.y + box!.height).toBeLessThanOrEqual(height);
-          await expect(link).toHaveAttribute('href', getCitation(id)!.url);
+          await expect(source).toHaveAttribute('href', getCitation(id)!.url);
           await expect(tooltip).toContainText(getCitation(id)!.title);
           measures.push({ start, id, state, box, focusVisible: await link.evaluate(e => e.matches(':focus-visible')) });
           await capture(`cite-${targets[slug].findIndex(t => t[0] === start && t[1] === id)}-${state}`);
         }
+        await closeCiteNote(chip);
         await page.mouse.move(2, 2); await link.blur();
       }
       for (const id of [...new Set(targets[slug].map(t => t[1]))]) {
@@ -160,11 +173,15 @@ test('Miki mobile source and hike closeout is unobscured and earns zero original
       captures.push({ path, bounds, viewport: { width:375, height:812 }, scrollY:await page.evaluate(()=>scrollY) });
     }
   }
-  const chip=p.locator('[data-cite-id="miki-2022"]'), link=chip.locator('a').first();
+  // Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+  // the tooltip became the citation's sidenote, opened from its number by
+  // keyboard and read once its box settles.
+  const chip=p.locator('[data-cite-id="miki-2022"]'), { mark: link } = citeParts(chip);
   await chip.evaluate(e=>e.scrollIntoView({block:'center',behavior:'instant'}));
   await link.focus(); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Tab');
-  await expect(link).toBeFocused(); await expect(chip.getByRole('tooltip')).toBeVisible();
-  const box=await chip.getByRole('tooltip').boundingBox();
+  await expect(link).toBeFocused(); const note = await revealCiteNote(chip, 'keyboard'); await expect(note).toBeVisible();
+  await expect.poll(async () => (await note.boundingBox())?.y ?? -1, { message: 'Miki note top after it settles' }).toBeGreaterThanOrEqual(56);
+  const box=await note.boundingBox();
   expect(box!.x).toBeGreaterThanOrEqual(0); expect(box!.x+box!.width).toBeLessThanOrEqual(375);
   expect(box!.y).toBeGreaterThanOrEqual(56); expect(box!.y+box!.height).toBeLessThanOrEqual(812);
   const path=`${directory}/source-keyboard.png`; await page.screenshot({path});

@@ -218,8 +218,17 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
     expect(released.plans).toHaveLength(7);
     expect(released.proofs).toHaveLength(56);
     const oldIds = new Set(released.plans.map((p: { id: string }) => p.id));
-    expect(catalog.plans.filter((p: { id: string }) => oldIds.has(p.id))).toEqual(released.plans);
-    expect(catalog.proofs.filter((p: { planId: string }) => oldIds.has(p.planId))).toEqual(released.proofs);
+    // The parallel18 rebinding to the BatchScale scene replaced that plan's
+    // mount and proofs; its released plan and proofs stay byte-equal in the archive.
+    const parallelId = 'parallel-local-p18-20260923';
+    const parallelHistory = JSON.parse(read('audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json'));
+    expect(released.plans.find((p: { id: string }) => p.id === parallelId)).toEqual(parallelHistory.plan);
+    expect(released.proofs.filter((p: { planId: string }) => p.planId === parallelId)).toEqual(parallelHistory.proofs);
+    expect(catalog.plans.filter((p: { id: string }) => p.id === parallelId)).toHaveLength(1);
+    expect(catalog.plans.filter((p: { id: string }) => oldIds.has(p.id) && p.id !== parallelId))
+      .toEqual(released.plans.filter((p: { id: string }) => p.id !== parallelId));
+    expect(catalog.proofs.filter((p: { planId: string }) => oldIds.has(p.planId) && p.planId !== parallelId))
+      .toEqual(released.proofs.filter((p: { planId: string }) => p.planId !== parallelId));
     const historicalCatalog = JSON.parse(committedSource(checkpoint, 'audit/local-basis.json'));
     for (const path of paths) expect(JSON.stringify(historicalCatalog)).not.toContain(path);
     expect(JSON.stringify(catalog.plans.filter((p: { id: string }) => p.id !== 'crossdomain-taxonomy4-20260923')))
@@ -233,10 +242,12 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
     ));
     for (const plan of original.plans) {
       if (plan.id === 'economics-local-i52-20260923') expect(economicsHistory.plan).toEqual(plan);
+      else if (plan.id === parallelId) expect(parallelHistory.plan).toEqual(plan);
       else expect(catalog.plans).toContainEqual(plan);
     }
     for (const proof of original.proofs) {
       if (proof.planId === 'economics-local-i52-20260923') expect(economicsHistory.proofs).toContainEqual(proof);
+      else if (proof.planId === parallelId) expect(parallelHistory.proofs).toContainEqual(proof);
       else expect(catalog.proofs).toContainEqual(proof);
     }
     for (const path of paths) expect(JSON.stringify(original)).not.toContain(path);

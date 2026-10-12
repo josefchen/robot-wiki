@@ -181,14 +181,28 @@ describe('classical closure native evidence and preservation', { timeout: 60_000
     const archived = json('audit/evidence/economics-release-20260923/previous-economics-plan-and-proofs.json');
     expect(archived.plan).toEqual(historical.plans.find((p: { id: string }) => p.id === economicsId));
     expect(archived.proofs).toEqual(historical.proofs.filter((p: { planId: string }) => p.planId === economicsId));
+    // parallel18 is rebound to the BatchScale scene with newly executed proofs;
+    // its historical plan and proofs stay byte-equal in the parallel-local archive.
+    const parallelId = 'parallel-local-p18-20260923';
+    const retired = json('audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json');
+    expect(retired.plan).toEqual(historical.plans.find((p: { id: string }) => p.id === parallelId));
+    expect(retired.proofs).toEqual(historical.proofs.filter((p: { planId: string }) => p.planId === parallelId));
     // Main already carries seven separately executed economics proofs.
     // Preserve that exact released replacement and every other mission byte.
-    const expectedPlans = historical.plans.map((p: { id: string }) => p.id === economicsId
-      ? released.plans.find((r: { id: string }) => r.id === economicsId) : p);
-    const expectedProofs = historical.proofs.map((p: { id: string; planId: string }) => p.planId === economicsId
-      ? released.proofs.find((r: { id: string }) => r.id === p.id) : p);
-    expect(ctx.localBasis.catalog.plans.filter(p => historicalIds.has(p.id))).toEqual(expectedPlans);
-    expect(ctx.localBasis.catalog.proofs.filter(p => historicalIds.has(p.planId))).toEqual(expectedProofs);
+    const expectedPlans = historical.plans.filter((p: { id: string }) => p.id !== parallelId)
+      .map((p: { id: string }) => p.id === economicsId ? released.plans.find((r: { id: string }) => r.id === economicsId) : p);
+    const expectedProofs = historical.proofs.filter((p: { planId: string }) => p.planId !== parallelId)
+      .map((p: { id: string; planId: string }) => p.planId === economicsId ? released.proofs.find((r: { id: string }) => r.id === p.id) : p);
+    expect(ctx.localBasis.catalog.plans.filter(p => historicalIds.has(p.id) && p.id !== parallelId)).toEqual(expectedPlans);
+    expect(ctx.localBasis.catalog.proofs.filter(p => historicalIds.has(p.planId) && p.planId !== parallelId)).toEqual(expectedProofs);
+    // The rebound plan keeps its identity, ledger binding, part inventory, external parts and evidence.
+    const rebound = ctx.localBasis.catalog.plans.find(p => p.id === parallelId)!;
+    const identity = (p: Record<string, unknown>) => Object.fromEntries(['id', 'kind', 'originalId', 'ledgerPath',
+      'articleSlug', 'rowOrdinal', 'originalBinding', 'currentCells', 'currentTupleDigest', 'evidence'].map(key => [key, p[key]]));
+    expect(identity(rebound)).toEqual(identity(retired.plan));
+    expect(rebound.parts.map(p => [p.id, p.kind])).toEqual(retired.plan.parts.map((p: { id: string; kind: string }) => [p.id, p.kind]));
+    expect(rebound.parts.filter(p => p.kind === 'external-source'))
+      .toEqual(retired.plan.parts.filter((p: { kind: string }) => p.kind === 'external-source'));
     const old = json(`${evidence}/preservation-before.json`);
     for (const binding of old.selected) expect(binding.currentTupleDigest).toBe(originalClaimDigest(binding.currentCells));
     for (const ordinal of [1, 2, 3, 7]) {

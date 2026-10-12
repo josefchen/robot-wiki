@@ -2,8 +2,8 @@
   "schemaVersion": "parallel-local-checker-revision-v1",
   "name": "parallel-local-reader",
   "reviewedBy": "implementation worker for the parallel18 BatchScale rebinding (not independent acceptance)",
-  "rationale": "The checker learns scene targets: a target may name a motion scene, whose source and mounts the checker registers itself (the brand-v2 interactive registry does not list scenes), and a plan bound to it pins the scene records instead of interactive ones. It also gains the batch-scale recipe, which recomputes the BatchScale times and wording from lib/parallel-sim.ts, and re-pins the reviewed live hash of each historical verification suite the rebinding brings up to date. Every earlier recipe, input unit, dependency, threshold, ledger rule and negative check is unchanged, and the parallel recipe stays for the retained history.",
-  "observedAt": "2026-10-11T18:58:05Z",
+  "rationale": "The checker learns scene targets: a target may name a motion scene, whose source and mounts the checker registers itself (the brand-v2 interactive registry does not list scenes), and a plan bound to it pins the scene records instead of interactive ones. It also gains the batch-scale recipe, which recomputes the BatchScale times and wording from lib/parallel-sim.ts, binds the parallel18 row to the BatchScale scene target in place of the retired TrainingTimeChart, and re-pins the reviewed live hash of each historical verification suite the rebinding brings up to date. Every earlier recipe, input unit, dependency, threshold, ledger rule and negative check is unchanged, and the parallel recipe stays for the retained history.",
+  "observedAt": "2026-10-12T00:42:42Z",
   "archivedFrom": "79e1d4409ee7bbfe923a15c252bd0a1196b63d91",
   "before": {
     "path": "lib/audit-local-basis.ts",
@@ -12,8 +12,8 @@
   },
   "after": {
     "path": "lib/audit-local-basis.ts",
-    "bytes": 118664,
-    "sha256": "0168b4db33775ce763ee45637f8bec65120d46e945d6c30d748c40c1ab8b6623"
+    "bytes": 118682,
+    "sha256": "d2778193b282c32af9b463cbe3eb195c5a753179178b4674a10ff610194fa75d"
   },
   "edits": [
     {
@@ -33,6 +33,10 @@
       "after": "/** A scene target binds a motion scene the checker registers itself, never a brand-v2 interactive record. */\ntype Target = { component: string | null; recipe: RecipeId; mounts: readonly number[]; scene?: string };\n"
     },
     {
+      "before": "  'audit/rl-sim2real.md:parallel-sim-rl:18': { component: 'TrainingTimeChart', recipe: 'parallel', mounts: [1] },\n",
+      "after": "  'audit/rl-sim2real.md:parallel-sim-rl:18': { component: 'BatchScale', recipe: 'batch-scale', mounts: [1], scene: 'batch-scale' },\n"
+    },
+    {
       "before": "  friction: ['lib/sim2real.ts'], teacher: ['lib/sim2real.ts'], parallel: ['lib/parallel-sim.ts'],\n",
       "after": "  friction: ['lib/sim2real.ts'], teacher: ['lib/sim2real.ts'], parallel: ['lib/parallel-sim.ts'],\n  'batch-scale': ['lib/parallel-sim.ts'],\n"
     },
@@ -50,7 +54,11 @@
     },
     {
       "before": "    currentTestHash: 'd2c39b3c94fad8f22da07efe5fa4517aef9325dc77477f510c65275e421fb687',\n",
-      "after": "    currentTestHash: '4e4f8d09ea64ba6606ed517272d3fbadd1287b418a623d4abf980cc84d69476e',\n"
+      "after": "    currentTestHash: 'b9070de0d151ee9f5f597be3dd19a7ca2b29905877b1df853078666d224eb7a3',\n"
+    },
+    {
+      "before": "    currentTestHash: '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148',\n",
+      "after": "    currentTestHash: '60e2ac48fb9091fa6c6fc1790190672f5e67c529e2cfc39a7a3f2fcfb59afc66',\n"
     },
     {
       "before": "  root: string; catalog: LocalCatalog; registry: Registry; publishedRoutes: readonly string[];\n};\n",

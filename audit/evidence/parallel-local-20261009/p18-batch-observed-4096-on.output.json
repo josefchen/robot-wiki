@@ -1,0 +1,19 @@
+{
+  "values": {
+    "breakdown": {
+      "simSeconds": 0.036384,
+      "learnSeconds": 0.04,
+      "cpuSeconds": 0.120112,
+      "totalSeconds": 0.196496
+    },
+    "iterations": 2237.9557291666665,
+    "seconds": 439.7493489583333,
+    "words": "7.3 minutes",
+    "display": [
+      "7.3 minutes"
+    ]
+  },
+  "units": "seconds:s; iterations:count; robots:count",
+  "precision": "words: hours or minutes toFixed(1), otherwise whole seconds",
+  "formula": "batch-scale:derive:v1"
+}

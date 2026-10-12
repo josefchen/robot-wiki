@@ -7,7 +7,7 @@ import { buildManifest, sha256 } from '../../lib/brand-v2-baseline.ts';
 import { originalClaimDigest, parseLedger, ledgerSummary } from '../../lib/audit-ledger.ts';
 import {
   LOCAL_BASIS_REQUIRED_TARGETS, LOCAL_RECIPE_DEPENDENCIES, parseLocalBasisCatalog, recomputeLocalDerivation,
-  createLocalArtifactReader, loadLocalBasisContext, localPlanDigest, localPartDigest,
+  createLocalArtifactReader, loadLocalBasisContext, localPlanDigest, localPartDigest, localSceneRegistry,
   validateLocalBasisPlan, type LocalPlan, type LocalProof, type LocalBasisContext, type LocalMember,
 } from '../../lib/audit-local-basis.ts';
 import { figureMigrationRegistry } from '../../lib/audit-figure-migration-continuity.ts';
@@ -42,7 +42,7 @@ const roots: string[] = [];
 afterEach(() => { for (const root of roots.splice(0)) rmSync(root, { recursive: true, force: true }); });
 const project = process.cwd();
 const fixtureText = 'SYNTHETIC ONLY: authored illustrative assumptions, not scientific measurements.';
-function fixture(mixed = false, model: 'reward' | 'parallel' = 'reward') {
+function fixture(mixed = false, model: 'reward' | 'parallel' | 'batch-scale' = 'reward') {
   const root = mkdtempSync(join(tmpdir(), 'audit-local-fixture-')); roots.push(root);
   const put = (path: string, value: string | Buffer) => {
     mkdirSync(dirname(join(root, path)), { recursive: true }); writeFileSync(join(root, path), value);
@@ -64,21 +64,27 @@ function fixture(mixed = false, model: 'reward' | 'parallel' = 'reward') {
   };
   const slug = model === 'reward' ? 'reward-design-mpc' : 'parallel-sim-rl';
   const ordinal = model === 'reward' ? 4 : 18;
-  const componentName = model === 'reward' ? 'RewardShaping' : 'TrainingTimeChart';
+  const componentName = { reward: 'RewardShaping', parallel: 'TrainingTimeChart', 'batch-scale': 'BatchScale' }[model];
   const article = `content/rl-sim2real/${slug}.mdx`;
+  // Every context derives the scene targets' records from their articles, so
+  // each root has the BatchScale article; only the batch-scale model mounts it.
+  put('content/rl-sim2real/parallel-sim-rl.mdx', fixtureText);
+  put(article, model === 'batch-scale' ? `${fixtureText}\n\n<BatchScale className="my-6" />\n` : fixtureText);
   const registry = JSON.parse(readFileSync(join(project, 'contract/brand-v2-registries.json'), 'utf8'));
   // The figure migration retired the TrainingTimeChart mount; plans older than
   // it read its archived record through the reviewed registry successor.
   const interactive = figureMigrationRegistry(project, registry.interactive);
-  const source = interactive.sources.find((s: { id: string }) => s.id === `interactive:${componentName}`);
-  const mounted = interactive.mounts.find((m: { id: string }) => m.id === `mount:/rl-sim2real/${slug}/:${componentName}:1`);
+  const scenes = localSceneRegistry(root, LOCAL_BASIS_REQUIRED_TARGETS);
+  const known = { ...interactive, sources: [...interactive.sources, ...scenes.sources], mounts: [...interactive.mounts, ...scenes.mounts] };
+  const sourceId = `${model === 'batch-scale' ? 'scene' : 'interactive'}:${componentName}`;
+  const source = known.sources.find((s: { id: string }) => s.id === sourceId)!;
+  const mounted = known.mounts.find((m: { id: string }) => m.id === `mount:/rl-sim2real/${slug}/:${componentName}:1`)!;
   const component = source.sourcePath as string;
   const test = 'tests/unit/audit-local-basis.test.ts';
   const dependencies = [...LOCAL_RECIPE_DEPENDENCIES[model], 'lib/audit-local-basis.ts', component, article, test];
   for (const path of dependencies.filter(p => p !== article)) {
     put(path, readFileSync(join(project, path)));
   }
-  put(article, fixtureText);
   const currentCells = { claim: 'SYNTHETIC authored reward term set', sourceChecked: 'synthetic local basis',
     verdict: 'V', note: 'SYNTHETIC not a real audit' };
   const row = (binding: string) => `| ${Object.values(currentCells).join(' | ')} | | | | ${binding} |`;
@@ -97,7 +103,7 @@ function fixture(mixed = false, model: 'reward' | 'parallel' = 'reward') {
     currentCells, currentTupleDigest: originalClaimDigest(currentCells),
     mounts: [{ sourceId: source.id, sourceFingerprint: source.fingerprint, mountId: mounted.id,
       mountFingerprint: mounted.fingerprint, route: mounted.route }],
-    disclosure: { member: full(article), text: fixtureText },
+    disclosure: { member: { ...full(article), length: Buffer.byteLength(fixtureText), sha256: sha256(Buffer.from(fixtureText)) }, text: fixtureText },
     parts: [{ id: 'local', kind: 'authored-parameter', text: fixtureText, requiredProofIds: ['parameters'] }],
     evidence: [], planReview: null, adjudications: [],
   };
@@ -118,7 +124,7 @@ function fixture(mixed = false, model: 'reward' | 'parallel' = 'reward') {
       endedAt: '2026-01-01T00:00:01Z', exitCode: 0, test: ref(test),
       receipt: { path: 'audit/fixtures/run.json', bytes: 1, sha256: '0'.repeat(64) } },
   };
-  const context: LocalBasisContext = { root, registry: interactive,
+  const context: LocalBasisContext = { root, registry: known,
     publishedRoutes: [mounted.route], catalog: { schemaVersion: 'authored-local-basis-v1', plans: [plan], proofs: [proof] } };
   const sealRun = (p: LocalProof) => {
     const { receipt: _receipt, ...run } = p.provenance; void _receipt;
@@ -427,7 +433,7 @@ const authoredDefaults: Weights = { velTrack: 1, yawTrack: .5, torque: .8, joint
   actionRate: .8, jointLimit: 1, collision: 1, baseHeight: .5, orientation: .8,
   airTime: .6, stumble: .8, termination: 1.5 };
 function withAuthoredCase(recipe: LocalProof['recipe'], pointers: Record<string, string>) {
-  if (recipe.id !== 'reward' && recipe.id !== 'parallel') throw Error('synthetic case recipe');
+  if (recipe.id !== 'reward' && recipe.id !== 'parallel' && recipe.id !== 'batch-scale') throw Error('synthetic case recipe');
   const f = fixture(false, recipe.id);
   const units: Record<string, string> = { weights: 'dimensionless', phase: 'cycle',
     envs: 'count', cpuBound: 'boolean', samples: 'count' };
@@ -693,13 +699,16 @@ describe('authored-local-basis-v1 compatibility cases', () => {
     expect(parseLocalBasisCatalog(f.context.catalog)).toEqual(f.context.catalog);
     expect(f.validate().failures).toEqual([]);
   });
+  // parallel18 binds the BatchScale scene through the batch-scale recipe. The
+  // retired TrainingTimeChart binding keeps its computation checks and must
+  // now be rejected; its plan and proofs live in the parallel-local archive.
   it.each([
     [64, false, '/authoredDomains/envs/min', '/cpuBound'],
     [16384, false, '/authoredDomains/envs/max', '/cpuBound'],
     [4096, true, '/envs', '/authoredDomains/cpuBound/on'],
     [64, true, '/authoredDomains/envs/min', '/authoredDomains/cpuBound/on'],
     [16384, true, '/authoredDomains/envs/max', '/authoredDomains/cpuBound/on'],
-  ] as const)('binds parallel envs=%s CPU=%s and preserves 49 samples', (envs, cpuBound, envPointer, cpuPointer) => {
+  ] as const)('recomputes retired parallel envs=%s CPU=%s with 49 samples but no longer binds parallel18 to it', (envs, cpuBound, envPointer, cpuPointer) => {
     const f = withAuthoredCase({ id: 'parallel', mode: 'derive', inputs: { envs, cpuBound, samples: 49 } },
       { envs: envPointer, cpuBound: cpuPointer, samples: '/samples' });
     const values = f.derived.expected.values as { seconds: number; curve: unknown[]; display: string[] };
@@ -708,6 +717,22 @@ describe('authored-local-basis-v1 compatibility cases', () => {
     expect(values.seconds).toBeCloseTo(seconds, 10);
     expect(values.curve).toHaveLength(49);
     expect(values.display[0]).toBe(envs.toLocaleString('en-US'));
+    expect(f.validate().failures.join(' ')).toMatch(/required mount inventory differs/);
+  });
+  it.each([
+    [64, false, 'one-batch'], [4096, false, 'scale'], [16384, false, 'recap'],
+    [64, true, 'one-batch'], [4096, true, 'cpu'], [16384, true, 'recap'],
+  ] as const)('binds batch-scale robots=%s CPU=%s to the %s beat and its curve', (envs, cpuBound, beat) => {
+    const f = withAuthoredCase({ id: 'batch-scale', mode: 'derive', inputs: { envs, cpuBound } },
+      { envs: `/beatRobots/${beat}`, cpuBound: `/curves/${cpuBound ? 'dashed' : 'solid'}` });
+    const values = f.derived.expected.values as { seconds: number; words: string; display: string[] };
+    // Independent cost arithmetic: only the dashed curve adds per-robot main-computer work.
+    const seconds = 220000000 / (envs * 24) * (.02 + envs * .000004 + .04 + .03 + (cpuBound ? envs * .000022 : 0));
+    expect(values.seconds).toBeCloseTo(seconds, 10);
+    const words = seconds >= 3600 ? `${(seconds / 3600).toFixed(1)} hours` : `${(seconds / 60).toFixed(1)} minutes`;
+    const robots = envs.toLocaleString('en-US');
+    expect(values.display).toEqual(cpuBound ? [words] : [`${robots} robots at once: ${words} of training`, `${robots} robots, ${words}`]);
+    expect(f.plan.mounts.map(m => [m.sourceId, m.mountId])).toEqual([['scene:BatchScale', 'mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1']]);
     expect(f.validate().failures).toEqual([]);
   });
   it.each(['default-pointer', 'partial-object', 'different-plan', 'tampered-parameter', 'changed-input'])('rejects reward case basis defect: %s', mutation => {
@@ -730,16 +755,18 @@ describe('authored-local-basis-v1 compatibility cases', () => {
     f.seal();
     expect(f.validate().failures.join(' ')).toMatch(/input basis|recomputed|missing or extra/);
   });
-  it('does not treat the parallel false default as an authored true basis', () => {
-    const f = withAuthoredCase({ id: 'parallel', mode: 'derive', inputs: { envs: 64, cpuBound: true, samples: 49 } },
-      { envs: '/authoredDomains/envs/min', cpuBound: '/cpuBound', samples: '/samples' });
+  it('does not treat the solid curve false as an authored dashed true basis', () => {
+    const f = withAuthoredCase({ id: 'batch-scale', mode: 'derive', inputs: { envs: 64, cpuBound: true } },
+      { envs: '/beatRobots/one-batch', cpuBound: '/curves/solid' });
     expect(f.validate().failures.join(' ')).toMatch(/basis mismatch/);
   });
-  it.each(['envs', 'samples'] as const)('rejects changed parallel %s despite a rehashed correct derivation', input => {
-    const f = withAuthoredCase({ id: 'parallel', mode: 'derive', inputs: { envs: 64, cpuBound: true, samples: 49 } },
-      { envs: '/authoredDomains/envs/min', cpuBound: '/authoredDomains/cpuBound/on', samples: '/samples' });
-    if (f.derived.recipe.id !== 'parallel' || f.derived.recipe.mode !== 'derive') throw Error('synthetic recipe');
-    f.derived.recipe.inputs[input] = input === 'envs' ? 128 : 3;
+  it.each(['envs', 'cpuBound'] as const)('rejects changed batch-scale %s despite a rehashed correct derivation', input => {
+    const f = withAuthoredCase({ id: 'batch-scale', mode: 'derive', inputs: { envs: 64, cpuBound: true } },
+      { envs: '/beatRobots/one-batch', cpuBound: '/curves/dashed' });
+    expect(f.validate().failures).toEqual([]);
+    if (f.derived.recipe.id !== 'batch-scale' || f.derived.recipe.mode !== 'derive') throw Error('synthetic recipe');
+    if (input === 'envs') f.derived.recipe.inputs.envs = 4096;
+    else f.derived.recipe.inputs.cpuBound = false;
     f.derived.expected = recomputeLocalDerivation(f.derived.recipe); f.seal();
     expect(f.validate().failures.join(' ')).toMatch(/authored input basis mismatch/);
   });
