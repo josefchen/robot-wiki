@@ -383,28 +383,28 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Generative Simulation for Robot Learning',
     headTerm: 'generative simulation',
     description:
-      'Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.',
+      'Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365, SimFoundry, Genesis World, Marble.',
     queries: ['generative simulation robotics', 'AI-generated simulation environments'],
   },
   '/world-models/model-based-robot-learning/': {
     title: 'Model-Based Robot Learning with World Models',
     headTerm: 'model-based robot learning',
     description:
-      'Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2 and real excavator and insertion results.',
+      'Model-based robot learning: learn dynamics, plan with MPC or train in imagination. Dreamer, TD-MPC2, SimDist and real excavator and insertion results.',
     queries: ['model-based reinforcement learning robotics', 'model-based RL robot'],
   },
   '/world-models/evaluation/': {
     title: 'World Model Evaluation and Benchmarks',
     headTerm: 'world model evaluation',
     description:
-      'Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.',
+      'Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena, WorldSimProbe and Veo.',
     queries: ['world model evaluation', 'world model benchmark robotics'],
   },
   '/world-models/world-models-vs-simulators/': {
     title: 'World Models vs Physics Simulators for Robotics',
     headTerm: 'world models vs physics simulators',
     description:
-      'Learned world models vs physics simulators like MuJoCo: cost per query, counterfactual coverage, and when to use hybrids.',
+      'Learned world models vs physics simulators like MuJoCo Warp and Newton: cost per query, counterfactual coverage, and when to use hybrids.',
     queries: ['world model vs simulator', 'world models vs physics engines'],
   },
   '/frontier/': {

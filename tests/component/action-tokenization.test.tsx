@@ -1,9 +1,16 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { ActionTokenization, motionGloss } from '@/components/interactive/action-tokenization';
+import { JSDOM } from 'jsdom';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { ActionTokenization, motionGloss, needleOffset, zoomStartFor } from '@/components/interactive/action-tokenization';
+import { HALF, NOTCHES, notchX } from '@/components/iso/figures/token-rack-bank';
+import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
+import { mainViewSymbolHits } from '@/lib/figure-main-view';
 import {
   ACTION_DIMS,
+  BIN_COUNT,
+  binCenter,
   binIndex,
   generateActionChunk,
   tokenForBin,
@@ -123,24 +130,29 @@ describe('ActionTokenization', () => {
     expect(screen.getByText(/illustrative/i)).toBeInTheDocument();
   });
 
-  it('glosses the seven motions on the gripper stage and names the slot in the note', () => {
+  it('glosses the seven motions on the rack stage and names the slot in the close-up', () => {
     render(<ActionTokenization />);
+    // The drawing that replaced the gripper and its list: one rack per
+    // motion, each slider named for its motion, the chosen one marked.
     const hand = screen.getByRole('img', { name: /continuous action chunk/i });
     for (const [i] of ACTION_DIMS.entries()) {
-      expect(within(hand).getByText(motionGloss(i))).toBeInTheDocument();
+      expect(hand).toHaveAttribute('aria-label', expect.stringContaining(motionGloss(i)));
+      expect(hand.querySelector(`[data-motion="${motionGloss(i)}"]`)).toHaveAttribute('data-word', String(binIndex(chunk[i][7])));
     }
     const bin = binIndex(chunk[0][7]);
-    expect(hand.querySelector('[data-selection="selected motion"]')).toHaveTextContent('forward/back');
+    expect(hand.querySelector('[data-selection="selected motion"]')).toHaveAttribute('data-motion', 'forward/back');
+    // The close-up names the slot and the word, and shows fifteen notches with the assigned one marked.
     const ruler = screen.getByRole('img', { name: /binning detail/i });
-    expect(ruler).toHaveTextContent(`in slot ${bin} of 256,`);
-    expect(ruler).toHaveTextContent(`written as word ${bin}`);
-    expect(ruler.querySelectorAll('rect').length).toBe(15);
+    expect(ruler).toHaveAttribute('aria-label', expect.stringContaining(`slot ${bin} of 256,`));
+    expect(ruler).toHaveAttribute('aria-label', expect.stringContaining(`written as word ${bin}`));
+    expect(ruler.querySelectorAll('[data-notch]').length).toBe(15);
+    expect(ruler.querySelector('[data-selection="assigned bin"]')).toHaveAttribute('data-notch', String(bin));
   });
 
   it('describes the traces root with a sampled table and the bin chart with a state list', () => {
     const { container } = render(<ActionTokenization />);
     const desc = container.querySelector('[data-chart-description]');
-    expect(desc?.textContent).toMatch(/dashed rule under the trace/i);
+    expect(desc?.textContent).toMatch(/slider on the forward\/back rack sits in that notch/i);
     expect(desc?.textContent).toMatch(/action/i);
     const details = container.querySelector('details[data-chart-data]');
     expect(details).toHaveAttribute('data-chart-form', 'table');
@@ -154,5 +166,66 @@ describe('ActionTokenization', () => {
       'details[data-chart-data][data-chart-form="state"]',
     );
     expect(binDetails?.querySelectorAll('dt').length).toBeGreaterThanOrEqual(3);
+  });
+});
+
+describe('ActionTokenization rack model', () => {
+  it('cuts each rack with one notch per bin, so a slider sits where its word is', () => {
+    expect(NOTCHES).toBe(BIN_COUNT);
+    // Notch n's centre on the rack is the bin's centre value, scaled to the rack.
+    for (const bin of [0, 120, 255]) expect(notchX(bin)).toBeCloseTo(binCenter(bin) * HALF);
+    // At every moment every slider stands in the notch of its own word.
+    render(<ActionTokenization defaultStep={11} />);
+    const hand = screen.getByRole('img', { name: /continuous action chunk/i });
+    for (const [i] of ACTION_DIMS.entries()) {
+      expect(hand.querySelector(`[data-motion="${motionGloss(i)}"]`)).toHaveAttribute('data-word', String(binIndex(chunk[i][11])));
+    }
+  });
+
+  it('puts the needle inside the assigned notch of the close-up, at most half a notch from its centre', () => {
+    for (const [i] of ACTION_DIMS.entries()) {
+      for (let t = 0; t < 16; t++) {
+        const value = chunk[i][t];
+        const bin = binIndex(value);
+        const start = zoomStartFor(bin);
+        expect(bin - start).toBeGreaterThanOrEqual(0);
+        expect(bin - start).toBeLessThan(15);
+        const offset = needleOffset(value, start);
+        expect(Math.abs(offset - (bin - start + 0.5))).toBeLessThanOrEqual(0.5 + 1e-9);
+      }
+    }
+  });
+
+  it('writes the next moment from the one button, and still shows seven words', () => {
+    render(<ActionTokenization />);
+    const write = screen.getByTestId('tok-write');
+    expect(write).toHaveTextContent('Write the next moment');
+    // A secondary action carries no pressed state: its label and disabled state show the write in progress.
+    expect(write).not.toHaveAttribute('aria-pressed');
+    expect(write).toBeEnabled();
+    fireEvent.click(write);
+    expect(write).toHaveTextContent('Writing the seven words');
+    expect(write).toBeDisabled();
+    expect(write).not.toHaveAttribute('aria-pressed');
+    // Scrubbing takes over from a write in progress.
+    fireEvent.change(slider(), { target: { value: '3' } });
+    expect(write).toHaveTextContent('Write the next moment');
+    expect(write).toBeEnabled();
+    expect(within(screen.getByTestId('token-stream')).getAllByRole('listitem')).toHaveLength(7);
+  });
+});
+
+describe('ActionTokenization served HTML', () => {
+  const html = `<!doctype html><html><body><main>${renderToStaticMarkup(<ActionTokenization />)}</main></body></html>`;
+
+  it('passes the figure-system check', () => {
+    const { figures, violations } = inspectFigureDocument(html, '/manipulation/vla-models/');
+    expect(figures).toEqual(['action-tokenization']);
+    expect(violations.map(formatViolation)).toEqual([]);
+  });
+
+  it('shows no symbol, formula or bare unit in the main view', () => {
+    const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
+    expect(mainViewSymbolHits(frame)).toEqual([]);
   });
 });

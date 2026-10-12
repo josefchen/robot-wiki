@@ -306,10 +306,10 @@ describe('state-form chart descriptions', () => {
     expect(moved).toMatch(/fan of 8 tried moves/);
   });
 
-  it('LatentImagination throw describes the drift and tracks the look-ahead', () => {
+  it('LatentImagination track describes the drift and tracks the look-ahead', () => {
     const { container } = render(<LatentImagination />);
     const { text } = assertDescribed(
-      screen.getByRole('img', { name: /a robot arm throws a ball/i }),
+      screen.getByRole('img', { name: /imagined future is laid as track/i }),
       container,
     );
     expect(text).toMatch(/imagines 15 steps ahead/);

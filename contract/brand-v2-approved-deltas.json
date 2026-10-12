@@ -83845,6 +83845,358 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-iso-draw-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/iso/react/draw.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7204473944d05a79c79228f09942e708bb1ef64ccc61ee96199dd77c7d94ee20",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one edge from an absent seal: the member is new. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop, so the drawing's accessible name is the one expression {label}. The eleven redrawn figures pass their own plain-words descriptions of the object and its state: the tracking bench (calibration), the plan-tape reader and the token rack bank with its close-up (manipulation), the twin actuator bench and the graphics-card bench (sim-to-real), the track-laying bench, the twin-screen console and the planning table (world models), and the picture-queue bench and the node bench (ROS 2). The grasp test table keeps its own svg and name.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-action-conditioning-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/action-conditioning.tsx:aria-label:1",
+      "oldHash": "369c8ec82ab9299a9c66608c510a80321a7f6749ee4dd1f77d34eb4ed03f3ce2",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-action-conditioning-expression-aria-label-1). ActionConditioning (generative-video) is now a twin-screen video console. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop; the console's name, which still names both imagined futures, the model and whether each screen's command lever is plugged in, now comes through that label, so this file's own aria-label expression is gone.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-action-tokenization-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/action-tokenization.tsx:aria-label:2",
+      "oldHash": "ca5d5e40c5a3eab672a0802264356ca0460d9c6f7007561ca8f013f84387dab1",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261003-name-action-tokenization-expression-aria-label-2). ActionTokenization (vla-models) is now a bank of seven 256-notch racks. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop; the stage name (seven dimensions over sixteen control steps, one rack per motion, the slider in the notch nearest its command, the register's seven pins) now comes through that label, so this file's own aria-label expression is gone.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-action-tokenization-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/action-tokenization.tsx:aria-label:3",
+      "oldHash": "7216bbc0f2345866d79b4a54e651a5fed6199f542df63b1b05f738fd88e45cc4",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the sealed hash. ActionTokenization's binning detail is now a close-up of the selected rack. It is a second IsoFigure, and its name, which keeps the bin, value and step and adds the notch, word and needle, now comes through the kit's label prop, so this file's own aria-label expression is gone.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-actuator-gap-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/actuator-gap.tsx:aria-label:1",
+      "oldHash": "a5be25e5839c8a96a5efbcda4f09f00208a974b06a5172e68b83cc40b3de6119",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (rl-sim2real-figures-20261011-accessible-names-actuator-gap-expression-aria-label-1). ActuatorGap (legged-locomotion) is now a twin actuator bench with a chart recorder. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop; the name (the same command to a real and a simulated drive, the late overshooting real crank, the twin that arrives at once or follows the learned curve, and what the trained robot then does) now comes through that label, so this file's own aria-label expression is gone.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-grasp-wrench-lab-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:3",
+      "oldHash": "8db47a681abd06d114fe56a1568f1c469fed5e6f54f8cec129123db56c619546",
+      "newHash": "765964f7e6a2d785f5e9bb12fd84e73540b34f772af82052195a89a8785d370b",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261007-name-grasp-wrench-lab-expression-aria-label-3). GraspWrenchLab (grasp-planning) is now a grasp test table: a square block on a round table held by fingertip posts, pulled by a cord toward eight stations in turn. The object view keeps its own svg, and its name now describes that table and still reports how many of the eight pulls the current fingertips resist. The contact positions, friction cones and force-closure test are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-jepa-planning-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/jepa-planning.tsx:aria-label:1",
+      "oldHash": "df865227c6df33e6d9493ab0af528570b06abc6274873e001050b26a4ead966e",
+      "newHash": "27e208c84e1d20b78a946a577d8d2db65f5271dbe0d679457571a08d31fdca49",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-jepa-planning-expression-aria-label-1). JepaPlanning (jepa) is now a gantry planning table. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop, so the table's name leaves this file's aria-label list and the members after it move up one place: this member is now the distance strip's name (\"Distance left to the goal after each move ...\"), unchanged in wording and kept in the How this was made fold.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-jepa-planning-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/jepa-planning.tsx:aria-label:2",
+      "oldHash": "27e208c84e1d20b78a946a577d8d2db65f5271dbe0d679457571a08d31fdca49",
+      "newHash": "0a0c349e7b2680a3eb96b66ce08188ddb84db9866cbb6f710765b5bfbe5b7311",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-jepa-planning-expression-aria-label-2). JepaPlanning: with the planning table's name now passed through the kit's IsoFigure label, this member is the options slider's name (\"Options tried each step, currently ...\"), unchanged in wording; it moved up one place.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-jepa-planning-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/jepa-planning.tsx:aria-label:3",
+      "oldHash": "0a0c349e7b2680a3eb96b66ce08188ddb84db9866cbb6f710765b5bfbe5b7311",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-jepa-planning-expression-aria-label-3). JepaPlanning: with the planning table's name now passed through the kit's IsoFigure label, the file holds two aria-label expressions instead of three, so this third member is gone; its wording lives on unchanged as member 2.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-latent-imagination-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/latent-imagination.tsx:aria-label:1",
+      "oldHash": "fb5cec36cb55168ba914a6efd48de425afe972a309a3fa1ba7513019e9df6a45",
+      "newHash": "d5d4358ab2602a7ea24ef62934c64166dd0245a26bfbab9285d5e6a7c2b52346",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-latent-imagination-expression-aria-label-1). LatentImagination (latent-dynamics) is now a round track-laying bench. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop, so the drawing's name leaves this file's aria-label list and the members after it move up one place: this member is now the deviation chart's name (\"Latent deviation versus imagination step ...\"), unchanged in wording.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-latent-imagination-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/latent-imagination.tsx:aria-label:2",
+      "oldHash": "d5d4358ab2602a7ea24ef62934c64166dd0245a26bfbab9285d5e6a7c2b52346",
+      "newHash": "78f88ebb2959f2061bf9e92deac497796515c92b5e6e2772b42e4853e5d17b63",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (opus-figure-migration-20261001-accessible-names-latent-imagination-expression-aria-label-2). LatentImagination: with the track-laying bench's name now passed through the kit's IsoFigure label, this member is the horizon slider's name (\"How far ahead to imagine, currently ...\"), unchanged in wording; it moved up one place.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-latent-imagination-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/latent-imagination.tsx:aria-label:3",
+      "oldHash": "78f88ebb2959f2061bf9e92deac497796515c92b5e6e2772b42e4853e5d17b63",
+      "newHash": "571c39f1054768d017d75d7721b8b8b192161e1cac6c504d544d0bfefa4ea2a5",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-latent-imagination-expression-aria-label-3). LatentImagination: with the track-laying bench's name now passed through the kit's IsoFigure label, this member is the per-step accuracy slider's name (\"How accurate each step is, currently ...\"), unchanged in wording; it moved up one place.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-latent-imagination-expression-aria-label-4",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/latent-imagination.tsx:aria-label:4",
+      "oldHash": "571c39f1054768d017d75d7721b8b8b192161e1cac6c504d544d0bfefa4ea2a5",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-latent-imagination-expression-aria-label-4). LatentImagination: with the track-laying bench's name now passed through the kit's IsoFigure label, the file holds three aria-label expressions instead of four, so this fourth member is gone; its wording lives on unchanged as member 3.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-qos-queue-age-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/qos-queue-age.tsx:aria-label:1",
+      "oldHash": "8df977a718f4b123fd163ff9a6fd34285cf5fe6b0bfae9b4db8881e965f91b72",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (figure-mounts-20261007-reskin-20261010-accessible-names-qos-queue-age-expression-aria-label-1). QosQueueAge (ros2-for-ml-engineers) is now a picture-queue bench. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop; the name (the queue depth and the age in seconds of the oldest picture, the one the model's gantry lifts out) now comes through that label, so this file's own aria-label expression is gone.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-receding-horizon-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/receding-horizon.tsx:aria-label:3",
+      "oldHash": "dd825e19d94e32be31d04cbb7dfd0f7c90b7a54973fce16eb7c3dabaf71c2a43",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the sealed hash. RecedingHorizon (diffusion-policy) is now a plan-tape reader. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop; the rolling-plan name (each plan of T_p moves punched as rows, the first T_a rows acted on and inked, the unread tail cut into a bin, plans per window) now comes through that label, so this file's own aria-label expression is gone.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-robots-per-gpu-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/robots-per-gpu.tsx:aria-label:1",
+      "oldHash": "3fc54f0ab5410a682a43beca606d10f57417245fd385a4383915782ef10b1695",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (rl-sim2real-figures-20261011-accessible-names-robots-per-gpu-expression-aria-label-1). RobotsPerGpu (parallel-sim-rl) is now a graphics card open on a test bench. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop; the name (the chip face as a grid of squares of 128 simulated robots, how many squares the chosen count fills, and the magnifier over the first square) now comes through that label, so this file's own aria-label expression is gone.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-ros2-interfaces-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/ros2-interfaces.tsx:aria-label:1",
+      "oldHash": "b13a48b43cd4bc32775af0894a783b014f9cbe3a7cfc24e88ec2e4b1cb5983ce",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (figure-mounts-20261007-reskin-20261010-accessible-names-ros2-interfaces-expression-aria-label-1). Ros2Interfaces (ros2-for-ml-engineers) is now two node cabinets on one bench joined three ways. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop; the name (the two nodes, the link they talk through and its messages in order) now comes through that label, so this file's own aria-label expression is gone.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-accessible-names-time-offset-miss-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/time-offset-miss.tsx:aria-label:2",
+      "oldHash": "79c9cad7c50888f795d4a906db19d924c171b13e06924d65cf80c84158572d1b",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one plain edge from the member's last approved endpoint (figure-mounts-20261007-reskin-20261010-accessible-names-time-offset-miss-expression-aria-label-2). TimeOffsetMiss (calibration) is now a tracking bench: a gripper on a rail over a ruler and a camera beam aimed where the late photo shows it. The kit's IsoFigure (components/iso/react/draw.tsx) draws each redrawn figure as one role=\"img\" svg named by its label prop; the name (the hand speed and how many millimetres behind the photo puts the hand) now comes through that label, so this file's own aria-label expression is gone.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-behavioral-defaults-actuator-gap-default-3",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/actuator-gap.tsx:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "974928ba13f8d1c02f75da6cfb32e6f9981eb5077560d7c3e0874c4b02fba67d",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one edge from an absent seal: the member is new. ActuatorGap's twin actuator bench draws its still pose, the one shown before a reader presses run, from the default preset: the rest crank angles read DEFAULT_MODEL through shareOf. The default itself is unchanged (the ideal motor).",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-behavioral-defaults-actuator-gap-default-4",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/actuator-gap.tsx:4",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b57fbafe7ce2ab6e526d296f6efa42e7329e76d801453db7b7a65552c83cfb27",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one edge from an absent seal: the member is new. ActuatorGap's chart recorder draws its rest traces from the default preset: the simulated trace at rest reads DEFAULT_MODEL through shareOf. The default itself is unchanged (the ideal motor).",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-behavioral-defaults-actuator-gap-default-5",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/actuator-gap.tsx:5",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "f7e81eb063e482cc15d9644cd3122ffda0a7d1f6e605c152419e6622d308acf0",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one edge from an absent seal: the member is new. ActuatorGap's learned-model cartridge rests in or out of its bay according to the default preset: its rest seat reads DEFAULT_MODEL through shareOf. The default itself is unchanged (the ideal motor).",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-figures-20261012-behavioral-defaults-robots-per-gpu-default-3",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/robots-per-gpu.tsx:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b381c22fc869e11279385b83f3e432ea50e02471d41acf6a4369d1b4eea19a0e",
+      "reason": "First isometric figure landing of 2026-10-12 (anatomy-1: the figure kit in components/iso with the calibration bench, then the manipulation, sim-to-real, world-models and classical figure batches), as one edge from an absent seal: the member is new. RobotsPerGpu's graphics-card bench lights the chip's tiles at rest from the default count: the rest tile set reads DEFAULT_COUNT through countOf. The default itself is unchanged (the GPU-era count).",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

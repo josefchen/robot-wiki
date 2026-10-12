@@ -454,13 +454,27 @@ describe('identity geometry and typography stay aligned', () => {
     expect(frictionTransfer).not.toMatch(/--color-accent/);
     expect(frictionTransfer).not.toMatch(/green/i);
     expect(jepaChart).toContain('two-dimensional points and loads no trained encoder or predictor');
-    // The JEPA chart paints the current latent, and the walked path whose
-    // legend swatch names it, through the state role, keeps signal blue off
-    // its marks, and nothing calls it green.
-    expect(jepaChart).toContain('<PointMarker x={current[0]} y={current[1]} role="state" />');
-    expect(jepaChart).toMatch(/<LegendSwatch role="state" mark="line" \/>\}>\s*path so far\s*</);
+    // The JEPA figure is a planning table drawn with the isometric figure kit
+    // (owner directive of 2026-10-12). The current summary is the probe head
+    // and the walked path is the scribed trail of prick marks, each its own
+    // group, drawn in the kit's ink tones; the one lit part is the kept
+    // feeler and its pin, never the path or the head. The distance strip in
+    // the method fold paints its current point through the value role.
+    // Signal blue stays off the marks' code, and nothing calls any of it
+    // green.
+    const jepaTable = read('components/iso/figures/planning-table.ts');
+    expect(jepaChart).toContain("'walked-path': 'walked-path'");
+    expect(jepaChart).toContain("carriage: 'probe-head'");
+    expect(jepaTable).toMatch(
+      /role: 'walked-path',\s*parts: \[\s*\{ kind: 'line', d: onTop\(history, TABLE_H, P\), tone: 'mid' \},\s*\{ kind: 'dots', [^}]*tone: 'hi' \},\s*\]/,
+    );
+    expect([...jepaTable.matchAll(/tone: (?:isKept \? )?'lit'|\blit: \w+/g)].map((m) => m[0]))
+      .toEqual(["tone: isKept ? 'lit'", 'lit: isKept', "tone: 'lit'"]);
+    expect(jepaChart).toContain('<PointMarker x={traceX(steps)} y={traceY(gaps[steps])} role="value" />');
     expect(jepaChart).not.toMatch(/ACCENT|--color-accent/);
     expect(jepaChart).not.toMatch(/green/i);
+    expect(jepaTable).not.toMatch(/ACCENT|--color-accent/);
+    expect(jepaTable).not.toMatch(/green/i);
     // VAL-OPUS-068: the friction chart's authored status is labelled once, in
     // its frame next to the controls, and the prose disclaimer is gone.
     expect(sim2real).not.toContain('authored toy');

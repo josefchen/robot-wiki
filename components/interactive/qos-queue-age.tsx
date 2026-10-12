@@ -1,35 +1,54 @@
 'use client';
 
-import { useId, useState, type CSSProperties } from 'react';
+import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui/chart-description';
-import { InstrumentFigure, PlotStage, PresetGroup, type Preset } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_TYPE,
-  DirectLabel,
-  StageAnnotation,
-  roleColour,
-} from '@/components/motion/chart';
-import { useEasedValue } from '@/components/motion/use-eased-value';
-import { MOTION_STAGE } from '@/lib/motion-tokens';
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
+  InstrumentFigure,
+  PresetGroup,
+  type Preset,
+} from '@/components/ui/instrument';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, IsoFigure, Line, Solid, Wire } from '@/components/iso/react/draw';
+import { asksForStillness } from '@/components/iso/react/live';
+import {
+  CARRY,
+  DROP_CLIP,
+  DROP_REST,
+  FED_Z,
+  FEED_CLIP,
+  HEIGHT,
+  LIFT,
+  PITCH,
+  RELEASE_Z,
+  WIDTH,
+  sceneOf,
+  shiftBy,
+  type Group,
+  type Part,
+} from '@/components/iso/figures/picture-queue';
 
 /**
  * QosQueueAge: why a deep, reliable camera queue makes a learned policy act
- * on old pictures. A camera sends pictures faster than the model can use
- * them, so the queue stays full and, delivering in order, hands the model
- * the oldest picture it holds. With the ROS 2 default of the last 10
- * messages that picture is 10 frames old; keeping only the newest picture
- * makes it one frame old.
+ * on old pictures, drawn as a picture queue on a bench.
+ *
+ * A camera on a carriage drops each picture it takes, as a card, into a
+ * channel; an indexer walks the row one slot per camera frame, and a gantry
+ * on the model's housing lifts the oldest card out and feeds it to the
+ * model. A camera sending pictures faster than the model uses them keeps
+ * the queue full, so the model is handed the oldest picture the queue
+ * holds: with the ROS 2 default of the last 10 messages that picture is 10
+ * frames old, and keeping only the newest makes it one frame old. The
+ * camera stands that many slots from the model, and its carriage's pointer
+ * reads the age on the scale along the rail. Every card shows one frame of
+ * a bouncing ball, so the card in the model's gripper (the one lit part)
+ * shows the ball where it was.
  *
  * The queue depth of 10 is the ROS 2 default profile's. The camera rate of
  * 30 pictures a second and a model slower than the camera are
- * illustrative. The queue is a row of thin outlined frames between two
- * labelled boxes; the picture the model uses is the one accent, and an
- * age axis under the row marks how old it is. Switching the preset glides
- * the queue and the age marker to their new places; reduced motion jumps.
+ * illustrative. "Run the queue" plays the cycle slowed down about seventy
+ * times; reduced motion keeps the still pose.
  */
 
 /** Illustrative camera rate, pictures a second. */
@@ -47,82 +66,232 @@ const QUEUES: readonly (Preset<QueueId> & { depth: number })[] = [
 export const pictureAgeS = (depth: number) => depth / CAMERA_HZ;
 export const formatAge = (seconds: number) => seconds.toFixed(2);
 
-const WIDTH = 460;
-const HEIGHT = 236;
-const BOX_W = 54;
-const BOX_H = 30;
-const ROW_Y = 40;
-const CAMERA_X = 2;
-const MODEL_X = WIDTH - 2 - BOX_W;
-const SLOT_W = 22;
-const SLOT_H = 30;
-const SLOT_GAP = 6;
-const QUEUE_RIGHT = MODEL_X - 32;
-const QUEUE_LEFT = QUEUE_RIGHT - DEFAULT_DEPTH * SLOT_W - (DEFAULT_DEPTH - 1) * SLOT_GAP;
-const AXIS_Y = 160;
-/** The age axis runs from 0 to 0.4 seconds under the queue. */
-const AXIS_MAX_S = 0.4;
-const AXIS_TICKS = [0, 0.1, 0.2, 0.3, 0.4] as const;
-const ageX = (seconds: number) => QUEUE_LEFT + (seconds / AXIS_MAX_S) * (QUEUE_RIGHT - QUEUE_LEFT);
-/** The drawing grows to at most 1.6 times its viewBox, so the row stays a diagram on a wide page. */
-const STAGE_STYLE = { '--motion-stage-max-scale': 1.6 } as CSSProperties;
+/** The last picture the camera has taken in the still pose. */
+export const STILL_NEWEST = 40;
 
-const f = (v: number) => Number(v.toFixed(2));
-const slotX = (k: number) => f(QUEUE_RIGHT - (k + 1) * SLOT_W - k * SLOT_GAP);
-const midY = ROW_Y + BOX_H / 2;
+/** One camera frame of the bench, in seconds on screen: carry, feed, return, then lift the next. */
+export const CYCLE_S = 2.3;
+/** When, in the cycle, the row has moved one slot along and the bench is redrawn one frame later. */
+export const SWAP_S = 1.85;
+/** How many times slower than the camera the bench runs. */
+export const SLOW = Math.round((CYCLE_S * CAMERA_HZ) / 10) * 10;
 
-/** A labelled box at one end of the row: the camera or the model. */
-function EndBox({ x, label, part, anchor }: { x: number; label: string; part: string; anchor: 'start' | 'end' }) {
-  return (
-    <g data-scene-part={part}>
-      <rect x={x} y={ROW_Y} width={BOX_W} height={BOX_H} fill={MOTION_STAGE.background} stroke={CHART_STRUCTURE.label} strokeWidth={CHART_STROKE.structure} />
-      <DirectLabel x={anchor === 'start' ? x : x + BOX_W} y={ROW_Y - 8} anchor={anchor}>
-        {label}
-      </DirectLabel>
-    </g>
-  );
+export interface QueuePose {
+  /** The gantry head, along the bench from the pick slot. */
+  head: number;
+  /** The picked card: along the bench and up from its slot. */
+  picked: [number, number];
+  /** The gripper's height over its rest, gripping a card in the row. */
+  grip: number;
+  /** The row, along the bench. */
+  row: number;
+  /** The next card, up inside the camera's chute. */
+  drop: number;
 }
 
-/** A small open arrowhead pointing right, its tip at (x, y). */
-function Head({ x, y }: { x: number; y: number }) {
-  return <path d={`M${x - 6} ${y - 3.5} L${x} ${y} L${x - 6} ${y + 3.5}`} fill="none" />;
-}
+/** The still pose: the oldest card lifted clear of the row, the next one waiting in the chute. */
+export const STILL_POSE: QueuePose = { head: 0, picked: [0, LIFT], grip: LIFT, row: 0, drop: DROP_REST };
 
-/** One picture in the queue: a thin outlined frame; the one the model uses is the accent. */
-function Picture({ x, used, opacity }: { x: number; used: boolean; opacity: number }) {
-  return (
-    <rect
-      data-picture={used ? 'used' : 'queued'}
-      data-chart-role={used ? 'highlight' : 'measurement'}
-      x={x}
-      y={f(midY - SLOT_H / 2)}
-      width={SLOT_W}
-      height={SLOT_H}
-      fill={MOTION_STAGE.background}
-      stroke={used ? roleColour('highlight') : CHART_STRUCTURE.label}
-      strokeWidth={used ? CHART_STROKE.trace : CHART_STROKE.structure}
-      opacity={f(opacity)}
-    />
-  );
+const ease = (u: number) => {
+  const t = Math.max(0, Math.min(1, u));
+  return t * t * (3 - 2 * t);
+};
+const span = (t: number, from: number, to: number) => (t - from) / (to - from);
+
+/**
+ * The bench `t` seconds into one camera frame, starting from the still
+ * pose. The gantry carries the lifted card to the reader slot, lowers it
+ * and lets it drop in, and returns; meanwhile the camera drops the next
+ * picture into the feed slot and the indexer walks the row one slot
+ * toward the model. At SWAP_S the bench is redrawn one frame later, and the
+ * gantry lifts the new oldest card back to the still pose.
+ */
+export function poseAt(t: number): QueuePose {
+  const drop = DROP_REST * (1 - Math.min(1, Math.max(0, span(t, 0.1, 0.5))) ** 2);
+  const row = PITCH * ease(span(t, 0.55, 1.15));
+  if (t >= SWAP_S) {
+    const lift = LIFT * ease(span(t, SWAP_S, CYCLE_S));
+    return { head: 0, picked: [0, lift], grip: lift, row: 0, drop: DROP_REST };
+  }
+  if (t < 0.7) {
+    const x = CARRY * ease(span(t, 0, 0.7));
+    return { head: x, picked: [x, LIFT], grip: LIFT, row, drop };
+  }
+  if (t < 1.05) {
+    const z = LIFT + (RELEASE_Z - LIFT) * ease(span(t, 0.7, 1.05));
+    return { head: CARRY, picked: [CARRY, z], grip: z, row, drop };
+  }
+  const fall = RELEASE_Z + (FED_Z - RELEASE_Z) * Math.min(1, span(t, 1.05, 1.25)) ** 2;
+  const back = CARRY * (1 - ease(span(t, 1.25, 1.75)));
+  const grip = RELEASE_Z * (1 - ease(span(t, 1.75, SWAP_S)));
+  return { head: back, picked: [CARRY, Math.max(fall, FED_Z)], grip, row, drop };
 }
 
 function describe(depth: number): string {
   return `With a camera queue that keeps ${depth === 1 ? 'only the newest picture' : `the last ${depth} pictures`} and a camera sending 30 pictures a second, the model acts on a picture ${formatAge(pictureAgeS(depth))} seconds old; the age equals queue depth over the camera rate.`;
 }
 
+const restReadout = (depth: number) =>
+  `${depth === 1 ? 'Newest picture only' : `Last ${depth} pictures`} · the model gets one ${formatAge(pictureAgeS(depth))} seconds old`;
+/** While running: the camera prints picture newest + 1 as the model is handed the oldest, newest - depth + 1. */
+export const runReadout = (depth: number, newest: number) =>
+  `camera taking picture ${newest + 1} · model handed picture ${newest - depth + 1} · ${formatAge(pictureAgeS(depth))} seconds old`;
+
+/** A layout effect in the browser; nothing to lay out on the server. */
+const useBeforePaint = typeof window === 'undefined' ? useEffect : useLayoutEffect;
+
+const still = () => typeof window !== 'undefined' && typeof window.matchMedia === 'function' && asksForStillness();
+
+function PartView({ part }: { part: Part }): ReactNode {
+  if (part.kind === 'solid') {
+    return (
+      <Solid
+        paths={part.paths}
+        tone={part.tone}
+        lit={part.lit}
+        halo={part.halo}
+        crease={part.crease}
+        inner={part.inner ? <g dangerouslySetInnerHTML={{ __html: part.inner }} /> : undefined}
+      />
+    );
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  if (part.kind === 'dots') return <Dots points={part.points} size={part.size} tone={part.tone} />;
+  if (part.kind === 'wire') return <Wire from={part.from} to={part.to} via={part.via} tone={part.tone} />;
+  if (part.kind === 'card') {
+    return (
+      <g
+        data-picture={part.group === 'drop' ? undefined : part.used ? 'used' : 'queued'}
+        data-next={part.group === 'drop' ? '' : undefined}
+        data-frame={part.frame}
+        data-age={part.group === 'drop' ? undefined : part.age}
+      >
+        {part.parts.map((child, index) => (
+          <PartView key={index} part={child} />
+        ))}
+      </g>
+    );
+  }
+  return null;
+}
+
+const MOVING: Group[] = ['row', 'drop', 'picked', 'head', 'grip'];
+
+function transformOf(group: Group, pose: QueuePose): string | undefined {
+  if (group === 'row') return shiftBy(pose.row);
+  // The next card lands in the feed slot before the indexer moves, then rides the row.
+  if (group === 'drop') return shiftBy(pose.row, 0, pose.drop);
+  if (group === 'picked') return shiftBy(pose.picked[0], 0, pose.picked[1]);
+  if (group === 'head') return shiftBy(pose.head);
+  if (group === 'grip') return shiftBy(pose.head, 0, pose.grip);
+  return undefined;
+}
+
 export function QosQueueAge({ className }: { className?: string }) {
   const uid = useId();
   const descriptionId = `${uid}-description`;
+  const clipBase = `${uid.replace(/[^a-zA-Z0-9_-]/g, '')}-qos`;
   const citationFor = useCitationLookup();
   const qosSource = citationFor('ros2-qos-2026');
   const [queue, setQueue] = useState<QueueId>('ten');
+  const [running, setRunning] = useState(false);
+  const [newest, setNewest] = useState(STILL_NEWEST);
   const depth = QUEUES.find((q) => q.id === queue)!.depth;
   const age = pictureAgeS(depth);
-  const shownDepth = useEasedValue(depth);
-  const shownAge = useEasedValue(age);
-  const accent = roleColour('highlight');
-  const marker = f(ageX(shownAge));
-  const noteRight = marker > (QUEUE_LEFT + QUEUE_RIGHT) / 2;
+  const ageText = formatAge(age);
+  const scene = useMemo(() => sceneOf(depth, newest), [depth, newest]);
+  const runs = useMemo(() => {
+    const list: Array<{ group: Group; parts: Part[] }> = [];
+    for (const part of scene.parts) {
+      const last = list[list.length - 1];
+      if (last && last.group === part.group) last.parts.push(part);
+      else list.push({ group: part.group, parts: [part] });
+    }
+    return list;
+  }, [scene]);
+
+  const groupRefs = useRef<Partial<Record<Group, SVGGElement | null>>>({});
+  const svgAnchor = useRef<SVGDefsElement>(null);
+  /** The pose to show once React has drawn the frame the loop asked for. */
+  const pending = useRef<{ newest: number; pose: QueuePose } | null>(null);
+  const settings = useRef({ depth, newest });
+  useBeforePaint(() => {
+    settings.current = { depth, newest };
+  }, [depth, newest]);
+
+  const readoutEl = useCallback(
+    () => svgAnchor.current?.closest('[data-anatomy-stage]')?.querySelector<HTMLElement>('[data-readout]') ?? null,
+    [],
+  );
+  const place = useCallback((pose: QueuePose) => {
+    for (const group of MOVING) groupRefs.current[group]?.setAttribute('transform', transformOf(group, pose) ?? '');
+  }, []);
+
+  // Run the bench: one camera frame per cycle, redrawn one frame later at each swap.
+  useEffect(() => {
+    if (!running) return;
+    let frame = 0;
+    let last = performance.now();
+    let t = 0;
+    const tick = (now: number) => {
+      const dt = Math.max(0, Math.min(now - last, 64)) / 1000;
+      last = now;
+      if (pending.current) {
+        // Hold the clock until React has drawn the next frame's cards.
+        frame = requestAnimationFrame(tick);
+        return;
+      }
+      const { depth: d, newest: n } = settings.current;
+      const before = t;
+      t += dt;
+      if (before < SWAP_S && t >= SWAP_S) {
+        pending.current = { newest: n + 1, pose: poseAt(t) };
+        setNewest(n + 1);
+        frame = requestAnimationFrame(tick);
+        return;
+      }
+      if (t >= CYCLE_S) t -= CYCLE_S;
+      place(poseAt(t));
+      const readout = readoutEl();
+      if (readout) readout.textContent = runReadout(d, n);
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [running, place, readoutEl]);
+
+  // Once the next frame's cards are drawn, put every moving group where the loop left off, before paint.
+  useBeforePaint(() => {
+    const next = pending.current;
+    if (next && next.newest === newest) {
+      place(next.pose);
+      pending.current = null;
+    }
+  }, [newest, place]);
+
+  // At rest, or after a stop, the bench stands in the still pose with the resting readout.
+  useEffect(() => {
+    if (running) return;
+    pending.current = null;
+    place(STILL_POSE);
+    const readout = readoutEl();
+    if (readout) readout.textContent = restReadout(depth);
+  }, [running, depth, newest, place, readoutEl]);
+
+  // The bench runs from the reader's control; under reduced motion it stays in the still pose.
+  const toggleRun = () => {
+    if (running) {
+      setRunning(false);
+      return;
+    }
+    if (still()) return;
+    setRunning(true);
+  };
+
+  function choose(id: QueueId) {
+    setRunning(false);
+    setQueue(id);
+  }
 
   return (
     <InstrumentFigure
@@ -131,66 +300,62 @@ export function QosQueueAge({ className }: { className?: string }) {
       kicker="Quality of Service"
       heading="Deep queues feed the robot old pictures"
       controls={
-        <PresetGroup label="Queue keeps" presets={QUEUES} value={queue} onChange={setQueue} testId="qos-queue" />
+        <div className="flex flex-wrap items-end gap-x-6 gap-y-1">
+          <PresetGroup label="Queue keeps" presets={QUEUES} value={queue} onChange={choose} testId="qos-queue" />
+          <button
+            type="button"
+            data-brand-control-id="control:secondary-action"
+            data-pagefind-ignore
+            data-testid="qos-run"
+            onClick={toggleRun}
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+          >
+            {running ? 'Stop the queue' : 'Run the queue'}
+          </button>
+        </div>
       }
       stage={
-        <FigureStage
-          footer={<StageStatus>Illustrative camera rate</StageStatus>}
+        <AnatomyStage
+          viewWidth={WIDTH}
+          hint={running ? `Running, slowed about ${SLOW} times` : 'Lit: the picture the model is handed'}
+          readout={restReadout(depth)}
+          status="Illustrative camera rate"
+          data-testid="qos-stage-frame"
         >
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`A camera feeds pictures into a queue that holds ${depth === 1 ? 'one picture' : `${depth} pictures`}; the robot's model takes the oldest one, which is ${formatAge(age)} seconds old.`}
-            aria-describedby={descriptionId}
-            data-testid="qos-stage"
-            style={STAGE_STYLE}
+          <IsoFigure
+            width={WIDTH}
+            height={HEIGHT}
+            label={`A camera drops each picture it takes into a queue that holds ${depth === 1 ? 'one picture' : `${depth} pictures`}; at the far end the model's gantry lifts out the oldest, which is ${ageText} seconds old.`}
+            describedBy={descriptionId}
           >
-            <g stroke="var(--line-strong)" strokeWidth={CHART_STROKE.structure}>
-              <line x1={CAMERA_X + BOX_W} y1={midY} x2={MODEL_X - 1} y2={midY} />
-            </g>
-            <g stroke={CHART_STRUCTURE.label} strokeWidth={CHART_STROKE.structure}>
-              <Head x={MODEL_X - 1} y={midY} />
-            </g>
-            <EndBox x={CAMERA_X} label="camera" part="camera" anchor="start" />
-            <EndBox x={MODEL_X} label="model" part="model" anchor="end" />
-            {Array.from({ length: DEFAULT_DEPTH }, (_, k) => {
-              const fill = Math.min(1, Math.max(0, shownDepth - k));
-              return fill > 0 ? <Picture key={k} x={slotX(k)} used={k === 0} opacity={fill} /> : null;
+            <defs ref={svgAnchor}>
+              <clipPath id={`${clipBase}-drop`}>
+                <path d={DROP_CLIP} />
+              </clipPath>
+              <clipPath id={`${clipBase}-feed`}>
+                <path d={FEED_CLIP} />
+              </clipPath>
+            </defs>
+            {runs.map((run, index) => {
+              const body = run.parts.map((part, k) => <PartView key={k} part={part} />);
+              if (run.group === 'static') return <g key={`static-${index}`}>{body}</g>;
+              const clip = run.group === 'drop' ? `${clipBase}-drop` : run.group === 'picked' ? `${clipBase}-feed` : undefined;
+              return (
+                <g key={run.group} clipPath={clip ? `url(#${clip})` : undefined}>
+                  <g
+                    ref={(el) => {
+                      groupRefs.current[run.group] = el;
+                    }}
+                    transform={transformOf(run.group, STILL_POSE)}
+                    data-testid={`qos-${run.group}`}
+                  >
+                    {body}
+                  </g>
+                </g>
+              );
             })}
-            {depth > 1 ? (
-              <DirectLabel x={slotX(DEFAULT_DEPTH - 1)} y={ROW_Y - 8} anchor="start">
-                newest
-              </DirectLabel>
-            ) : null}
-            <DirectLabel x={QUEUE_RIGHT} y={ROW_Y - 8} anchor="end">
-              {depth === 1 ? 'newest, used' : 'oldest, used'}
-            </DirectLabel>
-            <g data-chart-axes="" stroke={CHART_STRUCTURE.axes} strokeWidth={CHART_STROKE.structure}>
-              <line x1={QUEUE_LEFT} y1={AXIS_Y} x2={QUEUE_RIGHT} y2={AXIS_Y} />
-              {AXIS_TICKS.map((t) => (
-                <line key={t} x1={f(ageX(t))} y1={AXIS_Y} x2={f(ageX(t))} y2={AXIS_Y + 4} />
-              ))}
-            </g>
-            {AXIS_TICKS.map((t) => (
-              <text key={t} data-scene-tick="" x={f(ageX(t))} y={AXIS_Y + 7} dominantBaseline="hanging" textAnchor="middle" fontSize={CHART_TYPE.tickPx} fill={CHART_STRUCTURE.labelSecondary}>
-                {t === 0 ? '0' : t.toFixed(1)}
-              </text>
-            ))}
-            <text data-scene-axis="" x={QUEUE_RIGHT} y={AXIS_Y + 7} dy="1.5em" dominantBaseline="hanging" textAnchor="end" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
-              picture age (seconds)
-            </text>
-            <g data-testid="qos-age-bar" data-chart-role="highlight">
-              <line x1={QUEUE_LEFT} y1={AXIS_Y} x2={marker} y2={AXIS_Y} stroke={accent} strokeWidth={CHART_STROKE.trace + 0.5} />
-              <circle cx={marker} cy={AXIS_Y} r={CHART_STROKE.markerRadius} fill={accent} />
-            </g>
-            <StageAnnotation
-              x={noteRight ? marker : f(marker + 6)}
-              y={AXIS_Y - 14}
-              stack="up"
-              anchor={noteRight ? 'end' : 'start'}
-              lines={['Uses a picture', `${formatAge(age)} seconds old`]}
-            />
-          </PlotStage>
-        </FigureStage>
+          </IsoFigure>
+        </AnatomyStage>
       }
       caption="A deep queue hands the model old pictures first, so log each picture's age at the model."
       method={
@@ -205,6 +370,13 @@ export function QosQueueAge({ className }: { className?: string }) {
             The figure assumes a camera sending 30 pictures a second and a model slower than that, both
             illustrative, so the picture used is the queue depth divided by 30 seconds old. Log message age at
             the policy boundary to catch it.
+          </div>
+          <div>
+            The bench is illustrative: the camera drops each picture as a card into the slot it stands over, an
+            indexer moves the row one slot toward the model per camera frame, and the model&apos;s gantry lifts
+            the oldest card out. The camera stands as many slots from the model as the queue keeps pictures, so
+            its pointer reads the age on the scale, one tick a frame and a long tick every tenth of a second.
+            Running, the bench is slowed about {SLOW} times.
           </div>
           <ChartDescription
             id={descriptionId}
