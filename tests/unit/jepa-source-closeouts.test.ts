@@ -25,16 +25,16 @@ describe('JEPA retained-primary closeouts', () => {
   it('cuts the unsupported value follow-up without deleting its historical registry identity', () => {
     expect(jepa).not.toContain('jepa-value-planning-2026');
     expect(getCitation('jepa-value-planning-2026')).toBeDefined();
-    expect(jepa).toContain('without demonstrated calibration to a goal-conditioned value function');
-    expect(jepa).toContain('interpretability decoder');
+    expect(jepa).toContain('This goal distance has no demonstrated calibration to a value function');
+    expect(jepa).toContain('the pixel decoder trained for visualization plays no part in control');
     expect(jepa).toContain('Fast-WAM separates video co-training');
   });
 
   it('keeps score protocols, units and non-robot anticipation separate', () => {
     for (const phrase of [
-      '22M', '300M', '77.3%', '76.5', 'best of 20 classifier heads',
-      'two temporal crops', 'three spatial crops', '39.7%',
-      '32 frames at 8 fps', 'one second', 'does not measure robot control',
+      '22M', '300M', '77.3%', '76.5', 'best of 20 heads',
+      'two temporal and three spatial crops', '39.7%',
+      '32 frames at 8 fps', 'one second',
     ]) expect(jepa, phrase).toContain(phrase);
     expect(jepa).toContain('value=">1M"');
     expect(taxonomy).toContain('value=">1M"');
@@ -42,20 +42,21 @@ describe('JEPA retained-primary closeouts', () => {
 
   it('bounds training labels, embodiment, camera setup and planning', () => {
     for (const phrase of [
-      'state changes', 'filtered left-camera', 'over a million hours',
+      'filtered left-camera', 'over a million hours',
     ]) expect(taxonomy, phrase).toContain(phrase);
     for (const phrase of [
-      'uses end-effector position, orientation, and gripper state', 'manually selected camera',
-      '800 candidate samples', 'ten refinement iterations', 'planning horizon one',
-      'supplied subgoals', 'little about arbitrary new-embodiment transfer',
+      'end-effector position, orientation and gripper state', 'the authors hand-picked camera positions',
+      '800 candidates', 'ten iterations', 'horizon one',
+      'supplied goals and subgoals', 'though Droid itself is Franka teleoperation',
     ]) expect(jepa, phrase).toContain(phrase);
   });
 
   it('identifies the toy geometry instead of claiming measured latent control', () => {
-    expect(jepa).toContain('neither projects learned V-JEPA 2 features');
-    expect(jepa).toContain('guaranteed by construction');
-    expect(jepa).toContain('Euclidean distance');
-    expect(jepa).toContain('nor measures a robot result');
+    const figure = read('components/interactive/jepa-planning.tsx');
+    expect(figure).toContain('this toy plans over synthetic');
+    expect(figure).toContain('two-dimensional points and loads no trained encoder or predictor');
+    expect(figure).toContain('The toy prescribes this by construction, so it measures');
+    expect(figure).toContain('nothing about a real robot');
   });
 
   it('does not erase duplicate mounted citation obligations or permit a wrong source', () => {

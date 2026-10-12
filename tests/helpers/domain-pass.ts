@@ -211,6 +211,34 @@ export const DOMAIN_PASS_REGISTRY_CORRECTIONS: readonly (readonly [string, strin
     venue: 'CoRL 2026',
     arxiv: '2606.26428',
 `],
+  // world-models: the page cites dreamerv3-nature-2025 for the Nature paper, so
+  // the 2023 preprint entry drops its 'Nature 2025' venue (audit/world-models/latent-dynamics.md, R1).
+  [`    // Verified against the arXiv abs page (2026-08-08): 4 authors; the
+    // DreamerV3 paper, published in Nature 2025.
+    id: 'dreamerv3-2023',
+    title: 'Mastering Diverse Domains through World Models',
+    authors: [
+      'Danijar Hafner',
+      'Jurgis Pasukonis',
+      'Jimmy Ba',
+      'Timothy Lillicrap',
+    ],
+    year: 2023,
+    venue: 'Nature 2025',
+`,
+    `    // Verified against the arXiv abs page (2026-08-08): 4 authors. This is the
+    // 2023 arXiv preprint; the Nature 2025 version is dreamerv3-nature-2025,
+    // so this entry carries no venue (audit/world-models/latent-dynamics.md, R1).
+    id: 'dreamerv3-2023',
+    title: 'Mastering Diverse Domains through World Models',
+    authors: [
+      'Danijar Hafner',
+      'Jurgis Pasukonis',
+      'Jimmy Ba',
+      'Timothy Lillicrap',
+    ],
+    year: 2023,
+`],
 ];
 
 /** The registry source with every reviewed domain-pass correction swapped back. */

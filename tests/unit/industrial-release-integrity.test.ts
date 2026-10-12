@@ -11,6 +11,7 @@ import {
 } from '../../lib/audit-local-basis';
 import { sha256, stableJson, type JsonValue } from '../../lib/brand-v2-baseline';
 import { committedSource } from '../helpers/continuation-integration';
+import { preReaderFirst } from '../helpers/seo-pass';
 
 const reviewPath = 'audit/evidence/industrial-release-20260923/dependency-review.json';
 const review = JSON.parse(readFileSync(reviewPath, 'utf8')) as {
@@ -45,7 +46,10 @@ describe('industrial release preserves both evidence histories', { timeout: 60_0
         expect(current).toContain("['calibration', 8]");
         expect(current).toContain("['ros2-for-ml-engineers', 7]");
       } else {
-        expect(current).toBe(released);
+        // Since the 2026-10-06 domain pass this suite is a reviewed reader-first
+        // successor (its world-models taxonomy pins left with the cut text), so
+        // the released bytes are checked against its recorded predecessor.
+        expect(preReaderFirst(path).toString('utf8')).toBe(released);
       }
     }
     const checkerPath = 'lib/audit-local-basis.ts';

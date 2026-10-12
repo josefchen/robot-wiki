@@ -134,7 +134,7 @@ describe('bounded remaining reader Source flow, zero original completions', () =
       'this is an interpretability claim, not a requirement that every reward be manually inspected or a comparative study of reward hacking <Cite id="eureka-2024" />. The [reward-design](/rl-sim2real/reward-design-mpc) module explains the distinction.',
     );
     expect(read(cases[1].path)).toContain(
-      'this is an interpretability claim. The paper does not require manual inspection of every reward or report a comparative study of reward hacking <Cite id="eureka-2024" />.',
+      'without requiring such inspection or comparing reward hacking <Cite id="eureka-2024" />.',
     );
   });
 

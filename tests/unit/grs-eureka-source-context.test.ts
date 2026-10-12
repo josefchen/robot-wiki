@@ -11,13 +11,13 @@ describe('GRS and Eureka retained source scope', () => {
   it('bounds GRS task authoring and separates transfer from the reported experiment', () => {
     expect(simulation()).toContain('depth and a calibrated robot-frame transform');
     expect(simulation()).toContain('exclude runtime-error cases from the reported reward average');
-    expect(simulation()).toContain('Sim-to-real training and transfer remain future work');
+    expect(simulation()).toContain('sim-to-real transfer is future work');
     expect(simulation()).not.toContain('generating solvable simulation tasks from single real-world RGB-D images');
   });
 
   it('distinguishes human feedback from a universal manual-inspection requirement', () => {
     expect(simulation()).toContain('Task fitness may miss human intent');
-    expect(simulation()).toContain('this is an interpretability claim. The paper does not require manual inspection of every reward');
+    expect(simulation()).toContain('without requiring such inspection or comparing reward hacking');
     expect(simulation()).not.toContain("Eureka's own accounting includes the need for human inspection");
   });
 

@@ -27,7 +27,6 @@ test.describe('world-models latent-dynamics module', () => {
       /stochastic categorical representation/,
       /trained purely on imagined latent rollouts/,
       /symlog/,
-      /two-hot targets for reward and value prediction/,
       /more than 150 tasks/,
       /collect diamonds in Minecraft/,
       /MPPI/,

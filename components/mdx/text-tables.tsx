@@ -244,7 +244,7 @@ export function WorldModelCostTable({ className }: { className?: string }) {
           'KV cache, ~128 KB per token (derived: 32 layers x 8 KV heads x 128-dim)',
           'block-causal context: patch features, actions and poses of the current and earlier steps',
           'latents plus KV, grows with clip length',
-          'splat set; 0.3 to 0.7 GB per scene in the paper\'s tested scenes',
+          'splat set; 0.3 to 0.7 GB per scene (dataset averages, Table 1)',
         ],
         [
           'Single-GPU fit',

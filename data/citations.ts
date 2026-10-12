@@ -3540,8 +3540,9 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the arXiv abs page (2026-08-08): 4 authors; the
-    // DreamerV3 paper, published in Nature 2025.
+    // Verified against the arXiv abs page (2026-08-08): 4 authors. This is the
+    // 2023 arXiv preprint; the Nature 2025 version is dreamerv3-nature-2025,
+    // so this entry carries no venue (audit/world-models/latent-dynamics.md, R1).
     id: 'dreamerv3-2023',
     title: 'Mastering Diverse Domains through World Models',
     authors: [
@@ -3551,7 +3552,6 @@ export const CITATIONS: Citation[] = [
       'Timothy Lillicrap',
     ],
     year: 2023,
-    venue: 'Nature 2025',
     arxiv: '2301.04104',
     url: 'https://arxiv.org/abs/2301.04104',
     type: 'paper',
@@ -16755,6 +16755,1261 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.09117',
     type: 'paper',
   },
+  // 1x-world-model-2024: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // 1X page fetched 2026-10-04: dated SEP 17 '24, byline Jack Monas, Eric Jang.
+  {
+    id: '1x-world-model-2024',
+    title: '1X World Model',
+    authors: ['Jack Monas', 'Eric Jang'],
+    year: 2024,
+    venue: '1X Technologies',
+    url: 'https://www.1x.tech/discover/1x-world-model',
+    type: 'blog',
+  },
+  // 1x-world-model-2025: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // 1X page fetched 2026-10-04: dated JUN 16 '25, byline "AI Team"; the page title is also "1X World
+  // Model" (Redwood AI evaluation post).
+  {
+    id: '1x-world-model-2025',
+    title: '1X World Model',
+    authors: ['1X AI Team'],
+    year: 2025,
+    venue: '1X Technologies',
+    url: 'https://www.1x.tech/discover/redwood-ai-world-model',
+    type: 'blog',
+  },
+  // dreamdojo-2026: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-02-06, 30 authors.
+  {
+    id: 'dreamdojo-2026',
+    title: 'DreamDojo: A Generalist Robot World Model from Large-Scale Human Videos',
+    authors: ['Shenyuan Gao', 'William Liang', 'Kaiyuan Zheng', 'Ayaan Malik', 'Seonghyeon Ye', 'Sihyun Yu', 'Wei-Cheng Tseng', 'Yuzhu Dong', 'Kaichun Mo', 'Chen-Hsuan Lin', 'Qianli Ma', 'Seungjun Nah', 'Loic Magne', 'Jiannan Xiang', 'Yuqi Xie', 'Ruijie Zheng', 'Dantong Niu', 'You Liang Tan', 'K. R. Zentner', 'George Kurian', 'Suneel Indupuru', 'Pooya Jannaty', 'Jinwei Gu', 'Jun Zhang', 'Jitendra Malik', 'Pieter Abbeel', 'Ming-Yu Liu', 'Yuke Zhu', 'Joel Jang', 'Linxi "Jim" Fan'],
+    year: 2026,
+    arxiv: '2602.06949',
+    url: 'https://arxiv.org/abs/2602.06949',
+    type: 'paper',
+  },
+  // dreamgen-2025: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-05-19, 28 authors.
+  {
+    id: 'dreamgen-2025',
+    title: 'DreamGen: Unlocking Generalization in Robot Learning through Video World Models',
+    authors: ['Joel Jang', 'Seonghyeon Ye', 'Zongyu Lin', 'Jiannan Xiang', 'Johan Bjorck', 'Yu Fang', 'Fengyuan Hu', 'Spencer Huang', 'Kaushil Kundalia', 'Yen-Chen Lin', 'Loic Magne', 'Ajay Mandlekar', 'Avnish Narayan', 'You Liang Tan', 'Guanzhi Wang', 'Jing Wang', 'Qi Wang', 'Yinzhen Xu', 'Xiaohui Zeng', 'Kaiyuan Zheng', 'Ruijie Zheng', 'Ming-Yu Liu', 'Luke Zettlemoyer', 'Dieter Fox', 'Jan Kautz', 'Scott Reed', 'Yuke Zhu', 'Linxi Fan'],
+    year: 2025,
+    arxiv: '2505.12705',
+    url: 'https://arxiv.org/abs/2505.12705',
+    type: 'paper',
+  },
+  // fvd-content-bias-2024: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-04-18, 5 authors.
+  {
+    id: 'fvd-content-bias-2024',
+    title: 'On the Content Bias in Fréchet Video Distance',
+    authors: ['Songwei Ge', 'Aniruddha Mahapatra', 'Gaurav Parmar', 'Jun-Yan Zhu', 'Jia-Bin Huang'],
+    year: 2024,
+    venue: 'CVPR 2024',
+    arxiv: '2404.12391',
+    url: 'https://arxiv.org/abs/2404.12391',
+    type: 'paper',
+  },
+  // gvl-2024: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-11-07, 18 authors.
+  {
+    id: 'gvl-2024',
+    title: 'Vision Language Models are In-Context Value Learners',
+    authors: ['Yecheng Jason Ma', 'Joey Hejna', 'Ayzaan Wahid', 'Chuyuan Fu', 'Dhruv Shah', 'Jacky Liang', 'Zhuo Xu', 'Sean Kirmani', 'Peng Xu', 'Danny Driess', 'Ted Xiao', 'Jonathan Tompson', 'Osbert Bastani', 'Dinesh Jayaraman', 'Wenhao Yu', 'Tingnan Zhang', 'Dorsa Sadigh', 'Fei Xia'],
+    year: 2024,
+    arxiv: '2411.04549',
+    url: 'https://arxiv.org/abs/2411.04549',
+    type: 'paper',
+  },
+  // irasim-2024: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-06-20, 6 authors.
+  {
+    id: 'irasim-2024',
+    title: 'IRASim: A Fine-Grained World Model for Robot Manipulation',
+    authors: ['Fangqi Zhu', 'Hongtao Wu', 'Song Guo', 'Yuxiao Liu', 'Chilam Cheang', 'Tao Kong'],
+    year: 2024,
+    venue: 'ICCV 2025',
+    arxiv: '2406.14540',
+    url: 'https://arxiv.org/abs/2406.14540',
+    type: 'paper',
+  },
+  // physics-iq-2025: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-01-14, 5 authors.
+  {
+    id: 'physics-iq-2025',
+    title: 'Do generative video models understand physical principles?',
+    authors: ['Saman Motamed', 'Laura Culp', 'Kevin Swersky', 'Priyank Jaini', 'Robert Geirhos'],
+    year: 2025,
+    arxiv: '2501.09038',
+    url: 'https://arxiv.org/abs/2501.09038',
+    type: 'paper',
+  },
+  // physics-iq-verified-2026: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-06-17, 7 authors.
+  {
+    id: 'physics-iq-verified-2026',
+    title: 'Physics-IQ Verified',
+    authors: ['Tim Rädsch', 'Yuki M Asano', 'Hilde Kuehne', 'Stefan Bauer', 'Priyank Jaini', 'Robert Geirhos', 'Carsten T. Lüth'],
+    year: 2026,
+    arxiv: '2606.18943',
+    url: 'https://arxiv.org/abs/2606.18943',
+    type: 'paper',
+  },
+  // robolab-2026: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/world-models/evaluation.citations.ts.
+  // Same id as drafts/world-models/evaluation.citations.ts; keep one entry when merging. arXiv
+  // journal ref: Robotics: Science and Systems XXII, Sydney, Australia, 2026 (venue as in the
+  // world-models entry).
+  {
+    id: 'robolab-2026',
+    title: 'RoboLab: A High-Fidelity Simulation Benchmark for Analysis of Task Generalist Policies',
+    authors: ['Jenai Xuning Yang', 'Rishit Dagli', 'Alex Zook', 'Hugo Hadfield', 'Ankit Goyal', 'Stan Birchfield', 'Fabio Ramos', 'Jonathan Tremblay'],
+    year: 2026,
+    venue: 'Robotics: Science and Systems XXII (2026)',
+    arxiv: '2604.09860',
+    url: 'https://arxiv.org/abs/2604.09860',
+    type: 'paper',
+  },
+  // video-physical-law-2024: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-11-04, 8 authors.
+  {
+    id: 'video-physical-law-2024',
+    title: 'How Far is Video Generation from World Model: A Physical Law Perspective',
+    authors: ['Bingyi Kang', 'Yang Yue', 'Rui Lu', 'Zhijie Lin', 'Yang Zhao', 'Kaixin Wang', 'Gao Huang', 'Jiashi Feng'],
+    year: 2024,
+    venue: 'ICML 2025',
+    arxiv: '2411.02385',
+    url: 'https://arxiv.org/abs/2411.02385',
+    type: 'paper',
+  },
+  // world-in-world-2025: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-10-20, 17 authors.
+  {
+    id: 'world-in-world-2025',
+    title: 'World-in-World: World Models in a Closed-Loop World',
+    authors: ['Jiahan Zhang', 'Muqing Jiang', 'Nanru Dai', 'Taiming Lu', 'Arda Uzunoglu', 'Shunchi Zhang', 'Yana Wei', 'Jiahao Wang', 'Vishal M. Patel', 'Paul Pu Liang', 'Daniel Khashabi', 'Cheng Peng', 'Rama Chellappa', 'Tianmin Shu', 'Alan Yuille', 'Yilun Du', 'Jieneng Chen'],
+    year: 2025,
+    venue: 'ICLR 2026 (Oral)',
+    arxiv: '2510.18135',
+    url: 'https://arxiv.org/abs/2510.18135',
+    type: 'paper',
+  },
+  // worldarena-2026: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-02-09, 21 authors.
+  {
+    id: 'worldarena-2026',
+    title: 'WorldArena: A Unified Benchmark for Evaluating Perception and Functional Utility of Embodied World Models',
+    authors: ['Yu Shang', 'Zhuohang Li', 'Yiding Ma', 'Weikang Su', 'Xin Jin', 'Ziyou Wang', 'Lei Jin', 'Xin Zhang', 'Yinzhou Tang', 'Haisheng Su', 'Chen Gao', 'Wei Wu', 'Xihui Liu', 'Dhruv Shah', 'Zhaoxiang Zhang', 'Zhibo Chen', 'Jun Zhu', 'Yonghong Tian', 'Tat-Seng Chua', 'Wenwu Zhu', 'Yong Li'],
+    year: 2026,
+    arxiv: '2602.08971',
+    url: 'https://arxiv.org/abs/2602.08971',
+    type: 'paper',
+  },
+  // worldeval-2025: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/world-models/evaluation.citations.ts.
+  // Same id as drafts/world-models/evaluation.citations.ts; keep one entry when merging.
+  {
+    id: 'worldeval-2025',
+    title: 'WorldEval: World Model as Real-World Robot Policies Evaluator',
+    authors: ['Yaxuan Li', 'Yichen Zhu', 'Junjie Wen', 'Chaomin Shen', 'Yi Xu'],
+    year: 2025,
+    arxiv: '2505.19017',
+    url: 'https://arxiv.org/abs/2505.19017',
+    type: 'paper',
+  },
+  // worldgym-2025: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-05-31, 6 authors.
+  {
+    id: 'worldgym-2025',
+    title: 'WorldGym: World Model as An Environment for Policy Evaluation',
+    authors: ['Julian Quevedo', 'Ansh Kumar Sharma', 'Yixiang Sun', 'Varad Suryavanshi', 'Percy Liang', 'Sherry Yang'],
+    year: 2025,
+    arxiv: '2506.00613',
+    url: 'https://arxiv.org/abs/2506.00613',
+    type: 'paper',
+  },
+  // worldmodelbench-2025: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-02-28, 13 authors.
+  {
+    id: 'worldmodelbench-2025',
+    title: 'WorldModelBench: Judging Video Generation Models As World Models',
+    authors: ['Dacheng Li', 'Yunhao Fang', 'Yukang Chen', 'Shuo Yang', 'Shiyi Cao', 'Justin Wong', 'Michael Luo', 'Xiaolong Wang', 'Hongxu Yin', 'Joseph E. Gonzalez', 'Ion Stoica', 'Song Han', 'Yao Lu'],
+    year: 2025,
+    arxiv: '2502.20694',
+    url: 'https://arxiv.org/abs/2502.20694',
+    type: 'paper',
+  },
+  // x2real-2026: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-09-23, 26 authors.
+  {
+    id: 'x2real-2026',
+    title: 'X2Real: an eXtensive simulation benchmark for real-world generalist policies',
+    authors: ['Lian Ruan', 'Jade Yang', 'Sherphylan Gao', 'Felix Gao', 'Kyson Liang', 'Galen Liu', 'Ligo Wu', 'Lane Jin', 'Guu Gu', 'Bevan Xie', 'Cloud Yan', 'Zongzi Yuan', 'Kino Luo', 'Emma Chen', 'Shuwen Chen', 'Yang Ping', 'Miles Guo', 'Rain Sun', 'Kayden Zhang', 'Alex Du', 'Ruihai Wu', 'Liang Hao', 'Zhaoshuo Li', 'Roy Gan', 'Hao Wang', 'Qian Wang'],
+    year: 2026,
+    arxiv: '2609.27449',
+    url: 'https://arxiv.org/abs/2609.27449',
+    type: 'paper',
+  },
+  // 3d-gen-embodied-survey-2026: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-04-29, 9 authors.
+  {
+    id: '3d-gen-embodied-survey-2026',
+    title: '3D Generation for Embodied AI and Robotic Simulation: A Survey',
+    authors: ['Tianwei Ye', 'Yifan Mao', 'Minwen Liao', 'Jian Liu', 'Chunchao Guo', 'Dazhao Du', 'Quanxin Shou', 'Fangqi Zhu', 'Song Guo'],
+    year: 2026,
+    arxiv: '2604.26509',
+    url: 'https://arxiv.org/abs/2604.26509',
+    type: 'paper',
+  },
+  // articulate-anything-2024: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-10-03, 10 authors.
+  {
+    id: 'articulate-anything-2024',
+    title: 'Articulate-Anything: Automatic Modeling of Articulated Objects via a Vision-Language Foundation Model',
+    authors: ['Long Le', 'Jason Xie', 'William Liang', 'Hung-Ju Wang', 'Yue Yang', 'Yecheng Jason Ma', 'Kyle Vedder', 'Arjun Krishna', 'Dinesh Jayaraman', 'Eric Eaton'],
+    year: 2024,
+    venue: 'ICLR 2025',
+    arxiv: '2410.13882',
+    url: 'https://arxiv.org/abs/2410.13882',
+    type: 'paper',
+  },
+  // cosmos-transfer1-2025: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-03-18, 41 author fields; the second, ":" from
+  // the arXiv byline "NVIDIA: Hassan Abu Alhaija, …", is not an author and was removed in
+  // verification (40 entries).
+  {
+    id: 'cosmos-transfer1-2025',
+    title: 'Cosmos-Transfer1: Conditional World Generation with Adaptive Multimodal Control',
+    authors: ['NVIDIA', 'Hassan Abu Alhaija', 'Jose Alvarez', 'Maciej Bala', 'Tiffany Cai', 'Tianshi Cao', 'Liz Cha', 'Joshua Chen', 'Mike Chen', 'Francesco Ferroni', 'Sanja Fidler', 'Dieter Fox', 'Yunhao Ge', 'Jinwei Gu', 'Ali Hassani', 'Michael Isaev', 'Pooya Jannaty', 'Shiyi Lan', 'Tobias Lasser', 'Huan Ling', 'Ming-Yu Liu', 'Xian Liu', 'Yifan Lu', 'Alice Luo', 'Qianli Ma', 'Hanzi Mao', 'Fabio Ramos', 'Xuanchi Ren', 'Tianchang Shen', 'Xinglong Sun', 'Shitao Tang', 'Ting-Chun Wang', 'Jay Wu', 'Jiashu Xu', 'Stella Xu', 'Kevin Xie', 'Yuchong Ye', 'Xiaodong Yang', 'Xiaohui Zeng', 'Yu Zeng'],
+    year: 2025,
+    arxiv: '2503.14492',
+    url: 'https://arxiv.org/abs/2503.14492',
+    type: 'paper',
+  },
+  // digital-cousins-2024: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-10-09, 8 authors.
+  {
+    id: 'digital-cousins-2024',
+    title: 'Automated Creation of Digital Cousins for Robust Policy Learning',
+    authors: ['Tianyuan Dai', 'Josiah Wong', 'Yunfan Jiang', 'Chen Wang', 'Cem Gokmen', 'Ruohan Zhang', 'Jiajun Wu', 'Li Fei-Fei'],
+    year: 2024,
+    venue: 'CoRL 2024',
+    arxiv: '2410.07408',
+    url: 'https://arxiv.org/abs/2410.07408',
+    type: 'paper',
+  },
+  // gensim-2023: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2023-10-02, 9 authors.
+  {
+    id: 'gensim-2023',
+    title: 'GenSim: Generating Robotic Simulation Tasks via Large Language Models',
+    authors: ['Lirui Wang', 'Yiyang Ling', 'Zhecheng Yuan', 'Mohit Shridhar', 'Chen Bao', 'Yuzhe Qin', 'Bailin Wang', 'Huazhe Xu', 'Xiaolong Wang'],
+    year: 2023,
+    arxiv: '2310.01361',
+    url: 'https://arxiv.org/abs/2310.01361',
+    type: 'paper',
+  },
+  // infinigen-articulated-2025: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-05-15, 15 authors.
+  {
+    id: 'infinigen-articulated-2025',
+    title: 'Procedural Generation of Articulated Simulation-Ready Assets',
+    authors: ['Abhishek Joshi', 'Beining Han', 'Jack Nugent', 'Max Gonzalez Saez-Diez', 'Yiming Zuo', 'Jonathan Liu', 'Hongyu Wen', 'Stamatis Alexandropoulos', 'Karhan Kayan', 'Anna Calveri', 'Tao Sun', 'Gaowen Liu', 'Yi Shao', 'Alexander Raistrick', 'Jia Deng'],
+    year: 2025,
+    arxiv: '2505.10755',
+    url: 'https://arxiv.org/abs/2505.10755',
+    type: 'paper',
+  },
+  // maniskill3-2024: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/world-models/generative-sim.citations.ts.
+  {
+    id: 'maniskill3-2024',
+    title: 'ManiSkill3: GPU Parallelized Robotics Simulation and Rendering for Generalizable Embodied AI',
+    authors: ['Stone Tao', 'Fanbo Xiang', 'Arth Shukla', 'Yuzhe Qin', 'Xander Hinrichsen', 'Xiaodi Yuan', 'Chen Bao', 'Xinsong Lin', 'Yulin Liu', 'Tse-kai Chan', 'Yuan Gao', 'Xuanlin Li', 'Tongzhou Mu', 'Nan Xiao', 'Arnav Gurha', 'Viswesh Nagaswamy Rajesh', 'Yong Woo Choi', 'Yen-Ru Chen', 'Zhiao Huang', 'Roberto Calandra', 'Rui Chen', 'Shan Luo', 'Hao Su'],
+    year: 2024,
+    arxiv: '2410.00425',
+    url: 'https://arxiv.org/abs/2410.00425',
+    type: 'paper',
+  },
+  // mimicgen-2023: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2023-10-26, 8 authors.
+  {
+    id: 'mimicgen-2023',
+    title: 'MimicGen: A Data Generation System for Scalable Robot Learning using Human Demonstrations',
+    authors: ['Ajay Mandlekar', 'Soroush Nasiriany', 'Bowen Wen', 'Iretiayo Akinola', 'Yashraj Narang', 'Linxi Fan', 'Yuke Zhu', 'Dieter Fox'],
+    year: 2023,
+    venue: 'CoRL 2023',
+    arxiv: '2310.17596',
+    url: 'https://arxiv.org/abs/2310.17596',
+    type: 'paper',
+  },
+  // objaverse-2022: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2022-12-15, 10 authors.
+  {
+    id: 'objaverse-2022',
+    title: 'Objaverse: A Universe of Annotated 3D Objects',
+    authors: ['Matt Deitke', 'Dustin Schwenk', 'Jordi Salvador', 'Luca Weihs', 'Oscar Michel', 'Eli VanderBilt', 'Ludwig Schmidt', 'Kiana Ehsani', 'Aniruddha Kembhavi', 'Ali Farhadi'],
+    year: 2022,
+    arxiv: '2212.08051',
+    url: 'https://arxiv.org/abs/2212.08051',
+    type: 'paper',
+  },
+  // physx-3d-2025: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-07-16, 4 authors.
+  {
+    id: 'physx-3d-2025',
+    title: 'PhysX-3D: Physical-Grounded 3D Asset Generation',
+    authors: ['Ziang Cao', 'Zhaoxi Chen', 'Liang Pan', 'Ziwei Liu'],
+    year: 2025,
+    venue: 'NeurIPS 2025 (Spotlight)',
+    arxiv: '2507.12465',
+    url: 'https://arxiv.org/abs/2507.12465',
+    type: 'paper',
+  },
+  // procthor-2022: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2022-06-14, 11 authors.
+  {
+    id: 'procthor-2022',
+    title: 'ProcTHOR: Large-Scale Embodied AI Using Procedural Generation',
+    authors: ['Matt Deitke', 'Eli VanderBilt', 'Alvaro Herrasti', 'Luca Weihs', 'Jordi Salvador', 'Kiana Ehsani', 'Winson Han', 'Eric Kolve', 'Ali Farhadi', 'Aniruddha Kembhavi', 'Roozbeh Mottaghi'],
+    year: 2022,
+    arxiv: '2206.06994',
+    url: 'https://arxiv.org/abs/2206.06994',
+    type: 'paper',
+  },
+  // robotwin-2-2025: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/world-models/generative-sim.citations.ts.
+  // Same id as drafts/world-models/generative-sim.citations.ts; keep one entry when merging.
+  {
+    id: 'robotwin-2-2025',
+    title: 'RoboTwin 2.0: A Scalable Data Generator and Benchmark with Strong Domain Randomization for Robust Bimanual Robotic Manipulation',
+    authors: ['Tianxing Chen', 'Zanxin Chen', 'Baijun Chen', 'Zijian Cai', 'Yibin Liu', 'Zixuan Li', 'Qiwei Liang', 'Xianliang Lin', 'Yiheng Ge', 'Zhenyu Gu', 'Weiliang Deng', 'Yubin Guo', 'Tian Nian', 'Xuanbing Xie', 'Qiangyu Chen', 'Kailun Su', 'Tianling Xu', 'Guodong Liu', 'Mengkang Hu', 'Huan-ang Gao', 'Kaixuan Wang', 'Zhixuan Liang', 'Yusen Qin', 'Xiaokang Yang', 'Ping Luo', 'Yao Mu'],
+    year: 2025,
+    arxiv: '2506.18088',
+    url: 'https://arxiv.org/abs/2506.18088',
+    type: 'paper',
+  },
+  // scalable-real2sim-2025: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-03-01, 5 authors.
+  {
+    id: 'scalable-real2sim-2025',
+    title: 'Scalable Real2Sim: Physics-Aware Asset Generation Via Robotic Pick-and-Place Setups',
+    authors: ['Nicholas Pfaff', 'Evelyn Fu', 'Jeremy Binagia', 'Phillip Isola', 'Russ Tedrake'],
+    year: 2025,
+    arxiv: '2503.00370',
+    url: 'https://arxiv.org/abs/2503.00370',
+    type: 'paper',
+  },
+  // scenesmith-2026: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-02-09, 5 authors.
+  {
+    id: 'scenesmith-2026',
+    title: 'SceneSmith: Agentic Generation of Simulation-Ready Indoor Scenes',
+    authors: ['Nicholas Pfaff', 'Thomas Cohn', 'Sergey Zakharov', 'Rick Cory', 'Russ Tedrake'],
+    year: 2026,
+    venue: 'ICML 2026 (Spotlight)',
+    arxiv: '2602.09153',
+    url: 'https://arxiv.org/abs/2602.09153',
+    type: 'paper',
+  },
+  // skillmimicgen-2024: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-10-24, 4 authors.
+  {
+    id: 'skillmimicgen-2024',
+    title: 'SkillMimicGen: Automated Demonstration Generation for Efficient Skill Learning and Deployment',
+    authors: ['Caelan Garrett', 'Ajay Mandlekar', 'Bowen Wen', 'Dieter Fox'],
+    year: 2024,
+    arxiv: '2410.18907',
+    url: 'https://arxiv.org/abs/2410.18907',
+    type: 'paper',
+  },
+  // steerable-scene-generation-2025: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-05-07, 5 authors.
+  {
+    id: 'steerable-scene-generation-2025',
+    title: 'Steerable Scene Generation with Post Training and Inference-Time Search',
+    authors: ['Nicholas Pfaff', 'Hongkai Dai', 'Sergey Zakharov', 'Shun Iwase', 'Russ Tedrake'],
+    year: 2025,
+    arxiv: '2505.04831',
+    url: 'https://arxiv.org/abs/2505.04831',
+    type: 'paper',
+  },
+  // text2reward-2023: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2023-09-20, 8 authors.
+  {
+    id: 'text2reward-2023',
+    title: 'Text2Reward: Reward Shaping with Language Models for Reinforcement Learning',
+    authors: ['Tianbao Xie', 'Siheng Zhao', 'Chen Henry Wu', 'Yitao Liu', 'Qian Luo', 'Victor Zhong', 'Yanchao Yang', 'Tao Yu'],
+    year: 2023,
+    venue: 'ICLR 2024',
+    arxiv: '2309.11489',
+    url: 'https://arxiv.org/abs/2309.11489',
+    type: 'paper',
+  },
+  // 1x-world-model-2026: domain pass 2026-10-06, from drafts/world-models/generative-video.citations.ts.
+  // 1X blog fetched 2026-10-04: CMS date 2026-01-12; "The 1XWM backbone is built upon a 14B
+  // generative video model"; "We train on 900 hours of egocentric human video"; "We then fine-tune
+  // on 70 hours of robot data"; "running 30 times each"; success chart shows "0 DRAW SMILEY 0 POUR
+  // CEREAL"; "the 1XWM backbone takes 11 seconds to run ... Each inference generates 5 seconds of
+  // real-time video, and the IDM takes 1 second". No personal byline; corporate author as in the
+  // pack.
+  {
+    id: '1x-world-model-2026',
+    title: '1X World Model | From Video to Action: A New Way Robots Learn',
+    authors: ['1X AI Team'],
+    year: 2026,
+    venue: '1X Technologies',
+    url: 'https://www.1x.tech/discover/world-model-self-learning',
+    type: 'blog',
+  },
+  // gr-3-2025: domain pass 2026-10-06, from drafts/world-models/generative-video.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-07-21, 21 authors.
+  {
+    id: 'gr-3-2025',
+    title: 'GR-3 Technical Report',
+    authors: ['Chilam Cheang', 'Sijin Chen', 'Zhongren Cui', 'Yingdong Hu', 'Liqun Huang', 'Tao Kong', 'Hang Li', 'Yifeng Li', 'Yuxiao Liu', 'Xiao Ma', 'Hao Niu', 'Wenxuan Ou', 'Wanli Peng', 'Zeyu Ren', 'Haixin Shi', 'Jiawen Tian', 'Hongtao Wu', 'Xin Xiao', 'Yuyang Xiao', 'Jiafeng Xu', 'Yichu Yang'],
+    year: 2025,
+    arxiv: '2507.15493',
+    url: 'https://arxiv.org/abs/2507.15493',
+    type: 'paper',
+  },
+  // lingbot-va-2026: domain pass 2026-10-06, from drafts/world-models/generative-video.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-01-29, 12 authors.
+  {
+    id: 'lingbot-va-2026',
+    title: 'Causal World Modeling for Robot Control',
+    authors: ['Lin Li', 'Qihang Zhang', 'Yiming Luo', 'Shuai Yang', 'Ruilin Wang', 'Fei Han', 'Mingrui Yu', 'Zelin Gao', 'Nan Xue', 'Xing Zhu', 'Yujun Shen', 'Yinghao Xu'],
+    year: 2026,
+    arxiv: '2601.21998',
+    url: 'https://arxiv.org/abs/2601.21998',
+    type: 'paper',
+  },
+  // rise-2026: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-02-11, 13 authors.
+  {
+    id: 'rise-2026',
+    title: 'RISE: Self-Improving Robot Policy with Compositional World Model',
+    authors: ['Jiazhi Yang', 'Kunyang Lin', 'Jinwei Li', 'Wencong Zhang', 'Tianwei Lin', 'Longyan Wu', 'Zhizhong Su', 'Hao Zhao', 'Ya-Qin Zhang', 'Li Chen', 'Ping Luo', 'Xiangyu Yue', 'Hongyang Li'],
+    year: 2026,
+    venue: 'RSS 2026',
+    arxiv: '2602.11075',
+    url: 'https://arxiv.org/abs/2602.11075',
+    type: 'paper',
+  },
+  // unisim-2023: domain pass 2026-10-06, from drafts/world-models/generative-video.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2023-10-09, 7 authors.
+  {
+    id: 'unisim-2023',
+    title: 'Learning Interactive Real-World Simulators',
+    authors: ['Sherry Yang', 'Yilun Du', 'Kamyar Ghasemipour', 'Jonathan Tompson', 'Leslie Kaelbling', 'Dale Schuurmans', 'Pieter Abbeel'],
+    year: 2023,
+    arxiv: '2310.06114',
+    url: 'https://arxiv.org/abs/2310.06114',
+    type: 'paper',
+  },
+  // wam-robustness-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-03-23, 14 authors.
+  {
+    id: 'wam-robustness-2026',
+    title: 'Do World Action Models Generalize Better than VLAs? A Robustness Study',
+    authors: ['Zhanguang Zhang', 'Zhiyuan Li', 'Behnam Rahmati', 'Rui Heng Yang', 'Yintao Ma', 'Amir Rasouli', 'Sajjad Pakdamansavoji', 'Yangzheng Wu', 'Lingfeng Zhang', 'Tongtong Cao', 'Feng Wen', 'Xinyu Wang', 'Xingyue Quan', 'Yingxue Zhang'],
+    year: 2026,
+    arxiv: '2603.22078',
+    url: 'https://arxiv.org/abs/2603.22078',
+    type: 'paper',
+  },
+  // ami-labs-launch-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // AMI Labs updates page fetched 2026-10-04: "March 10, 2026 - Updates: Official launch"; "$1.03B
+  // USD (~€890M)"; "operating in Paris, New York, Montreal and Singapore from day one."
+  {
+    id: 'ami-labs-launch-2026',
+    title: 'Updates: Official launch',
+    authors: ['Advanced Machine Intelligence (AMI Labs)'],
+    year: 2026,
+    venue: 'AMI Labs',
+    url: 'https://amilabs.xyz/updates',
+    type: 'blog',
+  },
+  // byol-2020: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2020-06-13, 14 authors.
+  {
+    id: 'byol-2020',
+    title: 'Bootstrap your own latent: A new approach to self-supervised Learning',
+    authors: ['Jean-Bastien Grill', 'Florian Strub', 'Florent Altché', 'Corentin Tallec', 'Pierre H. Richemond', 'Elena Buchatskaya', 'Carl Doersch', 'Bernardo Avila Pires', 'Zhaohan Daniel Guo', 'Mohammad Gheshlaghi Azar', 'Bilal Piot', 'Koray Kavukcuoglu', 'Rémi Munos', 'Michal Valko'],
+    year: 2020,
+    arxiv: '2006.07733',
+    url: 'https://arxiv.org/abs/2006.07733',
+    type: 'paper',
+  },
+  // dino-wm-2024: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-11-07, 4 authors.
+  {
+    id: 'dino-wm-2024',
+    title: 'DINO-WM: World Models on Pre-trained Visual Features enable Zero-shot Planning',
+    authors: ['Gaoyue Zhou', 'Hengkai Pan', 'Yann LeCun', 'Lerrel Pinto'],
+    year: 2024,
+    arxiv: '2411.04983',
+    url: 'https://arxiv.org/abs/2411.04983',
+    type: 'paper',
+  },
+  // ijepa-2023: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2023-01-19, 8 authors.
+  {
+    id: 'ijepa-2023',
+    title: 'Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture',
+    authors: ['Mahmoud Assran', 'Quentin Duval', 'Ishan Misra', 'Piotr Bojanowski', 'Pascal Vincent', 'Michael Rabbat', 'Yann LeCun', 'Nicolas Ballas'],
+    year: 2023,
+    venue: 'ICCV 2023',
+    arxiv: '2301.08243',
+    url: 'https://arxiv.org/abs/2301.08243',
+    type: 'paper',
+  },
+  // intphys2-2025: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-06-11, 6 authors.
+  {
+    id: 'intphys2-2025',
+    title: 'IntPhys 2: Benchmarking Intuitive Physics Understanding In Complex Synthetic Environments',
+    authors: ['Florian Bordes', 'Quentin Garrido', 'Justine T Kao', 'Adina Williams', 'Michael Rabbat', 'Emmanuel Dupoux'],
+    year: 2025,
+    arxiv: '2506.09849',
+    url: 'https://arxiv.org/abs/2506.09849',
+    type: 'paper',
+  },
+  // intuitive-physics-2025: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-02-17, 8 authors.
+  {
+    id: 'intuitive-physics-2025',
+    title: 'Intuitive physics understanding emerges from self-supervised pretraining on natural videos',
+    authors: ['Quentin Garrido', 'Nicolas Ballas', 'Mahmoud Assran', 'Adrien Bardes', 'Laurent Najman', 'Michael Rabbat', 'Emmanuel Dupoux', 'Yann LeCun'],
+    year: 2025,
+    arxiv: '2502.11831',
+    url: 'https://arxiv.org/abs/2502.11831',
+    type: 'paper',
+  },
+  // jepa-implicit-bias-2024: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-07-03, 7 authors.
+  {
+    id: 'jepa-implicit-bias-2024',
+    title: 'How JEPA Avoids Noisy Features: The Implicit Bias of Deep Linear Self Distillation Networks',
+    authors: ['Etai Littwin', 'Omid Saremi', 'Madhu Advani', 'Vimal Thilak', 'Preetum Nakkiran', 'Chen Huang', 'Joshua Susskind'],
+    year: 2024,
+    arxiv: '2407.03475',
+    url: 'https://arxiv.org/abs/2407.03475',
+    type: 'paper',
+  },
+  // jepa-vla-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-02-12, 7 authors.
+  {
+    id: 'jepa-vla-2026',
+    title: 'JEPA-VLA: Video Predictive Embedding is Needed for VLA Models',
+    authors: ['Shangchen Miao', 'Ningya Feng', 'Jialong Wu', 'Ye Lin', 'Xu He', 'Dong Li', 'Mingsheng Long'],
+    year: 2026,
+    arxiv: '2602.11832',
+    url: 'https://arxiv.org/abs/2602.11832',
+    type: 'paper',
+  },
+  // jepa-wam-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-08-10, 9 authors.
+  {
+    id: 'jepa-wam-2026',
+    title: 'JEPA-WAM: Learning Vision-Language-Action Policies with Joint-Embedding World Modeling',
+    authors: ['Yihan Lin', 'Jiawei He', 'Shifeng Bao', 'Chen Zhao', 'Yang Li', 'Xiaobo Wang', 'Yan Wang', 'Cheng Chi', 'Jing Zhang'],
+    year: 2026,
+    arxiv: '2608.09381',
+    url: 'https://arxiv.org/abs/2608.09381',
+    type: 'paper',
+  },
+  // jepa-wm-2025: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-12-30, 5 authors.
+  {
+    id: 'jepa-wm-2025',
+    title: 'What Drives Success in Physical Planning with Joint-Embedding Predictive World Models?',
+    authors: ['Basile Terver', 'Tsung-Yen Yang', 'Jean Ponce', 'Adrien Bardes', 'Yann LeCun'],
+    year: 2025,
+    arxiv: '2512.24497',
+    url: 'https://arxiv.org/abs/2512.24497',
+    type: 'paper',
+  },
+  // lecun-ami-techcrunch-2025: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // TechCrunch fetched 2026-10-04: byline Julie Bort, December 19, 2025; quotes LeCun: "I'm the
+  // Executive Chairman. And Alex LeBrun is transitioning from CEO of Nabla to CEO of AMI Labs!"
+  {
+    id: 'lecun-ami-techcrunch-2025',
+    title: 'Yann LeCun confirms his new \'world model\' startup, reportedly seeks $5B+ valuation',
+    authors: ['Julie Bort'],
+    year: 2025,
+    venue: 'TechCrunch',
+    url: 'https://techcrunch.com/2025/12/19/yann-lecun-confirms-his-new-world-model-startup-reportedly-seeks-5b-valuation/',
+    type: 'press',
+  },
+  // lejepa-2025: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-11-11, 2 authors.
+  {
+    id: 'lejepa-2025',
+    title: 'LeJEPA: Provable and Scalable Self-Supervised Learning Without the Heuristics',
+    authors: ['Randall Balestriero', 'Yann LeCun'],
+    year: 2025,
+    arxiv: '2511.08544',
+    url: 'https://arxiv.org/abs/2511.08544',
+    type: 'paper',
+  },
+  // lejepa-world-model-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-05-25, 3 authors.
+  {
+    id: 'lejepa-world-model-2026',
+    title: 'When Does LeJEPA Learn a World Model?',
+    authors: ['David Klindt', 'Yann LeCun', 'Randall Balestriero'],
+    year: 2026,
+    arxiv: '2605.26379',
+    url: 'https://arxiv.org/abs/2605.26379',
+    type: 'paper',
+  },
+  // leworldmodel-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-03-13, 5 authors.
+  {
+    id: 'leworldmodel-2026',
+    title: 'LeWorldModel: Stable End-to-End Joint-Embedding Predictive Architecture from Pixels',
+    authors: ['Lucas Maes', 'Quentin Le Lidec', 'Damien Scieur', 'Yann LeCun', 'Randall Balestriero'],
+    year: 2026,
+    arxiv: '2603.19312',
+    url: 'https://arxiv.org/abs/2603.19312',
+    type: 'paper',
+  },
+  // meta-vjepa2-blog-2025: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // Meta AI blog fetched 2026-10-04: dated June 11, 2025; "V-JEPA 2 is a 1.2 billion-parameter
+  // model"; "success rates of 65% [en dash] 80% for pick-and-placing new objects in new and unseen
+  // environments".
+  {
+    id: 'meta-vjepa2-blog-2025',
+    title: 'Introducing the V-JEPA 2 world model and new benchmarks for physical reasoning',
+    authors: ['Meta AI'],
+    year: 2025,
+    venue: 'Meta AI Blog',
+    url: 'https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/',
+    type: 'blog',
+  },
+  // muzero-2019: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2019-11-19, 12 authors.
+  {
+    id: 'muzero-2019',
+    title: 'Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model',
+    authors: ['Julian Schrittwieser', 'Ioannis Antonoglou', 'Thomas Hubert', 'Karen Simonyan', 'Laurent Sifre', 'Simon Schmitt', 'Arthur Guez', 'Edward Lockhart', 'Demis Hassabis', 'Thore Graepel', 'Timothy Lillicrap', 'David Silver'],
+    year: 2019,
+    arxiv: '1911.08265',
+    url: 'https://arxiv.org/abs/1911.08265',
+    type: 'paper',
+  },
+  // vjepa-2-1-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-03-15, 9 authors.
+  {
+    id: 'vjepa-2-1-2026',
+    title: 'V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning',
+    authors: ['Lorenzo Mur-Labadia', 'Matthew Muckley', 'Amir Bar', 'Mido Assran', 'Koustuv Sinha', 'Mike Rabbat', 'Yann LeCun', 'Nicolas Ballas', 'Adrien Bardes'],
+    year: 2026,
+    arxiv: '2603.14482',
+    url: 'https://arxiv.org/abs/2603.14482',
+    type: 'paper',
+  },
+  // vla-jepa-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-02-10, 9 authors.
+  {
+    id: 'vla-jepa-2026',
+    title: 'VLA-JEPA: Enhancing Vision-Language-Action Model with Latent World Model',
+    authors: ['Jingwen Sun', 'Wenyao Zhang', 'Zekun Qi', 'Shaojie Ren', 'Zezhi Liu', 'Hanxin Zhu', 'Guangzhong Sun', 'Xin Jin', 'Zhibo Chen'],
+    year: 2026,
+    arxiv: '2602.10098',
+    url: 'https://arxiv.org/abs/2602.10098',
+    type: 'paper',
+  },
+  // bmpc-2025: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-03-24, 5 authors.
+  {
+    id: 'bmpc-2025',
+    title: 'Bootstrapped Model Predictive Control',
+    authors: ['Yuhang Wang', 'Hanwei Guo', 'Sizhe Wang', 'Long Qian', 'Xuguang Lan'],
+    year: 2025,
+    venue: 'ICLR 2025',
+    arxiv: '2503.18871',
+    url: 'https://arxiv.org/abs/2503.18871',
+    type: 'paper',
+  },
+  // compounding-error-2022: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2022-03-17, 3 authors.
+  {
+    id: 'compounding-error-2022',
+    title: 'Investigating Compounding Prediction Errors in Learned Dynamics Models',
+    authors: ['Nathan Lambert', 'Kristofer Pister', 'Roberto Calandra'],
+    year: 2022,
+    arxiv: '2203.09637',
+    url: 'https://arxiv.org/abs/2203.09637',
+    type: 'paper',
+  },
+  // dreamerv2-2020: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2020-10-05, 4 authors.
+  {
+    id: 'dreamerv2-2020',
+    title: 'Mastering Atari with Discrete World Models',
+    authors: ['Danijar Hafner', 'Timothy Lillicrap', 'Mohammad Norouzi', 'Jimmy Ba'],
+    year: 2020,
+    venue: 'ICLR 2021',
+    arxiv: '2010.02193',
+    url: 'https://arxiv.org/abs/2010.02193',
+    type: 'paper',
+  },
+  // e2c-2015: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2015-06-24, 4 authors.
+  {
+    id: 'e2c-2015',
+    title: 'Embed to Control: A Locally Linear Latent Dynamics Model for Control from Raw Images',
+    authors: ['Manuel Watter', 'Jost Tobias Springenberg', 'Joschka Boedecker', 'Martin Riedmiller'],
+    year: 2015,
+    venue: 'NIPS 2015',
+    arxiv: '1506.07365',
+    url: 'https://arxiv.org/abs/1506.07365',
+    type: 'paper',
+  },
+  // ha-world-models-2018: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2018-03-27, 2 authors.
+  {
+    id: 'ha-world-models-2018',
+    title: 'World Models',
+    authors: ['David Ha', 'Jürgen Schmidhuber'],
+    year: 2018,
+    arxiv: '1803.10122',
+    url: 'https://arxiv.org/abs/1803.10122',
+    type: 'paper',
+  },
+  // hwm-2026: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-04-03, 11 authors.
+  {
+    id: 'hwm-2026',
+    title: 'Hierarchical Planning with Latent World Models',
+    authors: ['Wancong Zhang', 'Basile Terver', 'Artem Zholus', 'Soham Chitnis', 'Harsh Sutaria', 'Mido Assran', 'Randall Balestriero', 'Amir Bar', 'Adrien Bardes', 'Yann LeCun', 'Nicolas Ballas'],
+    year: 2026,
+    arxiv: '2604.03208',
+    url: 'https://arxiv.org/abs/2604.03208',
+    type: 'paper',
+  },
+  // masked-world-models-2022: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2022-06-28, 7 authors.
+  {
+    id: 'masked-world-models-2022',
+    title: 'Masked World Models for Visual Control',
+    authors: ['Younggyo Seo', 'Danijar Hafner', 'Hao Liu', 'Fangchen Liu', 'Stephen James', 'Kimin Lee', 'Pieter Abbeel'],
+    year: 2022,
+    venue: 'CoRL 2022',
+    arxiv: '2206.14244',
+    url: 'https://arxiv.org/abs/2206.14244',
+    type: 'paper',
+  },
+  // mbpo-2019: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2019-06-19, 4 authors.
+  {
+    id: 'mbpo-2019',
+    title: 'When to Trust Your Model: Model-Based Policy Optimization',
+    authors: ['Michael Janner', 'Justin Fu', 'Marvin Zhang', 'Sergey Levine'],
+    year: 2019,
+    venue: 'NeurIPS 2019',
+    arxiv: '1906.08253',
+    url: 'https://arxiv.org/abs/1906.08253',
+    type: 'paper',
+  },
+  // mudreamer-2024: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-05-23, 2 authors.
+  {
+    id: 'mudreamer-2024',
+    title: 'MuDreamer: Learning Predictive World Models without Reconstruction',
+    authors: ['Maxime Burchi', 'Radu Timofte'],
+    year: 2024,
+    arxiv: '2405.15083',
+    url: 'https://arxiv.org/abs/2405.15083',
+    type: 'paper',
+  },
+  // newt-2025: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-11-24, 3 authors.
+  {
+    id: 'newt-2025',
+    title: 'Learning Massively Multitask World Models for Continuous Control',
+    authors: ['Nicklas Hansen', 'Hao Su', 'Xiaolong Wang'],
+    year: 2025,
+    arxiv: '2511.19584',
+    url: 'https://arxiv.org/abs/2511.19584',
+    type: 'paper',
+  },
+  // puppeteer-2024: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-05-28, 6 authors. Fix 2026-10-04: PDF byline
+  // "Jyothir S V" (abs-page citation_author "S V, Jyothir"); the earlier "Jyothir S" truncated it.
+  {
+    id: 'puppeteer-2024',
+    title: 'Hierarchical World Models as Visual Whole-Body Humanoid Controllers',
+    authors: ['Nicklas Hansen', 'Jyothir S V', 'Vlad Sobal', 'Yann LeCun', 'Xiaolong Wang', 'Hao Su'],
+    year: 2024,
+    arxiv: '2405.18418',
+    url: 'https://arxiv.org/abs/2405.18418',
+    type: 'paper',
+  },
+  // reset-free-driving-2026: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-04-09, 2 authors.
+  // Claim audit 2026-10-07: v2 (6 October 2026) is retitled "ReBound: ..." and reports a different
+  // study; the quoted "only TD-MPC2 consistently outperforms the MPPI baseline on the physical
+  // platform" is verbatim in v1 (9 April 2026) and absent from v2, so the link pins v1.
+  {
+    id: 'reset-free-driving-2026',
+    title: 'Reset-Free Reinforcement Learning for Real-World Agile Driving: An Empirical Study',
+    authors: ['Kohei Honda', 'Hirotaka Hosogaya'],
+    year: 2026,
+    // Original arXiv v1, 9 April 2026; not the retitled v2.
+    arxiv: '2604.07672',
+    url: 'https://arxiv.org/abs/2604.07672v1',
+    type: 'paper',
+  },
+  // rwm-u-2025: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-04-23, 3 authors.
+  {
+    id: 'rwm-u-2025',
+    title: 'Uncertainty-Aware Robotic World Model Makes Offline Model-Based Reinforcement Learning Work on Real Robots',
+    authors: ['Chenhao Li', 'Andreas Krause', 'Marco Hutter'],
+    year: 2025,
+    arxiv: '2504.16680',
+    url: 'https://arxiv.org/abs/2504.16680',
+    type: 'paper',
+  },
+  // steve-2018: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2018-07-04, 5 authors.
+  {
+    id: 'steve-2018',
+    title: 'Sample-Efficient Reinforcement Learning with Stochastic Ensemble Value Expansion',
+    authors: ['Jacob Buckman', 'Danijar Hafner', 'George Tucker', 'Eugene Brevdo', 'Honglak Lee'],
+    year: 2018,
+    arxiv: '1807.01675',
+    url: 'https://arxiv.org/abs/1807.01675',
+    type: 'paper',
+  },
+  // td-m-pc2-2025: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-02-05, 4 authors. Fix 2026-10-04: the arXiv
+  // title carries TeX "$^2$", which the reference list would print literally; the PDF title is
+  // "TD-M(PC)²". normalizeTitle() reduces both to the same string.
+  {
+    id: 'td-m-pc2-2025',
+    title: 'TD-M(PC)²: Improving Temporal Difference MPC Through Policy Constraint',
+    authors: ['Haotian Lin', 'Pengcheng Wang', 'Jeff Schneider', 'Guanya Shi'],
+    year: 2025,
+    arxiv: '2502.03550',
+    url: 'https://arxiv.org/abs/2502.03550',
+    type: 'paper',
+  },
+  // value-equivalence-2020: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2020-11-06, 4 authors.
+  {
+    id: 'value-equivalence-2020',
+    title: 'The Value Equivalence Principle for Model-Based Reinforcement Learning',
+    authors: ['Christopher Grimm', 'André Barreto', 'Satinder Singh', 'David Silver'],
+    year: 2020,
+    venue: 'NeurIPS 2020',
+    arxiv: '2011.03506',
+    url: 'https://arxiv.org/abs/2011.03506',
+    type: 'paper',
+  },
+  // wm-hallucination-2026: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-06-25, 2 authors.
+  {
+    id: 'wm-hallucination-2026',
+    title: 'Hallucination in World Models is Predictable and Preventable',
+    authors: ['Nicklas Hansen', 'Xiaolong Wang'],
+    year: 2026,
+    arxiv: '2606.27326',
+    url: 'https://arxiv.org/abs/2606.27326',
+    type: 'paper',
+  },
+  // wmp-2024: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-09-25, 8 authors.
+  {
+    id: 'wmp-2024',
+    title: 'World Model-based Perception for Visual Legged Locomotion',
+    authors: ['Hang Lai', 'Jiahang Cao', 'Jiafeng Xu', 'Hongtao Wu', 'Yunfeng Lin', 'Tao Kong', 'Yong Yu', 'Weinan Zhang'],
+    year: 2024,
+    arxiv: '2409.16784',
+    url: 'https://arxiv.org/abs/2409.16784',
+    type: 'paper',
+  },
+  // deep-visual-foresight-2016: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2016-10-03, 2 authors.
+  {
+    id: 'deep-visual-foresight-2016',
+    title: 'Deep Visual Foresight for Planning Robot Motion',
+    authors: ['Chelsea Finn', 'Sergey Levine'],
+    year: 2016,
+    venue: 'ICRA 2017',
+    arxiv: '1610.00696',
+    url: 'https://arxiv.org/abs/1610.00696',
+    type: 'paper',
+  },
+  // dyna-1990: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // Crossref check 2026-10-04: Machine Learning Proceedings 1990 (Elsevier), pages 216-224, single
+  // author Richard S. Sutton. The publisher page and the open-access copy were unreachable (HTTP 403
+  // and 502), so the draft cites only what the title states.
+  {
+    id: 'dyna-1990',
+    title: 'Integrated Architectures for Learning, Planning, and Reacting Based on Approximating Dynamic Programming',
+    authors: ['Richard S. Sutton'],
+    year: 1990,
+    venue: 'Machine Learning Proceedings 1990',
+    url: 'https://doi.org/10.1016/B978-1-55860-141-3.50030-4',
+    type: 'paper',
+  },
+  // manip-wm-survey-2026: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-05-27, 18 authors.
+  {
+    id: 'manip-wm-survey-2026',
+    title: 'World Models for Robotic Manipulation: A Survey',
+    authors: ['Fangyuan Wang', 'Ziyuan Wang', 'Guorui Pei', 'Mengshi Zhang', 'Canxi Liang', 'Jun Hu', 'Zhongxuan Li', 'Jinsong Wu', 'Ning Han', 'Zeqing Zhang', 'Jiaming Qi', 'Hongmin Wu', 'Shiyao Zhang', 'Pai Zheng', 'Jia Pan', 'David Navarro-Alarcon', 'Sichao Liu', 'Peng Zhou'],
+    year: 2026,
+    arxiv: '2606.00113',
+    url: 'https://arxiv.org/abs/2606.00113',
+    type: 'paper',
+  },
+  // mbrl-survey-2020: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2020-06-30, 4 authors.
+  {
+    id: 'mbrl-survey-2020',
+    title: 'Model-based Reinforcement Learning: A Survey',
+    authors: ['Thomas M. Moerland', 'Joost Broekens', 'Aske Plaat', 'Catholijn M. Jonker'],
+    year: 2020,
+    arxiv: '2006.16712',
+    url: 'https://arxiv.org/abs/2006.16712',
+    type: 'paper',
+  },
+  // me-trpo-2018: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2018-02-28, 5 authors.
+  {
+    id: 'me-trpo-2018',
+    title: 'Model-Ensemble Trust-Region Policy Optimization',
+    authors: ['Thanard Kurutach', 'Ignasi Clavera', 'Yan Duan', 'Aviv Tamar', 'Pieter Abbeel'],
+    year: 2018,
+    arxiv: '1802.10592',
+    url: 'https://arxiv.org/abs/1802.10592',
+    type: 'paper',
+  },
+  // mopo-2020: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2020-05-27, 8 authors.
+  {
+    id: 'mopo-2020',
+    title: 'MOPO: Model-based Offline Policy Optimization',
+    authors: ['Tianhe Yu', 'Garrett Thomas', 'Lantao Yu', 'Stefano Ermon', 'James Zou', 'Sergey Levine', 'Chelsea Finn', 'Tengyu Ma'],
+    year: 2020,
+    venue: 'NeurIPS 2020',
+    arxiv: '2005.13239',
+    url: 'https://arxiv.org/abs/2005.13239',
+    type: 'paper',
+  },
+  // morel-2020: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2020-05-12, 4 authors.
+  {
+    id: 'morel-2020',
+    title: 'MOReL : Model-Based Offline Reinforcement Learning',
+    authors: ['Rahul Kidambi', 'Aravind Rajeswaran', 'Praneeth Netrapalli', 'Thorsten Joachims'],
+    year: 2020,
+    venue: 'NeurIPS 2020',
+    arxiv: '2005.05951',
+    url: 'https://arxiv.org/abs/2005.05951',
+    type: 'paper',
+  },
+  // objective-mismatch-2020: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2020-02-11, 4 authors.
+  {
+    id: 'objective-mismatch-2020',
+    title: 'Objective Mismatch in Model-based Reinforcement Learning',
+    authors: ['Nathan Lambert', 'Brandon Amos', 'Omry Yadan', 'Roberto Calandra'],
+    year: 2020,
+    venue: 'L4DC 2020',
+    arxiv: '2002.04523',
+    url: 'https://arxiv.org/abs/2002.04523',
+    type: 'paper',
+  },
+  // pddm-2019: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2019-09-25, 4 authors.
+  {
+    id: 'pddm-2019',
+    title: 'Deep Dynamics Models for Learning Dexterous Manipulation',
+    authors: ['Anusha Nagabandi', 'Kurt Konoglie', 'Sergey Levine', 'Vikash Kumar'],
+    year: 2019,
+    arxiv: '1909.11652',
+    url: 'https://arxiv.org/abs/1909.11652',
+    type: 'paper',
+  },
+  // pets-2018: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2018-05-30, 4 authors.
+  {
+    id: 'pets-2018',
+    title: 'Deep Reinforcement Learning in a Handful of Trials using Probabilistic Dynamics Models',
+    authors: ['Kurtland Chua', 'Roberto Calandra', 'Rowan McAllister', 'Sergey Levine'],
+    year: 2018,
+    venue: 'NeurIPS 2018',
+    arxiv: '1805.12114',
+    url: 'https://arxiv.org/abs/1805.12114',
+    type: 'paper',
+  },
+  // pilco-2015: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2015-02-10, 3 authors.
+  {
+    id: 'pilco-2015',
+    title: 'Gaussian Processes for Data-Efficient Learning in Robotics and Control',
+    authors: ['Marc Peter Deisenroth', 'Dieter Fox', 'Carl Edward Rasmussen'],
+    year: 2015,
+    venue: 'IEEE TPAMI 37(2)',
+    arxiv: '1502.02860',
+    url: 'https://arxiv.org/abs/1502.02860',
+    type: 'paper',
+  },
+  // ssrl-2024: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-10-11, 3 authors.
+  {
+    id: 'ssrl-2024',
+    title: 'Learning to Walk from Three Minutes of Real-World Data with Semi-structured Dynamics Models',
+    authors: ['Jacob Levy', 'Tyler Westenbroek', 'David Fridovich-Keil'],
+    year: 2024,
+    arxiv: '2410.09163',
+    url: 'https://arxiv.org/abs/2410.09163',
+    type: 'paper',
+  },
+  // tossingbot-2019: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2019-03-27, 5 authors.
+  {
+    id: 'tossingbot-2019',
+    title: 'TossingBot: Learning to Throw Arbitrary Objects with Residual Physics',
+    authors: ['Andy Zeng', 'Shuran Song', 'Johnny Lee', 'Alberto Rodriguez', 'Thomas Funkhouser'],
+    year: 2019,
+    arxiv: '1903.11239',
+    url: 'https://arxiv.org/abs/1903.11239',
+    type: 'paper',
+  },
+  // visuospatial-foresight-2020: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2020-03-19, 9 authors.
+  {
+    id: 'visuospatial-foresight-2020',
+    title: 'VisuoSpatial Foresight for Multi-Step, Multi-Task Fabric Manipulation',
+    authors: ['Ryan Hoque', 'Daniel Seita', 'Ashwin Balakrishna', 'Aditya Ganapathi', 'Ajay Kumar Tanwani', 'Nawid Jamali', 'Katsu Yamane', 'Soshi Iba', 'Ken Goldberg'],
+    year: 2020,
+    venue: 'RSS 2020',
+    arxiv: '2003.09044',
+    url: 'https://arxiv.org/abs/2003.09044',
+    type: 'paper',
+  },
+  // amd-world-labs-2026: domain pass 2026-10-06, from drafts/world-models/taxonomy.citations.ts.
+  // AMD press release fetched 2026-10-04: dated September 28, 2026 (GLOBE NEWSWIRE); "entered into a
+  // definitive agreement to acquire World Labs"; "The all-stock transaction is valued at
+  // approximately $8.2 billion and is expected to close by the end of 2026".
+  {
+    id: 'amd-world-labs-2026',
+    title: 'AMD to Acquire World Labs to Advance the Future of AI Compute',
+    authors: ['AMD'],
+    year: 2026,
+    venue: 'AMD press release',
+    url: 'https://ir.amd.com/news-events/press-releases/detail/1299/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute',
+    type: 'press',
+  },
+  // marble-2025: domain pass 2026-10-06, from drafts/world-models/taxonomy.citations.ts.
+  // World Labs blog fetched 2026-10-04: dated November 12, 2025, no personal byline; "Once
+  // generated, 3D worlds can be exported as Gaussian splats, meshes, or videos"; "collider meshes,
+  // which are low-fidelity meshes intended for coarse physics simulation".
+  {
+    id: 'marble-2025',
+    title: 'Marble: A Multimodal World Model',
+    authors: ['World Labs'],
+    year: 2025,
+    venue: 'World Labs',
+    url: 'https://www.worldlabs.ai/blog/marble-world-model',
+    type: 'blog',
+  },
+  // nvidia-wam-blog-2026: domain pass 2026-10-06, from drafts/world-models/taxonomy.citations.ts.
+  // NVIDIA Technical Blog fetched 2026-10-04: byline Moritz Reuss, Jun 15, 2026; "A WAM sits at the
+  // overlap: it leverages a pretrained video/world-model backbone as a prior and predicts both
+  // future states and robot actions"; "DreamZero ... reached 1750 Elo on the April 2026 RoboArena
+  // leaderboard, outperforming Pi-0.5 at 1622."
+  {
+    id: 'nvidia-wam-blog-2026',
+    title: 'Pretrained to Imagine, Fine-Tuned to Act: The Rise of World-Action Models',
+    authors: ['Moritz Reuss'],
+    year: 2026,
+    venue: 'NVIDIA Technical Blog',
+    url: 'https://developer.nvidia.com/blog/pretrained-to-imagine-fine-tuned-to-act-the-rise-of-world-action-models/',
+    type: 'blog',
+  },
+  // physgaussian-2023: domain pass 2026-10-06, from drafts/world-models/taxonomy.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2023-11-20, 7 authors.
+  {
+    id: 'physgaussian-2023',
+    title: 'PhysGaussian: Physics-Integrated 3D Gaussians for Generative Dynamics',
+    authors: ['Tianyi Xie', 'Zeshun Zong', 'Yuxing Qiu', 'Xuan Li', 'Yutao Feng', 'Yin Yang', 'Chenfanfu Jiang'],
+    year: 2023,
+    venue: 'CVPR 2024',
+    arxiv: '2311.12198',
+    url: 'https://arxiv.org/abs/2311.12198',
+    type: 'paper',
+  },
+  // symbolic-operators-2021: domain pass 2026-10-06, from drafts/world-models/taxonomy.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2021-02-28, 5 authors.
+  {
+    id: 'symbolic-operators-2021',
+    title: 'Learning Symbolic Operators for Task and Motion Planning',
+    authors: ['Tom Silver', 'Rohan Chitnis', 'Joshua Tenenbaum', 'Leslie Pack Kaelbling', 'Tomas Lozano-Perez'],
+    year: 2021,
+    venue: 'IROS 2021',
+    arxiv: '2103.00589',
+    url: 'https://arxiv.org/abs/2103.00589',
+    type: 'paper',
+  },
+  // visualpredicator-2024: domain pass 2026-10-06, from drafts/world-models/taxonomy.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-10-30, 8 authors.
+  {
+    id: 'visualpredicator-2024',
+    title: 'VisualPredicator: Learning Abstract World Models with Neuro-Symbolic Predicates for Robot Planning',
+    authors: ['Yichao Liang', 'Nishanth Kumar', 'Hao Tang', 'Adrian Weller', 'Joshua B. Tenenbaum', 'Tom Silver', 'João F. Henriques', 'Kevin Ellis'],
+    year: 2024,
+    venue: 'ICLR 2025',
+    arxiv: '2410.23156',
+    url: 'https://arxiv.org/abs/2410.23156',
+    type: 'paper',
+  },
+  // cosmos-predict2-5-2025: domain pass 2026-10-06, from drafts/world-models/world-models-vs-simulators.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-10-28, 90 author fields; the second, ":" from
+  // the arXiv byline "NVIDIA: Arslan Ali, …", is not an author and was removed in verification (89
+  // entries).
+  {
+    id: 'cosmos-predict2-5-2025',
+    title: 'World Simulation with Video Foundation Models for Physical AI',
+    authors: ['NVIDIA', 'Arslan Ali', 'Junjie Bai', 'Maciej Bala', 'Yogesh Balaji', 'Aaron Blakeman', 'Tiffany Cai', 'Jiaxin Cao', 'Tianshi Cao', 'Elizabeth Cha', 'Yu-Wei Chao', 'Prithvijit Chattopadhyay', 'Mike Chen', 'Yongxin Chen', 'Yu Chen', 'Shuai Cheng', 'Yin Cui', 'Jenna Diamond', 'Yifan Ding', 'Jiaojiao Fan', 'Linxi Fan', 'Liang Feng', 'Francesco Ferroni', 'Sanja Fidler', 'Xiao Fu', 'Ruiyuan Gao', 'Yunhao Ge', 'Jinwei Gu', 'Aryaman Gupta', 'Siddharth Gururani', 'Imad El Hanafi', 'Ali Hassani', 'Zekun Hao', 'Jacob Huffman', 'Joel Jang', 'Pooya Jannaty', 'Jan Kautz', 'Grace Lam', 'Xuan Li', 'Zhaoshuo Li', 'Maosheng Liao', 'Chen-Hsuan Lin', 'Tsung-Yi Lin', 'Yen-Chen Lin', 'Huan Ling', 'Ming-Yu Liu', 'Xian Liu', 'Yifan Lu', 'Alice Luo', 'Qianli Ma', 'Hanzi Mao', 'Kaichun Mo', 'Seungjun Nah', 'Yashraj Narang', 'Abhijeet Panaskar', 'Lindsey Pavao', 'Trung Pham', 'Morteza Ramezanali', 'Fitsum Reda', 'Scott Reed', 'Xuanchi Ren', 'Haonan Shao', 'Yue Shen', 'Stella Shi', 'Shuran Song', 'Bartosz Stefaniak', 'Shangkun Sun', 'Shitao Tang', 'Sameena Tasmeen', 'Lyne Tchapmi', 'Wei-Cheng Tseng', 'Jibin Varghese', 'Andrew Z. Wang', 'Hao Wang', 'Haoxiang Wang', 'Heng Wang', 'Ting-Chun Wang', 'Fangyin Wei', 'Jiashu Xu', 'Dinghao Yang', 'Xiaodong Yang', 'Haotian Ye', 'Seonghyeon Ye', 'Xiaohui Zeng', 'Jing Zhang', 'Qinsheng Zhang', 'Kaiwen Zheng', 'Andrew Zhu', 'Yuke Zhu'],
+    year: 2025,
+    arxiv: '2511.00062',
+    url: 'https://arxiv.org/abs/2511.00062',
+    type: 'paper',
+  },
+  // skyjepa-2026: domain pass 2026-10-06, owner sweep item world-models/jepa recency (SkyJEPA, README §6).
+  // arXiv API, fetched 2026-10-07: v1 22 June 2026, comment "Under Review", five authors. Abstract:
+  // "we combine the learned model with a sampling-based optimal control solution to take advantage of its
+  // predictive capabilities for real-time control on embedded hardware" and "Extensive open-loop and outdoor
+  // closed-loop experiments demonstrate accurate prediction, robust zero-shot sim-to-real transfer".
+  {
+    id: 'skyjepa-2026',
+    title: 'SkyJEPA: Learning Long-Horizon World Models for Zero-Shot Sim-to-Real Control of Quadrotors',
+    authors: ['Pratyaksh Rao', 'Wancong Zhang', 'Randall Balestriero', 'Yann LeCun', 'Giuseppe Loianno'],
+    year: 2026,
+    arxiv: '2606.23444',
+    url: 'https://arxiv.org/abs/2606.23444',
+    type: 'paper',
+  },
+  // h-jepa-2026: domain pass 2026-10-06, KOL intake note of Yann LeCun (world-models/jepa).
+  // Title, authors and abstract read through the arXiv API on 2026-10-06 (v1 5 Oct 2026).
+  {
+    id: 'h-jepa-2026',
+    title: 'H-JEPA: End-to-End Learning of Hierarchical World Models for Visual Planning',
+    authors: ['Wancong Zhang', 'Basile Terver', 'Michael Rabbat', 'Yann LeCun', 'Randall Balestriero'],
+    year: 2026,
+    arxiv: '2610.06805',
+    url: 'https://arxiv.org/abs/2610.06805',
+    type: 'paper',
+  },
+  // pointworld-2026: domain pass 2026-10-06, owner sweep item world-models/taxonomy and world-models/model-based-robot-learning (PointWorld, 2026-10-08).
+  // arXiv 2601.03782 abstract (v1 7 Jan 2026): "given one or few RGB-D images and a sequence of low-level robot action
+  // commands, PointWorld forecasts per-pixel displacements in 3D that respond to the given actions", "totaling about 2M
+  // trajectories and 500 hours", "With a real-time (0.1s) inference speed, PointWorld can be efficiently integrated in
+  // the model-predictive control (MPC) framework" and "a real-world Franka robot to perform rigid-body pushing,
+  // deformable and articulated object manipulation, and tool use, without requiring any demonstrations".
+  {
+    id: 'pointworld-2026',
+    title: 'PointWorld: Scaling 3D World Models for In-The-Wild Robotic Manipulation',
+    authors: ['Wenlong Huang', 'Yu-Wei Chao', 'Arsalan Mousavian', 'Ming-Yu Liu', 'Dieter Fox', 'Kaichun Mo', 'Li Fei-Fei'],
+    year: 2026,
+    arxiv: '2601.03782',
+    url: 'https://arxiv.org/abs/2601.03782',
+    type: 'paper',
+  },
+  // simdist-2026: domain pass 2026-10-06, owner sweep item world-models/latent-dynamics, model-based-robot-learning and world-models-vs-simulators (SimDist, 2026-10-08).
+  // arXiv 2603.15759 abstract (v2 12 May 2026; comments: "Robotics: Science and Systems 2026"): "During real-world
+  // adaptation, SimDist transfers the encoder, reward model, and value function learned in simulation, and updates only
+  // the latent dynamics model using real-world prediction losses. This reduces adaptation to supervised system
+  // identification" and "Across contact-rich manipulation and quadruped locomotion tasks, SimDist rapidly improves with
+  // experience, while prior adaptation methods struggle to make progress or degrade during online finetuning."
+  {
+    id: 'simdist-2026',
+    title: 'Simulation Distillation: Pretraining World Models in Simulation for Rapid Real-World Adaptation',
+    authors: ['Jacob Levy', 'Tyler Westenbroek', 'Kevin Huang', 'Fernando Palafox', 'Patrick Yin', 'Shayegan Omidshafiei', 'Dong-Ki Kim', 'Abhishek Gupta', 'David Fridovich-Keil'],
+    year: 2026,
+    venue: 'RSS 2026',
+    arxiv: '2603.15759',
+    url: 'https://arxiv.org/abs/2603.15759',
+    type: 'paper',
+  },
+  // worldsimprobe-2026: domain pass 2026-10-06, owner sweep item world-models/evaluation (WorldSimProbe, 2026-10-08).
+  // arXiv 2608.09298 abstract (v1 10 Aug 2026): "supplied actions must induce corresponding agent motion, and
+  // environment responses must be grounded in that realized motion", "We evaluate six open-source ACWMs on more than
+  // 18,000 instances across RoboTwin, ManiSkill, and LIBERO" and "World-SimProbe reveals systematic action-realization
+  // degradation across control variation".
+  {
+    id: 'worldsimprobe-2026',
+    title: 'WorldSimProbe: Diagnosing Simulator Faithfulness in Action-Conditioned World Models for Embodied Manipulation',
+    authors: [
+      'Peterson Co', 'Sicheng Hu', 'Chunxuan Jiao', 'Hongyang Cheng', 'Yulin Luo', 'Yijie Xu', 'Sixiang Chen', 'Zhongxia Zhao',
+      'Zihao Wang', 'DaFeng Chi', 'Peidong Liu', 'YuTong Chen', 'Henghua Liu', 'Zhihao Yuan', 'Huizhu Jia', 'Yuzheng Zhuang',
+      'Tianle Zhang', 'Liang Lin', 'Huajie Tan', 'Shanghang Zhang',
+    ],
+    year: 2026,
+    arxiv: '2608.09298',
+    url: 'https://arxiv.org/abs/2608.09298',
+    type: 'paper',
+  },
+  // levjepa-2026: domain pass 2026-10-06, owner sweep item world-models/jepa (LeVJEPA, 2026-10-08).
+  // arXiv 2608.27395 abstract (v1 27 Aug 2026): "We introduce LeVJEPA, the first video encoder trained under LeJEPA's
+  // collapse-free objective" and "At matched epochs on identical data, LeVJEPA matches or surpasses V-JEPA 2 across
+  // ViT-S/B/L at 5.6 to 20.8x less pretraining compute".
+  {
+    id: 'levjepa-2026',
+    title: 'LeVJEPA: Efficient & Scalable Video Pretraining without the Heuristics',
+    authors: ['Lukas Kuhn', 'Lucas Maes', 'Giuseppe Serra', 'Quentin Le Lidec', 'Yann LeCun', 'Randall Balestriero', 'Florian Buettner'],
+    year: 2026,
+    arxiv: '2608.27395',
+    url: 'https://arxiv.org/abs/2608.27395',
+    type: 'paper',
+  },
+  // worldlabs-atlas-2026: domain pass 2026-10-06, owner sweep item world-models/generative-sim (World Labs Atlas, 2026-10-08).
+  // World Labs blog, dated September 1, 2026 on the page, fetched 2026-10-08 (HTTP 200): "Today we are introducing
+  // Atlas, our next-generation world model" and "Atlas models space and time from input videos, reframing videos for
+  // dramatic visual effects and enabling Real-to-Sim workflows for robotics" (the company's own description).
+  {
+    id: 'worldlabs-atlas-2026',
+    title: 'Atlas: A World Model for Spatial Intelligence',
+    authors: ['World Labs'],
+    year: 2026,
+    venue: 'World Labs',
+    url: 'https://www.worldlabs.ai/blog/atlas',
+    type: 'blog',
+  },
+  // genesis-world-2026: domain pass 2026-10-06, owner sweep item world-models/generative-sim (Genesis World, 2026-10-08).
+  // PyPI project page and JSON API, fetched 2026-10-08: version 1.4.3 uploaded 2026-09-30, summary "A universal and
+  // generative physics engine". Description: "Genesis World is a simulation platform for physical AI developments. It
+  // combines a unified multi-physics engine, a photo-realistic renderer (Nyx), and a cross-platform compiler (Quadrants)
+  // behind a Pythonic simulation interface" and "It was previously named Genesis and started as an academic project
+  // since Dec 2024, and its development is now officially supported by Genesis AI."
+  {
+    id: 'genesis-world-2026',
+    title: 'Genesis World',
+    authors: ['Genesis AI'],
+    year: 2026,
+    venue: 'PyPI, version 1.4.3 as of 2026-10-08',
+    url: 'https://pypi.org/project/genesis-world/',
+    type: 'docs',
+  },
+  // cosmos-predict2-repo-2025: domain pass 2026-10-06, owner sweep item world-models/world-models-vs-simulators (archived Predict2, 2026-10-08).
+  // GitHub repository page, fetched 2026-10-08: "This repository was archived by the owner on Dec 3, 2025" and the
+  // update notice "The latest version of our Cosmos-Predict is now live! Cosmos-Predict2.5 We recommend all users
+  // migrate to the new version"; the GitHub API reports archived: true.
+  {
+    id: 'cosmos-predict2-repo-2025',
+    title: 'Cosmos-Predict2',
+    authors: ['NVIDIA'],
+    year: 2025,
+    venue: 'GitHub, archived 2025-12-03',
+    url: 'https://github.com/nvidia-cosmos/cosmos-predict2',
+    type: 'docs',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -16773,7 +18028,9 @@ export function getCitation(id: string): Citation | undefined {
  * an unlisted organisation byline.
  */
 export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
+  ['1X AI Team', '1X AI Team'],
   ['1X Technologies', '1X Technologies'],
+  ['Advanced Machine Intelligence (AMI Labs)', 'AMI Labs'],
   ['Agility Robotics', 'Agility Robotics'],
   ['Association for Advancing Automation', 'A3'],
   ['Astroscale Japan', 'Astroscale'],
@@ -16788,6 +18045,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Gemini Robotics Team', 'Gemini Robotics Team'],
   ['Gemma Team', 'Gemma Team'],
   ['Generalist Team', 'Generalist Team'],
+  ['Genesis AI', 'Genesis AI'],
   ['Google DeepMind', 'Google DeepMind'],
   ['Hugging Face', 'Hugging Face'],
   ['IEEE Standards Association', 'IEEE Standards Association'],
@@ -16826,6 +18084,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['UL Standards & Engagement', 'UL Standards & Engagement'],
   ['Unitree Robotics', 'Unitree Robotics'],
   ['Universal Robots', 'Universal Robots'],
+  ['World Labs', 'World Labs'],
   ['Xiaomi Robotics Team', 'Xiaomi Robotics Team'],
 ]);
 

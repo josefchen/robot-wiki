@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3313e24a52901bc0068d7080721432f498d13f35a57386b61c7d2a866cd911b7",
+  "fingerprint": "09484ee5d8593153142fd93065a3941c6770733b8822acc9125998de27c2d6de",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3230,
+      "visibleTextLength": 3252,
       "header": {
         "present": true,
         "display": "flex",
@@ -10904,7 +10904,7 @@
     },
     {
       "route": "/world-models/evaluation/",
-      "visibleTextLength": 12670,
+      "visibleTextLength": 17283,
       "header": {
         "present": true,
         "display": "flex",
@@ -11066,7 +11066,7 @@
     },
     {
       "route": "/world-models/generative-sim/",
-      "visibleTextLength": 16484,
+      "visibleTextLength": 21653,
       "header": {
         "present": true,
         "display": "flex",
@@ -11228,7 +11228,7 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "visibleTextLength": 19919,
+      "visibleTextLength": 21147,
       "header": {
         "present": true,
         "display": "flex",
@@ -11390,7 +11390,7 @@
     },
     {
       "route": "/world-models/jepa/",
-      "visibleTextLength": 16073,
+      "visibleTextLength": 19630,
       "header": {
         "present": true,
         "display": "flex",
@@ -11552,7 +11552,7 @@
     },
     {
       "route": "/world-models/latent-dynamics/",
-      "visibleTextLength": 14335,
+      "visibleTextLength": 17194,
       "header": {
         "present": true,
         "display": "flex",
@@ -11714,7 +11714,7 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "visibleTextLength": 12035,
+      "visibleTextLength": 15540,
       "header": {
         "present": true,
         "display": "flex",
@@ -11876,7 +11876,7 @@
     },
     {
       "route": "/world-models/taxonomy/",
-      "visibleTextLength": 18268,
+      "visibleTextLength": 21029,
       "header": {
         "present": true,
         "display": "flex",
@@ -12038,7 +12038,7 @@
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
-      "visibleTextLength": 19417,
+      "visibleTextLength": 22213,
       "header": {
         "present": true,
         "display": "flex",

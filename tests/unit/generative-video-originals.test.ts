@@ -209,9 +209,9 @@ describe('generative-video originals: article spans and citations', () => {
     expect(article).toContain(
       'unifies those capabilities in one omni-model <Cite id="nvidia-cosmos-3-launch-2026" />',
     );
-    expect(article).toContain('launched at GTC Taipei in late May 2026');
+    expect(article).toContain('launched at GTC Taipei on 31 May 2026');
     expect(article).toContain(
-      'with Starchild-1 adding audio alongside video <Cite id="odyssey-starchild-1-2026" /> and Agora-1 letting four participants share one simulation <Cite id="odyssey-agora-1-2026" />',
+      'Starchild-1 adds audio <Cite id="odyssey-starchild-1-2026" />, and Agora-1 lets up to four participants share one simulation <Cite id="odyssey-agora-1-2026" />',
     );
     // The technical-report citation survives on the technical claims.
     expect(article.match(/<Cite id="cosmos-3-2026" \/>/g)?.length).toBeGreaterThan(0);

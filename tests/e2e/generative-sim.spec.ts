@@ -20,11 +20,9 @@ test.describe('world-models generative-sim module', () => {
     const main = page.locator('#main-content');
     for (const name of [
       /propose-generate-learn cycle/,
-      /selects objects from Objaverse/,
+      /selects Objaverse objects/,
       /120 kitchen scenes/,
-      /2,500 kitchen environments/,
-      /A real solver then executes that content/,
-      /A renderer is not a simulator/,
+      /2,500 kitchens/,
     ]) {
       await expect(
         main.getByText(name).filter({ visible: true }).first(),
@@ -88,25 +86,24 @@ test.describe('world-models generative-sim module', () => {
   }) => {
     await page.goto(ROUTE);
     const prose = page.locator('div.prose[data-pagefind-body]');
-    const inventory = prose.getByText(/RoboCasa paper reports 120 kitchen scenes/);
-    await expect(inventory).toContainText('10 floor plans combined with 12 styles');
+    const inventory = prose.getByText(/RoboCasa's 120 kitchen scenes/);
+    await expect(inventory).toContainText('10 floor plans with 12 styles');
     await expect(inventory).toContainText('2,509 objects and 153 categories');
     await expect(inventory).toContainText('25 atomic tasks and 75 composite tasks');
-    await expect(inventory).toContainText('human filtering, modification, and code implementation');
+    await expect(inventory).toContainText('human filtering, editing and code');
     await expect(
       inventory.getByRole('link', { name: /Nasiriany et al\. 2024/ }),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2406.02523');
-    const scaling = prose.getByText(/The scaling study is a specific simulation experiment/);
+    const scaling = prose.getByText(/The scaling study trains a language-conditioned BC-Transformer/);
     for (const required of [
       'language-conditioned BC-Transformer',
       'Franka Panda on an Omron mobile base',
-      '24 atomic manipulation tasks from the larger 100-task suite; navigation is excluded',
-      'Objaverse objects and AI-generated training textures',
-      'human-curated textures, unseen object instances',
-      '50 trials per task across five fixed kitchen scenes',
+      '24 atomic tasks, excluding navigation',
+      'Objaverse objects and AI-generated textures',
+      'curated textures, unseen objects',
+      '50 trials per task in five kitchens',
       '26.3%, 35.0%, and 47.6%',
       'Individual tasks do not improve monotonically',
-      'broadly describes datasets over 25 tasks; Figures 6 and 12 explicitly define this generated-data comparison as 24 tasks',
     ]) {
       await expect(scaling).toContainText(required);
     }
@@ -182,8 +179,8 @@ test.describe('world-models generative-sim module', () => {
     const item = page.locator('div.prose[data-pagefind-body] li')
       .filter({ hasText: 'Scene diversity has specific design sources.' });
     await expect(item).toHaveCount(1);
-    await expect(item).toContainText('cultural biases from the LLM and the asset-retrieval component');
-    await expect(item).toContainText('consulted home-design and architecture magazines');
+    await expect(item).toContainText('cultural biases from the LLM and asset retrieval');
+    await expect(item).toContainText('home-design and architecture magazines');
     await expect(item.locator('[data-cite-id="holodeck-2024"] a[href="https://arxiv.org/abs/2312.09067"]')).toHaveCount(1);
     await expect(item.locator('[data-cite-id="robocasa-2024"] a[href="https://arxiv.org/abs/2406.02523"]')).toHaveCount(1);
     await expect(page.locator('div.prose[data-pagefind-body]')).not.toContainText('kitchens look like kitchen magazines');

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "9b284b1681ebb00d15e52fccd334b8d7cdeecd712b9a358b8de96560bc894de4",
+  "fingerprint": "f8ea92b0938ba5173461c12fd9b1b01242a41bfad59a248da6c8778b46ac4e6f",
   "viewport": "1440x900",
   "routes": [
     "/",
@@ -81,7 +81,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3507,
+      "visibleTextLength": 3529,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -8465,7 +8465,7 @@
       }
     },
     {
-      "visibleTextLength": 1160,
+      "visibleTextLength": 1151,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -17375,7 +17375,7 @@
       }
     },
     {
-      "visibleTextLength": 14649,
+      "visibleTextLength": 25416,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -17637,7 +17637,7 @@
       }
     },
     {
-      "visibleTextLength": 20681,
+      "visibleTextLength": 30267,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -17899,7 +17899,7 @@
       }
     },
     {
-      "visibleTextLength": 24464,
+      "visibleTextLength": 27851,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -18161,7 +18161,7 @@
       }
     },
     {
-      "visibleTextLength": 20098,
+      "visibleTextLength": 27379,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -18423,7 +18423,7 @@
       }
     },
     {
-      "visibleTextLength": 18025,
+      "visibleTextLength": 24757,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -18685,7 +18685,7 @@
       }
     },
     {
-      "visibleTextLength": 14256,
+      "visibleTextLength": 21851,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -18947,7 +18947,7 @@
       }
     },
     {
-      "visibleTextLength": 21622,
+      "visibleTextLength": 27560,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -19209,7 +19209,7 @@
       }
     },
     {
-      "visibleTextLength": 22780,
+      "visibleTextLength": 29022,
       "ariaCurrentNodes": [
         {
           "tag": "a",

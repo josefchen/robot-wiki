@@ -26,9 +26,23 @@ export const KOL_BACKLOG_PARAGRAPHS: Readonly<Record<string, readonly string[]>>
 };
 
 export function withoutKolBacklogParagraphs(file: string, text: string): string {
+  return withoutParagraphs(file, text, [...KOL_BACKLOG_PARAGRAPHS[file] ?? [], ...KOL_BACKLOG_20261005_PARAGRAPHS[file] ?? [],
+    ...KOL_BACKLOG_20261007_PARAGRAPHS[file] ?? [], ...KOL_BACKLOG_20261009_PARAGRAPHS[file] ?? []]);
+}
+
+/**
+ * The same, for the bytes the domain-pass layer hands back. The 2026-10-07
+ * and 2026-10-09 steps were recorded inside that layer, so their paragraphs
+ * are never in the pre-domain-pass bytes; the two earlier batches' paragraphs
+ * still must be.
+ */
+export function withoutPreDomainPassKolBacklogParagraphs(file: string, text: string): string {
+  return withoutParagraphs(file, text, [...KOL_BACKLOG_PARAGRAPHS[file] ?? [], ...KOL_BACKLOG_20261005_PARAGRAPHS[file] ?? []]);
+}
+
+function withoutParagraphs(file: string, text: string, paragraphs: readonly string[]): string {
   let result = text;
-  for (const paragraph of [...KOL_BACKLOG_PARAGRAPHS[file] ?? [], ...KOL_BACKLOG_20261005_PARAGRAPHS[file] ?? [],
-    ...KOL_BACKLOG_20261007_PARAGRAPHS[file] ?? [], ...KOL_BACKLOG_20261009_PARAGRAPHS[file] ?? []]) {
+  for (const paragraph of paragraphs) {
     const parts = result.split(`\n${paragraph}\n`);
     if (parts.length !== 2) {
       throw new Error(`${file} must hold the KOL backlog paragraph exactly once: ${paragraph.slice(0, 60)}`);

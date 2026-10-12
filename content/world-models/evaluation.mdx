@@ -16,6 +16,31 @@ citations:
   - roboworld-2026
   - roboarena-2025
   - simfoundry-2026
+  - physics-iq-2025
+  - world-in-world-2025
+  - worldarena-2026
+  - dreamgen-2025
+  - 1x-world-model-2024
+  - 1x-world-model-2025
+  - worldeval-2025
+  - irasim-2024
+  - ctrl-world-2025
+  - fvd-content-bias-2024
+  - worldmodelbench-2025
+  - video-physical-law-2024
+  - worldgym-2025
+  - gvl-2024
+  - runway-gwm-robotics-eval-2026
+  - dreamdojo-2026
+  - optimal-stopping-2025
+  - veo-world-simulator-2025
+  - polaris-2025
+  - x2real-2026
+  - robolab-2026
+  - droid-2024
+  - tri-lbm-2025
+  - physics-iq-verified-2026
+  - worldsimprobe-2026
 seeAlso:
   - "frontier/safety-and-assurance"
   - "manipulation/generalist-policies"
@@ -23,11 +48,9 @@ seeAlso:
 ---
 import { EvalShiftTable } from '@/components/mdx/text-tables';
 
-Evaluating a robotics <Term id="world-model">world model</Term> is checking whether its errors preserve the decisions a robot must make, however convincing one rollout looks. That requires a ladder of tests, from one-step counterfactuals to agreement with real policy rankings. Image metrics can diagnose rendering quality; they cannot establish control utility.
+World-model evaluation is the testing of a robotics <Term id="world-model">world model</Term> against the decisions a robot must make, from one-step action responses to agreement with real policy rankings. Image metrics diagnose rendering and cannot establish control utility. On Physics-IQ, physical understanding in video generators was "unrelated to visual realism" <Cite id="physics-iq-2025" />.
 
-The central failure is action indifference. A model can produce temporally smooth, photorealistic futures and still ignore whether the robot moved left or right. The current robot-world-model survey treats controllability and action-grounded consistency as more informative than visual plausibility alone <Cite id="world-model-survey-2026" />.
-
-Try the check below and choose the evaluation that tests a world model as a policy-evaluation instrument.
+The central failure is action indifference: smooth, photorealistic futures that ignore the robot's action. The 2026 survey of robot world models rates controllability and action-grounded consistency above visual plausibility <Cite id="world-model-survey-2026" />. The closed-loop World-in-World benchmark found controllability mattered more than visual quality for task success <Cite id="world-in-world-2025" />. Try the self-check on ranking robot policies.
 
 <SelfCheck
   prompt="You want to use a video world model to select between two robot policies before hardware testing. Which validation result matters most?"
@@ -52,81 +75,61 @@ Try the check below and choose the evaluation that tests a world model as a poli
   takeaway="Validate the downstream decision: a policy evaluator must preserve real policy ordering. Attractive frames alone do not establish that."
 />
 
-## Start with the intended use
+<span id="start-with-the-intended-use" />
+## Perception scores miss function, so each use needs its own test
 
-World models serve at least four roles, and each needs a different endpoint:
+Planning, policy training, policy evaluation and data generation each need their own endpoint. WorldArena scores 14 models separately as data engines, policy evaluators and action planners and reports a "significant perception-functionality gap" <Cite id="worldarena-2026" />. NVIDIA reports its DreamGen Bench video scores tracking downstream policy success <Cite id="dreamgen-2025" />. 1X reports unchanged policy weights degrading within days after subtle lighting or background changes <Cite id="1x-world-model-2024" />.
 
-- **planning:** rank candidate action sequences;
-- **policy training:** generate transitions whose optimization transfers;
-- **policy evaluation:** predict task progress or success for a fixed policy;
-- **data generation:** create observations or scenarios that improve a learner.
+<span id="level-1-one-step-action-sensitivity" />
+## Level 1: open models often fail to follow a changed action
 
-An evaluation is valid only relative to one of these roles. A model can be excellent for generating background diversity and unusable for planning contact. State the role before selecting metrics.
+Build matched counterfactuals: fix the observation, noise, prompt and history, and change one action dimension. From one initial state, 1X's model predicts four distinct NEO futures for four action sequences <Cite id="1x-world-model-2025" />. WorldEval found raw action inputs often yield videos that ignore the action <Cite id="worldeval-2025" />, and IRASim and Ctrl-World add frame-level action conditioning <Cite id="irasim-2024" /> <Cite id="ctrl-world-2025" />. WorldSimProbe turns this into a test suite: supplied actions must produce matching agent motion and grounded environment responses. Across six open action-conditioned world models and more than 18,000 instances from RoboTwin, ManiSkill and LIBERO, it found systematic degradation in how actions are realized <Cite id="worldsimprobe-2026" />.
 
-## Level 1: one-step action sensitivity
+<span id="level-2-temporal-and-physical-consistency" />
+## Level 2: pooled video metrics hide physical errors
 
-Construct matched counterfactuals from the same observation. Change one action dimension at a time while holding noise, prompt and history fixed. Check whether the predicted displacement, contact or gripper state changes in the expected direction.
+Roll out autoregressively, score task events such as grasp, slip and release, and report error per horizon. Pooled metrics hide failures: Fréchet Video Distance "increases only slightly with large temporal corruption" <Cite id="fvd-content-bias-2024" />. WorldModelBench uses 67K human labels to catch violations such as objects changing size <Cite id="worldmodelbench-2025" />. Video models trained on simple physics failed out of distribution, copying the closest training example <Cite id="video-physical-law-2024" />.
 
-Useful measurements include:
+DeepMind reports real-time Genie 3 generation at 720p and 24 frames per second, with a constrained direct action space and consistency lasting minutes <Cite id="genie-3-2025" />.
 
-- signed displacement response to signed action changes;
-- monotonic response to action magnitude within a safe local range;
-- sensitivity to gripper open and close commands;
-- preservation of static objects when only the robot moves;
-- variance across generation seeds relative to the action effect.
+<span id="level-3-task-progress-scoring" />
+## Level 3: the progress scorer needs its own test
 
-If seed variance is larger than the separation between actions, the model is a weak counterfactual instrument even when its average video is plausible.
+Many evaluators pair a video generator with a vision-language scorer, as WorldGym does, so each half needs its own test <Cite id="worldgym-2025" />. GVL fixes poor naive VLM value prediction by ordering shuffled frames, scoring more than 300 real tasks <Cite id="gvl-2024" />. Runway and DreamDojo used human graders instead, Runway collecting over 16,000 ratings <Cite id="runway-gwm-robotics-eval-2026" /> <Cite id="dreamdojo-2026" />. Interactive World Simulator is built as an action-controllable environment for policy training and evaluation <Cite id="interactive-world-simulator-2026" />.
 
-## Level 2: temporal and physical consistency
+<span id="level-4-policy-ranking" />
+## Level 4: the best simulators order policies as real trials do
 
-Roll the model autoregressively and measure the events the task needs: object permanence, gripper-object attachment, collision, release, support and termination. Report error at each horizon. One pooled number would hide a model that is accurate for eight steps and unstable by step sixteen; that model has a usable eight-step planning horizon.
+A policy evaluator must reproduce reality's ordering, measured as Pearson correlation and Mean Maximum Rank Violation (MMRV) <Cite id="runway-gwm-robotics-eval-2026" />. Real comparisons often rest on 10 to 50 trials, and adding trials after peeking risks p-hacking; the STEP sequential test cuts trials by up to 32% <Cite id="optimal-stopping-2025" />.
 
-Genie 3 demonstrates why limitation reporting belongs beside capability reporting. DeepMind describes real-time 720p generation at 24 frames per second and also identifies a constrained direct action space and consistency measured in minutes rather than indefinitely <Cite id="genie-3-2025" />. For robotics, the action-space limitation can dominate the visual achievement.
+Google DeepMind reports its Veo simulator ranked eight Gemini Robotics checkpoints against more than 1,600 real evaluations at MMRV 0.03, though its absolute success predictions ran low <Cite id="veo-world-simulator-2025" />. The same system red-teams policies, generating scenes that expose behavior violating physical or semantic safety constraints <Cite id="veo-world-simulator-2025" />. WorldGym reached r = 0.78 <Cite id="worldgym-2025" />, WorldEval a mean Pearson of 0.942 against 0.411 for a real-to-sim baseline <Cite id="worldeval-2025" />, and NVIDIA reports r = 0.995 for DreamDojo <Cite id="dreamdojo-2026" />. Runway reports Pearson 0.95 and MMRV 0.033 over eight RoboArena policies, testing ranking only <Cite id="runway-gwm-robotics-eval-2026" />.
 
-Contact events deserve separate metrics because pixel averages dilute them. Annotate the first grasp, slip, insertion, collision and release. Measure event timing and binary correctness. These sparse events often decide task success.
+RoboWorld, a fast autoregressive neural simulator with task-progress-aware scoring, compares its rankings with real policy evaluation <Cite id="roboworld-2026" />. PolaRiS found that Ctrl-World "produces heavy hallucinations during object interaction", mis-ranking policies at MMRV 0.22 <Cite id="polaris-2025" />.
 
-## Level 3: task-progress scoring
+Physics simulation sets the bar. In June 2026, Yuke Zhu and colleagues reported that SimFoundry, which rebuilds a real scene in simulation from video, predicted real results across 7 tasks and 5 policy architectures at mean Pearson 0.911 and MMRV 0.018 <Cite id="simfoundry-2026" />. PolaRiS reports r = 0.9 against real trials <Cite id="polaris-2025" />, and X2Real 0.84 <Cite id="x2real-2026" />.
 
-Many evaluation systems pair a video world model with a vision-language scorer. The generator predicts a rollout; the scorer estimates progress or success from the predicted frames. Test each half separately.
+<span id="level-5-closed-loop-usefulness" />
+## Level 5: planning and fine-tuning in a world model improved outcomes
 
-For the generator, measure action sensitivity and event fidelity. For the scorer, build a balanced set of real successful, partial and failed trajectories. Measure calibration, false positives and invariance to irrelevant visual changes. Then measure the composed error. A scorer cannot repair a generated grasp that never reflected the action.
+The final test is whether the model changes a real outcome. IRASim planning raised Push-T IoU from 0.637 to 0.961 <Cite id="irasim-2024" />, and fine-tuning on Ctrl-World's imagined successes raised policy success by 44.7% <Cite id="ctrl-world-2025" />. Post-training on action-observation data helped more than a stronger pretrained video generator <Cite id="world-in-world-2025" />.
 
-Interactive World Simulator is explicitly designed for robot policy training and evaluation as an action-controllable learned environment <Cite id="interactive-world-simulator-2026" />. Its predicted task outcomes need comparison with hardware. Frame comparisons against a reference video answer a separate question.
+SIMPLER tests whether simulated policy performance correlates with real performance under matched visual and physical conditions, a standard for learned simulators too <Cite id="simpler-2024" />. RoboArena gathers real evaluations across sites, widening the evidence beyond one laboratory <Cite id="roboarena-2025" />.
 
-## Level 4: policy ranking
+<span id="control-the-evaluation-shifts" />
+## Saturated benchmarks hide robustness gaps
 
-Policy evaluation rarely needs perfect trajectories. It needs the same ordering as reality. Select policies with deliberately different strengths: a weak baseline, several intermediate checkpoints and a strong reference. Run enough real trials to estimate each policy's success distribution. Evaluate the same policies in the world model under matched initial conditions.
-
-Report rank correlation, calibration error and pairwise inversions. Include confidence intervals from both real and generated trials. A high correlation across checkpoints from one training run is weaker evidence than agreement across architectures and failure modes.
-
-RoboWorld targets this layer with a fast autoregressive neural simulator and task-progress-aware scoring. Its reported evaluation compares neural rankings with real policy evaluation in addition to video fidelity <Cite id="roboworld-2026" />. Independent replication and broader tasks remain necessary.
-
-Physics simulation sets the bar a learned evaluator should meet. In June 2026, Yuke Zhu and colleagues reported that SimFoundry, which rebuilds a real scene in simulation from a video, predicted real-world performance across 7 manipulation tasks and 5 policy architectures, with a mean Pearson correlation of 0.911 and a mean maximum ranking violation of 0.018 <Cite id="simfoundry-2026" />.
-
-## Level 5: closed-loop usefulness
-
-The final test is whether using the model changes a real outcome. For planning, compare real success with and without model-based selection under the same action budget. For training, compare a policy trained with generated experience to a data-matched baseline. For evaluation, compare how many poor policies the model filters without discarding good ones.
-
-Simulation-based policy evaluation already follows this logic. SIMPLER asks whether simulated policy performance correlates with real performance under carefully matched visual and physical conditions <Cite id="simpler-2024" />. A learned simulator should meet at least the same standard while disclosing where its training data overlaps the evaluated policies.
-
-Distributed real-robot systems such as RoboArena collect evaluations across sites, widening the physical evidence beyond one laboratory setup <Cite id="roboarena-2025" />. A world-model benchmark is most valuable when it predicts that kind of heterogeneous physical evidence.
-
-## Control the evaluation shifts
-
-Use a factorial matrix to expose shifts that one “unseen” split could conceal:
+Use a factorial matrix to expose shifts one "unseen" split could conceal. RoboLab-120 sorts 120 tasks into visual, procedural and relational axes and measures sensitivity to controlled perturbations <Cite id="robolab-2026" />:
 
 <EvalShiftTable className="my-6" />
 
-LIBERO-Plus showed that controlled perturbations can uncover large robustness gaps hidden by a saturated standard benchmark <Cite id="libero-plus-2025" />. Apply the same discipline to world models: do not let one aggregate score average away the exact condition under which the model stops being causal.
+LIBERO-Plus showed that controlled perturbations uncover robustness gaps hidden by a saturated benchmark <Cite id="libero-plus-2025" />. PolaRiS found nearly all tested policies scoring 90 to 95% on LIBERO, poorly correlated with real performance <Cite id="polaris-2025" />.
 
-## Leakage and circularity
+<span id="leakage-and-circularity" />
+## Disjoint data and blind trials guard against leakage
 
-A foundation world model may have seen web videos of the environment, benchmark or robot. A task-progress scorer may share a backbone with the policy being evaluated. Generated training data may then be graded by a related model. Document these relationships.
+Foundation models can see the benchmark in pretraining video, and scorers can share a backbone with the policy. Ctrl-World trains on DROID <Cite id="ctrl-world-2025" />, a dataset of 564 scenes <Cite id="droid-2024" />, and Runway's RoboArena ranking put pi05_droid first <Cite id="runway-gwm-robotics-eval-2026" />. X2Real enforces "strictly disjoint training-evaluation pipelines" <Cite id="x2real-2026" />, and TRI compared policies in blind, randomized trials <Cite id="tri-lbm-2025" />.
 
-Hold out environments, policy families and collection dates where possible. Include simple non-neural checks for events such as gripper closure and object displacement. Human review is useful for auditing failure categories, but graders should be blind to the policy identity.
+<span id="the-minimum-credible-report" />
+## A credible report pins the benchmark version and the real anchor
 
-## The minimum credible report
-
-A credible world-model evaluation states the use case, action representation, rollout horizon, sampling procedure, real-world anchor, task-level results and failure categories. It publishes both visual diagnostics and decision metrics. It separates generator error from scorer error. It shows sensitivity to actions and agreement with real closed-loop outcomes.
-
-The final number should answer an engineering question: how often can this model replace, prioritize or reduce a physical trial without changing the decision? Anything less may still be useful generative research, but it has not yet established a robotics evaluator.
+A credible report states the use case, action representation, horizon, sampling, real anchor and failure categories, and separates generator from scorer error. It names the benchmark version: Physics-IQ Verified refined 57.6% of samples and shifted rankings at Kendall's τ = 0.46 <Cite id="physics-iq-verified-2026" />. By 1X's arithmetic, with a 15% real gap between two policies, a 70%-accurate world model picks the better one 90% of the time <Cite id="1x-world-model-2025" />.

@@ -7,7 +7,7 @@ const surfaces = [
   { slug: 'knowledge-insulation', domain: 'manipulation', text: '7.5 times the training steps', sources: ['knowledge-insulation-paper-2025', 'knowledge-insulation-2025'] },
   { slug: 'pi-line', domain: 'manipulation', text: 'one million one-second action chunks', sources: ['pi0-fast-2025', 'knowledge-insulation-paper-2025'] },
   { slug: 'comparison-matrix', domain: 'manipulation', text: 'DROID setup in the FAST v1 paper', sources: [] },
-  { slug: 'latent-dynamics', domain: 'world-models', text: 'symlog squared loss', sources: ['dreamerv3-2023'] },
+  { slug: 'latent-dynamics', domain: 'world-models', text: 'imagination horizon H = 15 in a table', sources: ['dreamerv3-2023'] },
   { slug: 'taxonomy', domain: 'world-models', text: 'critic also receives a loss on replay-buffer trajectories', sources: ['dreamerv3-2023'] },
 ];
 
