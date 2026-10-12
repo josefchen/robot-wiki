@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1939200, sha256: 'e3a8695b22e0b4819812966e926b06eda72ee2775ddec868a65cf306ae02e9ba' };
+const reviewPin = { bytes: 1940196, sha256: 'a210ede2f2e7e7651a2b1e32f210631e41a5a16bf57b30f226a4521124f332db' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -203,8 +203,8 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/figure-light-stage.spec.ts', [6136, 'aac59bfa7d5c66866984c1d1046ce0398d1958be6216a316325bda311d7f4bf5']],
   ['tests/e2e/final-seven-closure-evidence.spec.ts', [7904, '5ef9167e6772d7edc8273a148aa758593d8a4f754838e2ff553d4ee91fc0385c']],
   ['tests/e2e/generalization.spec.ts', [10396, 'f4a04c10bf95ddd6fc5b8ca25d914e2b9073b38559b87d560cda3c3345d88dcf']],
-  ['tests/e2e/generative-sim.spec.ts', [10659, '0929e949786e1eb1c8621ca5bc3b7221163ab8b960ed90d9f3662355f645aa70']],
-  ['tests/e2e/generative-video.spec.ts', [13180, '2b847b6a03a378004e0c763f9a68c1a26a9cd087eab905f4699f8bd8869ac042']],
+  ['tests/e2e/generative-sim.spec.ts', [10756, '270ff5c6d9ed927136c2cada0419d2c086524397ff5619de722c40d0acf27126']],
+  ['tests/e2e/generative-video.spec.ts', [13277, '925f409f8c48d83f2e28ca6c3537bfe32febb4bd1d8d1402faada4d1e0d912ca']],
   ['tests/e2e/grasp-planning.spec.ts', [18927, '849bc7524782c660211c06576ae2ca9b4a68542178a867f6c5baff01c65f46e4']],
   ['tests/e2e/helpers/figure-light-stage.ts', [9812, '01df856c192d4c742e2355936c7428537b35949cf2eabc8ece245f9d64d0161d']],
   ['tests/e2e/humanoid-tracking-source-audit.spec.ts', [7610, '4b11b637ba3b540238bad3db72c8cfea986d0d9fbb112b63b8ab375017b3969e']],
@@ -213,10 +213,10 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/industrial-cost-reader.spec.ts', [13574, '6cd847c0e415d2e06f48ee16a27656559a92218b09b128471f11e08bbf05820f']],
   ['tests/e2e/industrial-deployment.spec.ts', [20621, '10d84964579f2cf6e4a0527bc278d69d84230ec4f015241d0c15358be0428726']],
   ['tests/e2e/industrial-release-evidence.spec.ts', [7926, 'e89ca29430687375c9bd5fa9fc4c793925748bf9f77f7bc751f0570ff9d57634']],
-  ['tests/e2e/jepa.spec.ts', [6780, 'fde7919fffcea19d9252a60393607117480dc732d306ba9362472194b99c3186']],
+  ['tests/e2e/jepa.spec.ts', [6877, '8efef704db15c4d9d300bf70cc32057433535d0e83b9e430518a40e00bf5bb22']],
   ['tests/e2e/keyboard-only-navigation.spec.ts', [7487, '4e1739c438566529233ec54203df637fc0ba17341b43c75dddf8e56c35dfc752']],
   ['tests/e2e/kinematics.spec.ts', [22687, '34c0653d429a405a2abd24716293fcbe096e13b2e6854b3905329134c7be0c0e']],
-  ['tests/e2e/latent-dynamics.spec.ts', [6890, '5a12b5889fcfb67c85077eab18f09ad18d5be2c8af4cafaeecfb15df91a4f21f']],
+  ['tests/e2e/latent-dynamics.spec.ts', [6987, '9d3a266fb2364ecef76c20ab45123678900bfe97365504cab8eb457b415c26c2']],
   ['tests/e2e/legged-locomotion.spec.ts', [7769, 'a51f62c715f375401b90dfb7c0ea3c2ac80c7f71ee76b8a80ad5de183dd1f0b2']],
   ['tests/e2e/market-map.spec.ts', [16946, 'eee9bc3d893a4ea45834eb7b79efbfab3501d80c377fefe57a186603ce56dc04']],
   ['tests/e2e/motion-data-hardware.spec.ts', [9234, '843c3d0146ed5a34b0f97d7b0889884afeac43d10045ec46fb5627d0af19d453']],
@@ -243,7 +243,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/state-estimation.spec.ts', [14104, 'acf481dfb999c01b3e0739d399eb1bfe848eae10b3a2d6f122a236cd1ee062bb']],
   ['tests/e2e/thesis-economics-readers.spec.ts', [6170, '25b0c7ae3b7cdcbe6a2b604f55d6bc6aa51de094f1e2209e1ee00325c52da0d3']],
   ['tests/e2e/why-rl-locomotion.spec.ts', [5041, '2a0377ca5049411af190a5cfc785dbb9a46dad3663910c42a9cb76aa84470e13']],
-  ['tests/e2e/wm-taxonomy.spec.ts', [6462, 'cbc80ccb2b0eee5180e7d9f1bcc86c1930c8bfa4094b915fded4b24e55aeeb81']],
+  ['tests/e2e/wm-taxonomy.spec.ts', [6559, '016d7f7426e98a847b6912feb7fae16d3f1f50af04eff1537b423756626366c7']],
   ['tests/unit/appearance-physics-push.test.ts', [5351, '7e9275704d3f5dca27c2fa72a760aaff5083ff37625daf297900cb3f1051b0d6']],
   ['tests/unit/brand-v2-annotation-scan.test.ts', [13596, '8dfdd1f46946d655fb927f9af75538b168a5fa0e4e5d636523af59fb87796f5b']],
   ['tests/unit/brand-v2-figure-evidence.test.ts', [32916, 'f0f5ea49951c939dc67090ed351f69482ed6c3bbe44e21ecc48b38abad99fbf7']],

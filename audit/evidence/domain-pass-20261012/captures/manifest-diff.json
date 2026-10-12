@@ -1,0 +1,458 @@
+{
+ "start": "9a85065d",
+ "end": "08955866",
+ "widths": {
+  "375": {
+   "routeCounts": {
+    "/world-models/": {
+     "start": {
+      "dom": 0,
+      "manifest": 0
+     },
+     "end": {
+      "dom": 0,
+      "manifest": 0
+     }
+    },
+    "/world-models/taxonomy/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/world-models/latent-dynamics/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/world-models/generative-video/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/world-models/jepa/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/world-models/generative-sim/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/world-models/model-based-robot-learning/": {
+     "start": {
+      "dom": 0,
+      "manifest": 0
+     },
+     "end": {
+      "dom": 0,
+      "manifest": 0
+     }
+    },
+    "/world-models/evaluation/": {
+     "start": {
+      "dom": 0,
+      "manifest": 0
+     },
+     "end": {
+      "dom": 0,
+      "manifest": 0
+     }
+    },
+    "/world-models/world-models-vs-simulators/": {
+     "start": {
+      "dom": 0,
+      "manifest": 0
+     },
+     "end": {
+      "dom": 0,
+      "manifest": 0
+     }
+    }
+   },
+   "visuals": [
+    {
+     "route": "/world-models/taxonomy/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "327x2250 -> 327x2250",
+     "pixelShareOver64": 4.32,
+     "alignedPixelShareOver64": {
+      "offsetPx": 1,
+      "share": 3.53
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "To plan, a robot imagines what happens next; models differ in whether they imagine full pictures, a compressed summary, ",
+      "after": "To plan, a robot imagines what happens next; models differ in whether they imagine full pictures, a compressed summary, "
+     }
+    },
+    {
+     "route": "/world-models/latent-dynamics/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "327x2025 -> 327x2025",
+     "pixelShareOver64": 0,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 0
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Robots plan by imagining the future; each imagined step builds on the last, so short look-aheads stay close and long one",
+      "after": "Robots plan by imagining the future; each imagined step builds on the last, so short look-aheads stay close and long one"
+     }
+    },
+    {
+     "route": "/world-models/generative-video/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "327x1305 -> 327x1305",
+     "pixelShareOver64": 0.4,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 0.4
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "AI video can look realistic yet ignore what the robot does; for planning, the imagined future must change when the actio",
+      "after": "AI video can look realistic yet ignore what the robot does; for planning, the imagined future must change when the actio"
+     }
+    },
+    {
+     "route": "/world-models/jepa/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "327x1657 -> 327x1657",
+     "pixelShareOver64": 0,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 0
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Instead of imagining full video, this robot compares compact summaries of now and the goal, and picks whichever move clo",
+      "after": "Instead of imagining full video, this robot compares compact summaries of now and the goal, and picks whichever move clo"
+     }
+    },
+    {
+     "route": "/world-models/generative-sim/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "327x1312 -> 327x1312",
+     "pixelShareOver64": 0,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 0
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "AI can generate convincing 3D scenes, but a robot cannot train in them until someone adds shape, weight and friction und",
+      "after": "AI can generate convincing 3D scenes, but a robot cannot train in them until someone adds shape, weight and friction und"
+     }
+    }
+   ]
+  },
+  "1440": {
+   "routeCounts": {
+    "/world-models/": {
+     "start": {
+      "dom": 0,
+      "manifest": 0
+     },
+     "end": {
+      "dom": 0,
+      "manifest": 0
+     }
+    },
+    "/world-models/taxonomy/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/world-models/latent-dynamics/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/world-models/generative-video/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/world-models/jepa/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/world-models/generative-sim/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/world-models/model-based-robot-learning/": {
+     "start": {
+      "dom": 0,
+      "manifest": 0
+     },
+     "end": {
+      "dom": 0,
+      "manifest": 0
+     }
+    },
+    "/world-models/evaluation/": {
+     "start": {
+      "dom": 0,
+      "manifest": 0
+     },
+     "end": {
+      "dom": 0,
+      "manifest": 0
+     }
+    },
+    "/world-models/world-models-vs-simulators/": {
+     "start": {
+      "dom": 0,
+      "manifest": 0
+     },
+     "end": {
+      "dom": 0,
+      "manifest": 0
+     }
+    }
+   },
+   "visuals": [
+    {
+     "route": "/world-models/taxonomy/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "930x1514 -> 930x1515",
+     "pixelShareOver64": null,
+     "alignedPixelShareOver64": {
+      "offsetPx": -1,
+      "share": 2.08
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "To plan, a robot imagines what happens next; models differ in whether they imagine full pictures, a compressed summary, ",
+      "after": "To plan, a robot imagines what happens next; models differ in whether they imagine full pictures, a compressed summary, "
+     }
+    },
+    {
+     "route": "/world-models/latent-dynamics/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "930x1601 -> 930x1600",
+     "pixelShareOver64": null,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 1.36
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Robots plan by imagining the future; each imagined step builds on the last, so short look-aheads stay close and long one",
+      "after": "Robots plan by imagining the future; each imagined step builds on the last, so short look-aheads stay close and long one"
+     }
+    },
+    {
+     "route": "/world-models/generative-video/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "930x1018 -> 930x1017",
+     "pixelShareOver64": null,
+     "alignedPixelShareOver64": {
+      "offsetPx": 1,
+      "share": 1.7
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "AI video can look realistic yet ignore what the robot does; for planning, the imagined future must change when the actio",
+      "after": "AI video can look realistic yet ignore what the robot does; for planning, the imagined future must change when the actio"
+     }
+    },
+    {
+     "route": "/world-models/jepa/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "930x959 -> 930x959",
+     "pixelShareOver64": 3.06,
+     "alignedPixelShareOver64": {
+      "offsetPx": 1,
+      "share": 1.87
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Instead of imagining full video, this robot compares compact summaries of now and the goal, and picks whichever move clo",
+      "after": "Instead of imagining full video, this robot compares compact summaries of now and the goal, and picks whichever move clo"
+     }
+    },
+    {
+     "route": "/world-models/generative-sim/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "930x833 -> 930x833",
+     "pixelShareOver64": 1.91,
+     "alignedPixelShareOver64": {
+      "offsetPx": -1,
+      "share": 1.83
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "AI can generate convincing 3D scenes, but a robot cannot train in them until someone adds shape, weight and friction und",
+      "after": "AI can generate convincing 3D scenes, but a robot cannot train in them until someone adds shape, weight and friction und"
+     }
+    }
+   ]
+  }
+ }
+}

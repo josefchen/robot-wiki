@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-12T15:17:46Z",
+  "observedAt": "2026-10-12T19:31:02Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -9533,13 +9533,13 @@
       },
       "after": {
         "path": "tests/e2e/generative-sim.spec.ts",
-        "bytes": 10659,
-        "sha256": "0929e949786e1eb1c8621ca5bc3b7221163ab8b960ed90d9f3662355f645aa70"
+        "bytes": 10756,
+        "sha256": "270ff5c6d9ed927136c2cada0419d2c086524397ff5619de722c40d0acf27126"
       },
       "edits": [
         {
           "before": "import AxeBuilder from '@axe-core/playwright';\n",
-          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\n"
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\nimport { openArticlesPanel } from './helpers/articles-panel';\n"
         },
         {
           "before": "      /selects objects from Objaverse/,\n",
@@ -9548,6 +9548,10 @@
         {
           "before": "      /2,500 kitchen environments/,\n      /A real solver then executes that content/,\n      /A renderer is not a simulator/,\n",
           "after": "      /2,500 kitchens/,\n"
+        },
+        {
+          "before": "      ).toBeVisible();\n    }\n",
+          "after": "      ).toBeVisible();\n    }\n    await openArticlesPanel(page);\n"
         },
         {
           "before": "    const inventory = prose.getByText(/RoboCasa paper reports 120 kitchen scenes/);\n    await expect(inventory).toContainText('10 floor plans combined with 12 styles');\n",
@@ -9640,13 +9644,13 @@
       },
       "after": {
         "path": "tests/e2e/generative-video.spec.ts",
-        "bytes": 13180,
-        "sha256": "2b847b6a03a378004e0c763f9a68c1a26a9cd087eab905f4699f8bd8869ac042"
+        "bytes": 13277,
+        "sha256": "925f409f8c48d83f2e28ca6c3537bfe32febb4bd1d8d1402faada4d1e0d912ca"
       },
       "edits": [
         {
           "before": "import { waitForHydration } from './interaction-ready';\n",
-          "after": "import { waitForHydration } from './interaction-ready';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+          "after": "import { waitForHydration } from './interaction-ready';\nimport { openAdjustMore } from './helpers/figure-fold';\nimport { openArticlesPanel } from './helpers/articles-panel';\n"
         },
         {
           "before": "      /autoregressive subsequence handles language tokens/,\n      /Nano at 16B/,\n      /Super at 64B/,\n",
@@ -9675,6 +9679,10 @@
         {
           "before": "      /4,186 rollouts are neither independent points nor a per-task correlation/,\n      /not calibrated success probability or absolute agreement/,\n      /visual plausibility is only a weak proxy for control utility/,\n      /top open challenge/,\n",
           "after": "      /the eight aggregates are the correlation points/,\n      /only a weak proxy for control utility/,\n      /first among its open challenges/,\n"
+        },
+        {
+          "before": "    }\n",
+          "after": "    }\n    await openArticlesPanel(page);\n"
         },
         {
           "before": "    await expect(main).toContainText('not necessarily performed by the agent itself');\n    await expect(main).toContainText('perfect geographic accuracy');\n    await expect(main).toContainText('input world description');\n    await expect(main).toContainText('received no agent goal');\n    await expect(main).toContainText('does not establish manipulation performance');\n",
@@ -10027,13 +10035,17 @@
       },
       "after": {
         "path": "tests/e2e/jepa.spec.ts",
-        "bytes": 6780,
-        "sha256": "fde7919fffcea19d9252a60393607117480dc732d306ba9362472194b99c3186"
+        "bytes": 6877,
+        "sha256": "8efef704db15c4d9d300bf70cc32057433535d0e83b9e430518a40e00bf5bb22"
       },
       "edits": [
         {
           "before": "import AxeBuilder from '@axe-core/playwright';\n",
-          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\n"
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\nimport { openArticlesPanel } from './helpers/articles-panel';\n"
+        },
+        {
+          "before": "      ).toBeVisible();\n    }\n",
+          "after": "      ).toBeVisible();\n    }\n    await openArticlesPanel(page);\n"
         },
         {
           "before": "  test('interactive: planning steps reduce the goal-latent distance, reset restores', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n",
@@ -10240,17 +10252,21 @@
       },
       "after": {
         "path": "tests/e2e/latent-dynamics.spec.ts",
-        "bytes": 6890,
-        "sha256": "5a12b5889fcfb67c85077eab18f09ad18d5be2c8af4cafaeecfb15df91a4f21f"
+        "bytes": 6987,
+        "sha256": "9d3a266fb2364ecef76c20ab45123678900bfe97365504cab8eb457b415c26c2"
       },
       "edits": [
         {
           "before": "import { setSlider } from './slider';\n",
-          "after": "import { setSlider } from './slider';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\n"
+          "after": "import { setSlider } from './slider';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\nimport { openArticlesPanel } from './helpers/articles-panel';\n"
         },
         {
           "before": "      /symlog/,\n      /two-hot targets for reward and value prediction/,\n",
           "after": "      /symlog/,\n"
+        },
+        {
+          "before": "    }\n",
+          "after": "    }\n    await openArticlesPanel(page);\n"
         },
         {
           "before": "  test('interactive: horizon extends deviation monotonically, decoder-free mode, reset', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n",
@@ -11957,13 +11973,13 @@
       },
       "after": {
         "path": "tests/e2e/wm-taxonomy.spec.ts",
-        "bytes": 6462,
-        "sha256": "cbc80ccb2b0eee5180e7d9f1bcc86c1930c8bfa4094b915fded4b24e55aeeb81"
+        "bytes": 6559,
+        "sha256": "016d7f7426e98a847b6912feb7fae16d3f1f50af04eff1537b423756626366c7"
       },
       "edits": [
         {
           "before": "import AxeBuilder from '@axe-core/playwright';\n",
-          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\nimport { openArticlesPanel } from './helpers/articles-panel';\n"
         },
         {
           "before": "    for (const name of [\n      /six example groups below are this article's authored selection/,\n",
@@ -11972,6 +11988,10 @@
         {
           "before": "      /3D Gaussian Splatting twin is not/,\n      /appearance is learned, physics is not/i,\n",
           "after": "      /3D Gaussian Splatting twin is not/,\n"
+        },
+        {
+          "before": "    }\n",
+          "after": "    }\n    await openArticlesPanel(page);\n"
         },
         {
           "before": "  test('disambiguator: panels, use highlighting, keyboard, reset', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n",
