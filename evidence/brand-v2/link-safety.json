@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "c71a6a1750727d59b2d532dac9fcd007872145c0686674702b1325cb0687cc9a",
+  "fingerprint": "9e8ddff13afcfa6ce8b014d92575a33067eb98bb478467958cf30e87e716133f",
   "source": "out/ static export",
   "routes": [
     {
@@ -146,8 +146,8 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "outboundAnchors": 120,
-      "distinctHrefs": 45,
+      "outboundAnchors": 122,
+      "distinctHrefs": 46,
       "shapes": [
         "citation-chip",
         "footer",
@@ -222,8 +222,8 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundAnchors": 39,
-      "distinctHrefs": 21,
+      "outboundAnchors": 43,
+      "distinctHrefs": 23,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -279,8 +279,8 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "outboundAnchors": 19,
-      "distinctHrefs": 11,
+      "outboundAnchors": 21,
+      "distinctHrefs": 12,
       "shapes": [
         "citation-chip",
         "footer",
@@ -318,8 +318,8 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "outboundAnchors": 65,
-      "distinctHrefs": 25,
+      "outboundAnchors": 93,
+      "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -330,8 +330,8 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "outboundAnchors": 71,
-      "distinctHrefs": 26,
+      "outboundAnchors": 92,
+      "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
         "footer",
@@ -341,8 +341,8 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundAnchors": 89,
-      "distinctHrefs": 34,
+      "outboundAnchors": 93,
+      "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -353,8 +353,8 @@
     },
     {
       "route": "/frontier/generalization/",
-      "outboundAnchors": 36,
-      "distinctHrefs": 15,
+      "outboundAnchors": 80,
+      "distinctHrefs": 35,
       "shapes": [
         "citation-chip",
         "footer",
@@ -364,8 +364,8 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "outboundAnchors": 32,
-      "distinctHrefs": 13,
+      "outboundAnchors": 71,
+      "distinctHrefs": 34,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -376,8 +376,8 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "outboundAnchors": 66,
-      "distinctHrefs": 33,
+      "outboundAnchors": 105,
+      "distinctHrefs": 46,
       "shapes": [
         "citation-chip",
         "footer",
@@ -387,8 +387,8 @@
     },
     {
       "route": "/glossary/",
-      "outboundAnchors": 196,
-      "distinctHrefs": 141,
+      "outboundAnchors": 198,
+      "distinctHrefs": 142,
       "shapes": [
         "footer",
         "other"
@@ -818,17 +818,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 5369,
-  "distinctOutboundHrefs": 1562,
+  "outboundAnchors": 5554,
+  "distinctOutboundHrefs": 1600,
   "anchorsByShape": {
-    "citation-chip": 2478,
+    "citation-chip": 2575,
     "footer": 152,
-    "reference-entry": 1822,
-    "other": 563,
-    "figure-credit": 354
+    "reference-entry": 1903,
+    "other": 565,
+    "figure-credit": 359
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 4782,
+  "anchorsWithNoreferrer": 4967,
   "keyboard": [
     {
       "route": "/",
@@ -944,11 +944,11 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "outboundInDom": 120,
-      "reachedByTab": 120,
+      "outboundInDom": 122,
+      "reachedByTab": 122,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 275
+      "tabStops": 278
     },
     {
       "route": "/classical/perception/",
@@ -1000,11 +1000,11 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundInDom": 39,
-      "reachedByTab": 39,
+      "outboundInDom": 43,
+      "reachedByTab": 43,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 125
+      "tabStops": 132
     },
     {
       "route": "/data-hardware/datasets/",
@@ -1040,11 +1040,11 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "outboundInDom": 19,
-      "reachedByTab": 19,
+      "outboundInDom": 21,
+      "reachedByTab": 21,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 92
+      "tabStops": 95
     },
     {
       "route": "/data-hardware/teleop-rigs/",
@@ -1072,59 +1072,59 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "outboundInDom": 65,
-      "reachedByTab": 65,
+      "outboundInDom": 93,
+      "reachedByTab": 93,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 185
+      "tabStops": 234
     },
     {
       "route": "/frontier/competing-theses/",
+      "outboundInDom": 92,
+      "reachedByTab": 92,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 238
+    },
+    {
+      "route": "/frontier/dexterity/",
+      "outboundInDom": 93,
+      "reachedByTab": 93,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 223
+    },
+    {
+      "route": "/frontier/generalization/",
+      "outboundInDom": 80,
+      "reachedByTab": 80,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 202
+    },
+    {
+      "route": "/frontier/reliability-gap/",
       "outboundInDom": 71,
       "reachedByTab": 71,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 203
-    },
-    {
-      "route": "/frontier/dexterity/",
-      "outboundInDom": 89,
-      "reachedByTab": 89,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 215
-    },
-    {
-      "route": "/frontier/generalization/",
-      "outboundInDom": 36,
-      "reachedByTab": 36,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 123
-    },
-    {
-      "route": "/frontier/reliability-gap/",
-      "outboundInDom": 32,
-      "reachedByTab": 32,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 116
+      "tabStops": 184
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "outboundInDom": 66,
-      "reachedByTab": 66,
+      "outboundInDom": 105,
+      "reachedByTab": 105,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 174
+      "tabStops": 252
     },
     {
       "route": "/glossary/",
-      "outboundInDom": 196,
-      "reachedByTab": 196,
+      "outboundInDom": 198,
+      "reachedByTab": 198,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 211
+      "tabStops": 213
     },
     {
       "route": "/how-robots-work/",

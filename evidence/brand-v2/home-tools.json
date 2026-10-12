@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "9b2c62488ddacb858b488de6b0779e4f85acdda6f938421a3921b3e502c5a060",
+  "fingerprint": "2eb5c8b670577808d227ef49743a13986c92ab036edf7e9f72cef649a110b1c6",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -11,7 +11,7 @@
     "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
     "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
     "graphicTag": "svg",
-    "graphicTopPx": 1185,
+    "graphicTopPx": 1159,
     "graphicHeightPx": 384,
     "posterMarkCount": 3,
     "playerMountedAtFirstPaint": false,
@@ -78,7 +78,7 @@
     "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
     "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
     "graphicTag": "svg",
-    "graphicTopPx": 1185,
+    "graphicTopPx": 1159,
     "graphicHeightPx": 384,
     "posterMarkCount": 3,
     "playerMountedAtFirstPaint": false,
@@ -141,17 +141,17 @@
       {
         "text": "Playground",
         "path": "/playground/",
-        "topPx": 2426
+        "topPx": 2400
       },
       {
         "text": "How robots work",
         "path": "/how-robots-work/",
-        "topPx": 2426
+        "topPx": 2400
       },
       {
         "text": "Market Map",
         "path": "/market-map/",
-        "topPx": 2426
+        "topPx": 2400
       }
     ],
     "graphics": [],
@@ -2932,9 +2932,9 @@
         },
         {
           "memberId": "count:/:sources",
-          "text": "1142 sources",
-          "expected": 1142,
-          "actual": 1142
+          "text": "1180 sources",
+          "expected": 1180,
+          "actual": 1180
         },
         {
           "memberId": "count:/:glossary-terms",

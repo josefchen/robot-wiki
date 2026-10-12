@@ -696,14 +696,22 @@ const reskin20261010Appends = merged.filter(x => x.id.startsWith('pantheon-reski
 // chain already holds one.
 const worldModelsPass20261010Appends = merged
   .filter(x => x.id.startsWith('world-models-pass-20261010-')).map(x => x.id);
-// The 2026-10-12 KOL triage batch appends its block last, in the same shape:
+// The 2026-10-12 KOL triage batch appends its block next, in the same shape:
 // prose, relationships and frontmatter edges for the ten articles it adds
 // dated paragraphs to, one citation-rendering resolution and one edge per new
 // citation record.
 const kolQueue20261012Appends = merged.filter(x => x.id.startsWith('domain-pass-20261012-kol-')).map(x => x.id);
+// The 2026-10-10 frontier pass lands after that batch and appends its block
+// last, in the same shape: prose, relationships and frontmatter edges for the
+// five frontier pass articles and dexterity's primary-source frontmatter, the
+// glossary and citation-rendering resolutions, and one edge per new citation
+// record.
+const frontierPass20261010Appends = merged
+  .filter(x => x.id.startsWith('frontier-pass-20261010-')).map(x => x.id);
 const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,
   ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends,
-  ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends];
+  ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends,
+  ...frontierPass20261010Appends];
 const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));
 const howRobotsWorkAppends = [
   'how-robots-work-20261002-accessible-names-explainers-rail',
@@ -742,7 +750,11 @@ const worldModelsPass20261010Edges = (manifest: string, memberId: string) => mer
 const kolQueue20261012Edges = (manifest: string, memberId: string) => merged
   .filter(x => kolQueue20261012Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
   .map(x => x.id);
-const afterWorldModelsPass20261010 = merged.length - kolQueue20261012Appends.length;
+const frontierPass20261010Edges = (manifest: string, memberId: string) => merged
+  .filter(x => frontierPass20261010Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const afterKolQueue20261012 = merged.length - frontierPass20261010Appends.length;
+const afterWorldModelsPass20261010 = afterKolQueue20261012 - kolQueue20261012Appends.length;
 const afterReskin20261010 = afterWorldModelsPass20261010 - worldModelsPass20261010Appends.length;
 const afterRlFigures20261011 = afterReskin20261010 - reskin20261010Appends.length;
 const afterRlPass20261009 = afterRlFigures20261011 - rlFigures20261011Appends.length;
@@ -790,7 +802,8 @@ describe('two-parent exact approval reconciliation', () => {
     // 2026-10-09 rl-sim2real pass appends its block, the 2026-10-11
     // rl-sim2real figure batch appends its block, the 2026-10-10
     // site-foundation re-skin appends its block, the world-models pass
-    // appends its block, and the 2026-10-12 KOL triage batch appends its
+    // appends its block, the 2026-10-12 KOL triage batch appends its block,
+    // and the 2026-10-10 frontier pass, landed after that batch, appends its
     // block last.
     expect([main.length, local.length, localOnly.length, merged.length])
       .toEqual([1558, 1104, 7, 2026 + readerFirstAppends.length + howRobotsWorkAppends.length
@@ -798,11 +811,11 @@ describe('two-parent exact approval reconciliation', () => {
         + howRobotsWork20261005Appends.length + domainPass20261006Appends.length
         + classicalPass20261007Appends.length + kolQueue20261009Appends.length + rlPass20261009Appends.length
         + rlFigures20261011Appends.length + reskin20261010Appends.length + worldModelsPass20261010Appends.length
-        + kolQueue20261012Appends.length]);
+        + kolQueue20261012Appends.length + frontierPass20261010Appends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -1152,7 +1165,7 @@ describe('two-parent exact approval reconciliation', () => {
         ...kolBacklog20261005Edges('prose', memberId), ...domainPass20261006Edges('prose', memberId),
         ...classicalPass20261007Edges('prose', memberId), ...kolQueue20261009Edges('prose', memberId),
         ...rlFigures20261011Edges('prose', memberId), ...worldModelsPass20261010Edges('prose', memberId),
-        ...kolQueue20261012Edges('prose', memberId)]);
+        ...kolQueue20261012Edges('prose', memberId), ...frontierPass20261010Edges('prose', memberId)]);
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       const entry = edges.at(-1)!;
       const prior = edges.slice(0, -1);
@@ -1633,9 +1646,11 @@ describe('two-parent exact approval reconciliation', () => {
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
-      // Only the 2026-10-12 KOL triage batch may move a member after this pass.
-      expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
-        .toEqual(kolQueue20261012Edges(entry.manifest, entry.memberId));
+      // Only the 2026-10-12 KOL triage batch and the frontier pass that landed
+      // after it may move a member after this pass, in that order.
+      expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id)).toEqual([
+        ...kolQueue20261012Edges(entry.manifest, entry.memberId),
+        ...frontierPass20261010Edges(entry.manifest, entry.memberId)]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
@@ -1654,12 +1669,15 @@ describe('two-parent exact approval reconciliation', () => {
   });
 
   it('binds each 2026-10-12 KOL triage edge to its previous endpoint and to the sealed hash', () => {
-    expect(merged.slice(afterWorldModelsPass20261010).map(x => x.id)).toEqual(kolQueue20261012Appends);
-    const slugs = ['bc-foundations', 'cross-embodiment', 'dexterity', 'generative-video', 'hierarchical', 'jepa',
-      'reward-design-mpc', 'rl-finetuning', 'scene-representation', 'space'];
+    expect(merged.slice(afterWorldModelsPass20261010, afterKolQueue20261012).map(x => x.id))
+      .toEqual(kolQueue20261012Appends);
+    const slugs = ['bc-foundations', 'cross-embodiment', 'data-bottleneck', 'dexterity', 'generative-video',
+      'hierarchical', 'jepa', 'motion-planning', 'reward-design-mpc', 'rl-finetuning', 'robot-learning-stack',
+      'safety-and-assurance', 'scene-representation', 'space'];
     const citations = ['mulligan-2026', 'ocbench-2026', 'egolap-2026', 'eigendexplore-2026', 'openwam-2026',
       'jepa-unstable-modes-2026', 'qf3-2026', 'robo-cop-2026', 'long-wam-2026', 'ledger-2026', 'sgs-2026',
-      'lac-wm-2026', 'luna-legged-2026'];
+      'lac-wm-2026', 'luna-legged-2026', 'visual-predicted-force-2026', 'fingers-as-legs-2026', 'ariadne-2026',
+      'mobilevista-2026', 'trustworthy-physical-ai-2026', 'hiphi-2026', 'exploy-2026'];
     expect(kolQueue20261012Appends).toEqual([
       ...slugs.map(slug => `prose-${slug}`), ...slugs.map(slug => `relationships-${slug}`),
       ...slugs.map(slug => `frontmatter-${slug}`), 'citation-rendering',
@@ -1671,14 +1689,56 @@ describe('two-parent exact approval reconciliation', () => {
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
-      expect(edges.at(-1)).toBe(entry);
-      const prior = edges.slice(0, -1);
+      // Only the frontier pass, which landed after this batch, may move a
+      // member after it.
+      expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
+        .toEqual(frontierPass20261010Edges(entry.manifest, entry.memberId));
+      const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
       if (entry.memberId.startsWith('citation:')) {
         expect(prior).toEqual([]);
         expect(entry.oldHash).toBe(MISSING_MEMBER);
       }
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      if (prior.some(x => x.reconciles !== undefined)) {
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));
+      } else {
+        expect(entry.reconciles).toBeUndefined();
+        expect(entry.oldHash).toBe(previous);
+      }
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
+  });
+
+  it('binds each 2026-10-10 frontier pass edge to its previous endpoint and to the sealed hash', () => {
+    expect(merged.slice(afterKolQueue20261012).map(x => x.id)).toEqual(frontierPass20261010Appends);
+    const slugs = ['bear-case', 'competing-theses', 'generalization', 'reliability-gap', 'safety-and-assurance'];
+    const articleEdges = [
+      ...slugs.map(slug => `prose-${slug}`), ...slugs.map(slug => `relationships-${slug}`),
+      ...['bear-case', 'competing-theses', 'dexterity', 'generalization', 'reliability-gap', 'safety-and-assurance']
+        .map(slug => `frontmatter-${slug}`),
+      'article-metadata-canonical-metadata-source-data-glossary-ts', 'citation-rendering',
+    ].map(suffix => `frontier-pass-20261010-${suffix}`);
+    expect(frontierPass20261010Appends.slice(0, articleEdges.length)).toEqual(articleEdges);
+    const records = merged.slice(afterKolQueue20261012 + articleEdges.length);
+    expect(records).toHaveLength(32);
+    expect(records.every(x => x.manifest === 'article-metadata' && x.memberId.startsWith('citation:'))).toBe(true);
+    expect(records.map(x => x.id))
+      .toEqual(records.map(x => `frontier-pass-20261010-citation-${x.memberId.slice('citation:'.length)}`));
+    for (const id of frontierPass20261010Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      expect(edges.at(-1)).toBe(entry);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      const previous = prior.at(-1)?.newHash ?? sealed;
+      expect(entry.newHash).not.toBe(previous);
       const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
       expect(path.status).toBe('approved');
       expect(path.path.at(-1)).toBe(entry);

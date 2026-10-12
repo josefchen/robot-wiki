@@ -53,13 +53,13 @@ describe('bear-case originals integration (2026-09-15)', () => {
     );
   });
 
-  it('B15 local-AND basis: the board reads four not met, four partial, zero met', () => {
+  it('B15 local-AND basis: the board reads three not met, five partial, zero met', () => {
     const counts = MILESTONES.reduce<Record<string, number>>((acc, m) => {
       acc[m.status] = (acc[m.status] ?? 0) + 1;
       return acc;
     }, {});
-    expect(counts).toEqual({ partial: 4, 'not-met': 4, met: undefined });
+    expect(counts).toEqual({ partial: 5, 'not-met': 3, met: undefined });
     expect(MILESTONES).toHaveLength(8);
-    expect(article).toContain('four not met, four partial, zero met');
+    expect(article).toContain('three not met, five partial, zero met');
   });
 });

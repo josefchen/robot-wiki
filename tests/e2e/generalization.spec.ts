@@ -48,8 +48,17 @@ test.describe('frontier generalization module', () => {
       .locator('h2')
       .allTextContents();
     expect(headings.length).toBeGreaterThanOrEqual(4);
-    const proseLength = (await main.textContent())?.length ?? 0;
-    expect(proseLength).toBeGreaterThan(4000);
+    const prose = main.locator('div.prose[data-pagefind-body]');
+    const sources = await prose.locator('[data-cite-id]').evaluateAll(
+      (els) => new Set(els.map((el) => el.getAttribute('data-cite-id'))).size,
+    );
+    expect(sources).toBeGreaterThanOrEqual(30);
+    const leadWords = await prose.locator(':scope > p').first().evaluate((p) => {
+      const copy = p.cloneNode(true) as HTMLElement;
+      copy.querySelectorAll('[data-cite-id], [role="tooltip"]').forEach((el) => el.remove());
+      return (copy.textContent ?? '').split(/\s+/).filter((word) => /[\p{L}\p{N}]/u.test(word)).length;
+    });
+    expect(leadWords).toBeLessThanOrEqual(60);
 
     // No raw MDX or component syntax leaks into the rendered page.
     const mainText = (await main.textContent()) ?? '';

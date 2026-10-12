@@ -23,7 +23,6 @@ citations:
   - droids-optimus-v3-hand-2026
   - teslarati-optimus-hand-2026
   - robozaps-unitree-h2-2026
-  - wikipedia-humanoid-hand-2026
   - sparsh-x-2025
   - touchworld-2026
   - tactile-outlook-2025
@@ -37,7 +36,10 @@ citations:
   - fingr-2026
   - tacdyn-wam-2026
   - bd-atlas-hand-2026
+  - unitree-dex5-1-2026
   - eigendexplore-2026
+  - visual-predicted-force-2026
+  - fingers-as-legs-2026
 seeAlso:
   - "data-hardware/hardware-taxonomy"
   - "data-hardware/teleop-rigs"
@@ -74,6 +76,8 @@ Brooks frames the scaling counterargument as an imagined inner dialogue: end-to-
 
 The case for the bet is real. Video of humans manipulating objects is the only manipulation data that exists at internet scale, <Term id="teleoperation">teleoperation</Term> data is expensive and carries no force channel either, and every sensor added to a hand is cost, weight, wiring, and a new failure mode in a product that needs to be manufactured. If the bet pays off, the winners skip the tactile hardware problem entirely.
 
+A camera can also stand in for a force sensor. In October 2026, Haonan Chen, Edward Adelson, Jiajun Wu, Robert Howe, Yilun Du and colleagues trained an estimator that reads grip force from how a compliant Fin Ray gripper visibly bends. On three held-out episodes its mean error was 0.91 N, against 4.20 N for an estimate from the gripper's motor current. A Diffusion Policy that also outputs a force value then drew 32 candidate actions at each step and kept the one whose force was closest to a target taken from the demonstrations. On an ARX arm with no force or tactile sensor, over 15 trials per task, this raised success compared with a single sample from 46.7% to 86.7% for grasping an empty soda can, 0% to 73.3% for berry picking, 6.7% to 46.7% for in-hand reorientation and 26.7% to 73.3% for plug insertion <Cite id="visual-predicted-force-2026" />.
+
 ## The bet on touch
 
 The other side argues the bet cannot pay off, because the information is not in the video. Jeremy Fishel, principal researcher at Sanctuary AI, puts it in one sentence: with video alone you do not know you have touched something until well after the collision has physically moved the object <Cite id="sanctuary-tactile-2025" />. Sanctuary's CEO James Wells calls touch a key enabler for creating human-level dexterity in robots, and the company built its Phoenix hands around that position: hydraulic actuation, and fingerpad arrays of micro-barometer cells sensitive to about five millinewtons, against roughly three for a human fingertip <Cite id="sanctuary-tactile-2025" /><Cite id="robozaps-phoenix-2026" />.
@@ -93,6 +97,8 @@ The hands on offer in 2026 span two orders of magnitude in price and no agreemen
 The spread is the story. Tesla's 22-<Term id="degrees-of-freedom">degree-of-freedom</Term> tendon design has the most articulation here and an admitted redesign behind it: days after the V3 hand patents surfaced, Musk said of the design, "this one didn't actually work" <Cite id="teslarati-optimus-hand-2026" /> <Cite id="droids-optimus-v3-hand-2026" />. Sanctuary's hydraulic hand pairs the most sensitive disclosed touch with a working in-hand demo, and its maker has since pivoted to selling software <Cite id="robozaps-phoenix-2026" />. Shadow's hand remains the research benchmark at a lab price of €110,000 including support <Cite id="shadow-hand-cost-2022" />. Unitree lists the entire H2 robot at \$29,900, but the base model ships with non-functional placeholder hands, and its tactile option, the H2 Plus with Sharpa Wave hands, lists at \$100,000 <Cite id="robozaps-unitree-h2-2026" />. Figure holds the middle: its August 6, 2024 release for Figure 02, Figure's own announcement hosted by PRNewswire, describes the second-generation robot's "4th generation hands" as "equipped with 16 degrees of freedom" without saying whether that count is per hand or combined, or giving an actuator count <Cite id="figure-02-2024" />, and on Figure 03 a 3-gram fingertip threshold, the only maker in this table that puts the number on its own product page.
 
 Boston Dynamics announced a new Atlas hand on October 1, 2026, with four fingers and 13 directly actuated degrees of freedom, up from seven, and pressure sensors across the fingertips and palm <Cite id="bd-atlas-hand-2026" />. It has no little finger, which would have needed three more actuators, and it is built to be simulated accurately enough for training with reinforcement learning <Cite id="bd-atlas-hand-2026" />.
+
+A hand can also be the whole robot. In September 2026, Amirhossein Kazemipour, Hehui Zheng and Robert Katzschmann of ETH Zurich's Soft Robotics Lab trained reinforcement-learning policies that let an off-the-shelf 738 g WUJI hand, carrying its own power and computer, crawl on its fingers and use the same fingers to work. Training ran in a simulator calibrated from hardware measurements. On hardware it got back up from a fall in 21 of 25 trials, pressed the commanded arrow key for 29 of 32 consecutive commands while supporting its own weight, and, guided by an overhead camera, completed 15 cube deliveries to targets 10 to 40 cm away with a mean final error of 17 mm <Cite id="fingers-as-legs-2026" />.
 
 ## In-hand manipulation
 

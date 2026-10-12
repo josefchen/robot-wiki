@@ -258,7 +258,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
           </div>
         </FigureStage>
       }
-      caption="Watch these eight: as of August 2026 four are partly there, and each one met would weaken the case that robotics is overhyped."
+      caption="Watch these eight: as of August 2026 five are partly there, and each one met would weaken the case that robotics is overhyped."
       method={
         <>
           <div>
