@@ -221,7 +221,7 @@ test.describe('frontier dexterity module', () => {
     ).toHaveAttribute('aria-sort', 'descending');
     await openAdjustMore(panel);
     await panel.getByRole('button', { name: 'Reverse the order' }).click();
-    expect((await cardIds())[0]).toBe('unitree-h2');
+    expect((await cardIds())[0]).toBe('figure-02-03');
 
     // Lowest price compares hand prices only: the whole-robot price never
     // ranks as the cheapest hand.

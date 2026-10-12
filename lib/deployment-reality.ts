@@ -84,8 +84,8 @@ export const DEPLOYMENT_ROWS: DeploymentRow[] = [
       'May 13, 2026 vendor livestream of package sorting; a real broadcast, but a single task, one site, and no independent audit of the success rate.',
     status: 'claimed',
     asOf: 'May 2026',
-    sourceId: 'figure-8hr-shift-2026',
-    sourceLabel: 'TechTimes',
+    sourceId: 'adcock-figure-livestream-2026',
+    sourceLabel: 'Figure AI',
   },
 ];
 

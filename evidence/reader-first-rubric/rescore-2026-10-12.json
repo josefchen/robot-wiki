@@ -1,0 +1,1102 @@
+{
+  "schemaVersion": "reader-first-rescore-v1",
+  "date": "2026-10-12",
+  "tree": "a4b72c6fff762aba0d6b1e2151ad731ced6cbba4",
+  "rubric": {
+    "path": "contract/reader-first-rubric.json",
+    "digest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+  },
+  "method": "Every stored unclear term of the reader-test records was scored against the fixed rubric, with no new review. Terms whose quoted words are exempt words or counters were matched by lib/reader-first-rubric.ts, as check:reader-first matches them. A mark, kicker, self-label or credit was exempted only where the stored answer text, read against the frame's source at the record's commit where noted, shows that it is an item the rubric names; every other term still counts. A record would pass when its answer is yes and no term counts. The records and their verdicts are unchanged and stay for the convergence round.",
+  "summary": {
+    "records": 19,
+    "wouldPass": 0,
+    "stillFail": 19,
+    "missedPoint": 4,
+    "storedTerms": 137,
+    "exempt": 23,
+    "exemptMatched": 13,
+    "exemptFromAnswerText": 10,
+    "counted": 114,
+    "byExemption": {
+      "fold-names": 10,
+      "playback-controls": 2,
+      "counters": 1,
+      "highlight-mark": 4,
+      "legend-keyed-marks": 4,
+      "kicker": 1,
+      "status-label": 1,
+      "external-credit": 0
+    }
+  },
+  "records": [
+    {
+      "id": "classical--calibration--calibration-chain",
+      "domain": "classical",
+      "route": "/classical/calibration/",
+      "figure": "calibration-chain",
+      "record": "evidence/reader-first/classical--calibration--calibration-chain.json",
+      "recordBlob": "4a091331e0e38f1ca721abb92d93107bac741a17",
+      "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 3,
+      "exempt": 0,
+      "counted": 3,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "the short brown arrow near the wrist going toward the camera",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the light grey band running along the arm under the purple line",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the circles at the arm's joints",
+          "counts": true,
+          "exemption": null
+        }
+      ]
+    },
+    {
+      "id": "classical--control--impedance-contact-lab",
+      "domain": "classical",
+      "route": "/classical/control/",
+      "figure": "impedance-contact-lab",
+      "record": "evidence/reader-first/classical--control--impedance-contact-lab.json",
+      "recordBlob": "66ebcd540b7bfb3f217f2af1d737427189cf001f",
+      "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
+      "samePoint": "no",
+      "storedVerdict": "fail",
+      "storedTerms": 5,
+      "exempt": 2,
+      "counted": 3,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "Arm that controls its own push (how it differs from 'Arm with a built-in spring')",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "why the arm bounces repeatedly on the object instead of touching it once",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "dark teal first spike versus the paler teal later spikes (whether the colour difference means something beyond 'first' and 'later')",
+          "counts": false,
+          "exemption": "legend-keyed-marks",
+          "basis": "answer text",
+          "note": "The reader read the frame's own key ('first', 'later') and asked only whether the colour meant more."
+        },
+        {
+          "term": "Adjust more",
+          "counts": false,
+          "exemption": "fold-names",
+          "basis": "matched"
+        },
+        {
+          "term": "a position-only arm",
+          "counts": true,
+          "exemption": null
+        }
+      ]
+    },
+    {
+      "id": "classical--control--pendulum-controller",
+      "domain": "classical",
+      "route": "/classical/control/",
+      "figure": "pendulum-controller",
+      "record": "evidence/reader-first/classical--control--pendulum-controller.json",
+      "recordBlob": "eb9c95a2b628c0c1576f0b02444227f1c3016268",
+      "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 7,
+      "exempt": 1,
+      "counted": 6,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "the small green arrowhead labelled push next to the pole",
+          "counts": true,
+          "exemption": null,
+          "note": "The answer gives no reason and does not say the colour is the only question; item 5 asks who pushes."
+        },
+        {
+          "term": "the circle at the bottom of the pole (I guessed it is the motor, but it is not labelled)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the larger green arrow pointing at that circle from the lower left",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "I could not tell whether Too gentle or Strong enough is the selected option",
+          "counts": true,
+          "exemption": null,
+          "note": "The selected state did not read at all; the exemption covers the look of a selected option a reader can find."
+        },
+        {
+          "term": "Give it a push (I could not tell who or what does the pushing)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the hatched line at the bottom",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Adjust more",
+          "counts": false,
+          "exemption": "fold-names",
+          "basis": "matched"
+        }
+      ]
+    },
+    {
+      "id": "classical--grasp-planning--grasp-wrench-lab",
+      "domain": "classical",
+      "route": "/classical/grasp-planning/",
+      "figure": "grasp-wrench-lab",
+      "record": "evidence/reader-first/classical--grasp-planning--grasp-wrench-lab.json",
+      "recordBlob": "1c6b6cdb4fd01c5639872c74de69ab1901aac8f4",
+      "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 4,
+      "exempt": 1,
+      "counted": 3,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "the white stripe across the middle of each dark finger",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the grip strength bar is only about half full while the message says the grip holds, so I could not tell how firm is firm enough",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the teal box is not labelled, so I assumed it is the object being held",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Adjust more",
+          "counts": false,
+          "exemption": "fold-names",
+          "basis": "matched"
+        }
+      ]
+    },
+    {
+      "id": "classical--kinematics--planar-fk-arm",
+      "domain": "classical",
+      "route": "/classical/kinematics/",
+      "figure": "planar-fk-arm",
+      "record": "evidence/reader-first/classical--kinematics--planar-fk-arm.json",
+      "recordBlob": "73eb1cf48a30811c87174daa9a9fa898dc233a72",
+      "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 3,
+      "exempt": 1,
+      "counted": 2,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "adding up each joint's turn, from shoulder to fingertip",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "slider ends labelled 'arm leans right' on the left and 'arm leans left' on the right (the direction feels backwards)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Adjust more",
+          "counts": false,
+          "exemption": "fold-names",
+          "basis": "matched"
+        }
+      ]
+    },
+    {
+      "id": "classical--motion-planning--rrt-explorer",
+      "domain": "classical",
+      "route": "/classical/motion-planning/",
+      "figure": "rrt-explorer",
+      "record": "evidence/reader-first/classical--motion-planning--rrt-explorer.json",
+      "recordBlob": "0ec539a6d3d39692883e8fb2d997386aa5a754d4",
+      "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 3,
+      "exempt": 1,
+      "counted": 2,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "the circle with a flag on it at the goal",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the small dots along the blue branches",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Adjust more",
+          "counts": false,
+          "exemption": "fold-names",
+          "basis": "matched"
+        }
+      ]
+    },
+    {
+      "id": "classical--perception--perception-error-budget",
+      "domain": "classical",
+      "route": "/classical/perception/",
+      "figure": "perception-error-budget",
+      "record": "evidence/reader-first/classical--perception--perception-error-budget.json",
+      "recordBlob": "63bbe3a832245a0c7b97a2ff5ce79c6560953b20",
+      "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 4,
+      "exempt": 1,
+      "counted": 3,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "why the robot's belief is drawn as the slanted line and reality as the straight dashed line, when I expected the reverse",
+          "counts": true,
+          "exemption": null,
+          "note": "The reader read the key, but the drawing contradicted it."
+        },
+        {
+          "term": "the short green vertical mark with a crossbar between the two lines",
+          "counts": true,
+          "exemption": null,
+          "note": "Unlabelled mark, per the answer."
+        },
+        {
+          "term": "the small tick marks along the dashed line",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Adjust more",
+          "counts": false,
+          "exemption": "fold-names",
+          "basis": "matched"
+        }
+      ]
+    },
+    {
+      "id": "classical--ros2-for-ml-engineers--ros2-policy-layout",
+      "domain": "classical",
+      "route": "/classical/ros2-for-ml-engineers/",
+      "figure": "ros2-policy-layout",
+      "record": "evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.json",
+      "recordBlob": "c319ad2900848d11f5a11cdac12b40e829d952f7",
+      "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 3,
+      "exempt": 0,
+      "counted": 3,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "what the boxes are (programs, machines, or steps?)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "gathers the latest readings (what does the gathering, and why it is a separate step)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "why the arrows change from blue-green to purple partway down",
+          "counts": true,
+          "exemption": null,
+          "note": "Asks why the colour changes, a meaning no label gives."
+        }
+      ]
+    },
+    {
+      "id": "classical--scene-representation--scene-representation-ladder",
+      "domain": "classical",
+      "route": "/classical/scene-representation/",
+      "figure": "scene-representation-ladder",
+      "record": "evidence/reader-first/classical--scene-representation--scene-representation-ladder.json",
+      "recordBlob": "7b84f731ca550e7e2e25b0eab338cd28a40943c6",
+      "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
+      "samePoint": "no",
+      "storedVerdict": "fail",
+      "storedTerms": 10,
+      "exempt": 1,
+      "counted": 9,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "occupancy grid",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Dots, Distance map, Triangle skin, Soft blobs (the other options, which I cannot see)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Can the robot move here? (where 'here' is)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Which way does the surface face?",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "What does it look like from here?",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "More detail: ... same answers",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the teal 'something there' square under the box sitting lower than the box outline",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "thin post shown only as a tiny dot with no teal fill",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the 'real room, faint' legend symbol (rectangle and circle)",
+          "counts": true,
+          "exemption": null,
+          "note": "The legend entry itself was unclear."
+        },
+        {
+          "term": "Adjust more",
+          "counts": false,
+          "exemption": "fold-names",
+          "basis": "matched"
+        }
+      ]
+    },
+    {
+      "id": "classical--state-estimation--clip-kalman-episode",
+      "domain": "classical",
+      "route": "/classical/state-estimation/",
+      "figure": "clip:kalman-episode",
+      "record": "evidence/reader-first/classical--state-estimation--clip-kalman-episode.json",
+      "recordBlob": "a4b63e3b5c1aa376617dddc05a858e94324b4fc5",
+      "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 6,
+      "exempt": 0,
+      "counted": 6,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "filter / filter's estimate (what the 'filter' is)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "what the up-and-down direction of the lines means (no label on the vertical direction)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the dashed grey 'true position' line, which I could barely find in the chart",
+          "counts": true,
+          "exemption": null,
+          "note": "Named by its legend, but the reader could barely find the line: a legibility problem the rubric does not exempt."
+        },
+        {
+          "term": "the green shaded wedge under the green arrow",
+          "counts": true,
+          "exemption": null,
+          "note": "Unlabelled mark, per the answer."
+        },
+        {
+          "term": "where exactly the stretch with no readings begins and ends",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "'the object' in the caption below (what object?)",
+          "counts": true,
+          "exemption": null
+        }
+      ]
+    },
+    {
+      "id": "classical--state-estimation--scene-kalman-predict-update",
+      "domain": "classical",
+      "route": "/classical/state-estimation/",
+      "figure": "scene:kalman-predict-update",
+      "record": "evidence/reader-first/classical--state-estimation--scene-kalman-predict-update.json",
+      "recordBlob": "6b909490747374faee107328fcfe9e8f9d3d35d0",
+      "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 5,
+      "exempt": 0,
+      "counted": 5,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "what the height of the bell shapes means (only the width is explained)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the green horizontal bar with a dot in the middle and end caps under the robot",
+          "counts": true,
+          "exemption": null,
+          "note": "Unlabelled mark, per the answer."
+        },
+        {
+          "term": "the grey horizontal line the robot sits on",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the overlapping shaded areas under the curves, which mix into colours I could not match to a single curve",
+          "counts": true,
+          "exemption": null,
+          "note": "The colours could not be matched to a curve."
+        },
+        {
+          "term": "62% of the way from guess to sensor (I could not tell where 0% and 100% are on the picture)",
+          "counts": true,
+          "exemption": null
+        }
+      ]
+    },
+    {
+      "id": "manipulation--action-chunking--chunk-size-curve",
+      "domain": "manipulation",
+      "route": "/manipulation/action-chunking/",
+      "figure": "chunk-size-curve",
+      "record": "evidence/reader-first/manipulation--action-chunking--chunk-size-curve.json",
+      "recordBlob": "0096c5f53c6153db0d8af268c07a53961128240e",
+      "screenshotCommit": "946b3ba57f0afc284d941e88077b2619598ff70a",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 13,
+      "exempt": 1,
+      "counted": 12,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "Action chunking",
+          "counts": false,
+          "exemption": "kicker",
+          "basis": "answer text and frame source",
+          "note": "The frame's kicker at 946b3ba5 (kicker=\"Action chunking\" in components/interactive/chunk-size-curve.tsx) and nowhere else in its text. The original definition already left kicker terms out."
+        },
+        {
+          "term": "moves per plan (what a single 'move' is)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "decisions per task",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the uneven spacing of the 1, 10, 100, 400 axis",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "estimate (the pale band that slopes downward past 100)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "why success drops after 100 moves per plan",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "measured vs estimate (what was measured, and how)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the grey bar and the four green tick marks (what they stand for)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "simulated robot / simulated tasks",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "ACT ablation",
+          "counts": true,
+          "exemption": null,
+          "note": "The visible source line credits the data of a first-party chart; the external-credit exemption covers pictures made by someone else."
+        },
+        {
+          "term": "Zhao et al., 2023",
+          "counts": true,
+          "exemption": null,
+          "note": "The visible source line credits the data of a first-party chart; the external-credit exemption covers pictures made by someone else."
+        },
+        {
+          "term": "the 400-move task (where 400 comes from)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the large ringed dot vs the small dot",
+          "counts": true,
+          "exemption": null,
+          "note": "The answer cites no key."
+        }
+      ]
+    },
+    {
+      "id": "manipulation--diffusion-policy--scene-diffusion-denoising",
+      "domain": "manipulation",
+      "route": "/manipulation/diffusion-policy/",
+      "figure": "scene:diffusion-denoising",
+      "record": "evidence/reader-first/manipulation--diffusion-policy--scene-diffusion-denoising.json",
+      "recordBlob": "eb6f098e4f554d55e8689edd320e1fdebbb99ad8",
+      "screenshotCommit": "75347bba431426d683ec7c4395e5d0fccabb2eab",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 9,
+      "exempt": 2,
+      "counted": 7,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "the purple line connecting the two clusters of purple dots (it could be a path or a link between move one and move two)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the teal dot in the middle (labelled 'what the robot sees', but it is unclear how a single dot can be what the robot sees)",
+          "counts": true,
+          "exemption": null,
+          "note": "Labelled, but the reader could not make sense of the label."
+        },
+        {
+          "term": "the grey legend dot, 'random guess and its path' (the guesses appear only as grey lines, and I could not find any grey dots in the figure)",
+          "counts": true,
+          "exemption": null,
+          "note": "A legend entry that does not match the drawing still counts."
+        },
+        {
+          "term": "the two tall green vertical lines (what they point at or measure)",
+          "counts": true,
+          "exemption": null,
+          "note": "Asks what the marks point at or measure, not only what their colour means."
+        },
+        {
+          "term": "the meaning of the position or direction on the chart, since there are no axes",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "'nudged onto a good move in 10 steps' (what a single step is)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "'averaged into one' (what an averaged move would look like or where it would sit)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "'a drawn model of the idea'",
+          "counts": false,
+          "exemption": "status-label",
+          "basis": "answer text and frame source",
+          "note": "Part of the frame's self-label at 75347bba, the status line \"Illustrative: a drawn model of the idea, not a trained robot’s output.\" in components/motion/scenes/diffusion-denoising.tsx. The original definition already left self-label terms out."
+        },
+        {
+          "term": "the 'Adjust more' control",
+          "counts": false,
+          "exemption": "fold-names",
+          "basis": "matched"
+        }
+      ]
+    },
+    {
+      "id": "manipulation--pi-line--pi-generation-timeline",
+      "domain": "manipulation",
+      "route": "/manipulation/pi-line/",
+      "figure": "pi-generation-timeline",
+      "record": "evidence/reader-first/manipulation--pi-line--pi-generation-timeline.json",
+      "recordBlob": "cac833a0eb62751dbb5a04367c7c876f8e98a4c0",
+      "screenshotCommit": "19e993716295c5fc894ce7164b84116bcd84e15f",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 12,
+      "exempt": 0,
+      "counted": 12,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "π",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "π0-FAST",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "π*0.6 (the star)",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "π0.6-MEM",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "MEM",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "FAST",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "weights downloadable",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "weights",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "picture-and-language model",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "openpi checkpoint catalogue",
+          "counts": true,
+          "exemption": null,
+          "note": "The source line credits the data of a first-party chart; the external-credit exemption covers pictures made by someone else."
+        },
+        {
+          "term": "checkpoint",
+          "counts": true,
+          "exemption": null,
+          "note": "The source line credits the data of a first-party chart; the external-credit exemption covers pictures made by someone else."
+        },
+        {
+          "term": "filled dots versus hollow dots",
+          "counts": true,
+          "exemption": null,
+          "note": "The answer cites no key."
+        }
+      ]
+    },
+    {
+      "id": "rl-sim2real--humanoid-wbc--wbc-decomposition",
+      "domain": "rl-sim2real",
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "figure": "wbc-decomposition",
+      "record": "evidence/reader-first/rl-sim2real--humanoid-wbc--wbc-decomposition.json",
+      "recordBlob": "647f581b993560e4764a204656264c813d6db406",
+      "screenshotCommit": "ee211309e71b215f470d068a95f8b2fb1dd45c3a",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 11,
+      "exempt": 1,
+      "counted": 10,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "Figure AI / NVIDIA / Google DeepMind buttons: I recognise some as companies, but not why I would pick one or what would change if I did",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Figure AI: I was not sure whether this is a company name or means 'this figure'",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "joint motor: I guessed it means the motors at the elbows and knees, but was not sure",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Plans how each arm and leg moves vs Drives every joint motor: the difference between planning a movement and driving the motors was not clear to me",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "top box has no speed: the title says 'slow thinking', but no number tells me how slow the top layer is",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "200 / 1,000 times a second: I could not tell whether these speeds are large or small for a robot",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "downward arrows between boxes: I guessed they mean one layer passes instructions to the next",
+          "counts": true,
+          "exemption": null,
+          "note": "Unlabelled marks; the reader only guessed."
+        },
+        {
+          "term": "arrow from the bottom box to the body: unclear whether only the bottom layer controls the body",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "green upward arrow under the bottom box: unclear why it points up at the box and what the green colour means",
+          "counts": true,
+          "exemption": null,
+          "note": "Asks why the arrow points up as well as what the colour means."
+        },
+        {
+          "term": "thicker outline on the bottom box: I could not tell whether it is highlighted on purpose",
+          "counts": true,
+          "exemption": null,
+          "note": "The answer names no label or legend for the emphasis."
+        },
+        {
+          "term": "purple dots: I needed the key to learn they are joint motors",
+          "counts": false,
+          "exemption": "legend-keyed-marks",
+          "basis": "answer text",
+          "note": "The answer says the frame's key gives their meaning."
+        }
+      ]
+    },
+    {
+      "id": "rl-sim2real--legged-locomotion--scene-gait-support",
+      "domain": "rl-sim2real",
+      "route": "/rl-sim2real/legged-locomotion/",
+      "figure": "scene:gait-support",
+      "record": "evidence/reader-first/rl-sim2real--legged-locomotion--scene-gait-support.json",
+      "recordBlob": "37babab5c2fbbcbc898f6ffab9752fe948d0fcfc",
+      "screenshotCommit": "ee211309e71b215f470d068a95f8b2fb1dd45c3a",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 6,
+      "exempt": 3,
+      "counted": 3,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "Trot: I know it from horses but was not sure what it means exactly for a robot until I read the line underneath",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Play button: I could not tell what would happen if I pressed it, for example whether the robots would move",
+          "counts": false,
+          "exemption": "playback-controls",
+          "basis": "matched"
+        },
+        {
+          "term": "green double-headed arrow: I was not sure whether it is a scale, a direction of movement, or just a decoration linking 'steadier' and 'more bounce'",
+          "counts": true,
+          "exemption": null,
+          "note": "Asks what the mark is (a scale, a direction or a decoration), not only what its colour means."
+        },
+        {
+          "term": "green colour of the arrow and labels: I did not know whether green means good or something else",
+          "counts": false,
+          "exemption": "highlight-mark",
+          "basis": "answer text and frame source",
+          "note": "The annotation arrow and its words were drawn in the highlight role (#507C00 at ee211309, the dark tone of the lime family); the answer asks only what the colour means, and the annotation's own words label it."
+        },
+        {
+          "term": "teal blobs under the feet: I had to check the key to learn they mean a foot on the ground, and at a glance the Walk robot seems to have three and the Trot robot two, which I could not match to 'one foot at a time'",
+          "counts": true,
+          "exemption": null,
+          "note": "The key explains the blobs, but the reader could not match them to the drawing; a legend entry that does not match the drawing still counts."
+        },
+        {
+          "term": "How this was made: unclear whether it explains the drawing or the robot",
+          "counts": false,
+          "exemption": "fold-names",
+          "basis": "matched"
+        }
+      ]
+    },
+    {
+      "id": "rl-sim2real--reward-design-mpc--eureka-loop",
+      "domain": "rl-sim2real",
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "figure": "eureka-loop",
+      "record": "evidence/reader-first/rl-sim2real--reward-design-mpc--eureka-loop.json",
+      "recordBlob": "32fa86a4c22945e8299371ed68fb607ce83a75eb",
+      "screenshotCommit": "7a9723889492a0a14da6c06ff4b67bb4dccedf4f",
+      "samePoint": "no",
+      "storedVerdict": "fail",
+      "storedTerms": 12,
+      "exempt": 4,
+      "counted": 8,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "scoring rules / points: unclear who gives the points to whom, and why a robot would care about points",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "the AI vs the robot: unclear whether they are separate things or the same thing",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Rules the AI wrote: unclear what kind of rules these are",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "greyed-out robots in Rounds 2 and 3: I guessed they are rounds not shown yet, but was not sure",
+          "counts": true,
+          "exemption": null,
+          "note": "Faded marks are not on the list."
+        },
+        {
+          "term": "Round 2 'never walks': unclear what goes wrong in round 2; the grey robot looks like it is standing fine",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Round 2 and Round 3 robots look almost the same: I could not see the difference between 'never walks' and 'walks'",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "target: 1.0 metres a second: unclear who set this target and why the robot misses it if speed earns points",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "practice run: unclear whether this is a real run or a computer one",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "green arrow pointing at the fallen robot: I took it as a pointer to the caption, but the green colour's meaning was unclear",
+          "counts": false,
+          "exemption": "highlight-mark",
+          "basis": "answer text and frame source",
+          "note": "The stage annotation, drawn in the highlight role at 7a972388; the reader read it as a pointer to its note and asked only what the colour means."
+        },
+        {
+          "term": "Next round / Reset buttons: I guessed they move through the rounds",
+          "counts": false,
+          "exemption": "playback-controls",
+          "basis": "matched"
+        },
+        {
+          "term": "Round 1 of 3: fine, but I was unsure whether the text panels change with each round",
+          "counts": false,
+          "exemption": "counters",
+          "basis": "matched"
+        },
+        {
+          "term": "How this was made: unclear what it covers",
+          "counts": false,
+          "exemption": "fold-names",
+          "basis": "matched"
+        }
+      ]
+    },
+    {
+      "id": "rl-sim2real--reward-design-mpc--mpc-vs-rl",
+      "domain": "rl-sim2real",
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "figure": "mpc-vs-rl",
+      "record": "evidence/reader-first/rl-sim2real--reward-design-mpc--mpc-vs-rl.json",
+      "recordBlob": "c8fe6431e4ae47e64fcfd4751bf12017f31f1197",
+      "screenshotCommit": "b9776c8a5447c05d2dae7a494b9a9dbc1e3ab49e",
+      "samePoint": "no",
+      "storedVerdict": "fail",
+      "storedTerms": 10,
+      "exempt": 2,
+      "counted": 8,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "Plans ahead vs Learned by practice: unclear whether these are two different robots or two ways of controlling the same robot",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "greyed-out robot on the right: it 'stays up' yet is drawn faded, so I could not tell whether grey means inactive, less important, or something else",
+          "counts": true,
+          "exemption": null,
+          "note": "Faded marks are not on the list."
+        },
+        {
+          "term": "Surprise for the robot buttons: I guessed the buttons choose the surprise, but did not know whether the picture changes",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "It plans for a grippy floor: unclear why it would assume the floor is grippy",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "green arrow and green text: unclear what the colour means",
+          "counts": false,
+          "exemption": "highlight-mark",
+          "basis": "answer text and frame source",
+          "note": "The stage annotation arrow and note, drawn in the highlight role at b9776c8a; the answer asks only what the colour means."
+        },
+        {
+          "term": "bold row in the table: I guessed it marks the chosen surprise",
+          "counts": false,
+          "exemption": "highlight-mark",
+          "basis": "answer text",
+          "note": "The chosen surprise's row set in ink weight, the selected-state mark; the reader read it correctly as the chosen surprise."
+        },
+        {
+          "term": "body sags: unclear what this means for a robot",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Weaker motors: unclear why the practice robot falls here while the planning one only slows down",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "stays up, but slower: unclear why weaker motors make it slower rather than making it fall",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "last line, 'practice only covers the surprises a robot has already met': this confused me, because the table does not say which surprises the practice robot had already met",
+          "counts": true,
+          "exemption": null
+        }
+      ]
+    },
+    {
+      "id": "rl-sim2real--sim2real-transfer--friction-transfer",
+      "domain": "rl-sim2real",
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "figure": "friction-transfer",
+      "record": "evidence/reader-first/rl-sim2real--sim2real-transfer--friction-transfer.json",
+      "recordBlob": "c2512ab95a4f9a9c89d8c4b53c8d44423a4e71ba",
+      "screenshotCommit": "ee211309e71b215f470d068a95f8b2fb1dd45c3a",
+      "samePoint": "yes",
+      "storedVerdict": "fail",
+      "storedTerms": 11,
+      "exempt": 2,
+      "counted": 9,
+      "wouldPass": false,
+      "terms": [
+        {
+          "term": "one-floor robot / many-floor robot: I had to work out that these mean robots trained on one floor and on many floors",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "practice floor: unclear where this practice happens; the note about computer-simulated floors only partly explained it",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "Real floor vs practice floor: I had to think about the difference",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "slider (slippery to grippy): unclear what moving it does and why it starts in the middle",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "copes widely: vague phrasing",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "tries without a fall: the axis label was not immediately clear; I guessed it means the percentage of attempts where the robot did not fall",
+          "counts": true,
+          "exemption": null
+        },
+        {
+          "term": "grey shaded area: the key says the many-floor robot practised on these floors, but at a glance it looked like just a background box",
+          "counts": false,
+          "exemption": "legend-keyed-marks",
+          "basis": "answer text",
+          "note": "The answer says the frame's key gives its meaning."
+        },
+        {
+          "term": "dashed grey line vs solid green line: I had to use the key to tell the two robots apart",
+          "counts": false,
+          "exemption": "legend-keyed-marks",
+          "basis": "answer text",
+          "note": "The answer says the frame's key told the two robots apart."
+        },
+        {
+          "term": "green vertical line: unclear whether it marks the slider position or the practice floor",
+          "counts": true,
+          "exemption": null,
+          "note": "Asks what the line marks, not only its colour."
+        },
+        {
+          "term": "dots and the 97% / 74% labels: I guessed they are the readings where the lines cross the vertical line",
+          "counts": true,
+          "exemption": null,
+          "note": "The answer cites no key; the reader only guessed."
+        },
+        {
+          "term": "the green line drops off at both edges: unclear why the many-floor robot also fails on very slippery or very grippy floors",
+          "counts": true,
+          "exemption": null
+        }
+      ]
+    }
+  ]
+}

@@ -100,8 +100,8 @@ describe('sortHands', () => {
       'tesla-optimus-gen3',
       'sanctuary-phoenix',
       'shadow-dexterous',
-      'figure-02-03',
       'unitree-h2',
+      'figure-02-03',
     ]);
   });
 

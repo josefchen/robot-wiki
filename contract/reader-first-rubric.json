@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "reader-first-rubric-v1",
+  "decision": "Fixed reviewer rubric and exemption list for the five-second reader test, decided on 2026-10-09 at 17:00 and updated on 2026-10-12 at 12:05. It clarifies what counts as an unclear term. Fresh reviewers kept counting interface words and marks that every figure shares and that no single figure can remove: in the rl-sim2real rounds each figure's counted terms rose from 4-6 in round three to 6-12 in round four, after every round-three term had been answered, and all 19 records in the repository failed. The list extends the fold-name exemption for \"Adjust more\" decided on 2026-10-08 at 23:00. The 2026-10-12 update reads the former lime highlight as the highlight mark of the research-page standard: the single muted-blue (#3B6EA8) highlighted series, and ink weight or a 1 px underline for selected and current states. Domain terms, labels written for one figure, unlabelled marks and a missed point still fail. The takeaway match and the yes or no answer are unchanged.",
+  "ownerReview": "Pending owner review. To revert the clarification, remove the exemptions whose origin is \"clarification\": their words and marks then count again. The exemptions whose origin is \"definition\" restate the original definition of the test and stay. Every record stores this file's SHA-256 digest, so any edit here, a revert included, needs a new review of every figure.",
+  "reviewer": {
+    "role": "You are a curious adult with no engineering background.",
+    "look": "For each figure you get two screenshots of the same frame, one 1280 px wide and one 375 px wide. You see no article text and no takeaway.",
+    "sentence": "Look at the screenshots for about five seconds, then write one sentence on what the figure shows.",
+    "list": "List the words, symbols and marks in the frame that you did not understand.",
+    "listRule": "List a term only if a curious non-engineer could not guess it from the frame.",
+    "listFormat": "Write each one as it appears in the frame, then a colon and why it is unclear.",
+    "exemptionsIntro": "Do not list anything in these groups:",
+    "stillList": "Still list a technical word, a label written for this figure, a mark that no label or legend in the frame explains, and a legend entry that does not match the drawing.",
+    "order": "Write the sentence and the list for every figure before you see any takeaway, and do not change them afterwards.",
+    "answerBefore": "Answer with one JSON array, one object per figure in the order given: {\"figure\": \"F1\", \"sentence\": \"...\", \"unclearTerms\": [\"words as shown: why they are unclear\"]}. Use an empty list when nothing is unclear.",
+    "takeawayIntro": "Here is the registered takeaway for each figure. Keep your sentences and lists as you wrote them.",
+    "samePoint": "For each figure, answer yes or no: does your sentence state the same point as the takeaway? The same point means the same subject and the same effect, comparison or trend, with any number in the takeaway read correctly. A partial, opposite or different point is a no.",
+    "answerAfter": "Answer with one JSON array, one object per figure: {\"figure\": \"F1\", \"samePoint\": \"yes\" or \"no\", \"reason\": \"one line\"}."
+  },
+  "exemptions": [
+    {
+      "id": "fold-names",
+      "origin": "clarification",
+      "reviewer": "the names of the two collapsed sections every figure shares, \"Adjust more\" and \"How this was made\"",
+      "words": ["Adjust more", "How this was made"],
+      "renderedBy": ["components/motion/figure-frame.tsx"],
+      "since": "\"Adjust more\" on 2026-10-08 at 23:00; \"How this was made\" on 2026-10-09 at 17:00"
+    },
+    {
+      "id": "playback-controls",
+      "origin": "clarification",
+      "reviewer": "the shared playback and step buttons: Play, Play the run, Pause, Step back, Step forward, Next round and Reset",
+      "words": ["Play", "Play the run", "Pause", "Step", "Step back", "Step forward", "Next round", "Reset"],
+      "renderedBy": [
+        "components/motion/scene-player.tsx",
+        "components/motion/clip.tsx",
+        "components/ui/instrument.tsx",
+        "components/interactive/eureka-loop.tsx"
+      ],
+      "since": "2026-10-09 at 17:00"
+    },
+    {
+      "id": "counters",
+      "origin": "clarification",
+      "reviewer": "round and step counters such as \"Round 1 of 3\"",
+      "counters": ["Round", "Step"],
+      "renderedBy": ["components/interactive/eureka-loop.tsx"],
+      "since": "2026-10-09 at 17:00"
+    },
+    {
+      "id": "highlight-mark",
+      "origin": "clarification",
+      "reviewer": "the highlight: the one line or mark drawn in muted blue, and the ink, bold or underlined look of the selected or current option, when a label or legend in the same frame names it",
+      "since": "2026-10-09 at 17:00 as the lime highlight; 2026-10-12 at 12:05 as the highlight mark of the research-page standard"
+    },
+    {
+      "id": "legend-keyed-marks",
+      "origin": "clarification",
+      "reviewer": "a line, dot, colour, shading or shape whose meaning the frame's own legend (key) gives, when that legend is visible in the same frame",
+      "since": "2026-10-09 at 17:00"
+    },
+    {
+      "id": "kicker",
+      "origin": "definition",
+      "reviewer": "a technical name that appears only in a small label above the headline, where a figure still shows one",
+      "since": "2026-10-02, in the definition of the five-second reader test"
+    },
+    {
+      "id": "status-label",
+      "origin": "definition",
+      "reviewer": "the short status note on the drawing that says how it was made, such as \"Illustrative, not measured\" or \"Schematic\"",
+      "since": "2026-10-02, the self-label of VAL-OPUS-127"
+    },
+    {
+      "id": "external-credit",
+      "origin": "definition",
+      "reviewer": "the credit line of a picture made by someone else: its creator, source and licence",
+      "since": "2026-10-02, the external credit of VAL-B2-ART-005"
+    }
+  ]
+}

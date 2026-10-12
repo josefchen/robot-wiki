@@ -5,7 +5,7 @@ import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import { preSeoPassHash } from '../helpers/seo-pass';
 import {
   classicalPassEndpoint, domainPassEndpoint, isClassicalPassEdge, isDomainPassEdge, isKolQueue20261012Edge,
-  kolQueue20261012Endpoint,
+  isLandedPassEdge, kolQueue20261012Endpoint, landedPassEndpoint,
 } from '../helpers/domain-pass';
 import matter from 'gray-matter';
 import { beforeAll, describe, expect, it } from 'vitest';
@@ -225,11 +225,13 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
         latestHash = merge.newHash;
       }
       // The 2026-10-02 SEO pass, the 2026-10-06 domain pass, the later
-      // classical pass and the 2026-10-12 KOL triage batch are checked last,
-      // in that order, from the endpoint the earlier ledger reached.
+      // classical pass, the 2026-10-12 KOL triage batch and the domain-pass
+      // blocks landed on 2026-10-10 are checked last, in that order, from the
+      // endpoint the earlier ledger reached. (The frontier block landed after
+      // the KOL batch; the world-models block touches none of these members.)
       const isSeoPass = (entry: ApprovedDelta) => entry.id.startsWith('seo-pass-20261002-');
       const preSeoPass = entries.filter((entry) => !isSeoPass(entry) && !isDomainPassEdge(entry)
-        && !isClassicalPassEdge(entry) && !isKolQueue20261012Edge(entry));
+        && !isClassicalPassEdge(entry) && !isKolQueue20261012Edge(entry) && !isLandedPassEdge(entry));
       for (const later of preSeoPass.slice(preSeoPass.indexOf(delta) + 1).filter((entry) =>
         entry.manifest === delta.manifest && entry.memberId === delta.memberId &&
         !entry.id.startsWith('continuation-merge-') && entry.id !== 'reader-source-flow-20260923-1')) {
@@ -250,7 +252,8 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
         (entry.oldHash === seoEndpoint || (entry.reconciles ?? []).some((binding) => binding.newHash === seoEndpoint)));
       const domainEndpoint = (domainPass ? domainPassEndpoint(entries, domainPass).newHash : undefined) ?? seoEndpoint;
       const classicalEndpoint = classicalPassEndpoint(entries, delta.manifest, delta.memberId, domainEndpoint);
-      expect(kolQueue20261012Endpoint(entries, delta.manifest, delta.memberId, classicalEndpoint))
+      expect(landedPassEndpoint(entries, delta.manifest, delta.memberId,
+        kolQueue20261012Endpoint(entries, delta.manifest, delta.memberId, classicalEndpoint)))
         .toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
     });
   });

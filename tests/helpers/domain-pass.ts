@@ -98,6 +98,34 @@ export function kolQueue20261012Endpoint(
   return edge.newHash;
 }
 
+/**
+ * Edges the world-models and frontier domain passes appended as their own
+ * blocks when they landed on the mission head on 2026-10-10, after the
+ * classical pass.
+ */
+export const isLandedPassEdge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  /^(world-models|frontier)-pass-20261010-/.test(entry.id);
+
+/**
+ * The hash those blocks leave on a member whose chain ends at `from`. Each
+ * of their edges on the member, in ledger order, must continue the previous
+ * endpoint, as a plain edge from it or as a resolution that reconciles it; a
+ * member no block touched stays at `from`.
+ */
+export function landedPassEndpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  let endpoint = from;
+  for (const entry of entries) {
+    if (!isLandedPassEdge(entry) || entry.manifest !== manifest || entry.memberId !== memberId) continue;
+    if (entry.oldHash !== endpoint && !(entry.reconciles ?? []).some((binding) => binding.newHash === endpoint)) {
+      throw new Error(`${entry.id} does not continue ${manifest} ${memberId} from ${endpoint}`);
+    }
+    endpoint = entry.newHash;
+  }
+  return endpoint;
+}
+
 /** The citation list a frontmatter P1 row declared for `content/<domain>/<slug>.mdx`. */
 export const preDomainPassCitations = (domain: string, slug: string, citations: readonly string[]) =>
   preDomainPassCitationList(root, `content/${domain}/${slug}.mdx`, citations);

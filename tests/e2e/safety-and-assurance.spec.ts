@@ -503,12 +503,12 @@ test.describe('safety-and-assurance module', () => {
     expect(await page.getByText('missing citation:').count()).toBe(0);
   });
 
-  test('the inbound prose link sits in reliability-gap\'s "What solved would look like" section', async ({
+  test('the inbound prose link sits in reliability-gap\'s "Showing 99.9% takes about 3,000 straight successes" section', async ({
     page,
   }) => {
     await page.goto('/frontier/reliability-gap/');
     const section = (await sections(page)).find((s) =>
-      /what solved would look like/i.test(s.heading),
+      /showing 99\.9% takes about 3,000 straight successes/i.test(s.heading),
     );
     expect(section, 'the section named by the brief').toBeDefined();
 
@@ -516,7 +516,7 @@ test.describe('safety-and-assurance module', () => {
       .locator('div.prose[data-pagefind-body] h2')
       .evaluateAll((headings) => {
         const target = headings.find((h) =>
-          /what solved would look like/i.test(h.textContent ?? ''),
+          /showing 99\.9% takes about 3,000 straight successes/i.test(h.textContent ?? ''),
         );
         if (!target) return [];
         const out: string[] = [];

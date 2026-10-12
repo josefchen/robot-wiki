@@ -38,10 +38,10 @@ const ROWS: Milestone[] = [
       'The generalization test: a single policy succeeding across many homes it has never seen, with no per-site data, is the clearest signal that robot intelligence is actually general.',
     status: 'partial',
     statusDetail:
-      'π0.5 cleaned kitchens and bedrooms in homes that were entirely absent from its training data, but the published evaluation covered a small number of homes; no lab has run a systematic multi-home evaluation with standardized tasks.',
+      'π0.5 cleaned kitchens and bedrooms in homes that were entirely absent from its training data, and Figure reports 56% zero-shot success in 30 unseen homes against 9% without Index pretraining, a company figure with no published trial counts; neither result reaches 90% across more than ten unseen homes on standardized tasks.',
     howWeKnow:
       'A published, reproducible evaluation of one policy across more than ten unseen homes with standardized task definitions and success above 90%.',
-    citationIds: ['pi05-2025'],
+    citationIds: ['pi05-2025', 'helix-2-5-2026'],
   },
   {
     id: 'ten-thousand-unit-deployment',
@@ -62,7 +62,7 @@ const ROWS: Milestone[] = [
       'The evaluation crisis: until labs publish comparable numbers on shared tasks, every demo is its own benchmark and progress claims cannot be arbitrated.',
     status: 'partial',
     statusDetail:
-      'RoboArena crowd-sources double-blind pairwise evaluations across a distributed network of evaluators instead of standardizing fixed tasks, RoboChallenge runs a reproducible online evaluation system, and ManipulationNet delivers reproducible task setups through standardized hardware kits; none has yet drawn convergent numbers from multiple independent labs.',
+      'RoboArena crowd-sources double-blind pairwise evaluations across a distributed network of evaluators instead of standardizing fixed tasks, RoboChallenge runs a reproducible online evaluation system, and ManipulationNet delivers reproducible task setups through standardized hardware kits; none has yet produced comparable absolute success numbers across independent labs.',
     howWeKnow:
       'Multiple independent labs publishing comparable results on the same benchmark, with agreement on what the numbers mean.',
     citationIds: ['roboarena-2025', 'robochallenge-2025', 'manipulationnet-2026'],
@@ -74,22 +74,22 @@ const ROWS: Milestone[] = [
       'The reliability-gap test: reinforcement learning closes the gap to 99%+ one task at a time today; whether it does so across many tasks at once decides if the gap is engineering or science.',
     status: 'partial',
     statusDetail:
-      'RL-100 reports 100% success across 1,000 evaluation episodes on eight tasks, and π*0.6 passed 90% on three production-style tasks; both produce per-task specialists, and neither claims transfer to unseen tasks.',
+      'RL-100 reports 100% success across 1,000 evaluation episodes on eight tasks, and π*0.6 passed 90% on three production-style tasks; both produce per-task specialists, and neither claims transfer to unseen tasks. Generalist reports 99% average success for GEN-1, a company figure from a recipe that is not RL-specific, and says not all tasks reach that rate.',
     howWeKnow:
       'Published results showing better than 99% success across more than twenty diverse tasks from a single training recipe.',
-    citationIds: ['rl-100-2025', 'pistar06-2025'],
+    citationIds: ['rl-100-2025', 'pistar06-2025', 'generalist-gen1-2026'],
   },
   {
     id: 'tactile-foundation-model',
     name: 'Tactile model inside a VLA pipeline',
     whyItMatters:
       "The direct test of Brooks's argument that vision-only training cannot produce dexterity: if touch is the missing channel, integrating it should move contact-rich performance.",
-    status: 'not-met',
+    status: 'partial',
     statusDetail:
-      'Tactile foundation models exist (Sparsh-X trained on roughly a million contact-rich interactions; TouchWorld for contact-rich manipulation), but no major VLA pipeline integrates tactile input at scale.',
+      'Sparsh-X (roughly a million contact-rich interactions) and TouchWorld are tactile foundation models, and Figure\'s Helix 02 takes fingertip tactile input. T-Rex, a VLA that reads high-frequency touch, beats its strongest baseline by over 30% on 12 contact-rich tasks, and removing touch drops its six-task average from 65% to 42%; TouchWorld reports that removing touch causes its largest drop. Both are single research benchmarks from mid-2026.',
     howWeKnow:
       'A VLA trained with tactile input outperforming its vision-only counterpart on contact-rich tasks, published with ablations.',
-    citationIds: ['sparsh-x-2025', 'touchworld-2026'],
+    citationIds: ['sparsh-x-2025', 'touchworld-2026', 'helix-02-2026', 't-rex-2026'],
   },
   {
     id: 'sim-to-real-contact',
@@ -122,10 +122,10 @@ const ROWS: Milestone[] = [
       'The scaling-law question: the bull case rests on robot performance scaling with data the way language did; a plateau would vindicate the structure-and-priors camp.',
     status: 'partial',
     statusDetail:
-      'EgoScale fit a log-linear scaling law (R² = 0.9983) from egocentric pretraining hours to downstream performance, but the law is measured on validation loss; no real-world success-rate scaling law has been published.',
+      'EgoScale fit a log-linear scaling law (R² = 0.9983) between egocentric pretraining hours and validation loss, and reports downstream task completion rising from 0.30 at 1k hours to 0.71 at 20k hours; Lin et al. find a roughly power-law relationship for single-task generalization, but no success-rate scaling law across unseen environments has been published.',
     howWeKnow:
       'A systematic evaluation showing a 10 to 100x data increase producing proportional real-world success-rate improvement.',
-    citationIds: ['egoscale-2026'],
+    citationIds: ['egoscale-2026', 'lin-data-scaling-laws-2024'],
   },
 ];
 

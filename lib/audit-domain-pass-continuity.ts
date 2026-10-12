@@ -39,7 +39,7 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1147673, sha256: '7e713a39d3158d1d03a022375cba14cf29034d27c256b94df6620eb6bbc5957b' };
+const reviewPin = { bytes: 1298489, sha256: '2fd5310110793ab5724d09c3f5becad078b11481e3f1a35066a0a1c437a33df3' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -49,13 +49,19 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/control.mdx', [20015, '5deb9961e56c1c5f4cfa3847fe479cddf795e00f255874e4276841e8953b9ba3']],
   ['content/classical/grasp-planning.mdx', [14228, 'd8646bbd77d25693e25e87aef575c5d3fefb45357bf7c03e5b056a1a75591605']],
   ['content/classical/kinematics.mdx', [11805, '3f89ea8849092ca97811c4e9db5e0afc61beda251cfb019d5c93e3188b3072c9']],
-  ['content/classical/motion-planning.mdx', [20675, 'e076b91ef2e0265cf0d87b663f1b07e51d05fe546fe512b37405f118101be66b']],
+  ['content/classical/motion-planning.mdx', [21243, '6917d44696c34c4da2f70ebcf403f0592ca00c7291fb23706b3d8f7068759095']],
   ['content/classical/perception.mdx', [28442, 'cf19ca2fb3368fc0252c97545fec67ae6cadc6bb4c7bf635523e9e369beb8e2b']],
   ['content/classical/ros2-for-ml-engineers.mdx', [9592, '1dfd445c34d55ac5c92957fa838df7e4a4918c9a13e7309546bebc7f13b34f34']],
   ['content/classical/scene-representation.mdx', [20664, '71a7c5be7f7f32ae5d74b4d90a160c201a36e94c5021e0e215418568427922db']],
   ['content/classical/state-estimation.mdx', [15410, '96b92f0aa260583ff52b6cd3e7867c14891b61fe8bb1379d04bea15d7ca30329']],
-  ['content/frontier/bear-case.mdx', [11009, 'da38d2ada46bd26ff5a82a564e68f262ac5cb5467e226a3ee6c8cf6bc37152cd']],
-  ['content/frontier/dexterity.mdx', [19827, '0cf9fabb071cd5a39efe65fc4a2434e94062070b6fbb70f929413b390ddb76e3']],
+  ['content/data-hardware/data-bottleneck.mdx', [14748, '9f227b1d073c786223167327e78b1f44ba3dae7efc14cf76f743ee6dcfa86f74']],
+  ['content/data-hardware/robot-learning-stack.mdx', [11032, '568c854ef37e496a3b64e5987b22d7a4559984aca7e2c6a4c2a6f04524d10ac6']],
+  ['content/frontier/bear-case.mdx', [10545, 'd16b433bad1c9e60a4cf3fae376eac4671d09bd859fd301af15309dd84e951f6']],
+  ['content/frontier/competing-theses.mdx', [15641, '39a447e1408c4d5d8cfd1efd7f72f45c500d1df8cc2f80804ffdb5ea37b05bb9']],
+  ['content/frontier/dexterity.mdx', [21446, 'd9a1f74f72d3bc18ccb948ef986093b13ed603650f37cc8bf77d8130d5b730d2']],
+  ['content/frontier/generalization.mdx', [14664, '5c6d2348dea214bd4ca89fc9b4dfd7be43fbe23dfc00d84ee5a25ac880d26d27']],
+  ['content/frontier/reliability-gap.mdx', [11788, 'fa8f216859d03ba9508a4169e5a56af25ee1b5bcaf5e2c5f25bed55a16c4f6d1']],
+  ['content/frontier/safety-and-assurance.mdx', [19717, 'a5a5ab0cb99819174da77c86f1bbd8093b8e59e88139963a5d539cdaf8323800']],
   ['content/manipulation/action-chunking.mdx', [12714, 'a08054d5b2b91c7f0a47b42a5f1851087634420845b7fba5f89f42d4c2d4ed84']],
   ['content/manipulation/action-spaces.mdx', [10574, '885130648006e720419bc1e074513c2c5631d3d1e2f5be6acab2c1ae41df7320']],
   ['content/manipulation/bc-foundations.mdx', [14131, '623d1972ee5dcc713358931bf0a624c05e1d657096d2c5a6f61ebce80a778440']],
@@ -87,7 +93,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/world-models/model-based-robot-learning.mdx', [10304, 'f835cb3c762a3fb667ca617f377fbf1bcb8668650196465a3d03a42a1c722fd8']],
   ['content/world-models/taxonomy.mdx', [13938, '22a45faa2b7feab6fae51ced32e9b10ef8ea1c3459e7205672d59637c38466bb']],
   ['content/world-models/world-models-vs-simulators.mdx', [13151, 'cfe3613bb35a93f74e6f76c5e3943d0440239c2303b86a8c7d062ea40a5f28d9']],
-  ['data/glossary.ts', [83377, '3b84caa631eb21499d2a75176ec8a90ddc982eafc03a7a7b8d3d1e1c9e86488d']],
+  ['data/glossary.ts', [83463, '35f8d7f2b77a43b9e11fbc876ce6820157c15b9d8dfec4ef1b85a5f7f9cb979a']],
 ]);
 // END domain-pass pins
 
@@ -205,8 +211,13 @@ const CORRECTED_DESCRIPTIONS: ReadonlyMap<string, readonly [string, string]> = n
  * reliability-compounding chart cut the leading "1" of its "100%" y tick at
  * 390 px, so its left pad grows from 44 to 58 stage units. The operational
  * design domain glossary entry carried a "not a contradiction but" contrast,
- * now stated directly. A listed file must equal its predecessor with exactly
- * these swaps; no other non-article source is admitted.
+ * now stated directly. The frontier pass of 2026-10-10 then lands its two
+ * reviewed glossary fixes: mechanoreceptor replaces an unsupported
+ * seven-cells-against-a-thousand comparison with the sourced Sanctuary and
+ * Digit 360 fingertip figures, and tactile sensing swaps a banned listicle for
+ * the primary report and drops a per-cell figure the source does not state.
+ * A listed file must equal its predecessor with exactly these swaps; no other
+ * non-article source is admitted.
  */
 const CORRECTED_SOURCES: ReadonlyMap<string, readonly (readonly [string, string])[]> = new Map([
   ['components/interactive/reliability-compounding.tsx', [[
@@ -222,6 +233,22 @@ const CORRECTED_SOURCES: ReadonlyMap<string, readonly (readonly [string, string]
       'fail in a blizzard: the blizzard lies outside its ODD. Crash-rate comparisons against human ' +
       'benchmarks match the human baseline to the same vehicle types, road types, and locations as the ' +
       'system\\\'s ODD, so both sides are measured on the same driving.',
+  ], [
+    'Robot tactile sensors are closing on raw force threshold but remain far sparser: the best documented ' +
+      'arrays put seven sensing cells on a fingerpad where the human finger packs about a thousand ' +
+      'receptors.\',\n    citations: [\'macefield-touch-2022\', \'brooks-dexterity-2025\'],',
+    'On robot fingertips, Sanctuary\\\'s Phoenix finger pads carry a seven-cell micro-barometer sensor ' +
+      'sensitive to 5 mN, against a human sensitivity of about 3 mN, and Meta\\\'s Digit 360 research ' +
+      'fingertip resolves normal force to 1.01 mN.\',\n    citations: [\'macefield-touch-2022\', ' +
+      '\'brooks-dexterity-2025\', \'rr-sanctuary-tactile-2025\', \'digit-360-2024\'],',
+  ], [
+    'Sanctuary\\\'s micro-barometer arrays resolve about five millinewtons per cell against roughly three ' +
+      'for a human fingertip, but coverage, durability, and integration into training pipelines remain the ' +
+      'open problems.\',\n    citations: [\'tactile-outlook-2025\', \'robozaps-phoenix-2026\'],',
+    'Sanctuary\\\'s micro-barometer finger-pad sensors are sensitive to about five millinewtons against ' +
+      'roughly three for human touch, but coverage, durability, and integration into training pipelines ' +
+      'remain the open problems.\',\n    citations: [\'tactile-outlook-2025\', ' +
+      '\'rr-sanctuary-tactile-2025\'],',
   ]]],
 ]);
 
@@ -237,11 +264,34 @@ function applyExact(text: string, edits: readonly (readonly [string, string])[],
 }
 
 /**
+ * The one owner-approved exception to "every citation stays": secondary
+ * sources the owner sweep replaced with primary sources on the same claims.
+ * Exactly these ids, on exactly these articles, may leave the body and the
+ * citations list. Every other id on these articles, and every id on every
+ * other article, still binds.
+ */
+export const DROPPED_FOR_PRIMARIES = {
+  reason: 'owner sweep 20260929: secondary sources dropped for primaries',
+  ids: new Map<string, readonly string[]>([
+    ['content/frontier/bear-case.mdx', ['unitree-profit-2026']],
+    ['content/frontier/competing-theses.mdx', ['figure-8hr-shift-2026']],
+    ['content/frontier/dexterity.mdx', ['wikipedia-humanoid-hand-2026']],
+    ['content/frontier/reliability-gap.mdx', ['figure-8hr-shift-2026']],
+  ]) as ReadonlyMap<string, readonly string[]>,
+} as const;
+
+const withoutListed = (head: string, ids: readonly string[]) => ids.length === 0 ? head
+  : head.replace(/\ncitations:\n(?: {2}- [^\n]+\n)*/, (block) =>
+    block.split('\n').filter((line) => !ids.some((id) => line === `  - ${id}`)).join('\n'));
+
+/**
  * The article obligations of a domain-pass rewrite: the frontmatter differs
  * only by citation ids appended to its citations list (and the corrected
  * descriptions above), every citation the
  * body had is still cited, and the figure and component mounts are the same
- * mounts in the same order with the same attributes. Prose may change.
+ * mounts in the same order with the same attributes (and the corrected
+ * mounts above). Prose may change. The only ids exempt are the ones
+ * `DROPPED_FOR_PRIMARIES` lists for the path.
  */
 export function keepsDomainPassObligations(path: string, prior: string, current: string): boolean {
   const corrections = CORRECTED_SOURCES.get(path);
@@ -250,11 +300,14 @@ export function keepsDomainPassObligations(path: string, prior: string, current:
       applyExact(prior, corrections) === current;
   }
   if (!path.startsWith('content/') || !path.endsWith('.mdx')) return false;
-  const priorHead = frontmatter(prior);
   const head = frontmatter(current);
-  if (!priorHead || !head) return false;
-  const before = citationList(priorHead);
+  const priorFull = frontmatter(prior);
+  if (!priorFull || !head) return false;
+  const dropped = new Set(DROPPED_FOR_PRIMARIES.ids.get(path) ?? []);
   const after = citationList(head);
+  const removed = citationList(priorFull).filter((id) => dropped.has(id) && !after.includes(id));
+  const priorHead = withoutListed(priorFull, removed);
+  const before = citationList(priorHead);
   const added = after.slice(before.length);
   if (after.slice(0, before.length).join('\n') !== before.join('\n') ||
     added.some((id) => !/^[a-z0-9][a-z0-9.-]*$/.test(id) || before.includes(id)) ||
@@ -269,7 +322,7 @@ export function keepsDomainPassObligations(path: string, prior: string, current:
     : priorHead;
   if (withoutAdded !== expectedHead) return false;
   const kept = citedIds(current);
-  if ([...citedIds(prior)].some((id) => !kept.has(id))) return false;
+  if ([...citedIds(prior)].some((id) => !kept.has(id) && !dropped.has(id))) return false;
   const corrected = CORRECTED_MOUNTS.get(path);
   const expected = mounts(prior).map((mount) => corrected?.get(mount) ?? mount);
   return JSON.stringify(expected) === JSON.stringify(mounts(current));

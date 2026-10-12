@@ -7,7 +7,9 @@ import { CITATIONS } from '../../data/citations';
 import { committedSource } from '../helpers/continuation-integration';
 import { preFigureMigration } from '../helpers/figure-migration';
 import { preDomainPass, preSeoPassText } from '../helpers/seo-pass';
-import { classicalPassEndpoint, domainPassEndpoint, isDomainPassEdge, preDomainPassCitations } from '../helpers/domain-pass';
+import {
+  classicalPassEndpoint, domainPassEndpoint, isDomainPassEdge, kolQueue20261012Endpoint, preDomainPassCitations,
+} from '../helpers/domain-pass';
 const read = (p: string) => fs.readFileSync(p, 'utf8');
 const endpoints = [
   {
@@ -96,13 +98,16 @@ describe('Optimal sampling and OMPL source-bound endpoints', () => {
       expect(seo[0].newHash).toBe(digest(preDomainPass(e.path).toString('utf8')));
       // The 2026-10-06 domain pass, which rewrote the article from the
       // owner's draft, continues the SEO endpoint; the later classical pass
-      // carries that endpoint to the live article.
+      // and the 2026-10-12 KOL triage batch carry that endpoint to the live
+      // article.
       const domainPass = entries.find((entry) => isDomainPassEdge(entry) && entry.manifest === 'prose' &&
         entry.memberId === memberId && (entry.oldHash === seo[0].newHash ||
           (entry.reconciles ?? []).some((binding) => binding.newHash === seo[0].newHash)));
       expect(domainPass).toBeDefined();
-      expect(classicalPassEndpoint(entries, 'prose', memberId, domainPassEndpoint(entries, domainPass!).newHash))
-        .toBe(digest(read(e.path)));
+      const classicalEnd = classicalPassEndpoint(entries, 'prose', memberId,
+        domainPassEndpoint(entries, domainPass!).newHash);
+      expect(classicalEnd).not.toBe(digest(read(e.path)));
+      expect(kolQueue20261012Endpoint(entries, 'prose', memberId, classicalEnd)).toBe(digest(read(e.path)));
       if (e.id.startsWith('row9-')) {
         expect(read(e.path)).toContain('which excludes differential constraints');
         expect(read(e.path)).toContain('the conservative one is');

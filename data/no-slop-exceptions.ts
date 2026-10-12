@@ -48,16 +48,6 @@ export const NO_SLOP_EXCEPTIONS: SlopQuotationException[] = [
     verifiedOn: '2026-08-20',
   },
   {
-    id: 'brooks-better-lesson-2019',
-    quote:
-      'we can not afford to put even the results of machine learning (let alone the actual learning) on many of our small robots–self driving cars require about 2,500 Watts of power for computation–a human brain only requires 20 Watts',
-    reason:
-      "Verbatim quotation from Brooks's reply to Sutton, quoted in content/frontier/competing-theses.mdx. The two en dashes and the two-word 'can not' are Brooks's own; rewording either would corrupt the primary source.",
-    verifiedBy:
-      'Fetched the live essay (rodneybrooks.com/a-better-lesson/, HTTP 200) and byte-checked the HTML source: both dashes are &#8211; (U+2013) in "robots&#8211;self" and "computation&#8211;a"; the sentence matches the quote token for token.',
-    verifiedOn: '2026-08-18',
-  },
-  {
     id: 'yang-autonomy-2017',
     quote:
       'Medical robotics—Regulatory, ethical, and legal considerations for increasing levels of autonomy',
