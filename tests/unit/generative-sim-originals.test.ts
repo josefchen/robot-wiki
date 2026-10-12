@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { join } from 'node:path';
 import { parseLedger, parseCompoundPlans } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
+import { preDomainPassCitations } from '../helpers/domain-pass.ts';
 
 /**
  * Pins the 2026-09-16n generative-sim-originals integration: the three
@@ -31,7 +32,8 @@ const parseSection = () => {
     JSON.parse(readFileSync(join(ROOT, 'audit/compound-evidence.json'), 'utf8')),
   );
   const registryIds = new Set(CITATIONS.map(({ id }) => id));
-  const declared = matter(readFileSync(join(ROOT, 'content/world-models/generative-sim.mdx'), 'utf8')).data.citations;
+  const declared = preDomainPassCitations('world-models', 'generative-sim',
+    matter(readFileSync(join(ROOT, 'content/world-models/generative-sim.mdx'), 'utf8')).data.citations);
   const sections = parseLedger('audit/world-models.md', markdown, registryIds, {
     compoundPlans, articleCitations: { 'generative-sim': declared },
   });
@@ -144,9 +146,9 @@ describe('generative-sim originals integration (2026-09-16n evidence completions
     expect(Object.values(EXPECTED_20260916N)).not.toContain(record.compound?.planId);
     // A frontmatter-P1 sweep row is only decidable against the article's
     // canonical frontmatter; with that context it carries no failures.
-    const frontmatter = matter(
+    const frontmatter = preDomainPassCitations('world-models', 'generative-sim', matter(
       readFileSync(join(ROOT, 'content/world-models/generative-sim.mdx'), 'utf8'),
-    ).data.citations as string[];
+    ).data.citations as string[]);
     const withContext = parseLedger(
       'audit/world-models.md',
       readFileSync(join(ROOT, 'audit/world-models.md'), 'utf8'),

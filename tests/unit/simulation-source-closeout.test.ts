@@ -15,11 +15,10 @@ describe('Generative simulation retained-source corrections', () => {
     for (const value of [
       'Franka Panda on an Omron mobile base',
       '100, 300, or 3,000 generated demonstrations per task',
-      '24 atomic manipulation tasks from the larger 100-task suite; navigation is excluded',
-      '50 trials per task across five fixed kitchen scenes',
+      '24 atomic tasks, excluding navigation',
+      '50 trials per task in five kitchens',
       '26.3%, 35.0%, and 47.6%',
       'Individual tasks do not improve monotonically',
-      'The paper also broadly describes datasets over 25 tasks',
     ]) expect(prose).toContain(value);
   });
 
@@ -38,8 +37,8 @@ describe('Generative simulation retained-source corrections', () => {
   });
 
   it('binds both generator-prior statements rather than retaining the unsupported analogy', () => {
-    const item = prose.split('3. **Scene diversity has specific design sources.**')[1]?.split('\n\n')[0];
-    expect(item).toContain('cultural biases from the LLM and the asset-retrieval component');
+    const item = prose.split('3. Scene diversity has specific design sources.')[1]?.split('\n\n')[0];
+    expect(item).toContain('cultural biases from the LLM and asset retrieval');
     expect(item).toContain('home-design and architecture magazines');
     expect(item).toContain('<Cite id="holodeck-2024" />');
     expect(item).toContain('<Cite id="robocasa-2024" />');

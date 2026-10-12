@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "e286b6ec3000d2d29d2e8f8489b59e8ba2af0ae4dcc7ad1ed47d45e5b180f262",
+  "fingerprint": "6162632834db8510539b9b04770dd53c50eefe00a1f01c53864bbe6ea334730d",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -241,7 +241,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3230,
+      "visibleTextLength": 3252,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -7867,19 +7867,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Model Evaluation and Benchmarks | Robot Wiki",
-        "description": "Robot world model evaluation: action sensitivity, rollout consistency and policy ranking vs real trials.",
+        "description": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "World Model Evaluation for Robotics",
-        "ogDescription": "Robot world model evaluation: action sensitivity, rollout consistency and policy ranking vs real trials.",
+        "ogDescription": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.",
         "ogImageAlt": "Open graph card for the Robot Wiki article World Model Evaluation for Robotics",
         "ogImage": "https://robot-wiki.com/og/world-models/evaluation.png",
         "twitterTitle": "World Model Evaluation for Robotics",
-        "twitterDescription": "Robot world model evaluation: action sensitivity, rollout consistency and policy ranking vs real trials.",
+        "twitterDescription": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.",
         "canonical": "https://robot-wiki.com/world-models/evaluation/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14110,
+      "visibleTextLength": 24877,
       "route": "/world-models/evaluation/",
       "viewport": "1440x900"
     },
@@ -7981,19 +7981,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Generative Simulation for Robot Learning | Robot Wiki",
-        "description": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen and RoboCasa365.",
+        "description": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Generative Simulation",
-        "ogDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen and RoboCasa365.",
+        "ogDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Generative Simulation",
         "ogImage": "https://robot-wiki.com/og/world-models/generative-sim.png",
         "twitterTitle": "Generative Simulation",
-        "twitterDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen and RoboCasa365.",
+        "twitterDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.",
         "canonical": "https://robot-wiki.com/world-models/generative-sim/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20142,
+      "visibleTextLength": 29728,
       "route": "/world-models/generative-sim/",
       "viewport": "1440x900"
     },
@@ -8095,19 +8095,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Video World Models for Robots: Cosmos, Genie 3 | Robot Wiki",
-        "description": "Action-conditioned video world models for robotics: Cosmos 3, Genie 3, 1X policy evaluation, and why action sensitivity decides.",
+        "description": "Action-conditioned video world models for robotics: Cosmos 3, Genie 3, DreamZero, 1X and Veo policy evaluation, and why action sensitivity decides.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Generative Video World Models",
-        "ogDescription": "Action-conditioned video world models for robotics: Cosmos 3, Genie 3, 1X policy evaluation, and why action sensitivity decides.",
+        "ogDescription": "Action-conditioned video world models for robotics: Cosmos 3, Genie 3, DreamZero, 1X and Veo policy evaluation, and why action sensitivity decides.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Generative Video World Models",
         "ogImage": "https://robot-wiki.com/og/world-models/generative-video.png",
         "twitterTitle": "Generative Video World Models",
-        "twitterDescription": "Action-conditioned video world models for robotics: Cosmos 3, Genie 3, 1X policy evaluation, and why action sensitivity decides.",
+        "twitterDescription": "Action-conditioned video world models for robotics: Cosmos 3, Genie 3, DreamZero, 1X and Veo policy evaluation, and why action sensitivity decides.",
         "canonical": "https://robot-wiki.com/world-models/generative-video/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23925,
+      "visibleTextLength": 27312,
       "route": "/world-models/generative-video/",
       "viewport": "1440x900"
     },
@@ -8209,19 +8209,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "JEPA World Models for Robots: V-JEPA 2 | Robot Wiki",
-        "description": "JEPA world models predict embeddings, not pixels. V-JEPA 2 results, AMI Labs, and the case against generation.",
+        "description": "JEPA world models predict embeddings, not pixels. V-JEPA 2 and 2.1, LeWorldModel and SkyJEPA results, AMI Labs, and the case against generation.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "JEPA and the Non-Generative Counterargument",
-        "ogDescription": "JEPA world models predict embeddings, not pixels. V-JEPA 2 results, AMI Labs, and the case against generation.",
+        "ogDescription": "JEPA world models predict embeddings, not pixels. V-JEPA 2 and 2.1, LeWorldModel and SkyJEPA results, AMI Labs, and the case against generation.",
         "ogImageAlt": "Open graph card for the Robot Wiki article JEPA and the Non-Generative Counterargument",
         "ogImage": "https://robot-wiki.com/og/world-models/jepa.png",
         "twitterTitle": "JEPA and the Non-Generative Counterargument",
-        "twitterDescription": "JEPA world models predict embeddings, not pixels. V-JEPA 2 results, AMI Labs, and the case against generation.",
+        "twitterDescription": "JEPA world models predict embeddings, not pixels. V-JEPA 2 and 2.1, LeWorldModel and SkyJEPA results, AMI Labs, and the case against generation.",
         "canonical": "https://robot-wiki.com/world-models/jepa/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19559,
+      "visibleTextLength": 26840,
       "route": "/world-models/jepa/",
       "viewport": "1440x900"
     },
@@ -8323,19 +8323,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Latent-Dynamics World Models: Dreamer, TD-MPC2 | Robot Wiki",
-        "description": "How latent-dynamics world models work: the RSSM, Dreamer imagination training, TD-MPC2 planning, and results on real robots.",
+        "description": "How latent-dynamics world models work: the RSSM, Dreamer 4 offline imagination training, TD-MPC2 and Newt planning, and results on real robots.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Latent-Dynamics World Models",
-        "ogDescription": "How latent-dynamics world models work: the RSSM, Dreamer imagination training, TD-MPC2 planning, and results on real robots.",
+        "ogDescription": "How latent-dynamics world models work: the RSSM, Dreamer 4 offline imagination training, TD-MPC2 and Newt planning, and results on real robots.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Latent-Dynamics World Models",
         "ogImage": "https://robot-wiki.com/og/world-models/latent-dynamics.png",
         "twitterTitle": "Latent-Dynamics World Models",
-        "twitterDescription": "How latent-dynamics world models work: the RSSM, Dreamer imagination training, TD-MPC2 planning, and results on real robots.",
+        "twitterDescription": "How latent-dynamics world models work: the RSSM, Dreamer 4 offline imagination training, TD-MPC2 and Newt planning, and results on real robots.",
         "canonical": "https://robot-wiki.com/world-models/latent-dynamics/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17486,
+      "visibleTextLength": 24218,
       "route": "/world-models/latent-dynamics/",
       "viewport": "1440x900"
     },
@@ -8449,7 +8449,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 13717,
+      "visibleTextLength": 21312,
       "route": "/world-models/model-based-robot-learning/",
       "viewport": "1440x900"
     },
@@ -8563,7 +8563,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21083,
+      "visibleTextLength": 27021,
       "route": "/world-models/taxonomy/",
       "viewport": "1440x900"
     },
@@ -8677,7 +8677,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22241,
+      "visibleTextLength": 28483,
       "route": "/world-models/world-models-vs-simulators/",
       "viewport": "1440x900"
     },
@@ -8837,7 +8837,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3230,
+      "visibleTextLength": 3252,
       "route": "/",
       "viewport": "375x812"
     },
@@ -12941,7 +12941,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 697,
+      "visibleTextLength": 706,
       "route": "/how-robots-work/",
       "viewport": "375x812"
     },
@@ -16463,19 +16463,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Model Evaluation and Benchmarks | Robot Wiki",
-        "description": "Robot world model evaluation: action sensitivity, rollout consistency and policy ranking vs real trials.",
+        "description": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "World Model Evaluation for Robotics",
-        "ogDescription": "Robot world model evaluation: action sensitivity, rollout consistency and policy ranking vs real trials.",
+        "ogDescription": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.",
         "ogImageAlt": "Open graph card for the Robot Wiki article World Model Evaluation for Robotics",
         "ogImage": "https://robot-wiki.com/og/world-models/evaluation.png",
         "twitterTitle": "World Model Evaluation for Robotics",
-        "twitterDescription": "Robot world model evaluation: action sensitivity, rollout consistency and policy ranking vs real trials.",
+        "twitterDescription": "Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.",
         "canonical": "https://robot-wiki.com/world-models/evaluation/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12670,
+      "visibleTextLength": 17283,
       "route": "/world-models/evaluation/",
       "viewport": "375x812"
     },
@@ -16577,19 +16577,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Generative Simulation for Robot Learning | Robot Wiki",
-        "description": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen and RoboCasa365.",
+        "description": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Generative Simulation",
-        "ogDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen and RoboCasa365.",
+        "ogDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Generative Simulation",
         "ogImage": "https://robot-wiki.com/og/world-models/generative-sim.png",
         "twitterTitle": "Generative Simulation",
-        "twitterDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen and RoboCasa365.",
+        "twitterDescription": "Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.",
         "canonical": "https://robot-wiki.com/world-models/generative-sim/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16484,
+      "visibleTextLength": 21653,
       "route": "/world-models/generative-sim/",
       "viewport": "375x812"
     },
@@ -16691,19 +16691,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Video World Models for Robots: Cosmos, Genie 3 | Robot Wiki",
-        "description": "Action-conditioned video world models for robotics: Cosmos 3, Genie 3, 1X policy evaluation, and why action sensitivity decides.",
+        "description": "Action-conditioned video world models for robotics: Cosmos 3, Genie 3, DreamZero, 1X and Veo policy evaluation, and why action sensitivity decides.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Generative Video World Models",
-        "ogDescription": "Action-conditioned video world models for robotics: Cosmos 3, Genie 3, 1X policy evaluation, and why action sensitivity decides.",
+        "ogDescription": "Action-conditioned video world models for robotics: Cosmos 3, Genie 3, DreamZero, 1X and Veo policy evaluation, and why action sensitivity decides.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Generative Video World Models",
         "ogImage": "https://robot-wiki.com/og/world-models/generative-video.png",
         "twitterTitle": "Generative Video World Models",
-        "twitterDescription": "Action-conditioned video world models for robotics: Cosmos 3, Genie 3, 1X policy evaluation, and why action sensitivity decides.",
+        "twitterDescription": "Action-conditioned video world models for robotics: Cosmos 3, Genie 3, DreamZero, 1X and Veo policy evaluation, and why action sensitivity decides.",
         "canonical": "https://robot-wiki.com/world-models/generative-video/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19919,
+      "visibleTextLength": 21147,
       "route": "/world-models/generative-video/",
       "viewport": "375x812"
     },
@@ -16805,19 +16805,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "JEPA World Models for Robots: V-JEPA 2 | Robot Wiki",
-        "description": "JEPA world models predict embeddings, not pixels. V-JEPA 2 results, AMI Labs, and the case against generation.",
+        "description": "JEPA world models predict embeddings, not pixels. V-JEPA 2 and 2.1, LeWorldModel and SkyJEPA results, AMI Labs, and the case against generation.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "JEPA and the Non-Generative Counterargument",
-        "ogDescription": "JEPA world models predict embeddings, not pixels. V-JEPA 2 results, AMI Labs, and the case against generation.",
+        "ogDescription": "JEPA world models predict embeddings, not pixels. V-JEPA 2 and 2.1, LeWorldModel and SkyJEPA results, AMI Labs, and the case against generation.",
         "ogImageAlt": "Open graph card for the Robot Wiki article JEPA and the Non-Generative Counterargument",
         "ogImage": "https://robot-wiki.com/og/world-models/jepa.png",
         "twitterTitle": "JEPA and the Non-Generative Counterargument",
-        "twitterDescription": "JEPA world models predict embeddings, not pixels. V-JEPA 2 results, AMI Labs, and the case against generation.",
+        "twitterDescription": "JEPA world models predict embeddings, not pixels. V-JEPA 2 and 2.1, LeWorldModel and SkyJEPA results, AMI Labs, and the case against generation.",
         "canonical": "https://robot-wiki.com/world-models/jepa/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16073,
+      "visibleTextLength": 19630,
       "route": "/world-models/jepa/",
       "viewport": "375x812"
     },
@@ -16919,19 +16919,19 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Latent-Dynamics World Models: Dreamer, TD-MPC2 | Robot Wiki",
-        "description": "How latent-dynamics world models work: the RSSM, Dreamer imagination training, TD-MPC2 planning, and results on real robots.",
+        "description": "How latent-dynamics world models work: the RSSM, Dreamer 4 offline imagination training, TD-MPC2 and Newt planning, and results on real robots.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Latent-Dynamics World Models",
-        "ogDescription": "How latent-dynamics world models work: the RSSM, Dreamer imagination training, TD-MPC2 planning, and results on real robots.",
+        "ogDescription": "How latent-dynamics world models work: the RSSM, Dreamer 4 offline imagination training, TD-MPC2 and Newt planning, and results on real robots.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Latent-Dynamics World Models",
         "ogImage": "https://robot-wiki.com/og/world-models/latent-dynamics.png",
         "twitterTitle": "Latent-Dynamics World Models",
-        "twitterDescription": "How latent-dynamics world models work: the RSSM, Dreamer imagination training, TD-MPC2 planning, and results on real robots.",
+        "twitterDescription": "How latent-dynamics world models work: the RSSM, Dreamer 4 offline imagination training, TD-MPC2 and Newt planning, and results on real robots.",
         "canonical": "https://robot-wiki.com/world-models/latent-dynamics/"
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14335,
+      "visibleTextLength": 17194,
       "route": "/world-models/latent-dynamics/",
       "viewport": "375x812"
     },
@@ -17045,7 +17045,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12035,
+      "visibleTextLength": 15540,
       "route": "/world-models/model-based-robot-learning/",
       "viewport": "375x812"
     },
@@ -17159,7 +17159,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18268,
+      "visibleTextLength": 21029,
       "route": "/world-models/taxonomy/",
       "viewport": "375x812"
     },
@@ -17273,7 +17273,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19417,
+      "visibleTextLength": 22213,
       "route": "/world-models/world-models-vs-simulators/",
       "viewport": "375x812"
     }
@@ -17568,14 +17568,14 @@
     },
     {
       "literal": "robot-wiki",
-      "fileCount": 312,
+      "fileCount": 311,
       "fileKinds": [
         ".html",
         ".js",
         ".txt",
         ".xml"
       ],
-      "occurrences": 11006
+      "occurrences": 11005
     },
     {
       "literal": "robot-wiki.com",

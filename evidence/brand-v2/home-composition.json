@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "848e4d53ed7fd4ca5bb693b875512df347d8e8de7ce78d6afd824ed80dbd3123",
+  "fingerprint": "45839e6772fc3a6ba705fe37a557d2489e372e0f5e71cc2792e8b4c392170d0c",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2997,
+  "visibleTextLength": 3019,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -610,8 +610,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Vision-Language-Action Models",
-      "href": "/manipulation/vla-models/",
+      "accessibleName": "The Data Bottleneck",
+      "href": "/data-hardware/data-bottleneck/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 926.48,
@@ -623,8 +623,8 @@
       "href": null,
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1110.8,
-      "bottomPx": 1142.8
+      "topPx": 1136.7,
+      "bottomPx": 1168.7
     },
     {
       "controlId": "control:secondary-action",
@@ -632,8 +632,8 @@
       "href": null,
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1146.8,
-      "bottomPx": 1178.8
+      "topPx": 1172.7,
+      "bottomPx": 1204.7
     },
     {
       "controlId": "control:secondary-action",
@@ -641,8 +641,8 @@
       "href": null,
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1186.8,
-      "bottomPx": 1218.8
+      "topPx": 1212.7,
+      "bottomPx": 1244.7
     },
     {
       "controlId": "control:secondary-action",
@@ -650,8 +650,8 @@
       "href": null,
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1226.8,
-      "bottomPx": 1258.8
+      "topPx": 1252.7,
+      "bottomPx": 1284.7
     },
     {
       "controlId": "control:link-focus",
@@ -659,8 +659,8 @@
       "href": "/frontier/reliability-gap/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1710.8,
-      "bottomPx": 1727.8
+      "topPx": 1736.7,
+      "bottomPx": 1753.7
     },
     {
       "controlId": "control:link-focus",
@@ -668,8 +668,8 @@
       "href": "/rl-sim2real/why-rl-locomotion/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1849.7,
-      "bottomPx": 1870.7
+      "topPx": 1875.61,
+      "bottomPx": 1896.61
     },
     {
       "controlId": "control:link-focus",
@@ -677,8 +677,8 @@
       "href": "https://arxiv.org/abs/2109.11978",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1849.7,
-      "bottomPx": 1870.7
+      "topPx": 1875.61,
+      "bottomPx": 1896.61
     },
     {
       "controlId": "control:link-focus",
@@ -686,8 +686,8 @@
       "href": "/data-hardware/teleop-rigs/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1908.61,
-      "bottomPx": 1929.61
+      "topPx": 1934.52,
+      "bottomPx": 1955.52
     },
     {
       "controlId": "control:link-focus",
@@ -695,8 +695,8 @@
       "href": "https://arxiv.org/abs/2304.13705",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1908.61,
-      "bottomPx": 1929.61
+      "topPx": 1934.52,
+      "bottomPx": 1955.52
     },
     {
       "controlId": "control:link-focus",
@@ -704,8 +704,8 @@
       "href": "/frontier/dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1967.52,
-      "bottomPx": 1988.52
+      "topPx": 1993.42,
+      "bottomPx": 2014.42
     },
     {
       "controlId": "control:link-focus",
@@ -713,53 +713,53 @@
       "href": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1967.52,
-      "bottomPx": 1988.52
+      "topPx": 1993.42,
+      "bottomPx": 2014.42
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Humanoid Whole-Body Control",
-      "href": "/rl-sim2real/humanoid-wbc/",
+      "accessibleName": "World Model Evaluation for Robotics",
+      "href": "/world-models/evaluation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2103.83,
-      "bottomPx": 2127.83
+      "topPx": 2129.73,
+      "bottomPx": 2153.73
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Legged Locomotion Lineage",
-      "href": "/rl-sim2real/legged-locomotion/",
+      "accessibleName": "Generative Simulation",
+      "href": "/world-models/generative-sim/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2153.83,
-      "bottomPx": 2177.83
+      "topPx": 2179.73,
+      "bottomPx": 2203.73
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Offline Reinforcement Learning for Robotics",
-      "href": "/rl-sim2real/offline-rl/",
+      "accessibleName": "Generative Video World Models",
+      "href": "/world-models/generative-video/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2203.83,
-      "bottomPx": 2227.83
+      "topPx": 2229.73,
+      "bottomPx": 2253.73
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Massively Parallel Sim RL",
-      "href": "/rl-sim2real/parallel-sim-rl/",
+      "accessibleName": "JEPA and the Non-Generative Counterargument",
+      "href": "/world-models/jepa/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2253.83,
-      "bottomPx": 2277.83
+      "topPx": 2279.73,
+      "bottomPx": 2303.73
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "RL for Robotics",
-      "href": "/rl-sim2real/rl-for-robotics/",
+      "accessibleName": "Latent-Dynamics World Models",
+      "href": "/world-models/latent-dynamics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2303.83,
-      "bottomPx": 2327.83
+      "topPx": 2329.73,
+      "bottomPx": 2353.73
     },
     {
       "controlId": "control:link-focus",
@@ -767,8 +767,8 @@
       "href": "/playground/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2399.83,
-      "bottomPx": 2418.83
+      "topPx": 2425.73,
+      "bottomPx": 2444.73
     },
     {
       "controlId": "control:link-focus",
@@ -776,8 +776,8 @@
       "href": "/how-robots-work/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2399.83,
-      "bottomPx": 2418.83
+      "topPx": 2425.73,
+      "bottomPx": 2444.73
     },
     {
       "controlId": "control:link-focus",
@@ -785,8 +785,8 @@
       "href": "/market-map/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2399.83,
-      "bottomPx": 2418.83
+      "topPx": 2425.73,
+      "bottomPx": 2444.73
     }
   ],
   "highlights": [],
@@ -920,7 +920,7 @@
       "headingSizePx": null
     }
   ],
-  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1022 sources · 119 glossary terms Search | Robot Wiki | Search |  | Search | CONTENTS | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | FEATURED ARTICLE | FEATURED SCENE | The last stretch of episode reliability Play Adjust more toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative model: all 30 decisions succeed independently at the same rate. The same horizon exposes the last stretch. From The Reliability Gap | Play |  |  |  | DID YOU KNOW | RECENTLY UPDATED | TOOLS Playground How robots work Market Map | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | Motion scene: The last stretch of episode reliability | Play the motion scene: The last stretch of episode reliability | Step back one beat | Step forward one beat | Reset the scene to its poster still | Tools",
+  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1129 sources · 119 glossary terms Search | Robot Wiki | Search |  | Search | CONTENTS | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | FEATURED ARTICLE | FEATURED SCENE | The last stretch of episode reliability Play Adjust more toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative model: all 30 decisions succeed independently at the same rate. The same horizon exposes the last stretch. From The Reliability Gap | Play |  |  |  | DID YOU KNOW | RECENTLY UPDATED | TOOLS Playground How robots work Market Map | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | Motion scene: The last stretch of episode reliability | Play the motion scene: The last stretch of episode reliability | Step back one beat | Step forward one beat | Reset the scene to its poster still | Tools",
   "domainAnchorCounts": {
     "Manipulation & Learned Policies": 1,
     "RL, Sim-to-Real & Locomotion": 1,
@@ -949,7 +949,9 @@
     },
     {
       "label": "RECENTLY UPDATED",
-      "names": []
+      "names": [
+        "World Models"
+      ]
     },
     {
       "label": "Tools",
@@ -960,8 +962,8 @@
     {
       "label": "Introduction",
       "signature": "sheet/display-lockup/search-form",
-      "prose": "Citation-first encyclopedia of modern robot learning. 57 articles 1022 sources 119 glossary terms",
-      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1022 sources · 119 glossary terms Search"
+      "prose": "Citation-first encyclopedia of modern robot learning. 57 articles 1129 sources 119 glossary terms",
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1129 sources · 119 glossary terms Search"
     },
     {
       "label": "CONTENTS",
@@ -972,8 +974,8 @@
     {
       "label": "FEATURED ARTICLE",
       "signature": "plain/module-heading/lead-excerpt",
-      "prose": "A vision-language-action (VLA) model is a robot policy built by adapting a vision-language model to output robot actions.",
-      "text": "FEATURED ARTICLE Vision-Language-Action Models A vision-language-action (VLA) model is a robot policy built by adapting a vision-language model to output robot actions."
+      "prose": "The data bottleneck is the shortage of robot demonstration data compared with the internet-scale text that language models train on.",
+      "text": "FEATURED ARTICLE The Data Bottleneck The data bottleneck is the shortage of robot demonstration data compared with the internet-scale text that language models train on."
     },
     {
       "label": "FEATURED SCENE",
@@ -991,7 +993,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-11 Humanoid Whole-Body Control 2026-10-11 Legged Locomotion Lineage 2026-10-11 Offline Reinforcement Learning for Robotics 2026-10-11 Massively Parallel Sim RL 2026-10-11 RL for Robotics"
+      "text": "RECENTLY UPDATED 2026-10-12 World Model Evaluation for Robotics 2026-10-12 Generative Simulation 2026-10-12 Generative Video World Models 2026-10-12 JEPA and the Non-Generative Counterargument 2026-10-12 Latent-Dynamics World Models"
     },
     {
       "label": "Tools",

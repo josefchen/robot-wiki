@@ -39,7 +39,7 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 938837, sha256: '8a0cdcbc1b1099b6aee0089b5c06d7068ea8b3965169fb845fd7973debc4aa64' };
+const reviewPin = { bytes: 1134578, sha256: '9b01e29074a60910a46bd7397c760c041d56f92c883797cfde0d1334de815318' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -78,7 +78,14 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/rl-sim2real/rl-for-robotics.mdx', [17542, '13dbff145d8f6d7bb73c53a08408f250bba23aee330042017e28a4b32f14e7e0']],
   ['content/rl-sim2real/sim2real-transfer.mdx', [19378, 'c0b26865883fc734683b8bc0c5ccecaced7ced82c349badb06095fb641cab74b']],
   ['content/rl-sim2real/why-rl-locomotion.mdx', [8908, 'db029a747a92b75e5f56e716cf548de6c3acd95ea8ffd7215625851ff9f3727c']],
-  ['content/world-models/generative-video.mdx', [16559, '3b2752c33d7a823851e51270f7fa7a25ea6ce25e181b854fa0863031b55d30ea']],
+  ['content/world-models/evaluation.mdx', [10996, 'af6f856ae7e0694493c1f11a54e265e10ea556ec9bdf55cf0c5790eda0890b17']],
+  ['content/world-models/generative-sim.mdx', [14256, '7899f28f5d3e5d01a6437923b23043a09ab5e5ba1833eea574fbb7e7f2166e90']],
+  ['content/world-models/generative-video.mdx', [14937, 'f64ab3209b4061568efe8fa0c141586ac2bee2ba3d765e6c4256c8a1c6fe341f']],
+  ['content/world-models/jepa.mdx', [13488, '7adfe70ea4f7667944d3963eefe2e3ce5c531e1671fb7fa1e9d62e779ac505cd']],
+  ['content/world-models/latent-dynamics.mdx', [12231, 'f8e8e46ac8c6c372e07c6140180b15e2a7e4f0889e8f626266eb281350ad7624']],
+  ['content/world-models/model-based-robot-learning.mdx', [10304, 'f835cb3c762a3fb667ca617f377fbf1bcb8668650196465a3d03a42a1c722fd8']],
+  ['content/world-models/taxonomy.mdx', [13938, '22a45faa2b7feab6fae51ced32e9b10ef8ea1c3459e7205672d59637c38466bb']],
+  ['content/world-models/world-models-vs-simulators.mdx', [13151, 'cfe3613bb35a93f74e6f76c5e3943d0440239c2303b86a8c7d062ea40a5f28d9']],
   ['data/glossary.ts', [83377, '3b84caa631eb21499d2a75176ec8a90ddc982eafc03a7a7b8d3d1e1c9e86488d']],
 ]);
 // END domain-pass pins

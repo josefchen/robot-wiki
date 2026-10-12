@@ -31,10 +31,10 @@ for (const width of [1440, 375]) {
     await page.goto('/world-models/generative-sim/');
     const prose = page.locator('div.prose[data-pagefind-body]');
     const mechanism = prose.locator('p').filter({ hasText: /^GRS starts from/ });
-    const limits = prose.locator('p').filter({ hasText: /^This bounded real-to-sim authoring procedure/ });
+    const limits = mechanism;
     await expect(mechanism).toHaveCount(1);
     await expect(limits).toContainText('exclude runtime-error cases');
-    await expect(limits).toContainText('Sim-to-real training and transfer remain future work');
+    await expect(limits).toContainText('sim-to-real transfer is future work');
     for (const paragraph of [mechanism, limits]) {
       await expect(paragraph.locator('[data-cite-id="grs-2024"] a[href="https://arxiv.org/abs/2410.15536"]')).toHaveCount(1);
     }

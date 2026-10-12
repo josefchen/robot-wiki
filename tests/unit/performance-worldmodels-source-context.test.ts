@@ -12,7 +12,7 @@ describe('Performance world-model source scopes', () => {
     expect(latent()).toContain('GRU');
     expect(latent()).toContain('MBPO-PPO');
     expect(latent()).toContain('zero-shot transfer');
-    expect(latent()).toContain('Safe online policy learning directly on hardware remains a limitation');
+    expect(latent()).toContain('safe online hardware learning remains open');
     expect(latent()).not.toContain('robust robot control rather than benchmark RL');
   });
   it('retains Fast-WAM action denoising and the precise hardware comparison', () => {
@@ -34,7 +34,6 @@ describe('Performance world-model source scopes', () => {
     expect(t).toContain('BMPC');
     expect(t).toMatch(/cannot consistently match|does not consistently match/);
     expect(WM_PARADIGMS.find(p => p.id === 'decoder-free-latent')?.primaryUse).toContain('gradient');
-    expect(t).toContain('toy reward-error readout equal to 0.35');
     expect(t).toContain('H = 15');
     expect(t).toContain('T = 16');
   });

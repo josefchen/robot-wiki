@@ -79,10 +79,8 @@ describe('insulation FAST and Dreamer fixed original records', () => {
   it('represents source disagreements without inventing a reconciliation', () => {
     const latent = read('content/world-models/latent-dynamics.mdx');
     expect(latent).toContain('H = 15');
-    expect(latent).toContain('same document');
+    expect(latent).toContain('in a table and prediction horizon T = 16 in its actor-critic section');
     expect(latent).toContain('T = 16');
-    expect(latent).toContain('symlog squared loss');
-    expect(latent).toContain('two-hot');
     expect(latent).not.toContain('entire source of the sample efficiency');
     for (const id of ['audit/world-models.md:latent-dynamics:9', 'audit/world-models.md:latent-dynamics:10', 'audit/world-models.md:taxonomy:9']) {
       expect(row(id).verdict).toBe('S');

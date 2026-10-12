@@ -60,33 +60,30 @@ test.describe('world-models generative-video module', () => {
     for (const name of [
       // Cosmos 3 as one omni-model.
       /Mixture-of-Transformers/,
-      /autoregressive subsequence handles language tokens/,
-      /Nano at 16B/,
-      /Super at 64B/,
+      /Nano has 16B/,
+      /Super 64B/,
       // Genie 2/3 with the honest limitations and the 60-second cap.
       /Genie 2 \(December 2024\) moved to 3D, with consistent worlds for up to a minute/,
       /real time at 24 fps and 720p/,
-      /Limited action space/,
+      /constrained direct action space/,
       /60 seconds per world/,
       // GR-1/GR-2.
       /88\.9% to 94\.9%/,
-      /38 million internet video clips/,
-      /97\.7% average success rate/,
+      /38 million internet clips/,
+      /97\.7% average success/,
       // 1X and Odyssey.
-      /World Model Lab, led by Sam Sinha/,
+      /World Model Lab led by Sam Sinha/,
       /new frame every 50 ms/,
       // Evidence, both directions.
-      /more than 10 minutes of visually stable generated-video interaction at up to 15 FPS on a single RTX 4090/,
-      /192 steps \(19\.2 seconds\), a shorter test than the ten-minute interaction/,
-      /establish neither robot-control frequency nor physically accurate dynamics/,
+      /more than 10 minutes of stable generated-video interaction at up to 15 FPS on a single RTX 4090/,
+      /quantitative video comparisons use 192 steps \(19\.2 seconds\)/,
       /87\.9% versus 90\.3% for DP and 76\.2% versus 73\.6% for ACT/,
-      /eight policy-level aggregate scores/,
+      /eight policy-level scores/,
       /26 February 2026 RoboArena leaderboard/,
       /Pearson r = 0\.989 and Spearman rho = 0\.970/,
-      /4,186 rollouts are neither independent points nor a per-task correlation/,
-      /not calibrated success probability or absolute agreement/,
-      /visual plausibility is only a weak proxy for control utility/,
-      /top open challenge/,
+      /the eight aggregates are the correlation points/,
+      /only a weak proxy for control utility/,
+      /first among its open challenges/,
     ]) {
       await expect(
         main.getByText(name).filter({ visible: true }).first(),
@@ -105,11 +102,9 @@ test.describe('world-models generative-video module', () => {
     await expect(main).toContainText('limited research preview');
     await expect(main).toContainText('DeepMind-reported: 720p, a few minutes');
     await expect(main).toContainText('real time at 24 fps and 720p');
-    await expect(main).toContainText('not necessarily performed by the agent itself');
-    await expect(main).toContainText('perfect geographic accuracy');
-    await expect(main).toContainText('input world description');
-    await expect(main).toContainText('received no agent goal');
-    await expect(main).toContainText('does not establish manipulation performance');
+    await expect(main).toContainText('geographic accuracy');
+    await expect(main).toContainText("without knowing the agent's goal");
+    await expect(main).toContainText('the test involved no robot manipulation');
     await expect(main).not.toContainText('Generated places do not correspond to real ones');
     await expect(main).not.toContainText('cannot score candidate grasps');
   });
@@ -152,14 +147,14 @@ test.describe('world-models generative-video module', () => {
     await page.goto(ROUTE);
     const prose = page.locator('div.prose[data-pagefind-body]');
     await expect(prose).toContainText('dense 8B basis; dual-tower MoT');
-    await expect(prose).toContainText('the reasoning stream is not updated from diffusion tokens');
-    await expect(prose).toContainText('one unchanged checkpoint');
-    await expect(prose).toContainText('freshly initializes the action encoder');
-    await expect(prose).toContainText('Policy mode jointly denoises future video and actions');
-    await expect(prose).toContainText('report lists Cosmos 3 Nano at 16B');
-    await expect(prose).toContainText('Cosmos 3 Super at 64B');
-    await expect(prose).toContainText('rectified flow matching');
-    await expect(prose).toContainText('EDM loss');
+    await expect(prose).toContainText('reasoner tokens never read diffusion tokens');
+    await expect(prose).toContainText('fresh action modules');
+    await expect(prose).toContainText('and policy (both)');
+    await expect(prose).toContainText('Nano has 16B parameters on a dense 8B transformer');
+    await expect(prose).toContainText('Super 64B on a dense 32B one');
+    await expect(prose).toContainText('routes language and ViT-encoded vision to a causal autoregressive reasoner');
+    await expect(prose).toContainText('forward dynamics (video from clean actions), inverse dynamics (actions from clean video)');
+    await expect(prose).toContainText('a DROID policy started from mid-trained Cosmos3-Nano');
     await expect(prose).not.toContainText('Two sizes are public at launch');
     const source = prose.getByRole('link', { name: 'NVIDIA et al. 2026', exact: true }).first();
     await expect(source).toHaveAttribute(
