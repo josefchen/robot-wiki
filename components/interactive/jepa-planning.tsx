@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useState, type ReactNode } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ControlField,
@@ -8,28 +8,31 @@ import {
   INSTRUMENT_SECONDARY_CONTROL_CLASS,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
-  InstrumentLegend,
   InstrumentReset,
-  LegendItem,
   PlotStage,
   PresetGroup,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
-  CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
   CHART_VIEW_WIDTH,
   ChartAxes,
-  LegendSwatch,
   LineTrace,
   PointMarker,
-  StageAnnotation,
   linearScale,
-  roleColour,
-  type ChartPoint,
 } from '@/components/motion/chart';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, IsoFigure, Line, Solid, Wire } from '@/components/iso/react/draw';
+import { asksForStillness } from '@/components/iso/react/live';
+import {
+  HEIGHT as TABLE_HEIGHT,
+  PICTURE,
+  WIDTH as TABLE_WIDTH,
+  easelMatrix,
+  tableParts,
+  type Part,
+} from '@/components/iso/figures/planning-table';
 import {
   DEFAULT_CANDIDATES,
   GOALS,
@@ -38,7 +41,6 @@ import {
   MAX_CANDIDATES,
   MAX_STEPS,
   MIN_CANDIDATES,
-  type CandidateSequence,
   type LatentPoint,
   type PlanStepResult,
   goalDistance,
@@ -46,17 +48,27 @@ import {
 } from '@/lib/jepa-planning';
 
 /**
- * Deterministic two-dimensional teaching model for goal-directed replanning.
- * Synthetic points and Euclidean distance are not learned V-JEPA 2 features.
- * Candidate directions, execution perturbation, and contraction are prescribed
- * by lib/jepa-planning.ts. The paper instead plans with L1 feature-map energy
- * and the Cross-Entropy Method (arXiv:2506.09985v1, Section 3.2).
+ * Deterministic two-dimensional teaching model for goal-directed replanning,
+ * drawn as a planning table. Synthetic points and Euclidean distance are not
+ * learned V-JEPA 2 features. Candidate directions, execution perturbation,
+ * and contraction are prescribed by lib/jepa-planning.ts. The paper instead
+ * plans with L1 feature-map energy and the Cross-Entropy Method
+ * (arXiv:2506.09985v1, Section 3.2).
  *
- * The plane is drawn turned so the goal sits straight to the right of the
- * start; a rotation keeps every distance, and the synthetic axes carry no
- * meaning of their own. The figure opens with a few planning steps already
- * taken, so the path, the moves the last step tried and the one it kept are
- * on screen at once.
+ * A summary is a point on the table: the "now" ring at the left, the goal
+ * target at the right, their pictures on easels in front. A probe head,
+ * carried on an arm from a gantry bridge, stands on the current summary and
+ * sets out one feeler per candidate move, each ending on a pin. The kept
+ * pin sits exactly where the model predicts the kept move lands; the other
+ * pins keep their side of the goal direction, the common reach and their
+ * order, but are spread evenly from 20 degrees past the kept move out to
+ * 100 degrees so each stands clear (a display spread; see `fanOf`). The lit feeler and pin are the move the
+ * robot keeps; "Plan next move" carries the head along it (eased), and a
+ * prick mark records where it really ended up. The table is the toy plane
+ * turned so the start-to-pick direction runs along it and scaled uniformly;
+ * a rotation and a uniform scale keep every distance's proportion. The
+ * figure opens with a few planning steps already taken, so the trail, the
+ * fan and the kept move are on show at once.
  */
 type JepaPlanningProps = {
   /** Initial search budget in candidate action sequences. Default 24. */
@@ -71,27 +83,10 @@ const BUDGET_STEP = 4;
 /** Planning steps already taken when the figure opens, after a reset and after a goal change. */
 export const OPENING_STEPS = 2;
 
-const PLANE_H = 224;
-/** Where the plan itself is drawn; the two pictures sit in the gutters either side. */
-const GUTTER = 84;
-const PLAN_BOX = { left: GUTTER, right: W - GUTTER, top: 60, bottom: 202 };
-const PICTURE = { w: 64, h: 48, inset: 8 };
-const NOTE = { x: 8, y: 18 };
-/** Just under the note's second line, where its leader leaves for the kept move. */
-const NOTE_FOOT = 44;
-const GOAL_RING = 9;
-
 const TRACE_H = 124;
 const TRACE_PLOT = { left: 48, right: W - 14, top: 28, bottom: 78 } as const;
 const STEP_TICKS = [0, 6, 12];
 const GAP_TICKS = [0, 100];
-
-/** Picture labels, two short lines each so they fit the gutter at 375px. */
-const PICTURE_LABEL: Record<'now' | GoalId, readonly [string, string]> = {
-  now: ['Now: cup', 'on table'],
-  pick: ['Goal: cup', 'in hand'],
-  place: ['Goal: cup', 'on shelf'],
-};
 
 const GOAL_PRESET: Record<GoalId, string> = {
   pick: 'Cup in hand',
@@ -123,225 +118,132 @@ function runPlan(goal: LatentPoint, candidateCount: number, steps: number) {
   return { history, plans };
 }
 
-/** The control point that bows a candidate off its chord by the prescribed bend. */
-function bendPoint(origin: LatentPoint, c: CandidateSequence): LatentPoint {
-  const end = c.endpoint;
-  const nx = -(end.y - origin.y);
-  const ny = end.x - origin.x;
-  const length = Math.hypot(nx, ny) || 1;
-  return { x: (origin.x + end.x) / 2 + (nx / length) * c.bend, y: (origin.y + end.y) / 2 + (ny / length) * c.bend };
-}
-
-const BUDGETS = Array.from(
-  { length: (MAX_CANDIDATES - MIN_CANDIDATES) / BUDGET_STEP + 1 },
-  (_, i) => MIN_CANDIDATES + i * BUDGET_STEP,
-);
-
-/**
- * One view per goal: turned so the goal is straight right of the start, and
- * scaled once so every state and every scored move at every budget and step
- * fits the plan box. Both axes share one scale, so distances read true.
- */
-function goalView(goal: LatentPoint) {
-  const angle = Math.atan2(goal.y - INITIAL_STATE.y, goal.x - INITIAL_STATE.x);
-  const [c, s] = [Math.cos(angle), Math.sin(angle)];
-  const turn = (p: LatentPoint): [number, number] => {
-    const dx = p.x - INITIAL_STATE.x;
-    const dy = p.y - INITIAL_STATE.y;
-    return [c * dx + s * dy, -s * dx + c * dy];
-  };
-  const seen: [number, number][] = [turn(goal)];
-  for (const budget of BUDGETS) {
-    const { history, plans } = runPlan(goal, budget, MAX_STEPS);
-    history.forEach((p) => seen.push(turn(p)));
-    // Only the fan of the last step taken is drawn, and the figure never
-    // shows fewer than OPENING_STEPS steps, so earlier fans need no room.
-    plans.forEach((plan, i) => {
-      if (i < OPENING_STEPS - 1) return;
-      plan.candidates.forEach((cand) => {
-        seen.push(turn(cand.endpoint), turn(bendPoint(history[i], cand)));
-      });
-    });
-  }
-  const us = seen.map(([u]) => u);
-  const vs = seen.map(([, v]) => v);
-  const [uMin, uMax, vMin, vMax] = [Math.min(...us), Math.max(...us), Math.min(...vs), Math.max(...vs)];
-  const boxW = PLAN_BOX.right - PLAN_BOX.left;
-  const boxH = PLAN_BOX.bottom - PLAN_BOX.top;
-  const unit = Math.min(boxW / (uMax - uMin), boxH / (vMax - vMin));
-  const x0 = PLAN_BOX.left + (boxW - unit * (uMax - uMin)) / 2;
-  const y0 = PLAN_BOX.top + (boxH - unit * (vMax - vMin)) / 2;
-  return (p: LatentPoint): ChartPoint => {
-    const [u, v] = turn(p);
-    return [x0 + (u - uMin) * unit, y0 + (vMax - v) * unit];
-  };
-}
-
-const VIEWS: Record<GoalId, (p: LatentPoint) => ChartPoint> = Object.fromEntries(
-  GOALS.map((g) => [g.id, goalView(g.point)]),
-) as Record<GoalId, (p: LatentPoint) => ChartPoint>;
-
-const INK = CHART_STRUCTURE.label;
-const SOFT = CHART_STRUCTURE.labelSecondary;
-const ACTION = roleColour('action');
-
-/** A cup: a tapered body with a handle, standing on `bottom` and centred on `cx`. */
+/** A cup on a picture card: a tapered body with a handle, standing on `bottom` and centred on `cx`. */
 function Cup({ cx, bottom }: { cx: number; bottom: number }) {
   const top = bottom - 13;
   return (
     <g>
-      <path d={`M${f(cx - 6)} ${f(top)} H${f(cx + 6)} L${f(cx + 5)} ${f(bottom)} H${f(cx - 5)} Z`} fill={INK} />
-      <path
-        d={`M${f(cx + 5.6)} ${f(top + 3)} q5 0.5 4.4 4.6 q-0.6 3.2 -5.2 3.4`}
-        fill="none"
-        stroke={INK}
-        strokeWidth={1.6}
-      />
+      <path className="iso-shade" data-shade="0" d={`M${f(cx - 6)} ${f(top)} H${f(cx + 6)} L${f(cx + 5)} ${f(bottom)} H${f(cx - 5)} Z`} />
+      <path className="iso-line" data-tone="hi" d={`M${f(cx - 6)} ${f(top)} H${f(cx + 6)} L${f(cx + 5)} ${f(bottom)} H${f(cx - 5)} Z`} />
+      <path className="iso-line" data-tone="hi" d={`M${f(cx + 5.6)} ${f(top + 3)} q5 0.5 4.4 4.6 q-0.6 3.2 -5.2 3.4`} />
     </g>
   );
 }
 
-/** A two-finger gripper on its wrist; `tip` is where the fingertips end, `span` how wide it is open. */
-function Hand({ cx, tip, span, top }: { cx: number; tip: number; span: number; top: number }) {
+/** A two-finger gripper on its wrist; `tip` is where the fingertips end, `span` how wide it is open. Closed outlines. */
+function Hand({ cx, tip, span }: { cx: number; tip: number; span: number }) {
   const palm = tip - 10;
+  const rect = (x: number, y: number, w: number, h: number) => `M${f(x)} ${f(y)}H${f(x + w)}V${f(y + h)}H${f(x)}Z`;
   return (
-    <g fill={SOFT}>
-      {palm - 3 > top ? <rect x={f(cx - 1.5)} y={f(top)} width={3} height={f(palm - 3 - top)} /> : null}
-      <rect x={f(cx - span / 2)} y={f(palm - 3)} width={f(span)} height={3} rx={1} />
-      <rect x={f(cx - span / 2)} y={f(palm)} width={3} height={10} rx={1} />
-      <rect x={f(cx + span / 2 - 3)} y={f(palm)} width={3} height={10} rx={1} />
-    </g>
+    <path
+      className="iso-line"
+      data-tone="mid"
+      d={`M${f(cx)} 0V${f(palm - 3)}${rect(cx - span / 2, palm - 3, span, 3)}${rect(cx - span / 2, palm, 2.6, 10)}${rect(cx + span / 2 - 2.6, palm, 2.6, 10)}`}
+    />
   );
 }
 
-/** The camera picture the robot starts from, or the picture of its goal. */
-function ScenePicture({ kind, x, y }: { kind: 'now' | GoalId; x: number; y: number }) {
-  const table = y + PICTURE.h - 4;
+/** The camera picture the robot starts from, or the picture of its goal, in the card's own units. */
+function ScenePicture({ kind }: { kind: 'now' | GoalId }) {
+  const table = PICTURE.h - 6;
   return (
     <g data-testid={`picture-${kind}`} data-scene-structure="">
-      <rect x={f(x)} y={f(table)} width={PICTURE.w} height={2.5} fill={SOFT} opacity={0.7} />
+      <path className="iso-shade" data-shade="3" d={`M0 0H${PICTURE.w}V${PICTURE.h}H0Z`} />
+      <path className="iso-top" d={`M0 ${table}H${PICTURE.w}V${table + 2.5}H0Z`} />
+      <path className="iso-line" data-tone="lo" d={`M0 ${table}H${PICTURE.w}M0 ${table + 2.5}H${PICTURE.w}`} />
       {kind === 'place' ? (
-        <g fill={SOFT} opacity={0.7}>
-          <rect x={f(x + 34)} y={f(table - 17)} width={30} height={2.5} />
-          <rect x={f(x + 60)} y={f(table - 17)} width={2.5} height={17} />
-        </g>
+        <path className="iso-line" data-tone="lo" d={`M34 ${table - 17}H${PICTURE.w}M60 ${table - 17}V${table}`} />
       ) : null}
       {kind === 'now' ? (
         <>
-          <Cup cx={x + 26} bottom={table} />
-          <Hand cx={x + 26} tip={y + 18} span={24} top={y} />
+          <Cup cx={26} bottom={table} />
+          <Hand cx={26} tip={18} span={24} />
         </>
       ) : kind === 'pick' ? (
         <>
-          <Cup cx={x + 26} bottom={table - 12} />
-          <Hand cx={x + 26} tip={table - 17} span={18} top={y} />
+          <Cup cx={26} bottom={table - 12} />
+          <Hand cx={26} tip={table - 17} span={18} />
         </>
       ) : (
         <>
-          <Cup cx={x + 47} bottom={table - 17} />
-          <Hand cx={x + 16} tip={y + 16} span={24} top={y} />
+          <Cup cx={47} bottom={table - 17} />
+          <Hand cx={16} tip={16} span={24} />
         </>
       )}
+      <path className="iso-line" data-tone="mid" d={`M0 0H${PICTURE.w}V${PICTURE.h}H0Z`} />
     </g>
   );
 }
 
-/** Two short lines under a picture, set flush to the stage edge it sits on. */
-function PictureLabel({ lines, x, y, anchor }: { lines: readonly string[]; x: number; y: number; anchor: 'start' | 'end' }) {
+const GROUP_TEST_IDS: Record<string, string> = {
+  'candidate-fan': 'candidate-fan',
+  'walked-path': 'walked-path',
+  'goal-marker': 'goal-marker',
+  carriage: 'probe-head',
+};
+
+type ViewProps = {
+  part: Part;
+  slot: (id: Extract<Part, { kind: 'slot' }>['id']) => ReactNode;
+  /** While the head glides to its next stand the new fan stays hidden. */
+  hidden?: boolean;
+  onArrive?: () => void;
+};
+
+function PartView({ part, slot, hidden = false, onArrive }: ViewProps) {
+  if (part.kind === 'solid') {
+    return (
+      <Solid
+        paths={part.paths}
+        tone={part.tone}
+        lit={part.lit}
+        crease={part.crease}
+        inner={part.inner ? <Line d={part.inner} tone={part.innerTone ?? 'faint'} /> : undefined}
+      />
+    );
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  if (part.kind === 'dots') return <Dots points={part.points} size={part.size} tone={part.tone} />;
+  if (part.kind === 'wire') return <Wire from={part.from} to={part.to} via={part.via} tone={part.tone} />;
+  if (part.kind === 'fill') {
+    if (part.shade === 'paper') return <path className="iso-fill" d={part.d} />;
+    if (part.shade === 'top') return <path className="iso-top" d={part.d} />;
+    return <path className="iso-shade" data-shade={part.shade} d={part.d} />;
+  }
+  if (part.kind === 'slot') return <>{slot(part.id)}</>;
+  const { move, ...data } = part.data ?? {};
+  const attributes = Object.fromEntries(Object.entries(data).map(([key, value]) => [`data-${key}`, value]));
+  const role = part.role === 'feeler' || part.role === 'feeler-kept' ? { 'data-testid': 'candidate-sequence', 'data-candidate': part.role === 'feeler-kept' ? 'kept' : undefined } : { 'data-testid': GROUP_TEST_IDS[part.role] };
   return (
-    <text x={x} y={y} textAnchor={anchor} fontSize={CHART_TYPE.labelPx} fill={INK}>
-      {lines.map((line, i) => (
-        <tspan key={line} x={x} dy={i === 0 ? 0 : '1.25em'}>
-          {line}
-        </tspan>
+    <g
+      {...role}
+      data-part={part.role}
+      {...attributes}
+      style={
+        move
+          ? {
+              transform: move,
+              transitionProperty: 'transform, opacity',
+              transitionDuration: 'var(--motion-indicate)',
+              transitionTimingFunction: 'var(--motion-ease-smooth)',
+              opacity: part.role === 'candidate-fan' && hidden ? 0 : undefined,
+            }
+          : undefined
+      }
+      className={move ? 'motion-reduce:transition-none' : undefined}
+      onTransitionEnd={part.role === 'carriage' ? onArrive : undefined}
+    >
+      {part.parts.map((child, index) => (
+        <PartView key={index} part={child} slot={slot} hidden={hidden} onArrive={onArrive} />
       ))}
-    </text>
-  );
-}
-
-/** The quadratic path of one tried move, bowed off its chord by the prescribed bend. */
-function movePath(view: (p: LatentPoint) => ChartPoint, origin: LatentPoint, c: CandidateSequence): string {
-  const [x0, y0] = view(origin);
-  const [qx, qy] = view(bendPoint(origin, c));
-  const [x1, y1] = view(c.endpoint);
-  return `M${f(x0)} ${f(y0)} Q${f(qx)} ${f(qy)} ${f(x1)} ${f(y1)}`;
-}
-
-/**
- * Every move the last planning step tried, drawn from where that step
- * started. The kept move is solid and drawn last, on top of the dashed
- * alternatives.
- */
-function CandidateFan({
-  view,
-  origin,
-  plan,
-}: {
-  view: (p: LatentPoint) => ChartPoint;
-  origin: LatentPoint;
-  plan: PlanStepResult;
-}) {
-  const kept = plan.candidates[plan.chosenIndex];
-  return (
-    <g data-testid="candidate-fan" data-chart-role="action">
-      {plan.candidates.map((c, i) =>
-        i === plan.chosenIndex ? null : (
-          <path
-            key={i}
-            data-testid="candidate-sequence"
-            data-series="tried"
-            d={movePath(view, origin, c)}
-            fill="none"
-            stroke={ACTION}
-            strokeOpacity={0.55}
-            strokeWidth={CHART_STROKE.reference}
-            strokeDasharray={CHART_STROKE.dash}
-            strokeLinecap="round"
-          />
-        ),
-      )}
-      <path
-        data-testid="candidate-sequence"
-        data-candidate="kept"
-        data-series="kept"
-        d={movePath(view, origin, kept)}
-        fill="none"
-        stroke={ACTION}
-        strokeWidth={CHART_STROKE.trace}
-        strokeLinecap="round"
-      />
     </g>
   );
 }
-
-/** The goal: a dashed reference ring around a cross. */
-function GoalMarker({ at }: { at: ChartPoint }) {
-  return (
-    <g data-testid="goal-marker" data-chart-role="reference">
-      <circle
-        cx={f(at[0])}
-        cy={f(at[1])}
-        r={GOAL_RING}
-        fill="none"
-        stroke={roleColour('reference')}
-        strokeWidth={CHART_STROKE.reference}
-        strokeDasharray={CHART_STROKE.dash}
-      />
-      <PointMarker x={at[0]} y={at[1]} role="reference" shape="cross" />
-    </g>
-  );
-}
-
-const LEGEND = (
-  <InstrumentLegend>
-    <LegendItem series="path" swatch={<LegendSwatch role="state" mark="line" />}>path so far</LegendItem>
-    <LegendItem series="tried" swatch={<LegendSwatch role="action" mark="dash" />}>moves tried</LegendItem>
-    <LegendItem series="kept" swatch={<LegendSwatch role="action" mark="line" />}>move kept</LegendItem>
-  </InstrumentLegend>
-);
 
 const traceX = linearScale([0, MAX_STEPS], [TRACE_PLOT.left, TRACE_PLOT.right]);
 const traceY = linearScale([0, 100], [TRACE_PLOT.bottom, TRACE_PLOT.top]);
+const INK = CHART_STRUCTURE.label;
+const calm = () => typeof window !== 'undefined' && typeof window.matchMedia === 'function' && asksForStillness();
 
 export function JepaPlanning({
   defaultCandidates = DEFAULT_CANDIDATES,
@@ -353,81 +255,90 @@ export function JepaPlanning({
   const [candidateCount, setCandidateCount] = useState(defaultCandidates);
   const [goalId, setGoalId] = useState<GoalId>('pick');
   const [moves, setMoves] = useState(OPENING_STEPS);
+  // True while the carriage glides to the kept move's landing; the next fan opens when it arrives.
+  const [gliding, setGliding] = useState(false);
 
   const goal = GOALS.find((g) => g.id === goalId) ?? GOALS[0];
-  const view = VIEWS[goalId];
-  const { history, plans } = runPlan(goal.point, candidateCount, moves);
+  const { history } = runPlan(goal.point, candidateCount, moves);
   const steps = history.length - 1;
-  const distance = goalDistance(history[steps], goal.point);
+  const current = history[steps];
+  const distance = goalDistance(current, goal.point);
   const initialDistance = goalDistance(INITIAL_STATE, goal.point);
   const reached = distance <= GOAL_TOLERANCE;
   const exhausted = steps >= MAX_STEPS;
-  const lastPlan = plans[steps - 1] ?? null;
-  const fanCount = lastPlan ? lastPlan.candidates.length : candidateCount;
+  // The fan on the table: the moves the head tries now, from where it stands; none once it has stopped.
+  const next = reached || exhausted ? null : planStep({ state: current, goal: goal.point, stepIndex: steps, candidateCount });
+  const fanCount = next ? next.candidates.length : 0;
   const gaps = history.map((p) => (100 * goalDistance(p, goal.point)) / initialDistance);
   const gapNow = Math.round(gaps[steps]);
 
+  // If the glide's end is never reported (a tab in the background), the fan still opens.
+  useEffect(() => {
+    if (!gliding) return;
+    const timer = window.setTimeout(() => setGliding(false), 1600);
+    return () => window.clearTimeout(timer);
+  }, [gliding]);
+
   function planNext() {
     if (reached || exhausted) return;
+    setGliding(!calm());
     setMoves(steps + 1);
   }
 
   function selectGoal(id: GoalId) {
+    setGliding(false);
     setGoalId(id);
     setMoves(OPENING_STEPS);
   }
 
   function reset() {
+    setGliding(false);
     setCandidateCount(defaultCandidates);
     setGoalId('pick');
     setMoves(OPENING_STEPS);
   }
 
-  const start = view(INITIAL_STATE);
-  const target = view(goal.point);
-  const pictureY = start[1] - PICTURE.h / 2;
-  const goalPictureX = W - PICTURE.inset - PICTURE.w;
-  const labelY = pictureY + PICTURE.h + CHART_TYPE.labelPx * 1.2;
-  const kept = lastPlan ? view(lastPlan.candidates[lastPlan.chosenIndex].endpoint) : null;
-  const walked = history.map(view);
-  const current = walked[steps];
-  const structure = {
-    stroke: CHART_STRUCTURE.axes,
-    strokeOpacity: CHART_STRUCTURE.axesOpacity,
-    strokeWidth: CHART_STROKE.structure,
-  };
+  const parts = tableParts({
+    history,
+    goal: goal.point,
+    candidates: next ? next.candidates.map((c) => c.endpoint) : [],
+    kept: next ? next.chosenIndex : -1,
+    count: candidateCount,
+    minCount: MIN_CANDIDATES,
+    maxCount: MAX_CANDIDATES,
+    left: distance / initialDistance,
+  });
 
+  const slot = (id: Extract<Part, { kind: 'slot' }>['id']) => (
+    <g key={id} transform={easelMatrix(id === 'card-now' ? 'now' : 'goal')}>
+      <ScenePicture kind={id === 'card-now' ? 'now' : goalId} />
+    </g>
+  );
+
+  const note = `Each step: try ${candidateCount} possible moves, keep the one closest to the goal`;
   const plane = (
-    <PlotStage
-      viewBox={`0 0 ${W} ${PLANE_H}`}
-      aria-label={`A robot plans by comparing compact summaries: the dot for now, cup on the table, moves step by step toward the ring for the goal, ${GOAL_WORDS[goalId]}. After ${steps} moves ${gapNow}% of the starting distance is left; the last step tried ${fanCount} moves and kept the one closest to the goal.`}
-      aria-describedby={descriptionId}
+    <AnatomyStage
+      viewWidth={TABLE_WIDTH}
+      hint={
+        <span data-testid="plan-note" data-figure-annotation="">
+          {note}
+        </span>
+      }
+      readout={reached ? `goal reached after ${steps} moves` : `move ${steps} · ${gapNow}% of the distance left · ${candidateCount} tried`}
+      status="Illustrative: a toy model, not learned robot features."
+      data-testid="jepa-planning-stage"
     >
-      <ScenePicture kind="now" x={PICTURE.inset} y={pictureY} />
-      <ScenePicture kind={goalId} x={goalPictureX} y={pictureY} />
-      <g data-scene-structure="">
-        <line x1={f(PICTURE.inset + PICTURE.w + 2)} x2={f(start[0] - 6)} y1={f(start[1])} y2={f(start[1])} {...structure} />
-        <line x1={f(target[0] + GOAL_RING + 2)} x2={f(goalPictureX - 2)} y1={f(target[1])} y2={f(target[1])} {...structure} />
-      </g>
-      <PictureLabel lines={PICTURE_LABEL.now} x={PICTURE.inset} y={labelY} anchor="start" />
-      <PictureLabel lines={PICTURE_LABEL[goalId]} x={W - PICTURE.inset} y={labelY} anchor="end" />
-      {lastPlan ? <CandidateFan view={view} origin={history[steps - 1]} plan={lastPlan} /> : null}
-      <g data-testid="walked-path" data-series="path">
-        <LineTrace points={walked} role="state" />
-        {walked.slice(0, -1).map(([x, y], i) => (
-          <circle key={i} cx={f(x)} cy={f(y)} r={2.5} fill={roleColour('state')} />
+      <IsoFigure
+        width={TABLE_WIDTH}
+        height={TABLE_HEIGHT}
+        label={`A robot plans by comparing compact summaries, drawn as a planning table: the ring for now, cup on the table, and the target for the goal, ${GOAL_WORDS[goalId]}. A probe head on a gantry has made ${steps} moves and ${gapNow}% of the starting distance is left; ${next ? `its ${fanCount} feelers try ${fanCount} moves, and the lit one, closest to the goal, is the move it keeps` : 'it has stopped'}.`}
+        describedBy={descriptionId}
+      >
+        {parts.map((part, index) => (
+          <PartView key={index} part={part} slot={slot} hidden={gliding} onArrive={() => setGliding(false)} />
         ))}
-      </g>
-      <GoalMarker at={target} />
-      <PointMarker x={current[0]} y={current[1]} role="state" />
-      <StageAnnotation
-        x={NOTE.x}
-        y={NOTE.y}
-        lines={[`Each step: try ${candidateCount} possible moves,`, 'keep the one closest to the goal']}
-        target={kept ?? undefined}
-        from={kept ? [kept[0], NOTE_FOOT] : undefined}
-      />
-    </PlotStage>
+      </IsoFigure>
+    </AnatomyStage>
   );
 
   const gapLabelLeft = traceX(steps) > TRACE_PLOT.right - 80;
@@ -467,7 +378,7 @@ export function JepaPlanning({
     </PlotStage>
   );
 
-  const description = `With ${candidateCount} options tried each step, the current latent sits ${formatDistance(distance)} from the ${goalId} goal after ${steps} planning steps, ${gapNow}% of the starting distance of ${formatDistance(initialDistance)}; the plane shows the walked path and the fan of ${fanCount} tried moves, and the distance strip falls from 100% to ${gapNow}%.`;
+  const description = `With ${candidateCount} options tried each step, the current latent sits ${formatDistance(distance)} from the ${goalId} goal after ${steps} planning steps, ${gapNow}% of the starting distance of ${formatDistance(initialDistance)}; the plane shows the walked path ${next ? `and the fan of ${fanCount} tried moves` : 'and the head stopped at the goal'}, and the distance strip falls from 100% to ${gapNow}%.`;
 
   return (
     <InstrumentFigure
@@ -523,22 +434,7 @@ export function JepaPlanning({
           <InstrumentReset onClick={reset} />
         </>
       }
-      stage={
-        <FigureStage>
-          <div className="@container">
-            <div className="grid gap-x-4 gap-y-2 @min-[34rem]:grid-cols-2 @min-[34rem]:items-center">
-              <div className="@container">{plane}</div>
-              <div className="grid gap-y-2 pb-3">
-                <div className="@container">{strip}</div>
-                <div data-figure-stage-band="aside" className="grid gap-y-1.5 px-3">
-                  {LEGEND}
-                  <StageStatus>Illustrative: a toy model, not learned robot features.</StageStatus>
-                </div>
-              </div>
-            </div>
-          </div>
-        </FigureStage>
-      }
+      stage={plane}
       caption="Instead of imagining full video, this robot compares compact summaries of now and the goal, and picks whichever move closes the gap."
       method={
         <>
@@ -552,8 +448,21 @@ export function JepaPlanning({
           <p data-testid="no-decoder-note">
             No pixel decoder is used to select V-JEPA 2-AC control actions; this toy plans over synthetic
             two-dimensional points and loads no trained encoder or predictor. Each goal is a fixed point
-            standing in for an encoded goal picture, and the plane is turned so the goal sits to the right
-            of the start, which changes no distance.
+            standing in for an encoded goal picture, and the table is the plane turned so the start-to-pick
+            direction runs along it, which changes no distance.
+          </p>
+          <p>
+            On the planning table, the ring at the left is the summary of the picture the camera sees now and
+            the target at the right is the summary of the goal picture; both pictures stand on the easels in
+            front. The table is the toy plane at one uniform scale, so every distance on it keeps its
+            proportion. The probe head stands on the current summary and sets out one feeler for each move it
+            tries, each ending on a pin. The lit pin sits exactly where the model predicts the kept move lands,
+            closest to the target, and &ldquo;Plan next move&rdquo; carries the head along its feeler. The
+            model&rsquo;s other moves bunch into narrow wings, so for display their pins are spread evenly
+            from 20 degrees past the kept move out to 100 degrees either side of the goal direction, each
+            keeping its side, the common reach and its order: the spread changes no pin&rsquo;s rank, and the
+            lit one stays the closest. Prick marks show
+            where the head really ended up, and the dial on the controller reads the distance left.
           </p>
           <p>
             Each planning step tries {candidateCount} moves, scores each by the straight-line distance
@@ -572,6 +481,7 @@ export function JepaPlanning({
             goal feature maps and searches with the Cross-Entropy Method, using 800 samples and ten
             refinement iterations a step (arXiv:2506.09985, Section 3.2).
           </p>
+          {strip}
           <ChartDescription
             id={descriptionId}
             form="state"

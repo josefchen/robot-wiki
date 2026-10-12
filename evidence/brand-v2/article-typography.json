@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "412477f528b4f052318f4a38002fb81e52d8b580401e57e7cf3215aaa7cb7995",
+  "fingerprint": "0b8afcf4860cf5ab8c2b6327acff66f9a1bace755311870686666f5ebccf0abf",
   "viewports": [
     "375x812",
     "1440x900"
@@ -3698,7 +3698,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16572,
+      "visibleTextLength": 16630,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3963,7 +3963,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Illustrative arm; measured delay"
+          "text": "Illustrative bench; measured camera delay"
         },
         {
           "familyHead": "geist",
@@ -3972,7 +3972,7 @@
           "widthPx": 1,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "At a hand speed of 50 cm a second, the 55 ms camera delay me"
+          "text": "At a gripper speed of 50 cm a second, the 55 ms camera delay"
         },
         {
           "familyHead": "geist",
@@ -4375,6 +4375,14 @@
           "text": "Poses and how much tighter the e",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Run the bench",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -5413,7 +5421,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20127,
+      "visibleTextLength": 20025,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5546,7 +5554,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Schematic: computed for an ideal box, not measured on a robo"
+          "text": "Schematic: computed for an ideal block, not measured on a ro"
         },
         {
           "familyHead": "geist",
@@ -5555,7 +5563,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Seen from above, the box is a square of half side 1 and each"
+          "text": "Seen on the test table, the block is a square of half side 1"
         },
         {
           "familyHead": "geist",
@@ -5573,7 +5581,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The eight test pushes act through the centre, 45° apart. A p"
+          "text": "The eight test forces act through the centre, 45° apart: a c"
         },
         {
           "familyHead": "geist",
@@ -6089,6 +6097,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": ""
+        },
+        {
+          "tag": "button",
+          "text": "Run the pull test",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -9058,7 +9074,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14825,
+      "visibleTextLength": 14826,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -9210,7 +9226,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Schematic; time runs down"
+          "text": "Schematic; node names are examples"
         },
         {
           "familyHead": "geist",
@@ -9808,6 +9824,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the queue",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -27967,7 +27991,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18200,
+      "visibleTextLength": 18100,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28111,15 +28135,6 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Plans 1.6 seconds ahead and acts on the first 0.8 seconds: i"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
-          "widthPx": 293,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
           "text": "A schematic of the replanning cycle, not a recorded run."
         },
         {
@@ -28130,6 +28145,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "This is receding-horizon control. Each plan predicts T_p act"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The bench is a schematic, not a recorded run: one row of tap"
         },
         {
           "familyHead": "geist",
@@ -28652,6 +28676,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the reader",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -36072,7 +36104,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23161,
+      "visibleTextLength": 23136,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -36191,15 +36223,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A vision-language-action (VLA)vision-language-action modelA "
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
-          "widthPx": 293,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "At moment 8, the forward/back nudge -0.056 lands in slot 120"
         },
         {
           "familyHead": "geist",
@@ -36742,6 +36765,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": ""
+        },
+        {
+          "tag": "button",
+          "text": "Write the next moment",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -39726,7 +39757,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21547,
+      "visibleTextLength": 21529,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39927,7 +39958,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Illustrative curves; outcome cited"
+          "text": "Illustrative response; outcome cited"
         },
         {
           "familyHead": "geist",
@@ -40424,6 +40455,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the bench",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -41704,7 +41743,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18665,
+      "visibleTextLength": 18696,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41884,6 +41923,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Rudin and colleagues scaled from 128 robots, typical of CPU "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Counts from the paper; one tile per 128 robots"
         },
         {
           "familyHead": "geist",
@@ -48479,7 +48527,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22622,
+      "visibleTextLength": 22700,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48626,7 +48674,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The frame on the left is the shared start: a block on a tabl"
+          "text": "The photo standing on top of the console is the shared start"
         },
         {
           "familyHead": "geist",
@@ -48635,7 +48683,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "What tells the two models apart is action sensitivity: the a"
+          "text": "What tells the two models apart is action sensitivity, the u"
         },
         {
           "familyHead": "geist",
@@ -49196,6 +49244,14 @@
           "controlId": "control:selection"
         },
         {
+          "tag": "button",
+          "text": "Play the futures",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "summary",
           "text": "Adjust more",
           "familyHead": "geist",
@@ -49465,7 +49521,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20408,
+      "visibleTextLength": 20325,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49599,7 +49655,7 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 269,
+          "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Illustrative: a toy model, not learned robot features."
@@ -49621,6 +49677,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "No pixel decoder is used to select V-JEPA 2-AC control actio"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "On the planning table, the ring at the left is the summary o"
         },
         {
           "familyHead": "geist",
@@ -50230,7 +50295,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17194,
+      "visibleTextLength": 17210,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50373,7 +50438,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The robot plans a throw by imagining the ball’s flight one s"
+          "text": "The robot plans by imagining its future one step at a time, "
         },
         {
           "familyHead": "geist",
@@ -50418,7 +50483,7 @@
           "widthPx": 1,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "In this toy, the ball the robot imagines 15 steps ahead, at "
+          "text": "In this toy, the head of the track the robot imagines 15 ste"
         },
         {
           "familyHead": "geist",
@@ -50873,6 +50938,14 @@
           "controlId": ""
         },
         {
+          "tag": "button",
+          "text": "Lay the track",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "summary",
           "text": "Adjust more",
           "familyHead": "geist",
@@ -50922,7 +50995,7 @@
         },
         {
           "tag": "summary",
-          "text": "Current imagined throw",
+          "text": "Current imagined track",
           "familyHead": "geist",
           "sizePx": 14,
           "inProse": true,
@@ -56995,7 +57068,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22867,
+      "visibleTextLength": 22925,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57260,7 +57333,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Illustrative arm; measured delay"
+          "text": "Illustrative bench; measured camera delay"
         },
         {
           "familyHead": "geist",
@@ -57269,7 +57342,7 @@
           "widthPx": 1,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "At a hand speed of 50 cm a second, the 55 ms camera delay me"
+          "text": "At a gripper speed of 50 cm a second, the 55 ms camera delay"
         },
         {
           "familyHead": "geist",
@@ -57672,6 +57745,14 @@
           "text": "Poses and how much tighter the e",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Run the bench",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -58688,7 +58769,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29528,
+      "visibleTextLength": 29426,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58821,7 +58902,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Schematic: computed for an ideal box, not measured on a robo"
+          "text": "Schematic: computed for an ideal block, not measured on a ro"
         },
         {
           "familyHead": "geist",
@@ -58830,7 +58911,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Seen from above, the box is a square of half side 1 and each"
+          "text": "Seen on the test table, the block is a square of half side 1"
         },
         {
           "familyHead": "geist",
@@ -58848,7 +58929,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The eight test pushes act through the centre, 45° apart. A p"
+          "text": "The eight test forces act through the centre, 45° apart: a c"
         },
         {
           "familyHead": "geist",
@@ -59364,6 +59445,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": ""
+        },
+        {
+          "tag": "button",
+          "text": "Run the pull test",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -62289,7 +62378,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19408,
+      "visibleTextLength": 19409,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62441,7 +62530,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Schematic; time runs down"
+          "text": "Schematic; node names are examples"
         },
         {
           "familyHead": "geist",
@@ -63039,6 +63128,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the queue",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -80967,7 +81064,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24557,
+      "visibleTextLength": 24457,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81108,15 +81205,6 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 713,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "Plans 1.6 seconds ahead and acts on the first 0.8 seconds: i"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
@@ -81130,6 +81218,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "This is receding-horizon control. Each plan predicts T_p act"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The bench is a schematic, not a recorded run: one row of tap"
         },
         {
           "familyHead": "geist",
@@ -81652,6 +81749,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the reader",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -88973,7 +89078,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 31356,
+      "visibleTextLength": 31331,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89092,15 +89197,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A vision-language-action (VLA)vision-language-action modelA "
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
-          "widthPx": 554,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "At moment 8, the forward/back nudge -0.056 lands in slot 120"
         },
         {
           "familyHead": "geist",
@@ -89643,6 +89739,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": ""
+        },
+        {
+          "tag": "button",
+          "text": "Write the next moment",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -92605,7 +92709,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27988,
+      "visibleTextLength": 27970,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -92806,7 +92910,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Illustrative curves; outcome cited"
+          "text": "Illustrative response; outcome cited"
         },
         {
           "familyHead": "geist",
@@ -93303,6 +93407,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the bench",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -94561,7 +94673,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26421,
+      "visibleTextLength": 26452,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94741,6 +94853,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Rudin and colleagues scaled from 128 robots, typical of CPU "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Counts from the paper; one tile per 128 robots"
         },
         {
           "familyHead": "geist",
@@ -101259,7 +101380,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29048,
+      "visibleTextLength": 29126,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101406,7 +101527,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The frame on the left is the shared start: a block on a tabl"
+          "text": "The photo standing on top of the console is the shared start"
         },
         {
           "familyHead": "geist",
@@ -101415,7 +101536,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "What tells the two models apart is action sensitivity: the a"
+          "text": "What tells the two models apart is action sensitivity, the u"
         },
         {
           "familyHead": "geist",
@@ -101976,6 +102097,14 @@
           "controlId": "control:selection"
         },
         {
+          "tag": "button",
+          "text": "Play the futures",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "summary",
           "text": "Adjust more",
           "familyHead": "geist",
@@ -102234,7 +102363,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27773,
+      "visibleTextLength": 27690,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102368,7 +102497,7 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 405.81,
+          "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Illustrative: a toy model, not learned robot features."
@@ -102390,6 +102519,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "No pixel decoder is used to select V-JEPA 2-AC control actio"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "On the planning table, the ring at the left is the summary o"
         },
         {
           "familyHead": "geist",
@@ -102988,7 +103126,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24218,
+      "visibleTextLength": 24234,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103131,7 +103269,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The robot plans a throw by imagining the ball’s flight one s"
+          "text": "The robot plans by imagining its future one step at a time, "
         },
         {
           "familyHead": "geist",
@@ -103176,7 +103314,7 @@
           "widthPx": 1,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "In this toy, the ball the robot imagines 15 steps ahead, at "
+          "text": "In this toy, the head of the track the robot imagines 15 ste"
         },
         {
           "familyHead": "geist",
@@ -103631,6 +103769,14 @@
           "controlId": ""
         },
         {
+          "tag": "button",
+          "text": "Lay the track",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "summary",
           "text": "Adjust more",
           "familyHead": "geist",
@@ -103680,7 +103826,7 @@
         },
         {
           "tag": "summary",
-          "text": "Current imagined throw",
+          "text": "Current imagined track",
           "familyHead": "geist",
           "sizePx": 14,
           "inProse": true,

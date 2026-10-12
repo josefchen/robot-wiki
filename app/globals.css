@@ -2,6 +2,7 @@
 @import 'katex/dist/katex.min.css';
 @import '../components/motion/motion-tokens.css';
 @import '../components/motion/stage.css';
+@import '../components/iso/iso.css';
 @import '../components/motion/scene-equation.css';
 
 /*

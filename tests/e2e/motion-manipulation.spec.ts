@@ -48,27 +48,41 @@ test('paired manipulation labs use action/reference roles and only highlight the
         const chunk = page.getByRole('img', { name: /continuous action chunk/i });
         await expect(bin).toBeVisible();
         const tokenStage = '[data-testid="tok-token-readout"]';
-        // On the light page stage the selection paints in the stage variant
-        // of the highlight role, the dark lime that holds contrast on paper.
-        const highlight = await stageRole('highlight-stage', tokenStage);
-        expect(await chunk.locator('polyline').first().evaluate((node) => getComputedStyle(node).stroke)).toBe(await stageRole('action-graphic', tokenStage));
+        // The rack bank paints in the stage's grey inks with one lit part: the
+        // setter on the gantry, edged in the page's one accent; the close-up's
+        // lit part is the slider seated in the assigned notch.
+        const accent = await page.evaluate((selector) => {
+          const probe = document.createElement('span');
+          probe.style.color = 'var(--accent)';
+          document.querySelector(selector)!.closest('[data-figure-stage]')!.append(probe);
+          const resolved = getComputedStyle(probe).color;
+          probe.remove();
+          return resolved;
+        }, tokenStage);
+        const lit = chunk.locator('.iso-solid[data-lit] > .iso-edge');
+        await expect(lit).toHaveCount(1);
+        expect(await lit.evaluate((node) => getComputedStyle(node).stroke)).toBe(accent);
+        expect(await bin.locator('.iso-solid[data-lit] > .iso-edge').first().evaluate((node) => getComputedStyle(node).stroke)).toBe(accent);
         // The main view zooms into the assigned slot; the full 256-slot
         // strip, where the nth rect is slot n, waits in "Adjust more".
-        expect(await bin.locator('rect[data-selection="assigned bin"]').evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);
+        const selected = binIndex(generateActionChunk()[0][7]);
+        await expect(bin.locator('[data-selection="assigned bin"]')).toHaveAttribute('data-notch', String(selected));
+        const highlight = await stageRole('highlight-stage', tokenStage);
         const frame = page.locator('[data-figure-frame="action-tokenization"]');
         await openAdjustMore(frame);
         const strip = frame.getByTestId('tok-bin-strip');
-        const selected = binIndex(generateActionChunk()[0][7]);
         expect(await strip.locator('rect').nth(selected).evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);
         expect(await strip.locator('rect').nth((selected + 1) % 256).evaluate((node) => getComputedStyle(node).fill)).not.toBe(highlight);
         await frame.getByRole('button', { name: 'left/right', exact: true }).click();
         await page.getByRole('slider', { name: /control step/i }).fill('9');
         const next = binIndex(generateActionChunk()[1][9]);
         expect(await strip.locator('rect').nth(next).evaluate((node) => getComputedStyle(node).fill)).toBe(highlight);
-        // The one trace under the gripper now follows the left/right motion.
-        await expect(chunk.locator('[data-selection="selected motion"]')).toHaveText('left/right');
-        expect(await chunk.locator('polyline').first().evaluate((node) => getComputedStyle(node).stroke)).toBe(await stageRole('action-graphic', tokenStage));
-        expect(await paint(tokenStage, 'color')).toBe(await stageRole('action-text', tokenStage));
+        // The chosen rack is now left/right, its slider in the notch of its word.
+        await expect(chunk.locator('[data-selection="selected motion"]')).toHaveAttribute('data-motion', 'left/right');
+        await expect(chunk.locator('[data-selection="selected motion"]')).toHaveAttribute('data-word', String(next));
+        await expect(bin.locator('[data-selection="assigned bin"]')).toHaveAttribute('data-notch', String(next));
+        // The readout's word reads in the readout's own ink: no colour on text.
+        expect(await paint(tokenStage, 'color')).toBe(await paint('[data-figure-frame="action-tokenization"] [data-readout]', 'color'));
       } finally {
         await context.close();
       }

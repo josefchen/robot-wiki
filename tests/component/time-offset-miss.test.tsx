@@ -4,7 +4,8 @@ import type { ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { CitationRecordsProvider } from '@/components/article/citation-records';
-import { TimeOffsetMiss, gapMm } from '@/components/interactive/time-offset-miss';
+import { CAMERA_DELAY_S, REST_X, TimeOffsetMiss, gapMm, handAt } from '@/components/interactive/time-offset-miss';
+import { TRAVEL } from '@/components/iso/figures/time-offset-bench';
 import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
 import { mainViewSymbolHits } from '@/lib/figure-main-view';
 import { widgetCitationRecords } from '@/lib/widget-citations';
@@ -33,11 +34,27 @@ describe('TimeOffsetMiss', () => {
     expect(gapMm(0)).toBe(0);
   });
 
-  it('opens on the point: a dashed photographed arm 27.5 mm behind the real one', () => {
+  it('drives the beam from the same model: the spot is where the gripper was 55 ms earlier', () => {
+    const v = 500; // 50 cm a second, in mm a second
+    expect(handAt(0, v)).toBeCloseTo(REST_X);
+    // Mid-stroke, moving right, the spot trails by exactly speed times delay.
+    expect(handAt(0, v) - handAt(-CAMERA_DELAY_S, v)).toBeCloseTo(gapMm(50));
+    // The gripper turns round at the ends of its travel.
+    const toEnd = (TRAVEL - REST_X) / v;
+    expect(handAt(toEnd, v)).toBeCloseTo(TRAVEL);
+    expect(handAt(toEnd + 0.1, v)).toBeCloseTo(TRAVEL - 50);
+    expect(handAt(3, 0)).toBe(REST_X);
+  });
+
+  it('opens on the point: the gripper mid-stroke and the photo 27.5 mm behind', () => {
     const { container } = renderFigure();
-    expect(screen.getByTestId('time-offset-ghost')).toHaveAttribute('data-arm', 'ghost');
-    expect(screen.getByTestId('time-offset-arm')).toHaveAttribute('data-arm', 'solid');
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('27.5 mm behind');
+    expect(screen.getByTestId('time-offset-hand')).toBeInTheDocument();
+    expect(screen.getByTestId('time-offset-spot')).toBeInTheDocument();
+    expect(screen.getByTestId('time-offset-beam')).toHaveAttribute('d', expect.stringMatching(/^M/));
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('photo 27.5 mm behind');
+    expect(screen.getByTestId('time-offset-run')).toHaveTextContent('Run the bench');
+    // A secondary action carries no pressed state: its label says what it does next.
+    expect(screen.getByTestId('time-offset-run')).not.toHaveAttribute('aria-pressed');
   });
 
   it('drives the gap from the one labelled speed slider', () => {
@@ -47,17 +64,16 @@ describe('TimeOffsetMiss', () => {
     fireEvent.change(slider, { target: { value: '100' } });
     expect(screen.getByTestId('time-offset-speed')).toHaveTextContent('100 cm a second');
     expect(slider).toHaveAttribute('aria-valuetext', expect.stringContaining('55 millimetres behind'));
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('55 mm behind');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('photo 55 mm behind');
     fireEvent.change(slider, { target: { value: '0' } });
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('Standing still: no gap');
-    expect(screen.queryByTestId('time-offset-motion')).toBeNull();
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('Standing still: no gap');
   });
 
   it('names the stage and links the measured delay to its source', () => {
     renderFigure();
-    const stage = screen.getByRole('img', { name: /robot arm moving its hand to the right/ });
+    const stage = screen.getByRole('img', { name: /gripper on a rail over a ruler/ });
     const described = document.getElementById(stage.getAttribute('aria-describedby') ?? '');
-    expect(described).toHaveTextContent('27.5 mm behind the real one');
+    expect(described).toHaveTextContent("27.5 mm behind the gripper's pointer");
     const link = screen.getByTestId('time-offset-source').querySelector('a');
     expect(link).toHaveAttribute('href', records[0].url);
   });

@@ -5979,9 +5979,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -5990,7 +5990,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "4f82df06426452b71141646fc9d6f2aae83bc538c11428207882e1810b106506"
+        "fingerprint": "5491af8156427461b56e8e1f0f03c06ac9b02001595d8830abacbea63469c6f3"
       },
       {
         "id": "interactive:HandComparison",
@@ -8231,9 +8231,10 @@
             "expectedEnumeration": "every rendered enabled control independently"
           },
           {
-            "id": "hover-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "No button or registered hover target is implemented."
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
           },
           {
             "id": "slider-boundaries-and-anchors",
@@ -8263,7 +8264,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "919770bf5aca04f20721e1b71e55576ac227efa1e234c794d243a8f400d91ab5"
+        "fingerprint": "f042fd19454dd19e8e2a376ad941fd5bb70416c43a3f8e37d8dbf1fc637f6c97"
       },
       {
         "id": "interactive:TrainingTimeChart",
@@ -8690,9 +8691,10 @@
             "expectedEnumeration": "every rendered enabled control independently"
           },
           {
-            "id": "hover-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "No button or registered hover target is implemented."
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
           },
           {
             "id": "slider-boundaries-and-anchors",
@@ -8722,7 +8724,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "086078e922be6800a41f28ff194d94eb1109fdc8d5537f4542e35d7c2ef9d27b"
+        "fingerprint": "c8f31ab1510b94b0c1c785c569c0586ffcfc6915780aa0b23c679d0a952f84bc"
       },
       {
         "id": "mount:/classical/control/:ImpedanceContactLab:1",
@@ -8918,9 +8920,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -8929,7 +8931,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "3d64b7708e2bd99454c540121947e1c397fed52fc3d06215bf7c6764e7393499"
+        "fingerprint": "6c3ff2cb09946b6b5ddc16b525cf5ad689796a97dd5f9cbf0cbe53fc3404b9e1"
       },
       {
         "id": "mount:/classical/kinematics/:PlanarFkArm:1",
@@ -13491,6 +13493,9 @@
         "components/article/heading-permalink.tsx",
         "components/explainers/brand.ts",
         "components/explainers/how-robots-work.tsx",
+        "components/interactive/action-conditioning.tsx",
+        "components/interactive/action-tokenization.tsx",
+        "components/interactive/actuator-gap.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
@@ -13501,10 +13506,14 @@
         "components/interactive/hardware-guide.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/jepa-planning.tsx",
+        "components/interactive/latent-imagination.tsx",
         "components/interactive/pendulum-controller.tsx",
+        "components/interactive/qos-queue-age.tsx",
+        "components/interactive/receding-horizon.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/rrt-explorer.tsx",
+        "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/filter-bar.tsx",
         "components/market-map/funding-timeline.tsx",
@@ -13530,6 +13539,9 @@
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
         "components/explainers/how-robots-work.tsx",
+        "components/interactive/action-conditioning.tsx",
+        "components/interactive/action-tokenization.tsx",
+        "components/interactive/actuator-gap.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
@@ -13539,10 +13551,14 @@
         "components/interactive/hardware-guide.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/jepa-planning.tsx",
+        "components/interactive/latent-imagination.tsx",
         "components/interactive/pendulum-controller.tsx",
+        "components/interactive/qos-queue-age.tsx",
+        "components/interactive/receding-horizon.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/rrt-explorer.tsx",
+        "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/filter-bar.tsx",
         "components/market-map/funding-timeline.tsx",
@@ -13575,7 +13591,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "f3c0de5b2a7fdb79936db3754a9af395ff98a113f720c4724f55184540d2b1ae"
+      "fingerprint": "161aa745c6e83eb24d6c3c7fc8f2fb5d4a76f1aca2383086e95c6c4605cfb38c"
     },
     {
       "id": "control:selection",
@@ -14044,5 +14060,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "20c2b26cafa362fd77cac227f218e20d94ad58174fc78aabbb49d10039225ecc"
+  "rootFingerprint": "0cd61b9ce87321a29876e534b469b8520ac9b5e4d59e39e23bc824f8f1a87895"
 }

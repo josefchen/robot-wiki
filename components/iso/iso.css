@@ -1,0 +1,96 @@
+/*
+ * The isometric figure kit's styles, on the site's research-page palette.
+ * Copied from the kit's iso.css (MIT, see LICENSE beside this file) with one
+ * change: the kit's two theme blocks are replaced by one token set that
+ * reads the site's own tokens, so a figure drawn with the kit paints in
+ * paper, ink, the grayscale chart tones and the one muted blue accent.
+ *
+ *   paper and card     --paper (the page itself; fills hide what is behind)
+ *   lines hi/mid/lo    --ink, --chart-dark, --chart-medium
+ *   lines faint        --line, the 1 px hairline tone
+ *   lit (one part)     --accent
+ *   side shades 0..3   --chart-background mixed into --paper, darkest first
+ *
+ * The kit's soft halo under a base is a drop shadow, and the site draws no
+ * shadows, so it is not painted. The kit's own card (plate, corners, legend)
+ * is not used: an isometric figure sits in the site's figure frame
+ * (components/iso/anatomy-stage.tsx). ISO_CSS in iso-kit.ts is this text.
+ */
+.iso{
+  --anatomy-page:var(--paper);--anatomy-card:var(--paper);--anatomy-text:var(--ink);--anatomy-strong:var(--ink);--anatomy-muted:var(--muted);
+  --anatomy-paper:var(--paper);--anatomy-face:var(--color-white,white);--anatomy-top:var(--color-white,white);
+  --anatomy-shade-0:var(--chart-background);
+  --anatomy-shade-1:color-mix(in srgb,var(--chart-background) 68%,var(--paper));
+  --anatomy-shade-2:color-mix(in srgb,var(--chart-background) 40%,var(--paper));
+  --anatomy-shade-3:color-mix(in srgb,var(--chart-background) 16%,var(--paper));
+  --anatomy-lit-top:var(--color-white,white);--anatomy-lit-shade:color-mix(in srgb,var(--chart-background) 40%,var(--paper));
+  --anatomy-hi:var(--ink);--anatomy-mid:var(--chart-dark);--anatomy-lo:var(--chart-medium);--anatomy-faint:var(--line);--anatomy-lit:var(--accent);
+  --anatomy-dot:var(--ink);
+  --anatomy-red:var(--fail);--anatomy-green:var(--ok);--anatomy-blue:var(--accent);
+  --anatomy-weight:.6px;
+  --anatomy-mono:var(--font-mono);
+}
+.iso-svg{display:block;width:100%;height:auto;overflow:visible}
+.iso-svg path,.iso-svg circle{vector-effect:non-scaling-stroke}
+.iso-fill{fill:var(--anatomy-paper);stroke:none}
+.iso-solid[data-lit]>.iso-fill{fill:var(--anatomy-face)}
+.iso-shade,.iso-top{stroke:none}
+.iso-shade[data-shade="0"]{fill:var(--anatomy-shade-0)}
+.iso-shade[data-shade="1"]{fill:var(--anatomy-shade-1)}
+.iso-shade[data-shade="2"]{fill:var(--anatomy-shade-2)}
+.iso-shade[data-shade="3"]{fill:var(--anatomy-shade-3)}
+.iso-top{fill:var(--anatomy-top)}
+.iso-solid[data-lit]>.iso-top{fill:var(--anatomy-lit-top)}
+.iso-solid[data-lit]>.iso-shade{fill:var(--anatomy-lit-shade)}
+.iso-solid[data-seamless]>.iso-shade,.iso-solid[data-seamless]>.iso-top{stroke-width:.4;stroke-linejoin:round}
+.iso-solid[data-seamless]>.iso-shade[data-shade="0"]{stroke:var(--anatomy-shade-0)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="1"]{stroke:var(--anatomy-shade-1)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="2"]{stroke:var(--anatomy-shade-2)}
+.iso-solid[data-seamless]>.iso-shade[data-shade="3"]{stroke:var(--anatomy-shade-3)}
+.iso-solid[data-seamless]>.iso-top{stroke:var(--anatomy-top)}
+.iso-solid[data-seamless][data-lit]>.iso-top{stroke:var(--anatomy-lit-top)}
+.iso-solid[data-seamless][data-lit]>.iso-shade{stroke:var(--anatomy-lit-shade)}
+.iso-solid[data-lit]>.iso-edge{stroke:var(--anatomy-lit)}
+.iso-halo{display:none}
+.iso-line{fill:none;stroke:var(--anatomy-lo);stroke-width:var(--anatomy-weight);stroke-linecap:round;stroke-linejoin:round}
+.iso-line[data-tone="hi"]{stroke:var(--anatomy-hi)}
+.iso-line[data-tone="mid"]{stroke:var(--anatomy-mid)}
+.iso-line[data-tone="lo"]{stroke:var(--anatomy-lo)}
+.iso-line[data-tone="faint"]{stroke:var(--anatomy-faint)}
+.iso-line[data-tone="lit"]{stroke:var(--anatomy-lit)}
+.iso-line[data-tone="red"]{stroke:var(--anatomy-red)}
+.iso-line[data-tone="green"]{stroke:var(--anatomy-green)}
+.iso-line[data-tone="blue"]{stroke:var(--anatomy-blue)}
+.iso-line[data-dotted]{stroke-dasharray:.01 3.5;stroke-width:1}
+.iso-line[data-dashed]{stroke-dasharray:3 3}
+.iso-line[data-flow]{stroke-dasharray:2 6}
+.iso-wire-end{fill:var(--anatomy-paper);stroke:var(--anatomy-lo);stroke-width:var(--anatomy-weight)}
+.iso-wire[data-tone="hi"] .iso-wire-end{stroke:var(--anatomy-hi)}
+.iso-wire[data-tone="mid"] .iso-wire-end{stroke:var(--anatomy-mid)}
+.iso-wire[data-tone="faint"] .iso-wire-end{stroke:var(--anatomy-faint)}
+.iso-wire[data-tone="lit"] .iso-wire-end{stroke:var(--anatomy-lit)}
+.iso-dots circle{fill:var(--anatomy-dot);stroke:none;opacity:.32}
+.iso-dots[data-tone="hi"] circle{opacity:.85}
+.iso-dots[data-tone="mid"] circle{opacity:.45}
+.iso-dots[data-tone="lo"] circle{opacity:.22}
+.iso-dots[data-tone="faint"] circle{opacity:.12}
+.iso-face-text{fill:var(--anatomy-mid);font-family:var(--anatomy-mono);letter-spacing:.04em}
+.iso-face-text[data-tone="hi"]{fill:var(--anatomy-hi)}
+.iso-face-text[data-tone="lo"]{fill:var(--anatomy-lo)}
+.iso-face-text[data-tone="faint"]{fill:var(--anatomy-faint)}
+.tb-body{fill:var(--anatomy-shade-2);stroke:none}
+.tb-shine{fill:var(--anatomy-top);stroke:none}
+.tb-shade{fill:var(--anatomy-shade-0);stroke:none}
+.tb-ring{fill:none;stroke:var(--anatomy-lo);stroke-width:.45;stroke-linecap:butt;stroke-linejoin:round}
+.tb-ring[data-tone="mid"]{stroke:var(--anatomy-mid)}
+.tb-ring[data-tone="faint"]{stroke:var(--anatomy-faint)}
+.tb-ring[data-tone="hi"]{stroke:var(--anatomy-hi)}
+@keyframes iso-flow{to{stroke-dashoffset:-32}}
+@keyframes iso-pulse{0%,100%{opacity:.18}12%{opacity:1}40%{opacity:.18}}
+.iso-line[data-flow]{animation:iso-flow 1600ms linear infinite}
+.iso-dots circle[data-pulse]{animation:iso-pulse 1600ms steps(1,end) infinite;animation-delay:var(--pulse-at,0ms)}
+@media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
+/* The site's figure stage for an isometric drawing (components/iso/anatomy-stage.tsx). */
+[data-anatomy-stage] .iso-svg{max-width:calc(var(--anatomy-view-width,600px) * 1.6);margin-inline:auto}
+[data-anatomy-drawing]{touch-action:pan-y;-webkit-tap-highlight-color:transparent}
+@media (width < 40rem){[data-anatomy-stage] .iso-svg{width:116%;max-width:none;margin-inline:-8%}}

@@ -916,7 +916,7 @@
       "reachedByTab": 85,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 196
+      "tabStops": 197
     },
     {
       "route": "/classical/control/",
@@ -932,7 +932,7 @@
       "reachedByTab": 105,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 232
+      "tabStops": 233
     },
     {
       "route": "/classical/kinematics/",
@@ -964,7 +964,7 @@
       "reachedByTab": 82,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 192
+      "tabStops": 193
     },
     {
       "route": "/classical/scene-representation/",
@@ -1188,7 +1188,7 @@
       "reachedByTab": 81,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 204
+      "tabStops": 205
     },
     {
       "route": "/manipulation/foundation-models/",
@@ -1260,7 +1260,7 @@
       "reachedByTab": 91,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 240
+      "tabStops": 241
     },
     {
       "route": "/market-map/",
@@ -1308,7 +1308,7 @@
       "reachedByTab": 86,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 200
+      "tabStops": 201
     },
     {
       "route": "/rl-sim2real/offline-rl/",
@@ -1396,7 +1396,7 @@
       "reachedByTab": 84,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 225
+      "tabStops": 226
     },
     {
       "route": "/world-models/jepa/",
@@ -1412,7 +1412,7 @@
       "reachedByTab": 81,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 195
+      "tabStops": 196
     },
     {
       "route": "/world-models/model-based-robot-learning/",

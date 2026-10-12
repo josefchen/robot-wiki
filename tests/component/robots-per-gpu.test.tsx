@@ -4,7 +4,8 @@ import type { ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { CitationRecordsProvider } from '@/components/article/citation-records';
-import { COUNTS, RobotsPerGpu } from '@/components/interactive/robots-per-gpu';
+import { COUNTS, RobotsPerGpu, readoutFor, tilesFor } from '@/components/interactive/robots-per-gpu';
+import { TILES } from '@/components/iso/figures/gpu-test-bench';
 import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
 import { mainViewSymbolHits } from '@/lib/figure-main-view';
 import { widgetCitationRecords } from '@/lib/widget-citations';
@@ -29,16 +30,27 @@ describe('RobotsPerGpu', () => {
     expect(COUNTS.map((c) => c.robots)).toEqual([128, 4096, 16384]);
   });
 
-  it('opens on the full GPU grid and empties it to one square with the one preset row', () => {
+  it('lights one tile of the chip per 128 robots, from the same counts as the readout', () => {
+    expect(TILES).toBe(128);
+    expect(COUNTS.map((c) => tilesFor(c.robots))).toEqual([1, 32, 128]);
+    expect(readoutFor('cpu')).toBe('128 robots: the CPU-era count');
+    expect(readoutFor('policy')).toBe('4,096 robots: 32 times the CPU-era count');
+    expect(readoutFor('gpu')).toBe('16,384 robots: 128 times the CPU-era count');
+  });
+
+  it('opens on the full chip lit and empties it to one tile with the one preset row', () => {
     const { container } = renderFigure();
     expect(screen.getByTestId('robots-stage')).toHaveAttribute('data-squares', '128');
     expect(container.querySelectorAll('[data-square]')).toHaveLength(128);
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('16,384 robots: 128 times the CPU-era count');
+    // At rest every tile of the default count is lit, and the magnifier shows the first tile's 128 robots.
+    expect([...container.querySelectorAll('[data-lit-tile]')].every((tile) => tile.getAttribute('opacity') === '1')).toBe(true);
+    expect(screen.getByTestId('robots-lens').querySelectorAll('circle')).toHaveLength(128);
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('16,384 robots: 128 times the CPU-era count');
     const cpu = screen.getByTestId('robots-count-cpu');
     fireEvent.click(cpu);
     expect(cpu).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByTestId('robots-stage')).toHaveAttribute('data-squares', '1');
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('128 robots: the CPU-era count');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('128 robots: the CPU-era count');
     fireEvent.click(screen.getByTestId('robots-count-policy'));
     expect(screen.getByRole('img', { name: /4,096 robots fill 32 of the 128 squares/ })).toBeInTheDocument();
   });

@@ -1,12 +1,17 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
+import { EPSILON_FULL, GraspWrenchLab, NUDGE, PULL_S, TEST_S, TRAVEL_S, testAt } from '@/components/interactive/grasp-wrench-lab';
+import { iso } from '@/components/iso/iso-kit';
+import { CONTACT_Z, HEIGHT, P, SCALE, WEDGE_LEN, WIDTH, cordStart, eyeOf, needleDegrees, pullDirection, restStationFor, toWorld, wedgeOf } from '@/components/iso/figures/grasp-test-table';
 import {
   CONTACT_POSITION_MAX,
   CONTACT_POSITION_MIN,
   CONTACT_POSITION_STEP,
   DEFAULT_CONTACTS,
   DEFAULT_MU,
+  PUSH_COUNT,
+  contactGeometry,
+  pushAngle,
 } from '@/lib/grasp';
 import { contactGridIndex } from '../helpers/grasp-contact-grid';
 
@@ -201,90 +206,173 @@ describe('GraspWrenchLab main view', () => {
     expect(method).toHaveTextContent('ε = 0.444');
   });
 
-  it('draws eight resisted pushes and says the grip holds', () => {
+  it('stands a telltale up for every resisted pull and says the grip holds', () => {
     const { container } = render(<GraspWrenchLab />);
     expect(container.querySelectorAll('[data-push="resisted"]')).toHaveLength(8);
     expect(container.querySelectorAll('[data-push="slips"]')).toHaveLength(0);
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(
-      'Pushes from every direction areresisted: the grip holds',
+    expect(container.querySelector('[data-readout]')).toHaveTextContent(
+      'Pulls from every direction are resisted: the grip holds',
     );
   });
 
-  it('shows the pushes that slip once a finger is removed', () => {
+  it('shows the pulls that slip once a finger is removed', () => {
     const { container } = render(<GraspWrenchLab />);
     fireEvent.click(screen.getByRole('button', { name: /remove the last contact/i }));
     expect(container.querySelectorAll('[data-push="resisted"]')).toHaveLength(3);
     expect(container.querySelectorAll('[data-push="slips"]')).toHaveLength(5);
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(
-      '5 of 8 pushes slip free:the grip fails',
+    expect(container.querySelector('[data-readout]')).toHaveTextContent(
+      '5 of 8 pulls slip free: the grip fails',
     );
   });
 
-  it('fills the grip-margin meter in proportion to epsilon', () => {
+  it('turns the margin dial in proportion to epsilon', () => {
     render(<GraspWrenchLab />);
-    const height = () => Number(screen.getByTestId('grasp-margin-fill').getAttribute('height'));
+    const needle = () => screen.getByTestId('grasp-margin-needle');
     const epsilon = () => Number.parseFloat(readout('grasp-epsilon-readout'));
-    expect(height()).toBeCloseTo(epsilon() * 132, 1);
+    const degrees = () => Number(needle().getAttribute('data-degrees'));
+    const at = (e: number) => -135 + 270 * Math.min(1, e / EPSILON_FULL);
+    expect(needle()).toHaveAttribute('data-epsilon', readout('grasp-epsilon-readout'));
+    expect(degrees()).toBeCloseTo(at(epsilon()), 0);
     fireEvent.change(screen.getByRole('slider', { name: /friction coefficient/i }), {
       target: { value: '1' },
     });
-    expect(height()).toBeCloseTo(epsilon() * 132, 1);
+    expect(degrees()).toBeCloseTo(at(epsilon()), 0);
     fireEvent.click(screen.getByRole('button', { name: /remove the last contact/i }));
-    expect(height()).toBe(0);
+    expect(degrees()).toBe(-135);
+    expect(needleDegrees(0)).toBe(-135);
+    expect(needleDegrees(5)).toBe(135);
   });
 
-  it('labels the meter so any fill reads as a grip that holds, and only an empty meter as no grip', () => {
-    const { container } = render(<GraspWrenchLab />);
-    const meter = container.querySelector('[data-meter="grip-margin"]') as SVGGElement;
-    expect(Array.from(meter.querySelectorAll('text')).map((t) => t.textContent)).toEqual([
-      'grip strength',
-      'very firm',
-      'no grip',
-    ]);
-    const filled = () => Number(screen.getByTestId('grasp-margin-fill').getAttribute('height')) > 0;
+  it('rests the dial on its zero stop exactly when the grip fails', () => {
+    render(<GraspWrenchLab />);
+    const moved = () => Number(screen.getByTestId('grasp-margin-needle').getAttribute('data-degrees')) > -135;
     const holds = () => readout('grasp-closure-readout') === 'yes';
-    expect([filled(), holds()]).toEqual([true, true]);
+    expect([moved(), holds()]).toEqual([true, true]);
     fireEvent.change(screen.getByRole('slider', { name: /friction coefficient/i }), { target: { value: '0.05' } });
-    expect(filled()).toBe(holds());
+    expect(moved()).toBe(holds());
     fireEvent.click(screen.getByRole('button', { name: /remove the last contact/i }));
-    expect([filled(), holds()]).toEqual([false, false]);
+    expect([moved(), holds()]).toEqual([false, false]);
   });
 
-  it('says on the stage what a wedge means and points at one, with no dot on the fingertips', () => {
+  it('draws one friction-cone wedge per fingertip, of half-angle arctan mu, and no words in the drawing', () => {
     const { container } = render(<GraspWrenchLab />);
-    const note = container.querySelector('[data-wedge-note]') as SVGGElement;
-    expect(Array.from(note.querySelectorAll('text')).map((t) => t.textContent)).toEqual([
-      'Inside its wedge,',
-      'a finger can push',
-      'without slipping',
-    ]);
-    const head = note.querySelector('[data-wedge-pointer] polygon');
-    expect(head).not.toBeNull();
-    // The wedge note is a plain label; the one annotation stays the stage note.
-    expect(container.querySelectorAll('[data-figure-annotation]')).toHaveLength(1);
+    expect(container.querySelectorAll('[data-part="cone"] path.iso-line')).toHaveLength(DEFAULT_CONTACTS.length);
+    for (const mu of [0.2, 0.7, 1]) {
+      const g = contactGeometry(0.125);
+      const wedge = wedgeOf(g, mu);
+      const [ax, ay] = wedge[0];
+      expect([ax, ay]).toEqual(toWorld(g.point.x, g.point.y));
+      const [ex, ey] = wedge[wedge.length - 1];
+      const [mx, my] = toWorld(g.point.x + g.normal.x, g.point.y + g.normal.y);
+      const angle = Math.acos(((ex - ax) * (mx - ax) + (ey - ay) * (my - ay)) / (Math.hypot(ex - ax, ey - ay) * Math.hypot(mx - ax, my - ay)));
+      expect(angle).toBeCloseTo(Math.atan(mu), 6);
+    }
+    // The wedge sits at its contact: its apex on the contact, its far arc inside the block, at most WEDGE_LEN away.
+    for (const s of [0.05, 0.125, 0.3, 0.875]) {
+      const g = contactGeometry(s);
+      const wedge = wedgeOf(g, 0.7);
+      expect(wedge[0]).toEqual(toWorld(g.point.x, g.point.y));
+      for (const [x, y] of wedge) {
+        expect(Math.max(Math.abs(x), Math.abs(y))).toBeLessThanOrEqual(SCALE + 1e-9);
+        expect(Math.hypot(x - wedge[0][0], y - wedge[0][1])).toBeLessThanOrEqual(WEDGE_LEN * SCALE + 1e-9);
+      }
+    }
+    // The hint says what a wedge means, and the drawing itself carries no text.
+    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('inside its wedge a finger can push without slipping');
+    expect(screen.getByTestId('grasp-object-view').querySelectorAll('text')).toHaveLength(0);
     for (const finger of container.querySelectorAll('[data-finger]')) {
-      expect(finger.querySelectorAll('circle')).toHaveLength(1);
-      expect(finger.querySelector('circle')).toHaveAttribute('fill', 'none');
+      expect(finger.querySelectorAll('circle[pointer-events="all"]')).toHaveLength(1);
+      expect(finger.querySelector('circle[pointer-events="all"]')).toHaveAttribute('fill', 'none');
     }
-    // Each wedge bulges away from its fingertip: the arc is centred on the contact.
-    for (const wedge of container.querySelectorAll('[data-series="cone"] path')) {
-      expect(wedge.getAttribute('d')).toMatch(/ A [\d.]+ [\d.]+ 0 0 0 /);
+  });
+
+  it('lights only the standing telltale pins, the directions the grip held', () => {
+    const { container } = render(<GraspWrenchLab />);
+    const view = screen.getByTestId('grasp-object-view');
+    const litCount = () => view.querySelectorAll('[data-lit]').length;
+    expect(litCount()).toBe(8);
+    for (const lit of view.querySelectorAll('[data-lit]')) expect(lit.closest('[data-push]')).toHaveAttribute('data-push', 'resisted');
+    expect(screen.getByTestId('grasp-block').querySelectorAll('[data-lit]')).toHaveLength(0);
+    fireEvent.click(screen.getByRole('button', { name: /remove the last contact/i }));
+    expect(litCount()).toBe(container.querySelectorAll('[data-push="resisted"]').length);
+    expect(litCount()).toBe(3);
+  });
+
+  it('ties the cord to an eye bolt on the block edge, on the line through the centre, never across the block', () => {
+    for (let k = 0; k < PUSH_COUNT; k++) {
+      const [ux, uy] = pullDirection(k);
+      const [ex, ey] = eyeOf(k);
+      // On the ray from the centre toward station k...
+      expect(Math.abs(ex * uy - ey * ux)).toBeLessThan(1e-9);
+      expect(ex * ux + ey * uy).toBeGreaterThan(0);
+      // ...just inside the block's edge, so the cord starts there and runs outward.
+      const reach = Math.max(Math.abs(ex), Math.abs(ey));
+      expect(reach).toBeLessThan(SCALE);
+      expect(reach).toBeGreaterThan(SCALE - 5);
+      expect(cordStart(k).slice(0, 2)).toEqual([ex, ey]);
     }
+    // At rest the carriage waits at the first pull that slips, or else at a station clear of every finger.
+    expect(restStationFor([0.125, 0.875], [true, true, true, false, false, false, false, false])).toBe(3);
+    const rest = restStationFor(DEFAULT_CONTACTS, Array(8).fill(true));
+    for (const s of DEFAULT_CONTACTS) {
+      const g = contactGeometry(s);
+      const [ux, uy] = pullDirection(rest);
+      expect(ux * -g.normal.x + uy * g.normal.y).toBeLessThan(Math.cos(Math.PI / 6));
+    }
+    const { container } = render(<GraspWrenchLab />);
+    const cord = screen.getByTestId('grasp-cord');
+    // One cord line, besides the eye bolt's own solids, and it ends on the eye's dot.
+    expect(Array.from(cord.querySelectorAll('path.iso-line')).filter((path) => !path.closest('.iso-solid'))).toHaveLength(1);
+    expect(cord.querySelectorAll('.iso-dots circle')).toHaveLength(1);
+    expect(cord.querySelectorAll('.iso-solid').length).toBeGreaterThan(0);
+    expect(container.querySelector('[data-station]')).not.toBeNull();
+  });
+
+  it('pulls toward the eight stations in turn, each along its own test direction', () => {
+    for (let k = 0; k < PUSH_COUNT; k++) {
+      const [x, y] = pullDirection(k);
+      // The world is the model mirrored in y, so a pull keeps the model's push direction.
+      expect(x).toBeCloseTo(Math.cos(pushAngle(k)));
+      expect(-y).toBeCloseTo(Math.sin(pushAngle(k)));
+      const pulling = testAt(k * (TRAVEL_S + PULL_S) + TRAVEL_S + PULL_S / 2);
+      expect(pulling.station).toBe(k);
+      expect(pulling.pull).toBeCloseTo(1);
+      expect(Math.cos(pulling.angle)).toBeCloseTo(x);
+      expect(Math.sin(pulling.angle)).toBeCloseTo(y);
+    }
+    expect(testAt(TEST_S).done).toBe(true);
+    expect(NUDGE).toBeLessThan(SCALE / 4);
+  });
+
+  it('starts and stops the pull test from a reader control', () => {
+    render(<GraspWrenchLab />);
+    const run = screen.getByTestId('grasp-run');
+    // A secondary action carries no pressed state: its label says what it does next.
+    expect(run).not.toHaveAttribute('aria-pressed');
+    expect(run).toHaveTextContent('Run the pull test');
+    fireEvent.click(run);
+    expect(run).toHaveTextContent('Stop the pull test');
+    expect(run).not.toHaveAttribute('aria-pressed');
+    fireEvent.click(run);
+    expect(run).toHaveTextContent('Run the pull test');
   });
 
   it('moves a dragged fingertip to the edge under the pointer, on the slider grid', () => {
     const { container } = render(<GraspWrenchLab />);
     const stage = screen.getByTestId('grasp-object-view');
     stage.getBoundingClientRect = () =>
-      ({ left: 0, top: 0, width: 340, height: 266, right: 340, bottom: 266, x: 0, y: 0 }) as DOMRect;
+      ({ left: 0, top: 0, width: WIDTH, height: HEIGHT, right: WIDTH, bottom: HEIGHT, x: 0, y: 0 }) as DOMRect;
     const grab = container.querySelector('[data-finger="1"] circle[pointer-events="all"]') as SVGElement;
     Object.assign(grab, { setPointerCapture: () => {} });
-    fireEvent.pointerDown(grab, { pointerId: 1, clientX: 112, clientY: 108 });
-    // Stage point (40, 154) is left of the box centre (112, 154): the left edge midpoint.
-    fireEvent.pointerMove(stage, { pointerId: 1, clientX: 40, clientY: 154 });
+    fireEvent.pointerDown(grab, { pointerId: 1, clientX: 10, clientY: 10 });
+    // The screen point over the block's left edge midpoint, in the plane the fingertips press at.
+    const [lx, ly] = toWorld(-1.4, 0);
+    const [sx, sy] = iso([lx, ly, CONTACT_Z], P);
+    fireEvent.pointerMove(stage, { pointerId: 1, clientX: sx, clientY: sy });
     fireEvent.pointerUp(stage, { pointerId: 1 });
     expect(readout('grasp-contact-1-value')).toBe('0.375');
-    fireEvent.pointerMove(stage, { pointerId: 1, clientX: 112, clientY: 20 });
+    const [fx, fy] = iso([...toWorld(0, 1.5), CONTACT_Z] as [number, number, number], P);
+    fireEvent.pointerMove(stage, { pointerId: 1, clientX: fx, clientY: fy });
     expect(readout('grasp-contact-1-value')).toBe('0.375');
   });
 });

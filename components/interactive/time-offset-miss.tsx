@@ -1,31 +1,35 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
-  PlotStage,
   SliderRow,
 } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
-import { CHART_STROKE, DirectLabel, StageAnnotation, roleColour } from '@/components/motion/chart';
-import { ArmPost, ArmSketch, armPoints, type ArmPoint } from '@/components/motion/arm-sketch';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, IsoFigure, Line, Solid, Wire } from '@/components/iso/react/draw';
+import { asksForStillness } from '@/components/iso/react/live';
 import { useEasedValue } from '@/components/motion/use-eased-value';
+import { HEIGHT, PARTS, TRAVEL, WIDTH, beamTo, slideTo, type Group, type Part } from '@/components/iso/figures/time-offset-bench';
 
 /**
- * TimeOffsetMiss: why time calibration matters. A robot pairs each camera
- * photo with the arm position it reads when the photo arrives, so a photo
- * that is late shows the hand where it was, behind where it is. The gap is
- * the hand's speed times the delay.
+ * TimeOffsetMiss: why time calibration matters, drawn as a tracking bench.
  *
- * The one control is the hand's speed. The delay is the 55 millisecond
+ * A gripper rides a belt-driven rail over a ruler. A camera on a boom above
+ * it tracks the gripper with a fine beam that lands where the camera's
+ * latest photo shows the gripper. The photo is 55 milliseconds late (the
  * camera delay Realtime-VLA V2 measured on its RealSense D435 and Airbot
- * Play rig; the arm and its swing about the shoulder are illustrative.
- * Moving the slider glides the photographed arm back along the hand's
- * path; reduced motion jumps there. The arm is a line drawing in ink, the
- * photographed arm a dashed grey trace, and the gap the one accent.
+ * Play rig), so while the gripper moves, the beam's spot trails the
+ * gripper's own pointer on the ruler by the speed times the delay.
+ *
+ * The one control is the gripper's speed. The bench stands still with the
+ * gripper mid-stroke and the spot at the steady gap; "Run the bench" sweeps
+ * the gripper along the rail, slowed down for the eye, with the spot
+ * following the gripper's position 55 milliseconds earlier. Reduced motion
+ * keeps the still pose. The palm is the one lit part.
  */
 
 /** Camera delay in seconds: Realtime-VLA V2, t_camera on the DOS W1 rig. */
@@ -39,45 +43,52 @@ export const gapMm = (speedCmS: number) => speedCmS * 10 * CAMERA_DELAY_S;
 /** "27.5": millimetres to one decimal, dropping a trailing ".0". */
 export const formatMm = (mm: number) => (Math.round(mm * 10) / 10).toString();
 
-const WIDTH = 640;
-const HEIGHT = 310;
-const FLOOR_Y = 290;
-const BASE: ArmPoint = { x: 170, y: 280 };
-const L1 = 168;
-const L2 = 150;
-/** The arm's pose now: shoulder angle and the elbow's bend, radians. */
-const SHOULDER = 1.05;
-const ELBOW = -1.15;
-/** Stage units of hand travel per millimetre of gap, so the fastest speed draws a clear gap. */
-const UNITS_PER_MM = 1.6;
+/** The bench runs this many times slower than real time, so the eye can follow it. */
+export const SLOW = 12;
+/** Where the gripper stands while the bench is still, in mm from the ruler's middle. */
+export const REST_X = 40;
 
-const f = (v: number) => Number(v.toFixed(2));
+/**
+ * The gripper's position, in mm, at bench time `t` seconds when it moves at
+ * `speedMmS` back and forth across ±TRAVEL. Time 0 is the gripper at REST_X
+ * moving to the right, so the still pose is the moving pose frozen.
+ */
+export function handAt(t: number, speedMmS: number): number {
+  if (speedMmS <= 0) return REST_X;
+  const span = 2 * TRAVEL;
+  const period = (2 * span) / speedMmS;
+  const start = (REST_X + TRAVEL) / speedMmS;
+  const phase = ((((t + start) % period) + period) % period) * speedMmS;
+  return phase < span ? -TRAVEL + phase : TRAVEL - (phase - span);
+}
 
 function describe(speed: number): string {
   if (speed === 0) {
-    return `With the hand standing still, the 55 ms camera delay measured on a RealSense D435 rig leaves no gap: the photographed hand and the real one sit 0 mm apart at a speed of 0.`;
+    return `With the gripper standing still, the 55 ms camera delay measured on a RealSense D435 rig leaves no gap: the beam's spot sits under the gripper's pointer, 0 mm apart, at a speed of 0.`;
   }
-  return `At a hand speed of ${speed} cm a second, the 55 ms camera delay measured on a RealSense D435 rig puts the photographed hand ${formatMm(gapMm(speed))} mm behind the real one; the gap is speed times delay.`;
+  return `At a gripper speed of ${speed} cm a second, the 55 ms camera delay measured on a RealSense D435 rig puts the camera's beam ${formatMm(gapMm(speed))} mm behind the gripper's pointer on the ruler; the gap is speed times delay.`;
 }
 
 const SAMPLE_SPEEDS = [10, 25, 50, 100] as const;
 
-const NOW = armPoints(BASE, L1, L2, { shoulder: SHOULDER, elbow: ELBOW }).hand;
-/** The hand's distance from the shoulder and its angle above the floor. */
-const REACH = Math.hypot(NOW.x - BASE.x, BASE.y - NOW.y);
-const HAND_ANGLE = Math.atan2(BASE.y - NOW.y, NOW.x - BASE.x);
-const onCircle = (angle: number, radius: number) => ({
-  x: f(BASE.x + radius * Math.cos(angle)),
-  y: f(BASE.y - radius * Math.sin(angle)),
-});
-const arc = (from: number, to: number, radius: number, steps = 24) =>
-  Array.from({ length: steps + 1 }, (_, k) => {
-    const { x, y } = onCircle(from + ((to - from) * k) / steps, radius);
-    return `${k === 0 ? 'M' : 'L'}${x} ${y}`;
-  }).join(' ');
-/** The hand's path, dotted, a little either side of the two poses. */
-const HAND_PATH = arc(HAND_ANGLE - 0.32, HAND_ANGLE + 0.48, REACH, 40);
-const BRACKET_RADIUS = REACH + 30;
+const readoutText = (speed: number, gap: number) =>
+  speed === 0 ? 'Standing still: no gap' : `${speed} cm a second · photo ${formatMm(gap)} mm behind`;
+
+function PartView({ part }: { part: Part }) {
+  if (part.kind === 'solid') return <Solid paths={part.paths} tone={part.tone} lit={part.lit} halo={part.halo} crease={part.crease} />;
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  if (part.kind === 'dots') return <Dots points={part.points} size={part.size} tone={part.tone} />;
+  if (part.kind === 'wire') return <Wire from={part.from} to={part.to} via={part.via} tone={part.tone} />;
+  return null;
+}
+
+/** Consecutive parts of one group, so each moving group is one <g>. */
+const RUNS: Array<{ group: Group; parts: Part[] }> = [];
+for (const part of PARTS) {
+  const last = RUNS[RUNS.length - 1];
+  if (last && last.group === part.group) last.parts.push(part);
+  else RUNS.push({ group: part.group, parts: [part] });
+}
 
 export function TimeOffsetMiss({ className }: { className?: string }) {
   const uid = useId();
@@ -86,130 +97,173 @@ export function TimeOffsetMiss({ className }: { className?: string }) {
   const citationFor = useCitationLookup();
   const delaySource = citationFor('realtime-vla-v2-2026');
   const [speed, setSpeed] = useState(DEFAULT_SPEED_CM_S);
+  const [running, setRunning] = useState(false);
   const gap = gapMm(speed);
-  const shown = useEasedValue(gap);
+  const shownGap = useEasedValue(gap);
 
-  /** The photographed arm is the arm swung back by the hand's travel. */
-  const swing = (shown * UNITS_PER_MM) / REACH;
-  const ghost = { shoulder: SHOULDER + swing, elbow: ELBOW };
-  const ghostHand = armPoints(BASE, L1, L2, ghost).hand;
-  const showGhost = shown * UNITS_PER_MM > 1;
-  const accent = roleColour('highlight');
-  const tick = (angle: number) => {
-    const a = onCircle(angle, BRACKET_RADIUS - 6);
-    const b = onCircle(angle, BRACKET_RADIUS + 6);
-    return <line x1={a.x} y1={a.y} x2={b.x} y2={b.y} />;
-  };
-  const note = onCircle(HAND_ANGLE + swing / 2, BRACKET_RADIUS + 16);
+  const handRef = useRef<SVGGElement>(null);
+  const pointerRef = useRef<SVGGElement>(null);
+  const spotRef = useRef<SVGGElement>(null);
+  const beamRef = useRef<SVGPathElement>(null);
+  const speedRef = useRef(speed);
+  useLayoutEffect(() => {
+    speedRef.current = speed;
+  }, [speed]);
+
+  // The still pose: the gripper mid-stroke, the spot at the steady gap behind it.
+  const stillSpot = REST_X - shownGap;
+
+  useEffect(() => {
+    if (!running || asksForStillness()) return;
+    let frame = 0;
+    let last = performance.now();
+    let t = 0;
+    const readout = handRef.current?.closest('[data-anatomy-stage]')?.querySelector<HTMLElement>('[data-readout]');
+    const tick = (now: number) => {
+      t += Math.min(now - last, 64) / 1000 / SLOW;
+      last = now;
+      const v = speedRef.current * 10;
+      const hand = handAt(t, v);
+      const spot = handAt(t - CAMERA_DELAY_S, v);
+      handRef.current?.setAttribute('transform', slideTo(hand));
+      pointerRef.current?.setAttribute('transform', slideTo(hand));
+      spotRef.current?.setAttribute('transform', slideTo(spot));
+      beamRef.current?.setAttribute('d', beamTo(spot));
+      if (readout) readout.textContent = readoutText(speedRef.current, Math.abs(hand - spot));
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [running]);
+
+  // Stopping, or a new speed while still, returns the bench to the still pose.
+  useEffect(() => {
+    if (running) return;
+    const readout = handRef.current?.closest('[data-anatomy-stage]')?.querySelector<HTMLElement>('[data-readout]');
+    if (readout) readout.textContent = readoutText(speed, gap);
+  }, [running, speed, gap]);
+
+  const groupTransform = (group: Group) =>
+    group === 'hand' || group === 'pointer' ? slideTo(REST_X) : group === 'spot' ? slideTo(stillSpot) : undefined;
 
   return (
-    <InstrumentFigure
-      figureId="time-offset-miss"
-      className={className}
-      kicker="Time calibration"
-      heading="Fast arms turn camera delay into big misses"
-      controls={
-        <SliderRow
-          htmlFor={sliderId}
-          label="Hand speed"
-          value={<span data-testid="time-offset-speed">{speed} cm a second</span>}
-        >
-          <input
-            id={sliderId}
-            type="range"
-            data-brand-control-id="control:input"
-            min={0}
-            max={SPEED_MAX_CM_S}
-            step={5}
-            value={speed}
-            onChange={(e) => setSpeed(Number(e.target.value))}
-            aria-label={`Hand speed, in centimetres a second, currently ${speed}`}
-            aria-valuetext={`${speed} centimetres a second; the photo shows the hand ${formatMm(gap)} millimetres behind`}
-            className={INSTRUMENT_SLIDER_CLASS}
-          />
-        </SliderRow>
-      }
-      stage={
-        <FigureStage footer={<StageStatus>Illustrative arm; measured delay</StageStatus>}>
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`A robot arm moving its hand to the right at ${speed} centimetres a second. A dashed copy of the arm shows where the late camera photo puts the hand, ${formatMm(gap)} millimetres behind.`}
-            aria-describedby={descriptionId}
-            data-testid="time-offset-stage"
+      <InstrumentFigure
+        figureId="time-offset-miss"
+        className={className}
+        kicker="Time calibration"
+        heading="Fast arms turn camera delay into big misses"
+        controls={
+          <>
+            <SliderRow
+              htmlFor={sliderId}
+              label="Hand speed"
+              value={<span data-testid="time-offset-speed">{speed} cm a second</span>}
+            >
+              <input
+                id={sliderId}
+                type="range"
+                data-brand-control-id="control:input"
+                min={0}
+                max={SPEED_MAX_CM_S}
+                step={5}
+                value={speed}
+                onChange={(e) => setSpeed(Number(e.target.value))}
+                aria-label={`Hand speed, in centimetres a second, currently ${speed}`}
+                aria-valuetext={`${speed} centimetres a second; the photo shows the hand ${formatMm(gap)} millimetres behind`}
+                className={INSTRUMENT_SLIDER_CLASS}
+              />
+            </SliderRow>
+            <button
+              type="button"
+              data-brand-control-id="control:secondary-action"
+              onClick={() => setRunning((r) => !r)}
+              data-testid="time-offset-run"
+              className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+            >
+              {running ? 'Stop the bench' : 'Run the bench'}
+            </button>
+          </>
+        }
+        stage={
+          <AnatomyStage
+            viewWidth={WIDTH}
+            hint={running ? 'Running, slowed for the eye' : 'Set the speed, then run the bench'}
+            readout={readoutText(speed, gap)}
+            status="Illustrative bench; measured camera delay"
+            data-testid="time-offset-stage-frame"
           >
-            <ArmPost base={BASE} floorY={FLOOR_Y} floor={[20, 620]} />
-            <path d={HAND_PATH} fill="none" stroke="var(--line-strong)" strokeWidth={CHART_STROKE.structure} strokeDasharray="2 4" />
-            {showGhost ? (
-              <ArmSketch base={BASE} l1={L1} l2={L2} angles={ghost} role="reference" ghost pointDown testId="time-offset-ghost" />
-            ) : null}
-            <ArmSketch base={BASE} l1={L1} l2={L2} angles={{ shoulder: SHOULDER, elbow: ELBOW }} pointDown testId="time-offset-arm" />
-            <DirectLabel x={f(NOW.x + 20)} y={f(NOW.y + 22)}>
-              hand now
-            </DirectLabel>
-            {showGhost ? (
-              <g data-testid="time-offset-gap">
-                {swing * REACH > 22 ? (
-                  <text x={f(ghostHand.x - 10)} y={f(ghostHand.y - 14)} textAnchor="end" fontSize={12} fill="var(--role-reference-text)">
-                    in the photo
-                  </text>
-                ) : null}
-                <g fill="none" stroke={accent} strokeWidth={CHART_STROKE.structure}>
-                  <path d={arc(HAND_ANGLE, HAND_ANGLE + swing, BRACKET_RADIUS, 16)} />
-                  {tick(HAND_ANGLE)}
-                  {tick(HAND_ANGLE + swing)}
-                </g>
-              </g>
-            ) : null}
-            <StageAnnotation
-              x={speed === 0 ? f(NOW.x + 30) : note.x}
-              y={speed === 0 ? f(NOW.y - 30) : note.y}
-              anchor="start"
-              lines={[speed === 0 ? 'Standing still: no gap' : `${formatMm(gap)} mm behind`]}
+            <IsoFigure
+              width={WIDTH}
+              height={HEIGHT}
+              label={`A gripper on a rail over a ruler, moving at ${speed} centimetres a second. A camera above it aims a beam at where its latest photo shows the gripper; the beam lands ${formatMm(gap)} millimetres behind the gripper's pointer.`}
+              describedBy={descriptionId}
+            >
+              {RUNS.map((run, index) => {
+                const body = run.parts.map((part, k) =>
+                  part.kind === 'beam' ? (
+                    <path key={k} ref={beamRef} className="iso-line" data-tone="mid" d={beamTo(stillSpot)} data-testid="time-offset-beam" />
+                  ) : (
+                    <PartView key={k} part={part} />
+                  ),
+                );
+                if (run.group === 'static') return <g key={index}>{body}</g>;
+                return (
+                  <g
+                    key={index}
+                    ref={run.group === 'hand' ? handRef : run.group === 'pointer' ? pointerRef : spotRef}
+                    transform={groupTransform(run.group)}
+                    data-testid={`time-offset-${run.group}`}
+                  >
+                    {body}
+                  </g>
+                );
+              })}
+            </IsoFigure>
+          </AnatomyStage>
+        }
+        caption="A late photo shows the hand where it was, so faster hands mean bigger misses."
+        method={
+          <>
+            <div>
+              A robot pairs each camera photo with the arm position it reads when the photo arrives. If the photo
+              took 55 milliseconds to arrive, it shows the hand where it was 55 milliseconds earlier, so the gap is
+              the hand&apos;s speed times that delay. Realtime-VLA V2 measured delays of 55 milliseconds for the
+              camera, 50 for the joint readings and 150 for the motion on one RealSense D435 and Airbot Play rig; the
+              figure uses the camera delay.
+            </div>
+            <div>
+              The bench is illustrative: a gripper on a belt-driven rail, and a camera that aims a beam at where its
+              latest photo shows the gripper. Running, it moves slowed down twelve times. Time calibration
+              estimates the delay and subtracts it, so the photo is paired with the arm position at the moment it
+              was taken.
+            </div>
+            <ChartDescription
+              id={descriptionId}
+              form="table"
+              open
+              summary="Gap between the photographed and the real hand"
+              description={describe(speed)}
+              rowHeader="hand speed (cm a second)"
+              columns={[{ header: 'gap (mm)', numeric: true }]}
+              rows={[...new Set([...SAMPLE_SPEEDS, speed])]
+                .sort((a, b) => a - b)
+                .map((s) => ({ label: String(s), values: [formatMm(gapMm(s))] }))}
             />
-          </PlotStage>
-        </FigureStage>
-      }
-      caption="A late photo shows the hand where it was, so faster hands mean bigger misses."
-      method={
-        <>
-          <div>
-            A robot pairs each camera photo with the arm position it reads when the photo arrives. If the photo
-            took 55 milliseconds to arrive, it shows the hand where it was 55 milliseconds earlier, so the gap is
-            the hand&apos;s speed times that delay. Realtime-VLA V2 measured delays of 55 milliseconds for the
-            camera, 50 for the joint readings and 150 for the motion on one RealSense D435 and Airbot Play rig; the
-            figure uses the camera delay.
-          </div>
-          <div>
-            The arm and its straight-line motion are illustrative. Time calibration estimates the delay and
-            subtracts it, so the photo is paired with the arm position at the moment it was taken.
-          </div>
-          <ChartDescription
-            id={descriptionId}
-            form="table"
-            open
-            summary="Gap between the photographed and the real hand"
-            description={describe(speed)}
-            rowHeader="hand speed (cm a second)"
-            columns={[{ header: 'gap (mm)', numeric: true }]}
-            rows={[...new Set([...SAMPLE_SPEEDS, speed])]
-              .sort((a, b) => a - b)
-              .map((s) => ({ label: String(s), values: [formatMm(gapMm(s))] }))}
-          />
-        </>
-      }
-      source={
-        <span data-testid="time-offset-source">
-          Camera delay:{' '}
-          {delaySource ? (
-            <a data-brand-control-id="control:link-focus" href={delaySource.url} target="_blank" rel="noopener" className="underline-offset-2">
-              {delaySource.label}
-            </a>
-          ) : (
-            'Realtime-VLA V2'
-          )}
-          .
-        </span>
-      }
-    />
+          </>
+        }
+        source={
+          <span data-testid="time-offset-source">
+            Camera delay:{' '}
+            {delaySource ? (
+              <a data-brand-control-id="control:link-focus" href={delaySource.url} target="_blank" rel="noopener" className="underline-offset-2">
+                {delaySource.label}
+              </a>
+            ) : (
+              'Realtime-VLA V2'
+            )}
+            .
+          </span>
+        }
+      />
   );
 }
