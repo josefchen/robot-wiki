@@ -34,13 +34,13 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1806573, sha256: 'b62fc864116205147d28666502bdaedd3298de3c807f267367334dbdf466ba06' };
+const reviewPin = { bytes: 1808492, sha256: '824fc63d3e8716e4dcc8b5f617efc6538b8e9abc6b799f4acc5fea6b941e1623' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['app/globals.css', [22557, '16282239a80c8430852f8e2704be42eca775dd303dfe4d4488aac7e8f95b2093']],
   ['components/article/commit-to-reveal.tsx', [14313, 'b3892a0853de9f0ab7c89551ba68526b488cf17c87697f329827c5c7a873ee3b']],
-  ['components/interactive/action-conditioning.tsx', [14107, '87e8636f9a50f58bcb2e016d15d85f1ddfee4dccdacb233a7dccb9ecd2b309d2']],
+  ['components/interactive/action-conditioning.tsx', [14329, '1116ec4daa84867e8bba504f4b2f32f796362540af7be7330ea3e0871b404fd2']],
   ['components/interactive/action-tokenization.tsx', [24239, '1306f576ca21b05eac91f79e972a74fd3432d3a1509591584bea28f646329da7']],
   ['components/interactive/advantage-scrubber.tsx', [25565, '5fdffe99f439cc07acc8867b706d9341546022a81fadf6282dd7701312f78f27']],
   ['components/interactive/appearance-physics-push.tsx', [15361, '430572c2fd0740ee761ddf4a065265d9b95e5ecc3a7a6fcd01e4528f07b12e79']],
@@ -68,9 +68,9 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/interactive/hardware-guide.tsx', [10683, '18202ed95eca0fe625a461e2123343af9fd6e383bb9f9c65350d702be3dad1e1']],
   ['components/interactive/hierarchy-timescales.tsx', [18506, '7ee80bb328ebc0c091151c942bf6360f10517f8d4264e17341593cba1bae01fa']],
   ['components/interactive/impedance-contact-lab.tsx', [22633, 'd3fd85cd08b78d49542b4132413d26c96b38314c28195ea2d6b46960c5409e93']],
-  ['components/interactive/jepa-planning.tsx', [22427, 'd704fd6bfdf648676495355f9ba8ad8a670bca6ecf2c6ea958cc26fe812826a4']],
+  ['components/interactive/jepa-planning.tsx', [22505, '76d16423b951350b11ba17d344f0484e39c0234a4aef3a863ee92ee4f66577d1']],
   ['components/interactive/latency-comparison.tsx', [19494, 'd73d0c45140fee8b77912c12b0750b3e525fba0ccd44f2f737deff58911c946a']],
-  ['components/interactive/latent-imagination.tsx', [20414, 'da4664fa46324c4aed9334f1c6f22964c9f401b9442fde88e9933c91f2515a14']],
+  ['components/interactive/latent-imagination.tsx', [20509, 'da9ffd3c6971d20f38849501e29e921f0531743695f023c2fc7d7c3c1725e5c1']],
   ['components/interactive/milestones-watchlist.tsx', [14081, '5de90abb550b71e5365c8e891fefe44b9b24bb83d0736e01be137b591a7b761c']],
   ['components/interactive/mot-insulation.tsx', [19153, '556b9ad0c299fbcb2ad5f8053456743aba9ec3eb9c6c98f5b634c969ec3aff08']],
   ['components/interactive/pendulum-controller.tsx', [24092, '2aadd83dc350b380afe6988e608967c966b1ed2f525b121908262854b1523f64']],
@@ -143,7 +143,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['docs/design/motion-language.md', [10710, '02a652700b7ae8b861ab49d9191f8e4afeb937f09dcd3ea04c447143699c3678']],
   ['lib/appearance-physics-push.ts', [5935, 'a72087e6c3e9dd2927b23f3d5528052e2d7566bdd085dd171161026549cf3320']],
   ['lib/brand-v2-figure-evidence.ts', [30841, '009c5f336ccf2290400214d204b32b23887548a345ca92bbc6816c7db18929a0']],
-  ['lib/chart-descriptions.ts', [34406, '501b223d797acc39304150e0a59e7e8dc141c1aa8c4c499ff2718c791458d56d']],
+  ['lib/chart-descriptions.ts', [34330, 'dab80a4f8495d0cbfc69a5045f4f0bf7178f33bc2f6392d5d463726ddad5d5ac']],
   ['lib/figure-system-check.ts', [13863, '841692b9d7c3513cef690188b1e7df639565b3b09164fc78acc154716f8cb2da']],
   ['lib/figure-system-paint.ts', [5408, 'aea5c837e3c35e6328fd0bb54840a5c2be63288219e538e5ade0d7d642192bc8']],
   ['lib/motion-tokens.ts', [4241, '5ba0b718d8260b189acc6c3f1f2a5c7d0ea1f466d5074adb2360c38ee0d6f846']],

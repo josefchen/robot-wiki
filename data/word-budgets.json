@@ -30,5 +30,13 @@
   "rl-sim2real/reward-design-mpc": 2735,
   "rl-sim2real/rl-for-robotics": 2436,
   "rl-sim2real/sim2real-transfer": 2378,
-  "rl-sim2real/why-rl-locomotion": 1308
+  "rl-sim2real/why-rl-locomotion": 1308,
+  "world-models/evaluation": 1128,
+  "world-models/generative-sim": 1705,
+  "world-models/generative-video": 1948,
+  "world-models/jepa": 1723,
+  "world-models/latent-dynamics": 1485,
+  "world-models/model-based-robot-learning": 1069,
+  "world-models/taxonomy": 1731,
+  "world-models/world-models-vs-simulators": 1992
 }
