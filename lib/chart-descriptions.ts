@@ -154,8 +154,8 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'LatentImaginationRollout',
     file: 'components/interactive/latent-imagination.tsx',
     route: '/world-models/latent-dynamics/',
-    quantityNames: ['latent', 'trajectory'],
-    text: 'In this deterministic toy latent rollout view the solid imagined path leaves the dashed true trajectory after the first few steps and has accumulated 0.301 units of toy deviation at t = 15 of 50; that peel illustrates the assumed error recurrence, not measured model drift or a second plot of the same deviation series.',
+    quantityNames: ['imagined', 'real flight'],
+    text: 'In this toy, the ball the robot imagines 15 steps ahead, at 2.0% off per step, is 0.301 units of toy deviation off the real flight; each imagined step starts from the last imagined one, so the gap grows with every step of the 50-step range.',
   },
   {
     component: 'PendulumController',
