@@ -394,15 +394,15 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'mechanoreceptor',
     term: 'mechanoreceptor',
     definition:
-      'A sensory nerve ending that fires under mechanical stimuli such as pressure, vibration, or skin stretch. The glabrous skin of the human hand carries about 17,000 low-threshold mechanoreceptors, roughly 1,000 of them packed at each fingertip, in four varieties that trade spatial localization against temporal response. Robot tactile sensors are closing on raw force threshold but remain far sparser: the best documented arrays put seven sensing cells on a fingerpad where the human finger packs about a thousand receptors.',
-    citations: ['macefield-touch-2022', 'brooks-dexterity-2025'],
+      'A sensory nerve ending that fires under mechanical stimuli such as pressure, vibration, or skin stretch. The glabrous skin of the human hand carries about 17,000 low-threshold mechanoreceptors, roughly 1,000 of them packed at each fingertip, in four varieties that trade spatial localization against temporal response. On robot fingertips, Sanctuary\'s Phoenix finger pads carry a seven-cell micro-barometer sensor sensitive to 5 mN, against a human sensitivity of about 3 mN, and Meta\'s Digit 360 research fingertip resolves normal force to 1.01 mN.',
+    citations: ['macefield-touch-2022', 'brooks-dexterity-2025', 'rr-sanctuary-tactile-2025', 'digit-360-2024'],
   },
   {
     id: 'tactile-sensing',
     term: 'tactile sensing',
     definition:
-      'Sensing contact through the robot\'s skin: pressure arrays, barometric cells, and optical fingertip cameras that measure where contact happens, how hard it presses, and whether the object is starting to slip. It is the modality manipulation runs on after the fingers close, when the camera can no longer see the contact. Sanctuary\'s micro-barometer arrays resolve about five millinewtons per cell against roughly three for a human fingertip, but coverage, durability, and integration into training pipelines remain the open problems.',
-    citations: ['tactile-outlook-2025', 'robozaps-phoenix-2026'],
+      'Sensing contact through the robot\'s skin: pressure arrays, barometric cells, and optical fingertip cameras that measure where contact happens, how hard it presses, and whether the object is starting to slip. It is the modality manipulation runs on after the fingers close, when the camera can no longer see the contact. Sanctuary\'s micro-barometer finger-pad sensors are sensitive to about five millinewtons against roughly three for human touch, but coverage, durability, and integration into training pipelines remain the open problems.',
+    citations: ['tactile-outlook-2025', 'rr-sanctuary-tactile-2025'],
   },
   {
     id: 'in-hand-manipulation',

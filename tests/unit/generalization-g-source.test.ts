@@ -178,10 +178,10 @@ describe('generalization 2026-09-15 integration', () => {
   it('applies the three article endpoints exactly', () => {
     expect(article).toContain('97.6% of the training examples in the first training phase come from somewhere else');
     expect(article).not.toContain('97.6% of the training examples come from somewhere else');
-    expect(article).toContain('its Gemini Robotics On-Device 2 model adapts to new bi-arm robot embodiments with just a few hours of adaptation time, typically with less than 200 examples, a vendor-reported figure');
+    expect(article).toContain('Google DeepMind reports that Gemini Robotics On-Device 2 adapts to new bi-arm embodiments in a few hours, "typically with less than 200 examples"');
     expect(article).not.toContain('for Gemini Robotics 2, which adapts to new bi-arm embodiments with fewer than 200 examples in a few hours');
     expect(article).toContain('arguing that scaling laws are beginning to show up in robotics data');
-    expect(article).toContain('"not years away"');
+    expect(article).toContain('"We don\'t think that moment is years away. But it\'s not here yet."');
     expect(article).not.toContain('arguing the capability curve is steep');
   });
 });

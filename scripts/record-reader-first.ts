@@ -5,9 +5,11 @@
  *   node scripts/record-reader-first.ts --capture <file.json> --answers <file.json> [--date YYYY-MM-DD]
  *
  * The answers file is a list of { id, session, sentence, unclearTerms,
- * samePoint, reason }, in the reviewer's own words. A figure passes when
- * the answer is yes and the unclear-term list is empty. A new attempt
- * replaces the record; git history keeps the earlier ones.
+ * samePoint, reason }, in the reviewer's own words, given after the brief of
+ * scripts/brief-reader-first.ts. A figure passes when the answer is yes and
+ * every listed term is one the fixed rubric (contract/reader-first-rubric.json)
+ * exempts; the record keeps the full list and the rubric's digest. A new
+ * attempt replaces the record; git history keeps the earlier ones.
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import {
@@ -17,6 +19,7 @@ import {
   sourceDigest,
   type ReaderRecord,
 } from '../lib/reader-first.ts';
+import { countedTerms, loadRubric, readerVerdict } from '../lib/reader-first-rubric.ts';
 
 const args = process.argv.slice(2);
 const option = (name: string, fallback = '') => {
@@ -31,6 +34,7 @@ const capture = JSON.parse(readFileSync(option('--capture'), 'utf8')) as {
 const answers = JSON.parse(readFileSync(option('--answers'), 'utf8')) as Answer[];
 const date = option('--date', new Date().toISOString().slice(0, 10));
 const registry = readRegistry('.');
+const rubric = loadRubric('.');
 
 for (const answer of answers) {
   const entry = registry.figures.find((candidate) => candidate.id === answer.id);
@@ -50,12 +54,16 @@ for (const answer of answers) {
     unclearTerms,
     samePoint: answer.samePoint,
     reason: answer.reason.trim(),
-    verdict: answer.samePoint === 'yes' && unclearTerms.length === 0 ? 'pass' : 'fail',
+    verdict: readerVerdict(rubric.rubric, { samePoint: answer.samePoint, unclearTerms }),
     screenshotCommit: capture.commit,
     date,
     reviewerSession: answer.session,
     sourceDigest: shot.sourceDigest,
+    rubricDigest: rubric.digest,
   };
   writeFileSync(recordPath(entry.id), `${JSON.stringify(record, null, 2)}\n`);
-  console.log(`${record.verdict} ${entry.id}${unclearTerms.length ? ` (unclear: ${unclearTerms.join(', ')})` : ''}`);
+  const counted = countedTerms(rubric.rubric, unclearTerms);
+  const exempt = unclearTerms.filter((term) => !counted.includes(term));
+  console.log(`${record.verdict} ${entry.id}${counted.length ? ` (unclear: ${counted.join(', ')})` : ''}` +
+    `${exempt.length ? ` (exempt: ${exempt.join(', ')})` : ''}`);
 }

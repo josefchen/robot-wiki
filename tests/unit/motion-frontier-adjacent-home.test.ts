@@ -10,7 +10,8 @@ import { compoundedSuccessRate } from '@/lib/reliability';
 import { DEFAULT_AGILITY, SENSORS, latencyOutcome } from '@/lib/aerial-latency';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
-import { withoutKolBacklogParagraphs } from '../helpers/kol-backlog-20261001';
+import { withoutPreDomainPassKolBacklogParagraphs } from '../helpers/kol-backlog-20261001';
+import { preDomainPass } from '../helpers/seo-pass';
 
 type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
 interface Row {
@@ -167,7 +168,7 @@ const REVIEWED_TOKEN_CHANGES: ReadonlyArray<readonly [string, string, string]> =
 describe('frontier and adjacent prose continuity', () => {
   it('preserves the original ordered citation IDs and numeric tokens', () => {
     for (const file of articles) {
-      const current = withoutKolBacklogParagraphs(file, readFileSync(join(root, 'content', file), 'utf8'));
+      const current = withoutPreDomainPassKolBacklogParagraphs(file, preDomainPass(`content/${file}`).toString('utf8'));
       let before = execFileSync('git', ['show', `e14e2504:content/${file}`], {
         cwd: root, encoding: 'utf8',
       });

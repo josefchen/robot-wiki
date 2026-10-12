@@ -16,6 +16,7 @@ citations:
   - simpler-2024
   - libero-plus-2025
   - openvla-2024
+  - exploy-2026
 seeAlso:
   - "data-hardware/evaluation-crisis"
   - "data-hardware/teleop-rigs"
@@ -110,6 +111,8 @@ The artifact is a signed evaluation record linking model version, environment ve
 Production inference needs an observation assembler, model server, command gate, controller bridge and supervisor. The [ROS 2 guide](/classical/ros2-for-ml-engineers) defines their runtime interfaces. Keep safety and high-rate feedback below the learned policy where possible.
 
 Measure end-to-end age as well as GPU kernel time. Log sensor timestamp, inference start and end, command publish and controller acceptance. Specify what happens on deadline miss, invalid observation, NaN output, out-of-range action and lost communication.
+
+Porting the policy from training code to the robot is its own source of bugs. Exploy, an open-source library the RAI Institute announced on October 7, 2026, traces a PyTorch training environment's observation code, network and action processing into one ONNX file with its configuration, which a C++ runtime then loads. The institute says this removes hand-written C++ copies of the observation and action code, that the library includes tools to check step-by-step numerical equivalence with the original PyTorch policy before hardware runs, and that it already deploys policies on Spot, Atlas, the Unitree G1 and the institute's own robots <Cite id="exploy-2026" />.
 
 The artifact is a deployable model bundle plus interface declaration and rollback target. The test injects each failure and proves the supervisor reaches a safe, observable state.
 

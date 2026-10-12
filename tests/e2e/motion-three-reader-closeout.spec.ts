@@ -139,10 +139,10 @@ test('competing-theses mounts the exact post-PI ordered Term population and chan
   expect(expected.termIds).toEqual(['vision-language-action-model', 'world-model', 'scaling-law', 'whole-body-control', 'teleoperation']);
   const ids = await page.locator(`${PROSE} [data-term-id]`).evaluateAll(els => els.map(el => el.getAttribute('data-term-id')));
   expect(ids).toEqual(expected.termIds); await expect(page.locator(`${PROSE} [data-term-id="imitation-learning"]`)).toHaveCount(0);
-  const paragraph = page.locator(`${PROSE} > p`).filter({ hasText: 'The generalist comparison is not an exclusivity result' });
+  const paragraph = page.locator(`${PROSE} > p`).filter({ hasText: 'Physical Intelligence reports that one π0.7 model' });
   await expect(paragraph).toHaveCount(1);
   for (const text of ['one π0.7 model', 'evaluated laundry-folding, espresso-making, and box-building tasks', 'distilling Recap experience with strategy metadata', 'successful episodes per hour; inference speed is a separate measure']) await expect(paragraph).toContainText(text);
-  await e.slices(paragraph, 'thesis-replacement', 'another round of per-task training');
+  await e.slices(paragraph, 'thesis-replacement', 'without per-task retraining');
   const teleoperation = page.locator(`${PROSE} [data-term-id="teleoperation"]`);
   await e.slices(teleoperation.locator('..'), 'thesis-surviving-teleoperation');
   e.record({ name: 'mounted-identity', route, ids, removed: 'imitation-learning:1', shifted: { term: 'teleoperation:1', beforeOrdinal: 6, currentOrdinal: 5 }, sourceChangeCommit: '6af0bdd73375f8c121a8830df20e247ce5dd2c67', otherRoutesNotMountedByThisWitness: 46 });

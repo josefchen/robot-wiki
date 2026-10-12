@@ -18010,6 +18010,456 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/nvidia-cosmos/cosmos-predict2',
     type: 'docs',
   },
+  // rethink-shutdown-2018: domain pass 2026-10-06, from drafts/frontier/bear-case.citations.ts.
+  // IEEE Spectrum, published 2018-10-04 (article:published_time; fetched 2026-10-04), bylines Erico
+  // Guizzo and Evan Ackerman: "After a long, 10-year run (the company was founded as Heartland
+  // Robotics, remember ?) and US $150 million raised from investors, Rethink ran out of steam as
+  // sales fell short of the company's goals."
+  {
+    id: 'rethink-shutdown-2018',
+    title: 'Rethink Robotics, Pioneer of Collaborative Robots, Shuts Down',
+    authors: ['Erico Guizzo', 'Evan Ackerman'],
+    year: 2018,
+    venue: 'IEEE Spectrum',
+    url: 'https://spectrum.ieee.org/rethink-robotics-pioneer-of-collaborative-robots-shuts-down',
+    type: 'press',
+  },
+  // agibot-omdia-2026: domain pass 2026-10-06, from drafts/data-hardware/hardware-taxonomy.citations.ts; also drafts/frontier/bear-case.citations.ts.
+  // Byline "The Robot Report Staff", published 2026-01-12 (read 2026-10-04): "Total annual shipments
+  // reached approximately 13,000 units"; "AGIBOT shipped more than 5,100 humanoid robots during the
+  // year, according to Omdia"; "that number also includes the number of mobile manipulators the
+  // company has shipped".
+  {
+    id: 'agibot-omdia-2026',
+    title: 'AGIBOT makes its U.S. debut with more than 5,100 robots shipped',
+    authors: ['The Robot Report Staff'],
+    year: 2026,
+    venue: 'The Robot Report, 2026-01-12',
+    url: 'https://www.therobotreport.com/agibot-makes-u-s-debut-with-more-than-5100-robots-shipped/',
+    type: 'press',
+  },
+  // sag-humanoid-shipments-2026: domain pass 2026-10-06, from drafts/frontier/bear-case.citations.ts.
+  // Smart Analytics Global, author Linda Sui, published 2026-08-10 (datePublished; fetched
+  // 2026-10-04): "SAG reports global humanoid robot shipments surged 272% YoY to 19.1K units in 1H
+  // 2026, with AGIBOT overtaking Unitree for the No. 1 position." Single analyst source.
+  {
+    id: 'sag-humanoid-shipments-2026',
+    title: 'SAG: Global Humanoid Robot Shipments Surged 272% YoY to 19.1K Units in 1H 2026; AGIBOT Overtook Unitree for No. 1 Position',
+    authors: ['Linda Sui'],
+    year: 2026,
+    venue: 'Smart Analytics Global, 2026-08-10',
+    url: 'https://smartanalyticsglobal.com/global-humanoid-robot-shipments-2026-agibot-unitree/',
+    type: 'press',
+  },
+  // tesla-q2-2026-update: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; also drafts/frontier/reliability-gap.citations.ts.
+  // PDF created 22 July 2026 (read 2026-10-04): "We expanded the unsupervised operation area in
+  // Austin and launched unsupervised rides in Miami, Orlando and Tampa in July." Same id and fields
+  // as drafts/frontier/reliability-gap.citations.ts (same PDF; drop one copy when merging).
+  {
+    id: 'tesla-q2-2026-update',
+    title: 'Q2 2026 Update',
+    authors: ['Tesla, Inc.'],
+    year: 2026,
+    url: 'https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q2-2026-Update.pdf',
+    type: 'docs',
+  },
+  // reuters-china-humanoid-ipo-2026: domain pass 2026-10-06, from drafts/frontier/bear-case.citations.ts.
+  // Reuters wire dated Sept 21, 2026, "Writing by Eduardo Baptista". reuters.com returns 401 to our
+  // User-Agent; text read from the MarketScreener syndication of the same wire (fetched 2026-10-04):
+  // "Chinese regulators are putting the brakes on a rush of humanoid-robot companies seeking
+  // listings"; "The slowdown was mainly triggered by a volatile start for shares in Unitree Robotics
+  // ... The stock soared more than fivefold in its Shanghai debut a month ago and has slumped 55%
+  // from its peak."; "Some private-market projects had already suffered valuation cuts of 30% to
+  // 50%."
+  {
+    id: 'reuters-china-humanoid-ipo-2026',
+    title: 'China slows humanoid robot IPO rush as hype outruns reality',
+    authors: ['Eduardo Baptista'],
+    year: 2026,
+    venue: 'Reuters, 2026-09-21',
+    url: 'https://www.reuters.com/business/finance/china-slows-humanoid-robot-ipo-rush-hype-outruns-reality-2026-09-21/',
+    type: 'press',
+  },
+  // lighthill-1973: domain pass 2026-10-06, from drafts/frontier/bear-case.citations.ts.
+  // Chilton Computing archive of the Science Research Council report (fetched 2026-10-04). The
+  // survey is dated July 1972; the archive's overview says "The Lighthill Report was published early
+  // in 1973." Quotes: "In no part of the field have the discoveries made so far produced the major
+  // impact that was then promised."; "letter B stands not only for Bridge activity, but also for the
+  // basic component of that activity: Building Robots"; "progress in this bridge category B has been
+  // even more disappointing".
+  {
+    id: 'lighthill-1973',
+    title: 'Artificial Intelligence: A General Survey',
+    authors: ['James Lighthill'],
+    year: 1973,
+    venue: 'Science Research Council (UK)',
+    url: 'https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/p001.htm',
+    type: 'docs',
+  },
+  // levine-sporks-2025: domain pass 2026-10-06, from drafts/data-hardware/data-bottleneck.citations.ts; also drafts/frontier/competing-theses.citations.ts.
+  // Author's essay dated Jul 21, 2025 (read 2026-10-04). Commentary, cited as the author's argument.
+  {
+    id: 'levine-sporks-2025',
+    title: 'Sporks of AGI',
+    authors: ['Sergey Levine'],
+    year: 2025,
+    venue: 'Learning and Control (Substack)',
+    url: 'https://sergeylevine.substack.com/p/sporks-of-agi',
+    type: 'blog',
+  },
+  // amazon-million-robots-2025: domain pass 2026-10-06, from drafts/data-hardware/industrial-deployment.citations.ts; also drafts/frontier/competing-theses.citations.ts.
+  // Published 2025-07-01 (page metadata), byline "Scott Dresser, VP, Amazon Robotics" (read
+  // 2026-10-04): "We've just deployed our 1 millionth robot"; "more than 300 facilities worldwide";
+  // DeepFleet improves "the travel time of our robotic fleet by 10%". Company-reported.
+  {
+    id: 'amazon-million-robots-2025',
+    title: 'Amazon deploys over 1 million robots and launches new AI foundation model',
+    authors: ['Scott Dresser'],
+    year: 2025,
+    venue: 'About Amazon',
+    url: 'https://www.aboutamazon.com/news/operations/amazon-million-robots-ai-foundation-model',
+    type: 'press',
+  },
+  // int-act-2025: domain pass 2026-10-06, from drafts/frontier/generalization.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-06-11, 4 authors.
+  {
+    id: 'int-act-2025',
+    title: 'From Intention to Execution: Probing the Generalization Boundaries of Vision-Language-Action Models',
+    authors: ['Irving Fang', 'Juexiao Zhang', 'Shengbang Tong', 'Chen Feng'],
+    year: 2025,
+    arxiv: '2506.09930',
+    url: 'https://arxiv.org/abs/2506.09930',
+    type: 'paper',
+  },
+  // star-gen-2025: domain pass 2026-10-06, from drafts/frontier/generalization.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-03-03, 6 authors.
+  {
+    id: 'star-gen-2025',
+    title: 'A Taxonomy for Evaluating Generalist Robot Manipulation Policies',
+    authors: ['Jensen Gao', 'Suneel Belkhale', 'Sudeep Dasari', 'Ashwin Balakrishna', 'Dhruv Shah', 'Dorsa Sadigh'],
+    year: 2025,
+    venue: 'IEEE Robotics and Automation Letters',
+    arxiv: '2503.01238',
+    url: 'https://arxiv.org/abs/2503.01238',
+    type: 'paper',
+  },
+  // colosseum-2024: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/frontier/generalization.citations.ts.
+  // arXiv comment: RSS 2024.
+  {
+    id: 'colosseum-2024',
+    title: 'THE COLOSSEUM: A Benchmark for Evaluating Generalization for Robotic Manipulation',
+    authors: ['Wilbert Pumacay', 'Ishika Singh', 'Jiafei Duan', 'Ranjay Krishna', 'Jesse Thomason', 'Dieter Fox'],
+    year: 2024,
+    venue: 'RSS 2024',
+    arxiv: '2402.08191',
+    url: 'https://arxiv.org/abs/2402.08191',
+    type: 'paper',
+  },
+  // hj-reachability-2017: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2017-09-21, 4 authors.
+  {
+    id: 'hj-reachability-2017',
+    title: 'Hamilton-Jacobi Reachability: A Brief Overview and Recent Advances',
+    authors: ['Somil Bansal', 'Mo Chen', 'Sylvia Herbert', 'Claire J. Tomlin'],
+    year: 2017,
+    venue: 'CDC 2017',
+    arxiv: '1709.07523',
+    url: 'https://arxiv.org/abs/1709.07523',
+    type: 'paper',
+  },
+  // rapolicy-2026: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-09-19, 5 authors.
+  {
+    id: 'rapolicy-2026',
+    title: 'Stable and Efficient Real-World Online VLA Post-Training via Asynchronous Replay-Anchored Policy Improvement',
+    authors: ['Jiarui Yang', 'Jiajin Zhang', 'Bin Zhu', 'Jingjing Chen', 'Yu-Gang Jiang'],
+    year: 2026,
+    arxiv: '2609.22888',
+    url: 'https://arxiv.org/abs/2609.22888',
+    type: 'paper',
+  },
+  // fail-detect-2025: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2025-03-11, 10 authors.
+  {
+    id: 'fail-detect-2025',
+    title: 'Can We Detect Failures Without Failure Data? Uncertainty-Aware Runtime Failure Detection for Imitation Learning Policies',
+    authors: ['Chen Xu', 'Tony Khuong Nguyen', 'Emma Dixon', 'Christopher Rodriguez', 'Patrick Miller', 'Robert Lee', 'Paarth Shah', 'Rares Ambrus', 'Haruki Nishimura', 'Masha Itkina'],
+    year: 2025,
+    venue: 'RSS 2025',
+    arxiv: '2503.08558',
+    url: 'https://arxiv.org/abs/2503.08558',
+    type: 'paper',
+  },
+  // sentinel-2024: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2024-10-06, 7 authors.
+  {
+    id: 'sentinel-2024',
+    title: 'Unpacking Failure Modes of Generative Policies: Runtime Monitoring of Consistency and Progress',
+    authors: ['Christopher Agia', 'Rohan Sinha', 'Jingyun Yang', 'Zi-ang Cao', 'Rika Antonova', 'Marco Pavone', 'Jeannette Bohg'],
+    year: 2024,
+    venue: 'CoRL 2024',
+    arxiv: '2410.04640',
+    url: 'https://arxiv.org/abs/2410.04640',
+    type: 'paper',
+  },
+  // agility-digit-5-2026: domain pass 2026-10-06, from drafts/data-hardware/industrial-deployment.citations.ts; also drafts/frontier/reliability-gap.citations.ts.
+  // Read 2026-10-04: "Digit 4 has logged more than 65,000 hours of operational time"; at GXO's
+  // Flowery Branch facility "Digit 4 reached a cumulative 100,000-tote milestone, maintaining
+  // approximately 98% accuracy while on-task." Company-reported.
+  {
+    id: 'agility-digit-5-2026',
+    title: 'Agility Unveils Digit 5 Humanoid Robot Built for Cooperatively Safe Work at Scale',
+    authors: ['Agility Robotics'],
+    year: 2026,
+    venue: 'Agility Robotics press release, 2026-09-15',
+    url: 'https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale',
+    type: 'press',
+  },
+  // bi-figure-livestream-2026: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts.
+  // Business Insider, byline Rya Jetha, published 2026-05-15 (fetched 2026-10-04): "Figure AI
+  // reached its goal of running the robot for eight hours with "zero failures," Adcock said, and
+  // decided to keep going. By the 24-hour mark on Thursday morning, the humanoids had sorted more
+  // than 30,000 packages"; "Adcock said that when a robot gets stuck, its AI model triggers an
+  // automatic reset, which viewers occasionally saw during the stream."
+  {
+    id: 'bi-figure-livestream-2026',
+    title: 'Silicon Valley\'s latest binge-watch is a humanoid warehouse worker',
+    authors: ['Rya Jetha'],
+    year: 2026,
+    venue: 'Business Insider',
+    url: 'https://www.businessinsider.com/figure-ai-turned-a-humanoid-sorting-packages-must-see-tv-2026-5',
+    type: 'press',
+  },
+  // hanley-zero-numerators-1983: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts.
+  // Crossref metadata (2026-10-04): JAMA 249(13):1743, issued 1983-04-01. Authors from the
+  // author-hosted PDF (https://jhanley.biostat.mcgill.ca/c607/ch08/zero_numerator.pdf): "James A.
+  // Hanley and Abby Lippman-Hand". Quote: "This "rule of three" states that if none of n patients
+  // shows the event about which we are concerned, we can be 95% confident that the chance of this
+  // event is at most three in n (ie, 3/n)."
+  {
+    id: 'hanley-zero-numerators-1983',
+    title: 'If Nothing Goes Wrong, Is Everything All Right? Interpreting Zero Numerators',
+    authors: ['James A. Hanley', 'Abby Lippman-Hand'],
+    year: 1983,
+    venue: 'JAMA 249(13)',
+    url: 'https://doi.org/10.1001/jama.1983.03330370053031',
+    type: 'paper',
+  },
+  // iso-iec-tr-5469-2024: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // ISO catalogue entry via Wayback capture 20260928001954 (iso.org returns 403 to this host):
+  // "ISO/IEC TR 5469:2024 Artificial intelligence - Functional safety and AI systems"; abstract:
+  // "This document describes the properties, related risk factors, available methods and processes
+  // relating to: - use of AI inside a safety related function to realize the functionality; - use of
+  // non-AI safety related functions to ensure safety for an AI controlled equipment; - use of AI
+  // systems to design and develop safety related functions."; "Publication date : 2024-01"; "Edition
+  // : 1".
+  {
+    id: 'iso-iec-tr-5469-2024',
+    title: 'ISO/IEC TR 5469:2024, Artificial intelligence: Functional safety and AI systems',
+    authors: ['ISO/IEC JTC 1/SC 42'],
+    year: 2024,
+    venue: 'ISO/IEC Technical Report (public catalogue entry)',
+    url: 'https://www.iso.org/standard/81283.html',
+    type: 'docs',
+  },
+  // hartmann-iso-10218-2026: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-02-19, 5 authors. Abstract: "The analysis
+  // reveals significant expansions in functional safety and cybersecurity, the introduction of new
+  // classifications for robots and collaborative applications, and the normative integration of the
+  // technical specification ISO/TS 15066". Pack-frontier-2 outdated item 1 (TS 15066 is no longer
+  // only a supplement). The pack lists Results in Engineering 30 (2026), DOI
+  // 10.1016/j.rineng.2026.110486; arXiv states no venue, so none is set.
+  {
+    id: 'hartmann-iso-10218-2026',
+    title: 'Evolution of Safety Requirements in Industrial Robotics: Comparative Analysis of ISO 10218-1/2 (2011 vs. 2025) and Integration of ISO/TS 15066',
+    authors: ['Daniel Hartmann', 'Kristýna Hamříková', 'Aleš Vysocký', 'Vendula Laciok', 'Aleš Bernatík'],
+    year: 2026,
+    arxiv: '2602.17822',
+    url: 'https://arxiv.org/abs/2602.17822',
+    type: 'paper',
+  },
+  // rr-ansi-r1506-2026: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // The Robot Report, byline "The Robot Report Staff", published 2026-01-13 (datePublished; fetched
+  // 2026-10-04): "Parts 1 and 2: Approved on Aug. 21, 2025, these sections serve as a revision of
+  // the previous ANSI/RIA R15.06-2012 standard. They represent the U.S. national adoption of
+  // international standards ISO 10218-1:2025 (Ed. 3) and ISO 10218-2:2025 (Ed. 2) Part 3: Approved
+  // on Oct. 7, 2025, was developed with collaboration from standards experts in the U.S. and Canada
+  // to address user requirements not covered by ISO standards."
+  {
+    id: 'rr-ansi-r1506-2026',
+    title: 'A3 releases full three-part national safety standard for industrial robots',
+    authors: ['The Robot Report Staff'],
+    year: 2026,
+    venue: 'The Robot Report, 2026-01-13',
+    url: 'https://www.therobotreport.com/now-available-full-403-page-ansi-a3-r15-06-2025-robot-safety-standard/',
+    type: 'press',
+  },
+  // layne-robot-fatalities-2023: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // Crossref metadata and Europe PMC abstract (PMID 36850052; read 2026-10-04): Am J Ind Med
+  // 66(6):454-461, published 2023-02-27. Abstract: "There were 41 robot-related fatalities
+  // identified by the keyword search during the 26-year period of this study"; "Most of the cases
+  // involved stationary robots (83%) and robots striking the decedents while operating under their
+  // own power (78%). Many of these striking incidents occurred while maintenance was being performed
+  // on a robot."
+  {
+    id: 'layne-robot-fatalities-2023',
+    title: 'Robot-related fatalities at work in the United States, 1992-2017',
+    authors: ['Larry A. Layne'],
+    year: 2023,
+    venue: 'American Journal of Industrial Medicine 66(6):454-461',
+    url: 'https://doi.org/10.1002/ajim.23470',
+    type: 'paper',
+  },
+  // luckcuck-formal-2019: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2018-06-29, 5 authors. Abstract: "Though commonly
+  // used, testing and simulation alone are insufficient to ensure the correctness of, or provide
+  // sufficient evidence for the certification of, autonomous robotics". arXiv journal_ref: "ACM
+  // Computing Surveys, Volume 52, Issue 5, (2019) Article No.: 100".
+  {
+    id: 'luckcuck-formal-2019',
+    title: 'Formal Specification and Verification of Autonomous Robotic Systems: A Survey',
+    authors: ['Matt Luckcuck', 'Marie Farrell', 'Louise Dennis', 'Clare Dixon', 'Michael Fisher'],
+    year: 2018,
+    venue: 'ACM Computing Surveys 52(5), 2019',
+    arxiv: '1807.00048',
+    url: 'https://arxiv.org/abs/1807.00048',
+    type: 'paper',
+  },
+  // vlpsa-2026: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2026-09-18, 4 authors. Abstract: "yielding a Control
+  // Barrier Function (CBF) that is enforced through a CBF-QP safety filter over the full body";
+  // "without retraining"; "increasing collision avoidance from 23.1% for the base pi_0.5 policy to
+  // 91.2% while surpassing its task success rate" (SafeLIBERO).
+  {
+    id: 'vlpsa-2026',
+    title: 'VLPSA: Vision-Language-Poisson-Safe Actions for Full-Body Safety of Learned Policies',
+    authors: ['Meg Wilkinson', 'Emily Fourney', 'Joel W. Burdick', 'Aaron D. Ames'],
+    year: 2026,
+    arxiv: '2609.22462',
+    url: 'https://arxiv.org/abs/2609.22462',
+    type: 'paper',
+  },
+  // amlas-2021: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // arXiv API check 2026-10-04: first submitted 2021-02-02, 6 authors. Abstract: "AMLAS comprises a
+  // set of safety case patterns and a process for (1) systematically integrating safety assurance
+  // into the development of ML components and (2) for generating the evidence base for explicitly
+  // justifying the acceptable safety of these components".
+  {
+    id: 'amlas-2021',
+    title: 'Guidance on the Assurance of Machine Learning in Autonomous Systems (AMLAS)',
+    authors: ['Richard Hawkins', 'Colin Paterson', 'Chiara Picardi', 'Yan Jia', 'Radu Calinescu', 'Ibrahim Habli'],
+    year: 2021,
+    arxiv: '2102.01564',
+    url: 'https://arxiv.org/abs/2102.01564',
+    type: 'paper',
+  },
+  // eu-machinery-regulation-2023: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // EUR-Lex ELI page of the Official Journal text (fetched 2026-10-04), Annex I Part A: "5. Safety
+  // components with fully or partially self-evolving behaviour using machine learning approaches
+  // ensuring safety functions." Recital: "the conformity assessment of a safety component or a
+  // system with self-evolving behaviour ensuring safety functions should be carried out by a third
+  // party". The OJ text of Article 54 reads "It shall apply from 14 January 2027"; the corrigendum
+  // OJ L 169, 4.7.2023 (ELI reg/2023/1230/corrigendum/2023-07-04/oj, Wayback capture 20250708030504)
+  // reads: "On page 39, Article 54, second paragraph: for: '14 January 2027', read: '20 January
+  // 2027'."
+  {
+    id: 'eu-machinery-regulation-2023',
+    title: 'Regulation (EU) 2023/1230 of the European Parliament and of the Council of 14 June 2023 on machinery and repealing Directive 2006/42/EC and Council Directive 73/361/EEC',
+    authors: ['European Parliament and Council of the European Union'],
+    year: 2023,
+    venue: 'Official Journal of the European Union L 165, 29.6.2023 (corrigendum OJ L 169, 4.7.2023)',
+    url: 'https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng',
+    type: 'docs',
+  },
+  // eu-ai-act-framework-2026: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // European Commission, Shaping Europe's digital future, "AI Act" policy page (fetched 2026-10-04):
+  // "the rules for high-risk AI systems embedded into regulated products (Annex I) have an extended
+  // transition period until 2 August 2028"; the AI Omnibus "was adopted on 19 November 2025, a
+  // political agreement was reached on 7 May 2026 and entered into force on 27 July 2026".
+  {
+    id: 'eu-ai-act-framework-2026',
+    title: 'AI Act',
+    authors: ['European Commission'],
+    year: 2026,
+    venue: 'Shaping Europe\'s digital future (European Commission policy page), as of 2026-10-04',
+    url: 'https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai',
+    type: 'docs',
+  },
+  // digit-360-2024: domain pass 2026-10-06, from drafts/data-hardware/hardware-taxonomy.citations.ts; also drafts/frontier/dexterity.citations.ts.
+  // Digit 360 (Meta FAIR). Abstract: "~8.3 million taxels"; "resolution of 1.01 mN and 1.27 mN"
+  // (normal, shear).
+  {
+    id: 'digit-360-2024',
+    title: 'Digitizing Touch with an Artificial Multimodal Fingertip',
+    authors: ['Mike Lambeta', 'Tingfan Wu', 'Ali Sengul', 'Victoria Rose Most', 'Nolan Black', 'Kevin Sawyer', 'Romeo Mercado', 'Haozhi Qi', 'Alexander Sohn', 'Byron Taylor', 'Norb Tydingco', 'Gregg Kammerer', 'Dave Stroud', 'Jake Khatha', 'Kurt Jenkins', 'Kyle Most', 'Neal Stein', 'Ricardo Chavira', 'Thomas Craven-Bartle', 'Eric Sanchez', 'Yitian Ding', 'Jitendra Malik', 'Roberto Calandra'],
+    year: 2024,
+    arxiv: '2411.02479',
+    url: 'https://arxiv.org/abs/2411.02479',
+    type: 'paper',
+  },
+  // rr-sanctuary-tactile-2025: domain pass 2026-10-06, from drafts/frontier/dexterity.citations.ts.
+  // The Robot Report, byline Eugene Demaitre, published 2025-02-26 (article:published_time; fetched
+  // 2026-10-04): "Phoenix's finger pads include a seven-cell touch sensor with micro-barometers,
+  // like those made affordable in smartphones, Wells explained. They are sensitive to 5 millinewtons
+  // (mN), which is getting close to human sensitivity of 3 mN." Also: "it chose hydraulics for their
+  // flow resolution, miniaturization, and sensitivity". Audit-directed primary replacement for the
+  // banned retailer page robozaps-phoenix-2026 (audit R1-a); not in a source pack.
+  {
+    id: 'rr-sanctuary-tactile-2025',
+    title: 'Sanctuary AI integrates tactile sensors into Phoenix general purpose robots',
+    authors: ['Eugene Demaitre'],
+    year: 2025,
+    venue: 'The Robot Report, 2025-02-26',
+    url: 'https://www.therobotreport.com/sanctuary-ai-integrates-tactile-sensors-into-phoenix-general-purpose-robots/',
+    type: 'press',
+  },
+  // adcock-figure-livestream-2026: domain pass 2026-10-06, owner sweep item (secondary sources dropped for
+  // primaries): the vendor statement for the Figure livestream that frontier/reliability-gap and
+  // frontier/competing-theses cited to figure-8hr-shift-2026 (TechTimes). Figure's CEO, read 2026-10-07 (X's public
+  // embed data for the post record, a public mirror of the same post for the full long-post text): posted
+  // 14 May 2026, 17:13 UTC; "Our original goal was an 8-hour run. After zero
+  // failures yesterday, we decided to keep going"; "The task is small package sorting"; "You'll occasionally
+  // see this happen during the livestream"; "We run our labs at Figure this way". Figure's own account posted
+  // the broadcast on 13 May 2026, 16:45 UTC: "a full 8-hr shift ... fully autonomous running Helix-02".
+  {
+    id: 'adcock-figure-livestream-2026',
+    title: 'Sharing more details on what’s going on',
+    authors: ['Brett Adcock'],
+    year: 2026,
+    venue: 'X, 2026-05-14',
+    url: 'https://x.com/adcock_brett/status/2054973511572271172',
+    type: 'blog',
+  },
+  // unitree-prospectus-2026: domain pass 2026-10-06, owner sweep item (secondary sources dropped for
+  // primaries): the primary for the Unitree Q1 2026 profit figure that frontier/bear-case cited to
+  // unitree-profit-2026 (TechTimes). Unitree's STAR Market IPO prospectus, hearing draft
+  // (首次公开发行股票并在科创板上市招股说明书（上会稿）), dated 2026-05-25 on the Shanghai Stock Exchange; read
+  // 2026-10-07 from the dated capture
+  // https://web.archive.org/web/20260614013805/https://static.sse.com.cn/stock/disclosure/announcement/c/202605/002178_20260525_7RVL.pdf
+  // (369 pages). Page 1-1-30, consolidated income statement, Jan-Mar 2026 against Jan-Mar 2025 (万元):
+  // net profit attributable to the parent after non-recurring items 4,025.36 against 8,483.65, "-52.55%";
+  // page 1-1-18: "公司 2026 年一季度经审阅的营业收入同比增速已降至 68.49%，并因期间费用的较快增长，扣非后净利润出现了同比下降 52.55% 的情况".
+  {
+    id: 'unitree-prospectus-2026',
+    title: 'Prospectus for the Initial Public Offering and Listing on the STAR Market (hearing draft)',
+    authors: ['Unitree Robotics'],
+    year: 2026,
+    venue: 'Shanghai Stock Exchange, 2026-05-25',
+    url: 'https://static.sse.com.cn/stock/disclosure/announcement/c/202605/002178_20260525_7RVL.pdf',
+    type: 'docs',
+  },
+  // unitree-dex5-1-2026: domain pass 2026-10-06, from drafts/frontier/dexterity.notes.md
+  // (figure flag; audit/frontier/dexterity.md item 2). Live product page read 2026-10-06 (HTTP 200):
+  // "20 Degrees of freedom (16 active+4)"; "Number of degrees of freedom 20"; a full spec sheet and
+  // no price. Replaces the uncited Wikipedia "10-12" range on the dexterity hand table.
+  {
+    id: 'unitree-dex5-1-2026',
+    title: 'Unitree Dex5-1',
+    authors: ['Unitree Robotics'],
+    year: 2026,
+    url: 'https://www.unitree.com/Dex5-1/',
+    type: 'docs',
+  },
   // mulligan-2026: domain pass 2026-10-06, KOL intake note of Perry Dong, added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). Stanford University.
   {
@@ -18181,6 +18631,104 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12276',
     type: 'paper',
   },
+  // visual-predicted-force-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 3 Oct 2026). Harvard University, MIT,
+  // University of Pennsylvania and Stanford University.
+  {
+    id: 'visual-predicted-force-2026',
+    title: 'Robot Learning with Visual Predicted Force',
+    authors: [
+      'Haonan Chen', 'Feiyang Wu', 'Yuxiang Ma', 'Mustafa Mete', 'Pengfei Ye', 'Junxuan Shen', 'Cheng Zhu',
+      'Aurora Ruggeri', 'Kelvin Cheung', 'Jiayuan Mao', 'Edward Adelson', 'Jiajun Wu', 'Robert D. Howe', 'Yilun Du',
+    ],
+    year: 2026,
+    arxiv: '2610.04741',
+    url: 'https://arxiv.org/abs/2610.04741',
+    type: 'paper',
+  },
+  // fingers-as-legs-2026: domain pass 2026-10-06, KOL intake note of IEEE Spectrum (Edd Gent), added 2026-10-12;
+  // the Spectrum article was the lead and the paper is the source. arXiv abstract page and PDF read 2026-10-12
+  // (HTTP 200; v1 15 Sep 2026). All authors at the Soft Robotics Lab, ETH Zurich.
+  {
+    id: 'fingers-as-legs-2026',
+    title: 'Fingers as Legs: Learning Self-Supported Locomotion and Manipulation with an Anthropomorphic Hand',
+    authors: ['Amirhossein Kazemipour', 'Hehui Zheng', 'Robert Katzschmann'],
+    year: 2026,
+    arxiv: '2609.17172',
+    url: 'https://arxiv.org/abs/2609.17172',
+    type: 'paper',
+  },
+  // ariadne-2026: domain pass 2026-10-06, KOL intake note of Guanya Shi, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026; comments: "Accepted at NeurIPS 2026").
+  // Carnegie Mellon University, National University of Singapore, DEVCOM Army Research Laboratory and Harvard.
+  {
+    id: 'ariadne-2026',
+    title: 'Trajectory Planning without Trajectory Data: A Manifold-Guided Approach',
+    authors: ['Silong Yong', 'Anji Liu', 'Cunxi Dai', 'Carl Busart', 'Guanya Shi', 'Yilun Du', 'Katia Sycara', 'Yaqi Xie'],
+    year: 2026,
+    arxiv: '2610.08863',
+    url: 'https://arxiv.org/abs/2610.08863',
+    type: 'paper',
+  },
+  // mobilevista-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). Stanford University and Toyota
+  // Research Institute.
+  {
+    id: 'mobilevista-2026',
+    title: 'MobileVISTA: Generative Data Augmentation for Pose Generalization in Mobile Manipulation',
+    authors: [
+      'Suzannah Wistreich', 'Stephen Tian', 'Isabella Huang', 'Vitor Campagnolo Guizilini', 'Sergey Zakharov',
+      'Katherine Liu', 'Jiajun Wu',
+    ],
+    year: 2026,
+    arxiv: '2610.07511',
+    url: 'https://arxiv.org/abs/2610.07511',
+    type: 'paper',
+  },
+  // trustworthy-physical-ai-2026: domain pass 2026-10-06, KOL intake note of Daniela Rus, added 2026-10-12.
+  // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). A position paper; the article states
+  // its framework as the authors' view. Scuola Superiore Sant'Anna, MIT CSAIL, Stanford, University of Tokyo,
+  // Boston University and National University of Singapore.
+  {
+    id: 'trustworthy-physical-ai-2026',
+    title: 'Toward Trustworthy Physical AI for Human Interaction',
+    authors: [
+      'Niccolò Pagliarani', 'Maximilian Stölzle', 'Cosima du Pasquier', 'Jeff Lui', 'Andrew Sabelhaus',
+      'Cecilia Laschi', 'Gentiane Venture', 'Daniela Rus', 'Matteo Cianchetti',
+    ],
+    year: 2026,
+    arxiv: '2610.07382',
+    url: 'https://arxiv.org/abs/2610.07382',
+    type: 'paper',
+  },
+  // hiphi-2026: domain pass 2026-10-06, KOL intake note of IEEE Spectrum (sponsored Noitom Robotics listing),
+  // added 2026-10-12; the sponsored page was the lead and the paper is the source. arXiv abstract page and PDF
+  // read 2026-10-12 (HTTP 200; v1 17 Aug 2026, v2 8 Sep 2026; comments: "Accepted at CoRL 2026"). Noitom Robotics
+  // with National University of Singapore, Tsinghua SIGS, HKUST and the University of Hong Kong.
+  {
+    id: 'hiphi-2026',
+    title: 'HiPHI: A Large-Scale Benchmark for High-Precision Human Motion and Object-Interaction',
+    authors: [
+      'Jiahao Ji', 'Ji Ma', 'Runhan Zhang', 'Runyi Yu', 'Wenjia Wang', 'Weiheng Chi', 'Qianqian Peng', 'Weichao Yan',
+      'Yongfei Gu', 'Ye Tian', 'Ting Wu', 'Longwei Li', 'Chun Yuan', 'Ruoli Dai', 'Lei Han',
+    ],
+    year: 2026,
+    arxiv: '2608.16222',
+    url: 'https://arxiv.org/abs/2608.16222',
+    type: 'paper',
+  },
+  // exploy-2026: domain pass 2026-10-06, KOL intake note of RAI Institute, added 2026-10-12.
+  // RAI Institute blog post, datePublished 2026-10-07T14:21:30+00:00 in the page's JSON-LD, read 2026-10-12
+  // (HTTP 200). The institute's own description of its own library, so the article attributes it to the institute.
+  {
+    id: 'exploy-2026',
+    title: 'Introducing Exploy: Simplifying RL Policy Deployment in Autonomous Robotics',
+    authors: ['Robotics and AI Institute'],
+    year: 2026,
+    venue: 'RAI Institute blog',
+    url: 'https://rai-inst.com/resources/blog/introducing-exploy-simplifying-rl-policy-deployment-in-autonomous-robotics/',
+    type: 'blog',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -18249,6 +18797,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Tesla, Inc.', 'Tesla'],
   ['The Linux Foundation', 'The Linux Foundation'],
   ['The Robot Report', 'The Robot Report'],
+  ['The Robot Report Staff', 'The Robot Report'],
   ['TRI LBM Team', 'TRI LBM Team'],
   ['Trossen Robotics', 'Trossen Robotics'],
   ['U.S. Food and Drug Administration', 'FDA'],

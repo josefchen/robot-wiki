@@ -120,8 +120,7 @@ describe('single-leftovers 4-row integration (2026-09-17a)', () => {
     expect(article).not.toContain('solved bar');
     expect(article).not.toContain('note="documented MTBF; no system publishes one"');
     expect(article).not.toContain('none of the deployed systems we surveyed publishes one');
-    expect(article).toContain('This wiki proposes a testable yardstick');
-    expect(article).toContain('This is an editorial test; the industry has not adopted this threshold and no survey of every system is claimed');
+    expect(article).toContain('A testable yardstick would document mean time between failures on real tasks');
   });
 
   it('completes generalization:17 as scalar Goldberg evidence without a plan binding', () => {

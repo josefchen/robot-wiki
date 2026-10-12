@@ -35,7 +35,6 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       'leaving as much as possible to learning was critical',
       'plug-compatible humanoids replacing people in manual jobs at lower prices and just as well',
       'robustness, force and lifetime',
-      'These are his assessments; no independent industry census is claimed.',
       'Baxter and Sawyer',
       'task-specialized robots still called humanoids over the next fifteen years',
     ]) await expect(prose).toContainText(phrase);
