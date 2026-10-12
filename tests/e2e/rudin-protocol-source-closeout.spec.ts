@@ -1,4 +1,5 @@
 import { test, expect, type Locator } from '@playwright/test';
+import { citeParts, closeCiteNote, revealCiteNote } from './helpers/citation-note';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
@@ -11,6 +12,9 @@ const trainingTime = (seconds: number) => seconds >= 3600 ? `${(seconds / 3600).
   : seconds >= 60 ? `${(seconds / 60).toFixed(1)} minutes` : `${Math.round(seconds)} seconds`;
 
 for (const width of [375, 1440]) test(`Rudin scoped source readers ${width}`, async ({ browser }, info) => {
+  // Three articles, the glossary and their viewport captures outlast the
+  // 30 s default on a loaded host, as the sibling reader specs do.
+  test.setTimeout(180_000);
   const height = width === 375 ? 812 : 900;
   const context = await browser.newContext({ viewport: { width, height } });
   const page = await context.newPage();
@@ -92,24 +96,33 @@ for (const width of [375, 1440]) test(`Rudin scoped source readers ${width}`, as
       }
       for (const id of ['rudin-2021', 'legged-gym-repo-2021']) {
         const citation = getCitation(id)!;
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the tooltip chip became a numbered sidenote. The keyboard
+        // stop is the citation's number, Enter opens its note (from 1200 px
+        // the note already stands in the margin), and the same placement,
+        // focus and source link are read off the note. The pointer state
+        // opens the note with a click on the number instead of a hover.
         const chip = prose.locator(`[data-cite-id="${id}"]`).first();
-        const link = chip.getByRole('link').first();
+        const { mark: link, source } = citeParts(chip);
         await chip.evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
         await page.keyboard.press('Tab');
         await link.focus(); await page.keyboard.press('Shift+Tab');
         await page.keyboard.press('Tab'); await expect(link).toBeFocused();
-        const tooltip = chip.getByRole('tooltip'); await expect(tooltip).toBeVisible();
-        await expect(link).toHaveAttribute('href', citation.url);
+        const tooltip = await revealCiteNote(chip, 'keyboard'); await expect(tooltip).toBeVisible();
+        await expect(link).toBeFocused();
+        await expect(tooltip).toContainText(citation.title);
+        await expect(source).toHaveAttribute('href', citation.url);
         const box = await tooltip.boundingBox();
         expect.soft(box!.x).toBeGreaterThanOrEqual(0);
         expect.soft(box!.x + box!.width).toBeLessThanOrEqual(width);
         expect.soft(box!.y).toBeGreaterThanOrEqual(0);
         expect.soft(box!.y + box!.height).toBeLessThanOrEqual(height);
-        measures.push({ slug, id, state: 'focus-tooltip', box, focus: await link.evaluate(e => ({ visible: e.matches(':focus-visible'), outline: getComputedStyle(e).outline, offset: getComputedStyle(e).outlineOffset })) });
+        measures.push({ slug, id, state: 'focus-note', box, focus: await link.evaluate(e => ({ visible: e.matches(':focus-visible'), outline: getComputedStyle(e).outline, offset: getComputedStyle(e).outlineOffset })) });
         if (process.env.DR_READER_CAPTURE_MODE !== 'placements-only')
           await page.screenshot({ path: `${directory}/${slug}-${id}-focus.png`, caret: 'initial' });
+        await closeCiteNote(chip);
         await link.blur(); await page.mouse.move(2, 2);
-        await link.hover(); await expect(tooltip).toBeVisible();
+        await revealCiteNote(chip, 'pointer'); await expect(tooltip).toBeVisible();
         const hoverBox = await tooltip.boundingBox();
         expect.soft(hoverBox).toEqual(box);
         expect.soft(await link.evaluate(e => {
@@ -118,6 +131,7 @@ for (const width of [375, 1440]) test(`Rudin scoped source readers ${width}`, as
         })).toBe(true);
         if (process.env.DR_READER_CAPTURE_MODE !== 'placements-only')
           await page.screenshot({ path: `${directory}/${slug}-${id}-hover.png`, caret: 'initial' });
+        await closeCiteNote(chip);
         await page.mouse.move(0, 0); await link.blur();
         const reference = page.locator(`[data-reference-id="${id}"]`);
         await expect(reference).toContainText(citation.title);

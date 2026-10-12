@@ -92,8 +92,17 @@ describe('industrial release preserves both evidence histories', { timeout: 60_0
     // article; the crossdomain packet's plan re-anchored its disclosure to
     // the new bytes, so it is compared against the live catalog instead.
     const reanchored = new Set(['crossdomain-generalist19-20260923']);
-    expect(catalog.plans.filter(p => ids.has(p.id) && !reanchored.has(p.id))).toEqual(previous.plans.filter(p => !reanchored.has(p.id)));
-    expect(catalog.proofs.filter(p => ids.has(p.planId) && !reanchored.has(p.planId))).toEqual(previous.proofs.filter(p => !reanchored.has(p.planId)));
+    // The parallel18 rebinding to the BatchScale scene replaced that plan's
+    // mount and proofs; its released plan and proofs stay byte-equal in the archive.
+    const rebound = new Set(['parallel-local-p18-20260923']);
+    const archive = JSON.parse(readFileSync('audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json', 'utf8'));
+    expect(previous.plans.filter(p => rebound.has(p.id))).toEqual([archive.plan]);
+    expect(previous.proofs.filter(p => rebound.has(p.planId))).toEqual(archive.proofs);
+    expect(catalog.plans.filter(p => rebound.has(p.id)).map(p => p.parts.map(part => part.id)))
+      .toEqual([archive.plan.parts.map((part: { id: string }) => part.id)]);
+    const kept = (id: string) => !reanchored.has(id) && !rebound.has(id);
+    expect(catalog.plans.filter(p => ids.has(p.id) && kept(p.id))).toEqual(previous.plans.filter(p => kept(p.id)));
+    expect(catalog.proofs.filter(p => ids.has(p.planId) && kept(p.planId))).toEqual(previous.proofs.filter(p => kept(p.planId)));
     const added = incoming.plans.filter(p => !ids.has(p.id));
     expect(added.map(p => p.rowOrdinal)).toEqual([9, 10, 32, 33]);
     const addedIds = new Set(added.map(p => p.id));
@@ -225,6 +234,7 @@ describe('industrial release preserves both evidence histories', { timeout: 60_0
             'audit/evidence/domain-pass-20261006',
             'audit/evidence/figure-mounts-20261007',
             'audit/evidence/parallel-local-20261009/checker-transition.json',
+            'audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json',
             'audit/evidence/citation-closeout-20260924/relevant-continuity.json',
             'audit/evidence/technology-withdrawal-20260924',
             'content/data-hardware/industrial-deployment.mdx',

@@ -44,6 +44,8 @@ function fixture() {
     'audit/evidence/domain-pass-20261006/source-transition.json',
     // The rl-sim2real simple figures (2026-10-10) rebuild the pre-mount articles from this review.
     'audit/evidence/figure-mounts-20261007/source-transition.json',
+    // The parallel18 rebinding (2026-10-12) archived the proofs the parallel-sim-rl population names.
+    'audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json',
     ...entries.flatMap((entry) => [entry.snapshot.path, entry.current.path]),
   ]) {
     const to = join(destination, path);
@@ -264,5 +266,10 @@ it('rechecks each member, root and fresh article/catalog bytes with one parsed-i
   const catalogPath = join(destination, 'audit/local-basis.json');
   const catalog = JSON.parse(readFileSync(catalogPath, 'utf8'));
   writeFileSync(catalogPath, JSON.stringify({ ...catalog, proofs: [] }));
+  expect(() => verify(destination, 1)).toThrow(/proof population drift/);
+  // The parallel-sim-rl population is retired to the archive, so emptying the
+  // live catalog leaves it whole; a live proof taking one of its ids does not.
+  expect(verify(destination, 0)).toEqual(readFileSync(join(destination, entries[0].snapshot.path)));
+  writeFileSync(catalogPath, JSON.stringify({ ...catalog, proofs: [{ id: 'p18-parameters', artifacts: [] }] }));
   expect(() => verify(destination, 0)).toThrow(/proof population drift/);
 });

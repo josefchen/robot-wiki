@@ -1,0 +1,8 @@
+{
+  "id": "batch-scale",
+  "mode": "derive",
+  "inputs": {
+    "envs": 4096,
+    "cpuBound": true
+  }
+}

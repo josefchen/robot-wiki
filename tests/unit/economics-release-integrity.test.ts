@@ -25,9 +25,20 @@ describe('fresh release economics proof preserves immutable history', () => {
       'audit/evidence/economics-release-20260923/previous-economics-plan-and-proofs.json', 'utf8',
     ));
     expect(archive).toEqual({ plan: oldPlan, proofs: previous.proofs.filter(p => p.planId === id) });
+    // The parallel18 rebinding to the BatchScale scene replaced that plan's
+    // mount and proofs; its released plan and proofs stay byte-equal in the archive.
+    const parallelId = 'parallel-local-p18-20260923';
+    const parallelArchive = JSON.parse(readFileSync(
+      'audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json', 'utf8',
+    ));
+    expect(parallelArchive).toEqual({
+      plan: previous.plans.find(p => p.id === parallelId),
+      proofs: previous.proofs.filter(p => p.planId === parallelId),
+    });
+    const kept = (planId: string) => planId !== id && planId !== parallelId;
     const priorIds = new Set(previous.plans.map(p => p.id));
-    expect(context.catalog.plans.filter(p => p.id !== id && priorIds.has(p.id))).toEqual(previous.plans.filter(p => p.id !== id));
-    expect(context.catalog.proofs.filter(p => p.planId !== id && priorIds.has(p.planId))).toEqual(previous.proofs.filter(p => p.planId !== id));
+    expect(context.catalog.plans.filter(p => kept(p.id) && priorIds.has(p.id))).toEqual(previous.plans.filter(p => kept(p.id)));
+    expect(context.catalog.proofs.filter(p => kept(p.planId) && priorIds.has(p.planId))).toEqual(previous.proofs.filter(p => kept(p.planId)));
     for (const key of ['originalBinding', 'currentCells', 'currentTupleDigest', 'parts', 'evidence', 'mounts'] as const) {
       expect(plan[key]).toEqual(oldPlan[key]);
     }

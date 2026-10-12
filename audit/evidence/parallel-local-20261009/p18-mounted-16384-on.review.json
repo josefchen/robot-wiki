@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "local-review-event-v1",
+  "sessionId": "parallel-local-20261012",
+  "role": "integrator",
+  "eventId": "parallel-local-p18-20260923:p18-mounted-16384-on:2026-10-12T00:44:18.552Z",
+  "observedAt": "2026-10-12T00:44:18.552Z",
+  "reviewedBy": "implementation worker for the parallel18 BatchScale rebinding (not independent acceptance)",
+  "rationale": "I read the recorded Playwright action, its DOM capture and PNG, and looked at the capture: the recap reached by stepping forward, with the dashed curve ending above the marker at 16,384 robots. The DOM holds the disclosure sentence and readouts equal to the recomputed display, and the spec also checked the exact 32-segment solid and dashed paths, the marker and the robot dots against an independent restatement of the stage geometry. Sibling states stay required.",
+  "outcome": "supported",
+  "scope": "part",
+  "partId": "p18-mounted-16384-on",
+  "inputDigest": "d35c32c13832aae0462848737bb48f53652f4d06e6102088d443edda8e9dea58",
+  "inventory": [
+    {
+      "id": "p18-rudin-flat-bound",
+      "text": "The flat marker labels a reported under-four-minute result, not an equality or a measured x=4096 configuration.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "rudin-2021"
+      ]
+    },
+    {
+      "id": "p18-rudin-rough-protocol",
+      "text": "The separate documented simulation/deployment run binds 4096 robots, 24 steps, 98304 transitions/batch, 1500 updates, under twenty minutes and i9-11900k/RTX A6000 hardware.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "rudin-2021"
+      ]
+    },
+    {
+      "id": "p18-isaac-measured-anchors",
+      "text": "The original note names Isaac Lab FPS anchors; preserve >900k DextrAH and >1.6M Franka environment-learning FPS at eight RTX PRO 6000 GPUs/16384 envs, distinct from toy throughput.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "isaac-lab-2025"
+      ]
+    },
+    {
+      "id": "p18-isaac-cpu-context",
+      "text": "The CPU toggle is motivated by the specific RTX5090/AMD9800X3D versus two-RTX-PRO-6000/EPYC comparison, not a measured universal toy curve.",
+      "kind": "external-source",
+      "requiredCitationIds": [
+        "isaac-lab-2025"
+      ]
+    },
+    {
+      "id": "p18-authored-cost-model",
+      "text": "The target 2.2e8 transitions, 24 rollout steps as a chosen model input, cost seconds [0.02,4e-6,0.04,0.03,2.2e-5], the fixed-budget assumption, the BatchScale beat-end robot counts (one-batch 64, scale 4,096, cpu 4,096, recap 16,384) and its two curves (solid without and dashed with the assumed per-robot CPU cost) are authored. Retired with the TrainingTimeChart and written in here: the 49-point sample grid (the scene draws exact 32-segment solid and dashed paths) and the flat-marker x (the scene draws no Rudin marker; its near-four-minute 4,096 time is a chosen calibration).",
+      "kind": "authored-parameter",
+      "requiredProofIds": [
+        "p18-batch-parameters"
+      ]
+    },
+    {
+      "id": "p18-cost-arithmetic",
+      "text": "Iterations=target/(robots*24); wall time=iterations*(sim+learn+CPU) with sim 0.02+4e-6*robots, learn 0.04 and CPU 0.03 s, the dashed curve adding 2.2e-5 s per robot to CPU; the time reads in hours or minutes to one decimal, otherwise whole seconds, in the readout sentence and the method text. A fixed formula, not an empirical learning curve. Retired with the TrainingTimeChart: throughput (FPS), per-iteration time, bucket shares and the crossover are no longer rendered, so no observation asserts them; the per-iteration breakdown is still recomputed.",
+      "kind": "derived-result",
+      "requiredProofIds": [
+        "p18-batch-64-off",
+        "p18-batch-64-on",
+        "p18-batch-4096-off",
+        "p18-batch-4096-on",
+        "p18-batch-16384-off",
+        "p18-batch-16384-on"
+      ]
+    },
+    {
+      "id": "p18-mounted-64-off",
+      "text": "Stepped back three beats from the 16,384-robot recap, the mounted BatchScale scene shows beat one-batch: \"64 robots at once: 3.6 hours of training\", the method text \"64 robots, 3.6 hours\", the marker at the 64-robot end of the solid curve, one robot dot and the dashed curve hidden. Retired with the TrainingTimeChart and written in here: the environment slider with its drag and keyboard bounds (beat stepping replaces it) and the aria-pressed CPU toggle (the dashed curve appears at the cpu and recap beats instead). All sibling robot-count and curve states remain required.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "p18-batch-observed-64-off"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+          "caseId": "step-each-beat",
+          "prestate": "Beat 2 / 4 scale, 4,096 robots",
+          "action": "Step back one beat",
+          "poststate": "beat 1 / 4 one-batch: \"64 robots at once: 3.6 hours of training\"; How this was made reads \"64 robots, 3.6 hours\"; dashed curve hidden; marker at (62, 38.44); 1 robot dots; exact 32-segment solid and dashed paths checked"
+        }
+      ]
+    },
+    {
+      "id": "p18-mounted-64-on",
+      "text": "Reached again from the keyboard (Home, then ArrowRight), the one-batch beat keeps the dashed curve hidden, its path still places the 64-robot vertex at the recomputed time, and the method text reads the dashed 64-robot time \"3.6 hours\". All sibling robot-count and curve states remain required.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "p18-batch-observed-64-on"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+          "caseId": "step-each-beat",
+          "prestate": "Beat 1 / 4 one-batch, 64 robots",
+          "action": "Press Home, then ArrowRight: the keyboard steps from the start to the first beat end",
+          "poststate": "beat 1 / 4 one-batch: \"64 robots at once: 3.6 hours of training\"; dashed curve hidden with its 64-robot vertex at (62 38.09); How this was made reads the dashed time 3.6 hours; marker at (62, 38.44); 1 robot dots; exact 32-segment solid and dashed paths checked"
+        }
+      ]
+    },
+    {
+      "id": "p18-mounted-4096-off",
+      "text": "Two beats back from the recap, beat scale shows \"4,096 robots at once: 4.0 minutes of training\", the method text \"4,096 robots, 4.0 minutes\", the marker at 4,096 robots on the solid curve, 64 robot dots and the dashed curve hidden. Page default, Reset and the 375 px check moved to the 16,384 part because the scene's poster is the 16,384 recap; the retired chart defaulted to 4,096. All sibling robot-count and curve states remain required.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "p18-batch-observed-4096-off"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+          "caseId": "step-each-beat",
+          "prestate": "Beat 3 / 4 cpu, 4,096 robots",
+          "action": "Step back one beat",
+          "poststate": "beat 2 / 4 scale: \"4,096 robots at once: 4.0 minutes of training\"; How this was made reads \"4,096 robots, 4.0 minutes\"; dashed curve hidden; marker at (191, 128.82); 64 robot dots; exact 32-segment solid and dashed paths checked"
+        }
+      ]
+    },
+    {
+      "id": "p18-mounted-4096-on",
+      "text": "One beat back from the recap, beat cpu shows the dashed CPU-cost curve with its 4,096-robot vertex at the recomputed time, and the method text reads the dashed time \"7.3 minutes\"; the readout and marker stay on the solid 4,096-robot time. All sibling robot-count and curve states remain required.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "p18-batch-observed-4096-on"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+          "caseId": "step-each-beat",
+          "prestate": "Poster at beat 4 / 4 recap, 16,384 robots",
+          "action": "Open Adjust more and step back one beat",
+          "poststate": "beat 3 / 4 cpu: \"4,096 robots at once: 4.0 minutes of training\"; dashed curve shown with its 4,096-robot vertex at (191 114.93); How this was made reads the dashed time 7.3 minutes; marker at (191, 128.82); 64 robot dots; exact 32-segment solid and dashed paths checked"
+        }
+      ]
+    },
+    {
+      "id": "p18-mounted-16384-off",
+      "text": "On load, after Reset and at a 375 px viewport, the scene shows its 16,384-robot recap poster: \"16,384 robots at once: 1.5 minutes of training\", the method text \"16,384 robots, 1.5 minutes\", the annotation about 1.5 minutes, 256 robot dots and the marker at the 16,384-robot end of the solid curve. Retired with the TrainingTimeChart and written in here: the Rudin flat and rough chart markers. The scene draws neither; the bounds stay in the article prose and the external parts. All sibling robot-count and curve states remain required.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "p18-batch-observed-16384-off"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+          "caseId": "default",
+          "prestate": "Article not loaded",
+          "action": "Navigate to the article at 1440 px and open How this was made",
+          "poststate": "beat 4 / 4 recap: \"16,384 robots at once: 1.5 minutes of training\"; How this was made reads \"16,384 robots, 1.5 minutes\"; dashed curve shown; marker at (234, 151.59); 256 robot dots; annotation about 1.5 minutes; exact 32-segment solid and dashed paths checked"
+        },
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+          "caseId": "reset",
+          "prestate": "Beat 3 / 4 cpu, stepped back one beat from the recap",
+          "action": "Activate Reset",
+          "poststate": "beat 4 / 4 recap: \"16,384 robots at once: 1.5 minutes of training\"; How this was made reads \"16,384 robots, 1.5 minutes\"; dashed curve shown; marker at (234, 151.59); 256 robot dots; annotation about 1.5 minutes; exact 32-segment solid and dashed paths checked"
+        },
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+          "caseId": "default",
+          "prestate": "Desktop reset state",
+          "action": "Resize the mounted scene to 375 px",
+          "poststate": "beat 4 / 4 recap: \"16,384 robots at once: 1.5 minutes of training\"; How this was made reads \"16,384 robots, 1.5 minutes\"; dashed curve shown; marker at (234, 151.59); 256 robot dots; annotation about 1.5 minutes; exact 32-segment solid and dashed paths checked"
+        }
+      ]
+    },
+    {
+      "id": "p18-mounted-16384-on",
+      "text": "Stepping forward three beats from one-batch returns to the recap, where the dashed curve ends at its 16,384-robot vertex at the recomputed time and the method text reads the dashed time \"4.8 minutes\". All sibling robot-count and curve states remain required.",
+      "kind": "observed-behavior",
+      "requiredProofIds": [
+        "p18-batch-observed-16384-on"
+      ],
+      "requiredObservations": [
+        {
+          "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+          "caseId": "step-each-beat",
+          "prestate": "Beat 1 / 4 one-batch, 64 robots",
+          "action": "Step forward three beats",
+          "poststate": "beat 4 / 4 recap: \"16,384 robots at once: 1.5 minutes of training\"; dashed curve shown with its 16,384-robot vertex at (234 124.46); How this was made reads the dashed time 4.8 minutes; marker at (234, 151.59); 256 robot dots; annotation about 1.5 minutes; exact 32-segment solid and dashed paths checked"
+        }
+      ]
+    }
+  ],
+  "originalId": "audit/rl-sim2real.md:parallel-sim-rl:18",
+  "currentTupleDigest": "76525c0cb451fdb2fb63e480f401058e14127344c331505056f87e190da8cc1c"
+}

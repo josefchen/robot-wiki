@@ -8,7 +8,15 @@ import { expect, test } from '@playwright/test';
  * module specs and the shared setSlider helper; this spec pins the
  * global path: skip link reachability, section toggles as buttons,
  * module links reachable by Tab, Enter activation, and the visible focus
- * outline (the locked 2px signal-blue global outline) on the focused stops.
+ * outline (the locked 1px ink global outline, offset 2px) on the focused
+ * stops.
+ *
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * the persistent sidebar is gone and the focus ring is a 1px ink outline
+ * offset 2px, in place of the 2px signal-blue ring. The taxonomy lives in
+ * the panel the top bar's "Articles" button opens, so the keyboard path
+ * reaches that button by Tab, opens the panel with Enter, and walks the
+ * same section toggles and module links inside it.
  */
 
 test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
@@ -27,17 +35,46 @@ test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
     await expect(skipLink).toBeFocused();
 
     // Focus outline is visibly painted on the focused stop: the locked
-    // 2px global ring, not merely any visible outline.
-    const outlineWidth = await page.evaluate(() => {
-      const active = document.activeElement as HTMLElement;
-      return parseFloat(getComputedStyle(active).outlineWidth);
+    // 1px ink ring offset 2px, not merely any visible outline.
+    const ring = await page.evaluate(() => {
+      const style = getComputedStyle(document.activeElement as HTMLElement);
+      return {
+        width: parseFloat(style.outlineWidth),
+        offset: parseFloat(style.outlineOffset),
+        color: style.outlineColor,
+      };
     });
-    expect(outlineWidth).toBe(2);
+    expect(ring.width).toBe(1);
+    expect(ring.offset).toBe(2);
+    expect(ring.color).toBe('rgb(28, 28, 26)');
 
-    // Move focus into the sidebar taxonomy. The section toggles are
+    // The taxonomy sits in the panel the top bar's "Articles" button
+    // opens. Walk tab stops until that button is focused and open the
+    // panel with Enter; focus moves into the panel.
+    const articles = page
+      .locator('[data-site-topbar]')
+      .getByRole('button', { name: 'Articles', exact: true });
+    let focusedArticles = false;
+    for (let i = 0; i < 6 && !focusedArticles; i += 1) {
+      await page.keyboard.press('Tab');
+      focusedArticles = await articles.evaluate(
+        (el) => el === document.activeElement,
+      );
+    }
+    expect(focusedArticles, 'Tab reaches the Articles button').toBe(true);
+    await page.keyboard.press('Enter');
+    await expect(
+      page.getByRole('dialog', { name: 'Site navigation' }),
+    ).toBeVisible();
+    await expect(articles).toHaveAttribute('aria-expanded', 'true');
+
+    // Move focus into the panel's taxonomy. The section toggles are
     // buttons (Enter toggles them) and the module links are links.
     // Walk tab stops until the Manipulation group toggle is focused.
-    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+    const nav = page.getByRole('navigation', {
+      name: 'Robot Wiki taxonomy drawer',
+      exact: true,
+    });
     let focusedToggle = false;
     for (let i = 0; i < 40 && !focusedToggle; i += 1) {
       await page.keyboard.press('Tab');
@@ -69,7 +106,7 @@ test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
         const active = document.activeElement;
         if (!active || active.tagName !== 'A') return false;
         const inNav = document
-          .querySelector('nav[aria-label="Robot Wiki taxonomy"]')
+          .querySelector('nav[aria-label="Robot Wiki taxonomy drawer"]')
           ?.contains(active);
         // A module route, not the group's Domain overview link: two
         // segments under /manipulation/ (e.g. /manipulation/bc-foundations/).
@@ -115,12 +152,17 @@ test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
     const after = await slider.evaluate((el) => (el as HTMLInputElement).value);
     expect(after).not.toBe(before);
 
-    // Focus is visibly painted on the slider too, at the locked 2px.
-    const sliderOutline = await page.evaluate(() => {
-      const active = document.activeElement as HTMLElement;
-      return parseFloat(getComputedStyle(active).outlineWidth);
+    // Focus is visibly painted on the slider too, at the locked 1px ring
+    // offset 2px.
+    const sliderRing = await page.evaluate(() => {
+      const style = getComputedStyle(document.activeElement as HTMLElement);
+      return {
+        width: parseFloat(style.outlineWidth),
+        offset: parseFloat(style.outlineOffset),
+      };
     });
-    expect(sliderOutline).toBe(2);
+    expect(sliderRing.width).toBe(1);
+    expect(sliderRing.offset).toBe(2);
 
     // A keyboard reader who does guess answers with Space on a choice,
     // which opens the reasoning and leaves the figure where it was.

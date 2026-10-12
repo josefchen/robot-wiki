@@ -1,0 +1,27 @@
+{
+  "values": {
+    "transitions": 220000000,
+    "rollout": 24,
+    "costs": [
+      0.02,
+      0.000004,
+      0.04,
+      0.03,
+      0.000022
+    ],
+    "authoredDomainBasis": "Illustrative robot counts at the scene beat ends and an assumed per-robot main-computer cost, not measured throughput.",
+    "beatRobots": {
+      "one-batch": 64,
+      "scale": 4096,
+      "cpu": 4096,
+      "recap": 16384
+    },
+    "curves": {
+      "solid": false,
+      "dashed": true
+    }
+  },
+  "units": "costs:s; robots:count; transitions:count",
+  "precision": "IEEE-754; existing model rounding only",
+  "formula": "batch-scale:parameters:v1"
+}

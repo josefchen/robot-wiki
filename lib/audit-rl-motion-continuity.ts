@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { z } from 'zod';
 import { createLocalArtifactReader, type LocalArtifact } from './audit-local-basis.ts';
+import { withRetiredLocalProofs } from './audit-retired-local-proofs.ts';
 
 const hash = z.string().regex(/^[a-f0-9]{64}$/);
 const artifact = z.object({
@@ -78,7 +79,7 @@ export function currentRlMotionArticle(
   const unchanged = cached?.bytes.equals(catalogBytes) ?? false;
   const catalog: ProofIndex = unchanged ? cached!.catalog : JSON.parse(catalogBytes.toString()) as ProofIndex;
   if (!unchanged) parsedInputCache?.set(key, { bytes: catalogBytes, catalog });
-  const bound = catalog.proofs.filter((proof) => proof.artifacts.some(({ file }) =>
+  const bound = withRetiredLocalProofs(root, catalog.proofs, parsedInputCache).filter((proof) => proof.artifacts.some(({ file }) =>
     file.path === proofReference.path && file.bytes === proofReference.bytes &&
     file.sha256 === proofReference.sha256)).map((proof) => proof.id).sort();
   if (JSON.stringify(bound) !== JSON.stringify(entry.proofIds)) {

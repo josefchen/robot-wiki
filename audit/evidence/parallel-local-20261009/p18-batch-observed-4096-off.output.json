@@ -1,0 +1,20 @@
+{
+  "values": {
+    "breakdown": {
+      "simSeconds": 0.036384,
+      "learnSeconds": 0.04,
+      "cpuSeconds": 0.03,
+      "totalSeconds": 0.106384
+    },
+    "iterations": 2237.9557291666665,
+    "seconds": 238.08268229166666,
+    "words": "4.0 minutes",
+    "display": [
+      "4,096 robots at once: 4.0 minutes of training",
+      "4,096 robots, 4.0 minutes"
+    ]
+  },
+  "units": "seconds:s; iterations:count; robots:count",
+  "precision": "words: hours or minutes toFixed(1), otherwise whole seconds",
+  "formula": "batch-scale:derive:v1"
+}

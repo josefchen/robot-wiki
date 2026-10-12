@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1772354, sha256: '47e3a423386d45aff06c01b1b69fb0a8d090aa59bd7d3f54f06e41f67924d83f' };
+const reviewPin = { bytes: 1781607, sha256: 'f03df6ccf517bc092a5ccedc341db99e707c71572591430b20679aa5128c9b1f' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -214,7 +214,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/industrial-deployment.spec.ts', [20621, '10d84964579f2cf6e4a0527bc278d69d84230ec4f015241d0c15358be0428726']],
   ['tests/e2e/industrial-release-evidence.spec.ts', [7926, 'e89ca29430687375c9bd5fa9fc4c793925748bf9f77f7bc751f0570ff9d57634']],
   ['tests/e2e/jepa.spec.ts', [6780, 'fde7919fffcea19d9252a60393607117480dc732d306ba9362472194b99c3186']],
-  ['tests/e2e/keyboard-only-navigation.spec.ts', [5841, '61b31f5c74a17dbd7aa1e5a384caa82878d22db38fa25405d0a45df5d031d7ab']],
+  ['tests/e2e/keyboard-only-navigation.spec.ts', [7487, '4e1739c438566529233ec54203df637fc0ba17341b43c75dddf8e56c35dfc752']],
   ['tests/e2e/kinematics.spec.ts', [22687, '34c0653d429a405a2abd24716293fcbe096e13b2e6854b3905329134c7be0c0e']],
   ['tests/e2e/latent-dynamics.spec.ts', [6947, 'a7bd7d7cfdcbe4602ea22d7320f0874416c76ef4ddb70abb9e653dc4415a9937']],
   ['tests/e2e/legged-locomotion.spec.ts', [7769, 'a51f62c715f375401b90dfb7c0ea3c2ac80c7f71ee76b8a80ad5de183dd1f0b2']],
@@ -229,7 +229,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/perception.spec.ts', [37417, '7ad6e146b37c8b85d53dc66e169a5db76ec6d6e1d7229c208d8be73d5636a585']],
   ['tests/e2e/pi-helix-theses-readers.spec.ts', [3798, 'd4d426d40a5d6ab1020e7e955e2c4d0c10e55d1a04ae6ac062b763743f2d9686']],
   ['tests/e2e/predict-then-reveal.spec.ts', [41092, '8fe64fe8441b66d0564c12575262d8883fd94999f7d28d07aec41b334128b3da']],
-  ['tests/e2e/randomization-reader-closeout.spec.ts', [20125, 'c049e1dcbf7ac5c7c226a4d94af917013c222940720e3b83c486093e8df5e697']],
+  ['tests/e2e/randomization-reader-closeout.spec.ts', [22249, 'dc2948af10c7b3c0c222e1725e0094daaa5f225dd4b1a97dd18f735905c8a182']],
   ['tests/e2e/residual-release-classical.spec.ts', [9970, 'cc144bbf81ab277e9be9bbc920f0a98559efe6e44663cd637d1f4dc1bcf39955']],
   ['tests/e2e/residual-release-final-seven.spec.ts', [8414, 'ab048ffe53ba61ba6e58395aadb53ffb59a4e40b4d554a44d61154fd1b8938f6']],
   ['tests/e2e/residual-release-industrial.spec.ts', [7926, '0599bcf96efc6477c6da0e4e5000b4d2c72c0bb760e02398bca448ebde2dd0ea']],

@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "local-run-v1",
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 PARALLEL_WRITE_NUMERIC=1 node_modules/.bin/vitest run tests/unit/parallel-local-evidence.test.ts -t \"records final native outputs\" --no-file-parallelism",
+  "runner": "vitest",
+  "cwd": "/srv/robot-wiki",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-10-12T00:02:09.887Z",
+  "endedAt": "2026-10-12T00:02:09.929Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/unit/parallel-local-evidence.test.ts",
+    "bytes": 12041,
+    "sha256": "b9070de0d151ee9f5f597be3dd19a7ca2b29905877b1df853078666d224eb7a3"
+  },
+  "inputDigest": "1eac18623f731f086db0d2613eea6f17a7eb2f2e7b464efbd86b4abf05a7bf92",
+  "outputDigest": "f27dd376b40a7ffd163aa1f5eb3f24b047247a0e493a66141af175f6d7810882",
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 11879,
+        "sha256": "de3f835a25ec25e9a63bee2054f64e7ffbaac61861ca5f80b88b1afabe0f3076"
+      },
+      "id": "article:rl-sim2real/parallel-sim-rl",
+      "offset": 0,
+      "length": 11879,
+      "sha256": "de3f835a25ec25e9a63bee2054f64e7ffbaac61861ca5f80b88b1afabe0f3076",
+      "baseline": {
+        "kind": "prose",
+        "hash": "bfe97876dacd5cdf5592aa9c3c413ad8ffbc875c5c1caddc79ecb74f195cfaef"
+      }
+    },
+    {
+      "file": {
+        "path": "components/motion/scenes/batch-scale.tsx",
+        "bytes": 12298,
+        "sha256": "07bd9e9882c36047595cc4d91c6bdb2db4ef069bfbbbd2c1aaf9d9e7db6e7be5"
+      },
+      "id": "source:components/motion/scenes/batch-scale.tsx",
+      "offset": 0,
+      "length": 12298,
+      "sha256": "07bd9e9882c36047595cc4d91c6bdb2db4ef069bfbbbd2c1aaf9d9e7db6e7be5",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "4bb57a260631c784a207c9f62135ab518c6a5729bb211156c99efce123a2ca3a"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/parallel-sim.ts",
+        "bytes": 6954,
+        "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+      },
+      "id": "file:lib/parallel-sim.ts",
+      "offset": 0,
+      "length": 6954,
+      "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 118682,
+        "sha256": "d2778193b282c32af9b463cbe3eb195c5a753179178b4674a10ff610194fa75d"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 118682,
+      "sha256": "d2778193b282c32af9b463cbe3eb195c5a753179178b4674a10ff610194fa75d"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/parallel-local-20261009/support.ts",
+        "bytes": 4906,
+        "sha256": "d27a288ec9b7cc94ec94787f8e054acbf6b1eed571052ab8a3336ebbd3e30852"
+      },
+      "id": "file:audit/evidence/parallel-local-20261009/support.ts",
+      "offset": 0,
+      "length": 4906,
+      "sha256": "d27a288ec9b7cc94ec94787f8e054acbf6b1eed571052ab8a3336ebbd3e30852"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/parallel-local-20260923/support.ts",
+        "bytes": 4769,
+        "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+      },
+      "id": "file:audit/evidence/parallel-local-20260923/support.ts",
+      "offset": 0,
+      "length": 4769,
+      "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+    },
+    {
+      "file": {
+        "path": "tests/unit/parallel-local-evidence.test.ts",
+        "bytes": 12041,
+        "sha256": "b9070de0d151ee9f5f597be3dd19a7ca2b29905877b1df853078666d224eb7a3"
+      },
+      "id": "file:tests/unit/parallel-local-evidence.test.ts",
+      "offset": 0,
+      "length": 12041,
+      "sha256": "b9070de0d151ee9f5f597be3dd19a7ca2b29905877b1df853078666d224eb7a3"
+    }
+  ],
+  "observations": []
+}

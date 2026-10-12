@@ -1,0 +1,396 @@
+{
+  "command": "NODE_DISABLE_COMPILE_CACHE=1 PARALLEL_WRITE_BROWSER=1 node_modules/.bin/playwright test tests/e2e/parallel-local-evidence.spec.ts --workers=1 --retries=0 --reporter=line --output=audit/evidence/parallel-local-20261009/playwright",
+  "runner": "playwright",
+  "cwd": "/srv/robot-wiki",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "startedAt": "2026-10-12T00:43:00.798Z",
+  "endedAt": "2026-10-12T00:43:23.016Z",
+  "exitCode": 0,
+  "test": {
+    "path": "tests/e2e/parallel-local-evidence.spec.ts",
+    "bytes": 12127,
+    "sha256": "d5960407c2a9e5bf01369f6f208e20a7dc3b18c1713eff22b8aa63722eb94992"
+  },
+  "dependencies": [
+    {
+      "file": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 11879,
+        "sha256": "de3f835a25ec25e9a63bee2054f64e7ffbaac61861ca5f80b88b1afabe0f3076"
+      },
+      "id": "article:rl-sim2real/parallel-sim-rl",
+      "offset": 0,
+      "length": 11879,
+      "sha256": "de3f835a25ec25e9a63bee2054f64e7ffbaac61861ca5f80b88b1afabe0f3076",
+      "baseline": {
+        "kind": "prose",
+        "hash": "bfe97876dacd5cdf5592aa9c3c413ad8ffbc875c5c1caddc79ecb74f195cfaef"
+      }
+    },
+    {
+      "file": {
+        "path": "components/motion/scenes/batch-scale.tsx",
+        "bytes": 12298,
+        "sha256": "07bd9e9882c36047595cc4d91c6bdb2db4ef069bfbbbd2c1aaf9d9e7db6e7be5"
+      },
+      "id": "source:components/motion/scenes/batch-scale.tsx",
+      "offset": 0,
+      "length": 12298,
+      "sha256": "07bd9e9882c36047595cc4d91c6bdb2db4ef069bfbbbd2c1aaf9d9e7db6e7be5",
+      "baseline": {
+        "kind": "interactive-sources-mounts",
+        "hash": "4bb57a260631c784a207c9f62135ab518c6a5729bb211156c99efce123a2ca3a"
+      }
+    },
+    {
+      "file": {
+        "path": "lib/parallel-sim.ts",
+        "bytes": 6954,
+        "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+      },
+      "id": "file:lib/parallel-sim.ts",
+      "offset": 0,
+      "length": 6954,
+      "sha256": "bb8aba78a14b319db18b01b154b6b028a36189a7c03d0c1889f3f55ed2b9148f"
+    },
+    {
+      "file": {
+        "path": "lib/audit-local-basis.ts",
+        "bytes": 118682,
+        "sha256": "d2778193b282c32af9b463cbe3eb195c5a753179178b4674a10ff610194fa75d"
+      },
+      "id": "file:lib/audit-local-basis.ts",
+      "offset": 0,
+      "length": 118682,
+      "sha256": "d2778193b282c32af9b463cbe3eb195c5a753179178b4674a10ff610194fa75d"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/parallel-local-20261009/support.ts",
+        "bytes": 4906,
+        "sha256": "d27a288ec9b7cc94ec94787f8e054acbf6b1eed571052ab8a3336ebbd3e30852"
+      },
+      "id": "file:audit/evidence/parallel-local-20261009/support.ts",
+      "offset": 0,
+      "length": 4906,
+      "sha256": "d27a288ec9b7cc94ec94787f8e054acbf6b1eed571052ab8a3336ebbd3e30852"
+    },
+    {
+      "file": {
+        "path": "audit/evidence/parallel-local-20260923/support.ts",
+        "bytes": 4769,
+        "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+      },
+      "id": "file:audit/evidence/parallel-local-20260923/support.ts",
+      "offset": 0,
+      "length": 4769,
+      "sha256": "9884abb78fbd6cd29c7451924bd39fc8de0d4bd7f753b1da5eec22e9a1342a8f"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/parallel-local-evidence.spec.ts",
+        "bytes": 12127,
+        "sha256": "d5960407c2a9e5bf01369f6f208e20a7dc3b18c1713eff22b8aa63722eb94992"
+      },
+      "id": "file:tests/e2e/parallel-local-evidence.spec.ts",
+      "offset": 0,
+      "length": 12127,
+      "sha256": "d5960407c2a9e5bf01369f6f208e20a7dc3b18c1713eff22b8aa63722eb94992"
+    },
+    {
+      "file": {
+        "path": "tests/e2e/helpers/figure-fold.ts",
+        "bytes": 1299,
+        "sha256": "9d74d5431bd5eae35e6ed347d307de2d7c24870640fee95bbe5674f6d1dbf8bf"
+      },
+      "id": "file:tests/e2e/helpers/figure-fold.ts",
+      "offset": 0,
+      "length": 1299,
+      "sha256": "9d74d5431bd5eae35e6ed347d307de2d7c24870640fee95bbe5674f6d1dbf8bf"
+    }
+  ],
+  "observations": [
+    {
+      "name": "default",
+      "input": {
+        "envs": 16384,
+        "cpuBound": false
+      },
+      "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+      "caseId": "default",
+      "prestate": "Article not loaded",
+      "action": "Navigate to the article at 1440 px and open How this was made",
+      "poststate": "beat 4 / 4 recap: \"16,384 robots at once: 1.5 minutes of training\"; How this was made reads \"16,384 robots, 1.5 minutes\"; dashed curve shown; marker at (234, 151.59); 256 robot dots; annotation about 1.5 minutes; exact 32-segment solid and dashed paths checked",
+      "readouts": [
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-testid=\"motion-readout\"]",
+          "text": "16,384 robots at once: 1.5 minutes of training"
+        },
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-figure-fold=\"method\"]",
+          "text": "16,384 robots, 1.5 minutes"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "dom": {
+        "path": "audit/evidence/parallel-local-20261009/captures/default.dom.json",
+        "bytes": 217890,
+        "sha256": "2f54bd83b048e885f885536b8ba5920b0dd6399e7ed558c4c9bb26984314219c"
+      },
+      "capture": {
+        "path": "audit/evidence/parallel-local-20261009/captures/default.png",
+        "bytes": 121555,
+        "sha256": "7c5415c2989f9ce9bc1e83d30b20ccfae643393a69310f58b540e28d4efaaec2"
+      }
+    },
+    {
+      "name": "cpu",
+      "input": {
+        "envs": 4096,
+        "cpuBound": true
+      },
+      "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+      "caseId": "step-each-beat",
+      "prestate": "Poster at beat 4 / 4 recap, 16,384 robots",
+      "action": "Open Adjust more and step back one beat",
+      "poststate": "beat 3 / 4 cpu: \"4,096 robots at once: 4.0 minutes of training\"; dashed curve shown with its 4,096-robot vertex at (191 114.93); How this was made reads the dashed time 7.3 minutes; marker at (191, 128.82); 64 robot dots; exact 32-segment solid and dashed paths checked",
+      "readouts": [
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-figure-fold=\"method\"]",
+          "text": "7.3 minutes"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "dom": {
+        "path": "audit/evidence/parallel-local-20261009/captures/cpu.dom.json",
+        "bytes": 215414,
+        "sha256": "c0a982323ae51c8fd05c4f5015eae8d0dba8a0d7e9ea2712ea3eb93d69ae1875"
+      },
+      "capture": {
+        "path": "audit/evidence/parallel-local-20261009/captures/cpu.png",
+        "bytes": 108919,
+        "sha256": "aa4010a5a72fd1590258368ac11ef23fafe54bc620e0f6573965ae308c579d76"
+      }
+    },
+    {
+      "name": "scale",
+      "input": {
+        "envs": 4096,
+        "cpuBound": false
+      },
+      "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+      "caseId": "step-each-beat",
+      "prestate": "Beat 3 / 4 cpu, 4,096 robots",
+      "action": "Step back one beat",
+      "poststate": "beat 2 / 4 scale: \"4,096 robots at once: 4.0 minutes of training\"; How this was made reads \"4,096 robots, 4.0 minutes\"; dashed curve hidden; marker at (191, 128.82); 64 robot dots; exact 32-segment solid and dashed paths checked",
+      "readouts": [
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-testid=\"motion-readout\"]",
+          "text": "4,096 robots at once: 4.0 minutes of training"
+        },
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-figure-fold=\"method\"]",
+          "text": "4,096 robots, 4.0 minutes"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "dom": {
+        "path": "audit/evidence/parallel-local-20261009/captures/scale.dom.json",
+        "bytes": 215383,
+        "sha256": "464fb9d660a6e420e869e1d46de0cbf125c6378f143655283d87690e55c09e2f"
+      },
+      "capture": {
+        "path": "audit/evidence/parallel-local-20261009/captures/scale.png",
+        "bytes": 107594,
+        "sha256": "357d41563037a3fbde0c007b5be163bc798b1fd821f04f04c0a9afed7d90fc0f"
+      }
+    },
+    {
+      "name": "one-batch",
+      "input": {
+        "envs": 64,
+        "cpuBound": false
+      },
+      "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+      "caseId": "step-each-beat",
+      "prestate": "Beat 2 / 4 scale, 4,096 robots",
+      "action": "Step back one beat",
+      "poststate": "beat 1 / 4 one-batch: \"64 robots at once: 3.6 hours of training\"; How this was made reads \"64 robots, 3.6 hours\"; dashed curve hidden; marker at (62, 38.44); 1 robot dots; exact 32-segment solid and dashed paths checked",
+      "readouts": [
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-testid=\"motion-readout\"]",
+          "text": "64 robots at once: 3.6 hours of training"
+        },
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-figure-fold=\"method\"]",
+          "text": "64 robots, 3.6 hours"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "dom": {
+        "path": "audit/evidence/parallel-local-20261009/captures/one-batch.dom.json",
+        "bytes": 214402,
+        "sha256": "cf61094bf08793f0db01b4ddd86745c48ba2c4f82881faee6dc0adc826aa8199"
+      },
+      "capture": {
+        "path": "audit/evidence/parallel-local-20261009/captures/one-batch.png",
+        "bytes": 106218,
+        "sha256": "65e395522a1292ee6bef0b52b4cd3c9864e3be6a814b5da0f9c7e6f19cdde97b"
+      }
+    },
+    {
+      "name": "one-batch-keyboard",
+      "input": {
+        "envs": 64,
+        "cpuBound": true
+      },
+      "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+      "caseId": "step-each-beat",
+      "prestate": "Beat 1 / 4 one-batch, 64 robots",
+      "action": "Press Home, then ArrowRight: the keyboard steps from the start to the first beat end",
+      "poststate": "beat 1 / 4 one-batch: \"64 robots at once: 3.6 hours of training\"; dashed curve hidden with its 64-robot vertex at (62 38.09); How this was made reads the dashed time 3.6 hours; marker at (62, 38.44); 1 robot dots; exact 32-segment solid and dashed paths checked",
+      "readouts": [
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-figure-fold=\"method\"]",
+          "text": "3.6 hours"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "dom": {
+        "path": "audit/evidence/parallel-local-20261009/captures/one-batch-keyboard.dom.json",
+        "bytes": 214402,
+        "sha256": "cf61094bf08793f0db01b4ddd86745c48ba2c4f82881faee6dc0adc826aa8199"
+      },
+      "capture": {
+        "path": "audit/evidence/parallel-local-20261009/captures/one-batch-keyboard.png",
+        "bytes": 104493,
+        "sha256": "06adabf6a6bc35732a7757f5260e8f9fc91f71922a7a3cd460faedb5d67d1d63"
+      }
+    },
+    {
+      "name": "recap",
+      "input": {
+        "envs": 16384,
+        "cpuBound": true
+      },
+      "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+      "caseId": "step-each-beat",
+      "prestate": "Beat 1 / 4 one-batch, 64 robots",
+      "action": "Step forward three beats",
+      "poststate": "beat 4 / 4 recap: \"16,384 robots at once: 1.5 minutes of training\"; dashed curve shown with its 16,384-robot vertex at (234 124.46); How this was made reads the dashed time 4.8 minutes; marker at (234, 151.59); 256 robot dots; annotation about 1.5 minutes; exact 32-segment solid and dashed paths checked",
+      "readouts": [
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-figure-fold=\"method\"]",
+          "text": "4.8 minutes"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "dom": {
+        "path": "audit/evidence/parallel-local-20261009/captures/recap.dom.json",
+        "bytes": 218352,
+        "sha256": "e13378fc809a15d2cdfe90133ab04dd3950e11a792f16572d435ea6c7645aee2"
+      },
+      "capture": {
+        "path": "audit/evidence/parallel-local-20261009/captures/recap.png",
+        "bytes": 116341,
+        "sha256": "83c57151b6eafca094c20db6a2c93f57efbf2674c071b80c1d9e1e1c7261bb0f"
+      }
+    },
+    {
+      "name": "reset",
+      "input": {
+        "envs": 16384,
+        "cpuBound": false
+      },
+      "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+      "caseId": "reset",
+      "prestate": "Beat 3 / 4 cpu, stepped back one beat from the recap",
+      "action": "Activate Reset",
+      "poststate": "beat 4 / 4 recap: \"16,384 robots at once: 1.5 minutes of training\"; How this was made reads \"16,384 robots, 1.5 minutes\"; dashed curve shown; marker at (234, 151.59); 256 robot dots; annotation about 1.5 minutes; exact 32-segment solid and dashed paths checked",
+      "readouts": [
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-testid=\"motion-readout\"]",
+          "text": "16,384 robots at once: 1.5 minutes of training"
+        },
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-figure-fold=\"method\"]",
+          "text": "16,384 robots, 1.5 minutes"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "dom": {
+        "path": "audit/evidence/parallel-local-20261009/captures/reset.dom.json",
+        "bytes": 218352,
+        "sha256": "e13378fc809a15d2cdfe90133ab04dd3950e11a792f16572d435ea6c7645aee2"
+      },
+      "capture": {
+        "path": "audit/evidence/parallel-local-20261009/captures/reset.png",
+        "bytes": 115742,
+        "sha256": "0a0438dfce793c140f8eafd329502d2bf3d789dd2906b592ff94d836f4460dc8"
+      }
+    },
+    {
+      "name": "mobile-default",
+      "input": {
+        "envs": 16384,
+        "cpuBound": false
+      },
+      "mountId": "mount:/rl-sim2real/parallel-sim-rl/:BatchScale:1",
+      "caseId": "default",
+      "prestate": "Desktop reset state",
+      "action": "Resize the mounted scene to 375 px",
+      "poststate": "beat 4 / 4 recap: \"16,384 robots at once: 1.5 minutes of training\"; How this was made reads \"16,384 robots, 1.5 minutes\"; dashed curve shown; marker at (234, 151.59); 256 robot dots; annotation about 1.5 minutes; exact 32-segment solid and dashed paths checked",
+      "readouts": [
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-testid=\"motion-readout\"]",
+          "text": "16,384 robots at once: 1.5 minutes of training"
+        },
+        {
+          "selector": "[data-motion-scene=\"batch-scale\"] [data-figure-fold=\"method\"]",
+          "text": "16,384 robots, 1.5 minutes"
+        }
+      ],
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "dom": {
+        "path": "audit/evidence/parallel-local-20261009/captures/mobile-default.dom.json",
+        "bytes": 210378,
+        "sha256": "63fff2fa52a965dae0c42b366e1e9e1227085510c9642d55c089f96dc591ee30"
+      },
+      "capture": {
+        "path": "audit/evidence/parallel-local-20261009/captures/mobile-default.png",
+        "bytes": 53277,
+        "sha256": "adafe2ca2bb056756482c05413599642e557e4e32c0eb4ab85d6294a836b55f5"
+      }
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": [],
+  "desktopAxeViolations": [],
+  "mobileAxeViolations": []
+}

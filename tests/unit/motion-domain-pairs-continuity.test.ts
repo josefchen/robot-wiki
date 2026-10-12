@@ -25,6 +25,40 @@ describe('historical RL proof dependency continuity', () => {
     });
   }
 
+  it.each(['changed-archive', 'missing-archive', 'live-id-takes-over'] as const)(
+    'counts the archived parallel18 proofs for the chart binding and rejects %s', mutation => {
+      const destination = mkdtempSync(join(tmpdir(), 'domain-pairs-retired-'));
+      try {
+        const archivePath = 'audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json';
+        const catalogPath = 'audit/local-basis.json';
+        const snapshot = 'audit/evidence/motion-domain-pairs-20260928/training-time-chart-before.tsx.txt';
+        for (const path of [archivePath, catalogPath, snapshot,
+          'audit/evidence/motion-domain-pairs-20260928/transition.json']) {
+          mkdirSync(dirname(join(destination, path)), { recursive: true });
+          copyFileSync(join(root, path), join(destination, path));
+        }
+        const source = 'components/interactive/training-time-chart.tsx';
+        const current = read(source);
+        expect(retainedDomainPairSource(destination, source, current)).toEqual(read(snapshot));
+        if (mutation === 'changed-archive') {
+          writeFileSync(join(destination, archivePath), `${readFileSync(join(destination, archivePath), 'utf8')}\n`);
+        }
+        if (mutation === 'missing-archive') rmSync(join(destination, archivePath));
+        if (mutation === 'live-id-takes-over') {
+          const catalog = JSON.parse(readFileSync(join(destination, catalogPath), 'utf8'));
+          catalog.proofs.push({ id: 'p18-parameters', artifacts: [] });
+          writeFileSync(join(destination, catalogPath), JSON.stringify(catalog));
+        }
+        expect(() => retainedDomainPairSource(destination, source, current)).toThrow(
+          mutation === 'changed-archive' ? /retired local proof archive drift/
+            : mutation === 'missing-archive' ? /ENOENT/ : /source continuity drift/,
+        );
+      } finally {
+        rmSync(destination, { recursive: true, force: true });
+      }
+    },
+  );
+
   it('retains the predecessor checker only for the exact source-reader extension', () => {
     const current = read('lib/audit-local-basis.ts');
     const archived = read('audit/evidence/motion-domain-pairs-20260928/audit-local-basis-before.ts.txt');
