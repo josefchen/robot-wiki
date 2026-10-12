@@ -49,6 +49,7 @@ citations:
   - sleiman-wbmpc-2021
   - rai-iros-2026
   - zest-2026
+  - sgs-2026
 seeAlso:
   - "rl-sim2real/sim2real-transfer"
   - "world-models/model-based-robot-learning"
@@ -110,6 +111,8 @@ Terrain curriculum promotes robots that succeed on a tile to harder terrain and 
 Isaac Lab's DexPBT workers run independent RL processes with their own hyperparameters, and strong workers replace weak workers' weights and hyperparameters. Its RL-Games implementation reproduces a 6D reposing task with eight workers on one to two GPUs each, converging in about 16 hours on NVIDIA OVX L40 hardware <Cite id="isaac-lab-2025" />. Eurekaverse has a language model write progressively harder parkour environments as code, and its curriculum transfers to a real quadruped, outperforming courses designed by humans <Cite id="eurekaverse-2024" />.
 
 BVER, from Marco Hutter (ETH Zurich) and colleagues (October 2026), borrows from [bidirectional RRT](/classical/motion-planning/): it grows start states outward from the goal and goals outward from the start, steering them toward each other. On quadruped box climbing it reached 95% success on a 0.4 m box in about 65% fewer iterations than the best reference-free curriculum it was compared with. It was also the only one of them to learn a 0.7 m box <Cite id="bver-2026" />. Model-based control can also drive the curriculum: ZEST adds a model-based assistive wrench as an automatic curriculum during RL training <Cite id="zest-2026" />.
+
+Success Guided Sampling (SGS), from Octi Zhang, Byron Boots and colleagues at the University of Washington and NVIDIA (CoRL 2026), applies the same idea to task configurations in general. It samples the configurations near the edge of what the policy can do, because uniform sampling spends a growing share of each batch on configurations already mastered or still out of reach. With up to about a million parallel environments, it solved multi-terrain quadruped locomotion and contact-rich assembly tasks that the prior methods it was compared with failed to solve, and the distilled RGB assembly policies transferred zero-shot to real hardware <Cite id="sgs-2026" />.
 
 ## The classical baseline got stronger
 

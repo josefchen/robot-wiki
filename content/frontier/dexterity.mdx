@@ -37,6 +37,7 @@ citations:
   - fingr-2026
   - tacdyn-wam-2026
   - bd-atlas-hand-2026
+  - eigendexplore-2026
 seeAlso:
   - "data-hardware/hardware-taxonomy"
   - "data-hardware/teleop-rigs"
@@ -102,6 +103,8 @@ Progress here is real but narrow. Sanctuary announced in-hand manipulation with 
 In June 2026, Xinghao Zhu, Yuke Zhu and colleagues reported CHORD, a reinforcement-learning framework for long-horizon dexterous manipulation that compares human and robot motions by the forces and torques they can induce on the object. On 1,831 tasks from its simulated benchmark of 4,739 bimanual tasks, it averaged 82.12% success, and its learned policies transferred to the real world <Cite id="chord-2026" />.
 
 In September 2026, Yutong Liang, Quanquan Peng, Matthew Kim and Xiaolong Wang reported FINGR, a flow policy that turns Rubik's Cube layers with a single real dexterous hand. It succeeded on 99.0% of 300 turn attempts, against 79.7% for the base flow policy, and with grasping and table-assisted regrasping added it solved all ten scrambled 2×2×2 cubes in about 137 seconds on average <Cite id="fingr-2026" />.
+
+In October 2026, Harsh Gupta, Tyler Ga Wei Lum, Jeannette Bohg, Shuran Song and colleagues at Stanford reported that human hand-motion priors help most when they structure exploration and leave the action space unchanged. Their EigenDEXplore adds noise along eigenvectors of human hand motion to ordinary joint-space noise, and across several dexterous hands it outperformed joint-space and learned action-space baselines in grasping, in-hand reorientation and contact-rich manipulation, with the largest gains where rewards and curricula were least engineered <Cite id="eigendexplore-2026" />.
 
 ## Deformables and the long tail
 
