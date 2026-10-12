@@ -289,6 +289,7 @@ function CandidateFan({
           <path
             key={i}
             data-testid="candidate-sequence"
+            data-series="tried"
             d={movePath(view, origin, c)}
             fill="none"
             stroke={ACTION}
@@ -302,6 +303,7 @@ function CandidateFan({
       <path
         data-testid="candidate-sequence"
         data-candidate="kept"
+        data-series="kept"
         d={movePath(view, origin, kept)}
         fill="none"
         stroke={ACTION}
@@ -410,7 +412,7 @@ export function JepaPlanning({
       <PictureLabel lines={PICTURE_LABEL.now} x={PICTURE.inset} y={labelY} anchor="start" />
       <PictureLabel lines={PICTURE_LABEL[goalId]} x={W - PICTURE.inset} y={labelY} anchor="end" />
       {lastPlan ? <CandidateFan view={view} origin={history[steps - 1]} plan={lastPlan} /> : null}
-      <g data-testid="walked-path">
+      <g data-testid="walked-path" data-series="path">
         <LineTrace points={walked} role="state" />
         {walked.slice(0, -1).map(([x, y], i) => (
           <circle key={i} cx={f(x)} cy={f(y)} r={2.5} fill={roleColour('state')} />

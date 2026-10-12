@@ -1,6 +1,22 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Locator } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { waitForHydration } from './interaction-ready';
+import { citeParts, revealCiteNote } from './helpers/citation-note';
+
+/**
+ * The box of a citation's source popup. Owner-approved successor (Josef,
+ * 2026-10-10, the research-page standard): the focus tooltip became a
+ * sidenote (tests/e2e/helpers/citation-note.ts), so the note is shown by
+ * keyboard, as the tooltip was, and its source link is checked first.
+ */
+async function sourceNoteBox(cite: Locator) {
+  const { mark, source } = citeParts(cite);
+  await expect(source).toHaveAttribute('href', /^https?:\/\//);
+  // Enter before hydration follows the number's #ref- link instead of
+  // opening the note.
+  await waitForHydration(mark);
+  return (await revealCiteNote(cite, 'keyboard')).boundingBox();
+}
 
 test.beforeEach(async ({ context }) => {
   await context.route('**/*', route => {
@@ -40,21 +56,28 @@ for (const width of [1440, 375]) {
     }
     const eureka = prose.locator('li').filter({ hasText: 'Task fitness may miss human intent.' })
       .locator('[data-cite-id="eureka-2024"]');
-    await eureka.locator('a[href^="http"]').focus();
-    const popup = await eureka.getByRole('tooltip').boundingBox();
+    const popup = await sourceNoteBox(eureka);
     expect(popup).not.toBeNull();
     expect(popup!.x).toBeGreaterThanOrEqual(0);
     expect(popup!.x + popup!.width).toBeLessThanOrEqual(width);
     const authors = page.locator('[data-reference-id="grs-2024"] [data-author-names]');
     await expect(authors).toHaveText('Alex Zook, Fan-Yun Sun, Josef Spjut, Valts Blukis, Stan Birchfield, Jonathan Tremblay');
-    const physics = page.getByRole('button', { name: /^physics proxy$/i });
-    // Nothing earlier in this test needs a hydrated control, so the first
-    // key press can arrive before the handler exists.
-    await waitForHydration(physics);
+    // The physics-proxy layer (collision hull, mass and friction) is the
+    // "Shape, weight and friction" toggle. It and Reset sit in the push
+    // figure's closed "Adjust more" fold, which a reader opens through its
+    // summary. A fold opened before hydration makes React report an `open`
+    // mismatch.
+    const figure = page.locator('main [data-figure-frame="appearance-physics-push"]');
+    const adjust = figure.locator('[data-figure-fold="adjust"] > summary');
+    await waitForHydration(adjust);
+    await adjust.click();
+    const physics = figure
+      .getByRole('group', { name: 'Layers' })
+      .getByRole('button', { name: 'Shape, weight and friction', exact: true });
     await physics.focus();
     await page.keyboard.press('Enter');
     await expect(physics).toHaveAttribute('aria-pressed', 'true');
-    await page.getByRole('button', { name: 'Reset', exact: true }).click();
+    await figure.getByRole('button', { name: 'Reset', exact: true }).click();
     await expect(physics).toHaveAttribute('aria-pressed', 'false');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
@@ -74,8 +97,7 @@ for (const width of [1440, 375]) {
     await expect(prose).toContainText('so 52% measures normalized reward improvement');
     const eureka = prose.locator('p').filter({ hasText: /^Eureka searches over reward code/ })
       .locator('[data-cite-id="eureka-2024"]');
-    await eureka.locator('a[href^="http"]').focus();
-    const popup = await eureka.getByRole('tooltip').boundingBox();
+    const popup = await sourceNoteBox(eureka);
     expect(popup).not.toBeNull();
     expect(popup!.x).toBeGreaterThanOrEqual(0);
     expect(popup!.x + popup!.width).toBeLessThanOrEqual(width);
