@@ -116,9 +116,11 @@ function throughSeoPass(path: string) {
   // The 2026-10-06 domain pass rewrote some articles from the owner's
   // drafts; its edges bind the KOL endpoint (scene-representation takes the
   // 2026-10-07 KOL intake first, then the classical draft), and the later
-  // classical pass carries that endpoint to the live article. The
-  // world-models drafts land in their own 2026-10-10 block, whose edges bind
-  // the same endpoint.
+  // classical pass carries that endpoint on. The world-models drafts land in
+  // their own 2026-10-10 block, whose edges bind the same endpoint. The
+  // frontier drafts land in their own 2026-10-10 block after the classical
+  // pass (and after its 2026-10-08 QA fixes, such as bear-case's) and after
+  // the 2026-10-12 KOL triage batch, so the walk checks them last.
   const domainPrefixes = ['domain-pass-20261006-', 'world-models-pass-20261010-'];
   const domainEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
     && domainPrefixes.some(prefix => a.id.startsWith(prefix)));
@@ -145,6 +147,15 @@ function throughSeoPass(path: string) {
   for (const kol of kolEdges) {
     expect(continues(kol, end)).toBe(true);
     end = kol.newHash;
+  }
+  // The frontier block of 2026-10-10 landed after that batch; its one edge on
+  // the article continues the previous endpoint the same way.
+  const frontierEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('frontier-pass-20261010-'));
+  expect(frontierEdges.length).toBeLessThanOrEqual(1);
+  for (const frontier of frontierEdges) {
+    expect(continues(frontier, end)).toBe(true);
+    end = frontier.newHash;
   }
   expect(end).toBe(hashOf(readLive(path)));
 }

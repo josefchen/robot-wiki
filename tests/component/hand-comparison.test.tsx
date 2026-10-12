@@ -134,7 +134,7 @@ describe('HandComparison', () => {
       'most ways to move first',
     );
     await user.click(screen.getByRole('button', { name: 'Reverse the order', hidden: true }));
-    expect(cardOrder()[0]).toBe('unitree-h2');
+    expect(cardOrder()[0]).toBe('figure-02-03');
     expect(screen.getByRole('button', { name: 'Most joints' })).toHaveAttribute(
       'aria-pressed',
       'false',

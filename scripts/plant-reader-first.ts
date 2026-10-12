@@ -13,6 +13,7 @@ import { dirname, join, resolve } from 'node:path';
 import { JSDOM } from 'jsdom';
 import { publishedModules } from '../data/modules.ts';
 import { RECORD_DIR, REGISTRY_PATH, readRegistry, recordPath, type RegistryEntry } from '../lib/reader-first.ts';
+import { RUBRIC_PATH } from '../lib/reader-first-rubric.ts';
 
 const args = process.argv.slice(2);
 const at = args.indexOf('--out');
@@ -23,7 +24,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 function mirror(): string {
   const copy = mkdtempSync(join(tmpdir(), 'reader-first-plant-'));
-  const files = [REGISTRY_PATH, ...new Set(registry.figures.flatMap((entry) => entry.sources))];
+  const files = [REGISTRY_PATH, RUBRIC_PATH, ...new Set(registry.figures.flatMap((entry) => entry.sources))];
   for (const file of files) {
     mkdirSync(dirname(join(copy, file)), { recursive: true });
     cpSync(file, join(copy, file));

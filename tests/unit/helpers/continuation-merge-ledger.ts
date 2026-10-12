@@ -337,6 +337,9 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   2026-10-12 registered thirteen records for its sentences on ten
  *   articles, which moved `citation-rendering:label-and-meta` with another
  *   resolution.
+ * - `frontier-pass-20261010-`: the frontier domain pass of 2026-10-10 moved
+ *   the five frontier pass articles, dexterity's citations list and the
+ *   glossary, and registered its new records, in the same shape.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -367,6 +370,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'domain-pass-20261009-kol-citation-rendering',
   'world-models-pass-20261010-',
   'domain-pass-20261012-kol-citation-rendering',
+  'frontier-pass-20261010-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

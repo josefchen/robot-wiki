@@ -8,11 +8,14 @@
  * `evidence/reader-first/`, written after a reviewer with no engineering
  * background saw only the frame's two screenshots, at 1280 and 375 px wide.
  * A record is current while the digest of the registered source files
- * equals the digest stored at the commit its screenshots were taken at.
+ * equals the digest stored at the commit its screenshots were taken at,
+ * and while the fixed reviewer rubric (`contract/reader-first-rubric.json`)
+ * is the one the figure was reviewed under.
  */
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { RUBRIC_PATH, countedTerms, loadRubric, type LoadedRubric } from './reader-first-rubric.ts';
 
 export const REGISTRY_PATH = 'contract/reader-first-registry.json';
 export const RECORD_DIR = 'evidence/reader-first';
@@ -49,6 +52,8 @@ export type ReaderRecord = {
   date: string;
   reviewerSession: string;
   sourceDigest: string;
+  /** SHA-256 of the rubric file the figure was reviewed under; absent before the fixed rubric. */
+  rubricDigest?: string;
 };
 
 export const recordPath = (id: string) => `${RECORD_DIR}/${id}.json`;
@@ -74,7 +79,7 @@ const NAMED_TOOL = /\b(claude|opus|sonnet|haiku|anthropic|openai|gpt|gemini|grok
 const NEUTRAL_SESSION = /^reader-session-[0-9a-z-]+$/;
 
 /** Problems with one entry's record, each naming the figure. */
-export function recordProblems(root: string, entry: RegistryEntry): string[] {
+export function recordProblems(root: string, entry: RegistryEntry, rubric: LoadedRubric = loadRubric(root)): string[] {
   const name = `${entry.route} [${entry.figure}]`;
   const path = join(root, recordPath(entry.id));
   if (!existsSync(path)) return [`${name}: no reader-test record at ${recordPath(entry.id)}`];
@@ -91,8 +96,16 @@ export function recordProblems(root: string, entry: RegistryEntry): string[] {
   }
   if (record.takeaway !== entry.takeaway) problems.push(`${name}: record was tested against another takeaway`);
   if (record.verdict !== 'pass') problems.push(`${name}: reader-test verdict is ${record.verdict}`);
-  if (record.samePoint !== 'yes' || (record.unclearTerms ?? []).length > 0) {
-    problems.push(`${name}: reader-test record does not support a pass`);
+  const counted = countedTerms(rubric.rubric, ([] as unknown[]).concat(record.unclearTerms ?? []).map(String));
+  const against = [
+    record.samePoint !== 'yes' ? 'missed point' : '',
+    counted.length ? `${counted.length} counted unclear term${counted.length === 1 ? '' : 's'}` : '',
+  ].filter(Boolean);
+  if (against.length) problems.push(`${name}: reader-test record does not support a pass (${against.join(', ')})`);
+  if (record.rubricDigest !== rubric.digest) {
+    problems.push(typeof record.rubricDigest === 'string'
+      ? `${name}: reviewed under another reader-test rubric (digest ${rubric.digest.slice(0, 12)}, record ${record.rubricDigest.slice(0, 12)})`
+      : `${name}: reviewed before the fixed reader-test rubric (${RUBRIC_PATH})`);
   }
   for (const width of READER_WIDTHS) {
     const shot = record.screenshots?.[String(width) as '1280' | '375'];

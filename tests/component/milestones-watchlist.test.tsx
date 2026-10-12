@@ -41,7 +41,7 @@ describe('MilestonesWatchlist', () => {
     }
     expect(screen.getByTestId('watchlist-score')).toHaveTextContent('0 of 8 done');
     expect(screen.getByTestId('watchlist-tally')).toHaveTextContent(
-      '4 partly there, 4 not yet, 0 done',
+      '5 partly there, 3 not yet, 0 done',
     );
     expect(screen.getByTestId('watchlist-readout')).toHaveTextContent(/^Showing all 8$/);
   });
@@ -106,13 +106,13 @@ describe('MilestonesWatchlist', () => {
     await user.click(screen.getByRole('button', { name: 'Not yet' }));
 
     const tiles = screen.getAllByTestId(/^milestone-tile-/);
-    expect(tiles.length).toBe(4);
+    expect(tiles.length).toBe(3);
     for (const element of tiles) {
       expect(element).toHaveAttribute('data-status', 'not-met');
     }
     expect(screen.getByRole('button', { name: 'Not yet' })).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByTestId('watchlist-readout')).toHaveTextContent(
-      'Showing 4 of 8: not yet',
+      'Showing 3 of 8: not yet',
     );
     expect(screen.queryByTestId('milestone-detail')).not.toBeInTheDocument();
   });
@@ -173,7 +173,7 @@ describe('MilestonesWatchlist', () => {
     const user = userEvent.setup();
     render(<MilestonesWatchlist />);
     await user.click(screen.getByRole('button', { name: 'Partly' }));
-    expect(screen.getAllByTestId(/^milestone-tile-/)).toHaveLength(4);
+    expect(screen.getAllByTestId(/^milestone-tile-/)).toHaveLength(5);
     await user.click(tile('data-scaling-law'));
 
     const reset = screen.getByRole('button', { name: /reset/i, hidden: true });

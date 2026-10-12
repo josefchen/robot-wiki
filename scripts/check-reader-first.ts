@@ -10,6 +10,10 @@
  * registered figure's main view (header, stage, controls and caption, with
  * both folds closed) shows a symbol or a bare unit from the committed
  * pattern list in lib/figure-main-view.ts. Every message names the figure.
+ *
+ * A listed unclear term counts unless the fixed reviewer rubric in
+ * contract/reader-first-rubric.json exempts it, and a record made under any
+ * other version of that file is not current.
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -17,6 +21,7 @@ import { JSDOM } from 'jsdom';
 import { publishedModules } from '../data/modules.ts';
 import { mainViewSymbolHits } from '../lib/figure-main-view.ts';
 import { readRegistry, recordProblems, registryProblems } from '../lib/reader-first.ts';
+import { loadRubric, rubricProblems } from '../lib/reader-first-rubric.ts';
 
 const args = process.argv.slice(2);
 const option = (name: string, fallback: string) => {
@@ -27,8 +32,9 @@ const root = resolve(option('--root', '.'));
 const out = resolve(option('--out', join(root, 'out')));
 
 const registry = readRegistry(root);
-const problems = registryProblems(root, registry);
-for (const entry of registry.figures) problems.push(...recordProblems(root, entry));
+const rubric = loadRubric(root);
+const problems = [...rubricProblems(rubric.rubric), ...registryProblems(root, registry)];
+for (const entry of registry.figures) problems.push(...recordProblems(root, entry, rubric));
 
 const routes = ['/', '/credits/', ...publishedModules().map(({ domain, slug }) => `/${domain}/${slug}/`)];
 const registered = new Map(registry.figures.map((entry) => [`${entry.route} ${entry.figure}`, entry]));

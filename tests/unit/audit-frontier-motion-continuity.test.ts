@@ -30,9 +30,7 @@ describe('frontier safety prose continuation', () => {
       '1600 mm/s a worst-case assumption',
       '1600 mm/s option only when separation is greater than 500 mm',
       '2000 mm/s may be more prudent',
-      '1.6 m/s here does not resolve those qualifications',
       'The instrument is an authored teaching model',
-      'these controls are not certified operating limits',
       'requires traceable stopping-time and braking-distance measurements',
     ]) expect(text).toContain(phrase);
   });

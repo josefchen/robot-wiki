@@ -124,8 +124,8 @@
     "minutes": 10
   },
   "data-hardware/data-bottleneck": {
-    "words": 1865,
-    "minutes": 9
+    "words": 2098,
+    "minutes": 10
   },
   "data-hardware/datasets": {
     "words": 1994,
@@ -148,16 +148,16 @@
     "minutes": 14
   },
   "data-hardware/robot-learning-stack": {
-    "words": 1212,
-    "minutes": 6
+    "words": 1314,
+    "minutes": 7
   },
   "classical/kinematics": {
     "words": 1899,
     "minutes": 9
   },
   "classical/motion-planning": {
-    "words": 3028,
-    "minutes": 15
+    "words": 3111,
+    "minutes": 16
   },
   "classical/control": {
     "words": 2622,
@@ -188,28 +188,28 @@
     "minutes": 6
   },
   "frontier/reliability-gap": {
-    "words": 1608,
-    "minutes": 8
-  },
-  "frontier/dexterity": {
-    "words": 2882,
-    "minutes": 14
-  },
-  "frontier/generalization": {
-    "words": 2091,
-    "minutes": 10
-  },
-  "frontier/competing-theses": {
-    "words": 2557,
-    "minutes": 13
-  },
-  "frontier/bear-case": {
-    "words": 1496,
+    "words": 1382,
     "minutes": 7
   },
+  "frontier/dexterity": {
+    "words": 3148,
+    "minutes": 16
+  },
+  "frontier/generalization": {
+    "words": 1769,
+    "minutes": 9
+  },
+  "frontier/competing-theses": {
+    "words": 2097,
+    "minutes": 10
+  },
+  "frontier/bear-case": {
+    "words": 1270,
+    "minutes": 6
+  },
   "frontier/safety-and-assurance": {
-    "words": 3002,
-    "minutes": 15
+    "words": 2549,
+    "minutes": 13
   },
   "adjacent/autonomous-vehicles": {
     "words": 3631,

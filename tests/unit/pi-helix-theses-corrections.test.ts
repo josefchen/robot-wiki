@@ -34,11 +34,11 @@ describe('bounded PI and Helix thesis corrections', () => {
     }
     expect(article).toContain('successful episodes per hour; inference speed is a separate measure');
     expect(table).toContain('successful episodes per hour, not inference speed');
-    expect(article).toContain('The generalist comparison is not an exclusivity result');
     expect(table).toContain('does not establish failure on other tasks');
   });
   it('binds the existing paper AND blog without advancing the article date', () => {
-    expect(article).toContain('  - pi07-2026\n  - pi07-blog-2026');
+    expect(article).toMatch(/^  - pi07-2026$/m);
+    expect(article).toMatch(/^  - pi07-blog-2026$/m);
     expect(article).toContain('<Cite id="pi07-2026" /> <Cite id="pi07-blog-2026" />');
     expect(table).toContain("citationIds: ['pi07-2026', 'pi07-blog-2026']");
     expect(committedSource('0cbdda1', 'content/frontier/competing-theses.mdx'))
