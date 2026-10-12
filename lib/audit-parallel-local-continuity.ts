@@ -1,16 +1,16 @@
 /**
- * Exact successor reviews for the checker revision and the verification
- * suites of the parallel18 rebinding from the retired TrainingTimeChart to
- * the BatchScale motion scene (2026-10-11). The checker learns scene targets,
- * registers the scene sources and mounts itself because the brand-v2
- * interactive registry does not list scenes, and gains the batch-scale recipe
- * beside the retained parallel recipe. Each revision is recorded as exact
- * edits over the bytes before it, so those bytes are rebuilt from the live
- * file instead of being archived. The artifact reader hands every older check
- * the rebuilt bytes only while the live file is exactly the reviewed
- * successor, reversing the edits rebuilds bytes that hash to the recorded
- * predecessor and replaying them gives the live bytes back. No old review,
- * run, receipt, capture or ledger cell is rewritten.
+ * Exact successor reviews for the checker revision, the verification suites
+ * and the end-to-end spec of the parallel18 rebinding from the retired
+ * TrainingTimeChart to the BatchScale motion scene (2026-10-11). The checker
+ * learns scene targets, registers the scene sources and mounts itself because
+ * the brand-v2 interactive registry does not list scenes, and gains the
+ * batch-scale recipe beside the retained parallel recipe. Each revision is
+ * recorded as exact edits over the bytes before it, so those bytes are
+ * rebuilt from the live file instead of being archived. The artifact reader
+ * hands every older check the rebuilt bytes only while the live file is
+ * exactly the reviewed successor, reversing the edits rebuilds bytes that
+ * hash to the recorded predecessor and replaying them gives the live bytes
+ * back. No old review, run, receipt, capture or ledger cell is rewritten.
  */
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
@@ -38,11 +38,11 @@ export type ParallelLocalCheckerReview = {
 
 // BEGIN parallel-local checker pins (written by scripts/record-parallel-local-continuity.ts)
 /** The reviewed checker evidence file; a changed review needs a reviewed code change too. */
-const checkerReviewPin = { bytes: 9456, sha256: '17ed9b584bb92155bfd0b0cc4bf4cce23f9a5ffc46de0d1c7b87dea828db8ec0' };
+const checkerReviewPin = { bytes: 10085, sha256: '707aec306544d89d8f66fe0f24d17933fd6a04fd673f15c87e20fadcb2020682' };
 
 /** The domain-pass reader head the revision edits, and the reviewed revision. */
 const checkerBefore = { bytes: 114290, sha256: '6d377744d0d141a2605683c9b083d043e47f7ba17e7b4d651329d877b6cd9962' };
-const checkerAfter = { bytes: 118664, sha256: '0168b4db33775ce763ee45637f8bec65120d46e945d6c30d748c40c1ab8b6623' };
+const checkerAfter = { bytes: 118682, sha256: 'd2778193b282c32af9b463cbe3eb195c5a753179178b4674a10ff610194fa75d' };
 // END parallel-local checker pins
 
 const same = (artifact: Artifact | undefined, path: string, bytes: number, sha256: string) =>
@@ -134,25 +134,30 @@ export type ParallelLocalSourceReview = {
 
 // BEGIN parallel-local source pins (written by scripts/record-parallel-local-continuity.ts)
 /** The reviewed suite evidence file; a changed review needs a reviewed code change too. */
-const sourceReviewPin = { bytes: 7766, sha256: '87233dada9fafe4a9d9e5d2f635286c821d66b88c3386a5cf2ad225a346c8ddc' };
+const sourceReviewPin = { bytes: 16038, sha256: '43189a0d13eee4da323ce206e2f15c2eb24490d71c497ab8f02828b1ba33045e' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
-  ['tests/unit/parallel-local-evidence.test.ts', [10909, '4e4f8d09ea64ba6606ed517272d3fbadd1287b418a623d4abf980cc84d69476e']],
+  ['tests/unit/classical-closure-evidence.test.ts', [17690, '60e2ac48fb9091fa6c6fc1790190672f5e67c529e2cfc39a7a3f2fcfb59afc66']],
+  ['tests/unit/parallel-local-evidence.test.ts', [12041, 'b9070de0d151ee9f5f597be3dd19a7ca2b29905877b1df853078666d224eb7a3']],
 ]);
 // END parallel-local source pins
 
 const calls = (source: string) => [
   source.split('expect(').length - 1,
   source.match(/\b(?:it|test)(?:\.[a-zA-Z]+)?\(/g)?.length ?? 0,
+  source.match(/\b(?:it|test|describe)\.(?:skip|fixme|only)\b/g)?.length ?? 0,
 ] as const;
 
-/** A suite successor keeps its place and at least as many expect and test calls. */
+/**
+ * A suite or end-to-end spec successor keeps its place and at least as many
+ * expect and test calls, and adds no skipped, fixme or focused test.
+ */
 export function keepsParallelLocalObligations(path: string, prior: string, current: string): boolean {
-  if (!/^tests\/[a-z0-9/-]+\.test\.ts$/.test(path) || prior === current) return false;
-  const [priorExpects, priorTests] = calls(prior);
-  const [expects, tests] = calls(current);
-  return expects >= priorExpects && tests >= priorTests;
+  if (!/^tests\/(?:[a-z0-9/-]+\.test|e2e\/[a-z0-9-]+\.spec)\.ts$/.test(path) || prior === current) return false;
+  const [priorExpects, priorTests, priorSkips] = calls(prior);
+  const [expects, tests, skips] = calls(current);
+  return expects >= priorExpects && tests >= priorTests && skips <= priorSkips;
 }
 
 /**
@@ -180,32 +185,70 @@ export function verifyParallelLocalSource(source: ParallelLocalSource, live: Buf
   return prior;
 }
 
-export function loadParallelLocalSourceReview(root: string): ParallelLocalSourceReview {
+function loadReview<T extends { schemaVersion: string; name: string; reviewedBy: string; rationale: string;
+  observedAt: string; sources: ParallelLocalSource[] }>(root: string, file: string, pin: { bytes: number; sha256: string },
+  schemaVersion: T['schemaVersion'], name: T['name'], pinned: ReadonlyMap<string, readonly [number, string]>): T {
   let bytes: Buffer;
-  let review: ParallelLocalSourceReview;
+  let review: T;
   try {
-    bytes = readFileSync(join(root, sourceReviewFile));
-    review = JSON.parse(bytes.toString()) as ParallelLocalSourceReview;
+    bytes = readFileSync(join(root, file));
+    review = JSON.parse(bytes.toString()) as T;
   } catch (error) {
     throw new Error(`${sourceDrift}: ${(error as Error).message}`);
   }
-  if (bytes.length !== sourceReviewPin.bytes || digest(bytes) !== sourceReviewPin.sha256 ||
-    review?.schemaVersion !== 'parallel-local-continuity-v1' || review.name !== 'parallel-local-suites' ||
+  if (bytes.length !== pin.bytes || digest(bytes) !== pin.sha256 ||
+    review?.schemaVersion !== schemaVersion || review.name !== name ||
     !review.reviewedBy || !(review.rationale?.length > 80) || !Number.isFinite(Date.parse(review.observedAt)) ||
     Date.parse(review.observedAt) > Date.now()) {
     throw new Error(sourceDrift);
   }
   const paths = new Set(review.sources?.map(({ after }) => after?.path));
-  if (review.sources?.length !== successors.size || paths.size !== successors.size ||
-    review.sources.some(({ after }) => !successors.has(after?.path) ||
-      !same(after, after.path, ...successors.get(after.path)!))) {
+  if (review.sources?.length !== pinned.size || paths.size !== pinned.size ||
+    review.sources.some(({ after }) => !pinned.has(after?.path) ||
+      !same(after, after.path, ...pinned.get(after.path)!))) {
     throw new Error(sourceDrift);
   }
   return review;
 }
 
+export function loadParallelLocalSourceReview(root: string): ParallelLocalSourceReview {
+  return loadReview<ParallelLocalSourceReview>(root, sourceReviewFile, sourceReviewPin,
+    'parallel-local-continuity-v1', 'parallel-local-suites', successors);
+}
+
 /** The paths the parallel-local suite review holds a successor for. */
 export const parallelLocalSuccessorPaths = (): readonly string[] => [...successors.keys()];
+
+/*
+ * The end-to-end spec the same rebinding rewrites to drive the BatchScale
+ * scene instead of the retired chart. The retired chart's observed proofs,
+ * receipts and browser run pin the spec as it was, so the rewrite is recorded
+ * the same way, in its own review, under the same obligations.
+ */
+const specReviewFile = `${PARALLEL_LOCAL_CONTINUITY_DIR}spec-transition.json`;
+
+export type ParallelLocalSpecReview = Omit<ParallelLocalSourceReview, 'schemaVersion' | 'name'> & {
+  schemaVersion: 'parallel-local-spec-continuity-v1';
+  name: 'parallel-local-specs';
+};
+
+// BEGIN parallel-local spec pins (written by scripts/record-parallel-local-continuity.ts)
+/** The reviewed spec evidence file; a changed review needs a reviewed code change too. */
+const specReviewPin = { bytes: 17378, sha256: 'f592fdec8675d5e686ca5f75000fd1e9da21f0310df610916951911ea4bbe3db' };
+
+/** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
+const specSuccessors: ReadonlyMap<string, readonly [number, string]> = new Map([
+  ['tests/e2e/parallel-local-evidence.spec.ts', [12127, 'd5960407c2a9e5bf01369f6f208e20a7dc3b18c1713eff22b8aa63722eb94992']],
+]);
+// END parallel-local spec pins
+
+export function loadParallelLocalSpecReview(root: string): ParallelLocalSpecReview {
+  return loadReview<ParallelLocalSpecReview>(root, specReviewFile, specReviewPin,
+    'parallel-local-spec-continuity-v1', 'parallel-local-specs', specSuccessors);
+}
+
+/** The paths the parallel-local spec review holds a successor for. */
+export const parallelLocalSpecPaths = (): readonly string[] => [...specSuccessors.keys()];
 
 /**
  * The bytes the caller's exact checks should see. A reference that names the
@@ -215,10 +258,11 @@ export const parallelLocalSuccessorPaths = (): readonly string[] => [...successo
  * predecessor returned.
  */
 export function parallelLocalPredecessor(root: string, ref: Artifact, live: Buffer): Buffer {
-  const pinned = successors.get(ref.path);
+  const spec = specSuccessors.get(ref.path);
+  const pinned = spec ?? successors.get(ref.path);
   if (!pinned || live.length !== pinned[0]) return live;
   const liveHash = digest(live);
   if (liveHash !== pinned[1] || (ref.bytes === live.length && ref.sha256 === liveHash)) return live;
-  const source = loadParallelLocalSourceReview(root).sources.find(({ after }) => after.path === ref.path)!;
-  return verifyParallelLocalSource(source, live);
+  const review = spec ? loadParallelLocalSpecReview(root) : loadParallelLocalSourceReview(root);
+  return verifyParallelLocalSource(review.sources.find(({ after }) => after.path === ref.path)!, live);
 }

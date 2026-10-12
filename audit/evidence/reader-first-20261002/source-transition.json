@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-11T19:12:25Z",
+  "observedAt": "2026-10-12T00:34:42Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -9846,10 +9846,34 @@
       },
       "after": {
         "path": "tests/e2e/keyboard-only-navigation.spec.ts",
-        "bytes": 5841,
-        "sha256": "61b31f5c74a17dbd7aa1e5a384caa82878d22db38fa25405d0a45df5d031d7ab"
+        "bytes": 7487,
+        "sha256": "4e1739c438566529233ec54203df637fc0ba17341b43c75dddf8e56c35dfc752"
       },
       "edits": [
+        {
+          "before": " * outline (the locked 2px signal-blue global outline) on the focused stops.\n",
+          "after": " * outline (the locked 1px ink global outline, offset 2px) on the focused\n * stops.\n *\n * Owner-approved successor (Josef, 2026-10-10, the research-page standard):\n * the persistent sidebar is gone and the focus ring is a 1px ink outline\n * offset 2px, in place of the 2px signal-blue ring. The taxonomy lives in\n * the panel the top bar's \"Articles\" button opens, so the keyboard path\n * reaches that button by Tab, opens the panel with Enter, and walks the\n * same section toggles and module links inside it.\n"
+        },
+        {
+          "before": "    // 2px global ring, not merely any visible outline.\n    const outlineWidth = await page.evaluate(() => {\n      const active = document.activeElement as HTMLElement;\n      return parseFloat(getComputedStyle(active).outlineWidth);\n",
+          "after": "    // 1px ink ring offset 2px, not merely any visible outline.\n    const ring = await page.evaluate(() => {\n      const style = getComputedStyle(document.activeElement as HTMLElement);\n      return {\n        width: parseFloat(style.outlineWidth),\n        offset: parseFloat(style.outlineOffset),\n        color: style.outlineColor,\n      };\n"
+        },
+        {
+          "before": "    expect(outlineWidth).toBe(2);\n",
+          "after": "    expect(ring.width).toBe(1);\n    expect(ring.offset).toBe(2);\n    expect(ring.color).toBe('rgb(28, 28, 26)');\n\n    // The taxonomy sits in the panel the top bar's \"Articles\" button\n    // opens. Walk tab stops until that button is focused and open the\n    // panel with Enter; focus moves into the panel.\n    const articles = page\n      .locator('[data-site-topbar]')\n      .getByRole('button', { name: 'Articles', exact: true });\n    let focusedArticles = false;\n    for (let i = 0; i < 6 && !focusedArticles; i += 1) {\n      await page.keyboard.press('Tab');\n      focusedArticles = await articles.evaluate(\n        (el) => el === document.activeElement,\n      );\n    }\n    expect(focusedArticles, 'Tab reaches the Articles button').toBe(true);\n    await page.keyboard.press('Enter');\n    await expect(\n      page.getByRole('dialog', { name: 'Site navigation' }),\n    ).toBeVisible();\n    await expect(articles).toHaveAttribute('aria-expanded', 'true');\n"
+        },
+        {
+          "before": "    // Move focus into the sidebar taxonomy. The section toggles are\n",
+          "after": "    // Move focus into the panel's taxonomy. The section toggles are\n"
+        },
+        {
+          "before": "    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });\n",
+          "after": "    const nav = page.getByRole('navigation', {\n      name: 'Robot Wiki taxonomy drawer',\n      exact: true,\n    });\n"
+        },
+        {
+          "before": "          .querySelector('nav[aria-label=\"Robot Wiki taxonomy\"]')\n",
+          "after": "          .querySelector('nav[aria-label=\"Robot Wiki taxonomy drawer\"]')\n"
+        },
         {
           "before": "    // A figure keeps its sliders in its \"Adjust more\" fold, and on the\n    // first manipulation module that figure is also inside the prediction\n    // step. A keyboard reader answers the prediction (Space on a choice\n    // opens the reveal), opens the fold from its summary with Enter, and\n    // drives the slider it uncovers.\n",
           "after": "    // A figure keeps its sliders in its \"Adjust more\" fold. On the first\n    // manipulation module that figure belongs to the prediction step, and\n    // the guess is optional: the fold's summary is reachable with the\n    // reasoning still closed, so a keyboard reader opens it with Enter and\n    // drives the slider it uncovers without answering.\n"
@@ -9859,8 +9883,12 @@
           "after": "    const hasPredict = (await predict.count()) > 0;\n    if (hasPredict) {\n      await expect(predict.locator('details[data-reveal]').first()).not.toHaveAttribute('open');\n      await expect(\n        predict.locator(':scope > [data-predict-figure] [data-figure-fold=\"adjust\"] > summary').first(),\n      ).toBeVisible();\n"
         },
         {
+          "before": "    // Focus is visibly painted on the slider too, at the locked 2px.\n    const sliderOutline = await page.evaluate(() => {\n      const active = document.activeElement as HTMLElement;\n      return parseFloat(getComputedStyle(active).outlineWidth);\n",
+          "after": "    // Focus is visibly painted on the slider too, at the locked 1px ring\n    // offset 2px.\n    const sliderRing = await page.evaluate(() => {\n      const style = getComputedStyle(document.activeElement as HTMLElement);\n      return {\n        width: parseFloat(style.outlineWidth),\n        offset: parseFloat(style.outlineOffset),\n      };\n"
+        },
+        {
           "before": "    expect(sliderOutline).toBe(2);\n",
-          "after": "    expect(sliderOutline).toBe(2);\n\n    // A keyboard reader who does guess answers with Space on a choice,\n    // which opens the reasoning and leaves the figure where it was.\n    if (hasPredict) {\n      const choice = predict.getByRole('radio').first();\n      await choice.focus();\n      await page.keyboard.press('Space');\n      await expect(predict.locator('details[data-reveal]').first()).toHaveAttribute('open', '');\n      await expect(slider).toBeVisible();\n    }\n"
+          "after": "    expect(sliderRing.width).toBe(1);\n    expect(sliderRing.offset).toBe(2);\n\n    // A keyboard reader who does guess answers with Space on a choice,\n    // which opens the reasoning and leaves the figure where it was.\n    if (hasPredict) {\n      const choice = predict.getByRole('radio').first();\n      await choice.focus();\n      await page.keyboard.press('Space');\n      await expect(predict.locator('details[data-reveal]').first()).toHaveAttribute('open', '');\n      await expect(slider).toBeVisible();\n    }\n"
         }
       ]
     },
@@ -10879,13 +10907,21 @@
       },
       "after": {
         "path": "tests/e2e/randomization-reader-closeout.spec.ts",
-        "bytes": 20125,
-        "sha256": "c049e1dcbf7ac5c7c226a4d94af917013c222940720e3b83c486093e8df5e697"
+        "bytes": 22249,
+        "sha256": "dc2948af10c7b3c0c222e1725e0094daaa5f225dd4b1a97dd18f735905c8a182"
       },
       "edits": [
         {
           "before": "import { CITATIONS } from '../../data/citations';\n",
-          "after": "import { CITATIONS } from '../../data/citations';\nimport { figureFold, openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\n"
+          "after": "import { CITATIONS } from '../../data/citations';\nimport { citeNoteInMargin, citeParts, clickCiteMark, closeCiteNote, revealCiteNote } from './helpers/citation-note';\nimport { figureFold, openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\n"
+        },
+        {
+          "before": "  expect(parseFloat(style.outlineWidth)).toBeGreaterThanOrEqual(2);\n  expect(style.outlineColor).toBe('rgb(36, 95, 255)');\n",
+          "after": "  // Owner-approved successor (Josef, 2026-10-10, the research-page standard):\n  // the locked focus ring is a 1px ink outline offset 2px, in place of the\n  // 2px signal-blue ring.\n  expect(parseFloat(style.outlineWidth)).toBe(1);\n  expect(parseFloat(style.outlineOffset)).toBe(2);\n  expect(style.outlineColor).toBe('rgb(28, 28, 26)');\n"
+        },
+        {
+          "before": "      expect(font.familyName).toMatch(/Tektur|Newsreader|IBM Plex (Sans|Mono)|KaTeX/);\n",
+          "after": "      // Owner-approved successor (Josef, 2026-10-10, the research-page\n      // standard): DM Sans, Geist and Geist Mono replace the brand-v2 faces.\n      expect(font.familyName).toMatch(/DM Sans|Geist( Mono)?|KaTeX/);\n"
         },
         {
           "before": "  const markers = await panel.locator('[data-testid$=\"-marker\"]').evaluateAll(nodes => nodes.map(node => ({\n    id: node.getAttribute('data-testid'), x: Number(node.getAttribute('cx')), y: Number(node.getAttribute('cy')),\n  })));\n",
@@ -10920,8 +10956,24 @@
           "after": "  // The accessible chart description sits open in the method fold; retain any independent scoped red.\n  await expect(figureFold(panel, 'method')).toHaveJSProperty('open', true);\n  await expect(panel.locator(`[id=\"${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}\"]`)).toContainText('Illustrative, not measured robot data');\n  await axe(page, row, `[aria-describedby=\"${await panel.locator('svg[aria-describedby]').getAttribute('aria-describedby')}\"]`, 'chart');\n"
         },
         {
+          "before": "            for (let index = 0; index < await chips.count(); index++) {\n",
+          "after": "            for (let index = 0; index < await chips.count(); index++) {\n              // Owner-approved successor (Josef, 2026-10-10, the research-page\n              // standard): the tooltip chip became a numbered sidenote. The\n              // note's author-year link is the source link; the pointer and\n              // keyboard states open the note (or find it in the margin from\n              // 1200 px) and it is contained as the tooltip was. Where the note\n              // stands in the margin the number is the in-page jump to the\n              // full reference, driven by keyboard and pointer as the jump link\n              // was. Where the note opens inline the number toggles it instead,\n              // so its own #ref- target is followed in place.\n"
+        },
+        {
+          "before": "              const link = chip.locator('a').first();\n              const tooltip = chip.getByRole('tooltip');\n              await expect(link).toHaveAttribute('href', citation.url);\n              await expect(link).toHaveAttribute('target', '_blank');\n              await expect(link).toHaveAttribute('rel', /noopener/);\n              await centered(link);\n              await link.hover();\n              await expect(tooltip).toBeVisible();\n              await containment(tooltip, page, row, `${id}/${index}/hover`);\n              await page.mouse.move(1, 1);\n              await link.focus();\n              await expect(tooltip).toBeVisible();\n              await containment(tooltip, page, row, `${id}/${index}/focus`);\n",
+          "after": "              const { mark, source } = citeParts(chip);\n              await expect(source).toHaveAttribute('href', citation.url);\n              await expect(source).toHaveAttribute('target', '_blank');\n              await expect(source).toHaveAttribute('rel', /noopener/);\n              await expect(mark).toHaveAttribute('href', `#ref-${id}`);\n              await centered(mark);\n              for (const via of ['pointer', 'keyboard'] as const) {\n                await closeCiteNote(chip);\n                if (via === 'keyboard') await page.mouse.move(1, 1);\n                const note = await revealCiteNote(chip, via);\n                await expect(note).toBeVisible();\n                await expect(note).toContainText(citation.title);\n                await containment(note, page, row, `${id}/${index}/${via === 'pointer' ? 'hover' : 'focus'}`);\n              }\n"
+        },
+        {
+          "before": "              const jump = chip.getByRole('link', { name: `Jump to the full reference for ${citation.title}`, exact: true });\n              await page.keyboard.press('Tab');\n              await expect(jump).toBeFocused();\n              await page.keyboard.press('Enter');\n              const ref = page.locator(`[data-reference-id=\"${id}\"]`);\n",
+          "after": "              const inMargin = await citeNoteInMargin(chip);\n              const ref = page.locator(`[data-reference-id=\"${id}\"]`);\n              const jump = async (via: 'keyboard' | 'pointer') => {\n                await closeCiteNote(chip);\n                if (inMargin && via === 'keyboard') { await mark.focus(); await expect(mark).toBeFocused(); await page.keyboard.press('Enter'); }\n                else if (inMargin) await clickCiteMark(mark);\n                else {\n                  const target = (await mark.getAttribute('href'))!;\n                  await page.evaluate(hash => { history.replaceState(null, '', location.pathname + location.search); location.hash = hash; }, target);\n                }\n              };\n              await jump('keyboard');\n"
+        },
+        {
+          "before": "              await centered(link);\n              await jump.click();\n",
+          "after": "              await centered(mark);\n              await jump('pointer');\n"
+        },
+        {
           "before": "            const plain = norm(paragraph.replace(/<Cite[^>]+\\/>/g, '').replace(/<[^>]+>/g, '').replace(/\\*\\*/g, ''));\n",
-          "after": "            // A markdown link renders as its text, and an escaped dollar as a dollar.\n            const plain = norm(paragraph.replace(/<Cite[^>]+\\/>/g, '').replace(/<[^>]+>/g, '').replace(/\\*\\*/g, '')\n              .replace(/\\[([^\\]]+)\\]\\([^)]+\\)/g, '$1').replace(/\\\\\\$/g, '$'));\n"
+          "after": "            // A markdown link renders as its text, and an escaped dollar as a dollar.\n            // Owner-approved successor (Josef, 2026-10-10, the research-page\n            // standard): lib/rehype-cite-punctuation.mjs sets a citation number\n            // against the word it annotates, so the authored space before a\n            // citation goes, except after another citation (and its punctuation).\n            const plain = norm(paragraph.replace(/(?<!<Cite[^>]*\\/>[.,;:!?]*)\\s+(?=<Cite[^>]+\\/>)/g, '')\n              .replace(/<Cite[^>]+\\/>/g, '').replace(/<[^>]+>/g, '').replace(/\\*\\*/g, '')\n              .replace(/\\[([^\\]]+)\\]\\([^)]+\\)/g, '$1').replace(/\\\\\\$/g, '$'));\n"
         },
         {
           "before": "        const panel = page.locator('div.prose > div:has(> [data-testid=\"ft-explanation\"])');\n",

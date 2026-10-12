@@ -227,7 +227,7 @@ export const LOCAL_BASIS_REQUIRED_TARGETS: Readonly<Record<string, Target>> = Ob
   'audit/frontier.md:safety-and-assurance:6': { component: 'CollaborativeOperationModes', recipe: 'safety', mounts: [1] },
   'audit/rl-sim2real.md:sim2real-transfer:23': { component: 'FrictionTransfer', recipe: 'friction', mounts: [1, 2] },
   'audit/rl-sim2real.md:sim2real-transfer:24': { component: 'TeacherStudent', recipe: 'teacher', mounts: [1] },
-  'audit/rl-sim2real.md:parallel-sim-rl:18': { component: 'TrainingTimeChart', recipe: 'parallel', mounts: [1] },
+  'audit/rl-sim2real.md:parallel-sim-rl:18': { component: 'BatchScale', recipe: 'batch-scale', mounts: [1], scene: 'batch-scale' },
   'audit/rl-sim2real.md:reward-design-mpc:4': { component: 'RewardShaping', recipe: 'reward', mounts: [1] },
   'audit/rl-sim2real.md:reward-design-mpc:5': { component: 'RewardShaping', recipe: 'reward', mounts: [1] },
   'audit/rl-sim2real.md:legged-locomotion:8': { component: 'GaitDiagram', recipe: 'gait', mounts: [1] },
@@ -1260,12 +1260,12 @@ const HISTORICAL_VERIFICATION_INPUTS: Readonly<Record<string, {
   'tests/unit/parallel-local-evidence.test.ts': {
     bytes: 5364, sha256: '959ee93a0a951a784be6cd77a4fddb59562f1932490c2234f5b705730e2a81eb',
     snapshot: 'parallel-local-evidence.pre-portability.test.ts.txt',
-    currentTestHash: '4e4f8d09ea64ba6606ed517272d3fbadd1287b418a623d4abf980cc84d69476e',
+    currentTestHash: 'b9070de0d151ee9f5f597be3dd19a7ca2b29905877b1df853078666d224eb7a3',
   },
   'tests/unit/classical-closure-evidence.test.ts': {
     bytes: 12839, sha256: '9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7',
     snapshot: 'classical-closure.pre-residual-release.test.ts.txt',
-    currentTestHash: '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148',
+    currentTestHash: '60e2ac48fb9091fa6c6fc1790190672f5e67c529e2cfc39a7a3f2fcfb59afc66',
   },
   'tests/unit/crossdomain-closure-evidence.test.ts': {
     bytes: 5982, sha256: '1a032856eb14361495d2cbdb451de87f8bd7ec68e00e4165eb8760aa8e7047d3',

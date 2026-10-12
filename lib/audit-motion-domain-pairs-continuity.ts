@@ -7,6 +7,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { withRetiredLocalProofs } from './audit-retired-local-proofs.ts';
 import { sharedUiCheckerPredecessor } from './audit-shared-ui-local-basis-continuity.ts';
 
 const directory = 'audit/evidence/motion-domain-pairs-20260928/';
@@ -139,7 +140,7 @@ export function retainedDomainPairSource(root: string, path: BoundSource, live: 
   const catalog = JSON.parse(readFileSync(join(root, 'audit/local-basis.json'), 'utf8')) as {
     proofs: { id: string; artifacts: { file: Artifact }[] }[];
   };
-  const proofIds = catalog.proofs.filter((proof) => proof.artifacts.some(({ file }) =>
+  const proofIds = withRetiredLocalProofs(root, catalog.proofs).filter((proof) => proof.artifacts.some(({ file }) =>
     file.path === path && file.bytes === spec.beforeBytes && file.sha256 === spec.beforeHash,
   )).map(({ id }) => id).sort();
   const from = spec.from;

@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { CITATIONS } from '../../data/citations';
+import { citeNoteInMargin, citeParts, clickCiteMark, closeCiteNote, revealCiteNote } from './helpers/citation-note';
 import { figureFold, openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const norm = (text: string) => text.replace(/\s+/g, ' ').trim();
@@ -76,8 +77,12 @@ async function focusProof(locator: Locator, row: Evidence) {
   });
   row.steps.push({ focus: style });
   expect(style.focusVisible).toBe(true);
-  expect(parseFloat(style.outlineWidth)).toBeGreaterThanOrEqual(2);
-  expect(style.outlineColor).toBe('rgb(36, 95, 255)');
+  // Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+  // the locked focus ring is a 1px ink outline offset 2px, in place of the
+  // 2px signal-blue ring.
+  expect(parseFloat(style.outlineWidth)).toBe(1);
+  expect(parseFloat(style.outlineOffset)).toBe(2);
+  expect(style.outlineColor).toBe('rgb(28, 28, 26)');
 }
 
 async function axe(page: Page, row: Evidence, selector: string, state: string) {
@@ -100,7 +105,9 @@ async function fonts(page: Page, row: Evidence, selectors: string[]) {
     expect(actual.fonts.length, selector).toBeGreaterThan(0);
     for (const font of actual.fonts) {
       expect(font.isCustomFont, `${selector}: ${font.familyName}`).toBe(true);
-      expect(font.familyName).toMatch(/Tektur|Newsreader|IBM Plex (Sans|Mono)|KaTeX/);
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): DM Sans, Geist and Geist Mono replace the brand-v2 faces.
+      expect(font.familyName).toMatch(/DM Sans|Geist( Mono)?|KaTeX/);
     }
   }
   await cdp.detach();
@@ -233,26 +240,43 @@ for (const width of [375, 1440]) {
             const chips = page.locator(`div.prose [data-cite-id="${id}"]`);
             expect(await chips.count()).toBeGreaterThan(0);
             for (let index = 0; index < await chips.count(); index++) {
+              // Owner-approved successor (Josef, 2026-10-10, the research-page
+              // standard): the tooltip chip became a numbered sidenote. The
+              // note's author-year link is the source link; the pointer and
+              // keyboard states open the note (or find it in the margin from
+              // 1200 px) and it is contained as the tooltip was. Where the note
+              // stands in the margin the number is the in-page jump to the
+              // full reference, driven by keyboard and pointer as the jump link
+              // was. Where the note opens inline the number toggles it instead,
+              // so its own #ref- target is followed in place.
               const chip = chips.nth(index);
-              const link = chip.locator('a').first();
-              const tooltip = chip.getByRole('tooltip');
-              await expect(link).toHaveAttribute('href', citation.url);
-              await expect(link).toHaveAttribute('target', '_blank');
-              await expect(link).toHaveAttribute('rel', /noopener/);
-              await centered(link);
-              await link.hover();
-              await expect(tooltip).toBeVisible();
-              await containment(tooltip, page, row, `${id}/${index}/hover`);
-              await page.mouse.move(1, 1);
-              await link.focus();
-              await expect(tooltip).toBeVisible();
-              await containment(tooltip, page, row, `${id}/${index}/focus`);
+              const { mark, source } = citeParts(chip);
+              await expect(source).toHaveAttribute('href', citation.url);
+              await expect(source).toHaveAttribute('target', '_blank');
+              await expect(source).toHaveAttribute('rel', /noopener/);
+              await expect(mark).toHaveAttribute('href', `#ref-${id}`);
+              await centered(mark);
+              for (const via of ['pointer', 'keyboard'] as const) {
+                await closeCiteNote(chip);
+                if (via === 'keyboard') await page.mouse.move(1, 1);
+                const note = await revealCiteNote(chip, via);
+                await expect(note).toBeVisible();
+                await expect(note).toContainText(citation.title);
+                await containment(note, page, row, `${id}/${index}/${via === 'pointer' ? 'hover' : 'focus'}`);
+              }
               if (index === 0) await capture(page, info, row, `${id}-focus`);
-              const jump = chip.getByRole('link', { name: `Jump to the full reference for ${citation.title}`, exact: true });
-              await page.keyboard.press('Tab');
-              await expect(jump).toBeFocused();
-              await page.keyboard.press('Enter');
+              const inMargin = await citeNoteInMargin(chip);
               const ref = page.locator(`[data-reference-id="${id}"]`);
+              const jump = async (via: 'keyboard' | 'pointer') => {
+                await closeCiteNote(chip);
+                if (inMargin && via === 'keyboard') { await mark.focus(); await expect(mark).toBeFocused(); await page.keyboard.press('Enter'); }
+                else if (inMargin) await clickCiteMark(mark);
+                else {
+                  const target = (await mark.getAttribute('href'))!;
+                  await page.evaluate(hash => { history.replaceState(null, '', location.pathname + location.search); location.hash = hash; }, target);
+                }
+              };
+              await jump('keyboard');
               await expect(ref).toBeInViewport();
               if (citation.authors.length === 19) {
                 const show = ref.getByRole('button', { name: 'Show all 19 authors', exact: true });
@@ -267,8 +291,8 @@ for (const width of [375, 1440]) {
                 await fonts(page, row, [`[data-reference-id="${id}"] [data-author-names]`]);
               }
               // Pointer-click the in-page reference affordance, without fetching the external source.
-              await centered(link);
-              await jump.click();
+              await centered(mark);
+              await jump('pointer');
               await expect(ref).toBeInViewport();
             }
           }
@@ -281,7 +305,12 @@ for (const width of [375, 1440]) {
           }));
           for (const paragraph of paragraphs) {
             // A markdown link renders as its text, and an escaped dollar as a dollar.
-            const plain = norm(paragraph.replace(/<Cite[^>]+\/>/g, '').replace(/<[^>]+>/g, '').replace(/\*\*/g, '')
+            // Owner-approved successor (Josef, 2026-10-10, the research-page
+            // standard): lib/rehype-cite-punctuation.mjs sets a citation number
+            // against the word it annotates, so the authored space before a
+            // citation goes, except after another citation (and its punctuation).
+            const plain = norm(paragraph.replace(/(?<!<Cite[^>]*\/>[.,;:!?]*)\s+(?=<Cite[^>]+\/>)/g, '')
+              .replace(/<Cite[^>]+\/>/g, '').replace(/<[^>]+>/g, '').replace(/\*\*/g, '')
               .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\\\$/g, '$'));
             expect(rendered).toContain(plain);
           }

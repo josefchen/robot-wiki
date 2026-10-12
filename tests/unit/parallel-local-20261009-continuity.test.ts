@@ -6,8 +6,8 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { domainPassCheckerPredecessor, loadDomainPassCheckerReview } from '../../lib/audit-domain-pass-continuity';
 import {
   PARALLEL_LOCAL_CONTINUITY_DIR, keepsParallelLocalObligations, loadParallelLocalCheckerReview,
-  loadParallelLocalSourceReview, parallelLocalCheckerPredecessor, parallelLocalPredecessor,
-  parallelLocalSuccessorPaths, verifyParallelLocalSource,
+  loadParallelLocalSourceReview, loadParallelLocalSpecReview, parallelLocalCheckerPredecessor, parallelLocalPredecessor,
+  parallelLocalSpecPaths, parallelLocalSuccessorPaths, verifyParallelLocalSource,
 } from '../../lib/audit-parallel-local-continuity';
 import type { LocalCatalog, LocalPlan, LocalProof } from '../../lib/audit-local-basis';
 import { readerFirstPredecessor, readerFirstSuccessorPaths } from '../../lib/audit-reader-first-continuity';
@@ -81,7 +81,9 @@ describe('parallel-local 2026-10-11 suite successors', () => {
   const review = loadParallelLocalSourceReview(root);
 
   it('reviews exactly the suites the rebinding brings up to date', () => {
-    expect(parallelLocalSuccessorPaths()).toEqual(['tests/unit/parallel-local-evidence.test.ts']);
+    expect(parallelLocalSuccessorPaths()).toEqual([
+      'tests/unit/classical-closure-evidence.test.ts', 'tests/unit/parallel-local-evidence.test.ts',
+    ]);
     expect(review.sources.map(({ after }) => after.path)).toEqual(parallelLocalSuccessorPaths());
   });
 
@@ -116,6 +118,9 @@ describe('parallel-local 2026-10-11 suite successors', () => {
     expect(keepsParallelLocalObligations(path, grown, prior)).toBe(false);
     expect(keepsParallelLocalObligations(path, grown, grown.replace('  expect(2).toBe(2);\n', ''))).toBe(false);
     expect(keepsParallelLocalObligations(path, grown, grown.replace("it('b'", "describe('b'"))).toBe(false);
+    for (const modifier of ['skip', 'only', 'fixme']) {
+      expect(keepsParallelLocalObligations(path, prior, grown.replace("it('b'", `it.${modifier}('b'`))).toBe(false);
+    }
   });
 
   it('rejects a missing, corrupt or renamed suite review', () => {
@@ -127,6 +132,56 @@ describe('parallel-local 2026-10-11 suite successors', () => {
         else writeFileSync(path, readFileSync(path, 'utf8').replace('"parallel-local-suites"', '"parallel-local-drift"'));
       }, 'source-transition.json');
       expect(() => loadParallelLocalSourceReview(tmp)).toThrow(drift);
+      expect(() => parallelLocalPredecessor(tmp, source.before, read(source.after.path))).toThrow(drift);
+    }
+  });
+});
+
+describe('parallel-local 2026-10-11 end-to-end spec successor', () => {
+  const review = loadParallelLocalSpecReview(root);
+  const spec = 'tests/e2e/parallel-local-evidence.spec.ts';
+  const archive = JSON.parse(read(`${PARALLEL_LOCAL_CONTINUITY_DIR}previous-parallel-plan-and-proofs.json`).toString()) as {
+    proofs: LocalProof[];
+  };
+
+  it('rebuilds the spec the retired chart\'s observed proofs pin from the live BatchScale spec', () => {
+    expect(parallelLocalSpecPaths()).toEqual([spec]);
+    expect(review.sources.map(({ after }) => after.path)).toEqual([spec]);
+    const live = read(spec);
+    const pinned = archive.proofs.filter(proof => proof.kind === 'observed-behavior').map(proof => proof.provenance.test);
+    expect(pinned).toHaveLength(6);
+    for (const ref of pinned) {
+      expect(ref.path).toBe(spec);
+      const prior = parallelLocalPredecessor(root, ref, live);
+      expect([prior.length, sha(prior)]).toEqual([ref.bytes, ref.sha256]);
+    }
+    expect(parallelLocalPredecessor(root, review.sources[0].after, live)).toBe(live);
+    const drifted = Buffer.concat([live, Buffer.from('\n')]);
+    expect(parallelLocalPredecessor(root, review.sources[0].before, drifted)).toBe(drifted);
+    expect(() => verifyParallelLocalSource(review.sources[0], drifted)).toThrow(drift);
+  });
+
+  it('admits only an end-to-end spec that keeps its expect and test calls and adds no skip, fixme or only', () => {
+    const prior = "test('a', async () => {\n  expect(1).toBe(1);\n});\n";
+    const grown = `${prior}test('b', async () => {\n  expect(2).toBe(2);\n});\n`;
+    expect(keepsParallelLocalObligations(spec, prior, grown)).toBe(true);
+    expect(keepsParallelLocalObligations('tests/e2e/helpers/x.spec.ts', prior, grown)).toBe(false);
+    expect(keepsParallelLocalObligations('tests/e2e/x.ts', prior, grown)).toBe(false);
+    expect(keepsParallelLocalObligations(spec, grown, prior)).toBe(false);
+    for (const modifier of ['skip', 'fixme', 'only']) {
+      expect(keepsParallelLocalObligations(spec, prior, grown.replace("test('b'", `test.${modifier}('b'`))).toBe(false);
+    }
+  });
+
+  it('rejects a missing, corrupt or renamed spec review', () => {
+    const [source] = review.sources;
+    for (const mode of ['missing', 'corrupt', 'renamed'] as const) {
+      const tmp = scratch(path => {
+        if (mode === 'missing') rmSync(path);
+        else if (mode === 'corrupt') writeFileSync(path, mode);
+        else writeFileSync(path, readFileSync(path, 'utf8').replace('"parallel-local-specs"', '"parallel-local-drift"'));
+      }, 'spec-transition.json');
+      expect(() => loadParallelLocalSpecReview(tmp)).toThrow(drift);
       expect(() => parallelLocalPredecessor(tmp, source.before, read(source.after.path))).toThrow(drift);
     }
   });

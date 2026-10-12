@@ -1,0 +1,38 @@
+{
+  "assembledAt": "2026-10-12T00:44:18.552Z",
+  "plan": "parallel-local-p18-20260923",
+  "archive": {
+    "path": "audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json",
+    "bytes": 216263,
+    "sha256": "ff49d0fedd361f54e092085366b1eb4adb7b7287341d107bff9db1c03652bcd0"
+  },
+  "numericRun": {
+    "path": "audit/evidence/parallel-local-20261009/numeric-run.json",
+    "bytes": 30279,
+    "sha256": "69af01e5cfc4cbc260bd9ba8172e76db9d2967d978351a2076dd119575410dc4"
+  },
+  "browserRun": {
+    "path": "audit/evidence/parallel-local-20261009/browser-run.json",
+    "bytes": 15452,
+    "sha256": "8eddccf2cd65639e4adaef85404e351c2cf5212cdfdead2bf1eb1687e1022082"
+  },
+  "proofs": [
+    "p18-batch-parameters",
+    "p18-batch-64-off",
+    "p18-batch-64-on",
+    "p18-batch-4096-off",
+    "p18-batch-4096-on",
+    "p18-batch-16384-off",
+    "p18-batch-16384-on",
+    "p18-batch-observed-64-off",
+    "p18-batch-observed-64-on",
+    "p18-batch-observed-4096-off",
+    "p18-batch-observed-4096-on",
+    "p18-batch-observed-16384-off",
+    "p18-batch-observed-16384-on"
+  ],
+  "reviews": 13,
+  "unchangedCellsAndExternalEvidence": true,
+  "unchangedOtherPlans": true,
+  "independentAcceptance": false
+}
