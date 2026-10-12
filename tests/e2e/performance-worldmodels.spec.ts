@@ -1,5 +1,6 @@
 import { writeFile } from 'node:fs/promises';
 import { openAdjustMore } from './helpers/figure-fold';
+import { closeCiteNote, citeParts, revealCiteNote } from './helpers/citation-note';
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
@@ -10,10 +11,14 @@ for (const width of [375, 1440]) {
     await page.evaluate(() => document.fonts.ready);
     const prose = page.locator('div.prose[data-pagefind-body]');
     await prose.getByText('545M', { exact: false }).first().scrollIntoViewIfNeeded();
-    const source = prose.locator('a[aria-describedby][href="https://arxiv.org/abs/2310.16828"]').first();
-    await source.focus();
-    const tooltip = page.getByRole('tooltip').filter({ visible: true }).first();
-    await expect(tooltip).toBeVisible();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the tooltip chip became a numbered sidenote. Keyboard and
+    // pointer now open the note (or find it in the margin at 1440), and the
+    // same viewport bounds are asserted on the note.
+    const cite = prose.locator('[data-cite-id="tdmpc2-2023"]').first();
+    const { mark, source } = citeParts(cite);
+    await expect(source).toHaveAttribute('href', 'https://arxiv.org/abs/2310.16828');
+    const tooltip = await revealCiteNote(cite, 'keyboard');
     const measure = async () => tooltip.evaluate(e => {
       const b = e.getBoundingClientRect();
       return { left: b.left, right: b.right, top: b.top, bottom: b.bottom, overflow: e.scrollWidth - e.clientWidth };
@@ -24,15 +29,16 @@ for (const width of [375, 1440]) {
     expect(inherited.top).toBeGreaterThanOrEqual(0);
     expect(inherited.right).toBeLessThanOrEqual(width);
     // Deliberately reproduce a top-edge placement, not just centered focus.
-    await source.evaluate(e => {
+    await closeCiteNote(cite);
+    await mark.evaluate(e => {
       const b = e.getBoundingClientRect();
       window.scrollBy(0, b.top - 100);
     });
-    await source.focus();
+    await revealCiteNote(cite, 'keyboard');
     const edge = await measure();
     await page.screenshot({ caret: 'initial', path: info.outputPath('latent-explicit-top-edge.png') });
-    await source.evaluate(e => (e as HTMLElement).blur());
-    await source.hover();
+    await closeCiteNote(cite);
+    await revealCiteNote(cite, 'pointer');
     const hover = await measure();
     await page.screenshot({ caret: 'initial', path: info.outputPath('latent-edge-hover.png') });
     await writeFile(info.outputPath('latent-edge-proof.json'), JSON.stringify({ inherited, edge, hover }, null, 2));
@@ -50,7 +56,10 @@ const routes = [
   { domain: 'manipulation', slug: 'realtime-execution', text: 'analytical roofline model', source: 'vla-perf-2026' },
   { domain: 'data-hardware', slug: 'hardware-taxonomy', text: 'batch-one analytical predictions', source: 'vla-perf-2026' },
   { domain: 'world-models', slug: 'latent-dynamics', text: 'MBPO-PPO', source: 'robotic-world-model-2025' },
-  { domain: 'world-models', slug: 'taxonomy', text: 'Causal Conditioning Gaps', source: 'world-model-survey-2026' },
+  // The 2026-10-12 world-models rewrite cut the survey's causal-conditioning
+  // passage; its functional definition, under the same source, is the
+  // successor text.
+  { domain: 'world-models', slug: 'taxonomy', text: 'Hou and colleagues count a model only if', source: 'world-model-survey-2026' },
   { domain: 'world-models', slug: 'jepa', text: 'Fast-WAM separates video co-training', source: 'fast-wam-2026' },
 ] as const;
 
@@ -74,21 +83,23 @@ for (const width of [375, 1440]) {
       const correction = prose.getByText(route.text, { exact: false }).first();
       await correction.scrollIntoViewIfNeeded();
       await page.screenshot({ caret: 'initial', path: info.outputPath('correction.png') });
-      const source = prose.locator(`${route.slug === 'jepa' ? 'li' : 'p'} [data-cite-id="${route.source}"] a[aria-describedby]`).first();
-      await source.evaluate(e => e.scrollIntoView({ block: 'center' }));
-      await source.focus();
-      const tooltip = page.getByRole('tooltip').filter({ visible: true }).first();
-      await expect(tooltip).toBeVisible();
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the citation's note replaces the tooltip, opened by
+      // keyboard and by pointer, with the same bounds asserted.
+      const cite = prose.locator(`${route.slug === 'jepa' ? 'li' : 'p'} [data-cite-id="${route.source}"]`).first();
+      await citeParts(cite).mark.evaluate(e => e.scrollIntoView({ block: 'center' }));
+      const tooltip = await revealCiteNote(cite, 'keyboard');
       const bounds = async () => tooltip.evaluate(e => {
         const b = e.getBoundingClientRect();
         return { left: b.left, right: b.right, top: b.top, bottom: b.bottom, overflow: e.scrollWidth - e.clientWidth };
       });
       const focused = await bounds();
       await page.screenshot({ caret: 'initial', path: info.outputPath('source-focus.png') });
-      await source.evaluate(e => (e as HTMLElement).blur());
-      await source.hover();
+      await closeCiteNote(cite);
+      await revealCiteNote(cite, 'pointer');
       const hovered = await bounds();
       await page.screenshot({ caret: 'initial', path: info.outputPath('source-hover.png') });
+      await closeCiteNote(cite);
       const gpuRows: { name: string; cells: string[]; headerCount: number }[] = [];
       const controls: { name: string; initial: string; changed: string }[] = [];
       await page.mouse.move(0, 0);

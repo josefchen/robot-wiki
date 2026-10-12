@@ -1,0 +1,72 @@
+[
+ {
+  "route": "/world-models/taxonomy/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "To plan, a robot imagines what happens next; models differ in whether they imagine full pictures, a compressed summary, ",
+   "file": "world-models__taxonomy__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "To plan, a robot imagines what happens next; models differ in whether they imagine full pictures, a compressed summary, ",
+   "file": "world-models__taxonomy__00.png"
+  }
+ },
+ {
+  "route": "/world-models/latent-dynamics/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Robots plan by imagining the future; each imagined step builds on the last, so short look-aheads stay close and long one",
+   "file": "world-models__latent-dynamics__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Robots plan by imagining the future; each imagined step builds on the last, so short look-aheads stay close and long one",
+   "file": "world-models__latent-dynamics__00.png"
+  }
+ },
+ {
+  "route": "/world-models/generative-video/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "AI video can look realistic yet ignore what the robot does; for planning, the imagined future must change when the actio",
+   "file": "world-models__generative-video__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "AI video can look realistic yet ignore what the robot does; for planning, the imagined future must change when the actio",
+   "file": "world-models__generative-video__00.png"
+  }
+ },
+ {
+  "route": "/world-models/jepa/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Instead of imagining full video, this robot compares compact summaries of now and the goal, and picks whichever move clo",
+   "file": "world-models__jepa__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Instead of imagining full video, this robot compares compact summaries of now and the goal, and picks whichever move clo",
+   "file": "world-models__jepa__00.png"
+  }
+ },
+ {
+  "route": "/world-models/generative-sim/",
+  "changed": false,
+  "before": {
+   "idx": 0,
+   "label": "AI can generate convincing 3D scenes, but a robot cannot train in them until someone adds shape, weight and friction und",
+   "file": "world-models__generative-sim__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "AI can generate convincing 3D scenes, but a robot cannot train in them until someone adds shape, weight and friction und",
+   "file": "world-models__generative-sim__00.png"
+  }
+ }
+]

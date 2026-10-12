@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { waitForHydration } from './interaction-ready';
 import { openAdjustMore } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 const ROUTE = '/world-models/generative-video/';
 
@@ -89,6 +90,7 @@ test.describe('world-models generative-video module', () => {
         main.getByText(name).filter({ visible: true }).first(),
       ).toBeVisible();
     }
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Generative Video World Models' }),

@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 const ROUTE = '/world-models/jepa/';
 
@@ -37,6 +38,7 @@ test.describe('world-models jepa module', () => {
         main.getByText(name).filter({ visible: true }).first(),
       ).toBeVisible();
     }
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', {
