@@ -99,25 +99,28 @@ describe('content integration of 2026-09-23', () => {
           a.id !== next?.id), sealedHash(entry.manifest, entry.memberId), next!.oldHash).status)
           .toBe('approved');
         // The 2026-10-01 KOL backlog batch continues one of these articles
-        // from the humanizer endpoint with exactly one plain edge, and the
-        // 2026-10-02 SEO pass continues both with one more.
+        // from the humanizer endpoint with exactly one plain edge, the
+        // 2026-10-02 SEO pass continues both with one more, and the
+        // 2026-10-10 world-models pass moves them to the live body with one more.
         const slug = entry.memberId.slice('article:world-models/'.length);
         const later = approvals.find(a => a.id === `kol-backlog-20261001-world-models-prose-${slug}`);
         if (later) expect(later.oldHash).toBe(next?.newHash);
         const seo = approvals.find(a => a.id === `seo-pass-20261002-prose-world-models-${slug}`)!;
         expect(seo.oldHash).toBe((later ?? next)?.newHash);
-        expect(seo.newHash).toBe(currentHash(entry.manifest, entry.memberId));
+        const domainPass = approvals.find(a => a.id === `world-models-pass-20261010-prose-${slug}`)!;
+        expect(domainPass.oldHash).toBe(seo.newHash);
+        expect(domainPass.newHash).toBe(currentHash(entry.manifest, entry.memberId));
       } else {
         expect(head.newHash).toBe(currentHash(entry.manifest, entry.memberId));
       }
       expect(entry.ownerApproval).toMatch(/^Owner-delegated approval: Josef Chen delegated release decisions to the delegated release reviewer on 2026-09-22\/23 \('you think and decide all'\); approved after primary-source verification of \S/);
     }
     // Each domain-pass article group, the 2026-10-08 classical registry
-    // fixes and sweep additions, and the 2026-10-09 overdue KOL step close
-    // the shared rendering chain with their own resolution; the newest is
-    // the head.
+    // fixes and sweep additions, the 2026-10-09 overdue KOL step and the
+    // 2026-10-10 world-models pass close the shared rendering chain with
+    // their own resolution; the newest is the head.
     const domainPassRendering = approvals.filter(a =>
-      /^domain-pass-(20261006-g\d+|20261008|20261008-sweep|20261009-kol)-citation-rendering$/.test(a.id));
+      /^(domain-pass-(20261006-g\d+|20261008|20261008-sweep|20261009-kol)|world-models-pass-20261010)-citation-rendering$/.test(a.id));
     expect(domainPassRendering.length).toBeGreaterThan(0);
     expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
       .toBe(domainPassRendering.at(-1)!.id);
@@ -246,7 +249,7 @@ describe('content integration of 2026-09-23', () => {
     expect(table).toContain("'~10x per latent step; ~10^5x per planned action (800 samples x 10 refinements)'");
     expect(table).not.toContain('10^2 to 10^3x per planned action');
     expect(read('content/world-models/world-models-vs-simulators.mdx')).toContain(
-      'the FLOP row is a derived order-of-magnitude estimate rather than a measurement',
+      'the FLOP row is a derived order-of-magnitude estimate.',
     );
   });
 });

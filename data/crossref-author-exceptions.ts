@@ -564,4 +564,20 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
     verified:
       'Same ISMAR 2011 PDF read 2026-08-22; Fitzgibbon is the tenth and final byline name.',
   },
+  {
+    id: 'cosmos-transfer1-2025',
+    skip: 'author-count',
+    reason:
+      'The arXiv feed prints 41 elements because of a stray ":" author element after "NVIDIA" (the byline reads "NVIDIA: Hassan Abu Alhaija, ..."), the same artifact as gr00t-n1-2025; the registry keeps the 40 real entries, the org plus 39 named authors.',
+    verified:
+      'arXiv API record for 2503.14492 read 2026-10-04 in the world-models article verification: 41 author elements, the second a literal ":" after "NVIDIA".',
+  },
+  {
+    id: 'cosmos-predict2-5-2025',
+    skip: 'author-count',
+    reason:
+      'The arXiv feed prints 90 elements because of a stray ":" author element after "NVIDIA" (the byline reads "NVIDIA: Arslan Ali, Junjie Bai, ..."), the same artifact as gr00t-n1-2025; the registry keeps the 89 real entries, the org plus 88 named contributors.',
+    verified:
+      'arXiv API record for 2511.00062 read 2026-10-04 in the world-models article verification: 90 author elements, the second a literal ":" after "NVIDIA".',
+  },
 ];

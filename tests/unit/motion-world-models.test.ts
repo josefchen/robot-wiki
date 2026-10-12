@@ -14,7 +14,8 @@ import { applyPush, DEFAULT_FORCE_N, INITIAL_LAYERS, INITIAL_MUG } from '@/lib/a
 import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
-import { withoutKolBacklogParagraphs } from '../helpers/kol-backlog-20261001';
+import { withoutPreDomainPassKolBacklogParagraphs } from '../helpers/kol-backlog-20261001';
+import { preDomainPass } from '../helpers/seo-pass';
 
 type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
 interface Row {
@@ -119,7 +120,7 @@ describe('world-models merged figures', () => {
 describe('world-models prose truth', () => {
   it('attaches each RoboCasa release to its own primary document', () => {
     const prose = readFileSync(join(folder, 'generative-sim.mdx'), 'utf8');
-    expect(prose).toMatch(/120-scene, 100-task, and 2,500-plus-object figures above belong to the RSS 2024 RoboCasa release <Cite id="robocasa-2024" \/>\. RoboCasa365 reports a separate, larger set <Cite id="robocasa365-2026" \/>/);
+    expect(prose).toMatch(/The first three figures are from the 2024 RoboCasa release <Cite id="robocasa-2024" \/>\. RoboCasa365 reports a separate, larger set <Cite id="robocasa365-2026" \/>/);
     expect(prose).not.toMatch(/RoboCasa365 reports a separate, larger set <Cite id="robocasa-2024" \/>/);
   });
 
@@ -133,7 +134,7 @@ describe('world-models prose truth', () => {
       },
     };
     for (const file of articles) {
-      const current = withoutKolBacklogParagraphs(`world-models/${file}`, readFileSync(join(folder, file), 'utf8'));
+      const current = withoutPreDomainPassKolBacklogParagraphs(`world-models/${file}`, preDomainPass(`content/world-models/${file}`).toString('utf8'));
       const before = execFileSync('git', ['show', `68fd2b8:content/world-models/${file}`], {
         cwd: root, encoding: 'utf8',
       });

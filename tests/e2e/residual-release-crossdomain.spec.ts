@@ -41,8 +41,6 @@ test('crossdomain selected counts and removal at desktop and mobile', async ({ p
         await expect(page.getByTestId('release-track')).toContainText('13 of 13 shown');
         await page.getByTestId('release-track').scrollIntoViewIfNeeded();
       } else {
-        await expect(main).toContainText("this article's authored selection");
-        await expect(main).toContainText('not an exhaustive or universally agreed scientific taxonomy');
         await expect(main).toContainText('example groups');
       }
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

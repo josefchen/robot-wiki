@@ -10800,12 +10800,32 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:1x-world-model-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:1x-world-model-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:1x-world-model-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:1x-world-model-lab-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:2dgs-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:3d-gen-embodied-survey-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -10995,6 +11015,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:amd-world-labs-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:ames-cbf-2019",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -11006,6 +11031,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:ami-labs-founding-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:ami-labs-launch-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -11061,6 +11091,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:apt-action-expert-pretraining-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:articulate-anything-2024",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -11245,6 +11280,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:bmpc-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:bodex-2024",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -11326,6 +11366,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:bver-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:byol-2020",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -11460,6 +11505,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:compounding-error-2022",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:computex-collapse-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -11520,7 +11570,22 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict2-5-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict2-perf-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict2-repo-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-transfer1-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -11646,6 +11711,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:deep-reactive-policy-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:deep-visual-foresight-2016",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -11795,6 +11865,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:digital-cousins-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dino-wm-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dinov2-2023",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -11855,6 +11935,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dreamdojo-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dreamer-2019",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -11865,12 +11950,22 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dreamerv2-2020",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dreamerv3-2023",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dreamerv3-nature-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dreamgen-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -11931,6 +12026,16 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dust3r-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dyna-1990",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:e2c-2015",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -12290,6 +12395,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:fvd-content-bias-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:gail-2016",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -12415,6 +12525,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:genesis-world-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:genie-1-2024",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -12426,6 +12541,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:genie-3-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:gensim-2023",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -12486,6 +12606,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:gr-2-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:gr-3-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -12615,12 +12740,27 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:gvl-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:h-jepa-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:h-rdt-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:h2o-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:ha-world-models-2018",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -12825,6 +12965,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:hwm-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:hybridvla-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -12880,6 +13025,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:ijepa-2023",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:ikfast-diankov-2010",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -12906,6 +13056,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:industrial-curobo-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:infinigen-articulated-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -12950,7 +13105,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:intphys2-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:intrinsic-ai-for-industry-challenge-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:intuitive-physics-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -12961,6 +13126,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:iql-2022",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:irasim-2024",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13060,7 +13230,27 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:jepa-implicit-bias-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:jepa-value-planning-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:jepa-vla-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:jepa-wam-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:jepa-wm-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13310,6 +13500,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:lecun-ami-techcrunch-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:lee-2020",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -13331,6 +13526,16 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:lei-takt-time-definition",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:lejepa-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:lejepa-world-model-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13390,6 +13595,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:levjepa-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:leworldmodel-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:li-cassie-2024",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -13436,6 +13651,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:lin-humanoid-sim2real-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:lingbot-va-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13500,7 +13720,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:manip-wm-survey-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:manipulationnet-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:maniskill3-2024",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13516,6 +13746,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:mapl-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:marble-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13550,6 +13785,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:masked-world-models-2022",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:mason-1981",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -13575,6 +13815,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:mbpo-2019",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:mbrl-survey-2020",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:mcap-spec-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -13586,6 +13836,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:mcvamp-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:me-trpo-2018",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13615,6 +13870,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:meta-vjepa2-blog-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:mev1-servicing-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -13631,6 +13891,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:miller-spot-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:mimicgen-2023",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13700,7 +13965,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:mopo-2020",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:moravec-elfes-1985",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:morel-2020",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13780,6 +14055,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:mudreamer-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:mujoco-2012",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -13806,6 +14086,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:murray-li-sastry-1994",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:muzero-2019",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13861,6 +14146,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:neural-mp-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:newt-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -13950,7 +14240,22 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:nvidia-wam-blog-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:nvidia-warp-repo-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:objaverse-2022",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:objective-mismatch-2020",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -14240,6 +14545,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:pddm-2019",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:pearce-diffusion-bc-2023",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -14265,6 +14575,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:pets-2018",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:phantom-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -14280,7 +14595,27 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:physgaussian-2023",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:physics-iq-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:physics-iq-verified-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:phystwin-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:physx-3d-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -14355,6 +14690,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:pilco-2015",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:pistar06-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -14386,6 +14726,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:pointnet-plus-plus-2017",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:pointworld-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -14450,6 +14795,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:procthor-2022",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:project-genie-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -14471,6 +14821,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:pulse-2023",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:puppeteer-2024",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -14670,6 +15025,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:reset-free-driving-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:reset-free-rl-2021",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -14696,6 +15056,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:rialto-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:rise-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -14795,6 +15160,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:robolab-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:robomimic-2021",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -14846,6 +15216,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:robottt-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:robotwin-2-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -15050,6 +15425,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:rwm-u-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:sac-2018",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -15120,12 +15500,22 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:scalable-real2sim-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:scaledp-2024",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:scenelm-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:scenesmith-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -15235,6 +15625,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:simdist-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:simex-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -15291,6 +15686,16 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:skild-series-c-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:skillmimicgen-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:skyjepa-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -15385,6 +15790,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:ssrl-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:stagewise-cmorl-2024",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -15396,6 +15806,16 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:state-of-simulation-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:steerable-scene-generation-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:steve-2018",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -15431,6 +15851,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:swift-drone-racing-2023",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:symbolic-operators-2021",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -15480,6 +15905,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:td-m-pc2-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:td3-2018",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -15525,6 +15955,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:text2reward-2023",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:tf-library-2013",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -15561,6 +15996,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:tokenlearner-2021",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:tossingbot-2019",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -15655,6 +16095,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:unisim-2023",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:unitree-g1-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -15681,6 +16126,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:urdf-dataset-2023",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:value-equivalence-2020",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -15740,6 +16190,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:video-physical-law-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:viral-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -15751,6 +16206,21 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:visual-dexterity-2022",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:visualpredicator-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:visuospatial-foresight-2020",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:vjepa-2-1-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -15776,6 +16246,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:vla-continual-forgetting-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:vla-jepa-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -15840,6 +16315,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:wam-robustness-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:wampler-1986",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -15890,12 +16370,57 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:wm-hallucination-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:wmp-2024",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:workhorse-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:world-in-world-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:world-model-survey-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:worldarena-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:worldeval-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:worldgym-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:worldlabs-atlas-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:worldmodelbench-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:worldsimprobe-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -15911,6 +16436,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:x-vla-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:x2real-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -16540,7 +17070,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1635,
+        "populationSize": 1741,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -17038,8 +17568,12 @@
           "result:VAL-B2-BASE-002:article-metadata:canonical-metadata-source:lib/site.ts",
           "result:VAL-B2-BASE-002:article-metadata:citation-rendering:label-and-meta",
           "result:VAL-B2-BASE-002:article-metadata:citation:1x-neo-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:1x-world-model-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:1x-world-model-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:1x-world-model-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:1x-world-model-lab-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:2dgs-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:3d-gen-embodied-survey-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:3dgs-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:a2c2-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:a3-orders-2025",
@@ -17077,9 +17611,11 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:amazon-sequoia-digit-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:amazon-vulcan-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:amb3r-slam-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:amd-world-labs-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:ames-cbf-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:ami-labs-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:ami-labs-founding-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:ami-labs-launch-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:anchor-align-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:angelopoulos-conformal-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:any6d-2025",
@@ -17091,6 +17627,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:apple-visionpro-price-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:apriltag-2011",
           "result:VAL-B2-BASE-002:article-metadata:citation:apt-action-expert-pretraining-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:articulate-anything-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:asap-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:asena-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:asimov-agentic-2026",
@@ -17127,6 +17664,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:bjelonic-sim2real-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:blip2-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:block-generative-bc-2023",
+          "result:VAL-B2-BASE-002:article-metadata:citation:bmpc-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:bodex-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:bojarski-e2e-driving-2016",
           "result:VAL-B2-BASE-002:article-metadata:citation:bommasani-foundation-models-2021",
@@ -17144,6 +17682,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:bunny-visionpro-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:butterfly-sgd-noise-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:bver-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:byol-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:cadena-2016",
           "result:VAL-B2-BASE-002:article-metadata:citation:cal-ql-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:calib-all-2025",
@@ -17170,6 +17709,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:code-as-policies-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:cog-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:cogact-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:compounding-error-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:computex-collapse-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:conceptfusion-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:conceptgraphs-2023",
@@ -17182,7 +17722,10 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-3-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-policy-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict2-5-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict2-perf-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-predict2-repo-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:cosmos-transfer1-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:cosypose-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:cot-vla-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:cql-2020",
@@ -17208,6 +17751,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:ddpm-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:ddpo-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:deep-reactive-policy-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:deep-visual-foresight-2016",
           "result:VAL-B2-BASE-002:article-metadata:citation:deepmimic-2018",
           "result:VAL-B2-BASE-002:article-metadata:citation:dehp-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:dellaert-kaess-2006",
@@ -17237,6 +17781,8 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:diffusion-policy-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:diffusion-policy-2023-v1",
           "result:VAL-B2-BASE-002:article-metadata:citation:digit-sensor-2020",
+          "result:VAL-B2-BASE-002:article-metadata:citation:digital-cousins-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:dino-wm-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:dinov2-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:dinov3-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:ditto-x-2026",
@@ -17249,10 +17795,13 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:dppo-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:dream-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:dream-mpc-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:dreamdojo-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:dreamer-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:dreamer4-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:dreamerv2-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:dreamerv3-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:dreamerv3-nature-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:dreamgen-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:dreamzero-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:dreds-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:dreureka-2024",
@@ -17265,6 +17814,8 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:dsrl-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:dtc-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:dust3r-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:dyna-1990",
+          "result:VAL-B2-BASE-002:article-metadata:citation:e2c-2015",
           "result:VAL-B2-BASE-002:article-metadata:citation:e2e-ad-survey-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:easyhec-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:ecomem-2026",
@@ -17336,6 +17887,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:franka-fci-docs",
           "result:VAL-B2-BASE-002:article-metadata:citation:frogger-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:futurertc-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:fvd-content-bias-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:gail-2016",
           "result:VAL-B2-BASE-002:article-metadata:citation:gain-adaptation-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:gait-2026",
@@ -17361,9 +17913,11 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:generalist-gen0-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:generalist-gen1-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:genesis-handover-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:genesis-world-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:genie-1-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:genie-2-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:genie-3-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:gensim-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:get-a-grip-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:gmr-retargeting-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:gmt-2025",
@@ -17376,6 +17930,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:gpusimbench-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:gr-1-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:gr-2-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:gr-3-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:gr00t-n1-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:gr00t-n1-5-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:gr00t-n1-6-2025",
@@ -17401,8 +17956,11 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:gtsam-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:gtsam-4-3-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:gu-humanoid-review-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:gvl-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:h-jepa-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:h-rdt-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:h2o-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:ha-world-models-2018",
           "result:VAL-B2-BASE-002:article-metadata:citation:haarnoja-soccer-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:haarnoja-walk-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:haddadin-2009",
@@ -17443,6 +18001,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:humanup-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:hutchinson-hager-corke-1996",
           "result:VAL-B2-BASE-002:article-metadata:citation:hwangbo-2019",
+          "result:VAL-B2-BASE-002:article-metadata:citation:hwm-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:hybridvla-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:hydra-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:hydra-hand-eye-2025",
@@ -17454,12 +18013,14 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:ifr-china-five-year-plan-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:ifr-world-robotics-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:ifr-world-robotics-2026-release",
+          "result:VAL-B2-BASE-002:article-metadata:citation:ijepa-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:ikfast-diankov-2010",
           "result:VAL-B2-BASE-002:article-metadata:citation:ikflow-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:imap-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:implicit-bc-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:industreal-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:industrial-curobo-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:infinigen-articulated-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:ingenuity-first-flight-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:ingenuity-mission-end-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:inner-monologue-2022",
@@ -17468,9 +18029,12 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:instant-ngp-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:instructvla-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:interactive-world-simulator-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:intphys2-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:intrinsic-ai-for-industry-challenge-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:intuitive-physics-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:intuitive-q4-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:iql-2022",
+          "result:VAL-B2-BASE-002:article-metadata:citation:irasim-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:ire-vla-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:isaac-gr00t-repo-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:isaac-gym-2021",
@@ -17490,7 +18054,11 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:iso-cd-25785-1",
           "result:VAL-B2-BASE-002:article-metadata:citation:iso-ts-15066",
           "result:VAL-B2-BASE-002:article-metadata:citation:jakobi-1995",
+          "result:VAL-B2-BASE-002:article-metadata:citation:jepa-implicit-bias-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:jepa-value-planning-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:jepa-vla-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:jepa-wam-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:jepa-wm-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:jetson-ai-lab-openpi-thor",
           "result:VAL-B2-BASE-002:article-metadata:citation:jetson-thor-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:julier-uhlmann-1997",
@@ -17540,11 +18108,14 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:leap-hand-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:learning-by-cheating-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:leave-no-trace-2017",
+          "result:VAL-B2-BASE-002:article-metadata:citation:lecun-ami-techcrunch-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:lee-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:legged-gym-repo-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:lei-cotraining-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:lei-cycle-time-definition",
           "result:VAL-B2-BASE-002:article-metadata:citation:lei-takt-time-definition",
+          "result:VAL-B2-BASE-002:article-metadata:citation:lejepa-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:lejepa-world-model-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:lerobot-async-inference-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:lerobot-docs-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:lerobot-paper-2026",
@@ -17556,6 +18127,8 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:levine-hand-eye-2016",
           "result:VAL-B2-BASE-002:article-metadata:citation:levine-hand-eye-2018",
           "result:VAL-B2-BASE-002:article-metadata:citation:levine-visuomotor-2015",
+          "result:VAL-B2-BASE-002:article-metadata:citation:levjepa-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:leworldmodel-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:li-cassie-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:li-mourikis-2013",
           "result:VAL-B2-BASE-002:article-metadata:citation:li-mourikis-temporal-2014",
@@ -17566,6 +18139,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:libero-pro-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:lin-data-scaling-laws-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:lin-humanoid-sim2real-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:lingbot-va-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:lipman-flow-matching-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:liu-closure-lp-1999",
           "result:VAL-B2-BASE-002:article-metadata:citation:llama-2-2023",
@@ -17578,33 +18152,42 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:macefield-touch-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:maestro-commercial-510k-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:maestro-tavac-2023",
+          "result:VAL-B2-BASE-002:article-metadata:citation:manip-wm-survey-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:manipulationnet-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:maniskill3-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:manocha-canny-1994",
           "result:VAL-B2-BASE-002:article-metadata:citation:mapanything-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:mapl-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:marble-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:margolis-rapid-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:markenscoff-1990",
           "result:VAL-B2-BASE-002:article-metadata:citation:marquardt-1963",
           "result:VAL-B2-BASE-002:article-metadata:citation:martin-martin-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:marvel-norcross-2017",
           "result:VAL-B2-BASE-002:article-metadata:citation:mask-rcnn-2017",
+          "result:VAL-B2-BASE-002:article-metadata:citation:masked-world-models-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:mason-1981",
           "result:VAL-B2-BASE-002:article-metadata:citation:masquerade-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:mast3r-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:mast3r-slam-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:mayne-2000",
+          "result:VAL-B2-BASE-002:article-metadata:citation:mbpo-2019",
+          "result:VAL-B2-BASE-002:article-metadata:citation:mbrl-survey-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:mcap-spec-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:mcgee-schmidt-1985",
           "result:VAL-B2-BASE-002:article-metadata:citation:mcvamp-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:me-trpo-2018",
           "result:VAL-B2-BASE-002:article-metadata:citation:megapose-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:mem-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:mem-blog-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:mesh-mcl-construction-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:meta-fair-touch-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:meta-vjepa2-blog-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:mev1-servicing-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:micro-drone-swarm-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:miki-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:miller-spot-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:mimicgen-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:mirage-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:mishra-1987",
           "result:VAL-B2-BASE-002:article-metadata:citation:mit-humanoid-rewards-2023",
@@ -17618,7 +18201,9 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:moka-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:molmoact-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:monogs-2023",
+          "result:VAL-B2-BASE-002:article-metadata:citation:mopo-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:moravec-elfes-1985",
+          "result:VAL-B2-BASE-002:article-metadata:citation:morel-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:morgan-stanley-pr-problem-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:morphometric-imitation-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:moveit-hand-eye-tutorial-2026",
@@ -17634,12 +18219,14 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:mr-pop-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:msckf-2007",
           "result:VAL-B2-BASE-002:article-metadata:citation:much-ado-noising-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:mudreamer-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:mujoco-2012",
           "result:VAL-B2-BASE-002:article-metadata:citation:mujoco-ilqr-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:mujoco-overview-docs-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:mujoco-playground-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:mujoco-warp-repo-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:murray-li-sastry-1994",
+          "result:VAL-B2-BASE-002:article-metadata:citation:muzero-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:nakamura-hanafusa-1986",
           "result:VAL-B2-BASE-002:article-metadata:citation:nasa-availability-prediction-analysis",
           "result:VAL-B2-BASE-002:article-metadata:citation:nav2-2020",
@@ -17651,6 +18238,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:neural-fields-survey-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:neural-motion-planner-survey-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:neural-mp-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:newt-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:newton-lf-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:newton-manipulation-blog-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:newton-repo-2026",
@@ -17668,7 +18256,10 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:nvidia-gtc-gr00t-n2-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:nvidia-jetson-thor-available-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:nvidia-simready-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:nvidia-wam-blog-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:nvidia-warp-repo-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:objaverse-2022",
+          "result:VAL-B2-BASE-002:article-metadata:citation:objective-mismatch-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:ocado-oia-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:occworld-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:octo-2024",
@@ -17726,15 +18317,21 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:paxton-autonomous-trucks-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:paxton-robot-sports-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:pd-vla-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:pddm-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:pearce-diffusion-bc-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:peng-2018",
           "result:VAL-B2-BASE-002:article-metadata:citation:peng-action-space-2016",
           "result:VAL-B2-BASE-002:article-metadata:citation:perry-dong-post-training-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:perseverance-autonomy-2023",
+          "result:VAL-B2-BASE-002:article-metadata:citation:pets-2018",
           "result:VAL-B2-BASE-002:article-metadata:citation:phantom-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:phc-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:photoneo-phoxi-l-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:physgaussian-2023",
+          "result:VAL-B2-BASE-002:article-metadata:citation:physics-iq-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:physics-iq-verified-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:phystwin-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:physx-3d-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:pi-fast-blog-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:pi-human-to-robot-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:pi-olympics-2025",
@@ -17749,6 +18346,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:pi07-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:pi07-blog-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:pi3-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:pilco-2015",
           "result:VAL-B2-BASE-002:article-metadata:citation:pistar06-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:pistar06-blog-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:planet-2018",
@@ -17756,6 +18354,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:pld-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:pointnet-2017",
           "result:VAL-B2-BASE-002:article-metadata:citation:pointnet-plus-plus-2017",
+          "result:VAL-B2-BASE-002:article-metadata:citation:pointworld-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:pokorny-kragic-2013",
           "result:VAL-B2-BASE-002:article-metadata:citation:polaris-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:pomerleau-1991",
@@ -17768,11 +18367,13 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:prime-1-lunar-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:prism-humanoid-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:prismatic-vlm-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:procthor-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:project-genie-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:prompt-depth-anything-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:prrtc-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:ptr-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:pulse-2023",
+          "result:VAL-B2-BASE-002:article-metadata:citation:puppeteer-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:pyroki-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:q-chunking-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:q-transformer-2023",
@@ -17812,12 +18413,14 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:remix-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:rep-103-2010",
           "result:VAL-B2-BASE-002:article-metadata:citation:rep-105-2010",
+          "result:VAL-B2-BASE-002:article-metadata:citation:reset-free-driving-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:reset-free-rl-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:resgac-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:residual-rl-2018",
           "result:VAL-B2-BASE-002:article-metadata:citation:rewards-constraints-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:reynolds-boids-1987",
           "result:VAL-B2-BASE-002:article-metadata:citation:rialto-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:rise-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:rl-100-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:rl-action-spaces-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:rl-vla-generalization-2025",
@@ -17837,6 +18440,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:robogen-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:robogsim-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:roboharn-evo-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:robolab-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:robomimic-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:robomind-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:robopair-2024",
@@ -17848,6 +18452,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:robotic-world-model-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:robotics-funding-23b-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:robottt-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:robotwin-2-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:roboworld-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:robozaps-humanoids-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:robozaps-phoenix-2026",
@@ -17888,6 +18493,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:runway-gwm-robotics-eval-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:runway-praxis-1-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:rvs-2021",
+          "result:VAL-B2-BASE-002:article-metadata:citation:rwm-u-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:sac-2018",
           "result:VAL-B2-BASE-002:article-metadata:citation:sae-j3016-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:safety-filter-2023",
@@ -17902,8 +18508,10 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:sanctuary-tactile-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:sapg-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:saycan-2022",
+          "result:VAL-B2-BASE-002:article-metadata:citation:scalable-real2sim-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:scaledp-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:scenelm-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:scenesmith-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:schramm-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:schulman-2013",
           "result:VAL-B2-BASE-002:article-metadata:citation:schwarke-2024",
@@ -17925,6 +18533,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:siglip-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:sim-real-cotraining-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:simchowitz-continuous-il-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:simdist-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:simex-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:simfoundry-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:simpler-2024",
@@ -17937,6 +18546,8 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:skild-s1-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:skild-self-play-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:skild-series-c-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:skillmimicgen-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:skyjepa-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:slam3r-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:sleiman-wbmpc-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:smac-planner-2024",
@@ -17955,9 +18566,12 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:spi-active-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:splatam-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:splatsim-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:ssrl-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:stagewise-cmorl-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:star-suturing-2016",
           "result:VAL-B2-BASE-002:article-metadata:citation:state-of-simulation-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:steerable-scene-generation-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:steve-2018",
           "result:VAL-B2-BASE-002:article-metadata:citation:stomp-2011",
           "result:VAL-B2-BASE-002:article-metadata:citation:stulp-full-stack-transfer-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:sugar-2023",
@@ -17965,6 +18579,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:sutton-bitter-lesson-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:swevers-excitation-1997",
           "result:VAL-B2-BASE-002:article-metadata:citation:swift-drone-racing-2023",
+          "result:VAL-B2-BASE-002:article-metadata:citation:symbolic-operators-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:symbotic-10k-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:t-rex-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:t2mem-2026",
@@ -17974,6 +18589,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:tang-drl-survey-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:tartan-imu-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:task-wrench-boundary-2023",
+          "result:VAL-B2-BASE-002:article-metadata:citation:td-m-pc2-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:td3-2018",
           "result:VAL-B2-BASE-002:article-metadata:citation:td3-bc-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:tdmpc-2022",
@@ -17983,6 +18599,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:tesla-q1-2026-update",
           "result:VAL-B2-BASE-002:article-metadata:citation:teslarati-optimus-hand-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:text2motion-2023",
+          "result:VAL-B2-BASE-002:article-metadata:citation:text2reward-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:tf-library-2013",
           "result:VAL-B2-BASE-002:article-metadata:citation:tf2-docs-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:tf2-time-tutorial-2026",
@@ -17991,6 +18608,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:tlio-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:tobin-2017",
           "result:VAL-B2-BASE-002:article-metadata:citation:tokenlearner-2021",
+          "result:VAL-B2-BASE-002:article-metadata:citation:tossingbot-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:totg-2012",
           "result:VAL-B2-BASE-002:article-metadata:citation:touch-dexterous-grasping-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:touchworld-2026",
@@ -18009,12 +18627,14 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:umi-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:umi-gripper-site-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:uniad-2023",
+          "result:VAL-B2-BASE-002:article-metadata:citation:unisim-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:unitree-g1-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:unitree-h2-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:unitree-profit-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:up-osi-2017",
           "result:VAL-B2-BASE-002:article-metadata:citation:ur-force-mode-docs",
           "result:VAL-B2-BASE-002:article-metadata:citation:urdf-dataset-2023",
+          "result:VAL-B2-BASE-002:article-metadata:citation:value-equivalence-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:vamp-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:vaprl-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:varin-action-spaces-2019",
@@ -18026,14 +18646,19 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:versius-plus-510k-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:vggt-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:vggt-slam-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:video-physical-law-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:viral-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:vista-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:visual-dexterity-2022",
+          "result:VAL-B2-BASE-002:article-metadata:citation:visualpredicator-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:visuospatial-foresight-2020",
+          "result:VAL-B2-BASE-002:article-metadata:citation:vjepa-2-1-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:vjepa-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:vjepa2-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:vla-0-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:vla-ad-survey-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:vla-continual-forgetting-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:vla-jepa-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:vla-perf-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:vla-scaling-alignment-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:vlash-2025",
@@ -18046,6 +18671,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:wabersich-safety-filters-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:walk-in-the-park-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:walk-these-ways-2022",
+          "result:VAL-B2-BASE-002:article-metadata:citation:wam-robustness-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:wampler-1986",
           "result:VAL-B2-BASE-002:article-metadata:citation:waymo-crash-rates-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:waymo-open-dataset-2020",
@@ -18056,11 +18682,21 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:whitney-1969",
           "result:VAL-B2-BASE-002:article-metadata:citation:wholebodyvla-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:wikipedia-humanoid-hand-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:wm-hallucination-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:wmp-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:workhorse-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:world-in-world-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:world-model-survey-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:worldarena-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:worldeval-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:worldgym-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:worldlabs-atlas-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:worldmodelbench-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:worldsimprobe-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:worldvla-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:wsrl-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:x-vla-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:x2real-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:xiaomi-robotics-1-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:yang-autonomy-2017",
           "result:VAL-B2-BASE-002:article-metadata:citation:yoshikawa-1985",
@@ -37930,157 +38566,192 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#control-the-evaluation-shifts",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#a-credible-report-pins-the-benchmark-version-and-the-real-anchor",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#leakage-and-circularity",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#disjoint-data-and-blind-trials-guard-against-leakage",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-1-one-step-action-sensitivity",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-1-open-models-often-fail-to-follow-a-changed-action",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-2-temporal-and-physical-consistency",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-2-pooled-video-metrics-hide-physical-errors",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-3-task-progress-scoring",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-3-the-progress-scorer-needs-its-own-test",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-4-policy-ranking",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-4-the-best-simulators-order-policies-as-real-trials-do",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-5-closed-loop-usefulness",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-5-planning-and-fine-tuning-in-a-world-model-improved-outcomes",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#start-with-the-intended-use",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#perception-scores-miss-function-so-each-use-needs-its-own-test",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#the-minimum-credible-report",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/evaluation/#saturated-benchmarks-hide-robustness-gaps",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#draw-the-hybrid-boundary-explicitly",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#a-physics-engine-keeps-generated-content-physically-consistent",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generate-content-inside-a-physics-engine",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generated-content-still-needs-physical-and-human-checks",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#holodeck-language-guided-environment-generation",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generative-simulation-borrows-its-physics-from-the-engine",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#limitations-stated-plainly",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generators-expand-a-few-demonstrations-or-one-image-into-training-data",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#robocasa-a-benchmark-built-from-generated-assets",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generators-propose-content-and-the-engine-integrates-contact",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#robogen-propose-generate-learn",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#holodeck-builds-rooms-from-prompts-but-does-not-test-manipulation",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#the-push-test-appearance-is-not-physics",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#more-generated-demonstrations-raised-robocasa-success-from-263-to-476",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#where-this-leaves-the-field",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#policies-trained-on-generated-variations-now-transfer-to-real-robots",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#1x-and-odyssey-the-commercial-edges",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-sim/#robogen-automates-task-proposal-but-humans-still-inspect-the-results",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#an-evaluation-ladder-for-video-models",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#1x-still-fails-dexterous-tasks-while-odyssey-streams-worlds-live",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#cosmos-3-the-omni-model",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#cosmos-3-replaces-a-stack-of-separate-models-with-one-omni-model",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#does-it-work-as-a-simulator-the-evidence-both-ways",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#generated-experience-trains-real-policies-but-contact-rich-tasks-stay-open",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#genie-2-and-genie-3-interactive-worlds-with-an-honest-limitation-list",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#genie-3-renders-worlds-at-24-fps-that-hold-for-a-few-minutes",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#gr-1-and-gr-2-video-pre-training-pointed-at-manipulation",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#gr-1-and-gr-2-built-on-video-pre-training-gr-3-switched-to-a-vla",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#the-conditioning-problem",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#in-iws-tests-generated-demonstrations-rivalled-real-ones-for-two-policies",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#a-deployment-rule-for-representation-prediction",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#some-video-simulators-rank-policies-in-real-world-order-others-do-not",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#the-argument-for-representation-prediction",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#test-action-response-before-trusting-a-video-models-rankings",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#the-counterargument-stated-fairly",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#weak-action-conditioning-is-the-fields-main-bottleneck",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#the-institutional-bet-ami-labs",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/generative-video/#world-action-models-now-run-as-closed-loop-robot-policies",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#v-jepa-2-the-arguments-strongest-artifact",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#an-interactive-jepa-world-or-a-contact-rich-win-would-settle-it",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#what-would-settle-it",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#jepa-has-no-steerable-simulator-and-its-latents-are-hard-to-validate",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#daydreamer-imagination-on-physical-hardware",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#latent-planning-works-on-tabletop-picks-and-successors-improve-it",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#lecuns-ami-labs-raised-over-a-billion-dollars-for-world-models",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#predicting-embeddings-skips-detail-that-control-does-not-need",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#robot-results-do-not-yet-separate-the-two-camps",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#use-jepa-when-reconstructing-pixels-adds-no-evidence",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/jepa/#v-jepa-2-adds-robot-control-with-under-62-hours-of-robot-video",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#agents-trained-inside-a-recurrent-latent-model-reached-human-level-atari",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#daydreamer-taught-a-real-quadruped-to-walk-in-about-an-hour",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
@@ -38090,27 +38761,47 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#pick-the-models-role-before-its-architecture",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#imagination-tolerates-slow-models-online-planning-needs-predictable-latency",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#successors-and-open-limits",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#latent-models-imagine-only-3-to-16-steps-ahead",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#td-mpc-and-td-mpc2-drop-the-decoder-plan-at-every-step",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#refinements-to-latent-planning-bring-uneven-gains",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#the-horizon-problem",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#simulation-trained-world-models-now-transfer-to-real-legged-robots",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#the-rssm-a-state-you-can-dream-in",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#td-mpc2-drops-the-decoder-and-plans-at-every-step",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#td-mpc2s-authors-expect-broad-generalization-to-need-far-more-tasks",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#a-model-can-plan-each-step-or-train-a-policy-in-imagination",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#model-based-learning-pays-off-when-real-interaction-is-expensive",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#model-based-means-predicting-the-effect-of-an-action",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
@@ -38120,37 +38811,27 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#neural-simulators-and-hybrid-models",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#neural-and-hybrid-simulators-now-train-real-robot-policies",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#the-model-based-decomposition",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#robots-see-only-part-of-the-state-yet-learn-useful-models-in-minutes-to-hours",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#the-practical-loop",
-          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#two-ways-to-use-imagined-experience",
-          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#when-to-choose-model-based-learning",
-          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#why-physical-robots-make-the-model-harder",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#uncertainty-estimates-keep-policies-from-exploiting-model-errors",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/taxonomy/#a-3d-gaussian-splatting-twin-is-not",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/taxonomy/#a-model-counts-only-if-it-predicts-the-effect-of-actions",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
@@ -38180,22 +38861,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/taxonomy/#reading-world-model-claims",
-          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/taxonomy/#six-example-groups",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/taxonomy/#symbolic-and-structured-predict-predicates-not-percepts",
-          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/taxonomy/#the-functional-cut",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/taxonomy/#symbolic-and-structured-predict-predicates",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
@@ -38215,12 +38886,22 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/taxonomy/#what-each-paradigm-is-actually-for",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/taxonomy/#video-models-serve-evaluation-and-data-latent-models-plan-without-images",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#a-selection-rule",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#a-latent-planner-needs-seconds-per-action-a-video-planner-minutes",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#choose-by-what-can-be-specified-and-what-the-data-cover",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#clip-generators-run-far-slower-than-interactive-world-models",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
@@ -38231,6 +38912,16 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#evaluation-must-use-the-same-real-anchor",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#four-hybrid-patterns",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#gaussian-splats-render-in-milliseconds-but-carry-no-dynamics",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
@@ -38250,27 +38941,22 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#learning-captures-appearance-and-contact-that-are-costly-to-model",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#physics-stays-ahead-for-untried-actions-and-checkable-safety-limits",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#pretrain-in-simulation-adapt-dynamics-on-hardware",
+          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#they-solve-different-specification-problems",
-          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#three-hybrid-patterns",
-          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#what-each-representation-costs-to-run",
-          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#where-learning-has-the-advantage",
-          "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#where-physics-remains-difficult-to-replace",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
@@ -38291,7 +38977,7 @@
         "statement": "Linked article section headings read as ink DM Sans type and expose a non-colour link affordance, a copy-link glyph that stays rendered at opacity 0.3 or more at rest, and remain keyboard focusable.",
         "expected": "Linked article section headings read as ink DM Sans type and expose a non-colour link affordance, a copy-link glyph that stays rendered at opacity 0.3 or more at rest, and remain keyboard focusable.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 428,
+        "populationSize": 438,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -38659,75 +39345,85 @@
           "result:VAL-B2-TYPE-009:/rl-sim2real/why-rl-locomotion/#imitation-trained-baselines",
           "result:VAL-B2-TYPE-009:/rl-sim2real/why-rl-locomotion/#six-properties-of-the-two-mdps",
           "result:VAL-B2-TYPE-009:/rl-sim2real/why-rl-locomotion/#the-asymmetry-is-in-the-mdp",
-          "result:VAL-B2-TYPE-009:/world-models/evaluation/#control-the-evaluation-shifts",
-          "result:VAL-B2-TYPE-009:/world-models/evaluation/#leakage-and-circularity",
-          "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-1-one-step-action-sensitivity",
-          "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-2-temporal-and-physical-consistency",
-          "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-3-task-progress-scoring",
-          "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-4-policy-ranking",
-          "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-5-closed-loop-usefulness",
-          "result:VAL-B2-TYPE-009:/world-models/evaluation/#start-with-the-intended-use",
-          "result:VAL-B2-TYPE-009:/world-models/evaluation/#the-minimum-credible-report",
-          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#draw-the-hybrid-boundary-explicitly",
-          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generate-content-inside-a-physics-engine",
-          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#holodeck-language-guided-environment-generation",
-          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#limitations-stated-plainly",
-          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#robocasa-a-benchmark-built-from-generated-assets",
-          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#robogen-propose-generate-learn",
-          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#the-push-test-appearance-is-not-physics",
-          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#where-this-leaves-the-field",
-          "result:VAL-B2-TYPE-009:/world-models/generative-video/#1x-and-odyssey-the-commercial-edges",
-          "result:VAL-B2-TYPE-009:/world-models/generative-video/#an-evaluation-ladder-for-video-models",
-          "result:VAL-B2-TYPE-009:/world-models/generative-video/#cosmos-3-the-omni-model",
-          "result:VAL-B2-TYPE-009:/world-models/generative-video/#does-it-work-as-a-simulator-the-evidence-both-ways",
-          "result:VAL-B2-TYPE-009:/world-models/generative-video/#genie-2-and-genie-3-interactive-worlds-with-an-honest-limitation-list",
-          "result:VAL-B2-TYPE-009:/world-models/generative-video/#gr-1-and-gr-2-video-pre-training-pointed-at-manipulation",
-          "result:VAL-B2-TYPE-009:/world-models/generative-video/#the-conditioning-problem",
-          "result:VAL-B2-TYPE-009:/world-models/jepa/#a-deployment-rule-for-representation-prediction",
-          "result:VAL-B2-TYPE-009:/world-models/jepa/#the-argument-for-representation-prediction",
-          "result:VAL-B2-TYPE-009:/world-models/jepa/#the-counterargument-stated-fairly",
-          "result:VAL-B2-TYPE-009:/world-models/jepa/#the-institutional-bet-ami-labs",
-          "result:VAL-B2-TYPE-009:/world-models/jepa/#v-jepa-2-the-arguments-strongest-artifact",
-          "result:VAL-B2-TYPE-009:/world-models/jepa/#what-would-settle-it",
-          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#daydreamer-imagination-on-physical-hardware",
+          "result:VAL-B2-TYPE-009:/world-models/evaluation/#a-credible-report-pins-the-benchmark-version-and-the-real-anchor",
+          "result:VAL-B2-TYPE-009:/world-models/evaluation/#disjoint-data-and-blind-trials-guard-against-leakage",
+          "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-1-open-models-often-fail-to-follow-a-changed-action",
+          "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-2-pooled-video-metrics-hide-physical-errors",
+          "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-3-the-progress-scorer-needs-its-own-test",
+          "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-4-the-best-simulators-order-policies-as-real-trials-do",
+          "result:VAL-B2-TYPE-009:/world-models/evaluation/#level-5-planning-and-fine-tuning-in-a-world-model-improved-outcomes",
+          "result:VAL-B2-TYPE-009:/world-models/evaluation/#perception-scores-miss-function-so-each-use-needs-its-own-test",
+          "result:VAL-B2-TYPE-009:/world-models/evaluation/#saturated-benchmarks-hide-robustness-gaps",
+          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#a-physics-engine-keeps-generated-content-physically-consistent",
+          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generated-content-still-needs-physical-and-human-checks",
+          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generative-simulation-borrows-its-physics-from-the-engine",
+          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generators-expand-a-few-demonstrations-or-one-image-into-training-data",
+          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#generators-propose-content-and-the-engine-integrates-contact",
+          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#holodeck-builds-rooms-from-prompts-but-does-not-test-manipulation",
+          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#more-generated-demonstrations-raised-robocasa-success-from-263-to-476",
+          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#policies-trained-on-generated-variations-now-transfer-to-real-robots",
+          "result:VAL-B2-TYPE-009:/world-models/generative-sim/#robogen-automates-task-proposal-but-humans-still-inspect-the-results",
+          "result:VAL-B2-TYPE-009:/world-models/generative-video/#1x-still-fails-dexterous-tasks-while-odyssey-streams-worlds-live",
+          "result:VAL-B2-TYPE-009:/world-models/generative-video/#cosmos-3-replaces-a-stack-of-separate-models-with-one-omni-model",
+          "result:VAL-B2-TYPE-009:/world-models/generative-video/#generated-experience-trains-real-policies-but-contact-rich-tasks-stay-open",
+          "result:VAL-B2-TYPE-009:/world-models/generative-video/#genie-3-renders-worlds-at-24-fps-that-hold-for-a-few-minutes",
+          "result:VAL-B2-TYPE-009:/world-models/generative-video/#gr-1-and-gr-2-built-on-video-pre-training-gr-3-switched-to-a-vla",
+          "result:VAL-B2-TYPE-009:/world-models/generative-video/#in-iws-tests-generated-demonstrations-rivalled-real-ones-for-two-policies",
+          "result:VAL-B2-TYPE-009:/world-models/generative-video/#some-video-simulators-rank-policies-in-real-world-order-others-do-not",
+          "result:VAL-B2-TYPE-009:/world-models/generative-video/#test-action-response-before-trusting-a-video-models-rankings",
+          "result:VAL-B2-TYPE-009:/world-models/generative-video/#weak-action-conditioning-is-the-fields-main-bottleneck",
+          "result:VAL-B2-TYPE-009:/world-models/generative-video/#world-action-models-now-run-as-closed-loop-robot-policies",
+          "result:VAL-B2-TYPE-009:/world-models/jepa/#an-interactive-jepa-world-or-a-contact-rich-win-would-settle-it",
+          "result:VAL-B2-TYPE-009:/world-models/jepa/#jepa-has-no-steerable-simulator-and-its-latents-are-hard-to-validate",
+          "result:VAL-B2-TYPE-009:/world-models/jepa/#latent-planning-works-on-tabletop-picks-and-successors-improve-it",
+          "result:VAL-B2-TYPE-009:/world-models/jepa/#lecuns-ami-labs-raised-over-a-billion-dollars-for-world-models",
+          "result:VAL-B2-TYPE-009:/world-models/jepa/#predicting-embeddings-skips-detail-that-control-does-not-need",
+          "result:VAL-B2-TYPE-009:/world-models/jepa/#robot-results-do-not-yet-separate-the-two-camps",
+          "result:VAL-B2-TYPE-009:/world-models/jepa/#use-jepa-when-reconstructing-pixels-adds-no-evidence",
+          "result:VAL-B2-TYPE-009:/world-models/jepa/#v-jepa-2-adds-robot-control-with-under-62-hours-of-robot-video",
+          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#agents-trained-inside-a-recurrent-latent-model-reached-human-level-atari",
+          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#daydreamer-taught-a-real-quadruped-to-walk-in-about-an-hour",
           "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#dreamerv3-one-recipe-across-150-tasks",
-          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#pick-the-models-role-before-its-architecture",
-          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#successors-and-open-limits",
-          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#td-mpc-and-td-mpc2-drop-the-decoder-plan-at-every-step",
-          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#the-horizon-problem",
-          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#the-rssm-a-state-you-can-dream-in",
+          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#imagination-tolerates-slow-models-online-planning-needs-predictable-latency",
+          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#latent-models-imagine-only-3-to-16-steps-ahead",
+          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#refinements-to-latent-planning-bring-uneven-gains",
+          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#simulation-trained-world-models-now-transfer-to-real-legged-robots",
+          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#td-mpc2-drops-the-decoder-and-plans-at-every-step",
+          "result:VAL-B2-TYPE-009:/world-models/latent-dynamics/#td-mpc2s-authors-expect-broad-generalization-to-need-far-more-tasks",
+          "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#a-model-can-plan-each-step-or-train-a-policy-in-imagination",
+          "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#model-based-learning-pays-off-when-real-interaction-is-expensive",
+          "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#model-based-means-predicting-the-effect-of-an-action",
           "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#model-error-is-task-weighted",
-          "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#neural-simulators-and-hybrid-models",
-          "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#the-model-based-decomposition",
-          "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#the-practical-loop",
-          "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#two-ways-to-use-imagined-experience",
-          "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#when-to-choose-model-based-learning",
-          "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#why-physical-robots-make-the-model-harder",
+          "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#neural-and-hybrid-simulators-now-train-real-robot-policies",
+          "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#robots-see-only-part-of-the-state-yet-learn-useful-models-in-minutes-to-hours",
+          "result:VAL-B2-TYPE-009:/world-models/model-based-robot-learning/#uncertainty-estimates-keep-policies-from-exploiting-model-errors",
           "result:VAL-B2-TYPE-009:/world-models/taxonomy/#a-3d-gaussian-splatting-twin-is-not",
+          "result:VAL-B2-TYPE-009:/world-models/taxonomy/#a-model-counts-only-if-it-predicts-the-effect-of-actions",
           "result:VAL-B2-TYPE-009:/world-models/taxonomy/#a-physics-engine-is-a-world-model",
           "result:VAL-B2-TYPE-009:/world-models/taxonomy/#decoder-free-latent-no-image-just-value",
           "result:VAL-B2-TYPE-009:/world-models/taxonomy/#generative-video-predict-the-pixels",
           "result:VAL-B2-TYPE-009:/world-models/taxonomy/#jepa-predict-the-representation-never-the-pixels",
           "result:VAL-B2-TYPE-009:/world-models/taxonomy/#latent-dynamics-predict-a-compact-state-dream-in-it",
-          "result:VAL-B2-TYPE-009:/world-models/taxonomy/#reading-world-model-claims",
           "result:VAL-B2-TYPE-009:/world-models/taxonomy/#six-example-groups",
-          "result:VAL-B2-TYPE-009:/world-models/taxonomy/#symbolic-and-structured-predict-predicates-not-percepts",
-          "result:VAL-B2-TYPE-009:/world-models/taxonomy/#the-functional-cut",
+          "result:VAL-B2-TYPE-009:/world-models/taxonomy/#symbolic-and-structured-predict-predicates",
           "result:VAL-B2-TYPE-009:/world-models/taxonomy/#three-tests-before-believing-a-world-model-claim",
           "result:VAL-B2-TYPE-009:/world-models/taxonomy/#two-boundary-cases",
           "result:VAL-B2-TYPE-009:/world-models/taxonomy/#unified-world-action-one-backbone-two-heads",
-          "result:VAL-B2-TYPE-009:/world-models/taxonomy/#what-each-paradigm-is-actually-for",
-          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#a-selection-rule",
+          "result:VAL-B2-TYPE-009:/world-models/taxonomy/#video-models-serve-evaluation-and-data-latent-models-plan-without-images",
+          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#a-latent-planner-needs-seconds-per-action-a-video-planner-minutes",
+          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#choose-by-what-can-be-specified-and-what-the-data-cover",
+          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#clip-generators-run-far-slower-than-interactive-world-models",
           "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#comparison-by-engineering-property",
           "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#evaluation-must-use-the-same-real-anchor",
+          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#four-hybrid-patterns",
+          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#gaussian-splats-render-in-milliseconds-but-carry-no-dynamics",
           "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#generate-content-keep-the-engine",
           "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#learn-appearance-keep-dynamics",
           "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#learn-residual-dynamics",
-          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#they-solve-different-specification-problems",
-          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#three-hybrid-patterns",
-          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#what-each-representation-costs-to-run",
-          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#where-learning-has-the-advantage",
-          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#where-physics-remains-difficult-to-replace"
+          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#learning-captures-appearance-and-contact-that-are-costly-to-model",
+          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#physics-stays-ahead-for-untried-actions-and-checkable-safety-limits",
+          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#pretrain-in-simulation-adapt-dynamics-on-hardware",
+          "result:VAL-B2-TYPE-009:/world-models/world-models-vs-simulators/#they-solve-different-specification-problems"
         ]
       }
     },

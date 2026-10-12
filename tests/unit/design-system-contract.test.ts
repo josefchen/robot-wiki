@@ -453,7 +453,7 @@ describe('identity geometry and typography stay aligned', () => {
     expect(frictionTransfer).toContain("const valueColour = roleColour('value')");
     expect(frictionTransfer).not.toMatch(/--color-accent/);
     expect(frictionTransfer).not.toMatch(/green/i);
-    expect(jepa).toContain('Its synthetic coordinates and distance trace come from the toy model; they cannot measure learned robot embeddings or planning performance');
+    expect(jepaChart).toContain('two-dimensional points and loads no trained encoder or predictor');
     // The JEPA chart paints the current latent, and the walked path whose
     // legend swatch names it, through the state role, keeps signal blue off
     // its marks, and nothing calls it green.

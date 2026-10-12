@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "0f7baecc964bb55c69b15246d2de1007559b7df8cfdcbe5d59145a65595dc5d2",
+  "fingerprint": "7b9c60ed7d7861ef3c5997f673859000b9b09b6e01460b11ca71386256023a2c",
   "source": "out/ static export",
   "routes": [
     {
@@ -730,8 +730,8 @@
     },
     {
       "route": "/world-models/evaluation/",
-      "outboundAnchors": 19,
-      "distinctHrefs": 11,
+      "outboundAnchors": 84,
+      "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
         "footer",
@@ -741,8 +741,8 @@
     },
     {
       "route": "/world-models/generative-sim/",
-      "outboundAnchors": 32,
-      "distinctHrefs": 11,
+      "outboundAnchors": 87,
+      "distinctHrefs": 39,
       "shapes": [
         "citation-chip",
         "footer",
@@ -752,8 +752,8 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "outboundAnchors": 49,
-      "distinctHrefs": 20,
+      "outboundAnchors": 80,
+      "distinctHrefs": 38,
       "shapes": [
         "citation-chip",
         "footer",
@@ -763,8 +763,8 @@
     },
     {
       "route": "/world-models/jepa/",
-      "outboundAnchors": 35,
-      "distinctHrefs": 13,
+      "outboundAnchors": 83,
+      "distinctHrefs": 38,
       "shapes": [
         "citation-chip",
         "footer",
@@ -774,8 +774,8 @@
     },
     {
       "route": "/world-models/latent-dynamics/",
-      "outboundAnchors": 31,
-      "distinctHrefs": 11,
+      "outboundAnchors": 81,
+      "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
         "footer",
@@ -785,8 +785,8 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "outboundAnchors": 23,
-      "distinctHrefs": 13,
+      "outboundAnchors": 74,
+      "distinctHrefs": 38,
       "shapes": [
         "citation-chip",
         "footer",
@@ -796,8 +796,8 @@
     },
     {
       "route": "/world-models/taxonomy/",
-      "outboundAnchors": 34,
-      "distinctHrefs": 15,
+      "outboundAnchors": 81,
+      "distinctHrefs": 39,
       "shapes": [
         "citation-chip",
         "footer",
@@ -807,8 +807,8 @@
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
-      "outboundAnchors": 37,
-      "distinctHrefs": 19,
+      "outboundAnchors": 77,
+      "distinctHrefs": 38,
       "shapes": [
         "citation-chip",
         "footer",
@@ -818,17 +818,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 4956,
-  "distinctOutboundHrefs": 1442,
+  "outboundAnchors": 5343,
+  "distinctOutboundHrefs": 1549,
   "anchorsByShape": {
-    "citation-chip": 2267,
+    "citation-chip": 2465,
     "footer": 152,
-    "reference-entry": 1620,
+    "reference-entry": 1809,
     "other": 563,
     "figure-credit": 354
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 4369,
+  "anchorsWithNoreferrer": 4756,
   "keyboard": [
     {
       "route": "/",
@@ -1376,67 +1376,67 @@
     },
     {
       "route": "/world-models/evaluation/",
-      "outboundInDom": 19,
-      "reachedByTab": 19,
+      "outboundInDom": 84,
+      "reachedByTab": 84,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 93
+      "tabStops": 212
     },
     {
       "route": "/world-models/generative-sim/",
-      "outboundInDom": 32,
-      "reachedByTab": 32,
+      "outboundInDom": 87,
+      "reachedByTab": 87,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 126
+      "tabStops": 221
     },
     {
       "route": "/world-models/generative-video/",
-      "outboundInDom": 49,
-      "reachedByTab": 49,
+      "outboundInDom": 80,
+      "reachedByTab": 80,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 153
+      "tabStops": 217
     },
     {
       "route": "/world-models/jepa/",
-      "outboundInDom": 35,
-      "reachedByTab": 35,
+      "outboundInDom": 83,
+      "reachedByTab": 83,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 116
+      "tabStops": 200
     },
     {
       "route": "/world-models/latent-dynamics/",
-      "outboundInDom": 31,
-      "reachedByTab": 31,
+      "outboundInDom": 81,
+      "reachedByTab": 81,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 112
+      "tabStops": 195
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "outboundInDom": 23,
-      "reachedByTab": 23,
+      "outboundInDom": 74,
+      "reachedByTab": 74,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 93
+      "tabStops": 179
     },
     {
       "route": "/world-models/taxonomy/",
-      "outboundInDom": 34,
-      "reachedByTab": 34,
+      "outboundInDom": 81,
+      "reachedByTab": 81,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 140
+      "tabStops": 216
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
-      "outboundInDom": 37,
-      "reachedByTab": 37,
+      "outboundInDom": 77,
+      "reachedByTab": 77,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 128
+      "tabStops": 210
     }
   ]
 }

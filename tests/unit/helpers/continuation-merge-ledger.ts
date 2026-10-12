@@ -327,6 +327,11 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   of 2026-10-09 registered three records for its dexterity and generative
  *   video sentences, which moved `citation-rendering:label-and-meta` with
  *   another resolution.
+ *
+ * - `world-models-pass-20261010-`: the world-models domain pass of 2026-10-10
+ *   moved each world-models article and registered its new records, each
+ *   member with one edge from its last approved endpoint, or one resolution
+ *   from the sealed hash where its chain already holds one.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -355,6 +360,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'domain-pass-20261008-citation-rendering',
   'domain-pass-20261008-sweep-citation-rendering',
   'domain-pass-20261009-kol-citation-rendering',
+  'world-models-pass-20261010-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

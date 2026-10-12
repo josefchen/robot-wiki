@@ -116,10 +116,13 @@ function throughSeoPass(path: string) {
   // The 2026-10-06 domain pass rewrote some articles from the owner's
   // drafts; its edges bind the KOL endpoint (scene-representation takes the
   // 2026-10-07 KOL intake first, then the classical draft), and the later
-  // classical pass carries that endpoint to the live article.
+  // classical pass carries that endpoint to the live article. The
+  // world-models drafts land in their own 2026-10-10 block, whose edges bind
+  // the same endpoint.
+  const domainPrefixes = ['domain-pass-20261006-', 'world-models-pass-20261010-'];
   const domainEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
-    && a.id.startsWith('domain-pass-20261006-'));
-  const domainEnd = edge(['domain-pass-20261006-'], preDomain, domainEdges.at(-1)?.newHash ?? preDomain, true);
+    && domainPrefixes.some(prefix => a.id.startsWith(prefix)));
+  const domainEnd = edge(domainPrefixes, preDomain, domainEdges.at(-1)?.newHash ?? preDomain, true);
   const classicalEnd = classicalPassEndpoint(approvals, 'prose', id, domainEnd);
   // The rl-sim2real figure batch of 2026-10-11 then mounted figures in some
   // of these articles, with one edge each that continues the classical
@@ -253,7 +256,12 @@ describe('merged reader corrections preserve production additions and exact appr
         const seoRelationship = approvals.find(a =>
           a.id === 'seo-pass-20261002-relationships-world-models-generative-sim')!;
         expect(seoRelationship).toMatchObject({ manifest: 'relationships', memberId: id, oldHash: relationship.newHash });
-        expect(truth.relationships.members.find(m => m.id === id)?.hash).toBe(seoRelationship.newHash);
+        // The 2026-10-10 world-models pass then moved it to the live record
+        // with one more plain edge from the SEO endpoint.
+        const domainRelationship = approvals.find(a =>
+          a.id === 'world-models-pass-20261010-relationships-generative-sim')!;
+        expect(domainRelationship).toMatchObject({ manifest: 'relationships', memberId: id, oldHash: seoRelationship.newHash });
+        expect(truth.relationships.members.find(m => m.id === id)?.hash).toBe(domainRelationship.newHash);
         const relationshipEdges = approvals.filter(a => a.manifest === 'relationships' && a.memberId === id);
         const sealedHash = sealed.manifests.relationships.members.find(m => m.id === id)!.hash;
         expect(approvedDeltaPath(relationshipEdges, sealedHash, relationship.newHash).status).toBe('approved');

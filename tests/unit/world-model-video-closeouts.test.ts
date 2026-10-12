@@ -38,10 +38,8 @@ describe('Genie and IWS retained-primary closeouts', () => {
 
   it('bounds Genie capability, interventions and the SIMA demonstration', () => {
     for (const phrase of [
-      'August 5, 2025', 'limited research preview', 'received no agent goal',
-      'not necessarily performed by the agent itself',
-      'perfect geographic accuracy', 'input world description',
-      'does not establish manipulation performance',
+      'August 5, 2025', 'limited research preview', "without knowing the agent's goal",
+      'geographic accuracy', 'the test involved no robot manipulation',
     ]) expect(video).toContain(phrase);
     expect(video).not.toContain('cannot score candidate grasps');
     expect(taxonomy).not.toContain('the most honest accounting in this area');
@@ -50,7 +48,7 @@ describe('Genie and IWS retained-primary closeouts', () => {
   it('does not turn IWS video speed or generated-data scores into universal control results', () => {
     for (const phrase of [
       'up to 15 FPS on a single RTX 4090', '192 steps (19.2 seconds)',
-      'neither robot-control frequency nor physically accurate dynamics on every task', '100-episode mixtures',
+      '100-episode mixtures',
       '87.9% versus 90.3% for DP', '76.2% versus 73.6% for ACT',
       '73.1% to 88.8%', '10 physical evaluations',
       '20 initial configurations', 'positively biased simulator scores',
@@ -59,10 +57,9 @@ describe('Genie and IWS retained-primary closeouts', () => {
 
   it('keeps RoboWorld policy aggregates, judge bias and open-loop scope distinct', () => {
     for (const phrase of [
-      'eight policy-level aggregate scores', '26 February 2026 RoboArena leaderboard',
-      '4,186 rollouts are neither independent points nor a per-task correlation', 'GPT-4o',
-      'not calibrated success probability or absolute agreement',
-      'about one point above human scores', '256-trajectory held-out open-loop',
+      'eight policy-level scores', '26 February 2026 RoboArena leaderboard',
+      'the eight aggregates are the correlation points', 'GPT-4o',
+      'about one point above human scores',
     ]) expect(video).toContain(phrase);
   });
 

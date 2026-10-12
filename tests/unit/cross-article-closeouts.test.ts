@@ -30,7 +30,10 @@ describe('source-scoped cross-article corrections', () => {
       expect(text).toContain('545M');
       expect(text).toContain('240 single-task agents');
       expect(text).toContain('104-task online benchmark');
-      expect(text).toContain('joint-embedding');
+      // Since the 2026-10-06 domain pass latent-dynamics states the
+      // decoder-free design once, for TD-MPC, which TD-MPC2 builds on;
+      // taxonomy keeps TD-MPC2's joint-embedding wording.
+      expect(text).toContain(slug === 'taxonomy' ? 'joint-embedding' : 'without reconstructing observations');
     }
   });
 
@@ -38,8 +41,7 @@ describe('source-scoped cross-article corrections', () => {
     const text = article('world-models/latent-dynamics');
     expect(text).toContain('H = 15');
     expect(text).toContain('T = 16');
-    expect(text).toContain('planning horizon H = 16, while its appendix lists imagination horizon H = 15');
-    expect(text).toContain('no paper measures that as a reliable-horizon range');
+    expect(text).toContain('DayDreamer states H = 16 in its methods and H = 15 in its appendix');
     expect(text).toContain('latent-state consistency');
   });
 

@@ -362,28 +362,28 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Latent-Dynamics World Models: Dreamer, TD-MPC2',
     headTerm: 'latent-dynamics world models',
     description:
-      'How latent-dynamics world models work: the RSSM, Dreamer imagination training, TD-MPC2 planning, and results on real robots.',
+      'How latent-dynamics world models work: the RSSM, Dreamer 4 offline imagination training, TD-MPC2 and Newt planning, and results on real robots.',
     queries: ['Dreamer world model', 'TD-MPC2', 'latent dynamics model'],
   },
   '/world-models/generative-video/': {
     title: 'Video World Models for Robots: Cosmos, Genie 3',
     headTerm: 'video world models',
     description:
-      'Action-conditioned video world models for robotics: Cosmos 3, Genie 3, 1X policy evaluation, and why action sensitivity decides.',
+      'Action-conditioned video world models for robotics: Cosmos 3, Genie 3, DreamZero, 1X and Veo policy evaluation, and why action sensitivity decides.',
     queries: ['video world models robotics', 'Cosmos world model', 'Genie 3 robotics'],
   },
   '/world-models/jepa/': {
     title: 'JEPA World Models for Robots: V-JEPA 2',
     headTerm: 'JEPA world models',
     description:
-      'JEPA world models predict embeddings, not pixels. V-JEPA 2 results, AMI Labs, and the case against generation.',
+      'JEPA world models predict embeddings, not pixels. V-JEPA 2 and 2.1, LeWorldModel and SkyJEPA results, AMI Labs, and the case against generation.',
     queries: ['JEPA world model', 'V-JEPA 2', 'JEPA vs generative'],
   },
   '/world-models/generative-sim/': {
     title: 'Generative Simulation for Robot Learning',
     headTerm: 'generative simulation',
     description:
-      'Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen and RoboCasa365.',
+      'Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365 and SimFoundry.',
     queries: ['generative simulation robotics', 'AI-generated simulation environments'],
   },
   '/world-models/model-based-robot-learning/': {
@@ -397,7 +397,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'World Model Evaluation and Benchmarks',
     headTerm: 'world model evaluation',
     description:
-      'Robot world model evaluation: action sensitivity, rollout consistency and policy ranking vs real trials.',
+      'Robot world model evaluation: action sensitivity, rollout consistency, policy ranking vs real trials, plus WorldArena and Veo.',
     queries: ['world model evaluation', 'world model benchmark robotics'],
   },
   '/world-models/world-models-vs-simulators/': {

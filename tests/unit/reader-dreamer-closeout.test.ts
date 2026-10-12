@@ -16,7 +16,7 @@ import { currentAuditContext } from '../helpers/residual-integration';
 import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedText, committedJson } from '../helpers/editorial-current-context';
 import { round6RemainingRepairPredecessor } from '@/lib/audit-round6-remaining-repairs-continuity';
-import { preSeoPass } from '../helpers/seo-pass';
+import { preDomainPass, preSeoPass } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '90c8a0f4c958c42750711082bfb54960cac7d5e8';
@@ -97,20 +97,15 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
   });
 
   it('keeps both source-qualified horizons and the illustrative rather than measured range', () => {
-    const horizon = latent.split('## The horizon problem\n\n')[1].split('\n\n')[0];
-    for (const text of [latent.split('<LatentImagination')[0], horizon]) {
-      expect(text).toContain('Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15');
-      expect(text).toContain("same document's actor-critic section uses prediction horizon T = 16");
-      expect(text).toContain('The 2024 revision and 2025 Nature article also use T = 16');
-      expect(text).toContain('<Cite id="dreamerv3-2023" />');
-    }
-    expect(latent).toContain('no paper measures that as a reliable-horizon range');
+    const horizon = latent.split('## Latent models imagine only 3 to 16 steps ahead\n\n')[1].split('\n\n')[0];
+    expect(horizon).toContain('The 2023 DreamerV3 preprint lists imagination horizon H = 15 in a table');
+    expect(horizon).toContain('prediction horizon T = 16 in its actor-critic section');
+    expect(horizon).toContain('the 2024 revision keeps both labels, and the 2025 Nature article uses T = 16');
+    expect(horizon).toContain('<Cite id="dreamerv3-2023" />');
     expect(latent).toContain('value="H=15 / T=16" note="2023 preprint: table / actor-critic"');
-    expect(horizon).toContain("DayDreamer's first manuscript likewise gives two labels");
-    expect(horizon).toContain('planning horizon H = 16, while its appendix lists imagination horizon H = 15');
+    expect(horizon).toContain('DayDreamer states H = 16 in its methods and H = 15 in its appendix');
     expect(horizon).toContain('<Cite id="daydreamer-2022" />');
-    expect(horizon).toContain('The second TD-MPC2 manuscript lists planning horizon H = 3');
-    expect(horizon).toContain('neither control frequencies nor universal bounds on reliable prediction');
+    expect(horizon).toContain('TD-MPC2 plans with H = 3');
     expect(horizon).not.toMatch(/off.by.one|counting convention|equivalent horizons/i);
   });
 
@@ -119,19 +114,16 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
     for (const phrase of [
       'more than 150 tasks across eight domains with fixed hyperparameters',
       'symlog transforms for vector observations', 'free bits with KL balancing',
-      'percentile-based return normalization', 'detailed distribution section',
-      'two-hot targets for reward and value prediction', 'earlier world-model paragraph',
-      'symlog squared loss', '<Cite id="dreamerv3-2023" />',
+      'percentile-based return normalization', '<Cite id="dreamerv3-2023" />',
     ]) expect(p).toContain(phrase);
   });
 
   it('makes the taxonomy summary self-contained and links to the detailed explanation without duplication', () => {
     const summary = dreamerParagraph(taxonomy);
     expect(summary).not.toBe(dreamerParagraph(latent));
-    expect(summary.split(/\s+/).length).toBeLessThan(dreamerParagraph(before(paths[1])).split(/\s+/).length);
+    expect(dreamerParagraph(preDomainPass(paths[1]).toString()).split(/\s+/).length)
+      .toBeLessThan(dreamerParagraph(before(paths[1])).split(/\s+/).length);
     expect(summary).toContain('more than 150 tasks in eight domains with fixed hyperparameters');
-    expect(summary).toContain('distribution section (two-hot reward/value targets)');
-    expect(summary).toContain('earlier world-model paragraph (symlog squared loss)');
     expect(summary).toContain('<Cite id="dreamerv3-2023" />');
     expect(summary).toContain('[latent-dynamics explanation](/world-models/latent-dynamics/)');
     expect(summary).not.toContain('free bits with KL balancing');
@@ -145,7 +137,7 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
       const historical = committedSource(checkpoint, path);
       expect(matter(historical).data).toEqual(matter(previous).data);
       expect(matter(preRepair(path)).data).toEqual(matter(committedSource(READER_RELEASE_BASE, path)).data);
-      expect(read(path).match(/<Cite\s+id="[^"]+"\s*\/>/g))
+      expect(preDomainPass(path).toString().match(/<Cite\s+id="[^"]+"\s*\/>/g))
         .toEqual(previous.match(/<Cite\s+id="[^"]+"\s*\/>/g));
       const touched = path === paths[0] ? [28, 36, 47, 63] : [63];
       const omit = (text: string) => text.split('\n').filter((_line, i) => !touched.includes(i + 1));

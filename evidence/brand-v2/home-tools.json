@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "740f15c6f8ab8c9875c14c1a2a0b78f757d14c77756fdfc243f5faf812f3bb3d",
+  "fingerprint": "1ace833ef1c639e14ea34415c3d410cda41afae2124cd7635194ab3f2218ec84",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -11,74 +11,7 @@
     "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
     "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
     "graphicTag": "svg",
-    "graphicTopPx": 1159,
-    "graphicHeightPx": 384,
-    "posterMarkCount": 3,
-    "playerMountedAtFirstPaint": false,
-    "posterControls": [
-      "Play the motion scene: The last stretch of episode reliability",
-      "Step back one beat",
-      "Step forward one beat",
-      "Reset the scene to its poster still"
-    ],
-    "statusLine": "Illustrative model: all 30 decisions succeed independently at the same rate.",
-    "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
-    "posterCaption": "The same horizon exposes the last stretch.",
-    "idleFrameRequests": 0,
-    "playingFrameRequests": 52,
-    "focusOutlineWidthPx": 1,
-    "focusOutlineStyle": "solid",
-    "focusOutlineColour": "rgb(28, 28, 26)",
-    "steps": [
-      {
-        "key": "Home",
-        "readout": "beat 1 / 4 conditional rate 95.0% episode 21.5%",
-        "caption": "At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time."
-      },
-      {
-        "key": "ArrowRight",
-        "readout": "beat 1 / 4 conditional rate 95.0% episode 21.5%",
-        "caption": "At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time."
-      },
-      {
-        "key": "ArrowRight",
-        "readout": "beat 2 / 4 conditional rate 99.0% episode 74.0%",
-        "caption": "Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%."
-      },
-      {
-        "key": "ArrowRight",
-        "readout": "beat 3 / 4 conditional rate 99.9% episode 97.0%",
-        "caption": "At 99.9% per decision, the same model gives 97.0% for thirty steps."
-      },
-      {
-        "key": "ArrowRight",
-        "readout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
-        "caption": "The same horizon exposes the last stretch."
-      },
-      {
-        "key": "ArrowLeft",
-        "readout": "beat 3 / 4 conditional rate 99.9% episode 97.0%",
-        "caption": "At 99.9% per decision, the same model gives 97.0% for thirty steps."
-      }
-    ],
-    "resetControlNames": [
-      "Reset the scene to its poster still"
-    ],
-    "resetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
-    "resetCaption": "The same horizon exposes the last stretch.",
-    "secondResetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
-    "componentModule": "components/motion/scenes/reliability-threshold.tsx",
-    "claimText": "The last stretch of episode reliability. The same horizon exposes the last stretch."
-  },
-  "moduleScene": {
-    "sceneId": "reliability-threshold",
-    "route": "/",
-    "sceneCount": 1,
-    "frameRole": "group",
-    "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
-    "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
-    "graphicTag": "svg",
-    "graphicTopPx": 1159,
+    "graphicTopPx": 1185,
     "graphicHeightPx": 384,
     "posterMarkCount": 3,
     "playerMountedAtFirstPaint": false,
@@ -134,6 +67,73 @@
     "resetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "resetCaption": "The same horizon exposes the last stretch.",
     "secondResetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
+    "componentModule": "components/motion/scenes/reliability-threshold.tsx",
+    "claimText": "The last stretch of episode reliability. The same horizon exposes the last stretch."
+  },
+  "moduleScene": {
+    "sceneId": "reliability-threshold",
+    "route": "/",
+    "sceneCount": 1,
+    "frameRole": "group",
+    "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
+    "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
+    "graphicTag": "svg",
+    "graphicTopPx": 1185,
+    "graphicHeightPx": 384,
+    "posterMarkCount": 3,
+    "playerMountedAtFirstPaint": false,
+    "posterControls": [
+      "Play the motion scene: The last stretch of episode reliability",
+      "Step back one beat",
+      "Step forward one beat",
+      "Reset the scene to its poster still"
+    ],
+    "statusLine": "Illustrative model: all 30 decisions succeed independently at the same rate.",
+    "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
+    "posterCaption": "The same horizon exposes the last stretch.",
+    "idleFrameRequests": 0,
+    "playingFrameRequests": 49,
+    "focusOutlineWidthPx": 1,
+    "focusOutlineStyle": "solid",
+    "focusOutlineColour": "rgb(28, 28, 26)",
+    "steps": [
+      {
+        "key": "Home",
+        "readout": "beat 1 / 4 conditional rate 95.0% episode 21.5%",
+        "caption": "At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time."
+      },
+      {
+        "key": "ArrowRight",
+        "readout": "beat 1 / 4 conditional rate 95.0% episode 21.5%",
+        "caption": "At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time."
+      },
+      {
+        "key": "ArrowRight",
+        "readout": "beat 2 / 4 conditional rate 99.0% episode 74.0%",
+        "caption": "Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%."
+      },
+      {
+        "key": "ArrowRight",
+        "readout": "beat 3 / 4 conditional rate 99.9% episode 97.0%",
+        "caption": "At 99.9% per decision, the same model gives 97.0% for thirty steps."
+      },
+      {
+        "key": "ArrowRight",
+        "readout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
+        "caption": "The same horizon exposes the last stretch."
+      },
+      {
+        "key": "ArrowLeft",
+        "readout": "beat 3 / 4 conditional rate 99.9% episode 97.0%",
+        "caption": "At 99.9% per decision, the same model gives 97.0% for thirty steps."
+      }
+    ],
+    "resetControlNames": [
+      "Reset the scene to its poster still"
+    ],
+    "resetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
+    "resetCaption": "The same horizon exposes the last stretch.",
+    "secondResetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "componentModule": "components/motion/scenes/reliability-threshold.tsx"
   },
   "toolsLine": {
@@ -141,17 +141,17 @@
       {
         "text": "Playground",
         "path": "/playground/",
-        "topPx": 2400
+        "topPx": 2426
       },
       {
         "text": "How robots work",
         "path": "/how-robots-work/",
-        "topPx": 2400
+        "topPx": 2426
       },
       {
         "text": "Market Map",
         "path": "/market-map/",
-        "topPx": 2400
+        "topPx": 2426
       }
     ],
     "graphics": [],
@@ -2932,9 +2932,9 @@
         },
         {
           "memberId": "count:/:sources",
-          "text": "1022 sources",
-          "expected": 1022,
-          "actual": 1022
+          "text": "1129 sources",
+          "expected": 1129,
+          "actual": 1129
         },
         {
           "memberId": "count:/:glossary-terms",
