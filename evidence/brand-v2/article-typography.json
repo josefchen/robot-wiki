@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "44d3c075ca687daa7250c35225108612b984b1fb800a5cb93f955b90d88225bd",
+  "fingerprint": "7bf6b69113c767636d99c351ee61a34ce2397edfcda751cba14def06cdd8a047",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3252,
+      "visibleTextLength": 3204,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2536,7 +2536,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17782,
+      "visibleTextLength": 18584,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2589,11 +2589,11 @@
         ],
         "lastReviewed": "2026-08-18",
         "readingMinutes": 11,
-        "citationCount": 14,
+        "citationCount": 15,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
         "readingTimeText": "11 min read",
-        "citationCountText": "14 sources",
+        "citationCountText": "15 sources",
         "bibliographyIds": [
           "aegis-curiosity-2017",
           "perseverance-autonomy-2023",
@@ -2608,7 +2608,8 @@
           "dextre-csa-2024",
           "mev1-servicing-2025",
           "adras-j-15m-2024",
-          "osam1-discontinued-2024"
+          "osam1-discontinued-2024",
+          "luna-legged-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -2688,6 +2689,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "MOXIE is an instrument, and instruments do not shovel. Scale"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Learned locomotion meets the same regolith in analogue tests"
         },
         {
           "familyHead": "geist",
@@ -2861,7 +2871,7 @@
         },
         {
           "kind": "reference",
-          "count": 14,
+          "count": 15,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -2871,7 +2881,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 14,
+              "count": 15,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -2883,7 +2893,7 @@
         },
         {
           "kind": "citation",
-          "count": 50,
+          "count": 52,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -2893,7 +2903,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 25,
+              "count": 26,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -2903,7 +2913,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 25,
+              "count": 26,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -2999,6 +3009,14 @@
         {
           "tag": "button",
           "text": "Show all 12 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -9859,7 +9877,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30577,
+      "visibleTextLength": 31301,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -9912,11 +9930,11 @@
         ],
         "lastReviewed": "2026-08-22",
         "readingMinutes": 13,
-        "citationCount": 59,
+        "citationCount": 60,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
         "readingTimeText": "13 min read",
-        "citationCountText": "59 sources",
+        "citationCountText": "60 sources",
         "bibliographyIds": [
           "moravec-elfes-1985",
           "curless-levoy-1996",
@@ -9976,7 +9994,8 @@
           "particlesplat-2026",
           "scenelm-2026",
           "curobo-v2-2026",
-          "amb3r-slam-2026"
+          "amb3r-slam-2026",
+          "ledger-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -10289,6 +10308,15 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Ledger, from Shravan Chaudhari, Homanga Bharadhwaj and colle"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "A deployed map publishes its frame, timestamp, resolution, u"
         }
       ],
@@ -10463,7 +10491,7 @@
         },
         {
           "kind": "reference",
-          "count": 59,
+          "count": 60,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -10473,7 +10501,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 59,
+              "count": 60,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -10485,7 +10513,7 @@
         },
         {
           "kind": "citation",
-          "count": 158,
+          "count": 160,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -10495,7 +10523,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 77,
+              "count": 78,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -10505,7 +10533,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 77,
+              "count": 78,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -19369,7 +19397,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25239,
+      "visibleTextLength": 26040,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19422,11 +19450,11 @@
         ],
         "lastReviewed": "2026-08-18",
         "readingMinutes": 14,
-        "citationCount": 30,
+        "citationCount": 31,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
         "readingTimeText": "14 min read",
-        "citationCountText": "30 sources",
+        "citationCountText": "31 sources",
         "bibliographyIds": [
           "brooks-dexterity-2025",
           "macefield-touch-2022",
@@ -19457,7 +19485,8 @@
           "trace-cables-2026",
           "fingr-2026",
           "tacdyn-wam-2026",
-          "bd-atlas-hand-2026"
+          "bd-atlas-hand-2026",
+          "eigendexplore-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -19725,6 +19754,15 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In October 2026, Harsh Gupta, Tyler Ga Wei Lum, Jeannette Bo"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Rigid objects are the easy case. A wooden block rests on one"
         },
         {
@@ -19908,7 +19946,7 @@
         },
         {
           "kind": "reference",
-          "count": 30,
+          "count": 31,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -19918,7 +19956,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 30,
+              "count": 31,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -19930,7 +19968,7 @@
         },
         {
           "kind": "citation",
-          "count": 88,
+          "count": 90,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -19940,7 +19978,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 44,
+              "count": 45,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -19950,7 +19988,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 44,
+              "count": 45,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -24837,7 +24875,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18850,
+      "visibleTextLength": 19374,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24889,12 +24927,12 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
-        "citationCount": 35,
+        "readingMinutes": 9,
+        "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
-        "citationCountText": "35 sources",
+        "readingTimeText": "9 min read",
+        "citationCountText": "36 sources",
         "bibliographyIds": [
           "alvinn-1988",
           "dagger-2011",
@@ -24930,7 +24968,8 @@
           "tri-lbm-2025",
           "rebarsim-2026",
           "ditto-x-2026",
-          "recova-2026"
+          "recova-2026",
+          "ocbench-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -25118,6 +25157,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Behavior cloning at best matches its demonstrator; robomimic"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In October 2026, Seohong Park and Sergey Levine of UC Berkel"
         },
         {
           "familyHead": "geist",
@@ -25372,7 +25420,7 @@
         },
         {
           "kind": "reference",
-          "count": 35,
+          "count": 36,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -25382,7 +25430,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 35,
+              "count": 36,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -25394,7 +25442,7 @@
         },
         {
           "kind": "citation",
-          "count": 86,
+          "count": 88,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -25404,7 +25452,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -25414,7 +25462,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -25470,7 +25518,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -25480,7 +25528,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -26616,7 +26664,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19178,
+      "visibleTextLength": 20673,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26668,12 +26716,12 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
-        "citationCount": 36,
+        "readingMinutes": 8,
+        "citationCount": 38,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
-        "citationCountText": "36 sources",
+        "readingTimeText": "8 min read",
+        "citationCountText": "38 sources",
         "bibliographyIds": [
           "act-aloha-2023",
           "pi0-2024",
@@ -26710,7 +26758,9 @@
           "lbm-cotraining-2026",
           "generalist-gen1-2026",
           "dreamzero-2026",
-          "gott-2026"
+          "gott-2026",
+          "egolap-2026",
+          "lac-wm-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -26915,6 +26965,15 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In October 2026, Huang Huang, Li Fei-Fei, Jiajun Wu, Franzis"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Simar Kareer's EgoMimic treated human and robot data equally"
         },
         {
@@ -26943,6 +27002,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "EgoBridge aligns human and robot policy latents with optimal"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "EgoLAP, from Lihan Zha, Dhruv Shah, Anirudha Majumdar and co"
         },
         {
           "familyHead": "geist",
@@ -27143,7 +27211,7 @@
         },
         {
           "kind": "reference",
-          "count": 36,
+          "count": 38,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -27153,7 +27221,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 36,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -27165,7 +27233,7 @@
         },
         {
           "kind": "citation",
-          "count": 86,
+          "count": 90,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -27175,7 +27243,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 43,
+              "count": 45,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -27185,7 +27253,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 43,
+              "count": 45,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -27241,7 +27309,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -27251,7 +27319,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 8,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -27436,6 +27504,22 @@
         {
           "tag": "button",
           "text": "Show all 36 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -30085,7 +30169,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23588,
+      "visibleTextLength": 24327,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -30138,11 +30222,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 10,
-        "citationCount": 41,
+        "citationCount": 42,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "10 min read",
-        "citationCountText": "41 sources",
+        "citationCountText": "42 sources",
         "bibliographyIds": [
           "saycan-2022",
           "code-as-policies-2022",
@@ -30184,7 +30268,8 @@
           "rpg-2026",
           "enpire-2026",
           "lbm-cotraining-2026",
-          "seeq-2026"
+          "seeq-2026",
+          "robo-cop-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -30479,6 +30564,15 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Robo-COP, from Xilun Zhang, Jiajun Wu, Marco Pavone and coll"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Both designs persist. In a controlled 2026 study on a real A"
         }
       ],
@@ -30617,7 +30711,7 @@
         },
         {
           "kind": "reference",
-          "count": 41,
+          "count": 42,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -30627,7 +30721,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 41,
+              "count": 42,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -30639,7 +30733,7 @@
         },
         {
           "kind": "citation",
-          "count": 92,
+          "count": 94,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -30649,7 +30743,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 46,
+              "count": 47,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -30659,7 +30753,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 46,
+              "count": 47,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -33728,7 +33822,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 36335,
+      "visibleTextLength": 37866,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -33781,11 +33875,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 20,
-        "citationCount": 41,
+        "citationCount": 43,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "20 min read",
-        "citationCountText": "41 sources",
+        "citationCountText": "43 sources",
         "bibliographyIds": [
           "dagger-2011",
           "dppo-2024",
@@ -33827,7 +33921,9 @@
           "roboreward-2026",
           "pi07-2026",
           "seeq-2026",
-          "enpire-2026"
+          "enpire-2026",
+          "qf3-2026",
+          "mulligan-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -33916,6 +34012,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "ReinFlow injects learnable noise into a flow policy's path f"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In October 2026, Chung Min Kim, Pieter Abbeel, Angjoo Kanaza"
         },
         {
           "familyHead": "geist",
@@ -34060,6 +34165,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Online learning curves can include human-assisted successes,"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In October 2026, Lars Ankile, Perry Dong, Shuran Song, Chels"
         },
         {
           "familyHead": "geist",
@@ -34404,7 +34518,7 @@
         },
         {
           "kind": "reference",
-          "count": 41,
+          "count": 43,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -34414,7 +34528,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 41,
+              "count": 43,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -34426,7 +34540,7 @@
         },
         {
           "kind": "citation",
-          "count": 148,
+          "count": 152,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -34436,7 +34550,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 74,
+              "count": 76,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -34446,7 +34560,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 74,
+              "count": 76,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -34491,7 +34605,7 @@
         },
         {
           "kind": "internal",
-          "count": 15,
+          "count": 16,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -34501,7 +34615,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 15,
+              "count": 16,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -34758,6 +34872,14 @@
         {
           "tag": "button",
           "text": "Show all 17 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -42043,7 +42165,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27920,
+      "visibleTextLength": 28832,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42095,12 +42217,12 @@
           "RL, Sim-to-Real & Locomotion"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 13,
-        "citationCount": 42,
+        "readingMinutes": 14,
+        "citationCount": 43,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "13 min read",
-        "citationCountText": "42 sources",
+        "readingTimeText": "14 min read",
+        "citationCountText": "43 sources",
         "bibliographyIds": [
           "rudin-2021",
           "legged-gym-repo-2021",
@@ -42143,7 +42265,8 @@
           "bver-2026",
           "sleiman-wbmpc-2021",
           "rai-iros-2026",
-          "zest-2026"
+          "zest-2026",
+          "sgs-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -42447,6 +42570,15 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Success Guided Sampling (SGS), from Octi Zhang, Byron Boots "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Classical legged control simplifies the model in its MPCmode"
         },
         {
@@ -42720,7 +42852,7 @@
         },
         {
           "kind": "reference",
-          "count": 42,
+          "count": 43,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -42730,7 +42862,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 42,
+              "count": 43,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -42742,7 +42874,7 @@
         },
         {
           "kind": "citation",
-          "count": 112,
+          "count": 114,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -42752,7 +42884,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 56,
+              "count": 57,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -42762,7 +42894,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 56,
+              "count": 57,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -47935,7 +48067,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21147,
+      "visibleTextLength": 22622,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47987,12 +48119,12 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
-        "citationCount": 35,
+        "readingMinutes": 10,
+        "citationCount": 37,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
-        "citationCountText": "35 sources",
+        "readingTimeText": "10 min read",
+        "citationCountText": "37 sources",
         "bibliographyIds": [
           "cosmos-3-2026",
           "nvidia-cosmos-3-launch-2026",
@@ -48028,7 +48160,9 @@
           "polaris-2025",
           "rise-2026",
           "1x-world-model-2025",
-          "grail-2026"
+          "grail-2026",
+          "openwam-2026",
+          "long-wam-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -48180,6 +48314,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Under perturbation, Cosmos-Policy reached 82.2% on LIBERO-Pl"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Two October 2026 papers measured WAM design choices directly"
         },
         {
           "familyHead": "geist",
@@ -48497,7 +48640,7 @@
         },
         {
           "kind": "reference",
-          "count": 35,
+          "count": 37,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -48507,7 +48650,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 35,
+              "count": 37,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -48519,7 +48662,7 @@
         },
         {
           "kind": "citation",
-          "count": 84,
+          "count": 88,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -48529,7 +48672,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 42,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -48539,7 +48682,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 42,
+              "count": 44,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -48863,6 +49006,22 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 16 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -48894,7 +49053,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19630,
+      "visibleTextLength": 20408,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48946,12 +49105,12 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
-        "citationCount": 35,
+        "readingMinutes": 9,
+        "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
-        "citationCountText": "35 sources",
+        "readingTimeText": "9 min read",
+        "citationCountText": "36 sources",
         "bibliographyIds": [
           "vjepa-2024",
           "vjepa2-2025",
@@ -48987,7 +49146,8 @@
           "tdmpc2-2023",
           "h-jepa-2026",
           "skyjepa-2026",
-          "levjepa-2026"
+          "levjepa-2026",
+          "jepa-unstable-modes-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -49174,6 +49334,15 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Leonardo Toso, Yann LeCun, James Anderson and Oumayma Bounou"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Use a JEPA-style model when the decision depends on task-rel"
         }
       ],
@@ -49348,7 +49517,7 @@
         },
         {
           "kind": "reference",
-          "count": 35,
+          "count": 36,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -49358,7 +49527,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 35,
+              "count": 36,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -49370,7 +49539,7 @@
         },
         {
           "kind": "citation",
-          "count": 90,
+          "count": 92,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -49380,7 +49549,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 45,
+              "count": 46,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -49390,7 +49559,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 45,
+              "count": 46,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -52903,7 +53072,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3252,
+      "visibleTextLength": 3204,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55274,7 +55443,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21844,
+      "visibleTextLength": 22792,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55327,11 +55496,11 @@
         ],
         "lastReviewed": "2026-08-18",
         "readingMinutes": 11,
-        "citationCount": 14,
+        "citationCount": 15,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
         "readingTimeText": "11 min read",
-        "citationCountText": "14 sources",
+        "citationCountText": "15 sources",
         "bibliographyIds": [
           "aegis-curiosity-2017",
           "perseverance-autonomy-2023",
@@ -55346,7 +55515,8 @@
           "dextre-csa-2024",
           "mev1-servicing-2025",
           "adras-j-15m-2024",
-          "osam1-discontinued-2024"
+          "osam1-discontinued-2024",
+          "luna-legged-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -55426,6 +55596,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "MOXIE is an instrument, and instruments do not shovel. Scale"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Learned locomotion meets the same regolith in analogue tests"
         },
         {
           "familyHead": "geist",
@@ -55599,7 +55778,7 @@
         },
         {
           "kind": "reference",
-          "count": 14,
+          "count": 15,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -55609,7 +55788,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 14,
+              "count": 15,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -55621,7 +55800,7 @@
         },
         {
           "kind": "citation",
-          "count": 50,
+          "count": 52,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -55631,7 +55810,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 25,
+              "count": 26,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -55641,7 +55820,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 25,
+              "count": 26,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -55737,6 +55916,14 @@
         {
           "tag": "button",
           "text": "Show all 12 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -62498,7 +62685,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 43343,
+      "visibleTextLength": 44241,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62551,11 +62738,11 @@
         ],
         "lastReviewed": "2026-08-22",
         "readingMinutes": 13,
-        "citationCount": 59,
+        "citationCount": 60,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
         "readingTimeText": "13 min read",
-        "citationCountText": "59 sources",
+        "citationCountText": "60 sources",
         "bibliographyIds": [
           "moravec-elfes-1985",
           "curless-levoy-1996",
@@ -62615,7 +62802,8 @@
           "particlesplat-2026",
           "scenelm-2026",
           "curobo-v2-2026",
-          "amb3r-slam-2026"
+          "amb3r-slam-2026",
+          "ledger-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -62928,6 +63116,15 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Ledger, from Shravan Chaudhari, Homanga Bharadhwaj and colle"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "A deployed map publishes its frame, timestamp, resolution, u"
         }
       ],
@@ -63102,7 +63299,7 @@
         },
         {
           "kind": "reference",
-          "count": 59,
+          "count": 60,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -63112,7 +63309,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 59,
+              "count": 60,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -63124,7 +63321,7 @@
         },
         {
           "kind": "citation",
-          "count": 158,
+          "count": 160,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -63134,7 +63331,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 77,
+              "count": 78,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -63144,7 +63341,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 77,
+              "count": 78,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -71887,7 +72084,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30334,
+      "visibleTextLength": 31302,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71940,11 +72137,11 @@
         ],
         "lastReviewed": "2026-08-18",
         "readingMinutes": 14,
-        "citationCount": 30,
+        "citationCount": 31,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
         "readingTimeText": "14 min read",
-        "citationCountText": "30 sources",
+        "citationCountText": "31 sources",
         "bibliographyIds": [
           "brooks-dexterity-2025",
           "macefield-touch-2022",
@@ -71975,7 +72172,8 @@
           "trace-cables-2026",
           "fingr-2026",
           "tacdyn-wam-2026",
-          "bd-atlas-hand-2026"
+          "bd-atlas-hand-2026",
+          "eigendexplore-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -72243,6 +72441,15 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In October 2026, Harsh Gupta, Tyler Ga Wei Lum, Jeannette Bo"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Rigid objects are the easy case. A wooden block rests on one"
         },
         {
@@ -72426,7 +72633,7 @@
         },
         {
           "kind": "reference",
-          "count": 30,
+          "count": 31,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -72436,7 +72643,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 30,
+              "count": 31,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -72448,7 +72655,7 @@
         },
         {
           "kind": "citation",
-          "count": 88,
+          "count": 90,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -72458,7 +72665,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 44,
+              "count": 45,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -72468,7 +72675,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 44,
+              "count": 45,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -77289,7 +77496,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25657,
+      "visibleTextLength": 26267,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77341,12 +77548,12 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
-        "citationCount": 35,
+        "readingMinutes": 9,
+        "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
-        "citationCountText": "35 sources",
+        "readingTimeText": "9 min read",
+        "citationCountText": "36 sources",
         "bibliographyIds": [
           "alvinn-1988",
           "dagger-2011",
@@ -77382,7 +77589,8 @@
           "tri-lbm-2025",
           "rebarsim-2026",
           "ditto-x-2026",
-          "recova-2026"
+          "recova-2026",
+          "ocbench-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -77570,6 +77778,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Behavior cloning at best matches its demonstrator; robomimic"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In October 2026, Seohong Park and Sergey Levine of UC Berkel"
         },
         {
           "familyHead": "geist",
@@ -77824,7 +78041,7 @@
         },
         {
           "kind": "reference",
-          "count": 35,
+          "count": 36,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -77834,7 +78051,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 35,
+              "count": 36,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -77846,7 +78063,7 @@
         },
         {
           "kind": "citation",
-          "count": 86,
+          "count": 88,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -77856,7 +78073,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -77866,7 +78083,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -77922,7 +78139,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -77932,7 +78149,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -79046,7 +79263,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25740,
+      "visibleTextLength": 27540,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79098,12 +79315,12 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
-        "citationCount": 36,
+        "readingMinutes": 8,
+        "citationCount": 38,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
-        "citationCountText": "36 sources",
+        "readingTimeText": "8 min read",
+        "citationCountText": "38 sources",
         "bibliographyIds": [
           "act-aloha-2023",
           "pi0-2024",
@@ -79140,7 +79357,9 @@
           "lbm-cotraining-2026",
           "generalist-gen1-2026",
           "dreamzero-2026",
-          "gott-2026"
+          "gott-2026",
+          "egolap-2026",
+          "lac-wm-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -79345,6 +79564,15 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "In October 2026, Huang Huang, Li Fei-Fei, Jiajun Wu, Franzis"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Simar Kareer's EgoMimic treated human and robot data equally"
         },
         {
@@ -79373,6 +79601,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "EgoBridge aligns human and robot policy latents with optimal"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "EgoLAP, from Lihan Zha, Dhruv Shah, Anirudha Majumdar and co"
         },
         {
           "familyHead": "geist",
@@ -79573,7 +79810,7 @@
         },
         {
           "kind": "reference",
-          "count": 36,
+          "count": 38,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -79583,7 +79820,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 36,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -79595,7 +79832,7 @@
         },
         {
           "kind": "citation",
-          "count": 86,
+          "count": 90,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -79605,7 +79842,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 43,
+              "count": 45,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -79615,7 +79852,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 43,
+              "count": 45,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -79671,7 +79908,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -79681,7 +79918,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 7,
+              "count": 8,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -79866,6 +80103,22 @@
         {
           "tag": "button",
           "text": "Show all 36 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -82471,7 +82724,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30618,
+      "visibleTextLength": 31497,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82524,11 +82777,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 10,
-        "citationCount": 41,
+        "citationCount": 42,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "10 min read",
-        "citationCountText": "41 sources",
+        "citationCountText": "42 sources",
         "bibliographyIds": [
           "saycan-2022",
           "code-as-policies-2022",
@@ -82570,7 +82823,8 @@
           "rpg-2026",
           "enpire-2026",
           "lbm-cotraining-2026",
-          "seeq-2026"
+          "seeq-2026",
+          "robo-cop-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -82865,6 +83119,15 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Robo-COP, from Xilun Zhang, Jiajun Wu, Marco Pavone and coll"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Both designs persist. In a controlled 2026 study on a real A"
         }
       ],
@@ -83003,7 +83266,7 @@
         },
         {
           "kind": "reference",
-          "count": 41,
+          "count": 42,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -83013,7 +83276,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 41,
+              "count": 42,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -83025,7 +83288,7 @@
         },
         {
           "kind": "citation",
-          "count": 92,
+          "count": 94,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -83035,7 +83298,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 46,
+              "count": 47,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -83045,7 +83308,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 46,
+              "count": 47,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -86070,7 +86333,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 47135,
+      "visibleTextLength": 48945,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86123,11 +86386,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 20,
-        "citationCount": 41,
+        "citationCount": 43,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "20 min read",
-        "citationCountText": "41 sources",
+        "citationCountText": "43 sources",
         "bibliographyIds": [
           "dagger-2011",
           "dppo-2024",
@@ -86169,7 +86432,9 @@
           "roboreward-2026",
           "pi07-2026",
           "seeq-2026",
-          "enpire-2026"
+          "enpire-2026",
+          "qf3-2026",
+          "mulligan-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -86258,6 +86523,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "ReinFlow injects learnable noise into a flow policy's path f"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In October 2026, Chung Min Kim, Pieter Abbeel, Angjoo Kanaza"
         },
         {
           "familyHead": "geist",
@@ -86402,6 +86676,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Online learning curves can include human-assisted successes,"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In October 2026, Lars Ankile, Perry Dong, Shuran Song, Chels"
         },
         {
           "familyHead": "geist",
@@ -86746,7 +87029,7 @@
         },
         {
           "kind": "reference",
-          "count": 41,
+          "count": 43,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -86756,7 +87039,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 41,
+              "count": 43,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -86768,7 +87051,7 @@
         },
         {
           "kind": "citation",
-          "count": 148,
+          "count": 152,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -86778,7 +87061,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 74,
+              "count": 76,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -86788,7 +87071,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 74,
+              "count": 76,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -86833,7 +87116,7 @@
         },
         {
           "kind": "internal",
-          "count": 15,
+          "count": 16,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -86843,7 +87126,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 15,
+              "count": 16,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -87100,6 +87383,14 @@
         {
           "tag": "button",
           "text": "Show all 17 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -94308,7 +94599,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 37191,
+      "visibleTextLength": 38287,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94360,12 +94651,12 @@
           "RL, Sim-to-Real & Locomotion"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 13,
-        "citationCount": 42,
+        "readingMinutes": 14,
+        "citationCount": 43,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "13 min read",
-        "citationCountText": "42 sources",
+        "readingTimeText": "14 min read",
+        "citationCountText": "43 sources",
         "bibliographyIds": [
           "rudin-2021",
           "legged-gym-repo-2021",
@@ -94408,7 +94699,8 @@
           "bver-2026",
           "sleiman-wbmpc-2021",
           "rai-iros-2026",
-          "zest-2026"
+          "zest-2026",
+          "sgs-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -94712,6 +95004,15 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Success Guided Sampling (SGS), from Octi Zhang, Byron Boots "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Classical legged control simplifies the model in its MPCmode"
         },
         {
@@ -94985,7 +95286,7 @@
         },
         {
           "kind": "reference",
-          "count": 42,
+          "count": 43,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -94995,7 +95296,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 42,
+              "count": 43,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -95007,7 +95308,7 @@
         },
         {
           "kind": "citation",
-          "count": 112,
+          "count": 114,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -95017,7 +95318,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 56,
+              "count": 57,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -95027,7 +95328,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 56,
+              "count": 57,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -100134,7 +100435,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27312,
+      "visibleTextLength": 29048,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100186,12 +100487,12 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
-        "citationCount": 35,
+        "readingMinutes": 10,
+        "citationCount": 37,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
-        "citationCountText": "35 sources",
+        "readingTimeText": "10 min read",
+        "citationCountText": "37 sources",
         "bibliographyIds": [
           "cosmos-3-2026",
           "nvidia-cosmos-3-launch-2026",
@@ -100227,7 +100528,9 @@
           "polaris-2025",
           "rise-2026",
           "1x-world-model-2025",
-          "grail-2026"
+          "grail-2026",
+          "openwam-2026",
+          "long-wam-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -100379,6 +100682,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Under perturbation, Cosmos-Policy reached 82.2% on LIBERO-Pl"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Two October 2026 papers measured WAM design choices directly"
         },
         {
           "familyHead": "geist",
@@ -100696,7 +101008,7 @@
         },
         {
           "kind": "reference",
-          "count": 35,
+          "count": 37,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -100706,7 +101018,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 35,
+              "count": 37,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -100718,7 +101030,7 @@
         },
         {
           "kind": "citation",
-          "count": 84,
+          "count": 88,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -100728,7 +101040,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 42,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -100738,7 +101050,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 42,
+              "count": 44,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -101062,6 +101374,22 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 16 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -101082,7 +101410,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26840,
+      "visibleTextLength": 27773,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101134,12 +101462,12 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
-        "citationCount": 35,
+        "readingMinutes": 9,
+        "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
-        "citationCountText": "35 sources",
+        "readingTimeText": "9 min read",
+        "citationCountText": "36 sources",
         "bibliographyIds": [
           "vjepa-2024",
           "vjepa2-2025",
@@ -101175,7 +101503,8 @@
           "tdmpc2-2023",
           "h-jepa-2026",
           "skyjepa-2026",
-          "levjepa-2026"
+          "levjepa-2026",
+          "jepa-unstable-modes-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -101362,6 +101691,15 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Leonardo Toso, Yann LeCun, James Anderson and Oumayma Bounou"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Use a JEPA-style model when the decision depends on task-rel"
         }
       ],
@@ -101536,7 +101874,7 @@
         },
         {
           "kind": "reference",
-          "count": 35,
+          "count": 36,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -101546,7 +101884,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 35,
+              "count": 36,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -101558,7 +101896,7 @@
         },
         {
           "kind": "citation",
-          "count": 90,
+          "count": 92,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -101568,7 +101906,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 45,
+              "count": 46,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -101578,7 +101916,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 45,
+              "count": 46,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",

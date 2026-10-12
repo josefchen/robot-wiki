@@ -42,6 +42,7 @@ citations:
   - h-jepa-2026
   - skyjepa-2026
   - levjepa-2026
+  - jepa-unstable-modes-2026
 seeAlso:
   - "adjacent/drones"
   - "manipulation/vla-models"
@@ -108,6 +109,8 @@ Two results would break the stalemate. One is an interactive, inspectable, actio
 In September 2026, Haoran Zhu, Wancong Zhang, Yann LeCun and Anna Choromanska tested JEPA world models as driving planners with no driving policy trained, using ground-truth future observations as goals. They report that earlier JEPA models were either accurate but slow or fast but too weak to plan, and that their AD-E2E-JEPA projector gives a 100-fold inference speedup while keeping planning performance, rolling out 256 candidate trajectories over 8 frames in 0.8 seconds <Cite id="ad-e2e-jepa-2026" />.
 
 H-JEPA, from Yann LeCun (AMI Labs and NYU) and colleagues (October 2026), stacks action-conditioned JEPAs that each predict farther ahead and hand subgoals to the level below. On Visual AntMaze a three-level hierarchy raised success from 18% to 73% with less planner compute <Cite id="h-jepa-2026" />.
+
+Leonardo Toso, Yann LeCun, James Anderson and Oumayma Bounou of Columbia, NYU and AMI Labs showed in October 2026 that next-step prediction with anti-collapse regularization can reach its minimum loss while discarding a system's controllable unstable modes, which leaves the learned state impossible to stabilize. They add an inverse-dynamics loss that reconstructs actions and prove, for linear systems, that exact reconstruction keeps every state direction reachable within the horizon; experiments on CartPole, Walker2D and PointMaze from pixels extend the finding to nonlinear tasks <Cite id="jepa-unstable-modes-2026" />.
 
 <span id="a-deployment-rule-for-representation-prediction" />
 ## Use JEPA when reconstructing pixels adds no evidence

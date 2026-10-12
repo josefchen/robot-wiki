@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "7b9c60ed7d7861ef3c5997f673859000b9b09b6e01460b11ca71386256023a2c",
+  "fingerprint": "c71a6a1750727d59b2d532dac9fcd007872145c0686674702b1325cb0687cc9a",
   "source": "out/ static export",
   "routes": [
     {
@@ -69,8 +69,8 @@
     },
     {
       "route": "/adjacent/space/",
-      "outboundAnchors": 42,
-      "distinctHrefs": 17,
+      "outboundAnchors": 44,
+      "distinctHrefs": 18,
       "shapes": [
         "citation-chip",
         "footer",
@@ -181,8 +181,8 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "outboundAnchors": 141,
-      "distinctHrefs": 62,
+      "outboundAnchors": 143,
+      "distinctHrefs": 63,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -341,8 +341,8 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundAnchors": 87,
-      "distinctHrefs": 33,
+      "outboundAnchors": 89,
+      "distinctHrefs": 34,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -435,8 +435,8 @@
     },
     {
       "route": "/manipulation/bc-foundations/",
-      "outboundAnchors": 82,
-      "distinctHrefs": 39,
+      "outboundAnchors": 84,
+      "distinctHrefs": 40,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -459,8 +459,8 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "outboundAnchors": 84,
-      "distinctHrefs": 39,
+      "outboundAnchors": 88,
+      "distinctHrefs": 41,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -505,8 +505,8 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "outboundAnchors": 91,
-      "distinctHrefs": 44,
+      "outboundAnchors": 93,
+      "distinctHrefs": 45,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -552,8 +552,8 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "outboundAnchors": 118,
-      "distinctHrefs": 44,
+      "outboundAnchors": 122,
+      "distinctHrefs": 46,
       "shapes": [
         "citation-chip",
         "footer",
@@ -667,8 +667,8 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "outboundAnchors": 101,
-      "distinctHrefs": 45,
+      "outboundAnchors": 103,
+      "distinctHrefs": 46,
       "shapes": [
         "citation-chip",
         "footer",
@@ -752,8 +752,8 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "outboundAnchors": 80,
-      "distinctHrefs": 38,
+      "outboundAnchors": 84,
+      "distinctHrefs": 40,
       "shapes": [
         "citation-chip",
         "footer",
@@ -763,8 +763,8 @@
     },
     {
       "route": "/world-models/jepa/",
-      "outboundAnchors": 83,
-      "distinctHrefs": 38,
+      "outboundAnchors": 85,
+      "distinctHrefs": 39,
       "shapes": [
         "citation-chip",
         "footer",
@@ -818,17 +818,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 5343,
-  "distinctOutboundHrefs": 1549,
+  "outboundAnchors": 5369,
+  "distinctOutboundHrefs": 1562,
   "anchorsByShape": {
-    "citation-chip": 2465,
+    "citation-chip": 2478,
     "footer": 152,
-    "reference-entry": 1809,
+    "reference-entry": 1822,
     "other": 563,
     "figure-credit": 354
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 4756,
+  "anchorsWithNoreferrer": 4782,
   "keyboard": [
     {
       "route": "/",
@@ -888,11 +888,11 @@
     },
     {
       "route": "/adjacent/space/",
-      "outboundInDom": 42,
-      "reachedByTab": 42,
+      "outboundInDom": 44,
+      "reachedByTab": 44,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 110
+      "tabStops": 114
     },
     {
       "route": "/adjacent/surgical/",
@@ -968,11 +968,11 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "outboundInDom": 141,
-      "reachedByTab": 141,
+      "outboundInDom": 143,
+      "reachedByTab": 143,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 305
+      "tabStops": 308
     },
     {
       "route": "/classical/state-estimation/",
@@ -1088,11 +1088,11 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundInDom": 87,
-      "reachedByTab": 87,
+      "outboundInDom": 89,
+      "reachedByTab": 89,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 212
+      "tabStops": 215
     },
     {
       "route": "/frontier/generalization/",
@@ -1160,11 +1160,11 @@
     },
     {
       "route": "/manipulation/bc-foundations/",
-      "outboundInDom": 82,
-      "reachedByTab": 82,
+      "outboundInDom": 84,
+      "reachedByTab": 84,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 205
+      "tabStops": 207
     },
     {
       "route": "/manipulation/comparison-matrix/",
@@ -1176,11 +1176,11 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "outboundInDom": 84,
-      "reachedByTab": 84,
+      "outboundInDom": 88,
+      "reachedByTab": 88,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 212
+      "tabStops": 221
     },
     {
       "route": "/manipulation/diffusion-policy/",
@@ -1208,11 +1208,11 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "outboundInDom": 91,
-      "reachedByTab": 91,
+      "outboundInDom": 93,
+      "reachedByTab": 93,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 222
+      "tabStops": 225
     },
     {
       "route": "/manipulation/knowledge-insulation/",
@@ -1240,11 +1240,11 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "outboundInDom": 118,
-      "reachedByTab": 118,
+      "outboundInDom": 122,
+      "reachedByTab": 122,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 295
+      "tabStops": 303
     },
     {
       "route": "/manipulation/robot-learning-roadmap/",
@@ -1328,11 +1328,11 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "outboundInDom": 101,
-      "reachedByTab": 101,
+      "outboundInDom": 103,
+      "reachedByTab": 103,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 245
+      "tabStops": 249
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
@@ -1392,19 +1392,19 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "outboundInDom": 80,
-      "reachedByTab": 80,
+      "outboundInDom": 84,
+      "reachedByTab": 84,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 217
+      "tabStops": 225
     },
     {
       "route": "/world-models/jepa/",
-      "outboundInDom": 83,
-      "reachedByTab": 83,
+      "outboundInDom": 85,
+      "reachedByTab": 85,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 200
+      "tabStops": 203
     },
     {
       "route": "/world-models/latent-dynamics/",

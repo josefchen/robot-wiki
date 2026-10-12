@@ -2,11 +2,12 @@
 // article path under content/. The token-continuity tests compare an article
 // with an older commit; they remove exactly these paragraphs first, so any
 // other numeric or citation change still fails, and so does a reworded one.
-// The 2026-10-05 batch's, the 2026-10-07 step's and the 2026-10-09 step's
-// paragraphs are removed the same way.
+// The 2026-10-05 batch's, the 2026-10-07 step's, the 2026-10-09 step's and
+// the 2026-10-12 batch's paragraphs are removed the same way.
 import { KOL_BACKLOG_20261005_PARAGRAPHS } from './kol-backlog-20261005';
 import { KOL_BACKLOG_20261007_PARAGRAPHS } from './kol-backlog-20261007';
 import { KOL_BACKLOG_20261009_PARAGRAPHS } from './kol-backlog-20261009';
+import { KOL_BACKLOG_20261012_PARAGRAPHS } from './kol-backlog-20261012';
 
 export const KOL_BACKLOG_PARAGRAPHS: Readonly<Record<string, readonly string[]>> = {
   'world-models/evaluation.mdx': [
@@ -27,12 +28,14 @@ export const KOL_BACKLOG_PARAGRAPHS: Readonly<Record<string, readonly string[]>>
 
 export function withoutKolBacklogParagraphs(file: string, text: string): string {
   return withoutParagraphs(file, text, [...KOL_BACKLOG_PARAGRAPHS[file] ?? [], ...KOL_BACKLOG_20261005_PARAGRAPHS[file] ?? [],
-    ...KOL_BACKLOG_20261007_PARAGRAPHS[file] ?? [], ...KOL_BACKLOG_20261009_PARAGRAPHS[file] ?? []]);
+    ...KOL_BACKLOG_20261007_PARAGRAPHS[file] ?? [], ...KOL_BACKLOG_20261009_PARAGRAPHS[file] ?? [],
+    ...KOL_BACKLOG_20261012_PARAGRAPHS[file] ?? []]);
 }
 
 /**
  * The same, for the bytes the domain-pass layer hands back. The 2026-10-07
- * and 2026-10-09 steps were recorded inside that layer, so their paragraphs
+ * and 2026-10-09 steps and the 2026-10-12 batch were recorded inside that
+ * layer, so their paragraphs
  * are never in the pre-domain-pass bytes; the two earlier batches' paragraphs
  * still must be.
  */

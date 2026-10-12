@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "1ace833ef1c639e14ea34415c3d410cda41afae2124cd7635194ab3f2218ec84",
+  "fingerprint": "9b2c62488ddacb858b488de6b0779e4f85acdda6f938421a3921b3e502c5a060",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -92,7 +92,7 @@
     "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
     "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 49,
+    "playingFrameRequests": 50,
     "focusOutlineWidthPx": 1,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(28, 28, 26)",
@@ -2932,9 +2932,9 @@
         },
         {
           "memberId": "count:/:sources",
-          "text": "1129 sources",
-          "expected": 1129,
-          "actual": 1129
+          "text": "1142 sources",
+          "expected": 1142,
+          "actual": 1142
         },
         {
           "memberId": "count:/:glossary-terms",

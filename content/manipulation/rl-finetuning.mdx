@@ -48,6 +48,8 @@ citations:
   - pi07-2026
   - seeq-2026
   - enpire-2026
+  - qf3-2026
+  - mulligan-2026
 seeAlso:
   - "manipulation/realtime-execution"
   - "rl-sim2real/parallel-sim-rl"
@@ -80,6 +82,8 @@ DPPO (Ren et al., 2024) follows DDPO, which posed diffusion denoising as a multi
 DPPO is the strongest of the compared diffusion-based RL methods on state-input Robomimic tasks, and its PPO comparisons also cover Gaussian and Gaussian-mixture policies. Some Gym baselines are competitive, off-policy methods are more sample-efficient on HalfCheetah, its iterations run slower than several baselines, and a Gaussian policy slightly beats it on the low-randomness Lamp task. A simulation-trained One-leg assembly policy transferred zero-shot to a Franka Emika Panda, with no on-robot RL, and succeeded in 16 of 20 trials at 10 Hz <Cite id="dppo-2024" />.
 
 ReinFlow injects learnable noise into a flow policy's path for exact per-step likelihoods, and on legged locomotion reports 135.36% average net growth while saving 82.63% of wall time against DPPO <Cite id="reinflow-2025" />. FPO instead builds a PPO-clip ratio from the conditional flow-matching loss and sidesteps exact likelihoods <Cite id="fpo-2025" />.
+
+In October 2026, Chung Min Kim, Pieter Abbeel, Angjoo Kanazawa and colleagues at UC Berkeley and Amazon FAR described QF3, an off-policy method that trains a flow policy with the flow-matching loss plus the critic's action gradient, applied only to action dimensions that stay near the replayed action. They report it as the first off-policy flow RL method to train humanoid locomotion from scratch and transfer it zero-shot to hardware, with a 10× wall-clock speedup over the on-policy FPO++ <Cite id="qf3-2026" />.
 
 ConRFT (Chen et al., 2025) fine-tunes a consistency-policy action head, a sampler distilled from a diffusion policy <Cite id="consistency-policy-2024" />, while freezing the visual encoders and transformer backbone. Its eight-task study uses Octo-small on a 7-DoF Franka at 10 Hz. Offline Cal-ConRFT pairs a consistency-based <Term id="behavior-cloning">behavior cloning</Term> loss and a negative-Q actor loss with a Cal-QL critic, from 20 to 30 demonstrations per task. Online HIL-ConRFT reweights both actor losses and uses a standard temporal-difference critic. Batches sample equally from demonstration and online buffers, and human takeovers enter the demonstration buffer. The training-noise grid has 40 sub-intervals, and the diffusion-policy baseline uses a five-step setting <Cite id="conrft-2025" />.
 
@@ -128,6 +132,8 @@ HIL-SERL (Luo et al., Science Robotics 2025) follows SERL, an earlier suite from
 HIL-SERL completes 100% of observed evaluation trials, 100 per task, except IKEA whole assembly with 10 trials and at most two attempts per sub-policy. Training takes 1 to 2.5 hours for nearly all tasks and 6 for timing-belt assembly, including scripted motion, rollouts, intended stops and computation on one RTX 4090. Against HG-DAgger with matched episodes and interventions, average success is 49.7% versus 100% and cycle time 9.6 versus 5.4 seconds, 1.8× faster. Jenga whipping and object flipping compare against flat BC on 50 and 200 demonstrations, and a separate 200-demonstration comparison covers DP, BC, IBRL, Residual RL and DAPG <Cite id="hil-serl-2024" />.
 
 Online learning curves can include human-assisted successes, and the paper reports DP's dashboard-assembly success as both 18% and 28%. Luo and colleagues did not test unstructured environments or extensive randomization and leave much longer horizons uncertain. They report that code is available <Cite id="hil-serl-2024" />. The [RL for Robotics module](/rl-sim2real/rl-for-robotics/) covers the off-policy context, and [parallel simulation RL](/rl-sim2real/parallel-sim-rl/) the simulation route.
+
+In October 2026, Lars Ankile, Perry Dong, Shuran Song, Chelsea Finn and colleagues at Stanford described Mulligan, which starts each round of supervised collection at the initial states where the policy failed or has not been tried, instead of sampling them uniformly. Combined with value-based action selection, HiL-IDQL with Mulligan raised final-round success on three real tasks by 10 to 34 percentage points over HG-DAgger, scored on 2,550 held-out, blinded episodes, and with an operator intervening the team completed 98% of collection episodes <Cite id="mulligan-2026" />.
 
 ## Residual RL and distillation back into the generalist
 

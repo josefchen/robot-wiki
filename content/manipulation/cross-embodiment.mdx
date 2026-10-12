@@ -43,6 +43,8 @@ citations:
   - generalist-gen1-2026
   - dreamzero-2026
   - gott-2026
+  - egolap-2026
+  - lac-wm-2026
 seeAlso:
   - "data-hardware/teleop-rigs"
   - "frontier/dexterity"
@@ -100,6 +102,8 @@ Mirage masks out an unseen target robot and inpaints the source robot in real ti
 
 LAPA learns discrete latent actions between video frames with a VQ-VAE objective, pretrains a VLA on them and fine-tunes on robot data; training only on human video still transfers positively <Cite id="lapa-2025" />.
 
+In October 2026, Huang Huang, Li Fei-Fei, Jiajun Wu, Franziska Meier and colleagues at Stanford and Meta FAIR described LAC-WM, a robot world model conditioned on a latent action space shared across embodiments. Used to pick action chunks for a VLA on five unseen LIBERO tasks, it raised average success from 82.4% with an explicit-action world model to 92.0%, and its planning success rose as pretraining added embodiments while the explicit-action model's fell <Cite id="lac-wm-2026" />.
+
 ## Human-to-robot transfer recipes
 
 Simar Kareer's EgoMimic treated human and robot data equally and found an extra hour of hand data worth more than one of robot data <Cite id="egomimic-2024" />. On December 16, 2025, Kareer and Physical Intelligence colleagues co-fine-tuned pretrained π0.5 on human data and the most relevant robot data. Humans were one more embodiment, with 3D hand positions as actions and no special transfer method. PI reports about 2× performance on four scenarios present only in human data, bussing, spice, dresser and eggs, without trial counts <Cite id="pi-human-to-robot-2025" />.
@@ -109,6 +113,8 @@ A t-SNE of mean-pooled final-layer VLM tokens shows human and robot features ove
 EgoScale's Ruijie Zheng and coauthors instead pretrain on human video, mid-train on aligned human-robot data and post-train on task robot data. They write that transfer needs scale, explicit motion supervision and a small amount of precise human-robot alignment. Their unaligned human pretraining beats a mid-training-only baseline on most tasks, and adding aligned mid-training is best overall <Cite id="egoscale-2026" />.
 
 EgoBridge aligns human and robot policy latents with optimal transport and reports a 44% absolute success gain over human-augmented cross-embodiment baselines <Cite id="egobridge-2025" />. H-RDT pretrains on egocentric human data and fine-tunes with per-robot action encoders and decoders, gaining 40.5% over training from scratch on real robots <Cite id="h-rdt-2025" />.
+
+EgoLAP, from Lihan Zha, Dhruv Shah, Anirudha Majumdar and colleagues at Princeton, Toyota Research Institute and Physical Intelligence (October 2026), trains on human and robot trajectories through a shared chain of language actions that describe motion intent. On bimanual YAM robots it reached 80.1% mean real-world task progress, 2.3 times the alternative action representations trained the same way, and adding human data lifted simulated success from 7.2% to 16.4% <Cite id="egolap-2026" />.
 
 Phantom needs no robot data: it inpaints the human arm, overlays a rendered robot and deploys zero-shot, with success up to 92% <Cite id="phantom-2025" />. Masquerade robotizes in-the-wild human video, fine-tunes on 50 [robot demonstrations](/data-hardware/teleop-rigs/) per task and beats baselines by 5 to 6 times <Cite id="masquerade-2026" />. Figure reports that Index human-video pretraining, all else fixed, raised Helix 2.5's zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />. Generalist's GEN-1 base model (April 2026) uses no robot data: it pretrains on over half a million hours from wearable devices on humans, then adapts with about an hour of robot data per task <Cite id="generalist-gen1-2026" />.
 

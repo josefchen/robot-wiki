@@ -79331,6 +79331,1686 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-prose-bc-foundations",
+      "manifest": "prose",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "b55ffb630f23dc378688881103435e75e20ddf9333d11b6522e76421c8114e10",
+      "newHash": "c11cdd168221163e94c7163f46208e759b7539e184f3e4d072007dca58314624",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/bc-foundations: adds one dated paragraph at the end of \"Training-side problems\": Seohong Park and Sergey Levine's OCBench (October 2026), whose scripted demonstrators mimic human demonstrations and reproduce rising success under overfitting and closed-loop failure without action chunking on two tasks (ocbench-2026, arXiv 2610.07056). No other text changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g6-prose-bc-foundations).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-prose-cross-embodiment",
+      "manifest": "prose",
+      "memberId": "article:manipulation/cross-embodiment",
+      "oldHash": "889882f20c03fe0c38d5333d33cf485fd029b9edbb1e5cdec6ca701ab2794c06",
+      "newHash": "3425804bfdc250fb6c02941144a411cceb47698cbf5bba39ae02ab38dc87f6e7",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/cross-embodiment: adds two dated paragraphs: LAC-WM at the end of \"Latent actions as a shared interface\" (average success on five unseen LIBERO tasks from 82.4% to 92.0%; lac-wm-2026, arXiv 2610.10846) and EgoLAP in \"Human-to-robot transfer recipes\" (80.1% mean real-world task progress, 2.3 times the alternatives; egolap-2026, arXiv 2610.08726). No other text changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g5-prose-cross-embodiment).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-prose-dexterity",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "80685ceb8851b96ac4bf2040bd7ae09ca32ec10ad02c0d8dae0fb8f6624601ae",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on frontier/dexterity: adds one dated paragraph at the end of \"In-hand manipulation\": EigenDEXplore (October 2026), which adds noise along human hand-motion eigenvectors to joint-space noise and outperforms joint-space and learned action-space baselines (eigendexplore-2026, arXiv 2610.07681). No other text changes. The edge starts from the sealed bytes and reconciles the member's 34 earlier approved edges exactly.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "dexterity-brooks-four-20260914-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "aa38e524616bee37d42d9350a7cc3a69d607928cb6d9c8f3cf3ba3bd595fedb8"
+        },
+        {
+          "id": "dexterity-figure15-20260914-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "191c0065fb6913e9c987df66bca3465522fe47fbb7f02d7ee9083e33f7035876"
+        },
+        {
+          "id": "dexterity-holson-pipeline-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196"
+        },
+        {
+          "id": "dexterity-tactile-outlook-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196"
+        },
+        {
+          "id": "dexterity-keyring-rules-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196"
+        },
+        {
+          "id": "dexterity-brooks-ernst-1-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d"
+        },
+        {
+          "id": "dexterity-brooks-eweek-4-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d"
+        },
+        {
+          "id": "dexterity-brooks-forecast-7-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d"
+        },
+        {
+          "id": "dexterity-holson-original8-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dexterity-gobig-navigation-12-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dexterity-figure02-dof-23-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dexterity-helix02-tasks-25-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dex-r9-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r13-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r14-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r16-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r17-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r18-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r19-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r20-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r21-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r22-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r24-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r26-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r27-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r29-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r30-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-dexterity",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "e4bc7f30b385437286b631fa642bec0c209a4d0352e04530670bfd57697b4878"
+        },
+        {
+          "id": "kol-backlog-20261001-frontier-prose-dexterity",
+          "oldHash": "e4bc7f30b385437286b631fa642bec0c209a4d0352e04530670bfd57697b4878",
+          "newHash": "488ab8aeb5cecc9f8911316d4e2005b9bade9fb8d7ce314b91642bfbfde69408"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-dexterity",
+          "oldHash": "488ab8aeb5cecc9f8911316d4e2005b9bade9fb8d7ce314b91642bfbfde69408",
+          "newHash": "cf0888dfe6b0e5adcd4266d6f125a46c5896632cc9c4318ce90763ef661b4350"
+        },
+        {
+          "id": "reader-first-20261002-prose-frontier-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "18d2f738d3097cc288cb8f4fa88cec26fec6a96f86acbd8bfdb473e1363cb7a3"
+        },
+        {
+          "id": "kol-backlog-20261005-frontier-prose-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "5176aef5b158467497e1f49780aac3f9e959e7deab69fae18b43534666d46c83"
+        },
+        {
+          "id": "domain-pass-20261006-g7-prose-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "119e1135a0961aa0f75791aacb142052e1163b8ad0abfa096dd84c754af85923"
+        },
+        {
+          "id": "domain-pass-20261009-kol-prose-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "f84340db9994c6dbd1e8b7d399a2f9963d97ff14203973c37b7a71a5af9c0e6b"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261012-kol-prose-generative-video",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "59367e07042cbe15f0e228138e11ec1d7f4e6b207f4b5f92e003f79b33cb12a5",
+      "newHash": "90d36f961ca76c6e2b057d2f8702b2b72ae802e1efba4d3c6b923bcd90466856",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on world-models/generative-video: adds one dated paragraph after the Fast-WAM sentence in \"World-action models now run as closed-loop robot policies\": OpenWAM (LIBERO-Long video-then-action success from 68.4% to 97.8%; openwam-2026, arXiv 2610.07922) and Long-WAM (RoboCasa GR-1 success from 63.3% to 78.7% with 19.2 seconds of context, 107.4 ms per chunk, 95% dynamic cup stacking; long-wam-2026, arXiv 2610.10528). No other text changes. This edge moves the member from its last approved endpoint (world-models-pass-20261010-prose-generative-video).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-prose-hierarchical",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+      "newHash": "5f14d5f7373ab8c898b0431fe7f72ff49c9df6880561939c3f180c547f453c2a",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/hierarchical: adds one dated paragraph at the end of \"Learned and orchestrated hierarchies, 2025 to 2026\": Robo-COP (mean held-out success on ten simulated RoboLab tasks from 64.8% to 73.8%, against 65.8% for a fixed schedule, and from 38.3% to 50.0% on three real tasks; robo-cop-2026, arXiv 2610.09228). No other text changes. The edge starts from the sealed bytes and reconciles the member's 18 earlier approved edges exactly.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "oft-gemini-oxe-20260908-4",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "e61d22c100e301219e0ad92bda2456f5c899cc6077d308a8206a37650ed9b9f3"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-6",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "f4d1b9e437d94d44d254a03d431af63d12c388f4514e15cba00a1f07f86a791e"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-3",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "6653d1cddb175e5405614b0877b7847f059164ea06eb3205d17feeeafe271d4b"
+        },
+        {
+          "id": "keypoint-hierarchy-20260913-2",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "1ad8d672a630982ea64b781bcc37605f6ed105e32519b81dd2fc518fbcec95a6"
+        },
+        {
+          "id": "saycan-cap-two-20260914-1",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "c438f16829f3bc8ac358c6d6a1001e08c5fa13cda6bad5b6713e89e7af192142"
+        },
+        {
+          "id": "hierarchical-ecot-hirobot-20260914-1",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223"
+        },
+        {
+          "id": "hierarchy14-box-web-correction-20260921",
+          "oldHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223",
+          "newHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7"
+        },
+        {
+          "id": "hierarchy15-bounded-synthesis-correction-20260921",
+          "oldHash": "e0892dbb5fefa56957931bae74c3cd2c60640f122f8587e2365db852af2680a7",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "50b49ee3f2e6b130c24367d5ed71b34bb07f2965e7a8154e9a59783ef14fc00c"
+        },
+        {
+          "id": "humanizer-manipulation-v3-20260925-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "73bde0c3426f143ca86c66b27d5422609412bc50fae05d31e227a6c60a2a295b"
+        },
+        {
+          "id": "educational-cue-20260926-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "9646ce943ff9e1a1ae4efe3f190bf6ae43f26debd0f654048cf1e5981b8ac97c"
+        },
+        {
+          "id": "seo-pass-20261002-prose-manipulation-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "07c56b674127c6e460752cec8472636a26a03ab01decb31685f19a9485189327"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "615d79ced68b53ee05e2bb6695f0dd7c8a77c7679081459c466e5cd8ce224284"
+        },
+        {
+          "id": "domain-pass-20261006-g3-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "53989ccfebafeab915226e71a528906e80295915975d3e38b5f03e82b2edeee2"
+        },
+        {
+          "id": "domain-pass-20261006-g4-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "fe4134e1aa340a02c4369aceaac7c9890251fd10692a8281db632b9192e8d314"
+        },
+        {
+          "id": "domain-pass-20261006-g5-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "ca5a1a94e02aa2361704c366f9535762b3fe9262c258d0e0bfd43d18dfffc63c"
+        },
+        {
+          "id": "domain-pass-20261006-g6-prose-hierarchical",
+          "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+          "newHash": "226055eb65a962e716c41fecb791c59a51cd91ac45041c3988e0c47aad50f7ae"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261012-kol-prose-jepa",
+      "manifest": "prose",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "2c79fbf05b3f39d3ecc95abbee6ec72d27b6069b0d9d457271fd17823150ec1b",
+      "newHash": "372a8712e7d6ad7cf676938bb17b735eb73c894c71330205800ac5d4fea056f3",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on world-models/jepa: adds one dated paragraph after the H-JEPA paragraph in \"An interactive JEPA world or a contact-rich win would settle it\": Toso, LeCun, Anderson and Bounou show that next-step prediction with anti-collapse regularization can discard controllable unstable modes and that an inverse-dynamics loss keeps reachable directions (jepa-unstable-modes-2026, arXiv 2610.07540). No other text changes. This edge moves the member from its last approved endpoint (world-models-pass-20261010-prose-jepa).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-prose-reward-design-mpc",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "9f74ff86260956d5201a35fde8adb6ff82b7904d0abaf7a67ed62d2c81968197",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on rl-sim2real/reward-design-mpc: adds one dated paragraph at the end of \"Curriculum: staying on the difficulty frontier\": Success Guided Sampling (CoRL 2026), with up to about a million parallel environments, solving locomotion and assembly tasks the compared prior methods failed to solve (sgs-2026, arXiv 2610.12465). No other text changes. The edge starts from the sealed bytes and reconciles the member's 32 earlier approved edges exactly.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "grs-eureka-reader-reward-design-mpc-prose-20260908",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "3cc02c9876910ad0d7d014a115979ae85b6a704d83138961e13cea26e1a0d3d1"
+        },
+        {
+          "id": "isaac-v1-twelve-originals-2-20260908",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "8e8c37b7988f1083b86578c6decea5eb3fa742292f49aa6cd5ac1a753a3a3dba"
+        },
+        {
+          "id": "rudin-kl-mechanism-not-retuning-guarantee-20260909",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "ba535f68160576457aeac8b92033ef6dde238e2a08556507f5fedb8fff5efc22"
+        },
+        {
+          "id": "rudin-protocol-20260909-a9893b9fc4acd773ff",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "d0a6bc89c25c4a5fda53db79fd68731aeedadc6ae88d79732026f50648a88b7e"
+        },
+        {
+          "id": "rudin-reader-url-20260909-13235a0b243d5d1c3d",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "8b79b01b618d57ffe376326cdc946a1cf3d5d154f27c0b9fe6ed5e82dddecab4"
+        },
+        {
+          "id": "rudin-four-placement-20260909-13235a0b243d5d1c3d",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "5beb6292b9c784c6fc668a90b487810a474647c57edc748616c3b480741a0d46"
+        },
+        {
+          "id": "boston-control-20260909-e150053faaf2a173b2",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "2dc621b6cddc664b82cc81109556b9dc2b9e4f1c9bf8fe622ef95b6357cad8c5"
+        },
+        {
+          "id": "constrained-reward-20260909-51505e7b4ec4027936",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "cb5ee935e65175ff82dc5fa6daf03900266f45da1f6fd61e1decfe9e8597e370"
+        },
+        {
+          "id": "reward-mpc-20260912-a9893b9fc4acd773ff",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "d09142ee8e120a36dd3042bd2fbce5b25d444e6d4f977d9d10edc7ad4dd53092"
+        },
+        {
+          "id": "rdm-r1-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r4-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r5-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r11-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r14-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r19-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r20-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r21-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r22-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "rdm-r23-20260916-1",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3"
+        },
+        {
+          "id": "seo-merge-20260916-prose-25",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "465542f1a53444e09d7207911699fdfcebfd91b6088424d4d7d767d5fe893f64"
+        },
+        {
+          "id": "seo-merge-20260916-rudin-code-surface-annotation",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f39497e372345f689495dc29380f8bbb501d4e1f98b2201883bf4c10a75e700b"
+        },
+        {
+          "id": "rdm16-r16-20260917-1",
+          "oldHash": "f205e3a831c19fac32c06c121457483b5e4a7bbaf4c2db9022d4e73275bae3b3",
+          "newHash": "443226d4b6cdcf8f82187e710a7fe50af530d2f441a9ded61103865b1a36900f"
+        },
+        {
+          "id": "round5-closeout-reward-design-mpc-prose",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "443226d4b6cdcf8f82187e710a7fe50af530d2f441a9ded61103865b1a36900f"
+        },
+        {
+          "id": "round5-closeout2-reward-design-mpc-prose-digest",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "c0ea4af78b9d3d049fff81a73274f338f68e8e98d69e16953fc34ec64086b384"
+        },
+        {
+          "id": "reward-local-20260923-1",
+          "oldHash": "c0ea4af78b9d3d049fff81a73274f338f68e8e98d69e16953fc34ec64086b384",
+          "newHash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-0740-prose-article-rl-sim2real-reward-design-mpc",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-reward-design-mpc",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-reward-design-mpc",
+          "oldHash": "5cc01cf4a70baf7859f446625a5bea1526804792850b74ec8dde9dfcee858737",
+          "newHash": "95aeac1878a4aa21e4361bb20cf56438b3ba3ffc4c712743f3eedc78c2abfe29"
+        },
+        {
+          "id": "motion-rl-sim2real-20260927-reconcile-reward-design-mpc",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "95aeac1878a4aa21e4361bb20cf56438b3ba3ffc4c712743f3eedc78c2abfe29"
+        },
+        {
+          "id": "round6-prose-restores-20260929-prose-reward-design-mpc",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "db56f22183bfa1784a4dad8aef1c9414244c7c7f1c33aba6b816548cd47ad155"
+        },
+        {
+          "id": "seo-pass-20261002-prose-rl-sim2real-reward-design-mpc",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "98510ed88a567b48fb3b1158594d53a913f96c492d832cfa189b6187e99e4561"
+        },
+        {
+          "id": "domain-pass-20261006-g9-prose-reward-design-mpc",
+          "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+          "newHash": "f7cca618eac94f970a68e2085daa3489a4aec337f15d3240789526c588d59418"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261012-kol-prose-rl-finetuning",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "c225fce724a358dcf1164d7bf45b5c58e8f74490673bf6828c7bba245592c607",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/rl-finetuning: adds two dated paragraphs: QF3 after the FPO sentence in \"The flow-matching log-likelihood problem\" (first off-policy flow RL humanoid locomotion from scratch with zero-shot hardware transfer, 10x wall-clock speedup over FPO++; qf3-2026, arXiv 2610.08789) and Mulligan at the end of \"HIL-SERL: a human in the loop, RL on the robot\" (10 to 34 percentage points over HG-DAgger on 2,550 blinded episodes, 98% of collection episodes completed; mulligan-2026, arXiv 2610.05882). No other text changes. The edge starts from the sealed bytes and reconciles the member's 17 earlier approved edges exactly.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "brand-v2-rl-finetuning-display-math-delimiters",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "8a0f433c78e6aedaa4b5e0c2729fd6f36cf4141af498cb19042a663b41ebdb87"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-4",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "4483c83f0ab4302e38386b794c017a09a8ecdcf63fecb006c13bef8966e01b1b"
+        },
+        {
+          "id": "rl-finetuning-closeout-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "5424024e10a7e82ad997df5eb7988b12b0b04e127dfcc3f53bdbb9e0b4fe67c0"
+        },
+        {
+          "id": "brand-v2-rl-reader-citation-placement-20260908",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "120deb06728a78d1969b84b131812bb5d8c78e152a1df1589ec6b7b0b3dbe834"
+        },
+        {
+          "id": "rl-correct-originals-20260908-prose",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "f3eeff488db5b1d89c05e6ac2348ed84d323d983546ebcd45966ea815032e03c"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "58266d3f46c78229772028ac412853551ca8252b6137772d21b40b27cbc809cf"
+        },
+        {
+          "id": "rl-method-table-original-11-20260908-1",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f"
+        },
+        {
+          "id": "reader-rl-prose-20260923-1",
+          "oldHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "985f5f0f8e17bfc229d604ab4b42c2bb99676da58943e2ba20d99558d09f16a6"
+        },
+        {
+          "id": "humanizer-manipulation-v3-20260925-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "9cd86548ec63a88ef26aa27fb724b7a74cb6b6a895112e9278c6c1b968786363"
+        },
+        {
+          "id": "seo-pass-20261002-prose-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "e2bec4dd9ffd492bca2b22ede6dcc3208e1c3cb27775b6a16c01fed2202e9993"
+        },
+        {
+          "id": "reader-first-20261003-prose-manipulation-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "bb06d2ef09091fa8d5dbbe61153bbbe05b81920b2802ed62af543b648bcd171c"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "75ff06297ec79e9f945b7c8ec09e6fdc09a8d68bc1389dbd57e2dcf55323d095"
+        },
+        {
+          "id": "domain-pass-20261006-g3-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "b2823eee35043243a426295813960c586044e3b82a1acd616faca7a7c7a48b7d"
+        },
+        {
+          "id": "domain-pass-20261006-g5-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "22ccb18c6e901e6ce74f1f0a28d43742469cf5ed300bb5235b89b758f673d2c4"
+        },
+        {
+          "id": "domain-pass-20261006-g6-prose-rl-finetuning",
+          "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+          "newHash": "02b2e83b71b73f4dfc193b4bdf066644fcf675b730a304e8f3d7864a69056638"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261012-kol-prose-scene-representation",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "ca0bffbe7d7858a884e532ba6a3626b4cf4e28f498c7ce8ad537f94e92648246",
+      "newHash": "9a945669bbdf3de3d3a63ef1d76324bdda5d75e08c0c26f783a49c7e500e8b6c",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on classical/scene-representation: adds one dated paragraph after the SceneLM paragraph in \"A representation is a service contract\": Ledger, a persistent 3D object memory from egocentric video (HD-EPIC accuracy from 29.7% to 42.6%, 0.99 m median Ego4D error on returned predictions; ledger-2026, arXiv 2610.10538). No other text changes. This edge moves the member from its last approved endpoint (domain-pass-20261008-sweep-prose-scene-representation).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-prose-space",
+      "manifest": "prose",
+      "memberId": "article:adjacent/space",
+      "oldHash": "8f55f5af362bbbc1fcc0f3a475fd851601af3a88a8ff8e7d661c40823f6e19be",
+      "newHash": "f675ee93ed808e6eb933fe75d49445d4c85ff31bdbc613e379605150e0a9e5f3",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on adjacent/space: adds one dated paragraph at the end of \"Living off the land: ISRU\": the 2025 ESA/DLR LUNA analogue campaign with ANYmal-D and Magnecko, which crossed regolith simulant but suffered sinkage, slip, dust and perception failures (luna-legged-2026, arXiv 2610.12276). No other text changes. This edge moves the member from its last approved endpoint (seo-pass-20261002-prose-adjacent-space).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-relationships-bc-foundations",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "5363a6721274aee03a14debf8ec7b17a7333273d7db92cf47e195899ee6490a3",
+      "newHash": "bfaae1ba75c438080e31beb7ac14093266bbf0536ac7382913db4665bcccea2d",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/bc-foundations: adds one dated paragraph at the end of \"Training-side problems\": Seohong Park and Sergey Levine's OCBench (October 2026), whose scripted demonstrators mimic human demonstrations and reproduce rising success under overfitting and closed-loop failure without action chunking on two tasks (ocbench-2026, arXiv 2610.07056). The relationships record gains the inline citation ocbench-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g5-relationships-bc-foundations).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-relationships-cross-embodiment",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/cross-embodiment",
+      "oldHash": "6935c972ed87244aa8755e99f0335e1a0cfb30bb43098a27281238d810dc2d94",
+      "newHash": "643be341d1dbed65ce5de8b10961cc3668e71d42136cfcba993705835cdff970",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/cross-embodiment: adds two dated paragraphs: LAC-WM at the end of \"Latent actions as a shared interface\" (average success on five unseen LIBERO tasks from 82.4% to 92.0%; lac-wm-2026, arXiv 2610.10846) and EgoLAP in \"Human-to-robot transfer recipes\" (80.1% mean real-world task progress, 2.3 times the alternatives; egolap-2026, arXiv 2610.08726). The relationships record gains the inline citations egolap-2026 and lac-wm-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g5-relationships-cross-embodiment).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-relationships-dexterity",
+      "manifest": "relationships",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "28d9193e10e0a86a51c0dba4d17204f6ed21615d34eab142cbc869925c7b500a",
+      "newHash": "d716b724e5388066e71323f94801abf5d1a7f2c0227376aeb83904e96b7b9aef",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on frontier/dexterity: adds one dated paragraph at the end of \"In-hand manipulation\": EigenDEXplore (October 2026), which adds noise along human hand-motion eigenvectors to joint-space noise and outperforms joint-space and learned action-space baselines (eigendexplore-2026, arXiv 2610.07681). The relationships record gains the inline citation eigendexplore-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261009-kol-relationships-dexterity).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-relationships-generative-video",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "16ab34250335275d080588eaf01dfb13f8b098984c6908d07e6b63f17702d6da",
+      "newHash": "034a06ae3c300056c4c513526125d96fdb94ce7966ff1dfd6cbb00b4d0e4c5f6",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on world-models/generative-video: adds one dated paragraph after the Fast-WAM sentence in \"World-action models now run as closed-loop robot policies\": OpenWAM (LIBERO-Long video-then-action success from 68.4% to 97.8%; openwam-2026, arXiv 2610.07922) and Long-WAM (RoboCasa GR-1 success from 63.3% to 78.7% with 19.2 seconds of context, 107.4 ms per chunk, 95% dynamic cup stacking; long-wam-2026, arXiv 2610.10528). The relationships record gains the inline citations openwam-2026 and long-wam-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (world-models-pass-20261010-relationships-generative-video).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-relationships-hierarchical",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "7eeecbcf519d3c6de290c191dad98530854e5ef0b62d8a078edcd531d2c49062",
+      "newHash": "3df3d0e5d7d8cb280d2f1c58ef724dc8b026a40c3277eb084a93d8171660762f",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/hierarchical: adds one dated paragraph at the end of \"Learned and orchestrated hierarchies, 2025 to 2026\": Robo-COP (mean held-out success on ten simulated RoboLab tasks from 64.8% to 73.8%, against 65.8% for a fixed schedule, and from 38.3% to 50.0% on three real tasks; robo-cop-2026, arXiv 2610.09228). The relationships record gains the inline citation robo-cop-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g5-relationships-hierarchical).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-relationships-jepa",
+      "manifest": "relationships",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "dbd96095f43dd7f78cd8b730390a680118388fd2666f9da619ae2b5aad82f0a7",
+      "newHash": "856d0c649b0558e3d89128b1c68f4209c7e9ef4914f8aa93f174e3cf754aa9cd",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on world-models/jepa: adds one dated paragraph after the H-JEPA paragraph in \"An interactive JEPA world or a contact-rich win would settle it\": Toso, LeCun, Anderson and Bounou show that next-step prediction with anti-collapse regularization can discard controllable unstable modes and that an inverse-dynamics loss keeps reachable directions (jepa-unstable-modes-2026, arXiv 2610.07540). The relationships record gains the inline citation jepa-unstable-modes-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (world-models-pass-20261010-relationships-jepa).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-relationships-reward-design-mpc",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "3ded5b7bddb49fe3146203868f5cc4f8c01ceccdca0eb5acdc4b68dd1b4aa534",
+      "newHash": "fd5efd1b5836c1373521ecf3e440896b373d84487d7e6b67556f8f58b29faab3",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on rl-sim2real/reward-design-mpc: adds one dated paragraph at the end of \"Curriculum: staying on the difficulty frontier\": Success Guided Sampling (CoRL 2026), with up to about a million parallel environments, solving locomotion and assembly tasks the compared prior methods failed to solve (sgs-2026, arXiv 2610.12465). The relationships record gains the inline citation sgs-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261006-g9-relationships-reward-design-mpc).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-relationships-rl-finetuning",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+      "newHash": "ab75df0bbd4487dbad9eee24dd1f2db4c406723ddf69be9fa5c01739a95692a7",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/rl-finetuning: adds two dated paragraphs: QF3 after the FPO sentence in \"The flow-matching log-likelihood problem\" (first off-policy flow RL humanoid locomotion from scratch with zero-shot hardware transfer, 10x wall-clock speedup over FPO++; qf3-2026, arXiv 2610.08789) and Mulligan at the end of \"HIL-SERL: a human in the loop, RL on the robot\" (10 to 34 percentage points over HG-DAgger on 2,550 blinded episodes, 98% of collection episodes completed; mulligan-2026, arXiv 2610.05882). The relationships record gains the inline citations qf3-2026 and mulligan-2026; no other citation, route or link changes. The edge starts from the sealed bytes and reconciles the member's 13 earlier approved edges exactly.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "cross-article-closeouts-20260907-13",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "0b61e313d835e95eac8a7dfc47273d2c3d3f0173f3db0da5b2abd40dec67b8f8"
+        },
+        {
+          "id": "rl-finetuning-closeout-20260908-2",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "6a2a8eebcd9e36011ca58d06a1afaa75bb2812c5986c477c21462d0460d1fc0c"
+        },
+        {
+          "id": "rl-correct-originals-20260908-relationships",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "6f6e93db5e6b361cdf37d42f53e6484fb6e0b54e290f4fcc0d45b119f7a81d9f"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-3",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "ee8e5ecb41721ad37d66394732c5f66028a71febf86046815145b3a6accfb609"
+        },
+        {
+          "id": "rl-method-table-original-11-20260908-2",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "cdab4c3ed1b14dfbfb4020d9841dafd0b3e70cc9745497e15484d5de254b6886"
+        },
+        {
+          "id": "reader-rl-prose-20260923-3",
+          "oldHash": "cdab4c3ed1b14dfbfb4020d9841dafd0b3e70cc9745497e15484d5de254b6886",
+          "newHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-relationships-article-manipulation-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-relationships-article-manipulation-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "39b1f9eeda0e57414a51de3da379021bfdefef4aae73100bf55a7b5ac7dc925a"
+        },
+        {
+          "id": "expo-ft-intake-20260925-relationships-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "1394c86b31ad1ba8c5face5adea3c0d80b0ffc6c1bcf8f7736aae2934953cc66"
+        },
+        {
+          "id": "seo-pass-20261002-relationships-manipulation-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "a7859654451be726cec2e0cfad747aa38668f7b61efbba8232f7181d85f85254"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-relationships-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "b2485233d5dfcd307637e888245c0c97b5f5283b35a104b9716abc7fbbdd1138"
+        },
+        {
+          "id": "domain-pass-20261006-g3-relationships-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "34bb9b5e59c52d13469908f133fb6822d84236b78ce02ec7e53763d009600617"
+        },
+        {
+          "id": "domain-pass-20261006-g5-relationships-rl-finetuning",
+          "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+          "newHash": "7ea6c674daf3aa3f4e8bce51ccc79ca510a41ee282e59e20b46ee653e6e51840"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261012-kol-relationships-scene-representation",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "4f0431d497c90066be0cfe7a519b5a83034b1dec16a355eacbe8ab7dd68976d6",
+      "newHash": "2149f379063e20c0409a8fd1fad853d6366b8f8cf9c12314ee9cb0c1d818aca0",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on classical/scene-representation: adds one dated paragraph after the SceneLM paragraph in \"A representation is a service contract\": Ledger, a persistent 3D object memory from egocentric video (HD-EPIC accuracy from 29.7% to 42.6%, 0.99 m median Ego4D error on returned predictions; ledger-2026, arXiv 2610.10538). The relationships record gains the inline citation ledger-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261008-sweep-relationships-scene-representation).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-relationships-space",
+      "manifest": "relationships",
+      "memberId": "article:adjacent/space",
+      "oldHash": "79bc25adac23e92a36de96e533bb4d329e5a4ebfbec5b3683a20a310def92802",
+      "newHash": "8407d4b6109c292a5eb54532550092dad24f6ee9fe3f592ea4b35a3627af32df",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on adjacent/space: adds one dated paragraph at the end of \"Living off the land: ISRU\": the 2025 ESA/DLR LUNA analogue campaign with ANYmal-D and Magnecko, which crossed regolith simulant but suffered sinkage, slip, dust and perception failures (luna-legged-2026, arXiv 2610.12276). The relationships record gains the inline citation luna-legged-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (seo-pass-20261002-relationships-adjacent-space).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-frontmatter-bc-foundations",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/bc-foundations",
+      "oldHash": "5b81ca62a932583e8ac6b9e30e45f82ac19ecc22558330bbc047670f5a834889",
+      "newHash": "a9a2752423f1c87fe8d0fd4ae9560f8d45bebb06397a373cf0fb065e923254a9",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/bc-foundations: adds one dated paragraph at the end of \"Training-side problems\": Seohong Park and Sergey Levine's OCBench (October 2026), whose scripted demonstrators mimic human demonstrations and reproduce rising success under overfitting and closed-loop failure without action chunking on two tasks (ocbench-2026, arXiv 2610.07056). The frontmatter citation list appends ocbench-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g5-frontmatter-bc-foundations).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-frontmatter-cross-embodiment",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/cross-embodiment",
+      "oldHash": "a52100ba0ee35318a19e617011854eb1f36b713437816a75b1b3cab0832a2a45",
+      "newHash": "6487d165995cfdceac3e5a691d4c61c5ac6097dc5d273919b06443e8463c1848",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/cross-embodiment: adds two dated paragraphs: LAC-WM at the end of \"Latent actions as a shared interface\" (average success on five unseen LIBERO tasks from 82.4% to 92.0%; lac-wm-2026, arXiv 2610.10846) and EgoLAP in \"Human-to-robot transfer recipes\" (80.1% mean real-world task progress, 2.3 times the alternatives; egolap-2026, arXiv 2610.08726). The frontmatter citation list appends egolap-2026 and lac-wm-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g5-frontmatter-cross-embodiment).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-frontmatter-dexterity",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:frontier/dexterity",
+      "oldHash": "179e30d6ec6c35e43ff1bdfabf7ab238e611e91a04e4d11e731a6cfaf9bcf59d",
+      "newHash": "1c9c7d551114b8042567530ce5b9eab92dc262514b72a1dfa42e7927cdb862a2",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on frontier/dexterity: adds one dated paragraph at the end of \"In-hand manipulation\": EigenDEXplore (October 2026), which adds noise along human hand-motion eigenvectors to joint-space noise and outperforms joint-space and learned action-space baselines (eigendexplore-2026, arXiv 2610.07681). The frontmatter citation list appends eigendexplore-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261009-kol-frontmatter-dexterity).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-frontmatter-generative-video",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/generative-video",
+      "oldHash": "9d98e359f348c8c751b36aee6e3b871cd15bb190a7cab6403ce6dc29cb6a3589",
+      "newHash": "1b643f9a5ccedc526859aae14516a752a11e12fc411aeb417f79fa24e7e338ee",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on world-models/generative-video: adds one dated paragraph after the Fast-WAM sentence in \"World-action models now run as closed-loop robot policies\": OpenWAM (LIBERO-Long video-then-action success from 68.4% to 97.8%; openwam-2026, arXiv 2610.07922) and Long-WAM (RoboCasa GR-1 success from 63.3% to 78.7% with 19.2 seconds of context, 107.4 ms per chunk, 95% dynamic cup stacking; long-wam-2026, arXiv 2610.10528). The frontmatter citation list appends openwam-2026 and long-wam-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (world-models-pass-20261010-frontmatter-generative-video).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-frontmatter-hierarchical",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/hierarchical",
+      "oldHash": "8c14c167265b9fd93dcca266b6980ac52cdaeb549014ae51456981009a78119b",
+      "newHash": "049b1f94b70f884df198a86b9773b79611403dec879d31051eb75856e74a90f2",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/hierarchical: adds one dated paragraph at the end of \"Learned and orchestrated hierarchies, 2025 to 2026\": Robo-COP (mean held-out success on ten simulated RoboLab tasks from 64.8% to 73.8%, against 65.8% for a fixed schedule, and from 38.3% to 50.0% on three real tasks; robo-cop-2026, arXiv 2610.09228). The frontmatter citation list appends robo-cop-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g5-frontmatter-hierarchical).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-frontmatter-jepa",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/jepa",
+      "oldHash": "860aa90bc5e3fcfc22ba17e96b01f27637075623f3a34d552269282a08cef15b",
+      "newHash": "d303979f46558129aeb889de1d31ffa1a65cc3bfaed63cc3b62298dfc5abe1b5",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on world-models/jepa: adds one dated paragraph after the H-JEPA paragraph in \"An interactive JEPA world or a contact-rich win would settle it\": Toso, LeCun, Anderson and Bounou show that next-step prediction with anti-collapse regularization can discard controllable unstable modes and that an inverse-dynamics loss keeps reachable directions (jepa-unstable-modes-2026, arXiv 2610.07540). The frontmatter citation list appends jepa-unstable-modes-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (world-models-pass-20261010-frontmatter-jepa).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-frontmatter-reward-design-mpc",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:rl-sim2real/reward-design-mpc",
+      "oldHash": "9fe3ef3557e187c9010fe7a7f54526ef3eb669f22630ce258c7dce94ce2952ae",
+      "newHash": "77eea89777753d245c3427e22422066011a6f1e9198e3e8c600899645fa49d3c",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on rl-sim2real/reward-design-mpc: adds one dated paragraph at the end of \"Curriculum: staying on the difficulty frontier\": Success Guided Sampling (CoRL 2026), with up to about a million parallel environments, solving locomotion and assembly tasks the compared prior methods failed to solve (sgs-2026, arXiv 2610.12465). The frontmatter citation list appends sgs-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g9-frontmatter-reward-design-mpc).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-frontmatter-rl-finetuning",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/rl-finetuning",
+      "oldHash": "b0560ad50e0969170726eb43ca93d4b08fbec80d57b581fd6c2165a7e34ef71d",
+      "newHash": "f3b3df45df79d9eb79831fc8a6e6aac50d564e980f2ef446446167d879bc76dd",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/rl-finetuning: adds two dated paragraphs: QF3 after the FPO sentence in \"The flow-matching log-likelihood problem\" (first off-policy flow RL humanoid locomotion from scratch with zero-shot hardware transfer, 10x wall-clock speedup over FPO++; qf3-2026, arXiv 2610.08789) and Mulligan at the end of \"HIL-SERL: a human in the loop, RL on the robot\" (10 to 34 percentage points over HG-DAgger on 2,550 blinded episodes, 98% of collection episodes completed; mulligan-2026, arXiv 2610.05882). The frontmatter citation list appends qf3-2026 and mulligan-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g5-frontmatter-rl-finetuning).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-frontmatter-scene-representation",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:classical/scene-representation",
+      "oldHash": "46209cc70d6fbb1673c6c112a95dd1777601b8b638b4ad58b2747498efae9df6",
+      "newHash": "5a2d788f907467151c400c162c0dcdb7701767a151d00ec11f3fc35bec95cb93",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on classical/scene-representation: adds one dated paragraph after the SceneLM paragraph in \"A representation is a service contract\": Ledger, a persistent 3D object memory from egocentric video (HD-EPIC accuracy from 29.7% to 42.6%, 0.99 m median Ego4D error on returned predictions; ledger-2026, arXiv 2610.10538). The frontmatter citation list appends ledger-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261008-sweep-frontmatter-scene-representation).",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-frontmatter-space",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:adjacent/space",
+      "oldHash": "2075967092e1d60c27ad91b63c5a8d6a576257d8922c9f3fe8a05149ff7c3527",
+      "newHash": "60f05b1944150da7086a3570097ccf0bf684965f3c6ae60fa8c56d154e024c95",
+      "reason": "KOL triage batch of 2026-10-12 (notes older than 72 hours) on adjacent/space: adds one dated paragraph at the end of \"Living off the land: ISRU\": the 2025 ESA/DLR LUNA analogue campaign with ANYmal-D and Magnecko, which crossed regolith simulant but suffered sinkage, slip, dust and perception failures (luna-legged-2026, arXiv 2610.12276). The frontmatter citation list appends luna-legged-2026; title, description, dates and every other field are unchanged. The member had no approved edge; this edge moves it from the sealed bytes.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-rendering",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bd36fcaed5b2e83da84086d5fff288bf429daecff39488bb90377d6e0c0e9173",
+      "reason": "Resolution entry for the citation-rendering:label-and-meta approval graph after the KOL triage batch of 2026-10-12 registered 13 citation records (mulligan-2026, ocbench-2026, egolap-2026, eigendexplore-2026, openwam-2026, jepa-unstable-modes-2026, qf3-2026, robo-cop-2026, long-wam-2026, ledger-2026, sgs-2026, lac-wm-2026, luna-legged-2026); no existing record changes. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 70 earlier approved edges exactly.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "brand-v2-citation-rendering-seal-added",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0e79fe7b2d2828ace0e597a938188665ca6a49a1377c5eef7019ac6016e8aea8"
+        },
+        {
+          "id": "current-dp-td3-20260907-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "04049261ce9dd32c29a001de30b8a74fc76e8c891d25bd18a20116a2b0dfe259"
+        },
+        {
+          "id": "act-convention-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ca93d000ecfc779c557d142061c72267ec25d28ca44213758c76ec4b87a22ad8"
+        },
+        {
+          "id": "bc-foundations-20260907-6",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3ec80be198832290602b14ecb3ee7375dbd096af9e8f2f536cc1d0f60fadab33"
+        },
+        {
+          "id": "act-current-claims-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ccd4c34ab44d2d927394888ee44ef170ef1fa2d42a37cd4c4da9d2e1aecc571"
+        },
+        {
+          "id": "act-five-sources-20260907-18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2adadd231e996bb34f0c5974dfa1b80ff276ffb83e75bdabd6849748a84975b2"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "287633b834b110f8f96446c84f22efac91fa05ddb6abef8b4d23643d320535bf"
+        },
+        {
+          "id": "oft-gemini-oxe-20260908-39",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "45e21d8955bf710fc8859f7a514dbdfbdbaa91c31c9014be8d335569e67ca56d"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "905dc70516ada8e0838923ef2f5d1bedb989a32ebf63d9efe0f99e56fdc508b8"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-10",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "1e7e287ed05943c558a08a22c5435ac2b4415080f7b90431b199cbd6b9f08d19"
+        },
+        {
+          "id": "rl-source-closeouts-20260908-8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c9644600fe3193ec9e21a7511fcb5293e60894aab91d0f6f5a1aaafe69ba9b8"
+        },
+        {
+          "id": "jepa-source-closeouts-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "a903ea05e32dc5baa6c30c6accda84cf8b8d736d7cabe2d12e2bcc68d0f81dc6"
+        },
+        {
+          "id": "cosmos-reader-closeout-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ce936431e57110acb81dfb9ffe53777f9113b270a134d499642441ccb24a967e"
+        },
+        {
+          "id": "isaac-v1-twelve-originals-7-20260908",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "38a5fafd03466fe1f774197a0f7a3108fa45d985f1aa5ec20c8894e9a16e7ca5"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bc758e2c141629a284dbe42110669da6a4a2c98dcaac76d37d1c0c0a1ab39e0e"
+        },
+        {
+          "id": "neural-scene-originals-12-16-20260908-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b6e1d5997438ce5c7ede6b5987c92db4236a94d3252f816a0572307ed4f6c9c6"
+        },
+        {
+          "id": "classical-slam-cadena-25-20260908-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e4d5ea650d814a12a217868b42e5230bbce2ae6b4316389526fed203fc2e24e9"
+        },
+        {
+          "id": "pose-metrics-bop-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b990f28bc59b401cc490d8936a863b8cceed1310cbf393439ba46fa1d23b10d8"
+        },
+        {
+          "id": "servo-apollo-integration-20260909-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c6da7f1ba8ef59c2cfb14e77e96d42635dcdee06b102ec75f8d41cce6b8b3af"
+        },
+        {
+          "id": "randomization-citation-rendering-reconciliation-20260909",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4b36cb18768cb7b21719fae5a0bdae280818b7330a3b9f12b7162febb7972205"
+        },
+        {
+          "id": "rudin-protocol-20260909-fdd3edc8ec7ccb2da3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "382c8296f46c710890966bf9ffdae876f02ed430fdbc4ff8c795e73341636208"
+        },
+        {
+          "id": "ifr-industrial-originals-20260912-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9db509451024c2f2ba02808619b47af462f31d835eed4ad8e26b7ffefc930856"
+        },
+        {
+          "id": "amazon-industrial-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ad43c3cc6acae54840e4bb247b68fd857c46e4ebea2bde03d12ac9be86fb30cd"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "71f7df8ba7ae919b5e2049f73fb4fb4d1d36d969368d856a073a79bbf5181a46"
+        },
+        {
+          "id": "evaluation-statistics-originals-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5570fa96d9961e65be4a31f072b16d1ec616bfbbaa1e00e599686bd829e6c446"
+        },
+        {
+          "id": "perception-foundations-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "43d99fc56253db83d960b989acd81a7ba776310a27c99d6cc62eeb1f9ff40195"
+        },
+        {
+          "id": "perception-depth-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e1dadc72fb980c3d8ab17b743dcf82f79f80232ad1bca2f50bbc81e997e61d76"
+        },
+        {
+          "id": "optimal-sampling-ompl-20260913-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "eab0d47adaa2cd995273dcf17f7434a8bfb75c37a899d7a0dd773402c61c32f3"
+        },
+        {
+          "id": "orb-scene-four-20260914-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "65553c74d026e7397f9cb0b678224af3a8c78eb48b1f96c4674f020fcb79a56e"
+        },
+        {
+          "id": "seo-merge-20260916-article-metadata-143",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "079a39b797d139832e982ce57f899d1bbe5ac8c1dc7d266e34d96952a49702a2"
+        },
+        {
+          "id": "seo-merge-20260916-b3-article-metadata-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "21c594db74adf7e091b5ef8b35615dfe145f87dd2a681fc2434ede2c1e1fb223"
+        },
+        {
+          "id": "seo-merge-20260916-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c6d54bfdf8468ccbc39743598bc452a64dc59a6e5bf489e8fb366a747cc59bc1"
+        },
+        {
+          "id": "wm-cost-labelmeta-20260917-1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d4b364d55f8c6a688b5c2a17484919b1fd3efa21a3c148010034904bac0376c5"
+        },
+        {
+          "id": "round5-closeout-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6aec4b2772e8d4a5cb9c9ad1c462534912f9a8b01958c39e6fb9069e27c00cc7"
+        },
+        {
+          "id": "aq0917a-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507"
+        },
+        {
+          "id": "dataset-license-pair-20260921-2",
+          "oldHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507",
+          "newHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b"
+        },
+        {
+          "id": "generalist-attribution-p1-20260922-4",
+          "oldHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b",
+          "newHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef"
+        },
+        {
+          "id": "continuation-merge-20260922-article-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5f3bad00fb7f68ff333ded54c5a51dfbada7ac788bb2f213839864ec17e5cefb"
+        },
+        {
+          "id": "content-integration-20260923-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3955fc201543cf29cabfe07ea3d65b0a726c26be36d7387bd7fa4315520085fb"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-6",
+          "oldHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef",
+          "newHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "833ab76d14390836473994dfb50f9b70b384d4de8a37157be70a88ccce449a2f"
+        },
+        {
+          "id": "industrial-closure-20260923-3",
+          "oldHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450",
+          "newHash": "51f54329ecb1d1a289c6764b3e38e5653abbd9144f3470266d8a489fcec467ab"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3373e6623166e653a62074c4d156e1e5a454dfb89f5c56691ce6d35521ade5f2"
+        },
+        {
+          "id": "control-citation-20260924-rendering-inventory",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4eef21fee12072861cf36b8849218a09714aace4ee4199f2da71fa6cfebcf7b6"
+        },
+        {
+          "id": "main-merge-20260924-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03de761700f6c1776eeeb9336c009832040f21d39951916c7a20c6025b1e9e53"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2822722c660d8405d900c39dadeeb0e6efc72016bf5ea756a61211ea049ee6a0"
+        },
+        {
+          "id": "expo-ft-intake-20260925-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "dc3c6a368d704a0fc06005dd34dd7985b3fc1e36fa68f4fa81a84d6c9b89d96f"
+        },
+        {
+          "id": "kol-backlog-20261001-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0f638d06385adacc58d419c23a0fa24860069dd6dfc63a53ec0250766064c5d0"
+        },
+        {
+          "id": "kol-backlog-20261001-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d0708a60d3214684fda52170fcd4447bcd66c56ff7078283c9ab19be9f8ee92d"
+        },
+        {
+          "id": "kol-backlog-20261001-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "86bdaf2aad9c7973398e9465830cfd5b157a4933034ddd17f285ee5e6ff9ab12"
+        },
+        {
+          "id": "kol-backlog-20261001-frontier-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bacb386d64e42b7c3c9e8d2d79257fa1c4bc2a2245cbd846ceb9c9cc495f08fa"
+        },
+        {
+          "id": "seo-pass-20261002-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4275fce1f2fa6fcab3e9f65b8451c851a1c9000c0ce172fe97ba5e9f46d443b0"
+        },
+        {
+          "id": "kol-backlog-20261005-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d5fa6de0920efb6f604b3adb78671398a2f7315e701b7679c84db792de6ca6c9"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb35cb7a742017f7eb5c1fff3b0002b8a60a6c67776a33db155b0aebe0b4a8f0"
+        },
+        {
+          "id": "kol-backlog-20261005-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4ed90498df28ec03385a9fec964589aaf8d39c804f9460765cd315ebf06bea31"
+        },
+        {
+          "id": "kol-backlog-20261005-frontier-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "126e7b445dc19b681249cf921a88515accb5ce3d2ca9014530a39252d7629134"
+        },
+        {
+          "id": "kol-backlog-20261005-data-hardware-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d88adcb29d51f3923544c1761f138cc80ada2ac4861b0f1f84e0f8ad67319de4"
+        },
+        {
+          "id": "kol-backlog-20261005-classical-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6d7fb89f953cd5806346a46d295a04f6925fd41f3174d80f05f1a812435c81e4"
+        },
+        {
+          "id": "domain-pass-20261006-g1-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3e1ca8a9c5dc154bd815e226b7d53d9527f38e7255f2a3a0dabb7fcf3df91849"
+        },
+        {
+          "id": "domain-pass-20261006-g2-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "912315196c4c4633c733b5e0b53ef0c0c3c8be2237449b78c8652e036210819f"
+        },
+        {
+          "id": "domain-pass-20261006-g3-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7c11f6330dc6494c88e40d10722e448679cc4356022d05e3f8240a41afc671da"
+        },
+        {
+          "id": "domain-pass-20261006-g4-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bf7a5e8a8094ce208c548b783c6a54d45f5a1de61a4d0886bbf2a8928061fa60"
+        },
+        {
+          "id": "domain-pass-20261006-g5-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8e198326a8254e01cbabb3b442d824528d3ab013b1ecba871daf4aecdcc36c80"
+        },
+        {
+          "id": "domain-pass-20261006-g7-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b9884a99b341adbd61edfb1ee0968fafc7071fac3eff926c79a54fbb8e207342"
+        },
+        {
+          "id": "domain-pass-20261006-g8-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b817d91fe450f5361e69424260f9ce9c17683eb871046a99ed68ed8b034c1e46"
+        },
+        {
+          "id": "domain-pass-20261006-g9-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e454bc12da7af25f2f486b8850ef29d126e93f28db7e22323fd1aaf05c6d96ab"
+        },
+        {
+          "id": "domain-pass-20261008-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4ecd1cd4d56707722fb52bb3f46671b1a7e0b50bf78ab49a9aa078c8500f8bc4"
+        },
+        {
+          "id": "domain-pass-20261008-sweep-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "284c1d91aa330bf70f66063372c4b6767b211f89b6a42ca0438fde97337c5355"
+        },
+        {
+          "id": "domain-pass-20261009-kol-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "cfe62d4fd0a7085eb72e5df25eeae253959b5a5472b2e59a04e274c7f019f5f1"
+        },
+        {
+          "id": "world-models-pass-20261010-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "decf48d442e8a32c2531606aa90ff903e46fd6a48998e7cd1111acd8771fe6db"
+        }
+      ]
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-mulligan-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:mulligan-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "27e587495ecbb3d3595d665f9fe2637dc193cef3a9e0518f2e89996f71100e64",
+      "reason": "Registers the new citation mulligan-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Perry Dong on \"Mulligan: Performance-Guided Data Collection for Efficient On-Robot Learning\"; arXiv 2610.05882, v1 5 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-ocbench-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:ocbench-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ced5cfb48353c2cb806e0faf5b05511bee8864f4cc4647b92071542b7ce6852e",
+      "reason": "Registers the new citation ocbench-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Sergey Levine on \"Behavioral Cloning Mystery\"; arXiv 2610.07056, v1 5 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-egolap-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:egolap-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a56d1bc225b2ab0dfc147147352ed6b3373761f1f192c47847ab00fa8ea793e8",
+      "reason": "Registers the new citation egolap-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Dhruv Shah on \"EgoLAP: Learning from Egocentric Human Data through Language-Action Reasoning\"; arXiv 2610.08726, v1 6 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-eigendexplore-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:eigendexplore-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bf7f251cdf7b624e0c5270ac5c9ef4f060454b2b4d01855bbd890fae30350c7e",
+      "reason": "Registers the new citation eigendexplore-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Shuran Song on \"EigenDEXplore: Structured Exploration for Dexterous Manipulation with Human Priors\"; arXiv 2610.07681, v1 6 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-openwam-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:openwam-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7ec32969fa7bc42f8ece288bb2b74e45f855d8ba24bf752a2d5ef4222a23015b",
+      "reason": "Registers the new citation openwam-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Jiajun Wu on \"OpenWAM: An Open Framework for Composable World-Action Models\"; arXiv 2610.07922, v1 6 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-jepa-unstable-modes-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:jepa-unstable-modes-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0a2a970d72514f842b7a85095270410a219bd12390913457440c461267c9168a",
+      "reason": "Registers the new citation jepa-unstable-modes-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Yann LeCun on \"Preserving Unstable Modes Through Inverse Dynamics in JEPA World Models\"; arXiv 2610.07540, v1 6 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-qf3-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:qf3-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "5e98ff877fbe5051d3c0d89f2fd4cd1130dc9a1ae9a1e572feae93f8ef31622c",
+      "reason": "Registers the new citation qf3-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Pieter Abbeel on \"QF3: Fast Flow RL with Filtered Q-Gradients\"; arXiv 2610.08789, v1 6 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-robo-cop-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:robo-cop-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6e57eb58251e4eea8887ee505fa672eee22bf41d1cfe5f45db2c6b605ad91667",
+      "reason": "Registers the new citation robo-cop-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Jiajun Wu on \"Co-Evolving Robot Orchestrators and Policies through Deployment\"; arXiv 2610.09228, v1 6 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-long-wam-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:long-wam-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "17569e5f36421a0c0ada2b00ba5625e5a69a32872d5a06b1ff516f6f5ed0ad7c",
+      "reason": "Registers the new citation long-wam-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Jim Fan (Linxi Fan) on \"Long-WAM: Scaling the Context of World-Action Models\"; arXiv 2610.10528, v1 7 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-ledger-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:ledger-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8c6d2c8e5aed66d56befe7ea0b4369d516c56d2505c127953042a4d8ed501191",
+      "reason": "Registers the new citation ledger-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Homanga Bharadhwaj on \"Never Look Back: Understanding Persistence in 3D Object Memory from Egocentric Videos\"; arXiv 2610.10538, v1 7 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-sgs-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:sgs-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "006d091dc539245a89c953c29b1d97957a51941e6eeedce458afcb7deb6d7bbc",
+      "reason": "Registers the new citation sgs-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Abhishek Gupta on \"A Balanced Data Diet: Addressing the Exploration Bottleneck in Mega-Scale RL for Robot Control\"; arXiv 2610.12465, v1 8 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-lac-wm-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:lac-wm-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ce6b59f94788f1b4c5ace94c57c14e6e1f0627ff5450ed1de0be34dd5838cff6",
+      "reason": "Registers the new citation lac-wm-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Jiajun Wu on \"Cross-Embodiment Robot Foundation World Models with Latent Actions\"; arXiv 2610.10846, v1 7 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-pass-20261012-kol-citation-luna-legged-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:luna-legged-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2f7f7fc93b1873de1bf6b7245b74f31fccb831889d987875fc18d66db09a3607",
+      "reason": "Registers the new citation luna-legged-2026 for the KOL triage batch of 2026-10-12 (the KOL intake note of Marco Hutter on \"Toward Lunar Legged Robots: Field Deployment Lessons at LUNA\"; arXiv 2610.12276, v1 8 Oct 2026, read 2026-10-12). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-12\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Parent instruction of 2026-10-12 04:25 UTC (KOL triage batch of the opus-pass parallel18 spec-evidence worker) under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924: every KOL intake note published more than 72 hours before the reference time is integrated onto its best existing page as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

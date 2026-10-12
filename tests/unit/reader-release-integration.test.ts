@@ -129,15 +129,24 @@ function throughSeoPass(path: string) {
   // endpoint, plain or as a resolution that reconciles it.
   const figureEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
     && a.id.startsWith('rl-sim2real-figures-20261011-'));
-  if (figureEdges.length === 0) {
-    expect(classicalEnd).toBe(hashOf(readLive(path)));
-    return;
+  expect(figureEdges.length).toBeLessThanOrEqual(1);
+  const continues = (next: ApprovedDelta, from: string) =>
+    next.oldHash === from || (next.reconciles ?? []).some(r => r.newHash === from);
+  let end = classicalEnd;
+  for (const figures of figureEdges) {
+    expect(continues(figures, end)).toBe(true);
+    end = figures.newHash;
   }
-  expect(figureEdges).toHaveLength(1);
-  const [figures] = figureEdges;
-  expect(figures.oldHash === classicalEnd
-    || (figures.reconciles ?? []).some(r => r.newHash === classicalEnd)).toBe(true);
-  expect(figures.newHash).toBe(hashOf(readLive(path)));
+  // The KOL triage batch of 2026-10-12 then added a dated paragraph to some
+  // of them, with one edge that continues the previous endpoint the same way.
+  const kolEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('domain-pass-20261012-kol-'));
+  expect(kolEdges.length).toBeLessThanOrEqual(1);
+  for (const kol of kolEdges) {
+    expect(continues(kol, end)).toBe(true);
+    end = kol.newHash;
+  }
+  expect(end).toBe(hashOf(readLive(path)));
 }
 
 describe('merged reader corrections preserve production additions and exact approvals', () => {

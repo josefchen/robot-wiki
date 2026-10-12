@@ -74,6 +74,30 @@ export function classicalPassEndpoint(
   return endpoint;
 }
 
+/** Edges the KOL triage batch of 2026-10-12 appended after every earlier pass. */
+export const isKolQueue20261012Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('domain-pass-20261012-kol-');
+
+/**
+ * The hash the 2026-10-12 KOL triage batch leaves on a member whose chain
+ * ends at `from`: its one edge on the member must continue `from`, as a plain
+ * edge or as a resolution that reconciles it; an untouched member stays at
+ * `from`.
+ */
+export function kolQueue20261012Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isKolQueue20261012Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-12 KOL edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
 /** The citation list a frontmatter P1 row declared for `content/<domain>/<slug>.mdx`. */
 export const preDomainPassCitations = (domain: string, slug: string, citations: readonly string[]) =>
   preDomainPassCitationList(root, `content/${domain}/${slug}.mdx`, citations);
