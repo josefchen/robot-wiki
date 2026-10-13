@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import { domainPassCheckerPredecessor, domainPassPredecessor } from '../../lib/audit-domain-pass-continuity.ts';
 import { figureMountPredecessor } from '../../lib/audit-figure-mount-continuity.ts';
 import { kolBacklogPredecessor } from '../../lib/audit-kol-backlog-continuity.ts';
+import { worldModelsLengthCutPredecessor } from '../../lib/audit-length-cut-world-models-continuity.ts';
 import { parallelLocalPredecessor } from '../../lib/audit-parallel-local-continuity.ts';
 import { readerFirstPredecessor } from '../../lib/audit-reader-first-continuity.ts';
 import { reskinPredecessor } from '../../lib/audit-reskin-site-foundation-continuity.ts';
@@ -52,7 +53,17 @@ export function preFigureMounts(path: string): Buffer {
  * reviewed successor, otherwise the live bytes.
  */
 export function preWordBudgetTrim(path: string): Buffer {
-  return wordBudgetTrimPredecessor(root, { path, bytes: 0, sha256: '' }, preParallelLocal(path));
+  return wordBudgetTrimPredecessor(root, { path, bytes: 0, sha256: '' }, preWorldModelsLengthCut(path));
+}
+
+/**
+ * The bytes the world-models length-cut layer of 2026-10-12 hands every
+ * check older than the cut: the rebuilt pre-cut article while the live
+ * article is the reviewed successor, otherwise the bytes the newer layers
+ * hand on.
+ */
+export function preWorldModelsLengthCut(path: string): Buffer {
+  return worldModelsLengthCutPredecessor(root, { path, bytes: 0, sha256: '' }, preParallelLocal(path));
 }
 
 /**

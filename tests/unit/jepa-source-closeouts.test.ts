@@ -30,11 +30,12 @@ describe('JEPA retained-primary closeouts', () => {
     expect(jepa).toContain('Fast-WAM separates video co-training');
   });
 
-  it('keeps score protocols, units and non-robot anticipation separate', () => {
+  it('keeps score protocols and units with their scores', () => {
+    // The appendix ablation and the Epic-Kitchens anticipation probe left with the
+    // world-models length cut of 2026-10-12, which records their pins as retired.
     for (const phrase of [
-      '22M', '300M', '77.3%', '76.5', 'best of 20 heads',
-      'two temporal and three spatial crops', '39.7%',
-      '32 frames at 8 fps', 'one second',
+      '22M', '300M', '77.3%', 'best of 20 heads',
+      'two temporal and three spatial crops',
     ]) expect(jepa, phrase).toContain(phrase);
     expect(jepa).toContain('value=">1M"');
     expect(taxonomy).toContain('value=">1M"');

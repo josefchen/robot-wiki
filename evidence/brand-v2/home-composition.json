@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "e874c5aff4f99babf5a733ac12d51f435079e17cce23d5168680b768b17644fe",
+  "fingerprint": "e94fd2ff0bb5cff26923a97b5dd286d0c86502d1f9a974ea2fcf521520eed734",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2929,
+  "visibleTextLength": 3013,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -610,8 +610,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Hierarchical Approaches",
-      "href": "/manipulation/hierarchical/",
+      "accessibleName": "Diffusion Policy",
+      "href": "/manipulation/diffusion-policy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 926.48,
@@ -718,8 +718,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Bear Case",
-      "href": "/frontier/bear-case/",
+      "accessibleName": "World Model Evaluation for Robotics",
+      "href": "/world-models/evaluation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2103.83,
@@ -727,8 +727,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Competing Theses",
-      "href": "/frontier/competing-theses/",
+      "accessibleName": "Generative Simulation",
+      "href": "/world-models/generative-sim/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2153.83,
@@ -736,8 +736,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Dexterity",
-      "href": "/frontier/dexterity/",
+      "accessibleName": "Generative Video World Models",
+      "href": "/world-models/generative-video/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2203.83,
@@ -745,8 +745,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Generalization",
-      "href": "/frontier/generalization/",
+      "accessibleName": "JEPA and the Non-Generative Counterargument",
+      "href": "/world-models/jepa/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2253.83,
@@ -754,8 +754,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Reliability Gap",
-      "href": "/frontier/reliability-gap/",
+      "accessibleName": "Latent-Dynamics World Models",
+      "href": "/world-models/latent-dynamics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2303.83,
@@ -949,7 +949,9 @@
     },
     {
       "label": "RECENTLY UPDATED",
-      "names": []
+      "names": [
+        "World Models"
+      ]
     },
     {
       "label": "Tools",
@@ -972,8 +974,8 @@
     {
       "label": "FEATURED ARTICLE",
       "signature": "plain/module-heading/lead-excerpt",
-      "prose": "Hierarchical approaches are robot architectures in which one level decides what to do next and another decides how to move.",
-      "text": "FEATURED ARTICLE Hierarchical Approaches Hierarchical approaches are robot architectures in which one level decides what to do next and another decides how to move."
+      "prose": "Diffusion Policy is a visuomotor robot policy that generates an action sequence by conditional denoising, from Chi et al. (2023).",
+      "text": "FEATURED ARTICLE Diffusion Policy Diffusion Policy is a visuomotor robot policy that generates an action sequence by conditional denoising, from Chi et al. (2023)."
     },
     {
       "label": "FEATURED SCENE",
@@ -991,7 +993,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-12 The Bear Case 2026-10-12 Competing Theses 2026-10-12 Dexterity 2026-10-12 Generalization 2026-10-12 The Reliability Gap"
+      "text": "RECENTLY UPDATED 2026-10-13 World Model Evaluation for Robotics 2026-10-13 Generative Simulation 2026-10-13 Generative Video World Models 2026-10-13 JEPA and the Non-Generative Counterargument 2026-10-13 Latent-Dynamics World Models"
     },
     {
       "label": "Tools",

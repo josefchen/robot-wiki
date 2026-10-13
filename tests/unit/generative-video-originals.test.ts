@@ -205,14 +205,12 @@ describe('generative-video originals: article spans and citations', () => {
     );
   });
 
-  it('moves the Cosmos 3 launch citation to the launch release and attaches the Odyssey follow-ons', () => {
+  it('moves the Cosmos 3 launch citation to the launch release', () => {
     expect(article).toContain(
       'unifies those capabilities in one omni-model <Cite id="nvidia-cosmos-3-launch-2026" />',
     );
     expect(article).toContain('launched at GTC Taipei on 31 May 2026');
-    expect(article).toContain(
-      'Starchild-1 adds audio <Cite id="odyssey-starchild-1-2026" />, and Agora-1 lets up to four participants share one simulation <Cite id="odyssey-agora-1-2026" />',
-    );
+    // The Odyssey follow-on sentence left with the world-models length cut of 2026-10-12, which records it as retired.
     // The technical-report citation survives on the technical claims.
     expect(article.match(/<Cite id="cosmos-3-2026" \/>/g)?.length).toBeGreaterThan(0);
   });

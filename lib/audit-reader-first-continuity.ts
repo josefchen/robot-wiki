@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1940196, sha256: 'a210ede2f2e7e7651a2b1e32f210631e41a5a16bf57b30f226a4521124f332db' };
+const reviewPin = { bytes: 1945826, sha256: '8d224113b5b76a6b890c732a0c5fbd1bf4ff0ae6ca399c47e4cc33d0b34b2a8a' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -213,7 +213,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/industrial-cost-reader.spec.ts', [13574, '6cd847c0e415d2e06f48ee16a27656559a92218b09b128471f11e08bbf05820f']],
   ['tests/e2e/industrial-deployment.spec.ts', [20621, '10d84964579f2cf6e4a0527bc278d69d84230ec4f015241d0c15358be0428726']],
   ['tests/e2e/industrial-release-evidence.spec.ts', [7926, 'e89ca29430687375c9bd5fa9fc4c793925748bf9f77f7bc751f0570ff9d57634']],
-  ['tests/e2e/jepa.spec.ts', [6877, '8efef704db15c4d9d300bf70cc32057433535d0e83b9e430518a40e00bf5bb22']],
+  ['tests/e2e/jepa.spec.ts', [6877, 'ba79d9f6811906e19917d6c8d0f41648ecd20efedb009b0f327c97fba611e5c7']],
   ['tests/e2e/keyboard-only-navigation.spec.ts', [7487, '4e1739c438566529233ec54203df637fc0ba17341b43c75dddf8e56c35dfc752']],
   ['tests/e2e/kinematics.spec.ts', [22687, '34c0653d429a405a2abd24716293fcbe096e13b2e6854b3905329134c7be0c0e']],
   ['tests/e2e/latent-dynamics.spec.ts', [6987, '9d3a266fb2364ecef76c20ab45123678900bfe97365504cab8eb457b415c26c2']],
@@ -249,12 +249,12 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/brand-v2-figure-evidence.test.ts', [32916, 'f0f5ea49951c939dc67090ed351f69482ed6c3bbe44e21ecc48b38abad99fbf7']],
   ['tests/unit/classical-closure-evidence.test.ts', [16186, '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148']],
   ['tests/unit/final-seven-closure-evidence.test.ts', [8105, 'e2591c622ca23b1415aa48e2e53605426d4668b4180bfad71f2d198a0b32b27f']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [126206, '5ad3eb3f086547a57616fbc758fd337d7c3b3a8d228c85f5a7a272dcec870263']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [130528, '75a2327a603a0a5e8cb38c506bd449a70fae75e675152098283c96a0cbcd66a4']],
   ['tests/unit/motion-data-hardware.test.ts', [10895, 'd9a5ffee78d77b45a6155155c84992e3299e892e4e32e2a9c08fd62837842648']],
   ['tests/unit/motion-frontier-adjacent-home.test.ts', [10479, '38a9b2bc7d0bdba19884b22804a055a1ec2cf20de3eee378fa2ff2cb01e930c3']],
   ['tests/unit/motion-tokens.test.ts', [5443, 'b364833eb29a4892bdb2892304cb0cca5c9e5f995f510e567fed0362c6786e41']],
   ['tests/unit/parallel-local-evidence.test.ts', [5415, 'd2c39b3c94fad8f22da07efe5fa4517aef9325dc77477f510c65275e421fb687']],
-  ['tests/unit/reader-release-integration.test.ts', [23329, '8e1de74c11b5baa325c058c8ded78bea859873596f2c0f946a3f3f0d89ef1b80']],
+  ['tests/unit/reader-release-integration.test.ts', [24191, 'd5822e8f5613291fc185fbcd707582f66869005d86763d409d4fdfbc67e64565']],
   ['tests/unit/reward-local-evidence.test.ts', [9001, 'a5d166d0b11e1cce9ce19a093d328ccfc45c2057e61cb856ee08857cf2241c12']],
   ['tests/unit/robomind-hours-evidence.test.ts', [25447, '574905dcfbfe26a41e64a8fb3888892a9b7d519412fdeae6c1e78fcc6707b4e8']],
   ['tests/unit/sim2real-local-evidence.test.ts', [9669, '80d4605b1eefcfc82ca7f1f5dd8bd3744f7cda62570e523796be856670b4fc6a']],
