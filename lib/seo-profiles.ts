@@ -432,7 +432,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Robot Generalization in Unseen Homes',
     headTerm: 'robot generalization',
     description:
-      'Robot generalization: how far generalist policies transfer to homes they never saw, what π0.5 and π0.7 show, and what scaling laws measure.',
+      'Robot generalization: how far policies transfer to unseen homes, from π0.5 and π0.7 to Figure\'s 30-home Helix 2.5 test, and what scaling laws measure.',
     queries: ['robot generalization', 'zero-shot robot unseen homes', 'generalist robot policy'],
   },
   '/frontier/competing-theses/': {
@@ -453,7 +453,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Robot Safety Standards for AI and Humanoids',
     headTerm: 'robot safety standards',
     description:
-      'Robot safety standards: ISO 10218:2025, the ISO 25785-1 humanoid draft, and why a learned robot policy cannot be certified alone.',
+      'Robot safety standards: ISO 10218:2025, the ISO 25785-1 humanoid draft, EU machinery rules from 2027, and why a learned policy cannot be certified alone.',
     queries: ['humanoid robot safety standards', 'ISO 25785', 'robot safety standards AI'],
   },
   '/data-hardware/': {
