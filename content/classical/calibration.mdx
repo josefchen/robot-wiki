@@ -60,6 +60,8 @@ import { TimeOffsetMiss } from '@/components/interactive/time-offset-miss';
 
 Robot calibration estimates the parameters that make a robot's measurements and commands agree on the physical world. Classical kinematic calibration has four steps: modeling, measurement, identification and correction <Cite id="roth-mooring-ravani-1987" />.
 
+<Image id="leica-laser-tracker-ats600" />
+
 <SelfCheck
   prompt="A grasp misses by the same small offset in one direction on many objects, and the miss grows with distance from the wrist camera. What should you inspect first?"
   options={[
@@ -100,6 +102,8 @@ Stereo depth error scales with the square of distance, and repetitive structures
 ## Hand-eye calibration
 
 Hand-eye calibration finds the gripper-to-camera transform for a wrist camera, or base-to-camera for a fixed one. Shiu and Ahmad cast it as $AX = XB$ <Cite id="shiu-ahmad-1989" />, Tsai and Lenz solved it in about ${}100 + 64N$ arithmetic operations for $N$ robot stations <Cite id="tsai-lenz-1989" />, and Park and Martin derived closed-form exact and least-squares solutions <Cite id="park-martin-1994" />.
+
+<Image id="baxter-gripper-wrist-camera" />
 
 OpenCV needs at least two motions with non-parallel rotation axes, so three poses, and strongly recommends many more <Cite id="opencv-hand-eye-docs-2026" />. MoveIt's tutorial reports accuracy plateaus after about 12 or 15 samples in most cases <Cite id="moveit-hand-eye-tutorial-2026" />.
 

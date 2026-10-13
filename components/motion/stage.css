@@ -136,6 +136,7 @@
 
 [data-figure-frame],
 figure[data-figure-kind='photograph'],
+figure[data-figure-kind='paper-figure'],
 figure[data-figure-kind='official-mark'] {
   /* The site's text, border and accent utilities resolve to the figure
      palette inside a figure, so every primitive and figure that paints
@@ -182,6 +183,7 @@ figure[data-figure-kind='official-mark'] {
 @media (width < 40rem) {
   [data-figure-frame],
   figure[data-figure-kind='photograph'],
+  figure[data-figure-kind='paper-figure'],
   figure[data-figure-kind='official-mark'] {
     padding: 16px 16px 14px;
     margin-block: 28px 32px;
@@ -250,6 +252,7 @@ figure[data-figure-kind] > figcaption {
 
 [data-figure-frame] [data-figure-title]::before,
 figure[data-figure-kind='photograph'] > figcaption::before,
+figure[data-figure-kind='paper-figure'] > figcaption::before,
 figure[data-figure-kind='official-mark'] > figcaption::before {
   content: 'Figure ' counter(figure-number) '.\00a0';
   font-weight: 600;
@@ -280,8 +283,9 @@ figure[data-figure-kind] > [data-image-credit] a[href] {
   text-underline-offset: 2px;
 }
 
-/* Photographs and marks: the picture sits square inside the box, then the
-   rule, then the caption block. */
+/* Photographs, paper figures and marks: the picture sits square inside the
+   box, then the rule, then the caption block. A paper figure is shown whole,
+   uncropped, on its own white ground. */
 figure[data-figure-kind] > [data-photo-frame],
 figure[data-figure-kind] > [data-photo-frame] img {
   border-radius: 0;
@@ -292,6 +296,7 @@ figure[data-figure-kind] > [data-photo-frame] img {
 }
 
 figure[data-figure-kind='photograph'] > figcaption,
+figure[data-figure-kind='paper-figure'] > figcaption,
 figure[data-figure-kind='official-mark'] > figcaption {
   margin-top: 18px;
   border-top: 1px solid var(--line);

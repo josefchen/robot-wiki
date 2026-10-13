@@ -68,6 +68,8 @@ import { HindsightRelabel } from '@/components/interactive/hindsight-relabel';
 
 Reinforcement learning (RL) for robotics trains robot policies from their own experience of acting, formalized as a Markov decision process of states, actions, transitions and rewards <Cite id="sutton-barto-2018" />. A simulated step is nearly free when thousands of GPU robots act at once <Cite id="rudin-2021" />, while a real step costs machine time and a reset.
 
+<Image id="daydreamer-a1-push-recovery-2022" />
+
 ## What a budget buys, and what it forbids
 
 <SampleEfficiencyLedger className="my-6" />
@@ -85,6 +87,8 @@ TD3 reduced DDPG's overestimation bias with clipped double critics, delayed poli
 ### Why robotics defaulted to PPO anyway
 
 With thousands of GPU environments, steps are nearly free and training stability is the scarce resource. SAC's authors credit on-policy training with stability at the price of "poor sample complexity", and call off-policy learning with neural function approximation "a major challenge for stability and convergence" <Cite id="sac-2018" />.
+
+<Image id="isaac-gym-allegro-envs-2021" />
 
 Rudin and colleagues trained ANYmal with 4,096 parallel robots, 98,304 steps per update and 1,500 updates in under twenty minutes on one workstation GPU, more than 122,880 environment steps per second <Cite id="rudin-2021" />. Minitaur's 160,000 control steps over about two hours average about 22 per second, below its 50 Hz rollout rate because resets and overhead count <Cite id="haarnoja-walk-2019" />. [Parallel simulation](/rl-sim2real/parallel-sim-rl) covers the first regime.
 

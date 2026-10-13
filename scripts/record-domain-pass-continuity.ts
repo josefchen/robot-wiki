@@ -178,6 +178,7 @@ async function verifyChecker(): Promise<boolean> {
 /** Reads every recorded successor back through the written layer. */
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-domain-pass-continuity.ts');
+  const { imageMountPredecessor } = await import('../lib/audit-image-mount-continuity.ts');
   const { figureMountPredecessor } = await import('../lib/audit-figure-mount-continuity.ts');
   const { wordBudgetTrimPredecessor } = await import('../lib/audit-word-budget-trim-continuity.ts');
   const { worldModelsLengthCutPredecessor } = await import('../lib/audit-length-cut-world-models-continuity.ts');
@@ -186,11 +187,12 @@ async function verify(): Promise<boolean> {
   let ok = true;
   for (const source of layer.loadDomainPassReview(root).sources) {
     try {
-      // The newer frontier length-cut, length-cut (manipulation, classical and rl-sim2real), world-models length-cut,
-      // word-budget trim and figure-mount layers hand back the domain-pass successor first.
+      // The newer image-mount (2026-10-13), frontier length-cut, length-cut (manipulation, classical and
+      // rl-sim2real), world-models length-cut, word-budget trim and figure-mount layers hand back the domain-pass
+      // successor first.
       const live = figureMountPredecessor(root, source.before, wordBudgetTrimPredecessor(root, source.before,
         worldModelsLengthCutPredecessor(root, source.before, lengthCutPredecessor(root, source.before,
-          frontierLengthCutPredecessor(root, source.before, readFileSync(join(root, source.after.path)))))));
+          frontierLengthCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, readFileSync(join(root, source.after.path))))))));
       const prior = layer.domainPassPredecessor(root, source.before, live);
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {

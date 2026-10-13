@@ -55,6 +55,8 @@ import { QosQueueAge } from '@/components/interactive/qos-queue-age';
 
 ROS 2 is the second generation of the Robot Operating System, a modular framework of freely available robot software, rebuilt because ROS 1 lacked production-grade features <Cite id="ros2-science-robotics-2022" />. Lyrical Luth, the current long-term-support release, shipped on 22 May 2026 and is supported until May 2031 <Cite id="ros2-lyrical-2026" /> <Cite id="ros2-distributions-2026" />.
 
+<Image id="pr2-maker-faire-2011" />
+
 <SelfCheck
   prompt="A fetch task takes 30 seconds, reports progress and may need cancelling. Which ROS 2 interface fits?"
   options={[
@@ -123,6 +125,8 @@ Lyrical's `rosidl::Buffer` lets a `uint8[]` field live in GPU memory without cha
 ## Navigation uses the same architecture
 
 Nav2 uses a behavior tree to orchestrate planner, controller and recovery servers <Cite id="nav2-2020" />. Costmap 2D accepts sensor-processing plugins for AI outputs and semantic information <Cite id="nav2-costmap-2d-2026" />, so a learned local controller can reuse a classical one's costmap, goal interface, test harness and fallback. The [scene-representation module](/classical/scene-representation) explains the map choices.
+
+<Image id="clearpath-jackal-ugv-2020" />
 
 ## Common integration failures
 

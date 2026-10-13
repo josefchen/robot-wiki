@@ -11,7 +11,15 @@ import {
  * about 1:1.38, so a centred crop keeps its waist and cuts the sensor head
  * that its caption and alt text name.
  */
-const TOP_CROPPED = new Set(['atlas-darpa-frontview-2013']);
+const TOP_CROPPED = new Set([
+  'atlas-darpa-frontview-2013',
+  'puma-500-deutsches-museum',
+  'atlas-darpa-testing-2013',
+  'pr2-willow-garage-2010',
+  'realsense-d435-depth-camera',
+  'atlas-electric-hyundai-goyang-2026',
+  'shadow-hand-lightbulb-2007',
+]);
 
 /**
  * Registry-backed image resolver. MDX authors write <Image id="..."/> (the

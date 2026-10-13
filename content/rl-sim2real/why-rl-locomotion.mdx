@@ -56,6 +56,8 @@ import { CubeTrials } from '@/components/interactive/cube-trials';
 
 Simulation-trained reinforcement learning (RL) made legged locomotion robust well before general manipulation, because walking is cheap to simulate and contact-rich manipulation is not. In 2021 an ANYmal quadruped learned to walk on flat ground in under four minutes, and on uneven terrain in twenty, on one workstation GPU <Cite id="rudin-2021" />.
 
+<Image id="anymal-x-offshore-stairs-2022" />
+
 <ContactGeometry className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -84,6 +86,8 @@ Boston Dynamics builds Atlas from rotary actuators that are "much easier to repr
 ## Contact geometry is where the gap lives
 
 A gait recovers from a wrong contact force on the next step; a jammed peg cannot. Acosta and colleagues call dynamic contact the computational bottleneck for most simulations, and three simulators they tested missed elastic impacts <Cite id="acosta-2021" />. Rigid-body contact models have a task-specific accuracy ceiling <Cite id="fazeli-2017" />, and Factory, which simulates 1000 nut-and-bolt interactions at once, still calls assembly contact a longstanding challenge <Cite id="factory-2022" />.
+
+<Image id="shadow-hand-lightbulb-2007" />
 
 <span id="it-is-a-tendency-not-a-law" />
 ## Exceptions in manipulation

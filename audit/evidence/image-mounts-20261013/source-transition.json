@@ -1,0 +1,1165 @@
+{
+  "schemaVersion": "image-mount-continuity-v1",
+  "name": "image-mounts-20261013",
+  "reviewedBy": "integration worker for images bundle A of 2026-10-13 (not independent acceptance)",
+  "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, under the licence gate of data/schemas/image.ts. Not release approval.",
+  "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
+  "observedAt": "2026-10-13T20:04:39Z",
+  "sources": [
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/classical/calibration.mdx",
+        "bytes": 8099,
+        "sha256": "8c2af6b65c09ecadf77fd80864823de848488c1e5e2719415e8243531e725a92"
+      },
+      "after": {
+        "path": "content/classical/calibration.mdx",
+        "bytes": 8186,
+        "sha256": "1be288684890f4acb3526b0054ded937aacbe67aee8caa185089e12c86bb2c9d"
+      },
+      "mounts": [
+        "leica-laser-tracker-ats600",
+        "baxter-gripper-wrist-camera"
+      ],
+      "edits": [
+        {
+          "before": "Robot calibration estimates the parameters that make a robot's measurements and commands agree on the physical world. Classical kinematic calibration has four steps: modeling, measurement, identification and correction <Cite id=\"roth-mooring-ravani-1987\" />.\n\n",
+          "after": "Robot calibration estimates the parameters that make a robot's measurements and commands agree on the physical world. Classical kinematic calibration has four steps: modeling, measurement, identification and correction <Cite id=\"roth-mooring-ravani-1987\" />.\n\n<Image id=\"leica-laser-tracker-ats600\" />\n\n"
+        },
+        {
+          "before": "Hand-eye calibration finds the gripper-to-camera transform for a wrist camera, or base-to-camera for a fixed one. Shiu and Ahmad cast it as $AX = XB$ <Cite id=\"shiu-ahmad-1989\" />, Tsai and Lenz solved it in about ${}100 + 64N$ arithmetic operations for $N$ robot stations <Cite id=\"tsai-lenz-1989\" />, and Park and Martin derived closed-form exact and least-squares solutions <Cite id=\"park-martin-1994\" />.\n",
+          "after": "Hand-eye calibration finds the gripper-to-camera transform for a wrist camera, or base-to-camera for a fixed one. Shiu and Ahmad cast it as $AX = XB$ <Cite id=\"shiu-ahmad-1989\" />, Tsai and Lenz solved it in about ${}100 + 64N$ arithmetic operations for $N$ robot stations <Cite id=\"tsai-lenz-1989\" />, and Park and Martin derived closed-form exact and least-squares solutions <Cite id=\"park-martin-1994\" />.\n\n<Image id=\"baxter-gripper-wrist-camera\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/classical/control.mdx",
+        "bytes": 16715,
+        "sha256": "10885711b49bf34aaa2cb5a97bd4c15658d82cb14cb610625b7e31cd1bdc9e57"
+      },
+      "after": {
+        "path": "content/classical/control.mdx",
+        "bytes": 16856,
+        "sha256": "b9262408942a654683cd35db3711dbb3d94611b14007855651a6b8a3a2e4a54a"
+      },
+      "mounts": [
+        "centrifugal-governor-queen-street-mill",
+        "atlas-darpa-testing-2013",
+        "baxter-rethink-innorobo-2015"
+      ],
+      "edits": [
+        {
+          "before": "Control uses feedback to make a robot follow a reference, such as a [motion plan](/classical/motion-planning), despite model error and disturbances: measure the state, compare it with the reference, correct <Cite id=\"fbs-2020\" />. Feedback loops run beneath any learned policy, from motor drivers to whole-body torque control.\n\n",
+          "after": "Control uses feedback to make a robot follow a reference, such as a [motion plan](/classical/motion-planning), despite model error and disturbances: measure the state, compare it with the reference, correct <Cite id=\"fbs-2020\" />. Feedback loops run beneath any learned policy, from motor drivers to whole-body torque control.\n\n<Image id=\"centrifugal-governor-queen-street-mill\" />\n\n"
+        },
+        {
+          "before": "Its variables are joint accelerations, torques and contact forces; the rigid-body dynamics are the equality constraint, $\\mathcal{F}$ holds the friction cones, and each task is one weighted row of the objective.\n\n",
+          "after": "Its variables are joint accelerations, torques and contact forces; the rigid-body dynamics are the equality constraint, $\\mathcal{F}$ holds the friction cones, and each task is one weighted row of the objective.\n\n<Image id=\"atlas-darpa-testing-2013\" />\n\n"
+        },
+        {
+          "before": "A non-backdrivable, position-controlled geared arm without a force sensor has no force channel: position error, gear ratio and the surface set the contact force, so a joint-position policy on it cannot regulate force in the contact-rich tasks of [dexterity](/frontier/dexterity). <Term id=\"series-elastic-actuator\">Series elastic actuation</Term> adds a deliberate spring for shock tolerance and more accurate, stable force control <Cite id=\"pratt-williamson-1995\" />.\n",
+          "after": "A non-backdrivable, position-controlled geared arm without a force sensor has no force channel: position error, gear ratio and the surface set the contact force, so a joint-position policy on it cannot regulate force in the contact-rich tasks of [dexterity](/frontier/dexterity). <Term id=\"series-elastic-actuator\">Series elastic actuation</Term> adds a deliberate spring for shock tolerance and more accurate, stable force control <Cite id=\"pratt-williamson-1995\" />.\n\n<Image id=\"baxter-rethink-innorobo-2015\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/classical/grasp-planning.mdx",
+        "bytes": 12553,
+        "sha256": "4fdd27edd8d1346ff0c4886ada009b3eddec59bdc120b7eccdf98b8fe68c3f1a"
+      },
+      "after": {
+        "path": "content/classical/grasp-planning.mdx",
+        "bytes": 12638,
+        "sha256": "319462256bce91bc457ae3ce5a91bd36f7b8418244a4e0ea331438e4167cf00c"
+      },
+      "mounts": [
+        "care-o-bot-grasping-2010",
+        "schunk-svh-five-finger-hand"
+      ],
+      "edits": [
+        {
+          "before": "Grasp planning is the choice of contact locations and forces that let a hand hold an object against disturbances <Cite id=\"bicchi-kumar-2000\" />. Its central test, force closure, asks whether the origin lies inside the convex hull of the contact wrenches <Cite id=\"murray-li-sastry-1994\" />; the distance to that hull's boundary is the standard quality metric <Cite id=\"ferrari-canny-1992\" />.\n\n",
+          "after": "Grasp planning is the choice of contact locations and forces that let a hand hold an object against disturbances <Cite id=\"bicchi-kumar-2000\" />. Its central test, force closure, asks whether the origin lies inside the convex hull of the contact wrenches <Cite id=\"murray-li-sastry-1994\" />; the distance to that hull's boundary is the standard quality metric <Cite id=\"ferrari-canny-1992\" />.\n\n<Image id=\"care-o-bot-grasping-2010\" />\n\n"
+        },
+        {
+          "before": "Cutkosky's taxonomy separates power grasps, which wrap the object for stability, from precision grasps, which hold it in the fingertips for dexterity <Cite id=\"cutkosky-1989\" />. GraspQP reports that simplified force-closure analysis favors power grasps <Cite id=\"graspqp-2025\" />.\n",
+          "after": "Cutkosky's taxonomy separates power grasps, which wrap the object for stability, from precision grasps, which hold it in the fingertips for dexterity <Cite id=\"cutkosky-1989\" />. GraspQP reports that simplified force-closure analysis favors power grasps <Cite id=\"graspqp-2025\" />.\n\n<Image id=\"schunk-svh-five-finger-hand\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 10734,
+        "sha256": "b83a9e6400a8f3a93e30d1dcb329b4eeaffcb6bc8ebbb1f695a96e726fc76856"
+      },
+      "after": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 10771,
+        "sha256": "ba9f8e122801d873d4b13b4ee118a6166a976a9420f84c485e614e04716c81f6"
+      },
+      "mounts": [
+        "ur16e-cobot-arm-2020"
+      ],
+      "edits": [
+        {
+          "before": "Kinematics is the geometry of robot motion, studied without forces or torques. <Term id=\"forward-kinematics\">Forward kinematics</Term> maps joint angles to the <Term id=\"end-effector\">end-effector</Term> pose through a unique composition of transforms, and <Term id=\"inverse-kinematics\">inverse kinematics</Term> maps a pose back to joint angles, with no solution, one, or many <Cite id=\"modern-robotics-2017\" />.\n\n",
+          "after": "Kinematics is the geometry of robot motion, studied without forces or torques. <Term id=\"forward-kinematics\">Forward kinematics</Term> maps joint angles to the <Term id=\"end-effector\">end-effector</Term> pose through a unique composition of transforms, and <Term id=\"inverse-kinematics\">inverse kinematics</Term> maps a pose back to joint angles, with no solution, one, or many <Cite id=\"modern-robotics-2017\" />.\n\n<Image id=\"ur16e-cobot-arm-2020\" />\n\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/classical/motion-planning.mdx",
+        "bytes": 18180,
+        "sha256": "08b977f8e99614a478e64d76ac324f38b6a09aa2d8b34ce9256a0ee135fb3d85"
+      },
+      "after": {
+        "path": "content/classical/motion-planning.mdx",
+        "bytes": 18261,
+        "sha256": "b9bf3ac50a85dbe34c942f6a7df3490ab044570e9e30a71ae4cd9cfeac65f3cc"
+      },
+      "mounts": [
+        "pr2-willow-garage-2010",
+        "atlas-vrc-simulation-2013"
+      ],
+      "edits": [
+        {
+          "before": "Motion planning computes a collision-free route from a robot's current configuration to a goal <Cite id=\"lavalle-2006\" />, a sequence of the joint angles that [kinematics](/classical/kinematics) maps to poses. Sampling-based planners explore configurations and the connections between them; trajectory optimizers improve a complete candidate trajectory against an objective <Cite id=\"ratliff-2009\" /><Cite id=\"schulman-2013\" />.\n\n",
+          "after": "Motion planning computes a collision-free route from a robot's current configuration to a goal <Cite id=\"lavalle-2006\" />, a sequence of the joint angles that [kinematics](/classical/kinematics) maps to poses. Sampling-based planners explore configurations and the connections between them; trajectory optimizers improve a complete candidate trajectory against an objective <Cite id=\"ratliff-2009\" /><Cite id=\"schulman-2013\" />.\n\n<Image id=\"pr2-willow-garage-2010\" />\n\n"
+        },
+        {
+          "before": "Waypoint checks can miss collisions between waypoints, so TrajOpt penalizes a swept volume: the convex hull of endpoint shapes, inflated for rotation. The rotation bound adds $d_{\\mathrm{arc}}=r\\phi^2/8$ to the safety margin, a correction omitted in experiments because it was well under 1 cm. The swept-volume gradient is not guaranteed accurate in 3D, and the implementation used Bullet with convex hulls of robot meshes and penalized self-collisions only at discrete times <Cite id=\"schulman-2013\" />.\n",
+          "after": "Waypoint checks can miss collisions between waypoints, so TrajOpt penalizes a swept volume: the convex hull of endpoint shapes, inflated for rotation. The rotation bound adds $d_{\\mathrm{arc}}=r\\phi^2/8$ to the safety margin, a correction omitted in experiments because it was well under 1 cm. The swept-volume gradient is not guaranteed accurate in 3D, and the implementation used Bullet with convex hulls of robot meshes and penalized self-collisions only at discrete times <Cite id=\"schulman-2013\" />.\n\n<Image id=\"atlas-vrc-simulation-2013\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/classical/perception.mdx",
+        "bytes": 21850,
+        "sha256": "1241535c427647a1aaae3b5d48d487f688215bfc5b89125b4cf2a138a3f7454e"
+      },
+      "after": {
+        "path": "content/classical/perception.mdx",
+        "bytes": 21933,
+        "sha256": "3f47f5ff52ace5772fa6edd3dda752423aeda591f8ef91a484e730e75f5001c9"
+      },
+      "mounts": [
+        "realsense-d435-depth-camera",
+        "kinect-xbox-one-sensor"
+      ],
+      "edits": [
+        {
+          "before": "Perception for manipulation turns camera and depth data into object poses in the robot's own frame, through calibration, depth sensing, detection, segmentation and pose estimation, and [grasp planning](/classical/grasp-planning) computes grasps against those poses. DOPE's pose network was accurate enough for a real robot to grasp known household objects in clutter <Cite id=\"dope-2018\" />.\n\n",
+          "after": "Perception for manipulation turns camera and depth data into object poses in the robot's own frame, through calibration, depth sensing, detection, segmentation and pose estimation, and [grasp planning](/classical/grasp-planning) computes grasps against those poses. DOPE's pose network was accurate enough for a real robot to grasp known household objects in clutter <Cite id=\"dope-2018\" />.\n\n<Image id=\"realsense-d435-depth-camera\" />\n\n"
+        },
+        {
+          "before": "Time of flight casts its own modulated near-infrared light and measures its round trip per pixel. Multi-path interference lets one pixel integrate light that arrived by several routes. The Azure Kinect DK documentation lists five causes of invalid depth: outside the IR illumination mask, saturated IR signal, low IR signal, filter outlier and multi-path interference. Invalid pixels carry depth zero. Ambiguous depth arises when light reflects from one wall onto another in a corner, and where foreground and background mix at object edges. Fast motion can increase edge invalidation <Cite id=\"azure-kinect-depth-docs-2026\" />. Microsoft announced the end of Azure Kinect DK production in August 2023, and support for its Sensor SDK ended in August 2024 <Cite id=\"azure-kinect-sdk-retirement-2024\" />.\n",
+          "after": "Time of flight casts its own modulated near-infrared light and measures its round trip per pixel. Multi-path interference lets one pixel integrate light that arrived by several routes. The Azure Kinect DK documentation lists five causes of invalid depth: outside the IR illumination mask, saturated IR signal, low IR signal, filter outlier and multi-path interference. Invalid pixels carry depth zero. Ambiguous depth arises when light reflects from one wall onto another in a corner, and where foreground and background mix at object edges. Fast motion can increase edge invalidation <Cite id=\"azure-kinect-depth-docs-2026\" />. Microsoft announced the end of Azure Kinect DK production in August 2023, and support for its Sensor SDK ended in August 2024 <Cite id=\"azure-kinect-sdk-retirement-2024\" />.\n\n<Image id=\"kinect-xbox-one-sensor\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/classical/ros2-for-ml-engineers.mdx",
+        "bytes": 8824,
+        "sha256": "576f048d435512d798017737b7380a126045353f21f812c2e52bc712cfce957a"
+      },
+      "after": {
+        "path": "content/classical/ros2-for-ml-engineers.mdx",
+        "bytes": 8903,
+        "sha256": "676d1a3e723e9478440dba49b0e10f70bd4f37e5b68bea5d1c8daa2d6730a520"
+      },
+      "mounts": [
+        "pr2-maker-faire-2011",
+        "clearpath-jackal-ugv-2020"
+      ],
+      "edits": [
+        {
+          "before": "ROS 2 is the second generation of the Robot Operating System, a modular framework of freely available robot software, rebuilt because ROS 1 lacked production-grade features <Cite id=\"ros2-science-robotics-2022\" />. Lyrical Luth, the current long-term-support release, shipped on 22 May 2026 and is supported until May 2031 <Cite id=\"ros2-lyrical-2026\" /> <Cite id=\"ros2-distributions-2026\" />.\n\n",
+          "after": "ROS 2 is the second generation of the Robot Operating System, a modular framework of freely available robot software, rebuilt because ROS 1 lacked production-grade features <Cite id=\"ros2-science-robotics-2022\" />. Lyrical Luth, the current long-term-support release, shipped on 22 May 2026 and is supported until May 2031 <Cite id=\"ros2-lyrical-2026\" /> <Cite id=\"ros2-distributions-2026\" />.\n\n<Image id=\"pr2-maker-faire-2011\" />\n\n"
+        },
+        {
+          "before": "Nav2 uses a behavior tree to orchestrate planner, controller and recovery servers <Cite id=\"nav2-2020\" />. Costmap 2D accepts sensor-processing plugins for AI outputs and semantic information <Cite id=\"nav2-costmap-2d-2026\" />, so a learned local controller can reuse a classical one's costmap, goal interface, test harness and fallback. The [scene-representation module](/classical/scene-representation) explains the map choices.\n",
+          "after": "Nav2 uses a behavior tree to orchestrate planner, controller and recovery servers <Cite id=\"nav2-2020\" />. Costmap 2D accepts sensor-processing plugins for AI outputs and semantic information <Cite id=\"nav2-costmap-2d-2026\" />, so a learned local controller can reuse a classical one's costmap, goal interface, test harness and fallback. The [scene-representation module](/classical/scene-representation) explains the map choices.\n\n<Image id=\"clearpath-jackal-ugv-2020\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/classical/scene-representation.mdx",
+        "bytes": 16251,
+        "sha256": "31724309557796eb11ee1512cf17aa2344791eec401f3630a7f7fb4747a94e75"
+      },
+      "after": {
+        "path": "content/classical/scene-representation.mdx",
+        "bytes": 16376,
+        "sha256": "6edf589ee7e9df47cb1a2c4abb73af29bc2e9de446f4a509da924e1c06d0b0cc"
+      },
+      "mounts": [
+        "ouster-lidar-point-cloud-sf",
+        "kinect-xbox-360-sensor",
+        "velodyne-hdl64-lidar-2009"
+      ],
+      "edits": [
+        {
+          "before": "Scene representation is how a robot stores what it knows about its surroundings so that planners, controllers and other consumers can query it <Cite id=\"cadena-2016\" />. Representations range from point clouds and occupancy grids to signed-distance fields, meshes and neural fields such as radiance fields and Gaussian splats <Cite id=\"cadena-2016\" /><Cite id=\"neural-fields-survey-2024\" />.\n\n",
+          "after": "Scene representation is how a robot stores what it knows about its surroundings so that planners, controllers and other consumers can query it <Cite id=\"cadena-2016\" />. Representations range from point clouds and occupancy grids to signed-distance fields, meshes and neural fields such as radiance fields and Gaussian splats <Cite id=\"cadena-2016\" /><Cite id=\"neural-fields-survey-2024\" />.\n\n<Image id=\"ouster-lidar-point-cloud-sf\" />\n\n"
+        },
+        {
+          "before": "KinectFusion fused 11-bit, 640×480 Kinect depth frames at 30 Hz, tracking each frame against the global model by coarse-to-fine ICP and mapping at the sensor rate on a commodity GPU. A large plane filling most of the view can cause drift or tracking failure. Its projective TSDF caps visible-space values at the truncation distance $\\mu$, leaves non-visible points beyond $\\mu$ unmeasured and is exact at the surface, so fusion yields an approximate pseudo-Euclidean distance. Normals come from numerical derivatives near the zero level set, and ray marching finds surfaces by trilinear interpolation <Cite id=\"kinectfusion-2011\" />.\n\n",
+          "after": "KinectFusion fused 11-bit, 640×480 Kinect depth frames at 30 Hz, tracking each frame against the global model by coarse-to-fine ICP and mapping at the sensor rate on a commodity GPU. A large plane filling most of the view can cause drift or tracking failure. Its projective TSDF caps visible-space values at the truncation distance $\\mu$, leaves non-visible points beyond $\\mu$ unmeasured and is exact at the surface, so fusion yields an approximate pseudo-Euclidean distance. Normals come from numerical derivatives near the zero level set, and ray marching finds surfaces by trilinear interpolation <Cite id=\"kinectfusion-2011\" />.\n\n<Image id=\"kinect-xbox-360-sensor\" />\n\n"
+        },
+        {
+          "before": "Simultaneous localization and mapping (SLAM) builds such maps from sensor data while the robot moves without knowing its exact pose. Cadena and colleagues separate a sensor-dependent front end, which abstracts measurements and associates them with state variables, from a back end that performs inference and feeds information back for loop-closure detection and validation <Cite id=\"cadena-2016\" />. [State estimation](/classical/state-estimation) covers the inference machinery.\n",
+          "after": "Simultaneous localization and mapping (SLAM) builds such maps from sensor data while the robot moves without knowing its exact pose. Cadena and colleagues separate a sensor-dependent front end, which abstracts measurements and associates them with state variables, from a back end that performs inference and feeds information back for loop-closure detection and validation <Cite id=\"cadena-2016\" />. [State estimation](/classical/state-estimation) covers the inference machinery.\n\n<Image id=\"velodyne-hdl64-lidar-2009\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/classical/state-estimation.mdx",
+        "bytes": 13869,
+        "sha256": "13c1151dcbd985d003f962b35d81696d39b73b5724747fabeb77032047e199fd"
+      },
+      "after": {
+        "path": "content/classical/state-estimation.mdx",
+        "bytes": 13954,
+        "sha256": "4f1273c98646879313c894112257f0297e352e88510b52132ab1254537a9742e"
+      },
+      "mounts": [
+        "apollo-imu-draper-2019",
+        "apollo-guidance-computer-dsky"
+      ],
+      "edits": [
+        {
+          "before": "State estimation computes a robot's state, such as its [configuration](/classical/kinematics) or velocity over ground, from noisy, biased and intermittent sensor readings, and [planning](/classical/motion-planning) and [control](/classical/control) assume that state is known. Probabilistic estimators report a belief, so each estimate carries its uncertainty <Cite id=\"thrun-2005\" />.\n\n",
+          "after": "State estimation computes a robot's state, such as its [configuration](/classical/kinematics) or velocity over ground, from noisy, biased and intermittent sensor readings, and [planning](/classical/motion-planning) and [control](/classical/control) assume that state is known. Probabilistic estimators report a belief, so each estimate carries its uncertainty <Cite id=\"thrun-2005\" />.\n\n<Image id=\"apollo-imu-draper-2019\" />\n\n"
+        },
+        {
+          "before": "McGee and Schmidt's 1985 NASA history credits Schmidt's Ames group with adapting the filter to nonlinear circumlunar navigation in the early 1960s. By early 1961 simulations supported the approach, though operation on available flight computers was unverified. The report separates this work from Battin's Apollo studies at MIT and Potter's square-root implementation used in Apollo. Primary Apollo navigation used ground radar, with an onboard backup <Cite id=\"mcgee-schmidt-1985\" />.\n",
+          "after": "McGee and Schmidt's 1985 NASA history credits Schmidt's Ames group with adapting the filter to nonlinear circumlunar navigation in the early 1960s. By early 1961 simulations supported the approach, though operation on available flight computers was unverified. The report separates this work from Battin's Apollo studies at MIT and Potter's square-root implementation used in Apollo. Primary Apollo navigation used ground radar, with an onboard backup <Cite id=\"mcgee-schmidt-1985\" />.\n\n<Image id=\"apollo-guidance-computer-dsky\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/action-chunking.mdx",
+        "bytes": 10602,
+        "sha256": "2bd758433044f9e3c8c8c9471056b9d06911ccd0633ba1cb33051089f5942d9a"
+      },
+      "after": {
+        "path": "content/manipulation/action-chunking.mdx",
+        "bytes": 10683,
+        "sha256": "8f270d172551c6dddf41a447721c34131bd0fc7c8255d75829e9164f88f9743a"
+      },
+      "mounts": [
+        "aloha-unleashed-tasks-2024",
+        "aloha-2-workcell-2024"
+      ],
+      "edits": [
+        {
+          "before": "Action chunking is a policy design in which each inference predicts a sequence of future actions instead of one <Cite id=\"act-aloha-2023\" />. The term comes from psychology, where actions grouped into one unit are cheaper to store and execute <Cite id=\"act-aloha-2023\" /> <Cite id=\"lai-action-chunking-2022\" />.\n\n",
+          "after": "Action chunking is a policy design in which each inference predicts a sequence of future actions instead of one <Cite id=\"act-aloha-2023\" />. The term comes from psychology, where actions grouped into one unit are cheaper to store and execute <Cite id=\"act-aloha-2023\" /> <Cite id=\"lai-action-chunking-2022\" />.\n\n<Image id=\"aloha-unleashed-tasks-2024\" />\n\n"
+        },
+        {
+          "before": "Action Chunking with Transformers (ACT), introduced with the ALOHA bimanual [teleoperation hardware](/data-hardware/teleop-rigs/), wraps chunking in a <Term id=\"cvae\">conditional variational autoencoder</Term>: training encodes each demonstrated action sequence as a latent style variable, and at test time the policy decodes a chunk from camera images and joint positions with that latent at zero. Dropping the CVAE objective barely changes scripted-data results and cuts human-data success from 35.3% to 2% <Cite id=\"act-aloha-2023\" />.\n",
+          "after": "Action Chunking with Transformers (ACT), introduced with the ALOHA bimanual [teleoperation hardware](/data-hardware/teleop-rigs/), wraps chunking in a <Term id=\"cvae\">conditional variational autoencoder</Term>: training encodes each demonstrated action sequence as a latent style variable, and at test time the policy decodes a chunk from camera images and joint positions with that latent at zero. Dropping the CVAE objective barely changes scripted-data results and cuts human-data success from 35.3% to 2% <Cite id=\"act-aloha-2023\" />.\n\n<Image id=\"aloha-2-workcell-2024\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/action-spaces.mdx",
+        "bytes": 8892,
+        "sha256": "d5acb8ed3068a8b4c49b5fa2f53b56ebf0e5d1a5f19cb30b0a0bbdd4099015b9"
+      },
+      "after": {
+        "path": "content/manipulation/action-spaces.mdx",
+        "bytes": 8989,
+        "sha256": "62fe978b227865f84c69a7e1008bf7df558019ae5f17f21ecc349e9782d9c361"
+      },
+      "mounts": [
+        "action-space-study-platforms-2026",
+        "adaptive-compliance-tasks-2024"
+      ],
+      "edits": [
+        {
+          "before": "An action space is the interface between a policy and the rest of the robot: what the network predicts, which errors the controller absorbs, how often inference runs and whether embodiments share labels. In Open X-Embodiment, the same seven numbers can mean absolute or relative positions or velocities <Cite id=\"open-x-embodiment-2023\" />.\n\n",
+          "after": "An action space is the interface between a policy and the rest of the robot: what the network predicts, which errors the controller absorbs, how often inference runs and whether embodiments share labels. In Open X-Embodiment, the same seven numbers can mean absolute or relative positions or velocities <Cite id=\"open-x-embodiment-2023\" />.\n\n<Image id=\"action-space-study-platforms-2026\" />\n\n"
+        },
+        {
+          "before": "Torque actions expose dynamics and contact; Levine et al. mapped raw images to motor torques <Cite id=\"levine-visuomotor-2015\" />. They need a high rate and a safety layer that holds when the output is wrong: libfranka sends 1 kHz commands in five modes, including gravity- and friction-compensated joint torque <Cite id=\"franka-fci-docs\" />, while Rudin et al.'s locomotion pipeline sends joint-position targets to a PD controller <Cite id=\"rudin-2021\" />.\n",
+          "after": "Torque actions expose dynamics and contact; Levine et al. mapped raw images to motor torques <Cite id=\"levine-visuomotor-2015\" />. They need a high rate and a safety layer that holds when the output is wrong: libfranka sends 1 kHz commands in five modes, including gravity- and friction-compensated joint torque <Cite id=\"franka-fci-docs\" />, while Rudin et al.'s locomotion pipeline sends joint-position targets to a PD controller <Cite id=\"rudin-2021\" />.\n\n<Image id=\"adaptive-compliance-tasks-2024\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/bc-foundations.mdx",
+        "bytes": 12506,
+        "sha256": "e33d1a20ed8cb7d6ba29650063b2e690ea9dbdaaaccd799696aff656f7fa7be9"
+      },
+      "after": {
+        "path": "content/manipulation/bc-foundations.mdx",
+        "bytes": 12584,
+        "sha256": "ba3b209ad17ac41a97500ddb679fa7202258d42844018a9227dca80359c2d523"
+      },
+      "mounts": [
+        "droid-robot-platform-2024",
+        "navlab-1-5-cmu-2017"
+      ],
+      "edits": [
+        {
+          "before": "<Term id=\"behavior-cloning\">Behavior cloning</Term> is imitation learning cast as supervised learning: a policy $\\pi(a \\mid s)$ is regressed onto [expert actions](/how-robots-work/#puppeteer) given expert observations. In closed loop the robot's own actions choose its future inputs, breaking the i.i.d. assumption, so <Term id=\"compounding-error\">errors compound</Term> <Cite id=\"ross-bagnell-2010\" />.\n\n",
+          "after": "<Term id=\"behavior-cloning\">Behavior cloning</Term> is imitation learning cast as supervised learning: a policy $\\pi(a \\mid s)$ is regressed onto [expert actions](/how-robots-work/#puppeteer) given expert observations. In closed loop the robot's own actions choose its future inputs, breaking the i.i.d. assumption, so <Term id=\"compounding-error\">errors compound</Term> <Cite id=\"ross-bagnell-2010\" />.\n\n<Image id=\"droid-robot-platform-2024\" />\n\n"
+        },
+        {
+          "before": "ALVINN (1988), a three-layer back-propagation network with camera and laser-range inputs, trained on simulated road images and was tested on NAVLAB, a modified Chevy van <Cite id=\"alvinn-1988\" />. Later driving systems added off-centre, rotated training views <Cite id=\"bojarski-e2e-driving-2016\" />, or synthesized perturbations once 30 million examples proved too few <Cite id=\"chauffeurnet-2018\" />.\n",
+          "after": "ALVINN (1988), a three-layer back-propagation network with camera and laser-range inputs, trained on simulated road images and was tested on NAVLAB, a modified Chevy van <Cite id=\"alvinn-1988\" />. Later driving systems added off-centre, rotated training views <Cite id=\"bojarski-e2e-driving-2016\" />, or synthesized perturbations once 30 million examples proved too few <Cite id=\"chauffeurnet-2018\" />.\n\n<Image id=\"navlab-1-5-cmu-2017\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/comparison-matrix.mdx",
+        "bytes": 9245,
+        "sha256": "3acd9415130e88c4b80eeb4ad055ef9cc6be044ca0377ed9e53ca900a1e54153"
+      },
+      "after": {
+        "path": "content/manipulation/comparison-matrix.mdx",
+        "bytes": 9382,
+        "sha256": "ebdc0ce5e86afca1edc616ca74bcb19ac47b488866ea5ce714f896181ce824ee"
+      },
+      "mounts": [
+        "octo-evaluation-setups-2024",
+        "roboarena-evaluation-2025",
+        "gemini-robotics-apollo-franka-2025"
+      ],
+      "edits": [
+        {
+          "before": "The comparison matrix is a table of major robot policies, from RT-1 (2022) to π0.7 (2026), compared on eight architectural axes: action representation, horizon, control frequency, backbone, conditioning, cross-embodiment, hierarchy and weights <Cite id=\"rt1-2022\" /> <Cite id=\"pi07-2026\" />. Each cell records what its named source discloses.\n\n",
+          "after": "The comparison matrix is a table of major robot policies, from RT-1 (2022) to π0.7 (2026), compared on eight architectural axes: action representation, horizon, control frequency, backbone, conditioning, cross-embodiment, hierarchy and weights <Cite id=\"rt1-2022\" /> <Cite id=\"pi07-2026\" />. Each cell records what its named source discloses.\n\n<Image id=\"octo-evaluation-setups-2024\" />\n\n"
+        },
+        {
+          "before": "Remove models whose weights or training data the project cannot use (Gemini Robotics On-Device, for example, is reached through a trusted-tester SDK <Cite id=\"gemini-robotics-on-device-2025\" />), then models whose action representation, latency, observations or adaptation-data needs do not fit the robot, and only then compare benchmark performance.\n\n",
+          "after": "Remove models whose weights or training data the project cannot use (Gemini Robotics On-Device, for example, is reached through a trusted-tester SDK <Cite id=\"gemini-robotics-on-device-2025\" />), then models whose action representation, latency, observations or adaptation-data needs do not fit the robot, and only then compare benchmark performance.\n\n<Image id=\"roboarena-evaluation-2025\" />\n\n"
+        },
+        {
+          "before": "RT-1's \"limited\" cross-embodiment label means Kuka IIWA data mixed with Everyday Robots data and evaluated on Everyday Robots <Cite id=\"rt1-2022\" />. ACT trains a roughly 80M-parameter model from scratch for each task <Cite id=\"act-aloha-2023\" />, and RT-2's action-only entry excludes its chain-of-thought variant <Cite id=\"rt2-2023\" />.\n",
+          "after": "RT-1's \"limited\" cross-embodiment label means Kuka IIWA data mixed with Everyday Robots data and evaluated on Everyday Robots <Cite id=\"rt1-2022\" />. ACT trains a roughly 80M-parameter model from scratch for each task <Cite id=\"act-aloha-2023\" />, and RT-2's action-only entry excludes its chain-of-thought variant <Cite id=\"rt2-2023\" />.\n\n<Image id=\"gemini-robotics-apollo-franka-2025\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/cross-embodiment.mdx",
+        "bytes": 9663,
+        "sha256": "1ba71d527e08521870db79810f015190df72c28be1f51f30593b9c7d46e0ec93"
+      },
+      "after": {
+        "path": "content/manipulation/cross-embodiment.mdx",
+        "bytes": 9803,
+        "sha256": "4cb0ce6f4c00c06f350e83304a3557bd0db30ea2fd542287fbcbccfeccfdefa2"
+      },
+      "mounts": [
+        "open-x-embodiment-overview-2023",
+        "egoscale-human-to-robot-2026",
+        "phantom-human-video-robot-2025"
+      ],
+      "edits": [
+        {
+          "before": "<Term id=\"cross-embodiment\">Cross-embodiment transfer</Term> is training one policy on data from bodies with different joint counts, action dimensions and sensors, or moving a policy to an unseen body. Open X-Embodiment pools data from 22 robot embodiments <Cite id=\"open-x-embodiment-2023\" />, and human video adds a body whose actions are estimated from images <Cite id=\"egoscale-2026\" />.\n\n",
+          "after": "<Term id=\"cross-embodiment\">Cross-embodiment transfer</Term> is training one policy on data from bodies with different joint counts, action dimensions and sensors, or moving a policy to an unseen body. Open X-Embodiment pools data from 22 robot embodiments <Cite id=\"open-x-embodiment-2023\" />, and human video adds a body whose actions are estimated from images <Cite id=\"egoscale-2026\" />.\n\n<Image id=\"open-x-embodiment-overview-2023\" />\n\n"
+        },
+        {
+          "before": "GR00T N1 embedded state and action with embodiment-aware encoders <Cite id=\"gr00t-n1-2025\" />; N1.6 moved most embodiments to state-relative action chunks, which NVIDIA found smoother and more accurate than absolute actions <Cite id=\"gr00t-n1-6-2025\" />. N1.7 shares relative end-effector deltas between human and robot embodiments and calls this a key factor in cross-embodiment performance <Cite id=\"isaac-gr00t-repo-2026\" />.\n\n",
+          "after": "GR00T N1 embedded state and action with embodiment-aware encoders <Cite id=\"gr00t-n1-2025\" />; N1.6 moved most embodiments to state-relative action chunks, which NVIDIA found smoother and more accurate than absolute actions <Cite id=\"gr00t-n1-6-2025\" />. N1.7 shares relative end-effector deltas between human and robot embodiments and calls this a key factor in cross-embodiment performance <Cite id=\"isaac-gr00t-repo-2026\" />.\n\n<Image id=\"egoscale-human-to-robot-2026\" />\n\n"
+        },
+        {
+          "before": "Simar Kareer's EgoMimic treated human and robot data equally and found an extra hour of hand data worth more than one of robot data <Cite id=\"egomimic-2024\" />. On December 16, 2025, Kareer and Physical Intelligence colleagues co-fine-tuned π0.5 on human data, with 3D hand positions as actions, and the most relevant robot data. PI reports about 2× performance on four scenarios present only in human data, without trial counts, and transfer that improves as robot pretraining diversifies <Cite id=\"pi-human-to-robot-2025\" />.\n",
+          "after": "Simar Kareer's EgoMimic treated human and robot data equally and found an extra hour of hand data worth more than one of robot data <Cite id=\"egomimic-2024\" />. On December 16, 2025, Kareer and Physical Intelligence colleagues co-fine-tuned π0.5 on human data, with 3D hand positions as actions, and the most relevant robot data. PI reports about 2× performance on four scenarios present only in human data, without trial counts, and transfer that improves as robot pretraining diversifies <Cite id=\"pi-human-to-robot-2025\" />.\n\n<Image id=\"phantom-human-video-robot-2025\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/diffusion-policy.mdx",
+        "bytes": 9559,
+        "sha256": "8ad96dcd6c5c09cca1006d3bf9dcf3d114fde389f08551107b4e148ce40a5f65"
+      },
+      "after": {
+        "path": "content/manipulation/diffusion-policy.mdx",
+        "bytes": 9652,
+        "sha256": "54f0f2f2c5f094a44a386c62dc1ee14a9fc9f8aa5e1d3b6c33920556f8053dc9"
+      },
+      "mounts": [
+        "aloha-unleashed-shirt-rollout-2024",
+        "dp3-real-robot-setup-2024"
+      ],
+      "edits": [
+        {
+          "before": "<Term id=\"diffusion-policy\">Diffusion Policy</Term> is a visuomotor robot policy that generates an action sequence by conditional denoising, from Chi et al. (2023). Its extended journal version evaluates 15 tasks and reports a 46.9% average relative improvement in simulation, using the best baseline and backbone per column, multi-human data excluded <Cite id=\"diffusion-policy-2023\" />.\n\n",
+          "after": "<Term id=\"diffusion-policy\">Diffusion Policy</Term> is a visuomotor robot policy that generates an action sequence by conditional denoising, from Chi et al. (2023). Its extended journal version evaluates 15 tasks and reports a 46.9% average relative improvement in simulation, using the best baseline and backbone per column, multi-human data excluded <Cite id=\"diffusion-policy-2023\" />.\n\n<Image id=\"aloha-unleashed-shirt-rollout-2024\" />\n\n"
+        },
+        {
+          "before": "DP3 conditions on sparse point clouds and handles most of 72 simulation tasks with 10 demonstrations <Cite id=\"dp3-2024\" />, and Equivariant Diffusion Policy builds in SO(2) symmetry for 21.9% higher average success <Cite id=\"equivariant-diffusion-policy-2024\" />. ALOHA Unleashed pairs Diffusion Policies with large-scale [ALOHA 2](/data-hardware/teleop-rigs/) data for deformable, contact-rich bimanual tasks <Cite id=\"aloha-unleashed-2024\" />, and TRI's Large Behavior Models scale the recipe to approximately 1,700 hours and match from-scratch policies with 3 to 5 times less data <Cite id=\"tri-lbm-2025\" />.\n",
+          "after": "DP3 conditions on sparse point clouds and handles most of 72 simulation tasks with 10 demonstrations <Cite id=\"dp3-2024\" />, and Equivariant Diffusion Policy builds in SO(2) symmetry for 21.9% higher average success <Cite id=\"equivariant-diffusion-policy-2024\" />. ALOHA Unleashed pairs Diffusion Policies with large-scale [ALOHA 2](/data-hardware/teleop-rigs/) data for deformable, contact-rich bimanual tasks <Cite id=\"aloha-unleashed-2024\" />, and TRI's Large Behavior Models scale the recipe to approximately 1,700 hours and match from-scratch policies with 3 to 5 times less data <Cite id=\"tri-lbm-2025\" />.\n\n<Image id=\"dp3-real-robot-setup-2024\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/foundation-models.mdx",
+        "bytes": 8953,
+        "sha256": "ddecde0884fc4fb5af803d14cb0762e92cc83f95808d306850777f7fe556f06a"
+      },
+      "after": {
+        "path": "content/manipulation/foundation-models.mdx",
+        "bytes": 9075,
+        "sha256": "cacda44e0e9779003e5e9ed3be07c966810c8b3dfe743a2424681abc8f74513f"
+      },
+      "mounts": [
+        "robocat-embodiments-2023",
+        "gr00t-n1-gr1-tasks-2025",
+        "cosmos-policy-aloha-2026"
+      ],
+      "edits": [
+        {
+          "before": "A foundation model is a network trained on broad data at scale and adaptable to many downstream tasks <Cite id=\"bommasani-foundation-models-2021\" />. In robotics three families carry the label (<Term id=\"vision-language-action-model\">vision-language-action models</Term>, predictive world models and multimodal backbones adapted into either), and the test is whether one checkpoint transfers to new tasks, environments or embodiments after bounded adaptation.\n\n",
+          "after": "A foundation model is a network trained on broad data at scale and adaptable to many downstream tasks <Cite id=\"bommasani-foundation-models-2021\" />. In robotics three families carry the label (<Term id=\"vision-language-action-model\">vision-language-action models</Term>, predictive world models and multimodal backbones adapted into either), and the test is whether one checkpoint transfers to new tasks, environments or embodiments after bounded adaptation.\n\n<Image id=\"robocat-embodiments-2023\" />\n\n"
+        },
+        {
+          "before": "GR00T N1 combines a vision-language module with a diffusion transformer, trained on real-robot trajectories, human videos and synthetic datasets <Cite id=\"gr00t-n1-2025\" />. For a humanoid, morphology, whole-body balance and shared action coordinates set the reuse boundary. Figure pretrained [Helix 2.5](/manipulation/generalist-policies/) from random initialization entirely on Index, its dataset of human behavior; with identical task data, it succeeded on 56% of zero-shot trials in 30 unseen homes, against 9% for a policy trained from scratch <Cite id=\"helix-2-5-2026\" />.\n\n",
+          "after": "GR00T N1 combines a vision-language module with a diffusion transformer, trained on real-robot trajectories, human videos and synthetic datasets <Cite id=\"gr00t-n1-2025\" />. For a humanoid, morphology, whole-body balance and shared action coordinates set the reuse boundary. Figure pretrained [Helix 2.5](/manipulation/generalist-policies/) from random initialization entirely on Index, its dataset of human behavior; with identical task data, it succeeded on 56% of zero-shot trials in 30 unseen homes, against 9% for a policy trained from scratch <Cite id=\"helix-2-5-2026\" />.\n\n<Image id=\"gr00t-n1-gr1-tasks-2025\" />\n\n"
+        },
+        {
+          "before": "V-JEPA 2 learns representations from over 1M hours of internet video, then trains an action-conditioned stage on fewer than 62 hours of unlabeled DROID video <Cite id=\"vjepa2-2025\" />. R3M's embedding, pretrained on Ego4D human video, beats from-scratch training by over 20% <Cite id=\"r3m-2022\" />.\n",
+          "after": "V-JEPA 2 learns representations from over 1M hours of internet video, then trains an action-conditioned stage on fewer than 62 hours of unlabeled DROID video <Cite id=\"vjepa2-2025\" />. R3M's embedding, pretrained on Ego4D human video, beats from-scratch training by over 20% <Cite id=\"r3m-2022\" />.\n\n<Image id=\"cosmos-policy-aloha-2026\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/generalist-policies.mdx",
+        "bytes": 10609,
+        "sha256": "aa78d0366c3cfee1161bb25dd099608f3308750a1a7fa2a22a9b531ae3f5e97c"
+      },
+      "after": {
+        "path": "content/manipulation/generalist-policies.mdx",
+        "bytes": 10755,
+        "sha256": "52496ab38e8d5ea4680e488a1978f5b6f7f7c34614b9d6b5a57106a46318a5b9"
+      },
+      "mounts": [
+        "gemini-robotics-apollo-franka-2025",
+        "gemini-robotics-aloha-dexterous-2025",
+        "roboarena-evaluation-2025"
+      ],
+      "edits": [
+        {
+          "before": "A generalist robot policy is one learned model trained to perform many tasks, often on several robot bodies <Cite id=\"tri-lbm-2025\" />.\n\n",
+          "after": "A generalist robot policy is one learned model trained to perform many tasks, often on several robot bodies <Cite id=\"tri-lbm-2025\" />.\n\n<Image id=\"gemini-robotics-apollo-franka-2025\" />\n\n"
+        },
+        {
+          "before": "DeepMind's March 2025 report introduces a Gemini 2.0-based family: Gemini Robotics-ER for spatial and temporal understanding, and Gemini Robotics, which builds on ER to produce robot actions <Cite id=\"gemini-robotics-2025\" />. The launch post says Gemini Robotics more than doubles performance on a comprehensive generalization benchmark against other state-of-the-art VLAs <Cite id=\"gemini-robotics-blog-2025\" />.\n\n",
+          "after": "DeepMind's March 2025 report introduces a Gemini 2.0-based family: Gemini Robotics-ER for spatial and temporal understanding, and Gemini Robotics, which builds on ER to produce robot actions <Cite id=\"gemini-robotics-2025\" />. The launch post says Gemini Robotics more than doubles performance on a comprehensive generalization benchmark against other state-of-the-art VLAs <Cite id=\"gemini-robotics-blog-2025\" />.\n\n<Image id=\"gemini-robotics-aloha-dexterous-2025\" />\n\n"
+        },
+        {
+          "before": "RoboArena ranks generalist policies through double-blind pairwise trials at seven institutions, with more than 600 real-robot episodes across seven policies <Cite id=\"roboarena-2025\" />, and TRI evaluates its Large Behavior Models in blind, randomized trials with statistical confidence <Cite id=\"tri-lbm-2025\" />.\n",
+          "after": "RoboArena ranks generalist policies through double-blind pairwise trials at seven institutions, with more than 600 real-robot episodes across seven policies <Cite id=\"roboarena-2025\" />, and TRI evaluates its Large Behavior Models in blind, randomized trials with statistical confidence <Cite id=\"tri-lbm-2025\" />.\n\n<Image id=\"roboarena-evaluation-2025\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/hierarchical.mdx",
+        "bytes": 11756,
+        "sha256": "9dba5d207735a0dcaee01289521ceeb1703ee5f9623235bdcf84fdadf485506d"
+      },
+      "after": {
+        "path": "content/manipulation/hierarchical.mdx",
+        "bytes": 11881,
+        "sha256": "8577693c9ebe209e5abf4f2d1edfa8e2df813c18d374331aeef2ab673511e691"
+      },
+      "mounts": [
+        "rt-h-language-corrections-2024",
+        "hamster-2d-paths-2025",
+        "gr00t-n1-gr1-tasks-2025"
+      ],
+      "edits": [
+        {
+          "before": "Hierarchical approaches are robot architectures in which one level decides *what* to do next and another decides *how* to move. In 2022 the high level was a separate planner choosing from a skill library <Cite id=\"saycan-2022\" />.\n\n",
+          "after": "Hierarchical approaches are robot architectures in which one level decides *what* to do next and another decides *how* to move. In 2022 the high level was a separate planner choosing from a skill library <Cite id=\"saycan-2022\" />.\n\n<Image id=\"rt-h-language-corrections-2024\" />\n\n"
+        },
+        {
+          "before": "MOKA marks candidate points with GroundedSAM masks and prompts a pretrained VLM to select grasp, function and target keypoints, waypoint regions and motion attributes. Calibrated depth from the [perception pipeline](/classical/perception/) lifts the points into the robot frame, and a separate grasp sampler and motion pipeline execute them, with no full 6-DoF object pose <Cite id=\"moka-2024\" />.\n\n",
+          "after": "MOKA marks candidate points with GroundedSAM masks and prompts a pretrained VLM to select grasp, function and target keypoints, waypoint regions and motion attributes. Calibrated depth from the [perception pipeline](/classical/perception/) lifts the points into the robot frame, and a separate grasp sampler and motion pipeline execute them, with no full 6-DoF object pose <Cite id=\"moka-2024\" />.\n\n<Image id=\"hamster-2d-paths-2025\" />\n\n"
+        },
+        {
+          "before": "Figure's Helix pairs a 7B VLM at 7 to 9 Hz with an 80M-parameter visuomotor policy at 200 Hz, trained end-to-end <Cite id=\"helix-2025\" />. GR00T N1 runs its VLM at 10 Hz and its action module at 120 Hz <Cite id=\"gr00t-n1-2025\" />, and Fast-in-Slow partially shares parameters between the two, reaching 117.7 Hz with eight-action chunks <Cite id=\"fast-in-slow-2025\" />.\n",
+          "after": "Figure's Helix pairs a 7B VLM at 7 to 9 Hz with an 80M-parameter visuomotor policy at 200 Hz, trained end-to-end <Cite id=\"helix-2025\" />. GR00T N1 runs its VLM at 10 Hz and its action module at 120 Hz <Cite id=\"gr00t-n1-2025\" />, and Fast-in-Slow partially shares parameters between the two, reaching 117.7 Hz with eight-action chunks <Cite id=\"fast-in-slow-2025\" />.\n\n<Image id=\"gr00t-n1-gr1-tasks-2025\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/knowledge-insulation.mdx",
+        "bytes": 8568,
+        "sha256": "5012e761a81069a2d06fcf44b6766730138f20420716de1bedd579ac1169835f"
+      },
+      "after": {
+        "path": "content/manipulation/knowledge-insulation.mdx",
+        "bytes": 8651,
+        "sha256": "b97c1b7b1971dd73d103fa5479680813c69375fda35f1dd791553d76de904d9b"
+      },
+      "mounts": [
+        "pi0-fast-table-bussing-2025",
+        "pi06-box-building-2025"
+      ],
+      "edits": [
+        {
+          "before": "<Term id=\"knowledge-insulation\">Knowledge insulation</Term> (KI) is a training recipe that keeps action learning from damaging a vision-language-action model's pretrained backbone. Discrete FAST action tokens train the backbone, while a stop-gradient keeps a <Term id=\"flow-matching\">flow-matching</Term> action expert's gradients out of it <Cite id=\"knowledge-insulation-paper-2025\" />.\n\n",
+          "after": "<Term id=\"knowledge-insulation\">Knowledge insulation</Term> (KI) is a training recipe that keeps action learning from damaging a vision-language-action model's pretrained backbone. Discrete FAST action tokens train the backbone, while a stop-gradient keeps a <Term id=\"flow-matching\">flow-matching</Term> action expert's gradients out of it <Cite id=\"knowledge-insulation-paper-2025\" />.\n\n<Image id=\"pi0-fast-table-bussing-2025\" />\n\n"
+        },
+        {
+          "before": "openpi's public π0.5 checkpoints were trained with KI, but the repository serves only the flow-matching head <Cite id=\"openpi-repo-2024\" />, so outside groups reimplemented the FAST loss and stop-gradient <Cite id=\"garg-self-demonstrated-control-2026\" />. LAP-3B blocks expert gradients and runs at 25 Hz on an RTX 4090 <Cite id=\"lap-2026\" />, and LabVLA applies KI to a FAST-pretrained Qwen3-VL-4B <Cite id=\"labvla-2026\" />. Dexmal and StepFun's DM0 (February 2026) adopts a hybrid gradient strategy \"inspired by Knowledge Insulation\" <Cite id=\"dm0-2026\" />, and a 2026 review sorts implementations into gradient stopping, as in π0.5-KI and π0.6, and inpainting <Cite id=\"stulp-full-stack-transfer-2026\" />.\n",
+          "after": "openpi's public π0.5 checkpoints were trained with KI, but the repository serves only the flow-matching head <Cite id=\"openpi-repo-2024\" />, so outside groups reimplemented the FAST loss and stop-gradient <Cite id=\"garg-self-demonstrated-control-2026\" />. LAP-3B blocks expert gradients and runs at 25 Hz on an RTX 4090 <Cite id=\"lap-2026\" />, and LabVLA applies KI to a FAST-pretrained Qwen3-VL-4B <Cite id=\"labvla-2026\" />. Dexmal and StepFun's DM0 (February 2026) adopts a hybrid gradient strategy \"inspired by Knowledge Insulation\" <Cite id=\"dm0-2026\" />, and a 2026 review sorts implementations into gradient stopping, as in π0.5-KI and π0.6, and inpainting <Cite id=\"stulp-full-stack-transfer-2026\" />.\n\n<Image id=\"pi06-box-building-2025\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/pi-line.mdx",
+        "bytes": 12833,
+        "sha256": "01baa480bef031aa44b8da0b6adf2d782571e5c359f60ddc701e6d365b024477"
+      },
+      "after": {
+        "path": "content/manipulation/pi-line.mdx",
+        "bytes": 12914,
+        "sha256": "22b3e62a57a42dda336cda4619dc08bfaf177e094f4d7586044f8ee47bbd077c"
+      },
+      "mounts": [
+        "pi06-espresso-2025",
+        "pi0-fast-laundry-folding-2025"
+      ],
+      "edits": [
+        {
+          "before": "The pi line is Physical Intelligence's series of [vision-language-action models](/manipulation/vla-models/), from π0 (October 2024) to π0.7 (April 2026) <Cite id=\"pi0-blog-2024\" /> <Cite id=\"pi07-2026\" />.\n\n",
+          "after": "The pi line is Physical Intelligence's series of [vision-language-action models](/manipulation/vla-models/), from π0 (October 2024) to π0.7 (April 2026) <Cite id=\"pi0-blog-2024\" /> <Cite id=\"pi07-2026\" />.\n\n<Image id=\"pi06-espresso-2025\" />\n\n"
+        },
+        {
+          "before": "FAST traces the failure of per-dimension, per-timestep binning to highly correlated tokens, which make next-token prediction trivial; policies with this naive tokenization make no progress on table bussing at 20 Hz or T-shirt folding at 50 Hz <Cite id=\"pi0-fast-2025\" />. FAST instead applies a discrete cosine transform along time, rounds the coefficients and byte-pair-encodes the result, and its universal FAST+ tokenizer is trained on about one million one-second action chunks across embodiments <Cite id=\"pi0-fast-2025\" />, or \"1M real robot action sequences\" in PI's post <Cite id=\"pi-fast-blog-2025\" />.\n",
+          "after": "FAST traces the failure of per-dimension, per-timestep binning to highly correlated tokens, which make next-token prediction trivial; policies with this naive tokenization make no progress on table bussing at 20 Hz or T-shirt folding at 50 Hz <Cite id=\"pi0-fast-2025\" />. FAST instead applies a discrete cosine transform along time, rounds the coefficients and byte-pair-encodes the result, and its universal FAST+ tokenizer is trained on about one million one-second action chunks across embodiments <Cite id=\"pi0-fast-2025\" />, or \"1M real robot action sequences\" in PI's post <Cite id=\"pi-fast-blog-2025\" />.\n\n<Image id=\"pi0-fast-laundry-folding-2025\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/realtime-execution.mdx",
+        "bytes": 9869,
+        "sha256": "6c8bf9894dac432c2bc6fee105b1a8216dab3ea811aae1856125d3bee03b199f"
+      },
+      "after": {
+        "path": "content/manipulation/realtime-execution.mdx",
+        "bytes": 9955,
+        "sha256": "6bf678385cee70644020bce85b7d9a48f3b06af44c4c6177428ae2ddd03933e5"
+      },
+      "mounts": [
+        "rtc-candle-lighting-2025",
+        "jetson-agx-orin-auledas-2024"
+      ],
+      "edits": [
+        {
+          "before": "Real-time execution means delivering a policy's actions on the controller's clock while the next inference runs. At 50 Hz the control period is 20 ms, shared by cameras, network, preprocessing and model, and the hand-off between action chunks changes what the robot does <Cite id=\"real-time-chunking-2025\" />.\n\n",
+          "after": "Real-time execution means delivering a policy's actions on the controller's clock while the next inference runs. At 50 Hz the control period is 20 ms, shared by cameras, network, preprocessing and model, and the hand-off between action chunks changes what the robot does <Cite id=\"real-time-chunking-2025\" />.\n\n<Image id=\"rtc-candle-lighting-2025\" />\n\n"
+        },
+        {
+          "before": "VLA-Perf (Jiang et al., 2026) is an analytical roofline model assuming optimistic software, adequate model accuracy and attainable peak compute and memory bandwidth. An optimized π0 Triton implementation on an RTX 4090 reaches 73.3 to 82.6% of its predicted throughput with one to three cameras <Cite id=\"vla-perf-2026\" />.\n",
+          "after": "VLA-Perf (Jiang et al., 2026) is an analytical roofline model assuming optimistic software, adequate model accuracy and attainable peak compute and memory bandwidth. An optimized π0 Triton implementation on an RTX 4090 reaches 73.3 to 82.6% of its predicted throughput with one to three cameras <Cite id=\"vla-perf-2026\" />.\n\n<Image id=\"jetson-agx-orin-auledas-2024\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/rl-finetuning.mdx",
+        "bytes": 18028,
+        "sha256": "74e5bdeed2af9e7ec93e87d93315a337badf003cec5c005c0a2e86fcfebae718"
+      },
+      "after": {
+        "path": "content/manipulation/rl-finetuning.mdx",
+        "bytes": 18148,
+        "sha256": "7749de405711f539b2471cf5298bd9d68dd60ed068e846d8a6429fa42a089dd6"
+      },
+      "mounts": [
+        "hil-serl-tasks-2024",
+        "pld-gpu-insertion-2025",
+        "conrft-real-world-tasks-2025"
+      ],
+      "edits": [
+        {
+          "before": "RL fine-tuning is the use of reinforcement learning to improve a pretrained robot policy from its own successes and failures. <Term id=\"imitation-learning\">Imitation learning</Term> is brittle off the demonstration distribution because errors compound <Cite id=\"dagger-2011\" />, and Physical Intelligence finds reliable success much harder than occasional success <Cite id=\"pistar06-blog-2025\" />.\n\n",
+          "after": "RL fine-tuning is the use of reinforcement learning to improve a pretrained robot policy from its own successes and failures. <Term id=\"imitation-learning\">Imitation learning</Term> is brittle off the demonstration distribution because errors compound <Cite id=\"dagger-2011\" />, and Physical Intelligence finds reliable success much harder than occasional success <Cite id=\"pistar06-blog-2025\" />.\n\n<Image id=\"hil-serl-tasks-2024\" />\n\n"
+        },
+        {
+          "before": "Residual RL adds a learned correction to a fixed controller <Cite id=\"residual-rl-2018\" />. PLD (Probe, Learn, Distill; Xiao et al., 2025) freezes a VLA, trains task-specific residual actors with off-policy RL, lets them recover from the states the base policy reaches, and distills the trajectories back into the generalist through SFT. Residual exploration carries no safety guarantee <Cite id=\"pld-2026\" />.\n\n",
+          "after": "Residual RL adds a learned correction to a fixed controller <Cite id=\"residual-rl-2018\" />. PLD (Probe, Learn, Distill; Xiao et al., 2025) freezes a VLA, trains task-specific residual actors with off-policy RL, lets them recover from the states the base policy reaches, and distills the trajectories back into the generalist through SFT. Residual exploration carries no safety guarantee <Cite id=\"pld-2026\" />.\n\n<Image id=\"pld-gpu-insertion-2025\" />\n\n"
+        },
+        {
+          "before": "RL-100, published in Science Robotics in July 2026, applies one clipped-PPO objective within the denoising process across offline and online stages and reports 1000 of 1000 successful episodes on eight real tasks <Cite id=\"rl-100-2025\" />. LWD runs offline-to-online RL on a fleet of 16 dual-arm robots, where one generalist policy reaches 95% average success across eight real tasks <Cite id=\"lwd-2026\" />.\n",
+          "after": "RL-100, published in Science Robotics in July 2026, applies one clipped-PPO objective within the denoising process across offline and online stages and reports 1000 of 1000 successful episodes on eight real tasks <Cite id=\"rl-100-2025\" />. LWD runs offline-to-online RL on a fleet of 16 dual-arm robots, where one generalist policy reaches 95% average success across eight real tasks <Cite id=\"lwd-2026\" />.\n\n<Image id=\"conrft-real-world-tasks-2025\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/robot-learning-roadmap.mdx",
+        "bytes": 8803,
+        "sha256": "a2ac5d083ef93fbc4c0930fc665af6c40de7d9450dc20f85895d54407a775089"
+      },
+      "after": {
+        "path": "content/manipulation/robot-learning-roadmap.mdx",
+        "bytes": 8930,
+        "sha256": "186f8f71aa2f8f72939bee3db299c71463ff20303aae669571947433f27f4135"
+      },
+      "mounts": [
+        "droid-in-the-wild-scenes-2024",
+        "puma-500-deutsches-museum",
+        "robocasa-kitchens-2024"
+      ],
+      "edits": [
+        {
+          "before": "The robot learning curriculum for ML engineers is a staged path through the robotics that policy experiments depend on: geometry, data, imitation, action representation, evaluation and deployment, each learned just before an experiment needs it. A 2025 open tutorial runs from behavior cloning and reinforcement learning to generalist policies <Cite id=\"robot-learning-tutorial-2025\" />.\n\n",
+          "after": "The robot learning curriculum for ML engineers is a staged path through the robotics that policy experiments depend on: geometry, data, imitation, action representation, evaluation and deployment, each learned just before an experiment needs it. A 2025 open tutorial runs from behavior cloning and reinforcement learning to generalist policies <Cite id=\"robot-learning-tutorial-2025\" />.\n\n<Image id=\"droid-in-the-wild-scenes-2024\" />\n\n"
+        },
+        {
+          "before": "Start with [kinematics](/classical/kinematics/): which frame an object pose or end-effector delta uses, and where joint limits enter. *Modern Robotics* supplies the vocabulary <Cite id=\"modern-robotics-2017\" />, and Tedrake warns that sloppy kinematic notation \"will inevitably lead to confusion and bugs\" <Cite id=\"tedrake-manipulation-2026\" />. A drifting camera transform or timestamp mismatch can look like a stochastic policy, so [calibration](/classical/calibration/) and [state estimation](/classical/state-estimation/) come next; Kalibr estimates sensor time offsets to a fraction of the smallest measurement period <Cite id=\"kalibr-2013\" />.\n\n",
+          "after": "Start with [kinematics](/classical/kinematics/): which frame an object pose or end-effector delta uses, and where joint limits enter. *Modern Robotics* supplies the vocabulary <Cite id=\"modern-robotics-2017\" />, and Tedrake warns that sloppy kinematic notation \"will inevitably lead to confusion and bugs\" <Cite id=\"tedrake-manipulation-2026\" />. A drifting camera transform or timestamp mismatch can look like a stochastic policy, so [calibration](/classical/calibration/) and [state estimation](/classical/state-estimation/) come next; Kalibr estimates sensor time offsets to a fraction of the smallest measurement period <Cite id=\"kalibr-2013\" />.\n\n<Image id=\"puma-500-deutsches-museum\" />\n\n"
+        },
+        {
+          "before": "Simulation tests controller stability and safe reward optimization. Domain randomization aims to make the real world look like one more simulated variation <Cite id=\"tobin-2017\" />, and Isaac Lab targets large-scale robot learning <Cite id=\"isaac-lab-2025\" />, though its dynamics gap to the hardware needs measuring.\n",
+          "after": "Simulation tests controller stability and safe reward optimization. Domain randomization aims to make the real world look like one more simulated variation <Cite id=\"tobin-2017\" />, and Isaac Lab targets large-scale robot learning <Cite id=\"isaac-lab-2025\" />, though its dynamics gap to the hardware needs measuring.\n\n<Image id=\"robocasa-kitchens-2024\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/manipulation/vla-models.mdx",
+        "bytes": 12364,
+        "sha256": "65744d37a1210909a37aed462f4bd5ec2a81430454abd29323c0940cb95e1b6a"
+      },
+      "after": {
+        "path": "content/manipulation/vla-models.mdx",
+        "bytes": 12509,
+        "sha256": "593b9ddd9d7a85673c682eb4e1cb66fee91503e76bf0a21e50275cc1e73008f4"
+      },
+      "mounts": [
+        "gemini-robotics-aloha-dexterous-2025",
+        "open-x-embodiment-overview-2023",
+        "octo-evaluation-setups-2024"
+      ],
+      "edits": [
+        {
+          "before": "A <Term id=\"vision-language-action-model\">vision-language-action (VLA)</Term> model is a robot policy built by adapting a vision-language model, pretrained on web-scale images and text, to output robot actions; earlier [behavior cloning](/manipulation/bc-foundations/) and [Diffusion Policy](/manipulation/diffusion-policy/) learned from robot data alone. The design question is how to get actions out of a model that outputs text <Cite id=\"rt2-2023\" />.\n\n",
+          "after": "A <Term id=\"vision-language-action-model\">vision-language-action (VLA)</Term> model is a robot policy built by adapting a vision-language model, pretrained on web-scale images and text, to output robot actions; earlier [behavior cloning](/manipulation/bc-foundations/) and [Diffusion Policy](/manipulation/diffusion-policy/) learned from robot data alone. The design question is how to get actions out of a model that outputs text <Cite id=\"rt2-2023\" />.\n\n<Image id=\"gemini-robotics-aloha-dexterous-2025\" />\n\n"
+        },
+        {
+          "before": "<Term id=\"open-x-embodiment\">Open X-Embodiment</Term> pools more than one million real robot trajectories spanning 22 embodiments, 527 skills and 160,266 tasks; its abstract names 21 institutions, and its dataset description covers 60 datasets from 34 labs. RT-1-X and RT-2-X trained on a nine-embodiment subset. RT-1-X beat the original methods on four of five small-data domains but underperformed RT-1 in the large-data setting, where the higher-capacity RT-2-X outperformed both. RT-2-X gained Google Robot skills from WidowX Bridge data, a <Term id=\"cross-embodiment\">cross-embodiment</Term> transfer, and performed roughly on par with RT-2 on unseen objects, backgrounds and environments <Cite id=\"open-x-embodiment-2023\" />.\n\n",
+          "after": "<Term id=\"open-x-embodiment\">Open X-Embodiment</Term> pools more than one million real robot trajectories spanning 22 embodiments, 527 skills and 160,266 tasks; its abstract names 21 institutions, and its dataset description covers 60 datasets from 34 labs. RT-1-X and RT-2-X trained on a nine-embodiment subset. RT-1-X beat the original methods on four of five small-data domains but underperformed RT-1 in the large-data setting, where the higher-capacity RT-2-X outperformed both. RT-2-X gained Google Robot skills from WidowX Bridge data, a <Term id=\"cross-embodiment\">cross-embodiment</Term> transfer, and performed roughly on par with RT-2 on unseen objects, backgrounds and environments <Cite id=\"open-x-embodiment-2023\" />.\n\n<Image id=\"open-x-embodiment-overview-2023\" />\n\n"
+        },
+        {
+          "before": "Two 2024 releases made the recipe reproducible outside Google. Octo ships 27M- and 93M-parameter checkpoints trained on 800k Open X-Embodiment trajectories; learned readout tokens in a block-wise-masked transformer feed a lightweight diffusion head that outputs action chunks, and fine-tuning can add a new sensor or output while retaining the transformer weights <Cite id=\"octo-2024\" />. In zero-shot WidowX evaluation, Octo reports a \"25% higher success rate\" with goal images than with language, and the authors suggest goal images carry more task information; only 56% of its pretraining data has language annotations <Cite id=\"octo-2024\" />.\n",
+          "after": "Two 2024 releases made the recipe reproducible outside Google. Octo ships 27M- and 93M-parameter checkpoints trained on 800k Open X-Embodiment trajectories; learned readout tokens in a block-wise-masked transformer feed a lightweight diffusion head that outputs action chunks, and fine-tuning can add a new sensor or output while retaining the transformer weights <Cite id=\"octo-2024\" />. In zero-shot WidowX evaluation, Octo reports a \"25% higher success rate\" with goal images than with language, and the authors suggest goal images carry more task information; only 56% of its pretraining data has language annotations <Cite id=\"octo-2024\" />.\n\n<Image id=\"octo-evaluation-setups-2024\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/rl-sim2real/humanoid-wbc.mdx",
+        "bytes": 11547,
+        "sha256": "6b8375155f608eed7e564e504e115dd2d3619f2503c826ada6c9f2fc6cbb3960"
+      },
+      "after": {
+        "path": "content/rl-sim2real/humanoid-wbc.mdx",
+        "bytes": 11708,
+        "sha256": "0d15eb18c58ed67c3384abc488271e21fce251942ec703d53ecbf807c93c3818"
+      },
+      "mounts": [
+        "atlas-electric-hyundai-goyang-2026",
+        "motion-capture-session-hyderabad-2026",
+        "unitree-robots-japan-mobility-show-2025"
+      ],
+      "edits": [
+        {
+          "before": "Humanoid whole-body control is the control of every actuated joint of a humanoid, from legs to hands, as one coupled problem. A dominant paradigm treats <Term id=\"whole-body-control\">whole-body control</Term> as reinforcement-learned tracking of human motion <Term id=\"retargeting\">retargeted</Term> to the robot <Cite id=\"omniretarget-2025\" />, though retargeted motion can be physically infeasible <Cite id=\"h2o-2024\" />.\n\n",
+          "after": "Humanoid whole-body control is the control of every actuated joint of a humanoid, from legs to hands, as one coupled problem. A dominant paradigm treats <Term id=\"whole-body-control\">whole-body control</Term> as reinforcement-learned tracking of human motion <Term id=\"retargeting\">retargeted</Term> to the robot <Cite id=\"omniretarget-2025\" />, though retargeted motion can be physically infeasible <Cite id=\"h2o-2024\" />.\n\n<Image id=\"atlas-electric-hyundai-goyang-2026\" />\n\n"
+        },
+        {
+          "before": "DeepMimic adapted standard RL to imitate motion clips, including retargeted ones, for animated characters and an Atlas robot model <Cite id=\"deepmimic-2018\" />.\n\n",
+          "after": "DeepMimic adapted standard RL to imitate motion clips, including retargeted ones, for animated characters and an Atlas robot model <Cite id=\"deepmimic-2018\" />.\n\n<Image id=\"motion-capture-session-hyderabad-2026\" />\n\n"
+        },
+        {
+          "before": "NVIDIA keeps the VLA and whole-body controller as separate learned systems, and released GR00T N1.7 as early access on 18 April 2026 <Cite id=\"gr00t-n1-7-release-2026\" />. GR00T N1.7 is a 3B-parameter VLA with a Cosmos-Reason2-2B backbone and a <Term id=\"flow-matching\">flow-matching</Term> action head; with the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands <Cite id=\"isaac-gr00t-repo-2026\" /> <Cite id=\"groot-wbc-2026\" />. SONIC (Science Robotics) scales tracking from 1.2M to 42M parameters on 700 hours of motion capture, with one token space serving VR teleoperation and VLAs <Cite id=\"sonic-2025\" />. Code is under Apache 2.0 and weights under the NVIDIA Open Model License, and every checkpoint loads the gated Cosmos-Reason2-2B backbone <Cite id=\"isaac-gr00t-repo-2026\" />.\n",
+          "after": "NVIDIA keeps the VLA and whole-body controller as separate learned systems, and released GR00T N1.7 as early access on 18 April 2026 <Cite id=\"gr00t-n1-7-release-2026\" />. GR00T N1.7 is a 3B-parameter VLA with a Cosmos-Reason2-2B backbone and a <Term id=\"flow-matching\">flow-matching</Term> action head; with the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands <Cite id=\"isaac-gr00t-repo-2026\" /> <Cite id=\"groot-wbc-2026\" />. SONIC (Science Robotics) scales tracking from 1.2M to 42M parameters on 700 hours of motion capture, with one token space serving VR teleoperation and VLAs <Cite id=\"sonic-2025\" />. Code is under Apache 2.0 and weights under the NVIDIA Open Model License, and every checkpoint loads the gated Cosmos-Reason2-2B backbone <Cite id=\"isaac-gr00t-repo-2026\" />.\n\n<Image id=\"unitree-robots-japan-mobility-show-2025\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 11174,
+        "sha256": "c821f2a7fd1d0d80efedd97ee679fdcd1331b83c8ce41f85cad5f1c0b03dfe7a"
+      },
+      "after": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 11304,
+        "sha256": "7e84805b270b605d2d9718825b5861c6a51c68cfec7569af86d11ecaca07fab3"
+      },
+      "mounts": [
+        "spot-boston-dynamics-2023",
+        "horse-in-motion-muybridge-1878",
+        "cassie-oregon-state-2017"
+      ],
+      "edits": [
+        {
+          "before": "<Term id=\"legged-locomotion\">Legged locomotion</Term> is the control of walking and running robots, and the area where sim-to-real reinforcement learning reached shipping products such as Spot <Cite id=\"bd-spot-rl-2024\" />. ETH Zurich's ANYmal line went from simulation-trained policies on hardware in 2019 <Cite id=\"hwangbo-2019\" /> to a 2.2 km alpine hike in 2022 <Cite id=\"miki-2022\" />.\n\n",
+          "after": "<Term id=\"legged-locomotion\">Legged locomotion</Term> is the control of walking and running robots, and the area where sim-to-real reinforcement learning reached shipping products such as Spot <Cite id=\"bd-spot-rl-2024\" />. ETH Zurich's ANYmal line went from simulation-trained policies on hardware in 2019 <Cite id=\"hwangbo-2019\" /> to a 2.2 km alpine hike in 2022 <Cite id=\"miki-2022\" />.\n\n<Image id=\"spot-boston-dynamics-2023\" />\n\n"
+        },
+        {
+          "before": "A gait is a footfall-timing pattern: each leg's phase offset in the stride and its duty factor $\\beta$, the fraction of the cycle on the ground. Walk These Ways commands a gait as three timing offsets between foot pairs plus a stepping frequency: (0.5, 0, 0) trots, (0, 0.5, 0) bounds and (0, 0, 0) pronks <Cite id=\"walk-these-ways-2022\" />.\n\n",
+          "after": "A gait is a footfall-timing pattern: each leg's phase offset in the stride and its duty factor $\\beta$, the fraction of the cycle on the ground. Walk These Ways commands a gait as three timing offsets between foot pairs plus a stepping frequency: (0.5, 0, 0) trots, (0, 0.5, 0) bounds and (0, 0, 0) pronks <Cite id=\"walk-these-ways-2022\" />.\n\n<Image id=\"horse-in-motion-muybridge-1878\" />\n\n"
+        },
+        {
+          "before": "A causal transformer over proprioceptive history gave humanoids a fully learned controller that deployed zero-shot <Cite id=\"radosavovic-2023\" />. Cassie's dual-history controller ran a 400-meter dash <Cite id=\"li-cassie-2024\" />, a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id=\"haarnoja-soccer-2023\" />, and Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s <Cite id=\"hiking-wild-2026\" />.\n",
+          "after": "A causal transformer over proprioceptive history gave humanoids a fully learned controller that deployed zero-shot <Cite id=\"radosavovic-2023\" />. Cassie's dual-history controller ran a 400-meter dash <Cite id=\"li-cassie-2024\" />, a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id=\"haarnoja-soccer-2023\" />, and Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s <Cite id=\"hiking-wild-2026\" />.\n\n<Image id=\"cassie-oregon-state-2017\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/rl-sim2real/offline-rl.mdx",
+        "bytes": 10698,
+        "sha256": "61ecad239228138f25b5e4c5a250b68a8d81123fc42424f8ad8cb50a16e21cf5"
+      },
+      "after": {
+        "path": "content/rl-sim2real/offline-rl.mdx",
+        "bytes": 10788,
+        "sha256": "b34063066228dc15860f6b1d5faf3e8148e8e660146abc5b181df6659e17f37c"
+      },
+      "mounts": [
+        "isaac-gym-trifinger-env-2021",
+        "simpler-visual-matching-2024"
+      ],
+      "edits": [
+        {
+          "before": "Offline reinforcement learning is training a robot policy from a fixed dataset of past experience, without new transitions. Levine and colleagues name its central difficulty: a learned value function can overrate actions the data never tested, and no live environment corrects it <Cite id=\"offline-rl-tutorial-2020\" />.\n\n",
+          "after": "Offline reinforcement learning is training a robot policy from a fixed dataset of past experience, without new transitions. Levine and colleagues name its central difficulty: a learned value function can overrate actions the data never tested, and no live environment corrects it <Cite id=\"offline-rl-tutorial-2020\" />.\n\n<Image id=\"isaac-gym-trifinger-env-2021\" />\n\n"
+        },
+        {
+          "before": "Simulation ranks close checkpoints only where its link to hardware is measured, as SIMPLER did with paired real evaluations <Cite id=\"simpler-2024\" />. SCORE limits simulated RL to the support of a real-data policy, raising eight real dexterous tasks from 37.8% to 89.9% average success, against 59.5% for the best baseline <Cite id=\"score-2026\" />.\n",
+          "after": "Simulation ranks close checkpoints only where its link to hardware is measured, as SIMPLER did with paired real evaluations <Cite id=\"simpler-2024\" />. SCORE limits simulated RL to the support of a real-data policy, raising eight real dexterous tasks from 37.8% to 89.9% average success, against 59.5% for the best baseline <Cite id=\"score-2026\" />.\n\n<Image id=\"simpler-visual-matching-2024\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 9977,
+        "sha256": "e27bb271f18f76a12e368c27bca2b687fce142bb784850ee20b65dd47bc56218"
+      },
+      "after": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 10077,
+        "sha256": "4309475a7e10f3ed0cbfede8a8b55a8983bbce35ffdf133e224dd13bea396e9b"
+      },
+      "mounts": [
+        "isaac-gym-shadow-hand-envs-2021",
+        "mujoco-playground-environments-2025"
+      ],
+      "edits": [
+        {
+          "before": "Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once, with the physics on a GPU. It produced Rudin and colleagues' four-minute [ANYmal walking run](/rl-sim2real/why-rl-locomotion) <Cite id=\"rudin-2021\" />, trained with the 2017 <Term id=\"ppo\">PPO</Term> algorithm <Cite id=\"ppo-2017\" />.\n\n",
+          "after": "Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once, with the physics on a GPU. It produced Rudin and colleagues' four-minute [ANYmal walking run](/rl-sim2real/why-rl-locomotion) <Cite id=\"rudin-2021\" />, trained with the 2017 <Term id=\"ppo\">PPO</Term> algorithm <Cite id=\"ppo-2017\" />.\n\n<Image id=\"isaac-gym-shadow-hand-envs-2021\" />\n\n"
+        },
+        {
+          "before": "MuJoCo, a physics engine for model-based control <Cite id=\"mujoco-2012\" />, has been open source under Google DeepMind since 2022 <Cite id=\"mujoco-overview-docs-2026\" />. Brax (Google, 2021) compiled physics and learning algorithms in JAX on one accelerator, training performant policies on MuJoCo-like tasks in minutes <Cite id=\"brax-2021\" />. MuJoCo XLA (MJX) moved MuJoCo onto the GPU, and MuJoCo Playground (2025) built on it an open framework for quadrupeds, humanoids, hands and arms, aimed at sim-to-real transfer <Cite id=\"mujoco-playground-2025\" />. MJX-Warp, built for NVIDIA GPUs, fixes contact and constraint bottlenecks but lacks automatic differentiation <Cite id=\"mjx-docs-2026\" />.\n",
+          "after": "MuJoCo, a physics engine for model-based control <Cite id=\"mujoco-2012\" />, has been open source under Google DeepMind since 2022 <Cite id=\"mujoco-overview-docs-2026\" />. Brax (Google, 2021) compiled physics and learning algorithms in JAX on one accelerator, training performant policies on MuJoCo-like tasks in minutes <Cite id=\"brax-2021\" />. MuJoCo XLA (MJX) moved MuJoCo onto the GPU, and MuJoCo Playground (2025) built on it an open framework for quadrupeds, humanoids, hands and arms, aimed at sim-to-real transfer <Cite id=\"mujoco-playground-2025\" />. MJX-Warp, built for NVIDIA GPUs, fixes contact and constraint bottlenecks but lacks automatic differentiation <Cite id=\"mjx-docs-2026\" />.\n\n<Image id=\"mujoco-playground-environments-2025\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/rl-sim2real/reward-design-mpc.mdx",
+        "bytes": 13817,
+        "sha256": "99d713cd7c97f53c1b9fd6ace3d288de3796354110035c7dbfb30ea38c745102"
+      },
+      "after": {
+        "path": "content/rl-sim2real/reward-design-mpc.mdx",
+        "bytes": 13919,
+        "sha256": "1dca36a9eae1c46dee33b6ee9efb6ac7d569888b6935ce5898258a10aef9e352"
+      },
+      "mounts": [
+        "mini-cheetah-spin-rapid-locomotion-2022",
+        "isaac-gym-anymal-terrain-2021"
+      ],
+      "edits": [
+        {
+          "before": "Reward design is writing the objective a reinforcement learning policy learns to maximize: in legged locomotion, a weighted sum of terms whose weights are tuned by hand <Cite id=\"rudin-2021\" />, and now also reward code written by language models <Cite id=\"eureka-2024\" />. Model-predictive control instead plans actions online with an explicit dynamics model <Cite id=\"mujoco-ilqr-2026\" />.\n\n",
+          "after": "Reward design is writing the objective a reinforcement learning policy learns to maximize: in legged locomotion, a weighted sum of terms whose weights are tuned by hand <Cite id=\"rudin-2021\" />, and now also reward code written by language models <Cite id=\"eureka-2024\" />. Model-predictive control instead plans actions online with an explicit dynamics model <Cite id=\"mujoco-ilqr-2026\" />.\n\n<Image id=\"mini-cheetah-spin-rapid-locomotion-2022\" />\n\n"
+        },
+        {
+          "before": "A terrain curriculum promotes robots that succeed on a tile to harder terrain and demotes those that fail <Cite id=\"rudin-2021\" />. Manipulation lacks such cheap evaluation, since its [MDP is not cheaply simulatable](/rl-sim2real/why-rl-locomotion). Automatic Domain Randomization widens the randomization distribution as success crosses a threshold, an idea from OpenAI's dexterous hand work that Isaac Lab ships as a configurable curriculum <Cite id=\"openai-rubiks-cube-2019\" /> <Cite id=\"isaac-lab-2025\" />, and a velocity-command curriculum is one of the two main components of Margolis and colleagues' Mini Cheetah controller <Cite id=\"margolis-rapid-2022\" />.\n",
+          "after": "A terrain curriculum promotes robots that succeed on a tile to harder terrain and demotes those that fail <Cite id=\"rudin-2021\" />. Manipulation lacks such cheap evaluation, since its [MDP is not cheaply simulatable](/rl-sim2real/why-rl-locomotion). Automatic Domain Randomization widens the randomization distribution as success crosses a threshold, an idea from OpenAI's dexterous hand work that Isaac Lab ships as a configurable curriculum <Cite id=\"openai-rubiks-cube-2019\" /> <Cite id=\"isaac-lab-2025\" />, and a velocity-command curriculum is one of the two main components of Margolis and colleagues' Mini Cheetah controller <Cite id=\"margolis-rapid-2022\" />.\n\n<Image id=\"isaac-gym-anymal-terrain-2021\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/rl-sim2real/rl-for-robotics.mdx",
+        "bytes": 12108,
+        "sha256": "785251da7ffa9959af66d623489ca2ec2648a8b42b78497a332e92e71d52e6ef"
+      },
+      "after": {
+        "path": "content/rl-sim2real/rl-for-robotics.mdx",
+        "bytes": 12201,
+        "sha256": "198f6cbb974adb9d743d052d0d59cbe0a6cb342e8ae94417a41d80d4f8609aa8"
+      },
+      "mounts": [
+        "daydreamer-a1-push-recovery-2022",
+        "isaac-gym-allegro-envs-2021"
+      ],
+      "edits": [
+        {
+          "before": "Reinforcement learning (RL) for robotics trains robot policies from their own experience of acting, formalized as a Markov decision process of states, actions, transitions and rewards <Cite id=\"sutton-barto-2018\" />. A simulated step is nearly free when thousands of GPU robots act at once <Cite id=\"rudin-2021\" />, while a real step costs machine time and a reset.\n\n",
+          "after": "Reinforcement learning (RL) for robotics trains robot policies from their own experience of acting, formalized as a Markov decision process of states, actions, transitions and rewards <Cite id=\"sutton-barto-2018\" />. A simulated step is nearly free when thousands of GPU robots act at once <Cite id=\"rudin-2021\" />, while a real step costs machine time and a reset.\n\n<Image id=\"daydreamer-a1-push-recovery-2022\" />\n\n"
+        },
+        {
+          "before": "With thousands of GPU environments, steps are nearly free and training stability is the scarce resource. SAC's authors credit on-policy training with stability at the price of \"poor sample complexity\", and call off-policy learning with neural function approximation \"a major challenge for stability and convergence\" <Cite id=\"sac-2018\" />.\n",
+          "after": "With thousands of GPU environments, steps are nearly free and training stability is the scarce resource. SAC's authors credit on-policy training with stability at the price of \"poor sample complexity\", and call off-policy learning with neural function approximation \"a major challenge for stability and convergence\" <Cite id=\"sac-2018\" />.\n\n<Image id=\"isaac-gym-allegro-envs-2021\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 14627,
+        "sha256": "3c7272e3a3795fb1716998049154bca19e484c8ab663981f6d9a9017f7a532b5"
+      },
+      "after": {
+        "path": "content/rl-sim2real/sim2real-transfer.mdx",
+        "bytes": 14729,
+        "sha256": "cbe27c4618cdc3a5ab0b00dc4a3e840746729c9e6287905f2af2dea6127d82f7"
+      },
+      "mounts": [
+        "isaac-gym-anymal-real-stairs-2021",
+        "mujoco-playground-franka-block-2025"
+      ],
+      "edits": [
+        {
+          "before": "Sim-to-real transfer is getting a policy trained in simulation to work on the physical robot, through four families of methods: <Term id=\"domain-randomization\">domain randomization</Term>, <Term id=\"teacher-student-distillation\">teacher-student distillation</Term>, <Term id=\"system-identification\">system identification</Term> and real-to-sim reconstruction. Aljalbout and colleagues' survey covers all four, splitting methods that reduce the gap from those that overcome it <Cite id=\"reality-gap-survey-2026\" />.\n\n",
+          "after": "Sim-to-real transfer is getting a policy trained in simulation to work on the physical robot, through four families of methods: <Term id=\"domain-randomization\">domain randomization</Term>, <Term id=\"teacher-student-distillation\">teacher-student distillation</Term>, <Term id=\"system-identification\">system identification</Term> and real-to-sim reconstruction. Aljalbout and colleagues' survey covers all four, splitting methods that reduce the gap from those that overcome it <Cite id=\"reality-gap-survey-2026\" />.\n\n<Image id=\"isaac-gym-anymal-real-stairs-2021\" />\n\n"
+        },
+        {
+          "before": "Peng and colleagues randomized link mass, joint damping, friction, controller gains, action timing and observation noise, maximizing expected return over [that dynamics distribution](/how-robots-work/#worlds). A recurrent policy trained only in simulation pushed a puck with a seven-DoF Fetch arm, with start and target positions randomized within a 30 cm square <Cite id=\"peng-2018\" />.\n",
+          "after": "Peng and colleagues randomized link mass, joint damping, friction, controller gains, action timing and observation noise, maximizing expected return over [that dynamics distribution](/how-robots-work/#worlds). A recurrent policy trained only in simulation pushed a puck with a seven-DoF Fetch arm, with start and target positions randomized within a 30 cm square <Cite id=\"peng-2018\" />.\n\n<Image id=\"mujoco-playground-franka-block-2025\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/rl-sim2real/why-rl-locomotion.mdx",
+        "bytes": 7813,
+        "sha256": "31d842b1f5b1175c5e1d1b4d7ecbe16a6265a2b4fed1eb0bdb91d2fbe24e013a"
+      },
+      "after": {
+        "path": "content/rl-sim2real/why-rl-locomotion.mdx",
+        "bytes": 7902,
+        "sha256": "751f42924e9933e040e7beaca56c414443930ea98f90bbb3b552f4fcd2664bce"
+      },
+      "mounts": [
+        "anymal-x-offshore-stairs-2022",
+        "shadow-hand-lightbulb-2007"
+      ],
+      "edits": [
+        {
+          "before": "Simulation-trained reinforcement learning (RL) made legged locomotion robust well before general manipulation, because walking is cheap to simulate and contact-rich manipulation is not. In 2021 an ANYmal quadruped learned to walk on flat ground in under four minutes, and on uneven terrain in twenty, on one workstation GPU <Cite id=\"rudin-2021\" />.\n\n",
+          "after": "Simulation-trained reinforcement learning (RL) made legged locomotion robust well before general manipulation, because walking is cheap to simulate and contact-rich manipulation is not. In 2021 an ANYmal quadruped learned to walk on flat ground in under four minutes, and on uneven terrain in twenty, on one workstation GPU <Cite id=\"rudin-2021\" />.\n\n<Image id=\"anymal-x-offshore-stairs-2022\" />\n\n"
+        },
+        {
+          "before": "A gait recovers from a wrong contact force on the next step; a jammed peg cannot. Acosta and colleagues call dynamic contact the computational bottleneck for most simulations, and three simulators they tested missed elastic impacts <Cite id=\"acosta-2021\" />. Rigid-body contact models have a task-specific accuracy ceiling <Cite id=\"fazeli-2017\" />, and Factory, which simulates 1000 nut-and-bolt interactions at once, still calls assembly contact a longstanding challenge <Cite id=\"factory-2022\" />.\n",
+          "after": "A gait recovers from a wrong contact force on the next step; a jammed peg cannot. Acosta and colleagues call dynamic contact the computational bottleneck for most simulations, and three simulators they tested missed elastic impacts <Cite id=\"acosta-2021\" />. Rigid-body contact models have a task-specific accuracy ceiling <Cite id=\"fazeli-2017\" />, and Factory, which simulates 1000 nut-and-bolt interactions at once, still calls assembly contact a longstanding challenge <Cite id=\"factory-2022\" />.\n\n<Image id=\"shadow-hand-lightbulb-2007\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/world-models/evaluation.mdx",
+        "bytes": 9523,
+        "sha256": "e05022c80e3c5d293e45fddb6ae696a9e8a234090fc06f2b82377eca4048fa2b"
+      },
+      "after": {
+        "path": "content/world-models/evaluation.mdx",
+        "bytes": 9650,
+        "sha256": "7e097f28165e752ab573e215f3048f29d2d11ca2600b4e63661fedeecb61a094"
+      },
+      "mounts": [
+        "simpler-real-vs-sim-2024",
+        "roboworld-bair-forcing-2026",
+        "roboarena-evaluation-2025"
+      ],
+      "edits": [
+        {
+          "before": "World-model evaluation is the testing of a robotics <Term id=\"world-model\">world model</Term> against the decisions a robot must make, from one-step action responses to agreement with real policy rankings. Image metrics cannot establish that: on Physics-IQ, physical understanding in video generators was \"unrelated to visual realism\" <Cite id=\"physics-iq-2025\" />.\n\n",
+          "after": "World-model evaluation is the testing of a robotics <Term id=\"world-model\">world model</Term> against the decisions a robot must make, from one-step action responses to agreement with real policy rankings. Image metrics cannot establish that: on Physics-IQ, physical understanding in video generators was \"unrelated to visual realism\" <Cite id=\"physics-iq-2025\" />.\n\n<Image id=\"simpler-real-vs-sim-2024\" />\n\n"
+        },
+        {
+          "before": "Roll out autoregressively, score task events such as grasp, slip and release, and report error per horizon. Fréchet Video Distance \"increases only slightly with large temporal corruption\" <Cite id=\"fvd-content-bias-2024\" />. WorldModelBench uses 67K human labels to catch violations such as objects changing size <Cite id=\"worldmodelbench-2025\" />, and video models trained on simple physics failed out of distribution, copying the closest training example <Cite id=\"video-physical-law-2024\" />.\n\n",
+          "after": "Roll out autoregressively, score task events such as grasp, slip and release, and report error per horizon. Fréchet Video Distance \"increases only slightly with large temporal corruption\" <Cite id=\"fvd-content-bias-2024\" />. WorldModelBench uses 67K human labels to catch violations such as objects changing size <Cite id=\"worldmodelbench-2025\" />, and video models trained on simple physics failed out of distribution, copying the closest training example <Cite id=\"video-physical-law-2024\" />.\n\n<Image id=\"roboworld-bair-forcing-2026\" />\n\n"
+        },
+        {
+          "before": "A policy evaluator must reproduce reality's ordering, measured as Pearson correlation and Mean Maximum Rank Violation (MMRV) <Cite id=\"runway-gwm-robotics-eval-2026\" />. Real comparisons often rest on 10 to 50 trials, and adding trials after peeking risks p-hacking; the STEP sequential test cuts trials by up to 32% <Cite id=\"optimal-stopping-2025\" />.\n",
+          "after": "A policy evaluator must reproduce reality's ordering, measured as Pearson correlation and Mean Maximum Rank Violation (MMRV) <Cite id=\"runway-gwm-robotics-eval-2026\" />. Real comparisons often rest on 10 to 50 trials, and adding trials after peeking risks p-hacking; the STEP sequential test cuts trials by up to 32% <Cite id=\"optimal-stopping-2025\" />.\n\n<Image id=\"roboarena-evaluation-2025\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/world-models/generative-sim.mdx",
+        "bytes": 12515,
+        "sha256": "64bc0843a0a20709612a441c9f6895cbc8fbdaaaa474a5f621ccc3a9596adb56"
+      },
+      "after": {
+        "path": "content/world-models/generative-sim.mdx",
+        "bytes": 12599,
+        "sha256": "6355e16b329d92721ba982e003154d028c1b1ffdddc6721b0d854f3f90fe3ea5"
+      },
+      "mounts": [
+        "robocasa-object-library-2024",
+        "robocasa-kitchens-2024"
+      ],
+      "edits": [
+        {
+          "before": "Generative simulation is the use of generative models to author a simulator's tasks, scenes, assets and rewards while a physics engine, itself an unlearned <Term id=\"world-model\">world model</Term>, keeps the dynamics <Cite id=\"robogen-2024\" />. A 2026 survey finds the field shifting \"from visual realism toward interaction readiness\" <Cite id=\"3d-gen-embodied-survey-2026\" />.\n\n",
+          "after": "Generative simulation is the use of generative models to author a simulator's tasks, scenes, assets and rewards while a physics engine, itself an unlearned <Term id=\"world-model\">world model</Term>, keeps the dynamics <Cite id=\"robogen-2024\" />. A 2026 survey finds the field shifting \"from visual realism toward interaction readiness\" <Cite id=\"3d-gen-embodied-survey-2026\" />.\n\n<Image id=\"robocasa-object-library-2024\" />\n\n"
+        },
+        {
+          "before": "RoboCasa's 120 kitchen scenes combine 10 floor plans with 12 styles from architectural references. It holds 2,509 objects and 153 categories, plus 100 tasks: 25 atomic tasks and 75 composite tasks; GPT-4 and Gemini 1.5 drafted the composite blueprints, with human filtering, editing and code. Objects come from Objaverse and Luma.ai text-to-3D, textures from MidJourney, and MimicGen adapts human demonstrations and keeps successful trajectories <Cite id=\"robocasa-2024\" />. MimicGen itself turned about 200 human demonstrations into over 50K across 18 tasks <Cite id=\"mimicgen-2023\" />.\n",
+          "after": "RoboCasa's 120 kitchen scenes combine 10 floor plans with 12 styles from architectural references. It holds 2,509 objects and 153 categories, plus 100 tasks: 25 atomic tasks and 75 composite tasks; GPT-4 and Gemini 1.5 drafted the composite blueprints, with human filtering, editing and code. Objects come from Objaverse and Luma.ai text-to-3D, textures from MidJourney, and MimicGen adapts human demonstrations and keeps successful trajectories <Cite id=\"robocasa-2024\" />. MimicGen itself turned about 200 human demonstrations into over 50K across 18 tasks <Cite id=\"mimicgen-2023\" />.\n\n<Image id=\"robocasa-kitchens-2024\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/world-models/generative-video.mdx",
+        "bytes": 13820,
+        "sha256": "afec6682b8def24499ee1ad58127f77dd62ba8c4bb395f673ea9edb32b39fa3a"
+      },
+      "after": {
+        "path": "content/world-models/generative-video.mdx",
+        "bytes": 13954,
+        "sha256": "dcf47edcbd75508f396caaf7b2a443e6dbdb7bb41b1cf8dad2941cad2ea134d6"
+      },
+      "mounts": [
+        "gr1-video-prediction-2023",
+        "gr2-multitask-settings-2024",
+        "roboworld-contact-failures-2026"
+      ],
+      "edits": [
+        {
+          "before": "Generative video [world models](/world-models/taxonomy/) are video predictors that generate future pixels from the current frame and an action or text prompt, standing in for the environment to supply training data, policy evaluation, RL post-training and interactive worlds. UniSim trained policies purely inside such a simulator and deployed them zero-shot in the real world <Cite id=\"unisim-2023\" />.\n\n",
+          "after": "Generative video [world models](/world-models/taxonomy/) are video predictors that generate future pixels from the current frame and an action or text prompt, standing in for the environment to supply training data, policy evaluation, RL post-training and interactive worlds. UniSim trained policies purely inside such a simulator and deployed them zero-shot in the real world <Cite id=\"unisim-2023\" />.\n\n<Image id=\"gr1-video-prediction-2023\" />\n\n"
+        },
+        {
+          "before": "GR-1 applied large-scale video generative pre-training to multi-task manipulation, predicting future images and actions end to end. On CALVIN it moved success from 88.9% to 94.9%, and in zero-shot unseen scenes from 53.3% to 85.4% <Cite id=\"gr-1-2023\" />. GR-2 pre-trained on 38 million internet clips and over 50 billion tokens, reporting 97.7% average success across more than 100 tasks <Cite id=\"gr-2-2024\" />. GR-3 then switched to a 4B-parameter VLA <Cite id=\"gr-3-2025\" />.\n\n",
+          "after": "GR-1 applied large-scale video generative pre-training to multi-task manipulation, predicting future images and actions end to end. On CALVIN it moved success from 88.9% to 94.9%, and in zero-shot unseen scenes from 53.3% to 85.4% <Cite id=\"gr-1-2023\" />. GR-2 pre-trained on 38 million internet clips and over 50 billion tokens, reporting 97.7% average success across more than 100 tasks <Cite id=\"gr-2-2024\" />. GR-3 then switched to a 4B-parameter VLA <Cite id=\"gr-3-2025\" />.\n\n<Image id=\"gr2-multitask-settings-2024\" />\n\n"
+        },
+        {
+          "before": "RoboWorld pairs an autoregressive video world model with a GPT-4o scorer that rates task progress from 0 to 5 from fixed external views. In its fourth revision, 4,186 generated 30-second rollouts gave eight policy-level scores matching the 26 February 2026 RoboArena leaderboard at Pearson r = 0.989 and Spearman rho = 0.970 (p < 0.001); the eight aggregates are the correlation points. The paper reports contact-induced object artifacts and VLM scores about one point above human scores over roughly 100 rollouts <Cite id=\"roboworld-2026\" />.\n",
+          "after": "RoboWorld pairs an autoregressive video world model with a GPT-4o scorer that rates task progress from 0 to 5 from fixed external views. In its fourth revision, 4,186 generated 30-second rollouts gave eight policy-level scores matching the 26 February 2026 RoboArena leaderboard at Pearson r = 0.989 and Spearman rho = 0.970 (p < 0.001); the eight aggregates are the correlation points. The paper reports contact-induced object artifacts and VLM scores about one point above human scores over roughly 100 rollouts <Cite id=\"roboworld-2026\" />.\n\n<Image id=\"roboworld-contact-failures-2026\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/world-models/jepa.mdx",
+        "bytes": 11978,
+        "sha256": "b2515a8b9a6c3dc11c758b54191df1dcc68842f25b06705be86b575cae571461"
+      },
+      "after": {
+        "path": "content/world-models/jepa.mdx",
+        "bytes": 12060,
+        "sha256": "6a4e35424dc85f07227a770bf08863f945de7405c361e8fc84be9e968125272a"
+      },
+      "mounts": [
+        "vjepa2-pick-place-goals-2025",
+        "vjepa2-overview-2025"
+      ],
+      "edits": [
+        {
+          "before": "The Joint-Embedding Predictive Architecture (JEPA) is a [world-model design](/world-models/taxonomy/) that predicts the representation of the future instead of its pixels: an encoder and predictor learn to match the embedding a target encoder gives the true future <Cite id=\"vjepa2-2025\" />. It is the main non-generative alternative to generative <Term id=\"world-model\">world models</Term>.\n\n",
+          "after": "The Joint-Embedding Predictive Architecture (JEPA) is a [world-model design](/world-models/taxonomy/) that predicts the representation of the future instead of its pixels: an encoder and predictor learn to match the embedding a target encoder gives the true future <Cite id=\"vjepa2-2025\" />. It is the main non-generative alternative to generative <Term id=\"world-model\">world models</Term>.\n\n<Image id=\"vjepa2-pick-place-goals-2025\" />\n\n"
+        },
+        {
+          "before": "V-JEPA 2-AC then freezes the encoder and trains a roughly 300M-parameter action-conditioned predictor on less than 62 hours of Droid robot video. \"Unlabeled\" means no reward, task or success labels; actions are changes in end-effector position, orientation and gripper state. It ran zero-shot on Franka Emika Panda arms in two labs absent from Droid, though Droid itself is Franka teleoperation and the authors hand-picked camera positions. Its four tabletop tasks used image goals, with two subgoal images for pick-and-place, at ten trials per setting <span className=\"block\" data-jepa-source-placement=\"line-start\"><Cite id=\"vjepa2-2025\" />.</span>\n",
+          "after": "V-JEPA 2-AC then freezes the encoder and trains a roughly 300M-parameter action-conditioned predictor on less than 62 hours of Droid robot video. \"Unlabeled\" means no reward, task or success labels; actions are changes in end-effector position, orientation and gripper state. It ran zero-shot on Franka Emika Panda arms in two labs absent from Droid, though Droid itself is Franka teleoperation and the authors hand-picked camera positions. Its four tabletop tasks used image goals, with two subgoal images for pick-and-place, at ten trials per setting <span className=\"block\" data-jepa-source-placement=\"line-start\"><Cite id=\"vjepa2-2025\" />.</span>\n\n<Image id=\"vjepa2-overview-2025\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/world-models/latent-dynamics.mdx",
+        "bytes": 10712,
+        "sha256": "412cfecebc504968491850759dd3bce417d9b2067721bd2e63ae3eb9e3082f8d"
+      },
+      "after": {
+        "path": "content/world-models/latent-dynamics.mdx",
+        "bytes": 10797,
+        "sha256": "89dea20591cce8527f71c692ca2285389bf9c2274322ef28523823b42dbaf61e"
+      },
+      "mounts": [
+        "tdmpc2-task-grid-2023",
+        "daydreamer-ur5-pick-place-2022"
+      ],
+      "edits": [
+        {
+          "before": "<Term id=\"latent-dynamics\">Latent dynamics</Term> is the world-model paradigm that learns a compact recurrent state, predicts how it and the reward evolve under actions, and trains or plans inside that imagination <Cite id=\"dreamer-2019\" />. It is the oldest of the six paradigms in the [taxonomy](/world-models/taxonomy/): Embed to Control learned locally linear latent dynamics from raw images in 2015 <Cite id=\"e2c-2015\" />.\n\n",
+          "after": "<Term id=\"latent-dynamics\">Latent dynamics</Term> is the world-model paradigm that learns a compact recurrent state, predicts how it and the reward evolve under actions, and trains or plans inside that imagination <Cite id=\"dreamer-2019\" />. It is the oldest of the six paradigms in the [taxonomy](/world-models/taxonomy/): Embed to Control learned locally linear latent dynamics from raw images in 2015 <Cite id=\"e2c-2015\" />.\n\n<Image id=\"tdmpc2-task-grid-2023\" />\n\n"
+        },
+        {
+          "before": "DayDreamer builds on DreamerV2 and learns online without a simulator on four robots with shared hyperparameters. After about one hour of real training, a Unitree A1 learned to roll off its back, stand and walk, with manual repositioning at the area boundary that left its joints and orientation unchanged. SAC learned to roll over but neither stood nor walked within that budget <Cite id=\"daydreamer-2022\" />.\n",
+          "after": "DayDreamer builds on DreamerV2 and learns online without a simulator on four robots with shared hyperparameters. After about one hour of real training, a Unitree A1 learned to roll off its back, stand and walk, with manual repositioning at the area boundary that left its joints and orientation unchanged. SAC learned to roll over but neither stood nor walked within that budget <Cite id=\"daydreamer-2022\" />.\n\n<Image id=\"daydreamer-ur5-pick-place-2022\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/world-models/model-based-robot-learning.mdx",
+        "bytes": 8862,
+        "sha256": "304717c7928004c427479c2f6886028323a16f1a0c5e34b58d557442b76f04d3"
+      },
+      "after": {
+        "path": "content/world-models/model-based-robot-learning.mdx",
+        "bytes": 8954,
+        "sha256": "5da85a65adb26741b0560410aea79520f7e8ed3d504eb69eb6e9bdce9b7a57e5"
+      },
+      "mounts": [
+        "daydreamer-a1-rollover-2022",
+        "roboworld-synthetic-scenes-2026"
+      ],
+      "edits": [
+        {
+          "before": "Model-based robot learning is the family of methods that learn how the world responds to actions and use that model to plan, to train a policy in imagination, or both. Its two steps are learning a dynamics model and integrating planning with learning <Cite id=\"mbrl-survey-2020\" />.\n\n",
+          "after": "Model-based robot learning is the family of methods that learn how the world responds to actions and use that model to plan, to train a policy in imagination, or both. Its two steps are learning a dynamics model and integrating planning with learning <Cite id=\"mbrl-survey-2020\" />.\n\n<Image id=\"daydreamer-a1-rollover-2022\" />\n\n"
+        },
+        {
+          "before": "Robotic World Model trains a neural-network simulator for policy optimization <Cite id=\"robotic-world-model-2025\" />, and RWM-U adds epistemic uncertainty to train real quadruped and humanoid policies entirely offline <Cite id=\"rwm-u-2025\" />. RISE improves a VLA inside a [video world model](/world-models/generative-video/) scored by a progress-value model, gaining 35 to 45 points on three real tasks <Cite id=\"rise-2026\" />.\n",
+          "after": "Robotic World Model trains a neural-network simulator for policy optimization <Cite id=\"robotic-world-model-2025\" />, and RWM-U adds epistemic uncertainty to train real quadruped and humanoid policies entirely offline <Cite id=\"rwm-u-2025\" />. RISE improves a VLA inside a [video world model](/world-models/generative-video/) scored by a progress-value model, gaining 35 to 45 points on three real tasks <Cite id=\"rise-2026\" />.\n\n<Image id=\"roboworld-synthetic-scenes-2026\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/world-models/taxonomy.mdx",
+        "bytes": 12440,
+        "sha256": "b9760b615210d4881461da9780ae05ef15b21f49c1d89b26ad212f19322f93cd"
+      },
+      "after": {
+        "path": "content/world-models/taxonomy.mdx",
+        "bytes": 12579,
+        "sha256": "937ab8c9c797b8a0f7b24f6b4ca8f08b777cfb3f21f8f366900873526d5d3d1e"
+      },
+      "mounts": [
+        "dreamerv3-open-loop-quadruped-2023",
+        "cosmos-policy-aloha-2026",
+        "gaussian-splatting-garden-2023"
+      ],
+      "edits": [
+        {
+          "before": "A <Term id=\"world-model\">world model</Term> is a model that predicts how an environment evolves in a form useful for a robot's decisions. Hou and colleagues' 2026 survey applies this functional definition to visual, <Term id=\"latent-dynamics\">latent</Term>, structured and symbolic predictions. <span className=\"block\" data-taxonomy-source-placement=\"line-start\"><Cite id=\"world-model-survey-2026\" /></span>\n\n",
+          "after": "A <Term id=\"world-model\">world model</Term> is a model that predicts how an environment evolves in a form useful for a robot's decisions. Hou and colleagues' 2026 survey applies this functional definition to visual, <Term id=\"latent-dynamics\">latent</Term>, structured and symbolic predictions. <span className=\"block\" data-taxonomy-source-placement=\"line-start\"><Cite id=\"world-model-survey-2026\" /></span>\n\n<Image id=\"dreamerv3-open-loop-quadruped-2023\" />\n\n"
+        },
+        {
+          "before": "A world-action model (WAM) uses a pretrained video backbone to predict both future states and robot actions <Cite id=\"nvidia-wam-blog-2026\" />; unlike a [VLA](/manipulation/vla-models/), it learns physical dynamics <Cite id=\"dreamzero-2026\" />. WorldVLA interleaves action and image tokens and reports that the objectives improve each other <Cite id=\"worldvla-2025\" />, and Cosmos Policy post-trains Cosmos-Predict2 into a policy with no architectural modifications <Cite id=\"cosmos-policy-2026\" />. NVIDIA reports that DreamZero runs a 14B video-diffusion model as a 7 Hz closed-loop policy with over twice the generalization of state-of-the-art VLAs on real robots <Cite id=\"dreamzero-2026\" />. Fast-WAM stays competitive while skipping test-time future generation, and removing video co-training hurts far more <Cite id=\"fast-wam-2026\" />.\n\n",
+          "after": "A world-action model (WAM) uses a pretrained video backbone to predict both future states and robot actions <Cite id=\"nvidia-wam-blog-2026\" />; unlike a [VLA](/manipulation/vla-models/), it learns physical dynamics <Cite id=\"dreamzero-2026\" />. WorldVLA interleaves action and image tokens and reports that the objectives improve each other <Cite id=\"worldvla-2025\" />, and Cosmos Policy post-trains Cosmos-Predict2 into a policy with no architectural modifications <Cite id=\"cosmos-policy-2026\" />. NVIDIA reports that DreamZero runs a 14B video-diffusion model as a 7 Hz closed-loop policy with over twice the generalization of state-of-the-art VLAs on real robots <Cite id=\"dreamzero-2026\" />. Fast-WAM stays competitive while skipping test-time future generation, and removing video co-training hurts far more <Cite id=\"fast-wam-2026\" />.\n\n<Image id=\"cosmos-policy-aloha-2026\" />\n\n"
+        },
+        {
+          "before": "A 3DGS reconstruction is a learned renderer that predicts a scene from a new camera pose <Cite id=\"3dgs-2023\" />; its dynamics come from the physics engine underneath, so alone it fails the functional cut. PhysGaussian adds dynamics by evolving the Gaussians with a Material Point Method solver <Cite id=\"physgaussian-2023\" />, and World Labs' Marble exports splats with collider meshes \"intended for coarse physics simulation\" <Cite id=\"marble-2025\" />. See [generative simulation](/world-models/generative-sim/).\n",
+          "after": "A 3DGS reconstruction is a learned renderer that predicts a scene from a new camera pose <Cite id=\"3dgs-2023\" />; its dynamics come from the physics engine underneath, so alone it fails the functional cut. PhysGaussian adds dynamics by evolving the Gaussians with a Material Point Method solver <Cite id=\"physgaussian-2023\" />, and World Labs' Marble exports splats with collider meshes \"intended for coarse physics simulation\" <Cite id=\"marble-2025\" />. See [generative simulation](/world-models/generative-sim/).\n\n<Image id=\"gaussian-splatting-garden-2023\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "before": {
+        "path": "content/world-models/world-models-vs-simulators.mdx",
+        "bytes": 11326,
+        "sha256": "15665e7f2fccf679f5e58b00c6823a5eb42e70b57a0892149739276a968ac216"
+      },
+      "after": {
+        "path": "content/world-models/world-models-vs-simulators.mdx",
+        "bytes": 11462,
+        "sha256": "203db84ca9cf49e7c66583aff74cb5b47ba285eb5884d099ed89a2a09ec69ddf"
+      },
+      "mounts": [
+        "isaac-lab-assembly-sim-2025",
+        "gaussian-splatting-garden-2023",
+        "isaac-lab-assembly-real-2025"
+      ],
+      "edits": [
+        {
+          "before": "Learned <Term id=\"world-model\">world models</Term> and physics simulators both predict what an action does: MuJoCo computes it from explicit geometry, dynamics and contact rules <Cite id=\"mujoco-2012\" />, while a learned model predicts it from data. Physics suits mechanics that can be specified and actions no dataset covers, learning suits appearance and contact that are costly to model, and many systems combine the two.\n\n",
+          "after": "Learned <Term id=\"world-model\">world models</Term> and physics simulators both predict what an action does: MuJoCo computes it from explicit geometry, dynamics and contact rules <Cite id=\"mujoco-2012\" />, while a learned model predicts it from data. Physics suits mechanics that can be specified and actions no dataset covers, learning suits appearance and contact that are costly to model, and many systems combine the two.\n\n<Image id=\"isaac-lab-assembly-sim-2025\" />\n\n"
+        },
+        {
+          "before": "3D Gaussian Splatting renders rasterizable primitives in tens of milliseconds or less per frame, with no weights or tokens, and stores the scene as an asset of 1 to 5 million Gaussians <Cite id=\"3dgs-2023\" />. A splat shows what a view looks like; physics must say what an action does.\n\n",
+          "after": "3D Gaussian Splatting renders rasterizable primitives in tens of milliseconds or less per frame, with no weights or tokens, and stores the scene as an asset of 1 to 5 million Gaussians <Cite id=\"3dgs-2023\" />. A splat shows what a view looks like; physics must say what an action does.\n\n<Image id=\"gaussian-splatting-garden-2023\" />\n\n"
+        },
+        {
+          "before": "Both simulator types can be wrong in correlated ways: a policy may exploit contact softness in physics or visual shortcuts in a world model. SIMPLER builds matched environments and correlates simulated with real policy performance <Cite id=\"simpler-2024\" />. Apply that test to both types with several policy families and held-out environments, scored on the same real outcome ([world-model evaluation](/world-models/evaluation/)).\n",
+          "after": "Both simulator types can be wrong in correlated ways: a policy may exploit contact softness in physics or visual shortcuts in a world model. SIMPLER builds matched environments and correlates simulated with real policy performance <Cite id=\"simpler-2024\" />. Apply that test to both types with several policy families and held-out environments, scored on the same real outcome ([world-model evaluation](/world-models/evaluation/)).\n\n<Image id=\"isaac-lab-assembly-real-2025\" />\n"
+        }
+      ]
+    }
+  ]
+}

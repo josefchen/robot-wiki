@@ -185,6 +185,11 @@ export function Figure({
   }
   const mark = figureKind === 'official-mark';
   const photo = figureKind === 'photograph';
+  const paper = figureKind === 'paper-figure';
+  // A multi-panel paper figure at least twice as wide as it is tall takes the
+  // full measure, so its panels and labels stay legible; any other paper
+  // figure takes the photograph width.
+  const wide = paper && !!width && !!height && width >= 2 * height;
   const image = (
     <img
       src={src}
@@ -199,6 +204,7 @@ export function Figure({
         // box holding an element is a surface the registry would govern.
         photo && 'h-full w-full rounded-md border border-border object-cover',
         photo && cropFocus === 'top' && 'object-top',
+        paper && 'h-auto w-full border border-border bg-white',
       )}
     />
   );
@@ -212,11 +218,16 @@ export function Figure({
         'my-6',
         // Every photograph takes one width at a given viewport, whatever
         // column it sits in, so photos never read as page heroes.
-        photo && 'w-full max-w-[20rem] sm:max-w-[32rem]',
+        (photo || (paper && !wide)) && 'w-full max-w-[20rem] sm:max-w-[32rem]',
+        wide && 'w-full',
         className,
       )}
     >
-      {mark ? (
+      {paper ? (
+        <span data-paper-figure-frame="" className="block w-full">
+          {image}
+        </span>
+      ) : mark ? (
         <span
           data-logo-tile=""
           data-brand-surface-id="surface:flat"

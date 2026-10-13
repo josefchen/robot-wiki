@@ -52,6 +52,8 @@ import { SimVsModelTable, WorldModelCostTable } from '@/components/mdx/text-tabl
 
 Learned <Term id="world-model">world models</Term> and physics simulators both predict what an action does: MuJoCo computes it from explicit geometry, dynamics and contact rules <Cite id="mujoco-2012" />, while a learned model predicts it from data. Physics suits mechanics that can be specified and actions no dataset covers, learning suits appearance and contact that are costly to model, and many systems combine the two.
 
+<Image id="isaac-lab-assembly-sim-2025" />
+
 Hwangbo and colleagues kept ANYmal's rigid-body physics and learned an "actuator net" for its 12 joints. The hybrid simulator ran about a thousand times faster than real time <Cite id="hwangbo-2019" />.
 
 <SelfCheck
@@ -108,6 +110,8 @@ DeepMind reports that Genie 3 runs at 24 fps and 720p <Cite id="genie-3-2025" />
 
 3D Gaussian Splatting renders rasterizable primitives in tens of milliseconds or less per frame, with no weights or tokens, and stores the scene as an asset of 1 to 5 million Gaussians <Cite id="3dgs-2023" />. A splat shows what a view looks like; physics must say what an action does.
 
+<Image id="gaussian-splatting-garden-2023" />
+
 <span id="where-physics-remains-difficult-to-replace" />
 ## Physics stays ahead for untried actions and checkable safety limits
 
@@ -140,6 +144,8 @@ SimDist trains a world model on simulated experience, then on real data updates 
 ## Evaluation must use the same real anchor
 
 Both simulator types can be wrong in correlated ways: a policy may exploit contact softness in physics or visual shortcuts in a world model. SIMPLER builds matched environments and correlates simulated with real policy performance <Cite id="simpler-2024" />. Apply that test to both types with several policy families and held-out environments, scored on the same real outcome ([world-model evaluation](/world-models/evaluation/)).
+
+<Image id="isaac-lab-assembly-real-2025" />
 
 <span id="a-selection-rule" />
 ## Choose by what can be specified and what the data cover

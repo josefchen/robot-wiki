@@ -5,7 +5,8 @@ import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import { preSeoPassHash } from '../helpers/seo-pass';
 import {
   classicalPassEndpoint, domainPassEndpoint, humanize20261012Endpoint, isClassicalPassEdge, isDomainPassEdge,
-  isHumanize20261012Edge, isKolQueue20261012Edge, isLandedPassEdge, kolQueue20261012Endpoint, landedPassEndpoint,
+  imagesA20261013Endpoint, isHumanize20261012Edge, isImagesA20261013Edge, isKolQueue20261012Edge, isLandedPassEdge,
+  kolQueue20261012Endpoint, landedPassEndpoint,
 } from '../helpers/domain-pass';
 import matter from 'gray-matter';
 import { beforeAll, describe, expect, it } from 'vitest';
@@ -226,14 +227,15 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
       }
       // The 2026-10-02 SEO pass, the 2026-10-06 domain pass, the later
       // classical pass, the 2026-10-12 KOL triage batch, the domain-pass
-      // blocks landed on 2026-10-10 and the 2026-10-12 classical humanize
-      // pass are checked last, in that order, from the endpoint the earlier
-      // ledger reached. (The frontier block landed after the KOL batch; the
-      // world-models block touches none of these members.)
+      // blocks landed on 2026-10-10, the 2026-10-12 classical humanize pass
+      // and images bundle A of 2026-10-13 are checked last, in that order,
+      // from the endpoint the earlier ledger reached. (The frontier block
+      // landed after the KOL batch; the world-models block touches none of
+      // these members.)
       const isSeoPass = (entry: ApprovedDelta) => entry.id.startsWith('seo-pass-20261002-');
       const preSeoPass = entries.filter((entry) => !isSeoPass(entry) && !isDomainPassEdge(entry)
         && !isClassicalPassEdge(entry) && !isKolQueue20261012Edge(entry) && !isLandedPassEdge(entry)
-        && !isHumanize20261012Edge(entry));
+        && !isHumanize20261012Edge(entry) && !isImagesA20261013Edge(entry));
       for (const later of preSeoPass.slice(preSeoPass.indexOf(delta) + 1).filter((entry) =>
         entry.manifest === delta.manifest && entry.memberId === delta.memberId &&
         !entry.id.startsWith('continuation-merge-') && entry.id !== 'reader-source-flow-20260923-1')) {
@@ -254,9 +256,10 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
         (entry.oldHash === seoEndpoint || (entry.reconciles ?? []).some((binding) => binding.newHash === seoEndpoint)));
       const domainEndpoint = (domainPass ? domainPassEndpoint(entries, domainPass).newHash : undefined) ?? seoEndpoint;
       const classicalEndpoint = classicalPassEndpoint(entries, delta.manifest, delta.memberId, domainEndpoint);
-      expect(humanize20261012Endpoint(entries, delta.manifest, delta.memberId,
-        landedPassEndpoint(entries, delta.manifest, delta.memberId,
-          kolQueue20261012Endpoint(entries, delta.manifest, delta.memberId, classicalEndpoint))))
+      expect(imagesA20261013Endpoint(entries, delta.manifest, delta.memberId,
+        humanize20261012Endpoint(entries, delta.manifest, delta.memberId,
+          landedPassEndpoint(entries, delta.manifest, delta.memberId,
+            kolQueue20261012Endpoint(entries, delta.manifest, delta.memberId, classicalEndpoint)))))
         .toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
     });
   });

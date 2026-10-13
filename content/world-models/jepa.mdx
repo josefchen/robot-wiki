@@ -53,6 +53,8 @@ import { JepaPlanning } from '@/components/interactive/jepa-planning';
 
 The Joint-Embedding Predictive Architecture (JEPA) is a [world-model design](/world-models/taxonomy/) that predicts the representation of the future instead of its pixels: an encoder and predictor learn to match the embedding a target encoder gives the true future <Cite id="vjepa2-2025" />. It is the main non-generative alternative to generative <Term id="world-model">world models</Term>.
 
+<Image id="vjepa2-pick-place-goals-2025" />
+
 Drag "Options tried each step" in the figure and the fan of tried moves follows it. "Plan next move" takes one more step. Planning in a frozen feature space works without reconstruction: DINO-WM solved six environments zero-shot without demonstrations, reward models or inverse models <Cite id="dino-wm-2024" />.
 
 <JepaPlanning className="my-6" />
@@ -77,6 +79,8 @@ I-JEPA introduced the architecture as "a non-generative approach" that predicts 
 V-JEPA 2 first learns action-free representations by masked prediction on over 1 million hours of internet video plus images, with a 1B-parameter ViT-g encoder and a 22M pretraining predictor. A frozen ViT-g384 with a four-layer attentive probe reaches 77.3% top-1 accuracy on Something-Something-v2, using 64 frames, two temporal and three spatial crops and the best of 20 heads <span className="block" data-jepa-source-placement="line-start"><Cite id="vjepa2-2025" />.</span>
 
 V-JEPA 2-AC then freezes the encoder and trains a roughly 300M-parameter action-conditioned predictor on less than 62 hours of Droid robot video. "Unlabeled" means no reward, task or success labels; actions are changes in end-effector position, orientation and gripper state. It ran zero-shot on Franka Emika Panda arms in two labs absent from Droid, though Droid itself is Franka teleoperation and the authors hand-picked camera positions. Its four tabletop tasks used image goals, with two subgoal images for pick-and-place, at ten trials per setting <span className="block" data-jepa-source-placement="line-start"><Cite id="vjepa2-2025" />.</span>
+
+<Image id="vjepa2-overview-2025" />
 
 ## Latent planning works on tabletop picks, and successors improve it
 

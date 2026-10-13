@@ -50,6 +50,8 @@ import { LatentImagination } from '@/components/interactive/latent-imagination';
 
 <Term id="latent-dynamics">Latent dynamics</Term> is the world-model paradigm that learns a compact recurrent state, predicts how it and the reward evolve under actions, and trains or plans inside that imagination <Cite id="dreamer-2019" />. It is the oldest of the six paradigms in the [taxonomy](/world-models/taxonomy/): Embed to Control learned locally linear latent dynamics from raw images in 2015 <Cite id="e2c-2015" />.
 
+<Image id="tdmpc2-task-grid-2023" />
+
 Drag "How far ahead to imagine" in the figure and the imagined throw peels away from the real one. In measured models, compounding error is shaped most by the system's own dynamics <Cite id="compounding-error-2022" />.
 
 <LatentImagination className="my-6" />
@@ -85,6 +87,8 @@ The multitask experiment trained one 317M-parameter agent on 545M transitions fr
 ## DayDreamer taught a real quadruped to walk in about an hour
 
 DayDreamer builds on DreamerV2 and learns online without a simulator on four robots with shared hyperparameters. After about one hour of real training, a Unitree A1 learned to roll off its back, stand and walk, with manual repositioning at the area boundary that left its joints and orientation unchanged. SAC learned to roll over but neither stood nor walked within that budget <Cite id="daydreamer-2022" />.
+
+<Image id="daydreamer-ur5-pick-place-2022" />
 
 <span id="the-horizon-problem" />
 ## Latent models imagine only 3 to 16 steps ahead

@@ -155,13 +155,16 @@ function main(paths: string[], pinFile?: string): void {
 /** Reads every recorded successor back through the written layer and the older article layers under it. */
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-length-cut-world-models-continuity.ts');
+  const { imageMountPredecessor } = await import('../lib/audit-image-mount-continuity.ts');
   const { wordBudgetTrimPredecessor } = await import('../lib/audit-word-budget-trim-continuity.ts');
   const { figureMountPredecessor } = await import('../lib/audit-figure-mount-continuity.ts');
   const { domainPassPredecessor } = await import('../lib/audit-domain-pass-continuity.ts');
   let ok = true;
   for (const source of layer.loadWorldModelsLengthCutReview(root).sources) {
     try {
-      const prior = layer.worldModelsLengthCutPredecessor(root, source.before, readFileSync(join(root, source.after.path)));
+      // The newer image-mount layer (2026-10-13) hands back the length-cut successor first.
+      const prior = layer.worldModelsLengthCutPredecessor(root, source.before,
+        imageMountPredecessor(root, source.before, readFileSync(join(root, source.after.path))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
       // The rebuilt bytes are the older layers' successors, which those layers still decide.
       const ref = { path: source.after.path, bytes: 0, sha256: '' };

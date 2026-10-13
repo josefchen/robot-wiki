@@ -10,9 +10,11 @@ import {
   LENGTH_CUT_CONTINUITY_DIR, MIN_BODY_SOURCES, keepsLengthCutObligations, lengthCutPredecessor,
   lengthCutSuccessorPaths, loadLengthCutReview, verifyLengthCutSource, type LengthCutDrops,
 } from '../../lib/audit-length-cut-continuity';
+import { preImageMounts } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-const read = (path: string) => readFileSync(join(root, path));
+// The newer image-mount layer of 2026-10-13 hands back the cut's successor first.
+const read = (path: string) => preImageMounts(path);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /length cut continuity drift/;
 const blank = { bytes: 0, sha256: '' };

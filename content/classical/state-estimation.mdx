@@ -56,6 +56,8 @@ import { Clip } from '@/components/motion/clip';
 
 State estimation computes a robot's state, such as its [configuration](/classical/kinematics) or velocity over ground, from noisy, biased and intermittent sensor readings, and [planning](/classical/motion-planning) and [control](/classical/control) assume that state is known. Probabilistic estimators report a belief, so each estimate carries its uncertainty <Cite id="thrun-2005" />.
 
+<Image id="apollo-imu-draper-2019" />
+
 <KalmanPredictUpdate className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -108,6 +110,8 @@ $$
 The gain is prior uncertainty over prior-plus-sensor uncertainty: a filter that trusts its model gets a small gain and mostly ignores the sensor, and one that trusts its sensor gets a gain near one. Under linear-Gaussian assumptions the recursion is the minimum-variance estimator, and Kalman's projection-based derivation makes it the best linear estimator with white noise even without Gaussian noise <Cite id="kalman-1960-filter" />.
 
 McGee and Schmidt's 1985 NASA history credits Schmidt's Ames group with adapting the filter to nonlinear circumlunar navigation in the early 1960s. By early 1961 simulations supported the approach, though operation on available flight computers was unverified. The report separates this work from Battin's Apollo studies at MIT and Potter's square-root implementation used in Apollo. Primary Apollo navigation used ground radar, with an onboard backup <Cite id="mcgee-schmidt-1985" />.
+
+<Image id="apollo-guidance-computer-dsky" />
 
 <Clip id="kalman-episode" className="my-6" />
 

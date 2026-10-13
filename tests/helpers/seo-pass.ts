@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { domainPassCheckerPredecessor, domainPassPredecessor } from '../../lib/audit-domain-pass-continuity.ts';
 import { figureMountPredecessor } from '../../lib/audit-figure-mount-continuity.ts';
+import { imageMountPredecessor } from '../../lib/audit-image-mount-continuity.ts';
 import { kolBacklogPredecessor } from '../../lib/audit-kol-backlog-continuity.ts';
 import { frontierLengthCutPredecessor } from '../../lib/audit-length-cut-frontier-continuity.ts';
 import { worldModelsLengthCutPredecessor } from '../../lib/audit-length-cut-world-models-continuity.ts';
@@ -101,10 +102,21 @@ export function preReskin(path: string): Buffer {
 /**
  * The bytes the frontier length-cut layer of 2026-10-13 hands every check
  * older than the cut: the rebuilt pre-cut article while the live article is
- * the reviewed successor, otherwise the live bytes.
+ * the reviewed successor, otherwise the bytes the newer image-mount layer
+ * hands on.
  */
 export function preFrontierLengthCut(path: string): Buffer {
-  return frontierLengthCutPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return frontierLengthCutPredecessor(root, { path, bytes: 0, sha256: '' }, preImageMounts(path));
+}
+
+/**
+ * The bytes the image-mount layer of 2026-10-13 (images bundle A), which
+ * landed after the frontier length cut, hands every check older than the
+ * mounts: the rebuilt pre-mount article while the live article is the
+ * reviewed successor, otherwise the live bytes.
+ */
+export function preImageMounts(path: string): Buffer {
+  return imageMountPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
 }
 
 /**

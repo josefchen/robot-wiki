@@ -53,6 +53,8 @@ import { CompoundingError } from '@/components/interactive/compounding-error';
 
 <Term id="behavior-cloning">Behavior cloning</Term> is imitation learning cast as supervised learning: a policy $\pi(a \mid s)$ is regressed onto [expert actions](/how-robots-work/#puppeteer) given expert observations. In closed loop the robot's own actions choose its future inputs, breaking the i.i.d. assumption, so <Term id="compounding-error">errors compound</Term> <Cite id="ross-bagnell-2010" />.
 
+<Image id="droid-robot-platform-2024" />
+
 ## Watch the error compound
 
 Try “A teacher corrects it” to watch DAgger-style relabeling <Cite id="dagger-2011" /> cut the summed deviation.
@@ -87,6 +89,8 @@ Try “A teacher corrects it” to watch DAgger-style relabeling <Cite id="dagge
 ## Origins in driving
 
 ALVINN (1988), a three-layer back-propagation network with camera and laser-range inputs, trained on simulated road images and was tested on NAVLAB, a modified Chevy van <Cite id="alvinn-1988" />. Later driving systems added off-centre, rotated training views <Cite id="bojarski-e2e-driving-2016" />, or synthesized perturbations once 30 million examples proved too few <Cite id="chauffeurnet-2018" />.
+
+<Image id="navlab-1-5-cmu-2017" />
 
 ## Covariate shift, stated precisely
 

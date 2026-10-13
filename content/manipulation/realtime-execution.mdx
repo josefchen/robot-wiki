@@ -52,6 +52,8 @@ import { ExecutionModes } from '@/components/interactive/execution-modes';
 
 Real-time execution means delivering a policy's actions on the controller's clock while the next inference runs. At 50 Hz the control period is 20 ms, shared by cameras, network, preprocessing and model, and the hand-off between action chunks changes what the robot does <Cite id="real-time-chunking-2025" />.
 
+<Image id="rtc-candle-lighting-2025" />
+
 Slide the model-size control and the missed-deadline count follows the new inference time.
 
 <ControlLoopBudget className="my-6" />
@@ -72,6 +74,8 @@ The <Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) paper measures
 ## The hardware wall
 
 VLA-Perf (Jiang et al., 2026) is an analytical roofline model assuming optimistic software, adequate model accuracy and attainable peak compute and memory bandwidth. An optimized π0 Triton implementation on an RTX 4090 reaches 73.3 to 82.6% of its predicted throughput with one to three cameras <Cite id="vla-perf-2026" />.
+
+<Image id="jetson-agx-orin-auledas-2024" />
 
 Its baseline π0 has 2.7B parameters and models three 224×224 cameras, 32 language tokens, 14 action dimensions, chunk size 50, 10 denoising steps, batch size one, and BF16 or FP16. Excluding network, sensor and execution latency, it predicts 162.5 inferences per second on H100 and 19.0 on Jetson Thor. A hypothetical 9.1B π0-L reaches 3.9 on Thor, all three π0 components are memory-bound there, and on B100 raising denoising steps from 10 to 50 multiplies total latency by 2.15 <Cite id="vla-perf-2026" />.
 

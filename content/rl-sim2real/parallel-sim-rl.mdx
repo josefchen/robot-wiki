@@ -54,6 +54,8 @@ import { NewtonSolvers } from '@/components/interactive/newton-solvers';
 
 Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once, with the physics on a GPU. It produced Rudin and colleagues' four-minute [ANYmal walking run](/rl-sim2real/why-rl-locomotion) <Cite id="rudin-2021" />, trained with the 2017 <Term id="ppo">PPO</Term> algorithm <Cite id="ppo-2017" />.
 
+<Image id="isaac-gym-shadow-hand-envs-2021" />
+
 <BatchScale className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -76,6 +78,8 @@ Their game-inspired <Term id="curriculum-learning">curriculum</Term> promotes ro
 ## The JAX line: Brax, MJX, MuJoCo Playground
 
 MuJoCo, a physics engine for model-based control <Cite id="mujoco-2012" />, has been open source under Google DeepMind since 2022 <Cite id="mujoco-overview-docs-2026" />. Brax (Google, 2021) compiled physics and learning algorithms in JAX on one accelerator, training performant policies on MuJoCo-like tasks in minutes <Cite id="brax-2021" />. MuJoCo XLA (MJX) moved MuJoCo onto the GPU, and MuJoCo Playground (2025) built on it an open framework for quadrupeds, humanoids, hands and arms, aimed at sim-to-real transfer <Cite id="mujoco-playground-2025" />. MJX-Warp, built for NVIDIA GPUs, fixes contact and constraint bottlenecks but lacks automatic differentiation <Cite id="mjx-docs-2026" />.
+
+<Image id="mujoco-playground-environments-2025" />
 
 ## What the environment count actually buys
 

@@ -1,6 +1,13 @@
 [
   {
     "article": "calibration",
+    "element": "Image:leica-laser-tracker-ats600",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "calibration",
     "element": "SelfCheck",
     "decision": "keep",
     "teachingGoal": "Diagnose a distance-dependent, systematic miss before changing the learner.",
@@ -15,6 +22,13 @@
   },
   {
     "article": "calibration",
+    "element": "Image:baxter-gripper-wrist-camera",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "calibration",
     "element": "TimeOffsetMiss",
     "decision": "keep",
     "teachingGoal": "See that an unmeasured camera delay misplaces a moving hand by its speed times the delay.",
@@ -26,6 +40,13 @@
     "decision": "keep",
     "teachingGoal": "See why hand-eye calibration needs at least three poses and why gains level off after about 12 to 15.",
     "reason": "One pose-count slider adds camera poses and shrinks the uncertainty ring, so the minimum and the plateau are felt directly."
+  },
+  {
+    "article": "control",
+    "element": "Image:centrifugal-governor-queen-street-mill",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "control",
@@ -51,6 +72,20 @@
   },
   {
     "article": "control",
+    "element": "Image:atlas-darpa-testing-2013",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "control",
+    "element": "Image:baxter-rethink-innorobo-2015",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "control",
     "element": "ImpedanceContactLab",
     "decision": "keep",
     "teachingGoal": "Compare position control with programmable contact stiffness and its force limits.",
@@ -65,10 +100,31 @@
   },
   {
     "article": "grasp-planning",
+    "element": "Image:care-o-bot-grasping-2010",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "grasp-planning",
     "element": "GraspWrenchLab",
     "decision": "keep",
     "teachingGoal": "Change friction and contact placement while watching force closure and the wrench hull.",
     "reason": "The simultaneous object and wrench views make each slider intervention measurable without implying a timed grasp."
+  },
+  {
+    "article": "grasp-planning",
+    "element": "Image:schunk-svh-five-finger-hand",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "kinematics",
+    "element": "Image:ur16e-cobot-arm-2020",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "kinematics",
@@ -100,10 +156,24 @@
   },
   {
     "article": "motion-planning",
+    "element": "Image:pr2-willow-garage-2010",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "motion-planning",
     "element": "RrtExplorer",
     "decision": "rethink",
     "teachingGoal": "See the accepted tree extend and reveal the first feasible route, then explore each iteration.",
     "reason": "The seeded exploration lab keeps its exact controls; the paused overview scene replayed the same tree and was removed."
+  },
+  {
+    "article": "motion-planning",
+    "element": "Image:atlas-vrc-simulation-2013",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "motion-planning",
@@ -128,10 +198,31 @@
   },
   {
     "article": "perception",
+    "element": "Image:realsense-d435-depth-camera",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "perception",
     "element": "PerceptionErrorBudget",
     "decision": "keep",
     "teachingGoal": "Vary authored error terms and inspect their composed magnitude against the model band.",
     "reason": "Its native controls and explicit source-derived depth floor matter more than a preselected motion sequence."
+  },
+  {
+    "article": "perception",
+    "element": "Image:kinect-xbox-one-sensor",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "ros2-for-ml-engineers",
+    "element": "Image:pr2-maker-faire-2011",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "ros2-for-ml-engineers",
@@ -162,11 +253,46 @@
     "reason": "Picking a channel draws its message sequence in step by step, a short temporal story the reader replays."
   },
   {
+    "article": "ros2-for-ml-engineers",
+    "element": "Image:clearpath-jackal-ugv-2020",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "scene-representation",
+    "element": "Image:ouster-lidar-point-cloud-sf",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
     "article": "scene-representation",
     "element": "SceneRepresentationLadder",
     "decision": "keep",
     "teachingGoal": "Switch storage representations and resolution independently to inspect unknown space.",
     "reason": "The five representations are parallel alternatives; animation would imply unsupported transitions between stores."
+  },
+  {
+    "article": "scene-representation",
+    "element": "Image:kinect-xbox-360-sensor",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "scene-representation",
+    "element": "Image:velodyne-hdl64-lidar-2009",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "state-estimation",
+    "element": "Image:apollo-imu-draper-2019",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "state-estimation",
@@ -175,6 +301,13 @@
     "sceneId": "kalman-predict-update",
     "teachingGoal": "Guess, measure and blend one filter step along a robot's track, see the blend come out narrower than either, then watch the step's own numbers turn into the update rule.",
     "reason": "The classical flagship scene: the camera closes on the gap from the guess to the reading while the blend lands, the reading rises with a staggered reveal, and the worked step is written glyph by glyph before its numbers give way to symbols; the finished frame carries no symbol and the method fold keeps the full rule."
+  },
+  {
+    "article": "state-estimation",
+    "element": "Image:apollo-guidance-computer-dsky",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "state-estimation",

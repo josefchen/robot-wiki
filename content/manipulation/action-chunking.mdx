@@ -51,6 +51,8 @@ import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
 
 Action chunking is a policy design in which each inference predicts a sequence of future actions instead of one <Cite id="act-aloha-2023" />. The term comes from psychology, where actions grouped into one unit are cheaper to store and execute <Cite id="act-aloha-2023" /> <Cite id="lai-action-chunking-2022" />.
 
+<Image id="aloha-unleashed-tasks-2024" />
+
 Diffusion, flow and vision-language-action policies now all chunk <Cite id="dehp-2026" />. Try “100 moves per plan”.
 
 <ChunkSizeCurve className="my-6" />
@@ -68,6 +70,8 @@ $$
 ## ACT: chunking with a CVAE
 
 Action Chunking with Transformers (ACT), introduced with the ALOHA bimanual [teleoperation hardware](/data-hardware/teleop-rigs/), wraps chunking in a <Term id="cvae">conditional variational autoencoder</Term>: training encodes each demonstrated action sequence as a latent style variable, and at test time the policy decodes a chunk from camera images and joint positions with that latent at zero. Dropping the CVAE objective barely changes scripted-data results and cuts human-data success from 35.3% to 2% <Cite id="act-aloha-2023" />.
+
+<Image id="aloha-2-workcell-2024" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="chunk size k" value="100" note="2 s of motion per inference" />

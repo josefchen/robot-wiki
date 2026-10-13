@@ -54,6 +54,8 @@ import { FoundationModelFamiliesTable } from '@/components/mdx/text-tables';
 
 A foundation model is a network trained on broad data at scale and adaptable to many downstream tasks <Cite id="bommasani-foundation-models-2021" />. In robotics three families carry the label (<Term id="vision-language-action-model">vision-language-action models</Term>, predictive world models and multimodal backbones adapted into either), and the test is whether one checkpoint transfers to new tasks, environments or embodiments after bounded adaptation.
 
+<Image id="robocat-embodiments-2023" />
+
 Try the check below.
 
 <SelfCheck
@@ -97,9 +99,13 @@ Test-time training stores past observations in fast weights that gradient descen
 
 GR00T N1 combines a vision-language module with a diffusion transformer, trained on real-robot trajectories, human videos and synthetic datasets <Cite id="gr00t-n1-2025" />. For a humanoid, morphology, whole-body balance and shared action coordinates set the reuse boundary. Figure pretrained [Helix 2.5](/manipulation/generalist-policies/) from random initialization entirely on Index, its dataset of human behavior; with identical task data, it succeeded on 56% of zero-shot trials in 30 unseen homes, against 9% for a policy trained from scratch <Cite id="helix-2-5-2026" />.
 
+<Image id="gr00t-n1-gr1-tasks-2025" />
+
 ## Predictive foundations
 
 V-JEPA 2 learns representations from over 1M hours of internet video, then trains an action-conditioned stage on fewer than 62 hours of unlabeled DROID video <Cite id="vjepa2-2025" />. R3M's embedding, pretrained on Ego4D human video, beats from-scratch training by over 20% <Cite id="r3m-2022" />.
+
+<Image id="cosmos-policy-aloha-2026" />
 
 Cosmos frames a world foundation model as a general-purpose model fine-tuned into custom ones <Cite id="cosmos-predict-2025" />. Cosmos 3 unifies understanding, generation, forward and inverse dynamics and policy outputs in one omnimodal model <Cite id="cosmos-3-2026" />, and Cosmos Policy turns Cosmos-Predict2 into a policy in one post-training stage, reaching 98.5% on LIBERO <Cite id="cosmos-policy-2026" />. Each output needs its own test: Ctrl-World ranks policies without real rollouts <Cite id="ctrl-world-2025" />.
 

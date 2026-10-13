@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "eebe923af8208f3d2f56c025835d503fa55e62df601c6d32cf76c0c8e01902be",
+  "fingerprint": "83b919c4f3edd4124946fc0ea66624abea9520d3136f03d5257505b20e9b00ea",
   "viewport": "1440x900",
   "surfaces": [
     {
@@ -323,7 +323,7 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 22196,
+      "visibleTextLength": 47989,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Credits",
@@ -333,7 +333,7 @@
       "rowLists": [
         {
           "key": "credits-entry",
-          "rowCount": 117,
+          "rowCount": 202,
           "containerDisplay": "block",
           "rowDisplayKinds": [
             "list-item"

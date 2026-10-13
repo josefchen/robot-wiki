@@ -55,6 +55,8 @@ import { PiGenerationTimeline } from '@/components/interactive/pi-generation-tim
 
 The pi line is Physical Intelligence's series of [vision-language-action models](/manipulation/vla-models/), from π0 (October 2024) to π0.7 (April 2026) <Cite id="pi0-blog-2024" /> <Cite id="pi07-2026" />.
 
+<Image id="pi06-espresso-2025" />
+
 π0 kept a pretrained vision-language backbone and replaced <Term id="action-tokenization">discrete action tokens</Term> with a <Term id="flow-matching">flow-matching</Term> action expert <Cite id="pi0-2024" />. Later models changed tokenization, training data, memory and prompting. Drag the integration steps slider from 1 upward to watch the cloud reach the action modes.
 
 <FlowMatchingTrajectory className="my-6" />
@@ -83,6 +85,8 @@ A DDPM path curves through noise space, while rectified flow straightens paths s
 ## π0-FAST: compressed action tokens
 
 FAST traces the failure of per-dimension, per-timestep binning to highly correlated tokens, which make next-token prediction trivial; policies with this naive tokenization make no progress on table bussing at 20 Hz or T-shirt folding at 50 Hz <Cite id="pi0-fast-2025" />. FAST instead applies a discrete cosine transform along time, rounds the coefficients and byte-pair-encodes the result, and its universal FAST+ tokenizer is trained on about one million one-second action chunks across embodiments <Cite id="pi0-fast-2025" />, or "1M real robot action sequences" in PI's post <Cite id="pi-fast-blog-2025" />.
+
+<Image id="pi0-fast-laundry-folding-2025" />
 
 Trained on a 10k-hour cross-embodied mixture, π0-FAST matches π0's generalist performance with up to five times fewer GPU hours. Inference costs more: about 750 ms per one-second chunk on an NVIDIA 4090, against within 100 ms for diffusion π0, since decoding needs 30 to 60 tokens instead of ten steps <Cite id="pi0-fast-2025" />. The Knowledge Insulation note reports that π0-FAST took twice as long to finish single-embodiment table bussing <Cite id="knowledge-insulation-2025" />.
 

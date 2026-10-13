@@ -77,6 +77,8 @@ import { SceneRepresentationLadder } from '@/components/interactive/scene-repres
 
 Scene representation is how a robot stores what it knows about its surroundings so that planners, controllers and other consumers can query it <Cite id="cadena-2016" />. Representations range from point clouds and occupancy grids to signed-distance fields, meshes and neural fields such as radiance fields and Gaussian splats <Cite id="cadena-2016" /><Cite id="neural-fields-survey-2024" />.
 
+<Image id="ouster-lidar-point-cloud-sf" />
+
 ## The ladder, and what each rung can answer
 
 Three queries separate the rungs: whether a cell is free for a planner, which way a surface faces for a contact solver, and what the scene looks like from a viewpoint the sensor never occupied. Cadena and colleagues judge representations by storage size, construction cost and usefulness for the task <Cite id="cadena-2016" />.
@@ -94,6 +96,8 @@ Moravec and Elfes projected wide-angle sonar readings from different sensors and
 Curless and Levoy fuse range images into a cumulative weighted <Term id="signed-distance-field">signed distance function</Term> and recover the surface at its zero crossing, truncating distance ramps and weights near observed points. Their hole-filling construction marks empty space with negative $D_{min}$ and unseen space with positive $D_{max}$, both at zero weight <Cite id="curless-levoy-1996" />. KinectFusion uses the opposite sign: positive toward visible free space and negative on the non-visible side <Cite id="kinectfusion-2011" />.
 
 KinectFusion fused 11-bit, 640×480 Kinect depth frames at 30 Hz, tracking each frame against the global model by coarse-to-fine ICP and mapping at the sensor rate on a commodity GPU. A large plane filling most of the view can cause drift or tracking failure. Its projective TSDF caps visible-space values at the truncation distance $\mu$, leaves non-visible points beyond $\mu$ unmeasured and is exact at the surface, so fusion yields an approximate pseudo-Euclidean distance. Normals come from numerical derivatives near the zero level set, and ray marching finds surfaces by trilinear interpolation <Cite id="kinectfusion-2011" />.
+
+<Image id="kinect-xbox-360-sensor" />
 
 Trajectory optimizers need obstacle distances. Voxblox builds TSDFs faster than OctoMap builds its maps, then derives Euclidean signed distance fields (ESDFs) from them incrementally, more accurately than from occupancy <Cite id="voxblox-2016" />, and on GPUs nvblox reports up to 177x faster surface reconstruction and 31x faster distance-field computation <Cite id="nvblox-2023" />.
 
@@ -122,6 +126,8 @@ ParticleSplat, from Deepak Pathak (Carnegie Mellon) and colleagues (September 20
 ## SLAM: the system that builds the map
 
 Simultaneous localization and mapping (SLAM) builds such maps from sensor data while the robot moves without knowing its exact pose. Cadena and colleagues separate a sensor-dependent front end, which abstracts measurements and associates them with state variables, from a back end that performs inference and feeds information back for loop-closure detection and validation <Cite id="cadena-2016" />. [State estimation](/classical/state-estimation) covers the inference machinery.
+
+<Image id="velodyne-hdl64-lidar-2009" />
 
 Front ends are feature-based or direct. Monocular ORB-SLAM (2015) uses ORB features for tracking, local mapping, relocalization and loop closing, triangulating matched features and running local bundle adjustment. Its DBoW2 vocabulary proposes relocalization and loop candidates that need geometric validation <Cite id="orb-slam-2015" />.
 
