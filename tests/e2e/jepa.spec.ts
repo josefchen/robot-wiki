@@ -27,7 +27,7 @@ test.describe('world-models jepa module', () => {
     for (const name of [
       /over 1 million hours of internet video/,
       /less than 62 hours of Droid robot video/,
-      /77.3% top-1 accuracy on Something-Something v2/,
+      /77.3% top-1 accuracy on Something-Something-v2/,
       /zero-shot on Franka Emika Panda arms/,
       /energy minimization in latent space/,
       /\$1.03 billion at a \$3.5 billion/,

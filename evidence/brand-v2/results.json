@@ -5757,11 +5757,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 6,
+                "readingMinutes": 5,
                 "citationCount": 33,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "6 min read",
+                "readingTimeText": "5 min read",
                 "citationCountText": "33 sources",
                 "bibliographyIds": [
                   "world-model-survey-2026",
@@ -5845,11 +5845,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
+                "readingMinutes": 7,
                 "citationCount": 36,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
+                "readingTimeText": "7 min read",
                 "citationCountText": "36 sources",
                 "bibliographyIds": [
                   "robogen-2024",
@@ -5936,11 +5936,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 10,
+                "readingMinutes": 8,
                 "citationCount": 37,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "10 min read",
+                "readingTimeText": "8 min read",
                 "citationCountText": "37 sources",
                 "bibliographyIds": [
                   "cosmos-3-2026",
@@ -6028,11 +6028,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
+                "readingMinutes": 7,
                 "citationCount": 36,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
+                "readingTimeText": "7 min read",
                 "citationCountText": "36 sources",
                 "bibliographyIds": [
                   "vjepa-2024",
@@ -6119,11 +6119,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 7,
+                "readingMinutes": 6,
                 "citationCount": 33,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "7 min read",
+                "readingTimeText": "6 min read",
                 "citationCountText": "33 sources",
                 "bibliographyIds": [
                   "dreamer-2019",
@@ -6207,11 +6207,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 5,
+                "readingMinutes": 4,
                 "citationCount": 35,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "5 min read",
+                "readingTimeText": "4 min read",
                 "citationCountText": "35 sources",
                 "bibliographyIds": [
                   "dreamer-2019",
@@ -6297,11 +6297,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
+                "readingMinutes": 8,
                 "citationCount": 36,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
+                "readingTimeText": "8 min read",
                 "citationCountText": "36 sources",
                 "bibliographyIds": [
                   "world-model-survey-2026",
@@ -6388,11 +6388,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 10,
+                "readingMinutes": 9,
                 "citationCount": 35,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "10 min read",
+                "readingTimeText": "9 min read",
                 "citationCountText": "35 sources",
                 "bibliographyIds": [
                   "mujoco-2012",
@@ -16025,7 +16025,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 96,
+                  "count": 84,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -16035,7 +16035,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 48,
+                      "count": 42,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -16045,7 +16045,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 48,
+                      "count": 42,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -16157,7 +16157,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 96,
+                  "count": 84,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -16167,7 +16167,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 48,
+                      "count": 42,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -16177,7 +16177,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 48,
+                      "count": 42,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -16289,7 +16289,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 88,
+                  "count": 74,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -16299,7 +16299,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 44,
+                      "count": 37,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -16309,7 +16309,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 44,
+                      "count": 37,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -16421,7 +16421,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 92,
+                  "count": 76,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -16431,7 +16431,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 46,
+                      "count": 38,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -16441,7 +16441,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 46,
+                      "count": 38,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -16553,7 +16553,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 90,
+                  "count": 80,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -16563,7 +16563,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 45,
+                      "count": 40,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -16573,7 +16573,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 45,
+                      "count": 40,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -16685,7 +16685,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 72,
+                  "count": 60,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -16695,7 +16695,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 36,
+                      "count": 30,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -16705,7 +16705,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 36,
+                      "count": 30,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -16817,7 +16817,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 84,
+                  "count": 70,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -16827,7 +16827,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 42,
+                      "count": 35,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -16837,7 +16837,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 42,
+                      "count": 35,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -16949,7 +16949,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 78,
+                  "count": 66,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -16959,7 +16959,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 39,
+                      "count": 33,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -16969,7 +16969,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 39,
+                      "count": 33,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -74366,11 +74366,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 6,
+                "readingMinutes": 5,
                 "citationCount": 33,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "6 min read",
+                "readingTimeText": "5 min read",
                 "citationCountText": "33 sources",
                 "bibliographyIds": [
                   "world-model-survey-2026",
@@ -74454,11 +74454,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
+                "readingMinutes": 7,
                 "citationCount": 36,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
+                "readingTimeText": "7 min read",
                 "citationCountText": "36 sources",
                 "bibliographyIds": [
                   "robogen-2024",
@@ -74545,11 +74545,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 10,
+                "readingMinutes": 8,
                 "citationCount": 37,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "10 min read",
+                "readingTimeText": "8 min read",
                 "citationCountText": "37 sources",
                 "bibliographyIds": [
                   "cosmos-3-2026",
@@ -74637,11 +74637,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
+                "readingMinutes": 7,
                 "citationCount": 36,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
+                "readingTimeText": "7 min read",
                 "citationCountText": "36 sources",
                 "bibliographyIds": [
                   "vjepa-2024",
@@ -74728,11 +74728,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 7,
+                "readingMinutes": 6,
                 "citationCount": 33,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "7 min read",
+                "readingTimeText": "6 min read",
                 "citationCountText": "33 sources",
                 "bibliographyIds": [
                   "dreamer-2019",
@@ -74816,11 +74816,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 5,
+                "readingMinutes": 4,
                 "citationCount": 35,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "5 min read",
+                "readingTimeText": "4 min read",
                 "citationCountText": "35 sources",
                 "bibliographyIds": [
                   "dreamer-2019",
@@ -74906,11 +74906,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
+                "readingMinutes": 8,
                 "citationCount": 36,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
+                "readingTimeText": "8 min read",
                 "citationCountText": "36 sources",
                 "bibliographyIds": [
                   "world-model-survey-2026",
@@ -74997,11 +74997,11 @@
                   "World Models"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 10,
+                "readingMinutes": 9,
                 "citationCount": 35,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "10 min read",
+                "readingTimeText": "9 min read",
                 "citationCountText": "35 sources",
                 "bibliographyIds": [
                   "mujoco-2012",
@@ -81467,7 +81467,6 @@
                   "worldarena-2026",
                   "dreamgen-2025",
                   "1x-world-model-2024",
-                  "1x-world-model-2025",
                   "worldeval-2025",
                   "irasim-2024",
                   "ctrl-world-2025",
@@ -81475,21 +81474,16 @@
                   "fvd-content-bias-2024",
                   "worldmodelbench-2025",
                   "video-physical-law-2024",
-                  "genie-3-2025",
                   "worldgym-2025",
                   "gvl-2024",
                   "runway-gwm-robotics-eval-2026",
                   "dreamdojo-2026",
-                  "interactive-world-simulator-2026",
                   "runway-gwm-robotics-eval-2026",
                   "optimal-stopping-2025",
                   "veo-world-simulator-2025",
-                  "veo-world-simulator-2025",
                   "worldgym-2025",
-                  "worldeval-2025",
                   "dreamdojo-2026",
                   "runway-gwm-robotics-eval-2026",
-                  "roboworld-2026",
                   "polaris-2025",
                   "simfoundry-2026",
                   "polaris-2025",
@@ -81604,15 +81598,12 @@
                   "robocasa-2024",
                   "robocasa365-2026",
                   "world-model-survey-2026",
-                  "maniskill3-2024",
-                  "genesis-world-2026",
                   "robogen-2024",
                   "robogen-2024",
                   "gensim-2023",
                   "robotwin-2-2025",
                   "holodeck-2024",
                   "holodeck-2024",
-                  "procthor-2022",
                   "objaverse-2022",
                   "scenesmith-2026",
                   "robocasa-2024",
@@ -81639,11 +81630,8 @@
                   "robocasa-2024",
                   "digital-cousins-2024",
                   "simfoundry-2026",
-                  "grail-2026",
-                  "rialto-2024",
                   "infinigen-articulated-2025",
                   "marble-2025",
-                  "worldlabs-atlas-2026",
                   "newton-manipulation-blog-2026",
                   "steerable-scene-generation-2025"
                 ],
@@ -81746,13 +81734,11 @@
                   "genie-3-2025",
                   "project-genie-2026",
                   "google-project-genie-2026",
-                  "waymo-world-model-2026",
                   "gr-1-2023",
                   "gr-2-2024",
                   "gr-3-2025",
                   "dreamzero-2026",
                   "cosmos-policy-2026",
-                  "lingbot-va-2026",
                   "wam-robustness-2026",
                   "fast-wam-2026",
                   "openwam-2026",
@@ -81760,15 +81746,12 @@
                   "1x-world-model-2026",
                   "1x-world-model-lab-2026",
                   "odyssey-2-2025",
-                  "odyssey-starchild-1-2026",
-                  "odyssey-agora-1-2026",
                   "world-model-survey-2026",
                   "world-in-world-2025",
                   "interactive-world-simulator-2026",
                   "interactive-world-simulator-2026",
                   "roboworld-2026",
                   "veo-world-simulator-2025",
-                  "dreamdojo-2026",
                   "polaris-2025",
                   "runway-gwm-robotics-eval-2026",
                   "runway-gwm-robotics-eval-2026",
@@ -81776,8 +81759,6 @@
                   "rise-2026",
                   "grail-2026",
                   "world-model-survey-2026",
-                  "veo-world-simulator-2025",
-                  "1x-world-model-2026",
                   "1x-world-model-2025"
                 ],
                 "seeAlso": [
@@ -81871,11 +81852,8 @@
                   "vjepa2-2025",
                   "dino-wm-2024",
                   "jepa-implicit-bias-2024",
-                  "muzero-2019",
                   "intuitive-physics-2025",
                   "ijepa-2023",
-                  "vjepa-2024",
-                  "byol-2020",
                   "vjepa-2024",
                   "vjepa2-2025",
                   "vjepa2-2025",
@@ -81883,21 +81861,16 @@
                   "meta-vjepa2-blog-2025",
                   "vjepa-2-1-2026",
                   "jepa-wm-2025",
-                  "leworldmodel-2026",
-                  "levjepa-2026",
                   "ami-labs-2026",
-                  "ami-labs-launch-2026",
                   "lecun-ami-techcrunch-2025",
                   "ami-labs-2026",
                   "genie-3-2025",
                   "cosmos-3-2026",
                   "odyssey-2-2025",
                   "interactive-world-simulator-2026",
-                  "dreamdojo-2026",
-                  "dreamer4-2025",
+                  "byol-2020",
                   "vjepa-2024",
                   "lejepa-2025",
-                  "leworldmodel-2026",
                   "lejepa-world-model-2026",
                   "intphys2-2025",
                   "vjepa2-2025",
@@ -82012,9 +81985,7 @@
                   "tdmpc2-2023",
                   "tdmpc2-2023",
                   "mudreamer-2024",
-                  "masked-world-models-2022",
                   "daydreamer-2022",
-                  "reset-free-driving-2026",
                   "dreamerv3-2023",
                   "dreamerv3-nature-2025",
                   "tdmpc2-2023",
@@ -82035,10 +82006,7 @@
                   "newt-2025",
                   "insertion-world-models-2026",
                   "daydreamer-2022",
-                  "dreamer-2019",
-                  "tdmpc2-2023",
-                  "wmp-2024",
-                  "puppeteer-2024"
+                  "wmp-2024"
                 ],
                 "seeAlso": [
                   "rl-sim2real/rl-for-robotics",
@@ -82125,14 +82093,11 @@
                 "citationMarkers": [
                   "mbrl-survey-2020",
                   "dyna-1990",
-                  "objective-mismatch-2020",
                   "manip-wm-survey-2026",
                   "mujoco-2012",
                   "value-equivalence-2020",
                   "deep-visual-foresight-2016",
-                  "tdmpc-2022",
                   "tdmpc2-2023",
-                  "newt-2025",
                   "pointworld-2026",
                   "dreamer-2019",
                   "dreamerv3-2023",
@@ -82141,10 +82106,8 @@
                   "pets-2018",
                   "mbpo-2019",
                   "mopo-2020",
-                  "morel-2020",
                   "visuospatial-foresight-2020",
                   "wm-hallucination-2026",
-                  "pilco-2015",
                   "pddm-2019",
                   "daydreamer-2022",
                   "ssrl-2024",
@@ -82155,7 +82118,6 @@
                   "robotic-world-model-2025",
                   "rwm-u-2025",
                   "rise-2026",
-                  "simdist-2026",
                   "tossingbot-2019",
                   "asap-2025",
                   "reset-free-driving-2026"
@@ -82256,16 +82218,11 @@
                   "dreamer4-2025",
                   "daydreamer-2022",
                   "tdmpc2-2023",
-                  "newt-2025",
                   "cosmos-3-2026",
                   "genie-3-2025",
-                  "google-project-genie-2026",
-                  "odyssey-2-2025",
                   "vjepa-2024",
                   "vjepa2-2025",
                   "vjepa2-2025",
-                  "vjepa-2-1-2026",
-                  "leworldmodel-2026",
                   "nvidia-wam-blog-2026",
                   "dreamzero-2026",
                   "worldvla-2025",
@@ -82280,8 +82237,6 @@
                   "3dgs-2023",
                   "physgaussian-2023",
                   "marble-2025",
-                  "amd-world-labs-2026",
-                  "dreamzero-2026",
                   "veo-world-simulator-2025",
                   "interactive-world-simulator-2026",
                   "wm-hallucination-2026",
@@ -82376,13 +82331,13 @@
                 ],
                 "citationMarkers": [
                   "mujoco-2012",
-                  "world-model-survey-2026",
                   "hwangbo-2019",
                   "mujoco-2012",
                   "isaac-lab-2025",
                   "newton-lf-2025",
                   "newton-manipulation-blog-2026",
                   "wm-hallucination-2026",
+                  "world-model-survey-2026",
                   "isaac-gym-2021",
                   "llama-3-2024",
                   "llama-3-herd-2024",
@@ -82390,22 +82345,16 @@
                   "leworldmodel-2026",
                   "cosmos-predict-2025",
                   "cosmos-predict2-perf-2025",
-                  "cosmos-predict2-repo-2025",
                   "cosmos-1-diffusion-14b-card-2025",
-                  "cosmos-predict2-5-2025",
                   "genie-3-2025",
                   "interactive-world-simulator-2026",
-                  "dreamer4-2025",
                   "dreamzero-2026",
-                  "1x-world-model-2026",
                   "3dgs-2023",
                   "physics-iq-2025",
-                  "isaac-gym-2021",
                   "robotic-world-model-2025",
                   "roboworld-2026",
                   "robogsim-2024",
                   "splatsim-2024",
-                  "simfoundry-2026",
                   "phystwin-2025",
                   "robocasa-2024",
                   "robocasa365-2026",
@@ -130586,7 +130535,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/evaluation moved from null to 1f81738728679d1e51a13111a6cee14ecd7131d5451003cbe28a4708740d04eb exactly as approved delta world-models-pass-20261010-prose-evaluation permits: World-models pass of 2026-10-10: lands the world-models domain pass (the drafts of 2026-10-06 with the claim-audit fixes and owner sweep of 2026-10-08) on the mission head after the rl-sim2real pass, the rl-sim2real figure batch of 2026-10-11 and the site-foundation re-skin of 2026-10-10, as one plain edge from the member's last approved endpoint (seo-pass-20261002-prose-world-models-evaluation). The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on world-models/evaluation: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/world-models.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the world-models domain pass extends this edge to the current text: WorldSimProbe as the action-sensitivity test suite (worldsimprobe-2026) and the Veo system's red-teaming (veo-world-simulator-2025). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. The house-style pass of 2026-10-10 (owner directive of 2026-10-08 01:30) then gives each section a heading that states what the section shows, keeps every renamed heading's old fragment as a self-closing anchor span on the line above it, and splits each section longer than about 250 words in two or three at a paragraph boundary; no sentence, number, mount or citation changes.",
+      "actual": "prose member article:world-models/evaluation moved from null to 4955e3da1daffa64649c405ae00e374448c835419a0b3b12c802e7d914e5b56b exactly as approved delta length-cut-20261012-world-models-prose-evaluation permits: World-models length cut of 2026-10-12 on world-models/evaluation, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-prose-evaluation). It drops DeepMind's Genie 3 real-time specification (the taxonomy states it), the Interactive World Simulator and RoboWorld as further evaluation environments (the generative-video and simulator pages keep them), 1X's four-futures example, the Veo simulator's red-teaming use and WorldEval's 0.942 against 0.411 correlation (secondary corroboration beside WorldGym and DreamDojo), with the self-check pointer and recap sentences. The cut removes 6 citation occurrences and 14 number occurrences from the body; 3 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130598,9 +130547,9 @@
           "manifest": "prose",
           "member": "article:world-models/evaluation",
           "baselineHash": null,
-          "currentHash": "1f81738728679d1e51a13111a6cee14ecd7131d5451003cbe28a4708740d04eb",
+          "currentHash": "4955e3da1daffa64649c405ae00e374448c835419a0b3b12c802e7d914e5b56b",
           "status": "approved-addition",
-          "approvedDelta": "world-models-pass-20261010-prose-evaluation"
+          "approvedDelta": "length-cut-20261012-world-models-prose-evaluation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -130614,7 +130563,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to fbfeaa50f098502d54695d7a87f5513e97ae91d948b4712583426eb028bf1a05 exactly as approved delta world-models-pass-20261010-prose-generative-sim permits: World-models pass of 2026-10-10: lands the world-models domain pass (the drafts of 2026-10-06 with the claim-audit fixes and owner sweep of 2026-10-08) on the mission head after the rl-sim2real pass, the rl-sim2real figure batch of 2026-10-11 and the site-foundation re-skin of 2026-10-10, as one plain edge from the member's last approved endpoint (reader-first-20261002-prose-world-models-generative-sim). The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on world-models/generative-sim: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/world-models.md). A style read then turns the bold paragraph and list labels into plain text (three list labels in the limitations), the writing tell the mission fixed in the manipulation articles (7783a244); no number, quote or citation changes. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. Claim-audit fixes of 2026-10-08 (coordinator approval, 03:06): Articulate-Anything's prior-work range reads 8.7% to 12.2%, the figure in the ICLR 2025 version (arXiv v4) the unversioned link serves; 11.6% was the v1 to v3 figure. Every mount and citation stays. The owner sweep pass of 2026-10-08 on the world-models domain pass extends this edge to the current text: Genesis World (genesis-world-2026), GRAIL (grail-2026), Marble collider meshes and World Labs Atlas (marble-2025, worldlabs-atlas-2026) and Newton 1.0 hydroelastic contact (newton-manipulation-blog-2026). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. The house-style pass of 2026-10-10 (owner directive of 2026-10-08 01:30) then gives each section a heading that states what the section shows, keeps every renamed heading's old fragment as a self-closing anchor span on the line above it, and splits each section longer than about 250 words in two or three at a paragraph boundary; no sentence, number, mount or citation changes.",
+      "actual": "prose member article:world-models/generative-sim moved from 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to 6e437d81826eb72378a605b0474422784b1744c3ac748b1624793b563d3f6aae exactly as approved delta length-cut-20261012-world-models-prose-generative-sim permits: World-models length cut of 2026-10-12 on world-models/generative-sim, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-prose-generative-sim). It drops ManiSkill3's rendering throughput, Genesis World's history and engine, ProcTHOR's 10,000 houses, GRAIL's humanoid sequences and Unitree G1 results, RialTo's robustness gain, Marble's general-availability date and World Labs' Atlas announcement (secondary examples), with Holodeck's coffee-table example, rating and solver details and RoboGen's optimizer detail. The cut removes 6 citation occurrences and 25 number occurrences from the body; 6 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130626,9 +130575,9 @@
           "manifest": "prose",
           "member": "article:world-models/generative-sim",
           "baselineHash": "0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3",
-          "currentHash": "fbfeaa50f098502d54695d7a87f5513e97ae91d948b4712583426eb028bf1a05",
+          "currentHash": "6e437d81826eb72378a605b0474422784b1744c3ac748b1624793b563d3f6aae",
           "status": "approved-delta",
-          "approvedDelta": "world-models-pass-20261010-prose-generative-sim"
+          "approvedDelta": "length-cut-20261012-world-models-prose-generative-sim"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -130642,7 +130591,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/generative-video moved from 09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8 to 90d36f961ca76c6e2b057d2f8702b2b72ae802e1efba4d3c6b923bcd90466856 exactly as approved delta domain-pass-20261012-kol-prose-generative-video permits: KOL triage batch of 2026-10-12 (notes older than 72 hours) on world-models/generative-video: adds one dated paragraph after the Fast-WAM sentence in \"World-action models now run as closed-loop robot policies\": OpenWAM (LIBERO-Long video-then-action success from 68.4% to 97.8%; openwam-2026, arXiv 2610.07922) and Long-WAM (RoboCasa GR-1 success from 63.3% to 78.7% with 19.2 seconds of context, 107.4 ms per chunk, 95% dynamic cup stacking; long-wam-2026, arXiv 2610.10528). No other text changes. This edge moves the member from its last approved endpoint (world-models-pass-20261010-prose-generative-video).",
+      "actual": "prose member article:world-models/generative-video moved from 09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8 to d32649b6aadce65ee5458650cea372d021aaedc6fdb638f82ab5fa30e8d8a3b5 exactly as approved delta length-cut-20261012-world-models-prose-generative-video permits: World-models length cut of 2026-10-12 on world-models/generative-video, under the owner's length decision, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-prose-generative-video). It drops Waymo's Genie 3-based driving simulator, LingBot-VA, DreamDojo's pretraining hours and speed, Odyssey's Starchild-1 and Agora-1 follow-ons, Long-WAM's per-chunk latency and the background clauses on Runway's Praxis-1, 1X's World Model Lab data and GR-3's training mix (secondary examples and background), and the closing recap of uses and limits, whose contact-rich caveat stays with the Veo simulator and whose pouring failure stays with 1X's results. The October 2026 WAM paragraph splits into one dated, attributed paragraph per paper with every figure kept. The cut removes 7 citation occurrences and 18 number occurrences from the body; 5 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130654,9 +130603,9 @@
           "manifest": "prose",
           "member": "article:world-models/generative-video",
           "baselineHash": "09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8",
-          "currentHash": "90d36f961ca76c6e2b057d2f8702b2b72ae802e1efba4d3c6b923bcd90466856",
+          "currentHash": "d32649b6aadce65ee5458650cea372d021aaedc6fdb638f82ab5fa30e8d8a3b5",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261012-kol-prose-generative-video"
+          "approvedDelta": "length-cut-20261012-world-models-prose-generative-video"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -130670,7 +130619,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/jepa moved from f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1 to 372a8712e7d6ad7cf676938bb17b735eb73c894c71330205800ac5d4fea056f3 exactly as approved delta domain-pass-20261012-kol-prose-jepa permits: KOL triage batch of 2026-10-12 (notes older than 72 hours) on world-models/jepa: adds one dated paragraph after the H-JEPA paragraph in \"An interactive JEPA world or a contact-rich win would settle it\": Toso, LeCun, Anderson and Bounou show that next-step prediction with anti-collapse regularization can discard controllable unstable modes and that an inverse-dynamics loss keeps reachable directions (jepa-unstable-modes-2026, arXiv 2610.07540). No other text changes. This edge moves the member from its last approved endpoint (world-models-pass-20261010-prose-jepa).",
+      "actual": "prose member article:world-models/jepa moved from f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1 to 903eb2ee4552dc5277900422c72d2086062f8a844f6e4a76a7496b383f5f48d2 exactly as approved delta length-cut-20261012-world-models-prose-jepa permits: World-models length cut of 2026-10-12 on world-models/jepa, under the owner's length decision, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-prose-jepa). It drops MuZero as the abstract-state planning precedent, LeVJEPA's compute result, LeWorldModel's training details and 48x planning speed (world-models-vs-simulators keeps the speed), AMI's launch date and offices, DreamDojo's and Dreamer 4's speeds, V-JEPA's VideoMix2M composition and frozen-evaluation protocol, V-JEPA 2's encoder internals, appendix ablation (76.5) and Epic-Kitchens anticipation probe, V-JEPA 2-AC's clip format and V-JEPA 2.1's 77.7 score (secondary corroboration, minor reporting caveats and background). The cut removes 8 citation occurrences and 40 number occurrences from the body; 5 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130682,9 +130631,9 @@
           "manifest": "prose",
           "member": "article:world-models/jepa",
           "baselineHash": "f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1",
-          "currentHash": "372a8712e7d6ad7cf676938bb17b735eb73c894c71330205800ac5d4fea056f3",
+          "currentHash": "903eb2ee4552dc5277900422c72d2086062f8a844f6e4a76a7496b383f5f48d2",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261012-kol-prose-jepa"
+          "approvedDelta": "length-cut-20261012-world-models-prose-jepa"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -130698,7 +130647,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/latent-dynamics moved from ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41 to 1585b6f31e0b563ad04f9bcdf3ef4c1b8b0078ee8e59c40b151b387d5d711dde exactly as approved delta world-models-pass-20261010-prose-latent-dynamics permits: World-models pass of 2026-10-10: lands the world-models domain pass (the drafts of 2026-10-06 with the claim-audit fixes and owner sweep of 2026-10-08) on the mission head after the rl-sim2real pass, the rl-sim2real figure batch of 2026-10-11 and the site-foundation re-skin of 2026-10-10, as one plain edge from the member's last approved endpoint (reader-first-20261002-prose-world-models-latent-dynamics). The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on world-models/latent-dynamics: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/world-models.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the world-models domain pass extends this edge to the current text: SimDist sim-pretrained latent dynamics (simdist-2026) and the insertion world model, stated as simulation-only (insertion-world-models-2026). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. The house-style pass of 2026-10-10 (owner directive of 2026-10-08 01:30) then gives each section a heading that states what the section shows, keeps every renamed heading's old fragment as a self-closing anchor span on the line above it, and splits each section longer than about 250 words in two or three at a paragraph boundary; no sentence, number, mount or citation changes.",
+      "actual": "prose member article:world-models/latent-dynamics moved from ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41 to 0253a19ca25c829b6b9f5fe9c3a9f7543386811c678dcd6ab3bfd22dcb3ccc26 exactly as approved delta length-cut-20261012-world-models-prose-latent-dynamics permits: World-models length cut of 2026-10-12 on world-models/latent-dynamics, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-prose-latent-dynamics). It drops Masked World Models' Meta-World result, Puppeteer's hierarchical humanoid control, the 2026 reset-free driving comparison and TD-MPC2's future-work list (secondary examples), DayDreamer's platform list, gait and control-rate details (its manual repositioning caveat stays), and the recap of how a latent model is used. The cut removes 5 citation occurrences and 19 number occurrences from the body; 3 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130710,9 +130659,9 @@
           "manifest": "prose",
           "member": "article:world-models/latent-dynamics",
           "baselineHash": "ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41",
-          "currentHash": "1585b6f31e0b563ad04f9bcdf3ef4c1b8b0078ee8e59c40b151b387d5d711dde",
+          "currentHash": "0253a19ca25c829b6b9f5fe9c3a9f7543386811c678dcd6ab3bfd22dcb3ccc26",
           "status": "approved-delta",
-          "approvedDelta": "world-models-pass-20261010-prose-latent-dynamics"
+          "approvedDelta": "length-cut-20261012-world-models-prose-latent-dynamics"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -130726,7 +130675,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/model-based-robot-learning moved from null to 8753f6f84cc724653281d0e187d2d5aa05852f5d8ba4788e04a5656a4b8e6df4 exactly as approved delta world-models-pass-20261010-prose-model-based-robot-learning permits: World-models pass of 2026-10-10: lands the world-models domain pass (the drafts of 2026-10-06 with the claim-audit fixes and owner sweep of 2026-10-08) on the mission head after the rl-sim2real pass, the rl-sim2real figure batch of 2026-10-11 and the site-foundation re-skin of 2026-10-10, as one plain edge from the member's last approved endpoint (seo-pass-20261002-prose-world-models-model-based-robot-learning). The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on world-models/model-based-robot-learning: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/world-models.md). A style read then turns the bold paragraph and list labels into plain text (two paragraph labels), the writing tell the mission fixed in the manipulation articles (7783a244); no number, quote or citation changes. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the world-models domain pass extends this edge to the current text: PointWorld MPC on hardware (pointworld-2026) and SimDist (simdist-2026). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. The house-style pass of 2026-10-10 (owner directive of 2026-10-08 01:30) then gives each section a heading that states what the section shows, keeps every renamed heading's old fragment as a self-closing anchor span on the line above it, and splits each section longer than about 250 words in two or three at a paragraph boundary; no sentence, number, mount or citation changes.",
+      "actual": "prose member article:world-models/model-based-robot-learning moved from null to 69b90d043eb0ec0a0fac37869113666dddbca48eb1af162d440d590a0d0d5528 exactly as approved delta length-cut-20261012-world-models-prose-model-based-robot-learning permits: World-models length cut of 2026-10-12 on world-models/model-based-robot-learning, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-prose-model-based-robot-learning). It drops TD-MPC as TD-MPC2's predecessor, Newt's 200 tasks, MOReL beside MOPO, Gaussian-process policy search and SimDist (secondary examples), and the self-check pointer and recap sentences; the objective-mismatch quotes merge into one sentence. The cut removes 6 citation occurrences and 8 number occurrences from the body; 5 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130738,9 +130687,9 @@
           "manifest": "prose",
           "member": "article:world-models/model-based-robot-learning",
           "baselineHash": null,
-          "currentHash": "8753f6f84cc724653281d0e187d2d5aa05852f5d8ba4788e04a5656a4b8e6df4",
+          "currentHash": "69b90d043eb0ec0a0fac37869113666dddbca48eb1af162d440d590a0d0d5528",
           "status": "approved-addition",
-          "approvedDelta": "world-models-pass-20261010-prose-model-based-robot-learning"
+          "approvedDelta": "length-cut-20261012-world-models-prose-model-based-robot-learning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -130754,7 +130703,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/taxonomy moved from 122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003 to 2ee815ad35fa6312601328b0906d45695157196b54250b9d7f0e0161ba69e37b exactly as approved delta world-models-pass-20261010-prose-taxonomy permits: World-models pass of 2026-10-10: lands the world-models domain pass (the drafts of 2026-10-06 with the claim-audit fixes and owner sweep of 2026-10-08) on the mission head after the rl-sim2real pass, the rl-sim2real figure batch of 2026-10-11 and the site-foundation re-skin of 2026-10-10, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 21 earlier approved edges exactly, ending with reader-first-20261002-prose-world-models-taxonomy. The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on world-models/taxonomy: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/world-models.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the world-models domain pass extends this edge to the current text: PointWorld as the robotics example of a structured 3D world model (pointworld-2026). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. The house-style pass of 2026-10-10 (owner directive of 2026-10-08 01:30) then gives each section a heading that states what the section shows, keeps every renamed heading's old fragment as a self-closing anchor span on the line above it, and splits each section longer than about 250 words in two or three at a paragraph boundary; no sentence, number, mount or citation changes.",
+      "actual": "prose member article:world-models/taxonomy moved from 122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003 to e1c914ddc2b46b91bb1858472964dde4bbc8e091c4800138755d8b51463409cf exactly as approved delta length-cut-20261012-world-models-prose-taxonomy permits: World-models length cut of 2026-10-12 on world-models/taxonomy, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 22 earlier approved edges exactly, ending with world-models-pass-20261010-prose-taxonomy. It drops Newt's 200 online tasks, Project Genie's 60-second limit and Odyssey-2's 50 ms frames (generative-video states both), V-JEPA 2.1's grasping gain and LeWorldModel's planning speed (jepa and world-models-vs-simulators keep them), AMD's agreement to acquire World Labs, the closing generative-video recap, DayDreamer's gait, V-JEPA 2-AC's planner and label details (jepa states the planner) and PointWorld's task list. The cut removes 7 citation occurrences and 28 number occurrences from the body; 6 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130766,9 +130715,9 @@
           "manifest": "prose",
           "member": "article:world-models/taxonomy",
           "baselineHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
-          "currentHash": "2ee815ad35fa6312601328b0906d45695157196b54250b9d7f0e0161ba69e37b",
+          "currentHash": "e1c914ddc2b46b91bb1858472964dde4bbc8e091c4800138755d8b51463409cf",
           "status": "approved-delta",
-          "approvedDelta": "world-models-pass-20261010-prose-taxonomy"
+          "approvedDelta": "length-cut-20261012-world-models-prose-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -130782,7 +130731,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:world-models/world-models-vs-simulators moved from null to b4076e2af527c36fa735e13e6432ee4f9f902723ef07b6420255e54f25f45f23 exactly as approved delta world-models-pass-20261010-prose-world-models-vs-simulators permits: World-models pass of 2026-10-10: lands the world-models domain pass (the drafts of 2026-10-06 with the claim-audit fixes and owner sweep of 2026-10-08) on the mission head after the rl-sim2real pass, the rl-sim2real figure batch of 2026-10-11 and the site-foundation re-skin of 2026-10-10, as one plain edge from the member's last approved endpoint (seo-pass-20261002-prose-world-models-world-models-vs-simulators). The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on world-models/world-models-vs-simulators: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/world-models.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the world-models domain pass extends this edge to the current text: Newton 1.0 and MuJoCo Warp (newton-manipulation-blog-2026), the archived Predict2 repository (cosmos-predict2-repo-2025) and SimDist as a fourth hybrid pattern (simdist-2026), with \"Three hybrid patterns\" renamed \"Four hybrid patterns\" and its old anchor kept. Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves. The house-style pass of 2026-10-10 (owner directive of 2026-10-08 01:30) then gives each section a heading that states what the section shows, keeps every renamed heading's old fragment as a self-closing anchor span on the line above it, and splits each section longer than about 250 words in two or three at a paragraph boundary; no sentence, number, mount or citation changes.",
+      "actual": "prose member article:world-models/world-models-vs-simulators moved from null to 93b0f2d76077cee4f2fedd02c4405dc74b3d7d000be3b6893ccdf7873c11f7a0 exactly as approved delta length-cut-20261012-world-models-prose-world-models-vs-simulators permits: World-models length cut of 2026-10-12 on world-models/world-models-vs-simulators, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-prose-world-models-vs-simulators). It drops the archived Predict2 repository notice and the Predict2.5 model (Predict2's measured cost stays), Dreamer 4's real-time speed, 1X's backbone latency (generative-video keeps it), SimFoundry, the 3D Gaussian Splatting asset sizes, V-JEPA 2-AC's encoder sizes, Newton 1.0's solver list (generative-sim keeps it), the throughput comparison sentence, two staging sentences and recap sentences. The cut removes 6 citation occurrences and 39 number occurrences from the body; 5 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130794,9 +130743,9 @@
           "manifest": "prose",
           "member": "article:world-models/world-models-vs-simulators",
           "baselineHash": null,
-          "currentHash": "b4076e2af527c36fa735e13e6432ee4f9f902723ef07b6420255e54f25f45f23",
+          "currentHash": "93b0f2d76077cee4f2fedd02c4405dc74b3d7d000be3b6893ccdf7873c11f7a0",
           "status": "approved-addition",
-          "approvedDelta": "world-models-pass-20261010-prose-world-models-vs-simulators"
+          "approvedDelta": "length-cut-20261012-world-models-prose-world-models-vs-simulators"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -132182,7 +132131,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:world-models/evaluation moved from null to f2fff2d16f4f6b29c28a59aae939b1e38231fc92dddf4ef82f97b62cc90dc41f exactly as approved delta world-models-pass-20261010-relationships-evaluation permits: World-models pass of 2026-10-10: lands the world-models domain pass (the drafts of 2026-10-06 with the claim-audit fixes and owner sweep of 2026-10-08) on the mission head after the rl-sim2real pass, the rl-sim2real figure batch of 2026-10-11 and the site-foundation re-skin of 2026-10-10, as one plain edge from the member's last approved endpoint (seo-pass-20261002-relationships-world-models-evaluation). The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on world-models/evaluation: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/world-models.md). This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the world-models domain pass extends this edge to the current text: WorldSimProbe as the action-sensitivity test suite (worldsimprobe-2026) and the Veo system's red-teaming (veo-world-simulator-2025). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves.",
+      "actual": "relationships member article:world-models/evaluation moved from null to 8034b689d67074a997da03ecfd8975a3032699daf5c0cefd1d0541463b54a24c exactly as approved delta length-cut-20261012-world-models-relationships-evaluation permits: World-models length cut of 2026-10-12 on world-models/evaluation, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-relationships-evaluation). The relationships record loses only inline citation occurrences the cut removed (6 occurrences; no longer cited in the body: genie-3-2025, interactive-world-simulator-2026, roboworld-2026; cited fewer times: 1x-world-model-2025, worldeval-2025, veo-world-simulator-2025); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132194,9 +132143,9 @@
           "manifest": "relationships",
           "member": "article:world-models/evaluation",
           "baselineHash": null,
-          "currentHash": "f2fff2d16f4f6b29c28a59aae939b1e38231fc92dddf4ef82f97b62cc90dc41f",
+          "currentHash": "8034b689d67074a997da03ecfd8975a3032699daf5c0cefd1d0541463b54a24c",
           "status": "approved-addition",
-          "approvedDelta": "world-models-pass-20261010-relationships-evaluation"
+          "approvedDelta": "length-cut-20261012-world-models-relationships-evaluation"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -132210,7 +132159,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:world-models/generative-sim moved from 4205e6c9b9b4451ebe2f6743657ad89556d88721674996d40597559e6d4826d1 to 3d055849797ea7b14b52ec236c92e71d5ef17cbb574de2b86a0fc11707834747 exactly as approved delta world-models-pass-20261010-relationships-generative-sim permits: World-models pass of 2026-10-10: lands the world-models domain pass (the drafts of 2026-10-06 with the claim-audit fixes and owner sweep of 2026-10-08) on the mission head after the rl-sim2real pass, the rl-sim2real figure batch of 2026-10-11 and the site-foundation re-skin of 2026-10-10, as one plain edge from the member's last approved endpoint (seo-pass-20261002-relationships-world-models-generative-sim). The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on world-models/generative-sim: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/world-models.md). A style read then turns the bold paragraph and list labels into plain text (three list labels in the limitations), the writing tell the mission fixed in the manipulation articles (7783a244); no number, quote or citation changes. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the world-models domain pass extends this edge to the current text: Genesis World (genesis-world-2026), GRAIL (grail-2026), Marble collider meshes and World Labs Atlas (marble-2025, worldlabs-atlas-2026) and Newton 1.0 hydroelastic contact (newton-manipulation-blog-2026). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves.",
+      "actual": "relationships member article:world-models/generative-sim moved from 4205e6c9b9b4451ebe2f6743657ad89556d88721674996d40597559e6d4826d1 to c0016aa64f263915bddb05b3a2fb6b7f8e7374aa5855055710dcff50aab5034c exactly as approved delta length-cut-20261012-world-models-relationships-generative-sim permits: World-models length cut of 2026-10-12 on world-models/generative-sim, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-relationships-generative-sim). The relationships record loses only inline citation occurrences the cut removed (6 occurrences; no longer cited in the body: maniskill3-2024, genesis-world-2026, procthor-2022, grail-2026, rialto-2024, worldlabs-atlas-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132222,9 +132171,9 @@
           "manifest": "relationships",
           "member": "article:world-models/generative-sim",
           "baselineHash": "4205e6c9b9b4451ebe2f6743657ad89556d88721674996d40597559e6d4826d1",
-          "currentHash": "3d055849797ea7b14b52ec236c92e71d5ef17cbb574de2b86a0fc11707834747",
+          "currentHash": "c0016aa64f263915bddb05b3a2fb6b7f8e7374aa5855055710dcff50aab5034c",
           "status": "approved-delta",
-          "approvedDelta": "world-models-pass-20261010-relationships-generative-sim"
+          "approvedDelta": "length-cut-20261012-world-models-relationships-generative-sim"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -132238,7 +132187,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:world-models/generative-video moved from d01756dd06c2d1f9f091d13f0272eafb22d23b8cd158456af1e4c25fd3a852dd to 034a06ae3c300056c4c513526125d96fdb94ce7966ff1dfd6cbb00b4d0e4c5f6 exactly as approved delta domain-pass-20261012-kol-relationships-generative-video permits: KOL triage batch of 2026-10-12 (notes older than 72 hours) on world-models/generative-video: adds one dated paragraph after the Fast-WAM sentence in \"World-action models now run as closed-loop robot policies\": OpenWAM (LIBERO-Long video-then-action success from 68.4% to 97.8%; openwam-2026, arXiv 2610.07922) and Long-WAM (RoboCasa GR-1 success from 63.3% to 78.7% with 19.2 seconds of context, 107.4 ms per chunk, 95% dynamic cup stacking; long-wam-2026, arXiv 2610.10528). The relationships record gains the inline citations openwam-2026 and long-wam-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (world-models-pass-20261010-relationships-generative-video).",
+      "actual": "relationships member article:world-models/generative-video moved from d01756dd06c2d1f9f091d13f0272eafb22d23b8cd158456af1e4c25fd3a852dd to 3a318aca68ecb577cfd1b08f37622fcbf656bc3ea56a815691447c8839d37627 exactly as approved delta length-cut-20261012-world-models-relationships-generative-video permits: World-models length cut of 2026-10-12 on world-models/generative-video, under the owner's length decision, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-relationships-generative-video). The relationships record loses only inline citation occurrences the cut removed (7 occurrences; no longer cited in the body: waymo-world-model-2026, lingbot-va-2026, odyssey-starchild-1-2026, odyssey-agora-1-2026, dreamdojo-2026; cited fewer times: 1x-world-model-2026, veo-world-simulator-2025); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132250,9 +132199,9 @@
           "manifest": "relationships",
           "member": "article:world-models/generative-video",
           "baselineHash": "d01756dd06c2d1f9f091d13f0272eafb22d23b8cd158456af1e4c25fd3a852dd",
-          "currentHash": "034a06ae3c300056c4c513526125d96fdb94ce7966ff1dfd6cbb00b4d0e4c5f6",
+          "currentHash": "3a318aca68ecb577cfd1b08f37622fcbf656bc3ea56a815691447c8839d37627",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261012-kol-relationships-generative-video"
+          "approvedDelta": "length-cut-20261012-world-models-relationships-generative-video"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -132266,7 +132215,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:world-models/jepa moved from a84815cba742879e9e4aef655591040e26f1420e013ac56b3048f08f09883b77 to 856d0c649b0558e3d89128b1c68f4209c7e9ef4914f8aa93f174e3cf754aa9cd exactly as approved delta domain-pass-20261012-kol-relationships-jepa permits: KOL triage batch of 2026-10-12 (notes older than 72 hours) on world-models/jepa: adds one dated paragraph after the H-JEPA paragraph in \"An interactive JEPA world or a contact-rich win would settle it\": Toso, LeCun, Anderson and Bounou show that next-step prediction with anti-collapse regularization can discard controllable unstable modes and that an inverse-dynamics loss keeps reachable directions (jepa-unstable-modes-2026, arXiv 2610.07540). The relationships record gains the inline citation jepa-unstable-modes-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (world-models-pass-20261010-relationships-jepa).",
+      "actual": "relationships member article:world-models/jepa moved from a84815cba742879e9e4aef655591040e26f1420e013ac56b3048f08f09883b77 to d6b210e58428dd4359862e3bb33fff0c8556fa6e03e49929b1920273e8d70500 exactly as approved delta length-cut-20261012-world-models-relationships-jepa permits: World-models length cut of 2026-10-12 on world-models/jepa, under the owner's length decision, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-relationships-jepa). The relationships record loses only inline citation occurrences the cut removed (8 occurrences; no longer cited in the body: muzero-2019, levjepa-2026, ami-labs-launch-2026, dreamdojo-2026, dreamer4-2025; cited fewer times: vjepa-2024, leworldmodel-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132278,9 +132227,9 @@
           "manifest": "relationships",
           "member": "article:world-models/jepa",
           "baselineHash": "a84815cba742879e9e4aef655591040e26f1420e013ac56b3048f08f09883b77",
-          "currentHash": "856d0c649b0558e3d89128b1c68f4209c7e9ef4914f8aa93f174e3cf754aa9cd",
+          "currentHash": "d6b210e58428dd4359862e3bb33fff0c8556fa6e03e49929b1920273e8d70500",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261012-kol-relationships-jepa"
+          "approvedDelta": "length-cut-20261012-world-models-relationships-jepa"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -132294,7 +132243,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:world-models/latent-dynamics moved from e601d03966332e6dd3894932da7c91251596f85fdfa152db2cef57ca96a61042 to d7dfb035aaea442b87fbc0b7f134ad8f33e21f58027f8b48bf2c7bfead06f972 exactly as approved delta world-models-pass-20261010-relationships-latent-dynamics permits: World-models pass of 2026-10-10: lands the world-models domain pass (the drafts of 2026-10-06 with the claim-audit fixes and owner sweep of 2026-10-08) on the mission head after the rl-sim2real pass, the rl-sim2real figure batch of 2026-10-11 and the site-foundation re-skin of 2026-10-10, as one plain edge from the member's last approved endpoint (seo-pass-20261002-relationships-world-models-latent-dynamics). The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on world-models/latent-dynamics: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/world-models.md). This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the world-models domain pass extends this edge to the current text: SimDist sim-pretrained latent dynamics (simdist-2026) and the insertion world model, stated as simulation-only (insertion-world-models-2026). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves.",
+      "actual": "relationships member article:world-models/latent-dynamics moved from e601d03966332e6dd3894932da7c91251596f85fdfa152db2cef57ca96a61042 to b24dc6bfc2889373dec9c461766caa95994d0e5e0599d7b92e9c928729b1c628 exactly as approved delta length-cut-20261012-world-models-relationships-latent-dynamics permits: World-models length cut of 2026-10-12 on world-models/latent-dynamics, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-relationships-latent-dynamics). The relationships record loses only inline citation occurrences the cut removed (5 occurrences; no longer cited in the body: masked-world-models-2022, reset-free-driving-2026, puppeteer-2024; cited fewer times: dreamer-2019, tdmpc2-2023); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132306,9 +132255,9 @@
           "manifest": "relationships",
           "member": "article:world-models/latent-dynamics",
           "baselineHash": "e601d03966332e6dd3894932da7c91251596f85fdfa152db2cef57ca96a61042",
-          "currentHash": "d7dfb035aaea442b87fbc0b7f134ad8f33e21f58027f8b48bf2c7bfead06f972",
+          "currentHash": "b24dc6bfc2889373dec9c461766caa95994d0e5e0599d7b92e9c928729b1c628",
           "status": "approved-delta",
-          "approvedDelta": "world-models-pass-20261010-relationships-latent-dynamics"
+          "approvedDelta": "length-cut-20261012-world-models-relationships-latent-dynamics"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -132322,7 +132271,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:world-models/model-based-robot-learning moved from null to 2936fe4bfae51c83725474dc297a0a92b6c2c324bd23dffb465fb8f523afaede exactly as approved delta world-models-pass-20261010-relationships-model-based-robot-learning permits: World-models pass of 2026-10-10: lands the world-models domain pass (the drafts of 2026-10-06 with the claim-audit fixes and owner sweep of 2026-10-08) on the mission head after the rl-sim2real pass, the rl-sim2real figure batch of 2026-10-11 and the site-foundation re-skin of 2026-10-10, as one plain edge from the member's last approved endpoint (seo-pass-20261002-relationships-world-models-model-based-robot-learning). The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on world-models/model-based-robot-learning: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/world-models.md). A style read then turns the bold paragraph and list labels into plain text (two paragraph labels), the writing tell the mission fixed in the manipulation articles (7783a244); no number, quote or citation changes. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the world-models domain pass extends this edge to the current text: PointWorld MPC on hardware (pointworld-2026) and SimDist (simdist-2026). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves.",
+      "actual": "relationships member article:world-models/model-based-robot-learning moved from null to 2f029cc77e6282e99cc5d8b0ffce3a0acfb1e81d0d93154ccced38a1ca4ebd2a exactly as approved delta length-cut-20261012-world-models-relationships-model-based-robot-learning permits: World-models length cut of 2026-10-12 on world-models/model-based-robot-learning, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-relationships-model-based-robot-learning). The relationships record loses only inline citation occurrences the cut removed (6 occurrences; no longer cited in the body: tdmpc-2022, newt-2025, morel-2020, pilco-2015, simdist-2026; cited fewer times: objective-mismatch-2020); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132334,9 +132283,9 @@
           "manifest": "relationships",
           "member": "article:world-models/model-based-robot-learning",
           "baselineHash": null,
-          "currentHash": "2936fe4bfae51c83725474dc297a0a92b6c2c324bd23dffb465fb8f523afaede",
+          "currentHash": "2f029cc77e6282e99cc5d8b0ffce3a0acfb1e81d0d93154ccced38a1ca4ebd2a",
           "status": "approved-addition",
-          "approvedDelta": "world-models-pass-20261010-relationships-model-based-robot-learning"
+          "approvedDelta": "length-cut-20261012-world-models-relationships-model-based-robot-learning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -132350,7 +132299,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:world-models/taxonomy moved from 3d62f5c1794e774673d2b73a12ee07e9a1e19d35867e6926d10c5e5320ffd081 to 5993c053492e7ed9dcb209e8aec3a2020e443e4ec7d4673e5466e271a0f206f3 exactly as approved delta world-models-pass-20261010-relationships-taxonomy permits: World-models pass of 2026-10-10: lands the world-models domain pass (the drafts of 2026-10-06 with the claim-audit fixes and owner sweep of 2026-10-08) on the mission head after the rl-sim2real pass, the rl-sim2real figure batch of 2026-10-11 and the site-foundation re-skin of 2026-10-10, as one plain edge from the member's last approved endpoint (seo-pass-20261002-relationships-world-models-taxonomy). The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on world-models/taxonomy: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/world-models.md). This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the world-models domain pass extends this edge to the current text: PointWorld as the robotics example of a structured 3D world model (pointworld-2026). Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves.",
+      "actual": "relationships member article:world-models/taxonomy moved from 3d62f5c1794e774673d2b73a12ee07e9a1e19d35867e6926d10c5e5320ffd081 to 971752253717ae5575d00aa223d0bb0d5c0361ba6c0ffdd769f6f52585d8458c exactly as approved delta length-cut-20261012-world-models-relationships-taxonomy permits: World-models length cut of 2026-10-12 on world-models/taxonomy, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-relationships-taxonomy). The relationships record loses only inline citation occurrences the cut removed (7 occurrences; no longer cited in the body: newt-2025, google-project-genie-2026, odyssey-2-2025, vjepa-2-1-2026, leworldmodel-2026, amd-world-labs-2026; cited fewer times: dreamzero-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132362,9 +132311,9 @@
           "manifest": "relationships",
           "member": "article:world-models/taxonomy",
           "baselineHash": "3d62f5c1794e774673d2b73a12ee07e9a1e19d35867e6926d10c5e5320ffd081",
-          "currentHash": "5993c053492e7ed9dcb209e8aec3a2020e443e4ec7d4673e5466e271a0f206f3",
+          "currentHash": "971752253717ae5575d00aa223d0bb0d5c0361ba6c0ffdd769f6f52585d8458c",
           "status": "approved-delta",
-          "approvedDelta": "world-models-pass-20261010-relationships-taxonomy"
+          "approvedDelta": "length-cut-20261012-world-models-relationships-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -132378,7 +132327,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:world-models/world-models-vs-simulators moved from null to c095f8d8dc72a7d35549a3fba994f4572bb18d866725ab871f404e29e785ca6a exactly as approved delta world-models-pass-20261010-relationships-world-models-vs-simulators permits: World-models pass of 2026-10-10: lands the world-models domain pass (the drafts of 2026-10-06 with the claim-audit fixes and owner sweep of 2026-10-08) on the mission head after the rl-sim2real pass, the rl-sim2real figure batch of 2026-10-11 and the site-foundation re-skin of 2026-10-10, as one plain edge from the member's last approved endpoint (seo-pass-20261002-relationships-world-models-world-models-vs-simulators). The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on world-models/world-models-vs-simulators: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/world-models.md). This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The owner sweep pass of 2026-10-08 on the world-models domain pass extends this edge to the current text: Newton 1.0 and MuJoCo Warp (newton-manipulation-blog-2026), the archived Predict2 repository (cosmos-predict2-repo-2025) and SimDist as a fourth hybrid pattern (simdist-2026), with \"Three hybrid patterns\" renamed \"Four hybrid patterns\" and its old anchor kept. Each new sentence is copied from the source passage recorded in its audit/citations.md row; no existing fact, number or citation moves.",
+      "actual": "relationships member article:world-models/world-models-vs-simulators moved from null to 763a10ba0137cbda208ece2ecd56298574d9a56feeba691e797c849406f35e78 exactly as approved delta length-cut-20261012-world-models-relationships-world-models-vs-simulators permits: World-models length cut of 2026-10-12 on world-models/world-models-vs-simulators, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-relationships-world-models-vs-simulators). The relationships record loses only inline citation occurrences the cut removed (6 occurrences; no longer cited in the body: cosmos-predict2-repo-2025, cosmos-predict2-5-2025, dreamer4-2025, 1x-world-model-2026, simfoundry-2026; cited fewer times: isaac-gym-2021); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132390,9 +132339,9 @@
           "manifest": "relationships",
           "member": "article:world-models/world-models-vs-simulators",
           "baselineHash": null,
-          "currentHash": "c095f8d8dc72a7d35549a3fba994f4572bb18d866725ab871f404e29e785ca6a",
+          "currentHash": "763a10ba0137cbda208ece2ecd56298574d9a56feeba691e797c849406f35e78",
           "status": "approved-addition",
-          "approvedDelta": "world-models-pass-20261010-relationships-world-models-vs-simulators"
+          "approvedDelta": "length-cut-20261012-world-models-relationships-world-models-vs-simulators"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -135022,7 +134971,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/evaluation/ ships 84 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 84 outbound anchor occurrences on it with a visible focus ring in 212 stops",
+      "actual": "/world-models/evaluation/ ships 78 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 78 outbound anchor occurrences on it with a visible focus ring in 200 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -135030,7 +134979,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/world-models/evaluation/",
-          "outboundAnchors": 84,
+          "outboundAnchors": 78,
           "distinctHrefs": 36,
           "shapes": [
             "citation-chip",
@@ -135039,9 +134988,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 81,
-          "reachedByTab": 84,
-          "tabStops": 212,
+          "anchorsWithNoreferrer": 75,
+          "reachedByTab": 78,
+          "tabStops": 200,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -135059,7 +135008,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/generative-sim/ ships 87 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 87 outbound anchor occurrences on it with a visible focus ring in 221 stops",
+      "actual": "/world-models/generative-sim/ ships 81 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 81 outbound anchor occurrences on it with a visible focus ring in 209 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -135067,7 +135016,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/world-models/generative-sim/",
-          "outboundAnchors": 87,
+          "outboundAnchors": 81,
           "distinctHrefs": 39,
           "shapes": [
             "citation-chip",
@@ -135076,9 +135025,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 84,
-          "reachedByTab": 87,
-          "tabStops": 221,
+          "anchorsWithNoreferrer": 78,
+          "reachedByTab": 81,
+          "tabStops": 209,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -135096,7 +135045,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/generative-video/ ships 84 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 84 outbound anchor occurrences on it with a visible focus ring in 226 stops",
+      "actual": "/world-models/generative-video/ ships 77 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 77 outbound anchor occurrences on it with a visible focus ring in 210 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -135104,7 +135053,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/world-models/generative-video/",
-          "outboundAnchors": 84,
+          "outboundAnchors": 77,
           "distinctHrefs": 40,
           "shapes": [
             "citation-chip",
@@ -135113,9 +135062,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 81,
-          "reachedByTab": 84,
-          "tabStops": 226,
+          "anchorsWithNoreferrer": 74,
+          "reachedByTab": 77,
+          "tabStops": 210,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -135133,7 +135082,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/jepa/ ships 85 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 85 outbound anchor occurrences on it with a visible focus ring in 203 stops",
+      "actual": "/world-models/jepa/ ships 77 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 77 outbound anchor occurrences on it with a visible focus ring in 187 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -135141,7 +135090,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/world-models/jepa/",
-          "outboundAnchors": 85,
+          "outboundAnchors": 77,
           "distinctHrefs": 39,
           "shapes": [
             "citation-chip",
@@ -135150,9 +135099,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 82,
-          "reachedByTab": 85,
-          "tabStops": 203,
+          "anchorsWithNoreferrer": 74,
+          "reachedByTab": 77,
+          "tabStops": 187,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -135170,7 +135119,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/latent-dynamics/ ships 81 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 81 outbound anchor occurrences on it with a visible focus ring in 196 stops",
+      "actual": "/world-models/latent-dynamics/ ships 76 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 76 outbound anchor occurrences on it with a visible focus ring in 186 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -135178,7 +135127,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/world-models/latent-dynamics/",
-          "outboundAnchors": 81,
+          "outboundAnchors": 76,
           "distinctHrefs": 36,
           "shapes": [
             "citation-chip",
@@ -135187,9 +135136,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 78,
-          "reachedByTab": 81,
-          "tabStops": 196,
+          "anchorsWithNoreferrer": 73,
+          "reachedByTab": 76,
+          "tabStops": 186,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -135207,7 +135156,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/model-based-robot-learning/ ships 74 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 74 outbound anchor occurrences on it with a visible focus ring in 179 stops",
+      "actual": "/world-models/model-based-robot-learning/ ships 68 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 68 outbound anchor occurrences on it with a visible focus ring in 166 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -135215,7 +135164,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/world-models/model-based-robot-learning/",
-          "outboundAnchors": 74,
+          "outboundAnchors": 68,
           "distinctHrefs": 38,
           "shapes": [
             "citation-chip",
@@ -135224,9 +135173,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 71,
-          "reachedByTab": 74,
-          "tabStops": 179,
+          "anchorsWithNoreferrer": 65,
+          "reachedByTab": 68,
+          "tabStops": 166,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -135244,7 +135193,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/taxonomy/ ships 81 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 81 outbound anchor occurrences on it with a visible focus ring in 216 stops",
+      "actual": "/world-models/taxonomy/ ships 74 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 74 outbound anchor occurrences on it with a visible focus ring in 200 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -135252,7 +135201,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/world-models/taxonomy/",
-          "outboundAnchors": 81,
+          "outboundAnchors": 74,
           "distinctHrefs": 39,
           "shapes": [
             "citation-chip",
@@ -135261,9 +135210,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 78,
-          "reachedByTab": 81,
-          "tabStops": 216,
+          "anchorsWithNoreferrer": 71,
+          "reachedByTab": 74,
+          "tabStops": 200,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -135281,7 +135230,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/world-models-vs-simulators/ ships 77 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 77 outbound anchor occurrences on it with a visible focus ring in 210 stops",
+      "actual": "/world-models/world-models-vs-simulators/ ships 71 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 71 outbound anchor occurrences on it with a visible focus ring in 198 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -135289,7 +135238,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/world-models/world-models-vs-simulators/",
-          "outboundAnchors": 77,
+          "outboundAnchors": 71,
           "distinctHrefs": 38,
           "shapes": [
             "citation-chip",
@@ -135298,9 +135247,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 74,
-          "reachedByTab": 77,
-          "tabStops": 210,
+          "anchorsWithNoreferrer": 68,
+          "reachedByTab": 71,
+          "tabStops": 198,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -157223,7 +157172,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6324 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6492 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158918,7 +158867,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1412 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1403 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160375,7 +160324,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/evaluation/ rendered no v1 identity spelling and no v1 descriptor in 42160 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/evaluation/ rendered no v1 identity spelling and no v1 descriptor in 38786 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160422,7 +160371,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 51381 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 47496 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160469,7 +160418,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/generative-video/ rendered no v1 identity spelling and no v1 descriptor in 51826 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/generative-video/ rendered no v1 identity spelling and no v1 descriptor in 47098 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160516,7 +160465,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 48015 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 42956 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160563,7 +160512,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/latent-dynamics/ rendered no v1 identity spelling and no v1 descriptor in 41444 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/latent-dynamics/ rendered no v1 identity spelling and no v1 descriptor in 38013 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160610,7 +160559,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/model-based-robot-learning/ rendered no v1 identity spelling and no v1 descriptor in 36852 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/model-based-robot-learning/ rendered no v1 identity spelling and no v1 descriptor in 33406 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160657,7 +160606,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 48050 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 44628 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160704,7 +160653,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/world-models-vs-simulators/ rendered no v1 identity spelling and no v1 descriptor in 50696 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/world-models-vs-simulators/ rendered no v1 identity spelling and no v1 descriptor in 46687 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -225757,7 +225706,7 @@
             {
               "id": "/world-models/evaluation/",
               "observed": {
-                "paragraphCount": 17,
+                "paragraphCount": 15,
                 "familyHeads": [
                   "geist"
                 ],
@@ -225921,7 +225870,7 @@
             {
               "id": "/world-models/latent-dynamics/",
               "observed": {
-                "paragraphCount": 17,
+                "paragraphCount": 16,
                 "familyHeads": [
                   "geist"
                 ],
@@ -225962,7 +225911,7 @@
             {
               "id": "/world-models/model-based-robot-learning/",
               "observed": {
-                "paragraphCount": 15,
+                "paragraphCount": 14,
                 "familyHeads": [
                   "geist"
                 ],
@@ -226003,7 +225952,7 @@
             {
               "id": "/world-models/taxonomy/",
               "observed": {
-                "paragraphCount": 17,
+                "paragraphCount": 16,
                 "familyHeads": [
                   "geist"
                 ],
@@ -226044,7 +225993,7 @@
             {
               "id": "/world-models/world-models-vs-simulators/",
               "observed": {
-                "paragraphCount": 20,
+                "paragraphCount": 18,
                 "familyHeads": [
                   "geist"
                 ],
@@ -232952,7 +232901,7 @@
             {
               "id": "/world-models/evaluation/",
               "observed": {
-                "paragraphCount": 34,
+                "paragraphCount": 30,
                 "registeredFrameParagraphCount": 4,
                 "offendingFamilies": []
               }
@@ -233100,7 +233049,7 @@
             {
               "id": "/world-models/latent-dynamics/",
               "observed": {
-                "paragraphCount": 34,
+                "paragraphCount": 32,
                 "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
@@ -233137,7 +233086,7 @@
             {
               "id": "/world-models/model-based-robot-learning/",
               "observed": {
-                "paragraphCount": 30,
+                "paragraphCount": 28,
                 "registeredFrameParagraphCount": 4,
                 "offendingFamilies": []
               }
@@ -233174,7 +233123,7 @@
             {
               "id": "/world-models/taxonomy/",
               "observed": {
-                "paragraphCount": 34,
+                "paragraphCount": 32,
                 "registeredFrameParagraphCount": 18,
                 "offendingFamilies": []
               }
@@ -233211,7 +233160,7 @@
             {
               "id": "/world-models/world-models-vs-simulators/",
               "observed": {
-                "paragraphCount": 40,
+                "paragraphCount": 36,
                 "registeredFrameParagraphCount": 4,
                 "offendingFamilies": []
               }

@@ -157,6 +157,15 @@ function throughSeoPass(path: string) {
     expect(continues(frontier, end)).toBe(true);
     end = frontier.newHash;
   }
+  // The world-models length cut of 2026-10-12 then shortened some of them,
+  // with one edge each that continues the previous endpoint the same way.
+  const cutEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('length-cut-20261012-world-models-'));
+  expect(cutEdges.length).toBeLessThanOrEqual(1);
+  for (const cut of cutEdges) {
+    expect(continues(cut, end)).toBe(true);
+    end = cut.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 
@@ -276,12 +285,17 @@ describe('merged reader corrections preserve production additions and exact appr
         const seoRelationship = approvals.find(a =>
           a.id === 'seo-pass-20261002-relationships-world-models-generative-sim')!;
         expect(seoRelationship).toMatchObject({ manifest: 'relationships', memberId: id, oldHash: relationship.newHash });
-        // The 2026-10-10 world-models pass then moved it to the live record
-        // with one more plain edge from the SEO endpoint.
+        // The 2026-10-10 world-models pass then moved it on with one more
+        // plain edge from the SEO endpoint, and the 2026-10-12 length cut
+        // moved it to the live record with one more from that endpoint.
         const domainRelationship = approvals.find(a =>
           a.id === 'world-models-pass-20261010-relationships-generative-sim')!;
         expect(domainRelationship).toMatchObject({ manifest: 'relationships', memberId: id, oldHash: seoRelationship.newHash });
-        expect(truth.relationships.members.find(m => m.id === id)?.hash).toBe(domainRelationship.newHash);
+        const cutRelationship = approvals.find(a =>
+          a.id === 'length-cut-20261012-world-models-relationships-generative-sim')!;
+        expect(cutRelationship).toMatchObject({ manifest: 'relationships', memberId: id, oldHash: domainRelationship.newHash });
+        expect(cutRelationship.reconciles).toBeUndefined();
+        expect(truth.relationships.members.find(m => m.id === id)?.hash).toBe(cutRelationship.newHash);
         const relationshipEdges = approvals.filter(a => a.manifest === 'relationships' && a.memberId === id);
         const sealedHash = sealed.manifests.relationships.members.find(m => m.id === id)!.hash;
         expect(approvedDeltaPath(relationshipEdges, sealedHash, relationship.newHash).status).toBe('approved');

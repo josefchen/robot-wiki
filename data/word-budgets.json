@@ -31,12 +31,12 @@
   "rl-sim2real/rl-for-robotics": 2436,
   "rl-sim2real/sim2real-transfer": 2378,
   "rl-sim2real/why-rl-locomotion": 1308,
-  "world-models/evaluation": 1128,
-  "world-models/generative-sim": 1705,
-  "world-models/generative-video": 1959,
-  "world-models/jepa": 1705,
-  "world-models/latent-dynamics": 1490,
-  "world-models/model-based-robot-learning": 1069,
-  "world-models/taxonomy": 1731,
-  "world-models/world-models-vs-simulators": 1992
+  "world-models/evaluation": 946,
+  "world-models/generative-sim": 1454,
+  "world-models/generative-video": 1665,
+  "world-models/jepa": 1411,
+  "world-models/latent-dynamics": 1283,
+  "world-models/model-based-robot-learning": 875,
+  "world-models/taxonomy": 1529,
+  "world-models/world-models-vs-simulators": 1736
 }
