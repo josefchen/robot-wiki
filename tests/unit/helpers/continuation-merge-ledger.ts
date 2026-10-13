@@ -344,6 +344,9 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   2026-10-12 moved the prose and relationships of the eight world-models
  *   articles, each member with one edge from its last approved endpoint, or
  *   one resolution from the sealed hash where its chain already holds one.
+ * - `length-cut-20261013-frontier-`: the frontier length cut of 2026-10-13
+ *   moved the prose of five frontier articles and the relationships of the
+ *   three whose inline citations it changed, in the same shape.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -376,6 +379,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'domain-pass-20261012-kol-citation-rendering',
   'frontier-pass-20261010-',
   'length-cut-20261012-world-models-',
+  'length-cut-20261013-frontier-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

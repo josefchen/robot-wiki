@@ -84985,6 +84985,992 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261013-frontier-prose-bear-case",
+      "manifest": "prose",
+      "memberId": "article:frontier/bear-case",
+      "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+      "newHash": "fae7f12c981c02cb0bad44b7ff3d008c3792de71d421dacc4c961ea474a7f065",
+      "reason": "Frontier length cut of 2026-10-13 on frontier/bear-case, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 27 earlier approved edges exactly, ending with frontier-pass-20261010-prose-bear-case. It drops Brooks's four-decade career line and the Johansson anesthetized-finger aside (the dexterity page keeps it), the Computex robot being carried off stage, the uncited 80-percent demo line, Sparsh-X's interaction count, two speculative clauses in the winter scenarios, the staging sentences 'Whether that is a bubble is contested', 'The bear case is falsifiable' and 'the first repricing came in China', and two restatements of their section headings (the August 2026 date of the watchlist and the line that shipments document no productive work), and folds the bubble debate into the funding paragraph. The Evidence and Speculation labels, the hypothetical-scenario caveat and every skeptic and investor quotation stay. The cut removes 0 citation occurrences and 4 number occurrences from the body. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of about a quarter to the five frontier articles the frontier domain pass shortened, under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the two corrected component blocks recorded in audit/evidence/length-cut-20261013-frontier/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-083",
+        "VAL-OPUS-084",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "bc-b1-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b2-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b3-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b4-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b5-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b6-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b7-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b8-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b9-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b10-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b11-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b13-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b14-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b15-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "bc-b16-20260915-1",
+          "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+          "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06"
+        },
+        {
+          "id": "seo-merge-20260916-prose-12",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc"
+        },
+        {
+          "id": "single-leftovers-b12-20260917-1",
+          "oldHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+          "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc"
+        },
+        {
+          "id": "round5-closeout-bear-case-prose",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc"
+        },
+        {
+          "id": "reader-f20-dates-20260923-3",
+          "oldHash": "ee25c44e69bb54344a189f648839e85a1ee7556d3bb06124f036739d4bc2aebc",
+          "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "1f985fdf9b73c9df01b5ea32141641e7b1c953073fa2a986560661970d22c68f"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "cfdf501ea057007bf575b7f2f69a864cb984a64f592eba42f14310c4564faafd"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "14e01223255123acd903423c97c66fbafb9773d84d1031230616b9e92134c347"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "cf9ecfe4893d7663eea5ae83f5a2ae1e9385356a9fab7eb35516d0f96b6d1a71"
+        },
+        {
+          "id": "reader-first-20261002-prose-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "4aa83a510ad0baeae217a62f1fa5639205c1bc5369285017b47f37ea2a4e7233"
+        },
+        {
+          "id": "domain-pass-20261008-qa-prose-frontier-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "baa6d8cd5ea54a6f47e1a8904cb49f21bd8d3028cda37d2106d440a41027b9ee"
+        },
+        {
+          "id": "frontier-pass-20261010-prose-bear-case",
+          "oldHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
+          "newHash": "5ad2fa234a80ea17f2d32d218be7f426cf606441e018effad80213cab254c733"
+        }
+      ]
+    },
+    {
+      "id": "length-cut-20261013-frontier-prose-competing-theses",
+      "manifest": "prose",
+      "memberId": "article:frontier/competing-theses",
+      "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+      "newHash": "87604db416dd367c173a8365465a9b662185f02751804d61f9d3700f0143bad0",
+      "reason": "Frontier length cut of 2026-10-13 on frontier/competing-theses, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 27 earlier approved edges exactly, ending with anatomy-2-figures-20261012-prose-competing-theses. It drops EgoScale's 54-percent hand result, the sentence on π0.5 cleaning unseen homes and π0.7 recombining trained skills, the π0.7 coaching sentence in the hierarchy section, the laundry and box-assembly figures of the first Recap iteration, RL-100's juicing robot and Brooks's remarks on human-like hand deployment and on Baxter and Sawyer (the thesis explorer on the same page keeps each of them), Bessemer's investor-outlook label, the watchlist recap of the six kill conditions, NVIDIA's GR00T N1 dual-system description (the hierarchy section keeps Helix 02 and Gemini Robotics ER 2 as its examples; the generalization page keeps GR00T N1), Figure's livestream hours (the reliability-gap page keeps them with all three sources) and the staging sentences 'The sixth thesis is a pair' and 'The case against is cost and fidelity', and shortens the Gemini Robotics ER 2 sentence after the Helix hierarchy sentence. It also corrects the stat strip, recorded exactly in the review with its reason: the unsourced '~300k h' robot-data tile gives way to Figure's $3.5B compute commitment to Helix, which the lead states and cites, and the 'settled' tile is dated October 2026. The cut removes 6 citation occurrences and 27 number occurrences from the body; 3 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of about a quarter to the five frontier articles the frontier domain pass shortened, under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the two corrected component blocks recorded in audit/evidence/length-cut-20261013-frontier/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-083",
+        "VAL-OPUS-084",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "cosmos-reader-closeout-20260908-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "503e83d1c6a6a04167a7a00aaef3abd3b24e09a9fa7e2de4eda6468e65a82adf"
+        },
+        {
+          "id": "brooks-theses-20260913-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "a56425425bd904d6c36138657bc0b46a1a2203bc4ed0544de1010258a37aa77f"
+        },
+        {
+          "id": "pi-helix-theses-20260913-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "da08b089142a4649e8ce859ab1301328b9ffc3e5ac7d2d1b61d3ccf1c138c8c3"
+        },
+        {
+          "id": "thesis-economics-two-20260914-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de"
+        },
+        {
+          "id": "ct-r1-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r2-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r9-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r7-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r8-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r12-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r13-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r14-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r17-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r18-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r20-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r23-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r25-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "seo-merge-20260916-prose-13",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "round5-closeout-competing-theses-prose",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-frontier-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "fa3f42df226fbe66e68ddfcf351079068fc6e0684bfb3a6fce4d632585911e23"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "ec8ddfe81684a9e34321102dd6b8543ce47c81018def615e68ad16242e7e6193"
+        },
+        {
+          "id": "round6-prose-restores-20260929-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "cde24c4b7e4837954bd1a539bedad8f5f9b6c0a1144454dbf847f59bc4d01149"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "51a98514da9abcf0cd09afe918d316467412d66bacf25cae28e144de6d6b0f4a"
+        },
+        {
+          "id": "reader-first-20261002-prose-frontier-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "405a6cf555b8a9bb78df40c323f400bf2a8f2ca9c64a50c0c4c9011e5fd79b2d"
+        },
+        {
+          "id": "frontier-pass-20261010-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "73b6eb4e415abec1b01f78d28b69353aa0d8a5b0a8745968dcfa994e6e57581c"
+        },
+        {
+          "id": "anatomy-2-figures-20261012-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "66e67386b819ab1338487a6ec72ebe02677ba8d4a3d54aeda8898e5335ed309a"
+        }
+      ]
+    },
+    {
+      "id": "length-cut-20261013-frontier-prose-generalization",
+      "manifest": "prose",
+      "memberId": "article:frontier/generalization",
+      "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+      "newHash": "c7e7f8571b9c01bbf5867cf18227d1da4fbe6071667c7e41fb8c2edeb563d405",
+      "reason": "Frontier length cut of 2026-10-13 on frontier/generalization, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 28 earlier approved edges exactly, ending with frontier-pass-20261010-prose-generalization. It drops π0.5's 'reference point' framing and its sink example, the french-press example, the shirt-bagging detail and the experts' top-2-percent qualifier, GR00T N2's release window, a restatement of the coaching caveat (the coaching paragraph states it), the slider's self-description, the line that semantic generalization is not motor generalization (the section keeps the point) and π0.5's test-design sentence (the limits section keeps its three homes and ten trials per task with the same source). It merges sentences that split one result, such as the Helix 2.5 grading caveat and the missing success-rate law, and splits five that joined two results. The cut removes 0 citation occurrences and 2 number occurrences from the body. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of about a quarter to the five frontier articles the frontier domain pass shortened, under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the two corrected component blocks recorded in audit/evidence/length-cut-20261013-frontier/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-083",
+        "VAL-OPUS-084",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "go-helix-cross-transfer-20260908-1",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "982d197681c2163b045018da286781d70b71b07737fd2bf482dd4f5e2906e0c1"
+        },
+        {
+          "id": "generalization-g1-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g2-20260915-1",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g3-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g4-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g5-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g6-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g7-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g8-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g9-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g10-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g11-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g12-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g13-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g14-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g15-20260915-1",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g16-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g18-20260915-1",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g19-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g20-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "generalization-g21-20260915-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "single-leftovers-g17-20260917-1",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-generalization",
+          "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+          "newHash": "eea78a462a9118f10e46b7f310674ef7a25fb91190f456056c9918582531dc6e"
+        },
+        {
+          "id": "opus-figure-migration-20261001-prose-generalization",
+          "oldHash": "eea78a462a9118f10e46b7f310674ef7a25fb91190f456056c9918582531dc6e",
+          "newHash": "8c9b0831f170cb82a636067f1c6fb98812e197341f4c98208c6c315798b0fc68"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-generalization",
+          "oldHash": "8c9b0831f170cb82a636067f1c6fb98812e197341f4c98208c6c315798b0fc68",
+          "newHash": "07e05611c771d6612130ffad5af3eadcba99864d1a74e7dc2aaa719c69285beb"
+        },
+        {
+          "id": "reader-first-20261002-prose-frontier-generalization",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "22e843bf9fa7e9202c43b12fe5511d9df10ab74e7cf5179d4edc98ad97cfae06"
+        },
+        {
+          "id": "reader-first-20261003-predict-prose-frontier-generalization",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "0103a61d7a055f09b3fb42d3f75cc538433a75b70705d40ead0dc341d9c1f4ad"
+        },
+        {
+          "id": "frontier-pass-20261010-prose-generalization",
+          "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+          "newHash": "33f09b67fd23ff8b11b8e32fadc29d44e19effdc63ed308dc602064a222b6c76"
+        }
+      ]
+    },
+    {
+      "id": "length-cut-20261013-frontier-prose-reliability-gap",
+      "manifest": "prose",
+      "memberId": "article:frontier/reliability-gap",
+      "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+      "newHash": "494abfa7380185e54169ac2a04adf44259b803df37cd857ed991eb1635d7b076",
+      "reason": "Frontier length cut of 2026-10-13 on frontier/reliability-gap, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 26 earlier approved edges exactly, ending with frontier-pass-20261010-prose-reliability-gap. It drops HIL-SERL's training-time result (secondary corroboration beside Recap, RL-100 and Real-Time EXPO-FT), RL-100's 250-episode streak, the worked 30-step example under the p^N formula (the calculator below shows it), ASIMOV-Agentic's tool-call, feasibility and uncertainty items (its payload, reach, safety-limit and stop-near-people tests stay), the second half of the π0.7 coaching sentence, the line 'Formal methods do not close the gap', Lisa Yan's title and former employer, the closing gloss 'making failure rare, and measuring how rare', the run-up 'The evidence cost is steep' and the line that dated company records show the gap better than circulating unit counts (its industrial-deployment link moves to the Agility sentence). It also corrects the self-check, recorded exactly in the review with its reason: the coaching explanation now says coaching walks π0.7 through unseen tasks, as the cited blog does, and the explanations and takeaway lose their contrast lines; the prompt, options and answer are unchanged. The cut removes 1 citation occurrence and 7 number occurrences from the body; 1 source leaves it entirely and stays in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of about a quarter to the five frontier articles the frontier domain pass shortened, under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the two corrected component blocks recorded in audit/evidence/length-cut-20261013-frontier/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-083",
+        "VAL-OPUS-084",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "go-helix-cross-transfer-20260908-2",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "66f7598571453b8f06b1921bdcd1e680d7f73b978964bd5130011ee1088ec298"
+        },
+        {
+          "id": "rg-r1-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r2-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r3-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r4-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r5-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r7-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r8-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r9-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r10-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r11-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r12-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r13-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r14-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "rg-r15-20260915-1",
+          "oldHash": "9c472b315a76af6c3725628f3d71d9df2e835e58177b78c087d2a4ef30100792",
+          "newHash": "921e8711daee7bfbd0bdd2b1c025d95d9c8f9056b3472a5264c44383fb58a4c5"
+        },
+        {
+          "id": "seo-merge-20260916-prose-14",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "6ec59fccefe91eb94a2846cea3866b9adcb101c11d2563a3b082bc42517225f4"
+        },
+        {
+          "id": "single-leftovers-rg6-20260917-1",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc"
+        },
+        {
+          "id": "round5-closeout-reliability-gap-prose",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1012cebc53f29bf427e082a33890db54ca636a35965e31d7ec06b9e70e41a3dc"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "9ce3dbd3ed18119366400384f63fe66f9a4664bc84424c6fef6d8a2b811de0e4"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "4ed073dd9969b1b13e1f42c2bb98ca36218a32aae0ea5266ed45fa4228a1a026"
+        },
+        {
+          "id": "round5-chart-first-screen-20260928-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "1e39b6186e098ed948aa36770562e9041be8283a9956f7396b472529fd661a90"
+        },
+        {
+          "id": "opus-figure-system-20260930-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "ec938d42bd87814a5ef1f3c3808a4fbc645107b4e94e6a822646a0465610a063"
+        },
+        {
+          "id": "opus-figure-migration-20261001-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "2bd375b2ae60549ce16dc60e24bef580a74ecf2d25da7837051165e7d37a456f"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "dcc46a16450c633c76f94becc4aae2962cb866c44346c220ee8caab994ba40f2"
+        },
+        {
+          "id": "reader-first-20261002-prose-frontier-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "449ce734d709adf6cc8577fbc93463ce53f3cfa826d2bb25d2701dd431ffbf98"
+        },
+        {
+          "id": "frontier-pass-20261010-prose-reliability-gap",
+          "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+          "newHash": "23af1959e3397d0d5387665dbddb805ebb00e1e4f3e6692baa6439a7b7bfbb36"
+        }
+      ]
+    },
+    {
+      "id": "length-cut-20261013-frontier-prose-safety-and-assurance",
+      "manifest": "prose",
+      "memberId": "article:frontier/safety-and-assurance",
+      "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+      "newHash": "f2e33229f614ae9c261239a2586896ab0dbbcf3c5514f85f130fdf4812cb551a",
+      "reason": "Frontier length cut of 2026-10-13 on frontier/safety-and-assurance, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 46 earlier approved edges exactly, ending with frontier-pass-20261010-prose-safety-and-assurance. It drops Agility's restatement of the Digit 5 safety controller (the humanoid paragraph keeps the cited report), the 'often misread' and 'distinct from removing power' staging sentences, 'A compliant robot therefore does not make a compliant cell' (the section heading keeps it), the OSHA hazardous-energy rule name, the lead's restatement of ISO/IEC TR 5469 (the body keeps its wording), the line that the filter's guarantee holds whatever produced the proposal (the section heading keeps the point) and the list of the four ISO/TS 15066 scenario names, which the next two sentences name again, splits the ISO 13855 paragraph so the approach-speed criteria stand in their own cited paragraph, tightens the standards definitions without changing an edition, year, number or qualifier, and names the institutions behind the October 2026 trustworthy physical AI position paper, as its audit row records them. The cut removes 1 citation occurrence and 4 number occurrences from the body. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of about a quarter to the five frontier articles the frontier domain pass shortened, under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the two corrected component blocks recorded in audit/evidence/length-cut-20261013-frontier/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-083",
+        "VAL-OPUS-084",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "content-audit-2026-09-06-safety-and-assurance",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "59b265bf4a5043e0a5ee2193ee3662c302fb8b930de2e81206cf317b1836db98"
+        },
+        {
+          "id": "brand-v2-audit-frontier-emergency-stop-unsourced-classification",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa3-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa10-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa11-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa12-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa13-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa14-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa15-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa16-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa17-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa19-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa20-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa21-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa22-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa24-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa27-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa28-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa29-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa30-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa31-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa34-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa35-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "safety-assurance-sa37-20260915-1",
+          "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+          "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda"
+        },
+        {
+          "id": "sa-r5-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r6-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r7-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r8-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r9-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r25-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r26-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r32-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r33-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r36-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r38-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r39-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "sa-r40-20260916-1",
+          "oldHash": "cf6aa06c33d2a27b573fb188f2a67e56cb9c2f520cfcc891188a1cc94e971794",
+          "newHash": "d68791a9e4e0c5b637d8927622a9668fb1710a55b0960375afb66362bd549836"
+        },
+        {
+          "id": "seo-merge-20260916-prose-15",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "0c3836e0bfbe4a43bc222824b83026fcfcad5e40496d1beb10f2e223aa7c7981"
+        },
+        {
+          "id": "round5-closeout-safety-and-assurance-prose",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "0c3836e0bfbe4a43bc222824b83026fcfcad5e40496d1beb10f2e223aa7c7981"
+        },
+        {
+          "id": "final-seven-closure-20260923-4",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "97b468d68082e6972bea82c89dd46d6523d852f9c3a10de7073f7e5e1f2d9a55"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-safety-and-assurance",
+          "oldHash": "97b468d68082e6972bea82c89dd46d6523d852f9c3a10de7073f7e5e1f2d9a55",
+          "newHash": "f3732cfd2319b505b1bcf5f83b5f742b87957a55836e1ce4276f547cff2e87e9"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-safety-and-assurance",
+          "oldHash": "f3732cfd2319b505b1bcf5f83b5f742b87957a55836e1ce4276f547cff2e87e9",
+          "newHash": "e8f0e5712a165ab6edc17bb3d31e2ad197a53fdea51391f28e85db58f4cb5055"
+        },
+        {
+          "id": "reader-first-20261002-prose-frontier-safety-and-assurance",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "04ae23ad7a566cf01a90599eea17242cda96d2c43201df46bb624c49ef51fd02"
+        },
+        {
+          "id": "kol-backlog-20261005-frontier-prose-safety-and-assurance",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "9a252781857bd0086853af4afb68ad4327d42746860a345c59677fbf51b88620"
+        },
+        {
+          "id": "domain-pass-20261012-kol-prose-safety-and-assurance",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "3c774d5fce6d1b1e34b421a06f6de86499a12a3ad2a6d80773a839d2658a9869"
+        },
+        {
+          "id": "frontier-pass-20261010-prose-safety-and-assurance",
+          "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+          "newHash": "ea8069a5692d053f845d20d68571456414cd6a0b5f80c28f68cbcfb4bfddaf1b"
+        }
+      ]
+    },
+    {
+      "id": "length-cut-20261013-frontier-relationships-competing-theses",
+      "manifest": "relationships",
+      "memberId": "article:frontier/competing-theses",
+      "oldHash": "9c77edeb862d21e0164fe59d47a73da05d9d8b18a29194a345e80891af2a6360",
+      "newHash": "ba309a0ecf51d571ed915544e24d6c2c19deddb26cbfc7514ff23bfdb6ed7108",
+      "reason": "Frontier length cut of 2026-10-13 on frontier/competing-theses, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 5 earlier approved edges exactly, ending with frontier-pass-20261010-relationships-competing-theses. The relationships record loses only inline citation occurrences the cut removed (6 occurrences; no longer cited in the body: adcock-figure-livestream-2026, gr00t-n1-2025, pi05-2025; cited fewer times: helix-2-5-2026, pi07-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of about a quarter to the five frontier articles the frontier domain pass shortened, under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the two corrected component blocks recorded in audit/evidence/length-cut-20261013-frontier/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-083",
+        "VAL-OPUS-084",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "brooks-theses-20260913-2",
+          "oldHash": "9c77edeb862d21e0164fe59d47a73da05d9d8b18a29194a345e80891af2a6360",
+          "newHash": "649d52ae7eb4b7980db3662635cd25730271de4bc81c1739ef64702a58567fd8"
+        },
+        {
+          "id": "pi-helix-theses-20260913-2",
+          "oldHash": "9c77edeb862d21e0164fe59d47a73da05d9d8b18a29194a345e80891af2a6360",
+          "newHash": "e98ef5eb4fc557fcecd12adffab9a530344c79175ecbe33b20b1a4dd1a42863b"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-relationships-competing-theses",
+          "oldHash": "9c77edeb862d21e0164fe59d47a73da05d9d8b18a29194a345e80891af2a6360",
+          "newHash": "ec48f212a050173d27124002a5332afa0004cb51233c402ec52c005c7bc53cc8"
+        },
+        {
+          "id": "seo-pass-20261002-relationships-frontier-competing-theses",
+          "oldHash": "9c77edeb862d21e0164fe59d47a73da05d9d8b18a29194a345e80891af2a6360",
+          "newHash": "61139761ee5c98c6a898239949d0d9ab3e843cc6309d72974de415393ae3d88d"
+        },
+        {
+          "id": "frontier-pass-20261010-relationships-competing-theses",
+          "oldHash": "9c77edeb862d21e0164fe59d47a73da05d9d8b18a29194a345e80891af2a6360",
+          "newHash": "35ce96f177c7ff95509c91ace6ef8e0d8e01d900e8263bc1349fcf9efc8d1a1e"
+        }
+      ]
+    },
+    {
+      "id": "length-cut-20261013-frontier-relationships-reliability-gap",
+      "manifest": "relationships",
+      "memberId": "article:frontier/reliability-gap",
+      "oldHash": "7ad896cac862c888582be20cb711d9c1e54a739e3f09167190b380ad29006d6c",
+      "newHash": "affaf6cf7bdd21713ecd7787c15a7ccadcd26804adaac04b2f7c727454b07058",
+      "reason": "Frontier length cut of 2026-10-13 on frontier/reliability-gap, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 5 earlier approved edges exactly, ending with frontier-pass-20261010-relationships-reliability-gap. The relationships record loses only inline citation occurrences the cut removed (1 occurrence; no longer cited in the body: hil-serl-2024); seeAlso entries, glossary ids and internal link targets are unchanged. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of about a quarter to the five frontier articles the frontier domain pass shortened, under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the two corrected component blocks recorded in audit/evidence/length-cut-20261013-frontier/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-083",
+        "VAL-OPUS-084",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "seo-merge-20260916-relationships-46",
+          "oldHash": "7ad896cac862c888582be20cb711d9c1e54a739e3f09167190b380ad29006d6c",
+          "newHash": "7c7bf8ad6873eba0911ca70b133cf167039ed71969c7e7085b0563d2f7f55951"
+        },
+        {
+          "id": "round5-closeout-reliability-gap-relationships",
+          "oldHash": "7ad896cac862c888582be20cb711d9c1e54a739e3f09167190b380ad29006d6c",
+          "newHash": "7c7bf8ad6873eba0911ca70b133cf167039ed71969c7e7085b0563d2f7f55951"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-relationships-reliability-gap",
+          "oldHash": "7ad896cac862c888582be20cb711d9c1e54a739e3f09167190b380ad29006d6c",
+          "newHash": "6801baf33af429aacefe1b981df23e17dc3dc75f4f66db441c66c407f04a734d"
+        },
+        {
+          "id": "seo-pass-20261002-relationships-frontier-reliability-gap",
+          "oldHash": "7ad896cac862c888582be20cb711d9c1e54a739e3f09167190b380ad29006d6c",
+          "newHash": "1227a53183edb9d42aded5c08ac1c0b7cbbf275c142999a56666c277fa6410db"
+        },
+        {
+          "id": "frontier-pass-20261010-relationships-reliability-gap",
+          "oldHash": "7ad896cac862c888582be20cb711d9c1e54a739e3f09167190b380ad29006d6c",
+          "newHash": "4f6e3f9e9ae767ad1aa920960e2fd5e3073e2b2dc332f0783d0d01d49f6657cb"
+        }
+      ]
+    },
+    {
+      "id": "length-cut-20261013-frontier-relationships-safety-and-assurance",
+      "manifest": "relationships",
+      "memberId": "article:frontier/safety-and-assurance",
+      "oldHash": "5d408b7caaa672b4286c91f0a1d69fb8948077e2621aff9bd45744814ed8adb2",
+      "newHash": "dcad05288b5281e16f08f4011bbea07eb479edab15a345a6ba752f9454b29e06",
+      "reason": "Frontier length cut of 2026-10-13 on frontier/safety-and-assurance, under the owner's length decision, as one plain edge from the member's last approved endpoint (frontier-pass-20261010-relationships-safety-and-assurance). The relationships record loses only inline citation occurrences the cut removed (1 occurrence; cited fewer times: agility-digit-5-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of about a quarter to the five frontier articles the frontier domain pass shortened, under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the two corrected component blocks recorded in audit/evidence/length-cut-20261013-frontier/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-083",
+        "VAL-OPUS-084",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

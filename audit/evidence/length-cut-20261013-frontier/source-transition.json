@@ -1,0 +1,722 @@
+{
+  "schemaVersion": "length-cut-continuity-v1",
+  "name": "length-cut-20261013-frontier",
+  "reviewedBy": "implementation worker for the frontier domain pass (opus-pass-frontier), under the owner directive of 2026-10-12 and the length decision of the same day (not independent acceptance)",
+  "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. The frontier pass applies it to the frontier articles. Not release approval.",
+  "rationale": "The owner asked for short, premium articles, and the frontier domain pass applies the humanizer standard and the length decision to the frontier articles: leads of at most two sentences, paragraphs of at most four, and about a quarter less text. That cut drops recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit. This review records each cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, records each corrected component block (an unsourced stat tile, a stale date, an unsupported self-check explanation) with its reason, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
+  "observedAt": "2026-10-13T16:04:58Z",
+  "sources": [
+    {
+      "archivedFrom": "a313729713ac7cbcd555a746a971ea1ce40802ab",
+      "before": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 10545,
+        "sha256": "d16b433bad1c9e60a4cf3fae376eac4671d09bd859fd301af15309dd84e951f6"
+      },
+      "after": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 10051,
+        "sha256": "6d04e10afeba9b203f1da2393329d0ec98ac250a93f3bf4347d953666e338938"
+      },
+      "edits": [
+        {
+          "before": "Eight milestones would settle the argument. Pick \"Done\" under \"Show\" and the board empties; pick \"Partly\" and five tiles survive. In one, RL-100 and π*0.6 report some of the highest published per-task reliabilities <Cite id=\"rl-100-2025\" /> <Cite id=\"pistar06-2025\" />.\n",
+          "after": "Eight milestones would settle the argument. Under \"Show\", \"Done\" empties the board and \"Partly\" leaves five tiles. In one, RL-100 and π*0.6 report some of the highest published per-task reliabilities <Cite id=\"rl-100-2025\" /> <Cite id=\"pistar06-2025\" />.\n"
+        },
+        {
+          "before": "Evidence: Rodney Brooks, co-founder of iRobot and Rethink Robotics, has built robots for four decades. His September 2025 essay calls the belief that current methods will yield practical humanoid dexterity within decades \"pure fantasy thinking\". Vision-only training gives no force channel, and Johansson's anesthetized-finger experiments show what humans lose without one ([dexterity](/frontier/dexterity/)) <Cite id=\"brooks-dexterity-2025\" />. His January 2026 scorecard predicts deployable dexterity \"will remain pathetic compared to human hands\" beyond 2036, and walking humanoids too unsafe near people without new mechanical systems <Cite id=\"brooks-scorecard-2026\" />. Rethink raised \\$150 million and shut down in 2018 when sales fell short <Cite id=\"rethink-shutdown-2018\" />.\n",
+          "after": "Evidence: Rodney Brooks, co-founder of iRobot and Rethink Robotics, calls the belief that current methods will yield practical humanoid dexterity within decades \"pure fantasy thinking\", since vision-only training gives no force channel ([dexterity](/frontier/dexterity/)) <Cite id=\"brooks-dexterity-2025\" />. His January 2026 scorecard predicts deployable dexterity \"will remain pathetic compared to human hands\" beyond 2036, and walking humanoids too unsafe near people without new mechanical systems <Cite id=\"brooks-scorecard-2026\" />. Rethink raised \\$150 million and shut down in 2018 when sales fell short <Cite id=\"rethink-shutdown-2018\" />.\n"
+        },
+        {
+          "before": "Evidence: Morgan Stanley's July 2026 note says humanoids have a \"PR problem\". They are framed as substitutes for workers instead of tools for hazardous or labor-constrained tasks, and \"the industry's social license to deploy may matter just as much as technical performance\". Investors \"are increasingly looking for tangible evidence of real-world return on investment\". It says the US ban on Chinese humanoid imports risks raising R&D costs, and keeps a 50,000-unit China shipment estimate for 2026 <Cite id=\"morgan-stanley-pr-problem-2026\" />.\n",
+          "after": "Evidence: Morgan Stanley's July 2026 note says humanoids have a \"PR problem\": they are framed as substitutes for workers instead of tools for hazardous or labor-constrained tasks. It adds that \"the industry's social license to deploy may matter just as much as technical performance\". Investors \"are increasingly looking for tangible evidence of real-world return on investment\". The note says the US ban on Chinese humanoid imports risks raising R&D costs, and keeps a 50,000-unit China shipment estimate for 2026 <Cite id=\"morgan-stanley-pr-problem-2026\" />.\n"
+        },
+        {
+          "before": "Evidence: at Computex 2026, a Qualcomm-powered humanoid collapsed face-first during the live keynote, in a failure attributed to a communication glitch, and was covered and carried off stage <Cite id=\"computex-collapse-2026\" />.\n",
+          "after": "Evidence: at Computex 2026, a Qualcomm-powered humanoid collapsed face-first during the live keynote, in a failure attributed to a communication glitch <Cite id=\"computex-collapse-2026\" />.\n"
+        },
+        {
+          "before": "A robot at 80% task success is a demo; at 99.9%, a product ([reliability gap](/frontier/reliability-gap/)). The bear case is that closing the gap outlasts the capital. Lisa Yan, quoted in Bessemer's own analysis, describes the climb from 99% to 99.9% as steep <Cite id=\"bessemer-robotics-2026\" />.\n",
+          "after": "The bear case is that closing the [reliability gap](/frontier/reliability-gap/) between demo and product outlasts the capital. Lisa Yan, quoted in Bessemer's own analysis, describes the climb from 99% to 99.9% as steep <Cite id=\"bessemer-robotics-2026\" />.\n"
+        },
+        {
+          "before": "Agility reports 65,000 hours of Digit production experience on an undated homepage <Cite id=\"agility-digit-production\" />, and Figure reports 1,250+ hours at BMW Spartanburg by November 2025 <Cite id=\"figure-bmw-production-2025\" />. Neither counts autonomous units or supervised time ([evaluation crisis](/data-hardware/evaluation-crisis/)). Omdia counted about 13,000 humanoids shipped in 2025 <Cite id=\"agibot-omdia-2026\" /> and SAG 19.1K in the first half of 2026 <Cite id=\"sag-humanoid-shipments-2026\" />, yet shipments document no productive work. Tesla's Q2 2026 update says it is still installing its first Optimus lines, whose initial builds go to an \"Optimus Academy for training data collection\" <Cite id=\"tesla-q2-2026-update\" />.\n",
+          "after": "Agility reports 65,000 hours of Digit production experience on an undated homepage <Cite id=\"agility-digit-production\" />, and Figure reports 1,250+ hours at BMW Spartanburg by November 2025 <Cite id=\"figure-bmw-production-2025\" />; neither counts autonomous units or supervised time ([evaluation crisis](/data-hardware/evaluation-crisis/)). Omdia counted about 13,000 humanoids shipped in 2025 <Cite id=\"agibot-omdia-2026\" /> and SAG 19.1K in the first half of 2026 <Cite id=\"sag-humanoid-shipments-2026\" />. Tesla's Q2 2026 update says it is still installing its first Optimus lines, whose initial builds go to an \"Optimus Academy for training data collection\" <Cite id=\"tesla-q2-2026-update\" />.\n"
+        },
+        {
+          "before": "Evidence: beyond Crunchbase's narrower venture count <Cite id=\"crunchbase-robotics-funding-2026\" />, a newsletter writeup put the total above \\$23B by early June 2026 by PitchBook's tally <Cite id=\"robotics-funding-23b-2026\" />.\n",
+          "after": "Evidence: beyond Crunchbase's narrower venture count <Cite id=\"crunchbase-robotics-funding-2026\" />, a newsletter writeup put the total above \\$23B by early June 2026 by PitchBook's tally <Cite id=\"robotics-funding-23b-2026\" />. Bessemer Venture Partners argues there is \"no robotics bubble\" and that the sector is \"structurally underinvested\", but concedes that \"some valuations are stretched\" <Cite id=\"bessemer-robotics-2026\" />. The skeptic side rests on Brooks's timeline predictions and Morgan Stanley's demand for ROI evidence: Brooks calls some humanoid hype \"downright delusional\" <Cite id=\"brooks-scorecard-2026\" />, while Morgan Stanley makes no bubble call <Cite id=\"morgan-stanley-pr-problem-2026\" /> ([competing theses](/frontier/competing-theses/)).\n"
+        },
+        {
+          "before": "Whether that is a bubble is contested. Bessemer Venture Partners argues there is \"no robotics bubble\" and that the sector is \"structurally underinvested\", but concedes that \"some valuations are stretched\" <Cite id=\"bessemer-robotics-2026\" />. The skeptic side rests on Brooks's timeline predictions and Morgan Stanley's demand for ROI evidence. Brooks calls some humanoid hype \"downright delusional\" <Cite id=\"brooks-scorecard-2026\" />, while Morgan Stanley makes no bubble call <Cite id=\"morgan-stanley-pr-problem-2026\" /> ([competing theses](/frontier/competing-theses/)).\n\nEvidence: the first repricing came in China. On September 21, 2026, Reuters reported that regulators were slowing humanoid listings after Unitree's shares rose more than fivefold on debut, then fell 55% from their peak. Some private-market projects had taken valuation cuts of 30% to 50% <Cite id=\"reuters-china-humanoid-ipo-2026\" />.\n\n",
+          "after": "Evidence: on September 21, 2026, Reuters reported that regulators were slowing humanoid listings after Unitree's shares rose more than fivefold on debut, then fell 55% from their peak, and that some private-market projects had taken valuation cuts of 30% to 50% <Cite id=\"reuters-china-humanoid-ipo-2026\" />.\n\n"
+        },
+        {
+          "before": "These mechanisms are hypothetical scenarios. Their precedent is the 1973 Lighthill report, which found progress in robot-building \"even more disappointing\" than in the rest of AI <Cite id=\"lighthill-1973\" />.\n",
+          "after": "The three mechanisms below are hypothetical scenarios. Their precedent is the 1973 Lighthill report, which found progress in robot-building \"even more disappointing\" than in the rest of AI <Cite id=\"lighthill-1973\" />.\n"
+        },
+        {
+          "before": "**Speculation:** the reliability gap outlasts investor patience. If 99.9% takes five more years of per-task engineering, the 2026 fund vintage marks to market against pilots, and the pullback slows every program. Bessemer says the last stretch \"takes longer than most timelines assume\" <Cite id=\"bessemer-robotics-2026\" />.\n",
+          "after": "**Speculation:** the reliability gap outlasts investor patience. If 99.9% takes five more years of per-task engineering, the 2026 fund vintage marks to market against pilots. Bessemer says the last stretch \"takes longer than most timelines assume\" <Cite id=\"bessemer-robotics-2026\" />.\n"
+        },
+        {
+          "before": "**Speculation:** the data thesis plateaus. If 10x more data stops buying <Term id=\"success-rate\">success-rate</Term> gains, the fix is new science (tactile integration, contact-faithful simulation, world models), which keeps no fund's schedule ([data bottleneck](/data-hardware/data-bottleneck/)). Ken Goldberg's 100,000-year data gap is the timing version: he accepts that data-driven methods \"will eventually produce general purpose robots\", and asks when <Cite id=\"goldberg-data-gap-2025\" />.\n",
+          "after": "**Speculation:** the data thesis plateaus. If 10x more data stops buying <Term id=\"success-rate\">success-rate</Term> gains, the fix is new science such as tactile integration, contact-faithful simulation or world models ([data bottleneck](/data-hardware/data-bottleneck/)). Ken Goldberg's 100,000-year data gap is the timing version: he accepts that data-driven methods \"will eventually produce general purpose robots\", and asks when <Cite id=\"goldberg-data-gap-2025\" />.\n"
+        },
+        {
+          "before": "**Speculation:** the form factor is wrong. If task-specific systems keep winning cost per task, the humanoid thesis that most of the capital is priced on collapses. Brooks's \"pure fantasy thinking\" line is the named version <Cite id=\"brooks-dexterity-2025\" />.\n",
+          "after": "**Speculation:** the form factor is wrong. If task-specific systems keep winning cost per task, the humanoid thesis most of the capital is priced on collapses, as Brooks's \"pure fantasy thinking\" line predicts <Cite id=\"brooks-dexterity-2025\" />.\n"
+        },
+        {
+          "before": "As of August 2026 the board reads three not met, five partial, zero met. In unseen homes, π0.5 cleaned kitchens and bedrooms <Cite id=\"pi05-2025\" />, and in September 2026 Figure reported 56% zero-shot success in 30 unseen homes, against 9% without Index pretraining <Cite id=\"helix-2-5-2026\" />. Generalist reports 99% average success where earlier models reached 64%, though \"not all tasks\" reach those rates <Cite id=\"generalist-gen1-2026\" />. RoboArena, RoboChallenge and ManipulationNet are building shared evaluation infrastructure <Cite id=\"roboarena-2025\" /> <Cite id=\"robochallenge-2025\" /> <Cite id=\"manipulationnet-2026\" />.\n",
+          "after": "The board reads three not met, five partial, zero met. In unseen homes, π0.5 cleaned kitchens and bedrooms <Cite id=\"pi05-2025\" />, and in September 2026 Figure reported 56% zero-shot success in 30 unseen homes, against 9% without Index pretraining <Cite id=\"helix-2-5-2026\" />. Generalist reports 99% average success where earlier models reached 64%, though \"not all tasks\" reach those rates <Cite id=\"generalist-gen1-2026\" />. RoboArena, RoboChallenge and ManipulationNet are building shared evaluation infrastructure <Cite id=\"roboarena-2025\" /> <Cite id=\"robochallenge-2025\" /> <Cite id=\"manipulationnet-2026\" />.\n"
+        },
+        {
+          "before": "Figure's Helix 02 takes fingertip tactile input <Cite id=\"helix-02-2026\" />, and T-Rex beats its strongest baseline by over 30%, though most <Term id=\"vision-language-action-model\">VLA</Term> models still \"overlook the tactile modality\" <Cite id=\"t-rex-2026\" />. Sparsh-X, trained on about a million contact-rich interactions, and TouchWorld are tactile foundation models <Cite id=\"sparsh-x-2025\" /> <Cite id=\"touchworld-2026\" />. Surveys name [contact modeling](/rl-sim2real/sim2real-transfer/) a key contributor to the <Term id=\"sim-to-real-gap\">sim-to-real</Term> gap, \"particularly problematic in contact-rich tasks like robotic manipulation\" <Cite id=\"reality-gap-survey-2026\" />.\n",
+          "after": "Figure's Helix 02 takes fingertip tactile input <Cite id=\"helix-02-2026\" />, and T-Rex beats its strongest baseline by over 30%, though most <Term id=\"vision-language-action-model\">VLA</Term> models still \"overlook the tactile modality\" <Cite id=\"t-rex-2026\" />. Sparsh-X and TouchWorld are tactile foundation models <Cite id=\"sparsh-x-2025\" /> <Cite id=\"touchworld-2026\" />. Surveys name [contact modeling](/rl-sim2real/sim2real-transfer/) a key contributor to the <Term id=\"sim-to-real-gap\">sim-to-real</Term> gap, \"particularly problematic in contact-rich tasks like robotic manipulation\" <Cite id=\"reality-gap-survey-2026\" />.\n"
+        },
+        {
+          "before": "The bear case is falsifiable. A verified deployment of 10,000 humanoids doing documented work breaks the commercial-viability premise, and one policy above 90% across more than ten unseen homes breaks the generalization premise ([generalization](/frontier/generalization/)). Cost-per-task parity breaks the form-factor premise. A real-world success-rate scaling law across tasks breaks the plateau premise: EgoScale's <Term id=\"scaling-law\">scaling law</Term> is fit to validation loss <Cite id=\"egoscale-2026\" />, and Lin et al. find a \"roughly power-law relationship\" for single-task generalization <Cite id=\"lin-data-scaling-laws-2024\" />. Until then, more than \\$23B had been raised by early June against that scoreboard.\n",
+          "after": "A verified deployment of 10,000 humanoids doing documented work breaks the commercial-viability premise, and one policy above 90% across more than ten unseen homes breaks the generalization premise ([generalization](/frontier/generalization/)). Cost-per-task parity breaks the form-factor premise.\n\nA real-world success-rate scaling law across tasks breaks the plateau premise: EgoScale's <Term id=\"scaling-law\">scaling law</Term> is fit to validation loss <Cite id=\"egoscale-2026\" />, and Lin et al. find a \"roughly power-law relationship\" for single-task generalization <Cite id=\"lin-data-scaling-laws-2024\" />. Until then, more than \\$23B had been raised by early June against that scoreboard.\n"
+        }
+      ],
+      "dropped": {
+        "citations": [],
+        "numbers": [
+          {
+            "value": "2025",
+            "claim": "Vision-only training gives no force channel, and Johansson's anesthetized-finger experiments show what humans lose without one ([dexterity](/frontier/dexterity/)) [brooks-dexterity-2025]."
+          },
+          {
+            "value": "2026",
+            "claim": "Sparsh-X, trained on about a million contact-rich interactions, and TouchWorld are tactile foundation models [sparsh-x-2025] [touchworld-2026]."
+          },
+          {
+            "value": "80",
+            "claim": "A robot at 80% task success is a demo; at 99.9%, a product ([reliability gap](/frontier/reliability-gap/))."
+          },
+          {
+            "value": "99.9",
+            "claim": "A robot at 80% task success is a demo; at 99.9%, a product ([reliability gap](/frontier/reliability-gap/))."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "pins": [],
+      "corrected": []
+    },
+    {
+      "archivedFrom": "a313729713ac7cbcd555a746a971ea1ce40802ab",
+      "before": {
+        "path": "content/frontier/competing-theses.mdx",
+        "bytes": 15754,
+        "sha256": "265c64148b37d05e0947a6679ab2e9673fe40aa7dc069e8e702b529f86a2627a"
+      },
+      "after": {
+        "path": "content/frontier/competing-theses.mdx",
+        "bytes": 14273,
+        "sha256": "67f5cef40b7496b71f03449c495e470620b63a77b79fc5cea3b32823e38a0704"
+      },
+      "edits": [
+        {
+          "before": "The competing theses are the rival bets on how robot intelligence gets built: end-to-end VLA scaling, hierarchy, world models, RL fine-tuning, teleoperation as a bridge, and the humanoid form factor. The bets are expensive. Figure has committed \\$3.5B of compute to training Helix <Cite id=\"helix-2-5-2026\" />, and Physical Intelligence has staked its program, from π0 to π0.7, on scaling <Cite id=\"pi07-2026\" />.\n",
+          "after": "The competing theses are the rival bets on how robot intelligence gets built: end-to-end VLA scaling, hierarchy, world models, RL fine-tuning, teleoperation as a bridge, and the humanoid form factor. The bets are expensive: Figure has committed \\$3.5B of compute to training Helix <Cite id=\"helix-2-5-2026\" />, and Physical Intelligence has staked its program, from π0 to π0.7, on scaling <Cite id=\"pi07-2026\" />.\n"
+        },
+        {
+          "before": "  <Stat label=\"robot data\" value=\"~300k h\" note=\"estimated global total, Apr 2026\" />\n",
+          "after": "  <Stat label=\"Figure compute\" value=\"$3.5B\" note=\"committed to training Helix\" />\n"
+        },
+        {
+          "before": "  <Stat label=\"settled\" value=\"0\" note=\"of the six, as of Aug 2026\" />\n",
+          "after": "  <Stat label=\"settled\" value=\"0\" note=\"of the six, as of Oct 2026\" />\n"
+        },
+        {
+          "before": "Each card states one thesis, its bet and the result that would prove it wrong. Tap \"Just make it bigger\", then \"Let the robot imagine first\", to read the evidence on both sides. The theses can coexist: π0.7 is an end-to-end <Term id=\"vision-language-action-model\">vision-language-action model</Term> that also reasons hierarchically. It can take optional subgoal-image prompts from a separate <Term id=\"world-model\">world model</Term> initialized from BAGEL, which the paper describes as lightweight, and it distills experience collected by RL-trained π*0.6 specialists <Cite id=\"pi07-2026\" />.\n",
+          "after": "Each card states one thesis, its bet and the result that would prove it wrong. Tap \"Just make it bigger\", then \"Let the robot imagine first\", to read the evidence on both sides. The theses can coexist: π0.7 is an end-to-end <Term id=\"vision-language-action-model\">vision-language-action model</Term> that also reasons hierarchically, takes optional subgoal-image prompts from a separate <Term id=\"world-model\">world model</Term> initialized from BAGEL, which the paper describes as lightweight, and distills experience from RL-trained π*0.6 specialists <Cite id=\"pi07-2026\" />.\n"
+        },
+        {
+          "before": "EgoScale fit a log-linear <Term id=\"scaling-law\">scaling law</Term> (R² = 0.9983) from human-video pretraining hours to validation loss, which it reports correlates strongly with downstream robot performance. Its full recipe lifts average success by 54% on a 22-DoF hand <Cite id=\"egoscale-2026\" />. Figure reports a human-to-humanoid transfer law on robot-action prediction, with Index pretraining lifting zero-shot success in 30 unseen homes from 9% to 56% <Cite id=\"helix-2-5-2026\" />. Lin et al. found single-task success following \"a roughly power-law relationship with the number of environments and objects\" <Cite id=\"lin-data-scaling-laws-2024\" />. In unseen homes π0.5 cleaned kitchens, and π0.7 recombined trained skills into untrained tasks <Cite id=\"pi05-2025\" /> <Cite id=\"pi07-2026\" />.\n",
+          "after": "EgoScale fit a log-linear <Term id=\"scaling-law\">scaling law</Term> (R² = 0.9983) from human-video pretraining hours to validation loss, which it reports correlates strongly with downstream robot performance <Cite id=\"egoscale-2026\" />. Figure reports a human-to-humanoid transfer law on robot-action prediction, with Index pretraining lifting zero-shot success in 30 unseen homes from 9% to 56% <Cite id=\"helix-2-5-2026\" />. Lin et al. found single-task success following \"a roughly power-law relationship with the number of environments and objects\" <Cite id=\"lin-data-scaling-laws-2024\" />.\n"
+        },
+        {
+          "before": "Brooks answered Sutton directly: image-labeling systems use a human-designed convolutional front end for translational invariance <Cite id=\"brooks-better-lesson-2019\" />. His 2025 essay extends the point to speech preprocessing rooted in telephone engineering, listing FFTs and Mel filter banks while noting that implementations use different selections. He also acknowledges that leaving as much as possible to learning was critical to the gains in speech and image tasks. Vision-only training, he adds, gives a robot no force channel ([dexterity](/frontier/dexterity/)) <Cite id=\"brooks-dexterity-2025\" />. On compute, he notes that \"self driving cars require about 2,500 Watts of power for computation\", while \"a human brain only requires 20 Watts\" <Cite id=\"brooks-better-lesson-2019\" />. Ken Goldberg puts the data problem at a 100,000-year gap and argues good old-fashioned engineering can bootstrap robots into collecting the data <Cite id=\"goldberg-data-gap-2025\" />. Karcini and co-authors argue policy scaling misses the interfaces that turn physical data into supervision <Cite id=\"karcini-position-2026\" />. The kill condition is a plateau in real-world success despite 10x more data with no architectural change. The laws so far govern a proxy loss or a single task ([generalization](/frontier/generalization/)).\n",
+          "after": "Brooks answered Sutton directly: image-labeling systems use a human-designed convolutional front end for translational invariance <Cite id=\"brooks-better-lesson-2019\" />. His 2025 essay extends the point to speech preprocessing rooted in telephone engineering, listing FFTs and Mel filter banks while noting that implementations use different selections. He also acknowledges that leaving as much as possible to learning was critical to the gains in speech and image tasks. Vision-only training, he adds, gives a robot no force channel ([dexterity](/frontier/dexterity/)) <Cite id=\"brooks-dexterity-2025\" />.\n\nOn compute, Brooks notes that \"self driving cars require about 2,500 Watts of power for computation\", while \"a human brain only requires 20 Watts\" <Cite id=\"brooks-better-lesson-2019\" />.\n\nKen Goldberg puts the data problem at a 100,000-year gap and argues good old-fashioned engineering can bootstrap robots into collecting the data <Cite id=\"goldberg-data-gap-2025\" />. Karcini and co-authors argue policy scaling misses the interfaces that turn physical data into supervision <Cite id=\"karcini-position-2026\" />. The kill condition is a plateau in real-world success despite 10x more data with no architectural change; the laws so far govern a proxy loss or a single task ([generalization](/frontier/generalization/)).\n"
+        },
+        {
+          "before": "The bet here is division of labor: a vision-language model decomposes goals into subtasks, and learned skills or a low-level policy execute them. SayCan (2022) had a separate LLM dispatch a fixed skill library <Cite id=\"saycan-2022\" />; today the hierarchy sits inside the network or in a paired fast system ([hierarchical approaches](/manipulation/hierarchical/)). Google DeepMind builds Gemini Robotics ER 2 as a high-level brain that plans multi-step tasks and hands motor execution to a lower-level VLA <Cite id=\"gemini-robotics-er2-2026\" />. In Figure's Helix 02, S2 interprets scenes and language and sequences behaviors. S1 converts perception into full-body joint targets at 200 Hz, and S0 executes at 1 kHz as the <Term id=\"whole-body-control\">whole-body controller</Term> <Cite id=\"helix-02-2026\" />. NVIDIA's GR00T N1 is \"a Vision-Language-Action (VLA) model with a dual-system architecture\" <Cite id=\"gr00t-n1-2025\" />.\n",
+          "after": "The claim: a vision-language model decomposes goals into subtasks, and learned skills or a low-level policy execute them. SayCan (2022) had a separate LLM dispatch a fixed skill library <Cite id=\"saycan-2022\" />; today the hierarchy sits inside the network or in a paired fast system ([hierarchical approaches](/manipulation/hierarchical/)). In Figure's Helix 02, S2 sequences behaviors from scenes and language, S1 converts perception into full-body joint targets at 200 Hz, and S0 executes at 1 kHz as the <Term id=\"whole-body-control\">whole-body controller</Term> <Cite id=\"helix-02-2026\" />. Google DeepMind's Gemini Robotics ER 2 plans multi-step tasks for a lower-level VLA <Cite id=\"gemini-robotics-er2-2026\" />.\n"
+        },
+        {
+          "before": "The evidence for is long-horizon behavior. Figure reports that Helix 02 completed a continuous four-minute dishwasher unloading-and-reloading task without resets or human intervention, in 61 loco-manipulation actions <Cite id=\"helix-02-2026\" />. In π0.7, language coaching fine-tunes the high-level policy, which then runs the new task autonomously <Cite id=\"pi07-2026\" />. Against it, π0.7's compositional generalization emerges from one network <Cite id=\"pi07-2026\" />, and SayCan's authors found their system bounded by \"the range and capabilities of the underlying skills\" <Cite id=\"saycan-2022\" />. Gemini Robotics 1.5 already \"interleaves actions with a multi-level internal reasoning process\" inside one VLA, blurring the line <Cite id=\"gemini-robotics-15-2025\" />. The thesis dies if a flat model with no high-level inference pass outperforms the best hierarchical system on long-horizon tasks.\n",
+          "after": "The evidence for is long-horizon behavior: Figure reports that Helix 02 completed a continuous four-minute dishwasher unloading-and-reloading task without resets or human intervention, in 61 loco-manipulation actions <Cite id=\"helix-02-2026\" />. Against it, π0.7's compositional generalization emerges from one network <Cite id=\"pi07-2026\" />, and Gemini Robotics 1.5 already \"interleaves actions with a multi-level internal reasoning process\" inside one VLA <Cite id=\"gemini-robotics-15-2025\" />. SayCan's authors found their system bounded by \"the range and capabilities of the underlying skills\" <Cite id=\"saycan-2022\" />. The thesis dies if a flat model with no high-level inference pass outperforms the best hierarchical system on long-horizon tasks.\n"
+        },
+        {
+          "before": "The case against is cost and fidelity. Cosmos 3 was pretrained on up to 31 trillion tokens, on clusters as large as 2,048 GB200 GPUs <span className=\"block\" data-cosmos-source-placement=\"line-start\"><Cite id=\"cosmos-3-2026\" />,</span> and no world model yet predicts contact physics well enough for manipulation, where a one-millimeter error flips stick to slip. Karcini and co-authors argue world models alone cannot solve the supervision problem <Cite id=\"karcini-position-2026\" />. It dies if world-model training fails to beat VLA scaling alone on real-world contact-rich tasks.\n",
+          "after": "Cosmos 3 was pretrained on up to 31 trillion tokens, on clusters as large as 2,048 GB200 GPUs <span className=\"block\" data-cosmos-source-placement=\"line-start\"><Cite id=\"cosmos-3-2026\" />,</span> and no world model yet predicts contact physics well enough for manipulation, where a one-millimeter error flips stick to slip. Karcini and co-authors argue world models alone cannot solve the supervision problem <Cite id=\"karcini-position-2026\" />. It dies if world-model training fails to beat VLA scaling alone on real-world contact-rich tasks.\n"
+        },
+        {
+          "before": "The claim: pretrain on demonstrations, then close the reliability gap with RL on the real robot. HIL-SERL reached near-perfect success in 1 to 2.5 hours of training <Cite id=\"hil-serl-2024\" />. π*0.6 with Recap more than doubled throughput and reached the 90%+ range on all tasks except diverse laundry. Its first Recap iteration lifts laundry over 90%, and box assembly finishes at about 90% for folding and labeling <Cite id=\"pistar06-2025\" />. RL-100 reports 100% success across 1,000 evaluation episodes on eight tasks, including a juicing robot that served customers for about seven hours without failure <Cite id=\"rl-100-2025\" />. ENPIRE hands the improvement loop to coding agents, reaching 99% on dexterous tasks such as pin-box organizing <Cite id=\"enpire-2026\" /> ([RL fine-tuning](/manipulation/rl-finetuning/)).\n",
+          "after": "The claim: pretrain on demonstrations, then close the reliability gap with RL on the real robot. HIL-SERL reached near-perfect success in 1 to 2.5 hours of training <Cite id=\"hil-serl-2024\" />, and π*0.6 with Recap more than doubled throughput and reached the 90%+ range on all tasks except diverse laundry <Cite id=\"pistar06-2025\" />. RL-100 reports 100% success across 1,000 evaluation episodes on eight tasks <Cite id=\"rl-100-2025\" />. ENPIRE hands the improvement loop to coding agents, reaching 99% on dexterous tasks such as pin-box organizing <Cite id=\"enpire-2026\" /> ([RL fine-tuning](/manipulation/rl-finetuning/)).\n"
+        },
+        {
+          "before": "The evidence against concerns transfer. Each result is per-task: hours of on-robot training buy a specialist, and neither paper claims transfer to unseen tasks <Cite id=\"pistar06-2025\" /> <Cite id=\"rl-100-2025\" />. Physical Intelligence reports that one π0.7 model matches the RL-trained specialists on the evaluated laundry-folding, espresso-making, and box-building tasks, sometimes exceeding their throughput, after distilling Recap experience with strategy metadata. The paper measures throughput as successful episodes per hour; inference speed is a separate measure <Cite id=\"pi07-2026\" /> <Cite id=\"pi07-blog-2026\" />. The recipe becomes a niche tool if RL specialists keep failing to generalize without per-task retraining.\n",
+          "after": "The evidence against concerns transfer: each result is per-task, and neither paper claims transfer to unseen tasks <Cite id=\"pistar06-2025\" /> <Cite id=\"rl-100-2025\" />. Physical Intelligence reports that one π0.7 model matches the RL-trained specialists on the evaluated laundry-folding, espresso-making, and box-building tasks, sometimes exceeding their throughput, after distilling Recap experience with strategy metadata. The paper measures throughput as successful episodes per hour; inference speed is a separate measure <Cite id=\"pi07-2026\" /> <Cite id=\"pi07-blog-2026\" />. The recipe becomes a niche tool if RL specialists keep failing to generalize without per-task retraining.\n"
+        },
+        {
+          "before": "The claim: deploy <Term id=\"teleoperation\">teleoperated</Term> or human-supervised robots for real work now, harvest the data, and fade the human out as autonomy improves. Nucleus deploys humanoids under human supervision on this logic <Cite id=\"nucleus-supervised-2026\" />, and 1X lets NEO owners schedule an expert for chores it does not know, \"helping NEO learn\" <Cite id=\"1x-neo-2026\" />. Sergey Levine argues that surrogates for real robot data usually end up \"a lousy spoon with holes or an ineffective blunt fork\" <Cite id=\"levine-sporks-2025\" />. Recap, the π*0.6 method, learns from expert teleoperated interventions <Cite id=\"pistar06-2025\" />. Bessemer’s investor outlook quotes Voxel51’s Brian Moore and Foxglove’s Adrian Macneil on a data flywheel: “better decisions, better model improvements, and better deployments faster than everyone else.” Bessemer lists both companies in its portfolio <Cite id=\"bessemer-robotics-2026\" />. Agility reports 65,000 hours of Digit production experience <Cite id=\"agility-digit-production\" />, and Figure reports 1,250+ runtime hours at BMW Spartanburg <Cite id=\"figure-bmw-production-2025\" />. Neither quantifies teleoperation's share of those hours ([teleoperation rigs](/data-hardware/teleop-rigs/)).\n",
+          "after": "The claim: deploy <Term id=\"teleoperation\">teleoperated</Term> or human-supervised robots for real work now, harvest the data, and fade the human out as autonomy improves. Nucleus deploys humanoids under human supervision on this logic <Cite id=\"nucleus-supervised-2026\" />, and 1X lets NEO owners schedule an expert for chores it does not know, \"helping NEO learn\" <Cite id=\"1x-neo-2026\" />.\n\nRecap, the π*0.6 method, learns from expert teleoperated interventions <Cite id=\"pistar06-2025\" />, while Sergey Levine argues that surrogates for real robot data usually end up \"a lousy spoon with holes or an ineffective blunt fork\" <Cite id=\"levine-sporks-2025\" />. Bessemer quotes Voxel51’s Brian Moore and Foxglove’s Adrian Macneil on a data flywheel: “better decisions, better model improvements, and better deployments faster than everyone else.” Bessemer lists both companies in its portfolio <Cite id=\"bessemer-robotics-2026\" />.\n\nAgility reports 65,000 hours of Digit production experience <Cite id=\"agility-digit-production\" />, and Figure reports 1,250+ runtime hours at BMW Spartanburg <Cite id=\"figure-bmw-production-2025\" />; neither quantifies teleoperation's share of those hours ([teleoperation rigs](/data-hardware/teleop-rigs/)). Bessemer quotes the Zeromatter CEO, Ian Glow: \"you'll never get the scale or diversity you need from teleop alone.\" He recommends internet data or simulators with reinforcement learning, and Bessemer cautions that world models are expensive and sim-to-real manipulation remains an open research problem <Cite id=\"bessemer-robotics-2026\" />.\n"
+        },
+        {
+          "before": "Bessemer quotes the Zeromatter CEO, Ian Glow: \"you'll never get the scale or diversity you need from teleop alone.\" He recommends internet data or simulators with reinforcement learning, and Bessemer cautions that world models are expensive and sim-to-real manipulation remains an open research problem <Cite id=\"bessemer-robotics-2026\" />. Egocentric human video is a cheaper source with a measured scaling law <Cite id=\"egoscale-2026\" />. Generalist reports that its base models are \"trained without any robot data\" and reach 99% average success with \"only 1 hour of robot data\" per task <Cite id=\"generalist-gen1-2026\" />. The bridge dies if autonomous policies pass 99% success trained without any teleoperation data.\n",
+          "after": "Egocentric human video is a cheaper source with a measured scaling law <Cite id=\"egoscale-2026\" />. Generalist reports that its base models are \"trained without any robot data\" and reach 99% average success with \"only 1 hour of robot data\" per task <Cite id=\"generalist-gen1-2026\" />. The bridge dies if autonomous policies pass 99% success trained without any teleoperation data.\n"
+        },
+        {
+          "before": "The sixth thesis is a pair, because the two sides falsify each other. The humanoid side, backed by Figure, Tesla, 1X, Apptronik, and Unitree, bets that a human body is the right interface to a world built for humans. The task-specific side, argued by Rodney Brooks, who describes his company's warehouse robots and his work at Robust.AI <Cite id=\"brooks-dexterity-2025\" />, bets that purpose-built systems win on cost and reliability for any task named in advance. Amazon has deployed its millionth robot <Cite id=\"amazon-million-robots-2025\" />. Agility sits between them, deploying its Digit humanoid in narrow logistics work <Cite id=\"agility-digit-production\" />.\n",
+          "after": "The humanoid side, backed by Figure, Tesla, 1X, Apptronik, and Unitree, bets that a human body is the right interface to a world built for humans. The task-specific side, argued by Rodney Brooks, who describes his company's warehouse robots and his work at Robust.AI <Cite id=\"brooks-dexterity-2025\" />, bets that purpose-built systems win on cost and reliability for any task named in advance. Amazon has deployed its millionth robot <Cite id=\"amazon-million-robots-2025\" />, and Agility sits between the sides, deploying its Digit humanoid in narrow logistics work <Cite id=\"agility-digit-production\" />.\n\nHelix 02 runs whole-body loco-manipulation <Cite id=\"helix-02-2026\" />, and Gemini Robotics 2 controls full humanoids from feet to fingertips with a single model <Cite id=\"gemini-robotics-2-2026\" />. Brooks calls plug-compatible humanoids replacing people in manual jobs at lower prices and just as well \"pure fantasy thinking\" within decades. He argues that articulated fingers lack the robustness, force and lifetime for industrial applications, and forecasts task-specialized robots still called humanoids over the next fifteen years <Cite id=\"brooks-dexterity-2025\" />.\n"
+        },
+        {
+          "before": "Helix 02 runs whole-body loco-manipulation <Cite id=\"helix-02-2026\" />. Figure's May 2026 package-sorting livestream, planned as one eight-hour shift <Cite id=\"adcock-figure-livestream-2026\" />, ran for 200 hours by Figure's account <Cite id=\"helix-2-5-2026\" />. Gemini Robotics 2 controls full humanoids from feet to fingertips with a single model <Cite id=\"gemini-robotics-2-2026\" />. In his 2025 essay, Brooks calls plug-compatible humanoids replacing people in manual jobs at lower prices and just as well \"pure fantasy thinking\" within decades. He argues that articulated fingers lack the robustness, force and lifetime for industrial applications, and that human-like hand designs have not reached deployment. He reports earlier factory deployments of Baxter and Sawyer, and forecasts task-specialized robots still called humanoids over the next fifteen years <Cite id=\"brooks-dexterity-2025\" />. Both kill conditions are one measurement: cost per task. If task-specific robots keep winning it in the same applications, the humanoid thesis dies; if a humanoid reaches parity across many tasks, the task-specific thesis does.\n",
+          "after": "Both kill conditions are one measurement: cost per task. If task-specific robots keep winning it in the same applications, the humanoid thesis dies; if a humanoid reaches parity across many tasks, the task-specific thesis does.\n"
+        },
+        {
+          "before": "The cards' \"wrong if\" lines form a watchlist: [real-world success](/data-hardware/evaluation-crisis/) flat after a 10x or 100x data increase; a flat model beating the best hierarchy on long horizons; a world model beating VLA scaling on contact-rich tasks. The rest are RL specialists transferring without retraining, autonomy above 99% with no teleoperation data, and humanoid cost-per-task parity. GEN-1 nearly meets the teleoperation test, but uses 1 hour of robot data per task <Cite id=\"generalist-gen1-2026\" />. [The bear case](/frontier/bear-case/) tracks each observation on its watchlist.\n",
+          "after": "Each card's \"wrong if\" line is an observation to watch, from [real-world success](/data-hardware/evaluation-crisis/) flat after a 10x data increase to humanoid cost-per-task parity. GEN-1 nearly meets the teleoperation test, but uses 1 hour of robot data per task <Cite id=\"generalist-gen1-2026\" />, and [the bear case](/frontier/bear-case/) tracks each observation on its watchlist.\n"
+        }
+      ],
+      "dropped": {
+        "citations": [
+          {
+            "value": "adcock-figure-livestream-2026",
+            "claim": "Figure's May 2026 package-sorting livestream, planned as one eight-hour shift [adcock-figure-livestream-2026], ran for 200 hours by Figure's account [helix-2-5-2026]."
+          },
+          {
+            "value": "gr00t-n1-2025",
+            "claim": "NVIDIA's GR00T N1 is \"a Vision-Language-Action (VLA) model with a dual-system architecture\" [gr00t-n1-2025]."
+          },
+          {
+            "value": "helix-2-5-2026",
+            "claim": "Figure's May 2026 package-sorting livestream, planned as one eight-hour shift [adcock-figure-livestream-2026], ran for 200 hours by Figure's account [helix-2-5-2026]."
+          },
+          {
+            "value": "pi05-2025",
+            "claim": "In unseen homes π0.5 cleaned kitchens, and π0.7 recombined trained skills into untrained tasks [pi05-2025] [pi07-2026]."
+          },
+          {
+            "value": "pi07-2026",
+            "claim": "In unseen homes π0.5 cleaned kitchens, and π0.7 recombined trained skills into untrained tasks [pi05-2025] [pi07-2026]."
+          },
+          {
+            "value": "pi07-2026",
+            "claim": "In π0.7, language coaching fine-tunes the high-level policy, which then runs the new task autonomously [pi07-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "0.5",
+            "claim": "In unseen homes π0.5 cleaned kitchens, and π0.7 recombined trained skills into untrained tasks [pi05-2025] [pi07-2026]."
+          },
+          {
+            "value": "0.7",
+            "claim": "In unseen homes π0.5 cleaned kitchens, and π0.7 recombined trained skills into untrained tasks [pi05-2025] [pi07-2026]."
+          },
+          {
+            "value": "0.7",
+            "claim": "In π0.7, language coaching fine-tunes the high-level policy, which then runs the new task autonomously [pi07-2026]."
+          },
+          {
+            "value": "00",
+            "claim": "NVIDIA's GR00T N1 is \"a Vision-Language-Action (VLA) model with a dual-system architecture\" [gr00t-n1-2025]."
+          },
+          {
+            "value": "00",
+            "claim": "NVIDIA's GR00T N1 is \"a Vision-Language-Action (VLA) model with a dual-system architecture\" [gr00t-n1-2025]."
+          },
+          {
+            "value": "05",
+            "claim": "In unseen homes π0.5 cleaned kitchens, and π0.7 recombined trained skills into untrained tasks [pi05-2025] [pi07-2026]."
+          },
+          {
+            "value": "07",
+            "claim": "In unseen homes π0.5 cleaned kitchens, and π0.7 recombined trained skills into untrained tasks [pi05-2025] [pi07-2026]."
+          },
+          {
+            "value": "07",
+            "claim": "In π0.7, language coaching fine-tunes the high-level policy, which then runs the new task autonomously [pi07-2026]."
+          },
+          {
+            "value": "1",
+            "claim": "NVIDIA's GR00T N1 is \"a Vision-Language-Action (VLA) model with a dual-system architecture\" [gr00t-n1-2025]."
+          },
+          {
+            "value": "1",
+            "claim": "S1 converts perception into full-body joint targets at 200 Hz, and S0 executes at 1 kHz as the whole-body controller [helix-02-2026]."
+          },
+          {
+            "value": "100",
+            "claim": "The cards' \"wrong if\" lines form a watchlist: [real-world success](/data-hardware/evaluation-crisis/) flat after a 10x or 100x data increase; a flat model beating the best hierarchy on long horizons; a world model beating VLA scaling on contact-rich tasks."
+          },
+          {
+            "value": "2",
+            "claim": "Figure's May 2026 package-sorting livestream, planned as one eight-hour shift [adcock-figure-livestream-2026], ran for 200 hours by Figure's account [helix-2-5-2026]."
+          },
+          {
+            "value": "200",
+            "claim": "Figure's May 2026 package-sorting livestream, planned as one eight-hour shift [adcock-figure-livestream-2026], ran for 200 hours by Figure's account [helix-2-5-2026]."
+          },
+          {
+            "value": "2025",
+            "claim": "Its first Recap iteration lifts laundry over 90%, and box assembly finishes at about 90% for folding and labeling [pistar06-2025]."
+          },
+          {
+            "value": "2025",
+            "claim": "In unseen homes π0.5 cleaned kitchens, and π0.7 recombined trained skills into untrained tasks [pi05-2025] [pi07-2026]."
+          },
+          {
+            "value": "2025",
+            "claim": "NVIDIA's GR00T N1 is \"a Vision-Language-Action (VLA) model with a dual-system architecture\" [gr00t-n1-2025]."
+          },
+          {
+            "value": "2026",
+            "claim": "Figure's May 2026 package-sorting livestream, planned as one eight-hour shift [adcock-figure-livestream-2026], ran for 200 hours by Figure's account [helix-2-5-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Its full recipe lifts average success by 54% on a 22-DoF hand [egoscale-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "In unseen homes π0.5 cleaned kitchens, and π0.7 recombined trained skills into untrained tasks [pi05-2025] [pi07-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "In π0.7, language coaching fine-tunes the high-level policy, which then runs the new task autonomously [pi07-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Against it, π0.7's compositional generalization emerges from one network [pi07-2026], and SayCan's authors found their system bounded by \"the range and capabilities of the underlying skills\" [saycan-2022]."
+          },
+          {
+            "value": "22",
+            "claim": "Its full recipe lifts average success by 54% on a 22-DoF hand [egoscale-2026]."
+          },
+          {
+            "value": "5",
+            "claim": "Figure's May 2026 package-sorting livestream, planned as one eight-hour shift [adcock-figure-livestream-2026], ran for 200 hours by Figure's account [helix-2-5-2026]."
+          },
+          {
+            "value": "54",
+            "claim": "Its full recipe lifts average success by 54% on a 22-DoF hand [egoscale-2026]."
+          },
+          {
+            "value": "90",
+            "claim": "Its first Recap iteration lifts laundry over 90%, and box assembly finishes at about 90% for folding and labeling [pistar06-2025]."
+          },
+          {
+            "value": "90",
+            "claim": "π*0.6 with Recap more than doubled throughput and reached the 90%+ range on all tasks except diverse laundry."
+          },
+          {
+            "value": "99",
+            "claim": "The rest are RL specialists transferring without retraining, autonomy above 99% with no teleoperation data, and humanoid cost-per-task parity."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "pins": [
+        {
+          "test": "tests/e2e/brooks-theses-readers.spec.ts",
+          "disposition": "moved",
+          "phrase": "In his 2025 essay, Brooks calls plug-compatible",
+          "to": "Brooks calls plug-compatible humanoids replacing people",
+          "reason": "Repeat cut: the essay's 2025 date stays with its first mention in the Brooks and Goldberg section, and the paragraph keeps the same quote and source; the spec selects the paragraph and scrolls to the sentence by the new wording."
+        },
+        {
+          "test": "tests/e2e/brooks-theses-readers.spec.ts",
+          "disposition": "retired",
+          "phrase": "Baxter and Sawyer",
+          "reason": "Secondary corroboration cut: Brooks's earlier Baxter and Sawyer factory deployments support his standing, not the cost-per-task test. The thesis explorer's form-factor card on the same page still names them (lib/competing-theses.ts, pinned by tests/unit/brooks-theses-corrections.test.ts), and the spec now checks the card for them."
+        },
+        {
+          "test": "tests/e2e/thesis-economics-readers.spec.ts",
+          "disposition": "moved",
+          "phrase": "Bessemer’s investor outlook quotes Voxel51’s Brian Moore",
+          "to": "Bessemer quotes Voxel51’s Brian Moore",
+          "reason": "Same quote, speakers and source: the label 'investor outlook' repeats the section's earlier 'Bessemer's investor analysis', and the spec selects the flywheel paragraph by the new wording with the same content checks."
+        }
+      ],
+      "corrected": [
+        {
+          "before": "<div className=\"my-6 grid grid-cols-2 gap-4 sm:grid-cols-4\">\n  <Stat label=\"live theses\" value=\"6\" note=\"each with a kill condition\" accent />\n  <Stat label=\"robot data\" value=\"~300k h\" note=\"estimated global total, Apr 2026\" />\n  <Stat label=\"scaling fit\" value=\"R²=0.9983\" note=\"EgoScale law, validation loss\" />\n  <Stat label=\"settled\" value=\"0\" note=\"of the six, as of Aug 2026\" />\n</div>",
+          "after": "<div className=\"my-6 grid grid-cols-2 gap-4 sm:grid-cols-4\">\n  <Stat label=\"live theses\" value=\"6\" note=\"each with a kill condition\" accent />\n  <Stat label=\"Figure compute\" value=\"$3.5B\" note=\"committed to training Helix\" />\n  <Stat label=\"scaling fit\" value=\"R²=0.9983\" note=\"EgoScale law, validation loss\" />\n  <Stat label=\"settled\" value=\"0\" note=\"of the six, as of Oct 2026\" />\n</div>",
+          "reason": "The 'robot data ~300k h' tile was an estimated global total with no source in the article; it gives way to Figure's $3.5B compute commitment to training Helix, which the lead already states and cites to Figure's Helix 2.5 report. The 'settled 0 of the six' tile is dated October 2026, the month of this review, in place of August 2026: no thesis has settled since."
+        }
+      ]
+    },
+    {
+      "archivedFrom": "a313729713ac7cbcd555a746a971ea1ce40802ab",
+      "before": {
+        "path": "content/frontier/generalization.mdx",
+        "bytes": 14664,
+        "sha256": "5c6d2348dea214bd4ca89fc9b4dfd7be43fbe23dfc00d84ee5a25ac880d26d27"
+      },
+      "after": {
+        "path": "content/frontier/generalization.mdx",
+        "bytes": 13782,
+        "sha256": "013a705bcc0bb5568020a1fe29c8fe87d85763e39ed2a19dd623a612ac9f8f69"
+      },
+      "edits": [
+        {
+          "before": "Generalization is a robot policy's ability to work in settings it was not trained in. Even the most general policies are \"mostly trained on data collected in a small number of environments\" <Cite id=\"droid-2024\" />, while homes bring new geometry, objects and clutter, and a one-centimeter grasp error drops the object. Closing that <Term id=\"distribution-shift\">distribution shift</Term> without per-site data is the generalization problem.\n",
+          "after": "Generalization is a robot policy's ability to work in settings it was not trained in, closing the <Term id=\"distribution-shift\">distribution shift</Term> of new geometry, objects and clutter without per-site data. Even the most general policies are \"mostly trained on data collected in a small number of environments\" <Cite id=\"droid-2024\" />, and in a new home a one-centimeter grasp error drops the object.\n"
+        },
+        {
+          "before": "EgoScale's scaling law is the strongest argument that the gap closes with data <Cite id=\"egoscale-2026\" />. Try a larger amount under \"How much video?\" and the dashed line continues past the measurements; \"Adjust more\" holds the horizon slider and the paper's error measure.\n",
+          "after": "EgoScale's scaling law is the strongest argument that the gap closes with data <Cite id=\"egoscale-2026\" />. Try a larger amount under \"How much video?\" and the dashed line continues past the measurements.\n"
+        },
+        {
+          "before": "Physical Intelligence's π0.5 (April 2025) is the reference point for open-world manipulation: one end-to-end <Term id=\"vision-language-action-model\">vision-language-action model</Term> cleaning kitchens and bedrooms in homes absent from its training data. Its final test covered a kitchen and a bedroom task in each of three real homes, with ten trials per minutes-long task, such as clearing dishes into a sink <Cite id=\"pi05-2025\" />.\n",
+          "after": "Physical Intelligence's π0.5 (April 2025) is one end-to-end <Term id=\"vision-language-action-model\">vision-language-action model</Term>, tested cleaning kitchens and bedrooms in homes absent from its training data <Cite id=\"pi05-2025\" />.\n"
+        },
+        {
+          "before": "Web-scale vision-language pretraining can supply semantic generalization, knowing what \"the spatula\" is in a new kitchen, as RT-2 first showed for novel objects <Cite id=\"rt2-2023\" />. It does not by itself supply motor generalization, how to grasp that spatula with this gripper in this geometry. The semantic half also survives only if action training preserves it. Naively adding an action expert \"significantly harms both training speed and knowledge transfer\" <Cite id=\"knowledge-insulation-paper-2025\" />, action finetuning \"can erode the original VLM's generalist reasoning abilities\" <Cite id=\"int-act-2025\" />, and open VLAs \"often struggle with semantic generalization\" <Cite id=\"star-gen-2025\" />.\n",
+          "after": "Web-scale vision-language pretraining supplies semantic generalization, knowing what \"the spatula\" is in a new kitchen, as RT-2 showed for novel objects <Cite id=\"rt2-2023\" />. Motor generalization, grasping that spatula with this gripper, needs more, and the semantic half survives only if action training preserves it. Naively adding an action expert \"significantly harms both training speed and knowledge transfer\" <Cite id=\"knowledge-insulation-paper-2025\" />. Action finetuning \"can erode the original VLM's generalist reasoning abilities\" <Cite id=\"int-act-2025\" />, and open VLAs \"often struggle with semantic generalization\" <Cite id=\"star-gen-2025\" />.\n"
+        },
+        {
+          "before": "π0.7 (April 2026; see [The Pi Line](/manipulation/pi-line/)) first adds compositional generalization, recombining trained skills into untrained tasks. Its headline example, loading a sweet potato into an air fryer, had no robot demonstrations. Physical Intelligence says the zero-shot model \"makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully\" <Cite id=\"pi07-blog-2026\" />. With step-by-step language coaching the robot completes it, and the coaching transcripts train a high-level policy that runs the task autonomously with no additional <Term id=\"teleoperation\">teleoperation</Term>. Short tasks such as a french-press plunger work out of the box <Cite id=\"pi07-2026\" />. Generalist reports a competing route: GEN-1.5 learns a new task in context from 3 to 12 seconds of one demonstration, with no training <Cite id=\"gen-1-5-2026\" />.\n",
+          "after": "π0.7 (April 2026; see [The Pi Line](/manipulation/pi-line/)) adds compositional generalization, recombining trained skills into untrained tasks. Asked to load a sweet potato into an air fryer without robot demonstrations, the model \"makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully\" <Cite id=\"pi07-blog-2026\" />. With step-by-step language coaching the robot completes it, and the coaching transcripts train a high-level policy that runs the task with no additional <Term id=\"teleoperation\">teleoperation</Term> <Cite id=\"pi07-2026\" />. Generalist reports a competing route: GEN-1.5 learns a new task in context from 3 to 12 seconds of one demonstration, with no training <Cite id=\"gen-1-5-2026\" />.\n"
+        },
+        {
+          "before": "Physical Intelligence also reports <Term id=\"cross-embodiment\">cross-embodiment</Term> transfer. π0.7 folds laundry on a bimanual UR5e that never had laundry data, at 85.6% task progress and 80% success. Expert teleoperators in the top 2% by experience, averaging 375 hours, reached 90.9% and 80.6% on their first try with that robot. On shirt bagging, where source-robot operators hold the bag open with one arm, the single-arm UR5e found its own pick-and-place <Cite id=\"pi07-2026\" />. Google DeepMind reports that Gemini Robotics On-Device 2 adapts to new bi-arm embodiments in a few hours, \"typically with less than 200 examples\" <Cite id=\"gemini-robotics-2-2026\" />.\n",
+          "after": "Physical Intelligence also reports <Term id=\"cross-embodiment\">cross-embodiment</Term> transfer: π0.7 folds laundry on a bimanual UR5e that never had laundry data at 85.6% task progress and 80% success. Expert teleoperators averaging 375 hours reached 90.9% and 80.6% on their first try with that robot <Cite id=\"pi07-2026\" />. Google DeepMind reports that Gemini Robotics On-Device 2 adapts to new bi-arm embodiments in a few hours, \"typically with less than 200 examples\" <Cite id=\"gemini-robotics-2-2026\" />.\n"
+        },
+        {
+          "before": "First, the air fryer attempt does not finish the task without coaching. The authors claim only \"early signs of compositional task generalization\", and the completed runs are coached or post-trained on coaching transcripts <Cite id=\"pi07-blog-2026\" /> <Cite id=\"pi07-2026\" />.\n",
+          "after": "First, the air fryer attempt does not finish the task without coaching, and the authors claim only \"early signs of compositional task generalization\" <Cite id=\"pi07-blog-2026\" /> <Cite id=\"pi07-2026\" />.\n\nSecond, reliability is unshown: π0.5's headline evaluation is three homes and ten trials per task <Cite id=\"pi05-2025\" /> ([The Reliability Gap](/frontier/reliability-gap/), [The Evaluation Crisis](/data-hardware/evaluation-crisis/)). No published result shows a generalist policy sustaining better than 95% <Term id=\"success-rate\">success</Term> across a broad task distribution in unseen environments. Generalist's reported 99% average for GEN-1 covers only tasks it was fine-tuned on <Cite id=\"generalist-gen1-2026\" />.\n"
+        },
+        {
+          "before": "Second, reliability is unshown. π0.5's headline evaluation is three homes and ten trials per task <Cite id=\"pi05-2025\" />; see [The Reliability Gap](/frontier/reliability-gap/) and [The Evaluation Crisis](/data-hardware/evaluation-crisis/). No published result shows a generalist policy sustaining better than 95% <Term id=\"success-rate\">success</Term> across a broad task distribution in unseen environments. Generalist reports an average 99% for GEN-1, but only on tasks it was fine-tuned on <Cite id=\"generalist-gen1-2026\" />. Benchmark scores also hide brittleness: modest perturbations cut LIBERO-Plus success \"from 95% to below 30%\" <Cite id=\"libero-plus-2025\" />, Colosseum's by 30 to 50% <Cite id=\"colosseum-2024\" />, and on LIBERO-PRO over-90% performance \"collapses to 0.0%\" <Cite id=\"libero-pro-2025\" />.\n",
+          "after": "Benchmark scores hide brittleness: modest perturbations cut LIBERO-Plus success \"from 95% to below 30%\" <Cite id=\"libero-plus-2025\" /> and Colosseum's by 30 to 50% <Cite id=\"colosseum-2024\" />. On LIBERO-PRO, over-90% performance \"collapses to 0.0%\" <Cite id=\"libero-pro-2025\" />.\n"
+        },
+        {
+          "before": "Third, semantic generalization is not motor generalization, and the evaluations lean semantic. New object physics bring in touch and contact ([Dexterity](/frontier/dexterity/)). DreamZero's authors write that VLAs \"struggle to generalize to unseen physical motions in novel environments\", and report over 2x better generalization from a video world action model <Cite id=\"dreamzero-2026\" />. In March 2026 NVIDIA previewed GR00T N2, built on DreamZero research and slated for release by year end, and says it succeeds at new tasks more than twice as often as leading VLAs <Cite id=\"nvidia-gtc-gr00t-n2-2026\" />.\n",
+          "after": "Third, the evaluations lean semantic, while new object physics bring in touch and contact ([Dexterity](/frontier/dexterity/)). DreamZero's authors write that VLAs \"struggle to generalize to unseen physical motions in novel environments\", and report over 2x better generalization from a video world action model <Cite id=\"dreamzero-2026\" />. In March 2026 NVIDIA previewed GR00T N2, built on DreamZero research, and says it succeeds at new tasks more than twice as often as leading VLAs <Cite id=\"nvidia-gtc-gr00t-n2-2026\" />.\n"
+        },
+        {
+          "before": "Fourth, transfer has a shape. It works best when source and target share task structure, and π0.7's ablations show performance degrading as the embodiment gap widens before the latest model recovers it <Cite id=\"pi07-2026\" />. Across morphologies, the closest evidence is EgoScale's transfer from a 22-DoF hand to lower-DoF hands <Cite id=\"egoscale-2026\" />.\n",
+          "after": "Fourth, transfer works best when source and target share task structure. In π0.7's ablations, performance degrades as the embodiment gap widens before the latest model recovers it <Cite id=\"pi07-2026\" />. Across morphologies, the closest evidence is EgoScale's transfer from a 22-DoF hand to lower-DoF hands <Cite id=\"egoscale-2026\" />.\n"
+        },
+        {
+          "before": "NVIDIA's EgoScale trained a VLA on 20,854 hours of action-labeled egocentric human video, more than twenty times prior efforts. Held-out validation loss follows $L = 0.024 - 0.003 \\ln D$ with $D$ in thousands of hours, fit over five scales from 1k to 20k hours at $R^2 = 0.9983$. After post-training, average task completion rises from 0.30 at 1k hours to 0.71 at 20k, and the recipe lifts success by 54% over no pretraining on a 22-DoF hand <Cite id=\"egoscale-2026\" />. GR00T N1 mixed \"real-robot trajectories, human videos, and synthetically generated datasets\" <Cite id=\"gr00t-n1-2025\" />. N1.7 adds 20K hours of EgoScale video through a relative end-effector space shared by robots and humans ([Cross-Embodiment Transfer](/manipulation/cross-embodiment/)) <Cite id=\"isaac-gr00t-repo-2026\" />.\n",
+          "after": "NVIDIA's EgoScale trained a VLA on 20,854 hours of action-labeled egocentric human video, more than twenty times prior efforts. Held-out validation loss follows $L = 0.024 - 0.003 \\ln D$ with $D$ in thousands of hours, fit over five scales from 1k to 20k hours at $R^2 = 0.9983$. After post-training, average task completion rises from 0.30 at 1k hours to 0.71 at 20k, and the recipe lifts success by 54% over no pretraining on a 22-DoF hand <Cite id=\"egoscale-2026\" />.\n\nNVIDIA's GR00T N1 mixed \"real-robot trajectories, human videos, and synthetically generated datasets\" <Cite id=\"gr00t-n1-2025\" />. N1.7 adds 20K hours of EgoScale video through an end-effector space shared by robots and humans ([Cross-Embodiment Transfer](/manipulation/cross-embodiment/)) <Cite id=\"isaac-gr00t-repo-2026\" />.\n"
+        },
+        {
+          "before": "The chart extends the fit past 20k hours, although the authors \"do not extrapolate beyond the measured range\", and its completion fit crosses an impossible 100% near 250k hours <Cite id=\"egoscale-2026\" />. The law is fit to validation loss, a proxy that correlates with real-robot performance without being a <Term id=\"success-rate\">success rate</Term> across unseen environments. No one has published a scaling law for that metric. Lin et al. come closest: single-task performance in unseen environments \"follows a roughly power-law relationship with the number of environments and objects\" <Cite id=\"lin-data-scaling-laws-2024\" />.\n",
+          "after": "The chart extends the fit past 20k hours, although the authors \"do not extrapolate beyond the measured range\", and its completion fit crosses an impossible 100% near 250k hours <Cite id=\"egoscale-2026\" />. The law is fit to validation loss, a proxy that correlates with real-robot performance without being a <Term id=\"success-rate\">success rate</Term> across unseen environments. Lin et al. come closest to a law for that metric: single-task performance in unseen environments \"follows a roughly power-law relationship with the number of environments and objects\" <Cite id=\"lin-data-scaling-laws-2024\" />.\n"
+        },
+        {
+          "before": "The scaling camp cites EgoScale's \"no signs of saturation in the explored regime\" <Cite id=\"egoscale-2026\" />, AgiBot World's \"predictable performance scaling with increased data volume\" <Cite id=\"agibot-world-2025\" /> and π0.7's compositional results <Cite id=\"pi07-2026\" />. Investor analysis from Bessemer, arguing that scaling laws are beginning to show up in robotics data, says of robotics' ChatGPT moment: \"We don't think that moment is years away. But it's not here yet.\" <Cite id=\"bessemer-robotics-2026\" />. Generalist reports over half a million hours for GEN-1 <Cite id=\"generalist-gen1-2026\" />, and Xiaomi trained on over 100k hours from UMI handheld grippers <Cite id=\"umi-2024\" />, with stronger pretraining giving better out-of-the-box results in unseen environments <Cite id=\"xiaomi-robotics-1-2026\" />.\n",
+          "after": "The scaling camp cites EgoScale's \"no signs of saturation in the explored regime\" <Cite id=\"egoscale-2026\" />, AgiBot World's \"predictable performance scaling with increased data volume\" <Cite id=\"agibot-world-2025\" /> and π0.7's compositional results <Cite id=\"pi07-2026\" />. Investor analysis from Bessemer, arguing that scaling laws are beginning to show up in robotics data, says of robotics' ChatGPT moment: \"We don't think that moment is years away. But it's not here yet.\" <Cite id=\"bessemer-robotics-2026\" />.\n\nGeneralist reports over half a million hours for GEN-1 <Cite id=\"generalist-gen1-2026\" />. Xiaomi trained on over 100k hours from UMI handheld grippers <Cite id=\"umi-2024\" />, with stronger pretraining giving better out-of-the-box results in unseen environments <Cite id=\"xiaomi-robotics-1-2026\" />.\n\nKen Goldberg frames the shortfall as a 100,000-year data gap. He expects end-to-end learning to win eventually, but argues that pairing good old-fashioned engineering with learning gets robots deployed and collecting data sooner <Cite id=\"goldberg-data-gap-2025\" />. Rodney Brooks argues the missing ingredients are touch and engineered priors <Cite id=\"brooks-dexterity-2025\" />. Karcini and co-authors argue that policy scaling lacks mechanisms that turn unstructured behavior into grounded robot supervision <Cite id=\"karcini-position-2026\" />.\n"
+        },
+        {
+          "before": "Ken Goldberg frames the shortfall as a 100,000-year data gap. He expects end-to-end learning to win eventually, but argues that pairing good old-fashioned engineering with learning gets robots deployed and collecting data sooner <Cite id=\"goldberg-data-gap-2025\" />. Rodney Brooks argues the missing ingredients are touch and engineered priors <Cite id=\"brooks-dexterity-2025\" />. Karcini and co-authors argue that policy scaling lacks mechanisms that turn unstructured behavior into grounded robot supervision <Cite id=\"karcini-position-2026\" />. The settling test is whether a 10x or 100x data increase, with no architectural change, yields proportional real-world gains in unseen environments. Shi et al. find task diversity \"more critical than per-task demonstration quantity\" <Cite id=\"diversity-scaling-2025\" />.\n",
+          "after": "The settling test is whether a 10x or 100x data increase, with no architectural change, yields proportional real-world gains in unseen environments. Shi et al. find task diversity \"more critical than per-task demonstration quantity\" <Cite id=\"diversity-scaling-2025\" />.\n"
+        },
+        {
+          "before": "Generalization is solved when a single policy achieves better than 90% success across many unseen homes, dozens of them, with no per-site data collection or fine-tuning. The evaluation must span many tasks and objects and be published and reproducible. No current system has been evaluated this way. Figure reports that Helix 2.5 reached 56% zero-shot success, against 9% without Index pretraining, on three whole-body tasks in 30 unseen Bay Area homes. Grading was blind, and no trial counts were published <Cite id=\"helix-2-5-2026\" />.\n",
+          "after": "Generalization is solved when a single policy achieves better than 90% success across many unseen homes, dozens of them, with no per-site data collection or fine-tuning, in a published, reproducible evaluation spanning many tasks and objects. No current system has been evaluated this way. Figure reports that Helix 2.5 reached 56% zero-shot success, against 9% without Index pretraining, on three whole-body tasks in 30 unseen Bay Area homes, graded blind with no published trial counts <Cite id=\"helix-2-5-2026\" />.\n"
+        }
+      ],
+      "dropped": {
+        "citations": [],
+        "numbers": [
+          {
+            "value": "2",
+            "claim": "Grading was blind, and no trial counts were published [helix-2-5-2026]."
+          },
+          {
+            "value": "5",
+            "claim": "On shirt bagging, where source-robot operators hold the bag open with one arm, the single-arm UR5e found its own pick-and-place [pi07-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "pins": [],
+      "corrected": []
+    },
+    {
+      "archivedFrom": "a313729713ac7cbcd555a746a971ea1ce40802ab",
+      "before": {
+        "path": "content/frontier/reliability-gap.mdx",
+        "bytes": 11788,
+        "sha256": "fa8f216859d03ba9508a4169e5a56af25ee1b5bcaf5e2c5f25bed55a16c4f6d1"
+      },
+      "after": {
+        "path": "content/frontier/reliability-gap.mdx",
+        "bytes": 10756,
+        "sha256": "78330757c0d25fae42486ad39b2fae0190968ea489b821ac76431087368aabd9"
+      },
+      "edits": [
+        {
+          "before": "The reliability gap is the difference between the <Term id=\"success-rate\">success rates</Term> a robot shows in controlled settings and the rates deployment requires. A robot that finishes a task 80% of the time is a demo; one that finishes it 99.9% of the time is a product. Bessemer calls getting from one to the other \"not a linear problem\" <Cite id=\"bessemer-robotics-2026\" />.\n",
+          "after": "The reliability gap is the difference between the <Term id=\"success-rate\">success rates</Term> a robot shows in controlled settings and the rates deployment requires. A robot that finishes a task 80% of the time is a demo, one that finishes it 99.9% of the time is a product, and Bessemer calls closing the gap \"not a linear problem\" <Cite id=\"bessemer-robotics-2026\" />.\n"
+        },
+        {
+          "before": "A task succeeds only when every step does. If each of $N$ steps succeeds independently with probability $p$, the task completes with probability $p^N$, so 99.9% per step still fails a 30-step task about once in 34 runs. A result reported without its horizon cannot be compared, and papers often omit the number of runs, initial conditions and success criteria <Cite id=\"kress-gazit-evaluation-2024\" />. Press the “How often each step goes right” presets, then open “Adjust more” and drag the per-step slider toward 100.\n",
+          "after": "A task succeeds only when every step does: if each of $N$ steps succeeds independently with probability $p$, the task completes with probability $p^N$. A result without its horizon cannot be compared, and papers often omit runs, initial conditions and success criteria <Cite id=\"kress-gazit-evaluation-2024\" />. Try the presets, then drag the per-step slider under “Adjust more” toward 100.\n"
+        },
+        {
+          "before": "Independence is generous. A mistake carries the robot outside its training distribution, where the next is likelier, so <Term id=\"compounding-error\">compounding error</Term> makes the true curve worse. An imitator with per-step error $\\varepsilon$ can make up to $T^2\\varepsilon$ mistakes over $T$ steps <Cite id=\"dagger-2011\" />, and smooth deterministic imitators of continuous actions suffer error \"exponentially larger, as a function of problem horizon\" <Cite id=\"simchowitz-continuous-il-2025\" />. Holding 99% end-to-end on a 50-step task needs about 99.98% per step, which no generalist policy publishes.\n",
+          "after": "Real errors are not independent: a mistake carries the robot outside its training distribution, where the next is likelier, so <Term id=\"compounding-error\">compounding error</Term> makes the true curve worse. An imitator with per-step error $\\varepsilon$ can make up to $T^2\\varepsilon$ mistakes over $T$ steps <Cite id=\"dagger-2011\" />, and smooth deterministic imitators of continuous actions suffer error \"exponentially larger, as a function of problem horizon\" <Cite id=\"simchowitz-continuous-il-2025\" />. Holding 99% end-to-end on a 50-step task needs about 99.98% per step, which no generalist policy publishes.\n"
+        },
+        {
+          "before": "Bessemer argues the last stretch needs \"fundamentally different approaches\", naming tactile sensing, force feedback and better sim-to-real transfer. Lisa Yan, co-founder and CEO of Argus Systems and previously at Waymo, calls closing the gap between 99% and 99.9% \"a steep hill climb that takes longer than most people realize\" <Cite id=\"bessemer-robotics-2026\" />.\n",
+          "after": "Bessemer argues the last stretch needs \"fundamentally different approaches\", naming tactile sensing, force feedback and better sim-to-real transfer. Lisa Yan of Argus Systems calls closing the gap between 99% and 99.9% \"a steep hill climb that takes longer than most people realize\" <Cite id=\"bessemer-robotics-2026\" />.\n"
+        },
+        {
+          "before": "Formal methods do not close the gap. Hamilton-Jacobi reachability faces \"exponential computational complexity with respect to the number of state variables\" <Cite id=\"hj-reachability-2017\" />, and no deployed <Term id=\"vision-language-action-model\">vision-language-action model</Term> publishes formal safety guarantees. Assurance rests on empirical evaluation and runtime monitoring, so the reliability gap and [the evaluation crisis](/data-hardware/evaluation-crisis/) are one problem: making failure rare, and measuring how rare.\n",
+          "after": "Hamilton-Jacobi reachability faces \"exponential computational complexity with respect to the number of state variables\" <Cite id=\"hj-reachability-2017\" />, and no deployed <Term id=\"vision-language-action-model\">vision-language-action model</Term> publishes formal safety guarantees. Assurance therefore rests on empirical evaluation and runtime monitoring, which makes the reliability gap and [the evaluation crisis](/data-hardware/evaluation-crisis/) one problem.\n"
+        },
+        {
+          "before": "Physical Intelligence reports that π*0.6 with Recap, learning from the robot's own experience, cuts failure rates by 2x or more on hard tasks, with more than 2x throughput on some of the hardest tasks <Cite id=\"pistar06-blog-2025\" />. Its paper puts every task except diverse laundry in the 90%+ range <Cite id=\"pistar06-2025\" />. RL-100 succeeded in 1,000 of 1,000 episodes across 8 tasks, including 250 in a row on one, and a juicing robot served mall customers for about seven hours without failure <Cite id=\"rl-100-2025\" />. HIL-SERL reaches near-perfect success in 1 to 2.5 hours of training <Cite id=\"hil-serl-2024\" />, and Real-Time EXPO-FT lifts four dynamic tasks from 42% to 97% <Cite id=\"realtime-expo-ft-2026\" />.\n",
+          "after": "Physical Intelligence reports that π*0.6 with Recap, learning from the robot's own experience, cuts failure rates by 2x or more on hard tasks, with more than 2x throughput on some of the hardest tasks <Cite id=\"pistar06-blog-2025\" />. Its paper puts every task except diverse laundry in the 90%+ range <Cite id=\"pistar06-2025\" />. RL-100 succeeded in 1,000 of 1,000 episodes across 8 tasks, and a juicing robot served mall customers for about seven hours without failure <Cite id=\"rl-100-2025\" />. Real-Time EXPO-FT lifts four dynamic tasks from 42% to 97% <Cite id=\"realtime-expo-ft-2026\" />.\n"
+        },
+        {
+          "before": "These are mostly per-task specialists. RL-100's zero-shot success under environmental and dynamics shifts is about 90% <Cite id=\"rl-100-2025\" />. RAPolicy raised five jointly trained tasks from 52% to 88% without regressing reliable ones <Cite id=\"rapolicy-2026\" />. Generalist reports a pretraining route: GEN-1 averages 99% on fine-tuned tasks where GEN-0 reached 64% <Cite id=\"generalist-gen1-2026\" />.\n",
+          "after": "These are mostly per-task specialists, though RL-100 keeps about 90% zero-shot success under environmental and dynamics shifts <Cite id=\"rl-100-2025\" /> and RAPolicy raised five jointly trained tasks from 52% to 88% <Cite id=\"rapolicy-2026\" />. Generalist reports a pretraining route: GEN-1 averages 99% on fine-tuned tasks where GEN-0 reached 64% <Cite id=\"generalist-gen1-2026\" />.\n"
+        },
+        {
+          "before": "Google's ASIMOV-Agentic benchmark tests the orchestration layer around the policy: whether an embodied-reasoning agent respects payload, reach and safety limits in tool calls, judges VLA feasibility, handles uncertainty and stops near people <Cite id=\"asimov-agentic-2026\" />. DeepMind calls Gemini Robotics ER 2 its safest robotics model on safety-constraint and human-proximity benchmarks, with safe stops when humans are near <Cite id=\"gemini-robotics-2-2026\" />. FAIL-Detect learns to flag failures \"from successful training data alone\" <Cite id=\"fail-detect-2025\" />, and Sentinel's two detectors together catch 18% more failures than either alone <Cite id=\"sentinel-2024\" />. Monitoring catches failures instead of preventing them, so it raises effective reliability without changing the policy's own success rate.\n",
+          "after": "Google's ASIMOV-Agentic benchmark tests whether an embodied-reasoning agent respects payload, reach and safety limits and stops near people <Cite id=\"asimov-agentic-2026\" />. DeepMind calls Gemini Robotics ER 2 its safest robotics model on such benchmarks <Cite id=\"gemini-robotics-2-2026\" />. FAIL-Detect learns to flag failures \"from successful training data alone\" <Cite id=\"fail-detect-2025\" />, and Sentinel's two detectors together catch 18% more failures than either alone <Cite id=\"sentinel-2024\" />. A monitor catches failures instead of preventing them, so it raises effective reliability without changing the policy's own success rate.\n"
+        },
+        {
+          "before": "π0.7 accepts step-by-step language coaching that walks it through tasks it has not seen and lets it finish tasks it could not finish zero-shot <Cite id=\"pi07-blog-2026\" />. HG-DAgger lets a human expert take control to correct compounding error <Cite id=\"hg-dagger-2019\" />. 1X says NEO owners can schedule a remote expert for chores it does not know <Cite id=\"1x-neo-2026\" />.\n",
+          "after": "π0.7 accepts step-by-step language coaching that walks it through tasks it has not seen <Cite id=\"pi07-blog-2026\" />. HG-DAgger lets a human expert take control to correct compounding error <Cite id=\"hg-dagger-2019\" />, and 1X says NEO owners can schedule a remote expert for chores it does not know <Cite id=\"1x-neo-2026\" />.\n"
+        },
+        {
+          "before": "Dated company records show the gap better than circulating unit counts ([industrial deployment](/data-hardware/industrial-deployment/)). Agility reports 65,000 hours of Digit production experience <Cite id=\"agility-digit-production\" />, and in September 2026 about 98% on-task accuracy across 100,000 totes at GXO's Flowery Branch site <Cite id=\"agility-digit-5-2026\" />. Figure's November 2025 report says its BMW Spartanburg deployment logged 1,250+ runtime hours and loaded 90,000+ parts in eleven months. Its 84-second cycle and >99% placement accuracy were requirements or targets that Figure did not publish as achieved results <Cite id=\"figure-bmw-production-2025\" />. Tesla's Q1 and Q2 2026 updates list both Optimus lines as under construction, with first builds going to an \"Optimus Academy for training data collection\" <Cite id=\"tesla-q1-2026-update\" /> <Cite id=\"tesla-q2-2026-update\" />.\n",
+          "after": "Agility reports 65,000 hours of Digit production experience <Cite id=\"agility-digit-production\" /> ([industrial deployment](/data-hardware/industrial-deployment/)), and in September 2026 about 98% on-task accuracy across 100,000 totes at GXO's Flowery Branch site <Cite id=\"agility-digit-5-2026\" />. Figure's November 2025 report says its BMW Spartanburg deployment logged 1,250+ runtime hours and loaded 90,000+ parts in eleven months, while its 84-second cycle and >99% placement accuracy were targets it did not report as achieved <Cite id=\"figure-bmw-production-2025\" />. Tesla's Q1 and Q2 2026 updates list both Optimus lines as under construction, with first builds going to an \"Optimus Academy for training data collection\" <Cite id=\"tesla-q1-2026-update\" /> <Cite id=\"tesla-q2-2026-update\" />.\n"
+        },
+        {
+          "before": "A testable yardstick would document mean time between failures on real tasks, the human-robot safety assurance method and a protocol for remaining failures. The evidence cost is steep: with zero failures in $n$ trials, the 95% upper bound on the failure rate is about ${3/n}$ <Cite id=\"hanley-zero-numerators-1983\" />, so showing 99.9% takes about 3,000 straight successes. Real-robot comparisons are often limited to 10 or 50 trials <Cite id=\"optimal-stopping-2025\" />, and TRI's blind, randomized trials show the needed discipline <Cite id=\"tri-lbm-2025\" />. Waymo's crash-rate claim rested on 56.7 million rider-only miles <Cite id=\"waymo-crash-rates-2025\" />; see [autonomous vehicles](/adjacent/autonomous-vehicles/). These vendor-reported hours disclose no mean time between failures, intervention count or general-purpose deployment at scale. [Safety and assurance](/frontier/safety-and-assurance/) covers the standards stack industrial robotics already has and why a learned policy cannot be rated under it.\n",
+          "after": "A testable yardstick would document mean time between failures on real tasks, the human-robot safety assurance method and a protocol for remaining failures. None of the vendor hours above discloses a mean time between failures, an intervention count or general-purpose deployment at scale. With zero failures in $n$ trials, the 95% upper bound on the failure rate is about ${3/n}$ <Cite id=\"hanley-zero-numerators-1983\" />, so showing 99.9% takes about 3,000 straight successes.\n\nReal-robot comparisons are often limited to 10 or 50 trials <Cite id=\"optimal-stopping-2025\" />, and TRI's blind, randomized trials show the needed discipline <Cite id=\"tri-lbm-2025\" />. Waymo's crash-rate claim rested on 56.7 million rider-only miles <Cite id=\"waymo-crash-rates-2025\" /> ([autonomous vehicles](/adjacent/autonomous-vehicles/)). [Safety and assurance](/frontier/safety-and-assurance/) covers the standards a learned policy cannot be rated under.\n"
+        },
+        {
+          "before": "      why: 'This is the module’s own division of labor. Monitoring catches failures instead of preventing them, and the methods that actually move per-step reliability are RL from experience, where π*0.6 cuts failure rates by 2x or more on hard tasks and RL-100 reaches 100% across 1,000 episodes, but as per-task specialists with known ceilings.'\n",
+          "after": "      why: 'Monitoring catches failures instead of preventing them. The methods that move per-step reliability are RL from experience: π*0.6 cuts failure rates by 2x or more on hard tasks and RL-100 reaches 100% across 1,000 episodes, both as per-task specialists.'\n"
+        },
+        {
+          "before": "      why: 'Coaching works, and π0.7 accepts step-by-step language correction to recover failures it has not seen. But supervision bridges the gap without closing it: the reliability number that matters is the one with the coach removed, and supervised operation is a deployment tactic that does not establish the customer’s 99% completion requirement.'\n",
+          "after": "      why: 'Coaching helps: π0.7 accepts step-by-step language coaching through tasks it has not seen. The number the customer needs is the one with the coach removed, and a coached episode does not show the system reaching 99% on its own.'\n"
+        },
+        {
+          "before": "  takeaway=\"Monitors make failures visible and coaches rescue episodes, but only on-robot experience moves the policy’s own per-step number: detection is not prevention.\"\n",
+          "after": "  takeaway=\"Monitors make failures visible and coaches rescue episodes; only on-robot experience moves the policy’s own per-step number.\"\n"
+        }
+      ],
+      "dropped": {
+        "citations": [
+          {
+            "value": "hil-serl-2024",
+            "claim": "HIL-SERL reaches near-perfect success in 1 to 2.5 hours of training [hil-serl-2024], and Real-Time EXPO-FT lifts four dynamic tasks from 42% to 97% [realtime-expo-ft-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "1",
+            "claim": "HIL-SERL reaches near-perfect success in 1 to 2.5 hours of training [hil-serl-2024], and Real-Time EXPO-FT lifts four dynamic tasks from 42% to 97% [realtime-expo-ft-2026]."
+          },
+          {
+            "value": "2.5",
+            "claim": "HIL-SERL reaches near-perfect success in 1 to 2.5 hours of training [hil-serl-2024], and Real-Time EXPO-FT lifts four dynamic tasks from 42% to 97% [realtime-expo-ft-2026]."
+          },
+          {
+            "value": "2024",
+            "claim": "HIL-SERL reaches near-perfect success in 1 to 2.5 hours of training [hil-serl-2024], and Real-Time EXPO-FT lifts four dynamic tasks from 42% to 97% [realtime-expo-ft-2026]."
+          },
+          {
+            "value": "250",
+            "claim": "RL-100 succeeded in 1,000 of 1,000 episodes across 8 tasks, including 250 in a row on one, and a juicing robot served mall customers for about seven hours without failure [rl-100-2025]."
+          },
+          {
+            "value": "30",
+            "claim": "If each of $N$ steps succeeds independently with probability $p$, the task completes with probability $p^N$, so 99.9% per step still fails a 30-step task about once in 34 runs."
+          },
+          {
+            "value": "34",
+            "claim": "If each of $N$ steps succeeds independently with probability $p$, the task completes with probability $p^N$, so 99.9% per step still fails a 30-step task about once in 34 runs."
+          },
+          {
+            "value": "99.9",
+            "claim": "If each of $N$ steps succeeds independently with probability $p$, the task completes with probability $p^N$, so 99.9% per step still fails a 30-step task about once in 34 runs."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "pins": [],
+      "corrected": [
+        {
+          "before": "<SelfCheck\n  prompt=\"Your manipulation system sits at 99% success on a 30-step task and a customer needs 99% end-to-end. A vendor offers a runtime monitor that detects failures as they start. Can the monitor get you there?\"\n  options={[\n    {\n      value: 'monitor-closes',\n      label: 'Yes, roughly: catching failures before they compound means most detected episodes still complete, so the effective rate climbs toward what the customer needs',\n      why: 'This overstates what a monitor does. ASIMOV-Agentic and Gemini Robotics ER 2 raise effective reliability by refusing unsafe calls and triggering safe stops, which turns silent failures into visible ones; a task the system safely aborted still did not complete, and the monitored number is not the policy’s own success rate.'\n    },\n    {\n      value: 'monitor-no',\n      label: 'No, only on-robot experience moves the policy’s own number: a monitor converts failures into safe stops and human escalations',\n      why: 'This is the module’s own division of labor. Monitoring catches failures instead of preventing them, and the methods that actually move per-step reliability are RL from experience, where π*0.6 cuts failure rates by 2x or more on hard tasks and RL-100 reaches 100% across 1,000 episodes, but as per-task specialists with known ceilings.'\n    },\n    {\n      value: 'human-coach',\n      label: 'No, so put a human coach on every episode instead',\n      why: 'Coaching works, and π0.7 accepts step-by-step language correction to recover failures it has not seen. But supervision bridges the gap without closing it: the reliability number that matters is the one with the coach removed, and supervised operation is a deployment tactic that does not establish the customer’s 99% completion requirement.'\n    }\n  ]}\n  answer=\"monitor-no\"\n  takeaway=\"Monitors make failures visible and coaches rescue episodes, but only on-robot experience moves the policy’s own per-step number: detection is not prevention.\"\n/>",
+          "after": "<SelfCheck\n  prompt=\"Your manipulation system sits at 99% success on a 30-step task and a customer needs 99% end-to-end. A vendor offers a runtime monitor that detects failures as they start. Can the monitor get you there?\"\n  options={[\n    {\n      value: 'monitor-closes',\n      label: 'Yes, roughly: catching failures before they compound means most detected episodes still complete, so the effective rate climbs toward what the customer needs',\n      why: 'This overstates what a monitor does. ASIMOV-Agentic and Gemini Robotics ER 2 raise effective reliability by refusing unsafe calls and triggering safe stops, which turns silent failures into visible ones; a task the system safely aborted still did not complete, and the monitored number is not the policy’s own success rate.'\n    },\n    {\n      value: 'monitor-no',\n      label: 'No, only on-robot experience moves the policy’s own number: a monitor converts failures into safe stops and human escalations',\n      why: 'Monitoring catches failures instead of preventing them. The methods that move per-step reliability are RL from experience: π*0.6 cuts failure rates by 2x or more on hard tasks and RL-100 reaches 100% across 1,000 episodes, both as per-task specialists.'\n    },\n    {\n      value: 'human-coach',\n      label: 'No, so put a human coach on every episode instead',\n      why: 'Coaching helps: π0.7 accepts step-by-step language coaching through tasks it has not seen. The number the customer needs is the one with the coach removed, and a coached episode does not show the system reaching 99% on its own.'\n    }\n  ]}\n  answer=\"monitor-no\"\n  takeaway=\"Monitors make failures visible and coaches rescue episodes; only on-robot experience moves the policy’s own per-step number.\"\n/>",
+          "reason": "The self-check explanations claimed more than their sources show: the 'human-coach' answer said pi0.7 coaching recovers failures it has not seen, where the source describes coaching through unseen tasks, and both answers and the takeaway carried contrast filler ('the module's own division of labor', 'bridges the gap without closing it', 'detection is not prevention'). The corrected text keeps the same prompt, options, answer and cited results (pi*0.6's 2x failure cut, RL-100's 1,000 episodes, pi0.7's step-by-step coaching)."
+        }
+      ]
+    },
+    {
+      "archivedFrom": "a313729713ac7cbcd555a746a971ea1ce40802ab",
+      "before": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 19717,
+        "sha256": "a5a5ab0cb99819174da77c86f1bbd8093b8e59e88139963a5d539cdaf8323800"
+      },
+      "after": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 18159,
+        "sha256": "2be7ebef52a06c85830867d9249b1d566183a11f9f7ec353d9b8903340a390e4"
+      },
+      "edits": [
+        {
+          "before": "Safety assurance is the procedure for showing that a robot system is safe enough to run. Industrial robots have a settled, numerical standards stack, but no standard certifies a learned policy. What ships is a verifiable safety layer around it: in 2024 ISO/IEC guidance, non-AI safety functions keeping AI-controlled equipment safe <Cite id=\"iso-iec-tr-5469-2024\" />.\n",
+          "after": "Safety assurance is the procedure for showing that a robot system is safe enough to run. Industrial robots have a settled, numerical standards stack, but none certifies a learned policy, so what ships is a verifiable safety layer around it <Cite id=\"iso-iec-tr-5469-2024\" />.\n"
+        },
+        {
+          "before": "Robots built to work beside people without a fence use four collaborative scenarios, which Marvel and Norcross summarise from ISO/TS 15066 (2016): a safety-rated monitored stop, hand guiding, speed and separation monitoring, and limits on contact <Cite id=\"marvel-norcross-2017\" />.\n",
+          "after": "Marvel and Norcross summarise the four scenarios from ISO/TS 15066 (2016). Two are procedural: a safety-rated monitored stop permits no motion while a person is present, and hand guiding gives the operator the control channel. Two are quantitative: <Term id=\"speed-and-separation-monitoring\">speed and separation monitoring</Term> keeps a computed distance between robot and person, while <Term id=\"power-and-force-limiting\">power and force limiting</Term> gives up distance and bounds the contact <Cite id=\"marvel-norcross-2017\" />.\n"
+        },
+        {
+          "before": "Pick each mode under \"How it keeps you safe\" below, then drag \"Robot speed\" under \"Keeps its distance\" (speed and separation monitoring) and watch the protective separation distance recompose from its four terms in the bar under the drawing. The terms follow the equation in Marvel and Norcross's open-access NIST analysis <Cite id=\"marvel-norcross-2017\" />.\n",
+          "after": "Pick a mode under \"How it keeps you safe\" below, then drag \"Robot speed\" under \"Keeps its distance\". The bar under the drawing recomposes the protective separation distance from the four terms of Marvel and Norcross's NIST equation <Cite id=\"marvel-norcross-2017\" />.\n"
+        },
+        {
+          "before": "<CollaborativeOperationModes className=\"my-6\" />\n\nTwo of the four modes are procedural: a safety-rated monitored stop permits no motion while a person is present, and hand guiding gives the operator the control channel. The other two are quantitative in opposite directions. <Term id=\"speed-and-separation-monitoring\">Speed and separation monitoring</Term> keeps a computed distance between robot and person. <Term id=\"power-and-force-limiting\">Power and force limiting</Term> gives up distance and bounds the contact instead <Cite id=\"marvel-norcross-2017\" />.\n\n",
+          "after": "<CollaborativeOperationModes className=\"my-6\" />\n\n"
+        },
+        {
+          "before": "Marvel and Norcross reproduce the ISO 13855:2010 decision criteria: an intrusion margin of at least 850 mm for a normal approach protected by multiple separate beams, against 1200 mm for a single-height beam. A two-handed control device may reduce the margin to 250 mm. They exclude typical two-handed teach pendants from that exception and doubt that stationary-machinery criteria transfer to robots. For operator approach they call 1600 mm/s a worst-case assumption and report a 2000 mm/s stationary-machinery maximum, with the 1600 mm/s option only when separation is greater than 500 mm. Approach speed may be measured directly; otherwise it is typically assumed constant and directed toward the robot. They add that 2000 mm/s may be more prudent for rapid motions and detection uncertainty, and a risk assessment may call for a faster approach <Cite id=\"marvel-norcross-2017\" />.\n",
+          "after": "Marvel and Norcross reproduce the ISO 13855:2010 decision criteria: an intrusion margin of at least 850 mm for a normal approach protected by multiple separate beams, against 1200 mm for a single-height beam. A two-handed control device may reduce the margin to 250 mm, but they exclude typical two-handed teach pendants from that exception and doubt that stationary-machinery criteria transfer to robots <Cite id=\"marvel-norcross-2017\" />.\n\nFor operator approach they call 1600 mm/s a worst-case assumption and report a 2000 mm/s stationary-machinery maximum, with the 1600 mm/s option only when separation is greater than 500 mm. Approach speed may be measured directly; otherwise it is typically assumed constant and directed toward the robot. They add that 2000 mm/s may be more prudent for rapid motions and detection uncertainty, and a risk assessment may call for a faster approach <Cite id=\"marvel-norcross-2017\" />.\n"
+        },
+        {
+          "before": "Haddadin, Albu-Schäffer and Hirzinger made the force question empirical with crash-test impacts <Cite id=\"haddadin-2009\" />, and later pain-threshold studies, such as Han and colleagues' 37-subject impactor tests, report limits by body region and contact geometry <Cite id=\"han-force-pain-2024\" />. A power-and-force-limited application therefore attaches a measured number to a named body part, and the [contact-force lab in the control module](/classical/control/) reads the same value from the same shared source <Cite id=\"han-force-pain-2024\" />.\n",
+          "after": "Haddadin, Albu-Schäffer and Hirzinger made the force question empirical with crash-test impacts <Cite id=\"haddadin-2009\" />. Later pain-threshold studies, such as Han and colleagues' 37-subject impactor tests, report limits by body region and contact geometry <Cite id=\"han-force-pain-2024\" />. A power-and-force-limited application therefore attaches a measured number to a named body part, the value the [contact-force lab in the control module](/classical/control/) also reads <Cite id=\"han-force-pain-2024\" />.\n"
+        },
+        {
+          "before": "<Term id=\"risk-assessment\">Risk assessment</Term> begins with ISO 12100, the general-principles standard for machinery safety, at edition 1 since 2010 and due to be replaced by a revision now in draft <Cite id=\"iso-12100\" />. Its abstract describes the procedure: identify the hazards, estimate and evaluate the risks, then reduce them, with the documentation and verification of that process part of the work <Cite id=\"iso-12100\" />. The reduction measures form a hierarchy: design the hazard out, guard against what remains, then inform the operator, the \"3-step approach\" OSHA's manual reproduces from the robot industry association <Cite id=\"osha-otm-robots\" />.\n",
+          "after": "<Term id=\"risk-assessment\">Risk assessment</Term> begins with ISO 12100, the general-principles standard for machinery safety, at edition 1 since 2010 and due to be replaced by a revision now in draft <Cite id=\"iso-12100\" />. Its abstract describes the procedure: identify the hazards, estimate and evaluate the risks, then reduce them, documenting and verifying each step <Cite id=\"iso-12100\" />. The reduction measures form a hierarchy: design the hazard out, guard against what remains, then inform the operator, the \"3-step approach\" OSHA's manual reproduces from the robot industry association <Cite id=\"osha-otm-robots\" />.\n"
+        },
+        {
+          "before": "The robot-specific layer splits in two, and the split decides liability. ISO 10218-1 covers the robot as partly completed machinery, the manufacturer's obligation; ISO 10218-2 covers the application and its cell, the integrator's <Cite id=\"iso-10218-1-2025\" /> <Cite id=\"iso-10218-2-2025\" />. Both were republished in February 2025, the first major revision since 2011, at editions 3 and 2. The US adoption, ANSI/A3 R15.06-2025, added a Part 3 on user requirements in October 2025 <Cite id=\"rr-ansi-r1506-2026\" />. A compliant robot therefore does not make a compliant cell.\n",
+          "after": "The robot-specific layer splits liability in two. ISO 10218-1 covers the robot as partly completed machinery, the manufacturer's obligation; ISO 10218-2 covers the application and its cell, the integrator's <Cite id=\"iso-10218-1-2025\" /> <Cite id=\"iso-10218-2-2025\" />. Both were republished in February 2025 at editions 3 and 2, the first major revision since 2011. The US adoption, ANSI/A3 R15.06-2025, added a Part 3 on user requirements in October 2025 <Cite id=\"rr-ansi-r1506-2026\" />.\n"
+        },
+        {
+          "before": "<Term id=\"functional-safety\">Functional safety</Term> grades the control system that enforces these requirements. IEC 61508, whose Part 1 is at edition 2 from 2010, is the generic standard for electrical, electronic and programmable electronic systems that carry out safety functions <Cite id=\"iec-61508-1-2010\" />; its rating for such a function is the <Term id=\"safety-integrity-level\">safety integrity level</Term>. ISO 13849-1, at edition 4 from 2023, is the machinery counterpart: a design methodology for safety-related parts of control systems, including software, rated by <Term id=\"performance-level\">performance level</Term>, which defers low-demand operation to the IEC 61508 series <Cite id=\"iso-13849-1-2023\" />.\n",
+          "after": "<Term id=\"functional-safety\">Functional safety</Term> grades the control system that enforces these requirements. IEC 61508, whose Part 1 is at edition 2 from 2010, is the generic standard for electrical, electronic and programmable systems that carry out safety functions, rated by <Term id=\"safety-integrity-level\">safety integrity level</Term> <Cite id=\"iec-61508-1-2010\" />. ISO 13849-1, at edition 4 from 2023, is the machinery counterpart for safety-related control parts, including software, rated by <Term id=\"performance-level\">performance level</Term>; it defers low-demand operation to IEC 61508 <Cite id=\"iso-13849-1-2023\" />.\n"
+        },
+        {
+          "before": "The <Term id=\"emergency-stop\">emergency stop</Term> is often misread. ISO 13850, at edition 3 from 2015, specifies it independently of the energy source and names IEC 60204-1, at its 2016 edition, for the electrical realisation <Cite id=\"iso-13850-2015\" /> <Cite id=\"iec-60204-1-2016\" />. The button cannot detect a hazard; it waits for a person to see one and press. Stopping is also distinct from removing power. In stop category 0 the actuators lose power and the brakes engage, while in category 1 power is maintained through a controlled stop <Cite id=\"marvel-norcross-2017\" />.\n",
+          "after": "ISO 13850, at edition 3 from 2015, specifies the <Term id=\"emergency-stop\">emergency stop</Term> independently of the energy source and names IEC 60204-1, at its 2016 edition, for the electrical realisation <Cite id=\"iso-13850-2015\" /> <Cite id=\"iec-60204-1-2016\" />. The button cannot detect a hazard; it waits for a person to see one and press. In stop category 0 the actuators lose power and the brakes engage, while in category 1 power is maintained through a controlled stop <Cite id=\"marvel-norcross-2017\" />.\n"
+        },
+        {
+          "before": "Mobile robots have their own documents. ISO 3691-4, at edition 2 from 2023, covers driverless industrial trucks, naming automated guided vehicles and autonomous mobile robots among its examples <Cite id=\"iso-3691-4-2023\" />. In the United States the R15.08 series covers industrial mobile robots, with Part 1 published in 2020 and Part 2 in 2023 <Cite id=\"a3-robot-safety-standards\" />.\n",
+          "after": "For mobile robots, ISO 3691-4, at edition 2 from 2023, covers driverless industrial trucks, naming automated guided vehicles and autonomous mobile robots among its examples <Cite id=\"iso-3691-4-2023\" />. In the United States the R15.08 series covers industrial mobile robots, with Part 1 published in 2020 and Part 2 in 2023 <Cite id=\"a3-robot-safety-standards\" />.\n"
+        },
+        {
+          "before": "A humanoid falls, a hazard class the industrial documents were not written for. ISO/CD 25785-1 covers industrial mobile robots with actively controlled stability, defined as robots that need active control to remain balanced and could become unstable without power, including bipedal machines <Cite id=\"iso-cd-25785-1\" />. It is a committee draft: in late September 2026 the catalogue still showed stage 30.60, close of the comment period, with edition 1 unpublished <Cite id=\"iso-cd-25785-1\" />. A parallel technical report for the United States and Canada, ANSI/A3 TR R15.108, is under development for dynamically stable industrial mobile robots including humanoids <Cite id=\"agility-digit-5-2026\" />.\n",
+          "after": "A humanoid falls, a hazard class the industrial documents were not written for. ISO/CD 25785-1 covers industrial mobile robots that need active control to remain balanced, including bipedal machines <Cite id=\"iso-cd-25785-1\" />. It is a committee draft: in late September 2026 the catalogue still showed stage 30.60, close of the comment period, with edition 1 unpublished <Cite id=\"iso-cd-25785-1\" />. A parallel technical report for the United States and Canada, ANSI/A3 TR R15.108, is under development for dynamically stable industrial mobile robots including humanoids <Cite id=\"agility-digit-5-2026\" />.\n"
+        },
+        {
+          "before": "OSHA's free technical manual chapter on industrial robots covers safeguarding devices, the teach-pendant hazard, and lockout and tagout under the hazardous-energy rule, with accident descriptions <Cite id=\"osha-otm-robots\" />. NIOSH counted 41 robot-related workplace fatalities in the United States from 1992 to 2017. Most involved stationary robots (83%) striking the worker under their own power (78%), often during maintenance <Cite id=\"layne-robot-fatalities-2023\" />.\n",
+          "after": "OSHA's technical manual chapter on industrial robots covers safeguarding devices, the teach-pendant hazard and lockout and tagout, with accident descriptions <Cite id=\"osha-otm-robots\" />. NIOSH counted 41 robot-related workplace fatalities in the United States from 1992 to 2017. Most involved stationary robots (83%) striking the worker under their own power (78%), often during maintenance <Cite id=\"layne-robot-fatalities-2023\" />.\n"
+        },
+        {
+          "before": "A safety integrity level and a performance level are both assigned to a safety function <Cite id=\"iso-13849-1-2023\" />, and both presume two things. The first is a verifiable specification: a statement of what the function must do, against which an implementation can be checked. The second is the avoidance of systematic faults, the design and specification errors that redundant hardware cannot remove and that the standards attack with process requirements.\n",
+          "after": "A safety integrity level and a performance level are both assigned to a safety function <Cite id=\"iso-13849-1-2023\" />. Both presume a verifiable specification of what the function must do, and a development process that avoids systematic faults, the design errors that redundant hardware cannot remove.\n"
+        },
+        {
+          "before": "A policy trained from demonstrations has neither. Its weights encode behaviour with no separable statement of intent, and no development process avoids systematic faults in a function nobody wrote down. Testing alone cannot close the gap: Luckcuck and colleagues find testing and simulation insufficient evidence for certifying autonomous robots <Cite id=\"luckcuck-formal-2019\" />, and Kalra and Paddock calculate that existing fleets would need tens and sometimes hundreds of years of driving to demonstrate autonomous-vehicle reliability <Cite id=\"kalra-paddock-2016\" />. [Deployment numbers](/frontier/reliability-gap/) show the same distance.\n",
+          "after": "A policy trained from demonstrations has neither: its weights encode behaviour with no separable statement of intent, and no process avoids systematic faults in a function nobody wrote down. Luckcuck and colleagues find testing and simulation insufficient evidence for certifying autonomous robots <Cite id=\"luckcuck-formal-2019\" />. Kalra and Paddock calculate that existing fleets would need tens and sometimes hundreds of years of driving to demonstrate autonomous-vehicle reliability <Cite id=\"kalra-paddock-2016\" />, and [deployment numbers](/frontier/reliability-gap/) show the same distance.\n"
+        },
+        {
+          "before": "What ships instead assigns safety and capability to different components. The policy may be a black box, and something simple enough to verify sits between it and the actuators with authority to override. ISO/IEC TR 5469 (2024) names this use: non-AI safety related functions that ensure safety for AI-controlled equipment <Cite id=\"iso-iec-tr-5469-2024\" />.\n",
+          "after": "What ships instead puts something simple enough to verify between the black-box policy and the actuators, with authority to override. ISO/IEC TR 5469 (2024) names this use: non-AI safety related functions that ensure safety for AI-controlled equipment <Cite id=\"iso-iec-tr-5469-2024\" />.\n"
+        },
+        {
+          "before": "The formal instance is the safety filter. A <Term id=\"control-barrier-function\">control barrier function</Term> defines a set the system must stay inside and turns forward invariance of that set into a constraint on the commanded input, enforced each step <Cite id=\"ames-cbf-2019\" />. Wabersich and colleagues survey the family, including reachability and predictive variants, and describe a filter that takes a proposed input from any source and modifies it as little as necessary <Cite id=\"wabersich-safety-filters-2023\" />. The guarantee belongs to the filter whatever produced the proposal, which is why the policy may stay unverifiable.\n",
+          "after": "The formal instance is the safety filter. A <Term id=\"control-barrier-function\">control barrier function</Term> defines a set the system must stay inside and turns forward invariance of that set into a constraint on the commanded input, enforced each step <Cite id=\"ames-cbf-2019\" />. Wabersich and colleagues survey the family, including reachability and predictive variants, and describe a filter that takes a proposed input from any source and modifies it as little as necessary <Cite id=\"wabersich-safety-filters-2023\" />.\n"
+        },
+        {
+          "before": "The industrial instance is cruder and far more widely deployed: force limiting in the actuator, velocity limiting in the drive, and workspace limiting in the safety controller. The standards above know how to rate those mechanisms, whatever generated the trajectory. Agility describes Digit 5 in these terms: an independent safety controller oversees its response to people within an unsafe distance <Cite id=\"agility-digit-5-2026\" />. Guardrails inside a model are no substitute: RoboPAIR jailbroke LLM-controlled robots, often with 100% attack success, including a deployed Unitree Go2 <Cite id=\"robopair-2024\" />.\n",
+          "after": "The industrial instance is cruder and far more widely deployed: force limiting in the actuator, velocity limiting in the drive, and workspace limiting in the safety controller. The standards above know how to rate those mechanisms, whatever generated the trajectory. Guardrails inside a model are no substitute: RoboPAIR jailbroke LLM-controlled robots, often with 100% attack success, including a deployed Unitree Go2 <Cite id=\"robopair-2024\" />.\n"
+        },
+        {
+          "before": "What the wrapper leaves over gets an argument with evidence, the <Term id=\"safety-case\">safety case</Term>: a structured, documented argument that a system is acceptably safe in a stated environment, with evidence attached to each step. UL 4600, at edition 3 from March 2023, applies the approach to autonomous products <Cite id=\"ul-4600-2023\" />, and the Goal Structuring Notation community standard, version 3, supplies the usual notation, decomposing a top-level goal into subgoals that each rest on cited evidence <Cite id=\"gsn-standard-v3\" />. For ML components, AMLAS supplies safety case patterns and a process for generating the evidence base <Cite id=\"amlas-2021\" />.\n",
+          "after": "What the wrapper leaves over gets a <Term id=\"safety-case\">safety case</Term>: a structured, documented argument that a system is acceptably safe in a stated environment, with evidence attached to each step. UL 4600, at edition 3 from March 2023, applies the approach to autonomous products <Cite id=\"ul-4600-2023\" />. The Goal Structuring Notation community standard, version 3, supplies the usual notation, decomposing a top-level goal into subgoals that each rest on cited evidence <Cite id=\"gsn-standard-v3\" />. For ML components, AMLAS supplies safety case patterns and a process for generating the evidence base <Cite id=\"amlas-2021\" />.\n"
+        },
+        {
+          "before": "An argument built to conclude that a system is safe will usually reach that conclusion, and Koopman argues that \"safe enough\" means more than crashes divided by miles <Cite id=\"koopman-safe-enough-2026\" />. The alternative is a rule set formal enough to check, which Shalev-Shwartz, Shammah and Shashua proposed as responsibility-sensitive safety <Cite id=\"rss-2017\" />. The [autonomous vehicles](/adjacent/autonomous-vehicles/) module covers that decade-long argument, which robotics is inheriting late.\n",
+          "after": "An argument built to conclude that a system is safe will usually reach that conclusion, and Koopman argues that \"safe enough\" means more than crashes divided by miles <Cite id=\"koopman-safe-enough-2026\" />. The alternative is a rule set formal enough to check, which Shalev-Shwartz, Shammah and Shashua proposed as responsibility-sensitive safety <Cite id=\"rss-2017\" />. Robotics is inheriting that decade-long [autonomous vehicles](/adjacent/autonomous-vehicles/) argument late.\n"
+        },
+        {
+          "before": "<Term id=\"conformal-prediction\">Conformal prediction</Term> turns any model's raw output into a prediction set with a guaranteed coverage rate under exchangeability. Vovk, Gammerman and Shafer built the framework <Cite id=\"vovk-conformal-2022\" />, and Angelopoulos and Bates wrote the tutorial that carried it into general machine-learning practice <Cite id=\"angelopoulos-conformal-2021\" />. In KnowNo, Ren and colleagues calibrate a language-model planner conformally so that the robot asks a human for help when its prediction set is ambiguous, with a statistical guarantee on task completion <Cite id=\"knowno-2023\" />.\n",
+          "after": "<Term id=\"conformal-prediction\">Conformal prediction</Term> turns any model's raw output into a prediction set with a guaranteed coverage rate under exchangeability. Vovk, Gammerman and Shafer built the framework <Cite id=\"vovk-conformal-2022\" />, and Angelopoulos and Bates's tutorial carried it into general machine-learning practice <Cite id=\"angelopoulos-conformal-2021\" />. In KnowNo, Ren and colleagues calibrate a language-model planner conformally so that the robot asks a human for help when its prediction set is ambiguous, with a statistical guarantee on task completion <Cite id=\"knowno-2023\" />.\n"
+        },
+        {
+          "before": "Semantic safety layers are measured too. ASIMOV is a benchmark and evaluation harness for agentic systems on safety-critical robotics tasks, from judging payload and reach limits to deciding from stereo images whether a person is close enough to require a stop <Cite id=\"asimov-agentic-2026\" />. Gemini Robotics ER 2, in public preview, reports 97.9% safety-instruction-following accuracy and 93.0% on 1 m human proximity <Cite id=\"gemini-robotics-er2-2026\" />.\n",
+          "after": "The ASIMOV benchmark tests semantic safety in robotics agents, from payload and reach limits to judging from stereo images whether a person is close enough to require a stop <Cite id=\"asimov-agentic-2026\" />. Gemini Robotics ER 2, in public preview, reports 97.9% safety-instruction-following accuracy and 93.0% on 1 m human proximity <Cite id=\"gemini-robotics-er2-2026\" />.\n"
+        },
+        {
+          "before": "From 20 January 2027, the EU Machinery Regulation lists \"safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions\" in Annex I Part A, and its recitals call for third-party conformity assessment of such components <Cite id=\"eu-machinery-regulation-2023\" />. The AI Act's rules for high-risk AI systems embedded in the regulated products of its Annex I apply from 2 August 2028, after the AI Omnibus extended the transition <Cite id=\"eu-ai-act-framework-2026\" />.\n",
+          "after": "From 20 January 2027, the EU Machinery Regulation lists \"safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions\" in Annex I Part A. Its recitals call for third-party conformity assessment of such components <Cite id=\"eu-machinery-regulation-2023\" />. The AI Act's rules for high-risk AI systems embedded in the regulated products of its Annex I apply from 2 August 2028, after the AI Omnibus extended the transition <Cite id=\"eu-ai-act-framework-2026\" />.\n"
+        },
+        {
+          "before": "The first missing piece is a specification language in which a manipulation task's safety requirement can be written precisely enough to check, the input every certification scheme above assumes <Cite id=\"luckcuck-formal-2019\" />. The second is a humanoid standard past committee draft, giving fall risk an agreed treatment <Cite id=\"iso-cd-25785-1\" />. The third is a published assurance case for a deployed learned system, complete enough that an outsider could dispute a specific step <Cite id=\"amlas-2021\" />.\n",
+          "after": "The first missing piece is a specification language in which a manipulation task's safety requirement can be written precisely enough to check <Cite id=\"luckcuck-formal-2019\" />. The second is a humanoid standard past committee draft, giving fall risk an agreed treatment <Cite id=\"iso-cd-25785-1\" />. The third is a published assurance case for a deployed learned system, complete enough that an outsider could dispute a specific step <Cite id=\"amlas-2021\" />.\n"
+        },
+        {
+          "before": "A position paper from October 2026 asks for the same kind of evidence on the human side of the interaction. Niccolò Pagliarani, Maximilian Stölzle, Daniela Rus, Matteo Cianchetti and colleagues argue that a claim that a robot is trustworthy around people should rest on evidence for three properties in the intended setting: bounded physical risk, behavior that people can anticipate, and expectations that match what the robot has shown it can and cannot do. In their view these should guide design and evaluation from the outset, and the paper offers candidate evaluation criteria as a research agenda, with no new measurements <Cite id=\"trustworthy-physical-ai-2026\" />.\n",
+          "after": "A position paper from October 2026, by researchers at Scuola Superiore Sant'Anna, MIT CSAIL and four other universities, asks for the same kind of evidence on the human side of the interaction. Niccolò Pagliarani, Maximilian Stölzle, Daniela Rus, Matteo Cianchetti and colleagues argue that a claim that a robot is trustworthy around people should rest on evidence for three properties in the intended setting: bounded physical risk, behavior that people can anticipate, and expectations that match what the robot has shown it can and cannot do. In their view these should guide design and evaluation from the outset, and the paper offers candidate evaluation criteria as a research agenda, with no new measurements <Cite id=\"trustworthy-physical-ai-2026\" />.\n"
+        }
+      ],
+      "dropped": {
+        "citations": [
+          {
+            "value": "agility-digit-5-2026",
+            "claim": "Agility describes Digit 5 in these terms: an independent safety controller oversees its response to people within an unsafe distance [agility-digit-5-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "2024",
+            "claim": "What ships is a verifiable safety layer around it: in 2024 ISO/IEC guidance, non-AI safety functions keeping AI-controlled equipment safe [iso-iec-tr-5469-2024]."
+          },
+          {
+            "value": "2026",
+            "claim": "Agility describes Digit 5 in these terms: an independent safety controller oversees its response to people within an unsafe distance [agility-digit-5-2026]."
+          },
+          {
+            "value": "5",
+            "claim": "Agility describes Digit 5 in these terms: an independent safety controller oversees its response to people within an unsafe distance [agility-digit-5-2026]."
+          },
+          {
+            "value": "5",
+            "claim": "Agility describes Digit 5 in these terms: an independent safety controller oversees its response to people within an unsafe distance [agility-digit-5-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "pins": [
+        {
+          "test": "tests/helpers/kol-backlog-20261012.ts",
+          "disposition": "moved",
+          "phrase": "A position paper from October 2026 asks for the same kind of evidence on the human side of the interaction.",
+          "to": "A position paper from October 2026, by researchers at Scuola Superiore Sant'Anna, MIT CSAIL and four other universities, asks for the same kind of evidence on the human side of the interaction.",
+          "reason": "The 2026-10-12 KOL batch helper keeps the paragraph as that batch added it; the live paragraph adds the authors' institutions, which the audit row for trustworthy-physical-ai-2026 records from the paper (Scuola Superiore Sant'Anna, MIT CSAIL, Stanford, University of Tokyo, Boston University and National University of Singapore), so the attribution names affiliation as well as authors and date. The authors, the date, the position, the no-new-measurements caveat and the source are unchanged."
+        }
+      ],
+      "corrected": []
+    }
+  ]
+}

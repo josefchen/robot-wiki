@@ -199,14 +199,16 @@ async function verify(): Promise<boolean> {
   const { parallelLocalPredecessor } = await import('../lib/audit-parallel-local-continuity.ts');
   const { reskinPredecessor } = await import('../lib/audit-reskin-site-foundation-continuity.ts');
   const { worldModelsLengthCutPredecessor } = await import('../lib/audit-length-cut-world-models-continuity.ts');
+  const { frontierLengthCutPredecessor } = await import('../lib/audit-length-cut-frontier-continuity.ts');
   let ok = true;
   for (const source of layer.loadReaderFirstReview(root).sources) {
     try {
-      // The newer re-skin, parallel-local, world-models length-cut, word-budget trim, figure-mount, domain-pass and KOL backlog layers hand back the reader-first successor first.
+      // The newer frontier length-cut, re-skin, parallel-local, world-models length-cut, word-budget trim, figure-mount, domain-pass and KOL backlog layers hand back the reader-first successor first.
       const live = kolBacklogPredecessor(root, source.before, domainPassPredecessor(root, source.before,
         figureMountPredecessor(root, source.before, wordBudgetTrimPredecessor(root, source.before,
           worldModelsLengthCutPredecessor(root, source.before, parallelLocalPredecessor(root, source.before,
-            reskinPredecessor(root, source.before, readFileSync(join(root, source.after.path)))))))));
+            reskinPredecessor(root, source.before, frontierLengthCutPredecessor(root, source.before,
+              readFileSync(join(root, source.after.path))))))))));
       const prior = layer.readerFirstPredecessor(root, source.before, live);
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {

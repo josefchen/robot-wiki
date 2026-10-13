@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2004596, sha256: '022252b6eab306cc7de31bdcf3f9027a8b797b7a28e6cd5d8ccb2caa9262ac18' };
+const reviewPin = { bytes: 2011080, sha256: '1c2b4c81a2d62afbff8fbb8e218c2a183bb491b4551943d1d70a56b5880584cf' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -54,7 +54,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/interactive/cross-embodiment-strategies.tsx', [20615, 'f0e4c97877aaa65cfff17b5e291c1316adb670dd9822476def1256033bb8e712']],
   ['components/interactive/data-scale-chart.tsx', [26308, '57cb085733c10105cb0816d425901fbf0f7fba7bc795d2617b1fe7355f00ab57']],
   ['components/interactive/dataset-table.tsx', [9020, '0242321fee2a786af99810a301be1e4494f50a5e2e5f8ed0cea7ae0236372ba0']],
-  ['components/interactive/deployment-dashboard.tsx', [15637, '4ff6c7a6451e21a09d175b99bb1ad03c63de500f412d64e867bbb809cfca9b15']],
+  ['components/interactive/deployment-dashboard.tsx', [15636, '4915dc96bb7363b63528087612458a146e2900de999137db1e1e09325255d2c9']],
   ['components/interactive/deployment-economics.tsx', [23763, 'f33ca903ffaa3341f903f8e09850e659d63767fb3f7cfe9754c8f1e10ed0c1a5']],
   ['components/interactive/egoscale-scaling.tsx', [27149, '479b378d3741841069f42d5b2769dbc483ed8cb1eb0e9499743641d6f0b58fe8']],
   ['components/interactive/eureka-loop.tsx', [14258, '6a2afa4dada7bb72ca9a5989ed49f8d139e43a434358bb1ddb226345065d51ad']],
@@ -183,7 +183,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/bc-foundations.spec.ts', [4704, '679771c7f8588a469afcd9fb3655b59c3cd99260f03b5d697be6cc91eb3ca9f4']],
   ['tests/e2e/bear-case.spec.ts', [12692, 'cc8ddca86af6d75029a3a8d55b8ad25722444628aafda708c689e368132ec820']],
   ['tests/e2e/brand-v2-figures.spec.ts', [10556, 'fbae3d209cf5b933244b5a7da42d1391abbf814f71ca65ffd4208befc6fdefa3']],
-  ['tests/e2e/brooks-theses-readers.spec.ts', [8373, '33d18e8cf7564187c1fa9f085d2c2b062141eec14763972a1098f68f119ad582']],
+  ['tests/e2e/brooks-theses-readers.spec.ts', [8519, '690677e5bd3c72f842fe6b3f1ea442272f124f559319bab3c53063d9a0601ea9']],
   ['tests/e2e/chart-coverage-sweep.spec.ts', [12272, '0b05cc763dbc74fb1e31ad53c7bcfce17b3d4001b540129e6d7e85fa5e6b1c35']],
   ['tests/e2e/chart-description-registry.spec.ts', [6569, '458e4b53e02328a4f47069cf4057a3f98c1855acf5b88b3ebe3ae9a450e19781']],
   ['tests/e2e/chart-descriptions.spec.ts', [15828, '24d3ad5f40f51fb875f064bdace5fa23551f2e7438d4192671bd009766444009']],
@@ -241,7 +241,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/sim2real-local-evidence.spec.ts', [10571, '2402780098148d7f88f6f1c1d99bb70eee36733433475027cea638de52fe135b']],
   ['tests/e2e/sim2real-transfer.spec.ts', [11651, 'c3a9e12e4ef9e5198e515ac9de209458df7aaa19683cb80358046f76ce1b24b5']],
   ['tests/e2e/state-estimation.spec.ts', [14104, 'acf481dfb999c01b3e0739d399eb1bfe848eae10b3a2d6f122a236cd1ee062bb']],
-  ['tests/e2e/thesis-economics-readers.spec.ts', [6170, '25b0c7ae3b7cdcbe6a2b604f55d6bc6aa51de094f1e2209e1ee00325c52da0d3']],
+  ['tests/e2e/thesis-economics-readers.spec.ts', [6149, 'f328a7b9350ed6b5a34883992eb70fbf681a78d9dd971549a31cc36a23ed442c']],
   ['tests/e2e/why-rl-locomotion.spec.ts', [5041, '2a0377ca5049411af190a5cfc785dbb9a46dad3663910c42a9cb76aa84470e13']],
   ['tests/e2e/wm-taxonomy.spec.ts', [6559, '016d7f7426e98a847b6912feb7fae16d3f1f50af04eff1537b423756626366c7']],
   ['tests/unit/appearance-physics-push.test.ts', [5351, '7e9275704d3f5dca27c2fa72a760aaff5083ff37625daf297900cb3f1051b0d6']],
@@ -249,12 +249,12 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/brand-v2-figure-evidence.test.ts', [32916, 'f0f5ea49951c939dc67090ed351f69482ed6c3bbe44e21ecc48b38abad99fbf7']],
   ['tests/unit/classical-closure-evidence.test.ts', [16186, '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148']],
   ['tests/unit/final-seven-closure-evidence.test.ts', [8105, 'e2591c622ca23b1415aa48e2e53605426d4668b4180bfad71f2d198a0b32b27f']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [139922, '60656536e8d7880707ae68c7f7c1f3578b1c7ef296c0dab2c90413616471c30d']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [144831, '77ffe6abe34f72452e30ca0d10b1f823e707cbdfaaedb3dfe87d688f82d75e22']],
   ['tests/unit/motion-data-hardware.test.ts', [10895, 'd9a5ffee78d77b45a6155155c84992e3299e892e4e32e2a9c08fd62837842648']],
   ['tests/unit/motion-frontier-adjacent-home.test.ts', [10127, '4076049105b4ba02bd5459b55604e6cbce8497ca17a0e0632f53ac27c37f10a5']],
   ['tests/unit/motion-tokens.test.ts', [5443, 'b364833eb29a4892bdb2892304cb0cca5c9e5f995f510e567fed0362c6786e41']],
   ['tests/unit/parallel-local-evidence.test.ts', [5415, 'd2c39b3c94fad8f22da07efe5fa4517aef9325dc77477f510c65275e421fb687']],
-  ['tests/unit/reader-release-integration.test.ts', [24191, 'd5822e8f5613291fc185fbcd707582f66869005d86763d409d4fdfbc67e64565']],
+  ['tests/unit/reader-release-integration.test.ts', [24652, 'ab542ba8479954c0e2c5ad3897bba975322c7700df9c493ff67108ea7a0e7657']],
   ['tests/unit/reward-local-evidence.test.ts', [9001, 'a5d166d0b11e1cce9ce19a093d328ccfc45c2057e61cb856ee08857cf2241c12']],
   ['tests/unit/robomind-hours-evidence.test.ts', [25447, '574905dcfbfe26a41e64a8fb3888892a9b7d519412fdeae6c1e78fcc6707b4e8']],
   ['tests/unit/sim2real-local-evidence.test.ts', [9669, '80d4605b1eefcfc82ca7f1f5dd8bd3744f7cda62570e523796be856670b4fc6a']],

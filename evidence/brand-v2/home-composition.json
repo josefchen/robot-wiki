@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "177d1799ead1b38706f685a5284a22293f7a5028b34ab916e92e569013413726",
+  "fingerprint": "5e8b121ad787c53d1ce1c7f9159f7fd61647abede5e01aece78b86997dfcd112",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2826,
+  "visibleTextLength": 2795,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -772,8 +772,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Surgical Robotics",
-      "href": "/adjacent/surgical/",
+      "accessibleName": "Safety and Assurance",
+      "href": "/frontier/safety-and-assurance/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2179.89,
@@ -781,8 +781,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Robot Learning Stack",
-      "href": "/data-hardware/robot-learning-stack/",
+      "accessibleName": "The Bear Case",
+      "href": "/frontier/bear-case/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2229.89,
@@ -799,8 +799,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "World Model Evaluation for Robotics",
-      "href": "/world-models/evaluation/",
+      "accessibleName": "Generalization",
+      "href": "/frontier/generalization/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2329.89,
@@ -808,8 +808,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Generative Simulation",
-      "href": "/world-models/generative-sim/",
+      "accessibleName": "The Reliability Gap",
+      "href": "/frontier/reliability-gap/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2379.89,
@@ -1045,7 +1045,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-13 Surgical Robotics 2026-10-13 The Robot Learning Stack 2026-10-13 Competing Theses 2026-10-13 World Model Evaluation for Robotics 2026-10-13 Generative Simulation"
+      "text": "RECENTLY UPDATED 2026-10-13 Safety and Assurance 2026-10-13 The Bear Case 2026-10-13 Competing Theses 2026-10-13 Generalization 2026-10-13 The Reliability Gap"
     },
     {
       "label": "Tools",

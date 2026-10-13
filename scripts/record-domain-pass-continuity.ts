@@ -181,12 +181,13 @@ async function verify(): Promise<boolean> {
   const { figureMountPredecessor } = await import('../lib/audit-figure-mount-continuity.ts');
   const { wordBudgetTrimPredecessor } = await import('../lib/audit-word-budget-trim-continuity.ts');
   const { worldModelsLengthCutPredecessor } = await import('../lib/audit-length-cut-world-models-continuity.ts');
+  const { frontierLengthCutPredecessor } = await import('../lib/audit-length-cut-frontier-continuity.ts');
   let ok = true;
   for (const source of layer.loadDomainPassReview(root).sources) {
     try {
       // The newer world-models length-cut, word-budget trim and figure-mount layers hand back the domain-pass successor first.
       const live = figureMountPredecessor(root, source.before,
-        wordBudgetTrimPredecessor(root, source.before, worldModelsLengthCutPredecessor(root, source.before, readFileSync(join(root, source.after.path)))));
+        wordBudgetTrimPredecessor(root, source.before, worldModelsLengthCutPredecessor(root, source.before, frontierLengthCutPredecessor(root, source.before, readFileSync(join(root, source.after.path))))));
       const prior = layer.domainPassPredecessor(root, source.before, live);
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {

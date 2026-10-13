@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "0ea843d748787087488fd2bf660da86ea56bf1cd4fcbcc759b296e20ac76c1a0",
+  "fingerprint": "46c3fad6aefbd50e2e5dd6fdf0464ca25c67fadddf855871baf4039ef911168b",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3060,
+      "visibleTextLength": 3029,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17834,7 +17834,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16177,
+      "visibleTextLength": 15683,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17959,7 +17959,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Eight milestones would settle the argument. Pick \"Done\" unde"
+          "text": "Eight milestones would settle the argument. Under \"Show\", \"D"
         },
         {
           "familyHead": "geist",
@@ -18031,7 +18031,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A robot at 80% task success is a demo; at 99.9%, a product ("
+          "text": "The bear case is that closing the reliability gap between de"
         },
         {
           "familyHead": "geist",
@@ -18058,7 +18058,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Whether that is a bubble is contested. Bessemer Venture Part"
+          "text": "Evidence: on September 21, 2026, Reuters reported that regul"
         },
         {
           "familyHead": "geist",
@@ -18067,16 +18067,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Evidence: the first repricing came in China. On September 21"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 327,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "These mechanisms are hypothetical scenarios. Their precedent"
+          "text": "The three mechanisms below are hypothetical scenarios. Their"
         },
         {
           "familyHead": "geist",
@@ -18112,7 +18103,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "As of August 2026 the board reads three not met, five partia"
+          "text": "The board reads three not met, five partial, zero met. In un"
         },
         {
           "familyHead": "geist",
@@ -18130,7 +18121,16 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The bear case is falsifiable. A verified deployment of 10,00"
+          "text": "A verified deployment of 10,000 humanoids doing documented w"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "A real-world success-rate scaling law across tasks breaks th"
         }
       ],
       "sectionLinks": [
@@ -18799,7 +18799,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21614,
+      "visibleTextLength": 20263,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18851,11 +18851,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 11,
+        "readingMinutes": 10,
         "citationCount": 33,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "11 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "brooks-better-lesson-2019",
@@ -18866,7 +18866,6 @@
           "karcini-position-2026",
           "bessemer-robotics-2026",
           "egoscale-2026",
-          "pi05-2025",
           "pi07-2026",
           "pi07-blog-2026",
           "pistar06-2025",
@@ -18882,7 +18881,6 @@
           "figure-bmw-production-2025",
           "helix-2-5-2026",
           "lin-data-scaling-laws-2024",
-          "gr00t-n1-2025",
           "gemini-robotics-15-2025",
           "dreamzero-2026",
           "hil-serl-2024",
@@ -18890,6 +18888,8 @@
           "levine-sporks-2025",
           "generalist-gen1-2026",
           "amazon-million-robots-2025",
+          "pi05-2025",
+          "gr00t-n1-2025",
           "adcock-figure-livestream-2026"
         ],
         "imageCount": 0,
@@ -18978,7 +18978,25 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The bet here is division of labor: a vision-language model d"
+          "text": "On compute, Brooks notes that \"self driving cars require abo"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Ken Goldberg puts the data problem at a 100,000-year gap and"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The claim: a vision-language model decomposes goals into sub"
         },
         {
           "familyHead": "geist",
@@ -19023,7 +19041,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The evidence for is long-horizon behavior. Figure reports th"
+          "text": "The evidence for is long-horizon behavior: Figure reports th"
         },
         {
           "familyHead": "geist",
@@ -19041,7 +19059,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The case against is cost and fidelity. Cosmos 3 was pretrain"
+          "text": "Cosmos 3 was pretrained on up to 31 trillion tokens, on clus"
         },
         {
           "familyHead": "geist",
@@ -19059,7 +19077,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The evidence against concerns transfer. Each result is per-t"
+          "text": "The evidence against concerns transfer: each result is per-t"
         },
         {
           "familyHead": "geist",
@@ -19077,7 +19095,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Bessemer quotes the Zeromatter CEO, Ian Glow: \"you'll never "
+          "text": "Recap, the π*0.6 method, learns from expert teleoperated int"
         },
         {
           "familyHead": "geist",
@@ -19086,7 +19104,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The sixth thesis is a pair, because the two sides falsify ea"
+          "text": "Agility reports 65,000 hours of Digit production experienceS"
         },
         {
           "familyHead": "geist",
@@ -19095,7 +19113,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Helix 02 runs whole-body loco-manipulationSource 1717 Figure"
+          "text": "Egocentric human video is a cheaper source with a measured s"
         },
         {
           "familyHead": "geist",
@@ -19104,7 +19122,34 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The cards' \"wrong if\" lines form a watchlist: real-world suc"
+          "text": "The humanoid side, backed by Figure, Tesla, 1X, Apptronik, a"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Helix 02 runs whole-body loco-manipulationSource 1616 Figure"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Both kill conditions are one measurement: cost per task. If "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Each card's \"wrong if\" line is an observation to watch, from"
         }
       ],
       "sectionLinks": [
@@ -19318,7 +19363,7 @@
         },
         {
           "kind": "citation",
-          "count": 112,
+          "count": 100,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -19328,7 +19373,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 56,
+              "count": 50,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -19338,7 +19383,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 56,
+              "count": 50,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -19673,14 +19718,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 36 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 87 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -19745,14 +19782,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 42 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 173 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -19762,6 +19791,22 @@
         {
           "tag": "button",
           "text": "Show all 36 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 36 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 42 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -20768,7 +20813,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19495,
+      "visibleTextLength": 18613,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20820,11 +20865,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 9,
+        "readingMinutes": 8,
         "citationCount": 32,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "32 sources",
         "bibliographyIds": [
           "pi05-2025",
@@ -20982,7 +21027,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Physical Intelligence's π0.5 (April 2025) is the reference p"
+          "text": "Physical Intelligence's π0.5 (April 2025) is one end-to-end "
         },
         {
           "familyHead": "geist",
@@ -21000,7 +21045,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Web-scale vision-language pretraining can supply semantic ge"
+          "text": "Web-scale vision-language pretraining supplies semantic gene"
         },
         {
           "familyHead": "geist",
@@ -21009,7 +21054,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "π0.7 (April 2026; see The Pi Line) first adds compositional "
+          "text": "π0.7 (April 2026; see The Pi Line) adds compositional genera"
         },
         {
           "familyHead": "geist",
@@ -21036,7 +21081,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Second, reliability is unshown. π0.5's headline evaluation i"
+          "text": "Second, reliability is unshown: π0.5's headline evaluation i"
         },
         {
           "familyHead": "geist",
@@ -21045,7 +21090,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Third, semantic generalization is not motor generalization, "
+          "text": "Benchmark scores hide brittleness: modest perturbations cut "
         },
         {
           "familyHead": "geist",
@@ -21054,7 +21099,16 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Fourth, transfer has a shape. It works best when source and "
+          "text": "Third, the evaluations lean semantic, while new object physi"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Fourth, transfer works best when source and target share tas"
         },
         {
           "familyHead": "geist",
@@ -21064,6 +21118,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "NVIDIA's EgoScale trained a VLA on 20,854 hours of action-la"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "NVIDIA's GR00T N1 mixed \"real-robot trajectories, human vide"
         },
         {
           "familyHead": "geist",
@@ -21099,7 +21162,25 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Generalist reports over half a million hours for GEN-1Source"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Ken Goldberg frames the shortfall as a 100,000-year data gap"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The settling test is whether a 10x or 100x data increase, wi"
         },
         {
           "familyHead": "geist",
@@ -21614,7 +21695,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16487,
+      "visibleTextLength": 15732,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21666,11 +21747,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 7,
+        "readingMinutes": 6,
         "citationCount": 31,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "6 min read",
         "citationCountText": "31 sources",
         "bibliographyIds": [
           "bessemer-robotics-2026",
@@ -21687,7 +21768,6 @@
           "simchowitz-continuous-il-2025",
           "hj-reachability-2017",
           "pistar06-2025",
-          "hil-serl-2024",
           "realtime-expo-ft-2026",
           "rapolicy-2026",
           "generalist-gen1-2026",
@@ -21703,7 +21783,8 @@
           "optimal-stopping-2025",
           "tri-lbm-2025",
           "waymo-crash-rates-2025",
-          "adcock-figure-livestream-2026"
+          "adcock-figure-livestream-2026",
+          "hil-serl-2024"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -21737,7 +21818,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A task succeeds only when every step does. If each of NNN st"
+          "text": "A task succeeds only when every step does: if each of NNN st"
         },
         {
           "familyHead": "geist",
@@ -21791,7 +21872,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Independence is generous. A mistake carries the robot outsid"
+          "text": "Real errors are not independent: a mistake carries the robot"
         },
         {
           "familyHead": "geist",
@@ -21809,7 +21890,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Formal methods do not close the gap. Hamilton-Jacobi reachab"
+          "text": "Hamilton-Jacobi reachability faces \"exponential computationa"
         },
         {
           "familyHead": "geist",
@@ -21827,7 +21908,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "These are mostly per-task specialists. RL-100's zero-shot su"
+          "text": "These are mostly per-task specialists, though RL-100 keeps a"
         },
         {
           "familyHead": "geist",
@@ -21836,7 +21917,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Google's ASIMOV-Agentic benchmark tests the orchestration la"
+          "text": "Google's ASIMOV-Agentic benchmark tests whether an embodied-"
         },
         {
           "familyHead": "geist",
@@ -21854,7 +21935,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Dated company records show the gap better than circulating u"
+          "text": "Agility reports 65,000 hours of Digit production experienceS"
         },
         {
           "familyHead": "geist",
@@ -21863,7 +21944,7 @@
           "widthPx": 269,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Biggest record: 65,000 working hours, from Agility’s own web"
+          "text": "Biggest record: 65,000 working hours, from Agility’s Septemb"
         },
         {
           "familyHead": "geist",
@@ -21912,6 +21993,15 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Real-robot comparisons are often limited to 10 or 50 trialsS"
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 13,
           "lineHeightRatio": 1.2,
           "widthPx": 285,
@@ -21926,7 +22016,7 @@
           "widthPx": 285,
           "zeroAdvancePx": 10,
           "insideRegisteredFrame": true,
-          "text": "Monitors make failures visible and coaches rescue episodes, "
+          "text": "Monitors make failures visible and coaches rescue episodes; "
         }
       ],
       "sectionLinks": [
@@ -22086,7 +22176,7 @@
         },
         {
           "kind": "citation",
-          "count": 66,
+          "count": 64,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -22096,7 +22186,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 33,
+              "count": 32,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -22106,7 +22196,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 33,
+              "count": 32,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -22400,7 +22490,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27353,
+      "visibleTextLength": 25820,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22452,11 +22542,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 13,
+        "readingMinutes": 12,
         "citationCount": 43,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "13 min read",
+        "readingTimeText": "12 min read",
         "citationCountText": "43 sources",
         "bibliographyIds": [
           "iso-12100",
@@ -22535,7 +22625,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Robots built to work beside people without a fence use four "
+          "text": "Marvel and Norcross summarise the four scenarios from ISO/TS"
         },
         {
           "familyHead": "geist",
@@ -22544,7 +22634,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Pick each mode under \"How it keeps you safe\" below, then dra"
+          "text": "Pick a mode under \"How it keeps you safe\" below, then drag \""
         },
         {
           "familyHead": "geist",
@@ -22616,15 +22706,6 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two of the four modes are procedural: a safety-rated monitor"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 327,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
           "text": "ISO/TS 15066, published in 2016, supplemented the 2011 ISO 1"
         },
         {
@@ -22635,6 +22716,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Marvel and Norcross reproduce the ISO 13855:2010 decision cr"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "For operator approach they call 1600 mm/s a worst-case assum"
         },
         {
           "familyHead": "geist",
@@ -22670,7 +22760,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The robot-specific layer splits in two, and the split decide"
+          "text": "The robot-specific layer splits liability in two. ISO 10218-"
         },
         {
           "familyHead": "geist",
@@ -22688,7 +22778,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The emergency stopemergency stopA machine function, initiate"
+          "text": "ISO 13850, at edition 3 from 2015, specifies the emergency s"
         },
         {
           "familyHead": "geist",
@@ -22697,7 +22787,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Mobile robots have their own documents. ISO 3691-4, at editi"
+          "text": "For mobile robots, ISO 3691-4, at edition 2 from 2023, cover"
         },
         {
           "familyHead": "geist",
@@ -22724,7 +22814,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "OSHA's free technical manual chapter on industrial robots co"
+          "text": "OSHA's technical manual chapter on industrial robots covers "
         },
         {
           "familyHead": "geist",
@@ -22742,7 +22832,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A policy trained from demonstrations has neither. Its weight"
+          "text": "A policy trained from demonstrations has neither: its weight"
         },
         {
           "familyHead": "geist",
@@ -22751,7 +22841,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "What ships instead assigns safety and capability to differen"
+          "text": "What ships instead puts something simple enough to verify be"
         },
         {
           "familyHead": "geist",
@@ -22796,7 +22886,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "What the wrapper leaves over gets an argument with evidence,"
+          "text": "What the wrapper leaves over gets a safety casesafety caseA "
         },
         {
           "familyHead": "geist",
@@ -22832,7 +22922,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Semantic safety layers are measured too. ASIMOV is a benchma"
+          "text": "The ASIMOV benchmark tests semantic safety in robotics agent"
         },
         {
           "familyHead": "geist",
@@ -22859,7 +22949,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A position paper from October 2026 asks for the same kind of"
+          "text": "A position paper from October 2026, by researchers at Scuola"
         }
       ],
       "sectionLinks": [
@@ -23145,7 +23235,7 @@
         },
         {
           "kind": "citation",
-          "count": 118,
+          "count": 116,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -23155,7 +23245,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 59,
+              "count": 58,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -23165,7 +23255,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 59,
+              "count": 58,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -23210,7 +23300,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -23220,7 +23310,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -53751,7 +53841,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3060,
+      "visibleTextLength": 3029,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71222,7 +71312,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21854,
+      "visibleTextLength": 21360,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71347,7 +71437,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Eight milestones would settle the argument. Pick \"Done\" unde"
+          "text": "Eight milestones would settle the argument. Under \"Show\", \"D"
         },
         {
           "familyHead": "geist",
@@ -71419,7 +71509,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A robot at 80% task success is a demo; at 99.9%, a product ("
+          "text": "The bear case is that closing the reliability gap between de"
         },
         {
           "familyHead": "geist",
@@ -71446,7 +71536,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Whether that is a bubble is contested. Bessemer Venture Part"
+          "text": "Evidence: on September 21, 2026, Reuters reported that regul"
         },
         {
           "familyHead": "geist",
@@ -71455,16 +71545,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Evidence: the first repricing came in China. On September 21"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 929.63,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "These mechanisms are hypothetical scenarios. Their precedent"
+          "text": "The three mechanisms below are hypothetical scenarios. Their"
         },
         {
           "familyHead": "geist",
@@ -71500,7 +71581,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "As of August 2026 the board reads three not met, five partia"
+          "text": "The board reads three not met, five partial, zero met. In un"
         },
         {
           "familyHead": "geist",
@@ -71518,7 +71599,16 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The bear case is falsifiable. A verified deployment of 10,00"
+          "text": "A verified deployment of 10,000 humanoids doing documented w"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "A real-world success-rate scaling law across tasks breaks th"
         }
       ],
       "sectionLinks": [
@@ -72176,7 +72266,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29002,
+      "visibleTextLength": 26843,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -72228,11 +72318,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 11,
+        "readingMinutes": 10,
         "citationCount": 33,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "11 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "brooks-better-lesson-2019",
@@ -72243,7 +72333,6 @@
           "karcini-position-2026",
           "bessemer-robotics-2026",
           "egoscale-2026",
-          "pi05-2025",
           "pi07-2026",
           "pi07-blog-2026",
           "pistar06-2025",
@@ -72259,7 +72348,6 @@
           "figure-bmw-production-2025",
           "helix-2-5-2026",
           "lin-data-scaling-laws-2024",
-          "gr00t-n1-2025",
           "gemini-robotics-15-2025",
           "dreamzero-2026",
           "hil-serl-2024",
@@ -72267,6 +72355,8 @@
           "levine-sporks-2025",
           "generalist-gen1-2026",
           "amazon-million-robots-2025",
+          "pi05-2025",
+          "gr00t-n1-2025",
           "adcock-figure-livestream-2026"
         ],
         "imageCount": 0,
@@ -72355,7 +72445,25 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The bet here is division of labor: a vision-language model d"
+          "text": "On compute, Brooks notes that \"self driving cars require abo"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Ken Goldberg puts the data problem at a 100,000-year gap and"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The claim: a vision-language model decomposes goals into sub"
         },
         {
           "familyHead": "geist",
@@ -72400,7 +72508,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The evidence for is long-horizon behavior. Figure reports th"
+          "text": "The evidence for is long-horizon behavior: Figure reports th"
         },
         {
           "familyHead": "geist",
@@ -72418,7 +72526,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The case against is cost and fidelity. Cosmos 3 was pretrain"
+          "text": "Cosmos 3 was pretrained on up to 31 trillion tokens, on clus"
         },
         {
           "familyHead": "geist",
@@ -72436,7 +72544,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The evidence against concerns transfer. Each result is per-t"
+          "text": "The evidence against concerns transfer: each result is per-t"
         },
         {
           "familyHead": "geist",
@@ -72454,7 +72562,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Bessemer quotes the Zeromatter CEO, Ian Glow: \"you'll never "
+          "text": "Recap, the π*0.6 method, learns from expert teleoperated int"
         },
         {
           "familyHead": "geist",
@@ -72463,7 +72571,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The sixth thesis is a pair, because the two sides falsify ea"
+          "text": "Agility reports 65,000 hours of Digit production experienceS"
         },
         {
           "familyHead": "geist",
@@ -72472,7 +72580,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Helix 02 runs whole-body loco-manipulationSource 1717 Figure"
+          "text": "Egocentric human video is a cheaper source with a measured s"
         },
         {
           "familyHead": "geist",
@@ -72481,7 +72589,34 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The cards' \"wrong if\" lines form a watchlist: real-world suc"
+          "text": "The humanoid side, backed by Figure, Tesla, 1X, Apptronik, a"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Helix 02 runs whole-body loco-manipulationSource 1616 Figure"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Both kill conditions are one measurement: cost per task. If "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Each card's \"wrong if\" line is an observation to watch, from"
         }
       ],
       "sectionLinks": [
@@ -72695,7 +72830,7 @@
         },
         {
           "kind": "citation",
-          "count": 112,
+          "count": 100,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -72705,7 +72840,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 56,
+              "count": 50,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -72715,7 +72850,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 56,
+              "count": 50,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -73050,14 +73185,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 36 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 87 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -73122,14 +73249,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 42 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 173 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -73139,6 +73258,22 @@
         {
           "tag": "button",
           "text": "Show all 36 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 36 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 42 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -74123,7 +74258,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26399,
+      "visibleTextLength": 25517,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74175,11 +74310,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 9,
+        "readingMinutes": 8,
         "citationCount": 32,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "32 sources",
         "bibliographyIds": [
           "pi05-2025",
@@ -74337,7 +74472,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Physical Intelligence's π0.5 (April 2025) is the reference p"
+          "text": "Physical Intelligence's π0.5 (April 2025) is one end-to-end "
         },
         {
           "familyHead": "geist",
@@ -74355,7 +74490,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Web-scale vision-language pretraining can supply semantic ge"
+          "text": "Web-scale vision-language pretraining supplies semantic gene"
         },
         {
           "familyHead": "geist",
@@ -74364,7 +74499,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "π0.7 (April 2026; see The Pi Line) first adds compositional "
+          "text": "π0.7 (April 2026; see The Pi Line) adds compositional genera"
         },
         {
           "familyHead": "geist",
@@ -74391,7 +74526,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Second, reliability is unshown. π0.5's headline evaluation i"
+          "text": "Second, reliability is unshown: π0.5's headline evaluation i"
         },
         {
           "familyHead": "geist",
@@ -74400,7 +74535,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Third, semantic generalization is not motor generalization, "
+          "text": "Benchmark scores hide brittleness: modest perturbations cut "
         },
         {
           "familyHead": "geist",
@@ -74409,7 +74544,16 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Fourth, transfer has a shape. It works best when source and "
+          "text": "Third, the evaluations lean semantic, while new object physi"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Fourth, transfer works best when source and target share tas"
         },
         {
           "familyHead": "geist",
@@ -74419,6 +74563,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "NVIDIA's EgoScale trained a VLA on 20,854 hours of action-la"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "NVIDIA's GR00T N1 mixed \"real-robot trajectories, human vide"
         },
         {
           "familyHead": "geist",
@@ -74454,7 +74607,25 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Generalist reports over half a million hours for GEN-1Source"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Ken Goldberg frames the shortfall as a 100,000-year data gap"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The settling test is whether a 10x or 100x data increase, wi"
         },
         {
           "familyHead": "geist",
@@ -74958,7 +75129,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21394,
+      "visibleTextLength": 20478,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75010,11 +75181,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 7,
+        "readingMinutes": 6,
         "citationCount": 31,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "6 min read",
         "citationCountText": "31 sources",
         "bibliographyIds": [
           "bessemer-robotics-2026",
@@ -75031,7 +75202,6 @@
           "simchowitz-continuous-il-2025",
           "hj-reachability-2017",
           "pistar06-2025",
-          "hil-serl-2024",
           "realtime-expo-ft-2026",
           "rapolicy-2026",
           "generalist-gen1-2026",
@@ -75047,7 +75217,8 @@
           "optimal-stopping-2025",
           "tri-lbm-2025",
           "waymo-crash-rates-2025",
-          "adcock-figure-livestream-2026"
+          "adcock-figure-livestream-2026",
+          "hil-serl-2024"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -75081,7 +75252,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A task succeeds only when every step does. If each of NNN st"
+          "text": "A task succeeds only when every step does: if each of NNN st"
         },
         {
           "familyHead": "geist",
@@ -75135,7 +75306,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Independence is generous. A mistake carries the robot outsid"
+          "text": "Real errors are not independent: a mistake carries the robot"
         },
         {
           "familyHead": "geist",
@@ -75153,7 +75324,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Formal methods do not close the gap. Hamilton-Jacobi reachab"
+          "text": "Hamilton-Jacobi reachability faces \"exponential computationa"
         },
         {
           "familyHead": "geist",
@@ -75171,7 +75342,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "These are mostly per-task specialists. RL-100's zero-shot su"
+          "text": "These are mostly per-task specialists, though RL-100 keeps a"
         },
         {
           "familyHead": "geist",
@@ -75180,7 +75351,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Google's ASIMOV-Agentic benchmark tests the orchestration la"
+          "text": "Google's ASIMOV-Agentic benchmark tests whether an embodied-"
         },
         {
           "familyHead": "geist",
@@ -75198,7 +75369,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Dated company records show the gap better than circulating u"
+          "text": "Agility reports 65,000 hours of Digit production experienceS"
         },
         {
           "familyHead": "geist",
@@ -75207,7 +75378,7 @@
           "widthPx": 851.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Biggest record: 65,000 working hours, from Agility’s own web"
+          "text": "Biggest record: 65,000 working hours, from Agility’s Septemb"
         },
         {
           "familyHead": "geist",
@@ -75256,6 +75427,15 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Real-robot comparisons are often limited to 10 or 50 trialsS"
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 13,
           "lineHeightRatio": 1.2,
           "widthPx": 879.63,
@@ -75270,7 +75450,7 @@
           "widthPx": 879.63,
           "zeroAdvancePx": 10,
           "insideRegisteredFrame": true,
-          "text": "Monitors make failures visible and coaches rescue episodes, "
+          "text": "Monitors make failures visible and coaches rescue episodes; "
         }
       ],
       "sectionLinks": [
@@ -75430,7 +75610,7 @@
         },
         {
           "kind": "citation",
-          "count": 66,
+          "count": 64,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -75440,7 +75620,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 33,
+              "count": 32,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -75450,7 +75630,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 33,
+              "count": 32,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -75733,7 +75913,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 38540,
+      "visibleTextLength": 36834,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75785,11 +75965,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 13,
+        "readingMinutes": 12,
         "citationCount": 43,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "13 min read",
+        "readingTimeText": "12 min read",
         "citationCountText": "43 sources",
         "bibliographyIds": [
           "iso-12100",
@@ -75868,7 +76048,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Robots built to work beside people without a fence use four "
+          "text": "Marvel and Norcross summarise the four scenarios from ISO/TS"
         },
         {
           "familyHead": "geist",
@@ -75877,7 +76057,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Pick each mode under \"How it keeps you safe\" below, then dra"
+          "text": "Pick a mode under \"How it keeps you safe\" below, then drag \""
         },
         {
           "familyHead": "geist",
@@ -75949,15 +76129,6 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two of the four modes are procedural: a safety-rated monitor"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 929.63,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
           "text": "ISO/TS 15066, published in 2016, supplemented the 2011 ISO 1"
         },
         {
@@ -75968,6 +76139,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Marvel and Norcross reproduce the ISO 13855:2010 decision cr"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "For operator approach they call 1600 mm/s a worst-case assum"
         },
         {
           "familyHead": "geist",
@@ -76003,7 +76183,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The robot-specific layer splits in two, and the split decide"
+          "text": "The robot-specific layer splits liability in two. ISO 10218-"
         },
         {
           "familyHead": "geist",
@@ -76021,7 +76201,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The emergency stopemergency stopA machine function, initiate"
+          "text": "ISO 13850, at edition 3 from 2015, specifies the emergency s"
         },
         {
           "familyHead": "geist",
@@ -76030,7 +76210,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Mobile robots have their own documents. ISO 3691-4, at editi"
+          "text": "For mobile robots, ISO 3691-4, at edition 2 from 2023, cover"
         },
         {
           "familyHead": "geist",
@@ -76057,7 +76237,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "OSHA's free technical manual chapter on industrial robots co"
+          "text": "OSHA's technical manual chapter on industrial robots covers "
         },
         {
           "familyHead": "geist",
@@ -76075,7 +76255,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A policy trained from demonstrations has neither. Its weight"
+          "text": "A policy trained from demonstrations has neither: its weight"
         },
         {
           "familyHead": "geist",
@@ -76084,7 +76264,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "What ships instead assigns safety and capability to differen"
+          "text": "What ships instead puts something simple enough to verify be"
         },
         {
           "familyHead": "geist",
@@ -76129,7 +76309,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "What the wrapper leaves over gets an argument with evidence,"
+          "text": "What the wrapper leaves over gets a safety casesafety caseA "
         },
         {
           "familyHead": "geist",
@@ -76165,7 +76345,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Semantic safety layers are measured too. ASIMOV is a benchma"
+          "text": "The ASIMOV benchmark tests semantic safety in robotics agent"
         },
         {
           "familyHead": "geist",
@@ -76192,7 +76372,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A position paper from October 2026 asks for the same kind of"
+          "text": "A position paper from October 2026, by researchers at Scuola"
         }
       ],
       "sectionLinks": [
@@ -76478,7 +76658,7 @@
         },
         {
           "kind": "citation",
-          "count": 118,
+          "count": 116,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -76488,7 +76668,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 59,
+              "count": 58,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -76498,7 +76678,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 59,
+              "count": 58,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -76543,7 +76723,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -76553,7 +76733,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",

@@ -239,6 +239,8 @@ describe('industrial release preserves both evidence histories', { timeout: 60_0
             'audit/evidence/figure-mounts-20261007',
             // The world-models length cut (2026-10-12) rebuilds the pre-cut articles from this review.
             'audit/evidence/length-cut-20261012-world-models',
+            // The frontier length cut (2026-10-13) rebuilds the pre-cut frontier articles from this review.
+            'audit/evidence/length-cut-20261013-frontier',
             'audit/evidence/parallel-local-20261009/checker-transition.json',
             'audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json',
             'audit/evidence/citation-closeout-20260924/relevant-continuity.json',

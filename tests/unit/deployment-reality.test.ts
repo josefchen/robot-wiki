@@ -11,13 +11,15 @@ describe('deployment-reality data', () => {
       'figure-8hr-shift',
     ]);
     const byId = new Map(DEPLOYMENT_ROWS.map((row) => [row.id, row]));
-    // Agility: 65,000 hours on the undated homepage, so the access date is the as-of.
+    // Agility: more than 65,000 hours and the GXO tote accuracy, from its dated Digit 5 release.
     const agility = byId.get('agility-digit')!;
     expect(agility.value).toBe('65,000');
     expect(agility.value).not.toContain('+');
     expect(agility.status).toBe('verified');
-    expect(agility.asOf).toBe('n.d.; accessed Sep 24, 2026');
-    expect(agility.sourceId).toBe('agility-digit-production');
+    expect(agility.asOf).toBe('Sep 15, 2026');
+    expect(agility.sourceId).toBe('agility-digit-5-2026');
+    expect(agility.detail).toContain('more than 65,000 hours');
+    expect(agility.detail).toContain('about 98% accuracy while on-task over 100,000 totes');
     // Figure: 1,250+ runtime hours at BMW Spartanburg, dated November 19, 2025.
     const figure = byId.get('figure-bmw')!;
     expect(figure.value).toContain('1,250');
@@ -25,13 +27,13 @@ describe('deployment-reality data', () => {
     expect(figure.asOf).toBe('Nov 19, 2025');
     expect(figure.sourceId).toBe('figure-bmw-production-2025');
     expect(figure.detail).toContain('targets, not achieved KPIs');
-    // Tesla: construction stage from its own Q1 update, never a build count.
+    // Tesla: construction stage from its own Q2 update, never a build count.
     const tesla = byId.get('tesla-optimus')!;
     expect(tesla.value).toBe('Construction');
     expect(tesla.status).toBe('verified');
-    expect(tesla.asOf).toBe('Q1 2026');
-    expect(tesla.sourceId).toBe('tesla-q1-2026-update');
-    expect(tesla.detail).toContain('designed capacity is not output');
+    expect(tesla.asOf).toBe('Q2 2026');
+    expect(tesla.sourceId).toBe('tesla-q2-2026-update');
+    expect(tesla.detail).toContain('installed capacity is not output');
   });
 
   it('keeps three verified rows and one claimed row', () => {
@@ -39,7 +41,7 @@ describe('deployment-reality data', () => {
     const claimed = DEPLOYMENT_ROWS.filter((row) => row.status === 'claimed');
     expect(verified).toHaveLength(3);
     expect(claimed.map((row) => row.id)).toEqual(['figure-8hr-shift']);
-    expect(claimed[0]?.asOf).toBe('May 2026');
+    expect(claimed[0]?.asOf).toBe('Sep 17, 2026');
   });
 
   it('gives every row a source citation that resolves in the registry', () => {
@@ -52,7 +54,7 @@ describe('deployment-reality data', () => {
 
   it('gives every row an as-of label, a source label, and a non-empty figure', () => {
     const dated =
-      /^(?:Nov 19, 2025|Q1 2026|May 2026|n\.d\.; accessed Sep 24, 2026)$/;
+      /^(?:Nov 19, 2025|Q2 2026|Sep 15, 2026|Sep 17, 2026)$/;
     for (const row of DEPLOYMENT_ROWS) {
       expect(row.asOf, `row ${row.id} asOf`).toMatch(dated);
       expect(row.sourceLabel.length, `row ${row.id} sourceLabel`).toBeGreaterThan(0);
@@ -70,9 +72,13 @@ describe('deployment-reality data', () => {
 
   it('never blends a claimed demonstration into a verified row', () => {
     // The May 2026 vendor livestream stays claimed: one task, one site, no audit.
+    // Planned as one eight-hour shift, it ran 200 hours by Figure's September account.
     const shift = DEPLOYMENT_ROWS.find((row) => row.id === 'figure-8hr-shift');
     expect(shift?.status).toBe('claimed');
-    expect(shift?.value).toContain('8 hours');
+    expect(shift?.value).toBe('200 hours');
+    expect(shift?.sourceId).toBe('helix-2-5-2026');
+    expect(shift?.detail).toContain('planned eight-hour shift');
+    expect(shift?.detail).toContain('no published success rate or intervention count');
   });
 });
 

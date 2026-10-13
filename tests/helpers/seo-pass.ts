@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import { domainPassCheckerPredecessor, domainPassPredecessor } from '../../lib/audit-domain-pass-continuity.ts';
 import { figureMountPredecessor } from '../../lib/audit-figure-mount-continuity.ts';
 import { kolBacklogPredecessor } from '../../lib/audit-kol-backlog-continuity.ts';
+import { frontierLengthCutPredecessor } from '../../lib/audit-length-cut-frontier-continuity.ts';
 import { worldModelsLengthCutPredecessor } from '../../lib/audit-length-cut-world-models-continuity.ts';
 import { parallelLocalPredecessor } from '../../lib/audit-parallel-local-continuity.ts';
 import { readerFirstPredecessor } from '../../lib/audit-reader-first-continuity.ts';
@@ -79,10 +80,20 @@ export function preParallelLocal(path: string): Buffer {
 /**
  * The bytes the site-foundation re-skin layer of 2026-10-10 hands every
  * check older than the re-skin: the rebuilt pre-reskin source while the live
- * file is the reviewed successor, otherwise the live bytes.
+ * file is the reviewed successor, otherwise the bytes the newer frontier
+ * length-cut layer hands on.
  */
 export function preReskin(path: string): Buffer {
-  return reskinPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return reskinPredecessor(root, { path, bytes: 0, sha256: '' }, preFrontierLengthCut(path));
+}
+
+/**
+ * The bytes the frontier length-cut layer of 2026-10-13 hands every check
+ * older than the cut: the rebuilt pre-cut article while the live article is
+ * the reviewed successor, otherwise the live bytes.
+ */
+export function preFrontierLengthCut(path: string): Buffer {
+  return frontierLengthCutPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
 }
 
 /**

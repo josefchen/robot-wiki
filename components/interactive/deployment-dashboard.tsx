@@ -60,7 +60,7 @@ const STATUS_ORDER: DeploymentStatus[] = ['verified', 'claimed'];
 
 /** Stage names, shortened or glossed where the program name alone says too little. */
 const STAGE_NAME: Record<string, string> = {
-  'figure-8hr-shift': 'Figure Helix 02: one shift streamed live',
+  'figure-8hr-shift': 'Figure Helix 02: one task streamed live',
 };
 
 /** The stage line for a record with no hours to draw. */
@@ -70,9 +70,9 @@ const NO_HOURS_NOTE: Record<string, string> = {
 
 /** The note under the biggest drawn record, by record. */
 const RECORD_NOTE: Record<string, string> = {
-  'agility-digit': 'Biggest record: 65,000 working hours, from Agility’s own website',
+  'agility-digit': 'Biggest record: 65,000 working hours, from Agility’s September release',
   'figure-bmw': 'Biggest record shown: 1,250+ hours at one BMW factory, from Figure',
-  'figure-8hr-shift': 'A single 8-hour shift, streamed live online',
+  'figure-8hr-shift': 'One livestream, planned as an 8-hour shift',
 };
 
 /** Hours on a scale where each step is ten times the last, 1 to 100,000. */
@@ -271,7 +271,7 @@ export function DeploymentDashboard({ className, deploymentRows = DEPLOYMENT_ROW
         <>
           <p>
             Each bar is the work a company reports for its humanoid robots. The scale grows by ten
-            times at each tick, so an 8-hour shift and 65,000 hours fit on one line.
+            times at each tick, so 200 hours and 65,000 hours fit on one line.
           </p>
           <p>
             &ldquo;{DEPLOYMENT_STATUS_LABEL.verified}&rdquo; means the figure traces to a cited
@@ -279,7 +279,7 @@ export function DeploymentDashboard({ className, deploymentRows = DEPLOYMENT_ROW
             reports, and no independent audit is claimed. &ldquo;{DEPLOYMENT_STATUS_LABEL.claimed}
             &rdquo; marks a vendor demonstration without a published deployment metric. The records
             come from each document at its own date, not from one common snapshot. Tesla reports
-            no hours: its lines are under construction, and designed capacity is not output.
+            no hours: its lines are under construction, and installed capacity is not output.
           </p>
           <TableScroll labelledBy={captionId} className="pt-1">
             <table className="w-full min-w-[480px] border-collapse text-left font-sans text-sm text-text">

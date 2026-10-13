@@ -14,7 +14,7 @@
     },
     "adjacent/surgical": {
       "published": "2026-08-15T17:23:56+01:00",
-      "modified": "2026-10-13T03:09:29+02:00"
+      "modified": "2026-10-13T04:19:09+02:00"
     },
     "classical/calibration": {
       "published": "2026-09-16T07:39:57+02:00",
@@ -74,7 +74,7 @@
     },
     "data-hardware/robot-learning-stack": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-13T03:09:29+02:00"
+      "modified": "2026-10-13T04:19:09+02:00"
     },
     "data-hardware/teleop-rigs": {
       "published": "2026-08-09T19:30:31+01:00",
@@ -82,11 +82,11 @@
     },
     "frontier/bear-case": {
       "published": "2026-08-12T17:20:13+01:00",
-      "modified": "2026-10-12T14:40:47+02:00"
+      "modified": "2026-10-13T18:00:32+02:00"
     },
     "frontier/competing-theses": {
       "published": "2026-08-12T16:14:42+01:00",
-      "modified": "2026-10-13T03:09:29+02:00"
+      "modified": "2026-10-13T18:00:32+02:00"
     },
     "frontier/dexterity": {
       "published": "2026-08-12T04:47:30+01:00",
@@ -94,15 +94,15 @@
     },
     "frontier/generalization": {
       "published": "2026-08-12T15:08:41+01:00",
-      "modified": "2026-10-12T14:40:47+02:00"
+      "modified": "2026-10-13T18:00:32+02:00"
     },
     "frontier/reliability-gap": {
       "published": "2026-08-12T04:02:00+01:00",
-      "modified": "2026-10-12T14:40:47+02:00"
+      "modified": "2026-10-13T18:00:32+02:00"
     },
     "frontier/safety-and-assurance": {
       "published": "2026-08-22T18:00:18+01:00",
-      "modified": "2026-10-12T14:40:47+02:00"
+      "modified": "2026-10-13T18:13:53+02:00"
     },
     "manipulation/action-chunking": {
       "published": "2026-08-07T17:34:21+01:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-10-13T04:23:13+02:00"
+      "modified": "2026-10-13T18:13:53+02:00"
     },
     "/manipulation/": {
       "modified": "2026-10-11T23:46:59+02:00"
@@ -261,7 +261,7 @@
       "modified": "2026-10-02T05:08:36+02:00"
     },
     "/how-robots-work/": {
-      "modified": "2026-10-13T04:23:13+02:00"
+      "modified": "2026-10-13T09:06:06+02:00"
     },
     "/glossary/": {
       "modified": "2026-10-12T14:40:47+02:00"

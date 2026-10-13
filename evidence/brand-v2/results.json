@@ -3182,11 +3182,11 @@
                   "Frontier & Open Problems"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 11,
+                "readingMinutes": 10,
                 "citationCount": 33,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "11 min read",
+                "readingTimeText": "10 min read",
                 "citationCountText": "33 sources",
                 "bibliographyIds": [
                   "brooks-better-lesson-2019",
@@ -3197,7 +3197,6 @@
                   "karcini-position-2026",
                   "bessemer-robotics-2026",
                   "egoscale-2026",
-                  "pi05-2025",
                   "pi07-2026",
                   "pi07-blog-2026",
                   "pistar06-2025",
@@ -3213,7 +3212,6 @@
                   "figure-bmw-production-2025",
                   "helix-2-5-2026",
                   "lin-data-scaling-laws-2024",
-                  "gr00t-n1-2025",
                   "gemini-robotics-15-2025",
                   "dreamzero-2026",
                   "hil-serl-2024",
@@ -3221,6 +3219,8 @@
                   "levine-sporks-2025",
                   "generalist-gen1-2026",
                   "amazon-million-robots-2025",
+                  "pi05-2025",
+                  "gr00t-n1-2025",
                   "adcock-figure-livestream-2026"
                 ],
                 "imageCount": 0,
@@ -3358,11 +3358,11 @@
                   "Frontier & Open Problems"
                 ],
                 "lastReviewed": "2026-08-18",
-                "readingMinutes": 9,
+                "readingMinutes": 8,
                 "citationCount": 32,
                 "reviewDateText": "18 August 2026",
                 "reviewDateTime": "2026-08-18",
-                "readingTimeText": "9 min read",
+                "readingTimeText": "8 min read",
                 "citationCountText": "32 sources",
                 "bibliographyIds": [
                   "pi05-2025",
@@ -3445,11 +3445,11 @@
                   "Frontier & Open Problems"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 7,
+                "readingMinutes": 6,
                 "citationCount": 31,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "7 min read",
+                "readingTimeText": "6 min read",
                 "citationCountText": "31 sources",
                 "bibliographyIds": [
                   "bessemer-robotics-2026",
@@ -3466,7 +3466,6 @@
                   "simchowitz-continuous-il-2025",
                   "hj-reachability-2017",
                   "pistar06-2025",
-                  "hil-serl-2024",
                   "realtime-expo-ft-2026",
                   "rapolicy-2026",
                   "generalist-gen1-2026",
@@ -3482,7 +3481,8 @@
                   "optimal-stopping-2025",
                   "tri-lbm-2025",
                   "waymo-crash-rates-2025",
-                  "adcock-figure-livestream-2026"
+                  "adcock-figure-livestream-2026",
+                  "hil-serl-2024"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -3531,11 +3531,11 @@
                   "Frontier & Open Problems"
                 ],
                 "lastReviewed": "2026-08-22",
-                "readingMinutes": 13,
+                "readingMinutes": 12,
                 "citationCount": 43,
                 "reviewDateText": "22 August 2026",
                 "reviewDateTime": "2026-08-22",
-                "readingTimeText": "13 min read",
+                "readingTimeText": "12 min read",
                 "citationCountText": "43 sources",
                 "bibliographyIds": [
                   "iso-12100",
@@ -11935,7 +11935,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 112,
+                  "count": 100,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -11945,7 +11945,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 56,
+                      "count": 50,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -11955,7 +11955,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 56,
+                      "count": 50,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -12353,7 +12353,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 66,
+                  "count": 64,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -12363,7 +12363,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 33,
+                      "count": 32,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -12373,7 +12373,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 33,
+                      "count": 32,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -12507,7 +12507,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 118,
+                  "count": 116,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -12517,7 +12517,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 59,
+                      "count": 58,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -12527,7 +12527,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 59,
+                      "count": 58,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -65313,10 +65313,10 @@
                   "role": "region",
                   "accessibleName": "Deployment programs with their reported value, what backs each record, and the source behind it. The filter above the chart narrows these rows too.",
                   "clientWidth": 293,
-                  "scrollWidth": 623,
+                  "scrollWidth": 537,
                   "scrolledBy": 40
                 },
-                "tableWidth": 623,
+                "tableWidth": 537,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -71791,11 +71791,11 @@
                   "Frontier & Open Problems"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 11,
+                "readingMinutes": 10,
                 "citationCount": 33,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "11 min read",
+                "readingTimeText": "10 min read",
                 "citationCountText": "33 sources",
                 "bibliographyIds": [
                   "brooks-better-lesson-2019",
@@ -71806,7 +71806,6 @@
                   "karcini-position-2026",
                   "bessemer-robotics-2026",
                   "egoscale-2026",
-                  "pi05-2025",
                   "pi07-2026",
                   "pi07-blog-2026",
                   "pistar06-2025",
@@ -71822,7 +71821,6 @@
                   "figure-bmw-production-2025",
                   "helix-2-5-2026",
                   "lin-data-scaling-laws-2024",
-                  "gr00t-n1-2025",
                   "gemini-robotics-15-2025",
                   "dreamzero-2026",
                   "hil-serl-2024",
@@ -71830,6 +71828,8 @@
                   "levine-sporks-2025",
                   "generalist-gen1-2026",
                   "amazon-million-robots-2025",
+                  "pi05-2025",
+                  "gr00t-n1-2025",
                   "adcock-figure-livestream-2026"
                 ],
                 "imageCount": 0,
@@ -71967,11 +71967,11 @@
                   "Frontier & Open Problems"
                 ],
                 "lastReviewed": "2026-08-18",
-                "readingMinutes": 9,
+                "readingMinutes": 8,
                 "citationCount": 32,
                 "reviewDateText": "18 August 2026",
                 "reviewDateTime": "2026-08-18",
-                "readingTimeText": "9 min read",
+                "readingTimeText": "8 min read",
                 "citationCountText": "32 sources",
                 "bibliographyIds": [
                   "pi05-2025",
@@ -72054,11 +72054,11 @@
                   "Frontier & Open Problems"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 7,
+                "readingMinutes": 6,
                 "citationCount": 31,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "7 min read",
+                "readingTimeText": "6 min read",
                 "citationCountText": "31 sources",
                 "bibliographyIds": [
                   "bessemer-robotics-2026",
@@ -72075,7 +72075,6 @@
                   "simchowitz-continuous-il-2025",
                   "hj-reachability-2017",
                   "pistar06-2025",
-                  "hil-serl-2024",
                   "realtime-expo-ft-2026",
                   "rapolicy-2026",
                   "generalist-gen1-2026",
@@ -72091,7 +72090,8 @@
                   "optimal-stopping-2025",
                   "tri-lbm-2025",
                   "waymo-crash-rates-2025",
-                  "adcock-figure-livestream-2026"
+                  "adcock-figure-livestream-2026",
+                  "hil-serl-2024"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -72140,11 +72140,11 @@
                   "Frontier & Open Problems"
                 ],
                 "lastReviewed": "2026-08-22",
-                "readingMinutes": 13,
+                "readingMinutes": 12,
                 "citationCount": 43,
                 "reviewDateText": "22 August 2026",
                 "reviewDateTime": "2026-08-22",
-                "readingTimeText": "13 min read",
+                "readingTimeText": "12 min read",
                 "citationCountText": "43 sources",
                 "bibliographyIds": [
                   "iso-12100",
@@ -77621,7 +77621,6 @@
                   "karcini-position-2026",
                   "bessemer-robotics-2026",
                   "egoscale-2026",
-                  "pi05-2025",
                   "pi07-2026",
                   "pi07-blog-2026",
                   "pistar06-2025",
@@ -77637,7 +77636,6 @@
                   "figure-bmw-production-2025",
                   "helix-2-5-2026",
                   "lin-data-scaling-laws-2024",
-                  "gr00t-n1-2025",
                   "gemini-robotics-15-2025",
                   "dreamzero-2026",
                   "hil-serl-2024",
@@ -77645,6 +77643,8 @@
                   "levine-sporks-2025",
                   "generalist-gen1-2026",
                   "amazon-million-robots-2025",
+                  "pi05-2025",
+                  "gr00t-n1-2025",
                   "adcock-figure-livestream-2026"
                 ],
                 "citationMarkers": [
@@ -77657,22 +77657,18 @@
                   "egoscale-2026",
                   "helix-2-5-2026",
                   "lin-data-scaling-laws-2024",
-                  "pi05-2025",
-                  "pi07-2026",
                   "brooks-better-lesson-2019",
                   "brooks-dexterity-2025",
                   "brooks-better-lesson-2019",
                   "goldberg-data-gap-2025",
                   "karcini-position-2026",
                   "saycan-2022",
+                  "helix-02-2026",
                   "gemini-robotics-er2-2026",
                   "helix-02-2026",
-                  "gr00t-n1-2025",
-                  "helix-02-2026",
                   "pi07-2026",
-                  "pi07-2026",
-                  "saycan-2022",
                   "gemini-robotics-15-2025",
+                  "saycan-2022",
                   "vjepa2-2025",
                   "dreamzero-2026",
                   "cosmos-3-2026",
@@ -77687,8 +77683,8 @@
                   "pi07-blog-2026",
                   "nucleus-supervised-2026",
                   "1x-neo-2026",
-                  "levine-sporks-2025",
                   "pistar06-2025",
+                  "levine-sporks-2025",
                   "bessemer-robotics-2026",
                   "agility-digit-production",
                   "figure-bmw-production-2025",
@@ -77699,8 +77695,6 @@
                   "amazon-million-robots-2025",
                   "agility-digit-production",
                   "helix-02-2026",
-                  "adcock-figure-livestream-2026",
-                  "helix-2-5-2026",
                   "gemini-robotics-2-2026",
                   "brooks-dexterity-2025",
                   "generalist-gen1-2026"
@@ -78022,7 +78016,6 @@
                   "simchowitz-continuous-il-2025",
                   "hj-reachability-2017",
                   "pistar06-2025",
-                  "hil-serl-2024",
                   "realtime-expo-ft-2026",
                   "rapolicy-2026",
                   "generalist-gen1-2026",
@@ -78038,7 +78031,8 @@
                   "optimal-stopping-2025",
                   "tri-lbm-2025",
                   "waymo-crash-rates-2025",
-                  "adcock-figure-livestream-2026"
+                  "adcock-figure-livestream-2026",
+                  "hil-serl-2024"
                 ],
                 "citationMarkers": [
                   "bessemer-robotics-2026",
@@ -78050,7 +78044,6 @@
                   "pistar06-blog-2025",
                   "pistar06-2025",
                   "rl-100-2025",
-                  "hil-serl-2024",
                   "realtime-expo-ft-2026",
                   "rl-100-2025",
                   "rapolicy-2026",
@@ -78173,9 +78166,9 @@
                   "iso-iec-tr-5469-2024",
                   "marvel-norcross-2017",
                   "marvel-norcross-2017",
-                  "marvel-norcross-2017",
                   "iso-ts-15066",
                   "hartmann-iso-10218-2026",
+                  "marvel-norcross-2017",
                   "marvel-norcross-2017",
                   "marvel-norcross-2017",
                   "haddadin-2009",
@@ -78209,7 +78202,6 @@
                   "wabersich-safety-filters-2023",
                   "vlpsa-2026",
                   "wcbf-hyper-redundant-2026",
-                  "agility-digit-5-2026",
                   "robopair-2024",
                   "ul-4600-2023",
                   "gsn-standard-v3",
@@ -129751,7 +129743,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/bear-case moved from 6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2 to 5ad2fa234a80ea17f2d32d218be7f426cf606441e018effad80213cab254c733 exactly as approved delta frontier-pass-20261010-prose-bear-case permits: Frontier pass of 2026-10-10: lands the frontier domain pass (the five drafts of 2026-10-06 with the frontier pre-audit) and the frontier part of the primary-source sweep of 2026-10-07 on the mission head after the rl-sim2real figure batch of 2026-10-11, the site-foundation re-skin of 2026-10-10, the world-models pass and the KOL triage batch of 2026-10-12, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 26 earlier approved edges exactly, ending with domain-pass-20261008-qa-prose-frontier-bear-case. The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on frontier/bear-case: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/frontier.md). The frontier pre-audit (patches/frontier-preaudit/frontier-preaudit.md) then re-grades the MilestonesWatchlist board from four not met and four partial to three not met and five partial (the tactile row moves to partial on the Helix 02, T-Rex and TouchWorld evidence the page already cites), so two prose counts follow the board: \"five tiles survive\" and \"three not met, five partial, zero met\". No other number, quote or citation changes. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The reviewed primary-source sweep record for this member reads: frontier/bear-case: the Unitree Q1 2026 profit sentence cites Unitree's STAR Market prospectus (hearing draft, Shanghai Stock Exchange, 2026-05-25; page 1-1-30: 4,025.36 against 8,483.65, -52.55%) instead of the TechTimes report unitree-profit-2026, and names the prospectus as its source. This edge moves the member from its prior approved endpoint to the reviewed bytes; no route or rendering rule changes. The house-style pass of 2026-10-10 (owner directive of 2026-10-08 01:30) then gives each section a heading that states what the section shows, keeps every renamed heading's old fragment as a self-closing anchor span on the line above it, and splits each section longer than about 250 words in two or three at a paragraph boundary; no sentence, number, mount or citation changes. The mission's QA prose fix of 2026-10-10 (domain-pass-20261008-qa-prose-frontier-bear-case) reworded the sentence \"This is not a short call; it is a bank telling clients the bottleneck has moved from capability to proof\"; the reviewed frontier rewrite of the same Morgan Stanley paragraph removes that sentence, so the landed paragraph is the reviewed frontier text and the QA finding stays fixed. The why-rl-locomotion tile of the same coordinator decision landed with the mission's rl-sim2real pass and is not part of this block.",
+      "actual": "prose member article:frontier/bear-case moved from 6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2 to fae7f12c981c02cb0bad44b7ff3d008c3792de71d421dacc4c961ea474a7f065 exactly as approved delta length-cut-20261013-frontier-prose-bear-case permits: Frontier length cut of 2026-10-13 on frontier/bear-case, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 27 earlier approved edges exactly, ending with frontier-pass-20261010-prose-bear-case. It drops Brooks's four-decade career line and the Johansson anesthetized-finger aside (the dexterity page keeps it), the Computex robot being carried off stage, the uncited 80-percent demo line, Sparsh-X's interaction count, two speculative clauses in the winter scenarios, the staging sentences 'Whether that is a bubble is contested', 'The bear case is falsifiable' and 'the first repricing came in China', and two restatements of their section headings (the August 2026 date of the watchlist and the line that shipments document no productive work), and folds the bubble debate into the funding paragraph. The Evidence and Speculation labels, the hypothetical-scenario caveat and every skeptic and investor quotation stay. The cut removes 0 citation occurrences and 4 number occurrences from the body. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129763,9 +129755,9 @@
           "manifest": "prose",
           "member": "article:frontier/bear-case",
           "baselineHash": "6f365be900a717cad9bcfda08af62eaabb431c1b8f52563ed2da83281023b7a2",
-          "currentHash": "5ad2fa234a80ea17f2d32d218be7f426cf606441e018effad80213cab254c733",
+          "currentHash": "fae7f12c981c02cb0bad44b7ff3d008c3792de71d421dacc4c961ea474a7f065",
           "status": "approved-delta",
-          "approvedDelta": "frontier-pass-20261010-prose-bear-case"
+          "approvedDelta": "length-cut-20261013-frontier-prose-bear-case"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -129779,7 +129771,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/competing-theses moved from 27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895 to 66e67386b819ab1338487a6ec72ebe02677ba8d4a3d54aeda8898e5335ed309a exactly as approved delta anatomy-2-figures-20261012-prose-competing-theses permits: Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 26 earlier approved edges exactly, ending with frontier-pass-20261010-prose-competing-theses. Mounts the new HelixClockwork figure after the paragraph that gives Helix 02's S1 rate of 200 Hz and S0 rate of 1 kHz, as one import line, on its own line between blank lines after the frontmatter, and one mount line between blank lines, recorded by the figure-mount continuity layer of 2026-10-07 (taking the admitted import and mount out gives the head bytes exactly). No prose, number or citation changes; this edge moves the prose member to the mounted text.",
+      "actual": "prose member article:frontier/competing-theses moved from 27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895 to 87604db416dd367c173a8365465a9b662185f02751804d61f9d3700f0143bad0 exactly as approved delta length-cut-20261013-frontier-prose-competing-theses permits: Frontier length cut of 2026-10-13 on frontier/competing-theses, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 27 earlier approved edges exactly, ending with anatomy-2-figures-20261012-prose-competing-theses. It drops EgoScale's 54-percent hand result, the sentence on π0.5 cleaning unseen homes and π0.7 recombining trained skills, the π0.7 coaching sentence in the hierarchy section, the laundry and box-assembly figures of the first Recap iteration, RL-100's juicing robot and Brooks's remarks on human-like hand deployment and on Baxter and Sawyer (the thesis explorer on the same page keeps each of them), Bessemer's investor-outlook label, the watchlist recap of the six kill conditions, NVIDIA's GR00T N1 dual-system description (the hierarchy section keeps Helix 02 and Gemini Robotics ER 2 as its examples; the generalization page keeps GR00T N1), Figure's livestream hours (the reliability-gap page keeps them with all three sources) and the staging sentences 'The sixth thesis is a pair' and 'The case against is cost and fidelity', and shortens the Gemini Robotics ER 2 sentence after the Helix hierarchy sentence. It also corrects the stat strip, recorded exactly in the review with its reason: the unsourced '~300k h' robot-data tile gives way to Figure's $3.5B compute commitment to Helix, which the lead states and cites, and the 'settled' tile is dated October 2026. The cut removes 6 citation occurrences and 27 number occurrences from the body; 3 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129791,9 +129783,9 @@
           "manifest": "prose",
           "member": "article:frontier/competing-theses",
           "baselineHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
-          "currentHash": "66e67386b819ab1338487a6ec72ebe02677ba8d4a3d54aeda8898e5335ed309a",
+          "currentHash": "87604db416dd367c173a8365465a9b662185f02751804d61f9d3700f0143bad0",
           "status": "approved-delta",
-          "approvedDelta": "anatomy-2-figures-20261012-prose-competing-theses"
+          "approvedDelta": "length-cut-20261013-frontier-prose-competing-theses"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -129835,7 +129827,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/generalization moved from 1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433 to 33f09b67fd23ff8b11b8e32fadc29d44e19effdc63ed308dc602064a222b6c76 exactly as approved delta frontier-pass-20261010-prose-generalization permits: Frontier pass of 2026-10-10: lands the frontier domain pass (the five drafts of 2026-10-06 with the frontier pre-audit) and the frontier part of the primary-source sweep of 2026-10-07 on the mission head after the rl-sim2real figure batch of 2026-10-11, the site-foundation re-skin of 2026-10-10, the world-models pass and the KOL triage batch of 2026-10-12, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 27 earlier approved edges exactly, ending with reader-first-20261003-predict-prose-frontier-generalization. The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on frontier/generalization: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/frontier.md). One sentence is added after the DreamZero sentence for the sweep's named GR00T N2 item (VAL-OPUS-086, README section 7): NVIDIA's March 2026 preview of GR00T N2, built on DreamZero research and slated for year end, with NVIDIA's own claim that it succeeds at new tasks more than twice as often as leading VLAs. It cites the already registered NVIDIA newsroom release nvidia-gtc-gr00t-n2-2026, whose id is appended to the frontmatter, and restates what the manipulation pages already say from that source. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The house-style pass of 2026-10-10 (owner directive of 2026-10-08 01:30) then gives each section a heading that states what the section shows, keeps every renamed heading's old fragment as a self-closing anchor span on the line above it, and splits each section longer than about 250 words in two or three at a paragraph boundary; no sentence, number, mount or citation changes.",
+      "actual": "prose member article:frontier/generalization moved from 1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433 to c7e7f8571b9c01bbf5867cf18227d1da4fbe6071667c7e41fb8c2edeb563d405 exactly as approved delta length-cut-20261013-frontier-prose-generalization permits: Frontier length cut of 2026-10-13 on frontier/generalization, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 28 earlier approved edges exactly, ending with frontier-pass-20261010-prose-generalization. It drops π0.5's 'reference point' framing and its sink example, the french-press example, the shirt-bagging detail and the experts' top-2-percent qualifier, GR00T N2's release window, a restatement of the coaching caveat (the coaching paragraph states it), the slider's self-description, the line that semantic generalization is not motor generalization (the section keeps the point) and π0.5's test-design sentence (the limits section keeps its three homes and ten trials per task with the same source). It merges sentences that split one result, such as the Helix 2.5 grading caveat and the missing success-rate law, and splits five that joined two results. The cut removes 0 citation occurrences and 2 number occurrences from the body. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129847,9 +129839,9 @@
           "manifest": "prose",
           "member": "article:frontier/generalization",
           "baselineHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
-          "currentHash": "33f09b67fd23ff8b11b8e32fadc29d44e19effdc63ed308dc602064a222b6c76",
+          "currentHash": "c7e7f8571b9c01bbf5867cf18227d1da4fbe6071667c7e41fb8c2edeb563d405",
           "status": "approved-delta",
-          "approvedDelta": "frontier-pass-20261010-prose-generalization"
+          "approvedDelta": "length-cut-20261013-frontier-prose-generalization"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -129863,7 +129855,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/reliability-gap moved from a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c to 23af1959e3397d0d5387665dbddb805ebb00e1e4f3e6692baa6439a7b7bfbb36 exactly as approved delta frontier-pass-20261010-prose-reliability-gap permits: Frontier pass of 2026-10-10: lands the frontier domain pass (the five drafts of 2026-10-06 with the frontier pre-audit) and the frontier part of the primary-source sweep of 2026-10-07 on the mission head after the rl-sim2real figure batch of 2026-10-11, the site-foundation re-skin of 2026-10-10, the world-models pass and the KOL triage batch of 2026-10-12, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 25 earlier approved edges exactly, ending with reader-first-20261002-prose-frontier-reliability-gap. The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on frontier/reliability-gap: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/frontier.md). The frontier pre-audit (patches/frontier-preaudit/frontier-preaudit.md, MathML) then typesets the two plain-text expressions as inline math: the per-step error and its T-squared bound, and the zero-failure bound 3/n, so they render MathML with a TeX annotation like every other page equation. No number, quote or citation changes. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The reviewed primary-source sweep record for this member reads: frontier/reliability-gap: the Figure livestream sentence cites Brett Adcock's dated post of 14 May 2026 (Figure's CEO: an 8-hour run, small package sorting, Figure's labs, the livestream) instead of the TechTimes report figure-8hr-shift-2026, which leaves the citations list; the sentence is unchanged. This edge moves the member from its prior approved endpoint to the reviewed bytes; no route or rendering rule changes. The house-style pass of 2026-10-10 (owner directive of 2026-10-08 01:30) then gives each section a heading that states what the section shows, keeps every renamed heading's old fragment as a self-closing anchor span on the line above it, and splits each section longer than about 250 words in two or three at a paragraph boundary; no sentence, number, mount or citation changes. On this page the three bold paragraph labels of the gap-closing methods become the two new section headings, and the labels leave the prose. The why-rl-locomotion tile of the same coordinator decision landed with the mission's rl-sim2real pass and is not part of this block.",
+      "actual": "prose member article:frontier/reliability-gap moved from a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c to 494abfa7380185e54169ac2a04adf44259b803df37cd857ed991eb1635d7b076 exactly as approved delta length-cut-20261013-frontier-prose-reliability-gap permits: Frontier length cut of 2026-10-13 on frontier/reliability-gap, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 26 earlier approved edges exactly, ending with frontier-pass-20261010-prose-reliability-gap. It drops HIL-SERL's training-time result (secondary corroboration beside Recap, RL-100 and Real-Time EXPO-FT), RL-100's 250-episode streak, the worked 30-step example under the p^N formula (the calculator below shows it), ASIMOV-Agentic's tool-call, feasibility and uncertainty items (its payload, reach, safety-limit and stop-near-people tests stay), the second half of the π0.7 coaching sentence, the line 'Formal methods do not close the gap', Lisa Yan's title and former employer, the closing gloss 'making failure rare, and measuring how rare', the run-up 'The evidence cost is steep' and the line that dated company records show the gap better than circulating unit counts (its industrial-deployment link moves to the Agility sentence). It also corrects the self-check, recorded exactly in the review with its reason: the coaching explanation now says coaching walks π0.7 through unseen tasks, as the cited blog does, and the explanations and takeaway lose their contrast lines; the prompt, options and answer are unchanged. The cut removes 1 citation occurrence and 7 number occurrences from the body; 1 source leaves it entirely and stays in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129875,9 +129867,9 @@
           "manifest": "prose",
           "member": "article:frontier/reliability-gap",
           "baselineHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
-          "currentHash": "23af1959e3397d0d5387665dbddb805ebb00e1e4f3e6692baa6439a7b7bfbb36",
+          "currentHash": "494abfa7380185e54169ac2a04adf44259b803df37cd857ed991eb1635d7b076",
           "status": "approved-delta",
-          "approvedDelta": "frontier-pass-20261010-prose-reliability-gap"
+          "approvedDelta": "length-cut-20261013-frontier-prose-reliability-gap"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -129891,7 +129883,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/safety-and-assurance moved from 2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f to ea8069a5692d053f845d20d68571456414cd6a0b5f80c28f68cbcfb4bfddaf1b exactly as approved delta frontier-pass-20261010-prose-safety-and-assurance permits: Frontier pass of 2026-10-10: lands the frontier domain pass (the five drafts of 2026-10-06 with the frontier pre-audit) and the frontier part of the primary-source sweep of 2026-10-07 on the mission head after the rl-sim2real figure batch of 2026-10-11, the site-foundation re-skin of 2026-10-10, the world-models pass and the KOL triage batch of 2026-10-12, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 45 earlier approved edges exactly, ending with domain-pass-20261012-kol-prose-safety-and-assurance. The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on frontier/safety-and-assurance: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/frontier.md). The mission's KOL backlog paragraph on weighted control barrier functions for hyper-redundant robots (d3119cd1, wcbf-hyper-redundant-2026) is carried verbatim at its live anchor, after the safety-filter and VLPSA paragraphs. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The house-style pass of 2026-10-10 (owner directive of 2026-10-08 01:30) then gives each section a heading that states what the section shows, keeps every renamed heading's old fragment as a self-closing anchor span on the line above it, and splits each section longer than about 250 words in two or three at a paragraph boundary; no sentence, number, mount or citation changes. The KOL triage batch of 2026-10-12 (domain-pass-20261012-kol-prose-safety-and-assurance) added a paragraph on the trustworthy-physical-AI position paper (trustworthy-physical-ai-2026) to the closing section; it is kept byte for byte and now follows the reviewed closing paragraph, and the \"Until then\" paragraph that the reviewed rewrite removes stays removed.",
+      "actual": "prose member article:frontier/safety-and-assurance moved from 2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f to f2e33229f614ae9c261239a2586896ab0dbbcf3c5514f85f130fdf4812cb551a exactly as approved delta length-cut-20261013-frontier-prose-safety-and-assurance permits: Frontier length cut of 2026-10-13 on frontier/safety-and-assurance, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 46 earlier approved edges exactly, ending with frontier-pass-20261010-prose-safety-and-assurance. It drops Agility's restatement of the Digit 5 safety controller (the humanoid paragraph keeps the cited report), the 'often misread' and 'distinct from removing power' staging sentences, 'A compliant robot therefore does not make a compliant cell' (the section heading keeps it), the OSHA hazardous-energy rule name, the lead's restatement of ISO/IEC TR 5469 (the body keeps its wording), the line that the filter's guarantee holds whatever produced the proposal (the section heading keeps the point) and the list of the four ISO/TS 15066 scenario names, which the next two sentences name again, splits the ISO 13855 paragraph so the approach-speed criteria stand in their own cited paragraph, tightens the standards definitions without changing an edition, year, number or qualifier, and names the institutions behind the October 2026 trustworthy physical AI position paper, as its audit row records them. The cut removes 1 citation occurrence and 4 number occurrences from the body. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129903,9 +129895,9 @@
           "manifest": "prose",
           "member": "article:frontier/safety-and-assurance",
           "baselineHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
-          "currentHash": "ea8069a5692d053f845d20d68571456414cd6a0b5f80c28f68cbcfb4bfddaf1b",
+          "currentHash": "f2e33229f614ae9c261239a2586896ab0dbbcf3c5514f85f130fdf4812cb551a",
           "status": "approved-delta",
-          "approvedDelta": "frontier-pass-20261010-prose-safety-and-assurance"
+          "approvedDelta": "length-cut-20261013-frontier-prose-safety-and-assurance"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -131375,7 +131367,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:frontier/competing-theses moved from 9c77edeb862d21e0164fe59d47a73da05d9d8b18a29194a345e80891af2a6360 to 35ce96f177c7ff95509c91ace6ef8e0d8e01d900e8263bc1349fcf9efc8d1a1e exactly as approved delta frontier-pass-20261010-relationships-competing-theses permits: Frontier pass of 2026-10-10: lands the frontier domain pass (the five drafts of 2026-10-06 with the frontier pre-audit) and the frontier part of the primary-source sweep of 2026-10-07 on the mission head after the rl-sim2real figure batch of 2026-10-11, the site-foundation re-skin of 2026-10-10, the world-models pass and the KOL triage batch of 2026-10-12, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 4 earlier approved edges exactly, ending with seo-pass-20261002-relationships-frontier-competing-theses. The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on frontier/competing-theses: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/frontier.md). This edge moves the relationships record from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The reviewed primary-source sweep record for this member reads: frontier/competing-theses: \"planned as one eight-hour shift\" cites Brett Adcock's dated post of 14 May 2026 (\"Our original goal was an 8-hour run\") instead of the TechTimes report figure-8hr-shift-2026, which leaves the citations list; the sentence is unchanged. This edge moves the member from its prior approved endpoint to the reviewed bytes; no route or rendering rule changes. The why-rl-locomotion tile of the same coordinator decision landed with the mission's rl-sim2real pass and is not part of this block.",
+      "actual": "relationships member article:frontier/competing-theses moved from 9c77edeb862d21e0164fe59d47a73da05d9d8b18a29194a345e80891af2a6360 to ba309a0ecf51d571ed915544e24d6c2c19deddb26cbfc7514ff23bfdb6ed7108 exactly as approved delta length-cut-20261013-frontier-relationships-competing-theses permits: Frontier length cut of 2026-10-13 on frontier/competing-theses, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 5 earlier approved edges exactly, ending with frontier-pass-20261010-relationships-competing-theses. The relationships record loses only inline citation occurrences the cut removed (6 occurrences; no longer cited in the body: adcock-figure-livestream-2026, gr00t-n1-2025, pi05-2025; cited fewer times: helix-2-5-2026, pi07-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131387,9 +131379,9 @@
           "manifest": "relationships",
           "member": "article:frontier/competing-theses",
           "baselineHash": "9c77edeb862d21e0164fe59d47a73da05d9d8b18a29194a345e80891af2a6360",
-          "currentHash": "35ce96f177c7ff95509c91ace6ef8e0d8e01d900e8263bc1349fcf9efc8d1a1e",
+          "currentHash": "ba309a0ecf51d571ed915544e24d6c2c19deddb26cbfc7514ff23bfdb6ed7108",
           "status": "approved-delta",
-          "approvedDelta": "frontier-pass-20261010-relationships-competing-theses"
+          "approvedDelta": "length-cut-20261013-frontier-relationships-competing-theses"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -131459,7 +131451,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:frontier/reliability-gap moved from 7ad896cac862c888582be20cb711d9c1e54a739e3f09167190b380ad29006d6c to 4f6e3f9e9ae767ad1aa920960e2fd5e3073e2b2dc332f0783d0d01d49f6657cb exactly as approved delta frontier-pass-20261010-relationships-reliability-gap permits: Frontier pass of 2026-10-10: lands the frontier domain pass (the five drafts of 2026-10-06 with the frontier pre-audit) and the frontier part of the primary-source sweep of 2026-10-07 on the mission head after the rl-sim2real figure batch of 2026-10-11, the site-foundation re-skin of 2026-10-10, the world-models pass and the KOL triage batch of 2026-10-12, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 4 earlier approved edges exactly, ending with seo-pass-20261002-relationships-frontier-reliability-gap. The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on frontier/reliability-gap: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/frontier.md). The frontier pre-audit (patches/frontier-preaudit/frontier-preaudit.md, MathML) then typesets the two plain-text expressions as inline math: the per-step error and its T-squared bound, and the zero-failure bound 3/n, so they render MathML with a TeX annotation like every other page equation. No number, quote or citation changes. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The reviewed primary-source sweep record for this member reads: frontier/reliability-gap: the Figure livestream sentence cites Brett Adcock's dated post of 14 May 2026 (Figure's CEO: an 8-hour run, small package sorting, Figure's labs, the livestream) instead of the TechTimes report figure-8hr-shift-2026, which leaves the citations list; the sentence is unchanged. This edge moves the member from its prior approved endpoint to the reviewed bytes; no route or rendering rule changes. The why-rl-locomotion tile of the same coordinator decision landed with the mission's rl-sim2real pass and is not part of this block.",
+      "actual": "relationships member article:frontier/reliability-gap moved from 7ad896cac862c888582be20cb711d9c1e54a739e3f09167190b380ad29006d6c to affaf6cf7bdd21713ecd7787c15a7ccadcd26804adaac04b2f7c727454b07058 exactly as approved delta length-cut-20261013-frontier-relationships-reliability-gap permits: Frontier length cut of 2026-10-13 on frontier/reliability-gap, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 5 earlier approved edges exactly, ending with frontier-pass-20261010-relationships-reliability-gap. The relationships record loses only inline citation occurrences the cut removed (1 occurrence; no longer cited in the body: hil-serl-2024); seeAlso entries, glossary ids and internal link targets are unchanged. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131471,9 +131463,9 @@
           "manifest": "relationships",
           "member": "article:frontier/reliability-gap",
           "baselineHash": "7ad896cac862c888582be20cb711d9c1e54a739e3f09167190b380ad29006d6c",
-          "currentHash": "4f6e3f9e9ae767ad1aa920960e2fd5e3073e2b2dc332f0783d0d01d49f6657cb",
+          "currentHash": "affaf6cf7bdd21713ecd7787c15a7ccadcd26804adaac04b2f7c727454b07058",
           "status": "approved-delta",
-          "approvedDelta": "frontier-pass-20261010-relationships-reliability-gap"
+          "approvedDelta": "length-cut-20261013-frontier-relationships-reliability-gap"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -131487,7 +131479,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:frontier/safety-and-assurance moved from b7c777fdfc019119397a8e60b9360dbfc9bab7d504e19a8357e2ac851d346e0b to 5d408b7caaa672b4286c91f0a1d69fb8948077e2621aff9bd45744814ed8adb2 exactly as approved delta frontier-pass-20261010-relationships-safety-and-assurance permits: Frontier pass of 2026-10-10: lands the frontier domain pass (the five drafts of 2026-10-06 with the frontier pre-audit) and the frontier part of the primary-source sweep of 2026-10-07 on the mission head after the rl-sim2real figure batch of 2026-10-11, the site-foundation re-skin of 2026-10-10, the world-models pass and the KOL triage batch of 2026-10-12, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-relationships-safety-and-assurance). The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on frontier/safety-and-assurance: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/frontier.md). The mission's KOL backlog paragraph on weighted control barrier functions for hyper-redundant robots (d3119cd1, wcbf-hyper-redundant-2026) is carried verbatim at its live anchor, after the safety-filter and VLPSA paragraphs. This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The KOL triage batch of 2026-10-12 (domain-pass-20261012-kol-relationships-safety-and-assurance) moved this member first; its additions are kept byte for byte beside the frontier changes.",
+      "actual": "relationships member article:frontier/safety-and-assurance moved from b7c777fdfc019119397a8e60b9360dbfc9bab7d504e19a8357e2ac851d346e0b to dcad05288b5281e16f08f4011bbea07eb479edab15a345a6ba752f9454b29e06 exactly as approved delta length-cut-20261013-frontier-relationships-safety-and-assurance permits: Frontier length cut of 2026-10-13 on frontier/safety-and-assurance, under the owner's length decision, as one plain edge from the member's last approved endpoint (frontier-pass-20261010-relationships-safety-and-assurance). The relationships record loses only inline citation occurrences the cut removed (1 occurrence; cited fewer times: agility-digit-5-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131499,9 +131491,9 @@
           "manifest": "relationships",
           "member": "article:frontier/safety-and-assurance",
           "baselineHash": "b7c777fdfc019119397a8e60b9360dbfc9bab7d504e19a8357e2ac851d346e0b",
-          "currentHash": "5d408b7caaa672b4286c91f0a1d69fb8948077e2621aff9bd45744814ed8adb2",
+          "currentHash": "dcad05288b5281e16f08f4011bbea07eb479edab15a345a6ba752f9454b29e06",
           "status": "approved-delta",
-          "approvedDelta": "frontier-pass-20261010-relationships-safety-and-assurance"
+          "approvedDelta": "length-cut-20261013-frontier-relationships-safety-and-assurance"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -133599,7 +133591,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/bear-case/ ships 93 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 93 outbound anchor occurrences on it with a visible focus ring in 234 stops",
+      "actual": "/frontier/bear-case/ ships 93 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 93 outbound anchor occurrences on it with a visible focus ring in 233 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133619,7 +133611,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 90,
           "reachedByTab": 93,
-          "tabStops": 234,
+          "tabStops": 233,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -133637,7 +133629,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/competing-theses/ ships 92 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 92 outbound anchor occurrences on it with a visible focus ring in 241 stops",
+      "actual": "/frontier/competing-theses/ ships 86 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 86 outbound anchor occurrences on it with a visible focus ring in 230 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133645,7 +133637,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/frontier/competing-theses/",
-          "outboundAnchors": 92,
+          "outboundAnchors": 86,
           "distinctHrefs": 36,
           "shapes": [
             "citation-chip",
@@ -133654,9 +133646,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 89,
-          "reachedByTab": 92,
-          "tabStops": 241,
+          "anchorsWithNoreferrer": 83,
+          "reachedByTab": 86,
+          "tabStops": 230,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -133749,7 +133741,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/reliability-gap/ ships 71 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 71 outbound anchor occurrences on it with a visible focus ring in 183 stops",
+      "actual": "/frontier/reliability-gap/ ships 70 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 70 outbound anchor occurrences on it with a visible focus ring in 181 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133757,7 +133749,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/frontier/reliability-gap/",
-          "outboundAnchors": 71,
+          "outboundAnchors": 70,
           "distinctHrefs": 34,
           "shapes": [
             "citation-chip",
@@ -133767,9 +133759,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 64,
-          "reachedByTab": 71,
-          "tabStops": 183,
+          "anchorsWithNoreferrer": 63,
+          "reachedByTab": 70,
+          "tabStops": 181,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -133787,7 +133779,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/safety-and-assurance/ ships 105 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 105 outbound anchor occurrences on it with a visible focus ring in 252 stops",
+      "actual": "/frontier/safety-and-assurance/ ships 104 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 104 outbound anchor occurrences on it with a visible focus ring in 252 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133795,7 +133787,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/frontier/safety-and-assurance/",
-          "outboundAnchors": 105,
+          "outboundAnchors": 104,
           "distinctHrefs": 46,
           "shapes": [
             "citation-chip",
@@ -133804,8 +133796,8 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 102,
-          "reachedByTab": 105,
+          "anchorsWithNoreferrer": 101,
+          "reachedByTab": 104,
           "tabStops": 252,
           "keyboardRoutesWalked": 76,
           "evidence": [
@@ -157211,7 +157203,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6095 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6033 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158577,7 +158569,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/bear-case/ rendered no v1 identity spelling and no v1 descriptor in 38031 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/bear-case/ rendered no v1 identity spelling and no v1 descriptor in 37043 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158624,7 +158616,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/competing-theses/ rendered no v1 identity spelling and no v1 descriptor in 50616 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/competing-theses/ rendered no v1 identity spelling and no v1 descriptor in 47106 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158718,7 +158710,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/generalization/ rendered no v1 identity spelling and no v1 descriptor in 45894 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/generalization/ rendered no v1 identity spelling and no v1 descriptor in 44130 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158765,7 +158757,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/reliability-gap/ rendered no v1 identity spelling and no v1 descriptor in 37881 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/reliability-gap/ rendered no v1 identity spelling and no v1 descriptor in 36210 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158812,7 +158804,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/safety-and-assurance/ rendered no v1 identity spelling and no v1 descriptor in 65893 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/safety-and-assurance/ rendered no v1 identity spelling and no v1 descriptor in 62654 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -224597,7 +224589,7 @@
             {
               "id": "/frontier/competing-theses/",
               "observed": {
-                "paragraphCount": 16,
+                "paragraphCount": 21,
                 "familyHeads": [
                   "geist"
                 ],
@@ -224679,7 +224671,7 @@
             {
               "id": "/frontier/generalization/",
               "observed": {
-                "paragraphCount": 18,
+                "paragraphCount": 22,
                 "familyHeads": [
                   "geist"
                 ],
@@ -224720,7 +224712,7 @@
             {
               "id": "/frontier/reliability-gap/",
               "observed": {
-                "paragraphCount": 12,
+                "paragraphCount": 13,
                 "familyHeads": [
                   "geist"
                 ],
@@ -231904,7 +231896,7 @@
             {
               "id": "/frontier/competing-theses/",
               "observed": {
-                "paragraphCount": 32,
+                "paragraphCount": 42,
                 "registeredFrameParagraphCount": 12,
                 "offendingFamilies": []
               }
@@ -231978,7 +231970,7 @@
             {
               "id": "/frontier/generalization/",
               "observed": {
-                "paragraphCount": 36,
+                "paragraphCount": 44,
                 "registeredFrameParagraphCount": 18,
                 "offendingFamilies": []
               }
@@ -232015,7 +232007,7 @@
             {
               "id": "/frontier/reliability-gap/",
               "observed": {
-                "paragraphCount": 24,
+                "paragraphCount": 26,
                 "registeredFrameParagraphCount": 22,
                 "offendingFamilies": []
               }

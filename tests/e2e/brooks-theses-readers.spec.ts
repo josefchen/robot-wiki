@@ -35,10 +35,9 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       'leaving as much as possible to learning was critical',
       'plug-compatible humanoids replacing people in manual jobs at lower prices and just as well',
       'robustness, force and lifetime',
-      'Baxter and Sawyer',
       'task-specialized robots still called humanoids over the next fifteen years',
     ]) await expect(prose).toContainText(phrase);
-    const humanoid = prose.locator('p').filter({ hasText: 'In his 2025 essay, Brooks calls plug-compatible' });
+    const humanoid = prose.locator('p').filter({ hasText: 'Brooks calls plug-compatible humanoids replacing people' });
     await expect(humanoid).toBeVisible();
     if (viewport.width === 375) {
       await humanoid.evaluate(element => {
@@ -46,7 +45,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
         let node: Node | null;
         while ((node = walker.nextNode())) {
-          const offset = (node.textContent ?? '').indexOf('In his 2025 essay');
+          const offset = (node.textContent ?? '').indexOf('Brooks calls plug-compatible');
           if (offset < 0) continue;
           const range = document.createRange();
           range.setStart(node, offset); range.setEnd(node, offset + 1);
@@ -74,6 +73,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(detail).toContainText('lower prices');
     await expect(detail).toContainText('equal competence');
     await expect(detail).toContainText('his assessments rather than an industry census');
+    // The form-factor card, not the article prose, names the Baxter and Sawyer deployments.
+    await expect(detail).toContainText('Baxter and Sawyer');
     const last = panel.getByRole('button', { name: PLAIN_NAME[THESES[5].id], exact: true });
     await last.focus();
     await page.keyboard.press('Home');
