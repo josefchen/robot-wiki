@@ -20,6 +20,7 @@ import { articleDateModified, articleDatePublished } from '@/lib/content-dates';
 import { moduleSource } from '@/lib/module-source';
 import { countWordsInMdxSource, readingTimeMinutes } from '@/lib/reading-time';
 import { articleOpenGraph, articleTwitter } from '@/lib/og-cards';
+import { referencesInPrintOrder } from '@/lib/reference-order';
 import { inlineCitationIds, moduleBody, resolveReferences } from '@/lib/references';
 import { validateClientRegistries } from '@/lib/registry-validation';
 import { articleJsonLd, articleSeoProfile } from '@/lib/seo';
@@ -154,11 +155,14 @@ export default async function ModulePage({ params }: { params: Params }) {
   // both the rendered bibliography and the header's citation count:
   // the two can never drift apart because they share the
   // array. The body scan marks entries declared but never cited inline so
-  // they carry the explicit "Further reading" marker.
-  const references = resolveReferences(
-    mod.frontmatter?.citations ?? [],
-    inlineCitationIds(body),
-    getCitation,
+  // they print last, under the "Further reading" heading; the list is in
+  // that print order, so the numbers below match the printed entries.
+  const references = referencesInPrintOrder(
+    resolveReferences(
+      mod.frontmatter?.citations ?? [],
+      inlineCitationIds(body),
+      getCitation,
+    ),
   );
 
   // Reading time, at the documented WORDS_PER_MINUTE rate

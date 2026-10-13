@@ -1474,46 +1474,6 @@
       ]
     },
     {
-      "id": "reliability-threshold",
-      "route": "/",
-      "sourceSha256": "50d68a826a06583ffb0a581edf9f588d58bcbd9e4d08c270a629e7086080ee86",
-      "marks": [
-        {
-          "mark": "episode-0",
-          "role": "value",
-          "hex": "#3F3F3B",
-          "beats": [
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        {
-          "mark": "episode-1",
-          "role": "value",
-          "hex": "#3F3F3B",
-          "beats": [
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        {
-          "mark": "episode-2",
-          "role": "value",
-          "hex": "#3F3F3B",
-          "beats": [
-            1,
-            2,
-            3,
-            4
-          ]
-        }
-      ]
-    },
-    {
       "id": "tactile-slip",
       "route": "/frontier/dexterity/",
       "sourceSha256": "cae57d8ffdd91c8efca1712b9f179c0ef91383be13c0fa8fe9f959a780a84504",

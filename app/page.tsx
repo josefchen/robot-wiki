@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { EXPLAINER_ORDER, POSTER_SIZE } from '@/components/explainers/catalog';
+import { EXPLAINER_WORDS } from '@/components/explainers/words';
 import { ContentsIndex } from '@/components/home/contents-index';
 import { DidYouKnow, HOME_PROSE_LINK_CLASS } from '@/components/home/did-you-know';
+import { FeaturedExplainer } from '@/components/home/featured-explainer';
 import { HomeSearch } from '@/components/home/home-search';
-import { SceneSource } from '@/components/motion/scene-chrome';
-import { ReliabilityThreshold } from '@/components/motion/scenes/reliability-threshold';
+import { HOME_FEATURED_SCENE } from '@/data/home-featured';
 import { getModule, publishedModules } from '@/data/modules';
 import { recentlyUpdated } from '@/lib/content-dates';
 import {
@@ -40,10 +42,10 @@ export const metadata: Metadata = {
 
 /**
  * Home is an encyclopedia front page: the identity line with live counts
- * and search, the contents of all seven domains, a featured article, one
- * featured scene, three cited facts, the latest article changes and a line
- * of tool links. Scope, reading guidance and the citation caveat live on
- * /about/.
+ * and search, the contents of all seven domains, the editor's featured
+ * article, one featured 3D explainer, three cited facts, the latest article
+ * changes and a line of tool links. Scope, reading guidance and the citation
+ * caveat live on /about/.
  *
  * The sections are direct children of <main>, because the structural
  * signature checks in contract/design-integrity.md measure them there.
@@ -67,17 +69,17 @@ const SECTION_SIGNATURES = {
   tools: 'ruled-plain/inline-label/link-line',
 } as const;
 
-const SCENE_ARTICLE = { domain: 'frontier', slug: 'reliability-gap' } as const;
-
 export default function Home() {
   const counts = homeCounts();
   const recent = recentlyUpdated(publishedModules(), 5);
-  const featured = featuredArticleWithin(
-    new Date(),
-    HOME_ROTATING_WORDS - recentListWords(recent),
-  );
-  const sceneArticle = getModule(SCENE_ARTICLE.domain, SCENE_ARTICLE.slug);
-  if (!sceneArticle || sceneArticle.status !== 'published') {
+  const featured = featuredArticleWithin(HOME_ROTATING_WORDS - recentListWords(recent));
+  const scene = HOME_FEATURED_SCENE;
+  const explainer = EXPLAINER_ORDER.find(({ id }) => id === scene.explainer);
+  const related = getModule(scene.related.domain, scene.related.slug);
+  if (!explainer) {
+    throw new Error(`the featured scene names ${scene.explainer}, which the explainer catalog does not list`);
+  }
+  if (!related || related.status !== 'published') {
     throw new Error('the featured scene credits an article that is not published');
   }
 
@@ -141,8 +143,9 @@ export default function Home() {
         <ContentsIndex />
       </section>
 
-      {/* A verbatim lead, chosen by the build date among those that fit
-          beside "Recently updated" (lib/featured-article.ts). */}
+      {/* The editor's first pick and the dek written for home
+          (data/home-featured.ts), which fit beside "Recently updated"
+          (lib/featured-article.ts). */}
       <section
         aria-labelledby="featured-article-heading"
         data-pagefind-body
@@ -152,7 +155,7 @@ export default function Home() {
         <h2 id="featured-article-heading" data-tektur-role="section-display" className={heading}>
           Featured article
         </h2>
-        <p className="font-display text-[16px] font-semibold text-text">
+        <p className="home-feature-title">
           <Link
             data-brand-control-id="control:link-focus"
             href={featured.href}
@@ -161,11 +164,8 @@ export default function Home() {
             {featured.title}
           </Link>
         </p>
-        <p
-          data-featured-excerpt
-          className="mt-2 text-[16px] leading-[1.62] text-text"
-        >
-          {featured.excerpt}
+        <p data-featured-dek className="home-feature-dek">
+          {featured.dek}
         </p>
       </section>
 
@@ -178,22 +178,48 @@ export default function Home() {
         <h2 id="featured-scene-heading" data-tektur-role="section-display" className={heading}>
           Featured scene
         </h2>
-        <SceneSource
-          source={
-            <>
-              From{' '}
+        {/* One explainer from /how-robots-work/, on its poster until the
+            reader starts it (components/home/featured-explainer.tsx). */}
+        <div
+          role="group"
+          aria-label={`3D explainer: ${explainer.label}`}
+          aria-describedby="featured-scene-caption"
+          data-explainer-scene={explainer.id}
+          className="home-explainer"
+        >
+          <p id="featured-scene-caption" className="home-feature-dek">
+            {scene.caption}
+          </p>
+          <FeaturedExplainer
+            scene={explainer.id}
+            firstStep={EXPLAINER_WORDS[explainer.id].steps[0]}
+            posterWidth={POSTER_SIZE.width}
+            posterHeight={POSTER_SIZE.height}
+            startLabel={scene.startLabel}
+          />
+          <ul className="home-run home-explainer-source meta-line">
+            <li>
               <Link
                 data-brand-control-id="control:link-focus"
-                href={`/${SCENE_ARTICLE.domain}/${SCENE_ARTICLE.slug}/`}
+                href="/how-robots-work/"
                 className={HOME_PROSE_LINK_CLASS}
               >
-                {sceneArticle.title}
+                All {EXPLAINER_ORDER.length} explainers in How robots work
               </Link>
-            </>
-          }
-        >
-          <ReliabilityThreshold className="mt-3" />
-        </SceneSource>
+            </li>
+            <li>
+              {' '}
+              Related:{' '}
+              <Link
+                data-brand-control-id="control:link-focus"
+                href={`/${scene.related.domain}/${scene.related.slug}/`}
+                className={HOME_PROSE_LINK_CLASS}
+              >
+                {related.title}
+              </Link>
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section

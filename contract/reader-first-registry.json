@@ -438,18 +438,6 @@
       "takeaway": "A useful video model predicts a different future when the robot's action changes."
     },
     {
-      "id": "home--scene-reliability-threshold",
-      "route": "/",
-      "mount": "scene:reliability-threshold",
-      "figure": "scene:reliability-threshold",
-      "audit": "A37",
-      "sources": [
-        "components/motion/scenes/reliability-threshold.tsx",
-        "lib/reliability.ts"
-      ],
-      "takeaway": ""
-    },
-    {
       "id": "data-hardware--industrial-deployment--scene-jam-overhead",
       "route": "/data-hardware/industrial-deployment/",
       "mount": "scene:jam-overhead",

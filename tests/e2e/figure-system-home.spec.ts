@@ -153,6 +153,27 @@ function readRoles() {
   });
 }
 
+/**
+ * Per featured explainer: its poster, whether the poster paints, any canvas
+ * (the 3D scene runs only after the reader starts it) and its caption words.
+ */
+function readExplainers() {
+  return [...document.querySelectorAll<HTMLElement>('main [data-explainer-scene]')].map((frame) => {
+    const poster = frame.querySelector<HTMLImageElement>('[data-x="poster"]');
+    const box = poster?.getBoundingClientRect();
+    const caption = document.getElementById(frame.getAttribute('aria-describedby') ?? '')?.textContent?.trim() ?? '';
+    return {
+      scene: frame.getAttribute('data-explainer-scene'),
+      label: frame.getAttribute('aria-label') ?? '',
+      poster: poster?.getAttribute('src') ?? null,
+      posterPainted: !!poster && poster.complete && poster.naturalWidth > 0 && !!box && box.width > 0 && box.height > 0 && poster.checkVisibility(),
+      canvases: frame.querySelectorAll('canvas').length,
+      caption,
+      captionWords: caption ? caption.split(/\s+/).length : 0,
+    };
+  });
+}
+
 for (const width of [375, 1440]) {
   test(`home figures show their real content on the frame at ${width}px (VAL-OPUS-009, VAL-OPUS-003 to 006)`, async ({ browser }, info) => {
     test.setTimeout(90_000);
@@ -163,6 +184,7 @@ for (const width of [375, 1440]) {
     await firstPaint.screenshot({ path: join(dir, `home-first-paint-${width}.jpg`), fullPage: true, type: 'jpeg', quality: 80 });
     const firstPaintSkeletons = await firstPaint.locator(skeleton).count();
     const posters = await firstPaint.evaluate(readFrames);
+    const firstPaintExplainers = await firstPaint.evaluate(readExplainers);
     await firstPaint.close();
 
     const page = await browser.newPage({ viewport: { width, height: 900 } });
@@ -173,6 +195,7 @@ for (const width of [375, 1440]) {
     const frames = await page.evaluate(readFrames);
     const fonts = await page.evaluate(readFonts);
     const roles = await page.evaluate(readRoles);
+    const explainers = await page.evaluate(readExplainers);
     await page.close();
     writeFileSync(join(dir, `home-frames-${width}.json`), `${JSON.stringify(frames, null, 1)}\n`);
     writeFileSync(join(dir, `home-fonts-${width}.json`), `${JSON.stringify(fonts, null, 1)}\n`);
@@ -200,8 +223,25 @@ for (const width of [375, 1440]) {
     const unitOnly = /^[\s°%′″'"+\-−–±×·/.,:;()µμA-Za-z]{1,3}$/;
     const wordy = runs.filter((r) => r.family === 'IBM Plex Mono' && (/[A-Za-z]{4,}/.test(r.text) || (!/\d/.test(r.text) && !unitOnly.test(r.text))));
     expect(wordy.map((r) => `${r.figure} "${r.text}"`), 'mono on non-numeric text').toEqual([]);
-    // Home's one figure is the featured scene (VAL-OPUS-017, VAL-OPUS-021).
-    expect(frames.map((frame) => frame.figure)).toEqual(['scene:reliability-threshold']);
+    // Home's one figure is the featured scene (VAL-OPUS-017, VAL-OPUS-021):
+    // the 3D humanoid explainer from How robots work, which is no
+    // figure-system frame, so home holds none.
+    expect(frames.map((frame) => frame.figure)).toEqual([]);
+    writeFileSync(join(dir, `home-explainers-${width}.json`), `${JSON.stringify({ firstPaint: firstPaintExplainers, settle: explainers }, null, 1)}\n`);
+    expect(explainers.map((explainer) => explainer.scene)).toEqual(['humanoid']);
+    for (const [state, list] of [['first paint', firstPaintExplainers], ['settle', explainers]] as const) {
+      for (const explainer of list) {
+        expect(explainer.label, `${explainer.scene} at ${state}`).toBe('3D explainer: Inside a humanoid');
+        expect(explainer.poster, `${explainer.scene} poster at ${state}`).toBe(`/explainers/posters/${explainer.scene}.webp`);
+        expect(explainer.posterPainted, `${explainer.scene} poster paints at ${state}`).toBe(true);
+        // Nothing runs the 3D scene before the reader starts it.
+        expect(explainer.canvases, `${explainer.scene} canvas at ${state}`).toBe(0);
+        expect(explainer.captionWords, `${explainer.scene} caption words`).toBeGreaterThan(0);
+        expect(explainer.captionWords, `${explainer.scene} caption words`).toBeLessThanOrEqual(25);
+      }
+    }
+    // VAL-OPUS-009: what home shows at settle is the poster it painted before any script ran.
+    expect(firstPaintExplainers).toEqual(explainers);
     for (const frame of frames) {
       expect(frame.title, `${frame.figure} title`).not.toBe('');
       expect(frame.stage, `${frame.figure} stage`).toBe(true);
@@ -217,11 +257,13 @@ for (const width of [375, 1440]) {
   });
 }
 
-const CONCEPTS = [
+const CONCEPTS: { name: string; selector: string; canonical: string | null }[] = [
   { name: 'episode-success chart', selector: 'svg[aria-label^="Line chart of episode success"]', canonical: '/data-hardware/evaluation-crisis/' },
   // The scene's own hook, not its frame's, so a run over the pre-frame export still finds it.
-  // It left /frontier/reliability-gap/, where the calculator presets carry its beats (VAL-OPUS-131).
-  { name: 'reliability-threshold scene', selector: '[data-motion-scene="reliability-threshold"]', canonical: '/' },
+  // It left /frontier/reliability-gap/, where the calculator presets carry its beats (VAL-OPUS-131),
+  // and was retired when the humanoid explainer became the front page's featured scene on
+  // 13 October 2026, so no page may place it.
+  { name: 'reliability-threshold scene', selector: '[data-motion-scene="reliability-threshold"]', canonical: null },
 ];
 /** Repeats a later pass owns by name; an entry that stops repeating fails, so this only shrinks. */
 const KNOWN_REPEATS: Record<string, string> = {};
@@ -246,6 +288,10 @@ test('each named concept has one canonical visual and every other placement link
   });
   writeFileSync(join(evidenceDir(info.outputDir), 'duplicate-placements.json'), `${JSON.stringify({ placements, knownRepeats: KNOWN_REPEATS }, null, 1)}\n`);
   for (const concept of CONCEPTS) {
+    if (concept.canonical === null) {
+      expect(placements.filter((p) => p.concept === concept.name).map((p) => p.route), `${concept.name} is retired`).toEqual([]);
+      continue;
+    }
     expect(placements.filter((p) => p.concept === concept.name && p.canonical).length, `${concept.name} canonical`).toBeGreaterThan(0);
   }
   const unlinked = placements.filter((p) => !p.canonical && !p.link).map((p) => `${p.concept} on ${p.route}`);

@@ -4,7 +4,7 @@ import {
   type ExplainerInstance,
   type ExplainerModule,
 } from './catalog';
-import { EXPLAINER_WORDS } from './words';
+import { EXPLAINER_WORDS, type ExplainerId } from './words';
 
 type Box = { x: number; y: number; w: number; h: number };
 type KitStage = {
@@ -38,10 +38,22 @@ const nextTask = () => new Promise<void>((resolve) => setTimeout(resolve, 0));
  * steps read as text. The scene, the 3D kit and the page's one WebGL context
  * load only once the stage comes near the viewport or the reader picks an
  * explainer, and under reduced motion only once the reader presses Start.
+ *
+ * Another page can embed one explainer (`embed`, home's featured scene). It
+ * opens that explainer whatever the hash says, and waits for Start as under
+ * reduced motion, so the embedding page loads no 3D kit before the reader
+ * asks for it. Its header, pager and "How this was made" fold may be left
+ * out of the markup.
  */
-export async function startExplainers(root: HTMLElement): Promise<() => void> {
+export type ExplainerEmbed = { scene: ExplainerId };
+
+export async function startExplainers(
+  root: HTMLElement,
+  embed?: ExplainerEmbed,
+): Promise<() => void> {
   const $ = <T extends HTMLElement = HTMLElement>(name: string) =>
     root.querySelector<T>(`[data-x="${name}"]`)!;
+  const optional = (name: string) => root.querySelector<HTMLElement>(`[data-x="${name}"]`);
   const stageEl = $('stage');
   const status = $('status');
   const poster = $<HTMLImageElement>('poster');
@@ -51,7 +63,7 @@ export async function startExplainers(root: HTMLElement): Promise<() => void> {
   let ui: KitUI | null = null;
   let stageReady: Promise<KitStage | null> | null = null;
   let webgl = true;
-  let started = !reduce;
+  let started = !reduce && !embed;
   let live = false;
   let openId = '';
   // The token of the open() call that is bringing its explainer to life, so it is not started twice.
@@ -164,14 +176,14 @@ export async function startExplainers(root: HTMLElement): Promise<() => void> {
   }
 
   // The "How this was made" fold comes from the scene module, so in poster mode it loads when opened.
-  const howFold = root.querySelector<HTMLDetailsElement>('[data-explainer-fold="how"]')!;
+  const howFold = root.querySelector<HTMLDetailsElement>('[data-explainer-fold="how"]');
   let howFor = '';
   async function fillHow(entry: (typeof EXPLAINER_ORDER)[number], mod?: ExplainerModule) {
-    if (howFor === entry.id) return;
+    if (howFor === entry.id || !optional('how')) return;
     const loaded = mod ?? (await entry.load()).default;
-    if (entry.id !== openId) return;
+    const how = optional('how');
+    if (entry.id !== openId || !how) return;
     howFor = entry.id;
-    const how = $('how');
     how.innerHTML = loaded.how;
     how.querySelectorAll('a').forEach((a) => {
       brand.link(a);
@@ -180,9 +192,9 @@ export async function startExplainers(root: HTMLElement): Promise<() => void> {
   }
   const onHowToggle = () => {
     const entry = EXPLAINER_ORDER.find(({ id }) => id === openId);
-    if (howFold.open && entry) void fillHow(entry).catch(() => {});
+    if (howFold?.open && entry) void fillHow(entry).catch(() => {});
   };
-  howFold.addEventListener('toggle', onHowToggle);
+  howFold?.addEventListener('toggle', onHowToggle);
 
   async function open(requested: string, at = 0) {
     const entry = EXPLAINER_ORDER.find(({ id }) => id === requested) ?? EXPLAINER_ORDER[0];
@@ -204,7 +216,7 @@ export async function startExplainers(root: HTMLElement): Promise<() => void> {
     const words = EXPLAINER_WORDS[entry.id];
     poster.src = `/explainers/posters/${entry.id}.webp`;
     poster.alt = words.steps[0];
-    if (howFor !== entry.id) $('how').replaceChildren();
+    if (howFor !== entry.id) optional('how')?.replaceChildren();
     const runs = webgl && started && near;
     if (runs) mounting = my;
     showPoster(true);
@@ -218,8 +230,10 @@ export async function startExplainers(root: HTMLElement): Promise<() => void> {
       status.hidden = false;
       status.textContent = NO_WEBGL;
     }
-    $('kicker').textContent = words.kicker;
-    $('question').textContent = words.question;
+    for (const [name, text] of [['kicker', words.kicker], ['question', words.question]] as const) {
+      const el = optional(name);
+      if (el) el.textContent = text;
+    }
     $('sentence').textContent = words.takeaway;
     const concept = $('concept');
     const { name, term, href } = words.concept;
@@ -231,12 +245,12 @@ export async function startExplainers(root: HTMLElement): Promise<() => void> {
     concept.replaceChildren(name.slice(0, termAt), link, `${name.slice(termAt + term.length)}.`);
     $('checkQ').textContent = `Check yourself: ${words.selfCheck.q}`;
     $('checkA').textContent = words.selfCheck.a;
-    if (mod || howFold.open) void fillHow(entry, mod ?? undefined).catch(() => {});
+    if (mod || howFold?.open) void fillHow(entry, mod ?? undefined).catch(() => {});
     const idx = EXPLAINER_ORDER.indexOf(entry);
     const before = EXPLAINER_ORDER[idx - 1];
     const after = EXPLAINER_ORDER[idx + 1];
-    $('pagerPrev').replaceChildren(...(before ? [pagerLink(before, 'Previous')] : []));
-    $('pagerNext').replaceChildren(...(after ? [pagerLink(after, 'Next')] : []));
+    optional('pagerPrev')?.replaceChildren(...(before ? [pagerLink(before, 'Previous')] : []));
+    optional('pagerNext')?.replaceChildren(...(after ? [pagerLink(after, 'Next')] : []));
     if (!st || !mod || !ui) {
       inst = { steps: words.steps.map((text) => ({ text })) };
       renderDots();
@@ -290,7 +304,7 @@ export async function startExplainers(root: HTMLElement): Promise<() => void> {
     const top = $('explainer').getBoundingClientRect().top + window.scrollY - 16;
     if (window.scrollY > top) window.scrollTo({ top });
   };
-  window.addEventListener('hashchange', onHash);
+  if (!embed) window.addEventListener('hashchange', onHash);
   const hook = {
     go: (i: number) => go(i),
     start: onStart,
@@ -306,14 +320,14 @@ export async function startExplainers(root: HTMLElement): Promise<() => void> {
     get parts() { return stage?.exploded?.state() ?? null; },
   };
   (window as unknown as { __explainer?: typeof hook }).__explainer = hook;
-  void open(location.hash.slice(1));
+  void open(embed?.scene ?? location.hash.slice(1));
 
   return () => {
     closed = true;
     token += 1;
     viewObserver.disconnect();
     startBtn.removeEventListener('click', onStart);
-    howFold.removeEventListener('toggle', onHowToggle);
+    howFold?.removeEventListener('toggle', onHowToggle);
     window.removeEventListener('hashchange', onHash);
     prev.removeEventListener('click', onPrev);
     next.removeEventListener('click', onNext);

@@ -1,9 +1,15 @@
 import { expect, test, type Page } from '@playwright/test';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { DOMAINS, DOMAIN_META, publishedModules } from '../../data/modules';
+import { EXPLAINER_ORDER } from '../../components/explainers/catalog';
+import { HOME_FEATURED_PICKS, HOME_FEATURED_SCENE } from '../../data/home-featured';
+import { DOMAINS, DOMAIN_META, getModule, publishedModules } from '../../data/modules';
 import { recentlyUpdated } from '../../lib/content-dates';
-import { HOME_ROTATING_WORDS } from '../../lib/featured-article';
+import {
+  FEATURED_DEK_MAX_WORDS,
+  HOME_ROTATING_WORDS,
+  longestRecentListWords,
+} from '../../lib/featured-article';
 import { homeCounts } from '../../lib/home-counts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 import { forEachInOwnContext } from './helpers/per-route-context';
@@ -16,10 +22,11 @@ import {
  * The encyclopedia front page (contract/opus-pass.md, VAL-OPUS-014 to 022)
  * and the /about/ page that took home's scope statement and reading guide
  * (VAL-WIKI-028). Served from the static export, because the counts, the
- * featured lead and the dates are fixed when the page is built.
+ * featured pick and the dates are fixed when the page is built.
  *
- * The featured scene and the tools line are measured by
- * brand-v2-home-tools.spec.ts (VAL-OPUS-017, VAL-OPUS-020).
+ * The featured scene's interaction and the tools line are measured by
+ * brand-v2-home-tools.spec.ts (VAL-OPUS-017, VAL-OPUS-020); this file holds
+ * the scene's served poster, its lazy load and its links.
  */
 
 let BASE: string;
@@ -161,21 +168,101 @@ test.describe('home front page', () => {
       }
     }
   });
-  test('features one article with a verbatim lead of 50 words or fewer (VAL-OPUS-016)', async ({
+  test("features the editor's first pick with its home dek of 25 words or fewer (VAL-OPUS-016)", async ({
     page,
   }) => {
+    const pick = HOME_FEATURED_PICKS[0];
+    expect(`${pick.domain}/${pick.slug}`).toBe('world-models/taxonomy');
     const main = await home(page);
     const featured = main.getByRole('region', { name: 'Featured article' });
     const links = featured.getByRole('link');
     await expect(links).toHaveCount(1);
     const href = (await links.first().getAttribute('href')) ?? '';
-    const excerpt = squash(await featured.locator('[data-featured-excerpt]').innerText());
-    expect(words(excerpt).length).toBeGreaterThan(0);
-    expect(words(excerpt).length).toBeLessThanOrEqual(50);
+    expect(href).toBe(`/${pick.domain}/${pick.slug}/`);
+    const title = getModule(pick.domain, pick.slug)?.title ?? '';
+    expect(squash(await links.first().innerText())).toBe(title);
+    const dek = squash(await featured.locator('[data-featured-dek]').innerText());
+    expect(dek).toBe(pick.dek);
+    expect(words(dek).length).toBeGreaterThan(5);
+    expect(words(dek).length).toBeLessThanOrEqual(FEATURED_DEK_MAX_WORDS);
+    expect(FEATURED_DEK_MAX_WORDS).toBeLessThanOrEqual(50);
+    expect(dek).not.toMatch(/\d/);
     const response = await page.goto(`${BASE}${href}`);
     expect(response?.status(), href).toBe(200);
-    const article = squash(await page.locator('main article').first().innerText());
-    expect(article, `${href} carries the lead verbatim`).toContain(excerpt);
+    await expect(page.locator('main h1').first()).toHaveText(title);
+  });
+
+  test('features the humanoid explainer on its poster and loads no 3D kit until the reader starts it (VAL-OPUS-017)', async ({
+    page,
+  }) => {
+    const scripts: string[] = [];
+    page.on('response', async (response) => {
+      if (!/\/_next\/static\/chunks\/.+\.js/.test(response.url())) return;
+      const body = await response.text().catch(() => '');
+      // three.js's renderer is the one module that carries this message.
+      if (body.includes('THREE.WebGLRenderer')) scripts.push(response.url());
+    });
+    for (const [width, height] of [
+      [390, 844],
+      [1440, 900],
+    ] as const) {
+      const main = await home(page, width, height);
+      await page.waitForLoadState('networkidle');
+      const scene = main.getByRole('region', { name: 'Featured scene' });
+      const frame = scene.getByRole('group', { name: '3D explainer: Inside a humanoid' });
+      await expect(frame).toHaveAttribute('data-explainer-scene', HOME_FEATURED_SCENE.explainer);
+      await expect(scene.locator('#featured-scene-caption')).toHaveText(HOME_FEATURED_SCENE.caption);
+      expect(words(HOME_FEATURED_SCENE.caption).length).toBeLessThanOrEqual(25);
+      const poster = frame.locator('[data-x="poster"]');
+      await expect(poster).toBeVisible();
+      await expect(poster).toHaveAttribute('src', '/explainers/posters/humanoid.webp');
+      expect(await poster.evaluate((img) => (img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+      await expect(frame.locator('canvas')).toHaveCount(0);
+      const start = frame.getByRole('button', { name: HOME_FEATURED_SCENE.startLabel });
+      await expect(start).toBeVisible();
+      expect(scripts, `three.js before the reader starts the scene at ${width}px`).toEqual([]);
+    }
+
+    // The reader's tap loads the kit and brings the same scene to life.
+    const frame = page.getByRole('group', { name: '3D explainer: Inside a humanoid' });
+    await frame.getByRole('button', { name: HOME_FEATURED_SCENE.startLabel }).click();
+    await page.waitForFunction(
+      () => (window as unknown as { __explainer?: { id: string; live: boolean } }).__explainer?.live === true,
+      undefined,
+      { timeout: 45_000 },
+    );
+    expect(await page.evaluate(() => (window as unknown as { __explainer: { id: string } }).__explainer.id)).toBe('humanoid');
+    await expect(frame.locator('canvas')).toBeVisible();
+    await expect(frame.locator('[data-x="poster"]')).toBeHidden();
+    expect(scripts.length, 'three.js once the reader starts the scene').toBeGreaterThan(0);
+
+    const links = page.getByRole('region', { name: 'Featured scene' }).getByRole('link');
+    await expect(links).toHaveCount(2);
+    await expect(links.nth(0)).toHaveText(`All ${EXPLAINER_ORDER.length} explainers in How robots work`);
+    await expect(links.nth(0)).toHaveAttribute('href', '/how-robots-work/');
+    await expect(links.nth(1)).toHaveText(
+      getModule(HOME_FEATURED_SCENE.related.domain, HOME_FEATURED_SCENE.related.slug)?.title ?? '',
+    );
+    await expect(links.nth(1)).toHaveAttribute(
+      'href',
+      `/${HOME_FEATURED_SCENE.related.domain}/${HOME_FEATURED_SCENE.related.slug}/`,
+    );
+  });
+
+  test('keeps the featured scene still under reduced motion until the reader starts it', async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await home(page);
+    await page.waitForLoadState('networkidle');
+    const frame = page.getByRole('group', { name: '3D explainer: Inside a humanoid' });
+    await frame.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(1_000);
+    await expect(frame.locator('[data-x="poster"]')).toBeVisible();
+    await expect(frame.locator('canvas')).toHaveCount(0);
+    expect(
+      await page.evaluate(() => (window as unknown as { __explainer?: { live: boolean } }).__explainer?.live),
+    ).toBe(false);
   });
 
   test('"Did you know" holds three short facts, each cited and linked to the article that states it (VAL-OPUS-018)', async ({
@@ -288,16 +375,21 @@ test.describe('home front page', () => {
     const counted = total - titleWords;
     expect(counted, `${total} words, ${titleWords} of them contents titles`).toBeLessThanOrEqual(250);
 
-    // The featured article and "Recently updated" change without an edit to
-    // home. They share HOME_ROTATING_WORDS, and the rest of <main> leaves
-    // that share free, so no build date or content commit breaks the budget.
+    // "Recently updated" changes with each content commit and the featured
+    // pick with an edit to its list. They share HOME_ROTATING_WORDS, which
+    // holds every pick beside the five longest titles an update could print,
+    // and the rest of <main> leaves that share free, so no content commit
+    // breaks the budget.
     const featured = main.getByRole('region', { name: 'Featured article' });
+    const recentList = words(
+      await main.getByRole('region', { name: 'Recently updated' }).getByRole('list').innerText(),
+    ).length;
     const rotating =
       words(await featured.getByRole('link').innerText()).length +
-      words(await featured.locator('[data-featured-excerpt]').innerText()).length +
-      words(await main.getByRole('region', { name: 'Recently updated' }).getByRole('list').innerText())
-        .length;
+      words(await featured.locator('[data-featured-dek]').innerText()).length +
+      recentList;
     expect(rotating).toBeLessThanOrEqual(HOME_ROTATING_WORDS);
+    expect(rotating - recentList + longestRecentListWords()).toBeLessThanOrEqual(HOME_ROTATING_WORDS);
     expect(counted - rotating + HOME_ROTATING_WORDS, 'the fixed blocks with the rotating share').toBeLessThanOrEqual(250);
 
     const registered = (
@@ -318,7 +410,7 @@ test.describe('home front page', () => {
           const device = el.closest('[data-brand-device-id]');
           const control = el.closest('form');
           let kind = 'ornament';
-          if (el.closest('[data-motion-scene]')) kind = 'featured-scene';
+          if (el.closest('[data-motion-scene], [data-explainer-scene]')) kind = 'featured-scene';
           else if (control && control.getAttribute('aria-label')) kind = 'form-control-icon';
           else if (
             device &&

@@ -1662,11 +1662,11 @@
                   "davinci5-clearance-2024",
                   "intuitive-q4-2025",
                   "cmr-versius-authorization-2024",
-                  "versius-plus-510k-2025",
                   "maestro-tavac-2023",
-                  "maestro-commercial-510k-2024",
                   "scopilot-clearance-2025",
-                  "agro-suvide-2026"
+                  "agro-suvide-2026",
+                  "versius-plus-510k-2025",
+                  "maestro-commercial-510k-2024"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -3106,7 +3106,6 @@
                   "morgan-stanley-pr-problem-2026",
                   "agility-digit-production",
                   "figure-bmw-production-2025",
-                  "evst-cell-cost-2026",
                   "bessemer-robotics-2026",
                   "computex-collapse-2026",
                   "robotics-funding-23b-2026",
@@ -3133,7 +3132,8 @@
                   "helix-02-2026",
                   "t-rex-2026",
                   "lin-data-scaling-laws-2024",
-                  "unitree-prospectus-2026"
+                  "unitree-prospectus-2026",
+                  "evst-cell-cost-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -3306,10 +3306,10 @@
                   "fingr-2026",
                   "tacdyn-wam-2026",
                   "bd-atlas-hand-2026",
-                  "unitree-dex5-1-2026",
                   "eigendexplore-2026",
                   "visual-predicted-force-2026",
-                  "fingers-as-legs-2026"
+                  "fingers-as-legs-2026",
+                  "unitree-dex5-1-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -3371,7 +3371,6 @@
                   "egoscale-2026",
                   "isaac-gr00t-repo-2026",
                   "gemini-robotics-2-2026",
-                  "open-x-embodiment-2023",
                   "lin-data-scaling-laws-2024",
                   "goldberg-data-gap-2025",
                   "brooks-dexterity-2025",
@@ -3396,7 +3395,8 @@
                   "umi-2024",
                   "xiaomi-robotics-1-2026",
                   "diversity-scaling-2025",
-                  "nvidia-gtc-gr00t-n2-2026"
+                  "nvidia-gtc-gr00t-n2-2026",
+                  "open-x-embodiment-2023"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -3910,12 +3910,9 @@
                   "act-aloha-2023",
                   "diffusion-policy-2023",
                   "rt2-2023",
-                  "octo-2024",
-                  "open-x-embodiment-2023",
                   "openvla-2024",
                   "openvla-oft-2025",
                   "pi0-2024",
-                  "pi0-fast-2025",
                   "pi05-2025",
                   "openpi-repo-2024",
                   "pi06-model-card-2025",
@@ -3942,7 +3939,10 @@
                   "nvidia-gtc-gr00t-n2-2026",
                   "helix-2025",
                   "helix-2-5-2026",
-                  "agibot-world-2025"
+                  "agibot-world-2025",
+                  "octo-2024",
+                  "open-x-embodiment-2023",
+                  "pi0-fast-2025"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -4282,9 +4282,6 @@
                   "agibot-world-2025",
                   "agibot-go2-2026",
                   "skild-series-c-2026",
-                  "pi05-2025",
-                  "pi06-model-card-2025",
-                  "pi07-2026",
                   "pi-human-to-robot-2025",
                   "egoscale-2026",
                   "tri-lbm-2025",
@@ -4311,7 +4308,10 @@
                   "generalist-gen0-2025",
                   "generalist-gen1-2026",
                   "gen-1-5-2026",
-                  "roboarena-2025"
+                  "roboarena-2025",
+                  "pi05-2025",
+                  "pi06-model-card-2025",
+                  "pi07-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -5765,11 +5765,8 @@
                 "citationCountText": "33 sources",
                 "bibliographyIds": [
                   "world-model-survey-2026",
-                  "genie-3-2025",
                   "simpler-2024",
                   "libero-plus-2025",
-                  "interactive-world-simulator-2026",
-                  "roboworld-2026",
                   "roboarena-2025",
                   "simfoundry-2026",
                   "physics-iq-2025",
@@ -5796,7 +5793,10 @@
                   "droid-2024",
                   "tri-lbm-2025",
                   "physics-iq-verified-2026",
-                  "worldsimprobe-2026"
+                  "worldsimprobe-2026",
+                  "genie-3-2025",
+                  "interactive-world-simulator-2026",
+                  "roboworld-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -5862,10 +5862,8 @@
                   "eureka-2024",
                   "3d-gen-embodied-survey-2026",
                   "physics-iq-2025",
-                  "maniskill3-2024",
                   "gensim-2023",
                   "robotwin-2-2025",
-                  "procthor-2022",
                   "objaverse-2022",
                   "scenesmith-2026",
                   "mimicgen-2023",
@@ -5880,14 +5878,16 @@
                   "text2reward-2023",
                   "digital-cousins-2024",
                   "simfoundry-2026",
-                  "rialto-2024",
                   "infinigen-articulated-2025",
                   "steerable-scene-generation-2025",
+                  "marble-2025",
+                  "newton-manipulation-blog-2026",
+                  "maniskill3-2024",
+                  "procthor-2022",
+                  "rialto-2024",
                   "genesis-world-2026",
                   "grail-2026",
-                  "marble-2025",
-                  "worldlabs-atlas-2026",
-                  "newton-manipulation-blog-2026"
+                  "worldlabs-atlas-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -5953,8 +5953,6 @@
                   "gr-2-2024",
                   "1x-world-model-lab-2026",
                   "odyssey-2-2025",
-                  "odyssey-starchild-1-2026",
-                  "odyssey-agora-1-2026",
                   "interactive-world-simulator-2026",
                   "roboworld-2026",
                   "world-model-survey-2026",
@@ -5963,23 +5961,25 @@
                   "unisim-2023",
                   "physics-iq-2025",
                   "google-project-genie-2026",
-                  "waymo-world-model-2026",
                   "gr-3-2025",
                   "dreamzero-2026",
                   "cosmos-policy-2026",
-                  "lingbot-va-2026",
                   "wam-robustness-2026",
                   "fast-wam-2026",
                   "1x-world-model-2026",
                   "world-in-world-2025",
                   "veo-world-simulator-2025",
-                  "dreamdojo-2026",
                   "polaris-2025",
                   "rise-2026",
                   "1x-world-model-2025",
                   "grail-2026",
                   "openwam-2026",
-                  "long-wam-2026"
+                  "long-wam-2026",
+                  "odyssey-starchild-1-2026",
+                  "odyssey-agora-1-2026",
+                  "waymo-world-model-2026",
+                  "lingbot-va-2026",
+                  "dreamdojo-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -6047,7 +6047,6 @@
                   "ad-e2e-jepa-2026",
                   "dino-wm-2024",
                   "jepa-implicit-bias-2024",
-                  "muzero-2019",
                   "intuitive-physics-2025",
                   "ijepa-2023",
                   "byol-2020",
@@ -6055,10 +6054,7 @@
                   "vjepa-2-1-2026",
                   "jepa-wm-2025",
                   "leworldmodel-2026",
-                  "ami-labs-launch-2026",
                   "lecun-ami-techcrunch-2025",
-                  "dreamdojo-2026",
-                  "dreamer4-2025",
                   "lejepa-2025",
                   "lejepa-world-model-2026",
                   "intphys2-2025",
@@ -6069,8 +6065,12 @@
                   "tdmpc2-2023",
                   "h-jepa-2026",
                   "skyjepa-2026",
-                  "levjepa-2026",
-                  "jepa-unstable-modes-2026"
+                  "jepa-unstable-modes-2026",
+                  "muzero-2019",
+                  "ami-labs-launch-2026",
+                  "dreamdojo-2026",
+                  "dreamer4-2025",
+                  "levjepa-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -6144,8 +6144,6 @@
                   "muzero-2019",
                   "value-equivalence-2020",
                   "mudreamer-2024",
-                  "masked-world-models-2022",
-                  "reset-free-driving-2026",
                   "mbpo-2019",
                   "steve-2018",
                   "hwm-2026",
@@ -6156,9 +6154,11 @@
                   "td-m-pc2-2025",
                   "newt-2025",
                   "wmp-2024",
-                  "puppeteer-2024",
                   "simdist-2026",
-                  "insertion-world-models-2026"
+                  "insertion-world-models-2026",
+                  "masked-world-models-2022",
+                  "reset-free-driving-2026",
+                  "puppeteer-2024"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -6217,7 +6217,6 @@
                   "dreamer-2019",
                   "dreamerv3-2023",
                   "daydreamer-2022",
-                  "tdmpc-2022",
                   "tdmpc2-2023",
                   "robotic-world-model-2025",
                   "mujoco-2012",
@@ -6230,16 +6229,13 @@
                   "manip-wm-survey-2026",
                   "value-equivalence-2020",
                   "deep-visual-foresight-2016",
-                  "newt-2025",
                   "dreamer4-2025",
                   "me-trpo-2018",
                   "pets-2018",
                   "mbpo-2019",
                   "mopo-2020",
-                  "morel-2020",
                   "visuospatial-foresight-2020",
                   "wm-hallucination-2026",
-                  "pilco-2015",
                   "pddm-2019",
                   "ssrl-2024",
                   "rwm-u-2025",
@@ -6248,6 +6244,10 @@
                   "asap-2025",
                   "reset-free-driving-2026",
                   "pointworld-2026",
+                  "tdmpc-2022",
+                  "newt-2025",
+                  "morel-2020",
+                  "pilco-2015",
                   "simdist-2026"
                 ],
                 "imageCount": 0,
@@ -6320,12 +6320,7 @@
                   "manip-wm-survey-2026",
                   "dreamerv3-nature-2025",
                   "dreamer4-2025",
-                  "newt-2025",
-                  "google-project-genie-2026",
-                  "odyssey-2-2025",
                   "vjepa-2024",
-                  "vjepa-2-1-2026",
-                  "leworldmodel-2026",
                   "nvidia-wam-blog-2026",
                   "dreamzero-2026",
                   "fast-wam-2026",
@@ -6333,13 +6328,18 @@
                   "visualpredicator-2024",
                   "physgaussian-2023",
                   "marble-2025",
-                  "amd-world-labs-2026",
                   "veo-world-simulator-2025",
                   "interactive-world-simulator-2026",
                   "wm-hallucination-2026",
                   "video-physical-law-2024",
                   "physics-iq-2025",
-                  "pointworld-2026"
+                  "pointworld-2026",
+                  "newt-2025",
+                  "google-project-genie-2026",
+                  "odyssey-2-2025",
+                  "vjepa-2-1-2026",
+                  "leworldmodel-2026",
+                  "amd-world-labs-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -6416,20 +6416,20 @@
                   "wm-hallucination-2026",
                   "isaac-gym-2021",
                   "leworldmodel-2026",
-                  "cosmos-predict2-5-2025",
                   "genie-3-2025",
                   "interactive-world-simulator-2026",
-                  "dreamer4-2025",
                   "dreamzero-2026",
-                  "1x-world-model-2026",
                   "physics-iq-2025",
                   "splatsim-2024",
-                  "simfoundry-2026",
                   "phystwin-2025",
                   "asap-2025",
                   "newton-manipulation-blog-2026",
-                  "cosmos-predict2-repo-2025",
-                  "simdist-2026"
+                  "simdist-2026",
+                  "cosmos-predict2-5-2025",
+                  "dreamer4-2025",
+                  "1x-world-model-2026",
+                  "simfoundry-2026",
+                  "cosmos-predict2-repo-2025"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -70271,11 +70271,11 @@
                   "davinci5-clearance-2024",
                   "intuitive-q4-2025",
                   "cmr-versius-authorization-2024",
-                  "versius-plus-510k-2025",
                   "maestro-tavac-2023",
-                  "maestro-commercial-510k-2024",
                   "scopilot-clearance-2025",
-                  "agro-suvide-2026"
+                  "agro-suvide-2026",
+                  "versius-plus-510k-2025",
+                  "maestro-commercial-510k-2024"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -71715,7 +71715,6 @@
                   "morgan-stanley-pr-problem-2026",
                   "agility-digit-production",
                   "figure-bmw-production-2025",
-                  "evst-cell-cost-2026",
                   "bessemer-robotics-2026",
                   "computex-collapse-2026",
                   "robotics-funding-23b-2026",
@@ -71742,7 +71741,8 @@
                   "helix-02-2026",
                   "t-rex-2026",
                   "lin-data-scaling-laws-2024",
-                  "unitree-prospectus-2026"
+                  "unitree-prospectus-2026",
+                  "evst-cell-cost-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -71915,10 +71915,10 @@
                   "fingr-2026",
                   "tacdyn-wam-2026",
                   "bd-atlas-hand-2026",
-                  "unitree-dex5-1-2026",
                   "eigendexplore-2026",
                   "visual-predicted-force-2026",
-                  "fingers-as-legs-2026"
+                  "fingers-as-legs-2026",
+                  "unitree-dex5-1-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -71980,7 +71980,6 @@
                   "egoscale-2026",
                   "isaac-gr00t-repo-2026",
                   "gemini-robotics-2-2026",
-                  "open-x-embodiment-2023",
                   "lin-data-scaling-laws-2024",
                   "goldberg-data-gap-2025",
                   "brooks-dexterity-2025",
@@ -72005,7 +72004,8 @@
                   "umi-2024",
                   "xiaomi-robotics-1-2026",
                   "diversity-scaling-2025",
-                  "nvidia-gtc-gr00t-n2-2026"
+                  "nvidia-gtc-gr00t-n2-2026",
+                  "open-x-embodiment-2023"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -72519,12 +72519,9 @@
                   "act-aloha-2023",
                   "diffusion-policy-2023",
                   "rt2-2023",
-                  "octo-2024",
-                  "open-x-embodiment-2023",
                   "openvla-2024",
                   "openvla-oft-2025",
                   "pi0-2024",
-                  "pi0-fast-2025",
                   "pi05-2025",
                   "openpi-repo-2024",
                   "pi06-model-card-2025",
@@ -72551,7 +72548,10 @@
                   "nvidia-gtc-gr00t-n2-2026",
                   "helix-2025",
                   "helix-2-5-2026",
-                  "agibot-world-2025"
+                  "agibot-world-2025",
+                  "octo-2024",
+                  "open-x-embodiment-2023",
+                  "pi0-fast-2025"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -72891,9 +72891,6 @@
                   "agibot-world-2025",
                   "agibot-go2-2026",
                   "skild-series-c-2026",
-                  "pi05-2025",
-                  "pi06-model-card-2025",
-                  "pi07-2026",
                   "pi-human-to-robot-2025",
                   "egoscale-2026",
                   "tri-lbm-2025",
@@ -72920,7 +72917,10 @@
                   "generalist-gen0-2025",
                   "generalist-gen1-2026",
                   "gen-1-5-2026",
-                  "roboarena-2025"
+                  "roboarena-2025",
+                  "pi05-2025",
+                  "pi06-model-card-2025",
+                  "pi07-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -74374,11 +74374,8 @@
                 "citationCountText": "33 sources",
                 "bibliographyIds": [
                   "world-model-survey-2026",
-                  "genie-3-2025",
                   "simpler-2024",
                   "libero-plus-2025",
-                  "interactive-world-simulator-2026",
-                  "roboworld-2026",
                   "roboarena-2025",
                   "simfoundry-2026",
                   "physics-iq-2025",
@@ -74405,7 +74402,10 @@
                   "droid-2024",
                   "tri-lbm-2025",
                   "physics-iq-verified-2026",
-                  "worldsimprobe-2026"
+                  "worldsimprobe-2026",
+                  "genie-3-2025",
+                  "interactive-world-simulator-2026",
+                  "roboworld-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -74471,10 +74471,8 @@
                   "eureka-2024",
                   "3d-gen-embodied-survey-2026",
                   "physics-iq-2025",
-                  "maniskill3-2024",
                   "gensim-2023",
                   "robotwin-2-2025",
-                  "procthor-2022",
                   "objaverse-2022",
                   "scenesmith-2026",
                   "mimicgen-2023",
@@ -74489,14 +74487,16 @@
                   "text2reward-2023",
                   "digital-cousins-2024",
                   "simfoundry-2026",
-                  "rialto-2024",
                   "infinigen-articulated-2025",
                   "steerable-scene-generation-2025",
+                  "marble-2025",
+                  "newton-manipulation-blog-2026",
+                  "maniskill3-2024",
+                  "procthor-2022",
+                  "rialto-2024",
                   "genesis-world-2026",
                   "grail-2026",
-                  "marble-2025",
-                  "worldlabs-atlas-2026",
-                  "newton-manipulation-blog-2026"
+                  "worldlabs-atlas-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -74562,8 +74562,6 @@
                   "gr-2-2024",
                   "1x-world-model-lab-2026",
                   "odyssey-2-2025",
-                  "odyssey-starchild-1-2026",
-                  "odyssey-agora-1-2026",
                   "interactive-world-simulator-2026",
                   "roboworld-2026",
                   "world-model-survey-2026",
@@ -74572,23 +74570,25 @@
                   "unisim-2023",
                   "physics-iq-2025",
                   "google-project-genie-2026",
-                  "waymo-world-model-2026",
                   "gr-3-2025",
                   "dreamzero-2026",
                   "cosmos-policy-2026",
-                  "lingbot-va-2026",
                   "wam-robustness-2026",
                   "fast-wam-2026",
                   "1x-world-model-2026",
                   "world-in-world-2025",
                   "veo-world-simulator-2025",
-                  "dreamdojo-2026",
                   "polaris-2025",
                   "rise-2026",
                   "1x-world-model-2025",
                   "grail-2026",
                   "openwam-2026",
-                  "long-wam-2026"
+                  "long-wam-2026",
+                  "odyssey-starchild-1-2026",
+                  "odyssey-agora-1-2026",
+                  "waymo-world-model-2026",
+                  "lingbot-va-2026",
+                  "dreamdojo-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -74656,7 +74656,6 @@
                   "ad-e2e-jepa-2026",
                   "dino-wm-2024",
                   "jepa-implicit-bias-2024",
-                  "muzero-2019",
                   "intuitive-physics-2025",
                   "ijepa-2023",
                   "byol-2020",
@@ -74664,10 +74663,7 @@
                   "vjepa-2-1-2026",
                   "jepa-wm-2025",
                   "leworldmodel-2026",
-                  "ami-labs-launch-2026",
                   "lecun-ami-techcrunch-2025",
-                  "dreamdojo-2026",
-                  "dreamer4-2025",
                   "lejepa-2025",
                   "lejepa-world-model-2026",
                   "intphys2-2025",
@@ -74678,8 +74674,12 @@
                   "tdmpc2-2023",
                   "h-jepa-2026",
                   "skyjepa-2026",
-                  "levjepa-2026",
-                  "jepa-unstable-modes-2026"
+                  "jepa-unstable-modes-2026",
+                  "muzero-2019",
+                  "ami-labs-launch-2026",
+                  "dreamdojo-2026",
+                  "dreamer4-2025",
+                  "levjepa-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -74753,8 +74753,6 @@
                   "muzero-2019",
                   "value-equivalence-2020",
                   "mudreamer-2024",
-                  "masked-world-models-2022",
-                  "reset-free-driving-2026",
                   "mbpo-2019",
                   "steve-2018",
                   "hwm-2026",
@@ -74765,9 +74763,11 @@
                   "td-m-pc2-2025",
                   "newt-2025",
                   "wmp-2024",
-                  "puppeteer-2024",
                   "simdist-2026",
-                  "insertion-world-models-2026"
+                  "insertion-world-models-2026",
+                  "masked-world-models-2022",
+                  "reset-free-driving-2026",
+                  "puppeteer-2024"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -74826,7 +74826,6 @@
                   "dreamer-2019",
                   "dreamerv3-2023",
                   "daydreamer-2022",
-                  "tdmpc-2022",
                   "tdmpc2-2023",
                   "robotic-world-model-2025",
                   "mujoco-2012",
@@ -74839,16 +74838,13 @@
                   "manip-wm-survey-2026",
                   "value-equivalence-2020",
                   "deep-visual-foresight-2016",
-                  "newt-2025",
                   "dreamer4-2025",
                   "me-trpo-2018",
                   "pets-2018",
                   "mbpo-2019",
                   "mopo-2020",
-                  "morel-2020",
                   "visuospatial-foresight-2020",
                   "wm-hallucination-2026",
-                  "pilco-2015",
                   "pddm-2019",
                   "ssrl-2024",
                   "rwm-u-2025",
@@ -74857,6 +74853,10 @@
                   "asap-2025",
                   "reset-free-driving-2026",
                   "pointworld-2026",
+                  "tdmpc-2022",
+                  "newt-2025",
+                  "morel-2020",
+                  "pilco-2015",
                   "simdist-2026"
                 ],
                 "imageCount": 0,
@@ -74929,12 +74929,7 @@
                   "manip-wm-survey-2026",
                   "dreamerv3-nature-2025",
                   "dreamer4-2025",
-                  "newt-2025",
-                  "google-project-genie-2026",
-                  "odyssey-2-2025",
                   "vjepa-2024",
-                  "vjepa-2-1-2026",
-                  "leworldmodel-2026",
                   "nvidia-wam-blog-2026",
                   "dreamzero-2026",
                   "fast-wam-2026",
@@ -74942,13 +74937,18 @@
                   "visualpredicator-2024",
                   "physgaussian-2023",
                   "marble-2025",
-                  "amd-world-labs-2026",
                   "veo-world-simulator-2025",
                   "interactive-world-simulator-2026",
                   "wm-hallucination-2026",
                   "video-physical-law-2024",
                   "physics-iq-2025",
-                  "pointworld-2026"
+                  "pointworld-2026",
+                  "newt-2025",
+                  "google-project-genie-2026",
+                  "odyssey-2-2025",
+                  "vjepa-2-1-2026",
+                  "leworldmodel-2026",
+                  "amd-world-labs-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -75025,20 +75025,20 @@
                   "wm-hallucination-2026",
                   "isaac-gym-2021",
                   "leworldmodel-2026",
-                  "cosmos-predict2-5-2025",
                   "genie-3-2025",
                   "interactive-world-simulator-2026",
-                  "dreamer4-2025",
                   "dreamzero-2026",
-                  "1x-world-model-2026",
                   "physics-iq-2025",
                   "splatsim-2024",
-                  "simfoundry-2026",
                   "phystwin-2025",
                   "asap-2025",
                   "newton-manipulation-blog-2026",
-                  "cosmos-predict2-repo-2025",
-                  "simdist-2026"
+                  "simdist-2026",
+                  "cosmos-predict2-5-2025",
+                  "dreamer4-2025",
+                  "1x-world-model-2026",
+                  "simfoundry-2026",
+                  "cosmos-predict2-repo-2025"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -75365,11 +75365,11 @@
                   "davinci5-clearance-2024",
                   "intuitive-q4-2025",
                   "cmr-versius-authorization-2024",
-                  "versius-plus-510k-2025",
                   "maestro-tavac-2023",
-                  "maestro-commercial-510k-2024",
                   "scopilot-clearance-2025",
-                  "agro-suvide-2026"
+                  "agro-suvide-2026",
+                  "versius-plus-510k-2025",
+                  "maestro-commercial-510k-2024"
                 ],
                 "citationMarkers": [
                   "intuitive-q4-2025",
@@ -77482,7 +77482,6 @@
                   "morgan-stanley-pr-problem-2026",
                   "agility-digit-production",
                   "figure-bmw-production-2025",
-                  "evst-cell-cost-2026",
                   "bessemer-robotics-2026",
                   "computex-collapse-2026",
                   "robotics-funding-23b-2026",
@@ -77509,7 +77508,8 @@
                   "helix-02-2026",
                   "t-rex-2026",
                   "lin-data-scaling-laws-2024",
-                  "unitree-prospectus-2026"
+                  "unitree-prospectus-2026",
+                  "evst-cell-cost-2026"
                 ],
                 "citationMarkers": [
                   "crunchbase-robotics-funding-2026",
@@ -77778,10 +77778,10 @@
                   "fingr-2026",
                   "tacdyn-wam-2026",
                   "bd-atlas-hand-2026",
-                  "unitree-dex5-1-2026",
                   "eigendexplore-2026",
                   "visual-predicted-force-2026",
-                  "fingers-as-legs-2026"
+                  "fingers-as-legs-2026",
+                  "unitree-dex5-1-2026"
                 ],
                 "citationMarkers": [
                   "brooks-dexterity-2025",
@@ -77889,7 +77889,6 @@
                   "egoscale-2026",
                   "isaac-gr00t-repo-2026",
                   "gemini-robotics-2-2026",
-                  "open-x-embodiment-2023",
                   "lin-data-scaling-laws-2024",
                   "goldberg-data-gap-2025",
                   "brooks-dexterity-2025",
@@ -77914,7 +77913,8 @@
                   "umi-2024",
                   "xiaomi-robotics-1-2026",
                   "diversity-scaling-2025",
-                  "nvidia-gtc-gr00t-n2-2026"
+                  "nvidia-gtc-gr00t-n2-2026",
+                  "open-x-embodiment-2023"
                 ],
                 "citationMarkers": [
                   "droid-2024",
@@ -78669,12 +78669,9 @@
                   "act-aloha-2023",
                   "diffusion-policy-2023",
                   "rt2-2023",
-                  "octo-2024",
-                  "open-x-embodiment-2023",
                   "openvla-2024",
                   "openvla-oft-2025",
                   "pi0-2024",
-                  "pi0-fast-2025",
                   "pi05-2025",
                   "openpi-repo-2024",
                   "pi06-model-card-2025",
@@ -78701,7 +78698,10 @@
                   "nvidia-gtc-gr00t-n2-2026",
                   "helix-2025",
                   "helix-2-5-2026",
-                  "agibot-world-2025"
+                  "agibot-world-2025",
+                  "octo-2024",
+                  "open-x-embodiment-2023",
+                  "pi0-fast-2025"
                 ],
                 "citationMarkers": [
                   "rt1-2022",
@@ -79197,9 +79197,6 @@
                   "agibot-world-2025",
                   "agibot-go2-2026",
                   "skild-series-c-2026",
-                  "pi05-2025",
-                  "pi06-model-card-2025",
-                  "pi07-2026",
                   "pi-human-to-robot-2025",
                   "egoscale-2026",
                   "tri-lbm-2025",
@@ -79226,7 +79223,10 @@
                   "generalist-gen0-2025",
                   "generalist-gen1-2026",
                   "gen-1-5-2026",
-                  "roboarena-2025"
+                  "roboarena-2025",
+                  "pi05-2025",
+                  "pi06-model-card-2025",
+                  "pi07-2026"
                 ],
                 "citationMarkers": [
                   "tri-lbm-2025",
@@ -81427,11 +81427,8 @@
               "observed": {
                 "references": [
                   "world-model-survey-2026",
-                  "genie-3-2025",
                   "simpler-2024",
                   "libero-plus-2025",
-                  "interactive-world-simulator-2026",
-                  "roboworld-2026",
                   "roboarena-2025",
                   "simfoundry-2026",
                   "physics-iq-2025",
@@ -81458,7 +81455,10 @@
                   "droid-2024",
                   "tri-lbm-2025",
                   "physics-iq-verified-2026",
-                  "worldsimprobe-2026"
+                  "worldsimprobe-2026",
+                  "genie-3-2025",
+                  "interactive-world-simulator-2026",
+                  "roboworld-2026"
                 ],
                 "citationMarkers": [
                   "physics-iq-2025",
@@ -81564,10 +81564,8 @@
                   "eureka-2024",
                   "3d-gen-embodied-survey-2026",
                   "physics-iq-2025",
-                  "maniskill3-2024",
                   "gensim-2023",
                   "robotwin-2-2025",
-                  "procthor-2022",
                   "objaverse-2022",
                   "scenesmith-2026",
                   "mimicgen-2023",
@@ -81582,14 +81580,16 @@
                   "text2reward-2023",
                   "digital-cousins-2024",
                   "simfoundry-2026",
-                  "rialto-2024",
                   "infinigen-articulated-2025",
                   "steerable-scene-generation-2025",
+                  "marble-2025",
+                  "newton-manipulation-blog-2026",
+                  "maniskill3-2024",
+                  "procthor-2022",
+                  "rialto-2024",
                   "genesis-world-2026",
                   "grail-2026",
-                  "marble-2025",
-                  "worldlabs-atlas-2026",
-                  "newton-manipulation-blog-2026"
+                  "worldlabs-atlas-2026"
                 ],
                 "citationMarkers": [
                   "robogen-2024",
@@ -81694,8 +81694,6 @@
                   "gr-2-2024",
                   "1x-world-model-lab-2026",
                   "odyssey-2-2025",
-                  "odyssey-starchild-1-2026",
-                  "odyssey-agora-1-2026",
                   "interactive-world-simulator-2026",
                   "roboworld-2026",
                   "world-model-survey-2026",
@@ -81704,23 +81702,25 @@
                   "unisim-2023",
                   "physics-iq-2025",
                   "google-project-genie-2026",
-                  "waymo-world-model-2026",
                   "gr-3-2025",
                   "dreamzero-2026",
                   "cosmos-policy-2026",
-                  "lingbot-va-2026",
                   "wam-robustness-2026",
                   "fast-wam-2026",
                   "1x-world-model-2026",
                   "world-in-world-2025",
                   "veo-world-simulator-2025",
-                  "dreamdojo-2026",
                   "polaris-2025",
                   "rise-2026",
                   "1x-world-model-2025",
                   "grail-2026",
                   "openwam-2026",
-                  "long-wam-2026"
+                  "long-wam-2026",
+                  "odyssey-starchild-1-2026",
+                  "odyssey-agora-1-2026",
+                  "waymo-world-model-2026",
+                  "lingbot-va-2026",
+                  "dreamdojo-2026"
                 ],
                 "citationMarkers": [
                   "unisim-2023",
@@ -81823,7 +81823,6 @@
                   "ad-e2e-jepa-2026",
                   "dino-wm-2024",
                   "jepa-implicit-bias-2024",
-                  "muzero-2019",
                   "intuitive-physics-2025",
                   "ijepa-2023",
                   "byol-2020",
@@ -81831,10 +81830,7 @@
                   "vjepa-2-1-2026",
                   "jepa-wm-2025",
                   "leworldmodel-2026",
-                  "ami-labs-launch-2026",
                   "lecun-ami-techcrunch-2025",
-                  "dreamdojo-2026",
-                  "dreamer4-2025",
                   "lejepa-2025",
                   "lejepa-world-model-2026",
                   "intphys2-2025",
@@ -81845,8 +81841,12 @@
                   "tdmpc2-2023",
                   "h-jepa-2026",
                   "skyjepa-2026",
-                  "levjepa-2026",
-                  "jepa-unstable-modes-2026"
+                  "jepa-unstable-modes-2026",
+                  "muzero-2019",
+                  "ami-labs-launch-2026",
+                  "dreamdojo-2026",
+                  "dreamer4-2025",
+                  "levjepa-2026"
                 ],
                 "citationMarkers": [
                   "vjepa2-2025",
@@ -81950,8 +81950,6 @@
                   "muzero-2019",
                   "value-equivalence-2020",
                   "mudreamer-2024",
-                  "masked-world-models-2022",
-                  "reset-free-driving-2026",
                   "mbpo-2019",
                   "steve-2018",
                   "hwm-2026",
@@ -81962,9 +81960,11 @@
                   "td-m-pc2-2025",
                   "newt-2025",
                   "wmp-2024",
-                  "puppeteer-2024",
                   "simdist-2026",
-                  "insertion-world-models-2026"
+                  "insertion-world-models-2026",
+                  "masked-world-models-2022",
+                  "reset-free-driving-2026",
+                  "puppeteer-2024"
                 ],
                 "citationMarkers": [
                   "dreamer-2019",
@@ -82057,7 +82057,6 @@
                   "dreamer-2019",
                   "dreamerv3-2023",
                   "daydreamer-2022",
-                  "tdmpc-2022",
                   "tdmpc2-2023",
                   "robotic-world-model-2025",
                   "mujoco-2012",
@@ -82070,16 +82069,13 @@
                   "manip-wm-survey-2026",
                   "value-equivalence-2020",
                   "deep-visual-foresight-2016",
-                  "newt-2025",
                   "dreamer4-2025",
                   "me-trpo-2018",
                   "pets-2018",
                   "mbpo-2019",
                   "mopo-2020",
-                  "morel-2020",
                   "visuospatial-foresight-2020",
                   "wm-hallucination-2026",
-                  "pilco-2015",
                   "pddm-2019",
                   "ssrl-2024",
                   "rwm-u-2025",
@@ -82088,6 +82084,10 @@
                   "asap-2025",
                   "reset-free-driving-2026",
                   "pointworld-2026",
+                  "tdmpc-2022",
+                  "newt-2025",
+                  "morel-2020",
+                  "pilco-2015",
                   "simdist-2026"
                 ],
                 "citationMarkers": [
@@ -82186,12 +82186,7 @@
                   "manip-wm-survey-2026",
                   "dreamerv3-nature-2025",
                   "dreamer4-2025",
-                  "newt-2025",
-                  "google-project-genie-2026",
-                  "odyssey-2-2025",
                   "vjepa-2024",
-                  "vjepa-2-1-2026",
-                  "leworldmodel-2026",
                   "nvidia-wam-blog-2026",
                   "dreamzero-2026",
                   "fast-wam-2026",
@@ -82199,13 +82194,18 @@
                   "visualpredicator-2024",
                   "physgaussian-2023",
                   "marble-2025",
-                  "amd-world-labs-2026",
                   "veo-world-simulator-2025",
                   "interactive-world-simulator-2026",
                   "wm-hallucination-2026",
                   "video-physical-law-2024",
                   "physics-iq-2025",
-                  "pointworld-2026"
+                  "pointworld-2026",
+                  "newt-2025",
+                  "google-project-genie-2026",
+                  "odyssey-2-2025",
+                  "vjepa-2-1-2026",
+                  "leworldmodel-2026",
+                  "amd-world-labs-2026"
                 ],
                 "citationMarkers": [
                   "world-model-survey-2026",
@@ -82314,20 +82314,20 @@
                   "wm-hallucination-2026",
                   "isaac-gym-2021",
                   "leworldmodel-2026",
-                  "cosmos-predict2-5-2025",
                   "genie-3-2025",
                   "interactive-world-simulator-2026",
-                  "dreamer4-2025",
                   "dreamzero-2026",
-                  "1x-world-model-2026",
                   "physics-iq-2025",
                   "splatsim-2024",
-                  "simfoundry-2026",
                   "phystwin-2025",
                   "asap-2025",
                   "newton-manipulation-blog-2026",
-                  "cosmos-predict2-repo-2025",
-                  "simdist-2026"
+                  "simdist-2026",
+                  "cosmos-predict2-5-2025",
+                  "dreamer4-2025",
+                  "1x-world-model-2026",
+                  "simfoundry-2026",
+                  "cosmos-predict2-repo-2025"
                 ],
                 "citationMarkers": [
                   "mujoco-2012",
@@ -82474,6 +82474,34 @@
           "currentHash": "08cb5e560781f025d07c603b73db512651ded5c76267e5e03496eb4548374f71",
           "status": "approved-addition",
           "approvedDelta": "opus-homepage-20260930-accessible-names-about-reading-path"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:app/page.tsx:aria-label:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:app/page.tsx:aria-label:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:app/page.tsx:aria-label:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:app/page.tsx:aria-label:1 moved from null to fd9668f5ca92def781df92824ff92cd8bf079ed2985933f6aefe2de2d26cd160 exactly as approved delta home-featured-20261013-accessible-names-home-page-expression-aria-label-1 permits: Front-page featured landing of 2026-10-13 (home-featured: the featured article pinned to the world-models taxonomy with a home dek, and the featured scene replaced by the humanoid explainer from How robots work; the reliability scene, whose only mount was home, retired), as one edge from an absent seal: the member is new. Home's featured scene is now one 3D explainer from How robots work, in a frame (role=\"group\") that this expression names: \"3D explainer: \" and the explainer's catalog label, \"Inside a humanoid\", with the home caption as its description through aria-describedby. The member is new: the old featured scene named its frame inside its own scene module, which is retired.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:app/page.tsx:aria-label:1",
+          "baselineHash": null,
+          "currentHash": "fd9668f5ca92def781df92824ff92cd8bf079ed2985933f6aefe2de2d26cd160",
+          "status": "approved-addition",
+          "approvedDelta": "home-featured-20261013-accessible-names-home-page-expression-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -82670,6 +82698,34 @@
           "currentHash": "72d6213d7ad6a4cc1dc537c171a5bc752c66da10855bbf7484ea0cacb24d70ac",
           "status": "approved-addition",
           "approvedDelta": "opus-homepage-20260930-accessible-names-did-you-know-cite-title"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/home/featured-explainer.tsx:alt:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/home/featured-explainer.tsx:alt:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/home/featured-explainer.tsx:alt:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/home/featured-explainer.tsx:alt:1 moved from null to 6a8164c789fcf90ba4393ca5830ff92445ea036f0d37d1f94895d1fbacd48fad exactly as approved delta home-featured-20261013-accessible-names-featured-explainer-expression-alt-1 permits: Front-page featured landing of 2026-10-13 (home-featured: the featured article pinned to the world-models taxonomy with a home dek, and the featured scene replaced by the humanoid explainer from How robots work; the reliability scene, whose only mount was home, retired), as one edge from an absent seal: the member is new. The featured explainer's poster is the still the stage shows until the reader starts the 3D scene. Its alternative text is the explainer's first step, passed from the server page, exactly the text the viewer gives the same poster on How robots work when it opens the scene. The member is new, in the new component components/home/featured-explainer.tsx.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/home/featured-explainer.tsx:alt:1",
+          "baselineHash": null,
+          "currentHash": "6a8164c789fcf90ba4393ca5830ff92445ea036f0d37d1f94895d1fbacd48fad",
+          "status": "approved-addition",
+          "approvedDelta": "home-featured-20261013-accessible-names-featured-explainer-expression-alt-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -132451,7 +132507,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/ ships 5 outbound anchor(s) across citation-chip, footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 5 outbound anchor occurrences on it with a visible focus ring in 101 stops",
+      "actual": "/ ships 5 outbound anchor(s) across citation-chip, footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 5 outbound anchor occurrences on it with a visible focus ring in 107 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132468,7 +132524,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 3,
           "reachedByTab": 5,
-          "tabStops": 101,
+          "tabStops": 107,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -148041,6 +148097,7 @@
           ],
           "ownerRouteOrMount": [
             "components/explainers/how-robots-work.tsx",
+            "components/home/featured-explainer.tsx",
             "components/interactive/terrain-curriculum.tsx",
             "components/motion/clip.tsx",
             "components/motion/scene-mount.tsx",
@@ -148101,6 +148158,7 @@
             "components/article/commit-to-reveal.tsx",
             "components/article/heading-permalink.tsx",
             "components/explainers/how-robots-work.tsx",
+            "components/home/featured-explainer.tsx",
             "components/interactive/action-conditioning.tsx",
             "components/interactive/action-tokenization.tsx",
             "components/interactive/actuator-gap.tsx",
@@ -148249,7 +148307,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
-      "actual": "rendered on 52 of 77 swept route states and reconciled exactly against the registry row",
+      "actual": "rendered on 53 of 77 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -148311,6 +148369,7 @@
           "pointerAlternative": "native pointer activation matching keyboard activation",
           "mountState": "production",
           "renderedOn": [
+            "/",
             "/adjacent/drones/",
             "/classical/calibration/",
             "/classical/control/",
@@ -157153,7 +157212,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6406 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6095 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -157485,7 +157544,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/adjacent/surgical/ rendered no v1 identity spelling and no v1 descriptor in 39632 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/adjacent/surgical/ rendered no v1 identity spelling and no v1 descriptor in 39597 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158519,7 +158578,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/bear-case/ rendered no v1 identity spelling and no v1 descriptor in 38037 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/bear-case/ rendered no v1 identity spelling and no v1 descriptor in 38031 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158660,7 +158719,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/generalization/ rendered no v1 identity spelling and no v1 descriptor in 45897 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/generalization/ rendered no v1 identity spelling and no v1 descriptor in 45894 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -159083,7 +159142,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/comparison-matrix/ rendered no v1 identity spelling and no v1 descriptor in 46620 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/comparison-matrix/ rendered no v1 identity spelling and no v1 descriptor in 46547 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -159271,7 +159330,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/generalist-policies/ rendered no v1 identity spelling and no v1 descriptor in 51451 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/generalist-policies/ rendered no v1 identity spelling and no v1 descriptor in 51387 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160305,7 +160364,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/evaluation/ rendered no v1 identity spelling and no v1 descriptor in 38786 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/evaluation/ rendered no v1 identity spelling and no v1 descriptor in 38710 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160352,7 +160411,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 47496 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/generative-sim/ rendered no v1 identity spelling and no v1 descriptor in 47336 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160399,7 +160458,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/generative-video/ rendered no v1 identity spelling and no v1 descriptor in 47098 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/generative-video/ rendered no v1 identity spelling and no v1 descriptor in 46970 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160446,7 +160505,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 42956 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/jepa/ rendered no v1 identity spelling and no v1 descriptor in 42828 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160493,7 +160552,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/latent-dynamics/ rendered no v1 identity spelling and no v1 descriptor in 38013 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/latent-dynamics/ rendered no v1 identity spelling and no v1 descriptor in 37949 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160540,7 +160599,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/model-based-robot-learning/ rendered no v1 identity spelling and no v1 descriptor in 33406 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/model-based-robot-learning/ rendered no v1 identity spelling and no v1 descriptor in 33275 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160587,7 +160646,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 44628 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 44468 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160634,7 +160693,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/world-models-vs-simulators/ rendered no v1 identity spelling and no v1 descriptor in 46687 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/world-models-vs-simulators/ rendered no v1 identity spelling and no v1 descriptor in 46559 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160717,7 +160776,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki` still resolves 37 comment-free use(s) across 13 first-party runtime file(s) and 11005 use(s) across 311 shipped .html/.js/.txt/.xml file(s) of the built export, including 133 measured destination(s), and renders nowhere as visible product identity across 75 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki` still resolves 37 comment-free use(s) across 13 first-party runtime file(s) and 11018 use(s) across 312 shipped .html/.js/.txt/.xml file(s) of the built export, including 133 measured destination(s), and renders nowhere as visible product identity across 75 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160876,14 +160935,14 @@
             "https://robot-wiki.com/world-models/taxonomy/",
             "https://robot-wiki.com/world-models/world-models-vs-simulators/"
           ],
-          "exportFileCount": 311,
+          "exportFileCount": 312,
           "exportFileKinds": [
             ".html",
             ".js",
             ".txt",
             ".xml"
           ],
-          "exportOccurrences": 11005,
+          "exportOccurrences": 11018,
           "displayMatches": [],
           "evidence": [
             "evidence/brand-v2/identity-runtime.json"
@@ -160900,7 +160959,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki.com` still resolves 17 comment-free use(s) across 6 first-party runtime file(s) and 10443 use(s) across 309 shipped .html/.js/.txt/.xml file(s) of the built export, including 133 measured destination(s), and renders nowhere as visible product identity across 75 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki.com` still resolves 17 comment-free use(s) across 6 first-party runtime file(s) and 10455 use(s) across 310 shipped .html/.js/.txt/.xml file(s) of the built export, including 133 measured destination(s), and renders nowhere as visible product identity across 75 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -161052,14 +161111,14 @@
             "https://robot-wiki.com/world-models/taxonomy/",
             "https://robot-wiki.com/world-models/world-models-vs-simulators/"
           ],
-          "exportFileCount": 309,
+          "exportFileCount": 310,
           "exportFileKinds": [
             ".html",
             ".js",
             ".txt",
             ".xml"
           ],
-          "exportOccurrences": 10443,
+          "exportOccurrences": 10455,
           "displayMatches": [],
           "evidence": [
             "evidence/brand-v2/identity-runtime.json"
@@ -212058,7 +212117,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Home renders one dominant hero with a DM Sans h1, the exact descriptor as the Geist lead, an ink primary action with a white label, selection and highlight in ink weight and 1 px ink rules with no lime or accent fill, and the research-page structure without fabricated metrics.",
-      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/search-form\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/lead-excerpt\",\"plain/module-heading/motion-scene\",\"plain/module-heading/cited-facts\",\"plain/module-heading/dated-links\",\"ruled-plain/inline-label/link-line\"],\"registeredSignatures\":[\"plain/module-heading/cited-facts (opus-pass-homepage)\",\"plain/module-heading/dated-links (opus-pass-homepage)\",\"plain/module-heading/lead-excerpt (opus-pass-homepage)\",\"plain/module-heading/motion-scene (opus-pass-homepage)\",\"ruled-plain/index-heading/row-links (opus-pass-homepage)\",\"ruled-plain/inline-label/link-line (opus-pass-homepage)\",\"sheet/display-lockup/search-form (opus-pass-homepage)\"],\"structuralVarietyTable\":[{\"index\":0,\"label\":\"Introduction\",\"declaredSignature\":\"sheet/display-lockup/search-form\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"The identity line: the public identity and the locked descriptor on the opening sheet, the registry counts, and the search form whose black submit is the primary action.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h1/87.36/400/DM Sans/none || button[rgb(28, 28, 26)/rgb(255, 255, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=1,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:1\",\"derivedSurfaceHeadingActionForm\":\"form:1\"},{\"index\":1,\"label\":\"CONTENTS\",\"declaredSignature\":\"ruled-plain/index-heading/row-links\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"The contents index: the seven canonical domains as ruled rows, each listing every published article as a plain link.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),0,1solidrgba(28, 28, 26, 0.14),0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=7,ul=7,ol=0,li=57,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:2\",\"derivedSurfaceHeadingActionForm\":\"form:2\"},{\"index\":2,\"label\":\"FEATURED ARTICLE\",\"declaredSignature\":\"plain/module-heading/lead-excerpt\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"The featured article: one title and its lead, verbatim and within 50 words, chosen by date.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:3\",\"derivedSurfaceHeadingActionForm\":\"form:3\"},{\"index\":3,\"label\":\"FEATURED SCENE\",\"declaredSignature\":\"plain/module-heading/motion-scene\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"The featured scene: one registered motion scene on its poster frame that plays only when the reader starts it.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14)|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0],button[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],button[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:4\",\"derivedSurfaceHeadingActionForm\":\"form:4\"},{\"index\":4,\"label\":\"DID YOU KNOW\",\"declaredSignature\":\"plain/module-heading/cited-facts\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"Did you know: three short facts, each cited and linked to the article that states it.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=0,ul=1,ol=0,li=3,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:5\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":5,\"label\":\"RECENTLY UPDATED\",\"declaredSignature\":\"plain/module-heading/dated-links\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"Recently updated: the five latest dated article changes, newest first.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=0,ul=0,ol=1,li=5,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:6\",\"derivedSurfaceHeadingActionForm\":\"form:6\"},{\"index\":6,\"label\":\"Tools\",\"declaredSignature\":\"ruled-plain/inline-label/link-line\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"The tools line: one row of plain links to the playground and the market map.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),0,0,0|0|no-shadow || no-heading || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=0,ul=1,ol=0,li=3,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:7\",\"derivedSurfaceHeadingActionForm\":\"form:7\"}],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\",\"form:7\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\",\"form:7\"],\"distinctStructuralForms\":7,\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":1,\"borderedCardCount\":1,\"borderedDomainRows\":0}",
+      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/search-form\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/lead-excerpt\",\"plain/module-heading/motion-scene\",\"plain/module-heading/cited-facts\",\"plain/module-heading/dated-links\",\"ruled-plain/inline-label/link-line\"],\"registeredSignatures\":[\"plain/module-heading/cited-facts (opus-pass-homepage)\",\"plain/module-heading/dated-links (opus-pass-homepage)\",\"plain/module-heading/lead-excerpt (opus-pass-homepage)\",\"plain/module-heading/motion-scene (opus-pass-homepage)\",\"ruled-plain/index-heading/row-links (opus-pass-homepage)\",\"ruled-plain/inline-label/link-line (opus-pass-homepage)\",\"sheet/display-lockup/search-form (opus-pass-homepage)\"],\"structuralVarietyTable\":[{\"index\":0,\"label\":\"Introduction\",\"declaredSignature\":\"sheet/display-lockup/search-form\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"The identity line: the public identity and the locked descriptor on the opening sheet, the registry counts, and the search form whose black submit is the primary action.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h1/87.36/400/DM Sans/none || button[rgb(28, 28, 26)/rgb(255, 255, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=1,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:1\",\"derivedSurfaceHeadingActionForm\":\"form:1\"},{\"index\":1,\"label\":\"CONTENTS\",\"declaredSignature\":\"ruled-plain/index-heading/row-links\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"The contents index: the seven canonical domains as ruled rows, each listing every published article as a plain link.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),0,1solidrgba(28, 28, 26, 0.14),0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=7,ul=7,ol=0,li=57,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:2\",\"derivedSurfaceHeadingActionForm\":\"form:2\"},{\"index\":2,\"label\":\"FEATURED ARTICLE\",\"declaredSignature\":\"plain/module-heading/lead-excerpt\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"The featured article: the editor's first pick, its title and a dek of 25 words or fewer written for home.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:3\",\"derivedSurfaceHeadingActionForm\":\"form:3\"},{\"index\":3,\"label\":\"FEATURED SCENE\",\"declaredSignature\":\"plain/module-heading/motion-scene\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"The featured scene: one 3D explainer from How robots work on its poster, which runs only when the reader starts it.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0],button[rgb(240, 243, 246)/rgb(28, 28, 26)/1],button[rgb(240, 243, 246)/rgb(63, 63, 59)/1],button[rgb(250, 250, 248)/rgb(28, 28, 26)/1],button[rgb(28, 28, 26)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(63, 63, 59)/1] || p=5,ul=1,ol=0,li=2,dl=0,figure=0,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:4\",\"derivedSurfaceHeadingActionForm\":\"form:4\"},{\"index\":4,\"label\":\"DID YOU KNOW\",\"declaredSignature\":\"plain/module-heading/cited-facts\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"Did you know: three short facts, each cited and linked to the article that states it.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=0,ul=1,ol=0,li=3,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:5\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":5,\"label\":\"RECENTLY UPDATED\",\"declaredSignature\":\"plain/module-heading/dated-links\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"Recently updated: the five latest dated article changes, newest first.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=0,ul=0,ol=1,li=5,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:6\",\"derivedSurfaceHeadingActionForm\":\"form:6\"},{\"index\":6,\"label\":\"Tools\",\"declaredSignature\":\"ruled-plain/inline-label/link-line\",\"registeredOwner\":\"opus-pass-homepage\",\"registeredPurpose\":\"The tools line: one row of plain links to the playground and the market map.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),0,0,0|0|no-shadow || no-heading || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=0,ul=1,ol=0,li=3,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:7\",\"derivedSurfaceHeadingActionForm\":\"form:7\"}],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\",\"form:7\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\",\"form:7\"],\"distinctStructuralForms\":7,\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":1,\"borderedCardCount\":0,\"borderedDomainRows\":0}",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -212112,7 +212171,7 @@
               "label": "FEATURED ARTICLE",
               "declaredSignature": "plain/module-heading/lead-excerpt",
               "registeredOwner": "opus-pass-homepage",
-              "registeredPurpose": "The featured article: one title and its lead, verbatim and within 50 words, chosen by date.",
+              "registeredPurpose": "The featured article: the editor's first pick, its title and a dek of 25 words or fewer written for home.",
               "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
               "derivedForm": "form:3",
               "derivedSurfaceHeadingActionForm": "form:3"
@@ -212122,8 +212181,8 @@
               "label": "FEATURED SCENE",
               "declaredSignature": "plain/module-heading/motion-scene",
               "registeredOwner": "opus-pass-homepage",
-              "registeredPurpose": "The featured scene: one registered motion scene on its poster frame that plays only when the reader starts it.",
-              "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14)|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0],button[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],button[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+              "registeredPurpose": "The featured scene: one 3D explainer from How robots work on its poster, which runs only when the reader starts it.",
+              "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0],button[rgb(240, 243, 246)/rgb(28, 28, 26)/1],button[rgb(240, 243, 246)/rgb(63, 63, 59)/1],button[rgb(250, 250, 248)/rgb(28, 28, 26)/1],button[rgb(28, 28, 26)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(63, 63, 59)/1] || p=5,ul=1,ol=0,li=2,dl=0,figure=0,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
               "derivedForm": "form:4",
               "derivedSurfaceHeadingActionForm": "form:4"
             },
@@ -212179,7 +212238,7 @@
           "distinctStructuralForms": 7,
           "maximumAdjacentRepeatedSignatures": 1,
           "maximumAdjacentSurfaceHeadingRun": 1,
-          "borderedCardCount": 1,
+          "borderedCardCount": 0,
           "borderedDomainRows": 0,
           "evidence": [
             "evidence/brand-v2/home-composition.json"
@@ -226016,7 +226075,7 @@
               "id": "/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 8,
+                "interfaceControlCount": 12,
                 "controlsInProse": 0,
                 "registrationLabelCount": 0
               }
@@ -228903,7 +228962,7 @@
             {
               "id": "/adjacent/autonomous-vehicles/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -228941,7 +229000,7 @@
             {
               "id": "/adjacent/drones/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -228979,7 +229038,7 @@
             {
               "id": "/adjacent/space/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229017,7 +229076,7 @@
             {
               "id": "/adjacent/surgical/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229055,7 +229114,7 @@
             {
               "id": "/classical/calibration/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229093,7 +229152,7 @@
             {
               "id": "/classical/control/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229131,7 +229190,7 @@
             {
               "id": "/classical/grasp-planning/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229169,7 +229228,7 @@
             {
               "id": "/classical/kinematics/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229207,7 +229266,7 @@
             {
               "id": "/classical/motion-planning/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229245,7 +229304,7 @@
             {
               "id": "/classical/perception/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229283,7 +229342,7 @@
             {
               "id": "/classical/ros2-for-ml-engineers/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229321,7 +229380,7 @@
             {
               "id": "/classical/scene-representation/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229359,7 +229418,7 @@
             {
               "id": "/classical/state-estimation/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229397,7 +229456,7 @@
             {
               "id": "/data-hardware/data-bottleneck/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229435,7 +229494,7 @@
             {
               "id": "/data-hardware/datasets/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229473,7 +229532,7 @@
             {
               "id": "/data-hardware/evaluation-crisis/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229511,7 +229570,7 @@
             {
               "id": "/data-hardware/hardware-taxonomy/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229549,7 +229608,7 @@
             {
               "id": "/data-hardware/industrial-deployment/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229587,7 +229646,7 @@
             {
               "id": "/data-hardware/robot-learning-stack/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229625,7 +229684,7 @@
             {
               "id": "/data-hardware/teleop-rigs/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229663,7 +229722,7 @@
             {
               "id": "/frontier/bear-case/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229701,7 +229760,7 @@
             {
               "id": "/frontier/competing-theses/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229739,7 +229798,7 @@
             {
               "id": "/frontier/dexterity/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229777,7 +229836,7 @@
             {
               "id": "/frontier/generalization/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229815,7 +229874,7 @@
             {
               "id": "/frontier/reliability-gap/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229853,7 +229912,7 @@
             {
               "id": "/frontier/safety-and-assurance/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229891,7 +229950,7 @@
             {
               "id": "/manipulation/action-chunking/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229929,7 +229988,7 @@
             {
               "id": "/manipulation/action-spaces/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -229967,7 +230026,7 @@
             {
               "id": "/manipulation/bc-foundations/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230005,7 +230064,7 @@
             {
               "id": "/manipulation/comparison-matrix/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230043,7 +230102,7 @@
             {
               "id": "/manipulation/cross-embodiment/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230081,7 +230140,7 @@
             {
               "id": "/manipulation/diffusion-policy/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230119,7 +230178,7 @@
             {
               "id": "/manipulation/foundation-models/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230157,7 +230216,7 @@
             {
               "id": "/manipulation/generalist-policies/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230195,7 +230254,7 @@
             {
               "id": "/manipulation/hierarchical/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230233,7 +230292,7 @@
             {
               "id": "/manipulation/knowledge-insulation/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230271,7 +230330,7 @@
             {
               "id": "/manipulation/pi-line/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230309,7 +230368,7 @@
             {
               "id": "/manipulation/realtime-execution/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230347,7 +230406,7 @@
             {
               "id": "/manipulation/rl-finetuning/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230385,7 +230444,7 @@
             {
               "id": "/manipulation/robot-learning-roadmap/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230423,7 +230482,7 @@
             {
               "id": "/manipulation/vla-models/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230461,7 +230520,7 @@
             {
               "id": "/rl-sim2real/humanoid-wbc/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230499,7 +230558,7 @@
             {
               "id": "/rl-sim2real/legged-locomotion/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230537,7 +230596,7 @@
             {
               "id": "/rl-sim2real/offline-rl/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230575,7 +230634,7 @@
             {
               "id": "/rl-sim2real/parallel-sim-rl/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230613,7 +230672,7 @@
             {
               "id": "/rl-sim2real/reward-design-mpc/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230651,7 +230710,7 @@
             {
               "id": "/rl-sim2real/rl-for-robotics/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230689,7 +230748,7 @@
             {
               "id": "/rl-sim2real/sim2real-transfer/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230727,7 +230786,7 @@
             {
               "id": "/rl-sim2real/why-rl-locomotion/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230765,7 +230824,7 @@
             {
               "id": "/world-models/evaluation/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230803,7 +230862,7 @@
             {
               "id": "/world-models/generative-sim/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230841,7 +230900,7 @@
             {
               "id": "/world-models/generative-video/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230879,7 +230938,7 @@
             {
               "id": "/world-models/jepa/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230917,7 +230976,7 @@
             {
               "id": "/world-models/latent-dynamics/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230955,7 +231014,7 @@
             {
               "id": "/world-models/model-based-robot-learning/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -230993,7 +231052,7 @@
             {
               "id": "/world-models/taxonomy/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93
@@ -231031,7 +231090,7 @@
             {
               "id": "/world-models/world-models-vs-simulators/",
               "observed": {
-                "mobileSizePx": 44,
+                "mobileSizePx": 40,
                 "desktopSizePx": 87.36,
                 "mobileLineHeight": 0.93,
                 "desktopLineHeight": 0.93

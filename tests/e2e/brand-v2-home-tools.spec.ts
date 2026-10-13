@@ -39,11 +39,11 @@ const ROOT = process.cwd();
  * measured where they run.
  *
  * Everything this suite decides is a property of the rendered document under
- * a stated viewport and a stated interaction: that the featured scene waits
- * for its play control and then plays, that stepping it moves its readout,
- * that the home copy and the article copy print the same stills, that the
- * tools are plain links, that no width overflows, and that no surface prints
- * an authoring counter. Each is measured once, persisted, and then decided
+ * a stated viewport and a stated interaction: that the featured explainer
+ * waits for its start control and then runs, that stepping it moves its
+ * readout, that home and the explainer's own page print the same stills,
+ * that the tools are plain links, that no width overflows, and that no
+ * surface prints an authoring counter. Each is measured once, persisted, and then decided
  * by the fail-closed readers in `lib/brand-v2-home-tools-evidence.ts`, so the
  * enforcement generator states results it did not invent.
  */
@@ -63,7 +63,7 @@ const PROGRESS_COUNTER_PATTERNS = [
  */
 const COUNT_PHRASE = /(\d[\d,]*)\s+(?:glossary\s+)?(articles?|modules?|entries|terms?|sources?|companies|company|segments?)\b/gi;
 
-/** How long the sweep watches for animation frames before and after play. */
+/** How long the sweep watches for animation frames before and after the start control. */
 const FRAME_WINDOW_MS = 800;
 
 /** Runs before any page script: counts every animation frame requested. */
@@ -84,64 +84,83 @@ async function frameRequests(page: Page): Promise<number> {
 }
 
 /**
- * The scene module a document imports, read from the document itself and
- * matched to the scene by the id its definition declares. Null when the
- * document mounts no module that defines this scene.
+ * The viewer and scene module a document drives its explainer stage with,
+ * read from the document itself: a component it imports and mounts that
+ * loads the explainer viewer, while the explainer catalog loads this scene's
+ * module. Null when the document mounts no such component, so a look-alike
+ * copy on home has nothing to name.
  */
 function sceneImport(documentPath: string, sceneId: string): string | null {
   if (!existsSync(join(ROOT, documentPath))) return null;
+  const catalog = readFileSync(join(ROOT, 'components/explainers/catalog.ts'), 'utf8');
+  if (!catalog.includes(`import('./scenes/${sceneId}.js')`)) return null;
   const text = readFileSync(join(ROOT, documentPath), 'utf8');
-  const specifiers = text.matchAll(
-    /import\s+\{[^}]*\}\s+from\s+'@\/(components\/motion\/scenes\/[^']+)'/g,
-  );
-  for (const [, specifier] of specifiers) {
+  for (const [, names, specifier] of text.matchAll(
+    /import\s+\{([^}]*)\}\s+from\s+'@\/(components\/[^']+)'/g,
+  )) {
     const path = `${specifier}.tsx`;
     if (!existsSync(join(ROOT, path))) continue;
-    if (readFileSync(join(ROOT, path), 'utf8').includes(`id: '${sceneId}'`)) {
-      return path;
+    const component = readFileSync(join(ROOT, path), 'utf8');
+    const viewer =
+      /import\(\s*'@\/components\/explainers\/viewer'\s*\)/.test(component) ||
+      (path.startsWith('components/explainers/') && /import\(\s*'\.\/viewer'\s*\)/.test(component));
+    const mounted = names
+      .split(',')
+      .map((name) => name.trim())
+      .some((name) => name.length > 0 && new RegExp(`<${name}\\b`).test(text));
+    if (viewer && mounted) {
+      return `components/explainers/viewer.ts > components/explainers/scenes/${sceneId}.js`;
     }
   }
   return null;
 }
 
-/**
- * The document behind a registered scene route, by the content layout. The
- * scene registry can assign a scene to `/` when home is its only mount, and
- * home's document is the app page rather than a content file.
- */
-function articleDocument(route: string): string {
-  return route === HOME_TOOLS_ROUTE
-    ? 'app/page.tsx'
-    : `content${route.replace(/\/$/, '')}.mdx`;
+/** The app document behind a route: home's page, or the route's own page. */
+function sceneDocument(route: string): string {
+  const path = route.replace(/#.*$/, '');
+  return path === HOME_TOOLS_ROUTE ? 'app/page.tsx' : `app${path.replace(/\/$/, '')}/page.tsx`;
 }
 
 const normalise = (text: string) => text.replace(/\s+/g, ' ').trim();
-/** The readout and caption a scene prints right now. */
-async function sceneStill(page: Page, sceneId: string) {
-  const scene = page.locator(`main [data-motion-scene="${sceneId}"]`).first();
+/** The readout and step text the explainer prints right now. */
+async function sceneStill(page: Page) {
+  const root = page.locator('main [data-explainers]').first();
   return {
-    readout: normalise(await scene.getByTestId('motion-readout').innerText()),
-    caption: normalise(await scene.getByTestId('motion-caption').innerText()),
+    readout: normalise(await root.locator('[data-readout]').innerText()),
+    caption: normalise(await root.locator('[data-step-text]').innerText()),
   };
 }
 
-/** Enough for one keypress to settle into a re-rendered still. */
-const SETTLE_MS = 150;
+/** Enough for one keypress to settle into the step's readout and text. */
+const SETTLE_MS = 300;
+
+type ExplainerHook = { id: string; live: boolean; busy: boolean };
 
 /**
- * Reads one scene the way a keyboard reader meets it: the poster at first
- * paint, an untouched window, play by Enter, the key script, and reset by
- * Enter twice. Home and the scene's article go through this one function,
- * so the two observations differ only in where they were taken.
+ * Reads one explainer the way a keyboard reader meets it: the poster at
+ * first paint, an untouched window with the stage in view, the start control
+ * by Enter where the page has one, the key script, and reset by Enter twice.
+ * Home and the explainer's own page go through this one function, so the two
+ * observations differ only in where they were taken.
  */
 async function observeScene(
   page: Page,
   url: string,
   route: string,
-  sceneId: string | null,
   documentPath: string,
 ): Promise<SceneObservation & { heading: string }> {
   await page.addInitScript(installFrameCounter);
+  // three.js's renderer is the one module that carries this message.
+  const kitChunks: string[] = [];
+  page.on('response', (response) => {
+    if (!/\/_next\/static\/chunks\/.+\.js/.test(response.url())) return;
+    void response
+      .text()
+      .then((body) => {
+        if (body.includes('THREE.WebGLRenderer')) kitChunks.push(response.url());
+      })
+      .catch(() => undefined);
+  });
   await page.setViewportSize({
     width: HOME_TOOLS_VIEWPORT.width,
     height: HOME_TOOLS_VIEWPORT.height,
@@ -152,135 +171,175 @@ async function observeScene(
   await page.evaluate(() => document.fonts.ready);
   await page.mouse.move(2, 2);
 
-  const scenes = page.locator('main [data-motion-scene]');
-  const sceneCount = await scenes.count();
-  const id = sceneId ?? (await scenes.first().getAttribute('data-motion-scene')) ?? '';
-  const scene = page.locator(`main [data-motion-scene="${id}"]`).first();
-  const play = scene.getByTestId('motion-poster');
-  await expect(play, `${route} shows the ${id} poster`).toBeVisible();
+  const sceneCount = await page.locator('main [data-explainers], main [data-motion-scene]').count();
+  const root = page.locator('main [data-explainers]').first();
+  const stage = root.locator('[data-x="stage"]');
+  await expect(stage, `${route} shows an explainer stage`).toBeVisible();
 
-  const poster = await scene.evaluate((frame) => {
-    const text = (selector: string) =>
-      (frame.querySelector(selector)?.textContent ?? '').replace(/\s+/g, ' ').trim();
-    const graphic = frame.querySelector('[data-motion-stage] svg, [data-motion-stage] canvas');
-    const box = graphic?.getBoundingClientRect();
-    const described = (frame.getAttribute('aria-describedby') ?? '')
+  const firstPaint = await root.evaluate((element) => {
+    const text = (node: Element | null) => (node?.textContent ?? '').replace(/\s+/g, ' ').trim();
+    const frame = element.closest('[data-explainer-scene]');
+    const described = (frame?.getAttribute('aria-describedby') ?? '')
       .split(/\s+/)
       .filter(Boolean)
       .map((ref) => document.getElementById(ref)?.textContent ?? '')
       .join(' ')
       .replace(/\s+/g, ' ')
       .trim();
-    const marks = [...frame.querySelectorAll('[data-motion-stage] [data-scene-mark]')].filter(
-      (mark) => {
-        const rect = mark.getBoundingClientRect();
-        return rect.width > 0 && rect.height > 0;
-      },
-    );
-    const controls = [...frame.querySelectorAll('button, input, select, [tabindex="0"]')]
-      .filter((control) => !(control as HTMLButtonElement).disabled)
-      .map((control) => control.getAttribute('aria-label') ?? (control.textContent ?? '').trim());
+    const stageElement = element.querySelector('[data-x="stage"]')!;
+    const box = stageElement.getBoundingClientRect();
+    const poster = element.querySelector<HTMLImageElement>('[data-x="poster"]');
+    const posterBox = poster?.getBoundingClientRect();
+    const painted =
+      !!poster &&
+      stageElement.getAttribute('data-mode') === 'poster' &&
+      poster.complete &&
+      poster.naturalWidth > 0 &&
+      !!posterBox &&
+      posterBox.width > 0 &&
+      posterBox.height > 0 &&
+      poster.checkVisibility();
+    const controls = [...element.querySelectorAll('button, input, select, [tabindex="0"]')]
+      .filter(
+        (control) =>
+          !(control as HTMLButtonElement).disabled && (control as HTMLElement).checkVisibility(),
+      )
+      .map((control) => control.getAttribute('aria-label') ?? text(control));
+    const hook = (window as unknown as { __explainer?: { id: string } }).__explainer;
+    const current = document.querySelector('[data-rail-id][data-current] span:last-child');
     return {
-      frameRole: frame.getAttribute('role'),
-      frameAriaLabel: frame.getAttribute('aria-label'),
+      sceneId: frame?.getAttribute('data-explainer-scene') ?? hook?.id ?? '',
+      frameRole: frame?.getAttribute('role') ?? null,
+      frameAriaLabel: frame?.getAttribute('aria-label') ?? null,
       describedByText: described.length > 0 ? described : null,
-      graphicTag: graphic ? graphic.tagName.toLowerCase() : null,
-      graphicTopPx: box ? Math.round(box.top + window.scrollY) : Number.MAX_SAFE_INTEGER,
-      graphicHeightPx: box ? Math.round(box.height) : 0,
-      posterMarkCount: marks.length,
-      playerMountedAtFirstPaint: frame.querySelector('[data-testid="motion-scrubber"]') !== null,
+      graphicTopPx: Math.round(box.top + window.scrollY),
+      posterSrc: poster?.getAttribute('src') ?? null,
+      posterMarkCount: painted ? 1 : 0,
+      canvas: stageElement.querySelector('canvas') !== null,
       posterControls: controls,
-      statusLine: text('[data-scene-status]'),
-      heading: text('[data-figure-title]'),
+      posterCaption: text(element.querySelector('[data-step-text]')),
+      heading: frame
+        ? (frame.getAttribute('aria-label') ?? '').replace(/^3D explainer:\s*/, '')
+        : text(current),
     };
   });
 
-  // Read the same way every later still is read, so poster and reset
-  // compare text with text rather than two extraction methods.
-  const posterStill = await sceneStill(page, id);
-
-  // Nobody has touched the page: whatever it animates now, it autoplays.
+  // Nobody has touched the page and the stage is in view: whatever it
+  // animates or loads now, it does on its own.
+  await stage.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(SETTLE_MS);
   const idleStart = await frameRequests(page);
   await page.waitForTimeout(FRAME_WINDOW_MS);
   const idleFrameRequests = (await frameRequests(page)) - idleStart;
+  const playerMountedAtFirstPaint =
+    firstPaint.canvas || kitChunks.length > 0 || (await stage.locator('canvas').count()) > 0;
 
-  await play.focus();
-  // The control eases its colours, the outline's among them, from the text
-  // colour to the focus colour, so read the ring once those transitions end.
-  const focus = await play.evaluate(async (element) => {
-    await Promise.all(
-      element
-        .getAnimations()
-        .filter((animation) => 'transitionProperty' in animation)
-        .map((animation) => animation.finished.catch(() => undefined)),
-    );
-    const style = getComputedStyle(element);
-    return {
-      focused: document.activeElement === element,
-      width: parseFloat(style.outlineWidth),
-      style: style.outlineStyle,
-      colour: style.outlineColor,
-    };
-  });
-  expect(focus.focused, `${route} play control takes keyboard focus`).toBe(true);
-
+  // The start control, where the page waits for one; the explainer's own
+  // page starts the scene itself once the stage is near.
+  const start = root.locator('[data-x="start"]');
+  const startControl = (await start.isVisible()) ? normalise(await start.innerText()) : null;
+  let focus: { width: number; style: string; colour: string } | null = null;
+  if (startControl !== null) {
+    await start.focus();
+    // The control eases its colours, the outline's among them, so read the
+    // ring once those transitions end.
+    const ring = await start.evaluate(async (element) => {
+      await Promise.all(
+        element
+          .getAnimations()
+          .filter((animation) => 'transitionProperty' in animation)
+          .map((animation) => animation.finished.catch(() => undefined)),
+      );
+      const style = getComputedStyle(element);
+      return {
+        focused: document.activeElement === element,
+        width: parseFloat(style.outlineWidth),
+        style: style.outlineStyle,
+        colour: style.outlineColor,
+      };
+    });
+    expect(ring.focused, `${route} start control takes keyboard focus`).toBe(true);
+    focus = ring;
+  }
   const playStart = await frameRequests(page);
-  await page.keyboard.press('Enter');
-  await expect(scene.getByTestId('motion-scrubber')).toBeVisible();
+  if (startControl !== null) await page.keyboard.press('Enter');
+  await page.waitForFunction(
+    () => (window as unknown as { __explainer?: ExplainerHook }).__explainer?.live === true,
+    undefined,
+    { timeout: 90_000 },
+  );
   await page.waitForTimeout(FRAME_WINDOW_MS);
   const playingFrameRequests = (await frameRequests(page)) - playStart;
+  await page.waitForFunction(
+    () => (window as unknown as { __explainer?: ExplainerHook }).__explainer?.busy === false,
+    undefined,
+    { timeout: 30_000 },
+  );
+  const live = await stage.evaluate((element) => {
+    const canvas = element.querySelector('canvas');
+    const box = canvas?.getBoundingClientRect();
+    return {
+      tag: canvas && element.getAttribute('data-mode') === 'live' ? canvas.tagName.toLowerCase() : null,
+      heightPx: box ? Math.round(box.height) : 0,
+    };
+  });
+  const opening = await sceneStill(page);
 
   const steps: SceneObservation['steps'] = [];
   for (const key of SCENE_KEY_SCRIPT) {
-    await page.keyboard.press(key);
+    await root.getByRole('button', { name: key, exact: true }).focus();
+    await page.keyboard.press('Enter');
     await page.waitForTimeout(SETTLE_MS);
-    steps.push({ key, ...(await sceneStill(page, id)) });
+    steps.push({ key, ...(await sceneStill(page)) });
   }
 
-  // Reset sits in the frame's closed "Adjust more" fold; open it the way a
-  // reader does, through its summary.
-  const adjustFold = scene.locator('[data-figure-fold="adjust"]').first();
-  if (!(await adjustFold.evaluate((element) => (element as HTMLDetailsElement).open))) {
-    await adjustFold.locator(':scope > summary').click();
-  }
-  await expect(adjustFold).toHaveJSProperty('open', true);
-
-  const reset = scene.getByRole('button', { name: /reset the scene/i });
+  // Reset is the first step's control in the step rail.
+  const reset = root.getByRole('button', { name: 'Step 1', exact: true });
   const resetControlNames = await reset.evaluateAll((controls) =>
     controls.map((control) => control.getAttribute('aria-label') ?? ''),
   );
   await reset.first().focus();
   await page.keyboard.press('Enter');
   await page.waitForTimeout(SETTLE_MS);
-  const afterReset = await sceneStill(page, id);
-  await page.keyboard.press('Home');
-  await page.keyboard.press('ArrowRight');
+  const afterReset = await sceneStill(page);
+  await root.getByRole('button', { name: 'Next', exact: true }).focus();
+  await page.keyboard.press('Enter');
   await page.waitForTimeout(SETTLE_MS);
   await reset.first().focus();
   await page.keyboard.press('Enter');
   await page.waitForTimeout(SETTLE_MS);
-  const afterSecondReset = await sceneStill(page, id);
+  const afterSecondReset = await sceneStill(page);
 
-  const { heading, ...firstPaint } = poster;
   return {
-    sceneId: id,
+    sceneId: firstPaint.sceneId,
+    frameRole: firstPaint.frameRole,
+    frameAriaLabel: firstPaint.frameAriaLabel,
+    describedByText: firstPaint.describedByText,
+    graphicTopPx: firstPaint.graphicTopPx,
+    posterSrc: firstPaint.posterSrc,
+    posterMarkCount: firstPaint.posterMarkCount,
+    posterControls: firstPaint.posterControls,
+    posterCaption: firstPaint.posterCaption,
+    heading: firstPaint.heading,
     route,
     sceneCount,
-    ...firstPaint,
-    posterReadout: posterStill.readout,
-    posterCaption: posterStill.caption,
-    heading,
+    graphicTag: live.tag,
+    graphicHeightPx: live.heightPx,
+    playerMountedAtFirstPaint,
     idleFrameRequests,
     playingFrameRequests,
-    focusOutlineWidthPx: Number.isFinite(focus.width) ? focus.width : null,
-    focusOutlineStyle: focus.style || null,
-    focusOutlineColour: focus.colour || null,
+    startControl,
+    focusOutlineWidthPx: focus && Number.isFinite(focus.width) ? focus.width : null,
+    focusOutlineStyle: focus?.style || null,
+    focusOutlineColour: focus?.colour || null,
+    openingReadout: opening.readout,
+    openingCaption: opening.caption,
     steps,
     resetControlNames,
     resetReadout: afterReset.readout,
     resetCaption: afterReset.caption,
     secondResetReadout: afterSecondReset.readout,
-    componentModule: sceneImport(documentPath, id),
+    componentModule: sceneImport(documentPath, firstPaint.sceneId),
   };
 }
 /** Runs in the page: the elements that overflow with nothing clipping them. */
@@ -399,35 +458,34 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
 
   const evidence: Partial<HomeToolsEvidence> = {};
 
-  test('the featured scene waits for play, steps, resets, and matches its article', async ({
+  test('the featured scene waits for its start control, steps, resets, and matches its own page', async ({
     browser,
     staticBase,
   }) => {
-    test.setTimeout(120_000);
+    test.setTimeout(240_000);
     const homeContext = await browser.newContext();
     const { heading, ...home } = await observeScene(
       await homeContext.newPage(),
       `${staticBase}${HOME_TOOLS_ROUTE}`,
       HOME_TOOLS_ROUTE,
-      null,
       'app/page.tsx',
     );
     await homeContext.close();
-    evidence.featured = { ...home, claimText: `${heading}. ${home.posterCaption}` };
+    evidence.featured = { ...home, claimText: `${heading}. ${home.describedByText ?? ''}` };
 
-    // The article is the one the scene registry assigns the scene to, never
-    // a route this suite names, so featuring another scene moves the pair.
+    // The page is the one the explainer catalog serves the scene on, never
+    // a route this suite names, so featuring another explainer moves the pair.
     const canonical = sceneCanonicalRoute(home.sceneId);
-    expect(canonical, `${home.sceneId} is a registered scene`).not.toBeNull();
+    expect(canonical, `${home.sceneId} is a catalogued explainer`).not.toBeNull();
     const articleContext = await browser.newContext();
     const { heading: articleHeading, ...article } = await observeScene(
       await articleContext.newPage(),
       `${staticBase}${canonical}`,
       canonical!,
-      home.sceneId,
-      articleDocument(canonical!),
+      sceneDocument(canonical!),
     );
     await articleContext.close();
+    expect(article.sceneId).toBe(home.sceneId);
     expect(articleHeading).toBe(heading);
     evidence.moduleScene = article;
   });
@@ -597,12 +655,14 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
     await withPage(
       { viewport: { width: 1440, height: 900 } },
       async (page) => {
-        // Controls sealed inside a closed disclosure and disabled poster
-        // transports are deliberately out of the tab order. The summary
-        // and the poster's Play control are the reachable entry points;
-        // activating the scene makes its transport controls operable.
+        // Controls sealed inside a closed disclosure, a disabled Back on the
+        // first step and the explainer's parts that wait, hidden, for a
+        // later step (its summary, guess and part card) are deliberately out
+        // of the tab order. The poster's start control and the step rail are
+        // the reachable entry points; starting the scene makes the stage
+        // itself operable.
         const reachable =
-          ':not(details:not([open]) *):not(:disabled)';
+          ':not(details:not([open]) *):not([hidden] *):not(:disabled)';
         const controls = page.locator(
           [
             'a[href]',
@@ -672,14 +732,19 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
             'main h1',
             'main section',
             'main input[type="search"]',
-            'main [data-motion-scene] [data-motion-stage] svg',
-            'main [data-motion-scene] [data-testid="motion-poster"]',
+            'main [data-explainer-scene] [data-x="stage"] img[data-x="poster"]',
+            'main [data-explainer-scene] [data-x="start"]',
             'main a[href]',
           ];
           const failures: string[] = [];
           let measured = 0;
           for (const selector of required) {
-            const elements = [...document.querySelectorAll(selector)];
+            // A subtree the page hides on purpose until the reader reaches
+            // it (the explainer's later steps) is no content that survived
+            // or collapsed; every other match has to keep its box.
+            const elements = [...document.querySelectorAll(selector)].filter(
+              (element) => element.closest('[hidden]') === null,
+            );
             if (elements.length === 0) {
               failures.push(`${selector} renders nothing under forced colours`);
               continue;
@@ -979,7 +1044,7 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
   });
   /**
    * The plant proof. An autoplaying scene has to fail the autoplay anchor
-   * and only it, an article copy that drifts at one still has to fail the
+   * and only it, a page copy that drifts at one still has to fail the
    * clause that still belongs to and only it, and a preview in the tools line
    * has to fail the plain-link anchor; otherwise these rows are one boolean
    * wearing several names.
@@ -1005,8 +1070,8 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
         featuredInstrumentVerdicts(
           plant((e) => {
             e.featured.steps[2].readout = e.featured.steps[2].readout.replace(
-              /episode \d+(?:\.\d+)?%/,
-              'episode 42.0%',
+              /about \d+ kilograms/,
+              'about 5 kilograms',
             );
           }),
         ),
@@ -1038,7 +1103,7 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
     expect(
       failing(
         crossMountVerdicts(
-          plant((e) => (e.moduleScene.steps[2].readout = 'beat 2 / 4 conditional rate 99.0% episode 70.0%')),
+          plant((e) => (e.moduleScene.steps[2].readout = 'The knees have the strongest motors. Each arm can carry only about 5 kilograms.')),
         ),
       ),
     ).toEqual([CROSS_CONTEXT_CLAUSES.sharedInputsSharedReadout]);
@@ -1046,9 +1111,9 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
       failing(
         crossMountVerdicts(
           plant((e) => {
-            e.moduleScene.posterReadout = 'beat 1 / 4 conditional rate 95.0% episode 21.5%';
-            e.moduleScene.resetReadout = e.moduleScene.posterReadout;
-            e.moduleScene.secondResetReadout = e.moduleScene.posterReadout;
+            e.moduleScene.openingReadout = 'The G1: 1.32 metres tall.';
+            e.moduleScene.resetReadout = e.moduleScene.openingReadout;
+            e.moduleScene.secondResetReadout = e.moduleScene.openingReadout;
           }),
         ),
       ),
@@ -1056,7 +1121,7 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
     expect(
       failing(
         crossMountVerdicts(
-          plant((e) => (e.featured.componentModule = 'components/home/reliability-copy.tsx')),
+          plant((e) => (e.featured.componentModule = 'components/home/humanoid-copy.tsx')),
         ),
       ),
     ).toEqual([CROSS_CONTEXT_CLAUSES.sameComponent]);

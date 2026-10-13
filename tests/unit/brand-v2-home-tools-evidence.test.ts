@@ -15,14 +15,16 @@ import {
   homeDesignBoundVerdicts,
   homeToolsEvidenceFingerprint,
   progressCounterVerdicts,
+  UNITREE_G1_SPEC,
   readHomeToolsEvidence,
-  readoutPercent,
+  readoutNumbers,
   requiredSweepWidths,
   responsiveOverflowVerdicts,
   sceneCanonicalRoute,
   toolsLineVerdicts,
   type HomeToolsEvidence,
 } from '@/lib/brand-v2-home-tools-evidence';
+import { EXPLAINER_WORDS } from '@/components/explainers/words';
 import { homeCounts } from '@/lib/home-counts';
 import { progressCounterSurfaces } from '@/lib/home-populations';
 
@@ -126,7 +128,7 @@ describe('home tools evidence', () => {
           e.moduleScene.sceneId = 'invented-scene';
         }),
       ),
-    ).toThrow(/which the scene registry does not register/);
+    ).toThrow(/which the explainer catalog does not list/);
     expect(() =>
       accept(mutate((e) => (e.moduleScene.route = '/frontier/'))),
     ).toThrow(/would compare the wrong pair/);
@@ -176,14 +178,17 @@ describe('home tools evidence', () => {
     );
   });
 
-  it('features exactly one registered scene and reads its article from the scene registry', () => {
+  it('features exactly one catalogued explainer and reads its page from the catalog', () => {
     const evidence = accept(committed());
     expect(evidence.featured.sceneCount).toBe(1);
+    expect(evidence.featured.sceneId).toBe('humanoid');
+    expect(sceneCanonicalRoute(evidence.featured.sceneId)).toBe('/how-robots-work/#humanoid');
+    expect(sceneCanonicalRoute('reliability-threshold')).toBeNull();
     expect(evidence.moduleScene.route).toBe(
       sceneCanonicalRoute(evidence.featured.sceneId),
     );
     expect(evidence.featured.componentModule).toBe(
-      `components/motion/scenes/${evidence.featured.sceneId}.tsx`,
+      `components/explainers/viewer.ts > components/explainers/scenes/${evidence.featured.sceneId}.js`,
     );
     expect(evidence.featured.steps.map(({ key }) => key)).toEqual([
       ...SCENE_KEY_SCRIPT,
@@ -199,10 +204,16 @@ describe('home tools evidence', () => {
     expect(planted((e) => (e.featured.idleFrameRequests = 3))).toEqual([
       'anchor:featured-no-autoplay',
     ]);
+    expect(planted((e) => (e.featured.startControl = null))).toEqual([
+      'anchor:featured-no-autoplay',
+    ]);
     expect(planted((e) => (e.featured.playingFrameRequests = 0))).toEqual([
       'anchor:featured-plays-on-activation',
     ]);
     expect(planted((e) => (e.featured.posterMarkCount = 0))).toEqual([
+      'anchor:featured-poster-at-first-paint',
+    ]);
+    expect(planted((e) => (e.featured.posterSrc = '/explainers/posters/arm.webp'))).toEqual([
       'anchor:featured-poster-at-first-paint',
     ]);
     expect(planted((e) => (e.featured.playerMountedAtFirstPaint = true))).toEqual([
@@ -226,76 +237,89 @@ describe('home tools evidence', () => {
     expect(planted((e) => (e.featured.claimText = 'Featured scene.'))).toEqual([
       'anchor:featured-claim-and-current-state',
     ]);
-    // A reset that lands on another model-consistent still: only the reset
-    // anchor can tell it from the poster.
+    // A reset that lands on another spec-consistent still: only the reset
+    // anchor can tell it from the opening.
     expect(
       planted((e) => {
-        e.featured.resetReadout = e.featured.steps[0].readout;
-        e.featured.resetCaption = e.featured.steps[0].caption;
+        e.featured.resetReadout = e.featured.steps[2].readout;
+        e.featured.resetCaption = e.featured.steps[2].caption;
       }),
     ).toEqual(['anchor:featured-deterministic-reset']);
-    // Keys that never move the still: the stills stay model-consistent, so
+    // Keys that never move the still: the stills stay spec-consistent, so
     // only operability fails.
     expect(
       planted((e) => {
         for (const step of e.featured.steps) {
-          step.readout = e.featured.posterReadout;
-          step.caption = e.featured.posterCaption;
+          step.readout = e.featured.openingReadout;
+          step.caption = e.featured.openingCaption;
         }
       }),
     ).toEqual(['anchor:featured-keyboard-operable']);
   }, 30_000);
 
-  it('checks every printed still against the scene model instead of trusting it', () => {
-    const model = FEATURED_SCENE_MODELS['reliability-threshold'];
-    const status = 'Illustrative model: all 30 decisions succeed independently at the same rate.';
-    expect(model('beat 1 / 4 conditional rate 95.0% episode 21.5%', status)).toBeNull();
-    expect(model('beat 3 / 4 conditional rate 99.9% episode 97.0%', status)).toBeNull();
-    expect(model('beat 2 / 4 conditional rate 99.0% episode 70.0%', status)).toMatch(
-      /compounds to 74\.0%/,
-    );
-    expect(model('beat 2 / 4 conditional rate 99.0% episode 74.0%', 'A toy model.')).toMatch(
-      /states no decision horizon/,
-    );
-    expect(model('beat 2 / 4', status)).toMatch(/prints no conditional rate/);
-    expect(readoutPercent('episode 35.8%')).toBe(35.8);
-    expect(readoutPercent('no number here')).toBeNull();
+  it('checks every printed still against the G1 spec model instead of trusting it', () => {
+    const model = FEATURED_SCENE_MODELS.humanoid;
+    const g1 = UNITREE_G1_SPEC;
+    expect(g1.legMotors + g1.armMotors + g1.waistMotors).toBe(g1.motors);
+    expect(model('The G1, made by the company Unitree: 1.32 metres tall, about 35 kilograms.')).toBeNull();
+    expect(
+      model('Motors: legs 12, arms 10, waist 1. That is all 23; the standard hands and the torso have none.'),
+    ).toBeNull();
+    expect(model('The knees have the strongest motors. Each arm can carry only about 2 kilograms.')).toBeNull();
+    expect(model('One charge lasts about 2 hours. Then a person can swap in a charged battery.')).toBeNull();
+    expect(
+      model('The standard G1 has 23. Optional three-finger hands add 14, more than the 12 in the legs. With every optional extra, a G1 has up to 43.'),
+    ).toBeNull();
+    expect(model("Inside a humanoid. Of a Unitree G1's 23 motors, 12 move its legs and keep it balanced.")).toBeNull();
+    expect(model('Motors: 17')).toBeNull();
+    expect(model('')).toBeNull();
+    expect(model('Motors: 24')).toMatch(/counts past the 23 motors/);
+    expect(model('The G1: 1.52 metres tall, about 35 kilograms.')).toMatch(/1\.52 as a height in metres/);
+    expect(model('Each arm can carry only about 5 kilograms.')).toMatch(/5 as a mass in kilograms/);
+    expect(model('One charge lasts about 3 hours.')).toMatch(/3 as a battery hours/);
+    expect(model('Motors: legs 12, arms 10, waist 1. That is all 24; none elsewhere.')).toMatch(/tallies/);
+    expect(model('It has 30 motors.')).toMatch(/prints 30, which is no motor count/);
+    expect(readoutNumbers("Of a Unitree G1's 23 motors, 12 move its legs")).toEqual([23, 12]);
+    expect(readoutNumbers('no number here')).toEqual([]);
 
     const fabricated = featuredInstrumentVerdicts(
       accept(
         mutate((e) => {
           e.featured.steps[2].readout = e.featured.steps[2].readout.replace(
-            /episode \d+(?:\.\d+)?%/,
-            'episode 42.0%',
+            /about \d+ kilograms/,
+            'about 5 kilograms',
           );
         }),
       ),
     );
     expect(failing(fabricated)).toEqual(['anchor:featured-no-fabricated-telemetry']);
+    const misquoted = featuredInstrumentVerdicts(
+      accept(mutate((e) => (e.featured.claimText = e.featured.claimText.replace('23 motors', '25 motors')))),
+    );
+    expect(failing(misquoted)).toEqual(['anchor:featured-no-fabricated-telemetry']);
 
     // A featured scene nobody wrote a model for is unchecked, and fails.
     const evidence = accept(committed());
     const unmodelled = featuredInstrumentVerdicts({
       ...evidence,
-      featured: { ...evidence.featured, sceneId: 'tactile-slip' },
+      featured: { ...evidence.featured, sceneId: 'arm', posterSrc: '/explainers/posters/arm.webp' },
     });
     expect(failing(unmodelled)).toEqual(['anchor:featured-no-fabricated-telemetry']);
     expect(unmodelled.flatMap(({ failures }) => failures).join(' ')).toMatch(
-      /no independent model is declared for tactile-slip/,
+      /no independent model is declared for arm/,
     );
   });
-  it('compares home with the scene article still against still', () => {
+  it('compares home with the explainer page still against still', () => {
     const evidence = accept(committed());
     const rows = crossContextStates(evidence);
     expect(rows.map(({ state }) => state)).toEqual([
-      'poster',
-      'status line',
+      'opening',
       ...SCENE_KEY_SCRIPT.map((key, index) => `step ${index + 1} (${key})`),
       'reset',
       'second reset',
     ]);
     expect(rows.every(({ agrees }) => agrees)).toBe(true);
-    // The article copy moves with the keys too: agreement is not two stills
+    // The page copy moves with the keys too: agreement is not two stills
     // that never changed.
     expect(new Set(evidence.moduleScene.steps.map(({ readout }) => readout)).size).toBeGreaterThan(1);
     expect(crossMountVerdicts(evidence).map(({ id }) => id)).toEqual(
@@ -312,25 +336,28 @@ describe('home tools evidence', () => {
     ).toEqual([CROSS_CONTEXT_CLAUSES.sharedInputsSharedReadout]);
     expect(
       planted((e) => {
-        e.moduleScene.posterReadout = e.moduleScene.steps[0].readout;
-        e.moduleScene.resetReadout = e.moduleScene.posterReadout;
-        e.moduleScene.secondResetReadout = e.moduleScene.posterReadout;
+        e.moduleScene.openingReadout = e.moduleScene.steps[2].readout;
+        e.moduleScene.resetReadout = e.moduleScene.openingReadout;
+        e.moduleScene.secondResetReadout = e.moduleScene.openingReadout;
       }),
     ).toEqual([CROSS_CONTEXT_CLAUSES.identicalResetState]);
     expect(
-      planted((e) => (e.moduleScene.statusLine = 'A separate calculator on home tests other rates.')),
+      planted((e) => {
+        e.moduleScene.openingCaption = 'A different first step.';
+        e.moduleScene.resetCaption = e.moduleScene.openingCaption;
+      }),
     ).toEqual([CROSS_CONTEXT_CLAUSES.identicalResetState]);
     // Reset drifting in one context only: that context no longer returns to
-    // its own poster, and the two contexts no longer agree.
+    // its own opening, and the two contexts no longer agree.
     const drifted = crossMountVerdicts(
-      accept(mutate((e) => (e.moduleScene.resetReadout = e.moduleScene.steps[0].readout))),
+      accept(mutate((e) => (e.moduleScene.resetReadout = e.moduleScene.steps[2].readout))),
     );
     expect(failing(drifted)).toEqual([CROSS_CONTEXT_CLAUSES.identicalResetState]);
     expect(drifted.flatMap(({ failures }) => failures).join(' ')).toMatch(
-      /rather than its own poster/,
+      /rather than its own opening/,
     );
     expect(
-      planted((e) => (e.featured.componentModule = 'components/home/reliability-copy.tsx')),
+      planted((e) => (e.featured.componentModule = 'components/home/humanoid-copy.tsx')),
     ).toEqual([CROSS_CONTEXT_CLAUSES.sameComponent]);
     expect(planted((e) => (e.moduleScene.componentModule = null))).toEqual([
       CROSS_CONTEXT_CLAUSES.sameComponent,
@@ -419,11 +446,12 @@ describe('home tools evidence', () => {
         JSON.stringify(drift),
       ).toEqual(['bound:home-micro-labels']);
     }
-    // Home's one figure carries the frame's "Adjust more" fold, and its
-    // summary is measured like any other chart disclosure, not excused.
+    // Home's one figure is the featured explainer, whose self-check fold
+    // waits for the last step; its summary is measured like any other
+    // disclosure, not excused.
     expect(
       committed().designBounds.chartDisclosureSummaries.map(({ text }) => text),
-    ).toEqual(['Adjust more']);
+    ).toEqual([`Check yourself: ${EXPLAINER_WORDS.humanoid.selfCheck.q}`]);
     expect(failing(homeDesignBoundVerdicts(accept(committed())))).toEqual([]);
     expect(
       planted((e) =>

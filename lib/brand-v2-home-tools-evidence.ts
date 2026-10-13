@@ -8,21 +8,23 @@ import {
 } from './brand-v2-evidence-closure.ts';
 import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 import { BRAND_V2_RESPONSIVE_VIEWPORTS } from './brand-v2-responsive-viewports.ts';
-import { SCENE_TARGETS } from './motion-scene-registry.ts';
+import { EXPLAINER_ORDER } from '../components/explainers/catalog.ts';
 
 /**
  * Evidence for home's featured scene, its tools line, and its
  * responsive/accessible convergence, and the fail-closed readers that decide
- * whether that evidence may grant a result.
+ * whether that evidence may grant a result. The featured scene is a 3D
+ * explainer from /how-robots-work/ (the owner's front-page decision of 13
+ * October 2026), on its poster until the reader starts it.
  *
  * The assertions here (`VAL-NAV-006`, `VAL-NAV-007`, `VAL-CROSS-015`,
  * `VAL-DESIGN-004`, `VAL-DESIGN-013`, `VAL-DESIGN-014`, `VAL-DESIGN-015`,
  * `VAL-EDU-027`, `VAL-OPUS-017`, `VAL-OPUS-020`, `VAL-ADJ-018` and
  * `VAL-B2-SHELL-009`) are all claims about a rendered document under a
  * stated viewport and a stated interaction. None of them is decidable from
- * source: whether a scene waits for its play control, whether stepping it
- * moves its readout, whether the home copy and the article copy agree,
- * whether a figure begins above 1200px, and whether any width overflows are
+ * source: whether a scene waits for its start control, whether stepping it
+ * moves its readout, whether the home copy and the explainer's own page
+ * agree, whether a stage begins above 1200px, and whether any width overflows are
  * facts about what a browser laid out after it ran the page's own
  * JavaScript.
  *
@@ -55,74 +57,76 @@ export const HOME_MAX_MICRO_LABELS = 5;
 export const HOME_MAX_BORDERED_BOXES = 6;
 
 /**
- * The keys the sweep presses, in order, once a scene is playing, on home and
- * on the scene's own article alike. `Home` parks the clock at the start and
- * each arrow lands on a beat end, so every reading is a still rather than a
- * frame caught mid-tween, and both contexts are read at the same states.
+ * The controls the sweep presses Enter on, in order, once the featured
+ * explainer is live, on home and on the explainer's own page alike: Next
+ * three times (the second press answers step 2's guess without one, which
+ * prints the motor tally), Next to step 4, then Back. Each reading is taken
+ * after the step has set its readout and step text, so both contexts are
+ * read at the same stills; step 5's motor count, which ticks on a timer, is
+ * never read.
  */
-export const SCENE_KEY_SCRIPT = [
-  'Home',
-  'ArrowRight',
-  'ArrowRight',
-  'ArrowRight',
-  'ArrowRight',
-  'ArrowLeft',
-] as const;
+export const SCENE_KEY_SCRIPT = ['Next', 'Next', 'Next', 'Next', 'Back'] as const;
 
-/** One still the key script put a scene in, and what the page printed there. */
+/** One still the key script put the scene in, and what the page printed there. */
 export type SceneStepObservation = {
   key: string;
   readout: string;
+  /** The explainer's step text, the caption of the step on screen. */
   caption: string;
 };
 
 export type SceneObservation = {
-  /** The `data-motion-scene` id the sweep read. */
+  /** The explainer catalog id the sweep read. */
   sceneId: string;
   route: string;
-  /** Scenes the page's main renders; home has to render exactly one. */
+  /** Scenes the page's main renders (explainers and motion scenes); home has to render exactly one. */
   sceneCount: number;
   frameRole: string | null;
   frameAriaLabel: string | null;
   /** The text the frame's `aria-describedby` resolves to. */
   describedByText: string | null;
-  /** The stage graphic's tag, so a raster still cannot pass as the scene. */
+  /** The live stage graphic's tag, so a raster still cannot pass as the scene. */
   graphicTag: string | null;
-  /** Document-top offset of the stage graphic. */
+  /** Document-top offset of the stage. */
   graphicTopPx: number;
   graphicHeightPx: number;
-  /** Stage marks with a box at first paint; none is a blank poster. */
+  /** The poster the stage shows at first paint, by its source. */
+  posterSrc: string | null;
+  /** Painted poster images at first paint (decoded, boxed, visible); none is a blank stage. */
   posterMarkCount: number;
-  posterReadout: string;
+  /** The step text printed beside the poster at first paint. */
   posterCaption: string;
-  /** Whether the live player's timeline was already mounted at first paint. */
+  /** Whether a canvas or the 3D kit (three.js) reached the page before the reader started the scene. */
   playerMountedAtFirstPaint: boolean;
-  /** Animation frames the page requested while nobody had touched it. */
+  /** Animation frames the page requested, the stage in view, while nobody had touched it. */
   idleFrameRequests: number;
-  /** Animation frames it requested over the same window after play. */
+  /** Animation frames it requested over the same window after the start control. */
   playingFrameRequests: number;
   /** Enabled controls inside the frame at first paint, by accessible name. */
   posterControls: string[];
-  /** Focus ring on the play control while the keyboard holds it. */
+  /** The control that starts the scene, by accessible name; null where the scene starts on its own. */
+  startControl: string | null;
+  /** Focus ring on the start control while the keyboard holds it. */
   focusOutlineWidthPx: number | null;
   focusOutlineStyle: string | null;
   focusOutlineColour: string | null;
+  /** The still the live scene opens on: its readout and step text. */
+  openingReadout: string;
+  openingCaption: string;
   /** The stills `SCENE_KEY_SCRIPT` produced, in order. */
   steps: SceneStepObservation[];
   resetControlNames: string[];
-  /** Readout and caption after the reset control, activated by keyboard. */
+  /** Readout and step text after the reset control, activated by keyboard. */
   resetReadout: string;
   resetCaption: string;
   /** Readout after stepping away and resetting a second time. */
   secondResetReadout: string;
-  /** The model statement printed under the stage. */
-  statusLine: string;
-  /** The module the owning document imports the scene from, read from source. */
+  /** The viewer and scene module the owning document drives the stage with, read from source. */
   componentModule: string | null;
 };
 
 export type FeaturedSceneObservation = SceneObservation & {
-  /** The section heading and scene title the reader meets above the stage. */
+  /** The scene's name and caption, the claim the reader meets above the stage. */
   claimText: string;
 };
 
@@ -314,16 +318,19 @@ const sceneObservationShape = {
   graphicTag: z.string().nullable(),
   graphicTopPx: z.number(),
   graphicHeightPx: z.number(),
+  posterSrc: z.string().nullable(),
   posterMarkCount: z.number(),
-  posterReadout: z.string(),
   posterCaption: z.string(),
   playerMountedAtFirstPaint: z.boolean(),
   idleFrameRequests: z.number(),
   playingFrameRequests: z.number(),
   posterControls: z.array(z.string()),
+  startControl: z.string().nullable(),
   focusOutlineWidthPx: z.number().nullable(),
   focusOutlineStyle: z.string().nullable(),
   focusOutlineColour: z.string().nullable(),
+  openingReadout: z.string(),
+  openingCaption: z.string(),
   steps: z.array(
     z.object({ key: z.string(), readout: z.string(), caption: z.string() }),
   ),
@@ -331,7 +338,6 @@ const sceneObservationShape = {
   resetReadout: z.string(),
   resetCaption: z.string(),
   secondResetReadout: z.string(),
-  statusLine: z.string(),
   componentModule: z.string().nullable(),
 };
 
@@ -420,9 +426,14 @@ export const homeToolsEvidenceSchema = z.object({
   }),
 });
 
-/** The article the scene registry assigns a scene to, or null. */
+/**
+ * The page the explainer catalog serves an explainer on, opened at it, or
+ * null for an id the catalog does not list.
+ */
 export function sceneCanonicalRoute(sceneId: string): string | null {
-  return SCENE_TARGETS.find(({ id }) => id === sceneId)?.route ?? null;
+  return EXPLAINER_ORDER.some(({ id }) => id === sceneId)
+    ? `/how-robots-work/#${sceneId}`
+    : null;
 }
 function assertKeyScript(scene: SceneObservation, label: string): void {
   const keys = scene.steps.map(({ key }) => key).join(',');
@@ -476,7 +487,7 @@ export function readHomeToolsEvidence(input: {
   const canonical = sceneCanonicalRoute(artifact.featured.sceneId);
   if (canonical === null) {
     throw new Error(
-      `home features ${artifact.featured.sceneId}, which the scene registry does not register, so it has no article to be compared with`,
+      `home features ${artifact.featured.sceneId}, which the explainer catalog does not list, so it has no page to be compared with`,
     );
   }
   if (
@@ -484,7 +495,7 @@ export function readHomeToolsEvidence(input: {
     artifact.moduleScene.route !== canonical
   ) {
     throw new Error(
-      `home tools evidence compares home with ${artifact.moduleScene.sceneId} on ${artifact.moduleScene.route}, not ${artifact.featured.sceneId} on its registered article ${canonical}: VAL-CROSS-015 would compare the wrong pair`,
+      `home tools evidence compares home with ${artifact.moduleScene.sceneId} on ${artifact.moduleScene.route}, not ${artifact.featured.sceneId} on its own page ${canonical}: VAL-CROSS-015 would compare the wrong pair`,
     );
   }
   assertKeyScript(artifact.featured, 'the home scene');
@@ -529,21 +540,48 @@ export type Verdict = {
   failures: string[];
 };
 /**
- * An independent model of what one scene may print: given a readout and the
- * scene's printed model statement, the failure it amounts to, or null.
+ * An independent model of what one scene may print: given a readout (or the
+ * caption the page states its claim in), the failure it amounts to, or null.
  */
-export type SceneReadoutModel = (
-  readout: string,
-  statusLine: string,
-) => string | null;
+export type SceneReadoutModel = (text: string) => string | null;
 
-const PERCENT = /(\d+(?:\.\d+)?)\s*%/;
+const NUMBER = /(?<![A-Za-z\d.])\d+(?:\.\d+)?(?![A-Za-z\d])/g;
 
-/** The number a readout prints, or null when it prints none. */
-export function readoutPercent(readout: string): number | null {
-  const match = PERCENT.exec(readout);
-  return match ? Number(match[1]) : null;
+/** The numbers a readout prints, as numbers, in order; a model name such as G1 prints none. */
+export function readoutNumbers(text: string): number[] {
+  return [...text.matchAll(NUMBER)].map(([value]) => Number(value));
 }
+
+/**
+ * The Unitree G1 figures the humanoid explainer states, as Unitree's G1
+ * spec page (unitree.com/g1) gives them for the standard robot: 23 joint
+ * motors (6 per leg, 5 per arm, 1 at the waist, none in the standard hands),
+ * 7 per optional three-finger hand, up to 43 with every option; 1.32 m
+ * standing, about 35 kg with its battery, about 2 kg per arm, about 2 hours
+ * per charge. Typed here from that page rather than read from the scene, so
+ * the scene's readouts are checked against something they did not write.
+ */
+export const UNITREE_G1_SPEC = {
+  legMotors: 12,
+  armMotors: 10,
+  waistMotors: 1,
+  motors: 23,
+  threeFingerHandMotors: 14,
+  maxMotors: 43,
+  heightM: 1.32,
+  massKg: 35,
+  armPayloadKg: 2,
+  batteryHours: 2,
+} as const;
+
+const G1_MOTOR_COUNTS: ReadonlySet<number> = new Set([
+  UNITREE_G1_SPEC.legMotors,
+  UNITREE_G1_SPEC.armMotors,
+  UNITREE_G1_SPEC.waistMotors,
+  UNITREE_G1_SPEC.motors,
+  UNITREE_G1_SPEC.threeFingerHandMotors,
+  UNITREE_G1_SPEC.maxMotors,
+]);
 
 /**
  * The models the featured-scene telemetry is checked against, by scene id.
@@ -551,21 +589,44 @@ export function readoutPercent(readout: string): number | null {
  * passing unexamined.
  */
 export const FEATURED_SCENE_MODELS: Readonly<Record<string, SceneReadoutModel>> = {
-  // Episode success is the conditional rate compounded over the horizon the
-  // scene's own status line states, so both inputs are read off the page.
-  'reliability-threshold': (readout, statusLine) => {
-    const horizon = /(\d+)\s+decisions/.exec(statusLine);
-    const rate = /conditional rate\s+(\d+(?:\.\d+)?)%/.exec(readout);
-    const episode = /episode\s+(\d+(?:\.\d+)?)%/.exec(readout);
-    if (!horizon) {
-      return `the status line "${statusLine}" states no decision horizon`;
+  // Every quantity is read with its unit and held to the spec page; a bare
+  // number is a motor count and has to be one the spec gives; a tally has
+  // to add up; a running count never passes the total.
+  humanoid: (text) => {
+    const g1 = UNITREE_G1_SPEC;
+    const checks: Array<[RegExp, readonly number[], string]> = [
+      [/(\d+(?:\.\d+)?)\s*metres?\b/g, [g1.heightM], 'height in metres'],
+      [/(\d+(?:\.\d+)?)\s*kilograms?\b/g, [g1.massKg, g1.armPayloadKg], 'mass in kilograms'],
+      [/(\d+(?:\.\d+)?)\s*hours?\b/g, [g1.batteryHours], 'battery hours'],
+    ];
+    let rest = text;
+    for (const [pattern, allowed, quantity] of checks) {
+      for (const [, value] of text.matchAll(pattern)) {
+        if (!allowed.includes(Number(value))) {
+          return `"${text}" prints ${value} as a ${quantity}, where the G1 spec gives ${allowed.join(' or ')}`;
+        }
+      }
+      rest = rest.replace(pattern, ' ');
     }
-    if (!rate || !episode) {
-      return `"${readout}" prints no conditional rate and episode success to compare with the model`;
+    const tally = /legs\s+(\d+),\s+arms\s+(\d+),\s+waist\s+(\d+)\.\s+That is all\s+(\d+)/.exec(text);
+    if (tally) {
+      const [legs, arms, waist, total] = tally.slice(1).map(Number);
+      if (legs !== g1.legMotors || arms !== g1.armMotors || waist !== g1.waistMotors || total !== g1.motors) {
+        return `"${text}" tallies legs ${legs}, arms ${arms}, waist ${waist} and ${total} in all, where the G1 spec gives ${g1.legMotors}, ${g1.armMotors}, ${g1.waistMotors} and ${g1.motors}`;
+      }
+      if (legs + arms + waist !== total) {
+        return `"${text}" tallies ${legs} + ${arms} + ${waist}, which is not the ${total} it states`;
+      }
     }
-    const expected = (Number(rate[1]) / 100) ** Number(horizon[1]) * 100;
-    if (Math.abs(expected - Number(episode[1])) > 0.051) {
-      return `"${readout}" prints episode ${episode[1]}% where ${rate[1]}% over ${horizon[1]} decisions compounds to ${expected.toFixed(1)}%`;
+    const running = /^Motors:\s+(\d+)$/.exec(text.trim());
+    if (running && Number(running[1]) > g1.motors) {
+      return `"${text}" counts past the ${g1.motors} motors of the standard G1`;
+    }
+    for (const value of readoutNumbers(rest)) {
+      if (running) break;
+      if (!G1_MOTOR_COUNTS.has(value)) {
+        return `"${text}" prints ${value}, which is no motor count the G1 spec gives`;
+      }
     }
     return null;
   },
@@ -576,7 +637,7 @@ function recordedReadouts(
   scene: SceneObservation,
 ): Array<{ state: string; readout: string }> {
   return [
-    { state: 'poster', readout: scene.posterReadout },
+    { state: 'opening', readout: scene.openingReadout },
     ...scene.steps.map(({ key, readout }, index) => ({
       state: `step ${index + 1} (${key})`,
       readout,
@@ -610,6 +671,12 @@ export const FEATURED_INSTRUMENT_ANCHORS = [
 function words(text: string): number {
   return text.trim().split(/\s+/).filter(Boolean).length;
 }
+
+/** The still a reader sees: the readout and the step text together. */
+function stillOf(readout: string, caption: string): string {
+  return `${readout} | ${caption}`;
+}
+
 /**
  * Decides the featured-scene anchors independently.
  *
@@ -630,7 +697,13 @@ export function featuredInstrumentVerdicts(
   if (featured.sceneCount !== 1) {
     fail(
       'anchor:featured-one-registered-scene',
-      `home renders ${featured.sceneCount} motion scenes inside main, not exactly one`,
+      `home renders ${featured.sceneCount} scenes inside main, not exactly one`,
+    );
+  }
+  if (sceneCanonicalRoute(featured.sceneId) === null) {
+    fail(
+      'anchor:featured-one-registered-scene',
+      `home features ${featured.sceneId}, which the explainer catalog does not list`,
     );
   }
 
@@ -659,36 +732,45 @@ export function featuredInstrumentVerdicts(
   if (featured.posterMarkCount === 0) {
     fail(
       'anchor:featured-poster-at-first-paint',
-      'the poster draws no stage mark, so first paint shows a blank or skeleton stage',
+      'the stage paints no poster at first paint, so it shows a blank or skeleton stage',
+    );
+  }
+  if (featured.posterSrc !== `/explainers/posters/${featured.sceneId}.webp`) {
+    fail(
+      'anchor:featured-poster-at-first-paint',
+      `the stage's first paint shows ${String(featured.posterSrc)}, not the poster of ${featured.sceneId}`,
     );
   }
   if (featured.playerMountedAtFirstPaint) {
     fail(
       'anchor:featured-poster-at-first-paint',
-      'the live player was mounted before anyone pressed play',
+      'the 3D scene or its kit reached the page before anyone started it',
     );
   }
   if (featured.posterCaption.trim().length === 0) {
-    fail('anchor:featured-poster-at-first-paint', 'the poster carries no caption');
+    fail('anchor:featured-poster-at-first-paint', 'the poster carries no step text');
   }
 
   if (featured.idleFrameRequests !== 0) {
     fail(
       'anchor:featured-no-autoplay',
-      `the untouched page requested ${featured.idleFrameRequests} animation frames, so something animates before the click`,
+      `the untouched page requested ${featured.idleFrameRequests} animation frames, so something animates before the reader starts it`,
     );
+  }
+  if (featured.startControl === null) {
+    fail('anchor:featured-no-autoplay', 'the featured scene offers no control that starts it');
   }
   if (featured.playingFrameRequests <= 0) {
     fail(
       'anchor:featured-plays-on-activation',
-      'activating play requested no animation frame, so the scene never played',
+      'activating the start control requested no animation frame, so the scene never ran',
     );
   }
 
-  if (readoutPercent(featured.posterReadout) === null) {
+  if (readoutNumbers(featured.openingReadout).length === 0) {
     fail(
       'anchor:featured-numeric-readout',
-      `the featured readout "${featured.posterReadout}" prints no number`,
+      `the featured readout "${featured.openingReadout}" prints no number`,
     );
   }
   if (featured.posterControls.length === 0) {
@@ -698,48 +780,49 @@ export function featuredInstrumentVerdicts(
     );
   }
 
-  const stepped = new Set(featured.steps.map(({ readout }) => readout));
+  const stepped = new Set(featured.steps.map(({ readout, caption }) => stillOf(readout, caption)));
   if (stepped.size < 2) {
     fail(
       'anchor:featured-keyboard-operable',
-      `the key script left the readout at ${[...stepped].join(', ') || 'nothing'}, so no key changed the visible state`,
+      `the key script left the scene at ${[...stepped].join(', ') || 'nothing'}, so no key changed the visible state`,
     );
   }
-  if (featured.steps[0]?.readout === featured.posterReadout) {
+  const opening = stillOf(featured.openingReadout, featured.openingCaption);
+  if (featured.steps[0] && stillOf(featured.steps[0].readout, featured.steps[0].caption) === opening) {
     fail(
       'anchor:featured-keyboard-operable',
-      `Home left the readout at the poster's ${featured.posterReadout}`,
+      `${featured.steps[0].key} left the scene at its opening still`,
     );
   }
 
   if ((featured.focusOutlineWidthPx ?? 0) <= 0) {
     fail(
       'anchor:featured-visible-focus',
-      `the focused play control paints a ${String(featured.focusOutlineWidthPx)}px outline, so focus is not visible`,
+      `the focused start control paints a ${String(featured.focusOutlineWidthPx)}px outline, so focus is not visible`,
     );
   }
   if (featured.focusOutlineStyle === null || featured.focusOutlineStyle === 'none') {
-    fail('anchor:featured-visible-focus', 'the focused play control paints no outline style');
+    fail('anchor:featured-visible-focus', 'the focused start control paints no outline style');
   }
   if (featured.resetControlNames.length === 0) {
     fail('anchor:featured-deterministic-reset', 'the featured scene exposes no reset control');
   }
-  if (featured.resetReadout !== featured.posterReadout) {
+  if (featured.resetReadout !== featured.openingReadout) {
     fail(
       'anchor:featured-deterministic-reset',
-      `reset restored ${featured.resetReadout} rather than the poster's ${featured.posterReadout}`,
+      `reset restored "${featured.resetReadout}" rather than the opening "${featured.openingReadout}"`,
     );
   }
-  if (featured.resetCaption !== featured.posterCaption) {
+  if (featured.resetCaption !== featured.openingCaption) {
     fail(
       'anchor:featured-deterministic-reset',
-      `reset restored the caption "${featured.resetCaption}" rather than the poster's "${featured.posterCaption}"`,
+      `reset restored the step "${featured.resetCaption}" rather than the opening "${featured.openingCaption}"`,
     );
   }
-  if (featured.secondResetReadout !== featured.posterReadout) {
+  if (featured.secondResetReadout !== featured.openingReadout) {
     fail(
       'anchor:featured-deterministic-reset',
-      `a second step and reset restored ${featured.secondResetReadout} rather than ${featured.posterReadout}, so reset is not deterministic`,
+      `a second step and reset restored "${featured.secondResetReadout}" rather than "${featured.openingReadout}", so reset is not deterministic`,
     );
   }
 
@@ -756,10 +839,10 @@ export function featuredInstrumentVerdicts(
       `the featured scene states "${featured.claimText}", too short to be the claim the scene makes`,
     );
   }
-  if (!PERCENT.test(featured.posterReadout)) {
+  if (readoutNumbers(featured.openingReadout).length === 0) {
     fail(
       'anchor:featured-claim-and-current-state',
-      `the featured scene prints no current-state value beside its stage (observed "${featured.posterReadout}")`,
+      `the featured scene prints no current-state value beside its stage (observed "${featured.openingReadout}")`,
     );
   }
 
@@ -770,8 +853,11 @@ export function featuredInstrumentVerdicts(
       `no independent model is declared for ${featured.sceneId}, so its readouts would go unchecked`,
     );
   } else {
-    for (const { state, readout } of recordedReadouts(featured)) {
-      const problem = model(readout, featured.statusLine);
+    for (const { state, readout } of [
+      ...recordedReadouts(featured),
+      { state: 'claim', readout: featured.claimText },
+    ]) {
+      const problem = model(readout);
       if (problem) fail('anchor:featured-no-fabricated-telemetry', `${state}: ${problem}`);
     }
   }
@@ -789,20 +875,24 @@ export function featuredInstrumentVerdicts(
       heightPx: featured.graphicHeightPx,
     },
     'anchor:featured-poster-at-first-paint': {
-      marks: featured.posterMarkCount,
+      poster: featured.posterSrc,
+      painted: featured.posterMarkCount,
       playerMounted: featured.playerMountedAtFirstPaint,
       caption: featured.posterCaption,
     },
-    'anchor:featured-no-autoplay': { idleFrameRequests: featured.idleFrameRequests },
+    'anchor:featured-no-autoplay': {
+      idleFrameRequests: featured.idleFrameRequests,
+      startControl: featured.startControl,
+    },
     'anchor:featured-plays-on-activation': {
       playingFrameRequests: featured.playingFrameRequests,
     },
     'anchor:featured-numeric-readout': {
-      readout: featured.posterReadout,
+      readout: featured.openingReadout,
       controls: featured.posterControls,
     },
     'anchor:featured-keyboard-operable': {
-      poster: featured.posterReadout,
+      opening: opening,
       steps: featured.steps,
     },
     'anchor:featured-visible-focus': {
@@ -822,11 +912,12 @@ export function featuredInstrumentVerdicts(
     },
     'anchor:featured-claim-and-current-state': {
       claim: featured.claimText,
-      currentState: featured.posterReadout,
+      currentState: featured.openingReadout,
     },
     'anchor:featured-no-fabricated-telemetry': {
-      statusLine: featured.statusLine,
+      spec: UNITREE_G1_SPEC,
       readouts: recordedReadouts(featured),
+      claim: featured.claimText,
     },
   };
   return FEATURED_INSTRUMENT_ANCHORS.map((id) => ({
@@ -835,7 +926,7 @@ export function featuredInstrumentVerdicts(
     failures: failures.get(id)!,
   }));
 }
-/** One still read on home and on the scene's article, side by side. */
+/** One still read on home and on the scene's own page, side by side. */
 export type CrossContextStateComparison = {
   state: string;
   home: string;
@@ -851,12 +942,12 @@ export const CROSS_CONTEXT_CLAUSES = {
 } as const;
 
 function still(readout: string, caption: string | null): string {
-  return caption === null ? readout : `${readout} | ${caption}`;
+  return caption === null ? readout : stillOf(readout, caption);
 }
 
 /**
- * The home/article comparison written out state by state, so the claim can
- * be read off the observations rather than recomputed. Both sides are
+ * The home/page comparison written out state by state, so the claim can be
+ * read off the observations rather than recomputed. Both sides are
  * observations: neither context is checked against a model here.
  */
 export function crossContextStates(
@@ -871,8 +962,7 @@ export function crossContextStates(
     agrees: left === right,
   });
   return [
-    row('poster', still(home.posterReadout, home.posterCaption), still(article.posterReadout, article.posterCaption)),
-    row('status line', home.statusLine, article.statusLine),
+    row('opening', still(home.openingReadout, home.openingCaption), still(article.openingReadout, article.openingCaption)),
     ...SCENE_KEY_SCRIPT.map((key, index) =>
       row(
         `step ${index + 1} (${key})`,
@@ -888,12 +978,13 @@ export function crossContextStates(
 /**
  * Decides `VAL-CROSS-015` for the featured scene.
  *
- * Three clauses. The component clause holds home and the article to one
- * scene module, read from each document's own import, so a look-alike copy
- * on home fails even while its readouts happen to agree. The behaviour
- * clause is the criterion's stated Pass condition: the same keys, pressed
- * in both contexts, print the same stills. The reset clause is the locked
- * one: both contexts open on the same still, and each reset returns to it.
+ * Three clauses. The component clause holds home and the explainer's own
+ * page to one viewer and one scene module, read from each document's own
+ * imports, so a look-alike copy on home fails even while its readouts
+ * happen to agree. The behaviour clause is the criterion's stated Pass
+ * condition: the same keys, pressed in both contexts, print the same stills.
+ * The reset clause is the locked one: both contexts open on the same still,
+ * and each reset returns to it.
  */
 export function crossMountVerdicts(evidence: HomeToolsEvidence): Verdict[] {
   const home = evidence.featured;
@@ -905,11 +996,11 @@ export function crossMountVerdicts(evidence: HomeToolsEvidence): Verdict[] {
   const componentFailures: string[] = [];
   if (home.componentModule === null || article.componentModule === null) {
     componentFailures.push(
-      `the scene's import could not be read from ${home.componentModule === null ? 'app/page.tsx' : `the document behind ${article.route}`}, so the two contexts cannot be shown to mount one component`,
+      `the scene's viewer could not be read from ${home.componentModule === null ? 'app/page.tsx' : `the document behind ${article.route}`}, so the two contexts cannot be shown to mount one component`,
     );
   } else if (home.componentModule !== article.componentModule) {
     componentFailures.push(
-      `home imports ${home.componentModule} where ${article.route} imports ${article.componentModule}, so home features a copy rather than the article's scene`,
+      `home drives ${home.componentModule} where ${article.route} drives ${article.componentModule}, so home features a copy rather than the explainer's own scene`,
     );
   }
 
@@ -919,14 +1010,14 @@ export function crossMountVerdicts(evidence: HomeToolsEvidence): Verdict[] {
       `${state}: home reads "${left}" where ${article.route} reads "${right}"`,
   );
 
-  const resetFailures = disagreeing(['poster', 'status line', 'reset', 'second reset']).map(
+  const resetFailures = disagreeing(['opening', 'reset', 'second reset']).map(
     ({ state, home: left, module: right }) =>
       `the two contexts do not restore the identical initial state at ${state}: home "${left}", ${article.route} "${right}"`,
   );
   for (const scene of [home, article]) {
-    if (scene.resetReadout !== scene.posterReadout) {
+    if (scene.resetReadout !== scene.openingReadout) {
       resetFailures.push(
-        `${scene.route} resets to ${scene.resetReadout} rather than its own poster ${scene.posterReadout}`,
+        `${scene.route} resets to "${scene.resetReadout}" rather than its own opening "${scene.openingReadout}"`,
       );
     }
   }

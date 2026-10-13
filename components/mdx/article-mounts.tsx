@@ -100,7 +100,6 @@ export {
   BatchScale,
   GaitSupport,
   JamOverhead,
-  ReliabilityThreshold,
   TactileSlip,
   SenseAvoid,
   Clip,

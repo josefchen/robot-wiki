@@ -495,11 +495,12 @@ function collectHome(args: CollectArgs) {
     });
 
   // VAL-DESIGN-011: each block's running text is its rendered text nodes
-  // outside headings, links, dates, form controls and the scene. Walking
-  // text nodes rather than reading a clone keeps a space between inline
-  // runs, so "57 articles" and "434 sources" stay two phrases.
+  // outside headings, links, dates, form controls and the scene (a motion
+  // scene, or the featured 3D explainer with its caption). Walking text
+  // nodes rather than reading a clone keeps a space between inline runs, so
+  // "57 articles" and "434 sources" stay two phrases.
   const NOT_RUNNING_TEXT =
-    'h1, h2, h3, h4, h5, h6, a, time, form, button, label, input, [data-motion-scene], script, style, [hidden], [aria-hidden="true"]';
+    'h1, h2, h3, h4, h5, h6, a, time, form, button, label, input, [data-motion-scene], [data-explainer-scene], script, style, [hidden], [aria-hidden="true"]';
   const runningText = (section: Element) => {
     const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT);
     const parts: string[] = [];

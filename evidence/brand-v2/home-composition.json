@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "12c1886a602fa0063b89f0d1d20b6cf5b4799fbff22b00dd85de25a55b24eed4",
+  "fingerprint": "177d1799ead1b38706f685a5284a22293f7a5028b34ab916e92e569013413726",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2970,
+  "visibleTextLength": 2826,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -610,57 +610,111 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Diffusion Policy",
-      "href": "/manipulation/diffusion-policy/",
+      "accessibleName": "What Is a World Model?",
+      "href": "/world-models/taxonomy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 926.48,
-      "bottomPx": 947.48
+      "topPx": 922.48,
+      "bottomPx": 964.48
+    },
+    {
+      "controlId": "control:secondary-action",
+      "accessibleName": "Turn it in 3D",
+      "href": null,
+      "backgroundColour": "rgb(250, 250, 248)",
+      "colour": "rgb(28, 28, 26)",
+      "topPx": 1671.78,
+      "bottomPx": 1707.47
+    },
+    {
+      "controlId": "control:selection",
+      "accessibleName": "1",
+      "href": null,
+      "backgroundColour": "rgb(240, 243, 246)",
+      "colour": "rgb(28, 28, 26)",
+      "topPx": 1740.47,
+      "bottomPx": 1768.47
+    },
+    {
+      "controlId": "control:selection",
+      "accessibleName": "2",
+      "href": null,
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(63, 63, 59)",
+      "topPx": 1740.47,
+      "bottomPx": 1768.47
+    },
+    {
+      "controlId": "control:selection",
+      "accessibleName": "3",
+      "href": null,
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(63, 63, 59)",
+      "topPx": 1740.47,
+      "bottomPx": 1768.47
+    },
+    {
+      "controlId": "control:selection",
+      "accessibleName": "4",
+      "href": null,
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(63, 63, 59)",
+      "topPx": 1740.47,
+      "bottomPx": 1768.47
+    },
+    {
+      "controlId": "control:selection",
+      "accessibleName": "5",
+      "href": null,
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(63, 63, 59)",
+      "topPx": 1740.47,
+      "bottomPx": 1768.47
+    },
+    {
+      "controlId": "control:secondary-action",
+      "accessibleName": "Back",
+      "href": null,
+      "backgroundColour": "rgb(240, 243, 246)",
+      "colour": "rgb(63, 63, 59)",
+      "topPx": 1738.47,
+      "bottomPx": 1774.16
     },
     {
       "controlId": "control:primary-action",
-      "accessibleName": "Play",
+      "accessibleName": "Next",
       "href": null,
-      "backgroundColour": "rgba(0, 0, 0, 0)",
-      "colour": "rgb(28, 28, 26)",
-      "topPx": 1110.8,
-      "bottomPx": 1142.8
-    },
-    {
-      "controlId": "control:secondary-action",
-      "accessibleName": "",
-      "href": null,
-      "backgroundColour": "rgba(0, 0, 0, 0)",
-      "colour": "rgb(108, 107, 102)",
-      "topPx": 1146.8,
-      "bottomPx": 1178.8
-    },
-    {
-      "controlId": "control:secondary-action",
-      "accessibleName": "",
-      "href": null,
-      "backgroundColour": "rgba(0, 0, 0, 0)",
-      "colour": "rgb(108, 107, 102)",
-      "topPx": 1186.8,
-      "bottomPx": 1218.8
-    },
-    {
-      "controlId": "control:secondary-action",
-      "accessibleName": "",
-      "href": null,
-      "backgroundColour": "rgba(0, 0, 0, 0)",
-      "colour": "rgb(108, 107, 102)",
-      "topPx": 1226.8,
-      "bottomPx": 1258.8
+      "backgroundColour": "rgb(28, 28, 26)",
+      "colour": "rgb(255, 255, 255)",
+      "topPx": 1738.47,
+      "bottomPx": 1774.16
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Reliability Gap",
-      "href": "/frontier/reliability-gap/",
+      "accessibleName": "degree of freedom",
+      "href": "/data-hardware/hardware-taxonomy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1710.8,
-      "bottomPx": 1727.8
+      "topPx": 0,
+      "bottomPx": 0
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "All 12 explainers in How robots work",
+      "href": "/how-robots-work/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(108, 107, 102)",
+      "topPx": 1802.86,
+      "bottomPx": 1821.86
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Humanoid Whole-Body Control",
+      "href": "/rl-sim2real/humanoid-wbc/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(108, 107, 102)",
+      "topPx": 1802.86,
+      "bottomPx": 1821.86
     },
     {
       "controlId": "control:link-focus",
@@ -668,8 +722,8 @@
       "href": "/rl-sim2real/why-rl-locomotion/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1849.7,
-      "bottomPx": 1870.7
+      "topPx": 1925.77,
+      "bottomPx": 1946.77
     },
     {
       "controlId": "control:link-focus",
@@ -677,8 +731,8 @@
       "href": "https://arxiv.org/abs/2109.11978",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1849.7,
-      "bottomPx": 1870.7
+      "topPx": 1925.77,
+      "bottomPx": 1946.77
     },
     {
       "controlId": "control:link-focus",
@@ -686,8 +740,8 @@
       "href": "/data-hardware/teleop-rigs/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1908.61,
-      "bottomPx": 1929.61
+      "topPx": 1984.67,
+      "bottomPx": 2005.67
     },
     {
       "controlId": "control:link-focus",
@@ -695,8 +749,8 @@
       "href": "https://arxiv.org/abs/2304.13705",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1908.61,
-      "bottomPx": 1929.61
+      "topPx": 1984.67,
+      "bottomPx": 2005.67
     },
     {
       "controlId": "control:link-focus",
@@ -704,8 +758,8 @@
       "href": "/frontier/dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1967.52,
-      "bottomPx": 1988.52
+      "topPx": 2043.58,
+      "bottomPx": 2064.58
     },
     {
       "controlId": "control:link-focus",
@@ -713,8 +767,8 @@
       "href": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1967.52,
-      "bottomPx": 1988.52
+      "topPx": 2043.58,
+      "bottomPx": 2064.58
     },
     {
       "controlId": "control:link-focus",
@@ -722,8 +776,8 @@
       "href": "/adjacent/surgical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2103.83,
-      "bottomPx": 2127.83
+      "topPx": 2179.89,
+      "bottomPx": 2203.89
     },
     {
       "controlId": "control:link-focus",
@@ -731,8 +785,8 @@
       "href": "/data-hardware/robot-learning-stack/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2153.83,
-      "bottomPx": 2177.83
+      "topPx": 2229.89,
+      "bottomPx": 2253.89
     },
     {
       "controlId": "control:link-focus",
@@ -740,8 +794,8 @@
       "href": "/frontier/competing-theses/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2203.83,
-      "bottomPx": 2227.83
+      "topPx": 2279.89,
+      "bottomPx": 2303.89
     },
     {
       "controlId": "control:link-focus",
@@ -749,8 +803,8 @@
       "href": "/world-models/evaluation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2253.83,
-      "bottomPx": 2277.83
+      "topPx": 2329.89,
+      "bottomPx": 2353.89
     },
     {
       "controlId": "control:link-focus",
@@ -758,8 +812,8 @@
       "href": "/world-models/generative-sim/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2303.83,
-      "bottomPx": 2327.83
+      "topPx": 2379.89,
+      "bottomPx": 2403.89
     },
     {
       "controlId": "control:link-focus",
@@ -767,8 +821,8 @@
       "href": "/playground/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2399.83,
-      "bottomPx": 2418.83
+      "topPx": 2475.89,
+      "bottomPx": 2494.89
     },
     {
       "controlId": "control:link-focus",
@@ -776,8 +830,8 @@
       "href": "/how-robots-work/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2399.83,
-      "bottomPx": 2418.83
+      "topPx": 2475.89,
+      "bottomPx": 2494.89
     },
     {
       "controlId": "control:link-focus",
@@ -785,8 +839,8 @@
       "href": "/market-map/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2399.83,
-      "bottomPx": 2418.83
+      "topPx": 2475.89,
+      "bottomPx": 2494.89
     }
   ],
   "highlights": [],
@@ -887,8 +941,8 @@
       "index": 3,
       "label": "FEATURED SCENE",
       "signature": "plain/module-heading/motion-scene",
-      "derivedSignature": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14)|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0],button[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],button[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
-      "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14)|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0],button[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],button[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0]",
+      "derivedSignature": "transparent|0,0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0],button[rgb(240, 243, 246)/rgb(28, 28, 26)/1],button[rgb(240, 243, 246)/rgb(63, 63, 59)/1],button[rgb(250, 250, 248)/rgb(28, 28, 26)/1],button[rgb(28, 28, 26)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(63, 63, 59)/1] || p=5,ul=1,ol=0,li=2,dl=0,figure=0,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0],button[rgb(240, 243, 246)/rgb(28, 28, 26)/1],button[rgb(240, 243, 246)/rgb(63, 63, 59)/1],button[rgb(250, 250, 248)/rgb(28, 28, 26)/1],button[rgb(28, 28, 26)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(63, 63, 59)/1]",
       "headingTag": "h2",
       "headingSizePx": 20.32
     },
@@ -920,7 +974,7 @@
       "headingSizePx": null
     }
   ],
-  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1180 sources · 119 glossary terms Search | Robot Wiki | Search |  | Search | CONTENTS | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | FEATURED ARTICLE | FEATURED SCENE | The last stretch of episode reliability Play Adjust more toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative model: all 30 decisions succeed independently at the same rate. The same horizon exposes the last stretch. From The Reliability Gap | Play |  |  |  | DID YOU KNOW | RECENTLY UPDATED | TOOLS Playground How robots work Market Map | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | Motion scene: The last stretch of episode reliability | Play the motion scene: The last stretch of episode reliability | Step back one beat | Step forward one beat | Reset the scene to its poster still | Tools",
+  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1180 sources · 119 glossary terms Search | Robot Wiki | Search |  | Search | CONTENTS | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | FEATURED ARTICLE | FEATURED SCENE | Of a Unitree G1's 23 motors, 12 move its legs and keep it balanced. Turn it in 3D 1 2 3 4 5 A humanoid is shaped like us so it can use our doors, stairs and tools. Back Next All 12 explainers in How robots work Related: Humanoid Whole-Body Control | Turn it in 3D | 1 | 2 | 3 | 4 | 5 | Back | Next | DID YOU KNOW | RECENTLY UPDATED | TOOLS Playground How robots work Market Map | A humanoid is shaped like us so it can use our doors, stairs and tools. | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | 3D explainer: Inside a humanoid | Step 1 | Step 2 | Step 3 | Step 4 | Step 5 | Tools",
   "domainAnchorCounts": {
     "Manipulation & Learned Policies": 1,
     "RL, Sim-to-Real & Locomotion": 1,
@@ -972,14 +1026,14 @@
     {
       "label": "FEATURED ARTICLE",
       "signature": "plain/module-heading/lead-excerpt",
-      "prose": "Diffusion Policy is a visuomotor robot policy that generates an action sequence by conditional denoising, from Chi et al. (2023).",
-      "text": "FEATURED ARTICLE Diffusion Policy Diffusion Policy is a visuomotor robot policy that generates an action sequence by conditional denoising, from Chi et al. (2023)."
+      "prose": "A model that lets a robot imagine what its actions will do before it moves.",
+      "text": "FEATURED ARTICLE What Is a World Model? A model that lets a robot imagine what its actions will do before it moves."
     },
     {
       "label": "FEATURED SCENE",
       "signature": "plain/module-heading/motion-scene",
       "prose": "",
-      "text": "FEATURED SCENE The last stretch of episode reliability Play Adjust more toy model · 30 decisions 95% 21.5% 99% 74.0% 99.9% 97.0% compare the last bar episode success beat 4 / 4 conditional rate 99.9% episode 97.0% Illustrative model: all 30 decisions succeed independently at the same rate. The same horizon exposes the last stretch. From The Reliability Gap"
+      "text": "FEATURED SCENE Of a Unitree G1's 23 motors, 12 move its legs and keep it balanced. Turn it in 3D 1 2 3 4 5 A humanoid is shaped like us so it can use our doors, stairs and tools. Back Next All 12 explainers in How robots work Related: Humanoid Whole-Body Control"
     },
     {
       "label": "DID YOU KNOW",
@@ -1001,7 +1055,7 @@
     }
   ],
   "progressMetadataMatches": [],
-  "borderedCardCount": 1,
+  "borderedCardCount": 0,
   "structureTable": [
     {
       "index": 0,
@@ -1028,7 +1082,7 @@
       "label": "FEATURED ARTICLE",
       "declaredSignature": "plain/module-heading/lead-excerpt",
       "registeredOwner": "opus-pass-homepage",
-      "registeredPurpose": "The featured article: one title and its lead, verbatim and within 50 words, chosen by date.",
+      "registeredPurpose": "The featured article: the editor's first pick, its title and a dek of 25 words or fewer written for home.",
       "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
       "derivedForm": "form:3",
       "derivedSurfaceHeadingActionForm": "form:3"
@@ -1038,8 +1092,8 @@
       "label": "FEATURED SCENE",
       "declaredSignature": "plain/module-heading/motion-scene",
       "registeredOwner": "opus-pass-homepage",
-      "registeredPurpose": "The featured scene: one registered motion scene on its poster frame that plays only when the reader starts it.",
-      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14),1solidrgba(28, 28, 26, 0.14)|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0],button[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],button[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "registeredPurpose": "The featured scene: one 3D explainer from How robots work on its poster, which runs only when the reader starts it.",
+      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20.32/600/DM Sans/uppercase || a[rgba(0, 0, 0, 0)/rgb(108, 107, 102)/0],a[rgba(0, 0, 0, 0)/rgb(28, 28, 26)/0],button[rgb(240, 243, 246)/rgb(28, 28, 26)/1],button[rgb(240, 243, 246)/rgb(63, 63, 59)/1],button[rgb(250, 250, 248)/rgb(28, 28, 26)/1],button[rgb(28, 28, 26)/rgb(255, 255, 255)/1],button[rgba(0, 0, 0, 0)/rgb(63, 63, 59)/1] || p=5,ul=1,ol=0,li=2,dl=0,figure=0,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
       "derivedForm": "form:4",
       "derivedSurfaceHeadingActionForm": "form:4"
     },

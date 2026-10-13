@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ff4d92a2ab09093f77aaf2d47dfbfc69e23d90ee0210feb343c6c3e7e37c3286",
+  "fingerprint": "10f3f8cfd2900808c26c0542595422d950c46734c9d3a1940e9920cb2b71caa0",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3203,
+      "visibleTextLength": 3060,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -379,41 +379,73 @@
         },
         {
           "tag": "button",
-          "text": "Play",
+          "text": "Turn it in 3D",
           "familyHead": "geist",
-          "sizePx": 13,
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:primary-action"
         },
         {
           "tag": "summary",
-          "text": "Adjust more",
+          "text": "Check yourself: What stops a hum",
           "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "geist",
-          "sizePx": 13,
+          "sizePx": 15,
           "inProse": false,
           "controlId": "control:secondary-action"
         }
@@ -912,7 +944,7 @@
           "text": "Autonomous Vehicles",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -1774,7 +1806,7 @@
           "text": "Drones and Aerial Robotics",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -2583,7 +2615,7 @@
           "text": "Space Robotics",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -3078,7 +3110,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17904,
+      "visibleTextLength": 17887,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3099,7 +3131,7 @@
           "text": "Surgical Robotics",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -3142,11 +3174,11 @@
           "davinci5-clearance-2024",
           "intuitive-q4-2025",
           "cmr-versius-authorization-2024",
-          "versius-plus-510k-2025",
           "maestro-tavac-2023",
-          "maestro-commercial-510k-2024",
           "scopilot-clearance-2025",
-          "agro-suvide-2026"
+          "agro-suvide-2026",
+          "versius-plus-510k-2025",
+          "maestro-commercial-510k-2024"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -3797,7 +3829,7 @@
           "text": "Robot Calibration",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -4555,7 +4587,7 @@
           "text": "Control",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -5520,7 +5552,7 @@
           "text": "Grasp Planning",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -6315,7 +6347,7 @@
           "text": "Kinematics",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -7079,7 +7111,7 @@
           "text": "Motion Planning",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -8032,7 +8064,7 @@
           "text": "Perception for Manipulation",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -9173,7 +9205,7 @@
           "text": "ROS 2 for Machine Learning Engineers",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -10010,7 +10042,7 @@
           "text": "Scene Representation and Mapping",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -10934,7 +10966,7 @@
           "text": "State Estimation",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -12057,7 +12089,7 @@
           "text": "The Data Bottleneck",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -12832,7 +12864,7 @@
           "text": "Major Datasets",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -13666,7 +13698,7 @@
           "text": "The Evaluation Crisis",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -14399,7 +14431,7 @@
           "text": "Hardware Taxonomy",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -15254,7 +15286,7 @@
           "text": "Industrial Deployment",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -16057,7 +16089,7 @@
           "text": "The Robot Learning Stack",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -16911,7 +16943,7 @@
           "text": "Teleoperation Rigs",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -17802,7 +17834,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16179,
+      "visibleTextLength": 16177,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17823,7 +17855,7 @@
           "text": "The Bear Case",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -17866,7 +17898,6 @@
           "morgan-stanley-pr-problem-2026",
           "agility-digit-production",
           "figure-bmw-production-2025",
-          "evst-cell-cost-2026",
           "bessemer-robotics-2026",
           "computex-collapse-2026",
           "robotics-funding-23b-2026",
@@ -17893,7 +17924,8 @@
           "helix-02-2026",
           "t-rex-2026",
           "lin-data-scaling-laws-2024",
-          "unitree-prospectus-2026"
+          "unitree-prospectus-2026",
+          "evst-cell-cost-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -18017,7 +18049,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Evidence: beyond Crunchbase's narrower venture countSource 1"
+          "text": "Evidence: beyond Crunchbase's narrower venture countSource 9"
         },
         {
           "familyHead": "geist",
@@ -18089,7 +18121,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Figure's Helix 02 takes fingertip tactile inputSource 3030 F"
+          "text": "Figure's Helix 02 takes fingertip tactile inputSource 2929 F"
         },
         {
           "familyHead": "geist",
@@ -18788,7 +18820,7 @@
           "text": "Competing Theses",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -19786,7 +19818,7 @@
           "text": "Dexterity",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -19853,10 +19885,10 @@
           "fingr-2026",
           "tacdyn-wam-2026",
           "bd-atlas-hand-2026",
-          "unitree-dex5-1-2026",
           "eigendexplore-2026",
           "visual-predicted-force-2026",
-          "fingers-as-legs-2026"
+          "fingers-as-legs-2026",
+          "unitree-dex5-1-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -20736,7 +20768,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19496,
+      "visibleTextLength": 19495,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20757,7 +20789,7 @@
           "text": "Generalization",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -20801,7 +20833,6 @@
           "egoscale-2026",
           "isaac-gr00t-repo-2026",
           "gemini-robotics-2-2026",
-          "open-x-embodiment-2023",
           "lin-data-scaling-laws-2024",
           "goldberg-data-gap-2025",
           "brooks-dexterity-2025",
@@ -20826,7 +20857,8 @@
           "umi-2024",
           "xiaomi-robotics-1-2026",
           "diversity-scaling-2025",
-          "nvidia-gtc-gr00t-n2-2026"
+          "nvidia-gtc-gr00t-n2-2026",
+          "open-x-embodiment-2023"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -21466,14 +21498,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 294 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -21551,6 +21575,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 294 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -21603,7 +21635,7 @@
           "text": "The Reliability Gap",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -22389,7 +22421,7 @@
           "text": "Safety and Assurance",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -23909,7 +23941,7 @@
           "text": "Action Chunking (ACT and ALOHA)",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -24885,7 +24917,7 @@
           "text": "Action Spaces for Robot Learning",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -25557,7 +25589,7 @@
           "text": "Behavior Cloning Foundations",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -26419,7 +26451,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19808,
+      "visibleTextLength": 19773,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26440,7 +26472,7 @@
           "text": "Comparison Matrix",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -26482,12 +26514,9 @@
           "act-aloha-2023",
           "diffusion-policy-2023",
           "rt2-2023",
-          "octo-2024",
-          "open-x-embodiment-2023",
           "openvla-2024",
           "openvla-oft-2025",
           "pi0-2024",
-          "pi0-fast-2025",
           "pi05-2025",
           "openpi-repo-2024",
           "pi06-model-card-2025",
@@ -26514,7 +26543,10 @@
           "nvidia-gtc-gr00t-n2-2026",
           "helix-2025",
           "helix-2-5-2026",
-          "agibot-world-2025"
+          "agibot-world-2025",
+          "octo-2024",
+          "open-x-embodiment-2023",
+          "pi0-fast-2025"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -27169,22 +27201,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 20 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 294 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 18 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -27194,14 +27210,6 @@
         {
           "tag": "button",
           "text": "Show all 24 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -27294,6 +27302,30 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 20 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 294 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -27346,7 +27378,7 @@
           "text": "Cross-Embodiment Transfer",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -28237,7 +28269,7 @@
           "text": "Diffusion Policy",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -29121,7 +29153,7 @@
           "text": "Foundation Models for Robotics",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -29860,7 +29892,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22495,
+      "visibleTextLength": 22463,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29881,7 +29913,7 @@
           "text": "Other Generalist Policies",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -29929,9 +29961,6 @@
           "agibot-world-2025",
           "agibot-go2-2026",
           "skild-series-c-2026",
-          "pi05-2025",
-          "pi06-model-card-2025",
-          "pi07-2026",
           "pi-human-to-robot-2025",
           "egoscale-2026",
           "tri-lbm-2025",
@@ -29958,7 +29987,10 @@
           "generalist-gen0-2025",
           "generalist-gen1-2026",
           "gen-1-5-2026",
-          "roboarena-2025"
+          "roboarena-2025",
+          "pi05-2025",
+          "pi06-model-card-2025",
+          "pi07-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -30738,22 +30770,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 36 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 87 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 15 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -30803,6 +30819,22 @@
         {
           "tag": "button",
           "text": "Show all 32 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 36 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 87 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -30859,7 +30891,7 @@
           "text": "Hierarchical Approaches",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -31825,7 +31857,7 @@
           "text": "Knowledge Insulation",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -32615,7 +32647,7 @@
           "text": "The Pi Line",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -33632,7 +33664,7 @@
           "text": "Real-Time Execution",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -34512,7 +34544,7 @@
           "text": "RL Fine-Tuning of Policies",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -35605,7 +35637,7 @@
           "text": "Robot Learning Curriculum for ML Engineers",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -36350,7 +36382,7 @@
           "text": "Vision-Language-Action Models",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -39072,7 +39104,7 @@
           "text": "Humanoid Whole-Body Control",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -40003,7 +40035,7 @@
           "text": "Legged Locomotion Lineage",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -40844,7 +40876,7 @@
           "text": "Offline Reinforcement Learning for Robotics",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -41989,7 +42021,7 @@
           "text": "Massively Parallel Sim RL",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -42871,7 +42903,7 @@
           "text": "Reward Design and the MPC Debate",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -43964,7 +43996,7 @@
           "text": "RL for Robotics",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -44963,7 +44995,7 @@
           "text": "Sim-to-Real Transfer",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -46000,7 +46032,7 @@
           "text": "Why RL Won Locomotion but Not Manipulation",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -47082,7 +47114,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16006,
+      "visibleTextLength": 15970,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47103,7 +47135,7 @@
           "text": "World Model Evaluation for Robotics",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -47142,11 +47174,8 @@
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "world-model-survey-2026",
-          "genie-3-2025",
           "simpler-2024",
           "libero-plus-2025",
-          "interactive-world-simulator-2026",
-          "roboworld-2026",
           "roboarena-2025",
           "simfoundry-2026",
           "physics-iq-2025",
@@ -47173,7 +47202,10 @@
           "droid-2024",
           "tri-lbm-2025",
           "physics-iq-verified-2026",
-          "worldsimprobe-2026"
+          "worldsimprobe-2026",
+          "genie-3-2025",
+          "interactive-world-simulator-2026",
+          "roboworld-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -47695,14 +47727,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 10 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 32 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -47812,6 +47836,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -47843,7 +47875,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20125,
+      "visibleTextLength": 20045,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47864,7 +47896,7 @@
           "text": "Generative Simulation",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -47912,10 +47944,8 @@
           "eureka-2024",
           "3d-gen-embodied-survey-2026",
           "physics-iq-2025",
-          "maniskill3-2024",
           "gensim-2023",
           "robotwin-2-2025",
-          "procthor-2022",
           "objaverse-2022",
           "scenesmith-2026",
           "mimicgen-2023",
@@ -47930,14 +47960,16 @@
           "text2reward-2023",
           "digital-cousins-2024",
           "simfoundry-2026",
-          "rialto-2024",
           "infinigen-articulated-2025",
           "steerable-scene-generation-2025",
+          "marble-2025",
+          "newton-manipulation-blog-2026",
+          "maniskill3-2024",
+          "procthor-2022",
+          "rialto-2024",
           "genesis-world-2026",
           "grail-2026",
-          "marble-2025",
-          "worldlabs-atlas-2026",
-          "newton-manipulation-blog-2026"
+          "worldlabs-atlas-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -48618,14 +48650,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 23 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -48635,14 +48659,6 @@
         {
           "tag": "button",
           "text": "Show all 26 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 11 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -48698,6 +48714,22 @@
         },
         {
           "tag": "button",
+          "text": "Show all 23 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 11 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 20 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -48734,7 +48766,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20768,
+      "visibleTextLength": 20704,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48755,7 +48787,7 @@
           "text": "Generative Video World Models",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -48803,8 +48835,6 @@
           "gr-2-2024",
           "1x-world-model-lab-2026",
           "odyssey-2-2025",
-          "odyssey-starchild-1-2026",
-          "odyssey-agora-1-2026",
           "interactive-world-simulator-2026",
           "roboworld-2026",
           "world-model-survey-2026",
@@ -48813,23 +48843,25 @@
           "unisim-2023",
           "physics-iq-2025",
           "google-project-genie-2026",
-          "waymo-world-model-2026",
           "gr-3-2025",
           "dreamzero-2026",
           "cosmos-policy-2026",
-          "lingbot-va-2026",
           "wam-robustness-2026",
           "fast-wam-2026",
           "1x-world-model-2026",
           "world-in-world-2025",
           "veo-world-simulator-2025",
-          "dreamdojo-2026",
           "polaris-2025",
           "rise-2026",
           "1x-world-model-2025",
           "grail-2026",
           "openwam-2026",
-          "long-wam-2026"
+          "long-wam-2026",
+          "odyssey-starchild-1-2026",
+          "odyssey-agora-1-2026",
+          "waymo-world-model-2026",
+          "lingbot-va-2026",
+          "dreamdojo-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -49620,14 +49652,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 12 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 14 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -49645,14 +49669,6 @@
         {
           "tag": "button",
           "text": "Show all 23 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 30 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -49697,6 +49713,22 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 30 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -49728,7 +49760,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18393,
+      "visibleTextLength": 18329,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49749,7 +49781,7 @@
           "text": "JEPA and the Non-Generative Counterargument",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -49799,7 +49831,6 @@
           "ad-e2e-jepa-2026",
           "dino-wm-2024",
           "jepa-implicit-bias-2024",
-          "muzero-2019",
           "intuitive-physics-2025",
           "ijepa-2023",
           "byol-2020",
@@ -49807,10 +49838,7 @@
           "vjepa-2-1-2026",
           "jepa-wm-2025",
           "leworldmodel-2026",
-          "ami-labs-launch-2026",
           "lecun-ami-techcrunch-2025",
-          "dreamdojo-2026",
-          "dreamer4-2025",
           "lejepa-2025",
           "lejepa-world-model-2026",
           "intphys2-2025",
@@ -49821,8 +49849,12 @@
           "tdmpc2-2023",
           "h-jepa-2026",
           "skyjepa-2026",
-          "levjepa-2026",
-          "jepa-unstable-modes-2026"
+          "jepa-unstable-modes-2026",
+          "muzero-2019",
+          "ami-labs-launch-2026",
+          "dreamdojo-2026",
+          "dreamer4-2025",
+          "levjepa-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -50418,6 +50450,46 @@
         },
         {
           "tag": "button",
+          "text": "Show all 14 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 14 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 12 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -50426,47 +50498,7 @@
         },
         {
           "tag": "button",
-          "text": "Show all 14 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 9 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 30 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 9 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 14 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -50502,7 +50534,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15849,
+      "visibleTextLength": 15817,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50523,7 +50555,7 @@
           "text": "Latent-Dynamics World Models",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -50579,8 +50611,6 @@
           "muzero-2019",
           "value-equivalence-2020",
           "mudreamer-2024",
-          "masked-world-models-2022",
-          "reset-free-driving-2026",
           "mbpo-2019",
           "steve-2018",
           "hwm-2026",
@@ -50591,9 +50621,11 @@
           "td-m-pc2-2025",
           "newt-2025",
           "wmp-2024",
-          "puppeteer-2024",
           "simdist-2026",
-          "insertion-world-models-2026"
+          "insertion-world-models-2026",
+          "masked-world-models-2022",
+          "reset-free-driving-2026",
+          "puppeteer-2024"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -51261,7 +51293,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14283,
+      "visibleTextLength": 14218,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51282,7 +51314,7 @@
           "text": "Model-Based Robot Learning",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -51323,7 +51355,6 @@
           "dreamer-2019",
           "dreamerv3-2023",
           "daydreamer-2022",
-          "tdmpc-2022",
           "tdmpc2-2023",
           "robotic-world-model-2025",
           "mujoco-2012",
@@ -51336,16 +51367,13 @@
           "manip-wm-survey-2026",
           "value-equivalence-2020",
           "deep-visual-foresight-2016",
-          "newt-2025",
           "dreamer4-2025",
           "me-trpo-2018",
           "pets-2018",
           "mbpo-2019",
           "mopo-2020",
-          "morel-2020",
           "visuospatial-foresight-2020",
           "wm-hallucination-2026",
-          "pilco-2015",
           "pddm-2019",
           "ssrl-2024",
           "rwm-u-2025",
@@ -51354,6 +51382,10 @@
           "asap-2025",
           "reset-free-driving-2026",
           "pointworld-2026",
+          "tdmpc-2022",
+          "newt-2025",
+          "morel-2020",
+          "pilco-2015",
           "simdist-2026"
         ],
         "imageCount": 0,
@@ -51891,7 +51923,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19775,
+      "visibleTextLength": 19695,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51912,7 +51944,7 @@
           "text": "What Is a World Model?",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -51966,12 +51998,7 @@
           "manip-wm-survey-2026",
           "dreamerv3-nature-2025",
           "dreamer4-2025",
-          "newt-2025",
-          "google-project-genie-2026",
-          "odyssey-2-2025",
           "vjepa-2024",
-          "vjepa-2-1-2026",
-          "leworldmodel-2026",
           "nvidia-wam-blog-2026",
           "dreamzero-2026",
           "fast-wam-2026",
@@ -51979,13 +52006,18 @@
           "visualpredicator-2024",
           "physgaussian-2023",
           "marble-2025",
-          "amd-world-labs-2026",
           "veo-world-simulator-2025",
           "interactive-world-simulator-2026",
           "wm-hallucination-2026",
           "video-physical-law-2024",
           "physics-iq-2025",
-          "pointworld-2026"
+          "pointworld-2026",
+          "newt-2025",
+          "google-project-genie-2026",
+          "odyssey-2-2025",
+          "vjepa-2-1-2026",
+          "leworldmodel-2026",
+          "amd-world-labs-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -52827,14 +52859,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 9 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 36 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -52852,6 +52876,14 @@
         {
           "tag": "button",
           "text": "Show all 10 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -52887,7 +52919,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20605,
+      "visibleTextLength": 20541,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52908,7 +52940,7 @@
           "text": "World Models vs Physics Simulators",
           "face": {
             "familyHead": "dm sans",
-            "sizePx": 44,
+            "sizePx": 40,
             "lineHeightRatio": 0.93,
             "trackingEm": -0.025,
             "weight": 400,
@@ -52967,20 +52999,20 @@
           "wm-hallucination-2026",
           "isaac-gym-2021",
           "leworldmodel-2026",
-          "cosmos-predict2-5-2025",
           "genie-3-2025",
           "interactive-world-simulator-2026",
-          "dreamer4-2025",
           "dreamzero-2026",
-          "1x-world-model-2026",
           "physics-iq-2025",
           "splatsim-2024",
-          "simfoundry-2026",
           "phystwin-2025",
           "asap-2025",
           "newton-manipulation-blog-2026",
-          "cosmos-predict2-repo-2025",
-          "simdist-2026"
+          "simdist-2026",
+          "cosmos-predict2-5-2025",
+          "dreamer4-2025",
+          "1x-world-model-2026",
+          "simfoundry-2026",
+          "cosmos-predict2-repo-2025"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -53643,14 +53675,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 89 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 10 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -53675,7 +53699,7 @@
         },
         {
           "tag": "button",
-          "text": "Show all 18 authors",
+          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -53683,7 +53707,15 @@
         },
         {
           "tag": "button",
-          "text": "Show all 9 authors",
+          "text": "Show all 89 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 18 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -53719,7 +53751,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3203,
+      "visibleTextLength": 3060,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -53955,41 +53987,73 @@
         },
         {
           "tag": "button",
-          "text": "Play",
+          "text": "Turn it in 3D",
           "familyHead": "geist",
-          "sizePx": 13,
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:primary-action"
         },
         {
           "tag": "summary",
-          "text": "Adjust more",
+          "text": "Check yourself: What stops a hum",
           "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step back",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Step forward",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Reset",
-          "familyHead": "geist",
-          "sizePx": 13,
+          "sizePx": 15,
           "inProse": false,
           "controlId": "control:secondary-action"
         }
@@ -56621,7 +56685,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21728,
+      "visibleTextLength": 21710,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56685,11 +56749,11 @@
           "davinci5-clearance-2024",
           "intuitive-q4-2025",
           "cmr-versius-authorization-2024",
-          "versius-plus-510k-2025",
           "maestro-tavac-2023",
-          "maestro-commercial-510k-2024",
           "scopilot-clearance-2025",
-          "agro-suvide-2026"
+          "agro-suvide-2026",
+          "versius-plus-510k-2025",
+          "maestro-commercial-510k-2024"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -71158,7 +71222,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21858,
+      "visibleTextLength": 21854,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71222,7 +71286,6 @@
           "morgan-stanley-pr-problem-2026",
           "agility-digit-production",
           "figure-bmw-production-2025",
-          "evst-cell-cost-2026",
           "bessemer-robotics-2026",
           "computex-collapse-2026",
           "robotics-funding-23b-2026",
@@ -71249,7 +71312,8 @@
           "helix-02-2026",
           "t-rex-2026",
           "lin-data-scaling-laws-2024",
-          "unitree-prospectus-2026"
+          "unitree-prospectus-2026",
+          "evst-cell-cost-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -71373,7 +71437,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Evidence: beyond Crunchbase's narrower venture countSource 1"
+          "text": "Evidence: beyond Crunchbase's narrower venture countSource 9"
         },
         {
           "familyHead": "geist",
@@ -71445,7 +71509,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Figure's Helix 02 takes fingertip tactile inputSource 3030 F"
+          "text": "Figure's Helix 02 takes fingertip tactile inputSource 2929 F"
         },
         {
           "familyHead": "geist",
@@ -73187,10 +73251,10 @@
           "fingr-2026",
           "tacdyn-wam-2026",
           "bd-atlas-hand-2026",
-          "unitree-dex5-1-2026",
           "eigendexplore-2026",
           "visual-predicted-force-2026",
-          "fingers-as-legs-2026"
+          "fingers-as-legs-2026",
+          "unitree-dex5-1-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -74059,7 +74123,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26401,
+      "visibleTextLength": 26399,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74124,7 +74188,6 @@
           "egoscale-2026",
           "isaac-gr00t-repo-2026",
           "gemini-robotics-2-2026",
-          "open-x-embodiment-2023",
           "lin-data-scaling-laws-2024",
           "goldberg-data-gap-2025",
           "brooks-dexterity-2025",
@@ -74149,7 +74212,8 @@
           "umi-2024",
           "xiaomi-robotics-1-2026",
           "diversity-scaling-2025",
-          "nvidia-gtc-gr00t-n2-2026"
+          "nvidia-gtc-gr00t-n2-2026",
+          "open-x-embodiment-2023"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -74789,14 +74853,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 294 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -74870,6 +74926,14 @@
         {
           "tag": "button",
           "text": "Show all 10 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 294 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -79676,7 +79740,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26812,
+      "visibleTextLength": 26774,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79739,12 +79803,9 @@
           "act-aloha-2023",
           "diffusion-policy-2023",
           "rt2-2023",
-          "octo-2024",
-          "open-x-embodiment-2023",
           "openvla-2024",
           "openvla-oft-2025",
           "pi0-2024",
-          "pi0-fast-2025",
           "pi05-2025",
           "openpi-repo-2024",
           "pi06-model-card-2025",
@@ -79771,7 +79832,10 @@
           "nvidia-gtc-gr00t-n2-2026",
           "helix-2025",
           "helix-2-5-2026",
-          "agibot-world-2025"
+          "agibot-world-2025",
+          "octo-2024",
+          "open-x-embodiment-2023",
+          "pi0-fast-2025"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -80426,22 +80490,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 20 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 294 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 18 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -80451,14 +80499,6 @@
         {
           "tag": "button",
           "text": "Show all 24 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -80547,6 +80587,30 @@
         {
           "tag": "button",
           "text": "Show all 52 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 20 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 294 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -83073,7 +83137,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28956,
+      "visibleTextLength": 28924,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83142,9 +83206,6 @@
           "agibot-world-2025",
           "agibot-go2-2026",
           "skild-series-c-2026",
-          "pi05-2025",
-          "pi06-model-card-2025",
-          "pi07-2026",
           "pi-human-to-robot-2025",
           "egoscale-2026",
           "tri-lbm-2025",
@@ -83171,7 +83232,10 @@
           "generalist-gen0-2025",
           "generalist-gen1-2026",
           "gen-1-5-2026",
-          "roboarena-2025"
+          "roboarena-2025",
+          "pi05-2025",
+          "pi06-model-card-2025",
+          "pi07-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -83951,22 +84015,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 36 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 87 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 15 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -84016,6 +84064,22 @@
         {
           "tag": "button",
           "text": "Show all 32 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 36 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 87 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -100119,7 +100183,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22780,
+      "visibleTextLength": 22740,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100179,11 +100243,8 @@
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "world-model-survey-2026",
-          "genie-3-2025",
           "simpler-2024",
           "libero-plus-2025",
-          "interactive-world-simulator-2026",
-          "roboworld-2026",
           "roboarena-2025",
           "simfoundry-2026",
           "physics-iq-2025",
@@ -100210,7 +100271,10 @@
           "droid-2024",
           "tri-lbm-2025",
           "physics-iq-verified-2026",
-          "worldsimprobe-2026"
+          "worldsimprobe-2026",
+          "genie-3-2025",
+          "interactive-world-simulator-2026",
+          "roboworld-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -100732,14 +100796,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 10 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 32 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -100849,6 +100905,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 10 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -100869,7 +100933,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27371,
+      "visibleTextLength": 27291,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100938,10 +101002,8 @@
           "eureka-2024",
           "3d-gen-embodied-survey-2026",
           "physics-iq-2025",
-          "maniskill3-2024",
           "gensim-2023",
           "robotwin-2-2025",
-          "procthor-2022",
           "objaverse-2022",
           "scenesmith-2026",
           "mimicgen-2023",
@@ -100956,14 +101018,16 @@
           "text2reward-2023",
           "digital-cousins-2024",
           "simfoundry-2026",
-          "rialto-2024",
           "infinigen-articulated-2025",
           "steerable-scene-generation-2025",
+          "marble-2025",
+          "newton-manipulation-blog-2026",
+          "maniskill3-2024",
+          "procthor-2022",
+          "rialto-2024",
           "genesis-world-2026",
           "grail-2026",
-          "marble-2025",
-          "worldlabs-atlas-2026",
-          "newton-manipulation-blog-2026"
+          "worldlabs-atlas-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -101644,14 +101708,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 23 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -101661,14 +101717,6 @@
         {
           "tag": "button",
           "text": "Show all 26 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 11 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -101724,6 +101772,22 @@
         },
         {
           "tag": "button",
+          "text": "Show all 23 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 11 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 20 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -101749,7 +101813,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26330,
+      "visibleTextLength": 26266,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101818,8 +101882,6 @@
           "gr-2-2024",
           "1x-world-model-lab-2026",
           "odyssey-2-2025",
-          "odyssey-starchild-1-2026",
-          "odyssey-agora-1-2026",
           "interactive-world-simulator-2026",
           "roboworld-2026",
           "world-model-survey-2026",
@@ -101828,23 +101890,25 @@
           "unisim-2023",
           "physics-iq-2025",
           "google-project-genie-2026",
-          "waymo-world-model-2026",
           "gr-3-2025",
           "dreamzero-2026",
           "cosmos-policy-2026",
-          "lingbot-va-2026",
           "wam-robustness-2026",
           "fast-wam-2026",
           "1x-world-model-2026",
           "world-in-world-2025",
           "veo-world-simulator-2025",
-          "dreamdojo-2026",
           "polaris-2025",
           "rise-2026",
           "1x-world-model-2025",
           "grail-2026",
           "openwam-2026",
-          "long-wam-2026"
+          "long-wam-2026",
+          "odyssey-starchild-1-2026",
+          "odyssey-agora-1-2026",
+          "waymo-world-model-2026",
+          "lingbot-va-2026",
+          "dreamdojo-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -102635,14 +102699,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 12 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 14 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -102660,14 +102716,6 @@
         {
           "tag": "button",
           "text": "Show all 23 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 30 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -102712,6 +102760,22 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 12 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 30 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -102732,7 +102796,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24563,
+      "visibleTextLength": 24499,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102803,7 +102867,6 @@
           "ad-e2e-jepa-2026",
           "dino-wm-2024",
           "jepa-implicit-bias-2024",
-          "muzero-2019",
           "intuitive-physics-2025",
           "ijepa-2023",
           "byol-2020",
@@ -102811,10 +102874,7 @@
           "vjepa-2-1-2026",
           "jepa-wm-2025",
           "leworldmodel-2026",
-          "ami-labs-launch-2026",
           "lecun-ami-techcrunch-2025",
-          "dreamdojo-2026",
-          "dreamer4-2025",
           "lejepa-2025",
           "lejepa-world-model-2026",
           "intphys2-2025",
@@ -102825,8 +102885,12 @@
           "tdmpc2-2023",
           "h-jepa-2026",
           "skyjepa-2026",
-          "levjepa-2026",
-          "jepa-unstable-modes-2026"
+          "jepa-unstable-modes-2026",
+          "muzero-2019",
+          "ami-labs-launch-2026",
+          "dreamdojo-2026",
+          "dreamer4-2025",
+          "levjepa-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -103422,6 +103486,46 @@
         },
         {
           "tag": "button",
+          "text": "Show all 14 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 14 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 12 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -103430,47 +103534,7 @@
         },
         {
           "tag": "button",
-          "text": "Show all 14 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 9 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 30 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 9 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 14 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -103495,7 +103559,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22164,
+      "visibleTextLength": 22132,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103572,8 +103636,6 @@
           "muzero-2019",
           "value-equivalence-2020",
           "mudreamer-2024",
-          "masked-world-models-2022",
-          "reset-free-driving-2026",
           "mbpo-2019",
           "steve-2018",
           "hwm-2026",
@@ -103584,9 +103646,11 @@
           "td-m-pc2-2025",
           "newt-2025",
           "wmp-2024",
-          "puppeteer-2024",
           "simdist-2026",
-          "insertion-world-models-2026"
+          "insertion-world-models-2026",
+          "masked-world-models-2022",
+          "reset-free-driving-2026",
+          "puppeteer-2024"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -104243,7 +104307,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19123,
+      "visibleTextLength": 19057,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104305,7 +104369,6 @@
           "dreamer-2019",
           "dreamerv3-2023",
           "daydreamer-2022",
-          "tdmpc-2022",
           "tdmpc2-2023",
           "robotic-world-model-2025",
           "mujoco-2012",
@@ -104318,16 +104381,13 @@
           "manip-wm-survey-2026",
           "value-equivalence-2020",
           "deep-visual-foresight-2016",
-          "newt-2025",
           "dreamer4-2025",
           "me-trpo-2018",
           "pets-2018",
           "mbpo-2019",
           "mopo-2020",
-          "morel-2020",
           "visuospatial-foresight-2020",
           "wm-hallucination-2026",
-          "pilco-2015",
           "pddm-2019",
           "ssrl-2024",
           "rwm-u-2025",
@@ -104336,6 +104396,10 @@
           "asap-2025",
           "reset-free-driving-2026",
           "pointworld-2026",
+          "tdmpc-2022",
+          "newt-2025",
+          "morel-2020",
+          "pilco-2015",
           "simdist-2026"
         ],
         "imageCount": 0,
@@ -104862,7 +104926,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24853,
+      "visibleTextLength": 24773,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104937,12 +105001,7 @@
           "manip-wm-survey-2026",
           "dreamerv3-nature-2025",
           "dreamer4-2025",
-          "newt-2025",
-          "google-project-genie-2026",
-          "odyssey-2-2025",
           "vjepa-2024",
-          "vjepa-2-1-2026",
-          "leworldmodel-2026",
           "nvidia-wam-blog-2026",
           "dreamzero-2026",
           "fast-wam-2026",
@@ -104950,13 +105009,18 @@
           "visualpredicator-2024",
           "physgaussian-2023",
           "marble-2025",
-          "amd-world-labs-2026",
           "veo-world-simulator-2025",
           "interactive-world-simulator-2026",
           "wm-hallucination-2026",
           "video-physical-law-2024",
           "physics-iq-2025",
-          "pointworld-2026"
+          "pointworld-2026",
+          "newt-2025",
+          "google-project-genie-2026",
+          "odyssey-2-2025",
+          "vjepa-2-1-2026",
+          "leworldmodel-2026",
+          "amd-world-labs-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -105798,14 +105862,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 9 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 36 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -105823,6 +105879,14 @@
         {
           "tag": "button",
           "text": "Show all 10 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -105847,7 +105911,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26082,
+      "visibleTextLength": 26018,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -105927,20 +105991,20 @@
           "wm-hallucination-2026",
           "isaac-gym-2021",
           "leworldmodel-2026",
-          "cosmos-predict2-5-2025",
           "genie-3-2025",
           "interactive-world-simulator-2026",
-          "dreamer4-2025",
           "dreamzero-2026",
-          "1x-world-model-2026",
           "physics-iq-2025",
           "splatsim-2024",
-          "simfoundry-2026",
           "phystwin-2025",
           "asap-2025",
           "newton-manipulation-blog-2026",
-          "cosmos-predict2-repo-2025",
-          "simdist-2026"
+          "simdist-2026",
+          "cosmos-predict2-5-2025",
+          "dreamer4-2025",
+          "1x-world-model-2026",
+          "simfoundry-2026",
+          "cosmos-predict2-repo-2025"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -106603,14 +106667,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 89 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 10 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -106635,7 +106691,7 @@
         },
         {
           "tag": "button",
-          "text": "Show all 18 authors",
+          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -106643,7 +106699,15 @@
         },
         {
           "tag": "button",
-          "text": "Show all 9 authors",
+          "text": "Show all 89 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 18 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,

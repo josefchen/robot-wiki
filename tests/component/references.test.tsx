@@ -82,14 +82,75 @@ describe('References', () => {
     ).toBe('ref-act-aloha-2023');
   });
 
-  it('marks declared-but-not-inline entries as further reading', () => {
+  // Successor (2026-10-13, drift repair under library/design-system.md, "no
+  // repeated eyebrow clutter"): the uncited entries sit under one
+  // sentence-case "Further reading" heading instead of each carrying a
+  // tracked-capitals badge. Same strength: every declared-but-not-inline
+  // entry is still marked, and no cited entry is.
+  it('lists declared-but-not-inline entries under one Further reading heading', () => {
     renderResolved(
-      ['act-aloha-2023', 'mobile-aloha-2024'],
+      ['mobile-aloha-2024', 'act-aloha-2023', 'dagger-2011'],
       ['act-aloha-2023'],
     );
+    const headings = screen.getAllByRole('heading', {
+      level: 3,
+      name: 'Further reading',
+    });
+    expect(headings).toHaveLength(1);
+    const [heading] = headings;
+    expect(heading).toBeVisible();
+    expect(heading.textContent).toBe('Further reading');
+
+    // Cited entries print first; the uncited ones follow the heading in
+    // frontmatter order, in the list right after it.
     const items = screen.getAllByRole('listitem');
-    expect(within(items[0]).queryByText('Further reading')).toBeNull();
-    expect(within(items[1]).getByText('Further reading')).toBeVisible();
+    expect(items.map((li) => li.getAttribute('data-reference-id'))).toEqual([
+      'act-aloha-2023',
+      'mobile-aloha-2024',
+      'dagger-2011',
+    ]);
+    const furtherList = heading.nextElementSibling;
+    expect(furtherList?.tagName).toBe('OL');
+    expect(
+      within(furtherList as HTMLElement)
+        .getAllByRole('listitem')
+        .map((li) => li.getAttribute('data-reference-id')),
+    ).toEqual(['mobile-aloha-2024', 'dagger-2011']);
+    for (const item of items) {
+      const further = item.getAttribute('data-reference-id') !== 'act-aloha-2023';
+      expect(item.getAttribute('data-further-reading')).toBe(String(further));
+      expect(
+        item.compareDocumentPosition(heading) &
+          Node.DOCUMENT_POSITION_PRECEDING,
+        `${item.getAttribute('data-reference-id')} sits ${further ? 'after' : 'before'} the heading`,
+      ).toBe(further ? Node.DOCUMENT_POSITION_PRECEDING : 0);
+      // The marker is the heading, not a word repeated on each entry.
+      expect(within(item).queryByText('Further reading')).toBeNull();
+    }
+  });
+
+  it('numbers the further-reading entries on from the cited ones', () => {
+    renderResolved(
+      ['mobile-aloha-2024', 'act-aloha-2023', 'dagger-2011'],
+      ['act-aloha-2023', 'dagger-2011'],
+    );
+    const numbers = screen
+      .getAllByRole('listitem')
+      .map((li) => li.querySelector('[aria-hidden="true"]')?.textContent);
+    expect(numbers).toEqual(['1', '2', '3']);
+    const lists = screen.getAllByRole('list');
+    expect(lists).toHaveLength(2);
+    expect(lists[1]).toHaveAttribute('start', '3');
+  });
+
+  it('renders no Further reading heading when every entry is cited inline', () => {
+    renderResolved(
+      ['act-aloha-2023', 'mobile-aloha-2024'],
+      ['mobile-aloha-2024', 'act-aloha-2023'],
+    );
+    expect(screen.queryByRole('heading', { name: 'Further reading' })).toBeNull();
+    expect(screen.queryByText('Further reading')).toBeNull();
+    expect(screen.getAllByRole('list')).toHaveLength(1);
   });
 
   it('renders nothing for an empty citation list', () => {
