@@ -38,12 +38,15 @@ export type FigureMountReview = {
 
 // BEGIN figure-mount pins (written by scripts/record-figure-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 33613, sha256: 'f47d0583e8bee93e25fbf2909e5633672ab4b5e9919f5b6058fd7d4fdc02ae6c' };
+const reviewPin = { bytes: 40036, sha256: '7ee0efe729f463bcfdd23dda865e98c9e311e62715cbc41573a5e93f4339abe4' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
+  ['content/adjacent/surgical.mdx', [13598, 'cffde9f2ee237da5e27c744f7e62bd8f7ac75a914a27487f3fed2e7a9c7dfdf6']],
   ['content/classical/calibration.mdx', [10030, 'ffc769f31d4b00ea8624283b9af7d4d9d0b71bcd6ff55ec6887f5cf83429fdf5']],
   ['content/classical/ros2-for-ml-engineers.mdx', [9930, '65fb50d6229dde8c3446194236429481a1ac0799e99753471a29c95317731fb7']],
+  ['content/data-hardware/robot-learning-stack.mdx', [11133, 'd5721a94dca00a2436bd40421cd71a69a0419c87459c160403e2c97141564b39']],
+  ['content/frontier/competing-theses.mdx', [15754, '265c64148b37d05e0947a6679ab2e9673fe40aa7dc069e8e702b529f86a2627a']],
   ['content/rl-sim2real/humanoid-wbc.mdx', [15826, '0286490b18ce62845fa3cb42eeffab3ec64143e1ca3fe10bc4790c177ee3619c']],
   ['content/rl-sim2real/legged-locomotion.mdx', [13891, 'b6f9b61a3bac25c098d0e2843780d4780b0ab8b865bfd7b39a273d2ea7f17dc3']],
   ['content/rl-sim2real/offline-rl.mdx', [13530, '029b258d5819fa7de1e20f053ae79330426f2243fabfe820c96c1bcaa7677735']],
@@ -76,6 +79,9 @@ const FIGURE_MOUNTS: Readonly<Record<string, string>> = {
   ScannedTwinCheck: 'scanned-twin-check',
   DemoOrSim: 'demo-or-sim',
   CubeTrials: 'cube-trials',
+  SceneSplit: 'scene-split',
+  MotionPantograph: 'motion-pantograph',
+  HelixClockwork: 'helix-clockwork',
 };
 
 const importLine = (name: string, file: string) => `\nimport { ${name} } from '@/components/interactive/${file}';\n\n`;

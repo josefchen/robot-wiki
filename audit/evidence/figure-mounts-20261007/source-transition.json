@@ -3,8 +3,31 @@
   "name": "figure-mounts-20261007",
   "reviewedBy": "implementation worker for the classical figure mounts of 2026-10-07 (not independent acceptance)",
   "rationale": "The classical articles on calibration and on ROS 2 for ML engineers each gained their first interactive figure on 2026-10-07 (VAL-OPUS-057): one import line after the frontmatter and one mount on its own line between blank lines, beside the paragraph the figure illustrates. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted import and mount gives the earlier bytes exactly, so no prose, number, citation, frontmatter field or other mount moved and older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-11T08:13:53Z",
+  "observedAt": "2026-10-12T19:07:28Z",
   "sources": [
+    {
+      "archivedFrom": "3b75be4e086b4e9dfb4d5338595e6e896e6d630b",
+      "before": {
+        "path": "content/adjacent/surgical.mdx",
+        "bytes": 13479,
+        "sha256": "5715334d09882b723e7498639aaef0235a74f38b444a2afcddcff60893f2f33e"
+      },
+      "after": {
+        "path": "content/adjacent/surgical.mdx",
+        "bytes": 13598,
+        "sha256": "cffde9f2ee237da5e27c744f7e62bd8f7ac75a914a27487f3fed2e7a9c7dfdf6"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { MotionPantograph } from '@/components/interactive/motion-pantograph';\n\n"
+        },
+        {
+          "before": "The da Vinci architecture is the pattern the whole field inherited. A surgeon sits at a console away from the table and manipulates hand controllers; a patient-side cart holds three or four articulated arms carrying wristed instruments and an endoscope; a vision stack delivers a magnified stereoscopic view. The machine contributes what a hand holding a laparoscopic stick cannot: motion scaling that divides hand movement into finer instrument movement, tremor filtering, and wrists that articulate inside the body, beyond the wall. The surgeon remains the planner and the controller. In the framework Yang and colleagues proposed for the field, that is Level 0 autonomy, no autonomy, and the framework's authors are explicit that a surgical robot with motion scaling still belongs there because the output represents the surgeon's desired motion <Cite id=\"yang-autonomy-2017\" />.\n",
+          "after": "The da Vinci architecture is the pattern the whole field inherited. A surgeon sits at a console away from the table and manipulates hand controllers; a patient-side cart holds three or four articulated arms carrying wristed instruments and an endoscope; a vision stack delivers a magnified stereoscopic view. The machine contributes what a hand holding a laparoscopic stick cannot: motion scaling that divides hand movement into finer instrument movement, tremor filtering, and wrists that articulate inside the body, beyond the wall. The surgeon remains the planner and the controller. In the framework Yang and colleagues proposed for the field, that is Level 0 autonomy, no autonomy, and the framework's authors are explicit that a surgical robot with motion scaling still belongs there because the output represents the surgeon's desired motion <Cite id=\"yang-autonomy-2017\" />.\n\n<MotionPantograph className=\"my-6\" />\n"
+        }
+      ]
+    },
     {
       "archivedFrom": "3a55248b22152efb944c45d498488de33f9e946c",
       "before": {
@@ -64,6 +87,52 @@
         {
           "before": "One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n",
           "after": "One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n\n<Ros2PolicyLayout className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "3b75be4e086b4e9dfb4d5338595e6e896e6d630b",
+      "before": {
+        "path": "content/data-hardware/robot-learning-stack.mdx",
+        "bytes": 11032,
+        "sha256": "568c854ef37e496a3b64e5987b22d7a4559984aca7e2c6a4c2a6f04524d10ac6"
+      },
+      "after": {
+        "path": "content/data-hardware/robot-learning-stack.mdx",
+        "bytes": 11133,
+        "sha256": "d5721a94dca00a2436bd40421cd71a69a0419c87459c160403e2c97141564b39"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { SceneSplit } from '@/components/interactive/scene-split';\n\n"
+        },
+        {
+          "before": "Split by the factor you claim to generalize across. Random episode splits can leak near-identical scenes and operators. Hold out environments for environment generalization, tasks for task generalization and embodiments for cross-embodiment claims.\n",
+          "after": "Split by the factor you claim to generalize across. Random episode splits can leak near-identical scenes and operators. Hold out environments for environment generalization, tasks for task generalization and embodiments for cross-embodiment claims.\n\n<SceneSplit className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "3b75be4e086b4e9dfb4d5338595e6e896e6d630b",
+      "before": {
+        "path": "content/frontier/competing-theses.mdx",
+        "bytes": 15641,
+        "sha256": "39a447e1408c4d5d8cfd1efd7f72f45c500d1df8cc2f80804ffdb5ea37b05bb9"
+      },
+      "after": {
+        "path": "content/frontier/competing-theses.mdx",
+        "bytes": 15754,
+        "sha256": "265c64148b37d05e0947a6679ab2e9673fe40aa7dc069e8e702b529f86a2627a"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { HelixClockwork } from '@/components/interactive/helix-clockwork';\n\n"
+        },
+        {
+          "before": "The bet here is division of labor: a vision-language model decomposes goals into subtasks, and learned skills or a low-level policy execute them. SayCan (2022) had a separate LLM dispatch a fixed skill library <Cite id=\"saycan-2022\" />; today the hierarchy sits inside the network or in a paired fast system ([hierarchical approaches](/manipulation/hierarchical/)). Google DeepMind builds Gemini Robotics ER 2 as a high-level brain that plans multi-step tasks and hands motor execution to a lower-level VLA <Cite id=\"gemini-robotics-er2-2026\" />. In Figure's Helix 02, S2 interprets scenes and language and sequences behaviors. S1 converts perception into full-body joint targets at 200 Hz, and S0 executes at 1 kHz as the <Term id=\"whole-body-control\">whole-body controller</Term> <Cite id=\"helix-02-2026\" />. NVIDIA's GR00T N1 is \"a Vision-Language-Action (VLA) model with a dual-system architecture\" <Cite id=\"gr00t-n1-2025\" />.\n",
+          "after": "The bet here is division of labor: a vision-language model decomposes goals into subtasks, and learned skills or a low-level policy execute them. SayCan (2022) had a separate LLM dispatch a fixed skill library <Cite id=\"saycan-2022\" />; today the hierarchy sits inside the network or in a paired fast system ([hierarchical approaches](/manipulation/hierarchical/)). Google DeepMind builds Gemini Robotics ER 2 as a high-level brain that plans multi-step tasks and hands motor execution to a lower-level VLA <Cite id=\"gemini-robotics-er2-2026\" />. In Figure's Helix 02, S2 interprets scenes and language and sequences behaviors. S1 converts perception into full-body joint targets at 200 Hz, and S0 executes at 1 kHz as the <Term id=\"whole-body-control\">whole-body controller</Term> <Cite id=\"helix-02-2026\" />. NVIDIA's GR00T N1 is \"a Vision-Language-Action (VLA) model with a dual-system architecture\" <Cite id=\"gr00t-n1-2025\" />.\n\n<HelixClockwork className=\"my-6\" />\n"
         }
       ]
     },

@@ -449,7 +449,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/perception-latency.tsx',
     route: '/adjacent/drones/',
     quantityNames: ['latency', 'speed'],
-    text: 'At 70 ms of perception latency and 25 m/s² lateral agility the sense-and-avoid timeline supports a maximum speed of 19.21 m/s: 70 ms is lost before control acts, 346 ms is the avoidance maneuver, and the remaining dashed margin still reaches the obstacle at 416 ms time to contact.',
+    text: 'At 70 ms of perception latency and 25 m/s² lateral agility the sense-and-avoid timeline supports a maximum speed of 19.21 m/s: 70 ms is lost before control acts, 346 ms is the avoidance maneuver, and the swerve ends at the wall at 416 ms time to contact, with no margin left.',
   },
   {
     component: 'AppearancePhysicsPush',

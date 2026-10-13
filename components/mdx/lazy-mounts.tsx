@@ -118,6 +118,9 @@ export const HandEyePoses = dynamic(() =>
 export const HardwareGuide = dynamic(() =>
   import('@/components/interactive/hardware-guide').then((m) => m.HardwareGuide),
 );
+export const HelixClockwork = dynamic(() =>
+  import('@/components/interactive/helix-clockwork').then((m) => m.HelixClockwork),
+);
 export const HierarchyTimescales = dynamic(() =>
   import('@/components/interactive/hierarchy-timescales').then((m) => m.HierarchyTimescales),
 );
@@ -144,6 +147,9 @@ export const MilestonesWatchlist = dynamic(() =>
 );
 export const MotInsulation = dynamic(() =>
   import('@/components/interactive/mot-insulation').then((m) => m.MotInsulation),
+);
+export const MotionPantograph = dynamic(() =>
+  import('@/components/interactive/motion-pantograph').then((m) => m.MotionPantograph),
 );
 export const MpcVsRl = dynamic(() =>
   import('@/components/interactive/mpc-vs-rl').then((m) => m.MpcVsRl),
@@ -210,6 +216,9 @@ export const ScannedTwinCheck = dynamic(() =>
 );
 export const SceneRepresentationLadder = dynamic(() =>
   import('@/components/interactive/scene-representation-ladder').then((m) => m.SceneRepresentationLadder),
+);
+export const SceneSplit = dynamic(() =>
+  import('@/components/interactive/scene-split').then((m) => m.SceneSplit),
 );
 export const TeacherStudent = dynamic(() =>
   import('@/components/interactive/teacher-student').then((m) => m.TeacherStudent),

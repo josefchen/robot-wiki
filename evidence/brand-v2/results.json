@@ -1650,11 +1650,11 @@
                   "Adjacent Domains"
                 ],
                 "lastReviewed": "2026-08-18",
-                "readingMinutes": 10,
+                "readingMinutes": 11,
                 "citationCount": 10,
                 "reviewDateText": "18 August 2026",
                 "reviewDateTime": "2026-08-18",
-                "readingTimeText": "10 min read",
+                "readingTimeText": "11 min read",
                 "citationCountText": "10 sources",
                 "bibliographyIds": [
                   "yang-autonomy-2017",
@@ -3182,11 +3182,11 @@
                   "Frontier & Open Problems"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 10,
+                "readingMinutes": 11,
                 "citationCount": 33,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "10 min read",
+                "readingTimeText": "11 min read",
                 "citationCountText": "33 sources",
                 "bibliographyIds": [
                   "brooks-better-lesson-2019",
@@ -70259,11 +70259,11 @@
                   "Adjacent Domains"
                 ],
                 "lastReviewed": "2026-08-18",
-                "readingMinutes": 10,
+                "readingMinutes": 11,
                 "citationCount": 10,
                 "reviewDateText": "18 August 2026",
                 "reviewDateTime": "2026-08-18",
-                "readingTimeText": "10 min read",
+                "readingTimeText": "11 min read",
                 "citationCountText": "10 sources",
                 "bibliographyIds": [
                   "yang-autonomy-2017",
@@ -71791,11 +71791,11 @@
                   "Frontier & Open Problems"
                 ],
                 "lastReviewed": "2026-09-24",
-                "readingMinutes": 10,
+                "readingMinutes": 11,
                 "citationCount": 33,
                 "reviewDateText": "24 September 2026",
                 "reviewDateTime": "2026-09-24",
-                "readingTimeText": "10 min read",
+                "readingTimeText": "11 min read",
                 "citationCountText": "33 sources",
                 "bibliographyIds": [
                   "brooks-better-lesson-2019",
@@ -85106,34 +85106,6 @@
           "currentHash": "55d30b3edcfea69cfa87e089fb888cd2ac88166c76d2db69896f331c6e6279c4",
           "status": "approved-delta",
           "approvedDelta": "reader-first-20261002-name-perception-latency-expression-aria-label-1"
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/perception-latency.tsx:aria-label:2",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/interactive/perception-latency.tsx:aria-label:2",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/interactive/perception-latency.tsx:aria-label:2"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/perception-latency.tsx:aria-label:2 moved from 88c93b50b9550468a9f1a38fd9640270d366a16bf28b78951643a10119ab94f4 to feabf61f8bfc4bb3f5048570e691e270ab6c3fcce97b25d299c519f5cb80c6d8 exactly as approved delta reader-first-20261002-name-perception-latency-expression-aria-label-2 permits: Reader-first rewrite of the perception-latency figure (VAL-OPUS-138): this aria-label expression is reworded; it reads \"{A drone flying at a wall it can see ${rangeM} metres ahead, at a top safe speed of about ${speedKmh} kilometres an hour. It flies about ${metres( blindM, )} before its camera reports the wall, then swerves for about ${metres(swerveM)}, finishing at the wall.}\" where it read \"{Sense-and-avoid timeline at the maximum speed of ${formatSpeed( outcome.maxSpeedMs, )}. Obstacle detected at the sensing range, ${formatSeconds( latencyS, )} of perception latency before control acts, then an avoidance maneuver of ${formatSeconds( tAvoid, )} at ${agility} meters per second squar...\". The name describes the same control or drawing in the plain words the figure now prints, and no figure, unit, fact or attribution changes.",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/interactive/perception-latency.tsx:aria-label:2",
-          "baselineHash": "88c93b50b9550468a9f1a38fd9640270d366a16bf28b78951643a10119ab94f4",
-          "currentHash": "feabf61f8bfc4bb3f5048570e691e270ab6c3fcce97b25d299c519f5cb80c6d8",
-          "status": "approved-delta",
-          "approvedDelta": "reader-first-20261002-name-perception-latency-expression-aria-label-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -129247,7 +129219,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:adjacent/surgical moved from f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1 to 96a13ac11a62bc531843aeb212c7ae547b0ce1d259c581353b3e4efe54488dbe exactly as approved delta kol-backlog-20261005-adjacent-prose-surgical permits: KOL backlog batch of 2026-10-05 on adjacent/surgical: adds one dated paragraph in \"What robot learning takes from it\" on AGRO-SUVIDE (Shutong Jin, Ken Goldberg and colleagues, September 2026), a coding-agent framework that builds debridement skills from one expert demonstration and retries a skill when its pre- or post-condition check fails, with its 340 da Vinci Research Kit trials, 85% average single-fragment success, and 60% three-fragment completion (95% with one human intervention), checked against the fetched abstract, and registers agro-suvide-2026. This edge moves the article body from its prior approved endpoint to the reviewed new text; no other fact, source, route or rendering changes.",
+      "actual": "prose member article:adjacent/surgical moved from f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1 to 155077f94260a331ce9edcd583d2e9b9cd80f832f6c39e04b7eef225eecd0761 exactly as approved delta anatomy-2-figures-20261012-prose-surgical permits: Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one plain edge from the member's last approved endpoint (kol-backlog-20261005-adjacent-prose-surgical). Mounts the new MotionPantograph figure after the Level 0 paragraph that introduces motion scaling, as one import line, on its own line between blank lines after the frontmatter, and one mount line between blank lines, recorded by the figure-mount continuity layer of 2026-10-07 (taking the admitted import and mount out gives the head bytes exactly). No prose, number or citation changes; this edge moves the prose member from its approved endpoint to the mounted text.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129259,9 +129231,9 @@
           "manifest": "prose",
           "member": "article:adjacent/surgical",
           "baselineHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
-          "currentHash": "96a13ac11a62bc531843aeb212c7ae547b0ce1d259c581353b3e4efe54488dbe",
+          "currentHash": "155077f94260a331ce9edcd583d2e9b9cd80f832f6c39e04b7eef225eecd0761",
           "status": "approved-delta",
-          "approvedDelta": "kol-backlog-20261005-adjacent-prose-surgical"
+          "approvedDelta": "anatomy-2-figures-20261012-prose-surgical"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -129667,7 +129639,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/robot-learning-stack moved from null to 3c02d16addf936cd71daf921576a3b74a7a58f98b99c251fa9378931979cdcbc exactly as approved delta domain-pass-20261012-kol-prose-robot-learning-stack permits: KOL triage batch of 2026-10-12 (notes older than 72 hours) on data-hardware/robot-learning-stack: adds one dated paragraph after the second paragraph of \"Contract 7: serving and robot integration\": the RAI Institute's Exploy library, as the institute describes it, which exports a training environment's observation, network and action code into one ONNX file for a C++ runtime (exploy-2026, RAI Institute blog of 7 Oct 2026). No other text changes. This edge moves the member from its last approved endpoint (motion-data-hardware-humanizer-v3-20260927-prose-robot-learning-stack).",
+      "actual": "prose member article:data-hardware/robot-learning-stack moved from null to 0e870521584fb55e03cd1281df7e89b78ea732b720ab308a07c33189d763fea1 exactly as approved delta anatomy-2-figures-20261012-prose-robot-learning-stack permits: Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-prose-robot-learning-stack). Mounts the new SceneSplit figure after the paragraph on splitting by the factor you claim to generalize across, as one import line, on its own line between blank lines after the frontmatter, and one mount line between blank lines, recorded by the figure-mount continuity layer of 2026-10-07 (taking the admitted import and mount out gives the head bytes exactly). No prose, number or citation changes; this edge moves the prose member from its approved endpoint to the mounted text.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129679,9 +129651,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/robot-learning-stack",
           "baselineHash": null,
-          "currentHash": "3c02d16addf936cd71daf921576a3b74a7a58f98b99c251fa9378931979cdcbc",
+          "currentHash": "0e870521584fb55e03cd1281df7e89b78ea732b720ab308a07c33189d763fea1",
           "status": "approved-addition",
-          "approvedDelta": "domain-pass-20261012-kol-prose-robot-learning-stack"
+          "approvedDelta": "anatomy-2-figures-20261012-prose-robot-learning-stack"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -129751,7 +129723,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/competing-theses moved from 27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895 to 73b6eb4e415abec1b01f78d28b69353aa0d8a5b0a8745968dcfa994e6e57581c exactly as approved delta frontier-pass-20261010-prose-competing-theses permits: Frontier pass of 2026-10-10: lands the frontier domain pass (the five drafts of 2026-10-06 with the frontier pre-audit) and the frontier part of the primary-source sweep of 2026-10-07 on the mission head after the rl-sim2real figure batch of 2026-10-11, the site-foundation re-skin of 2026-10-10, the world-models pass and the KOL triage batch of 2026-10-12, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 25 earlier approved edges exactly, ending with reader-first-20261002-prose-frontier-competing-theses. The reviewed domain-pass record for this member reads: Domain pass of 2026-10-06 on frontier/competing-theses: replaces the article body with the owner's verified draft (no Callout or Aside), keeps every figure and component mount in order with the same attributes and every prior citation, and cites the draft's new sources (patches/frontier.md). This edge moves the article body from its prior approved endpoint to the reviewed draft-based text; no route or rendering rule changes. The reviewed primary-source sweep record for this member reads: frontier/competing-theses: \"planned as one eight-hour shift\" cites Brett Adcock's dated post of 14 May 2026 (\"Our original goal was an 8-hour run\") instead of the TechTimes report figure-8hr-shift-2026, which leaves the citations list; the sentence is unchanged. This edge moves the member from its prior approved endpoint to the reviewed bytes; no route or rendering rule changes. The house-style pass of 2026-10-10 (owner directive of 2026-10-08 01:30) then gives each section a heading that states what the section shows, keeps every renamed heading's old fragment as a self-closing anchor span on the line above it, and splits each section longer than about 250 words in two or three at a paragraph boundary; no sentence, number, mount or citation changes. The why-rl-locomotion tile of the same coordinator decision landed with the mission's rl-sim2real pass and is not part of this block.",
+      "actual": "prose member article:frontier/competing-theses moved from 27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895 to 66e67386b819ab1338487a6ec72ebe02677ba8d4a3d54aeda8898e5335ed309a exactly as approved delta anatomy-2-figures-20261012-prose-competing-theses permits: Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 26 earlier approved edges exactly, ending with frontier-pass-20261010-prose-competing-theses. Mounts the new HelixClockwork figure after the paragraph that gives Helix 02's S1 rate of 200 Hz and S0 rate of 1 kHz, as one import line, on its own line between blank lines after the frontmatter, and one mount line between blank lines, recorded by the figure-mount continuity layer of 2026-10-07 (taking the admitted import and mount out gives the head bytes exactly). No prose, number or citation changes; this edge moves the prose member to the mounted text.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -129763,9 +129735,9 @@
           "manifest": "prose",
           "member": "article:frontier/competing-theses",
           "baselineHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
-          "currentHash": "73b6eb4e415abec1b01f78d28b69353aa0d8a5b0a8745968dcfa994e6e57581c",
+          "currentHash": "66e67386b819ab1338487a6ec72ebe02677ba8d4a3d54aeda8898e5335ed309a",
           "status": "approved-delta",
-          "approvedDelta": "frontier-pass-20261010-prose-competing-theses"
+          "approvedDelta": "anatomy-2-figures-20261012-prose-competing-theses"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -132687,7 +132659,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/adjacent/drones/ ships 37 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 37 outbound anchor occurrences on it with a visible focus ring in 126 stops",
+      "actual": "/adjacent/drones/ ships 37 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 37 outbound anchor occurrences on it with a visible focus ring in 127 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132706,7 +132678,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 34,
           "reachedByTab": 37,
-          "tabStops": 126,
+          "tabStops": 127,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -132761,7 +132733,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/adjacent/surgical/ ships 34 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 34 outbound anchor occurrences on it with a visible focus ring in 98 stops",
+      "actual": "/adjacent/surgical/ ships 34 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 34 outbound anchor occurrences on it with a visible focus ring in 101 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -132780,7 +132752,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 31,
           "reachedByTab": 34,
-          "tabStops": 98,
+          "tabStops": 101,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -133428,7 +133400,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/robot-learning-stack/ ships 21 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 21 outbound anchor occurrences on it with a visible focus ring in 95 stops",
+      "actual": "/data-hardware/robot-learning-stack/ ships 21 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 21 outbound anchor occurrences on it with a visible focus ring in 99 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133447,7 +133419,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 18,
           "reachedByTab": 21,
-          "tabStops": 95,
+          "tabStops": 99,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -133609,7 +133581,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/competing-theses/ ships 92 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 92 outbound anchor occurrences on it with a visible focus ring in 238 stops",
+      "actual": "/frontier/competing-theses/ ships 92 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 92 outbound anchor occurrences on it with a visible focus ring in 241 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133628,7 +133600,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 89,
           "reachedByTab": 92,
-          "tabStops": 238,
+          "tabStops": 241,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -148139,15 +148111,19 @@
             "components/interactive/grasp-wrench-lab.tsx",
             "components/interactive/hand-comparison.tsx",
             "components/interactive/hardware-guide.tsx",
+            "components/interactive/helix-clockwork.tsx",
             "components/interactive/hierarchy-timescales.tsx",
             "components/interactive/jepa-planning.tsx",
             "components/interactive/latent-imagination.tsx",
+            "components/interactive/motion-pantograph.tsx",
             "components/interactive/pendulum-controller.tsx",
+            "components/interactive/perception-latency.tsx",
             "components/interactive/qos-queue-age.tsx",
             "components/interactive/receding-horizon.tsx",
             "components/interactive/reward-shaping.tsx",
             "components/interactive/ros2-interfaces.tsx",
             "components/interactive/rrt-explorer.tsx",
+            "components/interactive/scene-split.tsx",
             "components/interactive/time-offset-miss.tsx",
             "components/market-map/company-card.tsx",
             "components/market-map/filter-bar.tsx",
@@ -148599,7 +148575,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
-      "actual": "rendered on 31 of 77 swept route states and reconciled exactly against the registry row",
+      "actual": "rendered on 32 of 77 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -148636,6 +148612,7 @@
             "/data-hardware/data-bottleneck/",
             "/data-hardware/evaluation-crisis/",
             "/data-hardware/industrial-deployment/",
+            "/data-hardware/robot-learning-stack/",
             "/frontier/bear-case/",
             "/frontier/dexterity/",
             "/frontier/generalization/",
@@ -148675,7 +148652,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
-      "actual": "rendered on 26 of 77 swept route states and reconciled exactly against the registry row",
+      "actual": "rendered on 28 of 77 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -148714,12 +148691,14 @@
             "components/interactive/friction-transfer.tsx",
             "components/interactive/grasp-wrench-lab.tsx",
             "components/interactive/hand-eye-poses.tsx",
+            "components/interactive/helix-clockwork.tsx",
             "components/interactive/hierarchy-timescales.tsx",
             "components/interactive/impedance-contact-lab.tsx",
             "components/interactive/jepa-planning.tsx",
             "components/interactive/latency-comparison.tsx",
             "components/interactive/latent-imagination.tsx",
             "components/interactive/mot-insulation.tsx",
+            "components/interactive/motion-pantograph.tsx",
             "components/interactive/offline-value-overreach.tsx",
             "components/interactive/pendulum-controller.tsx",
             "components/interactive/perception-error-budget.tsx",
@@ -148757,6 +148736,7 @@
           "mountState": "production",
           "renderedOn": [
             "/",
+            "/adjacent/surgical/",
             "/classical/calibration/",
             "/classical/control/",
             "/classical/grasp-planning/",
@@ -148767,6 +148747,7 @@
             "/data-hardware/data-bottleneck/",
             "/data-hardware/evaluation-crisis/",
             "/data-hardware/industrial-deployment/",
+            "/frontier/competing-theses/",
             "/frontier/reliability-gap/",
             "/frontier/safety-and-assurance/",
             "/how-robots-work/",
@@ -157172,7 +157153,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6492 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6406 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -157410,7 +157391,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/adjacent/drones/ rendered no v1 identity spelling and no v1 descriptor in 41614 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/adjacent/drones/ rendered no v1 identity spelling and no v1 descriptor in 41438 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -157504,7 +157485,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/adjacent/surgical/ rendered no v1 identity spelling and no v1 descriptor in 38652 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/adjacent/surgical/ rendered no v1 identity spelling and no v1 descriptor in 39632 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158303,7 +158284,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 55039 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 54761 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158350,7 +158331,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/robot-learning-stack/ rendered no v1 identity spelling and no v1 descriptor in 26862 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/robot-learning-stack/ rendered no v1 identity spelling and no v1 descriptor in 27738 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158585,7 +158566,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/competing-theses/ rendered no v1 identity spelling and no v1 descriptor in 49544 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/competing-theses/ rendered no v1 identity spelling and no v1 descriptor in 50616 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158632,7 +158613,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/dexterity/ rendered no v1 identity spelling and no v1 descriptor in 61530 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/dexterity/ rendered no v1 identity spelling and no v1 descriptor in 61548 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158867,7 +158848,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1403 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1412 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -226225,8 +226206,8 @@
               "id": "/adjacent/drones/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 19,
-                "controlsInProse": 16,
+                "interfaceControlCount": 20,
+                "controlsInProse": 17,
                 "registrationLabelCount": 0
               }
             }
@@ -226301,8 +226282,8 @@
               "id": "/adjacent/surgical/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 3,
-                "controlsInProse": 0,
+                "interfaceControlCount": 5,
+                "controlsInProse": 2,
                 "registrationLabelCount": 0
               }
             }
@@ -226985,8 +226966,8 @@
               "id": "/data-hardware/robot-learning-stack/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 8,
-                "controlsInProse": 1,
+                "interfaceControlCount": 12,
+                "controlsInProse": 5,
                 "registrationLabelCount": 0
               }
             }
@@ -227175,8 +227156,8 @@
               "id": "/frontier/competing-theses/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 43,
-                "controlsInProse": 27,
+                "interfaceControlCount": 45,
+                "controlsInProse": 29,
                 "registrationLabelCount": 0
               }
             }
@@ -231126,7 +231107,7 @@
               "id": "/adjacent/drones/",
               "observed": {
                 "paragraphCount": 36,
-                "registeredFrameParagraphCount": 24,
+                "registeredFrameParagraphCount": 28,
                 "offendingFamilies": []
               }
             }
@@ -231200,7 +231181,7 @@
               "id": "/adjacent/surgical/",
               "observed": {
                 "paragraphCount": 30,
-                "registeredFrameParagraphCount": 0,
+                "registeredFrameParagraphCount": 8,
                 "offendingFamilies": []
               }
             }
@@ -231718,7 +231699,7 @@
               "id": "/data-hardware/industrial-deployment/",
               "observed": {
                 "paragraphCount": 38,
-                "registeredFrameParagraphCount": 26,
+                "registeredFrameParagraphCount": 28,
                 "offendingFamilies": []
               }
             }
@@ -231755,7 +231736,7 @@
               "id": "/data-hardware/robot-learning-stack/",
               "observed": {
                 "paragraphCount": 64,
-                "registeredFrameParagraphCount": 4,
+                "registeredFrameParagraphCount": 12,
                 "offendingFamilies": []
               }
             }
@@ -231866,7 +231847,7 @@
               "id": "/frontier/competing-theses/",
               "observed": {
                 "paragraphCount": 32,
-                "registeredFrameParagraphCount": 4,
+                "registeredFrameParagraphCount": 12,
                 "offendingFamilies": []
               }
             }
@@ -231903,7 +231884,7 @@
               "id": "/frontier/dexterity/",
               "observed": {
                 "paragraphCount": 50,
-                "registeredFrameParagraphCount": 18,
+                "registeredFrameParagraphCount": 22,
                 "offendingFamilies": []
               }
             }
@@ -261359,6 +261340,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -261368,6 +261350,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -261390,6 +261373,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -261449,6 +261433,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -261458,6 +261443,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -261480,6 +261466,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -261539,6 +261526,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -261548,6 +261536,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -261570,6 +261559,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -261629,6 +261619,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -261638,6 +261629,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -261660,6 +261652,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -261719,6 +261712,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -261728,6 +261722,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -261750,6 +261745,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -261809,6 +261805,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -261818,6 +261815,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -261840,6 +261838,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -261899,6 +261898,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -261908,6 +261908,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -261930,6 +261931,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -261989,6 +261991,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -261998,6 +262001,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -262020,6 +262024,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -262079,6 +262084,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -262088,6 +262094,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -262110,6 +262117,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -262169,6 +262177,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -262178,6 +262187,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -262200,6 +262210,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -262259,6 +262270,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -262268,6 +262280,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -262290,6 +262303,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -262319,6 +262333,7 @@
       "populationMemberId": "population:contract/brand-v2-registries.json#interactive.mounts",
       "coveredPopulationMemberIds": [
         "mount:/adjacent/drones/:PerceptionLatency:1",
+        "mount:/adjacent/surgical/:MotionPantograph:1",
         "mount:/classical/calibration/:CalibrationChain:1",
         "mount:/classical/calibration/:HandEyePoses:1",
         "mount:/classical/calibration/:TimeOffsetMiss:1",
@@ -262337,8 +262352,10 @@
         "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
         "mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
         "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+        "mount:/data-hardware/robot-learning-stack/:SceneSplit:1",
         "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
         "mount:/frontier/bear-case/:MilestonesWatchlist:1",
+        "mount:/frontier/competing-theses/:HelixClockwork:1",
         "mount:/frontier/competing-theses/:ThesisExplorer:1",
         "mount:/frontier/dexterity/:HandComparison:1",
         "mount:/frontier/generalization/:EgoScaleScaling:1",
@@ -262438,6 +262455,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -262447,6 +262465,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -262469,6 +262488,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -262596,6 +262616,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -262605,6 +262626,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -262627,6 +262649,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",
@@ -262686,6 +262709,7 @@
         "interactive:HandComparison",
         "interactive:HandEyePoses",
         "interactive:HardwareGuide",
+        "interactive:HelixClockwork",
         "interactive:HierarchyTimescales",
         "interactive:HindsightRelabel",
         "interactive:HumanoidPickHeight",
@@ -262695,6 +262719,7 @@
         "interactive:LatentImagination",
         "interactive:MilestonesWatchlist",
         "interactive:MotInsulation",
+        "interactive:MotionPantograph",
         "interactive:MpcVsRl",
         "interactive:NewtonSolvers",
         "interactive:OfflineValueOverreach",
@@ -262717,6 +262742,7 @@
         "interactive:SampleEfficiencyLedger",
         "interactive:ScannedTwinCheck",
         "interactive:SceneRepresentationLadder",
+        "interactive:SceneSplit",
         "interactive:TeacherStudent",
         "interactive:TeleopRigMatrix",
         "interactive:TerrainCurriculum",

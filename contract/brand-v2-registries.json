@@ -6153,6 +6153,57 @@
         "fingerprint": "e04d88876ac7292e4ebee7000625c37573ccc3b8beacea63f9370f51749f10a8"
       },
       {
+        "id": "interactive:HelixClockwork",
+        "component": "HelixClockwork",
+        "sourcePath": "components/interactive/helix-clockwork.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "9548d0db0e0d5ce409c13559bc70e556eebb43134d8c5ea80a342e68cdad2672"
+      },
+      {
         "id": "interactive:HierarchyTimescales",
         "component": "HierarchyTimescales",
         "sourcePath": "components/interactive/hierarchy-timescales.tsx",
@@ -6712,6 +6763,57 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "d269350553eb8f1ca23c0cdbaea9bbed40230351ef12a36ff6c8c798120dffcc"
+      },
+      {
+        "id": "interactive:MotionPantograph",
+        "component": "MotionPantograph",
+        "sourcePath": "components/interactive/motion-pantograph.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "fe7f76b89522ed369233896557bc3ec8a3eb2e573e3bddca9429088cdc6248f9"
       },
       {
         "id": "interactive:MpcVsRl",
@@ -7991,6 +8093,61 @@
         "fingerprint": "799a5bcbb6230c7df45422af42c36a4b01e3252c96d72c02d3d06e6be658631d"
       },
       {
+        "id": "interactive:SceneSplit",
+        "component": "SceneSplit",
+        "sourcePath": "components/interactive/scene-split.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "3fd231b9de53b3a463ca6ea7cf2d4f15afa942847c19cec323db483b244b9584"
+      },
+      {
         "id": "interactive:TeacherStudent",
         "component": "TeacherStudent",
         "sourcePath": "components/interactive/teacher-student.tsx",
@@ -8568,6 +8725,61 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "fd27b1ffec2405e1021db7a598d34025f74724558a6af112f492b5d4f7909ef4"
+      },
+      {
+        "id": "mount:/adjacent/surgical/:MotionPantograph:1",
+        "sourceId": "interactive:MotionPantograph",
+        "route": "/adjacent/surgical/",
+        "ownerPath": "content/adjacent/surgical.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "622de12cb947c7dbded1e97c222afa210c0544e32e2aa04369877e441326dbbe"
       },
       {
         "id": "mount:/classical/calibration/:CalibrationChain:1",
@@ -9713,6 +9925,65 @@
         "fingerprint": "59d3be95cd264618521ac1b618080c5009dd75323696b45c32c0de52feb26c34"
       },
       {
+        "id": "mount:/data-hardware/robot-learning-stack/:SceneSplit:1",
+        "sourceId": "interactive:SceneSplit",
+        "route": "/data-hardware/robot-learning-stack/",
+        "ownerPath": "content/data-hardware/robot-learning-stack.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "bf9c3861fb3311141dbfaa7aa9577745b656e3ea55ba98ff2aaf62db931c44b5"
+      },
+      {
         "id": "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
         "sourceId": "interactive:TeleopRigMatrix",
         "route": "/data-hardware/teleop-rigs/",
@@ -9829,6 +10100,61 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "cd907606556803a49d78f35b51647827dfe1a496da95ebe73948ca5ab117b57c"
+      },
+      {
+        "id": "mount:/frontier/competing-theses/:HelixClockwork:1",
+        "sourceId": "interactive:HelixClockwork",
+        "route": "/frontier/competing-theses/",
+        "ownerPath": "content/frontier/competing-theses.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "779b2864bf3823f533d53e48399affcb0ae41fdfadc60be86cf3e902c617eac3"
       },
       {
         "id": "mount:/frontier/competing-theses/:ThesisExplorer:1",
@@ -13504,15 +13830,19 @@
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",
+        "components/interactive/helix-clockwork.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/jepa-planning.tsx",
         "components/interactive/latent-imagination.tsx",
+        "components/interactive/motion-pantograph.tsx",
         "components/interactive/pendulum-controller.tsx",
+        "components/interactive/perception-latency.tsx",
         "components/interactive/qos-queue-age.tsx",
         "components/interactive/receding-horizon.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/rrt-explorer.tsx",
+        "components/interactive/scene-split.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/filter-bar.tsx",
@@ -13549,15 +13879,19 @@
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",
+        "components/interactive/helix-clockwork.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/jepa-planning.tsx",
         "components/interactive/latent-imagination.tsx",
+        "components/interactive/motion-pantograph.tsx",
         "components/interactive/pendulum-controller.tsx",
+        "components/interactive/perception-latency.tsx",
         "components/interactive/qos-queue-age.tsx",
         "components/interactive/receding-horizon.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/rrt-explorer.tsx",
+        "components/interactive/scene-split.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/filter-bar.tsx",
@@ -13591,7 +13925,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "161aa745c6e83eb24d6c3c7fc8f2fb5d4a76f1aca2383086e95c6c4605cfb38c"
+      "fingerprint": "31a72c55fe8a9873113ac48ef558882d4aa9dadfb634247552b3c558203cb515"
     },
     {
       "id": "control:selection",
@@ -13929,12 +14263,14 @@
         "components/interactive/gait-diagram.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-eye-poses.tsx",
+        "components/interactive/helix-clockwork.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/jepa-planning.tsx",
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/mot-insulation.tsx",
+        "components/interactive/motion-pantograph.tsx",
         "components/interactive/offline-value-overreach.tsx",
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/perception-error-budget.tsx",
@@ -13978,12 +14314,14 @@
         "components/interactive/friction-transfer.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-eye-poses.tsx",
+        "components/interactive/helix-clockwork.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/jepa-planning.tsx",
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/mot-insulation.tsx",
+        "components/interactive/motion-pantograph.tsx",
         "components/interactive/offline-value-overreach.tsx",
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/perception-error-budget.tsx",
@@ -14020,7 +14358,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "d1067829df9b0ced4f33038ee235a6b12302e7256ed1e2d477245447f6c13b87"
+      "fingerprint": "1633be29b5910f30fdee17745ff45e3d0f4e266dacac9b3c38c1b2cc31457406"
     },
     {
       "id": "control:disabled",
@@ -14060,5 +14398,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "0cd61b9ce87321a29876e534b469b8520ac9b5e4d59e39e23bc824f8f1a87895"
+  "rootFingerprint": "d88ee10aba665e5198bc37236f2c968c486e2e996e4eac9e1880cab650c43957"
 }

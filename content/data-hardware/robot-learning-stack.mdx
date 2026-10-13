@@ -23,6 +23,8 @@ seeAlso:
   - "manipulation/realtime-execution"
 ---
 
+import { SceneSplit } from '@/components/interactive/scene-split';
+
 A robot-learning system is a pipeline from physical events to decisions and back again. The checkpoint is one component. Data capture, synchronization, schemas, calibration, training, evaluation, serving, control integration and recovery decide whether that checkpoint can be reproduced or trusted.
 
 The stack is easiest to reason about as seven contracts. Each contract has an artifact, an owner and a test. If a policy failure cannot be localized to one of them, the system is not yet observable enough.
@@ -75,6 +77,8 @@ Raw messages must become aligned model examples. This layer selects camera frame
 LeRobot provides datasets, policy implementations and tools around a common robot-learning workflow <Cite id="lerobot-docs-2026" />. That common shape is useful, but a format does not settle semantics. Record units, frame, rotation representation, control rate, horizon and missing-data policy explicitly.
 
 Split by the factor you claim to generalize across. Random episode splits can leak near-identical scenes and operators. Hold out environments for environment generalization, tasks for task generalization and embodiments for cross-embodiment claims.
+
+<SceneSplit className="my-6" />
 
 The artifact is a dataset manifest with schema version, transformation code, split definition and summary statistics. The test rebuilds the same sample IDs and distributions from the raw store.
 

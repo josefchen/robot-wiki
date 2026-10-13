@@ -84613,6 +84613,346 @@
         "VAL-B2-BASE-012"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-accessible-names-perception-latency-expression-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-latency.tsx:aria-label:2",
+      "oldHash": "feabf61f8bfc4bb3f5048570e691e270ab6c3fcce97b25d299c519f5cb80c6d8",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-perception-latency-expression-aria-label-2). PerceptionLatency (drones) is now a flight-test corridor: a drone on a belt-driven test carriage at a light gate 8 m from a brick wall, a timer wheel that holds the camera's report for its delay, and a gauge board that splits the 8 m into the stretch flown blind and the swerve. The kit's IsoFigure (components/iso/react/draw.tsx, approved by the first isometric landing) draws each redrawn figure as one role=\"img\" svg named by its label prop; the stage name (the wall distance, the top safe speed and how far the drone flies before the camera reports the wall) now comes through that label, so this file's second aria-label expression, the old plot stage's name, is gone. The camera-delay slider keeps its name, unchanged, as member 1. The model (lib/aerial-latency.ts) is unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-behavioral-defaults-motion-pantograph-default-1",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/motion-pantograph.tsx:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "864c55f1f24f04a0edc6a16eefa94475655840f8a912f82bd61a62aedd73d9d5",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one edge from an absent seal: the member is new. MotionPantograph (surgical) is a new figure: a reducing pantograph whose two scale pins set the motion scale. Its starting scale is DEFAULT_SCALE, 3 to 1, from components/iso/figures/motion-pantograph.ts; this member is that default's import into the figure.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-behavioral-defaults-motion-pantograph-default-2",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/motion-pantograph.tsx:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "453c5d0c38027ea677793d98d7c6daa680c3e34fecc0ac7a093ecc22d51deaa1",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one edge from an absent seal: the member is new. MotionPantograph (surgical) is a new figure: a reducing pantograph whose two scale pins set the motion scale. This member is the fallback a slider value outside the four settings (2 to 1 up to 5 to 1) returns to: DEFAULT_SCALE, 3 to 1.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-behavioral-defaults-motion-pantograph-default-3",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/motion-pantograph.tsx:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "5cb2b5205586c413a75d8c7be16f5285960d9ca854180cf730632c5062c45fc6",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one edge from an absent seal: the member is new. MotionPantograph (surgical) is a new figure: a reducing pantograph whose two scale pins set the motion scale. This member is the scale the figure opens on, DEFAULT_SCALE, 3 to 1, where a 30 mm stroke at the hand moves the tip 10 mm.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-interactive-sources-mounts-source-helix-clockwork",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/helix-clockwork.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "f5df89bde86d4ce8cf7bcc59715612a7fc5b69b1da44772337a6b83bae525561",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one edge from an absent seal: the member is new. HelixClockwork (competing-theses) is a new figure: a skeleton clock movement whose escape wheel steps once per 1 ms control step and whose star wheel jumps once per 5 ms joint target, the two Helix 02 rates from lib/hierarchy-timescales.ts. Its source joins the interactive-sources registry (regenerated by npm run generate:brand-v2-registries), classified schematic in lib/brand-v2-interactive-data.ts.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-interactive-sources-mounts-source-motion-pantograph",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/motion-pantograph.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "eab81f236a5774295855fac1bcbb6eaebb6020fa53c392e449bc07bdf0c53b7f",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one edge from an absent seal: the member is new. MotionPantograph (surgical) is a new figure: a reducing pantograph that divides an authored, labelled-illustrative 30 mm stroke, wobble included, by the motion scale before it reaches the instrument tip. Its source joins the interactive-sources registry (regenerated by npm run generate:brand-v2-registries), classified authored-model in lib/brand-v2-interactive-data.ts.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-interactive-sources-mounts-source-scene-split",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/scene-split.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "102f417d320cbd75a142c4f8cd381c498fb7feb49d3e3cb63413ef8df482142c",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one edge from an absent seal: the member is new. SceneSplit (robot-learning-stack) is a new figure: a split card rack whose punched program strip raises the test set, comparing one seeded random episode split with holding out a whole scene, the article's own rule. Its source joins the interactive-sources registry (regenerated by npm run generate:brand-v2-registries), classified schematic in lib/brand-v2-interactive-data.ts.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-interactive-sources-mounts-mount-surgical-motion-pantograph-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/adjacent/surgical.mdx:MotionPantograph:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a148568da73c204ef8069e0232d8aa0defd415b874790ca11dc6486e6051ea65",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one edge from an absent seal: the member is new. The surgical robotics article mounts the new MotionPantograph once, after the Level 0 paragraph on motion scaling, as one import line, on its own line between blank lines after the frontmatter, and one mount line between blank lines, recorded by the figure-mount continuity layer of 2026-10-07 (taking the admitted import and mount out gives the head bytes exactly). Registry record regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-interactive-sources-mounts-mount-robot-learning-stack-scene-split-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/data-hardware/robot-learning-stack.mdx:SceneSplit:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8f98612ca6391a3ba744852f6117c3e6ffb027f4f0dade139153c3c4a936a5af",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one edge from an absent seal: the member is new. The robot-learning stack article mounts the new SceneSplit once, after the paragraph that says to split by the factor you claim to generalize across, as one import line, on its own line between blank lines after the frontmatter, and one mount line between blank lines, recorded by the figure-mount continuity layer of 2026-10-07 (taking the admitted import and mount out gives the head bytes exactly). Registry record regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-interactive-sources-mounts-mount-competing-theses-helix-clockwork-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/frontier/competing-theses.mdx:HelixClockwork:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "dc35e9a464baf01173830ea08f2173be7a348d147fe1494409c01c5d090fb2f2",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one edge from an absent seal: the member is new. The competing theses article mounts the new HelixClockwork once, after the paragraph that gives Helix 02's S1 and S0 rates, as one import line, on its own line between blank lines after the frontmatter, and one mount line between blank lines, recorded by the figure-mount continuity layer of 2026-10-07 (taking the admitted import and mount out gives the head bytes exactly). Registry record regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-prose-surgical",
+      "manifest": "prose",
+      "memberId": "article:adjacent/surgical",
+      "oldHash": "96a13ac11a62bc531843aeb212c7ae547b0ce1d259c581353b3e4efe54488dbe",
+      "newHash": "155077f94260a331ce9edcd583d2e9b9cd80f832f6c39e04b7eef225eecd0761",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one plain edge from the member's last approved endpoint (kol-backlog-20261005-adjacent-prose-surgical). Mounts the new MotionPantograph figure after the Level 0 paragraph that introduces motion scaling, as one import line, on its own line between blank lines after the frontmatter, and one mount line between blank lines, recorded by the figure-mount continuity layer of 2026-10-07 (taking the admitted import and mount out gives the head bytes exactly). No prose, number or citation changes; this edge moves the prose member from its approved endpoint to the mounted text.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-prose-robot-learning-stack",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/robot-learning-stack",
+      "oldHash": "3c02d16addf936cd71daf921576a3b74a7a58f98b99c251fa9378931979cdcbc",
+      "newHash": "0e870521584fb55e03cd1281df7e89b78ea732b720ab308a07c33189d763fea1",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-prose-robot-learning-stack). Mounts the new SceneSplit figure after the paragraph on splitting by the factor you claim to generalize across, as one import line, on its own line between blank lines after the frontmatter, and one mount line between blank lines, recorded by the figure-mount continuity layer of 2026-10-07 (taking the admitted import and mount out gives the head bytes exactly). No prose, number or citation changes; this edge moves the prose member from its approved endpoint to the mounted text.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-2-figures-20261012-prose-competing-theses",
+      "manifest": "prose",
+      "memberId": "article:frontier/competing-theses",
+      "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+      "newHash": "66e67386b819ab1338487a6ec72ebe02677ba8d4a3d54aeda8898e5335ed309a",
+      "reason": "Second isometric figure landing of 2026-10-12 (anatomy-2: the data-hardware, adjacent and frontier figure batches over the figure kit of anatomy-1: the jam recorder desk, the drone flight-test corridor and its two-lane scene, and the slip test stand redrawn; the scene-split card rack, the surgical motion pantograph and the Helix clockwork new), as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 26 earlier approved edges exactly, ending with frontier-pass-20261010-prose-competing-theses. Mounts the new HelixClockwork figure after the paragraph that gives Helix 02's S1 rate of 200 Hz and S0 rate of 1 kHz, as one import line, on its own line between blank lines after the frontmatter, and one mount line between blank lines, recorded by the figure-mount continuity layer of 2026-10-07 (taking the admitted import and mount out gives the head bytes exactly). No prose, number or citation changes; this edge moves the prose member to the mounted text.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the new accessible-name members, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The owner's scope decision of the same day keeps these figures to places where they explain a concept, so the batches' seven-unit contract rack (robot-learning stack) and two-station touch threshold tester (dexterity) are not part of this landing. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "cosmos-reader-closeout-20260908-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "503e83d1c6a6a04167a7a00aaef3abd3b24e09a9fa7e2de4eda6468e65a82adf"
+        },
+        {
+          "id": "brooks-theses-20260913-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "a56425425bd904d6c36138657bc0b46a1a2203bc4ed0544de1010258a37aa77f"
+        },
+        {
+          "id": "pi-helix-theses-20260913-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "da08b089142a4649e8ce859ab1301328b9ffc3e5ac7d2d1b61d3ccf1c138c8c3"
+        },
+        {
+          "id": "thesis-economics-two-20260914-1",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de"
+        },
+        {
+          "id": "ct-r1-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r2-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r9-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r7-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r8-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r12-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r13-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r14-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r17-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r18-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r20-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r23-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "ct-r25-20260915-1",
+          "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "seo-merge-20260916-prose-13",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "round5-closeout-competing-theses-prose",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-frontier-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "fa3f42df226fbe66e68ddfcf351079068fc6e0684bfb3a6fce4d632585911e23"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "ec8ddfe81684a9e34321102dd6b8543ce47c81018def615e68ad16242e7e6193"
+        },
+        {
+          "id": "round6-prose-restores-20260929-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "cde24c4b7e4837954bd1a539bedad8f5f9b6c0a1144454dbf847f59bc4d01149"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "51a98514da9abcf0cd09afe918d316467412d66bacf25cae28e144de6d6b0f4a"
+        },
+        {
+          "id": "reader-first-20261002-prose-frontier-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "405a6cf555b8a9bb78df40c323f400bf2a8f2ca9c64a50c0c4c9011e5fd79b2d"
+        },
+        {
+          "id": "frontier-pass-20261010-prose-competing-theses",
+          "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+          "newHash": "73b6eb4e415abec1b01f78d28b69353aa0d8a5b0a8745968dcfa994e6e57581c"
+        }
+      ]
     }
   ]
 }

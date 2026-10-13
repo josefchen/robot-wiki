@@ -1423,7 +1423,7 @@
     {
       "id": "jam-overhead",
       "route": "/data-hardware/industrial-deployment/",
-      "sourceSha256": "e974e17b5b735fd9b0c3f711b86948e639819c302d34a365959a4cd62d618f31",
+      "sourceSha256": "5cefad7cf3983dcf420d9540dd048d8c7aaa927379761a769dee02306e55569d",
       "marks": [
         {
           "mark": "clearing-time",
@@ -1436,6 +1436,7 @@
             2,
             3,
             3,
+            4,
             4,
             4
           ]
@@ -1515,7 +1516,7 @@
     {
       "id": "tactile-slip",
       "route": "/frontier/dexterity/",
-      "sourceSha256": "e668acee16db7514642adb318bc7e3641d0dc23f6fc9d08679031aee000a3a5c",
+      "sourceSha256": "cae57d8ffdd91c8efca1712b9f179c0ef91383be13c0fa8fe9f959a780a84504",
       "marks": [
         {
           "mark": "held-object",
@@ -1555,7 +1556,7 @@
     {
       "id": "sense-avoid",
       "route": "/adjacent/drones/",
-      "sourceSha256": "8b59423fdf992d349ec11787003b1f1e5b13ff1dd96e2d4216c5eb99769396ba",
+      "sourceSha256": "b80468ebc9c82eb6240e8fc63861af9d549cb6fdf99c9351381d79ce43127c01",
       "marks": [
         {
           "mark": "avoidance-budget",
