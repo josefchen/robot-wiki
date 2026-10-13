@@ -7,7 +7,7 @@ import { getCitation } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
 import { inlineCitationIds, moduleBody, resolveReferences } from '../../lib/references';
 import { WORDS_PER_MINUTE } from '../../lib/reading-time';
-import { forEachInOwnContext } from './helpers/per-route-context';
+import { forEachInOwnContext, inOwnContext } from './helpers/per-route-context';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
@@ -80,6 +80,67 @@ async function displayedReadingMinutes(page: Page): Promise<number> {
 async function proseWordCount(page: Page): Promise<number> {
   const text = await page.locator('article .prose').innerText();
   return text.trim().split(/\s+/).filter(Boolean).length;
+}
+
+type TitleBreak = { word: string; hyphen: boolean };
+
+/**
+ * Every line break that falls inside a word of the article title, and
+ * whether a hyphen was painted at the end of that line, plus the widest
+ * unbreakable run's share of the title's line. Characters are compared by
+ * their offset in the title text, so a break at a space (a trailing space
+ * paints nothing) is never read as a break inside a word.
+ */
+function titleBreaks(): { breaks: TitleBreak[]; widestWordShare: number } {
+  const h1 = document.querySelector<HTMLElement>('article header h1');
+  if (!h1) return { breaks: [], widestWordShare: 0 };
+  const fontSize = Number.parseFloat(getComputedStyle(h1).fontSize);
+  const sameLine = (a: number, b: number) => Math.abs(a - b) < fontSize / 4;
+  const isWordChar = (ch: string) => /[\p{L}\p{N}]/u.test(ch);
+  const range = document.createRange();
+  const chars: { ch: string; at: number; top: number; right: number; node: Text }[] = [];
+  const walker = document.createTreeWalker(h1, NodeFilter.SHOW_TEXT);
+  let at = 0;
+  for (let node = walker.nextNode() as Text | null; node; node = walker.nextNode() as Text | null) {
+    for (let i = 0; i < node.length; i += 1, at += 1) {
+      range.setStart(node, i);
+      range.setEnd(node, i + 1);
+      const rect = range.getClientRects()[0];
+      if (rect && rect.width > 0) chars.push({ ch: node.data[i], at, top: rect.top, right: rect.right, node });
+    }
+  }
+  const joined = (a: number, b: number) => chars[b].at - chars[a].at === 1;
+  const breaks: TitleBreak[] = [];
+  for (let i = 1; i < chars.length; i += 1) {
+    const prev = chars[i - 1];
+    const next = chars[i];
+    if (sameLine(prev.top, next.top) || !joined(i - 1, i)) continue;
+    if (!isWordChar(prev.ch) || !isWordChar(next.ch)) continue;
+    // A hyphenation break paints a hyphen past the line's last character; a
+    // word forced apart because it is wider than the line paints nothing.
+    range.selectNodeContents(prev.node);
+    const hyphen = Array.from(range.getClientRects()).some(
+      (rect) => sameLine(rect.top, prev.top) && rect.right >= prev.right + fontSize * 0.15,
+    );
+    let start = i - 1;
+    while (start > 0 && isWordChar(chars[start - 1].ch) && joined(start - 1, start)) start -= 1;
+    let end = i;
+    while (end < chars.length - 1 && isWordChar(chars[end + 1].ch) && joined(end, end + 1)) end += 1;
+    const word = chars.slice(start, end + 1).map(({ ch }) => ch).join('');
+    breaks.push({ word: `${word.slice(0, i - start)}|${word.slice(i - start)}`, hyphen });
+  }
+  // A run the browser may not break: whitespace and hard hyphens end it.
+  const runs = (h1.textContent ?? '').split(/\s+/).flatMap((word) => word.split(/(?<=-)/)).filter(Boolean);
+  const measure = document.createElement('span');
+  measure.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap';
+  h1.append(measure);
+  let widest = 0;
+  for (const run of runs) {
+    measure.textContent = run;
+    widest = Math.max(widest, measure.getBoundingClientRect().width);
+  }
+  measure.remove();
+  return { breaks, widestWordShare: widest / h1.clientWidth };
 }
 
 let server: StaticExportServer | null = null;
@@ -305,6 +366,59 @@ test.describe('Article header metadata', () => {
       expect(right).toBeLessThanOrEqual(1440);
     }
     await context.close();
+  });
+
+  test('no article title breaks inside a word without a hyphen at 375px or 390px', async ({
+    browser,
+  }) => {
+    test.setTimeout(600_000);
+    const widths = [375, 390] as const;
+    const unhyphenated: string[] = [];
+    let tightest = { route: '', width: 0, share: 0 };
+    let measured = 0;
+
+    for (const width of widths) {
+      await forEachInOwnContext(
+        browser,
+        published,
+        async (page, m) => {
+          const route = `/${m.domain}/${m.slug}/`;
+          await page.goto(`${BASE}${route}`);
+          await page.evaluate(() => document.fonts.ready);
+          const { breaks, widestWordShare } = await page.evaluate(titleBreaks);
+          measured += 1;
+          for (const { word } of breaks.filter(({ hyphen }) => !hyphen)) {
+            unhyphenated.push(`${route} at ${width}px: ${word}`);
+          }
+          if (widestWordShare > tightest.share) tightest = { route, width, share: widestWordShare };
+        },
+        { viewport: { width, height: 812 } },
+      );
+    }
+
+    expect(measured).toBe(published.length * widths.length);
+    expect(unhyphenated).toEqual([]);
+
+    // The detector can see a forced break: the tightest title, set just
+    // past the size at which its widest run fills the line and with
+    // hyphenation off, must report one.
+    expect(tightest.share).toBeGreaterThan(0.5);
+    const planted = await inOwnContext(
+      browser,
+      async (page) => {
+        await page.goto(`${BASE}${tightest.route}`);
+        await page.evaluate(() => document.fonts.ready);
+        const size = await page
+          .locator('article header h1')
+          .evaluate((h1) => Number.parseFloat(getComputedStyle(h1).fontSize));
+        await page.addStyleTag({
+          content: `article header h1 { font-size: ${(size / tightest.share) * 1.08}px !important; hyphens: manual !important; }`,
+        });
+        return (await page.evaluate(titleBreaks)).breaks;
+      },
+      { viewport: { width: tightest.width, height: 812 } },
+    );
+    expect(planted.filter(({ hyphen }) => !hyphen).length, `planted break on ${tightest.route}`).toBeGreaterThan(0);
   });
 
   test('the metadata ships in the initial HTML: no client-side injection, no layout shift', async ({

@@ -315,7 +315,8 @@ export type HomeCompositionEvidence = {
  * derived rather than listed. A handwritten path list omits the transitive
  * rendering inputs the page actually has: `data/domains.ts` and
  * `data/modules.ts`, which supply the contents index the domain rows are
- * measured against; the featured scene under `components/motion/`; and
+ * measured against; the featured explainer under `components/home/` and
+ * `components/explainers/`; and
  * `components/nav/site-shell.tsx`, the chrome every home geometry reading is
  * relative to. Any of those could move the sections, the fold, or the
  * highlight while the committed artifact still read as current.

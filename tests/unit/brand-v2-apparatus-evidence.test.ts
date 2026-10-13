@@ -1,7 +1,9 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
+import { getCitation } from '@/data/citations';
 import {
   APPARATUS_RUNTIME_EVIDENCE_PATH,
   APPARATUS_DESKTOP_VIEWPORT_ID,
@@ -128,6 +130,27 @@ describe('the derived apparatus graph', () => {
         expect(expected.references, route).toContain(id);
       }
     }
+  });
+
+  // Successor (2026-10-13): References prints the cited sources first and
+  // further reading after them under one heading, so the derived
+  // bibliography is that order, each group in frontmatter order. Read from
+  // the MDX here, not through the helper the graph uses.
+  it('derives the bibliography in print order: cited sources, then further reading', () => {
+    let routesWithFurtherReading = 0;
+    for (const [route, expected] of expectedApparatusGraph(ROOT)) {
+      const source = readFileSync(join(ROOT, 'content', `${route.slice(1, -1)}.mdx`), 'utf8');
+      const declared = [...new Set((matter(source).data.citations ?? []) as string[])]
+        .filter((id) => getCitation(id) !== undefined);
+      const further = new Set(expected.furtherReading);
+      expect(expected.references, route).toEqual([
+        ...declared.filter((id) => !further.has(id)),
+        ...declared.filter((id) => further.has(id)),
+      ]);
+      expect(expected.furtherReading, route).toEqual(declared.filter((id) => further.has(id)));
+      if (further.size > 0) routesWithFurtherReading += 1;
+    }
+    expect(routesWithFurtherReading, 'no route lists further reading, so the order case is vacuous').toBeGreaterThan(0);
   });
 });
 

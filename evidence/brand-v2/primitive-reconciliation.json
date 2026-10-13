@@ -458,10 +458,11 @@
     },
     "control:primary-action": {
       "kind": "controls",
-      "fingerprint": "ef78f9780e4dcb12a3133fb94e2c5ea023ed45cfcc688d51bdf832f56693b467",
+      "fingerprint": "49f7c9469358c3a1bcbec1217f1d9ee7a35a99d772beca8f3f9143f0e98b9c61",
       "mountState": "production",
       "definedIn": [
         "components/explainers/how-robots-work.tsx",
+        "components/home/featured-explainer.tsx",
         "components/interactive/terrain-curriculum.tsx",
         "components/motion/clip.tsx",
         "components/motion/scene-mount.tsx",
@@ -470,6 +471,7 @@
       ],
       "ownerRouteOrMount": [
         "components/explainers/how-robots-work.tsx",
+        "components/home/featured-explainer.tsx",
         "components/interactive/terrain-curriculum.tsx",
         "components/motion/clip.tsx",
         "components/motion/scene-mount.tsx",
@@ -490,7 +492,7 @@
     },
     "control:secondary-action": {
       "kind": "controls",
-      "fingerprint": "31a72c55fe8a9873113ac48ef558882d4aa9dadfb634247552b3c558203cb515",
+      "fingerprint": "2fbf85208f9402e565889a0831132fdf40460407ce02e3d9154eadcff891d9bd",
       "mountState": "production",
       "definedIn": [
         "components/article/author-list.tsx",
@@ -498,6 +500,7 @@
         "components/article/heading-permalink.tsx",
         "components/explainers/brand.ts",
         "components/explainers/how-robots-work.tsx",
+        "components/home/featured-explainer.tsx",
         "components/interactive/action-conditioning.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/actuator-gap.tsx",
@@ -548,6 +551,7 @@
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
         "components/explainers/how-robots-work.tsx",
+        "components/home/featured-explainer.tsx",
         "components/interactive/action-conditioning.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/actuator-gap.tsx",
@@ -783,6 +787,7 @@
         "components/ui/instrument.tsx"
       ],
       "renderedOn": [
+        "/",
         "/adjacent/drones/",
         "/classical/calibration/",
         "/classical/control/",
@@ -978,12 +983,13 @@
     },
     "surface:flat": {
       "kind": "surfaces",
-      "fingerprint": "7aa05d8b47a470ac3648fec5508ef7a9d369f5f846a3f547fd89cc388a8b0ccf",
+      "fingerprint": "83cf97ae5b18a450d2cda5e01a9a15487f8cd4130786dd2e0dbf76906bb0bdf3",
       "mountState": "production",
       "definedIn": [
         "components/article/commit-to-reveal.tsx",
         "components/explainers/brand.ts",
         "components/explainers/how-robots-work.tsx",
+        "components/home/featured-explainer.tsx",
         "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/eureka-loop.tsx",
@@ -1029,6 +1035,7 @@
       "ownerRouteOrMount": [
         "components/article/commit-to-reveal.tsx",
         "components/explainers/how-robots-work.tsx",
+        "components/home/featured-explainer.tsx",
         "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/eureka-loop.tsx",

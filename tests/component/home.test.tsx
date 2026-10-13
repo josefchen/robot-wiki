@@ -1,15 +1,24 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const mockPush = vi.fn();
+const { startExplainers } = vi.hoisted(() => ({
+  startExplainers: vi.fn<(root: Element, embed?: unknown) => Promise<() => void>>(async () => () => {}),
+}));
 
 vi.mock('next/navigation', () => ({
   useRouter: () => ({ push: mockPush }),
 }));
+// The 3D kit needs WebGL; home's served markup and the viewer call are what this file checks.
+vi.mock('@/components/explainers/viewer', () => ({ startExplainers }));
+vi.mock('@/components/explainers/explainers.css', () => ({}));
 
 import Home from '@/app/page';
+import { EXPLAINER_ORDER } from '@/components/explainers/catalog';
+import { EXPLAINER_WORDS } from '@/components/explainers/words';
 import { DID_YOU_KNOW } from '@/data/did-you-know';
+import { HOME_FEATURED_PICKS, HOME_FEATURED_SCENE } from '@/data/home-featured';
 import { DOMAINS, DOMAIN_META, publishedModules } from '@/data/modules';
 import { GLOSSARY } from '@/data/glossary';
 import { citedSourceIds } from '@/lib/home-counts';
@@ -75,21 +84,53 @@ describe('Home page', () => {
     }
   });
 
-  it('features one article lead of 50 words or fewer with a link', () => {
+  it("features the editor's first pick with one link and its dek of 25 words or fewer", () => {
     render(<Home />);
     const featured = region(/featured article/i);
-    expect(within(featured).getAllByRole('link')).toHaveLength(1);
-    const excerpt = featured.querySelector('[data-featured-excerpt]');
-    const words = (excerpt?.textContent ?? '').split(/\s+/).filter(Boolean);
+    const links = within(featured).getAllByRole('link');
+    expect(links).toHaveLength(1);
+    expect(links[0]).toHaveTextContent('What Is a World Model?');
+    expect(path(links[0].getAttribute('href'))).toBe('/world-models/taxonomy');
+    const dek = featured.querySelector('[data-featured-dek]');
+    expect(dek?.textContent).toBe(HOME_FEATURED_PICKS[0].dek);
+    const words = (dek?.textContent ?? '').split(/\s+/).filter(Boolean);
     expect(words.length).toBeGreaterThan(5);
-    expect(words.length).toBeLessThanOrEqual(50);
+    expect(words.length).toBeLessThanOrEqual(25);
   });
 
-  it('features one scene that waits for the reader to press play', () => {
+  it('features the humanoid explainer on its poster, with no 3D kit until the reader starts it', async () => {
+    startExplainers.mockClear();
     render(<Home />);
     const scene = region(/featured scene/i);
-    expect(within(scene).getByRole('button', { name: /play/i })).toBeInTheDocument();
-    expect(screen.queryByTestId('episode-success-readout')).not.toBeInTheDocument();
+    const frame = within(scene).getByRole('group', { name: '3D explainer: Inside a humanoid' });
+    expect(frame).toHaveAttribute('data-explainer-scene', 'humanoid');
+    // The caption is the frame's description, and it is the one home's data holds.
+    const caption = document.getElementById(frame.getAttribute('aria-describedby') ?? '');
+    expect(caption?.textContent).toBe(HOME_FEATURED_SCENE.caption);
+    // The served stage is the explainer's poster and its first step as text.
+    const poster = within(frame).getByRole('img');
+    expect(poster).toHaveAttribute('src', '/explainers/posters/humanoid.webp');
+    expect(poster).toHaveAttribute('alt', EXPLAINER_WORDS.humanoid.steps[0]);
+    expect(frame.querySelector('[data-step-text]')?.textContent).toBe(EXPLAINER_WORDS.humanoid.steps[0]);
+    expect(frame.querySelector('canvas')).toBeNull();
+    const start = frame.querySelector<HTMLButtonElement>('[data-x="start"]');
+    expect(start?.textContent).toBe(HOME_FEATURED_SCENE.startLabel);
+    // The viewer opens the one scene and waits for the start button.
+    await waitFor(() => expect(startExplainers).toHaveBeenCalledTimes(1));
+    expect(startExplainers).toHaveBeenCalledWith(frame.querySelector('[data-explainers]'), { scene: 'humanoid' });
+  });
+
+  it('links the full explainer section and credits the related article', () => {
+    render(<Home />);
+    const scene = region(/featured scene/i);
+    const section = within(scene).getByRole('link', {
+      name: `All ${EXPLAINER_ORDER.length} explainers in How robots work`,
+    });
+    expect(path(section.getAttribute('href'))).toBe('/how-robots-work');
+    expect(EXPLAINER_ORDER).toHaveLength(12);
+    const related = within(scene).getByRole('link', { name: 'Humanoid Whole-Body Control' });
+    expect(path(related.getAttribute('href'))).toBe('/rl-sim2real/humanoid-wbc');
+    expect(within(scene).getAllByRole('link')).toHaveLength(2);
   });
 
   it('holds three cited facts, each linked to its article', () => {

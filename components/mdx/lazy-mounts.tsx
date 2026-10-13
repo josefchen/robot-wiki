@@ -272,9 +272,6 @@ export const GaitSupport = dynamic(() =>
 export const JamOverhead = dynamic(() =>
   import('@/components/motion/scenes/jam-overhead').then((m) => m.JamOverhead),
 );
-export const ReliabilityThreshold = dynamic(() =>
-  import('@/components/motion/scenes/reliability-threshold').then((m) => m.ReliabilityThreshold),
-);
 export const TactileSlip = dynamic(() =>
   import('@/components/motion/scenes/tactile-slip').then((m) => m.TactileSlip),
 );

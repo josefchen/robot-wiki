@@ -3,7 +3,6 @@ import AxeBuilder from '@axe-core/playwright';
 import { waitForHydration } from './interaction-ready';
 import { firstDraftModule, notFoundProbeRoute } from '../helpers/draft-fixtures';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
-import { openAdjustMore } from './helpers/figure-fold';
 
 /**
  * Shared static-export server for the #418 specs below. Started lazily and
@@ -232,23 +231,31 @@ test.describe('navigation shell', () => {
 
   test('the featured scene on home is operable from the keyboard and resets', async ({ page }) => {
     await page.goto('/');
-    const scene = page.locator('main [data-motion-scene="reliability-threshold"]');
-    const caption = scene.getByTestId('motion-caption');
-    await expect(caption).toContainText('same horizon');
-    const play = scene.getByTestId('motion-poster');
-    await waitForHydration(play);
-    await play.focus();
+    const scene = page.locator('main [data-explainer-scene="humanoid"]');
+    const stepText = scene.locator('[data-step-text]');
+    const readout = scene.locator('[data-readout]');
+    // The viewer reveals the start control once it has taken the stage.
+    const start = scene.getByRole('button', { name: 'Turn it in 3D' });
+    await expect(start).toBeVisible();
+    await waitForHydration(start);
+    await start.focus();
     await page.keyboard.press('Enter');
-    await expect(scene.getByTestId('motion-scrubber')).toBeVisible();
-    await page.keyboard.press('k');
-    await page.keyboard.press('Home');
-    await page.keyboard.press('ArrowRight');
-    await expect(caption).toContainText('21.5%');
-    await page.keyboard.press('ArrowRight');
-    await expect(caption).toContainText('74.0%');
-    await openAdjustMore(scene);
-    await scene.getByRole('button', { name: 'Reset the scene to its poster still' }).click();
-    await expect(caption).toContainText('same horizon');
+    await page.waitForFunction(
+      () => (window as unknown as { __explainer?: { live: boolean } }).__explainer?.live === true,
+      undefined,
+      { timeout: 45_000 },
+    );
+    await expect(readout).toContainText('1.32 metres');
+    await scene.getByRole('button', { name: 'Next' }).focus();
+    await page.keyboard.press('Enter');
+    await expect(stepText).toContainText('It has 23 motors');
+    // Next without a guess reveals the answer and the motor tally.
+    await page.keyboard.press('Enter');
+    await expect(readout).toContainText('That is all 23');
+    await scene.getByRole('button', { name: 'Step 1' }).focus();
+    await page.keyboard.press('Enter');
+    await expect(stepText).toHaveText('A humanoid is shaped like us so it can use our doors, stairs and tools.');
+    await expect(readout).toContainText('1.32 metres');
   });
 
   test('zero axe violations on a domain landing', async ({ page }) => {

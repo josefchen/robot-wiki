@@ -84953,6 +84953,38 @@
           "newHash": "73b6eb4e415abec1b01f78d28b69353aa0d8a5b0a8745968dcfa994e6e57581c"
         }
       ]
+    },
+    {
+      "id": "home-featured-20261013-accessible-names-home-page-expression-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:app/page.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "fd9668f5ca92def781df92824ff92cd8bf079ed2985933f6aefe2de2d26cd160",
+      "reason": "Front-page featured landing of 2026-10-13 (home-featured: the featured article pinned to the world-models taxonomy with a home dek, and the featured scene replaced by the humanoid explainer from How robots work; the reliability scene, whose only mount was home, retired), as one edge from an absent seal: the member is new. Home's featured scene is now one 3D explainer from How robots work, in a frame (role=\"group\") that this expression names: \"3D explainer: \" and the explainer's catalog label, \"Inside a humanoid\", with the home caption as its description through aria-describedby. The member is new: the old featured scene named its frame inside its own scene module, which is retired.",
+      "ownerApproval": "Owner directive of 2026-10-13 (Josef Chen, owner session on the front page): \"The featured scene and the featured article are actually really shit. Think about what's super hot right now … I think right now it's world models or humanoids … Think about what really catches an audience.\" The session's binding decision features the 3D explainer \"Inside a humanoid\" from How robots work as the front page's featured scene, reused as it is and on its poster until the reader starts it, and pins the featured article to \"What Is a World Model?\" with a dek written for home in data/home-featured.ts. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "home-featured-20261013-accessible-names-featured-explainer-expression-alt-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/home/featured-explainer.tsx:alt:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6a8164c789fcf90ba4393ca5830ff92445ea036f0d37d1f94895d1fbacd48fad",
+      "reason": "Front-page featured landing of 2026-10-13 (home-featured: the featured article pinned to the world-models taxonomy with a home dek, and the featured scene replaced by the humanoid explainer from How robots work; the reliability scene, whose only mount was home, retired), as one edge from an absent seal: the member is new. The featured explainer's poster is the still the stage shows until the reader starts the 3D scene. Its alternative text is the explainer's first step, passed from the server page, exactly the text the viewer gives the same poster on How robots work when it opens the scene. The member is new, in the new component components/home/featured-explainer.tsx.",
+      "ownerApproval": "Owner directive of 2026-10-13 (Josef Chen, owner session on the front page): \"The featured scene and the featured article are actually really shit. Think about what's super hot right now … I think right now it's world models or humanoids … Think about what really catches an audience.\" The session's binding decision features the 3D explainer \"Inside a humanoid\" from How robots work as the front page's featured scene, reused as it is and on its poster until the reader starts it, and pins the featured article to \"What Is a World Model?\" with a dek written for home in data/home-featured.ts. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

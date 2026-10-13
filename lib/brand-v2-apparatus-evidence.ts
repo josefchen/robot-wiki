@@ -15,6 +15,7 @@ import {
   routeEntryModules,
 } from './brand-v2-evidence-closure.ts';
 import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
+import { referencesInPrintOrder } from './reference-order.ts';
 import { inlineCitationIds, moduleBody, resolveReferences } from './references.ts';
 import {
   currentArticleFactFrontmatterMembers,
@@ -36,8 +37,10 @@ import {
  * wrong when the copy was taken. So the expectation here is DERIVED from
  * the same registry the template renders from — `resolveArticleEntries` over
  * the frontmatter `seeAlso`, `publishedBacklinkGraph` for the inbound
- * edges, `resolveReferences` over the declared citations, and
- * `inlineCitationIds` over the MDX body — and the sweep compares the
+ * edges, `resolveReferences` over the declared citations put in the
+ * template's print order (`referencesInPrintOrder`: cited sources, then
+ * further reading), and `inlineCitationIds` over the MDX body — and the
+ * sweep compares the
  * rendered DOM against that. The immutable migration manifests
  * (`evidence/brand-v2/baseline/{prose,relationships}.json`) pin the source
  * side; this pins the rendered side, which is the half a source manifest
@@ -472,7 +475,9 @@ export function expectedApparatusGraph(
       : [];
     const body = moduleBody(source);
     const inline = inlineCitationIds(body);
-    const references = resolveReferences(declared, inline, getCitation);
+    const references = referencesInPrintOrder(
+      resolveReferences(declared, inline, getCitation),
+    );
     const routeMounts = mounts.get(`/${key}/`) ?? [];
     const componentCitationSites: ComponentCitationSite[] = [];
     const dynamicCitationSites: DynamicCitationSite[] = [];

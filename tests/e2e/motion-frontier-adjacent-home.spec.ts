@@ -4,11 +4,6 @@ import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const scenes = [
   {
-    id: 'reliability-threshold',
-    route: '/',
-    captions: [/episode/i, /95%/i, /99.9%/i, /same horizon/i],
-  },
-  {
     id: 'tactile-slip',
     route: '/frontier/dexterity/',
     captions: [/holds a glass/i, /slips between the fingers/i, /fingertip sensors feel/i, /touch sensors can still notice/i],
@@ -83,19 +78,71 @@ for (const { id, route, captions } of scenes) {
   });
 }
 
-test('home features the reliability scene as its only figure, with no calculator', async ({ page }) => {
-  await page.goto('/');
-  const scene = page.locator('[data-motion-scene="reliability-threshold"]');
-  await expect(scene.getByTestId('motion-poster')).toBeVisible();
-  await expect(page.locator('main [data-motion-scene]')).toHaveCount(1);
+test('home features the humanoid explainer as its only figure, with no motion scene or calculator', async ({ page }) => {
+  await page.goto('/', { waitUntil: 'networkidle' });
+  const frame = page.locator('main [data-explainer-scene="humanoid"]');
+  await expect(frame).toHaveCount(1);
+  await expect(page.locator('main [data-motion-scene]')).toHaveCount(0);
   await expect(page.getByTestId('episode-success-readout')).toHaveCount(0);
-  await scene.getByTestId('motion-poster').click();
-  await expect(scene.getByTestId('motion-scrubber')).toBeVisible();
-  await page.keyboard.press('k');
-  await page.keyboard.press('End');
-  await openAdjustMore(scene);
-  await scene.getByRole('button', { name: /step back one beat/i }).click();
-  await expect(scene.getByTestId('motion-caption')).toContainText('99.9%');
+  await expect(frame.locator('[data-x="poster"]')).toBeVisible();
+  // The explainer waits for the reader, then runs its own first step.
+  await frame.getByRole('button', { name: 'Turn it in 3D' }).click();
+  await page.waitForFunction(
+    () => (window as unknown as { __explainer?: { live: boolean } }).__explainer?.live === true,
+    undefined,
+    { timeout: 45_000 },
+  );
+  await expect(frame.locator('canvas')).toBeVisible();
+  await expect(frame.locator('[data-readout]')).toContainText('1.32 metres');
+  await frame.getByRole('button', { name: 'Next' }).click();
+  await expect(frame.locator('[data-step-text]')).toContainText('It has 23 motors');
+});
+
+test('the home explainer labels its motors inside the stage, at both widths and in both colour schemes', async ({ browser }) => {
+  test.setTimeout(240_000);
+  for (const colorScheme of ['light', 'dark'] as const) {
+    for (const width of [375, 1440]) {
+      const context = await browser.newContext({ colorScheme, viewport: { width, height: 900 } });
+      try {
+        const page = await context.newPage();
+        const errors: string[] = [];
+        page.on('pageerror', (error) => errors.push(String(error)));
+        await page.goto('/', { waitUntil: 'networkidle' });
+        const frame = page.locator('main [data-explainer-scene="humanoid"]');
+        const stage = frame.locator('[data-x="stage"]');
+        // The poster stands until the reader starts the scene.
+        await expect(frame.locator('[data-x="poster"]')).toBeVisible();
+        await expect(stage.locator('canvas')).toHaveCount(0);
+        await frame.getByRole('button', { name: 'Turn it in 3D' }).click();
+        await page.waitForFunction(
+          () => (window as unknown as { __explainer?: { live: boolean } }).__explainer?.live === true,
+          undefined,
+          { timeout: 60_000 },
+        );
+        await expect(stage.locator('canvas')).toBeVisible();
+        await expect(frame.locator('[data-readout]')).toContainText('1.32 metres tall, about 35 kilograms');
+        await frame.getByRole('button', { name: 'Next', exact: true }).click();
+        const predict = frame.locator('[data-predict]');
+        await expect(predict).toContainText('Where do most of its 23 motors go?');
+        await predict.getByRole('button', { name: 'Legs' }).click();
+        await expect(frame.locator('[data-readout]')).toContainText('legs 12, arms 10, waist 1. That is all 23');
+        const box = (await stage.boundingBox())!;
+        for (const label of ['Legs: 12 motors', 'Arms: 10 motors', 'Waist: 1 motor']) {
+          const tag = stage.locator('.tag', { hasText: label });
+          await expect(tag, `${colorScheme} ${width}px ${label}`).toBeVisible();
+          const tagBox = (await tag.boundingBox())!;
+          expect(tagBox.x, `${colorScheme} ${width}px ${label} left edge`).toBeGreaterThanOrEqual(box.x - 1);
+          expect(tagBox.x + tagBox.width, `${colorScheme} ${width}px ${label} right edge`)
+            .toBeLessThanOrEqual(box.x + box.width + 1);
+        }
+        // The parts are listed for the keyboard while the step lets the reader tap one.
+        await expect(frame.locator('[data-parts]')).toBeVisible();
+        expect(errors, `${colorScheme} ${width}px page errors`).toEqual([]);
+      } finally {
+        await context.close();
+      }
+    }
+  }
 });
 
 test('sense-and-avoid keeps a fixed swerve against 70, 135 and 200 ms delay', async ({ browser }) => {
@@ -135,48 +182,6 @@ test('sense-and-avoid keeps a fixed swerve against 70, 135 and 200 ms delay', as
         expect(speeds[1]).toBeGreaterThan(speeds[2]);
         await openHowThisWasMade(scene);
         await expect(scene.getByTestId('sense-avoid-method')).toContainText('about 346 ms');
-      } finally {
-        await context.close();
-      }
-    }
-  }
-});
-
-test('reliability labels arrive with their bars, including on home', async ({ browser }) => {
-  test.setTimeout(150_000);
-  for (const colorScheme of ['light', 'dark'] as const) {
-    for (const width of [375, 1440]) {
-      const context = await browser.newContext({ colorScheme, viewport: { width, height: 900 } });
-      try {
-        const page = await context.newPage();
-        // The article pairs its compounding instrument with no scene; the
-        // threshold scene is the home page's only figure.
-        for (const route of ['/']) {
-          await page.goto(route, { waitUntil: 'networkidle' });
-          const scene = page.locator('[data-motion-scene="reliability-threshold"]');
-          await scene.getByTestId('motion-poster').click();
-          const scrub = scene.getByTestId('motion-scrubber');
-          await expect(scrub).toBeVisible();
-          await page.keyboard.press('k');
-          const label = (value: string) => scene.locator('svg text').filter({ hasText: new RegExp(`^${value.replace('.', '\\.')}$`) });
-          await scrub.fill('1000');
-          await expect(scene.getByTestId('motion-caption')).toContainText('21.5%');
-          expect(await label('95%').getAttribute('opacity')).toBe('1');
-          for (const value of ['99%', '74.0%', '99.9%', '97.0%']) {
-            expect(await label(value).getAttribute('opacity'), `${route} ${value} before its bar`).toBe('0');
-          }
-          await scrub.fill('3000');
-          expect(await label('99%').getAttribute('opacity')).toBe('1');
-          expect(await label('74.0%').getAttribute('opacity')).toBe('1');
-          expect(await label('99.9%').getAttribute('opacity')).toBe('0');
-          await scrub.fill('5000');
-          expect(await label('99.9%').getAttribute('opacity')).toBe('1');
-          expect(await label('97.0%').getAttribute('opacity')).toBe('1');
-          await expect(scene).toContainText('Illustrative model: all 30 decisions succeed independently at the same rate.');
-          await expect(scene).not.toContainText('calculator below');
-          const audit = await scene.evaluate(auditSceneElement);
-          expect([...audit.intersections, ...audit.overflow, ...audit.lowContrast], `${route} ${colorScheme} ${width}`).toEqual([]);
-        }
       } finally {
         await context.close();
       }

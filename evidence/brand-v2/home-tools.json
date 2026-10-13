@@ -1,157 +1,157 @@
 {
   "version": 2,
-  "fingerprint": "10179ae8407e8a569d4b93198d17853403a4fb6429e97e228ea9c70668bcfbd4",
+  "fingerprint": "95199a37a0a616791b4c706c2d0fc0c37d4ae47932681037422bd640ee200525",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
-    "sceneId": "reliability-threshold",
+    "sceneId": "humanoid",
+    "frameRole": "group",
+    "frameAriaLabel": "3D explainer: Inside a humanoid",
+    "describedByText": "Of a Unitree G1's 23 motors, 12 move its legs and keep it balanced.",
+    "graphicTopPx": 1124,
+    "posterSrc": "/explainers/posters/humanoid.webp",
+    "posterMarkCount": 1,
+    "posterControls": [
+      "Turn it in 3D",
+      "Step 1",
+      "Step 2",
+      "Step 3",
+      "Step 4",
+      "Step 5",
+      "Next"
+    ],
+    "posterCaption": "A humanoid is shaped like us so it can use our doors, stairs and tools.",
     "route": "/",
     "sceneCount": 1,
-    "frameRole": "group",
-    "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
-    "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
-    "graphicTag": "svg",
-    "graphicTopPx": 1159,
-    "graphicHeightPx": 384,
-    "posterMarkCount": 3,
+    "graphicTag": "canvas",
+    "graphicHeightPx": 598,
     "playerMountedAtFirstPaint": false,
-    "posterControls": [
-      "Play the motion scene: The last stretch of episode reliability",
-      "Step back one beat",
-      "Step forward one beat",
-      "Reset the scene to its poster still"
-    ],
-    "statusLine": "Illustrative model: all 30 decisions succeed independently at the same rate.",
-    "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
-    "posterCaption": "The same horizon exposes the last stretch.",
     "idleFrameRequests": 0,
-    "playingFrameRequests": 50,
-    "focusOutlineWidthPx": 1,
+    "playingFrameRequests": 52,
+    "startControl": "Turn it in 3D",
+    "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
     "focusOutlineColour": "rgb(28, 28, 26)",
+    "openingReadout": "The G1, made by the company Unitree: 1.32 metres tall, about 35 kilograms.",
+    "openingCaption": "A humanoid is shaped like us so it can use our doors, stairs and tools.",
     "steps": [
       {
-        "key": "Home",
-        "readout": "beat 1 / 4 conditional rate 95.0% episode 21.5%",
-        "caption": "At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time."
+        "key": "Next",
+        "readout": "",
+        "caption": "It has 23 motors, one in each joint, where the body bends or turns. Guess where most of them are."
       },
       {
-        "key": "ArrowRight",
-        "readout": "beat 1 / 4 conditional rate 95.0% episode 21.5%",
-        "caption": "At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time."
+        "key": "Next",
+        "readout": "Motors: legs 12, arms 10, waist 1. That is all 23; the standard hands and the torso have none.",
+        "caption": "It has 23 motors, one in each joint, where the body bends or turns. Guess where most of them are."
       },
       {
-        "key": "ArrowRight",
-        "readout": "beat 2 / 4 conditional rate 99.0% episode 74.0%",
-        "caption": "Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%."
+        "key": "Next",
+        "readout": "The knees have the strongest motors. Each arm can carry only about 2 kilograms.",
+        "caption": "The legs carry the whole body, about 35 kilograms, and keep it from falling, so they get the strongest motors."
       },
       {
-        "key": "ArrowRight",
-        "readout": "beat 3 / 4 conditional rate 99.9% episode 97.0%",
-        "caption": "At 99.9% per decision, the same model gives 97.0% for thirty steps."
+        "key": "Next",
+        "readout": "One charge lasts about 2 hours. Then a person can swap in a charged battery.",
+        "caption": "The chest cover swings open: the battery and computer sit inside. One charge lasts only about two hours, which limits its working time."
       },
       {
-        "key": "ArrowRight",
-        "readout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
-        "caption": "The same horizon exposes the last stretch."
-      },
-      {
-        "key": "ArrowLeft",
-        "readout": "beat 3 / 4 conditional rate 99.9% episode 97.0%",
-        "caption": "At 99.9% per decision, the same model gives 97.0% for thirty steps."
+        "key": "Back",
+        "readout": "The knees have the strongest motors. Each arm can carry only about 2 kilograms.",
+        "caption": "The legs carry the whole body, about 35 kilograms, and keep it from falling, so they get the strongest motors."
       }
     ],
     "resetControlNames": [
-      "Reset the scene to its poster still"
+      "Step 1"
     ],
-    "resetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
-    "resetCaption": "The same horizon exposes the last stretch.",
-    "secondResetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
-    "componentModule": "components/motion/scenes/reliability-threshold.tsx",
-    "claimText": "The last stretch of episode reliability. The same horizon exposes the last stretch."
+    "resetReadout": "The G1, made by the company Unitree: 1.32 metres tall, about 35 kilograms.",
+    "resetCaption": "A humanoid is shaped like us so it can use our doors, stairs and tools.",
+    "secondResetReadout": "The G1, made by the company Unitree: 1.32 metres tall, about 35 kilograms.",
+    "componentModule": "components/explainers/viewer.ts > components/explainers/scenes/humanoid.js",
+    "claimText": "Inside a humanoid. Of a Unitree G1's 23 motors, 12 move its legs and keep it balanced."
   },
   "moduleScene": {
-    "sceneId": "reliability-threshold",
-    "route": "/",
-    "sceneCount": 1,
-    "frameRole": "group",
-    "frameAriaLabel": "Motion scene: The last stretch of episode reliability",
-    "describedByText": "The last stretch of episode reliability. Beat 1: At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time. Beat 2: Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%. Beat 3: At 99.9% per decision, the same model gives 97.0% for thirty steps. Beat 4: The same horizon exposes the last stretch.",
-    "graphicTag": "svg",
-    "graphicTopPx": 1159,
-    "graphicHeightPx": 384,
-    "posterMarkCount": 3,
-    "playerMountedAtFirstPaint": false,
+    "sceneId": "humanoid",
+    "frameRole": null,
+    "frameAriaLabel": null,
+    "describedByText": null,
+    "graphicTopPx": 313,
+    "posterSrc": "/explainers/posters/humanoid.webp",
+    "posterMarkCount": 0,
     "posterControls": [
-      "Play the motion scene: The last stretch of episode reliability",
-      "Step back one beat",
-      "Step forward one beat",
-      "Reset the scene to its poster still"
+      "3D scene. Drag or use the arrow keys to turn it, and + or - to zoom.",
+      "Step 1",
+      "Step 2",
+      "Step 3",
+      "Step 4",
+      "Step 5",
+      "Next"
     ],
-    "statusLine": "Illustrative model: all 30 decisions succeed independently at the same rate.",
-    "posterReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
-    "posterCaption": "The same horizon exposes the last stretch.",
-    "idleFrameRequests": 0,
-    "playingFrameRequests": 50,
-    "focusOutlineWidthPx": 1,
-    "focusOutlineStyle": "solid",
-    "focusOutlineColour": "rgb(28, 28, 26)",
+    "posterCaption": "A humanoid is shaped like us so it can use our doors, stairs and tools.",
+    "route": "/how-robots-work/#humanoid",
+    "sceneCount": 1,
+    "graphicTag": "canvas",
+    "graphicHeightPx": 541,
+    "playerMountedAtFirstPaint": true,
+    "idleFrameRequests": 43,
+    "playingFrameRequests": 27,
+    "startControl": null,
+    "focusOutlineWidthPx": null,
+    "focusOutlineStyle": null,
+    "focusOutlineColour": null,
+    "openingReadout": "The G1, made by the company Unitree: 1.32 metres tall, about 35 kilograms.",
+    "openingCaption": "A humanoid is shaped like us so it can use our doors, stairs and tools.",
     "steps": [
       {
-        "key": "Home",
-        "readout": "beat 1 / 4 conditional rate 95.0% episode 21.5%",
-        "caption": "At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time."
+        "key": "Next",
+        "readout": "",
+        "caption": "It has 23 motors, one in each joint, where the body bends or turns. Guess where most of them are."
       },
       {
-        "key": "ArrowRight",
-        "readout": "beat 1 / 4 conditional rate 95.0% episode 21.5%",
-        "caption": "At 95% success per decision, this thirty-decision toy episode succeeds about 21.5% of the time."
+        "key": "Next",
+        "readout": "Motors: legs 12, arms 10, waist 1. That is all 23; the standard hands and the torso have none.",
+        "caption": "It has 23 motors, one in each joint, where the body bends or turns. Guess where most of them are."
       },
       {
-        "key": "ArrowRight",
-        "readout": "beat 2 / 4 conditional rate 99.0% episode 74.0%",
-        "caption": "Raising conditional success from 95% to 99% changes the thirty-step outcome from 21.5% to 74.0%."
+        "key": "Next",
+        "readout": "The knees have the strongest motors. Each arm can carry only about 2 kilograms.",
+        "caption": "The legs carry the whole body, about 35 kilograms, and keep it from falling, so they get the strongest motors."
       },
       {
-        "key": "ArrowRight",
-        "readout": "beat 3 / 4 conditional rate 99.9% episode 97.0%",
-        "caption": "At 99.9% per decision, the same model gives 97.0% for thirty steps."
+        "key": "Next",
+        "readout": "One charge lasts about 2 hours. Then a person can swap in a charged battery.",
+        "caption": "The chest cover swings open: the battery and computer sit inside. One charge lasts only about two hours, which limits its working time."
       },
       {
-        "key": "ArrowRight",
-        "readout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
-        "caption": "The same horizon exposes the last stretch."
-      },
-      {
-        "key": "ArrowLeft",
-        "readout": "beat 3 / 4 conditional rate 99.9% episode 97.0%",
-        "caption": "At 99.9% per decision, the same model gives 97.0% for thirty steps."
+        "key": "Back",
+        "readout": "The knees have the strongest motors. Each arm can carry only about 2 kilograms.",
+        "caption": "The legs carry the whole body, about 35 kilograms, and keep it from falling, so they get the strongest motors."
       }
     ],
     "resetControlNames": [
-      "Reset the scene to its poster still"
+      "Step 1"
     ],
-    "resetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
-    "resetCaption": "The same horizon exposes the last stretch.",
-    "secondResetReadout": "beat 4 / 4 conditional rate 99.9% episode 97.0%",
-    "componentModule": "components/motion/scenes/reliability-threshold.tsx"
+    "resetReadout": "The G1, made by the company Unitree: 1.32 metres tall, about 35 kilograms.",
+    "resetCaption": "A humanoid is shaped like us so it can use our doors, stairs and tools.",
+    "secondResetReadout": "The G1, made by the company Unitree: 1.32 metres tall, about 35 kilograms.",
+    "componentModule": "components/explainers/viewer.ts > components/explainers/scenes/humanoid.js"
   },
   "toolsLine": {
     "links": [
       {
         "text": "Playground",
         "path": "/playground/",
-        "topPx": 2400
+        "topPx": 2476
       },
       {
         "text": "How robots work",
         "path": "/how-robots-work/",
-        "topPx": 2400
+        "topPx": 2476
       },
       {
         "text": "Market Map",
         "path": "/market-map/",
-        "topPx": 2400
+        "topPx": 2476
       }
     ],
     "graphics": [],
@@ -2871,7 +2871,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 83
+      "measuredMembers": 90
     },
     {
       "id": "profile:home-forced-colours",
@@ -2882,7 +2882,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 91
+      "measuredMembers": 92
     },
     {
       "id": "profile:home-reflow-320x800",
@@ -2893,7 +2893,7 @@
       "documentScrollWidthPx": 320,
       "documentClientWidthPx": 320,
       "failures": [],
-      "measuredMembers": 272
+      "measuredMembers": 260
     },
     {
       "id": "profile:home-zoom-200-equivalent",
@@ -2904,7 +2904,7 @@
       "documentScrollWidthPx": 720,
       "documentClientWidthPx": 720,
       "failures": [],
-      "measuredMembers": 272
+      "measuredMembers": 260
     },
     {
       "id": "profile:home-text-200",
@@ -2915,7 +2915,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 151
+      "measuredMembers": 142
     }
   ],
   "progressCounters": [
@@ -3137,13 +3137,13 @@
         "role": null
       }
     ],
-    "borderedBoxCount": 1,
+    "borderedBoxCount": 0,
     "chartDisclosureSummaries": [
       {
-        "text": "Adjust more",
+        "text": "Check yourself: What stops a humanoid working a full shift today?",
         "textTransform": "none",
         "letterSpacing": "normal",
-        "fontSizePx": 13,
+        "fontSizePx": 15,
         "borderTopWidthPx": 0,
         "borderBottomWidthPx": 0
       }
