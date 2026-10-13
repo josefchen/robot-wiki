@@ -100,8 +100,9 @@ describe('content integration of 2026-09-23', () => {
           .toBe('approved');
         // The 2026-10-01 KOL backlog batch continues one of these articles
         // from the humanizer endpoint with exactly one plain edge, the
-        // 2026-10-02 SEO pass continues both with one more, and the
-        // 2026-10-10 world-models pass moves them to the live body with one more.
+        // 2026-10-02 SEO pass continues both with one more, the 2026-10-10
+        // world-models pass with one more, and the 2026-10-12 world-models
+        // length cut moves them to the live body with one more.
         const slug = entry.memberId.slice('article:world-models/'.length);
         const later = approvals.find(a => a.id === `kol-backlog-20261001-world-models-prose-${slug}`);
         if (later) expect(later.oldHash).toBe(next?.newHash);
@@ -109,7 +110,9 @@ describe('content integration of 2026-09-23', () => {
         expect(seo.oldHash).toBe((later ?? next)?.newHash);
         const domainPass = approvals.find(a => a.id === `world-models-pass-20261010-prose-${slug}`)!;
         expect(domainPass.oldHash).toBe(seo.newHash);
-        expect(domainPass.newHash).toBe(currentHash(entry.manifest, entry.memberId));
+        const lengthCut = approvals.find(a => a.id === `length-cut-20261012-world-models-prose-${slug}`)!;
+        expect(lengthCut.oldHash).toBe(domainPass.newHash);
+        expect(lengthCut.newHash).toBe(currentHash(entry.manifest, entry.memberId));
       } else {
         expect(head.newHash).toBe(currentHash(entry.manifest, entry.memberId));
       }

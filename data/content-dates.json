@@ -34,7 +34,7 @@
     },
     "classical/motion-planning": {
       "published": "2026-08-11T15:57:20+01:00",
-      "modified": "2026-10-12T07:42:54+02:00"
+      "modified": "2026-10-12T11:45:35+02:00"
     },
     "classical/perception": {
       "published": "2026-08-22T00:55:00+01:00",
@@ -54,7 +54,7 @@
     },
     "data-hardware/data-bottleneck": {
       "published": "2026-08-08T23:06:19+01:00",
-      "modified": "2026-10-12T07:42:54+02:00"
+      "modified": "2026-10-12T11:45:35+02:00"
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T16:59:07+01:00",
@@ -74,7 +74,7 @@
     },
     "data-hardware/robot-learning-stack": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-12T07:42:54+02:00"
+      "modified": "2026-10-12T11:45:35+02:00"
     },
     "data-hardware/teleop-rigs": {
       "published": "2026-08-09T19:30:31+01:00",
@@ -82,27 +82,27 @@
     },
     "frontier/bear-case": {
       "published": "2026-08-12T17:20:13+01:00",
-      "modified": "2026-10-12T14:04:22+02:00"
+      "modified": "2026-10-12T14:40:47+02:00"
     },
     "frontier/competing-theses": {
       "published": "2026-08-12T16:14:42+01:00",
-      "modified": "2026-10-12T14:04:22+02:00"
+      "modified": "2026-10-12T14:40:47+02:00"
     },
     "frontier/dexterity": {
       "published": "2026-08-12T04:47:30+01:00",
-      "modified": "2026-10-12T14:04:22+02:00"
+      "modified": "2026-10-12T14:40:47+02:00"
     },
     "frontier/generalization": {
       "published": "2026-08-12T15:08:41+01:00",
-      "modified": "2026-10-12T14:04:22+02:00"
+      "modified": "2026-10-12T14:40:47+02:00"
     },
     "frontier/reliability-gap": {
       "published": "2026-08-12T04:02:00+01:00",
-      "modified": "2026-10-12T14:04:22+02:00"
+      "modified": "2026-10-12T14:40:47+02:00"
     },
     "frontier/safety-and-assurance": {
       "published": "2026-08-22T18:00:18+01:00",
-      "modified": "2026-10-12T14:04:22+02:00"
+      "modified": "2026-10-12T14:40:47+02:00"
     },
     "manipulation/action-chunking": {
       "published": "2026-08-07T17:34:21+01:00",
@@ -198,40 +198,40 @@
     },
     "world-models/evaluation": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-12T04:23:50+02:00"
+      "modified": "2026-10-13T02:59:35+02:00"
     },
     "world-models/generative-sim": {
       "published": "2026-08-08T22:15:16+01:00",
-      "modified": "2026-10-12T04:23:50+02:00"
+      "modified": "2026-10-13T02:59:35+02:00"
     },
     "world-models/generative-video": {
       "published": "2026-08-08T21:31:17+01:00",
-      "modified": "2026-10-12T07:20:45+02:00"
+      "modified": "2026-10-13T02:59:35+02:00"
     },
     "world-models/jepa": {
       "published": "2026-08-08T21:53:43+01:00",
-      "modified": "2026-10-12T07:20:45+02:00"
+      "modified": "2026-10-13T02:59:35+02:00"
     },
     "world-models/latent-dynamics": {
       "published": "2026-08-08T21:06:45+01:00",
-      "modified": "2026-10-12T04:23:50+02:00"
+      "modified": "2026-10-13T02:59:35+02:00"
     },
     "world-models/model-based-robot-learning": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-12T04:23:50+02:00"
+      "modified": "2026-10-13T02:59:35+02:00"
     },
     "world-models/taxonomy": {
       "published": "2026-08-08T20:49:46+01:00",
-      "modified": "2026-10-12T04:23:50+02:00"
+      "modified": "2026-10-13T02:59:35+02:00"
     },
     "world-models/world-models-vs-simulators": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-12T04:23:50+02:00"
+      "modified": "2026-10-13T02:59:35+02:00"
     }
   },
   "routes": {
     "/": {
-      "modified": "2026-10-12T14:04:22+02:00"
+      "modified": "2026-10-13T02:59:35+02:00"
     },
     "/manipulation/": {
       "modified": "2026-10-11T23:46:59+02:00"
@@ -264,7 +264,7 @@
       "modified": "2026-10-06T02:30:02+02:00"
     },
     "/glossary/": {
-      "modified": "2026-10-12T14:04:22+02:00"
+      "modified": "2026-10-12T14:40:47+02:00"
     },
     "/credits/": {
       "modified": "2026-10-11T23:46:59+02:00"
@@ -276,7 +276,7 @@
       "modified": "2026-10-11T23:46:59+02:00"
     },
     "/a-z/": {
-      "modified": "2026-10-12T14:04:22+02:00"
+      "modified": "2026-10-12T14:40:47+02:00"
     }
   }
 }

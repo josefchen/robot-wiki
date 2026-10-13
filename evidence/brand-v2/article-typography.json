@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "0b8afcf4860cf5ab8c2b6327acff66f9a1bace755311870686666f5ebccf0abf",
+  "fingerprint": "c3f5525dc6e161994bb5549dd9c2f344f78e8836ccb10ac0659dc06d34756fca",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3162,
+      "visibleTextLength": 3246,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -46857,7 +46857,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 17283,
+      "visibleTextLength": 16006,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -46909,11 +46909,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 6,
+        "readingMinutes": 5,
         "citationCount": 33,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "6 min read",
+        "readingTimeText": "5 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "world-model-survey-2026",
@@ -47009,7 +47009,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Planning, policy training, policy evaluation and data genera"
+          "text": "WorldArena scores 14 models separately as data engines, poli"
         },
         {
           "familyHead": "geist",
@@ -47028,15 +47028,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Roll out autoregressively, score task events such as grasp, "
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 327,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "DeepMind reports real-time Genie 3 generation at 720p and 24"
         },
         {
           "familyHead": "geist",
@@ -47072,15 +47063,6 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RoboWorld, a fast autoregressive neural simulator with task-"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 327,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
           "text": "Physics simulation sets the bar. In June 2026, Yuke Zhu and "
         },
         {
@@ -47090,7 +47072,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The final test is whether the model changes a real outcome. "
+          "text": "IRASim planning raised Push-T IoU from 0.637 to 0.961Source "
         },
         {
           "familyHead": "geist",
@@ -47099,7 +47081,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "SIMPLER tests whether simulated policy performance correlate"
+          "text": "SIMPLER's test, whether simulated and real policy performanc"
         },
         {
           "familyHead": "geist",
@@ -47117,7 +47099,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "LIBERO-Plus showed that controlled perturbations uncover rob"
+          "text": "LIBERO-Plus used such perturbations to uncover gaps a satura"
         },
         {
           "familyHead": "geist",
@@ -47349,7 +47331,7 @@
         },
         {
           "kind": "citation",
-          "count": 96,
+          "count": 84,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -47359,7 +47341,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 48,
+              "count": 42,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -47369,7 +47351,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 48,
+              "count": 42,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -47636,7 +47618,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21653,
+      "visibleTextLength": 20125,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47688,11 +47670,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 7,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "robogen-2024",
@@ -47845,16 +47827,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "ManiSkill3 simulates with rendering at up to 30,000+ FPS, 10"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 327,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "RoboGen runs a propose-generate-learn cycle. GPT-4 proposes "
+          "text": "RoboGen runs a propose-generate-learn cycle: GPT-4 proposes "
         },
         {
           "familyHead": "geist",
@@ -47890,7 +47863,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Humans rated assets and layout, and a CLIP score measured co"
+          "text": "Holodeck's evaluation, a navigation model pretrained on Proc"
         },
         {
           "familyHead": "geist",
@@ -47899,7 +47872,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "ProcTHOR had procedurally generated 10,000 houses and set st"
+          "text": "Objaverse supplies 800K+ models without physical propertiesS"
         },
         {
           "familyHead": "geist",
@@ -47963,6 +47936,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A generator proposes layouts, tasks, textures and initial st"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Check asset scale and collision geometry before dynamics, st"
         }
       ],
       "sectionLinks": [
@@ -48176,7 +48158,7 @@
         },
         {
           "kind": "citation",
-          "count": 96,
+          "count": 84,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -48186,7 +48168,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 48,
+              "count": 42,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -48196,7 +48178,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 48,
+              "count": 42,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -48527,7 +48509,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22700,
+      "visibleTextLength": 20768,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48579,11 +48561,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
+        "readingMinutes": 8,
         "citationCount": 37,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "cosmos-3-2026",
@@ -48710,7 +48692,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In the Cosmos 3 report, NVIDIA calls a home robot built from"
+          "text": "NVIDIA's Cosmos 3 report calls a home robot built from a sep"
         },
         {
           "familyHead": "geist",
@@ -48737,7 +48719,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In their August 5, 2025 announcement, Jack Parker-Holder and"
+          "text": "In its August 5, 2025 announcement, DeepMind describes Genie"
         },
         {
           "familyHead": "geist",
@@ -48782,7 +48764,16 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two October 2026 papers measured WAM design choices directly"
+          "text": "OpenWAM (October 2026), from Heng Yu, Li Fei-Fei, Jiajun Wu,"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Long-WAM (October 2026), from Wei Huang, Linxi Fan, Song Han"
         },
         {
           "familyHead": "geist",
@@ -48818,7 +48809,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The Interactive World Simulator pairs a CNN image encoder an"
+          "text": "The Interactive World Simulator is built on an action-condit"
         },
         {
           "familyHead": "geist",
@@ -48836,7 +48827,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RoboWorld pairs an autoregressive video world model, trained"
+          "text": "RoboWorld pairs an autoregressive video world model with a G"
         },
         {
           "familyHead": "geist",
@@ -48863,7 +48854,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Generated experience also trains policies. RISE ran RL insid"
+          "text": "RISE ran RL inside a compositional world model and gained 35"
         },
         {
           "familyHead": "geist",
@@ -48881,16 +48872,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "By late 2026, generative video models serve policy ranking, "
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 327,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "Start with paired interventions: identical initial frames, o"
+          "text": "Start with paired interventions that change only the action "
         }
       ],
       "sectionLinks": [
@@ -49122,7 +49104,7 @@
         },
         {
           "kind": "citation",
-          "count": 88,
+          "count": 74,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -49132,7 +49114,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 44,
+              "count": 37,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -49142,7 +49124,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 44,
+              "count": 37,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -49187,7 +49169,7 @@
         },
         {
           "kind": "internal",
-          "count": 10,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -49197,7 +49179,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 10,
+              "count": 8,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -49521,7 +49503,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20325,
+      "visibleTextLength": 18393,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49573,11 +49555,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 7,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "vjepa-2024",
@@ -49721,7 +49703,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Leaf texture and sensor noise are irrelevant to control, yet"
+          "text": "A generative objective spends capacity on leaf texture and s"
         },
         {
           "familyHead": "geist",
@@ -49757,7 +49739,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Control is energy minimization in latent space: the Cross-En"
+          "text": "Control is energy minimization in latent space. The Cross-En"
         },
         {
           "familyHead": "geist",
@@ -49766,7 +49748,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "V-JEPA 2.1 adds dense predictive losses, scores 77.7 on Some"
+          "text": "V-JEPA 2.1 adds dense predictive losses and reports \"a 20-po"
         },
         {
           "familyHead": "geist",
@@ -49784,7 +49766,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two results would break the stalemate. One is an interactive"
+          "text": "Either of two results would break the stalemate: a JEPA envi"
         },
         {
           "familyHead": "geist",
@@ -50016,7 +49998,7 @@
         },
         {
           "kind": "citation",
-          "count": 92,
+          "count": 76,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -50026,7 +50008,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 46,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -50036,7 +50018,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 46,
+              "count": 38,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -50295,7 +50277,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17210,
+      "visibleTextLength": 15849,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50347,11 +50329,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 6,
         "citationCount": 33,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "6 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "dreamer-2019",
@@ -50546,16 +50528,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "DayDreamer builds on DreamerV2's implementation and learns o"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 327,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "In a 2026 comparison on a 1/10-scale car, SAC won in simulat"
+          "text": "DayDreamer builds on DreamerV2 and learns online without a s"
         },
         {
           "familyHead": "geist",
@@ -50573,7 +50546,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "MBPO showed that short model rollouts \"branched from real da"
+          "text": "MBPO keeps model rollouts short and \"branched from real data"
         },
         {
           "familyHead": "geist",
@@ -50591,7 +50564,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Dream-MPC samples action sequences from a policy rolled out "
+          "text": "Dream-MPC refines policy-proposed action sequences by gradie"
         },
         {
           "familyHead": "geist",
@@ -50609,7 +50582,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "TD-MPC2's authors list new embodiments and vision-language i"
+          "text": "TD-MPC2's authors expect broad generalization, such as trans"
         },
         {
           "familyHead": "geist",
@@ -50618,7 +50591,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A latent model can generate imagined experience for actor-cr"
+          "text": "Imagination-only training, as in Dreamer, tolerates slow gen"
         }
       ],
       "sectionLinks": [
@@ -50832,7 +50805,7 @@
         },
         {
           "kind": "citation",
-          "count": 90,
+          "count": 80,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -50842,7 +50815,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 45,
+              "count": 40,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -50852,7 +50825,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 45,
+              "count": 40,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -51063,7 +51036,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15540,
+      "visibleTextLength": 14283,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51115,11 +51088,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 5,
+        "readingMinutes": 4,
         "citationCount": 35,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "5 min read",
+        "readingTimeText": "4 min read",
         "citationCountText": "35 sources",
         "bibliographyIds": [
           "dreamer-2019",
@@ -51190,16 +51163,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The loop encodes the state, predicts futures under candidate"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 327,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "Try the check and choose the evidence that a model improves "
+          "text": "The loop predicts futures under candidate actions, scores th"
         },
         {
           "familyHead": "geist",
@@ -51235,7 +51199,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A network inside a policy does not make it model-based, and "
+          "text": "A world modelworld modelA model of how an environment evolve"
         },
         {
           "familyHead": "geist",
@@ -51244,7 +51208,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Plan at decision time. Roll sampled action sequences through"
+          "text": "A planner rolls sampled action sequences through the model, "
         },
         {
           "familyHead": "geist",
@@ -51253,7 +51217,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Train a policy in imagination. Dreamer trains a policy on tr"
+          "text": "Dreamer instead trains a policy on trajectories imagined in "
         },
         {
           "familyHead": "geist",
@@ -51280,7 +51244,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Real-robot model-based learning predates DayDreamer. Gaussia"
+          "text": "PDDM learned contact-rich manipulation on a 24-DoF hand from"
         },
         {
           "familyHead": "geist",
@@ -51298,7 +51262,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Mean prediction error weights every dimension equally; contr"
+          "text": "A two-millimeter error is irrelevant in free space and decis"
         },
         {
           "familyHead": "geist",
@@ -51316,7 +51280,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A hybrid keeps known physics and learns what it misses. Toss"
+          "text": "Hybrids keep known physics and learn what it misses: Tossing"
         },
         {
           "familyHead": "geist",
@@ -51325,7 +51289,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "It fits when interaction is expensive, the action-conditione"
+          "text": "It fits when interaction is expensive, goals change faster t"
         }
       ],
       "sectionLinks": [
@@ -51503,7 +51467,7 @@
         },
         {
           "kind": "citation",
-          "count": 72,
+          "count": 60,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -51513,7 +51477,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 36,
+              "count": 30,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -51523,7 +51487,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 36,
+              "count": 30,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -51568,7 +51532,7 @@
         },
         {
           "kind": "internal",
-          "count": 11,
+          "count": 10,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -51578,7 +51542,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 11,
+              "count": 10,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -51702,7 +51666,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21029,
+      "visibleTextLength": 19775,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51754,11 +51718,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 8,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "world-model-survey-2026",
@@ -51947,15 +51911,6 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "DeepMind reports that Genie 3 renders text-prompted worlds n"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 327,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
           "text": "V-JEPA trains \"solely using a feature prediction objective\"S"
         },
         {
@@ -52010,7 +51965,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Generative video now serves evaluation, data generation and "
+          "text": "Google DeepMind reports a Veo-based simulator predicted poli"
         },
         {
           "familyHead": "geist",
@@ -52019,7 +51974,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Ask what is predicted, in what space and for what purpose. T"
+          "text": "The intervention test varies the action with history fixed, "
         },
         {
           "familyHead": "geist",
@@ -52332,7 +52287,7 @@
         },
         {
           "kind": "citation",
-          "count": 84,
+          "count": 70,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -52342,7 +52297,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 42,
+              "count": 35,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -52352,7 +52307,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 42,
+              "count": 35,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -52397,7 +52352,7 @@
         },
         {
           "kind": "internal",
-          "count": 12,
+          "count": 11,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -52407,7 +52362,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 12,
+              "count": 11,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -52707,7 +52662,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22213,
+      "visibleTextLength": 20605,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52759,11 +52714,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 10,
+        "readingMinutes": 9,
         "citationCount": 35,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "10 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "35 sources",
         "bibliographyIds": [
           "mujoco-2012",
@@ -52834,7 +52789,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Many systems combine the two: physics supplies structure and"
+          "text": "Hwangbo and colleagues kept ANYmal's rigid-body physics and "
         },
         {
           "familyHead": "geist",
@@ -52897,7 +52852,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In the latent column, V-JEPA 2-AC pairs a frozen 1B-paramete"
+          "text": "In the latent column, V-JEPA 2-AC's cross-entropy planner ta"
         },
         {
           "familyHead": "geist",
@@ -52915,7 +52870,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "These offline clip generators cannot serve as 24 fps runtime"
+          "text": "DeepMind reports that Genie 3 runs at 24 fps and 720pSource "
         },
         {
           "familyHead": "geist",
@@ -52924,7 +52879,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Explicit 3D inverts the trade. 3D Gaussian Splatting renders"
+          "text": "3D Gaussian Splatting renders rasterizable primitives in ten"
         },
         {
           "familyHead": "geist",
@@ -52934,15 +52889,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Planning, as in model-based RL, queries actions the dataset "
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 327,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "Safety constraints also favor explicit state: joint limits, "
         },
         {
           "familyHead": "geist",
@@ -52961,15 +52907,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Real-to-sim systems reconstruct a scene's appearance and kee"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 327,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "The pattern suits rigid-body tasks and is weaker for frictio"
         },
         {
           "familyHead": "geist",
@@ -53318,7 +53255,7 @@
         },
         {
           "kind": "citation",
-          "count": 78,
+          "count": 66,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -53328,7 +53265,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 39,
+              "count": 33,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -53338,7 +53275,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 39,
+              "count": 33,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -53557,7 +53494,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3162,
+      "visibleTextLength": 3246,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -99732,7 +99669,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 24877,
+      "visibleTextLength": 22780,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -99784,11 +99721,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 6,
+        "readingMinutes": 5,
         "citationCount": 33,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "6 min read",
+        "readingTimeText": "5 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "world-model-survey-2026",
@@ -99884,7 +99821,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Planning, policy training, policy evaluation and data genera"
+          "text": "WorldArena scores 14 models separately as data engines, poli"
         },
         {
           "familyHead": "geist",
@@ -99903,15 +99840,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Roll out autoregressively, score task events such as grasp, "
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 929.63,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "DeepMind reports real-time Genie 3 generation at 720p and 24"
         },
         {
           "familyHead": "geist",
@@ -99947,15 +99875,6 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RoboWorld, a fast autoregressive neural simulator with task-"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 929.63,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
           "text": "Physics simulation sets the bar. In June 2026, Yuke Zhu and "
         },
         {
@@ -99965,7 +99884,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The final test is whether the model changes a real outcome. "
+          "text": "IRASim planning raised Push-T IoU from 0.637 to 0.961Source "
         },
         {
           "familyHead": "geist",
@@ -99974,7 +99893,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "SIMPLER tests whether simulated policy performance correlate"
+          "text": "SIMPLER's test, whether simulated and real policy performanc"
         },
         {
           "familyHead": "geist",
@@ -99992,7 +99911,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "LIBERO-Plus showed that controlled perturbations uncover rob"
+          "text": "LIBERO-Plus used such perturbations to uncover gaps a satura"
         },
         {
           "familyHead": "geist",
@@ -100224,7 +100143,7 @@
         },
         {
           "kind": "citation",
-          "count": 96,
+          "count": 84,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -100234,7 +100153,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 48,
+              "count": 42,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -100244,7 +100163,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 48,
+              "count": 42,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -100500,7 +100419,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29728,
+      "visibleTextLength": 27371,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100552,11 +100471,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 7,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "robogen-2024",
@@ -100709,16 +100628,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "ManiSkill3 simulates with rendering at up to 30,000+ FPS, 10"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 929.63,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "RoboGen runs a propose-generate-learn cycle. GPT-4 proposes "
+          "text": "RoboGen runs a propose-generate-learn cycle: GPT-4 proposes "
         },
         {
           "familyHead": "geist",
@@ -100754,7 +100664,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Humans rated assets and layout, and a CLIP score measured co"
+          "text": "Holodeck's evaluation, a navigation model pretrained on Proc"
         },
         {
           "familyHead": "geist",
@@ -100763,7 +100673,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "ProcTHOR had procedurally generated 10,000 houses and set st"
+          "text": "Objaverse supplies 800K+ models without physical propertiesS"
         },
         {
           "familyHead": "geist",
@@ -100827,6 +100737,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "A generator proposes layouts, tasks, textures and initial st"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Check asset scale and collision geometry before dynamics, st"
         }
       ],
       "sectionLinks": [
@@ -101040,7 +100959,7 @@
         },
         {
           "kind": "citation",
-          "count": 96,
+          "count": 84,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -101050,7 +100969,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 48,
+              "count": 42,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -101060,7 +100979,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 48,
+              "count": 42,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -101380,7 +101299,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29126,
+      "visibleTextLength": 26330,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101432,11 +101351,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 10,
+        "readingMinutes": 8,
         "citationCount": 37,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "10 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "cosmos-3-2026",
@@ -101563,7 +101482,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In the Cosmos 3 report, NVIDIA calls a home robot built from"
+          "text": "NVIDIA's Cosmos 3 report calls a home robot built from a sep"
         },
         {
           "familyHead": "geist",
@@ -101590,7 +101509,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In their August 5, 2025 announcement, Jack Parker-Holder and"
+          "text": "In its August 5, 2025 announcement, DeepMind describes Genie"
         },
         {
           "familyHead": "geist",
@@ -101635,7 +101554,16 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two October 2026 papers measured WAM design choices directly"
+          "text": "OpenWAM (October 2026), from Heng Yu, Li Fei-Fei, Jiajun Wu,"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Long-WAM (October 2026), from Wei Huang, Linxi Fan, Song Han"
         },
         {
           "familyHead": "geist",
@@ -101671,7 +101599,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The Interactive World Simulator pairs a CNN image encoder an"
+          "text": "The Interactive World Simulator is built on an action-condit"
         },
         {
           "familyHead": "geist",
@@ -101689,7 +101617,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "RoboWorld pairs an autoregressive video world model, trained"
+          "text": "RoboWorld pairs an autoregressive video world model with a G"
         },
         {
           "familyHead": "geist",
@@ -101716,7 +101644,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Generated experience also trains policies. RISE ran RL insid"
+          "text": "RISE ran RL inside a compositional world model and gained 35"
         },
         {
           "familyHead": "geist",
@@ -101734,16 +101662,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "By late 2026, generative video models serve policy ranking, "
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 929.63,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "Start with paired interventions: identical initial frames, o"
+          "text": "Start with paired interventions that change only the action "
         }
       ],
       "sectionLinks": [
@@ -101975,7 +101894,7 @@
         },
         {
           "kind": "citation",
-          "count": 88,
+          "count": 74,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -101985,7 +101904,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 44,
+              "count": 37,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -101995,7 +101914,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 44,
+              "count": 37,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -102040,7 +101959,7 @@
         },
         {
           "kind": "internal",
-          "count": 10,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -102050,7 +101969,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 10,
+              "count": 8,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -102363,7 +102282,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27690,
+      "visibleTextLength": 24563,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102415,11 +102334,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 7,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "vjepa-2024",
@@ -102563,7 +102482,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Leaf texture and sensor noise are irrelevant to control, yet"
+          "text": "A generative objective spends capacity on leaf texture and s"
         },
         {
           "familyHead": "geist",
@@ -102599,7 +102518,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Control is energy minimization in latent space: the Cross-En"
+          "text": "Control is energy minimization in latent space. The Cross-En"
         },
         {
           "familyHead": "geist",
@@ -102608,7 +102527,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "V-JEPA 2.1 adds dense predictive losses, scores 77.7 on Some"
+          "text": "V-JEPA 2.1 adds dense predictive losses and reports \"a 20-po"
         },
         {
           "familyHead": "geist",
@@ -102626,7 +102545,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Two results would break the stalemate. One is an interactive"
+          "text": "Either of two results would break the stalemate: a JEPA envi"
         },
         {
           "familyHead": "geist",
@@ -102858,7 +102777,7 @@
         },
         {
           "kind": "citation",
-          "count": 92,
+          "count": 76,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -102868,7 +102787,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 46,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -102878,7 +102797,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 46,
+              "count": 38,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -103126,7 +103045,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24234,
+      "visibleTextLength": 22164,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103178,11 +103097,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 6,
         "citationCount": 33,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "6 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "dreamer-2019",
@@ -103377,16 +103296,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "DayDreamer builds on DreamerV2's implementation and learns o"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 929.63,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "In a 2026 comparison on a 1/10-scale car, SAC won in simulat"
+          "text": "DayDreamer builds on DreamerV2 and learns online without a s"
         },
         {
           "familyHead": "geist",
@@ -103404,7 +103314,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "MBPO showed that short model rollouts \"branched from real da"
+          "text": "MBPO keeps model rollouts short and \"branched from real data"
         },
         {
           "familyHead": "geist",
@@ -103422,7 +103332,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Dream-MPC samples action sequences from a policy rolled out "
+          "text": "Dream-MPC refines policy-proposed action sequences by gradie"
         },
         {
           "familyHead": "geist",
@@ -103440,7 +103350,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "TD-MPC2's authors list new embodiments and vision-language i"
+          "text": "TD-MPC2's authors expect broad generalization, such as trans"
         },
         {
           "familyHead": "geist",
@@ -103449,7 +103359,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A latent model can generate imagined experience for actor-cr"
+          "text": "Imagination-only training, as in Dreamer, tolerates slow gen"
         }
       ],
       "sectionLinks": [
@@ -103663,7 +103573,7 @@
         },
         {
           "kind": "citation",
-          "count": 90,
+          "count": 80,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -103673,7 +103583,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 45,
+              "count": 40,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -103683,7 +103593,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 45,
+              "count": 40,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -103883,7 +103793,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21312,
+      "visibleTextLength": 19123,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103935,11 +103845,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 5,
+        "readingMinutes": 4,
         "citationCount": 35,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "5 min read",
+        "readingTimeText": "4 min read",
         "citationCountText": "35 sources",
         "bibliographyIds": [
           "dreamer-2019",
@@ -104010,16 +103920,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The loop encodes the state, predicts futures under candidate"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 929.63,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "Try the check and choose the evidence that a model improves "
+          "text": "The loop predicts futures under candidate actions, scores th"
         },
         {
           "familyHead": "geist",
@@ -104055,7 +103956,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A network inside a policy does not make it model-based, and "
+          "text": "A world modelworld modelA model of how an environment evolve"
         },
         {
           "familyHead": "geist",
@@ -104064,7 +103965,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Plan at decision time. Roll sampled action sequences through"
+          "text": "A planner rolls sampled action sequences through the model, "
         },
         {
           "familyHead": "geist",
@@ -104073,7 +103974,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Train a policy in imagination. Dreamer trains a policy on tr"
+          "text": "Dreamer instead trains a policy on trajectories imagined in "
         },
         {
           "familyHead": "geist",
@@ -104100,7 +104001,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Real-robot model-based learning predates DayDreamer. Gaussia"
+          "text": "PDDM learned contact-rich manipulation on a 24-DoF hand from"
         },
         {
           "familyHead": "geist",
@@ -104118,7 +104019,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Mean prediction error weights every dimension equally; contr"
+          "text": "A two-millimeter error is irrelevant in free space and decis"
         },
         {
           "familyHead": "geist",
@@ -104136,7 +104037,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A hybrid keeps known physics and learns what it misses. Toss"
+          "text": "Hybrids keep known physics and learn what it misses: Tossing"
         },
         {
           "familyHead": "geist",
@@ -104145,7 +104046,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "It fits when interaction is expensive, the action-conditione"
+          "text": "It fits when interaction is expensive, goals change faster t"
         }
       ],
       "sectionLinks": [
@@ -104323,7 +104224,7 @@
         },
         {
           "kind": "citation",
-          "count": 72,
+          "count": 60,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -104333,7 +104234,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 36,
+              "count": 30,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -104343,7 +104244,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 36,
+              "count": 30,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -104388,7 +104289,7 @@
         },
         {
           "kind": "internal",
-          "count": 11,
+          "count": 10,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -104398,7 +104299,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 11,
+              "count": 10,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -104511,7 +104412,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27021,
+      "visibleTextLength": 24853,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104563,11 +104464,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 8,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "world-model-survey-2026",
@@ -104756,15 +104657,6 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "DeepMind reports that Genie 3 renders text-prompted worlds n"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 929.63,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
           "text": "V-JEPA trains \"solely using a feature prediction objective\"S"
         },
         {
@@ -104819,7 +104711,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Generative video now serves evaluation, data generation and "
+          "text": "Google DeepMind reports a Veo-based simulator predicted poli"
         },
         {
           "familyHead": "geist",
@@ -104828,7 +104720,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Ask what is predicted, in what space and for what purpose. T"
+          "text": "The intervention test varies the action with history fixed, "
         },
         {
           "familyHead": "geist",
@@ -105141,7 +105033,7 @@
         },
         {
           "kind": "citation",
-          "count": 84,
+          "count": 70,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -105151,7 +105043,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 42,
+              "count": 35,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -105161,7 +105053,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 42,
+              "count": 35,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -105206,7 +105098,7 @@
         },
         {
           "kind": "internal",
-          "count": 12,
+          "count": 11,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -105216,7 +105108,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 12,
+              "count": 11,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -105505,7 +105397,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28483,
+      "visibleTextLength": 26082,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -105557,11 +105449,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 10,
+        "readingMinutes": 9,
         "citationCount": 35,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "10 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "35 sources",
         "bibliographyIds": [
           "mujoco-2012",
@@ -105632,7 +105524,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Many systems combine the two: physics supplies structure and"
+          "text": "Hwangbo and colleagues kept ANYmal's rigid-body physics and "
         },
         {
           "familyHead": "geist",
@@ -105695,7 +105587,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In the latent column, V-JEPA 2-AC pairs a frozen 1B-paramete"
+          "text": "In the latent column, V-JEPA 2-AC's cross-entropy planner ta"
         },
         {
           "familyHead": "geist",
@@ -105713,7 +105605,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "These offline clip generators cannot serve as 24 fps runtime"
+          "text": "DeepMind reports that Genie 3 runs at 24 fps and 720pSource "
         },
         {
           "familyHead": "geist",
@@ -105722,7 +105614,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Explicit 3D inverts the trade. 3D Gaussian Splatting renders"
+          "text": "3D Gaussian Splatting renders rasterizable primitives in ten"
         },
         {
           "familyHead": "geist",
@@ -105732,15 +105624,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Planning, as in model-based RL, queries actions the dataset "
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 929.63,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "Safety constraints also favor explicit state: joint limits, "
         },
         {
           "familyHead": "geist",
@@ -105759,15 +105642,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Real-to-sim systems reconstruct a scene's appearance and kee"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 929.63,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "The pattern suits rigid-body tasks and is weaker for frictio"
         },
         {
           "familyHead": "geist",
@@ -106116,7 +105990,7 @@
         },
         {
           "kind": "citation",
-          "count": 78,
+          "count": 66,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -106126,7 +106000,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 39,
+              "count": 33,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -106136,7 +106010,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 39,
+              "count": 33,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",

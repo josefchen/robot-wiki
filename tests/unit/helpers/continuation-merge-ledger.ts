@@ -340,6 +340,10 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  * - `frontier-pass-20261010-`: the frontier domain pass of 2026-10-10 moved
  *   the five frontier pass articles, dexterity's citations list and the
  *   glossary, and registered its new records, in the same shape.
+ * - `length-cut-20261012-world-models-`: the world-models length cut of
+ *   2026-10-12 moved the prose and relationships of the eight world-models
+ *   articles, each member with one edge from its last approved endpoint, or
+ *   one resolution from the sealed hash where its chain already holds one.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -371,6 +375,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'world-models-pass-20261010-',
   'domain-pass-20261012-kol-citation-rendering',
   'frontier-pass-20261010-',
+  'length-cut-20261012-world-models-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

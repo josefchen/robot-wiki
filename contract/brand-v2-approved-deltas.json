@@ -84197,6 +84197,422 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-prose-evaluation",
+      "manifest": "prose",
+      "memberId": "article:world-models/evaluation",
+      "oldHash": "1f81738728679d1e51a13111a6cee14ecd7131d5451003cbe28a4708740d04eb",
+      "newHash": "4955e3da1daffa64649c405ae00e374448c835419a0b3b12c802e7d914e5b56b",
+      "reason": "World-models length cut of 2026-10-12 on world-models/evaluation, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-prose-evaluation). It drops DeepMind's Genie 3 real-time specification (the taxonomy states it), the Interactive World Simulator and RoboWorld as further evaluation environments (the generative-video and simulator pages keep them), 1X's four-futures example, the Veo simulator's red-teaming use and WorldEval's 0.942 against 0.411 correlation (secondary corroboration beside WorldGym and DreamDojo), with the self-check pointer and recap sentences. The cut removes 6 citation occurrences and 14 number occurrences from the body; 3 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-prose-generative-sim",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "fbfeaa50f098502d54695d7a87f5513e97ae91d948b4712583426eb028bf1a05",
+      "newHash": "6e437d81826eb72378a605b0474422784b1744c3ac748b1624793b563d3f6aae",
+      "reason": "World-models length cut of 2026-10-12 on world-models/generative-sim, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-prose-generative-sim). It drops ManiSkill3's rendering throughput, Genesis World's history and engine, ProcTHOR's 10,000 houses, GRAIL's humanoid sequences and Unitree G1 results, RialTo's robustness gain, Marble's general-availability date and World Labs' Atlas announcement (secondary examples), with Holodeck's coffee-table example, rating and solver details and RoboGen's optimizer detail. The cut removes 6 citation occurrences and 25 number occurrences from the body; 6 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-prose-generative-video",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "90d36f961ca76c6e2b057d2f8702b2b72ae802e1efba4d3c6b923bcd90466856",
+      "newHash": "d32649b6aadce65ee5458650cea372d021aaedc6fdb638f82ab5fa30e8d8a3b5",
+      "reason": "World-models length cut of 2026-10-12 on world-models/generative-video, under the owner's length decision, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-prose-generative-video). It drops Waymo's Genie 3-based driving simulator, LingBot-VA, DreamDojo's pretraining hours and speed, Odyssey's Starchild-1 and Agora-1 follow-ons, Long-WAM's per-chunk latency and the background clauses on Runway's Praxis-1, 1X's World Model Lab data and GR-3's training mix (secondary examples and background), and the closing recap of uses and limits, whose contact-rich caveat stays with the Veo simulator and whose pouring failure stays with 1X's results. The October 2026 WAM paragraph splits into one dated, attributed paragraph per paper with every figure kept. The cut removes 7 citation occurrences and 18 number occurrences from the body; 5 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-prose-jepa",
+      "manifest": "prose",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "372a8712e7d6ad7cf676938bb17b735eb73c894c71330205800ac5d4fea056f3",
+      "newHash": "903eb2ee4552dc5277900422c72d2086062f8a844f6e4a76a7496b383f5f48d2",
+      "reason": "World-models length cut of 2026-10-12 on world-models/jepa, under the owner's length decision, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-prose-jepa). It drops MuZero as the abstract-state planning precedent, LeVJEPA's compute result, LeWorldModel's training details and 48x planning speed (world-models-vs-simulators keeps the speed), AMI's launch date and offices, DreamDojo's and Dreamer 4's speeds, V-JEPA's VideoMix2M composition and frozen-evaluation protocol, V-JEPA 2's encoder internals, appendix ablation (76.5) and Epic-Kitchens anticipation probe, V-JEPA 2-AC's clip format and V-JEPA 2.1's 77.7 score (secondary corroboration, minor reporting caveats and background). The cut removes 8 citation occurrences and 40 number occurrences from the body; 5 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-prose-latent-dynamics",
+      "manifest": "prose",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "1585b6f31e0b563ad04f9bcdf3ef4c1b8b0078ee8e59c40b151b387d5d711dde",
+      "newHash": "0253a19ca25c829b6b9f5fe9c3a9f7543386811c678dcd6ab3bfd22dcb3ccc26",
+      "reason": "World-models length cut of 2026-10-12 on world-models/latent-dynamics, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-prose-latent-dynamics). It drops Masked World Models' Meta-World result, Puppeteer's hierarchical humanoid control, the 2026 reset-free driving comparison and TD-MPC2's future-work list (secondary examples), DayDreamer's platform list, gait and control-rate details (its manual repositioning caveat stays), and the recap of how a latent model is used. The cut removes 5 citation occurrences and 19 number occurrences from the body; 3 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-prose-model-based-robot-learning",
+      "manifest": "prose",
+      "memberId": "article:world-models/model-based-robot-learning",
+      "oldHash": "8753f6f84cc724653281d0e187d2d5aa05852f5d8ba4788e04a5656a4b8e6df4",
+      "newHash": "69b90d043eb0ec0a0fac37869113666dddbca48eb1af162d440d590a0d0d5528",
+      "reason": "World-models length cut of 2026-10-12 on world-models/model-based-robot-learning, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-prose-model-based-robot-learning). It drops TD-MPC as TD-MPC2's predecessor, Newt's 200 tasks, MOReL beside MOPO, Gaussian-process policy search and SimDist (secondary examples), and the self-check pointer and recap sentences; the objective-mismatch quotes merge into one sentence. The cut removes 6 citation occurrences and 8 number occurrences from the body; 5 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-prose-taxonomy",
+      "manifest": "prose",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+      "newHash": "e1c914ddc2b46b91bb1858472964dde4bbc8e091c4800138755d8b51463409cf",
+      "reason": "World-models length cut of 2026-10-12 on world-models/taxonomy, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 22 earlier approved edges exactly, ending with world-models-pass-20261010-prose-taxonomy. It drops Newt's 200 online tasks, Project Genie's 60-second limit and Odyssey-2's 50 ms frames (generative-video states both), V-JEPA 2.1's grasping gain and LeWorldModel's planning speed (jepa and world-models-vs-simulators keep them), AMD's agreement to acquire World Labs, the closing generative-video recap, DayDreamer's gait, V-JEPA 2-AC's planner and label details (jepa states the planner) and PointWorld's task list. The cut removes 7 citation occurrences and 28 number occurrences from the body; 6 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "insulation-fast-dreamer-20260907-4",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "5d492c5d698299d92d3f511337411061d7becc1db61b8a09977e2d6fc027b049"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-6",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "8953f81082953a60956823f2e575e2a969716392038283041694caa1923f500d"
+        },
+        {
+          "id": "performance-worldmodels-20260908-5",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "7f7fa05f992d3494afdba01a44809ccba0fe5e4c19500ed92cd5488d1f9cbdad"
+        },
+        {
+          "id": "jepa-source-closeouts-20260908-2",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "a54fc46365387b7d831245c3c6af228446888e8bb82a9475f127784f45f44846"
+        },
+        {
+          "id": "world-model-video-continuation-20260908-3",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "eb8ef715b160f90b5e6d9d3a62e87d7f614b4f3b93ba5988a3428ec292d9e900"
+        },
+        {
+          "id": "cosmos-reader-closeout-20260908-4",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1"
+        },
+        {
+          "id": "seo-20260824-prose-b05c76b2eb63",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "b05c76b2eb63e7aa854647c74afd9fdd661f52891d2ca11717ef8f88e2d63fff"
+        },
+        {
+          "id": "taxonomy-r16-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "taxonomy-r17-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "taxonomy-r18-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "taxonomy-r19-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "taxonomy-r20-20260916-1",
+          "oldHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4",
+          "newHash": "6fcbc8df737dd5f6f24f9f1efefb3d17b97cb662844ef194ce92c84d325f7ec4"
+        },
+        {
+          "id": "seo-merge-20260916-prose-33",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "ece9a1706b66aeabd122d24e620474492ca03380cbeb28276558e676c6d118c5"
+        },
+        {
+          "id": "reader-dreamer-20260923-2",
+          "oldHash": "b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1",
+          "newHash": "825fb643cabbcf9de518c95ce1b7d389f4bb045ed1476f2d6c07458387a48c93"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-world-models-taxonomy",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "f944741c05733a0467b2af206480087f0874db92d5fb4ecf73d26c943e11f73c"
+        },
+        {
+          "id": "crossdomain-closure-20260923-2",
+          "oldHash": "825fb643cabbcf9de518c95ce1b7d389f4bb045ed1476f2d6c07458387a48c93",
+          "newHash": "89318d0a8e693a76d79b9c1833b04d7ad1b3509256f5e12b7180d70dbe96c795"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-prose-article-world-models-taxonomy",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "e5515962013124141d8072a26618eba7e0e00852fefd93bb00f01846e47be6a2"
+        },
+        {
+          "id": "educational-cue-20260926-prose-taxonomy",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "c78b87466402372401201a726c3816a29879d6836ce4611949ead0921942e9ce"
+        },
+        {
+          "id": "motion-world-models-humanizer-v3-20260927-prose-taxonomy",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "4e050cc45ebadf729658228cb99d0d8e91525db0f1de3d7b89cde96a087f32f1"
+        },
+        {
+          "id": "seo-pass-20261002-prose-world-models-taxonomy",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "e7a660b7a5dc2edc18d473b5a25f0e05077026e4764b0c2b8bffa8d0382ccdbd"
+        },
+        {
+          "id": "reader-first-20261002-prose-world-models-taxonomy",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "c7fbacd97525ca92da27c1b9330194ff606f9fa07eb53aa1bcf727c986aece01"
+        },
+        {
+          "id": "world-models-pass-20261010-prose-taxonomy",
+          "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+          "newHash": "2ee815ad35fa6312601328b0906d45695157196b54250b9d7f0e0161ba69e37b"
+        }
+      ]
+    },
+    {
+      "id": "length-cut-20261012-world-models-prose-world-models-vs-simulators",
+      "manifest": "prose",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "b4076e2af527c36fa735e13e6432ee4f9f902723ef07b6420255e54f25f45f23",
+      "newHash": "93b0f2d76077cee4f2fedd02c4405dc74b3d7d000be3b6893ccdf7873c11f7a0",
+      "reason": "World-models length cut of 2026-10-12 on world-models/world-models-vs-simulators, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-prose-world-models-vs-simulators). It drops the archived Predict2 repository notice and the Predict2.5 model (Predict2's measured cost stays), Dreamer 4's real-time speed, 1X's backbone latency (generative-video keeps it), SimFoundry, the 3D Gaussian Splatting asset sizes, V-JEPA 2-AC's encoder sizes, Newton 1.0's solver list (generative-sim keeps it), the throughput comparison sentence, two staging sentences and recap sentences. The cut removes 6 citation occurrences and 39 number occurrences from the body; 5 sources leave it entirely and stay in the frontmatter source list the References section prints. Every caveat whose removal would overstate a result stays, the body still cites at least 30 distinct sources, and the frontmatter, imports, mounts, component blocks, heading anchors, link targets and glossary ids stay; no fact, number, source or quote is added. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-relationships-evaluation",
+      "manifest": "relationships",
+      "memberId": "article:world-models/evaluation",
+      "oldHash": "f2fff2d16f4f6b29c28a59aae939b1e38231fc92dddf4ef82f97b62cc90dc41f",
+      "newHash": "8034b689d67074a997da03ecfd8975a3032699daf5c0cefd1d0541463b54a24c",
+      "reason": "World-models length cut of 2026-10-12 on world-models/evaluation, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-relationships-evaluation). The relationships record loses only inline citation occurrences the cut removed (6 occurrences; no longer cited in the body: genie-3-2025, interactive-world-simulator-2026, roboworld-2026; cited fewer times: 1x-world-model-2025, worldeval-2025, veo-world-simulator-2025); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-relationships-generative-sim",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "3d055849797ea7b14b52ec236c92e71d5ef17cbb574de2b86a0fc11707834747",
+      "newHash": "c0016aa64f263915bddb05b3a2fb6b7f8e7374aa5855055710dcff50aab5034c",
+      "reason": "World-models length cut of 2026-10-12 on world-models/generative-sim, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-relationships-generative-sim). The relationships record loses only inline citation occurrences the cut removed (6 occurrences; no longer cited in the body: maniskill3-2024, genesis-world-2026, procthor-2022, grail-2026, rialto-2024, worldlabs-atlas-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-relationships-generative-video",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "034a06ae3c300056c4c513526125d96fdb94ce7966ff1dfd6cbb00b4d0e4c5f6",
+      "newHash": "3a318aca68ecb577cfd1b08f37622fcbf656bc3ea56a815691447c8839d37627",
+      "reason": "World-models length cut of 2026-10-12 on world-models/generative-video, under the owner's length decision, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-relationships-generative-video). The relationships record loses only inline citation occurrences the cut removed (7 occurrences; no longer cited in the body: waymo-world-model-2026, lingbot-va-2026, odyssey-starchild-1-2026, odyssey-agora-1-2026, dreamdojo-2026; cited fewer times: 1x-world-model-2026, veo-world-simulator-2025); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-relationships-jepa",
+      "manifest": "relationships",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "856d0c649b0558e3d89128b1c68f4209c7e9ef4914f8aa93f174e3cf754aa9cd",
+      "newHash": "d6b210e58428dd4359862e3bb33fff0c8556fa6e03e49929b1920273e8d70500",
+      "reason": "World-models length cut of 2026-10-12 on world-models/jepa, under the owner's length decision, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-relationships-jepa). The relationships record loses only inline citation occurrences the cut removed (8 occurrences; no longer cited in the body: muzero-2019, levjepa-2026, ami-labs-launch-2026, dreamdojo-2026, dreamer4-2025; cited fewer times: vjepa-2024, leworldmodel-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-relationships-latent-dynamics",
+      "manifest": "relationships",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "d7dfb035aaea442b87fbc0b7f134ad8f33e21f58027f8b48bf2c7bfead06f972",
+      "newHash": "b24dc6bfc2889373dec9c461766caa95994d0e5e0599d7b92e9c928729b1c628",
+      "reason": "World-models length cut of 2026-10-12 on world-models/latent-dynamics, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-relationships-latent-dynamics). The relationships record loses only inline citation occurrences the cut removed (5 occurrences; no longer cited in the body: masked-world-models-2022, reset-free-driving-2026, puppeteer-2024; cited fewer times: dreamer-2019, tdmpc2-2023); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-relationships-model-based-robot-learning",
+      "manifest": "relationships",
+      "memberId": "article:world-models/model-based-robot-learning",
+      "oldHash": "2936fe4bfae51c83725474dc297a0a92b6c2c324bd23dffb465fb8f523afaede",
+      "newHash": "2f029cc77e6282e99cc5d8b0ffce3a0acfb1e81d0d93154ccced38a1ca4ebd2a",
+      "reason": "World-models length cut of 2026-10-12 on world-models/model-based-robot-learning, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-relationships-model-based-robot-learning). The relationships record loses only inline citation occurrences the cut removed (6 occurrences; no longer cited in the body: tdmpc-2022, newt-2025, morel-2020, pilco-2015, simdist-2026; cited fewer times: objective-mismatch-2020); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-relationships-taxonomy",
+      "manifest": "relationships",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "5993c053492e7ed9dcb209e8aec3a2020e443e4ec7d4673e5466e271a0f206f3",
+      "newHash": "971752253717ae5575d00aa223d0bb0d5c0361ba6c0ffdd769f6f52585d8458c",
+      "reason": "World-models length cut of 2026-10-12 on world-models/taxonomy, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-relationships-taxonomy). The relationships record loses only inline citation occurrences the cut removed (7 occurrences; no longer cited in the body: newt-2025, google-project-genie-2026, odyssey-2-2025, vjepa-2-1-2026, leworldmodel-2026, amd-world-labs-2026; cited fewer times: dreamzero-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261012-world-models-relationships-world-models-vs-simulators",
+      "manifest": "relationships",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "c095f8d8dc72a7d35549a3fba994f4572bb18d866725ab871f404e29e785ca6a",
+      "newHash": "763a10ba0137cbda208ece2ecd56298574d9a56feeba691e797c849406f35e78",
+      "reason": "World-models length cut of 2026-10-12 on world-models/world-models-vs-simulators, under the owner's length decision, as one plain edge from the member's last approved endpoint (world-models-pass-20261010-relationships-world-models-vs-simulators). The relationships record loses only inline citation occurrences the cut removed (6 occurrences; no longer cited in the body: cosmos-predict2-repo-2025, cosmos-predict2-5-2025, dreamer4-2025, 1x-world-model-2026, simfoundry-2026; cited fewer times: isaac-gym-2021); seeAlso entries, glossary ids and internal link targets are unchanged. The world-models length-cut continuity review (audit/evidence/length-cut-20261012-world-models/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of 20 to 30 percent to each world-models article under the owner-session length decision of the same day (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and citations and the moved or retired test pins recorded in audit/evidence/length-cut-20261012-world-models/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-075",
+        "VAL-OPUS-076",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

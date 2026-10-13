@@ -21,6 +21,7 @@ import { join } from 'node:path';
 import { domainPassCheckerPredecessor, domainPassPredecessor } from './audit-domain-pass-continuity.ts';
 import { figureMountPredecessor } from './audit-figure-mount-continuity.ts';
 import { kolBacklogPredecessor } from './audit-kol-backlog-continuity.ts';
+import { worldModelsLengthCutPredecessor } from './audit-length-cut-world-models-continuity.ts';
 import { parallelLocalPredecessor } from './audit-parallel-local-continuity.ts';
 import { readerFirstPredecessor } from './audit-reader-first-continuity.ts';
 import { reskinPredecessor } from './audit-reskin-site-foundation-continuity.ts';
@@ -360,15 +361,16 @@ function revealPredecessor(root: string, ref: Artifact, live: Buffer): Buffer {
  * The reviewed successor is verified, and its rebuilt predecessor returned.
  * The newer layers see the live bytes first: the site-foundation re-skin
  * layer, which landed last, then the 2026-10-11 parallel-local suite layer,
- * then the 2026-10-10 word-budget trim layer, then the
+ * then the 2026-10-12 world-models length-cut layer, then the 2026-10-10
+ * word-budget trim layer, then the
  * 2026-10-07 figure-mount layer, then the 2026-10-06 domain-pass layer, then
  * the 2026-10-05 KOL backlog layer, then the reader-first layer.
  */
 export function seoPassPredecessor(root: string, ref: Artifact, liveBytes: Buffer): Buffer {
   const live = readerFirstPredecessor(root, ref,
     kolBacklogPredecessor(root, ref, domainPassPredecessor(root, ref, figureMountPredecessor(root, ref,
-      wordBudgetTrimPredecessor(root, ref, parallelLocalPredecessor(root, ref,
-        reskinPredecessor(root, ref, liveBytes)))))));
+      wordBudgetTrimPredecessor(root, ref, worldModelsLengthCutPredecessor(root, ref,
+        parallelLocalPredecessor(root, ref, reskinPredecessor(root, ref, liveBytes))))))));
   if (ref.path === revealAfter.path) return revealPredecessor(root, ref, live);
   const spec = specSuccessors.get(ref.path);
   if (spec) {

@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3162,
+      "visibleTextLength": 3246,
       "header": {
         "present": true,
         "display": "flex",
@@ -10904,7 +10904,7 @@
     },
     {
       "route": "/world-models/evaluation/",
-      "visibleTextLength": 17283,
+      "visibleTextLength": 16006,
       "header": {
         "present": true,
         "display": "flex",
@@ -11066,7 +11066,7 @@
     },
     {
       "route": "/world-models/generative-sim/",
-      "visibleTextLength": 21653,
+      "visibleTextLength": 20125,
       "header": {
         "present": true,
         "display": "flex",
@@ -11228,7 +11228,7 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "visibleTextLength": 22700,
+      "visibleTextLength": 20768,
       "header": {
         "present": true,
         "display": "flex",
@@ -11390,7 +11390,7 @@
     },
     {
       "route": "/world-models/jepa/",
-      "visibleTextLength": 20325,
+      "visibleTextLength": 18393,
       "header": {
         "present": true,
         "display": "flex",
@@ -11552,7 +11552,7 @@
     },
     {
       "route": "/world-models/latent-dynamics/",
-      "visibleTextLength": 17210,
+      "visibleTextLength": 15849,
       "header": {
         "present": true,
         "display": "flex",
@@ -11714,7 +11714,7 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "visibleTextLength": 15540,
+      "visibleTextLength": 14283,
       "header": {
         "present": true,
         "display": "flex",
@@ -11876,7 +11876,7 @@
     },
     {
       "route": "/world-models/taxonomy/",
-      "visibleTextLength": 21029,
+      "visibleTextLength": 19775,
       "header": {
         "present": true,
         "display": "flex",
@@ -12038,7 +12038,7 @@
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
-      "visibleTextLength": 22213,
+      "visibleTextLength": 20605,
       "header": {
         "present": true,
         "display": "flex",
