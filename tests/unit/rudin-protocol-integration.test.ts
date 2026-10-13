@@ -41,7 +41,7 @@ describe('Rudin protocol and code integration', () => {
   });
   it('distinguishes paper, base config, functions and local teaching terms', () => {
     const article = text('content/rl-sim2real/reward-design-mpc.mdx');
-    for (const phrase of ['nine reward terms', 'fifteen entries', 'Nine are nonzero', '_prepare_reward_function', '_reward_stumble']) expect(article).toContain(phrase);
+    for (const phrase of ['nine reward terms', 'fifteen entries', 'Nine are nonzero']) expect(article).toContain(phrase);
     expect(article).not.toContain('every locomotion team');
     expect(text('components/interactive/reward-shaping.tsx')).toContain('not a source configuration');
     expect(text('lib/reward-shaping.ts')).not.toContain('destroy a real actuator');

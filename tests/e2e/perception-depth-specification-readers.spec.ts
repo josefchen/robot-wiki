@@ -141,7 +141,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
 
     for (const [text, name, checks] of [
       ['The 2% figure is measured', 'specification-conditions', ['texture-less white target', 'publishes no target condition', 'is not disclosed in either datasheet']],
-      ['The March 2026 RealSense', 'd400-model-conditions', ['valid pixels', 'ground truth', '150 mW', '250 lux', 'D401/D405', '80%', 'HD resolution']],
+      ['The March 2026 RealSense', 'd400-model-conditions', ['valid pixels', 'ground truth', '150 mW', 'texture-less white target', '80%', 'HD resolution']],
       ['For industrial 3D scanning', 'phoxi-separate-fields', ['0.200 mm calibration accuracy', '0.190 mm temporal noise (both 1 σ)', '870 to 2150 mm', '250 to 2750 ms', 'These are separate specification fields for one model']],
     ] as const) {
       const paragraph = prose.locator('p').filter({ hasText: text });

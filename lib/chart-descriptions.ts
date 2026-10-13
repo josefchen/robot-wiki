@@ -99,7 +99,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/execution-modes.tsx',
     route: '/manipulation/realtime-execution/',
     quantityNames: ['velocity', 'delay'],
-    text: 'At 0 ms of inference delay the synchronous velocity trace stops for 0 ms of dead time, while the naive switch reaches a peak velocity step of 0.05 per 20 ms tick and real-time chunking reaches 0.05, both read against the illustrative 0.30 discontinuity-proxy limit; these constructed traces use arbitrary velocity units, not physical jerk or measured robot data. The five-tick linear blend is not RTC inpainting, and the dashed guide is the uninterrupted toy old plan.',
+    text: 'At 0 ms of inference delay the synchronous velocity trace stops for 0 ms of dead time, while the naive switch reaches a peak velocity step of 0.05 per 20 ms tick and real-time chunking reaches 0.05, both read against the illustrative 0.30 discontinuity-proxy limit; these constructed traces use arbitrary velocity units, not physical jerk or measured robot data. The five-tick linear blend is not RTC inpainting, and each trolley\'s pendulum gauge keeps its largest step on a drag pointer.',
   },
   {
     component: 'ActionTokenization',
@@ -120,7 +120,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/latency-comparison.tsx',
     route: '/manipulation/action-chunking/',
     quantityNames: ['action', 'mode'],
-    text: 'Across the 24-tick hand-off at 200 ms of delay the real-time chunking action stays on the committed go-left mode at 0.80 while the ensembled action leaves both valid modes, ends at 0.16 and runs into the obstacle; the obstacle between the two dashed plan routes is drawn for illustration, and those routes are the modelled modes rather than measured actions.',
+    text: 'Across the 24-tick hand-off at 200 ms of delay the real-time chunking action stays on the committed go-left mode at 0.80 while the ensembled action leaves both valid modes, ends at 0.16 and runs into the post; the post between the two plan grooves is drawn for illustration, and the grooves are the modelled modes rather than measured actions.',
   },
   {
     component: 'AdvantageScrubber',

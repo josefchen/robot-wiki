@@ -126,6 +126,35 @@ export function landedPassEndpoint(
   return endpoint;
 }
 
+/**
+ * Edges the humanize pass of 2026-10-12 appended as one block after every
+ * earlier pass: per domain (manipulation, classical, rl-sim2real) one prose
+ * and one relationships edge for each article its owner-approved length cut
+ * shortened.
+ */
+export const isHumanize20261012Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('humanize-20261012-');
+
+/**
+ * The hash the 2026-10-12 humanize pass leaves on a member whose chain ends
+ * at `from`: its one prose or relationships edge on the member must continue
+ * `from`, as a plain edge or as a resolution that reconciles it; an untouched
+ * member stays at `from`.
+ */
+export function humanize20261012Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isHumanize20261012Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-12 humanize edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
 /** The citation list a frontmatter P1 row declared for `content/<domain>/<slug>.mdx`. */
 export const preDomainPassCitations = (domain: string, slug: string, citations: readonly string[]) =>
   preDomainPassCitationList(root, `content/${domain}/${slug}.mdx`, citations);

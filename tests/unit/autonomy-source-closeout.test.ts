@@ -32,8 +32,6 @@ describe('source-scoped autonomous and reset-free RL corrections', () => {
     for (const phrase of [
       'learning from raw sensory inputs',
       'manual resets for bead manipulation',
-      'deployed-policy evaluation',
-      'continuing-policy evaluation',
       'treats interventions as constrained costs',
       'schedule resets during training',
       'sums gaps to optimal deployment return over training',

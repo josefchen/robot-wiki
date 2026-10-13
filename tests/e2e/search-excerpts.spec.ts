@@ -480,13 +480,13 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
     page,
   }) => {
     test.setTimeout(60_000);
-    // "over the first 120: 370" exists only in the CompoundingError readout
-    // ("Total drift over 240 moves: 1505 units; over the first 120: 370")
+    // "the first 120 moves drift 370" exists only in the CompoundingError
+    // readout ("240 moves · drift 1,505 units · the first 120 moves drift 370")
     // and "Selected category: balanced gait" only in the RewardShaping
     // readout (verified: no prose occurrence). If readouts were excluded
     // with the buttons, these queries would lose their excerpt.
     const cases: ReadonlyArray<readonly [string, string]> = [
-      ['370 units', 'over the first 120: 370'],
+      ['370 units', 'the first 120 moves drift 370'],
       ['category balanced gait', 'Selected category: balanced gait'],
     ];
     for (const [query, readoutFragment] of cases) {

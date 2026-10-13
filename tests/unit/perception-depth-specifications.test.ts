@@ -12,9 +12,12 @@ const depth = article.split('## Depth sensing:')[1].split('## Detection:')[0];
 describe('named-device depth specification corrections', () => {
   it('retains D400 model ranges, valid-pixel metric, ROI and test conditions', () => {
     for (const text of ['D410/D415 and D43x', 'up to 2 m', '80%', 'HD resolution',
-      'D450/D455/D455f/D456', 'up to 4 m', '0.5 m for D401/D405',
       'valid pixels', 'ground truth', 'typical conditions', 'auto exposure',
-      '150 mW', '250 lux']) expect(depth).toContain(text);
+      '150 mW']) expect(depth).toContain(text);
+    // The humanize pass of 2026-10-12 scoped the paragraph to the D410/D415 and D43x figure and cut the
+    // other models' ranges; a restored D405 figure must carry its own test condition again.
+    if (depth.includes('D405')) for (const text of ['0.5 m for D401/D405', '250 lux']) expect(depth).toContain(text);
+    if (depth.includes('D455')) expect(depth).toContain('up to 4 m');
     expect(depth).toContain('over an 80% region of interest at HD resolution');
   });
 

@@ -125,7 +125,7 @@
     {
       "stateId": "state:results-both-groups",
       "viewport": "1440x900",
-      "statusText": "16 modules, 6 entities match \"action chunking\"",
+      "statusText": "15 modules, 6 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": true,
@@ -145,13 +145,12 @@
         "Behavior Cloning Foundations",
         "RL Fine-Tuning of Policies",
         "About",
-        "Kinematics",
         "Robot Wiki",
+        "Kinematics",
         "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
-        "Offline Reinforcement Learning for Robotics",
         "Drones and Aerial Robotics"
       ],
       "structuredRowTypes": [
@@ -165,8 +164,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 16,
-          "countText": "16 results",
+          "rowCount": 15,
+          "countText": "15 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -204,7 +203,7 @@
     {
       "stateId": "state:facet-method",
       "viewport": "1440x900",
-      "statusText": "16 modules, 4 entities match \"action chunking\"",
+      "statusText": "15 modules, 4 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -224,13 +223,12 @@
         "Behavior Cloning Foundations",
         "RL Fine-Tuning of Policies",
         "About",
-        "Kinematics",
         "Robot Wiki",
+        "Kinematics",
         "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
-        "Offline Reinforcement Learning for Robotics",
         "Drones and Aerial Robotics"
       ],
       "structuredRowTypes": [
@@ -242,8 +240,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 16,
-          "countText": "16 results",
+          "rowCount": 15,
+          "countText": "15 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -279,7 +277,7 @@
     {
       "stateId": "state:facet-company",
       "viewport": "1440x900",
-      "statusText": "16 modules, 2 entities match \"action chunking\"",
+      "statusText": "15 modules, 2 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -299,13 +297,12 @@
         "Behavior Cloning Foundations",
         "RL Fine-Tuning of Policies",
         "About",
-        "Kinematics",
         "Robot Wiki",
+        "Kinematics",
         "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
-        "Offline Reinforcement Learning for Robotics",
         "Drones and Aerial Robotics"
       ],
       "structuredRowTypes": [
@@ -315,8 +312,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 16,
-          "countText": "16 results",
+          "rowCount": 15,
+          "countText": "15 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -350,7 +347,7 @@
     {
       "stateId": "state:facet-dataset",
       "viewport": "1440x900",
-      "statusText": "16 modules match \"action chunking\"",
+      "statusText": "15 modules match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -370,21 +367,20 @@
         "Behavior Cloning Foundations",
         "RL Fine-Tuning of Policies",
         "About",
-        "Kinematics",
         "Robot Wiki",
+        "Kinematics",
         "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
-        "Offline Reinforcement Learning for Robotics",
         "Drones and Aerial Robotics"
       ],
       "structuredRowTypes": [],
       "groups": [
         {
           "id": "prose",
-          "rowCount": 16,
-          "countText": "16 results",
+          "rowCount": 15,
+          "countText": "15 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -593,7 +589,7 @@
     {
       "stateId": "state:results-both-groups",
       "viewport": "375x812",
-      "statusText": "16 modules, 6 entities match \"action chunking\"",
+      "statusText": "15 modules, 6 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": true,
@@ -613,13 +609,12 @@
         "Behavior Cloning Foundations",
         "RL Fine-Tuning of Policies",
         "About",
-        "Kinematics",
         "Robot Wiki",
+        "Kinematics",
         "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
-        "Offline Reinforcement Learning for Robotics",
         "Drones and Aerial Robotics"
       ],
       "structuredRowTypes": [
@@ -633,8 +628,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 16,
-          "countText": "16 results",
+          "rowCount": 15,
+          "countText": "15 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -672,7 +667,7 @@
     {
       "stateId": "state:facet-method",
       "viewport": "375x812",
-      "statusText": "16 modules, 4 entities match \"action chunking\"",
+      "statusText": "15 modules, 4 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -692,13 +687,12 @@
         "Behavior Cloning Foundations",
         "RL Fine-Tuning of Policies",
         "About",
-        "Kinematics",
         "Robot Wiki",
+        "Kinematics",
         "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
-        "Offline Reinforcement Learning for Robotics",
         "Drones and Aerial Robotics"
       ],
       "structuredRowTypes": [
@@ -710,8 +704,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 16,
-          "countText": "16 results",
+          "rowCount": 15,
+          "countText": "15 results",
           "errorNote": false,
           "emptyNote": false
         },

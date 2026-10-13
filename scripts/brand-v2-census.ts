@@ -26,8 +26,10 @@ import {
   maskScriptComments,
 } from '../lib/brand-v2-jsx-elements.ts';
 import {
+  APPROVED_TAB_ICONS,
   configurationFingerprint,
   reconcileNamedSets,
+  validateApprovedTabIcons,
   validateExactRegistryParity,
   validateInteractiveRegistry,
   validateNoInventedSymbols,
@@ -250,6 +252,20 @@ function titleAndDescription(path: string): {
   return { title: value[0], description: value[1], kind: 'destination' };
 }
 
+/**
+ * The tab icons every route declares: the root `app/` file conventions apply
+ * to every page and to the 404, so each ledger row carries the same set,
+ * with the bytes it ships.
+ */
+function tabIconLedger() {
+  return APPROVED_TAB_ICONS.map(({ path, rel, href }) => ({
+    rel,
+    href,
+    source: path,
+    byteHash: configurationFingerprint(readFileSync(join(ROOT, path))),
+  }));
+}
+
 function metadataLedger() {
   const fixedOwners: Record<string, string> = {
     '/': 'app/layout.tsx',
@@ -305,7 +321,7 @@ function metadataLedger() {
             ? ['BreadcrumbList']
             : [],
         manifest: null,
-        icons: [],
+        icons: tabIconLedger(),
         themeColour: null,
         notFoundPolicy: null,
       });
@@ -332,7 +348,7 @@ function metadataLedger() {
       },
       jsonLd: [],
       manifest: null,
-      icons: [],
+      icons: tabIconLedger(),
       themeColour: null,
       notFoundPolicy: { publicContent: false, index: false },
     }),
@@ -1304,11 +1320,14 @@ function collect() {
       assetUses(assets),
     ),
     ...validateNoInventedSymbols([
-      ...assets.map(({ path }) => path),
+      ...assets.map(({ path }) => `public/${path}`),
       ...filesUnder(join(ROOT, 'app')).map((path) => relative(ROOT, path)),
       source('app/layout.tsx'),
       source('app/not-found.tsx'),
     ]),
+    ...validateApprovedTabIcons((path) =>
+      existsSync(join(ROOT, path)) ? readFileSync(join(ROOT, path)) : null,
+    ),
   ];
   if (failures.length > 0) {
     throw new Error(JSON.stringify(failures, null, 2));

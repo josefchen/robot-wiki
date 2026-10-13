@@ -591,18 +591,111 @@ export function validateInteractiveRegistry(
   return failures;
 }
 
+/**
+ * The one first-party icon set the owner approved.
+ *
+ * The sealed identity left every icon slot empty (design-system 3.4). On
+ * 2026-10-12 Josef asked: "ensure we fix the favicon". This set is that
+ * exception and nothing wider: exactly these three files, with exactly these
+ * bytes, declared through the Next.js file conventions in `app/`. The mark is
+ * the wordmark's own DM Sans R (weight 600, the instance the shell
+ * wordmark renders) in paper on an ink square, so it adds no new symbol.
+ * Any other favicon, icon or touch-icon file, monogram, mascot or mask is
+ * still an invented symbol, and changed bytes need a new approval here.
+ */
+export const APPROVED_TAB_ICONS = [
+  {
+    path: 'app/favicon.ico',
+    rel: 'icon',
+    href: '/favicon.ico',
+    sha256: 'ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517',
+  },
+  {
+    path: 'app/icon.svg',
+    rel: 'icon',
+    href: '/icon.svg',
+    sha256: '7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8',
+  },
+  {
+    path: 'app/apple-icon.png',
+    rel: 'apple-touch-icon',
+    href: '/apple-icon.png',
+    sha256: 'bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2',
+  },
+] as const;
+
+export const TAB_ICON_OWNER_APPROVAL =
+  'Josef, 2026-10-12: "ensure we fix the favicon"';
+
+const APPROVED_TAB_ICON_PATHS: ReadonlySet<string> = new Set(
+  APPROVED_TAB_ICONS.map(({ path }) => path),
+);
+
+/**
+ * Whether a rendered `<link>` icon declaration, written `rel=href` as the
+ * identity sweep records it, is one of the approved tab icons. Next.js adds
+ * a content-hash query to file-convention icons, so the query is ignored
+ * and the path and rel must match exactly.
+ */
+export function isApprovedTabIconDeclaration(declaration: string): boolean {
+  const separator = declaration.indexOf('=');
+  if (separator < 0) return false;
+  const rel = declaration.slice(0, separator).trim().toLowerCase();
+  const href = declaration.slice(separator + 1).split(/[?#]/)[0];
+  return APPROVED_TAB_ICONS.some(
+    (icon) => icon.rel === rel && icon.href === href,
+  );
+}
+
+/**
+ * Every approved tab icon exists with its approved bytes. `read` returns
+ * a file's bytes by repository path, or null when it is absent.
+ */
+export function validateApprovedTabIcons(
+  read: (path: string) => Uint8Array | null,
+): CensusFailure[] {
+  return APPROVED_TAB_ICONS.flatMap((icon): CensusFailure[] => {
+    const bytes = read(icon.path);
+    if (bytes === null) {
+      return [{
+        assertionId: 'VAL-B2-IMG-010',
+        memberId: icon.path,
+        expected: icon.sha256,
+        actual: null,
+        reason: 'missing-approved-tab-icon',
+      }];
+    }
+    const actual = createHash('sha256').update(bytes).digest('hex');
+    return actual === icon.sha256
+      ? []
+      : [{
+          assertionId: 'VAL-B2-IMG-010',
+          memberId: icon.path,
+          expected: icon.sha256,
+          actual,
+          reason: 'unapproved-tab-icon-bytes',
+        }];
+  });
+}
+
 const INVENTED_SYMBOL =
-  /(?:^|[/:\-_])(favicon|apple-touch-icon|maskable|monogram|mascot|robot-head|brand-symbol|rw-logo)(?:[./:\-_]|$)/i;
+  /(?:^|[/:\-_])(favicon|apple-touch-icon|apple-icon|touch-icon|maskable|monogram|mascot|robot-head|brand-symbol|rw-logo)(?:[./:\-_]|$)/i;
+
+/** A Next.js icon file convention anywhere under `app/` (icon1.png, a/b/icon.tsx, ...). */
+const APP_ICON_CONVENTION =
+  /(?:^|\/)app\/(?:[^/\n]+\/)*(?:favicon|icon|apple-icon)\d*\.(?:ico|jpe?g|png|gif|svg|webp|[cm]?[jt]sx?)$/i;
 
 export function validateNoInventedSymbols(
   paths: readonly string[],
 ): CensusFailure[] {
   return paths
-    .filter((path) => INVENTED_SYMBOL.test(path))
+    .filter((path) => !APPROVED_TAB_ICON_PATHS.has(path))
+    .filter((path) => INVENTED_SYMBOL.test(path) || APP_ICON_CONVENTION.test(path))
     .map((path) => ({
       assertionId: 'VAL-B2-IMG-010',
       memberId: path,
-      expected: 'no first-party symbol, favicon, mask, mascot, or monogram',
+      expected:
+        'no first-party symbol, favicon, mask, mascot, or monogram beyond the approved tab icon set',
       actual: path,
       reason: 'invented-brand-symbol',
     }));

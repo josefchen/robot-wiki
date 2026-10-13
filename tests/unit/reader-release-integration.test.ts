@@ -175,6 +175,17 @@ function throughSeoPass(path: string) {
     expect(continues(cut, end)).toBe(true);
     end = cut.newHash;
   }
+  // The humanize pass of 2026-10-12 (manipulation, classical and rl-sim2real)
+  // landed after the frontier block and the world-models and frontier length
+  // cuts; its one edge on the article continues the previous endpoint the same
+  // way.
+  const humanizeEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('humanize-20261012-'));
+  expect(humanizeEdges.length).toBeLessThanOrEqual(1);
+  for (const humanize of humanizeEdges) {
+    expect(continues(humanize, end)).toBe(true);
+    end = humanize.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 

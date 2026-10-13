@@ -4,13 +4,15 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { figureMountPredecessor, figureMountSuccessorPaths } from '../../lib/audit-figure-mount-continuity';
+import { preLengthCut } from '../helpers/seo-pass';
 import {
   WORD_BUDGET_TRIM_CONTINUITY_DIR, keepsWordBudgetTrimObligations, loadWordBudgetTrimReview,
   verifyWordBudgetTrimSource, wordBudgetTrimPredecessor, wordBudgetTrimSuccessorPaths,
 } from '../../lib/audit-word-budget-trim-continuity';
 
 const root = resolve(import.meta.dirname, '../..');
-const read = (path: string) => readFileSync(join(root, path));
+// The newer length-cut layer of 2026-10-12 hands back the trim's successor first.
+const read = (path: string) => preLengthCut(path);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /word budget trim continuity drift/;
 const blank = { bytes: 0, sha256: '' };

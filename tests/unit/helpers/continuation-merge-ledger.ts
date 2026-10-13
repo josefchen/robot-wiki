@@ -347,6 +347,18 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  * - `length-cut-20261013-frontier-`: the frontier length cut of 2026-10-13
  *   moved the prose of five frontier articles and the relationships of the
  *   three whose inline citations it changed, in the same shape.
+ * - `humanize-20261012-manipulation-`: the humanize pass of 2026-10-12 moved
+ *   the prose of the fifteen manipulation articles, each member with one edge
+ *   from its last approved endpoint, or one resolution from the sealed hash
+ *   where its chain already holds one.
+ * - `humanize-20261012-classical-prose-` and `-relationships-` for
+ *   calibration, ros2-for-ml-engineers and state-estimation (exact ids): the
+ *   same pass moved the prose and inline citation markers of the three
+ *   classical articles whose chains end at a head re-anchor (the
+ *   `figure-mounts-20261007-` prose edges and the `domain-pass-20261006-g8-`
+ *   edges), each with one plain edge from that endpoint. Its edges on the
+ *   other classical members, and on the rl-sim2real members, continue later
+ *   chains and re-anchor nothing.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -380,6 +392,14 @@ export const LATER_REANCHOR_PREFIXES = [
   'frontier-pass-20261010-',
   'length-cut-20261012-world-models-',
   'length-cut-20261013-frontier-',
+  'humanize-20261012-manipulation-',
+  // Exact ids: only these classical humanize edges continue a re-anchored chain.
+  'humanize-20261012-classical-prose-calibration',
+  'humanize-20261012-classical-prose-ros2-for-ml-engineers',
+  'humanize-20261012-classical-prose-state-estimation',
+  'humanize-20261012-classical-relationships-calibration',
+  'humanize-20261012-classical-relationships-ros2-for-ml-engineers',
+  'humanize-20261012-classical-relationships-state-estimation',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

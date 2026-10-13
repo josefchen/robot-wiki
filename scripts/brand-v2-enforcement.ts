@@ -38,6 +38,10 @@ import {
 } from '../lib/brand-v2-link-safety.ts';
 import { assetContentVerdicts } from '../lib/brand-v2-asset-content.ts';
 import {
+  isApprovedTabIconDeclaration,
+  TAB_ICON_OWNER_APPROVAL,
+} from '../lib/brand-v2-census.ts';
+import {
   ASSET_SEAL_PATH,
   readAssetSeal,
   reconcileAssetSeal,
@@ -826,12 +830,24 @@ const IDENTITY_POPULATIONS: Readonly<Record<string, string[]>> = {
   ],
 };
 
-/** Every icon slot and in-lockup symbol node the sweep saw, across all routes. */
+/**
+ * Every icon slot and in-lockup symbol node the sweep saw, across all
+ * routes, except the owner-approved tab icon set (lib/brand-v2-census.ts),
+ * which every route declares.
+ */
 const IDENTITY_SYMBOL_SIGHTINGS = IDENTITY_EVIDENCE.observations.flatMap(
   ({ route, iconDeclarations, symbolNodesInLockups }) =>
-    [...iconDeclarations, ...symbolNodesInLockups].map(
-      (entry) => `${route}: ${entry}`,
-    ),
+    [
+      ...iconDeclarations.filter(
+        (declaration) => !isApprovedTabIconDeclaration(declaration),
+      ),
+      ...symbolNodesInLockups,
+    ].map((entry) => `${route}: ${entry}`),
+);
+const APPROVED_TAB_ICON_SIGHTINGS = IDENTITY_EVIDENCE.observations.reduce(
+  (count, { iconDeclarations }) =>
+    count + iconDeclarations.filter(isApprovedTabIconDeclaration).length,
+  0,
 );
 
 const BASELINE = readJson(
@@ -2799,7 +2815,7 @@ function identityAssertionEvidence(
       );
     }
     return {
-      actual: `${asset.path} ships exactly the ${seal.byteCount} bytes sealed at ${seal.sealedSha256.slice(0, 12)} in ${ASSET_SEAL_PATH}, approved by ${seal.owner} for: ${seal.purpose} It decodes as ${verdict.decodedFormat} matching its ${verdict.declaredExtension} name and its registered hash ${verdict.byteHash.slice(0, 12)}; ${verdict.established.join('; ')}; no icon, manifest or lockup declaration in the ${ASSET_IDENTITY_SOURCE_COUNT} sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}${verdict.limitations.length > 0 ? `. Not established: ${verdict.limitations.join('; ')}` : ''}`,
+      actual: `${asset.path} ships exactly the ${seal.byteCount} bytes sealed at ${seal.sealedSha256.slice(0, 12)} in ${ASSET_SEAL_PATH}, approved by ${seal.owner} for: ${seal.purpose} It decodes as ${verdict.decodedFormat} matching its ${verdict.declaredExtension} name and its registered hash ${verdict.byteHash.slice(0, 12)}; ${verdict.established.join('; ')}; no icon, manifest or lockup declaration in the ${ASSET_IDENTITY_SOURCE_COUNT} sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration outside the tab icon set approved by ${TAB_ICON_OWNER_APPROVAL} and no non-text node inside any lockup on ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}${verdict.limitations.length > 0 ? `. Not established: ${verdict.limitations.join('; ')}` : ''}`,
       computed: {
         assetPath: asset.path,
         category: asset.category,
@@ -2819,7 +2835,9 @@ function identityAssertionEvidence(
         established: verdict.established,
         limitations: verdict.limitations,
         identitySourcesChecked: ASSET_IDENTITY_SOURCE_COUNT,
-        iconDeclarationsAcrossSweep: 0,
+        unapprovedIconDeclarationsAcrossSweep: 0,
+        approvedTabIconDeclarationsAcrossSweep: APPROVED_TAB_ICON_SIGHTINGS,
+        tabIconApproval: TAB_ICON_OWNER_APPROVAL,
         symbolNodesInLockupsAcrossSweep: 0,
         routesSwept: IDENTITY_EVIDENCE.routes.length,
         evidence: [asset.path, ASSET_SEAL_PATH, IDENTITY_RUNTIME_EVIDENCE_PATH],

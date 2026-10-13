@@ -9,7 +9,8 @@
       "audit": "A1",
       "sources": [
         "components/interactive/compounding-error.tsx",
-        "lib/compounding-error.ts"
+        "lib/compounding-error.ts",
+        "components/iso/figures/copy-tracing-bench.ts"
       ],
       "takeaway": "When a robot copies an expert, its small slips pile up: a task twice as long leaves it about four times as far off course."
     },
@@ -32,7 +33,8 @@
       "audit": "A3",
       "sources": [
         "components/interactive/latency-comparison.tsx",
-        "lib/latency-chunking.ts"
+        "lib/latency-chunking.ts",
+        "components/iso/figures/averaging-plotter.ts"
       ],
       "takeaway": "Averaging an old plan with a late new one can send the robot on a move neither plan chose, straight into the obstacle."
     },
@@ -118,7 +120,8 @@
       "audit": "A10",
       "sources": [
         "components/interactive/execution-modes.tsx",
-        "lib/execution-modes.ts"
+        "lib/execution-modes.ts",
+        "components/iso/figures/handoff-track.ts"
       ],
       "takeaway": "A robot handed a new plan mid-motion can pause, lurch or blend the two plans."
     },
@@ -786,7 +789,8 @@
       "figure": "offline-value-overreach",
       "audit": null,
       "sources": [
-        "components/interactive/offline-value-overreach.tsx"
+        "components/interactive/offline-value-overreach.tsx",
+        "components/iso/figures/spline-bench.ts"
       ],
       "takeaway": "A robot that learns only from old records overrates actions it never tried, unless it is made cautious about them."
     },
@@ -797,7 +801,8 @@
       "figure": "trajectory-stitching",
       "audit": null,
       "sources": [
-        "components/interactive/trajectory-stitching.tsx"
+        "components/interactive/trajectory-stitching.tsx",
+        "components/iso/figures/junction-layout.ts"
       ],
       "takeaway": "Learning from old runs can join the good parts of two runs into a success that neither run reached alone."
     },
@@ -852,7 +857,8 @@
       "figure": "retargeting-gap",
       "audit": null,
       "sources": [
-        "components/interactive/retargeting-gap.tsx"
+        "components/interactive/retargeting-gap.tsx",
+        "components/iso/figures/retarget-frame.ts"
       ],
       "takeaway": "Copying a person's movements straight onto a robot with different proportions leaves its feet floating or sinking."
     },

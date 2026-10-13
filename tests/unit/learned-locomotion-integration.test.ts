@@ -55,8 +55,7 @@ describe('learned locomotion source corrections', () => {
   });
   it('keeps Miki perception, deployment and detailed hike scope together', () => {
     const article = text('content/rl-sim2real/legged-locomotion.mdx');
-    for (const phrase of ['GRU belief encoder', '20 Hz', '50 Hz',
-      'Robosense Bpearl', 'RealSense D435', '78 minutes', "minutes against a planner's 76, with",
+    for (const phrase of ['GRU belief encoder', '78 minutes', "minutes against a planner's 76, with",
       'reattach a shoe and swap batteries', 'occluded cliffs or stepping stones']) expect(article).toContain(phrase);
     expect(article).toContain('<Stat label="Alpine hike" value="78 min"');
     expect(article).not.toContain('value="1 h" note="Miki');

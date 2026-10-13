@@ -198,7 +198,7 @@ test.describe('accumulated-deviation axis (VAL-MAN-067)', () => {
     await expect(mount.getByRole('slider', { name: /episode horizon/i })).toHaveValue('240');
     await expect(mount.getByRole('slider', { name: /per-step error/i })).toHaveValue('5');
     const seeded = await readGeometry(mount);
-    expect(seeded.readout, '(e) seeded readout').toMatch(/1505/);
+    expect(seeded.readout, '(e) seeded readout').toMatch(/1,505/);
     expect(
       seeded.markerPercent,
       `(e) seeded marker: ${seeded.markerPercent.toFixed(1)}% (readout ${seeded.readout})`,

@@ -1,10 +1,12 @@
 import { expect, test } from '@playwright/test';
+import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { DOMAINS, modules, publishedModules } from '../../data/modules';
 import { AUTHOR_NAME, AUTHOR_PROFILE_URL } from '../../lib/identity';
 import { articleDateModified } from '../../lib/content-dates';
+import { APPROVED_TAB_ICONS } from '../../lib/brand-v2-census';
 import { articleStructuredImagePaths } from '../../lib/og-cards';
 import { articleSeoProfile } from '../../lib/seo';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
@@ -73,6 +75,29 @@ function htmlForRoute(route: string): string {
 
 function extract(html: string, pattern: RegExp): string | null {
   return html.match(pattern)?.[1] ?? null;
+}
+
+/** Every icon, touch-icon, mask-icon and manifest `<link>` in a document. */
+function iconLinks(html: string): Array<{
+  rel: string;
+  href: string;
+  type: string | null;
+  sizes: string | null;
+}> {
+  return [...html.matchAll(/<link\b[^>]*>/gi)]
+    .map(([tag]) => {
+      const attr = (name: string) =>
+        tag.match(new RegExp(`\\s${name}="([^"]*)"`, 'i'))?.[1] ?? null;
+      return {
+        rel: (attr('rel') ?? '').trim().toLowerCase(),
+        href: attr('href') ?? '',
+        type: attr('type'),
+        sizes: attr('sizes'),
+      };
+    })
+    .filter(({ rel }) =>
+      /(?:^|\s)(?:icon|apple-touch-icon(?:-precomposed)?|mask-icon|manifest)(?:\s|$)/.test(rel),
+    );
 }
 
 let server: StaticExportServer | null = null;
@@ -282,10 +307,30 @@ test.describe('per-route metadata (VAL-BUILD-005, VAL-BUILD-006, VAL-A11Y-015)',
     }
   });
 
-  test('home does not invent a favicon outside the sealed brand identity', () => {
-    const html = htmlForRoute('/');
-    expect(html).not.toMatch(/<link[^>]*rel="(?:shortcut )?icon"/i);
-    expect(existsSync(join(OUT, 'icon.svg'))).toBe(false);
+  // The sealed identity left every icon slot empty until Josef asked on
+  // 2026-10-12: "ensure we fix the favicon". The approved tab icon set in
+  // lib/brand-v2-census.ts is the one exception: every route declares
+  // exactly those files, and the export ships them byte for byte. Any other
+  // icon, touch icon, mask or manifest declaration still fails here.
+  test('every route declares exactly the approved tab icons, shipped byte for byte', () => {
+    const approved = APPROVED_TAB_ICONS.map(({ rel, href }) => `${rel}=${href}`).sort();
+    for (const route of expectedRoutes()) {
+      const declared = iconLinks(htmlForRoute(route)).map(
+        ({ rel, href }) => `${rel}=${href.split('?')[0]}`,
+      );
+      expect(declared.sort(), `${route} icon links`).toEqual(approved);
+    }
+    const home = iconLinks(htmlForRoute('/'));
+    expect(home.find(({ href }) => href.split('?')[0] === '/icon.svg')?.type).toBe('image/svg+xml');
+    expect(home.find(({ rel }) => rel === 'apple-touch-icon')?.sizes).toBe('180x180');
+    for (const icon of APPROVED_TAB_ICONS) {
+      const shipped = join(OUT, icon.href);
+      expect(existsSync(shipped), `${icon.href} is exported`).toBe(true);
+      expect(
+        createHash('sha256').update(readFileSync(shipped)).digest('hex'),
+        `${icon.href} ships the approved bytes`,
+      ).toBe(icon.sha256);
+    }
   });
 });
 

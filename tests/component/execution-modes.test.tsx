@@ -1,7 +1,24 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
+import { JSDOM } from 'jsdom';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { ExecutionModes } from '@/components/interactive/execution-modes';
+import {
+  DEG_PER_STEP,
+  GATE_X,
+  LANES,
+  RUN_SPAN,
+  X_START,
+  peakStep,
+  stepAt,
+  swingOf,
+  travelAt,
+  trolleyX,
+} from '@/components/iso/figures/handoff-track';
+import { HANDOFF_TICK, JERK_LIMIT, MAX_DELAY_MS, TRACE_TICKS, executedTrace, pauseTicks, peakDeltaV } from '@/lib/execution-modes';
+import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
+import { mainViewSymbolHits } from '@/lib/figure-main-view';
 
 function slider() {
   return screen.getByRole('slider', { name: /inference delay/i });
@@ -131,10 +148,10 @@ describe('ExecutionModes', () => {
     expect(screen.getByTestId('verdict-naive')).toHaveTextContent(/exceeds/i);
   });
 
-  it('renders a table-form chart description that names the dashed guide', () => {
+  it('renders a table-form chart description that names the pendulum gauges', () => {
     const { container } = render(<ExecutionModes />);
     const desc = container.querySelector('[data-chart-description]');
-    expect(desc?.textContent).toMatch(/dashed guide/i);
+    expect(desc?.textContent).toMatch(/pendulum gauge keeps its largest step on a drag pointer/i);
     expect(desc?.textContent).toMatch(/velocity/i);
     const details = container.querySelector('details[data-chart-data]');
     expect(details).toHaveAttribute('data-chart-form', 'table');
@@ -146,16 +163,101 @@ describe('ExecutionModes', () => {
     );
   });
 
-  it('gives the plot group a short name and the shared takeaway as its description', () => {
+  it('gives the track a shorter name than the shared takeaway it is described by', () => {
     const { container } = render(<ExecutionModes />);
-    const group = screen.getByRole('group', {
-      name: 'Velocity traces for the three execution modes on one time axis',
-    });
+    const track = screen.getByRole('img', { name: /three-lane test track/i });
     const desc = container.querySelector('[data-chart-description]');
     expect(desc?.id).toBeTruthy();
-    expect(group).toHaveAttribute('aria-describedby', desc?.id);
-    expect(group.getAttribute('aria-label')!.length).toBeLessThan(
+    expect(track).toHaveAttribute('aria-describedby', desc?.id);
+    expect(track.getAttribute('aria-label')!.length).toBeLessThan(
       (desc?.textContent ?? '').length,
     );
+  });
+
+  it('draws one lane per mode, each trolley with its drag pointer at its peak step', () => {
+    const { container } = render(<ExecutionModes />);
+    const svg = container.querySelector('[data-anatomy-drawing] svg')!;
+    expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
+    expect(svg.querySelectorAll('[data-series]')).toHaveLength(0);
+    for (const mode of LANES) {
+      const lane = screen.getByTestId(`panel-${mode}`);
+      expect(lane).toHaveAttribute('data-peak-step', peakDeltaV(executedTrace(mode, 200)).toFixed(2));
+      expect(lane.querySelector('[data-drag]')).not.toBeNull();
+    }
+    // Only the lurch goes over the limit at 0.2 second, and only it carries the outcome mark.
+    expect(screen.getByTestId('spike-naive')).toBeInTheDocument();
+    expect(screen.queryByTestId('spike-rtc')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('spike-synchronous')).not.toBeInTheDocument();
+    expect(svg.querySelectorAll('.iso-solid[data-lit]')).toHaveLength(3);
+  });
+
+  it('starts and stops the track from the one run button, with no pressed state', () => {
+    render(<ExecutionModes />);
+    const run = screen.getByTestId('em-run');
+    expect(run).toHaveTextContent('Run the track');
+    fireEvent.click(run);
+    expect(run).toHaveTextContent('Stop the track');
+    expect(run).not.toHaveAttribute('aria-pressed');
+    fireEvent.click(run);
+    expect(run).toHaveTextContent('Run the track');
+    fireEvent.click(run);
+    fireEvent.change(slider(), { target: { value: '100' } });
+    expect(run).toHaveTextContent('Run the track');
+  });
+});
+
+describe('hand-off track model', () => {
+  it('moves each trolley by its commanded speed summed tick by tick', () => {
+    for (const mode of LANES) {
+      const trace = executedTrace(mode, 120);
+      let sum = 0;
+      for (let tick = 0; tick < TRACE_TICKS; tick++) {
+        expect(travelAt(trace, tick)).toBeCloseTo(sum);
+        sum += trace[tick].v;
+      }
+    }
+    // The longest run, the lurch at the top delay, fills the lane.
+    expect(trolleyX(executedTrace('naive', MAX_DELAY_MS), TRACE_TICKS - 1)).toBeCloseTo(X_START + RUN_SPAN);
+  });
+
+  it('puts the gate where every lane still runs the same plan', () => {
+    for (const mode of LANES) {
+      for (const delay of [0, 100, 200]) expect(trolleyX(executedTrace(mode, delay), HANDOFF_TICK)).toBeCloseTo(GATE_X);
+    }
+  });
+
+  it('leaves the pausing trolley behind by its dead time, and only at a delay', () => {
+    const at = (mode: 'synchronous' | 'rtc', delay: number) => trolleyX(executedTrace(mode, delay), TRACE_TICKS - 1);
+    expect(at('synchronous', 0)).toBeCloseTo(at('rtc', 0));
+    expect(pauseTicks(200)).toBe(10);
+    expect(at('synchronous', 200)).toBeLessThan(at('rtc', 200) - 50);
+  });
+
+  it('swings the bob by the speed step of each tick, and keeps the largest on the drag pointer', () => {
+    const trace = executedTrace('naive', 200);
+    expect(stepAt(trace, HANDOFF_TICK + 0.5)).toBeCloseTo(trace[HANDOFF_TICK].v - trace[HANDOFF_TICK - 1].v);
+    expect(Math.abs(peakStep(trace))).toBeCloseTo(peakDeltaV(trace));
+    expect(Math.abs(swingOf(JERK_LIMIT))).toBeCloseTo((JERK_LIMIT * DEG_PER_STEP * Math.PI) / 180);
+    // Speeding up swings the bob back, against the direction of travel.
+    expect(swingOf(0.5)).toBeLessThan(0);
+    for (const mode of LANES) {
+      const over = Math.abs(peakStep(executedTrace(mode, 200))) > JERK_LIMIT;
+      expect(over).toBe(mode === 'naive');
+    }
+  });
+});
+
+describe('ExecutionModes served HTML', () => {
+  const html = `<!doctype html><html><body><main>${renderToStaticMarkup(<ExecutionModes />)}</main></body></html>`;
+
+  it('passes the figure-system check', () => {
+    const { figures, violations } = inspectFigureDocument(html, '/manipulation/realtime-execution/');
+    expect(figures).toEqual(['execution-modes']);
+    expect(violations.map(formatViolation)).toEqual([]);
+  });
+
+  it('shows no symbol, formula or bare unit in the main view', () => {
+    const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
+    expect(mainViewSymbolHits(frame)).toEqual([]);
   });
 });

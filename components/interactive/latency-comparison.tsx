@@ -1,10 +1,11 @@
 'use client';
 
-import { useId, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ControlField,
   ControlLabel,
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
   InstrumentReset,
@@ -12,18 +13,37 @@ import {
   PresetGroup,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageReadout, StageStatus } from '@/components/motion/figure-frame';
-import { GripperGlyph } from '@/components/motion/gripper-glyph';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, IsoFigure, Line } from '@/components/iso/react/draw';
+import { asksForStillness } from '@/components/iso/react/live';
+import { PartView } from '@/components/iso/part-view';
+import {
+  BACK_PARTS,
+  FRONT_PARTS,
+  GANTRY_PARTS,
+  HEIGHT,
+  INK_START,
+  LOW_PARTS,
+  POST_PARTS,
+  TRACER_PARTS,
+  WIDTH as PLOTTER_WIDTH,
+  crossPath,
+  gantryAt,
+  inkPath,
+  knobPointer,
+  penAt,
+  poseAt,
+  postFirst,
+  runOf,
+  type Part,
+} from '@/components/iso/figures/averaging-plotter';
 import {
   CHART_STROKE,
   CHART_VIEW_WIDTH,
   ChartAxes,
-  ConstraintHatch,
   DirectLabel,
   LineTrace,
   PointMarker,
-  StageAnnotation,
-  roleColour,
   type ChartPoint,
   type PlotRect,
 } from '@/components/motion/chart';
@@ -35,6 +55,7 @@ import {
   MODE_VALUE,
   TRACE_TICKS,
   VALID_ACTION_FLOOR,
+  ensembleCommitWeight,
   isValidModeAction,
   rtcHandoffTrace,
   rtcThroughput,
@@ -43,22 +64,25 @@ import {
   teStatus,
   teThroughput,
   type ExecutionStatus,
-  type TracePoint,
 } from '@/lib/latency-chunking';
 
 /**
  * LatencyComparison: why averaging overlapping plans breaks when new plans
  * arrive late, and Real-Time Chunking does not.
  *
- * The stage is a top-down drawing: the arm can pass an obstacle on the left
- * or on the right, and both are good plans. Temporal ensembling averages
- * the plan in flight with a late one; past a delay the average of "go left"
- * and "go right" points straight at the obstacle. The main view offers the
- * three delays the π0.5 experiment tested; the free delay slider, the toy
- * score against delay and Reset sit in "Adjust more"; the model, the
- * experiment it follows and both sampled tables sit in "How this was made".
- * The curves and the drawing are a qualitative model of the published
- * results (arXiv:2506.07339), labeled as such.
+ * The stage is an averaging plotter (components/iso/figures/averaging-
+ * plotter.ts): two grooves either side of a post are the two good plans,
+ * go left and go right. A gantry runs along them, its followers ride one
+ * groove each, and the pen sits on the beam between them at the weight
+ * temporal ensembling gives the plan under way. When the late plan
+ * arrives the pen slides to that weight; past about 96 ms it sits inside
+ * the post's width and the stylus runs into the post. The still pose is
+ * the end of the run; "Run the plotter" plays it from the start. The main
+ * view offers the three delays the π0.5 experiment tested; the free delay
+ * slider and Reset sit in "Adjust more"; the model, the experiment it
+ * follows, the toy score against delay and both sampled tables sit in
+ * "How this was made". The drawing is a qualitative model of the
+ * published results (arXiv:2506.07339), labeled as such.
  */
 type LatencyComparisonProps = {
   /** Initial injected delay in ms. Default 200, the larger tested setting. */
@@ -94,47 +118,19 @@ const f = (v: number) => Number(v.toFixed(2));
 
 const WIDTH = CHART_VIEW_WIDTH;
 
-/* The scene: the arm starts at the bottom and moves up past an obstacle. */
-const SCENE_H = 284;
-const CX = WIDTH / 2;
-const Y_START = 262;
-const Y_END = 12;
-/** How far sideways a full "go left" or "go right" plan swings, per unit of action. */
-const SWING = 120;
-const OBSTACLE_TOP = 126;
-const OBSTACLE_BOTTOM = 166;
-/**
- * The obstacle's half-width is the swing of the weakest move that still
- * counts as on a plan, so the drawn collision and the model's off-plan
- * verdict agree.
- */
-const OBSTACLE_HALF = Math.floor(SWING * VALID_ACTION_FLOOR);
-/** Share of the route over which the sampled hand-off ticks are drawn. */
-const TRACE_SPAN = 0.5;
-const ROUTE_LABEL_Y = 110;
-const NOTE_Y = 22;
+/** The plotter runs at this many control ticks a second, so the eye can follow the hand-off. */
+export const TICKS_PER_SECOND = 7;
+/** How long the finished run holds before the figure settles back to rest. */
+const HOLD_S = 0.5;
 
-const progressY = (t: number) => Y_START - t * (Y_START - Y_END);
-const OBSTACLE_T = (Y_START - OBSTACLE_BOTTOM) / (Y_START - Y_END);
-
-/** How far the route has swung out, from 0 at the start to 1 before the obstacle. */
-function spread(t: number): number {
-  const u = Math.min(1, Math.max(0, (t - 0.04) / 0.3));
-  return u * u * (3 - 2 * u);
+/** A geometry module's part list, with its slots filled by the live component. */
+function partsOf(parts: readonly Part[], slot: (name: string) => ReactNode): ReactNode[] {
+  return parts.map((part, index) => (part.kind === 'slot' ? slot(part.name) : <PartView key={index} part={part} />));
 }
 
-/** Screen x of a move with lateral action `a` at progress t; left is +a. */
-const sceneX = (t: number, a: number) => CX - a * SWING * spread(t);
+const still = () => typeof window !== 'undefined' && typeof window.matchMedia === 'function' && asksForStillness();
 
-/** The executed action at progress t, read off the sampled hand-off trace. */
-function actionAt(trace: readonly TracePoint[], t: number): number {
-  const tick = Math.min(TRACE_TICKS - 1, (t / TRACE_SPAN) * (TRACE_TICKS - 1));
-  const i = Math.floor(tick);
-  const next = trace[Math.min(TRACE_TICKS - 1, i + 1)].action;
-  return trace[i].action + (next - trace[i].action) * (tick - i);
-}
-
-/* The toy score chart in "Adjust more". */
+/* The toy score chart in "How this was made". */
 const SCORE_H = 150;
 const SCORE_PLOT: PlotRect = { left: 44, right: WIDTH - 14, top: 24, bottom: 106 };
 const SCORE_HEADROOM = 10;
@@ -144,51 +140,7 @@ const delayX = (d: number) =>
 const scoreY = (p: number) =>
   f(SCORE_PLOT.bottom - p * (SCORE_PLOT.bottom - SCORE_PLOT.top - SCORE_HEADROOM));
 
-/** The two good plans, drawn as dashed routes around the obstacle. */
-function PlanRoutes() {
-  const route = (a: number) => {
-    const parts: string[] = [];
-    for (let i = 0; i <= 48; i += 1) {
-      const t = i / 48;
-      parts.push(`${i === 0 ? 'M' : 'L'}${f(sceneX(t, a))},${f(progressY(t))}`);
-    }
-    return parts.join(' ');
-  };
-  const reference = roleColour('reference');
-  return (
-    <g data-series="lc-modes">
-      <path d={route(MODE_VALUE)} fill="none" stroke={reference} strokeWidth={CHART_STROKE.reference} strokeDasharray={CHART_STROKE.dash} />
-      <path d={route(-MODE_VALUE)} fill="none" stroke={reference} strokeWidth={CHART_STROKE.reference} strokeDasharray={CHART_STROKE.dash} />
-      <DirectLabel x={f(sceneX(1, MODE_VALUE) - 6)} y={ROUTE_LABEL_Y} role="reference" anchor="end">
-        go left
-      </DirectLabel>
-      <DirectLabel x={f(sceneX(1, -MODE_VALUE) + 6)} y={ROUTE_LABEL_Y} role="reference">
-        go right
-      </DirectLabel>
-    </g>
-  );
-}
-
-/** The thing both plans steer around: a solid part, outlined and hatched. */
-function Obstacle() {
-  const hatchId = `${useId().replace(/:/g, '')}-lc-obstacle`;
-  return (
-    <g data-series="lc-obstacle">
-      <ConstraintHatch
-        id={hatchId}
-        x={CX - OBSTACLE_HALF}
-        y={OBSTACLE_TOP}
-        width={OBSTACLE_HALF * 2}
-        height={OBSTACLE_BOTTOM - OBSTACLE_TOP}
-      />
-      <DirectLabel x={CX} y={f((OBSTACLE_TOP + OBSTACLE_BOTTOM) / 2 + 5)} anchor="middle">
-        in the way
-      </DirectLabel>
-    </g>
-  );
-}
-
-/** The toy score of both strategies against added delay, for "Adjust more". */
+/** The toy score of both strategies against added delay, for "How this was made". */
 function ScoreChart({ delayMs }: { delayMs: number }) {
   const line = (score: (d: number) => number) => {
     const points: ChartPoint[] = [];
@@ -252,22 +204,90 @@ export function LatencyComparison({
   const offMode = !isValidModeAction(teActionAtHandoff(delayMs));
   const preset = DELAY_PRESETS.find((p) => p.ms === delayMs)?.id ?? null;
 
-  // The averaged move drawn from the same hand-off trace the table samples;
-  // an off-plan move stops where it meets the obstacle.
-  const scene = useMemo(() => {
-    const trace = teHandoffTrace(delayMs);
-    const points: ChartPoint[] = [];
-    const steps = 60;
-    const last = offMode ? OBSTACLE_T : 1;
-    for (let i = 0; i <= steps; i += 1) {
-      const t = (i / steps) * last;
-      points.push([f(sceneX(t, actionAt(trace, t))), f(progressY(t))]);
+  // The plotter's run comes from the same hand-off trace the table samples:
+  // the pen's place on the beam is the executed action, and an off-plan
+  // move stops where the stylus meets the post.
+  const run = useMemo(() => runOf(delayMs), [delayMs]);
+  const weight = ensembleCommitWeight(delayMs);
+  const [running, setRunning] = useState(false);
+  const restTick = run.endTick;
+  const rest = poseAt(run, restTick);
+  // While the plotter runs React renders the start; the loop writes every frame after it.
+  const shown = running ? poseAt(run, 0) : rest;
+  const shownTick = running ? 0 : restTick;
+
+  const lowRef = useRef<SVGGElement>(null);
+  const highRef = useRef<SVGGElement>(null);
+  const penRef = useRef<SVGGElement>(null);
+  const postBeforeRef = useRef<SVGGElement>(null);
+  const postAfterRef = useRef<SVGGElement>(null);
+  const inkRef = useRef<SVGPathElement>(null);
+  const crossRef = useRef<SVGGElement>(null);
+  const phaseRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (!running) return;
+    let frame = 0;
+    let last = performance.now();
+    let tick = 0;
+    const draw = (t: number) => {
+      const pose = poseAt(run, t);
+      const gantry = gantryAt(pose.s);
+      lowRef.current?.setAttribute('transform', gantry);
+      highRef.current?.setAttribute('transform', gantry);
+      penRef.current?.setAttribute('transform', penAt(pose.x));
+      const first = postFirst(pose.s);
+      postBeforeRef.current?.setAttribute('display', first ? 'inline' : 'none');
+      postAfterRef.current?.setAttribute('display', first ? 'none' : 'inline');
+      inkRef.current?.setAttribute('d', inkPath(run, t));
+      crossRef.current?.setAttribute('display', run.hits && t >= run.endTick ? 'inline' : 'none');
+      if (phaseRef.current) {
+        const step = Math.min(Math.floor(t), Math.floor(run.endTick));
+        phaseRef.current.textContent =
+          t >= run.endTick
+            ? run.hits
+              ? 'stopped at the post · '
+              : 'past the post · '
+            : step < HANDOFF_TICK
+              ? `tick ${step} · plan under way · `
+              : `tick ${step} · late plan averaged in · `;
+      }
+    };
+    const loop = (now: number) => {
+      const dt = Math.max(0, Math.min(now - last, 64)) / 1000;
+      last = now;
+      tick += dt * TICKS_PER_SECOND;
+      draw(Math.min(tick, run.endTick));
+      if (tick >= run.endTick + HOLD_S * TICKS_PER_SECOND) {
+        setRunning(false);
+        return;
+      }
+      frame = requestAnimationFrame(loop);
+    };
+    draw(0);
+    frame = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(frame);
+  }, [running, run]);
+
+  // At rest the readout carries no phase; a run that stops early leaves none behind.
+  useEffect(() => {
+    if (!running && phaseRef.current) phaseRef.current.textContent = '';
+  }, [running]);
+
+  // The plotter runs from the reader's control; under reduced motion it stays at the end of the run.
+  const toggleRun = () => {
+    if (running) {
+      setRunning(false);
+      return;
     }
-    const end = points[points.length - 1];
-    const before = points[points.length - 3];
-    const heading = (Math.atan2(end[1] - before[1], end[0] - before[0]) * 180) / Math.PI;
-    return { points, end, heading: f(heading) };
-  }, [delayMs, offMode]);
+    if (still()) return;
+    setRunning(true);
+  };
+
+  function chooseDelay(ms: number) {
+    setRunning(false);
+    setDelayMs(ms);
+  }
 
   // Sampled from teThroughput/rtcThroughput, the two functions the
   // score curves are drawn from.
@@ -326,18 +346,29 @@ export function LatencyComparison({
     2,
   )} while the ensembled action ${
     offMode
-      ? `leaves both valid modes, ends at ${teEndAction.toFixed(2)} and runs into the obstacle`
-      : `holds within tolerance, ends at ${teEndAction.toFixed(2)} and passes the obstacle`
-  }; the obstacle between the two dashed plan routes is drawn for illustration, and those routes are the modelled modes rather than measured actions.`;
+      ? `leaves both valid modes, ends at ${teEndAction.toFixed(2)} and runs into the post`
+      : `holds within tolerance, ends at ${teEndAction.toFixed(2)} and passes the post`
+  }; the post between the two plan grooves is drawn for illustration, and the grooves are the modelled modes rather than measured actions.`;
 
-  const note = offMode
-    ? ['Average of go left', 'and go right:', 'straight ahead']
-    : delayMs > 0
-      ? ['A late plan tugs', 'the arm toward', 'the middle']
-      : ['No delay: the', 'plans agree, so', 'the arm goes left'];
+  const plotterLabel = `Averaging plotter with ${delayWords(delayMs)}: two grooves either side of a post are the two good plans, go left and go right. The pen rides a beam between them at the weight averaging keeps on the plan under way, ${weight.toFixed(2)}, so ${
+    offMode ? 'its ink heads into the post and the gantry stops there' : 'its ink stays clear of the post'
+  }; real-time chunking keeps to the go-left plan.`;
+
+  const slotOf = (name: string): ReactNode => {
+    if (name === 'ink') {
+      return (
+        <g key="ink" data-part="lc-ink">
+          <path ref={inkRef} className="iso-line" data-tone="lit" style={{ strokeWidth: 1.1 }} d={inkPath(run, shownTick)} />
+          <Dots points={[INK_START]} size={1.1} tone="hi" />
+        </g>
+      );
+    }
+    if (name === 'pointer') return <Line key="pointer" d={knobPointer(delayMs)} tone="hi" free="end" />;
+    return null;
+  };
 
   function reset() {
-    setDelayMs(defaultDelayMs);
+    chooseDelay(defaultDelayMs);
   }
 
   return (
@@ -347,13 +378,24 @@ export function LatencyComparison({
       kicker="Ensembling vs real-time chunking"
       heading="Averaging two good plans can produce one bad move"
       controls={
-        <PresetGroup<DelayPreset>
-          label="Thinking delay"
-          presets={DELAY_PRESETS.map(({ id, label }) => ({ id, label }))}
-          value={preset}
-          onChange={(id) => setDelayMs(DELAY_PRESETS.find((p) => p.id === id)?.ms ?? defaultDelayMs)}
-          testId="delay-preset"
-        />
+        <>
+          <PresetGroup<DelayPreset>
+            label="Thinking delay"
+            presets={DELAY_PRESETS.map(({ id, label }) => ({ id, label }))}
+            value={preset}
+            onChange={(id) => chooseDelay(DELAY_PRESETS.find((p) => p.id === id)?.ms ?? defaultDelayMs)}
+            testId="delay-preset"
+          />
+          <button
+            type="button"
+            data-brand-control-id="control:secondary-action"
+            onClick={toggleRun}
+            data-testid="lc-run"
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+          >
+            {running ? 'Stop the plotter' : 'Run the plotter'}
+          </button>
+        </>
       }
       adjust={
         <>
@@ -369,7 +411,7 @@ export function LatencyComparison({
               max={MAX_DELAY_MS}
               step={5}
               value={delayMs}
-              onChange={(e) => setDelayMs(Number(e.target.value))}
+              onChange={(e) => chooseDelay(Number(e.target.value))}
               aria-label={`Injected inference delay, currently ${formatMs(delayMs)}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
@@ -404,8 +446,11 @@ export function LatencyComparison({
             threshold.
           </p>
           <p>
-            The drawing replays a {TRACE_TICKS}-tick hand-off sampled once per controller tick; the
-            late plan arrives at tick {HANDOFF_TICK}.
+            The plotter is a schematic of that hand-off. Each groove is one plan, the pen&apos;s place on
+            the beam is the executed move, and the post is as wide as the moves that count as off both
+            plans. It replays a {TRACE_TICKS}-tick hand-off sampled once per controller tick; the late
+            plan arrives at tick {HANDOFF_TICK}, where the trip dog sits on the ruler. Running, it moves
+            {' '}{TICKS_PER_SECOND} ticks a second.
           </p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${SCORE_H}`}
@@ -444,44 +489,54 @@ export function LatencyComparison({
         </>
       }
       stage={
-        <FigureStage
-          footer={
+        <AnatomyStage
+          viewWidth={PLOTTER_WIDTH}
+          hint={running ? 'Running at seven control ticks a second' : 'Each groove is a good plan. Run the plotter.'}
+          readout={
             <>
-              <StageReadout>
-                Toy score with {delayWords(delayMs)}: averaging the plans{' '}
-                <span data-testid="te-throughput-readout">{Math.round(te * 100)}%</span> (
-                <span data-testid="te-status-readout">{STATUS_WORDS[status]}</span>), real-time chunking{' '}
-                <span data-testid="rtc-throughput-readout">{Math.round(rtc * 100)}%</span>.
-              </StageReadout>
-              <StageStatus>Illustrative: a toy scene, not measured robot data.</StageStatus>
+              <span ref={phaseRef} data-lc-phase="" />
+              averaging <span data-testid="te-throughput-readout">{Math.round(te * 100)}%</span> (
+              <span data-testid="te-status-readout">{STATUS_WORDS[status]}</span>) · real-time chunking{' '}
+              <span data-testid="rtc-throughput-readout">{Math.round(rtc * 100)}%</span>
             </>
           }
+          status="Illustrative: a toy scene, not measured robot data."
+          data-testid="lc-stage-frame"
         >
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${SCENE_H}`}
-            aria-label={`Top-down drawing of the arm's move with ${delayWords(delayMs)}: two good plans pass an obstacle on the left or on the right. Averaging them ${offMode ? 'sends the arm straight into the obstacle' : 'keeps the arm on the go-left route'}; real-time chunking keeps to the go-left plan.`}
-            aria-describedby={`${delayId}-trace-description`}
-          >
-            <PlanRoutes />
-            <Obstacle />
-            <g data-series="lc-action">
-              <LineTrace role="state" points={scene.points} />
-              <GripperGlyph
-                x={f(scene.end[0] - (offMode ? 4 : 0) * Math.cos((scene.heading * Math.PI) / 180))}
-                y={f(scene.end[1] - (offMode ? 4 : 0) * Math.sin((scene.heading * Math.PI) / 180))}
-                angle={scene.heading}
-                size={14}
-                testId="lc-gripper"
-              />
-            </g>
-            {offMode ? (
-              <g data-testid="te-offmode-marker">
-                <PointMarker x={scene.end[0]} y={scene.end[1]} role="constraint" shape="cross" />
+          <IsoFigure width={PLOTTER_WIDTH} height={HEIGHT} label={plotterLabel} describedBy={`${delayId}-trace-description`}>
+            <g key={running ? 'running' : 'rest'}>
+              <g key="back">{partsOf(BACK_PARTS, slotOf)}</g>
+              <g key="post-before" ref={postBeforeRef} display={postFirst(shown.s) ? 'inline' : 'none'}>
+                {partsOf(POST_PARTS, slotOf)}
               </g>
-            ) : null}
-            <StageAnnotation x={CX} y={NOTE_Y} anchor="middle" lines={note} />
-          </PlotStage>
-        </FigureStage>
+              <g key="low" ref={lowRef} transform={gantryAt(shown.s)}>
+                {partsOf(LOW_PARTS, slotOf)}
+              </g>
+              <g key="post-after" ref={postAfterRef} display={postFirst(shown.s) ? 'none' : 'inline'}>
+                {partsOf(POST_PARTS, slotOf)}
+              </g>
+              {run.hits ? (
+                <g key="cross" ref={crossRef} display={running ? 'none' : 'inline'} data-testid="te-offmode-marker">
+                  <Line d={crossPath(run)} tone="red" />
+                </g>
+              ) : null}
+              <g key="gantry" ref={highRef} transform={gantryAt(shown.s)} data-testid="lc-gantry">
+                {partsOf(
+                  GANTRY_PARTS.filter((part) => part.group === 'gantry'),
+                  slotOf,
+                )}
+                <g ref={penRef} transform={penAt(shown.x)} data-testid="lc-pen" data-weight={weight.toFixed(2)}>
+                  {partsOf(
+                    GANTRY_PARTS.filter((part) => part.group === 'pen'),
+                    slotOf,
+                  )}
+                  {partsOf(TRACER_PARTS, slotOf)}
+                </g>
+              </g>
+              <g key="front">{partsOf(FRONT_PARTS, slotOf)}</g>
+            </g>
+          </IsoFigure>
+        </AnatomyStage>
       }
       source="Deterministic toy after the real-time chunking experiment of Black, Galliker and Levine (2025, arXiv 2506.07339)."
     />

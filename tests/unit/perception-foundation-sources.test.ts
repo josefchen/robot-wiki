@@ -64,16 +64,24 @@ describe('perception foundation corrections', () => {
     expect(article).toContain('automatically generated masks');
   });
   it('preserves SAM ambiguity, evaluation, text training and timing boundaries', () => {
-    for (const text of ['several candidate masks', 'across 23 datasets', 'mIoU on 16',
-      'most confident mask', 'separately trained, CLIP-conditioned', 'precomputed embedding',
-      'heavy image encoder']) expect(article).toContain(text);
+    for (const text of ['several candidate masks', 'heavy image encoder']) expect(article).toContain(text);
+    // The humanize pass of 2026-10-12 cut the single-point benchmark, the text-prompt aside and the
+    // browser timing; any of them restored must carry its boundary again.
+    if (article.includes('mIoU on 16')) expect(article).toContain('most confident mask');
+    if (article.includes('CLIP')) expect(article).toContain('separately trained, CLIP-conditioned');
+    if (article.includes('50 ms on a browser CPU')) expect(article).toContain('precomputed embedding');
   });
   it('keeps SAM 2.1 interactions and throughput in their own protocols', () => {
-    for (const text of ['SAM 2.1', 'nine video datasets',
-      'SAM+XMem++', 'SAM+Cutie', '130.1 images per second against 21.7', 'image batches of 10',
-      'one A100', 'compiled encoders', 'bfloat16', '58.9', '58.1',
-      '37 datasets']) expect(article).toContain(text);
-    expect(article).toContain('three clicks per interacted frame');
+    expect(article).toContain('SAM 2 extends prompting to video with a streaming memory');
+    // The humanize pass of 2026-10-12 cut SAM 2's interaction and throughput comparisons; any of them
+    // restored must name its own protocol again.
+    if (article.includes('fewer interactions')) {
+      for (const text of ['nine video datasets', 'three clicks per interacted frame', 'actual user effort was not measured'])
+        expect(article).toContain(text);
+    }
+    if (article.includes('images per second')) {
+      for (const text of ['one A100', 'image batches of 10', 'compiled encoders', 'bfloat16']) expect(article).toContain(text);
+    }
     expect(readFileSync('audit/classical.md', 'utf8')).toContain('Appendix F.1.4 click reconstruction to IoU>0.8');
     expect(article).not.toContain('running six times faster than SAM on images');
   });

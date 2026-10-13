@@ -41,7 +41,7 @@ describe('Splat transfer bounded integration', () => {
     expect(article).toContain('August 2025 revision');
   });
   it('retains the RoboGSim closed loop, denominator and non-equivalence limits', () => {
-    for (const s of ['Gaussian Reconstructor', 'Digital Twins Builder', 'Scene Composer', 'Interactive Engine', 'MDH parameters', 'mesh assets', 'measured layout', 'collisions', 'Closed-loop policies act on splat renders', 'ten trials with up to three grasps each', 'placed 90% on the real robot', '30% in RoboGSim', 'cannot replace real-robot tests', 'trajectory replay are evaluated separately']) expect(article).toContain(s);
+    for (const s of ['Gaussian Reconstructor', 'Digital Twins Builder', 'Scene Composer', 'Interactive Engine', 'mesh assets', 'measured layout', 'collisions', 'Closed-loop policies act on splat renders', 'ten trials with up to three grasps each', 'placed 90% on the real robot', '30% in RoboGSim', 'cannot replace real-robot tests', 'trajectory replay are evaluated separately']) expect(article).toContain(s);
     expect(article).not.toContain('RoboGSim packages the same loop');
     expect(record(19).note).toContain('Table 1 and Section 4.3');
   });

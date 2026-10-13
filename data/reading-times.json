@@ -1,95 +1,95 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1729,
-    "minutes": 9
+    "words": 1499,
+    "minutes": 7
   },
   "manipulation/action-chunking": {
-    "words": 2233,
-    "minutes": 11
+    "words": 1887,
+    "minutes": 9
   },
   "manipulation/diffusion-policy": {
-    "words": 1643,
-    "minutes": 8
+    "words": 1416,
+    "minutes": 7
   },
   "manipulation/vla-models": {
-    "words": 1886,
-    "minutes": 9
+    "words": 1599,
+    "minutes": 8
   },
   "manipulation/pi-line": {
-    "words": 2267,
-    "minutes": 11
-  },
-  "manipulation/generalist-policies": {
-    "words": 1956,
-    "minutes": 10
-  },
-  "manipulation/comparison-matrix": {
-    "words": 1676,
-    "minutes": 8
-  },
-  "manipulation/hierarchical": {
-    "words": 2018,
-    "minutes": 10
-  },
-  "manipulation/rl-finetuning": {
-    "words": 4099,
-    "minutes": 20
-  },
-  "manipulation/realtime-execution": {
-    "words": 1865,
+    "words": 1719,
     "minutes": 9
   },
-  "manipulation/cross-embodiment": {
-    "words": 1612,
+  "manipulation/generalist-policies": {
+    "words": 1373,
+    "minutes": 7
+  },
+  "manipulation/comparison-matrix": {
+    "words": 1419,
+    "minutes": 7
+  },
+  "manipulation/hierarchical": {
+    "words": 1549,
     "minutes": 8
   },
+  "manipulation/rl-finetuning": {
+    "words": 3140,
+    "minutes": 16
+  },
+  "manipulation/realtime-execution": {
+    "words": 1397,
+    "minutes": 7
+  },
+  "manipulation/cross-embodiment": {
+    "words": 1188,
+    "minutes": 6
+  },
   "manipulation/knowledge-insulation": {
-    "words": 1095,
+    "words": 983,
     "minutes": 5
   },
   "manipulation/robot-learning-roadmap": {
-    "words": 959,
-    "minutes": 5
+    "words": 808,
+    "minutes": 4
   },
   "manipulation/action-spaces": {
-    "words": 1122,
-    "minutes": 6
+    "words": 896,
+    "minutes": 4
   },
   "manipulation/foundation-models": {
-    "words": 1250,
-    "minutes": 6
+    "words": 984,
+    "minutes": 5
   },
   "rl-sim2real/rl-for-robotics": {
-    "words": 2436,
-    "minutes": 12
+    "words": 1627,
+    "minutes": 8
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1308,
-    "minutes": 7
+    "words": 1150,
+    "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1565,
-    "minutes": 8
+    "words": 1305,
+    "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 2378,
-    "minutes": 12
+    "words": 1726,
+    "minutes": 9
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1937,
-    "minutes": 10
+    "words": 1540,
+    "minutes": 8
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 2194,
-    "minutes": 11
+    "words": 1619,
+    "minutes": 8
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 2735,
-    "minutes": 14
+    "words": 2125,
+    "minutes": 11
   },
   "rl-sim2real/offline-rl": {
-    "words": 1672,
-    "minutes": 8
+    "words": 1277,
+    "minutes": 6
   },
   "world-models/taxonomy": {
     "words": 1529,
@@ -152,40 +152,40 @@
     "minutes": 7
   },
   "classical/kinematics": {
-    "words": 1899,
+    "words": 1736,
     "minutes": 9
   },
   "classical/motion-planning": {
-    "words": 3111,
-    "minutes": 16
+    "words": 2698,
+    "minutes": 13
   },
   "classical/control": {
-    "words": 2622,
-    "minutes": 13
+    "words": 2164,
+    "minutes": 11
   },
   "classical/state-estimation": {
-    "words": 2631,
-    "minutes": 13
+    "words": 2440,
+    "minutes": 12
   },
   "classical/grasp-planning": {
-    "words": 1878,
-    "minutes": 9
+    "words": 1674,
+    "minutes": 8
   },
   "classical/perception": {
-    "words": 3872,
-    "minutes": 19
+    "words": 2932,
+    "minutes": 15
   },
   "classical/scene-representation": {
-    "words": 2660,
-    "minutes": 13
+    "words": 2082,
+    "minutes": 10
   },
   "classical/calibration": {
-    "words": 1061,
+    "words": 921,
     "minutes": 5
   },
   "classical/ros2-for-ml-engineers": {
-    "words": 1159,
-    "minutes": 6
+    "words": 1080,
+    "minutes": 5
   },
   "frontier/reliability-gap": {
     "words": 1248,

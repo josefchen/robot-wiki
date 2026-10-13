@@ -68,7 +68,7 @@ test.describe('bc-foundations module', () => {
     await page.goto(ROUTE);
     await figureAtSettle(page);
     const readout = ce(page).getByTestId('accumulated-deviation-readout');
-    const value = async () => Number.parseFloat((await readout.textContent()) ?? '');
+    const value = async () => Number.parseFloat(((await readout.textContent()) ?? '').replace(/,/g, ''));
     const initial = await value();
     expect(Number.isFinite(initial)).toBe(true);
 

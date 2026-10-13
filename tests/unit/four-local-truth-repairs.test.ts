@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { committedSource, CONTINUATION_CHECKPOINT, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
-import { classicalPassEndpoint, kolQueue20261012Endpoint } from '../helpers/domain-pass';
+import { classicalPassEndpoint, humanize20261012Endpoint, kolQueue20261012Endpoint } from '../helpers/domain-pass';
 import { preFigureMigration } from '../helpers/figure-migration';
 import { preDomainPass, preSeoPassText } from '../helpers/seo-pass';
 import { planPacket, preservedLegacySurvivors } from '../helpers/audit-plan-history';
@@ -317,7 +317,8 @@ describe('four bounded local truth repairs without completion credit', { timeout
         value: delta.manifest === 'prose' ? { path, body: matter(text).content.trim() } : { path, source: text },
       }]).members[0].hash;
       const merged = headReanchorFor(entries.filter(({ id }) => !id.startsWith('seo-pass-20261002-')
-        && !id.startsWith('reader-first-20261003-') && !id.startsWith('domain-pass-20261006-')),
+        && !id.startsWith('reader-first-20261003-') && !id.startsWith('domain-pass-20261006-')
+        && !id.startsWith('humanize-20261012-manipulation-')),
         delta.manifest, delta.memberId);
       const restore = restores.find((entry) => entry.memberId === delta.memberId);
       if (restore) expect(restore.oldHash).toBe(merged!.newHash);
@@ -368,9 +369,11 @@ describe('four bounded local truth repairs without completion credit', { timeout
           entry.memberId === delta.memberId && /^(reader-first|figure-mounts|domain-pass)-20261007-/.test(entry.id));
         expect(classicalPass.length).toBeLessThanOrEqual(1);
         if (classicalPass[0]) expect(classicalPass[0].oldHash).toBe(domainEndpoint);
-        // The 2026-10-12 KOL triage batch may add one more edge after that.
-        expect(kolQueue20261012Endpoint(entries, 'prose', delta.memberId,
-          classicalPassEndpoint(entries, 'prose', delta.memberId, domainEndpoint))).toBe(memberHash(read(path)));
+        // The 2026-10-12 KOL triage batch may add one more edge after that,
+        // and the 2026-10-12 humanize pass one more after it.
+        expect(humanize20261012Endpoint(entries, 'prose', delta.memberId,
+          kolQueue20261012Endpoint(entries, 'prose', delta.memberId,
+            classicalPassEndpoint(entries, 'prose', delta.memberId, domainEndpoint)))).toBe(memberHash(read(path)));
       } else {
         expect(migrated).toHaveLength(0);
       }

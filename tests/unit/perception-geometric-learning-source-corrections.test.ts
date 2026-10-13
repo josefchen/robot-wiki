@@ -18,26 +18,34 @@ describe('perception geometric-learning source boundaries', () => {
   it('binds DON timing to data collection, hardware and a new object', () => {
     const article = read('content/classical/perception.mdx');
     for (const phrase of [
-      'Learning a new object takes about 20 minutes',
-      'including a handful of scenes', '3500 steps',
-      'about 13 minutes', 'one 1080 Ti or Titan Xp',
-      'about 70 seconds', 'moderately deformable',
+      'moderately deformable',
       "the gripper's 6-DoF orientation needs further information",
     ]) expect(article).toContain(phrase);
+    // The humanize pass of 2026-10-12 cut DON's per-object timing; restored, it must carry its conditions.
+    if (article.includes('about 20 minutes')) {
+      for (const phrase of ['including a handful of scenes', '3500 steps', 'about 13 minutes',
+        'one 1080 Ti or Titan Xp', 'about 70 seconds']) expect(article).toContain(phrase);
+    }
     expect(article).not.toContain('trained in about twenty minutes per object');
     expect(article).not.toContain('same descriptor across viewpoints and deformations');
   });
 
   it('separates Dex-Net synthetic examples, analytic labels and execution assumptions', () => {
     const article = read('content/classical/perception.mdx');
+    // The humanize pass of 2026-10-12 left Dex-Net 2.0 to grasp planning, which states the same
+    // synthetic data, label and execution assumptions; the pins moved there with the facts.
+    const grasp = read('content/classical/grasp-planning.mdx');
     for (const phrase of [
-      '6.7 million synthetic datapoints', '1500 object models',
-      'grasp-aligned depth crop', 'analytic robust-epsilon quality label',
-      'single-view depth',
-      'isolated object on a planar worksurface',
-      'known camera intrinsics',
-      'Missing depth on thin parts and collisions remain failure modes',
-    ]) expect(article).toContain(phrase);
+      '6.7 million datapoints from 1,500 object models',
+      'grasp-aligned depth crop', 'analytic metrics',
+      'isolated rigid objects on a planar worksurface',
+      'one depth camera with known intrinsics',
+      'missing depth on thin parts and object collisions remained failure modes',
+    ]) expect(grasp).toContain(phrase);
+    if (article.includes('Dex-Net')) {
+      for (const phrase of ['analytic robust-epsilon quality label', 'isolated object on a planar worksurface',
+        'known camera intrinsics']) expect(article).toContain(phrase);
+    }
     expect(article).not.toContain('no object model at all');
     expect(article).not.toContain('predicts grasp success directly from the depth image');
   });

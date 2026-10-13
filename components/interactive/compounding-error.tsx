@@ -1,10 +1,11 @@
 'use client';
 
-import { useId, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ControlField,
   ControlLabel,
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
   InstrumentReset,
@@ -12,17 +13,37 @@ import {
   PresetGroup,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageReadout, StageStatus } from '@/components/motion/figure-frame';
-import { GripperGlyph } from '@/components/motion/gripper-glyph';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, IsoFigure, Line } from '@/components/iso/react/draw';
+import { asksForStillness } from '@/components/iso/react/live';
+import { PartView } from '@/components/iso/part-view';
+import {
+  BENCH_PARTS,
+  CARRIAGE_PARTS,
+  HEIGHT as BENCH_HEIGHT,
+  NEAR_PARTS,
+  SLIDE_PARTS,
+  WIDTH as BENCH_WIDTH,
+  carriageAt,
+  correctionPoints,
+  halfRule,
+  inkPath,
+  inkStart,
+  knobPointer,
+  needlePath,
+  offsetAt,
+  rolloutOf,
+  slideAt,
+  washPath,
+  wheelPointer,
+  type Part,
+} from '@/components/iso/figures/copy-tracing-bench';
 import {
   ChartAxes,
   DirectLabel,
-  PointMarker,
-  StageAnnotation,
   roleColour,
   CHART_STROKE,
   CHART_TYPE,
-  CHART_UNCERTAINTY,
   CHART_VIEW_WIDTH,
 } from '@/components/motion/chart';
 import {
@@ -42,13 +63,19 @@ import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
 /**
  * CompoundingError: why a robot that copies an expert drifts off course.
  *
- * The stage draws the path a person demonstrated and the path the copying
- * robot actually takes, with the gap between them shaded: the shaded area is
- * the summed deviation the readout reports, and the darker second half shows
- * how much more a task twice as long piles up. The main view offers the task
+ * The stage is a copy-tracing bench (components/iso/figures/copy-tracing-
+ * bench.ts): a groove on the template is the path a person demonstrated,
+ * and a carriage runs along it one move at a time while a stepper nudges
+ * its cross-slide off the groove by each slip. The stylus on the slide
+ * draws the robot's own path, and the wash between groove and ink is the
+ * summed drift the readout reports, lighter over the first half of the
+ * task and darker over the second, so a task twice as long shows about
+ * four times the area. The still pose is the end of the task; "Run the
+ * bench" plays it from the first move. The main view offers the task
  * length and how the robot is run; the error size, a free task length and
  * Reset sit in "Adjust more". The textbook reference curves on a log axis,
- * which the VAL-MAN-067 geometry gate measures, live in "How this was made".
+ * which the VAL-MAN-067 geometry gate measures, live in "How this was
+ * made".
  *
  * Deterministic illustration of persistent drift, with quadratic and linear
  * reference scalings. These are not task-cost or regret bounds.
@@ -77,17 +104,17 @@ const LABEL_ASCENT = TEXT_H * CHART_TYPE.ascent;
 const LABEL_DESCENT = CHART_TYPE.labelPx * TEXT_UNITS * CHART_TYPE.descent;
 const LABEL_GAP = 8;
 
-/* The path stage: moves run left to right, drift rises from the taught path. */
-const PATH_PLOT = { left: 16, right: WIDTH - 26, top: 60, bottom: 196 };
-/** Centre line of the taught path; the robot's drift is drawn upward from it. */
-const TAUGHT_Y = 160;
-/** Cosmetic sway of the drawn taught path, in stage units. */
-const TAUGHT_SWAY = 6;
-const PATH_H = 246;
-const NOTE_X = PATH_PLOT.left + 4;
-const NOTE_Y = LABEL_ASCENT + 4;
-/** One annotation line-height, in stage units at the narrowest stage. */
-const NOTE_LINE = TEXT_H * 1.25;
+/** The bench runs this many moves a second, so the eye can follow the drift. */
+export const MOVES_PER_SECOND = 40;
+/** How long the finished task holds before the figure settles back to rest. */
+const HOLD_S = 0.4;
+
+const still = () => typeof window !== 'undefined' && typeof window.matchMedia === 'function' && asksForStillness();
+
+/** A geometry module's part list, with its slots filled by the live component. */
+function partsOf(parts: readonly Part[], slot: (name: string) => ReactNode): ReactNode[] {
+  return parts.map((part, index) => (part.kind === 'slot' ? slot(part.name) : <PartView key={index} part={part} />));
+}
 
 /* The method chart: summed deviation against the textbook reference curves. */
 const PLOT_LEFT = 48;
@@ -107,6 +134,11 @@ function formatUnits(value: number): string {
   return value.toFixed(3);
 }
 
+/** The readout's form of a drift: the same rounding, with thousands separated ("1,505"). */
+function readoutUnits(value: number): string {
+  return formatUnits(value).replace(/^\d+/, (whole) => whole.replace(/\B(?=(\d{3})+$)/g, ','));
+}
+
 /**
  * Server and browser can disagree in the last digit of the log-scale and
  * trigonometric maths, which breaks hydration of any attribute that
@@ -123,15 +155,6 @@ function timesWords(ratio: number): string {
   if (n === 2) return 'about twice as far';
   const words = ['three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
   return `about ${words[n - 3] ?? String(n)} times as far`;
-}
-
-function pathX(t: number, maxSteps: number): number {
-  return PATH_PLOT.left + (t / maxSteps) * (PATH_PLOT.right - PATH_PLOT.left);
-}
-
-/** The drawn taught path at move t. */
-function taughtY(t: number): number {
-  return TAUGHT_Y - TAUGHT_SWAY * Math.sin((2 * Math.PI * t) / 150);
 }
 
 function stepX(t: number, maxSteps: number): number {
@@ -220,79 +243,97 @@ export function CompoundingError({
     mode === 'per-step' ? (dagger ? 'teacher' : 'one') : dagger ? null : 'plan';
 
   function chooseRun(id: RunPreset) {
+    setRunning(false);
     setMode(id === 'plan' ? 'chunk' : 'per-step');
     setDagger(id === 'teacher');
   }
 
-  // Fixed vertical scale anchored to the worst case (max error, full
-  // horizon, one move at a time, no teacher) so raising the error or the
-  // task length always widens the drawn gap instead of rescaling it away.
-  const driftScale = useMemo(() => {
-    const worst = simulateDeviation({
-      epsilon: MAX_EPSILON_PERCENT / 100,
-      steps: maxSteps,
-      mode: 'per-step',
-      chunkSize,
-      dagger: false,
-    });
-    return (TAUGHT_Y - TAUGHT_SWAY - PATH_PLOT.top) / worst[maxSteps];
-  }, [maxSteps, chunkSize]);
-
+  // The bench's rollout: the same recurrence the readout sums. Its drift
+  // scale is fixed at the worst case (max error, full horizon, one move at a
+  // time, no teacher), so raising the error or the task length always widens
+  // the drawn gap instead of rescaling it away.
   const rollout = useMemo(() => {
-    const deviation = simulateDeviation({ epsilon, steps, mode, chunkSize, dagger });
-    const x = (t: number) => pathX(t, maxSteps);
-    const robotY = (t: number) => taughtY(t) - deviation[t] * driftScale;
-    const taught: string[] = [];
-    for (let t = 0; t <= maxSteps; t += 2) {
-      taught.push(`${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${taughtY(t).toFixed(1)}`);
-    }
-    const robot = deviation
-      .map((_, t) => `${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${robotY(t).toFixed(1)}`)
-      .join(' ');
-    // The gap between the two paths, split at half the task so the second
-    // half's extra drift reads as extra area.
-    const gap = (from: number, to: number) => {
-      const top: string[] = [];
-      const bottom: string[] = [];
-      for (let t = from; t <= to; t += 1) {
-        top.push(`${x(t).toFixed(1)},${robotY(t).toFixed(1)}`);
-        bottom.unshift(`${x(t).toFixed(1)},${taughtY(t).toFixed(1)}`);
-      }
-      return `M${top.join(' L')} L${bottom.join(' L')} Z`;
-    };
-    const corrections: Array<{ x: number; y: number }> = [];
-    if (dagger) {
-      for (let t = DAGGER_INTERVAL; t <= steps; t += DAGGER_INTERVAL) {
-        corrections.push({ x: round1(x(t)), y: round1(robotY(t)) });
-      }
-    }
-    const plans: Array<{ x: number; y: number }> = [];
-    if (mode === 'chunk') {
-      for (let t = 0; t < steps; t += chunkSize) {
-        plans.push({ x: round1(x(t)), y: round1(robotY(t)) });
-      }
-    }
-    const back = Math.max(0, steps - 3);
-    const heading =
-      (Math.atan2(robotY(steps) - robotY(back), x(steps) - x(back)) * 180) / Math.PI;
-    const target = Math.round(steps * 0.78);
+    const bench = rolloutOf({ epsilon, steps, mode, chunkSize, dagger, maxSteps });
+    const deviation = bench.deviation;
     return {
-      taughtPath: taught.join(' '),
-      robotPath: robot,
-      firstHalf: gap(0, half),
-      secondHalf: gap(half, steps),
-      corrections,
-      plans,
-      end: { x: round1(x(steps)), y: round1(robotY(steps)), heading: round1(heading) },
-      halfX: round1(x(half)),
-      halfTop: round1(robotY(half)),
-      halfBottom: round1(taughtY(half)),
-      target: [round1(x(target)), round1((robotY(target) + taughtY(target)) / 2)] as const,
+      bench,
       finalDeviation: deviation[steps],
       cost: accumulatedCost(deviation),
       halfCost: accumulatedCost(deviation.slice(0, half + 1)),
     };
-  }, [epsilon, steps, half, mode, chunkSize, dagger, maxSteps, driftScale]);
+  }, [epsilon, steps, half, mode, chunkSize, dagger, maxSteps]);
+
+  const [running, setRunning] = useState(false);
+  // While the bench runs React renders the first move; the loop writes every frame after it.
+  const shownMove = running ? 0 : steps;
+  const shownOffset = offsetAt(rollout.bench, shownMove);
+  const carriageRef = useRef<SVGGElement>(null);
+  const slideRef = useRef<SVGGElement>(null);
+  const needleRef = useRef<SVGPathElement>(null);
+  const wheelRef = useRef<SVGPathElement>(null);
+  const inkRef = useRef<SVGPathElement>(null);
+  const washARef = useRef<SVGPathElement>(null);
+  const washBRef = useRef<SVGPathElement>(null);
+  const halfRef = useRef<SVGPathElement>(null);
+  const correctionsRef = useRef<SVGGElement>(null);
+  const phaseRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (!running) return;
+    const bench = rollout.bench;
+    let frame = 0;
+    let last = performance.now();
+    let move = 0;
+    const draw = (t: number) => {
+      const y = offsetAt(bench, t);
+      carriageRef.current?.setAttribute('transform', carriageAt(t, maxSteps));
+      slideRef.current?.setAttribute('transform', slideAt(y));
+      needleRef.current?.setAttribute('d', needlePath(y));
+      wheelRef.current?.setAttribute('d', wheelPointer(y));
+      inkRef.current?.setAttribute('d', inkPath(bench, t));
+      washARef.current?.setAttribute('d', washPath(bench, 0, Math.min(t, half)));
+      washBRef.current?.setAttribute('d', washPath(bench, half, t));
+      halfRef.current?.setAttribute('d', t >= half ? halfRule(bench, half) : '');
+      correctionsRef.current?.querySelectorAll('circle').forEach((dot, k) => {
+        dot.setAttribute('display', (k + 1) * DAGGER_INTERVAL <= t ? 'inline' : 'none');
+      });
+      if (phaseRef.current) {
+        const done = Math.min(steps, Math.floor(t));
+        let sum = 0;
+        for (let m = 0; m <= done; m += 1) sum += Math.abs(bench.deviation[m]);
+        phaseRef.current.textContent = t >= steps ? '' : `move ${done} · drift so far ${readoutUnits(sum)} · `;
+      }
+    };
+    const loop = (now: number) => {
+      const dt = Math.max(0, Math.min(now - last, 64)) / 1000;
+      last = now;
+      move += dt * MOVES_PER_SECOND;
+      draw(Math.min(move, steps));
+      if (move >= steps + HOLD_S * MOVES_PER_SECOND) {
+        setRunning(false);
+        return;
+      }
+      frame = requestAnimationFrame(loop);
+    };
+    draw(0);
+    frame = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(frame);
+  }, [running, rollout, steps, half, dagger, maxSteps]);
+
+  // At rest the readout carries no phase; a run that stops early leaves none behind.
+  useEffect(() => {
+    if (!running && phaseRef.current) phaseRef.current.textContent = '';
+  }, [running]);
+
+  // The bench runs from the reader's control; under reduced motion it stays at the end of the task.
+  const toggleRun = () => {
+    if (running) {
+      setRunning(false);
+      return;
+    }
+    if (still()) return;
+    setRunning(true);
+  };
 
   const bounds = useMemo(() => {
     const x = (t: number) => stepX(t, maxSteps);
@@ -357,6 +398,7 @@ export function CompoundingError({
       : `The doubled-horizon figure keeps ${modeWords} at ${epsilonPercent.toFixed(1)} percent error across ${steps} steps with DAgger ${dagger ? 'on' : 'off'}, so the rollout accumulated deviation is ${formatUnits(rollout.cost)} units under the selected toy correction setting.`;
 
   function reset() {
+    setRunning(false);
     setEpsilonPercent(defaultEpsilon * 100);
     setSteps(defaultSteps);
     setMode('per-step');
@@ -365,13 +407,46 @@ export function CompoundingError({
 
   const ratio = rollout.halfCost > 0 ? rollout.cost / rollout.halfCost : 1;
   const noteLines = ['Twice as long:', `${timesWords(ratio)} off course`];
-  const noteFrom: [number, number] = [
-    Math.min(Math.max(rollout.target[0], NOTE_X + 8), NOTE_X + 80),
-    NOTE_Y + NOTE_LINE + TEXT_H * 0.45,
-  ];
-  const robotLabelX = Math.max(rollout.halfX - 6, PATH_PLOT.left + 84);
-  const robotLabelY = Math.min(rollout.halfTop, TAUGHT_Y - TAUGHT_SWAY) - 10;
-  const state = roleColour('state');
+  const bench = rollout.bench;
+  const benchLabel = `Rollout trace on a copy-tracing bench: the groove is the path a person showed the robot, and the stylus on the cross-slide draws the robot's own path as a stepper nudges the slide by every slip. With slips of ${epsilonPercent.toFixed(1)} percent over ${steps} moves${
+    dagger ? `, a teacher winding it back every ${DAGGER_INTERVAL} moves,` : ''
+  } the slide ends ${formatUnits(rollout.finalDeviation)} units off the groove; the shaded gap is the summed drift, ${formatUnits(rollout.cost)} units, against ${formatUnits(rollout.halfCost)} over the first ${half} moves.`;
+  const correctionDots = correctionPoints(bench, steps, dagger);
+
+  const slotOf = (name: string): ReactNode => {
+    if (name === 'trace') {
+      return (
+        <g key="trace" data-part="drift-gap">
+          <path ref={washARef} className="iso-shade" data-shade="2" data-testid="drift-first-half" d={washPath(bench, 0, Math.min(shownMove, half))} />
+          <path ref={washBRef} className="iso-shade" data-shade="0" data-testid="drift-second-half" d={washPath(bench, half, shownMove)} />
+          <path ref={halfRef} className="iso-line" data-tone="mid" d={shownMove >= half ? halfRule(bench, half) : ''} />
+          <path ref={inkRef} className="iso-line" data-tone="lit" style={{ strokeWidth: 1.1 }} d={inkPath(bench, shownMove)} />
+          <Dots points={[inkStart(maxSteps)]} size={1.1} tone="hi" />
+          <g ref={correctionsRef} className="iso-dots" data-tone="hi" data-part="teacher-corrections">
+            {correctionDots.map(([cx, cy], k) => (
+              <circle key={k} data-correction="" cx={Math.round(cx * 10) / 10} cy={Math.round(cy * 10) / 10} r={1} display={running ? 'none' : 'inline'} />
+            ))}
+          </g>
+        </g>
+      );
+    }
+    if (name === 'wheel') return <path key="wheel" ref={wheelRef} className="iso-line" data-tone="hi" data-free="end" d={wheelPointer(shownOffset)} />;
+    if (name === 'needle') return <path key="needle" ref={needleRef} className="iso-line" data-tone="hi" data-free="end" d={needlePath(shownOffset)} />;
+    if (name === 'knobs') {
+      return (
+        <Line
+          key="knobs"
+          d={
+            knobPointer(0, (epsilonPercent - MIN_EPSILON_PERCENT) / (MAX_EPSILON_PERCENT - MIN_EPSILON_PERCENT)) +
+            knobPointer(1, (steps - MIN_STEPS) / (maxSteps - MIN_STEPS))
+          }
+          tone="hi"
+          free="end"
+        />
+      );
+    }
+    return null;
+  };
   const reference = roleColour('reference');
   const value = roleColour('value');
   const xTicks = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(f * maxSteps));
@@ -391,7 +466,10 @@ export function CompoundingError({
               { id: 'long', label: `Twice as long (${maxSteps} moves)` },
             ]}
             value={taskPreset}
-            onChange={(id) => setSteps(id === 'short' ? shortSteps : maxSteps)}
+            onChange={(id) => {
+              setRunning(false);
+              setSteps(id === 'short' ? shortSteps : maxSteps);
+            }}
             testId="task-length-preset"
           />
           <PresetGroup<RunPreset>
@@ -405,6 +483,15 @@ export function CompoundingError({
             onChange={chooseRun}
             testId="run-preset"
           />
+          <button
+            type="button"
+            data-brand-control-id="control:secondary-action"
+            onClick={toggleRun}
+            data-testid="ce-run"
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+          >
+            {running ? 'Stop the bench' : 'Run the bench'}
+          </button>
         </>
       }
       adjust={
@@ -421,7 +508,10 @@ export function CompoundingError({
               max={MAX_EPSILON_PERCENT}
               step={0.5}
               value={epsilonPercent}
-              onChange={(e) => setEpsilonPercent(Number(e.target.value))}
+              onChange={(e) => {
+                setRunning(false);
+                setEpsilonPercent(Number(e.target.value));
+              }}
               aria-label={`How big each slip is (per-step error epsilon in percent), currently ${epsilonPercent.toFixed(1)}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
@@ -439,7 +529,10 @@ export function CompoundingError({
               max={maxSteps}
               step={5}
               value={steps}
-              onChange={(e) => setSteps(Number(e.target.value))}
+              onChange={(e) => {
+                setRunning(false);
+                setSteps(Number(e.target.value));
+              }}
               aria-label={`How many moves the task has (episode horizon in steps), currently ${steps}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
@@ -449,114 +542,46 @@ export function CompoundingError({
         </>
       }
       stage={
-        <FigureStage
-          footer={
+        <AnatomyStage
+          viewWidth={BENCH_WIDTH}
+          hint={
+            running ? (
+              `Running at ${MOVES_PER_SECOND} moves a second`
+            ) : (
+              <span data-figure-annotation="">
+                <span>{noteLines[0]}</span>
+                <span className="ml-1">{noteLines[1]}</span>
+              </span>
+            )
+          }
+          readout={
             <>
-              <StageReadout>
-                Total drift over {steps} moves:{' '}
-                <span data-testid="accumulated-deviation-readout" style={{ color: value }}>
-                  {formatUnits(rollout.cost)}
-                </span>{' '}
-                units; over the first {half}:{' '}
-                <span data-testid="half-deviation-readout">{formatUnits(rollout.halfCost)}</span>
-                {dagger ? `. The teacher pulls it back every ${DAGGER_INTERVAL} moves.` : null}
-              </StageReadout>
-              <StageStatus>Illustrative: a toy model, not a measured robot.</StageStatus>
+              <span ref={phaseRef} data-ce-phase="" />
+              {steps} moves · drift <span data-testid="accumulated-deviation-readout">{readoutUnits(rollout.cost)}</span>{' '}
+              units · the first {half} moves drift{' '}
+              <span data-testid="half-deviation-readout">{readoutUnits(rollout.halfCost)}</span>
             </>
           }
+          status={
+            dagger
+              ? `The groove is the path a person showed it; the teacher winds the slide back every ${DAGGER_INTERVAL} moves. A toy model.`
+              : 'The groove is the path a person showed it; the ink is the robot. A toy model, not a measured robot.'
+          }
+          data-testid="ce-stage-frame"
         >
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${PATH_H}`}
-            aria-label={`Rollout trace of a policy with per-step error ${epsilonPercent.toFixed(1)} percent over ${steps} steps, drifting away from the demonstrated path; the shaded gap is the summed deviation, ${formatUnits(rollout.cost)} units, against ${formatUnits(rollout.halfCost)} over the first ${half} steps.`}
-            aria-describedby={`${uid}-rollout-description`}
-          >
-            <ChartAxes
-              plot={PATH_PLOT}
-              x={(t) => pathX(t, maxSteps)}
-              y={() => PATH_PLOT.bottom}
-              xTicks={xTicks}
-              xLabel="moves"
-              grid={false}
-              yAxis={false}
-            />
-            <g data-series="drift-gap">
-              <path
-                data-testid="drift-first-half"
-                d={rollout.firstHalf}
-                fill={state}
-                fillOpacity={CHART_UNCERTAINTY.fillAlpha / 2}
-                stroke="none"
-              />
-              <path
-                data-testid="drift-second-half"
-                d={rollout.secondHalf}
-                fill={state}
-                fillOpacity={CHART_UNCERTAINTY.fillAlpha}
-                stroke="none"
-              />
-              <line
-                x1={rollout.halfX}
-                x2={rollout.halfX}
-                y1={rollout.halfTop}
-                y2={rollout.halfBottom}
-                stroke={state}
-                strokeWidth={CHART_STROKE.structure}
-              />
+          <IsoFigure width={BENCH_WIDTH} height={BENCH_HEIGHT} label={benchLabel} describedBy={`${uid}-rollout-description`}>
+            <g key={running ? 'running' : 'rest'}>
+              <g key="bench">{partsOf(BENCH_PARTS, slotOf)}</g>
+              <g key="carriage" ref={carriageRef} transform={carriageAt(shownMove, maxSteps)} data-testid="robot-gripper">
+                {partsOf(CARRIAGE_PARTS, slotOf)}
+                <g ref={slideRef} transform={slideAt(shownOffset)} data-part="cross-slide">
+                  {partsOf(SLIDE_PARTS, slotOf)}
+                </g>
+              </g>
+              <g key="near">{partsOf(NEAR_PARTS, slotOf)}</g>
             </g>
-            <g data-series="demonstration">
-              <path
-                d={rollout.taughtPath}
-                fill="none"
-                stroke={reference}
-                strokeWidth={CHART_STROKE.reference}
-                strokeDasharray={CHART_STROKE.dash}
-              />
-              <DirectLabel
-                x={PATH_PLOT.left}
-                y={TAUGHT_Y + TAUGHT_SWAY + 4 + LABEL_ASCENT}
-                role="reference"
-              >
-                the path a person showed it
-              </DirectLabel>
-            </g>
-            <g data-series="policy-rollout">
-              <path
-                d={rollout.robotPath}
-                fill="none"
-                stroke={state}
-                strokeWidth={CHART_STROKE.trace}
-                strokeLinejoin="round"
-              />
-              <DirectLabel x={robotLabelX} y={robotLabelY} role="state" anchor="end">
-                the robot
-              </DirectLabel>
-              <GripperGlyph
-                x={rollout.end.x + 7}
-                y={rollout.end.y}
-                angle={rollout.end.heading}
-                size={12}
-                testId="robot-gripper"
-              />
-              {rollout.plans.map((p) => (
-                <PointMarker key={`plan-${p.x}`} x={p.x} y={p.y} role="state" />
-              ))}
-            </g>
-            {/* Teacher corrections are crosses on the path, so they stay
-                distinct from it under desaturation. */}
-            <g data-series="teacher-corrections">
-              {rollout.corrections.map((c) => (
-                <PointMarker key={c.x} x={c.x} y={c.y} role="action" shape="cross" />
-              ))}
-            </g>
-            <StageAnnotation
-              x={NOTE_X}
-              y={NOTE_Y}
-              lines={noteLines}
-              from={noteFrom}
-              target={rollout.target}
-            />
-          </PlotStage>
-        </FigureStage>
+          </IsoFigure>
+        </AnatomyStage>
       }
       caption="A robot that copies an expert makes tiny slips; each slip pushes it somewhere unfamiliar, so mistakes pile up faster than the task grows."
       method={
