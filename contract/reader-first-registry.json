@@ -310,7 +310,8 @@
       "figure": "scene:tactile-slip",
       "audit": "A26",
       "sources": [
-        "components/motion/scenes/tactile-slip.tsx"
+        "components/motion/scenes/tactile-slip.tsx",
+        "components/iso/figures/slip-test-stand.ts"
       ],
       "takeaway": "When fingers block the camera's view, touch sensors in the fingertips can still feel the object slipping."
     },
@@ -589,6 +590,7 @@
       "audit": "A49",
       "sources": [
         "components/interactive/perception-latency.tsx",
+        "components/iso/figures/latency-corridor.ts",
         "lib/aerial-latency.ts"
       ],
       "takeaway": "The faster a drone's camera reports an obstacle, the faster the drone can safely fly."
@@ -601,6 +603,7 @@
       "audit": "A50",
       "sources": [
         "components/motion/scenes/sense-avoid.tsx",
+        "components/iso/figures/latency-corridor.ts",
         "lib/aerial-latency.ts"
       ],
       "takeaway": "A slower camera forces the drone to fly slower to stay safe, cutting its top speed from about 69 to 53 km/h here."
@@ -941,6 +944,43 @@
         "components/interactive/cube-trials.tsx"
       ],
       "takeaway": "Even the robot hand that solved a Rubik's cube in simulation finished the real scramble in only 2 of 10 tries."
+    },
+    {
+      "id": "data-hardware--robot-learning-stack--scene-split",
+      "route": "/data-hardware/robot-learning-stack/",
+      "mount": "mount:/data-hardware/robot-learning-stack/:SceneSplit:1",
+      "figure": "scene-split",
+      "audit": null,
+      "sources": [
+        "components/interactive/scene-split.tsx",
+        "components/iso/figures/split-card-rack.ts"
+      ],
+      "takeaway": "To test a robot on places it has never seen, keep whole scenes out of training; a random split of episodes puts every test scene into training too."
+    },
+    {
+      "id": "adjacent--surgical--motion-pantograph",
+      "route": "/adjacent/surgical/",
+      "mount": "mount:/adjacent/surgical/:MotionPantograph:1",
+      "figure": "motion-pantograph",
+      "audit": null,
+      "sources": [
+        "components/interactive/motion-pantograph.tsx",
+        "components/iso/figures/motion-pantograph.ts"
+      ],
+      "takeaway": "A surgical robot divides the surgeon's hand movement before it reaches the instrument, so at 3 to 1 a 30 mm stroke, wobble and all, moves the tip only 10 mm."
+    },
+    {
+      "id": "frontier--competing-theses--helix-clockwork",
+      "route": "/frontier/competing-theses/",
+      "mount": "mount:/frontier/competing-theses/:HelixClockwork:1",
+      "figure": "helix-clockwork",
+      "audit": null,
+      "sources": [
+        "components/interactive/helix-clockwork.tsx",
+        "components/iso/figures/helix-clockwork.ts",
+        "lib/hierarchy-timescales.ts"
+      ],
+      "takeaway": "In Figure's Helix 02 the whole-body controller acts five times for every joint target the layer above it sets: 1,000 times a second against 200."
     }
   ]
 }

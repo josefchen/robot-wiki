@@ -7,20 +7,56 @@
  * computeEconomics with the calculator's defaults, so the scene and the
  * calculator above it always agree. The poster is the comparison: both
  * hours drawn, the slow cell's jam time named.
+ *
+ * The stage is a control desk for the two cells (the isometric figure kit,
+ * components/iso/figures/jam-recorder-desk.ts). Each door carries a
+ * 60-minute circular chart recorder: the paper turns once an hour and the
+ * pen rides the outer ring while the robot picks, the middle ring while a
+ * person clears a failed pick and the inner ring while the cell is down for
+ * upkeep. Under each chart, a counter counts good picks and a timer shows
+ * how long each fix takes. The inked rings are the scene's marks, in their
+ * semantic roles; the part to watch in each beat is the one lit part.
  */
-import { useId } from 'react';
+import { useId, type ReactNode } from 'react';
 import { AnimatedElement, AnimatedGroup } from '@/components/motion/animated';
 import { clamp01, smooth } from '@/components/motion/easing';
 import { SceneMount } from '@/components/motion/scene-mount';
 import { StageSvg } from '@/components/motion/stage';
-import { beatSpans, type SceneDefinition } from '@/components/motion/timeline';
+import { beatSpans, locate, type SceneDefinition } from '@/components/motion/timeline';
 import { LegendItem } from '@/components/ui/instrument';
+import { Dots, Line, Solid, Wire } from '@/components/iso/react/draw';
+import {
+  CELLS,
+  CHART_MATRIX,
+  CHART_PRINT,
+  COUNTER_CLIP,
+  HUB,
+  LEVELS,
+  PARTS,
+  PEN_ARM,
+  PIVOT_BOSS,
+  TIMER_MATRIX,
+  TIMER_POINTER,
+  VIEW_BOX,
+  WINDOW_CLIP,
+  armTurn,
+  chartTurn,
+  counterDigits,
+  hourLayout,
+  picksBy,
+  stateAt,
+  timerAngle,
+  traceOf,
+  type Cell,
+  type CellState,
+  type Part,
+  type Slot,
+} from '@/components/iso/figures/jam-recorder-desk';
 import {
   AMORTIZATION_MONTHS,
   DEFAULT_INPUTS,
   PAYBACK_TARGET_MONTHS,
   ROBOT_HOURS_PER_MONTH,
-  SECONDS_PER_HOUR,
   computeEconomics,
 } from '@/lib/deployment-economics';
 
@@ -63,13 +99,19 @@ const SPANS = beatSpans(JAM_OVERHEAD_SCENE.beats);
 const progress = (t: number, index: number) =>
   clamp01((t - SPANS[index].start) / SPANS[index].duration);
 
+/** The share of the second beat the slow cell's timer takes to turn to 5 minutes before its hour runs. */
+const KNOB_SHARE = 0.25;
+
 /**
- * The scene at time t: the quick cell is fixed at 99% and 15 seconds; the
- * slow cell's clearing time runs from 15 to 300 seconds over the second
- * beat, so `outputs` is the slow cell at that moment.
+ * The scene at time t. The quick cell is fixed at 99% and 15 seconds and
+ * runs its hour over the first beat. In the second beat the slow cell's
+ * jam timer turns from 15 to 300 seconds, then its hour runs at 5-minute
+ * fixes; `outputs` is the slow cell at that moment. `quickHour` and
+ * `slowHour` are how far each chart has turned, in seconds of its hour.
  */
 export function jamOverheadFrame(t: number) {
-  const jamClearSeconds = QUICK_SECONDS + (SLOW_SECONDS - QUICK_SECONDS) * progress(t, 1);
+  const knob = smooth(clamp01(progress(t, 1) / KNOB_SHARE));
+  const jamClearSeconds = QUICK_SECONDS + (SLOW_SECONDS - QUICK_SECONDS) * knob;
   return {
     successRatePercent: SUCCESS,
     jamClearSeconds,
@@ -79,142 +121,215 @@ export function jamOverheadFrame(t: number) {
       successRatePercent: SUCCESS,
       jamClearSeconds,
     }),
-    quickShown: smooth(progress(t, 0)),
-    slowShown: t >= SPANS[1].start ? 1 : 0,
-    recap: smooth(progress(t, 3)),
+    quickHour: 3600 * smooth(progress(t, 0)),
+    slowHour: 3600 * clamp01((progress(t, 1) - KNOB_SHARE) / (1 - KNOB_SHARE)),
+    /** The beat the stage is in, which picks the one lit part. */
+    beat: locate(SPANS, t).index,
+    /** The slow cell's jam ink thickens over the recap. */
+    emphasis: smooth(progress(t, 3)),
   };
 }
 
-const FONT = 14;
-const BAR_LEFT = 12;
-const BAR_WIDTH = 316;
-const BAR_HEIGHT = 4;
-const ROW_1 = 62;
-const ROW_2 = 124;
-const AXIS_Y = ROW_2 + BAR_HEIGHT + 8;
-const NOTE_Y = AXIS_Y + 50;
-const NOTE_LINE = FONT * 1.3;
-const HEIGHT = NOTE_Y + NOTE_LINE + 12;
-const r1 = (v: number) => Number(v.toFixed(1));
-const partWidth = (seconds: number) => (seconds / SECONDS_PER_HOUR) * BAR_WIDTH;
+const HOUR = {
+  cycleTimeSeconds: DEFAULT_INPUTS.cycleTimeSeconds,
+  successRatePercent: SUCCESS,
+  uptimePercent: DEFAULT_INPUTS.uptimePercent,
+};
+const QUICK_LAYOUT = hourLayout({ ...HOUR, jamClearSeconds: QUICK_SECONDS });
 
-function HourBar({
-  y,
-  hatchId,
-  breakdown,
-  shown,
-}: {
-  y: number;
-  hatchId: string;
-  breakdown: (t: number) => { productive: number; jamClearing: number; downtime: number };
-  shown: (t: number) => number;
-}) {
+/** One cell's desk at time t: its hour layout, how far its chart has turned and its timer setting. */
+function cellAt(cell: Cell, t: number) {
+  const frame = jamOverheadFrame(t);
+  const fix = cell === 'quick' ? QUICK_SECONDS : frame.jamClearSeconds;
+  const layout = cell === 'quick' ? QUICK_LAYOUT : hourLayout({ ...HOUR, jamClearSeconds: fix });
+  const seconds = cell === 'quick' ? frame.quickHour : frame.slowHour;
+  return { frame, fix, layout, seconds };
+}
+
+const traces = new Map<string, Record<CellState, string>>();
+/** The ink on a cell's paper at time t, memoised per frame (three marks read it). */
+function inkAt(cell: Cell, t: number) {
+  const key = `${cell}:${t}`;
+  let ink = traces.get(key);
+  if (!ink) {
+    const { layout, seconds } = cellAt(cell, t);
+    ink = traceOf(layout, seconds);
+    if (traces.size > 24) traces.clear();
+    traces.set(key, ink);
+  }
+  return ink;
+}
+
+const r2 = (value: number) => Number(value.toFixed(2));
+/** The one lit part per beat: the pen drawing the hour, then the slow cell's counter, then its pen. */
+const litPen = (cell: Cell, t: number) => {
+  const beat = jamOverheadFrame(t).beat;
+  return cell === 'quick' ? beat === 0 : beat === 1 || beat === 3;
+};
+const MARKS: ReadonlyArray<{ state: CellState; mark: string; series: string; role: string; width: number }> = [
+  { state: 'picking', mark: 'productive-time', series: 'cell-productive', role: 'var(--role-value-stage)', width: 1.25 },
+  { state: 'clearing', mark: 'clearing-time', series: 'cell-clearing', role: 'var(--role-constraint-stage)', width: 1.5 },
+  { state: 'downtime', mark: 'downtime', series: 'cell-downtime', role: 'var(--role-constraint-stage)', width: 1.5 },
+];
+
+function ChartSlot({ cell, clipId }: { cell: Cell; clipId: string }) {
+  const [pu, pv] = PEN_ARM.pivot;
   return (
-    <AnimatedGroup bindings={{ opacity: (t) => Number(shown(t).toFixed(3)) }}>
-      <AnimatedElement
-        as="rect"
-        data-scene-mark="productive-time"
-        data-legend-series="cell-productive"
-        x={BAR_LEFT}
-        y={y}
-        height={BAR_HEIGHT}
-        fill="var(--role-value-stage)"
-        bindings={{ width: (t) => r1(partWidth(breakdown(t).productive)) }}
+    <g clipPath={`url(#${clipId})`} data-recorder={cell}>
+      <g transform={CHART_MATRIX[cell]}>
+        <AnimatedGroup bindings={{ transform: (t) => `rotate(${r2(chartTurn(cellAt(cell, t).seconds))})` }}>
+          <path className="iso-fill" d={CHART_PRINT.paper} />
+          <path className="iso-top" d={CHART_PRINT.paper} />
+          <Line d={CHART_PRINT.rim} tone="lo" />
+          <Line d={CHART_PRINT.rings} tone="faint" />
+          <Line d={CHART_PRINT.hours} tone="faint" />
+          <Line d={CHART_PRINT.minutes} tone="faint" />
+          <Line d={CHART_PRINT.hub} tone="lo" />
+          {MARKS.map(({ state, mark, series, role, width }) => (
+            <AnimatedElement
+              key={state}
+              as="path"
+              data-scene-mark={mark}
+              data-legend-series={series}
+              fill="none"
+              stroke={role}
+              strokeWidth={width}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              bindings={{ d: (t) => inkAt(cell, t)[state] }}
+            />
+          ))}
+          {cell === 'slow' ? (
+            // Over the recap the slow cell's jam ink is gone over again, heavier: 19 minutes of every hour.
+            <AnimatedElement
+              as="path"
+              data-scene-mark="clearing-time"
+              data-legend-series="cell-clearing"
+              fill="none"
+              stroke="var(--role-constraint-stage)"
+              strokeWidth={2.6}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              bindings={{
+                d: (t) => inkAt(cell, t).clearing,
+                opacity: (t) => r2(jamOverheadFrame(t).emphasis),
+              }}
+            />
+          ) : null}
+        </AnimatedGroup>
+      </g>
+      <Solid paths={HUB[cell]} tone="mid" />
+      <g transform={CHART_MATRIX[cell]}>
+        <AnimatedGroup
+          bindings={{
+            transform: (t) => {
+              const { layout, seconds } = cellAt(cell, t);
+              return `rotate(${r2(armTurn(LEVELS[stateAt(layout, seconds)]))} ${pu} ${pv})`;
+            },
+          }}
+        >
+          <path className="iso-fill" d={PEN_ARM.strip} />
+          <path className="iso-top" d={PEN_ARM.strip} />
+          <Line d={PEN_ARM.rib} tone="faint" />
+          <AnimatedElement as="path" className="iso-line" d={PEN_ARM.strip} bindings={{ 'data-tone': (t) => (litPen(cell, t) ? 'lit' : 'mid') }} />
+          <path className="iso-fill" d={PEN_ARM.nib} />
+          <AnimatedElement as="path" className="iso-line" d={PEN_ARM.nib} bindings={{ 'data-tone': (t) => (litPen(cell, t) ? 'lit' : 'hi') }} />
+        </AnimatedGroup>
+      </g>
+      <Solid paths={PIVOT_BOSS[cell]} tone="mid" />
+    </g>
+  );
+}
+
+function SlotView({ slot, uid }: { slot: Slot; uid: string }): ReactNode {
+  const [kind, cell] = slot.split('-') as ['chart' | 'counter' | 'timer', Cell];
+  if (kind === 'chart') return <ChartSlot cell={cell} clipId={`${uid}-window-${cell}`} />;
+  if (kind === 'counter') {
+    return (
+      <g clipPath={`url(#${uid}-counter-${cell})`} data-counter={cell}>
+        {/* The counter's digits stand for displayed text, so their stroke ends may stop on the window. */}
+        <AnimatedElement
+          as="path"
+          className="iso-line"
+          data-free=""
+          bindings={{
+            d: (t) => {
+              const { layout, seconds } = cellAt(cell, t);
+              return counterDigits(cell, picksBy(layout, seconds, DEFAULT_INPUTS.cycleTimeSeconds));
+            },
+            'data-tone': (t) => (cell === 'slow' && jamOverheadFrame(t).beat === 2 ? 'lit' : 'hi'),
+          }}
+        />
+      </g>
+    );
+  }
+  return (
+    <g transform={TIMER_MATRIX[cell]} data-timer={cell}>
+      <AnimatedGroup bindings={{ transform: (t) => `rotate(${r2(timerAngle(cellAt(cell, t).fix))})` }}>
+        <Line d={TIMER_POINTER} tone="hi" free />
+      </AnimatedGroup>
+    </g>
+  );
+}
+
+function PartView({ part }: { part: Exclude<Part, { kind: 'slot' }> }): ReactNode {
+  if (part.kind === 'solid') {
+    return (
+      <Solid
+        paths={part.paths}
+        tone={part.tone}
+        lit={part.lit}
+        crease={part.crease}
+        inner={part.inner ? <Line d={part.inner} tone="faint" /> : undefined}
       />
-      <AnimatedElement
-        as="rect"
-        data-scene-mark="clearing-time"
-        data-legend-series="cell-clearing"
-        y={y}
-        height={BAR_HEIGHT}
-        fill={`url(#${hatchId})`}
-        stroke="var(--role-constraint-stage)"
-        strokeWidth={1}
-        bindings={{
-          x: (t) => r1(BAR_LEFT + partWidth(breakdown(t).productive)),
-          width: (t) => r1(partWidth(breakdown(t).jamClearing)),
-        }}
-      />
-      <AnimatedElement
-        as="rect"
-        data-scene-mark="downtime"
-        data-legend-series="cell-downtime"
-        y={y + 0.5}
-        height={BAR_HEIGHT - 1}
-        fill="none"
-        stroke="var(--role-constraint-stage)"
-        strokeWidth={1}
-        strokeDasharray="3 2"
-        bindings={{
-          x: (t) => r1(BAR_LEFT + partWidth(breakdown(t).productive + breakdown(t).jamClearing)),
-          width: (t) => r1(partWidth(breakdown(t).downtime)),
-        }}
-      />
-    </AnimatedGroup>
+    );
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  if (part.kind === 'dots') return <Dots points={part.points} size={part.size} tone={part.tone} />;
+  if (part.kind === 'wire') return <Wire from={part.from} to={part.to} via={part.via} tone={part.tone} />;
+  if (part.fill === 'paper') return <path className="iso-fill" d={part.d} />;
+  return (
+    <g>
+      <path className="iso-fill" d={part.d} />
+      {part.fill === 'top' ? <path className="iso-top" d={part.d} /> : <path className="iso-shade" data-shade={part.fill} d={part.d} />}
+    </g>
   );
 }
 
 function JamOverheadStage() {
-  const hatchId = `jam-hatch-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
-  const slowJamStart = BAR_LEFT + partWidth(SLOW.timeBreakdown.productive);
-  const slowJamCentre = slowJamStart + partWidth(SLOW.timeBreakdown.jamClearing) / 2;
+  const uid = `jam-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
   return (
-    <StageSvg viewBox={`0 0 340 ${HEIGHT}`}>
-      <defs>
-        <pattern id={hatchId} width={5} height={5} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <line x1={0} y1={0} x2={0} y2={5} stroke="var(--role-constraint-stage)" strokeWidth={1} />
-        </pattern>
-      </defs>
-      <text x={12} y={22} fontSize={FONT} fill="var(--motion-stage-label)">
-        One working hour, 99 in 100 picks right
-      </text>
+    <div className="iso" data-anatomy-drawing="">
+      <StageSvg viewBox={VIEW_BOX} className="iso-svg">
+        <defs>
+          {CELLS.map((cell) => (
+            <g key={cell}>
+              <clipPath id={`${uid}-window-${cell}`}>
+                <path d={WINDOW_CLIP[cell]} />
+              </clipPath>
+              <clipPath id={`${uid}-counter-${cell}`}>
+                <path d={COUNTER_CLIP[cell]} />
+              </clipPath>
+            </g>
+          ))}
+        </defs>
+        {PARTS.map((part, index) =>
+          part.kind === 'slot' ? <SlotView key={part.slot} slot={part.slot} uid={uid} /> : <PartView key={index} part={part} />,
+        )}
+      </StageSvg>
+    </div>
+  );
+}
 
-      <AnimatedElement as="text" x={BAR_LEFT} y={ROW_1 - 8} fontSize={FONT}
-        fill="var(--motion-stage-label)" bindings={{ opacity: (t) => Number(jamOverheadFrame(t).quickShown.toFixed(3)) }}>
-        Quick fixes: 15 seconds each
-      </AnimatedElement>
-      <HourBar
-        y={ROW_1}
-        hatchId={hatchId}
-        breakdown={() => QUICK.timeBreakdown}
-        shown={(t) => jamOverheadFrame(t).quickShown}
-      />
-
-      <AnimatedElement as="text" x={BAR_LEFT} y={ROW_2 - 8} fontSize={FONT}
-        fill="var(--motion-stage-label)" bindings={{ opacity: (t) => jamOverheadFrame(t).slowShown }}>
-        Slow fixes: 5 minutes each
-      </AnimatedElement>
-      <HourBar
-        y={ROW_2}
-        hatchId={hatchId}
-        breakdown={(t) => jamOverheadFrame(t).outputs.timeBreakdown}
-        shown={(t) => jamOverheadFrame(t).slowShown}
-      />
-
-      <g data-scene-structure="hour-axis">
-        <line x1={BAR_LEFT} x2={BAR_LEFT + BAR_WIDTH} y1={AXIS_Y} y2={AXIS_Y}
-          stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)" />
-      </g>
-      <text x={BAR_LEFT} y={AXIS_Y + 18} fontSize={FONT} data-scene-tick fill="var(--motion-stage-label-secondary)">0</text>
-      <text x={BAR_LEFT + BAR_WIDTH / 2} y={AXIS_Y + 18} fontSize={FONT} data-scene-tick textAnchor="middle" fill="var(--motion-stage-label-secondary)">30</text>
-      <text x={BAR_LEFT + BAR_WIDTH} y={AXIS_Y + 18} fontSize={FONT} data-scene-tick textAnchor="end" fill="var(--motion-stage-label-secondary)">60 min</text>
-
-      {/* The settle note: the slow cell's jam time. */}
-      <AnimatedGroup
-        data-figure-annotation=""
-        bindings={{ opacity: (t) => Number(jamOverheadFrame(t).recap.toFixed(3)) }}
-      >
-        <g data-scene-structure="settle-note-leader">
-          <line x1={r1(slowJamCentre)} x2={r1(slowJamCentre)} y1={ROW_2 + BAR_HEIGHT + 2} y2={NOTE_Y - FONT - 2}
-            stroke="var(--role-highlight-stage)" strokeWidth={1} />
-        </g>
-        <text data-scene-label="settle-note" x={12} y={NOTE_Y - 2} fontSize={FONT}
-          fill="var(--role-highlight-stage)">
-          <tspan x={12} dy={0}>{`A person fixing jams: ${SLOW_JAM_MINUTES} minutes`}</tspan>
-          <tspan x={12} dy={NOTE_LINE}>of every hour, while the robot waits</tspan>
-        </text>
-      </AnimatedGroup>
-    </StageSvg>
+/** A legend swatch: three printed rings, the named one inked in its role. */
+function RingSwatch({ level, role }: { level: 0 | 1 | 2; role: string }) {
+  const ys = [2.5, 6, 9.5];
+  return (
+    <svg aria-hidden="true" viewBox="0 0 16 12" className="inline-block h-3 w-4 shrink-0">
+      {ys.map((y, index) => (
+        <line key={y} x1={1} x2={15} y1={y} y2={y} stroke={index === level ? role : 'var(--line-strong)'} strokeWidth={index === level ? 1.6 : 1} />
+      ))}
+    </svg>
   );
 }
 
@@ -225,9 +340,9 @@ export function JamOverhead({ className }: { className?: string }) {
       stage={<JamOverheadStage />}
       className={className}
       legend={<>
-        <LegendItem series="cell-productive" swatch={<span aria-hidden className="inline-block h-2.5 w-3" style={{ backgroundColor: 'var(--role-value-graphic)' }} />}>robot picking</LegendItem>
-        <LegendItem series="cell-clearing" swatch={<span aria-hidden className="inline-block h-2.5 w-3 border" style={{ borderColor: 'var(--role-constraint-graphic)', backgroundImage: 'repeating-linear-gradient(45deg, var(--role-constraint-graphic) 0 1.5px, transparent 1.5px 4px)' }} />}>a person fixing jams</LegendItem>
-        <LegendItem series="cell-downtime" swatch={<span aria-hidden className="inline-block h-2.5 w-3 border border-dashed" style={{ borderColor: 'var(--role-constraint-graphic)' }} />}>stopped for upkeep</LegendItem>
+        <LegendItem series="cell-productive" swatch={<RingSwatch level={0} role="var(--role-value-graphic)" />}>outer ring: robot picking</LegendItem>
+        <LegendItem series="cell-clearing" swatch={<RingSwatch level={1} role="var(--role-constraint-graphic)" />}>middle ring: a person fixing a jam</LegendItem>
+        <LegendItem series="cell-downtime" swatch={<RingSwatch level={2} role="var(--role-constraint-graphic)" />}>inner ring: stopped for upkeep</LegendItem>
       </>}
       readout={({ beatIndex }) => (beatIndex === 0
         ? <>Pays for itself in {months(QUICK.paybackMonths)} months with quick fixes</>
@@ -253,6 +368,17 @@ export function JamOverhead({ className }: { className?: string }) {
             {SLOW.netPicksPerHour.toFixed(1)} picks/h, payback {months(SLOW.paybackMonths)} mo.
           </p>
           <p>
+            The drawing is a control desk for the two cells. Each door carries a 60-minute
+            circular chart recorder whose paper turns once an hour; the pen rides the outer ring
+            while the robot picks, the middle ring while a person clears a failed pick and the
+            inner ring while the cell is down for upkeep. Each hour is laid out as runs of 100 good
+            picks, each followed by one fix, with the last partial run split in the same ratio and
+            the downtime at the end, so the inked arcs add up to the calculator&apos;s time split.
+            The counter under each chart counts good picks ({Math.floor(QUICK.netPicksPerHour)} and{' '}
+            {Math.floor(SLOW.netPicksPerHour)} in the hour) and the timer beside it shows how long
+            each fix takes.
+          </p>
+          <p>
             Illustrative cell, not observed economics or a financial forecast. The seven authored
             inputs and the {ROBOT_HOURS_PER_MONTH}-hour month, {AMORTIZATION_MONTHS}-month
             amortization and {PAYBACK_TARGET_MONTHS}-month verdict assumptions are stated with the
@@ -260,7 +386,7 @@ export function JamOverhead({ className }: { className?: string }) {
           </p>
         </>
       }
-      textAlternative={`${JAM_OVERHEAD_SCENE.title}: ${JAM_OVERHEAD_SCENE.headline}. Two hours of the same picking cell, both at ${SUCCESS}% per-pick success. ${JAM_OVERHEAD_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
+      textAlternative={`${JAM_OVERHEAD_SCENE.title}: ${JAM_OVERHEAD_SCENE.headline}. Two hours of the same picking cell, both at ${SUCCESS}% per-pick success, logged by a circular chart recorder on each cell's door: the pen rides the outer ring while the robot picks and swings in while a person fixes a jam or the cell is down. ${JAM_OVERHEAD_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')}`}
     />
   );
 }

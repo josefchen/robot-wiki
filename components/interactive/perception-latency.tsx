@@ -1,29 +1,37 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
   ControlField,
   ControlLabel,
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
   InstrumentReadout,
   InstrumentReset,
-  PlotStage,
   PresetGroup,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, IsoFigure, Line, Solid, Wire } from '@/components/iso/react/draw';
+import { asksForStillness } from '@/components/iso/react/live';
+import { useEasedValue } from '@/components/motion/use-eased-value';
 import {
-  Bar,
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_VIEW_WIDTH,
-  ConstraintHatch,
-  DirectLabel,
-  StageAnnotation,
-  roleColour,
-} from '@/components/motion/chart';
+  NEEDLE_ZERO_DEG,
+  RANGE_M,
+  SPRING_TURNS,
+  START_X,
+  UNITS_PER_M,
+  agilityKnobDegrees,
+  buildCorridor,
+  delayKnobDegrees,
+  needleDegrees,
+  throwShare,
+  wheelDegrees,
+  type CorridorLane,
+  type Part,
+} from '@/components/iso/figures/latency-corridor';
 import {
   AGILITY_STEPS,
   DEFAULT_AGILITY,
@@ -35,38 +43,37 @@ import {
   formatSpeed,
   latencyOutcome,
 } from '@/lib/aerial-latency';
-import { MOTION_STAGE } from '@/lib/motion-tokens';
 
 /**
  * PerceptionLatency: how fast is too fast, for the adjacent/drones module.
  * Reproduces the sense-and-avoid analysis of Falanga, Kim, and Scaramuzza
- * (RA-L 2019), drawn as distance: a drone flying at the wall it can just
- * see, at the fastest speed that still lets it swerve in time.
+ * (RA-L 2019) as a flight-test corridor (components/iso/figures/latency-corridor.ts).
  *
- * The track from the drone to the wall splits into the stretch flown
- * while the camera is still reporting (constraint role, the latency band)
- * and the swerve (action role, the avoidance band). At the maximum speed
- * the swerve ends exactly at the wall, so the dashed margin after it has
- * zero width by construction (lib/aerial-latency).
+ * A quadrotor rides a test carriage toward a brick wall. The light gate 8
+ * metres out is where its camera first sees the wall. The timer wheel on the
+ * carriage is set to the camera's delay: the gate starts it, and only when
+ * it has run down is the cross-slide released, so the spring pack throws the
+ * drone sideways as hard as the airframe can swerve. The gauge board in
+ * front reads the 8 metres at the fastest safe speed: the stretch flown
+ * blind, speed x delay (the one lit part), then the swerve, which ends
+ * exactly at the wall, the model's equality case (lib/aerial-latency). The
+ * dial on the console reads that speed.
+ *
+ * The still pose is the drone at the gate, the moment it sees the wall.
+ * "Fly the corridor" runs it once at its top safe speed, slowed down for the
+ * eye; reduced motion keeps the still pose.
  */
-
-const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 240;
-const TRACK_LEFT = 66;
-const WALL_X = 298;
-const TRACK_Y = 108;
-const TRACK_H = 4;
-const DIM_Y = 132;
-const DIAL_X = 40;
-const DIAL_Y = 230;
-const DIAL_R = 30;
-/** Full scale in km/h: the model tops out near 236 at zero delay and the hardest swerve. */
-const DIAL_MAX_KMH = 240;
 
 const f = (v: number) => Number(v.toFixed(2));
 const kmh = (ms: number) => Math.round(ms * 3.6);
 const metres = (m: number) => `${m.toFixed(1)} metres`;
 const G = 9.81;
+/** The run is slowed this many times so the eye can follow it. */
+export const SLOW = 10;
+/** How long the drone rests at the wall before the rig resets, in seconds. */
+const HOLD_S = 1.2;
+/** How long the rig takes to roll back to the gate, in seconds. */
+const RESET_S = 1.1;
 
 type CameraId = 'stereo' | 'event' | 'custom';
 type AgilityId = `${(typeof AGILITY_STEPS)[number]}`;
@@ -98,105 +105,278 @@ const cameraFor = (latencyMs: number): CameraId =>
       ? 'event'
       : 'custom';
 
-function Drone({ x, y }: { x: number; y: number }) {
-  const ink = CHART_STRUCTURE.label;
+const CAMERA_WORDS: Record<CameraId, string> = { stereo: 'Ordinary camera', event: 'Faster camera', custom: '' };
+const SWERVE_WORDS: Record<AgilityId, string> = { '10': 'gentle swerve', '25': 'standard swerve', '50': 'hard swerve', '200': 'extreme swerve' };
+
+/** The corridor at the fastest safe speed: the blind stretch, the swerve stretch and the speed. */
+export function corridorAt(latencyMs: number, agility: number) {
+  const latencyS = latencyMs / 1000;
+  const outcome = latencyOutcome(latencyS, agility, STEREO.rangeM);
+  const blindM = outcome.maxSpeedMs * latencyS;
+  return {
+    outcome,
+    blindM,
+    swerveM: Math.max(0, STEREO.rangeM - blindM),
+    speedKmh: kmh(outcome.maxSpeedMs),
+  };
+}
+
+/**
+ * One run of the corridor at its top safe speed, `t` real seconds after it
+ * starts (the page plays it SLOW times slower). The carriage starts START_X
+ * before the gate and flies at the top safe speed; the gate starts the timer,
+ * the timer runs down for the camera's delay, then the swerve throws the
+ * drone sideways for 2 sqrt(r / u). Its share of the throw reaches 1 exactly
+ * as the drone reaches the wall, because the speed is the model's maximum.
+ */
+export function runAt(t: number, latencyMs: number, agility: number) {
+  const { outcome } = corridorAt(latencyMs, agility);
+  const v = outcome.maxSpeedMs;
+  const startM = START_X / UNITS_PER_M;
+  const xM = Math.min(RANGE_M, startM + v * Math.max(0, t));
+  const tGate = -startM / v;
+  const latencyS = latencyMs / 1000;
+  const released = t - tGate - latencyS;
+  const timerLeftMs = t < tGate ? latencyMs : Math.max(0, latencyMs - (t - tGate) * 1000);
+  const share = released <= 0 ? 0 : throwShare(released / outcome.avoidanceTimeS);
+  const done = t >= tGate + latencyS + outcome.avoidanceTimeS;
+  return { xM, timerLeftMs, share, done, duration: tGate + latencyS + outcome.avoidanceTimeS };
+}
+
+const RIG = buildCorridor({ tracks: 1 });
+const LANE: CorridorLane = RIG.lanes[0];
+const FACE = RIG.DIAL_FACE;
+
+function PartView({ part }: { part: Exclude<Part, { kind: 'slot' }> }): ReactNode {
+  if (part.kind === 'solid') {
+    return (
+      <Solid paths={part.paths} tone={part.tone} lit={part.lit} crease={part.crease} inner={part.inner ? <Line d={part.inner} tone="faint" /> : undefined} />
+    );
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  if (part.kind === 'dots') return <Dots points={part.points} size={part.size} tone={part.tone} />;
+  if (part.kind === 'wire') return <Wire from={part.from} to={part.to} via={part.via} tone={part.tone} />;
+  if (part.fill === 'paper') return <path className="iso-fill" d={part.d} />;
   return (
-    <g data-testid="drone" fill="none" stroke={ink} strokeWidth={CHART_STROKE.trace} strokeLinecap="round">
-      <rect x={x - 8} y={y - 5} width={16} height={10} rx={1.5} fill={MOTION_STAGE.background} />
-      <line x1={x - 22} y1={y - 8} x2={x + 22} y2={y - 8} />
-      <line x1={x - 16} y1={y - 8} x2={x - 6} y2={y - 5} />
-      <line x1={x + 16} y1={y - 8} x2={x + 6} y2={y - 5} />
-      <line x1={x - 30} y1={y - 12} x2={x - 14} y2={y - 12} />
-      <line x1={x + 14} y1={y - 12} x2={x + 30} y2={y - 12} />
-      <line x1={x - 22} y1={y - 12} x2={x - 22} y2={y - 8} />
-      <line x1={x + 22} y1={y - 12} x2={x + 22} y2={y - 8} />
-      {/* The camera on the nose, looking at the wall. */}
-      <circle cx={x + 11} cy={y} r={2.5} fill={MOTION_STAGE.background} />
+    <g>
+      <path className="iso-fill" d={part.d} />
+      {part.fill === 'top' ? <path className="iso-top" d={part.d} /> : <path className="iso-shade" data-shade={part.fill} d={part.d} />}
     </g>
   );
 }
 
-/** The wall: a solid part, drawn as one ink outline with a light hatch inside. */
-function Wall({ x }: { x: number }) {
-  const ink = CHART_STRUCTURE.label;
-  const top = TRACK_Y - 44;
-  const bottom = TRACK_Y + 44;
-  const lines = Array.from({ length: Math.floor((bottom - top) / 6) }, (_, i) => top + 6 + i * 6);
-  return (
-    <g data-testid="wall" data-chart-role="obstacle" fill="none" stroke={ink} strokeWidth={CHART_STROKE.trace}>
-      <g stroke={CHART_STRUCTURE.grid} strokeWidth={CHART_STROKE.structure}>
-        {lines.map((ly) => (
-          <line key={ly} x1={x} y1={f(Math.min(bottom, ly))} x2={x + 18} y2={f(Math.max(top, ly - 18))} />
-        ))}
-      </g>
-      <rect x={x} y={top} width={18} height={bottom - top} />
-    </g>
-  );
+/** The static parts of a list, keyed by their index; the slots are filled by the caller. */
+function staticRun(parts: Part[], slot: (name: string) => ReactNode) {
+  return parts.map((part, index) => (part.kind === 'slot' ? <g key={part.slot}>{slot(part.slot)}</g> : <PartView key={index} part={part} />));
 }
 
-function Speedometer({ speedKmh }: { speedKmh: number }) {
-  const ink = CHART_STRUCTURE.label;
-  const angle = Math.PI * (1 - Math.min(1, speedKmh / DIAL_MAX_KMH));
-  const nx = f(DIAL_X + Math.cos(angle) * (DIAL_R - 6));
-  const ny = f(DIAL_Y - Math.sin(angle) * (DIAL_R - 6));
-  return (
-    <g data-testid="speedometer">
-      <path
-        d={`M ${DIAL_X - DIAL_R} ${DIAL_Y} A ${DIAL_R} ${DIAL_R} 0 0 1 ${DIAL_X + DIAL_R} ${DIAL_Y}`}
-        fill="none"
-        stroke={ink}
-        strokeWidth={CHART_STROKE.structure}
-      />
-      <line x1={DIAL_X} y1={DIAL_Y} x2={nx} y2={ny} stroke={ink} strokeWidth={CHART_STROKE.trace} strokeLinecap="round" />
-      <circle cx={DIAL_X} cy={DIAL_Y} r={2} fill={ink} />
-      <DirectLabel x={DIAL_X + DIAL_R + 14} y={DIAL_Y - 4}>
-        top safe speed: <tspan data-testid="speedometer-reading">{`about ${speedKmh} km/h`}</tspan>
-      </DirectLabel>
-    </g>
-  );
-}
-
-function Reading({ label, value, testId }: { label: string; value: string; testId: string }) {
-  return (
-    <li>
-      {label}: <span data-testid={testId} className="text-text">{value}</span>
-    </li>
-  );
+interface Refs {
+  carriage: SVGGElement | null;
+  slider: SVGGElement | null;
+  coilBack: SVGPathElement | null;
+  coilFront: SVGPathElement | null;
+  wheel: SVGGElement | null;
+  props: Array<SVGGElement | null>;
 }
 
 export function PerceptionLatency({ className }: { className?: string }) {
   const uid = useId();
   const descriptionId = `${uid}-description`;
-  const hatchId = `latency-hatch-${uid.replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const [latencyMs, setLatencyMs] = useState(DEFAULT_LATENCY_MS);
   const [agility, setAgility] = useState<number>(DEFAULT_AGILITY);
+  const [running, setRunning] = useState(false);
 
   const rangeM = STEREO.rangeM;
   const latencyS = latencyMs / 1000;
-  const outcome = latencyOutcome(latencyS, agility, rangeM);
+  const { outcome, blindM, swerveM, speedKmh } = corridorAt(latencyMs, agility);
   const ttc = outcome.timeToContactS;
   const tAvoid = outcome.avoidanceTimeS;
   const speed = outcome.maxSpeedMs;
-  const blindM = speed * latencyS;
-  const swerveM = Math.min(rangeM - blindM, speed * tAvoid);
-  const speedKmh = kmh(speed);
-
-  const xAtM = (m: number) => f(TRACK_LEFT + (m / rangeM) * (WALL_X - TRACK_LEFT));
-  const blindX1 = xAtM(blindM);
-  const swerveX1 = xAtM(blindM + swerveM);
-  const blindMid = f((TRACK_LEFT + blindX1) / 2);
-  const swerveMid = f((blindX1 + swerveX1) / 2);
   const camera = cameraFor(latencyMs);
   const agilityName = AGILITY_NAMES[String(agility) as AgilityId] ?? `${agility}`;
+  const detent = Math.max(0, AGILITY_STEPS.indexOf(agility as (typeof AGILITY_STEPS)[number]));
+
+  // The settings ease: the riders slide, the needle swings, the knobs and the wheel turn.
+  const shownBlind = useEasedValue(blindM);
+  const shownKmh = useEasedValue(speed * 3.6);
+  const shownDelay = useEasedValue(latencyMs);
+  const shownDetent = useEasedValue(detent);
+  const riders = RIG.ridersAt(0, shownBlind, rangeM - shownBlind);
+
+  const refs = useRef<Refs>({ carriage: null, slider: null, coilBack: null, coilFront: null, wheel: null, props: [] });
+  const turns = SPRING_TURNS[detent] ?? SPRING_TURNS[1];
+  const settings = useRef({ latencyMs, agility, turns });
+  useEffect(() => {
+    settings.current = { latencyMs, agility, turns };
+  }, [latencyMs, agility, turns]);
+
+  useEffect(() => {
+    if (!running) return;
+    const r = refs.current;
+    const { latencyMs: ms, agility: u, turns: coilTurns } = settings.current;
+    const total = runAt(0, ms, u).duration;
+    let frame = 0;
+    let last = performance.now();
+    let clock = 0;
+    let spin = 0;
+    const place = (xM: number, share: number, timerMs: number) => {
+      r.carriage?.setAttribute('transform', RIG.carriageShift(xM * UNITS_PER_M));
+      r.slider?.setAttribute('transform', RIG.sliderShift(share));
+      const coil = RIG.coilAt(0, share, coilTurns);
+      r.coilBack?.setAttribute('d', coil.back);
+      r.coilFront?.setAttribute('d', coil.front);
+      r.wheel?.setAttribute('transform', `rotate(${f(wheelDegrees(timerMs))})`);
+    };
+    const tick = (now: number) => {
+      const dt = Math.min(now - last, 64) / 1000;
+      last = now;
+      clock += dt / SLOW;
+      spin = (spin + dt * 900) % 360;
+      r.props.forEach((node, k) => node?.setAttribute('transform', `rotate(${f(spin + k * 47)})`));
+      if (clock <= total) {
+        const run = runAt(clock, ms, u);
+        place(run.xM, run.share, run.timerLeftMs);
+      } else {
+        // Hold at the wall, then roll back to the gate and re-cock the slide.
+        const back = Math.min(1, Math.max(0, (clock * SLOW - total * SLOW - HOLD_S) / RESET_S));
+        const ease = back * back * (3 - 2 * back);
+        place(RANGE_M * (1 - ease), 1 - ease, ms * ease);
+        if (back >= 1) {
+          setRunning(false);
+          return;
+        }
+      }
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [running]);
+
+  // Any setting, or stopping, puts the rig back in its still pose: the drone at the gate.
+  useEffect(() => {
+    if (running) return;
+    const r = refs.current;
+    r.carriage?.setAttribute('transform', RIG.carriageShift(0));
+    r.slider?.setAttribute('transform', RIG.sliderShift(0));
+    const coil = RIG.coilAt(0, 0, settings.current.turns);
+    r.coilBack?.setAttribute('d', coil.back);
+    r.coilFront?.setAttribute('d', coil.front);
+    r.wheel?.setAttribute('transform', `rotate(${f(wheelDegrees(settings.current.latencyMs))})`);
+  }, [running, latencyMs, agility]);
 
   const reset = () => {
+    setRunning(false);
     setLatencyMs(DEFAULT_LATENCY_MS);
     setAgility(DEFAULT_AGILITY);
+  };
+  const choose = (next: () => void) => {
+    setRunning(false);
+    next();
   };
 
   const plainReadout = `At about ${speedKmh} kilometres an hour the drone flies about ${metres(
     blindM,
   )} before its camera reports the wall, then swerves for about ${metres(swerveM)}.`;
+  const cameraWords = CAMERA_WORDS[camera] || `Camera ${latencyMs} ms late`;
+  const swerveWords = SWERVE_WORDS[String(agility) as AgilityId] ?? 'swerve';
+  const restCoil = RIG.coilAt(0, 0, turns);
+
+  const slot = (name: string): ReactNode => {
+    switch (name) {
+      case 'wall':
+        return <g data-testid="wall">{staticRun(RIG.WALL_PARTS, slot)}</g>;
+      case 'board-ends':
+        return <Line d={RIG.BOARD_ENDS} tone="hi" />;
+      case 'carriage-0':
+        return (
+          <g ref={(el) => { refs.current.carriage = el; }} transform={RIG.carriageShift(0)} data-testid="drone-carriage">
+            {staticRun(LANE.carriage, slot)}
+          </g>
+        );
+      case 'slider-0':
+        return (
+          <g ref={(el) => { refs.current.slider = el; }} transform={RIG.sliderShift(0)} data-testid="drone">
+            {staticRun(LANE.slider, slot)}
+          </g>
+        );
+      case 'coil-back-0':
+        return <path ref={(el) => { refs.current.coilBack = el; }} className="iso-line" data-tone="lo" d={restCoil.back} />;
+      case 'coil-front-0':
+        return <path ref={(el) => { refs.current.coilFront = el; }} className="iso-line" data-tone="mid" d={restCoil.front} />;
+      case 'wheel-0':
+        return (
+          <g transform={LANE.wheelMatrix} data-testid="timer-wheel">
+            <g ref={(el) => { refs.current.wheel = el; }} transform={`rotate(${f(wheelDegrees(shownDelay))})`}>
+              <Line d={LANE.wheelFace.slots} tone="faint" />
+              <path className="iso-fill" d={LANE.wheelFace.dog} />
+              <Line d={LANE.wheelFace.dog} tone="mid" />
+              <Line d={LANE.wheelFace.pointer} tone="hi" />
+              <path className="iso-fill" d={LANE.wheelFace.hub} />
+              <Line d={LANE.wheelFace.hub} tone="lo" />
+            </g>
+          </g>
+        );
+      case 'props-0':
+        return LANE.props.map((prop, k) => (
+          <g key={k} transform={prop.matrix}>
+            <g ref={(el) => { refs.current.props[k] = el; }} transform={`rotate(${k * 47 + 20})`}>
+              <path className="iso-fill" d={prop.blade} />
+              <Line d={prop.blade} tone="mid" />
+              <path className="iso-fill" d={prop.hub} />
+              <Line d={prop.hub} tone="lo" />
+            </g>
+          </g>
+        ));
+      case 'dial-0':
+        return (
+          <g transform={LANE.dialMatrix} data-testid="speedometer">
+            <path className="iso-fill" d={FACE.face} />
+            <path className="iso-top" d={FACE.face} />
+            <Line d={FACE.rim} tone="lo" />
+            <Line d={FACE.arc} tone="lo" />
+            <Line d={FACE.minor} tone="lo" />
+            <Line d={FACE.major} tone="mid" />
+            <Line d={FACE.zero} tone="hi" />
+            <g transform={`rotate(${f(NEEDLE_ZERO_DEG + needleDegrees(shownKmh))})`} data-testid="speed-needle">
+              <Line d={RIG.NEEDLE} tone="hi" free />
+            </g>
+            <path className="iso-fill" d={RIG.NEEDLE_HUB} />
+            <Line d={RIG.NEEDLE_HUB} tone="lo" />
+          </g>
+        );
+      case 'delay-knob-0':
+        return (
+          <g transform={LANE.delayKnobMatrix}>
+            <Line d={RIG.KNOB_HUB} tone="lo" />
+            <g transform={`rotate(${f(delayKnobDegrees(shownDelay))})`}>
+              <Line d={RIG.KNOB_POINTER} tone="hi" free="end" />
+            </g>
+          </g>
+        );
+      case 'agility-knob-0':
+        return (
+          <g transform={LANE.agilityKnobMatrix} data-testid="swerve-knob">
+            <Line d={RIG.KNOB_HUB} tone="lo" />
+            <g transform={`rotate(${f(agilityKnobDegrees(shownDetent))})`}>
+              <Line d={RIG.KNOB_POINTER} tone="hi" free="end" />
+            </g>
+          </g>
+        );
+      case 'track-0':
+        return (
+          <g data-testid="gauge-riders">
+            <g data-testid="latency-band" data-series="perception-latency" data-metres={blindM.toFixed(2)}>
+              <Solid paths={riders.blind} tone="hi" lit />
+            </g>
+            <g data-testid="avoid-band" data-series="avoidance-maneuver" data-metres={swerveM.toFixed(2)}>
+              <Solid paths={riders.swerve} tone="hi" />
+            </g>
+          </g>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <InstrumentFigure
@@ -210,19 +390,37 @@ export function PerceptionLatency({ className }: { className?: string }) {
             label="Camera"
             presets={CAMERA_PRESETS}
             value={camera}
-            onChange={(id) => {
-              if (id === 'stereo') setLatencyMs(Math.round(STEREO.latencyS * 1000));
-              if (id === 'event') setLatencyMs(Math.round(EVENT.latencyS * 1000));
-            }}
+            onChange={(id) =>
+              choose(() => {
+                if (id === 'stereo') setLatencyMs(Math.round(STEREO.latencyS * 1000));
+                if (id === 'event') setLatencyMs(Math.round(EVENT.latencyS * 1000));
+              })
+            }
             testId="camera"
           />
           <PresetGroup<AgilityId>
             label="How hard it can swerve"
             presets={AGILITY_PRESETS}
             value={String(agility) as AgilityId}
-            onChange={(id) => setAgility(Number(id))}
+            onChange={(id) => choose(() => setAgility(Number(id)))}
             testId="agility"
           />
+          <button
+            type="button"
+            data-brand-control-id="control:secondary-action"
+            onClick={() => {
+              // Reduced motion keeps the still pose: the run never starts.
+              if (!running && typeof window.matchMedia === 'function' && asksForStillness()) return;
+              setRunning((value) => !value);
+            }}
+            data-testid="corridor-run"
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+          >
+            {running ? 'Stop the run' : 'Fly the corridor'}
+          </button>
+          <InstrumentReadout data-testid="latency-plain-readout" className="basis-full">
+            {plainReadout}
+          </InstrumentReadout>
         </>
       }
       adjust={
@@ -239,7 +437,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
               max={INTERACTIVE_MAX_LATENCY_MS}
               step={1}
               value={latencyMs}
-              onChange={(e) => setLatencyMs(Number(e.target.value))}
+              onChange={(e) => choose(() => setLatencyMs(Number(e.target.value)))}
               aria-label={`Camera delay (perception latency), currently ${formatSeconds(latencyS)}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
@@ -249,87 +447,28 @@ export function PerceptionLatency({ className }: { className?: string }) {
         </>
       }
       stage={
-        <FigureStage
-          footer={
+        <AnatomyStage
+          viewWidth={RIG.WIDTH}
+          hint={running ? `Flying at its top safe speed, slowed ${SLOW} times` : 'Lit: the stretch flown before the camera reports'}
+          readout={
             <>
-              <InstrumentReadout data-testid="latency-plain-readout">{plainReadout}</InstrumentReadout>
-              <StageStatus>not measured</StageStatus>
+              {cameraWords} · {swerveWords} · top safe speed <span data-testid="speedometer-reading">{`about ${speedKmh} km/h`}</span>
             </>
           }
+          status="Model from the study; the rig is illustrative"
+          data-testid="perception-latency-stage"
         >
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`A drone flying at a wall it can see ${rangeM} metres ahead, at a top safe speed of about ${speedKmh} kilometres an hour. It flies about ${metres(
+          <IsoFigure
+            width={RIG.WIDTH}
+            height={RIG.HEIGHT}
+            label={`A flight-test corridor: a drone on a test carriage at a light gate that sees a brick wall ${rangeM} metres ahead. At its top safe speed of about ${speedKmh} kilometres an hour it flies about ${metres(
               blindM,
-            )} before its camera reports the wall, then swerves for about ${metres(swerveM)}, finishing at the wall.`}
-            aria-describedby={descriptionId}
+            )} before its camera reports the wall, then swerves for about ${metres(swerveM)}, passing the wall's edge just as it reaches it.`}
+            describedBy={descriptionId}
           >
-            <StageAnnotation
-              x={8}
-              y={16}
-              lines={['The drone covers this stretch before', 'its camera has even reported the wall']}
-              target={[blindMid, TRACK_Y - 8]}
-              from={[blindMid, 44]}
-            />
-
-            <g data-testid="latency-band" data-series="perception-latency">
-              <ConstraintHatch
-                id={hatchId}
-                x={TRACK_LEFT}
-                y={TRACK_Y}
-                width={Math.max(0, blindX1 - TRACK_LEFT)}
-                height={TRACK_H}
-              />
-            </g>
-            <g data-testid="avoid-band" data-series="avoidance-maneuver">
-              <Bar
-                x={blindX1}
-                y={TRACK_Y}
-                width={Math.max(0, swerveX1 - blindX1)}
-                height={TRACK_H}
-                role="action"
-              />
-              {/* The swerve itself: the path bends away from the wall. */}
-              <path
-                d={`M ${blindX1} ${TRACK_Y - 4} Q ${f(blindX1 + (swerveX1 - blindX1) * 0.7)} ${TRACK_Y - 6} ${swerveX1} ${TRACK_Y - 52}`}
-                fill="none"
-                stroke={roleColour('action')}
-                strokeWidth={CHART_STROKE.trace}
-                strokeDasharray={CHART_STROKE.dash}
-              />
-            </g>
-            <rect
-              data-testid="margin-band"
-              x={swerveX1}
-              y={TRACK_Y}
-              width={Math.max(0, WALL_X - swerveX1)}
-              height={TRACK_H}
-              fill="none"
-              stroke={CHART_STRUCTURE.axes}
-              strokeDasharray={CHART_STROKE.dash}
-            />
-            <DirectLabel x={swerveMid} y={TRACK_Y + 32} anchor="middle" role="action">
-              swerving
-            </DirectLabel>
-
-            <Drone x={TRACK_LEFT - 33} y={TRACK_Y + TRACK_H / 2} />
-            <Wall x={WALL_X} />
-            <DirectLabel x={WALL_X + 9} y={TRACK_Y + 62} anchor="middle">
-              wall
-            </DirectLabel>
-
-            <g stroke={CHART_STRUCTURE.axes} strokeWidth={CHART_STROKE.structure}>
-              <line x1={TRACK_LEFT} y1={DIM_Y + 18} x2={WALL_X} y2={DIM_Y + 18} />
-              <line x1={TRACK_LEFT} y1={DIM_Y + 13} x2={TRACK_LEFT} y2={DIM_Y + 23} />
-              <line x1={WALL_X} y1={DIM_Y + 13} x2={WALL_X} y2={DIM_Y + 23} />
-            </g>
-            <DirectLabel x={f((TRACK_LEFT + WALL_X) / 2)} y={DIM_Y + 38} anchor="middle">
-              it can see {rangeM} metres ahead
-            </DirectLabel>
-
-            <Speedometer speedKmh={speedKmh} />
-          </PlotStage>
-        </FigureStage>
+            {staticRun(RIG.PARTS, slot)}
+          </IsoFigure>
+        </AnatomyStage>
       }
       caption="A drone only sees so far ahead; every split-second its vision takes is distance flown blind, which caps how fast it can safely go."
       method={
@@ -339,7 +478,15 @@ export function PerceptionLatency({ className }: { className?: string }) {
             where the range is the {rangeM} m the camera can see, r = {OBSTACLE_RADIUS_M} m is how far
             the drone must move sideways to clear the obstacle, and u is how hard it can accelerate
             sideways. The fastest safe speed is the one at which the swerve ends exactly at the wall,
-            so the dashed margin after the swerve is always zero.
+            so no margin is left after the swerve.
+          </p>
+          <p>
+            The rig is illustrative. The gauge board in front is to scale along the corridor: the lit
+            rider is the stretch flown before the camera reports (speed times delay), the plain one the
+            swerve. The drone and its sideways throw are drawn larger than that scale. A run plays
+            {` ${SLOW} `}times slower than the real flight; the carriage starts {Math.abs(START_X / UNITS_PER_M).toFixed(1)} m before the
+            gate, and the timer wheel on it runs down the camera&rsquo;s delay before the spring pack throws
+            the drone sideways.
           </p>
           <p>
             Swerve settings, as sideways acceleration: Gentle 10 m/s² (about {(10 / G).toFixed(1)} g),
@@ -371,7 +518,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
             form="state"
             open
             summary="Current sense-and-avoid budget"
-            description={`At ${formatSeconds(latencyS)} of perception latency and ${agility} m/s² lateral agility the sense-and-avoid timeline supports a maximum speed of ${formatSpeed(speed)}: ${formatSeconds(latencyS)} is lost before control acts, ${formatSeconds(tAvoid)} is the avoidance maneuver, and the remaining dashed margin still reaches the obstacle at ${formatSeconds(ttc)} time to contact.`}
+            description={`At ${formatSeconds(latencyS)} of perception latency and ${agility} m/s² lateral agility the sense-and-avoid timeline supports a maximum speed of ${formatSpeed(speed)}: ${formatSeconds(latencyS)} is lost before control acts, ${formatSeconds(tAvoid)} is the avoidance maneuver, and the swerve ends at the wall at ${formatSeconds(ttc)} time to contact, with no margin left.`}
             states={[
               { label: 'latency', value: formatSeconds(latencyS) },
               { label: 'agility', value: `${agility} m/s²` },
@@ -384,5 +531,13 @@ export function PerceptionLatency({ className }: { className?: string }) {
       }
       source="Model and reference latencies from Falanga, Kim and Scaramuzza (2019)."
     />
+  );
+}
+
+function Reading({ label, value, testId }: { label: string; value: string; testId: string }) {
+  return (
+    <li>
+      {label}: <span data-testid={testId} className="text-text">{value}</span>
+    </li>
   );
 }

@@ -449,6 +449,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // "Illustrative compounding-error toy" with an amplified recurrence.
     kind: 'authored-model',
   },
+  'interactive:MotionPantograph': {
+    // Motion scaling as a reducing pantograph: an authored stroke divided exactly by the scale; "Illustrative" status line.
+    kind: 'authored-model',
+  },
   'interactive:MpcVsRl': {
     // Authored side-by-side of two controller families' responses.
     kind: 'authored-model',
@@ -507,6 +511,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
 
   // --- schematic: mechanism illustrations
+  'interactive:HelixClockwork': {
+    // Figure's two Helix 02 rates (200 Hz and 1 kHz) on an illustrative clockwork; "Schematic" status line.
+    kind: 'schematic',
+  },
   'interactive:ActionTokenization': {
     // Deterministic tokenization walk of a continuous action vector.
     kind: 'schematic',
@@ -585,6 +593,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:SceneRepresentationLadder': {
     // "One fixed synthetic scene, drawn five times".
+    kind: 'schematic',
+  },
+  'interactive:SceneSplit': {
+    // The article's split rule on twenty illustrative episodes and one seeded random draw; "Schematic" status line.
     kind: 'schematic',
   },
   'interactive:TrajectoryStitching': {

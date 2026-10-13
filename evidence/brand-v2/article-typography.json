@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "c3f5525dc6e161994bb5549dd9c2f344f78e8836ccb10ac0659dc06d34756fca",
+  "fingerprint": "ff4d92a2ab09093f77aaf2d47dfbfc69e23d90ee0210feb343c6c3e7e37c3286",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3246,
+      "visibleTextLength": 3203,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1753,7 +1753,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18308,
+      "visibleTextLength": 18220,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -1880,7 +1880,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "not measured"
+          "text": "Model from the study; the rig is illustrative"
         },
         {
           "familyHead": "geist",
@@ -1890,6 +1890,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Model, from Falanga, Kim and Scaramuzza: maximum speed = ran"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The rig is illustrative. The gauge board in front is to scal"
         },
         {
           "familyHead": "geist",
@@ -1962,6 +1971,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Quick camera: 70 ms delay, 19.21 m/s, about 1.3 m flown befo"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is the flight-test corridor of the figure above,"
         },
         {
           "familyHead": "geist",
@@ -2417,6 +2435,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Fly the corridor",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -3052,7 +3078,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17414,
+      "visibleTextLength": 17904,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3104,11 +3130,11 @@
           "Adjacent Domains"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 10,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "10 min read",
+        "readingTimeText": "11 min read",
         "citationCountText": "10 sources",
         "bibliographyIds": [
           "yang-autonomy-2017",
@@ -3164,6 +3190,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The da Vinci architecture is the pattern the whole field inh"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: an authored stroke and scale settings; the div"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Motion scaling is one of the things a teleoperated surgical "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a reducing pantograph doing the same thing wi"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: the 30 mm stroke and its wobble of 1.5 mm eith"
         },
         {
           "familyHead": "geist",
@@ -3499,6 +3561,22 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": ""
+        },
+        {
+          "tag": "button",
+          "text": "Trace the stroke",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -15155,7 +15233,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24765,
+      "visibleTextLength": 24626,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15388,6 +15466,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Quick fixes: 83 s of jam clearing per elapsed hour, 556.1 pi"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a control desk for the two cells. Each door c"
         },
         {
           "familyHead": "geist",
@@ -15949,7 +16036,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12625,
+      "visibleTextLength": 13063,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16159,6 +16246,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Split by the factor you claim to generalize across. Random e"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: 20 illustrative episodes and one random draw"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The article's rule for the training schema: split by the fac"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The rack is schematic: 20 episodes, 5 recorded in each of 4 "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "This split: test scenes 1, 2, 4; also in training: 1, 2, 4."
         },
         {
           "familyHead": "geist",
@@ -16662,6 +16785,38 @@
           "text": "Read the reasoning",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Random episodes",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Hold out scene 4",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the split",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -18612,7 +18767,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21078,
+      "visibleTextLength": 21614,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18664,11 +18819,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 33,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "10 min read",
+        "readingTimeText": "11 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "brooks-better-lesson-2019",
@@ -18792,6 +18947,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The bet here is division of labor: a vision-language model d"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: Figure's two rates on one clockwork, run 450 time"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Figure describes Helix 02 as three learned layers. S2 interp"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a clock movement doing the same counting. The"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: only the two rates come from Figure. The clockwor"
         },
         {
           "familyHead": "geist",
@@ -19418,6 +19609,22 @@
         },
         {
           "tag": "button",
+          "text": "Run the clock",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -19558,7 +19765,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27980,
+      "visibleTextLength": 27989,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19734,10 +19941,10 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 0,
+          "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "beat 4 / 4"
+          "text": "beat 4 / 4 Slip 3 mm · felt at the fingertips · grip raised "
         },
         {
           "familyHead": "geist",
@@ -19756,6 +19963,24 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "A schematic of contact feedback, drawn to show where the inf"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a slip test stand. A parallel gripper hangs f"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The numbers are authored for the schematic. Two pads hold a "
         },
         {
           "familyHead": "geist",
@@ -53494,7 +53719,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3246,
+      "visibleTextLength": 3203,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55093,7 +55318,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23306,
+      "visibleTextLength": 23218,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55208,7 +55433,7 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 759,
+          "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "At about 69 kilometres an hour the drone flies about 1.3 met"
@@ -55220,7 +55445,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "not measured"
+          "text": "Model from the study; the rig is illustrative"
         },
         {
           "familyHead": "geist",
@@ -55230,6 +55455,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Model, from Falanga, Kim and Scaramuzza: maximum speed = ran"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The rig is illustrative. The gauge board in front is to scal"
         },
         {
           "familyHead": "geist",
@@ -55302,6 +55536,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Quick camera: 70 ms delay, 19.21 m/s, about 1.3 m flown befo"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is the flight-test corridor of the figure above,"
         },
         {
           "familyHead": "geist",
@@ -55757,6 +56000,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Fly the corridor",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -56370,7 +56621,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21238,
+      "visibleTextLength": 21728,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56422,11 +56673,11 @@
           "Adjacent Domains"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 10,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "10 min read",
+        "readingTimeText": "11 min read",
         "citationCountText": "10 sources",
         "bibliographyIds": [
           "yang-autonomy-2017",
@@ -56482,6 +56733,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The da Vinci architecture is the pattern the whole field inh"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: an authored stroke and scale settings; the div"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Motion scaling is one of the things a teleoperated surgical "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a reducing pantograph doing the same thing wi"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: the 30 mm stroke and its wobble of 1.5 mm eith"
         },
         {
           "familyHead": "geist",
@@ -56817,6 +57104,22 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": ""
+        },
+        {
+          "tag": "button",
+          "text": "Trace the stroke",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
@@ -68319,7 +68622,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30274,
+      "visibleTextLength": 30135,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68552,6 +68855,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Quick fixes: 83 s of jam clearing per elapsed hour, 556.1 pi"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a control desk for the two cells. Each door c"
         },
         {
           "familyHead": "geist",
@@ -69102,7 +69414,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14237,
+      "visibleTextLength": 14675,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69312,6 +69624,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Split by the factor you claim to generalize across. Random e"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: 20 illustrative episodes and one random draw"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The article's rule for the training schema: split by the fac"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The rack is schematic: 20 episodes, 5 recorded in each of 4 "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "This split: test scenes 1, 2, 4; also in training: 1, 2, 4."
         },
         {
           "familyHead": "geist",
@@ -69815,6 +70163,38 @@
           "text": "Read the reasoning",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Random episodes",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Hold out scene 4",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the split",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -71732,7 +72112,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28466,
+      "visibleTextLength": 29002,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71784,11 +72164,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 33,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "10 min read",
+        "readingTimeText": "11 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "brooks-better-lesson-2019",
@@ -71912,6 +72292,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The bet here is division of labor: a vision-language model d"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: Figure's two rates on one clockwork, run 450 time"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Figure describes Helix 02 as three learned layers. S2 interp"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a clock movement doing the same counting. The"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: only the two rates come from Figure. The clockwor"
         },
         {
           "familyHead": "geist",
@@ -72538,6 +72954,22 @@
         },
         {
           "tag": "button",
+          "text": "Run the clock",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -72667,7 +73099,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33550,
+      "visibleTextLength": 33559,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -72843,10 +73275,10 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 0,
+          "widthPx": 365,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "beat 4 / 4"
+          "text": "beat 4 / 4 Slip 3 mm · felt at the fingertips · grip raised "
         },
         {
           "familyHead": "geist",
@@ -72865,6 +73297,24 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "A schematic of contact feedback, drawn to show where the inf"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a slip test stand. A parallel gripper hangs f"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The numbers are authored for the schematic. Two pads hold a "
         },
         {
           "familyHead": "geist",

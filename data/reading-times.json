@@ -144,11 +144,11 @@
     "minutes": 10
   },
   "data-hardware/industrial-deployment": {
-    "words": 2807,
+    "words": 2779,
     "minutes": 14
   },
   "data-hardware/robot-learning-stack": {
-    "words": 1314,
+    "words": 1394,
     "minutes": 7
   },
   "classical/kinematics": {
@@ -192,7 +192,7 @@
     "minutes": 7
   },
   "frontier/dexterity": {
-    "words": 3148,
+    "words": 3155,
     "minutes": 16
   },
   "frontier/generalization": {
@@ -200,8 +200,8 @@
     "minutes": 9
   },
   "frontier/competing-theses": {
-    "words": 2097,
-    "minutes": 10
+    "words": 2186,
+    "minutes": 11
   },
   "frontier/bear-case": {
     "words": 1270,
@@ -216,12 +216,12 @@
     "minutes": 18
   },
   "adjacent/drones": {
-    "words": 2380,
+    "words": 2358,
     "minutes": 12
   },
   "adjacent/surgical": {
-    "words": 2076,
-    "minutes": 10
+    "words": 2164,
+    "minutes": 11
   },
   "adjacent/space": {
     "words": 2197,
