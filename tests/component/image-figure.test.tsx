@@ -153,6 +153,27 @@ describe('figure treatment by kind', () => {
     expect(atlas.className).toContain('object-top');
   });
 
+  it('shows a paper figure whole and full width when it is a wide strip', () => {
+    // A composite figure from a paper is never cropped and is credited as a
+    // paper figure. One at least twice as wide as tall takes the full measure
+    // so its panels stay legible; a squarer one takes the photograph width.
+    const cases = [['dreamerv3-open-loop-quadruped-2023', true], ['aloha-2-workcell-2024', false]] as const;
+    for (const [id, wide] of cases) {
+      const image = getImage(id) as SiteImage;
+      expect(image.width >= 2 * image.height, id).toBe(wide);
+      const { unmount } = render(<ImageRef id={id} />);
+      const figure = document.querySelector('figure')!;
+      expect(figure, id).toHaveAttribute('data-figure-kind', 'paper-figure');
+      expect(figure.querySelector('[data-photo-frame]'), id).toBeNull();
+      const img = figure.querySelector('[data-paper-figure-frame] img')!;
+      expect(img.className, id).toContain('h-auto');
+      expect(img.className, id).not.toContain('object-cover');
+      expect(figure.className.includes('sm:max-w-[32rem]'), id).toBe(!wide);
+      expect(document.querySelector('[data-image-credit]')!.textContent, id).toMatch(/^Paper figure: /);
+      unmount();
+    }
+  });
+
   it('keeps the caption and sets the credit in the source-metadata face', () => {
     render(<ImageRef id="covariate-shift" />);
     const figure = document.querySelector('figure')!;

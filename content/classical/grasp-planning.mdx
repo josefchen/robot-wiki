@@ -58,6 +58,8 @@ import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
 
 Grasp planning is the choice of contact locations and forces that let a hand hold an object against disturbances <Cite id="bicchi-kumar-2000" />. Its central test, force closure, asks whether the origin lies inside the convex hull of the contact wrenches <Cite id="murray-li-sastry-1994" />; the distance to that hull's boundary is the standard quality metric <Cite id="ferrari-canny-1992" />.
 
+<Image id="care-o-bot-grasping-2010" />
+
 ## The wrench space, live
 
 <GraspWrenchLab className="my-6" />
@@ -80,6 +82,8 @@ $$
 The admissible forces form the <Term id="friction-cone">friction cone</Term> around the inward normal, with half-angle $\alpha = \arctan \mu$. In the plane the cone is a wedge; in space it is a quadratic cone, and approximating it by a polyhedral one keeps the analysis linear <Cite id="murray-li-sastry-1994" /> <Cite id="prattichizzo-trinkle-2016" />. A soft-finger contact adds a torsional moment about the normal, bounded by a torsional coefficient times the normal load <Cite id="murray-li-sastry-1994" />.
 
 Cutkosky's taxonomy separates power grasps, which wrap the object for stability, from precision grasps, which hold it in the fingertips for dexterity <Cite id="cutkosky-1989" />. GraspQP reports that simplified force-closure analysis favors power grasps <Cite id="graspqp-2025" />.
+
+<Image id="schunk-svh-five-finger-hand" />
 
 ## The grasp wrench space
 

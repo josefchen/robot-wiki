@@ -54,6 +54,8 @@ import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
 
 The comparison matrix is a table of major robot policies, from RT-1 (2022) to π0.7 (2026), compared on eight architectural axes: action representation, horizon, control frequency, backbone, conditioning, cross-embodiment, hierarchy and weights <Cite id="rt1-2022" /> <Cite id="pi07-2026" />. Each cell records what its named source discloses.
 
+<Image id="octo-evaluation-setups-2024" />
+
 Set the weights filter to Downloadable.
 
 <ComparisonMatrix className="my-6 wide-measure" />
@@ -61,6 +63,8 @@ Set the weights filter to Downloadable.
 ## Use the matrix as a constraint solver
 
 Remove models whose weights or training data the project cannot use (Gemini Robotics On-Device, for example, is reached through a trusted-tester SDK <Cite id="gemini-robotics-on-device-2025" />), then models whose action representation, latency, observations or adaptation-data needs do not fit the robot, and only then compare benchmark performance.
+
+<Image id="roboarena-evaluation-2025" />
 
 Compare the survivors under one trial protocol with the same cameras, action horizon and resets, and keep a behavior-cloning or action-chunking baseline. TRI's Large Behavior Model study used blind, randomized trials <Cite id="tri-lbm-2025" />, and RoboArena ranked seven generalist policies more accurately than centralized evaluation through over 600 double-blind pairwise real-robot episodes <Cite id="roboarena-2025" />. The [foundation-model guide](/manipulation/foundation-models/) explains what prior each family contributes, the [action-space guide](/manipulation/action-spaces/) whether its output fits, and the [evaluation crisis](/data-hardware/evaluation-crisis/) why protocols resist a shared leaderboard.
 
@@ -83,6 +87,8 @@ Weights records download availability, separately from license. openpi lists π0
 ## Row notes
 
 RT-1's "limited" cross-embodiment label means Kuka IIWA data mixed with Everyday Robots data and evaluated on Everyday Robots <Cite id="rt1-2022" />. ACT trains a roughly 80M-parameter model from scratch for each task <Cite id="act-aloha-2023" />, and RT-2's action-only entry excludes its chain-of-thought variant <Cite id="rt2-2023" />.
+
+<Image id="gemini-robotics-apollo-franka-2025" />
 
 OpenVLA's 7B label names the language model, beside a 600M visual encoder <Cite id="openvla-2024" />. OFT's "limited" label means adapting the pretrained model to separate tasks and robot setups <Cite id="openvla-oft-2025" />, and GR00T N1.6 predicts state-relative action chunks for most embodiments <Cite id="gr00t-n1-6-2025" />. π*0.6 adds Recap post-training, which more than doubles throughput on some of the hardest tasks <Cite id="pistar06-2025" />.
 

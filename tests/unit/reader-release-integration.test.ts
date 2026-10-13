@@ -186,6 +186,16 @@ function throughSeoPass(path: string) {
     expect(continues(humanize, end)).toBe(true);
     end = humanize.newHash;
   }
+  // Images bundle A of 2026-10-13 landed after the humanize pass; its one
+  // edge on an article that gained image mounts continues the previous
+  // endpoint the same way.
+  const imageEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('images-a-20261013-'));
+  expect(imageEdges.length).toBeLessThanOrEqual(1);
+  for (const images of imageEdges) {
+    expect(continues(images, end)).toBe(true);
+    end = images.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 

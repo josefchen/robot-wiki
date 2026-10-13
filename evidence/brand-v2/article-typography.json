@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ef822e5dda2e673529f6352793a8515bc1ee81424dc2acab95c58b548257e5bd",
+  "fingerprint": "a574cf91f2afd5b1526009df95e9ca15ef99b83e9c23d305149acac2cbd962f2",
   "viewports": [
     "375x812",
     "1440x900"
@@ -3808,7 +3808,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 15596,
+      "visibleTextLength": 16059,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4386,7 +4386,7 @@
         },
         {
           "kind": "external",
-          "count": 6,
+          "count": 10,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -4396,7 +4396,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 10,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -4566,7 +4566,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23312,
+      "visibleTextLength": 24065,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5297,14 +5297,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -5540,7 +5551,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18628,
+      "visibleTextLength": 19099,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5592,11 +5603,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 41,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "41 sources",
         "bibliographyIds": [
           "murray-li-sastry-1994",
@@ -6166,14 +6177,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -6335,7 +6357,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16981,
+      "visibleTextLength": 17200,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6910,7 +6932,7 @@
         },
         {
           "kind": "external",
-          "count": 2,
+          "count": 4,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -6920,7 +6942,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 4,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -7099,7 +7121,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26481,
+      "visibleTextLength": 26952,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7151,11 +7173,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 13,
+        "readingMinutes": 14,
         "citationCount": 43,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "13 min read",
+        "readingTimeText": "14 min read",
         "citationCountText": "43 sources",
         "bibliographyIds": [
           "lozano-perez-1983",
@@ -7907,14 +7929,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -8052,7 +8085,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33222,
+      "visibleTextLength": 33720,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8944,14 +8977,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -9193,7 +9237,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14241,
+      "visibleTextLength": 14726,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -9245,11 +9289,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 5,
+        "readingMinutes": 6,
         "citationCount": 33,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "5 min read",
+        "readingTimeText": "6 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "ros2-lyrical-2026",
@@ -9766,7 +9810,7 @@
         },
         {
           "kind": "external",
-          "count": 9,
+          "count": 13,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -9776,7 +9820,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 13,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -10031,7 +10075,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27431,
+      "visibleTextLength": 28153,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10083,11 +10127,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 60,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "10 min read",
+        "readingTimeText": "11 min read",
         "citationCountText": "60 sources",
         "bibliographyIds": [
           "moravec-elfes-1985",
@@ -10813,14 +10857,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -11027,7 +11082,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22264,
+      "visibleTextLength": 22789,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11079,11 +11134,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 12,
+        "readingMinutes": 13,
         "citationCount": 39,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "12 min read",
+        "readingTimeText": "13 min read",
         "citationCountText": "39 sources",
         "bibliographyIds": [
           "kalman-1960-filter",
@@ -11696,14 +11751,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -11841,7 +11907,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21386,
+      "visibleTextLength": 47604,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24119,7 +24185,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 19851,
+      "visibleTextLength": 20384,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24171,11 +24237,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 32,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "32 sources",
         "bibliographyIds": [
           "dagger-2011",
@@ -24709,7 +24775,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -24719,7 +24785,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -25058,7 +25124,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16413,
+      "visibleTextLength": 16984,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25110,11 +25176,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 4,
+        "readingMinutes": 5,
         "citationCount": 37,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "4 min read",
+        "readingTimeText": "5 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "modern-robotics-2017",
@@ -25545,14 +25611,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -25730,7 +25807,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17853,
+      "visibleTextLength": 18377,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25782,11 +25859,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "alvinn-1988",
@@ -26315,7 +26392,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -26325,7 +26402,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -26585,7 +26662,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18109,
+      "visibleTextLength": 18861,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26637,11 +26714,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 37,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "rt1-2022",
@@ -27045,7 +27122,7 @@
         },
         {
           "kind": "external",
-          "count": 22,
+          "count": 28,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -27055,7 +27132,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 22,
+              "count": 28,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -27473,7 +27550,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17888,
+      "visibleTextLength": 18690,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27525,11 +27602,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 6,
+        "readingMinutes": 7,
         "citationCount": 38,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "6 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "38 sources",
         "bibliographyIds": [
           "pi0-2024",
@@ -28033,7 +28110,7 @@
         },
         {
           "kind": "external",
-          "count": 2,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -28043,7 +28120,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 8,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -28301,7 +28378,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16462,
+      "visibleTextLength": 17002,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28353,11 +28430,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 34,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "34 sources",
         "bibliographyIds": [
           "diffusion-policy-2023",
@@ -28920,14 +28997,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -29185,7 +29273,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17003,
+      "visibleTextLength": 17818,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29237,11 +29325,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 5,
+        "readingMinutes": 6,
         "citationCount": 37,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "5 min read",
+        "readingTimeText": "6 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "rt2-2023",
@@ -29672,14 +29760,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -29945,7 +30044,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18582,
+      "visibleTextLength": 19377,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -30507,7 +30606,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -30517,7 +30616,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -30887,7 +30986,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21272,
+      "visibleTextLength": 22081,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -31505,7 +31604,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -31515,7 +31614,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -31853,7 +31952,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15498,
+      "visibleTextLength": 16022,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -32327,7 +32426,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -32337,7 +32436,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -32643,7 +32742,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20199,
+      "visibleTextLength": 20693,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -33238,7 +33337,7 @@
         },
         {
           "kind": "external",
-          "count": 8,
+          "count": 12,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -33248,7 +33347,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 12,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -33642,7 +33741,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17784,
+      "visibleTextLength": 18257,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34242,14 +34341,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -34539,7 +34649,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 31427,
+      "visibleTextLength": 32228,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -35239,14 +35349,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -35560,7 +35681,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14206,
+      "visibleTextLength": 15044,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -35612,11 +35733,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 4,
+        "readingMinutes": 5,
         "citationCount": 32,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "4 min read",
+        "readingTimeText": "5 min read",
         "citationCountText": "32 sources",
         "bibliographyIds": [
           "modern-robotics-2017",
@@ -36060,14 +36181,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -36269,7 +36401,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21221,
+      "visibleTextLength": 21957,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -36321,11 +36453,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 35,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "35 sources",
         "bibliographyIds": [
           "rt1-2022",
@@ -36862,14 +36994,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -38973,7 +39116,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21214,
+      "visibleTextLength": 22048,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39025,11 +39168,11 @@
           "RL, Sim-to-Real & Locomotion"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 42,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "42 sources",
         "bibliographyIds": [
           "phc-2023",
@@ -39591,7 +39734,7 @@
         },
         {
           "kind": "external",
-          "count": 3,
+          "count": 9,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -39601,7 +39744,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 9,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -39904,7 +40047,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18985,
+      "visibleTextLength": 19837,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40481,7 +40624,7 @@
         },
         {
           "kind": "external",
-          "count": 4,
+          "count": 10,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -40491,7 +40634,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 10,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -40754,7 +40897,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17993,
+      "visibleTextLength": 18592,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40806,11 +40949,11 @@
           "RL, Sim-to-Real & Locomotion"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 6,
+        "readingMinutes": 7,
         "citationCount": 40,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "6 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "40 sources",
         "bibliographyIds": [
           "offline-rl-tutorial-2020",
@@ -41631,7 +41774,7 @@
         },
         {
           "kind": "external",
-          "count": 8,
+          "count": 12,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -41641,7 +41784,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 12,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -41872,7 +42015,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16928,
+      "visibleTextLength": 17509,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42427,7 +42570,7 @@
         },
         {
           "kind": "external",
-          "count": 4,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -42437,7 +42580,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 8,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -42696,7 +42839,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24657,
+      "visibleTextLength": 25206,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -43432,14 +43575,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -43750,7 +43904,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21985,
+      "visibleTextLength": 22535,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -43802,11 +43956,11 @@
           "RL, Sim-to-Real & Locomotion"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 47,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "47 sources",
         "bibliographyIds": [
           "sutton-barto-2018",
@@ -44438,7 +44592,7 @@
         },
         {
           "kind": "external",
-          "count": 3,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -44448,7 +44602,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -44722,7 +44876,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23891,
+      "visibleTextLength": 24427,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45357,7 +45511,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -45367,7 +45521,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -45705,7 +45859,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16821,
+      "visibleTextLength": 17409,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -46171,7 +46325,7 @@
         },
         {
           "kind": "external",
-          "count": 4,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -46181,7 +46335,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 8,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -46799,7 +46953,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 15970,
+      "visibleTextLength": 16843,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47327,14 +47481,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -47560,7 +47725,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20045,
+      "visibleTextLength": 20589,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47612,11 +47777,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "robogen-2024",
@@ -48154,14 +48319,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -48451,7 +48627,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20704,
+      "visibleTextLength": 21549,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48503,11 +48679,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 37,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "cosmos-3-2026",
@@ -49100,14 +49276,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -49445,7 +49632,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18329,
+      "visibleTextLength": 18902,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49497,11 +49684,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "vjepa-2024",
@@ -49994,14 +50181,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -50219,7 +50417,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15817,
+      "visibleTextLength": 16358,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50271,11 +50469,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 6,
+        "readingMinutes": 7,
         "citationCount": 33,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "6 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "dreamer-2019",
@@ -50801,14 +50999,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -50978,7 +51187,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14218,
+      "visibleTextLength": 14730,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51030,11 +51239,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 4,
+        "readingMinutes": 5,
         "citationCount": 35,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "4 min read",
+        "readingTimeText": "5 min read",
         "citationCountText": "35 sources",
         "bibliographyIds": [
           "dreamer-2019",
@@ -51463,14 +51672,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -51608,7 +51828,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19695,
+      "visibleTextLength": 20482,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52283,14 +52503,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -52604,7 +52835,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20541,
+      "visibleTextLength": 21271,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -53251,14 +53482,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -57057,7 +57299,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 20676,
+      "visibleTextLength": 21139,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57635,7 +57877,7 @@
         },
         {
           "kind": "external",
-          "count": 6,
+          "count": 10,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -57645,7 +57887,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 10,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -57804,7 +58046,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29877,
+      "visibleTextLength": 30630,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58535,14 +58777,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -58767,7 +59020,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26273,
+      "visibleTextLength": 26744,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58819,11 +59072,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 41,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "41 sources",
         "bibliographyIds": [
           "murray-li-sastry-1994",
@@ -59393,14 +59646,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -59551,7 +59815,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23831,
+      "visibleTextLength": 24050,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60126,7 +60390,7 @@
         },
         {
           "kind": "external",
-          "count": 2,
+          "count": 4,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -60136,7 +60400,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 4,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -60304,7 +60568,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 36010,
+      "visibleTextLength": 36481,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60356,11 +60620,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 13,
+        "readingMinutes": 14,
         "citationCount": 43,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "13 min read",
+        "readingTimeText": "14 min read",
         "citationCountText": "43 sources",
         "bibliographyIds": [
           "lozano-perez-1983",
@@ -61112,14 +61376,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -61246,7 +61521,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 43060,
+      "visibleTextLength": 43558,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62138,14 +62413,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -62376,7 +62662,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18296,
+      "visibleTextLength": 18781,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62428,11 +62714,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 5,
+        "readingMinutes": 6,
         "citationCount": 33,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "5 min read",
+        "readingTimeText": "6 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "ros2-lyrical-2026",
@@ -62949,7 +63235,7 @@
         },
         {
           "kind": "external",
-          "count": 9,
+          "count": 13,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -62959,7 +63245,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 13,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -63203,7 +63489,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 35872,
+      "visibleTextLength": 36594,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63255,11 +63541,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 60,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "10 min read",
+        "readingTimeText": "11 min read",
         "citationCountText": "60 sources",
         "bibliographyIds": [
           "moravec-elfes-1985",
@@ -63985,14 +64271,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -64188,7 +64485,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30127,
+      "visibleTextLength": 30652,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -64240,11 +64537,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 12,
+        "readingMinutes": 13,
         "citationCount": 39,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "12 min read",
+        "readingTimeText": "13 min read",
         "citationCountText": "39 sources",
         "bibliographyIds": [
           "kalman-1960-filter",
@@ -64857,14 +65154,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -64991,7 +65299,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21386,
+      "visibleTextLength": 47604,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77126,7 +77434,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 25645,
+      "visibleTextLength": 26178,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77178,11 +77486,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 32,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "32 sources",
         "bibliographyIds": [
           "dagger-2011",
@@ -77716,7 +78024,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -77726,7 +78034,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -78054,7 +78362,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21177,
+      "visibleTextLength": 21748,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78106,11 +78414,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 4,
+        "readingMinutes": 5,
         "citationCount": 37,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "4 min read",
+        "readingTimeText": "5 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "modern-robotics-2017",
@@ -78541,14 +78849,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -78715,7 +79034,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23786,
+      "visibleTextLength": 24310,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78767,11 +79086,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "alvinn-1988",
@@ -79300,7 +79619,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -79310,7 +79629,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -79559,7 +79878,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24541,
+      "visibleTextLength": 25293,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79611,11 +79930,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 37,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "rt1-2022",
@@ -80019,7 +80338,7 @@
         },
         {
           "kind": "external",
-          "count": 22,
+          "count": 28,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -80029,7 +80348,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 22,
+              "count": 28,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -80436,7 +80755,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23495,
+      "visibleTextLength": 24297,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80488,11 +80807,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 6,
+        "readingMinutes": 7,
         "citationCount": 38,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "6 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "38 sources",
         "bibliographyIds": [
           "pi0-2024",
@@ -80996,7 +81315,7 @@
         },
         {
           "kind": "external",
-          "count": 2,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -81006,7 +81325,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 2,
+              "count": 8,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -81253,7 +81572,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21826,
+      "visibleTextLength": 22366,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81305,11 +81624,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 34,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "34 sources",
         "bibliographyIds": [
           "diffusion-policy-2023",
@@ -81872,14 +82191,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -82126,7 +82456,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21676,
+      "visibleTextLength": 22491,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82178,11 +82508,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 5,
+        "readingMinutes": 6,
         "citationCount": 37,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "5 min read",
+        "readingTimeText": "6 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "rt2-2023",
@@ -82613,14 +82943,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -82875,7 +83216,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23947,
+      "visibleTextLength": 24742,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83437,7 +83778,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -83447,7 +83788,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -83806,7 +84147,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27052,
+      "visibleTextLength": 27861,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84424,7 +84765,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -84434,7 +84775,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -84761,7 +85102,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22283,
+      "visibleTextLength": 22807,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -85235,7 +85576,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -85245,7 +85586,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -85540,7 +85881,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26970,
+      "visibleTextLength": 27464,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86135,7 +86476,7 @@
         },
         {
           "kind": "external",
-          "count": 8,
+          "count": 12,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -86145,7 +86486,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 12,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -86528,7 +86869,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24264,
+      "visibleTextLength": 24737,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -87128,14 +87469,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -87414,7 +87766,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 41213,
+      "visibleTextLength": 42014,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -88114,14 +88466,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -88424,7 +88787,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19226,
+      "visibleTextLength": 20064,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -88476,11 +88839,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 4,
+        "readingMinutes": 5,
         "citationCount": 32,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "4 min read",
+        "readingTimeText": "5 min read",
         "citationCountText": "32 sources",
         "bibliographyIds": [
           "modern-robotics-2017",
@@ -88924,14 +89287,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -89122,7 +89496,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28482,
+      "visibleTextLength": 29218,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89174,11 +89548,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 35,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "35 sources",
         "bibliographyIds": [
           "rt1-2022",
@@ -89715,14 +90089,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -91815,7 +92200,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 26217,
+      "visibleTextLength": 27051,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -91867,11 +92252,11 @@
           "RL, Sim-to-Real & Locomotion"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 42,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "42 sources",
         "bibliographyIds": [
           "phc-2023",
@@ -92433,7 +92818,7 @@
         },
         {
           "kind": "external",
-          "count": 3,
+          "count": 9,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -92443,7 +92828,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 9,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -92735,7 +93120,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24274,
+      "visibleTextLength": 25126,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -93312,7 +93697,7 @@
         },
         {
           "kind": "external",
-          "count": 4,
+          "count": 10,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -93322,7 +93707,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 10,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -93574,7 +93959,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23344,
+      "visibleTextLength": 23943,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -93626,11 +94011,11 @@
           "RL, Sim-to-Real & Locomotion"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 6,
+        "readingMinutes": 7,
         "citationCount": 40,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "6 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "40 sources",
         "bibliographyIds": [
           "offline-rl-tutorial-2020",
@@ -94451,7 +94836,7 @@
         },
         {
           "kind": "external",
-          "count": 8,
+          "count": 12,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -94461,7 +94846,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 12,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -94681,7 +95066,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23681,
+      "visibleTextLength": 24262,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95236,7 +95621,7 @@
         },
         {
           "kind": "external",
-          "count": 4,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -95246,7 +95631,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 8,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -95494,7 +95879,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32397,
+      "visibleTextLength": 32946,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96230,14 +96615,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -96537,7 +96933,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28115,
+      "visibleTextLength": 28665,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96589,11 +96985,11 @@
           "RL, Sim-to-Real & Locomotion"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 47,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "47 sources",
         "bibliographyIds": [
           "sutton-barto-2018",
@@ -97225,7 +97621,7 @@
         },
         {
           "kind": "external",
-          "count": 3,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -97235,7 +97631,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 3,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -97498,7 +97894,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30767,
+      "visibleTextLength": 31303,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98133,7 +98529,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -98143,7 +98539,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -98470,7 +98866,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22140,
+      "visibleTextLength": 22728,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98936,7 +99332,7 @@
         },
         {
           "kind": "external",
-          "count": 4,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -98946,7 +99342,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 8,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -99553,7 +99949,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22740,
+      "visibleTextLength": 23613,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100081,14 +100477,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -100303,7 +100710,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27291,
+      "visibleTextLength": 27835,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100355,11 +100762,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "robogen-2024",
@@ -100897,14 +101304,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -101183,7 +101601,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26266,
+      "visibleTextLength": 27111,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101235,11 +101653,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 37,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "cosmos-3-2026",
@@ -101832,14 +102250,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -102166,7 +102595,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24499,
+      "visibleTextLength": 25072,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102218,11 +102647,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "vjepa-2024",
@@ -102715,14 +103144,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -102929,7 +103369,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22132,
+      "visibleTextLength": 22673,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102981,11 +103421,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 6,
+        "readingMinutes": 7,
         "citationCount": 33,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "6 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "dreamer-2019",
@@ -103511,14 +103951,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -103677,7 +104128,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19057,
+      "visibleTextLength": 19569,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103729,11 +104180,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 4,
+        "readingMinutes": 5,
         "citationCount": 35,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "4 min read",
+        "readingTimeText": "5 min read",
         "citationCountText": "35 sources",
         "bibliographyIds": [
           "dreamer-2019",
@@ -104162,14 +104613,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -104296,7 +104758,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24773,
+      "visibleTextLength": 25560,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104971,14 +105433,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -105281,7 +105754,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26018,
+      "visibleTextLength": 26748,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -105928,14 +106401,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",

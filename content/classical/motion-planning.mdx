@@ -64,6 +64,8 @@ import {
 
 Motion planning computes a collision-free route from a robot's current configuration to a goal <Cite id="lavalle-2006" />, a sequence of the joint angles that [kinematics](/classical/kinematics) maps to poses. Sampling-based planners explore configurations and the connections between them; trajectory optimizers improve a complete candidate trajectory against an objective <Cite id="ratliff-2009" /><Cite id="schulman-2013" />.
 
+<Image id="pr2-willow-garage-2010" />
+
 <RrtExplorer className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -167,6 +169,8 @@ $$
 It is nonzero inside the safety margin. Pairs out to $d_{\mathrm{check}}>d_{\mathrm{safe}}$ enter the linearized subproblem, including some with zero current penalty. A box trust region bounds each step, expanding when actual improvement matches the local model and shrinking otherwise <Cite id="schulman-2013" />.
 
 Waypoint checks can miss collisions between waypoints, so TrajOpt penalizes a swept volume: the convex hull of endpoint shapes, inflated for rotation. The rotation bound adds $d_{\mathrm{arc}}=r\phi^2/8$ to the safety margin, a correction omitted in experiments because it was well under 1 cm. The swept-volume gradient is not guaranteed accurate in 3D, and the implementation used Bullet with convex hulls of robot meshes and penalized self-collisions only at discrete times <Cite id="schulman-2013" />.
+
+<Image id="atlas-vrc-simulation-2013" />
 
 ### What the TrajOpt benchmark measured
 

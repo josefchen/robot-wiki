@@ -125,7 +125,7 @@
     {
       "stateId": "state:results-both-groups",
       "viewport": "1440x900",
-      "statusText": "15 modules, 6 entities match \"action chunking\"",
+      "statusText": "16 modules, 6 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": true,
@@ -138,8 +138,8 @@
       "clearControlVisible": true,
       "proseTitles": [
         "Action Chunking (ACT and ALOHA)",
-        "Comparison Matrix",
         "Action Spaces for Robot Learning",
+        "Comparison Matrix",
         "Vision-Language-Action Models",
         "Manipulation & Learned Policies",
         "Behavior Cloning Foundations",
@@ -151,6 +151,7 @@
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
+        "Knowledge Insulation",
         "Drones and Aerial Robotics"
       ],
       "structuredRowTypes": [
@@ -164,8 +165,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 15,
-          "countText": "15 results",
+          "rowCount": 16,
+          "countText": "16 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -203,7 +204,7 @@
     {
       "stateId": "state:facet-method",
       "viewport": "1440x900",
-      "statusText": "15 modules, 4 entities match \"action chunking\"",
+      "statusText": "16 modules, 4 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -216,8 +217,8 @@
       "clearControlVisible": true,
       "proseTitles": [
         "Action Chunking (ACT and ALOHA)",
-        "Comparison Matrix",
         "Action Spaces for Robot Learning",
+        "Comparison Matrix",
         "Vision-Language-Action Models",
         "Manipulation & Learned Policies",
         "Behavior Cloning Foundations",
@@ -229,6 +230,7 @@
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
+        "Knowledge Insulation",
         "Drones and Aerial Robotics"
       ],
       "structuredRowTypes": [
@@ -240,8 +242,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 15,
-          "countText": "15 results",
+          "rowCount": 16,
+          "countText": "16 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -277,7 +279,7 @@
     {
       "stateId": "state:facet-company",
       "viewport": "1440x900",
-      "statusText": "15 modules, 2 entities match \"action chunking\"",
+      "statusText": "16 modules, 2 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -290,8 +292,8 @@
       "clearControlVisible": true,
       "proseTitles": [
         "Action Chunking (ACT and ALOHA)",
-        "Comparison Matrix",
         "Action Spaces for Robot Learning",
+        "Comparison Matrix",
         "Vision-Language-Action Models",
         "Manipulation & Learned Policies",
         "Behavior Cloning Foundations",
@@ -303,6 +305,7 @@
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
+        "Knowledge Insulation",
         "Drones and Aerial Robotics"
       ],
       "structuredRowTypes": [
@@ -312,8 +315,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 15,
-          "countText": "15 results",
+          "rowCount": 16,
+          "countText": "16 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -347,7 +350,7 @@
     {
       "stateId": "state:facet-dataset",
       "viewport": "1440x900",
-      "statusText": "15 modules match \"action chunking\"",
+      "statusText": "16 modules match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -360,8 +363,8 @@
       "clearControlVisible": true,
       "proseTitles": [
         "Action Chunking (ACT and ALOHA)",
-        "Comparison Matrix",
         "Action Spaces for Robot Learning",
+        "Comparison Matrix",
         "Vision-Language-Action Models",
         "Manipulation & Learned Policies",
         "Behavior Cloning Foundations",
@@ -373,14 +376,15 @@
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
+        "Knowledge Insulation",
         "Drones and Aerial Robotics"
       ],
       "structuredRowTypes": [],
       "groups": [
         {
           "id": "prose",
-          "rowCount": 15,
-          "countText": "15 results",
+          "rowCount": 16,
+          "countText": "16 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -589,7 +593,7 @@
     {
       "stateId": "state:results-both-groups",
       "viewport": "375x812",
-      "statusText": "15 modules, 6 entities match \"action chunking\"",
+      "statusText": "16 modules, 6 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": true,
@@ -602,8 +606,8 @@
       "clearControlVisible": true,
       "proseTitles": [
         "Action Chunking (ACT and ALOHA)",
-        "Comparison Matrix",
         "Action Spaces for Robot Learning",
+        "Comparison Matrix",
         "Vision-Language-Action Models",
         "Manipulation & Learned Policies",
         "Behavior Cloning Foundations",
@@ -615,6 +619,7 @@
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
+        "Knowledge Insulation",
         "Drones and Aerial Robotics"
       ],
       "structuredRowTypes": [
@@ -628,8 +633,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 15,
-          "countText": "15 results",
+          "rowCount": 16,
+          "countText": "16 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -667,7 +672,7 @@
     {
       "stateId": "state:facet-method",
       "viewport": "375x812",
-      "statusText": "15 modules, 4 entities match \"action chunking\"",
+      "statusText": "16 modules, 4 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -680,8 +685,8 @@
       "clearControlVisible": true,
       "proseTitles": [
         "Action Chunking (ACT and ALOHA)",
-        "Comparison Matrix",
         "Action Spaces for Robot Learning",
+        "Comparison Matrix",
         "Vision-Language-Action Models",
         "Manipulation & Learned Policies",
         "Behavior Cloning Foundations",
@@ -693,6 +698,7 @@
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
+        "Knowledge Insulation",
         "Drones and Aerial Robotics"
       ],
       "structuredRowTypes": [
@@ -704,8 +710,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 15,
-          "countText": "15 results",
+          "rowCount": 16,
+          "countText": "16 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -726,8 +732,8 @@
           "dataset": false
         },
         "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
-        "selectedColourRgb": "rgb(105, 104, 99)",
-        "selectedRuleRgb": "rgba(28, 28, 26, 0.03)",
+        "selectedColourRgb": "rgb(108, 107, 102)",
+        "selectedRuleRgb": "rgba(0, 0, 0, 0)",
         "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [

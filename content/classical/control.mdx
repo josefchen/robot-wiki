@@ -63,6 +63,8 @@ import { ImpedanceContactLab } from '@/components/interactive/impedance-contact-
 
 Control uses feedback to make a robot follow a reference, such as a [motion plan](/classical/motion-planning), despite model error and disturbances: measure the state, compare it with the reference, correct <Cite id="fbs-2020" />. Feedback loops run beneath any learned policy, from motor drivers to whole-body torque control.
 
+<Image id="centrifugal-governor-queen-street-mill" />
+
 <PredictThenReveal
   prompt="The lab below is released 12 degrees off vertical with the payload bias in place. Below what proportional gain can the loop no longer hold the pole upright, however the other two gains are set?"
   options={[
@@ -167,6 +169,8 @@ $$
 
 Its variables are joint accelerations, torques and contact forces; the rigid-body dynamics are the equality constraint, $\mathcal{F}$ holds the friction cones, and each task is one weighted row of the objective.
 
+<Image id="atlas-darpa-testing-2013" />
+
 Learned and model-based <Term id="whole-body-control">whole-body control</Term> both ship. Figure reports that Helix 02's System 0 runs at 1 kHz and handles balance, contact and coordination across the whole body <Cite id="helix-02-2026" />, while Boston Dynamics reports that the teleoperation system behind Atlas's large behavior models pairs Atlas's model-predictive controller with a VR interface <Cite id="bd-atlas-lbm-2025" />. [Humanoid whole-body control](/rl-sim2real/humanoid-wbc) covers how learned policies relate to the QP.
 
 ## Impedance control: making contact a design variable
@@ -182,6 +186,8 @@ Learned policies now set impedance: Adaptive Compliance Policy learns spatially 
 ForceTwin, from Marco Hutter (ETH Zurich) and colleagues (September 2026), fits an articulated object's inertia, friction, damping and spring or door-closer forces from a person probing it with a handheld force-sensing gripper. As the feedforward model for impedance control on a Spot and a Franka FR3, it completed 87% of goals across nine object-robot pairs, against 60% with vision-language-model priors and 57% with kinematics-only twins <Cite id="forcetwin-2026" />.
 
 A non-backdrivable, position-controlled geared arm without a force sensor has no force channel: position error, gear ratio and the surface set the contact force, so a joint-position policy on it cannot regulate force in the contact-rich tasks of [dexterity](/frontier/dexterity). <Term id="series-elastic-actuator">Series elastic actuation</Term> adds a deliberate spring for shock tolerance and more accurate, stable force control <Cite id="pratt-williamson-1995" />.
+
+<Image id="baxter-rethink-innorobo-2015" />
 
 Franka's interface exposes a 1 kHz torque-level layer with Cartesian impedance controllers <Cite id="franka-fci-docs" />, while Universal Robots' URScript force mode takes a task frame, compliant axes, target forces and position-deviation limits <Cite id="ur-force-mode-docs" />. <Term id="backdrivability">Backdrivability</Term> is an actuator decision that fixes which of these schemes the hardware can attempt.
 

@@ -62,6 +62,8 @@ import { RlMethodsTable } from '@/components/mdx/rl-methods-table';
 
 RL fine-tuning is the use of reinforcement learning to improve a pretrained robot policy from its own successes and failures. <Term id="imitation-learning">Imitation learning</Term> is brittle off the demonstration distribution because errors compound <Cite id="dagger-2011" />, and Physical Intelligence finds reliable success much harder than occasional success <Cite id="pistar06-blog-2025" />.
 
+<Image id="hil-serl-tasks-2024" />
+
 Switch to “What it learns”.
 
 <AdvantageScrubber className="my-6" />
@@ -131,6 +133,8 @@ Mulligan (Stanford, October 2026) starts each round of supervised collection at 
 
 Residual RL adds a learned correction to a fixed controller <Cite id="residual-rl-2018" />. PLD (Probe, Learn, Distill; Xiao et al., 2025) freezes a VLA, trains task-specific residual actors with off-policy RL, lets them recover from the states the base policy reaches, and distills the trajectories back into the generalist through SFT. Residual exploration carries no safety guarantee <Cite id="pld-2026" />.
 
+<Image id="pld-gpu-insertion-2025" />
+
 On LIBERO, averages are 99.2% for the model labelled OpenVLA against 91.8% for its baseline, and 97.2% against 93.4% for π0. On a four-task SimplerEnv suite, Octo-SFT rises from 71.8% to 96.6% and the WidowX carrot task from 43.3% to 93.9%; the printed average delta is +24.9, though the means differ by 24.8 <Cite id="pld-2026" />.
 
 On a Franka, PLD records 30/30 randomized trials for cube pick-up and peg insertion, but 28/30 for a blue cube and 20/30 for a red one under changed clutter. On YAM, four GPU insertion and removal stages distill into one BC policy that runs at least an hour continuously with recovery, though per-stage one-shot success stays below 100% <Cite id="pld-2026" />.
@@ -160,6 +164,8 @@ The protocols differ too much for a cross-paper ranking. DPPO, ConRFT, EXPO-FT, 
 ## Real-world and fleet-scale results
 
 RL-100, published in Science Robotics in July 2026, applies one clipped-PPO objective within the denoising process across offline and online stages and reports 1000 of 1000 successful episodes on eight real tasks <Cite id="rl-100-2025" />. LWD runs offline-to-online RL on a fleet of 16 dual-arm robots, where one generalist policy reaches 95% average success across eight real tasks <Cite id="lwd-2026" />.
+
+<Image id="conrft-real-world-tasks-2025" />
 
 <span id="what-rl-actually-buys-and-the-caveats" />
 

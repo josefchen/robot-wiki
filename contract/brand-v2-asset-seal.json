@@ -93,11 +93,67 @@
       "purpose": "First-party poster for the \"Practising in a thousand worlds\" 3D explainer on /how-robots-work/: its first step captured on the 16:10 desktop stage, shown until the explainer loads."
     },
     {
+      "path": "images/action-space-study-platforms-2026.jpg",
+      "sha256": "2a35c9532ae28dbaab8044c25667237197568071c0221e08b680f2fe72a193bf",
+      "byteCount": 114420,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Demystifying Action Space Design for Robotic Manipulation Policies\" (2602.23408), credited to Yuchun Feng et al.: Overview of hardware setup for real world experiments, illustrating the action spaces article."
+    },
+    {
+      "path": "images/adaptive-compliance-tasks-2024.jpg",
+      "sha256": "ffb511b104d3b6db87130d8f6399498305ee46c3cae819d510d8e109607feb4d",
+      "byteCount": 112026,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Adaptive Compliance Policy: Learning Approximate Compliance for Diffusion Guided Control\" (2410.09309), credited to Yifan Hou et al.: Compliance Requirements (teaser), illustrating the action spaces article."
+    },
+    {
+      "path": "images/aloha-2-workcell-2024.jpg",
+      "sha256": "f8ce01b9b07cce81df58c58607a23cddd7e9d3bb192cb26b6e49995ffc7b5745",
+      "byteCount": 88782,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"ALOHA Unleashed: A Simple Recipe for Robot Dexterity\" (2410.13126), credited to Tony Z. Zhao et al.: ALOHA 2 workcell diagram (appendix), illustrating the action chunking article."
+    },
+    {
+      "path": "images/aloha-unleashed-shirt-rollout-2024.jpg",
+      "sha256": "ac3b7dff279a5dd3d72818c9af574a709ffad9ce2b0128f98b115d3aacf39375",
+      "byteCount": 303108,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"ALOHA Unleashed: A Simple Recipe for Robot Dexterity\" (2410.13126), credited to Tony Z. Zhao et al.: Shirt Episode, illustrating the diffusion policy article."
+    },
+    {
+      "path": "images/aloha-unleashed-tasks-2024.jpg",
+      "sha256": "5b8b9b8a9e232a4a1b493abade2d996fbcda51ef820090b1447da4b78a13ed79",
+      "byteCount": 196477,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"ALOHA Unleashed: A Simple Recipe for Robot Dexterity\" (2410.13126), credited to Tony Z. Zhao et al.: MainFigure (task overview), illustrating the action chunking article."
+    },
+    {
       "path": "images/anymal-anybotics-2022.jpg",
       "sha256": "65bd6998719c0f2f7c65c492072fb66bb3a78ec501d7e00a1e9555c9cf5d8a5b",
       "byteCount": 706854,
       "owner": "robot-wiki-editorial",
       "purpose": "Editorial photograph of an ANYmal quadruped in an industrial facility, credited to ANYbotics under CC BY-SA 4.0 and used to illustrate legged inspection hardware."
+    },
+    {
+      "path": "images/anymal-x-offshore-stairs-2022.jpg",
+      "sha256": "22f0aa45126a46984c8747ede821cdab0e774f88f456af8f0bc27d95eef3660a",
+      "byteCount": 292958,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of an ANYmal X quadruped descending stairs on an offshore rig, credited to Cvoellmy under CC BY-SA 4.0, leading the locomotion and manipulation asymmetry article."
+    },
+    {
+      "path": "images/apollo-guidance-computer-dsky.jpg",
+      "sha256": "cbb5db88b0b54b92ef2be1599c0bb1b9cb20834e5215c75f6b82a3c9dd2ee38e",
+      "byteCount": 432803,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Public-domain NASA photograph of the Apollo Guidance Computer and display keyboard, used beside the Kalman filter history in state estimation."
+    },
+    {
+      "path": "images/apollo-imu-draper-2019.jpg",
+      "sha256": "8783941ab91a8c016effa3496517134fb8ef215ccd5e8fee2fe8959e7a8ac089",
+      "byteCount": 581831,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of an Apollo inertial measurement unit, credited to ArnoldReinhold under CC BY-SA 4.0 and used as the state-estimation lead image."
     },
     {
       "path": "images/atlas-darpa-frontview-2013.jpg",
@@ -107,11 +163,144 @@
       "purpose": "Editorial photograph of the 2013 DARPA Atlas humanoid, a public-domain US government image used to illustrate hydraulic humanoid hardware."
     },
     {
+      "path": "images/atlas-darpa-testing-2013.jpg",
+      "sha256": "4bd77247b1a37d537c3036f0a2f821536e97186176661deecc296e45b377b0a9",
+      "byteCount": 540540,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Public-domain DARPA photograph of the 2013 hydraulic Atlas humanoid in testing, used beside the whole-body QP text in control."
+    },
+    {
+      "path": "images/atlas-electric-hyundai-goyang-2026.jpg",
+      "sha256": "3c56308c0b47d26ea77154a8aba9a3e7e1c9c14deb22627f671b19535b979361",
+      "byteCount": 369240,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of the electric Boston Dynamics Atlas humanoid on display at Hyundai Motorstudio Goyang, credited to Damian B Oh under CC BY-SA 4.0, leading the humanoid whole-body control article."
+    },
+    {
+      "path": "images/atlas-vrc-simulation-2013.jpg",
+      "sha256": "47824fa4ab83a6a890b325794afb3414fb6c4480450eaba1806e16f7a1dc4a0a",
+      "byteCount": 162186,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Public-domain US Department of Defense rendering of a simulated Atlas humanoid connecting a hose, used beside the TrajOpt full-body planning text."
+    },
+    {
+      "path": "images/baxter-gripper-wrist-camera.jpg",
+      "sha256": "8358a3a385b515488f7f44f95a72e78ffd811ab01ae0c539514d4e2715d0b601",
+      "byteCount": 243037,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Baxter wrist camera and gripper, credited to Gustavo A. Casañ under CC BY-SA 4.0 and used beside the hand-eye calibration text."
+    },
+    {
+      "path": "images/baxter-rethink-innorobo-2015.jpg",
+      "sha256": "31ce5a6771adbe1a49d2556dc9c409e07348a0dd9bd7c706f7c1aafddc2d7df8",
+      "byteCount": 534369,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Rethink Robotics Baxter, credited to Scailyna under CC BY-SA 4.0 and used beside the series elastic actuation text."
+    },
+    {
+      "path": "images/care-o-bot-grasping-2010.jpg",
+      "sha256": "9b9863cb7fc03685991f1ba5e27ad976cc8feb134abfdb5bf772e98d64c82a95",
+      "byteCount": 293998,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Care-O-bot grasping a cylinder, credited to Jiuguang Wang under CC BY-SA 2.0 and used as the grasp-planning lead image."
+    },
+    {
+      "path": "images/cassie-oregon-state-2017.jpg",
+      "sha256": "279c750e2e084a74b15233a271717bfdf25dc042a051254b240e9680d836b250",
+      "byteCount": 423158,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of the Cassie bipedal robot walking in a forest, credited to Oregon State University under CC BY-SA 2.0, illustrating learned bipedal locomotion."
+    },
+    {
+      "path": "images/centrifugal-governor-queen-street-mill.jpg",
+      "sha256": "f2a1a2b9b41aa42e044b0edab13283707d2074fb8fc5847ab6b8226d2fca48e5",
+      "byteCount": 448725,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a mill-engine centrifugal governor, credited to Clem Rutter under CC BY 3.0 and used as the control lead image."
+    },
+    {
+      "path": "images/clearpath-jackal-ugv-2020.jpg",
+      "sha256": "d467b5ded4e909955e21ec8d00eef2e3c13a5c45923e15460416daed8982fa00",
+      "byteCount": 640599,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Public-domain US Army photograph of a Clearpath Jackal ground robot, used beside the Nav2 navigation text in the ROS 2 article."
+    },
+    {
+      "path": "images/conrft-real-world-tasks-2025.jpg",
+      "sha256": "2ed930abd63c1f458d47cf9a05aacd13834e9f4e9220c3bd43d20ef70bef7fc3",
+      "byteCount": 259551,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"ConRFT: A Reinforced Fine-tuning Method for VLA Models via Consistency Policy\" (2502.05450), credited to Yuhui Chen et al.: Overview of all real-world experimental tasks, illustrating the rl finetuning article."
+    },
+    {
+      "path": "images/cosmos-policy-aloha-2026.jpg",
+      "sha256": "90d3668002f40055d85e5ec171bafcfc8a82fc6afbb4032cbe76780554aa9265",
+      "byteCount": 115362,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Cosmos Policy: Fine-Tuning Video Models for Visuomotor Control and Planning\" (2601.16163), credited to Moo Jin Kim et al.: Cosmos Policy in the ALOHA robot tasks, illustrating the foundation models article."
+    },
+    {
       "path": "images/covariate-shift.svg",
       "sha256": "ade5687e7b5f6b0ddce3bda3584e3811a0b3f89bac7a85648b16560f5a5608e8",
       "byteCount": 2589,
       "owner": "robot-wiki-editorial",
       "purpose": "First-party explanatory diagram of covariate shift between demonstration corridor and policy rollout, drawn for the behaviour-cloning articles."
+    },
+    {
+      "path": "images/daydreamer-a1-push-recovery-2022.jpg",
+      "sha256": "f146116c44b130bbde846c1bee953c7f0f65cc8fa2d61bc17860f6d47cd816f9",
+      "byteCount": 156756,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Reproduced CC BY 4.0 figure from the DayDreamer paper (arXiv:2206.14176) of a Unitree A1 recovering from pushes after real-world learning, leading the RL for robotics article."
+    },
+    {
+      "path": "images/daydreamer-a1-rollover-2022.jpg",
+      "sha256": "f5a6e025a0421925eda3c41af5e8ca26c2492c01c8a6449892c662f1703080d2",
+      "byteCount": 138987,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv still from \"DayDreamer: World Models for Physical Robot Learning\" (2206.14176), credited to Philipp Wu et al.: A1 Quadruped Walking (second frame), illustrating the model based robot learning article."
+    },
+    {
+      "path": "images/daydreamer-ur5-pick-place-2022.jpg",
+      "sha256": "ad06a1e9926513e4d797b2769853b0e45602f907b53d3ba579b88c9a38fffbc0",
+      "byteCount": 236664,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv still from \"DayDreamer: World Models for Physical Robot Learning\" (2206.14176), credited to Philipp Wu et al.: UR5 Multi Object Visual Pick and Place (first frame), illustrating the latent dynamics article."
+    },
+    {
+      "path": "images/dp3-real-robot-setup-2024.jpg",
+      "sha256": "ffa1affa5610438dbb70442a194884b95b74a9ca075be94f3a84b568e50bbdd5",
+      "byteCount": 111033,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"3D Diffusion Policy: Generalizable Visuomotor Policy Learning via Simple 3D Representations\" (2403.03954), credited to Yanjie Ze et al.: real-world setup, illustrating the diffusion policy article."
+    },
+    {
+      "path": "images/dreamerv3-open-loop-quadruped-2023.jpg",
+      "sha256": "258420ec194e719106931a7ad4788fe2a1a8bd22a6ffd18fd942459815bb2052",
+      "byteCount": 84372,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Mastering Diverse Domains through World Models\" (2301.04104), credited to Danijar Hafner et al.: Multi-step video predictions (quadruped row), illustrating the taxonomy article."
+    },
+    {
+      "path": "images/droid-in-the-wild-scenes-2024.jpg",
+      "sha256": "6f734d6a46a7e3714000575292e9cda75f071373c7e561f5fbc48d3ad276c2ac",
+      "byteCount": 497552,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset\" (2403.12945), credited to Alexander Khazatsky et al.: qualitative examples of scenes, illustrating the robot learning roadmap article."
+    },
+    {
+      "path": "images/droid-robot-platform-2024.jpg",
+      "sha256": "80b94083050be5e8884f5a93189ce1da7d721e1feee65bdbf3278478e3944945",
+      "byteCount": 136071,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset\" (2403.12945), credited to Alexander Khazatsky et al.: DROID robot platform, illustrating the bc foundations article."
+    },
+    {
+      "path": "images/egoscale-human-to-robot-2026.jpg",
+      "sha256": "efb122bfa9bd87ff03ec04d88586890b394748b197cdf95c60cdc20ed00800fd",
+      "byteCount": 228650,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data\" (2602.16710), credited to Ruijie Zheng et al.: two-stage human-to-robot framework, illustrating the cross embodiment article."
     },
     {
       "path": "images/franka-emika-panda-cebit-2017.jpg",
@@ -121,6 +310,265 @@
       "purpose": "Editorial photograph of a Franka Emika Panda arm at CeBIT 2017, reused under its recorded licence to illustrate collaborative manipulator hardware."
     },
     {
+      "path": "images/gaussian-splatting-garden-2023.jpg",
+      "sha256": "22f334d086a725968adbe057bcd4553d836030cf249952c5deb5ec083137139f",
+      "byteCount": 273676,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"3D Gaussian Splatting for Real-Time Radiance Field Rendering\" (2308.04079), credited to Bernhard Kerbl et al.: Garden scene, full method (gradient-limit ablation, right panel), illustrating the taxonomy and world models vs simulators articles."
+    },
+    {
+      "path": "images/gemini-robotics-aloha-dexterous-2025.jpg",
+      "sha256": "7604e8f92aa2e59019320c4638a9874fcb31ec1ed5afc75182ee0fea2752d9ee",
+      "byteCount": 351839,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Gemini Robotics: Bringing AI into the Physical World\" (2503.20020), credited to Gemini Robotics Team: dexterous manipulation rollouts, illustrating the generalist policies and vla models articles."
+    },
+    {
+      "path": "images/gemini-robotics-apollo-franka-2025.jpg",
+      "sha256": "b74d368f5577e9a8345b76c06f4427e467a8966216a1c912e9b036bdee5dd51e",
+      "byteCount": 165051,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Gemini Robotics: Bringing AI into the Physical World\" (2503.20020), credited to Gemini Robotics Team: post-training embodiment, illustrating the comparison matrix and generalist policies articles."
+    },
+    {
+      "path": "images/gr00t-n1-gr1-tasks-2025.jpg",
+      "sha256": "5f3b47381f3b24985816b962980ccb7df3005e97c518d343841b2f20d5df27b0",
+      "byteCount": 258485,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"GR00T N1: An Open Foundation Model for Generalist Humanoid Robots\" (2503.14734), credited to NVIDIA et al.: Real-World Tasks, illustrating the foundation models and hierarchical articles."
+    },
+    {
+      "path": "images/gr1-video-prediction-2023.jpg",
+      "sha256": "a376cfc3e9fd91a3f90c0ca2a3bf6b39cce030a2d062e5b8a7d0f9f8e7c10517",
+      "byteCount": 303855,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Unleashing Large-Scale Video Generative Pre-training for Visual Robot Manipulation\" (2312.13139), credited to Hongtao Wu et al.: Video Prediction Results, illustrating the generative video article."
+    },
+    {
+      "path": "images/gr2-multitask-settings-2024.jpg",
+      "sha256": "5b4a5c5d4d6d3c20088a5c97d69a1451701605333f2a2d20c6fe48161bbff333",
+      "byteCount": 156696,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"GR-2: A Generative Video-Language-Action Model with Web-Scale Knowledge for Robot Manipulation\" (2410.06158), credited to Chi-Lam Cheang et al.: Multi-Task Learning settings, illustrating the generative video article."
+    },
+    {
+      "path": "images/hamster-2d-paths-2025.jpg",
+      "sha256": "1ac69e2fae3e02b356fd4ac7e00b2bbd0eb64874d2ca3099be067981cb0f3733",
+      "byteCount": 120361,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"HAMSTER: Hierarchical Action Models For Open-World Robot Manipulation\" (2502.05485), credited to Yi Li et al.: VLM generalization (panel c), illustrating the hierarchical article."
+    },
+    {
+      "path": "images/hil-serl-tasks-2024.jpg",
+      "sha256": "05dc13ada9f23aef4413f4be151e179496a0be9288de961436cb171c1961e2b1",
+      "byteCount": 242175,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement Learning\" (2410.21845), credited to Jianlan Luo et al.: Overview of experimental tasks, illustrating the rl finetuning article."
+    },
+    {
+      "path": "images/horse-in-motion-muybridge-1878.jpg",
+      "sha256": "e582d3b1134606dc31120b4c9d91d5e938f85ce2b7d33fec8dd7d913f3cf839e",
+      "byteCount": 680198,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Public-domain 1878 Eadweard Muybridge chronophotograph sequence of a galloping horse, illustrating a gait as a footfall timing pattern."
+    },
+    {
+      "path": "images/isaac-gym-allegro-envs-2021.jpg",
+      "sha256": "e740169c52f0f55f1a729d1288becf96896815ed12161e7061b49822ddac0014",
+      "byteCount": 102311,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Reproduced CC BY 4.0 figure from the Isaac Gym paper (arXiv:2108.10470) showing parallel Allegro hand environments, illustrating cheap simulated steps and the PPO default."
+    },
+    {
+      "path": "images/isaac-gym-anymal-real-stairs-2021.jpg",
+      "sha256": "9bb18aa25c00f46d5e00995545125b82999ec8ed3efb5fc9160900c3887c61c8",
+      "byteCount": 263499,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Reproduced CC BY 4.0 photograph from the Isaac Gym paper (arXiv:2108.10470) of a real ANYmal climbing steps with a simulation-trained policy, leading the sim-to-real transfer article."
+    },
+    {
+      "path": "images/isaac-gym-anymal-terrain-2021.jpg",
+      "sha256": "85fd3fed95835eb68b68c712157e1c5d8b7bbafa05517799635386f07cd9d5ef",
+      "byteCount": 112027,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Reproduced CC BY 4.0 figure from the Isaac Gym paper (arXiv:2108.10470) of ANYmal robots training on curriculum terrain tiles, illustrating terrain curricula."
+    },
+    {
+      "path": "images/isaac-gym-shadow-hand-envs-2021.jpg",
+      "sha256": "1e196a6e076d6d635f1babe8510aab4631bb3c3394a610bb9657438083ac48a7",
+      "byteCount": 110188,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Reproduced CC BY 4.0 figure from the Isaac Gym paper (arXiv:2108.10470) showing parallel Shadow Hand simulation environments, leading the massively parallel simulation article."
+    },
+    {
+      "path": "images/isaac-gym-trifinger-env-2021.jpg",
+      "sha256": "724d86c4463d0faf4b8e718ca473d702f319276d522866ad3070b7366ca7e544",
+      "byteCount": 130769,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Reproduced CC BY 4.0 figure from the Isaac Gym paper (arXiv:2108.10470) rendering the TriFinger platform, leading the offline reinforcement learning article."
+    },
+    {
+      "path": "images/isaac-lab-assembly-real-2025.jpg",
+      "sha256": "d71dbd23a95efe787c8cd192bd735d1d0028272dcdfd4f1c8fc1640b1f6d0301",
+      "byteCount": 238177,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning\" (2511.04831), credited to NVIDIA et al.: Assembly Environments in Isaac Lab (real-world panel), illustrating the world models vs simulators article."
+    },
+    {
+      "path": "images/isaac-lab-assembly-sim-2025.jpg",
+      "sha256": "4faaa2112356aea7af7e1b9fd07be9f32e1f31728d3695613cb595c223c17e92",
+      "byteCount": 131537,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning\" (2511.04831), credited to NVIDIA et al.: Assembly Environments in Isaac Lab (simulation panel), illustrating the world models vs simulators article."
+    },
+    {
+      "path": "images/jetson-agx-orin-auledas-2024.jpg",
+      "sha256": "c577f46dfd8ca6448aa6369d7dd65e34c420ff4cd1833bd74c022dc708ff5f1f",
+      "byteCount": 200404,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of an NVIDIA Jetson AGX Orin developer kit beside its box, credited to Auledas under CC BY 4.0, illustrating on-robot compute limits for real-time policy execution."
+    },
+    {
+      "path": "images/kinect-xbox-360-sensor.jpg",
+      "sha256": "9ab50dcaf8a9aeeaef64764be68ce4e31d2a3d3015a9f590b70322713fb0b4b6",
+      "byteCount": 440174,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a first-generation Kinect, credited to Antonio Roberts under CC BY-SA 2.0 and used beside the KinectFusion signed-distance text."
+    },
+    {
+      "path": "images/kinect-xbox-one-sensor.jpg",
+      "sha256": "e074b82d2237d881f1f9902112e4fba31b7231d6ef10a5680113e26d9a6d4ecd",
+      "byteCount": 177759,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Public-domain photograph of a Kinect for Xbox One time-of-flight sensor by Evan-Amos, used beside the depth-sensing failure text in perception."
+    },
+    {
+      "path": "images/leica-laser-tracker-ats600.jpg",
+      "sha256": "839507df6c4cb488620162c9d79d8fc4dec19f833b89b350f5b2e2eb5d0bb055",
+      "byteCount": 226185,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Leica ATS600 laser tracker, credited to FanchonH under CC BY-SA 4.0 and used as the calibration lead image."
+    },
+    {
+      "path": "images/mini-cheetah-spin-rapid-locomotion-2022.jpg",
+      "sha256": "0fd3f1f520c9bdce37c08454371c21b3ed003fe2343e3c1844ff3fa4b2bd185e",
+      "byteCount": 175621,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Reproduced CC BY 4.0 video still from the Rapid Locomotion paper (arXiv:2205.02824) of the MIT Mini Cheetah spinning under a learned policy, leading the reward design and MPC article."
+    },
+    {
+      "path": "images/motion-capture-session-hyderabad-2026.jpg",
+      "sha256": "85c5e188d0258926c8735c0321c5e72e3026c03d60bf27827f60ce69746a0121",
+      "byteCount": 279463,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of performers in marker suits in an optical motion capture volume, credited to Applearts123 under CC BY-SA 4.0, illustrating the human motion data behind humanoid tracking policies."
+    },
+    {
+      "path": "images/mujoco-playground-environments-2025.jpg",
+      "sha256": "86594092fc98acda05c221a5910eba652d6bf34a295773b794f8b53eeb452a49",
+      "byteCount": 205378,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Reproduced CC BY 4.0 teaser figure from the MuJoCo Playground paper (arXiv:2502.08844) showing the robots it transferred to hardware, illustrating the JAX and MJX simulation line."
+    },
+    {
+      "path": "images/mujoco-playground-franka-block-2025.jpg",
+      "sha256": "3dad76cb53d53bc147f4282f80dd53cec2ddc00f8d3115ce1f9fe34fb84126c2",
+      "byteCount": 185072,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Reproduced CC BY 4.0 photograph from the MuJoCo Playground paper (arXiv:2502.08844) of a real Franka arm pushing a block with a zero-shot transferred policy, illustrating domain randomization."
+    },
+    {
+      "path": "images/navlab-1-5-cmu-2017.jpg",
+      "sha256": "8ac96dfc03fefe95e30a0fc7316432cbbda7ee0cdb56b48313cc6044a70d832d",
+      "byteCount": 130798,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of Carnegie Mellon's Navlab 1 to 5 autonomous research vehicles, credited to Firefly4342 under CC BY-SA 4.0, illustrating the driving origins of behavior cloning."
+    },
+    {
+      "path": "images/octo-evaluation-setups-2024.jpg",
+      "sha256": "5a2fbdacfbc87006ae4567f8b2f053a0d74216859c4087d356ab7ad748d2c77f",
+      "byteCount": 128840,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Octo: An Open-Source Generalist Robot Policy\" (2405.12213), credited to Octo Model Team: Evaluation setups, illustrating the comparison matrix and vla models articles."
+    },
+    {
+      "path": "images/open-x-embodiment-overview-2023.jpg",
+      "sha256": "e7130ad74e4dfc8704a17c99e5c81cbda87e6a05b980f1653ea9953952dac0e4",
+      "byteCount": 174604,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Open X-Embodiment: Robotic Learning Datasets and RT-X Models\" (2310.08864), credited to Open X-Embodiment Collaboration: dataset overview, illustrating the cross embodiment and vla models articles."
+    },
+    {
+      "path": "images/ouster-lidar-point-cloud-sf.jpg",
+      "sha256": "4685badd85b44a1c2c3e4092f8cbbb32856817fe74842054365a93f91e4d77e1",
+      "byteCount": 529655,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial lidar point-cloud rendering of a San Francisco intersection, credited to Daniel L. Lu under CC BY 4.0 and used as the scene-representation lead image."
+    },
+    {
+      "path": "images/phantom-human-video-robot-2025.jpg",
+      "sha256": "cabfa18f3546e11c961c6c708890a7267a6bfea7e56e68fc8f9d4cc5369370c3",
+      "byteCount": 200091,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Phantom: Training Robots Without Robots Using Only Human Videos\" (2503.00779), credited to Marion Lepert et al.: Overview of Phantom, illustrating the cross embodiment article."
+    },
+    {
+      "path": "images/pi0-fast-laundry-folding-2025.jpg",
+      "sha256": "6245ae8cbb40e4b2021b787d1fdada437e9694601079fd4eb5187704ea8d3336",
+      "byteCount": 117325,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"FAST: Efficient Action Tokenization for Vision-Language-Action Models\" (2501.09747), credited to Karl Pertsch et al.: Laundry Folding, illustrating the pi line article."
+    },
+    {
+      "path": "images/pi0-fast-table-bussing-2025.jpg",
+      "sha256": "43b1255c1166d3f51dfdd9e4815cf5132814618067c80c5d286fddbe9e36cfac",
+      "byteCount": 129451,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"FAST: Efficient Action Tokenization for Vision-Language-Action Models\" (2501.09747), credited to Karl Pertsch et al.: Table Bussing, illustrating the knowledge insulation article."
+    },
+    {
+      "path": "images/pi06-box-building-2025.jpg",
+      "sha256": "e9a854e744f3b45605ff3091cfed747ba78146e8edcbc259ae7c2d04629cb73b",
+      "byteCount": 146878,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv still from \"Training-Time Action Conditioning for Efficient Real-Time Chunking\" (2512.05964), credited to Kevin Black et al.: Box building task, illustrating the knowledge insulation article."
+    },
+    {
+      "path": "images/pi06-espresso-2025.jpg",
+      "sha256": "2802573e715afcf1a75088e2f125bde0832dcd98f149ec4b637d8893db63419e",
+      "byteCount": 92249,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv still from \"Training-Time Action Conditioning for Efficient Real-Time Chunking\" (2512.05964), credited to Kevin Black et al.: Espresso making task, illustrating the pi line article."
+    },
+    {
+      "path": "images/pld-gpu-insertion-2025.jpg",
+      "sha256": "18221ca7d4995b9f271f3f24887ef9ae19eb913f65bdfcb665314f5f336a321b",
+      "byteCount": 170742,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Self-Improving Vision-Language-Action Models with Data Generation via Residual RL\" (2511.00091), credited to Wenli Xiao et al.: real-world manipulation tasks, illustrating the rl finetuning article."
+    },
+    {
+      "path": "images/pr2-maker-faire-2011.jpg",
+      "sha256": "7f109464e62cf4b00fee305a771bb1cae0b228eb91270c046e70c12e5f64c6f5",
+      "byteCount": 530981,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a PR2 under the ROS banner at Maker Faire 2011, credited to Timothy Vollmer under CC BY 2.0 and used as the ROS 2 lead image."
+    },
+    {
+      "path": "images/pr2-willow-garage-2010.jpg",
+      "sha256": "c92b0f22cb7765cad81828e4579c11d6fc00c041e987a83f9c8309f6ee721a86",
+      "byteCount": 488374,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Willow Garage PR2 at a table, credited to Steve Jurvetson under CC BY 2.0 and used as the motion-planning lead image."
+    },
+    {
+      "path": "images/puma-500-deutsches-museum.jpg",
+      "sha256": "01aa8bfaa9cd277a7a40d6b619480fcf81a52f6f11a398298e3fde1d58c474e7",
+      "byteCount": 919054,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a 1983 Unimate PUMA 500 arm with its control unit at the Deutsches Museum, credited to Theoprakt under CC BY-SA 3.0, illustrating the coordinates stage of the robot-learning roadmap."
+    },
+    {
       "path": "images/puma-560-nasa-ames.jpg",
       "sha256": "4167b56e44518d5c28a233bbd14d145f9bfbe3469acf5a9042bac1f04929417d",
       "byteCount": 421421,
@@ -128,11 +576,158 @@
       "purpose": "Editorial stroboscopic photograph of a PUMA 560 arm at NASA Ames, a public-domain image used to illustrate classical industrial manipulation."
     },
     {
+      "path": "images/realsense-d435-depth-camera.jpg",
+      "sha256": "3eaba8124ded123d1b62604818de7e5b63175914a7141f25115a467d4fc15e79",
+      "byteCount": 185095,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of an Intel RealSense D435 depth camera, credited to Marc Auledas under CC BY-SA 4.0 and used as the perception lead image."
+    },
+    {
+      "path": "images/roboarena-evaluation-2025.jpg",
+      "sha256": "474b2cad1809b54dca74390d4371ae8a7d59fbd08255e559b0f80047a230d5a1",
+      "byteCount": 205694,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"RoboArena: Distributed Real-World Evaluation of Generalist Robot Policies\" (2506.18123), credited to Pranav Atreya et al.: RoboArena overview, illustrating the comparison matrix and generalist policies articles."
+    },
+    {
+      "path": "images/robocasa-kitchens-2024.jpg",
+      "sha256": "7efe98419660afe0950f1c435a90f11d2140a7daa156d3ca2b5ca1c07f7ff1d1",
+      "byteCount": 222587,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots\" (2406.02523), credited to Soroush Nasiriany et al.: robots in kitchens, illustrating the robot learning roadmap article."
+    },
+    {
+      "path": "images/robocasa-object-library-2024.jpg",
+      "sha256": "5f11d20c892531daa15cc2fc328e97d747f3e0c521272d913e6a00880217cb0e",
+      "byteCount": 214844,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots\" (2406.02523), credited to Soroush Nasiriany et al.: Diverse High-Quality 3D Objects, illustrating the generative sim article."
+    },
+    {
+      "path": "images/robocat-embodiments-2023.jpg",
+      "sha256": "9c681ef729943fe6f41978a18383f14be8559a24c5bd466ef3f38c8e0ede062d",
+      "byteCount": 149782,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"RoboCat: A Self-Improving Generalist Agent for Robotic Manipulation\" (2306.11706), credited to Konstantinos Bousmalis et al.: embodiments and control modes, illustrating the foundation models article."
+    },
+    {
+      "path": "images/roboworld-bair-forcing-2026.jpg",
+      "sha256": "2e4817efcc61fa6d7693696e5aa692dd630fbcdba990a6912be6d107e36fab31",
+      "byteCount": 368363,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation\" (2607.01060), credited to Byeongguk Jeon et al.: Qualitative results on BAIR Robot Pushing, illustrating the evaluation article."
+    },
+    {
+      "path": "images/roboworld-contact-failures-2026.jpg",
+      "sha256": "9e9a27c0a30fe0207bc10de4f1899ae025985536bef415a83205f39a2bc3376c",
+      "byteCount": 436135,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation\" (2607.01060), credited to Byeongguk Jeon et al.: World-model failures detected by the VLM evaluator (appendix), illustrating the generative video article."
+    },
+    {
+      "path": "images/roboworld-synthetic-scenes-2026.jpg",
+      "sha256": "d266a8e2d7a9bab3aa482abf952882cc4d0f5515be97b4abe2f6225247265c96",
+      "byteCount": 125452,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation\" (2607.01060), credited to Byeongguk Jeon et al.: Qualitative examples in synthetic extreme environments, illustrating the model based robot learning article."
+    },
+    {
+      "path": "images/rt-h-language-corrections-2024.jpg",
+      "sha256": "07715820c38a269a273f9e41b36096d8fbaf3c2b7411e259ab8eea644b980ade",
+      "byteCount": 142666,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"RT-H: Action Hierarchies Using Language\" (2403.01823), credited to Suneel Belkhale et al.: generalization to unseen tasks, illustrating the hierarchical article."
+    },
+    {
+      "path": "images/rtc-candle-lighting-2025.jpg",
+      "sha256": "de6c445fcbe8c3e3b746a4fc8fd56baf84bc2906b521908af73531d10081a92d",
+      "byteCount": 282597,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv still from \"Real-Time Execution of Action Chunking Flow Policies\" (2506.07339), credited to Kevin Black et al.: candle task frames, illustrating the realtime execution article."
+    },
+    {
+      "path": "images/schunk-svh-five-finger-hand.jpg",
+      "sha256": "44e2f1a8f81d0c1068531a0b64ccd6513be036f3f60f24a74b254363c26396d3",
+      "byteCount": 167385,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Schunk SVH five-finger hand, credited to NearEMPTiness under CC BY-SA 4.0 and used beside the contact-model text."
+    },
+    {
+      "path": "images/shadow-hand-lightbulb-2007.jpg",
+      "sha256": "70c550ac58acdc65e8f0641b66279387b69c7c0bd91f197d93272101c73bac57",
+      "byteCount": 201992,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of the Shadow Dexterous Hand holding a light bulb, credited to Richard Greenhill and Hugo Elias of the Shadow Robot Company under CC BY-SA 3.0, illustrating multi-contact manipulation."
+    },
+    {
+      "path": "images/simpler-real-vs-sim-2024.jpg",
+      "sha256": "a8b1e7b9d80af714d6ee02f1254d48a007b7bbec81c2dcdd460f515fd458db88",
+      "byteCount": 193999,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Evaluating Real-World Robot Manipulation Policies in Simulation\" (2405.05941), credited to Xuanlin Li et al.: Teaser: real versus simulated evaluation, illustrating the evaluation article."
+    },
+    {
+      "path": "images/simpler-visual-matching-2024.jpg",
+      "sha256": "6c136da1e07dff57dd1423ec4948f3f13307da30b78b02053c51245c4bc32832",
+      "byteCount": 216090,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Reproduced CC BY 4.0 figure from the SIMPLER paper (arXiv:2405.05941) comparing real and visually matched simulated scenes, illustrating simulation as an evaluation proxy."
+    },
+    {
+      "path": "images/spot-boston-dynamics-2023.jpg",
+      "sha256": "188294f3a96ce94437ec3f40229b377d5cace9248ad3e297c4ab00b1008c9f91",
+      "byteCount": 581113,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Boston Dynamics Spot quadruped on a forest path, credited to Jonte under CC BY-SA 4.0, leading the legged locomotion article."
+    },
+    {
+      "path": "images/tdmpc2-task-grid-2023.jpg",
+      "sha256": "6b8eb322db2b7b3f7929b5373704a5e63c362e35fb622599ed0ea6f301b88324",
+      "byteCount": 284595,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"TD-MPC2: Scalable, Robust World Models for Continuous Control\" (2310.16828), credited to Nicklas Hansen et al.: Task visualizations (top rows), illustrating the latent dynamics article."
+    },
+    {
       "path": "images/temporal-ensembling.svg",
       "sha256": "fc9e74e11fd90cd5f07883d796f89f8ce8554de807d74ac44242144cfe8f4645",
       "byteCount": 4182,
       "owner": "robot-wiki-editorial",
       "purpose": "First-party explanatory diagram of temporal ensembling across overlapping action chunks, drawn for the action-chunking article."
+    },
+    {
+      "path": "images/unitree-robots-japan-mobility-show-2025.jpg",
+      "sha256": "2408c2496423afb1a572c0f8f9b45e6323e9e304e2e504dbe41cef8340fb83ea",
+      "byteCount": 610563,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of Unitree humanoids, including a G1, and a quadruped at Japan Mobility Show 2025, credited to RuinDig/Yuki Uchida under CC BY 4.0, illustrating the G1 hardware under GR00T and GEAR-SONIC."
+    },
+    {
+      "path": "images/ur16e-cobot-arm-2020.jpg",
+      "sha256": "d17b45ec59977731f23671ac4ab58c0aaf42507b9e5d1713fbfd81910d6cc8fe",
+      "byteCount": 289607,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Universal Robots UR16e six-joint arm, credited to Auledas under CC BY-SA 4.0 and used as the kinematics lead image."
+    },
+    {
+      "path": "images/velodyne-hdl64-lidar-2009.jpg",
+      "sha256": "361bd1517a18ffa748ca067512e5d3e31af51c517119823d34b11f90f4e57f6b",
+      "byteCount": 246972,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Velodyne HDL-64E lidar on Stanford's Junior 2, credited to Steve Jurvetson under CC BY 2.0 and used beside the SLAM text."
+    },
+    {
+      "path": "images/vjepa2-overview-2025.jpg",
+      "sha256": "419178916544ed2f2b2887029cd57c412171bced9e9fb502ecfd3bb2dc81a06f",
+      "byteCount": 92539,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning\" (2506.09985), credited to Mido Assran et al.: V-JEPA 2 Overview, illustrating the jepa article."
+    },
+    {
+      "path": "images/vjepa2-pick-place-goals-2025.jpg",
+      "sha256": "8bbafe6e95eb2be9b6d459993a3453866b47798add4b736165b7e0914c7f52b6",
+      "byteCount": 314161,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning\" (2506.09985), credited to Mido Assran et al.: Pick and Place Cup (first lab), illustrating the jepa article."
     },
     {
       "path": "models/so101/assets/base_motor_holder_so101_v1.glb",

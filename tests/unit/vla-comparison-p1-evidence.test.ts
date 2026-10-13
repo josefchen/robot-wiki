@@ -14,7 +14,9 @@ import { currentAuditContext, finalSevenPriorPlans } from '../helpers/residual-i
 import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedJson, committedText } from '../helpers/editorial-current-context';
 import { preDomainPass, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
-import { domainPassEndpoint, humanize20261012Endpoint, preDomainPassCitations } from '../helpers/domain-pass';
+import {
+  domainPassEndpoint, humanize20261012Endpoint, imagesA20261013Endpoint, preDomainPassCitations,
+} from '../helpers/domain-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = 'afeeb058097ed5720ca11b03e41d3d2167573f5d';
@@ -81,13 +83,18 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
     expect(styleReadEntry.oldHash).toBe(domainPassEntry.newHash);
     expect(styleReadEntry.reconciles).toBeUndefined();
     // The 2026-10-12 manipulation humanize pass adds one more plain edge,
-    // which ends at the live article.
+    // and images bundle A of 2026-10-13 one more, which ends at the live
+    // article.
     const humanizeEntry = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
       .find((a: { id: string }) => a.id === 'humanize-20261012-manipulation-prose-comparison-matrix');
     expect(humanizeEntry.oldHash).toBe(styleReadEntry.newHash);
     expect(humanizeEntry.reconciles).toBeUndefined();
+    const imagesEntry = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'images-a-20261013-prose-manipulation-comparison-matrix');
+    expect(imagesEntry.oldHash).toBe(humanizeEntry.newHash);
+    expect(imagesEntry.reconciles).toBeUndefined();
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/comparison-matrix')?.hash)
-      .toBe(humanizeEntry.newHash);
+      .toBe(imagesEntry.newHash);
     expect(article).toContain(currentIntro);
     expect(article).not.toContain(oldIntro);
     expect({ ...matter(article).data, seeAlso: undefined })
@@ -133,15 +140,17 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
       .find((a: { id: string }) => a.id === 'reader-first-20261003-prose-manipulation-vla-models');
     expect(vlaReaderFirst.oldHash).toBe(vlaSeo.newHash);
     expect(vlaReaderFirst.reconciles).toBeUndefined();
-    // The 2026-10-06 domain pass continues the reader-first endpoint with one plain edge per batch, and the
-    // 2026-10-12 manipulation humanize pass continues its last batch to the live article.
+    // The 2026-10-06 domain pass continues the reader-first endpoint with one plain edge per batch, the
+    // 2026-10-12 manipulation humanize pass continues its last batch, and images bundle A of 2026-10-13 continues
+    // that to the live article.
     const ledger = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries;
     const vlaDomainPass = ledger.find((a: { id: string }) => a.id === 'domain-pass-20261006-g1-prose-vla-models');
     expect(vlaDomainPass.oldHash).toBe(vlaReaderFirst.newHash);
     expect(vlaDomainPass.reconciles).toBeUndefined();
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/vla-models')?.hash)
-      .toBe(humanize20261012Endpoint(ledger, 'prose', 'article:manipulation/vla-models',
-        domainPassEndpoint(ledger, vlaDomainPass).newHash));
+      .toBe(imagesA20261013Endpoint(ledger, 'prose', 'article:manipulation/vla-models',
+        humanize20261012Endpoint(ledger, 'prose', 'article:manipulation/vla-models',
+          domainPassEndpoint(ledger, vlaDomainPass).newHash)));
     // The original VLA packet did not alter the registry. NASA was added by
     // the later industrial packet, whose complete record has its own test.
     expect(committedSource('89cda67', 'data/citations.ts')).toBe(before('data/citations.ts'));

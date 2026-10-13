@@ -54,6 +54,8 @@ import { ActionConditioning } from '@/components/interactive/action-conditioning
 
 Generative video [world models](/world-models/taxonomy/) are video predictors that generate future pixels from the current frame and an action or text prompt, standing in for the environment to supply training data, policy evaluation, RL post-training and interactive worlds. UniSim trained policies purely inside such a simulator and deployed them zero-shot in the real world <Cite id="unisim-2023" />.
 
+<Image id="gr1-video-prediction-2023" />
+
 Switch "Video model" from "Listens to the action" to "Ignores the action", and the two futures from one start frame collapse onto the same picture. The action-sensitivity score falls to near zero while the visual-realism score stays put. Video generators show this split: "visual realism does not imply physical understanding" <Cite id="physics-iq-2025" />.
 
 <ActionConditioning className="my-6" />
@@ -85,6 +87,8 @@ Project Genie, released in January 2026 for AI Ultra subscribers, caps sessions 
 ## GR-1 and GR-2 built on video pre-training; GR-3 switched to a VLA
 
 GR-1 applied large-scale video generative pre-training to multi-task manipulation, predicting future images and actions end to end. On CALVIN it moved success from 88.9% to 94.9%, and in zero-shot unseen scenes from 53.3% to 85.4% <Cite id="gr-1-2023" />. GR-2 pre-trained on 38 million internet clips and over 50 billion tokens, reporting 97.7% average success across more than 100 tasks <Cite id="gr-2-2024" />. GR-3 then switched to a 4B-parameter VLA <Cite id="gr-3-2025" />.
+
+<Image id="gr2-multitask-settings-2024" />
 
 <span id="world-action-models-as-policies" />
 ## World-action models now run as closed-loop robot policies
@@ -119,6 +123,8 @@ In 100-episode mixtures, generated-only versus real-only policy data scored 87.9
 ## Some video simulators rank policies in real-world order, others do not
 
 RoboWorld pairs an autoregressive video world model with a GPT-4o scorer that rates task progress from 0 to 5 from fixed external views. In its fourth revision, 4,186 generated 30-second rollouts gave eight policy-level scores matching the 26 February 2026 RoboArena leaderboard at Pearson r = 0.989 and Spearman rho = 0.970 (p < 0.001); the eight aggregates are the correlation points. The paper reports contact-induced object artifacts and VLM scores about one point above human scores over roughly 100 rollouts <Cite id="roboworld-2026" />.
+
+<Image id="roboworld-contact-failures-2026" />
 
 DeepMind reports its Veo-based simulator predicted relative policy performance in nominal and out-of-distribution conditions, checked against more than 1,600 real evaluations. Its episodes last 8 seconds, and its authors call contact-rich, small-object interaction an open challenge <Cite id="veo-world-simulator-2025" />. PolaRiS found that the open Ctrl-World hallucinated during object interaction in diverse scenes and mis-ranked policies at MMRV 0.22 <Cite id="polaris-2025" />.
 

@@ -59,6 +59,8 @@ import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescal
 
 Hierarchical approaches are robot architectures in which one level decides *what* to do next and another decides *how* to move. In 2022 the high level was a separate planner choosing from a skill library <Cite id="saycan-2022" />.
 
+<Image id="rt-h-language-corrections-2024" />
+
 By 2026 the high level can run inside the policy network, as in π0.5 <Cite id="pi05-2025" />, or as a separate orchestrator such as Gemini Robotics ER 2 <Cite id="gemini-robotics-2-2026" />. Drag the playhead.
 
 <HierarchyTimescales className="my-6" />
@@ -90,6 +92,8 @@ In September 2026, several groups returned to code-writing planners with coding 
 
 MOKA marks candidate points with GroundedSAM masks and prompts a pretrained VLM to select grasp, function and target keypoints, waypoint regions and motion attributes. Calibrated depth from the [perception pipeline](/classical/perception/) lifts the points into the robot frame, and a separate grasp sampler and motion pipeline execute them, with no full 6-DoF object pose <Cite id="moka-2024" />.
 
+<Image id="hamster-2d-paths-2025" />
+
 ReKep proposes keypoints from DINOv2 features within SAM masks and calibrated RGB-D. GPT-4o writes stage-wise Python sub-goal and path constraints over them, and a hierarchical solver replans end-effector motion while penalizing violations. Results rest on tracking and rigidity assumptions, and some evaluations use human annotations or disable tracking <Cite id="rekep-2024" />.
 
 RoboPoint instruction-tunes a VLM to predict image-space affordance points, co-training synthetic object and free-space data with real-image VQA and LVIS detection data. On Where2Place's 100 real images it reaches 46.77% point-in-mask accuracy against 29.06% for GPT-4o, means of three runs. Its robot experiments add depth, an end-effector offset and a [motion planner](/classical/motion-planning/) <Cite id="robopoint-2024" />.
@@ -107,6 +111,8 @@ RT-H predicts a fine-grained language motion and then actions conditioned on it 
 ## Learned and orchestrated hierarchies, 2025 to 2026
 
 Figure's Helix pairs a 7B VLM at 7 to 9 Hz with an 80M-parameter visuomotor policy at 200 Hz, trained end-to-end <Cite id="helix-2025" />. GR00T N1 runs its VLM at 10 Hz and its action module at 120 Hz <Cite id="gr00t-n1-2025" />, and Fast-in-Slow partially shares parameters between the two, reaching 117.7 Hz with eight-action chunks <Cite id="fast-in-slow-2025" />.
+
+<Image id="gr00t-n1-gr1-tasks-2025" />
 
 π0.5 co-trains on robot data, semantic subtask labels and multimodal web tasks. At inference the same model predicts a language subtask and then actions conditioned on it, running the high level less often <Cite id="pi05-2025" />.
 

@@ -21,7 +21,11 @@ import { httpsUrlSchema, isoDateSchema, slugSchema } from './shared.ts';
  */
 export const IMAGE_LICENCES = [
   'cc0',
+  'cc-by-2.0',
+  'cc-by-3.0',
   'cc-by-4.0',
+  'cc-by-sa-2.0',
+  'cc-by-sa-3.0',
   'cc-by-sa-4.0',
   'public-domain',
   'press-kit',
@@ -70,7 +74,11 @@ export const LEGAL_BASIS_BY_LICENCE: Readonly<
   Record<(typeof IMAGE_LICENCES)[number], LegalBasis>
 > = {
   cc0: 'cc0',
+  'cc-by-2.0': 'cc-by',
+  'cc-by-3.0': 'cc-by',
   'cc-by-4.0': 'cc-by',
+  'cc-by-sa-2.0': 'cc-by-sa',
+  'cc-by-sa-3.0': 'cc-by-sa',
   'cc-by-sa-4.0': 'cc-by-sa',
   'public-domain': 'public-domain',
   'press-kit': 'press-kit-editorial-reuse',
@@ -90,6 +98,7 @@ export const LEGAL_BASIS_BY_LICENCE: Readonly<
  */
 export const FIGURE_KINDS = [
   'photograph',
+  'paper-figure',
   'original-schematic',
   'official-mark',
 ] as const;
@@ -127,7 +136,11 @@ export const LICENCE_LABELS: Readonly<
   Record<(typeof IMAGE_LICENCES)[number], string>
 > = {
   cc0: 'CC0 1.0',
+  'cc-by-2.0': 'CC BY 2.0',
+  'cc-by-3.0': 'CC BY 3.0',
   'cc-by-4.0': 'CC BY 4.0',
+  'cc-by-sa-2.0': 'CC BY-SA 2.0',
+  'cc-by-sa-3.0': 'CC BY-SA 3.0',
   'cc-by-sa-4.0': 'CC BY-SA 4.0',
   'public-domain': 'Public domain',
   'press-kit': 'Press kit',
@@ -139,6 +152,7 @@ export const LICENCE_LABELS: Readonly<
 /** The noun a credit opens with, chosen by what the figure is. */
 export const CREDIT_NOUNS: Readonly<Record<FigureKind, string>> = {
   photograph: 'Photo',
+  'paper-figure': 'Paper figure',
   'original-schematic': 'Diagram',
   'official-mark': 'Logo',
 };

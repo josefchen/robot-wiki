@@ -51,6 +51,8 @@ seeAlso:
 
 Model-based robot learning is the family of methods that learn how the world responds to actions and use that model to plan, to train a policy in imagination, or both. Its two steps are learning a dynamics model and integrating planning with learning <Cite id="mbrl-survey-2020" />.
 
+<Image id="daydreamer-a1-rollover-2022" />
+
 The loop predicts futures under candidate actions, scores them, acts, observes the real transition and updates the model. Sutton proposed integrated architectures for learning, planning and reacting in 1990 <Cite id="dyna-1990" />.
 
 <SelfCheck
@@ -112,6 +114,8 @@ A two-millimeter error is irrelevant in free space and decisive at a tight conne
 ## Neural and hybrid simulators now train real-robot policies
 
 Robotic World Model trains a neural-network simulator for policy optimization <Cite id="robotic-world-model-2025" />, and RWM-U adds epistemic uncertainty to train real quadruped and humanoid policies entirely offline <Cite id="rwm-u-2025" />. RISE improves a VLA inside a [video world model](/world-models/generative-video/) scored by a progress-value model, gaining 35 to 45 points on three real tasks <Cite id="rise-2026" />.
+
+<Image id="roboworld-synthetic-scenes-2026" />
 
 Hybrids keep known physics and learn what it misses: TossingBot learns residuals on a physics-based throw and reached 500+ mean picks per hour <Cite id="tossingbot-2019" />, and ASAP fits a delta action model to real Unitree G1 data <Cite id="asap-2025" />. [World models versus physics simulators](/world-models/world-models-vs-simulators/) compares the options.
 

@@ -92,6 +92,46 @@ describe('imageSchema', () => {
     expect(parsed.error?.message).toContain('cc-by-nc-4.0');
   });
 
+  it('accepts the CC BY and CC BY-SA 2.0 and 3.0 versions on their own family basis', () => {
+    const versions = [
+      ['cc-by-2.0', 'cc-by', 'CC BY 2.0'],
+      ['cc-by-3.0', 'cc-by', 'CC BY 3.0'],
+      ['cc-by-sa-2.0', 'cc-by-sa', 'CC BY-SA 2.0'],
+      ['cc-by-sa-3.0', 'cc-by-sa', 'CC BY-SA 3.0'],
+    ] as const;
+    for (const [licence, basis, label] of versions) {
+      const entry = editorialPhoto({ licence });
+      expect(entry.legalBasis, licence).toBe(basis);
+      expect(entry.attributionText, licence).toBe(
+        `Photo: Ims / Wikimedia Commons. Licence: ${label}.`,
+      );
+      const parsed = imageSchema.safeParse(entry);
+      expect(parsed.success, `${licence}: ${parsed.error?.message}`).toBe(true);
+      // A share-alike photograph cannot borrow the attribution-only basis,
+      // and the reverse, whatever version it carries.
+      const crossed = imageSchema.safeParse({
+        ...entry,
+        legalBasis: basis === 'cc-by' ? 'cc-by-sa' : 'cc-by',
+      });
+      expect(crossed.success, licence).toBe(false);
+    }
+  });
+
+  it('still refuses the non-commercial and no-derivatives variants of every version', () => {
+    for (const licence of [
+      'cc-by-nc-2.0',
+      'cc-by-nd-3.0',
+      'cc-by-nc-sa-2.0',
+      'cc-by-nc-sa-3.0',
+      'cc-by-nc-nd-4.0',
+      'cc-by-2.5',
+    ]) {
+      const parsed = imageSchema.safeParse({ ...validEntry, licence });
+      expect(parsed.success, licence).toBe(false);
+      expect(parsed.error?.message).toContain(licence);
+    }
+  });
+
   it('rejects press-kit and permission licences without a recorded grant reference (VAL-IMG-007)', () => {
     for (const licence of ['press-kit', 'permission'] as const) {
       const parsed = imageSchema.safeParse(editorialPhoto({ licence }));

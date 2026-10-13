@@ -48,6 +48,8 @@ seeAlso:
 
 The robot learning curriculum for ML engineers is a staged path through the robotics that policy experiments depend on: geometry, data, imitation, action representation, evaluation and deployment, each learned just before an experiment needs it. A 2025 open tutorial runs from behavior cloning and reinforcement learning to generalist policies <Cite id="robot-learning-tutorial-2025" />.
 
+<Image id="droid-in-the-wild-scenes-2024" />
+
 Try the check below.
 
 <SelfCheck
@@ -76,6 +78,8 @@ Try the check below.
 ## Stage 1: coordinates
 
 Start with [kinematics](/classical/kinematics/): which frame an object pose or end-effector delta uses, and where joint limits enter. *Modern Robotics* supplies the vocabulary <Cite id="modern-robotics-2017" />, and Tedrake warns that sloppy kinematic notation "will inevitably lead to confusion and bugs" <Cite id="tedrake-manipulation-2026" />. A drifting camera transform or timestamp mismatch can look like a stochastic policy, so [calibration](/classical/calibration/) and [state estimation](/classical/state-estimation/) come next; Kalibr estimates sensor time offsets to a fraction of the smallest measurement period <Cite id="kalibr-2013" />.
+
+<Image id="puma-500-deutsches-museum" />
 
 ## Stage 2: data as a system
 
@@ -106,6 +110,8 @@ Open-loop loss is only a diagnostic; closed-loop success under controlled shifts
 ## Simulation and RL
 
 Simulation tests controller stability and safe reward optimization. Domain randomization aims to make the real world look like one more simulated variation <Cite id="tobin-2017" />, and Isaac Lab targets large-scale robot learning <Cite id="isaac-lab-2025" />, though its dynamics gap to the hardware needs measuring.
+
+<Image id="robocasa-kitchens-2024" />
 
 Offline RL learns from logged data without new collection <Cite id="offline-rl-tutorial-2020" />. Online RL needs safe exploration, automatic resets and cheap evaluation, which SERL bundles with an off-policy learner <Cite id="serl-2024" />; without them, start with <Term id="imitation-learning">imitation learning</Term>. In simulation, RL can stand in for scarce demonstrations: SimpleVLA-RL lifted OpenVLA-OFT trained on one demonstration per task from 48.9% to 96.9% average LIBERO success <Cite id="simplevla-rl-2025" />.
 

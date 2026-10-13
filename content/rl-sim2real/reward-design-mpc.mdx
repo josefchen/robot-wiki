@@ -63,6 +63,8 @@ import { MpcComparison } from '@/components/mdx/mpc-comparison';
 
 Reward design is writing the objective a reinforcement learning policy learns to maximize: in legged locomotion, a weighted sum of terms whose weights are tuned by hand <Cite id="rudin-2021" />, and now also reward code written by language models <Cite id="eureka-2024" />. Model-predictive control instead plans actions online with an explicit dynamics model <Cite id="mujoco-ilqr-2026" />.
 
+<Image id="mini-cheetah-spin-rapid-locomotion-2022" />
+
 <RewardShaping className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -101,6 +103,8 @@ Eureka needs a task-fitness function, which its authors say can diverge from hum
 <Term id="reward-shaping">Reward shaping</Term> decides what to optimize; <Term id="curriculum-learning">curriculum</Term> decides in what order difficulty appears. Ng and colleagues showed that a shaping reward expressible as a difference of potentials leaves the optimal policy unchanged, and that this form is necessary for invariance <Cite id="ng-reward-shaping-1999" />.
 
 A terrain curriculum promotes robots that succeed on a tile to harder terrain and demotes those that fail <Cite id="rudin-2021" />. Manipulation lacks such cheap evaluation, since its [MDP is not cheaply simulatable](/rl-sim2real/why-rl-locomotion). Automatic Domain Randomization widens the randomization distribution as success crosses a threshold, an idea from OpenAI's dexterous hand work that Isaac Lab ships as a configurable curriculum <Cite id="openai-rubiks-cube-2019" /> <Cite id="isaac-lab-2025" />, and a velocity-command curriculum is one of the two main components of Margolis and colleagues' Mini Cheetah controller <Cite id="margolis-rapid-2022" />.
+
+<Image id="isaac-gym-anymal-terrain-2021" />
 
 BVER, from Marco Hutter (ETH Zurich) and colleagues (October 2026), borrows from [bidirectional RRT](/classical/motion-planning/), growing start states outward from the goal and goals outward from the start; on quadruped box climbing it reached 95% success on a 0.4 m box in about 65% fewer iterations than the best reference-free curriculum it was compared with <Cite id="bver-2026" />.
 

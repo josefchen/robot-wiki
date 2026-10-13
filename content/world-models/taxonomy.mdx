@@ -54,6 +54,8 @@ import { WmDisambiguator } from '@/components/interactive/wm-disambiguator';
 
 A <Term id="world-model">world model</Term> is a model that predicts how an environment evolves in a form useful for a robot's decisions. Hou and colleagues' 2026 survey applies this functional definition to visual, <Term id="latent-dynamics">latent</Term>, structured and symbolic predictions. <span className="block" data-taxonomy-source-placement="line-start"><Cite id="world-model-survey-2026" /></span>
 
+<Image id="dreamerv3-open-loop-quadruped-2023" />
+
 Ha and Schmidhuber's 2018 world model learned "a compressed spatial and temporal representation of the environment" <Cite id="ha-world-models-2018" />. Switch "What it imagines" between pictures, a compressed summary and plain facts; "Adjust more" lists six example groups. The six groups are this article's authored selection, not an exhaustive or universally agreed scientific taxonomy.
 
 <WmDisambiguator className="my-6" />
@@ -100,6 +102,8 @@ The same weights and code ran zero-shot on Franka Panda arms in two labs absent 
 
 A world-action model (WAM) uses a pretrained video backbone to predict both future states and robot actions <Cite id="nvidia-wam-blog-2026" />; unlike a [VLA](/manipulation/vla-models/), it learns physical dynamics <Cite id="dreamzero-2026" />. WorldVLA interleaves action and image tokens and reports that the objectives improve each other <Cite id="worldvla-2025" />, and Cosmos Policy post-trains Cosmos-Predict2 into a policy with no architectural modifications <Cite id="cosmos-policy-2026" />. NVIDIA reports that DreamZero runs a 14B video-diffusion model as a 7 Hz closed-loop policy with over twice the generalization of state-of-the-art VLAs on real robots <Cite id="dreamzero-2026" />. Fast-WAM stays competitive while skipping test-time future generation, and removing video co-training hurts far more <Cite id="fast-wam-2026" />.
 
+<Image id="cosmos-policy-aloha-2026" />
+
 ### Symbolic and structured: predict predicates
 
 These models predict transitions over predicates, object relations or 3D occupancy; OccWorld, from autonomous driving, predicts how scene occupancy evolves and plans competitively without instance or map supervision <Cite id="occworld-2023" />. PointWorld predicts the 3D point flows that a sequence of robot actions produces, and at 0.1 s per inference it drives model-predictive control on a real Franka arm with no demonstrations <Cite id="pointworld-2026" />. Silver and colleagues treat learned operators as "a lossy abstraction of the transition model" <Cite id="symbolic-operators-2021" />, and VisualPredicator, which invents its predicates online, generalizes better out of distribution <Cite id="visualpredicator-2024" />.
@@ -113,6 +117,8 @@ MuJoCo is an explicit, hand-specified state-transition model: given a state and 
 ### A 3D Gaussian Splatting twin is not
 
 A 3DGS reconstruction is a learned renderer that predicts a scene from a new camera pose <Cite id="3dgs-2023" />; its dynamics come from the physics engine underneath, so alone it fails the functional cut. PhysGaussian adds dynamics by evolving the Gaussians with a Material Point Method solver <Cite id="physgaussian-2023" />, and World Labs' Marble exports splats with collider meshes "intended for coarse physics simulation" <Cite id="marble-2025" />. See [generative simulation](/world-models/generative-sim/).
+
+<Image id="gaussian-splatting-garden-2023" />
 
 <span id="what-each-paradigm-is-actually-for" />
 ## Video models serve evaluation and data; latent models plan without images

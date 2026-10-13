@@ -50,6 +50,8 @@ import { EvalShiftTable } from '@/components/mdx/text-tables';
 
 World-model evaluation is the testing of a robotics <Term id="world-model">world model</Term> against the decisions a robot must make, from one-step action responses to agreement with real policy rankings. Image metrics cannot establish that: on Physics-IQ, physical understanding in video generators was "unrelated to visual realism" <Cite id="physics-iq-2025" />.
 
+<Image id="simpler-real-vs-sim-2024" />
+
 The central failure is action indifference: smooth, photorealistic futures that ignore the robot's action. A 2026 survey of robot world models rates controllability above visual plausibility <Cite id="world-model-survey-2026" />, and the closed-loop World-in-World benchmark found it mattered more than visual quality for task success <Cite id="world-in-world-2025" />.
 
 <SelfCheck
@@ -90,6 +92,8 @@ Build matched counterfactuals: fix the observation, noise, prompt and history, a
 
 Roll out autoregressively, score task events such as grasp, slip and release, and report error per horizon. Fréchet Video Distance "increases only slightly with large temporal corruption" <Cite id="fvd-content-bias-2024" />. WorldModelBench uses 67K human labels to catch violations such as objects changing size <Cite id="worldmodelbench-2025" />, and video models trained on simple physics failed out of distribution, copying the closest training example <Cite id="video-physical-law-2024" />.
 
+<Image id="roboworld-bair-forcing-2026" />
+
 <span id="level-3-task-progress-scoring" />
 ## Level 3: the progress scorer needs its own test
 
@@ -99,6 +103,8 @@ Many evaluators pair a video generator with a vision-language scorer, as WorldGy
 ## Level 4: the best simulators order policies as real trials do
 
 A policy evaluator must reproduce reality's ordering, measured as Pearson correlation and Mean Maximum Rank Violation (MMRV) <Cite id="runway-gwm-robotics-eval-2026" />. Real comparisons often rest on 10 to 50 trials, and adding trials after peeking risks p-hacking; the STEP sequential test cuts trials by up to 32% <Cite id="optimal-stopping-2025" />.
+
+<Image id="roboarena-evaluation-2025" />
 
 Google DeepMind reports its Veo simulator ranked eight Gemini Robotics checkpoints against more than 1,600 real evaluations at MMRV 0.03, though its absolute success predictions ran low <Cite id="veo-world-simulator-2025" />. WorldGym reached r = 0.78 <Cite id="worldgym-2025" />, and NVIDIA reports r = 0.995 for DreamDojo <Cite id="dreamdojo-2026" />. Runway reports Pearson 0.95 and MMRV 0.033 over eight RoboArena policies, testing ranking only <Cite id="runway-gwm-robotics-eval-2026" />. PolaRiS found that Ctrl-World "produces heavy hallucinations during object interaction", mis-ranking policies at MMRV 0.22 <Cite id="polaris-2025" />.
 

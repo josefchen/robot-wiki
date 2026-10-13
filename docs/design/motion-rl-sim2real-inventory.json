@@ -1,10 +1,31 @@
 [
   {
     "article": "humanoid-wbc",
+    "element": "Image:atlas-electric-hyundai-goyang-2026",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "humanoid-wbc",
     "element": "WbcDecomposition",
     "decision": "keep",
     "teachingGoal": "Compare how the named whole-body policies divide planning and tracking without implying one shared controller.",
     "reason": "The selectable architectures are source-qualified alternatives, not successive states in a rollout."
+  },
+  {
+    "article": "humanoid-wbc",
+    "element": "Image:motion-capture-session-hyderabad-2026",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "humanoid-wbc",
+    "element": "Image:unitree-robots-japan-mobility-show-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "humanoid-wbc",
@@ -26,6 +47,13 @@
     "decision": "keep",
     "teachingGoal": "See that copying a person's joint angles and hip height onto a robot of other proportions leaves its feet floating or sunk.",
     "reason": "One leg-length slider redraws the robot and glides the gap between its foot and the floor, so the artifact grows with the mismatch."
+  },
+  {
+    "article": "legged-locomotion",
+    "element": "Image:spot-boston-dynamics-2023",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "legged-locomotion",
@@ -64,6 +92,27 @@
     "reason": "Each training round is a reader step, so every robot's move up or down follows from the rule it met."
   },
   {
+    "article": "legged-locomotion",
+    "element": "Image:horse-in-motion-muybridge-1878",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "legged-locomotion",
+    "element": "Image:cassie-oregon-state-2017",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "offline-rl",
+    "element": "Image:isaac-gym-trifinger-env-2021",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
     "article": "offline-rl",
     "element": "SelfCheck",
     "decision": "keep",
@@ -86,10 +135,24 @@
   },
   {
     "article": "offline-rl",
+    "element": "Image:simpler-visual-matching-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "offline-rl",
     "element": "RealRobotRlGains",
     "decision": "keep",
     "teachingGoal": "Compare four real-robot studies' success before and after reinforcement learning on top of a data-trained policy.",
     "reason": "One before-and-after toggle moves every study's mark between its reported values, keeping the rows as separate studies."
+  },
+  {
+    "article": "parallel-sim-rl",
+    "element": "Image:isaac-gym-shadow-hand-envs-2021",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
   },
   {
     "article": "parallel-sim-rl",
@@ -115,10 +178,24 @@
   },
   {
     "article": "parallel-sim-rl",
+    "element": "Image:mujoco-playground-environments-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "parallel-sim-rl",
     "element": "NewtonSolvers",
     "decision": "keep",
     "teachingGoal": "See that Newton hands each kind of material to its own solver behind one interface.",
     "reason": "One material choice moves the route through the shared interface to that material's solver."
+  },
+  {
+    "article": "reward-design-mpc",
+    "element": "Image:mini-cheetah-spin-rapid-locomotion-2022",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "reward-design-mpc",
@@ -136,6 +213,13 @@
   },
   {
     "article": "reward-design-mpc",
+    "element": "Image:isaac-gym-anymal-terrain-2021",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "reward-design-mpc",
     "element": "MpcComparison",
     "decision": "keep",
     "teachingGoal": "Compare model-based and learned controls without fabricating a universal winner.",
@@ -147,6 +231,13 @@
     "decision": "keep",
     "teachingGoal": "Choose a surprise and see whether the planner or the trained reflex falls, with all four verdicts kept in view.",
     "reason": "The reader's choice of surprise is the experiment, rather than an authored disturbance schedule."
+  },
+  {
+    "article": "rl-for-robotics",
+    "element": "Image:daydreamer-a1-push-recovery-2022",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "rl-for-robotics",
@@ -164,10 +255,24 @@
   },
   {
     "article": "rl-for-robotics",
+    "element": "Image:isaac-gym-allegro-envs-2021",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "rl-for-robotics",
     "element": "HindsightRelabel",
     "decision": "keep",
     "teachingGoal": "See a missed push become a success to learn from once it is judged against where the puck ended.",
     "reason": "One goal choice slides the goal ring onto the puck and recomputes the reward from 0 to 1."
+  },
+  {
+    "article": "sim2real-transfer",
+    "element": "Image:isaac-gym-anymal-real-stairs-2021",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "sim2real-transfer",
@@ -193,6 +298,13 @@
   },
   {
     "article": "sim2real-transfer",
+    "element": "Image:mujoco-playground-franka-block-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "sim2real-transfer",
     "element": "TeacherStudent",
     "decision": "keep",
     "teachingGoal": "Change authored proprioceptive degradation while comparing privileged terrain to the student's reconstruction.",
@@ -214,6 +326,13 @@
   },
   {
     "article": "why-rl-locomotion",
+    "element": "Image:anymal-x-offshore-stairs-2022",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "why-rl-locomotion",
     "element": "ContactGeometry",
     "decision": "keep",
     "teachingGoal": "Switch between authored locomotion and manipulation contacts to inspect the simulation gap.",
@@ -232,6 +351,13 @@
     "decision": "keep",
     "teachingGoal": "See that a simulation-trained policy carries the simulator's contact errors to the real robot while a demonstration-trained one needs no contact model.",
     "reason": "One recipe choice draws out or retracts the line that carries the contact error to the robot."
+  },
+  {
+    "article": "why-rl-locomotion",
+    "element": "Image:shadow-hand-lightbulb-2007",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "why-rl-locomotion",

@@ -359,6 +359,15 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   edges), each with one plain edge from that endpoint. Its edges on the
  *   other classical members, and on the rl-sim2real members, continue later
  *   chains and re-anchor nothing.
+ * - `images-a-20261013-prose-manipulation-` and `-world-models-`, and the
+ *   classical prose of calibration, ros2-for-ml-engineers and
+ *   state-estimation (exact ids): images bundle A of 2026-10-13 mounted
+ *   images in these articles, each member with one edge that continues the
+ *   humanize or world-models length-cut endpoint, plain or as a resolution
+ *   from the sealed hash where its chain already holds one. Its other
+ *   classical and its rl-sim2real prose edges continue later chains and
+ *   re-anchor nothing, and its registered-image edges start from an absent
+ *   seal.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -400,6 +409,12 @@ export const LATER_REANCHOR_PREFIXES = [
   'humanize-20261012-classical-relationships-calibration',
   'humanize-20261012-classical-relationships-ros2-for-ml-engineers',
   'humanize-20261012-classical-relationships-state-estimation',
+  'images-a-20261013-prose-manipulation-',
+  'images-a-20261013-prose-world-models-',
+  // Exact ids: only these classical image edges continue a re-anchored chain.
+  'images-a-20261013-prose-classical-calibration',
+  'images-a-20261013-prose-classical-ros2-for-ml-engineers',
+  'images-a-20261013-prose-classical-state-estimation',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

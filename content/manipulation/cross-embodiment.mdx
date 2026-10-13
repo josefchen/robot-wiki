@@ -55,6 +55,8 @@ import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodi
 
 <Term id="cross-embodiment">Cross-embodiment transfer</Term> is training one policy on data from bodies with different joint counts, action dimensions and sensors, or moving a policy to an unseen body. Open X-Embodiment pools data from 22 robot embodiments <Cite id="open-x-embodiment-2023" />, and human video adds a body whose actions are estimated from images <Cite id="egoscale-2026" />.
 
+<Image id="open-x-embodiment-overview-2023" />
+
 Try “Translate between bodies”.
 
 <CrossEmbodimentStrategies className="my-6" />
@@ -88,6 +90,8 @@ DeepMind says On-Device 2, natively multi-embodiment with Motion Transfer, adapt
 
 GR00T N1 embedded state and action with embodiment-aware encoders <Cite id="gr00t-n1-2025" />; N1.6 moved most embodiments to state-relative action chunks, which NVIDIA found smoother and more accurate than absolute actions <Cite id="gr00t-n1-6-2025" />. N1.7 shares relative end-effector deltas between human and robot embodiments and calls this a key factor in cross-embodiment performance <Cite id="isaac-gr00t-repo-2026" />.
 
+<Image id="egoscale-human-to-robot-2026" />
+
 EgoScale uses relative wrist motion and <Term id="retargeting">retargets</Term> 21 human hand keypoints to the 22-DoF Sharpa hand, with embodiment-conditioned adapters for <Term id="proprioception">proprioception</Term> and hand actions around a shared backbone and action expert <Cite id="egoscale-2026" />. Morphometric Imitation (September 2026) retargets reconstructed hand-object interactions across [hand morphologies](/frontier/dexterity/), then refines them with residual RL; on a Sharpa hand its policies reached 89.3% zero-shot success in 300 real trials on 30 objects <Cite id="morphometric-imitation-2026" />.
 
 ## Closing the visual embodiment gap
@@ -101,6 +105,8 @@ LAPA learns discrete latent actions between video frames, pretrains a VLA on the
 ## Human-to-robot transfer recipes
 
 Simar Kareer's EgoMimic treated human and robot data equally and found an extra hour of hand data worth more than one of robot data <Cite id="egomimic-2024" />. On December 16, 2025, Kareer and Physical Intelligence colleagues co-fine-tuned π0.5 on human data, with 3D hand positions as actions, and the most relevant robot data. PI reports about 2× performance on four scenarios present only in human data, without trial counts, and transfer that improves as robot pretraining diversifies <Cite id="pi-human-to-robot-2025" />.
+
+<Image id="phantom-human-video-robot-2025" />
 
 EgoScale's Ruijie Zheng and coauthors instead pretrain on human video, mid-train on aligned human-robot data and post-train on task robot data, and find adding aligned mid-training best overall <Cite id="egoscale-2026" />. EgoBridge aligns human and robot policy latents with optimal transport and reports a 44% absolute success gain over human-augmented cross-embodiment baselines <Cite id="egobridge-2025" />. EgoLAP (Princeton, Toyota Research Institute and Physical Intelligence, October 2026) routes human and robot trajectories through a shared chain of language actions and reached 80.1% mean real-world task progress on bimanual YAM robots, 2.3 times the alternative action representations <Cite id="egolap-2026" />.
 

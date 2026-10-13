@@ -58,6 +58,8 @@ import { TerrainCurriculum } from '@/components/interactive/terrain-curriculum';
 
 <Term id="legged-locomotion">Legged locomotion</Term> is the control of walking and running robots, and the area where sim-to-real reinforcement learning reached shipping products such as Spot <Cite id="bd-spot-rl-2024" />. ETH Zurich's ANYmal line went from simulation-trained policies on hardware in 2019 <Cite id="hwangbo-2019" /> to a 2.2 km alpine hike in 2022 <Cite id="miki-2022" />.
 
+<Image id="spot-boston-dynamics-2023" />
+
 <GaitSupport className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -89,6 +91,8 @@ ANYmal Parkour's high-level policy selects walking, jumping, climbing and crouch
 
 A gait is a footfall-timing pattern: each leg's phase offset in the stride and its duty factor $\beta$, the fraction of the cycle on the ground. Walk These Ways commands a gait as three timing offsets between foot pairs plus a stepping frequency: (0.5, 0, 0) trots, (0, 0.5, 0) bounds and (0, 0, 0) pronks <Cite id="walk-these-ways-2022" />.
 
+<Image id="horse-in-motion-muybridge-1878" />
+
 In the MIT Cheetah 2 design, Park, Wensing and Kim plan stance time from stride length and speed, $T_{st} = L/v_d$, keep swing duration fixed, and modulate duty cycle by vertical impulse scaling. Stride length grows with speed only up to 3 m/s, so this is one controller's schedule. Roll instability ended the 6.4 m/s top-speed treadmill run, and at the highest speeds the robot partly leaned on the side wall. The minimum cost of transport, 0.47, came at 4 m/s <Cite id="park-2017-bounding" />.
 
 Margolis and colleagues report record agility for the MIT Mini Cheetah with a learned controller, sustaining speeds up to 3.9 m/s <Cite id="margolis-rapid-2022" />, and periodic reward composition yields standing, walking, hopping, running and skipping on Cassie <Cite id="siekmann-2020" />.
@@ -100,6 +104,8 @@ On Unitree's H1, H2O turns RGB-camera human pose estimates into real-time whole-
 On the G1 with fixed wrists, ASAP trains an ankle delta-action model from real rollouts, freezes it in simulation for fine-tuning, and deploys the policy without it. Its quantitative hardware comparison against Vanilla covers only kicking and LeBron's "Silencer" <Cite id="asap-2025" />.
 
 A causal transformer over proprioceptive history gave humanoids a fully learned controller that deployed zero-shot <Cite id="radosavovic-2023" />. Cassie's dual-history controller ran a 400-meter dash <Cite id="li-cassie-2024" />, a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id="haarnoja-soccer-2023" />, and Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s <Cite id="hiking-wild-2026" />.
+
+<Image id="cassie-oregon-state-2017" />
 
 Jeon and colleagues compared rewards for a simulated 18-DoF MIT Humanoid running with arms fixed and ten leg joints controlled, holding <Term id="ppo">PPO</Term>-Clip <Cite id="ppo-2017" /> and IsaacGym fixed. Ten runs per case converged to similar performance within 1,000 iterations, potential-based shaping was less sensitive across a 0.1 to 10 times weight sweep, and the practical variant set the shaping discount to 1 against PPO's 0.99, which the authors say sacrifices policy invariance <span className="max-sm:[&_[role=tooltip]]:-translate-x-[64px]"><Cite id="mit-humanoid-rewards-2023" /></span>.
 

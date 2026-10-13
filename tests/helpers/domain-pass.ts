@@ -155,6 +155,34 @@ export function humanize20261012Endpoint(
   return edge.newHash;
 }
 
+/**
+ * Edges images bundle A of 2026-10-13 appended as one block after every
+ * earlier landing: one prose edge per manipulation, world-models, classical
+ * and rl-sim2real article that gained image mounts, and one edge from an
+ * absent seal per registered image it added.
+ */
+export const isImagesA20261013Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('images-a-20261013-');
+
+/**
+ * The hash images bundle A leaves on a member whose chain ends at `from`:
+ * its one edge on the member must continue `from`, as a plain edge or as a
+ * resolution that reconciles it; an untouched member stays at `from`.
+ */
+export function imagesA20261013Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isImagesA20261013Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-13 images edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
 /** The citation list a frontmatter P1 row declared for `content/<domain>/<slug>.mdx`. */
 export const preDomainPassCitations = (domain: string, slug: string, citations: readonly string[]) =>
   preDomainPassCitationList(root, `content/${domain}/${slug}.mdx`, citations);

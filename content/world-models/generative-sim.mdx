@@ -53,6 +53,8 @@ import { AppearancePhysicsPush } from '@/components/interactive/appearance-physi
 
 Generative simulation is the use of generative models to author a simulator's tasks, scenes, assets and rewards while a physics engine, itself an unlearned <Term id="world-model">world model</Term>, keeps the dynamics <Cite id="robogen-2024" />. A 2026 survey finds the field shifting "from visual realism toward interaction readiness" <Cite id="3d-gen-embodied-survey-2026" />.
 
+<Image id="robocasa-object-library-2024" />
+
 A rendered scene has no dynamics, and realism does not supply them: on Physics-IQ, physical understanding in video generators was "unrelated to visual realism" <Cite id="physics-iq-2025" />. Try it: push the mug as a picture only, then as a picture plus physics.
 
 <AppearancePhysicsPush className="my-6" />
@@ -93,6 +95,8 @@ Objaverse supplies 800K+ models without physical properties <Cite id="objaverse-
 ## More generated demonstrations raised RoboCasa success from 26.3% to 47.6%
 
 RoboCasa's 120 kitchen scenes combine 10 floor plans with 12 styles from architectural references. It holds 2,509 objects and 153 categories, plus 100 tasks: 25 atomic tasks and 75 composite tasks; GPT-4 and Gemini 1.5 drafted the composite blueprints, with human filtering, editing and code. Objects come from Objaverse and Luma.ai text-to-3D, textures from MidJourney, and MimicGen adapts human demonstrations and keeps successful trajectories <Cite id="robocasa-2024" />. MimicGen itself turned about 200 human demonstrations into over 50K across 18 tasks <Cite id="mimicgen-2023" />.
+
+<Image id="robocasa-kitchens-2024" />
 
 The scaling study trains a language-conditioned BC-Transformer for a Franka Panda on an Omron mobile base on 24 atomic tasks, excluding navigation, with 100, 300, or 3,000 generated demonstrations per task using Objaverse objects and AI-generated textures. Tested with curated textures, unseen objects and 50 trials per task in five kitchens, two in unseen styles, success is 26.3%, 35.0%, and 47.6% respectively. Individual tasks do not improve monotonically <Cite id="robocasa-2024" />. RoboCasa365 extends the platform to 365 tasks in 2,500 kitchens, with 600+ hours of human and 1,600+ hours of synthetic demonstrations for multi-task, foundation-model and lifelong-learning benchmarks <Cite id="robocasa365-2026" />.
 

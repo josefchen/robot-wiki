@@ -61,6 +61,8 @@ import { ScannedTwinCheck } from '@/components/interactive/scanned-twin-check';
 
 Sim-to-real transfer is getting a policy trained in simulation to work on the physical robot, through four families of methods: <Term id="domain-randomization">domain randomization</Term>, <Term id="teacher-student-distillation">teacher-student distillation</Term>, <Term id="system-identification">system identification</Term> and real-to-sim reconstruction. Aljalbout and colleagues' survey covers all four, splitting methods that reduce the gap from those that overcome it <Cite id="reality-gap-survey-2026" />.
 
+<Image id="isaac-gym-anymal-real-stairs-2021" />
+
 <FrictionTransfer className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -78,6 +80,8 @@ Sim-to-real transfer is getting a policy trained in simulation to work on the ph
 Jakobi and colleagues found in 1995 that sim-to-real correspondence depended on how much noise the simulation used <Cite id="jakobi-1995" />. Tobin and colleagues randomized textures, lighting and camera pose for tabletop object localization; their best network localized objects to about 1.5 cm over 480 webcam images of eight geometric objects, though most runs used ImageNet initialization (random initialization nearly matched it given enough simulated data), and their abstract frames the real world as "just another variation" once the simulator varies enough <Cite id="tobin-2017" />.
 
 Peng and colleagues randomized link mass, joint damping, friction, controller gains, action timing and observation noise, maximizing expected return over [that dynamics distribution](/how-robots-work/#worlds). A recurrent policy trained only in simulation pushed a puck with a seven-DoF Fetch arm, with start and target positions randomized within a 30 cm square <Cite id="peng-2018" />.
+
+<Image id="mujoco-playground-franka-block-2025" />
 
 OpenAI's 2018 hand policy randomized friction coefficients and object appearance and transferred to the physical robot <Cite id="openai-dactyl-2018" />. Its Rubik's-cube successor added a <Term id="curriculum-learning">curriculum</Term> version, automatic domain randomization, which widens ranges as the policy succeeds <Cite id="openai-rubiks-cube-2019" />.
 

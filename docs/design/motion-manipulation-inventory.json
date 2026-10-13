@@ -1,10 +1,24 @@
 [
   {
     "article": "action-chunking",
+    "element": "Image:aloha-unleashed-tasks-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "action-chunking",
     "element": "ChunkSizeCurve",
     "decision": "keep",
     "teachingGoal": "Compare the measured ACT chunk-size ablation without losing the falloff at larger open-loop horizons.",
     "reason": "A source-backed curve is best read as a static comparison with direct inspection, not replayed as if the experiment unfolded over time."
+  },
+  {
+    "article": "action-chunking",
+    "element": "Image:aloha-2-workcell-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
   },
   {
     "article": "action-chunking",
@@ -29,10 +43,31 @@
   },
   {
     "article": "action-spaces",
+    "element": "Image:action-space-study-platforms-2026",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "action-spaces",
+    "element": "Image:adaptive-compliance-tasks-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "action-spaces",
     "element": "ActionSpaceTable",
     "decision": "keep",
     "teachingGoal": "Compare representation conventions while retaining the separate assumptions and limitations of each action space.",
     "reason": "The sourced table is a parallel reference, and motion would imply an ordering that the choices do not have."
+  },
+  {
+    "article": "bc-foundations",
+    "element": "Image:droid-robot-platform-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
   },
   {
     "article": "bc-foundations",
@@ -43,10 +78,24 @@
   },
   {
     "article": "bc-foundations",
+    "element": "Image:navlab-1-5-cmu-2017",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "bc-foundations",
     "element": "Image:covariate-shift",
     "decision": "restyle",
     "teachingGoal": "Identify the point where a policy rollout leaves the demonstration corridor.",
     "reason": "Redrawn inline on the figure stage as an original schematic; lime marks only the point where the rollout leaves the demonstrations, so the causal relationship reads in one still."
+  },
+  {
+    "article": "comparison-matrix",
+    "element": "Image:octo-evaluation-setups-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
   },
   {
     "article": "comparison-matrix",
@@ -56,11 +105,53 @@
     "reason": "This table needs reader-controlled filters and visible qualification per row; staged motion could conceal cross-source scope differences."
   },
   {
+    "article": "comparison-matrix",
+    "element": "Image:roboarena-evaluation-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "comparison-matrix",
+    "element": "Image:gemini-robotics-apollo-franka-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "cross-embodiment",
+    "element": "Image:open-x-embodiment-overview-2023",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
     "article": "cross-embodiment",
     "element": "CrossEmbodimentStrategies",
     "decision": "restyle",
     "teachingGoal": "Inspect distinct transfer strategies and their citations without implying one strategy succeeds everywhere.",
     "reason": "Four slot strips on the figure stage share one 32-slot action vector; it opens on the shared relative end-effector space, the one account that fills the human-hand row, and each strategy keeps its own citation and caveat."
+  },
+  {
+    "article": "cross-embodiment",
+    "element": "Image:egoscale-human-to-robot-2026",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "cross-embodiment",
+    "element": "Image:phantom-human-video-robot-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "diffusion-policy",
+    "element": "Image:aloha-unleashed-shirt-rollout-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
   },
   {
     "article": "diffusion-policy",
@@ -78,11 +169,46 @@
     "reason": "The existing reader-controlled horizon makes replanning concrete and should not be replaced by an autoplay sequence."
   },
   {
+    "article": "diffusion-policy",
+    "element": "Image:dp3-real-robot-setup-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "foundation-models",
+    "element": "Image:robocat-embodiments-2023",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "foundation-models",
+    "element": "Image:gr00t-n1-gr1-tasks-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "foundation-models",
+    "element": "Image:cosmos-policy-aloha-2026",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
     "article": "foundation-models",
     "element": "FoundationModelFamiliesTable",
     "decision": "keep",
     "teachingGoal": "Compare foundation-model families by the same documented fields and caveats.",
     "reason": "A static reference table preserves the simultaneous comparison; animation would introduce an unsupported family ranking."
+  },
+  {
+    "article": "generalist-policies",
+    "element": "Image:gemini-robotics-apollo-franka-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
   },
   {
     "article": "generalist-policies",
@@ -92,6 +218,27 @@
     "reason": "This is a reader-driven release lookup rather than simulated runtime time; its source drawer must stay usable."
   },
   {
+    "article": "generalist-policies",
+    "element": "Image:gemini-robotics-aloha-dexterous-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "generalist-policies",
+    "element": "Image:roboarena-evaluation-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "hierarchical",
+    "element": "Image:rt-h-language-corrections-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
     "article": "hierarchical",
     "element": "HierarchyTimescales",
     "decision": "restyle",
@@ -99,11 +246,46 @@
     "reason": "Four lanes share one two-second clock on the figure stage, with fired updates in the action role and a lime playhead; each system keeps its disclosed and schematic rates apart."
   },
   {
+    "article": "hierarchical",
+    "element": "Image:hamster-2d-paths-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "hierarchical",
+    "element": "Image:gr00t-n1-gr1-tasks-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "knowledge-insulation",
+    "element": "Image:pi0-fast-table-bussing-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
     "article": "knowledge-insulation",
     "element": "MotInsulation",
     "decision": "restyle",
     "teachingGoal": "Compare the gradient-routing alternatives in the stated knowledge-insulation setup.",
     "reason": "The box diagram moves to the graphite stage: boxes are structure, each flow takes the role it carries and the stop-gradient barrier is a constraint hatch, while the named ablations stay in the readouts."
+  },
+  {
+    "article": "knowledge-insulation",
+    "element": "Image:pi06-box-building-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "pi-line",
+    "element": "Image:pi06-espresso-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "pi-line",
@@ -114,10 +296,24 @@
   },
   {
     "article": "pi-line",
+    "element": "Image:pi0-fast-laundry-folding-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "pi-line",
     "element": "PiGenerationTimeline",
     "decision": "keep",
     "teachingGoal": "Inspect each named generation with its separately scoped primary source and checkpoint note.",
     "reason": "A user-selected release timeline prevents inferred availability or licensing claims; it is not runtime motion."
+  },
+  {
+    "article": "realtime-execution",
+    "element": "Image:rtc-candle-lighting-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "realtime-execution",
@@ -128,6 +324,13 @@
   },
   {
     "article": "realtime-execution",
+    "element": "Image:jetson-agx-orin-auledas-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "realtime-execution",
     "element": "ExecutionModes",
     "decision": "restyle",
     "teachingGoal": "Compare synchronous, naive-switch and real-time chunking execution under the same added inference delay.",
@@ -135,10 +338,24 @@
   },
   {
     "article": "rl-finetuning",
+    "element": "Image:hil-serl-tasks-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "rl-finetuning",
     "element": "AdvantageScrubber",
     "decision": "restyle",
     "teachingGoal": "Scrub a toy advantage trajectory to understand how a threshold selects training samples.",
     "reason": "The scrubbed value trace, stage blocks and credit arc sit on the figure stage in the value role; the two tags differ by fill and dash, and the toy stays labelled as illustrative."
+  },
+  {
+    "article": "rl-finetuning",
+    "element": "Image:pld-gpu-insertion-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
   },
   {
     "article": "rl-finetuning",
@@ -155,11 +372,39 @@
     "reason": "A table is the appropriate simultaneous reference; motion does not establish missing measurements or release details."
   },
   {
+    "article": "rl-finetuning",
+    "element": "Image:conrft-real-world-tasks-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "vla-models",
+    "element": "Image:gemini-robotics-aloha-dexterous-2025",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
     "article": "vla-models",
     "element": "ActionTokenization",
     "decision": "rethink",
     "teachingGoal": "Map one continuous toy action coordinate to a bin and show why a vector needs sequential token decodes.",
     "reason": "Retain the full coordinate and timestep lab with its sources, then add an opt-in scene-kit sequence to teach the order without replacing controls."
+  },
+  {
+    "article": "vla-models",
+    "element": "Image:open-x-embodiment-overview-2023",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "vla-models",
+    "element": "Image:octo-evaluation-setups-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
   },
   {
     "article": "vla-models",
@@ -174,5 +419,26 @@
     "decision": "remove",
     "teachingGoal": "Show seeded noise becoming two action modes along the flow field before the step-count lab.",
     "reason": "Merged into FlowMatchingTrajectory (one visual per concept). Its graphite stage draws the same seeded noise, Euler paths and two modes, and the step presets reach every former beat from the one-step endpoint to ten steps."
+  },
+  {
+    "article": "robot-learning-roadmap",
+    "element": "Image:droid-in-the-wild-scenes-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "robot-learning-roadmap",
+    "element": "Image:puma-500-deutsches-museum",
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "robot-learning-roadmap",
+    "element": "Image:robocasa-kitchens-2024",
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
   }
 ]
