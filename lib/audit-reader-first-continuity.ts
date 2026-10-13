@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1996578, sha256: '880315ff6c13d9de929bdec30df8578cff6e22fda76210ae9d5e5354f30d2714' };
+const reviewPin = { bytes: 2004596, sha256: '022252b6eab306cc7de31bdcf3f9027a8b797b7a28e6cd5d8ccb2caa9262ac18' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -229,6 +229,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/pi-helix-theses-readers.spec.ts', [3798, 'd4d426d40a5d6ab1020e7e955e2c4d0c10e55d1a04ae6ac062b763743f2d9686']],
   ['tests/e2e/predict-then-reveal.spec.ts', [41092, '8fe64fe8441b66d0564c12575262d8883fd94999f7d28d07aec41b334128b3da']],
   ['tests/e2e/randomization-reader-closeout.spec.ts', [22249, 'dc2948af10c7b3c0c222e1725e0094daaa5f225dd4b1a97dd18f735905c8a182']],
+  ['tests/e2e/reliability-gap.spec.ts', [13492, '0f61ea40d11b824db1a935f3862a0cd0ee52c340bc27c2c545a9cfc750acd3ba']],
   ['tests/e2e/residual-release-classical.spec.ts', [9970, 'cc144bbf81ab277e9be9bbc920f0a98559efe6e44663cd637d1f4dc1bcf39955']],
   ['tests/e2e/residual-release-final-seven.spec.ts', [8414, 'ab048ffe53ba61ba6e58395aadb53ffb59a4e40b4d554a44d61154fd1b8938f6']],
   ['tests/e2e/residual-release-industrial.spec.ts', [7926, '0599bcf96efc6477c6da0e4e5000b4d2c72c0bb760e02398bca448ebde2dd0ea']],

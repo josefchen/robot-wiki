@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-13T01:39:57Z",
+  "observedAt": "2026-10-13T07:40:32Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -11259,6 +11259,89 @@
         {
           "before": "        row.steps.push({ chooseRevealChangeResetAndNativeDisclosure: true, independentMountDefaults: true });\n        await axe(page, row, '[data-predict]', 'prediction-revealed');\n",
           "after": "        await expect(panel.getByTestId('dr-readout')).toHaveText('57%');\n        await expect(panel.getByTestId('dr-peak-label')).toHaveText('DR 57%');\n        await expect(panel.locator('[data-figure-annotation]')).toContainText('one-floor robot wins, 97% against 57%');\n        await centered(range);\n        await capture(page, info, row, 'wide-range');\n        const reset = panel.getByRole('button', { name: 'Reset', exact: true });\n        await reset.focus(); await reset.press('Enter');\n        await expect(range).toHaveValue('35');\n        await modelState(panel, row, 0.8, 0.35);\n        row.steps.push({ wideRangeNativeDisclosureCaveatsAndReset: true, retiredPredictionMount: true });\n        await axe(page, row, 'main [data-figure-frame=\"friction-transfer\"]', 'friction-folds-open');\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "e9f8ba2348972d2390e2ae4d47780a16d065aeee",
+      "before": {
+        "path": "tests/e2e/reliability-gap.spec.ts",
+        "bytes": 11845,
+        "sha256": "f826f404946b5784cf142da08107b22d85d3b5423f4084f57fddeec41c031da5"
+      },
+      "after": {
+        "path": "tests/e2e/reliability-gap.spec.ts",
+        "bytes": 13492,
+        "sha256": "0f61ea40d11b824db1a935f3862a0cd0ee52c340bc27c2c545a9cfc750acd3ba"
+      },
+      "edits": [
+        {
+          "before": "import { expect, test } from '@playwright/test';\n",
+          "after": "import { expect, test, type Page } from '@playwright/test';\n"
+        },
+        {
+          "before": "import { setHydratedSlider as setSlider } from './interaction-ready';\n",
+          "after": "import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\nimport { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';\n"
+        },
+        {
+          "before": "const HORIZON = { name: /episode length/i };\n\n",
+          "after": "const HORIZON = { name: /episode length/i };\n\n/**\n * This mount keeps the per-step presets in the main view and both sliders\n * and Reset in \"Adjust more\", which a reader opens by its summary. A fold\n * opened before hydration makes React report an `open` mismatch.\n */\nasync function openCalculator(page: Page) {\n  const figure = page\n    .locator('[data-figure-frame]', { has: page.getByTestId('episode-success-readout') })\n    .first();\n  await waitForHydration(figure.locator('[data-figure-fold=\"adjust\"] > summary'));\n  await openAdjustMore(figure);\n  return figure;\n}\n\n"
+        },
+        {
+          "before": "    // The three compounding data points, arithmetically exact.\n",
+          "after": "    // The three compounding data points, arithmetically exact. Each tile\n    // reads its value first, then its per-step label.\n"
+        },
+        {
+          "before": "    expect(mainText).toMatch(/95% per-step[\\s\\S]{0,120}21%/);\n    expect(mainText).toMatch(/99% per-step[\\s\\S]{0,120}74%/);\n    expect(mainText).toMatch(/99\\.9% per-step[\\s\\S]{0,120}97%/);\n",
+          "after": "    expect(mainText).toMatch(/21%\\s*95% per-step/);\n    expect(mainText).toMatch(/74%\\s*99% per-step/);\n    expect(mainText).toMatch(/97%\\s*99\\.9% per-step/);\n"
+        },
+        {
+          "before": "    expect(mainText).not.toContain('$$');\n\n",
+          "after": "    expect(mainText).not.toContain('$$');\n\n    // The taxonomy lives in the panel the top bar's \"Articles\" button opens\n    // (the research-page standard of 2026-10-10 removed the sidebar).\n    const articles = page.getByRole('button', { name: 'Articles' });\n    await waitForHydration(articles);\n    await articles.click();\n    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();\n"
+        },
+        {
+          "before": "  test('compounding calculator is interactive and computes correctly (VAL-FRONT-005)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n",
+          "after": "  test('compounding calculator is interactive and computes correctly (VAL-FRONT-005)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    await openCalculator(page);\n"
+        },
+        {
+          "before": "  test('task-horizon control drives the compounding readout (VAL-FRONT-021)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n",
+          "after": "  test('task-horizon control drives the compounding readout (VAL-FRONT-021)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    await openCalculator(page);\n"
+        },
+        {
+          "before": "  test('boundary inputs produce honest outputs (VAL-FRONT-022)', async ({ page }) => {\n    await page.goto(ROUTE);\n",
+          "after": "  test('boundary inputs produce honest outputs (VAL-FRONT-022)', async ({ page }) => {\n    await page.goto(ROUTE);\n    await openCalculator(page);\n"
+        },
+        {
+          "before": "  test('deployment-reality dashboard separates verified from claimed (VAL-FRONT-006)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n",
+          "after": "  test('deployment-reality dashboard separates documented records from demos (VAL-FRONT-006)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    // The records table sits in the dashboard's \"How this was made\" fold and\n    // Reset in its \"Adjust more\" fold. Scope to the dashboard: the\n    // compounding calculator has its own folds and Reset.\n    const dashboard = page.getByTestId('deployment-dashboard');\n    await waitForHydration(dashboard.locator('[data-figure-fold=\"method\"] > summary'));\n    await openHowThisWasMade(dashboard);\n    // The reader-facing names of the two classes; no record is\n    // independently audited, so neither label says \"verified\".\n    const documented = 'Backed by a company document';\n    const demoOnly = 'Demo only';\n"
+        },
+        {
+          "before": "    await expect(agility).toContainText('verified');\n",
+          "after": "    await expect(agility).toContainText(documented);\n"
+        },
+        {
+          "before": "    await expect(figure).toContainText('verified');\n",
+          "after": "    await expect(figure).toContainText(documented);\n"
+        },
+        {
+          "before": "    await expect(tesla).toContainText('verified');\n",
+          "after": "    await expect(tesla).toContainText(documented);\n"
+        },
+        {
+          "before": "    // Claimed rows exist and are visually distinct from verified rows.\n    const claimedBadges = page.getByText('claimed', { exact: true });\n    expect(await claimedBadges.count()).toBeGreaterThanOrEqual(1);\n    const verifiedVariant = await page\n      .getByText('verified', { exact: true })\n",
+          "after": "    // Demo-only rows exist and are visually distinct from documented rows.\n    const demoChips = rows.locator('[data-variant]', { hasText: demoOnly });\n    const demoCount = await demoChips.count();\n    expect(demoCount).toBeGreaterThanOrEqual(1);\n    const documentedVariant = await rows\n      .locator('[data-variant]', { hasText: documented })\n"
+        },
+        {
+          "before": "    const claimedVariant = await claimedBadges.first().getAttribute('data-variant');\n    expect(verifiedVariant).not.toBe(claimedVariant);\n",
+          "after": "    const demoVariant = await demoChips.first().getAttribute('data-variant');\n    expect(documentedVariant).not.toBe(demoVariant);\n"
+        },
+        {
+          "before": "    // Scope to the dashboard: the compounding calculator has its own Reset.\n    const dashboard = page.getByTestId('deployment-dashboard');\n    await dashboard.getByRole('button', { name: 'Claimed' }).click();\n    expect(await page.getByTestId(/^deployment-row-/).count()).toBe(\n      await claimedBadges.count(),\n    );\n",
+          "after": "    await dashboard.getByRole('button', { name: demoOnly, exact: true }).click();\n    await expect(rows).toHaveCount(demoCount);\n"
+        },
+        {
+          "before": "    await expect(dashboard.getByTestId('deployment-count')).toHaveText('1 of 4 rows');\n    await dashboard.getByRole('button', { name: 'Verified' }).click();\n    await expect(dashboard.getByTestId('deployment-count')).toHaveText('3 of 4 rows');\n    await dashboard.getByRole('button', { name: 'Reset' }).click();\n    expect(await page.getByTestId(/^deployment-row-/).count()).toBe(rowCount);\n",
+          "after": "    await expect(dashboard.getByTestId('deployment-count')).toHaveText('1 of 4 records');\n    await dashboard.getByRole('button', { name: documented, exact: true }).click();\n    await expect(dashboard.getByTestId('deployment-count')).toHaveText('3 of 4 records');\n    await openAdjustMore(dashboard);\n    await dashboard.getByRole('button', { name: 'Reset', exact: true }).click();\n    await expect(rows).toHaveCount(rowCount);\n"
         }
       ]
     },

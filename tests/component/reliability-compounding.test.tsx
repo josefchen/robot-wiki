@@ -209,4 +209,34 @@ describe('ReliabilityCompounding with full-range bounds', () => {
       screen.getByRole('slider', { name: /episode length/i }),
     ).toHaveValue('30');
   });
+
+  it('keeps the job length beside the presets on a mount without a preset set', () => {
+    const { container } = render(<ReliabilityCompounding />);
+    const fold = container.querySelector('[data-figure-fold="adjust"]')!;
+    const ranges = [...container.querySelectorAll('input[type="range"]')];
+    expect(ranges.map((input) => input.id.endsWith('-rc-steps'))).toEqual([true, false]);
+    expect(fold.contains(ranges[0])).toBe(false);
+    expect(fold.contains(ranges[1])).toBe(true);
+  });
+
+  it('moves the job length after the per-step slider on a mount with a preset set', () => {
+    // The per-step presets fix the 30-step job, so the first slider a reader
+    // (or a chart-description check) reaches is the per-step one, and the
+    // description follows it and returns to its default text on reset.
+    const { container } = render(
+      <ReliabilityCompounding presets="per-step-thresholds" descriptionVariant="reliability" />,
+    );
+    const fold = container.querySelector('[data-figure-fold="adjust"]')!;
+    const ranges = [...container.querySelectorAll('input[type="range"]')];
+    expect(ranges.map((input) => input.id.endsWith('-rc-per-step'))).toEqual([true, false]);
+    expect(ranges.every((input) => fold.contains(input))).toBe(true);
+    const description = () =>
+      container.querySelector('[data-chart-description]')?.textContent ?? '';
+    const initial = description();
+    expect(initial).toContain('95.0 percent per-step policy yields 21.5% episode success at 30 steps');
+    fireEvent.change(ranges[0], { target: { value: '90' } });
+    expect(description()).toContain('90.0 percent per-step policy yields 4.2% episode success at 30 steps');
+    fireEvent.change(ranges[0], { target: { value: '95' } });
+    expect(description()).toBe(initial);
+  });
 });

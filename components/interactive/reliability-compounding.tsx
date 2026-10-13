@@ -33,9 +33,11 @@ import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
  * p^n. The stage draws that chance against the number of steps, rings the
  * current job, and under the curve fills 100 job tiles with the ones that
  * would finish. The main view offers three per-step presets and the job
- * length; the full per-step slider and Reset sit in "Adjust more". The
- * evaluation-crisis and reliability-gap modules mount it with different
- * defaults, and the headline and caption follow the mount.
+ * length; the full per-step slider and Reset sit in "Adjust more". A mount
+ * with a preset set (reliability-gap) moves the job length into "Adjust
+ * more" after the per-step slider. The evaluation-crisis and reliability-gap
+ * modules mount it with different defaults, and the headline and caption
+ * follow the mount.
  */
 type ReliabilityCompoundingPreset = {
   /** Per-step success probability in [0, 1]. */
@@ -292,6 +294,30 @@ export function ReliabilityCompounding({
     ? [fromX, noteY - TEXT_H]
     : [fromX, noteY + noteLineHeight + TEXT_H * 0.45];
 
+  // A mount with a preset set fixes the job length its presets name, so
+  // the job-length slider joins the full per-step slider in "Adjust more"
+  // and the per-step presets are the one main-view control.
+  const stepsField = (
+    <ControlField>
+      <ControlLabel htmlFor={stepsId} value={`${steps} ${stepWord(steps)}`}>
+        How many steps the job has
+      </ControlLabel>
+      <input
+        id={stepsId}
+        type="range"
+        data-brand-control-id="control:input"
+        min={1}
+        max={maxSteps}
+        step={1}
+        value={steps}
+        onChange={(e) => setSteps(Number(e.target.value))}
+        aria-label={`How many steps the job has (episode length in steps), currently ${steps}`}
+        className={INSTRUMENT_SLIDER_CLASS}
+      />
+      <SliderEnds low="1 step" high={`${maxSteps} steps`} />
+    </ControlField>
+  );
+
   return (
     <InstrumentFigure
       figureId="reliability-compounding"
@@ -307,24 +333,7 @@ export function ReliabilityCompounding({
             onChange={choosePreset}
             testId="per-step-preset"
           />
-          <ControlField>
-            <ControlLabel htmlFor={stepsId} value={`${steps} ${stepWord(steps)}`}>
-              How many steps the job has
-            </ControlLabel>
-            <input
-              id={stepsId}
-              type="range"
-              data-brand-control-id="control:input"
-              min={1}
-              max={maxSteps}
-              step={1}
-              value={steps}
-              onChange={(e) => setSteps(Number(e.target.value))}
-              aria-label={`How many steps the job has (episode length in steps), currently ${steps}`}
-              className={INSTRUMENT_SLIDER_CLASS}
-            />
-            <SliderEnds low="1 step" high={`${maxSteps} steps`} />
-          </ControlField>
+          {presetSet ? null : stepsField}
         </>
       }
       adjust={
@@ -350,6 +359,7 @@ export function ReliabilityCompounding({
               high={`${perStepWords(maxPerStepPercent)} of the time`}
             />
           </ControlField>
+          {presetSet ? stepsField : null}
           <InstrumentReset onClick={reset} />
         </>
       }

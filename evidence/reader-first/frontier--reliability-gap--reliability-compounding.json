@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/frontier/reliability-gap/",
+  "mount": "mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
+  "screenshots": {
+    "375": "evidence/reader-first/frontier--reliability-gap--reliability-compounding.375.png",
+    "1280": "evidence/reader-first/frontier--reliability-gap--reliability-compounding.1280.png"
+  },
+  "takeaway": "Even a robot that gets each step 95% right usually fails a long job, so every step has to be almost perfect.",
+  "sentence": "The figure shows that if a robot gets each step of a job right 95 times in 100, its chance of finishing the whole job falls quickly as the job gets longer, so only about 21 in 100 jobs of 30 steps succeed.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "My sentence has the same subject and trend: at 95% per step, a long job usually fails (only about 21 in 100 thirty-step jobs finish). It does not repeat the conclusion that every step must be almost perfect, but that conclusion follows directly from the same point.",
+  "verdict": "pass",
+  "screenshotCommit": "1024ba42813b0f6838c5403ae9df6a7842f2f0b7",
+  "date": "2026-10-13",
+  "reviewerSession": "reader-session-ce37f497",
+  "sourceDigest": "e78295e52c70d4b84f1334e5f8e80eb2c2c1fa591f286e6a8b866a81d3040af2",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}
