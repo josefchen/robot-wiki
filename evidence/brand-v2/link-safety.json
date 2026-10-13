@@ -884,7 +884,7 @@
       "reachedByTab": 37,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 126
+      "tabStops": 127
     },
     {
       "route": "/adjacent/space/",
@@ -900,7 +900,7 @@
       "reachedByTab": 34,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 98
+      "tabStops": 101
     },
     {
       "route": "/classical/",
@@ -1044,7 +1044,7 @@
       "reachedByTab": 21,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 95
+      "tabStops": 99
     },
     {
       "route": "/data-hardware/teleop-rigs/",
@@ -1084,7 +1084,7 @@
       "reachedByTab": 92,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 238
+      "tabStops": 241
     },
     {
       "route": "/frontier/dexterity/",

@@ -1,25 +1,43 @@
 'use client';
 
-import { useLayoutEffect, useRef } from 'react';
-import { AnimatedElement } from '@/components/motion/animated';
+import { useLayoutEffect, useRef, type ReactNode } from 'react';
+import { AnimatedElement, AnimatedGroup } from '@/components/motion/animated';
 import { clamp01, smooth } from '@/components/motion/easing';
 import { useSceneTime, useStaticTime } from '@/components/motion/scene-context';
 import { SceneMount } from '@/components/motion/scene-mount';
 import { StageSvg } from '@/components/motion/stage';
-import { beatSpans, type SceneDefinition } from '@/components/motion/timeline';
+import { beatSpans, locate, type SceneDefinition } from '@/components/motion/timeline';
 import { LegendItem } from '@/components/ui/instrument';
+import { Dots, Line, Solid, Wire } from '@/components/iso/react/draw';
 import {
+  NEEDLE_ZERO_DEG,
+  agilityKnobDegrees,
+  buildCorridor,
+  delayKnobDegrees,
+  needleDegrees,
+  wheelDegrees,
+  type CorridorLane,
+  type Part,
+} from '@/components/iso/figures/latency-corridor';
+import {
+  AGILITY_STEPS,
   DEFAULT_AGILITY, INTERACTIVE_MAX_LATENCY_MS, OBSTACLE_RADIUS_M, SENSORS,
   latencyOutcome, formatSpeed, formatSeconds,
 } from '@/lib/aerial-latency';
 
 /**
  * Sense-and-avoid: two drones fly at the same wall with the same swerve.
- * The top one has the study's quick camera; the bottom one's camera delay
- * grows to the authored 200 ms setting. The stretch each flies before its
- * camera reports the wall (constraint role) and its swerve (action role)
- * are drawn as distance along the 8 m it can see, so the payoff, a lower
- * top speed, is read off the stage.
+ * The back lane's drone has the study's quick camera; the front lane's
+ * camera delay grows to the authored 200 ms setting.
+ *
+ * The stage is the twin flight-test corridor of the figure above it
+ * (components/iso/figures/latency-corridor.ts): both drones sit on their
+ * test carriages at the light gate, where the camera first sees the wall 8
+ * metres ahead. Each carriage's timer wheel holds the camera's delay; the
+ * gauge board in front reads, on one track per lane, the stretch each drone
+ * flies before its camera reports the wall (constraint role) and its swerve
+ * (action role), drawn to scale along the 8 m, and each console's dial reads
+ * the top safe speed. The payoff, a lower top speed, is read off the stage.
  */
 export const SENSE_AVOID_SCENE: SceneDefinition = {
   id: 'sense-avoid',
@@ -54,13 +72,12 @@ const QUICK = latencyOutcome(STEREO.latencyS, DEFAULT_AGILITY, STEREO.rangeM);
 const SLOW_LATENCY_S = INTERACTIVE_MAX_LATENCY_MS / 1000;
 const SLOW = latencyOutcome(SLOW_LATENCY_S, DEFAULT_AGILITY, STEREO.rangeM);
 
-const TRACK_LEFT = 64;
-const WALL_X = 300;
-/** Stage pixels per metre of the 8 m the camera can see. */
-export const SENSE_AVOID_PX_PER_M = (WALL_X - TRACK_LEFT) / STEREO.rangeM;
-const QUICK_Y = 88;
-const SLOW_Y = 158;
-const TRACK_H = 3;
+/**
+ * Stage units per metre of the 8 m the camera can see, on the gauge board's
+ * tracks: each track is drawn in its own face plane, scaled so a mark's
+ * width is its length in metres times this.
+ */
+export const SENSE_AVOID_PX_PER_M = (300 - 64) / STEREO.rangeM;
 
 const r = (v: number) => Number(v.toFixed(2));
 const kmh = (ms: number) => Math.round(ms * 3.6);
@@ -90,176 +107,218 @@ const QUICK_DIST = senseAvoidDistances(STEREO.latencyS);
 /** The method note: the model and what is authored rather than measured. */
 export const SENSE_AVOID_METHOD_NOTE = `The starting model is Falanga, Kim and Scaramuzza's: an ${STEREO.rangeM} m sensing range, ${DEFAULT_AGILITY} m/s² of sideways agility and the stereo camera's ${formatSeconds(STEREO.latencyS)} latency, which give ${formatSpeed(QUICK.maxSpeedMs)}. The slow camera's ${INTERACTIVE_MAX_LATENCY_MS} ms is an authored setting, not a published camera measurement; it gives ${formatSpeed(SLOW.maxSpeedMs)}. Both drones swerve for the same fixed avoidance duration of about ${formatSeconds(QUICK.avoidanceTimeS)}, which depends only on the agility and the ${OBSTACLE_RADIUS_M} m it must move sideways. The figure above lets you set the delay directly, under "Adjust more".`;
 
-/** A quadcopter seen from the side, as a line drawing: body, arms, motor posts, rotors, skids, nose camera. */
-function Drone({ y }: { y: number }) {
-  const x = TRACK_LEFT - 32;
-  const ink = 'var(--motion-stage-label)';
+// ------------------------------------------------------------------ the rig
+const RIG = buildCorridor({ tracks: 2 });
+/** The front lane carries the slow camera (its marks are the scene's); the back lane the quick one. */
+const SLOW_LANE = 0;
+const QUICK_LANE = 1;
+const TRACK_DEPTH = RIG.trackDepth(SLOW_LANE, SENSE_AVOID_PX_PER_M);
+const FACE = RIG.DIAL_FACE;
+const STANDARD_DETENT = AGILITY_STEPS.indexOf(DEFAULT_AGILITY as (typeof AGILITY_STEPS)[number]);
+
+/** Each lane's delay at scene time t, in ms: the quick lane holds 70, the slow lane grows to 200 in the third beat. */
+const delayMs = (lane: number, t: number) => (lane === QUICK_LANE ? STEREO.latencyS : senseAvoidFrame(t).latency) * 1000;
+/** Each lane's dial reading at t: the quick lane's comes up as it runs, the slow lane's as it is set up, then falls with its delay. */
+const dialKmh = (lane: number, t: number) => {
+  const frame = senseAvoidFrame(t);
+  return lane === QUICK_LANE
+    ? QUICK.maxSpeedMs * 3.6 * smooth(frame.camera)
+    : frame.outcome.maxSpeedMs * 3.6 * frame.slowShown;
+};
+/** The one lit part, beat by beat: the gauge board's 8 m, the quick dial, the slow timer, the slow dial. */
+const litIn = (part: 'board' | 'quick-dial' | 'slow-timer' | 'slow-dial', t: number) => {
+  const beat = locate(SPANS, t).index;
+  return (['board', 'quick-dial', 'slow-timer', 'slow-dial'] as const)[beat] === part ? 'lit' : 'hi';
+};
+/** Propellers turn with scene time. */
+const spin = (k: number, t: number) => r(((t * 0.9) + k * 47 + 20) % 360);
+
+function PartView({ part }: { part: Exclude<Part, { kind: 'slot' }> }): ReactNode {
+  if (part.kind === 'solid') {
+    return <Solid paths={part.paths} tone={part.tone} lit={part.lit} crease={part.crease} inner={part.inner ? <Line d={part.inner} tone="faint" /> : undefined} />;
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  if (part.kind === 'dots') return <Dots points={part.points} size={part.size} tone={part.tone} />;
+  if (part.kind === 'wire') return <Wire from={part.from} to={part.to} via={part.via} tone={part.tone} />;
+  if (part.fill === 'paper') return <path className="iso-fill" d={part.d} />;
   return (
-    <g data-scene-structure="drone" fill="none" stroke={ink} strokeWidth={1.25} strokeLinecap="round">
-      <rect x={x - 8} y={y - 5} width={16} height={9} rx={1.5} fill="var(--motion-stage)" />
-      <line x1={x - 20} y1={y - 8} x2={x - 6} y2={y - 3} />
-      <line x1={x + 20} y1={y - 8} x2={x + 6} y2={y - 3} />
-      <line x1={x - 20} y1={y - 8} x2={x - 20} y2={y - 12} />
-      <line x1={x + 20} y1={y - 8} x2={x + 20} y2={y - 12} />
-      <ellipse cx={x - 20} cy={y - 13} rx={10} ry={1.4} strokeWidth={1} />
-      <ellipse cx={x + 20} cy={y - 13} rx={10} ry={1.4} strokeWidth={1} />
-      <line x1={x - 5} y1={y + 4} x2={x - 8} y2={y + 9} strokeWidth={1} />
-      <line x1={x + 5} y1={y + 4} x2={x + 8} y2={y + 9} strokeWidth={1} />
-      <line x1={x - 11} y1={y + 9} x2={x + 11} y2={y + 9} strokeWidth={1} />
-      <circle cx={x + 10} cy={y} r={2} fill="var(--motion-stage)" />
+    <g>
+      <path className="iso-fill" d={part.d} />
+      {part.fill === 'top' ? <path className="iso-top" d={part.d} /> : <path className="iso-shade" data-shade={part.fill} d={part.d} />}
     </g>
   );
 }
 
-function Lane({ y, label }: { y: number; label: string }) {
-  return (
-    <>
-      <text x={TRACK_LEFT} y={y - 12} fontSize={14} fill="var(--motion-stage-label)">{label}</text>
-      <Drone y={y + TRACK_H / 2} />
-    </>
-  );
+function laneOf(slot: string): CorridorLane {
+  return RIG.lanes[Number(slot.split('-').pop())];
 }
 
-/** The slow drone's top speed, updated with scene time. */
-function SlowSpeedText() {
-  const time = useSceneTime();
-  const poster = useStaticTime();
-  const node = useRef<SVGTextElement>(null);
-  useLayoutEffect(() => {
-    if (!time) return;
-    const apply = (t: number) => {
-      if (node.current) node.current.textContent = `about ${senseAvoidDistances(senseAvoidFrame(t).latency).speedKmh} km/h`;
-    };
-    apply(time.get());
-    return time.on('change', apply);
-  }, [time]);
+/** The two stretches on a lane's track: before the report (constraint) and the swerve (action). */
+function Track({ lane }: { lane: number }) {
+  const matrix = RIG.trackMatrix(lane, SENSE_AVOID_PX_PER_M);
+  if (lane === QUICK_LANE) {
+    const blind = QUICK_DIST.blindM * SENSE_AVOID_PX_PER_M;
+    const swerve = QUICK_DIST.swerveM * SENSE_AVOID_PX_PER_M;
+    return (
+      <g transform={matrix} data-scene-structure="quick-track">
+        <AnimatedElement
+          as="rect"
+          data-scene-structure="quick-blind"
+          data-legend-series="perception-delay"
+          x={0}
+          y={0}
+          height={TRACK_DEPTH}
+          fill="var(--role-constraint-stage)"
+          bindings={{ width: (t) => r(blind * senseAvoidFrame(t).camera) }}
+        />
+        <AnimatedElement
+          as="rect"
+          data-scene-structure="quick-swerve"
+          data-legend-series="avoidance-time"
+          x={r(blind)}
+          y={0.5}
+          height={r(TRACK_DEPTH - 1)}
+          fill="none"
+          stroke="var(--role-action-stage)"
+          strokeWidth={1}
+          vectorEffect="non-scaling-stroke"
+          bindings={{ width: (t) => r(swerve * senseAvoidFrame(t).camera) }}
+        />
+      </g>
+    );
+  }
+  const distances = (t: number) => senseAvoidDistances(senseAvoidFrame(t).latency);
   return (
-    <AnimatedElement
-      as="text"
-      x={TRACK_LEFT}
-      y={SLOW_Y + 32}
-      fontSize={14}
-      fill="var(--motion-stage-label)"
-      bindings={{ opacity: (t) => senseAvoidFrame(t).slowShown }}
-    >
-      <tspan ref={node}>{`about ${senseAvoidDistances(senseAvoidFrame(poster).latency).speedKmh} km/h`}</tspan>
-    </AnimatedElement>
-  );
-}
-
-function SenseAvoidStage() {
-  const quickBlindX = TRACK_LEFT + QUICK_DIST.blindM * SENSE_AVOID_PX_PER_M;
-  return (
-    <StageSvg viewBox="0 0 340 240">
-      <AnimatedElement
-        as="g"
-        data-figure-annotation=""
-        bindings={{ opacity: (t) => senseAvoidFrame(t).recap }}
-      >
-        <text x={10} y={22} fontSize={14} fill="var(--role-highlight-stage)">
-          <tspan x={10} dy={0}>Same wall, same swerve: the slow camera</tspan>
-          <tspan x={10} dy={17.5}>cuts top speed from about {QUICK_DIST.speedKmh} to {senseAvoidDistances(SLOW_LATENCY_S).speedKmh} km/h</tspan>
-        </text>
-        {/* Points at the slow drone's lower top speed. */}
-        <g stroke="var(--role-highlight-stage)" strokeWidth={1} strokeLinecap="round" fill="none">
-          <line x1={30} y1={SLOW_Y + 27} x2={56} y2={SLOW_Y + 27} />
-          <polyline points={`50,${SLOW_Y + 22} 56,${SLOW_Y + 27} 50,${SLOW_Y + 32}`} />
-        </g>
-      </AnimatedElement>
-
-      {/* The wall both drones fly at. */}
-      <AnimatedElement
-        as="g"
-        data-scene-structure="wall"
-        fill="none"
-        stroke="var(--motion-stage-label)"
-        strokeWidth={1.5}
-        bindings={{ opacity: (t) => r(0.3 + 0.7 * senseAvoidFrame(t).detected) }}
-      >
-        {Array.from({ length: 19 }, (_, i) => (
-          <line key={i} x1={WALL_X} x2={WALL_X + 16} y1={r(Math.min(184, 72 + i * 6))} y2={r(Math.max(66, 56 + i * 6))}
-            stroke="var(--motion-stage-grid)" strokeWidth={1} />
-        ))}
-        <rect x={WALL_X} y={66} width={16} height={118} />
-      </AnimatedElement>
-      <text x={WALL_X + 8} y={198} textAnchor="middle" fontSize={14}
-        fill="var(--motion-stage-label-secondary)">
-        wall
-      </text>
-
-      <Lane y={QUICK_Y} label="quick camera" />
-      <AnimatedElement
-        as="rect"
-        data-scene-structure="quick-blind"
-        x={TRACK_LEFT}
-        y={QUICK_Y}
-        height={TRACK_H}
-        fill="var(--role-constraint-stage)"
-        bindings={{ width: (t) => r((quickBlindX - TRACK_LEFT) * senseAvoidFrame(t).camera) }}
-      />
-      <AnimatedElement
-        as="rect"
-        data-scene-structure="quick-swerve"
-        x={r(quickBlindX)}
-        y={QUICK_Y + 0.5}
-        height={TRACK_H - 1}
-        fill="none"
-        stroke="var(--role-action-stage)"
-        strokeWidth={1}
-        bindings={{ width: (t) => r((WALL_X - quickBlindX) * senseAvoidFrame(t).camera) }}
-      />
-      <AnimatedElement
-        as="text"
-        x={TRACK_LEFT}
-        y={QUICK_Y + 32}
-        fontSize={14}
-        fill="var(--motion-stage-label)"
-        bindings={{ opacity: (t) => senseAvoidFrame(t).camera }}
-      >
-        about {QUICK_DIST.speedKmh} km/h
-      </AnimatedElement>
-
-      <AnimatedElement as="g" bindings={{ opacity: (t) => senseAvoidFrame(t).slowShown }}>
-        <Lane y={SLOW_Y} label="slow camera" />
-      </AnimatedElement>
+    <g transform={matrix}>
       <AnimatedElement
         as="rect"
         data-scene-mark="latency-budget"
-        x={TRACK_LEFT}
-        y={SLOW_Y}
-        height={TRACK_H}
+        data-legend-series="perception-delay"
+        x={0}
+        y={0}
+        height={TRACK_DEPTH}
         fill="var(--role-constraint-stage)"
         bindings={{
-          width: (t) => r(senseAvoidDistances(senseAvoidFrame(t).latency).blindM * SENSE_AVOID_PX_PER_M),
+          width: (t) => r(distances(t).blindM * SENSE_AVOID_PX_PER_M),
           opacity: (t) => senseAvoidFrame(t).slowShown,
         }}
       />
       <AnimatedElement
         as="rect"
         data-scene-mark="avoidance-budget"
-        y={SLOW_Y + 0.5}
-        height={TRACK_H - 1}
+        data-legend-series="avoidance-time"
+        y={0.5}
+        height={r(TRACK_DEPTH - 1)}
         fill="none"
         stroke="var(--role-action-stage)"
         strokeWidth={1}
+        vectorEffect="non-scaling-stroke"
         bindings={{
-          x: (t) => r(TRACK_LEFT + senseAvoidDistances(senseAvoidFrame(t).latency).blindM * SENSE_AVOID_PX_PER_M),
-          width: (t) => r(senseAvoidDistances(senseAvoidFrame(t).latency).swerveM * SENSE_AVOID_PX_PER_M),
+          x: (t) => r(distances(t).blindM * SENSE_AVOID_PX_PER_M),
+          width: (t) => r(distances(t).swerveM * SENSE_AVOID_PX_PER_M),
           opacity: (t) => senseAvoidFrame(t).slowShown,
         }}
       />
-      <SlowSpeedText />
+    </g>
+  );
+}
 
-      <g stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)">
-        <line x1={TRACK_LEFT} x2={WALL_X} y1={210} y2={210} />
-        <line x1={TRACK_LEFT} x2={TRACK_LEFT} y1={205} y2={215} />
-        <line x1={WALL_X} x2={WALL_X} y1={205} y2={215} />
+function slotView(name: string): ReactNode {
+  if (name === 'wall') return <g data-scene-part="wall">{run(RIG.WALL_PARTS)}</g>;
+  if (name === 'board-ends') {
+    return <AnimatedElement as="path" className="iso-line" d={RIG.BOARD_ENDS} bindings={{ 'data-tone': (t) => litIn('board', t) }} />;
+  }
+  const lane = laneOf(name);
+  const which = lane.index === QUICK_LANE ? 'quick' : 'slow';
+  if (name.startsWith('carriage-')) return <g data-scene-part={`${which}-carriage`}>{run(lane.carriage)}</g>;
+  if (name.startsWith('slider-')) return <g data-scene-part={`${which}-drone`}>{run(lane.slider)}</g>;
+  if (name.startsWith('coil-back-')) return <Line d={RIG.coilAt(lane.index, 0).back} tone="lo" />;
+  if (name.startsWith('coil-front-')) return <Line d={RIG.coilAt(lane.index, 0).front} tone="mid" />;
+  if (name.startsWith('wheel-')) {
+    return (
+      <g transform={lane.wheelMatrix} data-scene-part={`${which}-timer`}>
+        <AnimatedGroup bindings={{ transform: (t) => `rotate(${r(wheelDegrees(delayMs(lane.index, t)))})` }}>
+          <Line d={lane.wheelFace.slots} tone="faint" />
+          <path className="iso-fill" d={lane.wheelFace.dog} />
+          <Line d={lane.wheelFace.dog} tone="mid" />
+          <AnimatedElement
+            as="path"
+            className="iso-line"
+            d={lane.wheelFace.pointer}
+            bindings={{ 'data-tone': (t) => (lane.index === SLOW_LANE ? litIn('slow-timer', t) : 'hi') }}
+          />
+          <path className="iso-fill" d={lane.wheelFace.hub} />
+          <Line d={lane.wheelFace.hub} tone="lo" />
+        </AnimatedGroup>
       </g>
-      <text x={(TRACK_LEFT + WALL_X) / 2} y={230} textAnchor="middle" fontSize={14}
-        fill="var(--motion-stage-label-secondary)">
-        it can see {STEREO.rangeM} metres ahead
-      </text>
-    </StageSvg>
+    );
+  }
+  if (name.startsWith('props-')) {
+    return lane.props.map((prop, k) => (
+      <g key={k} transform={prop.matrix}>
+        <AnimatedGroup bindings={{ transform: (t) => `rotate(${spin(k, t)})` }}>
+          <path className="iso-fill" d={prop.blade} />
+          <Line d={prop.blade} tone="mid" />
+          <path className="iso-fill" d={prop.hub} />
+          <Line d={prop.hub} tone="lo" />
+        </AnimatedGroup>
+      </g>
+    ));
+  }
+  if (name.startsWith('dial-')) {
+    const part = lane.index === QUICK_LANE ? 'quick-dial' : 'slow-dial';
+    return (
+      <g transform={lane.dialMatrix} data-scene-part={`${which}-dial`}>
+        <path className="iso-fill" d={FACE.face} />
+        <path className="iso-top" d={FACE.face} />
+        <Line d={FACE.rim} tone="lo" />
+        <Line d={FACE.arc} tone="lo" />
+        <Line d={FACE.minor} tone="lo" />
+        <Line d={FACE.major} tone="mid" />
+        <Line d={FACE.zero} tone="hi" />
+        <AnimatedGroup bindings={{ transform: (t) => `rotate(${r(NEEDLE_ZERO_DEG + needleDegrees(dialKmh(lane.index, t)))})` }}>
+          <AnimatedElement as="path" className="iso-line" data-free="" d={RIG.NEEDLE} bindings={{ 'data-tone': (t) => litIn(part, t) }} />
+        </AnimatedGroup>
+        <path className="iso-fill" d={RIG.NEEDLE_HUB} />
+        <Line d={RIG.NEEDLE_HUB} tone="lo" />
+      </g>
+    );
+  }
+  if (name.startsWith('delay-knob-')) {
+    return (
+      <g transform={lane.delayKnobMatrix}>
+        <Line d={RIG.KNOB_HUB} tone="lo" />
+        <AnimatedGroup bindings={{ transform: (t) => `rotate(${r(delayKnobDegrees(delayMs(lane.index, t)))})` }}>
+          <Line d={RIG.KNOB_POINTER} tone="hi" free="end" />
+        </AnimatedGroup>
+      </g>
+    );
+  }
+  if (name.startsWith('agility-knob-')) {
+    return (
+      <g transform={lane.agilityKnobMatrix}>
+        <Line d={RIG.KNOB_HUB} tone="lo" />
+        <g transform={`rotate(${r(agilityKnobDegrees(STANDARD_DETENT))})`}>
+          <Line d={RIG.KNOB_POINTER} tone="hi" free="end" />
+        </g>
+      </g>
+    );
+  }
+  if (name.startsWith('track-')) return <Track lane={lane.index} />;
+  return null;
+}
+
+function run(parts: Part[]): ReactNode[] {
+  return parts.map((part, index) => (part.kind === 'slot' ? <g key={part.slot}>{slotView(part.slot)}</g> : <PartView key={index} part={part} />));
+}
+
+function SenseAvoidStage() {
+  return (
+    <div className="iso" data-anatomy-drawing="">
+      <StageSvg viewBox={RIG.VIEW_BOX} className="iso-svg">
+        {run(RIG.PARTS)}
+      </StageSvg>
+    </div>
   );
 }
 
@@ -285,6 +344,16 @@ function SenseAvoidReadout() {
   return <span aria-live="off" ref={node}>{text(poster)}</span>;
 }
 
+/** A legend swatch: the gauge board's two tracks, the back one for the quick lane. */
+function LaneSwatch() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 16 12" className="inline-block h-3 w-4 shrink-0">
+      <rect x={1} y={2} width={14} height={3} fill="none" stroke="var(--line-strong)" strokeWidth={1} />
+      <rect x={1} y={7} width={14} height={3} fill="none" stroke="var(--line-strong)" strokeWidth={1} />
+    </svg>
+  );
+}
+
 export function SenseAvoid({ className }: { className?: string }) {
   return (
     <SceneMount
@@ -296,6 +365,7 @@ export function SenseAvoid({ className }: { className?: string }) {
           style={{ backgroundColor: 'var(--role-constraint-graphic)' }} />}>flown before the camera reports</LegendItem>
         <LegendItem series="avoidance-time" swatch={<span aria-hidden className="inline-block h-1.5 w-3 border"
           style={{ borderColor: 'var(--role-action-graphic)' }} />}>swerving</LegendItem>
+        <LegendItem swatch={<LaneSwatch />}>back lane and track: quick camera; front: slow camera</LegendItem>
       </>}
       readout={() => <SenseAvoidReadout />}
       statusLine="illustrative"
@@ -305,7 +375,13 @@ export function SenseAvoid({ className }: { className?: string }) {
           Quick camera: {formatSeconds(STEREO.latencyS)} delay, {formatSpeed(QUICK.maxSpeedMs)}, about{' '}
           {QUICK_DIST.blindM.toFixed(1)} m flown before the report. Slow camera:{' '}
           {INTERACTIVE_MAX_LATENCY_MS} ms delay, {formatSpeed(SLOW.maxSpeedMs)}, about{' '}
-          {senseAvoidDistances(SLOW_LATENCY_S).blindM.toFixed(1)} m. Speeds on the stage are the same values in km/h.
+          {senseAvoidDistances(SLOW_LATENCY_S).blindM.toFixed(1)} m. Speeds on the dials are the same values in km/h.
+        </p>
+        <p>
+          The drawing is the flight-test corridor of the figure above, with two lanes: each drone sits on
+          its test carriage at the light gate, where its camera first sees the wall 8 m ahead, with its timer
+          wheel set to the camera&apos;s delay. The gauge board in front is to scale along the 8 m, one track
+          per lane; the drones are drawn larger than that scale.
         </p>
         <p>The four steps, in order:</p>
         <ol>

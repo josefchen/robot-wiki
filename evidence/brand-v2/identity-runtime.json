@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "05a64b7d8068a4201ca5eede2f65b21d33dadb9b33d161c891014af770b79f16",
+  "fingerprint": "17f2f07e95b150e7140324b08cef053cf39c8a73a238ccbce61325b94d9fe2e6",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -241,7 +241,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3246,
+      "visibleTextLength": 3203,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -811,7 +811,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23306,
+      "visibleTextLength": 23218,
       "route": "/adjacent/drones/",
       "viewport": "1440x900"
     },
@@ -1039,7 +1039,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21238,
+      "visibleTextLength": 21728,
       "route": "/adjacent/surgical/",
       "viewport": "1440x900"
     },
@@ -2977,7 +2977,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 30274,
+      "visibleTextLength": 30135,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "1440x900"
     },
@@ -3091,7 +3091,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14237,
+      "visibleTextLength": 14675,
       "route": "/data-hardware/robot-learning-stack/",
       "viewport": "1440x900"
     },
@@ -3661,7 +3661,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28466,
+      "visibleTextLength": 29002,
       "route": "/frontier/competing-theses/",
       "viewport": "1440x900"
     },
@@ -3775,7 +3775,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 33550,
+      "visibleTextLength": 33559,
       "route": "/frontier/dexterity/",
       "viewport": "1440x900"
     },
@@ -4345,7 +4345,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 697,
+      "visibleTextLength": 706,
       "route": "/how-robots-work/",
       "viewport": "1440x900"
     },
@@ -8837,7 +8837,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3246,
+      "visibleTextLength": 3203,
       "route": "/",
       "viewport": "375x812"
     },
@@ -9407,7 +9407,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18308,
+      "visibleTextLength": 18220,
       "route": "/adjacent/drones/",
       "viewport": "375x812"
     },
@@ -9635,7 +9635,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17414,
+      "visibleTextLength": 17904,
       "route": "/adjacent/surgical/",
       "viewport": "375x812"
     },
@@ -11573,7 +11573,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24765,
+      "visibleTextLength": 24626,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "375x812"
     },
@@ -11687,7 +11687,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12625,
+      "visibleTextLength": 13063,
       "route": "/data-hardware/robot-learning-stack/",
       "viewport": "375x812"
     },
@@ -12257,7 +12257,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21078,
+      "visibleTextLength": 21614,
       "route": "/frontier/competing-theses/",
       "viewport": "375x812"
     },
@@ -12371,7 +12371,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27980,
+      "visibleTextLength": 27989,
       "route": "/frontier/dexterity/",
       "viewport": "375x812"
     },

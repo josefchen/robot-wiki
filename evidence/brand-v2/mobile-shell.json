@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3246,
+      "visibleTextLength": 3203,
       "header": {
         "present": true,
         "display": "flex",
@@ -884,7 +884,7 @@
     },
     {
       "route": "/adjacent/drones/",
-      "visibleTextLength": 18308,
+      "visibleTextLength": 18220,
       "header": {
         "present": true,
         "display": "flex",
@@ -1208,7 +1208,7 @@
     },
     {
       "route": "/adjacent/surgical/",
-      "visibleTextLength": 17414,
+      "visibleTextLength": 17904,
       "header": {
         "present": true,
         "display": "flex",
@@ -3962,7 +3962,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 24765,
+      "visibleTextLength": 24626,
       "header": {
         "present": true,
         "display": "flex",
@@ -4124,7 +4124,7 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "visibleTextLength": 12625,
+      "visibleTextLength": 13063,
       "header": {
         "present": true,
         "display": "flex",
@@ -4926,7 +4926,7 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "visibleTextLength": 21078,
+      "visibleTextLength": 21614,
       "header": {
         "present": true,
         "display": "flex",
@@ -5088,7 +5088,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 27980,
+      "visibleTextLength": 27989,
       "header": {
         "present": true,
         "display": "flex",

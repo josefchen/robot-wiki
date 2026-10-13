@@ -23,6 +23,8 @@ seeAlso:
   - "frontier/safety-and-assurance"
 ---
 
+import { MotionPantograph } from '@/components/interactive/motion-pantograph';
+
 import { SurgicalSystemsTable } from '@/components/mdx/surgical-systems-table';
 
 Surgical robotics is the one branch of robotics that cleared the hardest deployment bar decades ago. An <Term id="minimally-invasive-surgery">operating room</Term> is an unstructured, deformable, sterile environment where a fault can kill a patient in seconds and a defect report goes to a federal regulator. Into that room, Intuitive has placed 11,106 da Vinci systems as of the end of 2025, and its fifth-generation platform shipped with a force-sensing capability the company describes as a first for any surgical technology in any modality <Cite id="intuitive-q4-2025" /><Cite id="davinci5-clearance-2024" />. None of it is autonomous in the way this wiki's manipulation modules mean the word. Every da Vinci motion is a surgeon's command, scaled and tremor-filtered. That combination, mass deployment plus near-zero autonomy, is not a paradox. It is the honest answer to the precision and reliability bar this module describes, and it sets a calibration for every autonomy claim elsewhere in robotics.
@@ -32,6 +34,8 @@ The comparison that matters is with the learned-manipulation program this wiki s
 ## The teleoperation baseline
 
 The da Vinci architecture is the pattern the whole field inherited. A surgeon sits at a console away from the table and manipulates hand controllers; a patient-side cart holds three or four articulated arms carrying wristed instruments and an endoscope; a vision stack delivers a magnified stereoscopic view. The machine contributes what a hand holding a laparoscopic stick cannot: motion scaling that divides hand movement into finer instrument movement, tremor filtering, and wrists that articulate inside the body, beyond the wall. The surgeon remains the planner and the controller. In the framework Yang and colleagues proposed for the field, that is Level 0 autonomy, no autonomy, and the framework's authors are explicit that a surgical robot with motion scaling still belongs there because the output represents the surgeon's desired motion <Cite id="yang-autonomy-2017" />.
+
+<MotionPantograph className="my-6" />
 
 Three decades of iteration on that baseline produced the installed base the challengers now compete against. Da Vinci 5, cleared in March 2024 as a fifth-generation multiport system, carries more than 150 enhancements over Xi, including improved controllers with vibration and tremor control, a next-generation 3D display, integrated insufflation and electrosurgery, and more than 10,000 times the computing power of its predecessor <Cite id="davinci5-clearance-2024" />. The most technically consequential addition is <Term id="force-feedback">Force Feedback</Term>: optional instruments that measure and let the surgeon feel the subtle forces the tips exert on tissue. In Intuitive's preclinical trials across experience levels, the capability reduced force exerted on tissue by up to 43 percent <Cite id="davinci5-clearance-2024" />. The commercial gravity of the platform comes through in its deployment figures: the installed base grew 12 percent during 2025 to those 11,106 systems, da Vinci procedures grew roughly 18 percent worldwide in 2025, and 303 of the 532 systems placed in the fourth quarter were da Vinci 5s <Cite id="intuitive-q4-2025" />.
 

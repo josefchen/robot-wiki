@@ -46,6 +46,8 @@ seeAlso:
   - "data-hardware/data-bottleneck"
 ---
 
+import { HelixClockwork } from '@/components/interactive/helix-clockwork';
+
 import { ThesisExplorer } from '@/components/interactive/thesis-explorer';
 
 The competing theses are the rival bets on how robot intelligence gets built: end-to-end VLA scaling, hierarchy, world models, RL fine-tuning, teleoperation as a bridge, and the humanoid form factor. The bets are expensive. Figure has committed \$3.5B of compute to training Helix <Cite id="helix-2-5-2026" />, and Physical Intelligence has staked its program, from π0 to π0.7, on scaling <Cite id="pi07-2026" />.
@@ -79,6 +81,8 @@ Brooks answered Sutton directly: image-labeling systems use a human-designed con
 ## Hierarchical systems run long tasks, while single networks blur the line
 
 The bet here is division of labor: a vision-language model decomposes goals into subtasks, and learned skills or a low-level policy execute them. SayCan (2022) had a separate LLM dispatch a fixed skill library <Cite id="saycan-2022" />; today the hierarchy sits inside the network or in a paired fast system ([hierarchical approaches](/manipulation/hierarchical/)). Google DeepMind builds Gemini Robotics ER 2 as a high-level brain that plans multi-step tasks and hands motor execution to a lower-level VLA <Cite id="gemini-robotics-er2-2026" />. In Figure's Helix 02, S2 interprets scenes and language and sequences behaviors. S1 converts perception into full-body joint targets at 200 Hz, and S0 executes at 1 kHz as the <Term id="whole-body-control">whole-body controller</Term> <Cite id="helix-02-2026" />. NVIDIA's GR00T N1 is "a Vision-Language-Action (VLA) model with a dual-system architecture" <Cite id="gr00t-n1-2025" />.
+
+<HelixClockwork className="my-6" />
 
 The evidence for is long-horizon behavior. Figure reports that Helix 02 completed a continuous four-minute dishwasher unloading-and-reloading task without resets or human intervention, in 61 loco-manipulation actions <Cite id="helix-02-2026" />. In π0.7, language coaching fine-tunes the high-level policy, which then runs the new task autonomously <Cite id="pi07-2026" />. Against it, π0.7's compositional generalization emerges from one network <Cite id="pi07-2026" />, and SayCan's authors found their system bounded by "the range and capabilities of the underlying skills" <Cite id="saycan-2022" />. Gemini Robotics 1.5 already "interleaves actions with a multi-level internal reasoning process" inside one VLA, blurring the line <Cite id="gemini-robotics-15-2025" />. The thesis dies if a flat model with no high-level inference pass outperforms the best hierarchical system on long-horizon tasks.
 

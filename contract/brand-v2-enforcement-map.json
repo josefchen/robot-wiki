@@ -8895,11 +8895,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/perception-latency.tsx:aria-label:2",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/pi-generation-timeline.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -17340,7 +17335,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1783,
+        "populationSize": 1782,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -17445,7 +17440,6 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/perception-error-budget.tsx:aria-label:6",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/perception-error-budget.tsx:aria-label:7",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/perception-latency.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/perception-latency.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/pi-generation-timeline.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/pi-generation-timeline.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/planar-fk-arm.tsx:aria-label:1",
@@ -41176,7 +41170,7 @@
         "statement": "Every stateful chart or interactive provides a visible or screen-reader-accessible current-state description.",
         "expected": "Every stateful chart or interactive provides a visible or screen-reader-accessible current-state description.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41222,7 +41216,7 @@
         "statement": "Every series/state remains distinguishable without colour through label, marker, dash, geometry, or position.",
         "expected": "Every series/state remains distinguishable without colour through label, marker, dash, geometry, or position.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41268,7 +41262,7 @@
         "statement": "Signal blue is the lead active path/series; lime is selection/highlight and is not an unlabeled second series.",
         "expected": "Signal blue is the lead active path/series; lime is selection/highlight and is not an unlabeled second series.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41314,7 +41308,7 @@
         "statement": "Legends agree with actual rendered tokens and name the state or series rather than relying on colour names alone.",
         "expected": "Legends agree with actual rendered tokens and name the state or series rather than relying on colour names alone.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41360,7 +41354,7 @@
         "statement": "Source values remain source-backed and unknowns remain explicitly unknown.",
         "expected": "Source values remain source-backed and unknowns remain explicitly unknown.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41406,7 +41400,7 @@
         "statement": "Every schematic labels itself and every generated/non-source signal labels its generative status.",
         "expected": "Every schematic labels itself and every generated/non-source signal labels its generative status.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41446,7 +41440,7 @@
         "statement": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default through reset.",
         "expected": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default through reset.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41486,7 +41480,7 @@
         "statement": "No explanatory sequence autoplays and no visualization contains decorative fake telemetry.",
         "expected": "No explanatory sequence autoplays and no visualization contains decorative fake telemetry.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41526,7 +41520,7 @@
         "statement": "Reduced motion produces an immediate, understandable state without losing data, controls, or direct manipulation.",
         "expected": "Reduced motion produces an immediate, understandable state without losing data, controls, or direct manipulation.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41566,7 +41560,7 @@
         "statement": "Milestone 1 baselines the current 52 interactive source files and 62 production mounts, but release checks derive both counts from source exports and rendered mounts; source exports, production mounts, and registry entries have three-way equality, stable mount IDs/config fingerprints, and omission/empty-population mutation tests.",
         "expected": "Milestone 1 baselines the current 52 interactive source files and 62 production mounts, but release checks derive both counts from source exports and rendered mounts; source exports, production mounts, and registry entries have three-way equality, stable mount IDs/config fingerprints, and omission/empty-population mutation tests.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41606,7 +41600,7 @@
         "statement": "Every source and materially distinct mount declares the exact bounded §1.15 case set: each discrete option independently; slider min/default/max plus registered discontinuities/source anchors; reset/default/focus/meaningful hover/selected; one witness per implemented loading/error/empty/unavailable state; deterministic pairwise independent-control combinations; and only listed higher-order combinations. Expected case count is exact and non-zero; unsupported states use typed `notApplicableReason`.",
         "expected": "Every source and materially distinct mount declares the exact bounded §1.15 case set: each discrete option independently; slider min/default/max plus registered discontinuities/source anchors; reset/default/focus/meaningful hover/selected; one witness per implemented loading/error/empty/unavailable state; deterministic pairwise independent-control combinations; and only listed higher-order combinations. Expected case count is exact and non-zero; unsupported states use typed `notApplicableReason`.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41646,7 +41640,7 @@
         "statement": "Every source and materially distinct mount produces the registered bounded default/changed mobile/desktop `captures[]`, a deterministic contact sheet, exact expected/observed case counts, and the §1.12 rubric; root computed styles alone cannot satisfy visual coverage.",
         "expected": "Every source and materially distinct mount produces the registered bounded default/changed mobile/desktop `captures[]`, a deterministic contact sheet, exact expected/observed case counts, and the §1.12 rubric; root computed styles alone cannot satisfy visual coverage.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 70,
+        "populationSize": 73,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41692,7 +41686,7 @@
         "statement": "Source/render parity uses independent expected-value-to-coordinate/label/readout checks, legend-to-mark bijection, and source/assumption IDs; an expected value copied from rendered output is vacuous and fails.",
         "expected": "Source/render parity uses independent expected-value-to-coordinate/label/readout checks, legend-to-mark bijection, and source/assumption IDs; an expected value copied from rendered output is vacuous and fails.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41784,7 +41778,7 @@
         "statement": "Canvas renderers expose deterministic coordinate/label/readout probes and bound textual alternatives; resize/DPR changes preserve semantic coordinates, reset/default state, and source-backed values.",
         "expected": "Canvas renderers expose deterministic coordinate/label/readout probes and bound textual alternatives; resize/DPR changes preserve semantic coordinates, reset/default state, and source-backed values.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -41824,7 +41818,7 @@
         "statement": "Tooltips, legends, and table equivalents have pointer/keyboard parity, logical focus order, retained focus across async updates, unique IDs, label-in-name, and complete live-region state announcements.",
         "expected": "Tooltips, legends, and table equivalents have pointer/keyboard parity, logical focus order, retained focus across async updates, unique IDs, label-in-name, and complete live-region state announcements.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 71,
+        "populationSize": 74,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
