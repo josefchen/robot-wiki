@@ -14,8 +14,8 @@ describe('Technology.org withdrawal and primary-source scope', () => {
     ]);
     const byId = new Map(DEPLOYMENT_ROWS.map(row => [row.id, row]));
     expect(byId.get('agility-digit')).toMatchObject({
-      value: '65,000', sourceId: 'agility-digit-production', status: 'verified',
-      asOf: 'n.d.; accessed Sep 24, 2026',
+      value: '65,000', sourceId: 'agility-digit-5-2026', status: 'verified',
+      asOf: 'Sep 15, 2026',
     });
     expect(byId.get('figure-bmw')).toMatchObject({
       value: '1,250+', sourceId: 'figure-bmw-production-2025', status: 'verified',
@@ -24,8 +24,8 @@ describe('Technology.org withdrawal and primary-source scope', () => {
     expect(byId.get('figure-bmw')?.detail).toContain('90,000+ parts');
     expect(byId.get('figure-bmw')?.detail).not.toMatch(/achieved.{0,20}(84|99)|above 99% placement accuracy/);
     expect(byId.get('tesla-optimus')).toMatchObject({
-      value: 'Construction', sourceId: 'tesla-q1-2026-update', status: 'verified',
-      asOf: 'Q1 2026',
+      value: 'Construction', sourceId: 'tesla-q2-2026-update', status: 'verified',
+      asOf: 'Q2 2026',
     });
     expect(byId.get('tesla-optimus')?.detail).not.toMatch(/mid-July|built|never published/i);
     expect(DEPLOYMENT_ROWS.map(row => `${row.value} ${row.detail}` ).join(' '))

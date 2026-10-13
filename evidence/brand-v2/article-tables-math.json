@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "961174f6d33ec2964c373fadd5e3a6954f67169a24f907d718ad81a6bf548f56",
+  "fingerprint": "bbec5c420f406e6d848ac3cde293e5a99c3bbe7a0d0de6289d155a5fe6bfe4a0",
   "viewports": [
     "375x812",
     "1440x900"
@@ -4548,7 +4548,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 16177,
+      "visibleTextLength": 15683,
       "tables": [
         {
           "index": 0,
@@ -4599,7 +4599,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21614,
+      "visibleTextLength": 20263,
       "tables": [
         {
           "index": 0,
@@ -4701,7 +4701,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 19495,
+      "visibleTextLength": 18613,
       "tables": [
         {
           "index": 0,
@@ -4801,7 +4801,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 16487,
+      "visibleTextLength": 15732,
       "tables": [
         {
           "index": 0,
@@ -4844,10 +4844,10 @@
             "role": "region",
             "accessibleName": "Deployment programs with their reported value, what backs each record, and the source behind it. The filter above the chart narrows these rows too.",
             "clientWidth": 293,
-            "scrollWidth": 623,
+            "scrollWidth": 537,
             "scrolledBy": 40
           },
-          "tableWidth": 623,
+          "tableWidth": 537,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -5002,7 +5002,7 @@
           "accessibleName": "Deployment programs with their reported value, what backs each record, and the source behind it. The filter above the chart narrows these rows too.",
           "tabIndex": 0,
           "clientWidth": 293,
-          "scrollWidth": 623,
+          "scrollWidth": 537,
           "scrolledBy": 40
         }
       ],
@@ -5016,7 +5016,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 27353,
+      "visibleTextLength": 25820,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -12803,7 +12803,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21854,
+      "visibleTextLength": 21360,
       "tables": [
         {
           "index": 0,
@@ -12854,7 +12854,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 29002,
+      "visibleTextLength": 26843,
       "tables": [
         {
           "index": 0,
@@ -12956,7 +12956,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 26399,
+      "visibleTextLength": 25517,
       "tables": [
         {
           "index": 0,
@@ -13056,7 +13056,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21394,
+      "visibleTextLength": 20478,
       "tables": [
         {
           "index": 0,
@@ -13271,7 +13271,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 38540,
+      "visibleTextLength": 36834,
       "tables": [],
       "equations": [],
       "scrollRegions": [],

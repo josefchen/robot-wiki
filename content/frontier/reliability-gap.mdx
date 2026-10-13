@@ -47,7 +47,7 @@ seeAlso:
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 import { DeploymentDashboard } from '@/components/interactive/deployment-dashboard';
 
-The reliability gap is the difference between the <Term id="success-rate">success rates</Term> a robot shows in controlled settings and the rates deployment requires. A robot that finishes a task 80% of the time is a demo; one that finishes it 99.9% of the time is a product. Bessemer calls getting from one to the other "not a linear problem" <Cite id="bessemer-robotics-2026" />.
+The reliability gap is the difference between the <Term id="success-rate">success rates</Term> a robot shows in controlled settings and the rates deployment requires. A robot that finishes a task 80% of the time is a demo, one that finishes it 99.9% of the time is a product, and Bessemer calls closing the gap "not a linear problem" <Cite id="bessemer-robotics-2026" />.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
   <Stat label="95% per-step" value="21%" note="end-to-end over 30 steps" accent />
@@ -58,38 +58,38 @@ The reliability gap is the difference between the <Term id="success-rate">succes
 <span id="the-arithmetic-of-compounding" />
 ## At 99.9% per step, a 30-step task still fails about once in 34 runs
 
-A task succeeds only when every step does. If each of $N$ steps succeeds independently with probability $p$, the task completes with probability $p^N$, so 99.9% per step still fails a 30-step task about once in 34 runs. A result reported without its horizon cannot be compared, and papers often omit the number of runs, initial conditions and success criteria <Cite id="kress-gazit-evaluation-2024" />. Press the “How often each step goes right” presets, then open “Adjust more” and drag the per-step slider toward 100.
+A task succeeds only when every step does: if each of $N$ steps succeeds independently with probability $p$, the task completes with probability $p^N$. A result without its horizon cannot be compared, and papers often omit runs, initial conditions and success criteria <Cite id="kress-gazit-evaluation-2024" />. Try the presets, then drag the per-step slider under “Adjust more” toward 100.
 
 <ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} presets="per-step-thresholds" descriptionVariant="reliability" className="my-6" />
 
 <FigureReuse className="-mt-4" href="/data-hardware/evaluation-crisis/" page="Evaluation crisis">Here the calculator sets the per-step bar a deployment must clear; the curve is taught in</FigureReuse>
 
-Independence is generous. A mistake carries the robot outside its training distribution, where the next is likelier, so <Term id="compounding-error">compounding error</Term> makes the true curve worse. An imitator with per-step error $\varepsilon$ can make up to $T^2\varepsilon$ mistakes over $T$ steps <Cite id="dagger-2011" />, and smooth deterministic imitators of continuous actions suffer error "exponentially larger, as a function of problem horizon" <Cite id="simchowitz-continuous-il-2025" />. Holding 99% end-to-end on a 50-step task needs about 99.98% per step, which no generalist policy publishes.
+Real errors are not independent: a mistake carries the robot outside its training distribution, where the next is likelier, so <Term id="compounding-error">compounding error</Term> makes the true curve worse. An imitator with per-step error $\varepsilon$ can make up to $T^2\varepsilon$ mistakes over $T$ steps <Cite id="dagger-2011" />, and smooth deterministic imitators of continuous actions suffer error "exponentially larger, as a function of problem horizon" <Cite id="simchowitz-continuous-il-2025" />. Holding 99% end-to-end on a 50-step task needs about 99.98% per step, which no generalist policy publishes.
 
 <span id="why-the-last-stretch-is-different" />
 ## Formal methods do not close the last stretch from 99% to 99.9%
 
-Bessemer argues the last stretch needs "fundamentally different approaches", naming tactile sensing, force feedback and better sim-to-real transfer. Lisa Yan, co-founder and CEO of Argus Systems and previously at Waymo, calls closing the gap between 99% and 99.9% "a steep hill climb that takes longer than most people realize" <Cite id="bessemer-robotics-2026" />.
+Bessemer argues the last stretch needs "fundamentally different approaches", naming tactile sensing, force feedback and better sim-to-real transfer. Lisa Yan of Argus Systems calls closing the gap between 99% and 99.9% "a steep hill climb that takes longer than most people realize" <Cite id="bessemer-robotics-2026" />.
 
-Formal methods do not close the gap. Hamilton-Jacobi reachability faces "exponential computational complexity with respect to the number of state variables" <Cite id="hj-reachability-2017" />, and no deployed <Term id="vision-language-action-model">vision-language-action model</Term> publishes formal safety guarantees. Assurance rests on empirical evaluation and runtime monitoring, so the reliability gap and [the evaluation crisis](/data-hardware/evaluation-crisis/) are one problem: making failure rare, and measuring how rare.
+Hamilton-Jacobi reachability faces "exponential computational complexity with respect to the number of state variables" <Cite id="hj-reachability-2017" />, and no deployed <Term id="vision-language-action-model">vision-language-action model</Term> publishes formal safety guarantees. Assurance therefore rests on empirical evaluation and runtime monitoring, which makes the reliability gap and [the evaluation crisis](/data-hardware/evaluation-crisis/) one problem.
 
 <span id="what-is-closing-the-gap" />
 ## RL from experience lifts single tasks into the 90% range and above
 
-Physical Intelligence reports that π*0.6 with Recap, learning from the robot's own experience, cuts failure rates by 2x or more on hard tasks, with more than 2x throughput on some of the hardest tasks <Cite id="pistar06-blog-2025" />. Its paper puts every task except diverse laundry in the 90%+ range <Cite id="pistar06-2025" />. RL-100 succeeded in 1,000 of 1,000 episodes across 8 tasks, including 250 in a row on one, and a juicing robot served mall customers for about seven hours without failure <Cite id="rl-100-2025" />. HIL-SERL reaches near-perfect success in 1 to 2.5 hours of training <Cite id="hil-serl-2024" />, and Real-Time EXPO-FT lifts four dynamic tasks from 42% to 97% <Cite id="realtime-expo-ft-2026" />.
+Physical Intelligence reports that π*0.6 with Recap, learning from the robot's own experience, cuts failure rates by 2x or more on hard tasks, with more than 2x throughput on some of the hardest tasks <Cite id="pistar06-blog-2025" />. Its paper puts every task except diverse laundry in the 90%+ range <Cite id="pistar06-2025" />. RL-100 succeeded in 1,000 of 1,000 episodes across 8 tasks, and a juicing robot served mall customers for about seven hours without failure <Cite id="rl-100-2025" />. Real-Time EXPO-FT lifts four dynamic tasks from 42% to 97% <Cite id="realtime-expo-ft-2026" />.
 
-These are mostly per-task specialists. RL-100's zero-shot success under environmental and dynamics shifts is about 90% <Cite id="rl-100-2025" />. RAPolicy raised five jointly trained tasks from 52% to 88% without regressing reliable ones <Cite id="rapolicy-2026" />. Generalist reports a pretraining route: GEN-1 averages 99% on fine-tuned tasks where GEN-0 reached 64% <Cite id="generalist-gen1-2026" />.
+These are mostly per-task specialists, though RL-100 keeps about 90% zero-shot success under environmental and dynamics shifts <Cite id="rl-100-2025" /> and RAPolicy raised five jointly trained tasks from 52% to 88% <Cite id="rapolicy-2026" />. Generalist reports a pretraining route: GEN-1 averages 99% on fine-tuned tasks where GEN-0 reached 64% <Cite id="generalist-gen1-2026" />.
 
 ## Runtime monitors make failures visible, and human help rescues episodes
 
-Google's ASIMOV-Agentic benchmark tests the orchestration layer around the policy: whether an embodied-reasoning agent respects payload, reach and safety limits in tool calls, judges VLA feasibility, handles uncertainty and stops near people <Cite id="asimov-agentic-2026" />. DeepMind calls Gemini Robotics ER 2 its safest robotics model on safety-constraint and human-proximity benchmarks, with safe stops when humans are near <Cite id="gemini-robotics-2-2026" />. FAIL-Detect learns to flag failures "from successful training data alone" <Cite id="fail-detect-2025" />, and Sentinel's two detectors together catch 18% more failures than either alone <Cite id="sentinel-2024" />. Monitoring catches failures instead of preventing them, so it raises effective reliability without changing the policy's own success rate.
+Google's ASIMOV-Agentic benchmark tests whether an embodied-reasoning agent respects payload, reach and safety limits and stops near people <Cite id="asimov-agentic-2026" />. DeepMind calls Gemini Robotics ER 2 its safest robotics model on such benchmarks <Cite id="gemini-robotics-2-2026" />. FAIL-Detect learns to flag failures "from successful training data alone" <Cite id="fail-detect-2025" />, and Sentinel's two detectors together catch 18% more failures than either alone <Cite id="sentinel-2024" />. A monitor catches failures instead of preventing them, so it raises effective reliability without changing the policy's own success rate.
 
-π0.7 accepts step-by-step language coaching that walks it through tasks it has not seen and lets it finish tasks it could not finish zero-shot <Cite id="pi07-blog-2026" />. HG-DAgger lets a human expert take control to correct compounding error <Cite id="hg-dagger-2019" />. 1X says NEO owners can schedule a remote expert for chores it does not know <Cite id="1x-neo-2026" />.
+π0.7 accepts step-by-step language coaching that walks it through tasks it has not seen <Cite id="pi07-blog-2026" />. HG-DAgger lets a human expert take control to correct compounding error <Cite id="hg-dagger-2019" />, and 1X says NEO owners can schedule a remote expert for chores it does not know <Cite id="1x-neo-2026" />.
 
 <span id="what-is-actually-deployed" />
 ## Dated company records report hours and a single site's accuracy
 
-Dated company records show the gap better than circulating unit counts ([industrial deployment](/data-hardware/industrial-deployment/)). Agility reports 65,000 hours of Digit production experience <Cite id="agility-digit-production" />, and in September 2026 about 98% on-task accuracy across 100,000 totes at GXO's Flowery Branch site <Cite id="agility-digit-5-2026" />. Figure's November 2025 report says its BMW Spartanburg deployment logged 1,250+ runtime hours and loaded 90,000+ parts in eleven months. Its 84-second cycle and >99% placement accuracy were requirements or targets that Figure did not publish as achieved results <Cite id="figure-bmw-production-2025" />. Tesla's Q1 and Q2 2026 updates list both Optimus lines as under construction, with first builds going to an "Optimus Academy for training data collection" <Cite id="tesla-q1-2026-update" /> <Cite id="tesla-q2-2026-update" />.
+Agility reports 65,000 hours of Digit production experience <Cite id="agility-digit-production" /> ([industrial deployment](/data-hardware/industrial-deployment/)), and in September 2026 about 98% on-task accuracy across 100,000 totes at GXO's Flowery Branch site <Cite id="agility-digit-5-2026" />. Figure's November 2025 report says its BMW Spartanburg deployment logged 1,250+ runtime hours and loaded 90,000+ parts in eleven months, while its 84-second cycle and >99% placement accuracy were targets it did not report as achieved <Cite id="figure-bmw-production-2025" />. Tesla's Q1 and Q2 2026 updates list both Optimus lines as under construction, with first builds going to an "Optimus Academy for training data collection" <Cite id="tesla-q1-2026-update" /> <Cite id="tesla-q2-2026-update" />.
 
 <DeploymentDashboard className="my-6" />
 
@@ -98,7 +98,9 @@ Figure's May 2026 package-sorting livestream sits under “Demo only”. Planned
 <span id="what-solved-would-look-like" />
 ## Showing 99.9% takes about 3,000 straight successes
 
-A testable yardstick would document mean time between failures on real tasks, the human-robot safety assurance method and a protocol for remaining failures. The evidence cost is steep: with zero failures in $n$ trials, the 95% upper bound on the failure rate is about ${3/n}$ <Cite id="hanley-zero-numerators-1983" />, so showing 99.9% takes about 3,000 straight successes. Real-robot comparisons are often limited to 10 or 50 trials <Cite id="optimal-stopping-2025" />, and TRI's blind, randomized trials show the needed discipline <Cite id="tri-lbm-2025" />. Waymo's crash-rate claim rested on 56.7 million rider-only miles <Cite id="waymo-crash-rates-2025" />; see [autonomous vehicles](/adjacent/autonomous-vehicles/). These vendor-reported hours disclose no mean time between failures, intervention count or general-purpose deployment at scale. [Safety and assurance](/frontier/safety-and-assurance/) covers the standards stack industrial robotics already has and why a learned policy cannot be rated under it.
+A testable yardstick would document mean time between failures on real tasks, the human-robot safety assurance method and a protocol for remaining failures. None of the vendor hours above discloses a mean time between failures, an intervention count or general-purpose deployment at scale. With zero failures in $n$ trials, the 95% upper bound on the failure rate is about ${3/n}$ <Cite id="hanley-zero-numerators-1983" />, so showing 99.9% takes about 3,000 straight successes.
+
+Real-robot comparisons are often limited to 10 or 50 trials <Cite id="optimal-stopping-2025" />, and TRI's blind, randomized trials show the needed discipline <Cite id="tri-lbm-2025" />. Waymo's crash-rate claim rested on 56.7 million rider-only miles <Cite id="waymo-crash-rates-2025" /> ([autonomous vehicles](/adjacent/autonomous-vehicles/)). [Safety and assurance](/frontier/safety-and-assurance/) covers the standards a learned policy cannot be rated under.
 
 <SelfCheck
   prompt="Your manipulation system sits at 99% success on a 30-step task and a customer needs 99% end-to-end. A vendor offers a runtime monitor that detects failures as they start. Can the monitor get you there?"
@@ -111,14 +113,14 @@ A testable yardstick would document mean time between failures on real tasks, th
     {
       value: 'monitor-no',
       label: 'No, only on-robot experience moves the policy’s own number: a monitor converts failures into safe stops and human escalations',
-      why: 'This is the module’s own division of labor. Monitoring catches failures instead of preventing them, and the methods that actually move per-step reliability are RL from experience, where π*0.6 cuts failure rates by 2x or more on hard tasks and RL-100 reaches 100% across 1,000 episodes, but as per-task specialists with known ceilings.'
+      why: 'Monitoring catches failures instead of preventing them. The methods that move per-step reliability are RL from experience: π*0.6 cuts failure rates by 2x or more on hard tasks and RL-100 reaches 100% across 1,000 episodes, both as per-task specialists.'
     },
     {
       value: 'human-coach',
       label: 'No, so put a human coach on every episode instead',
-      why: 'Coaching works, and π0.7 accepts step-by-step language correction to recover failures it has not seen. But supervision bridges the gap without closing it: the reliability number that matters is the one with the coach removed, and supervised operation is a deployment tactic that does not establish the customer’s 99% completion requirement.'
+      why: 'Coaching helps: π0.7 accepts step-by-step language coaching through tasks it has not seen. The number the customer needs is the one with the coach removed, and a coached episode does not show the system reaching 99% on its own.'
     }
   ]}
   answer="monitor-no"
-  takeaway="Monitors make failures visible and coaches rescue episodes, but only on-robot experience moves the policy’s own per-step number: detection is not prevention."
+  takeaway="Monitors make failures visible and coaches rescue episodes; only on-robot experience moves the policy’s own per-step number."
 />

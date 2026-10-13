@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "1ce8450bc8520fd093cbb93300759c20c5e41e333c9b5efd40becb222f2bfe3a",
+  "fingerprint": "6f8854068bc1ce8d1488f7725f42e28087704fc79b3a50f669357f68c739bfad",
   "source": "out/ static export",
   "routes": [
     {
@@ -330,7 +330,7 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "outboundAnchors": 92,
+      "outboundAnchors": 86,
       "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
@@ -364,7 +364,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "outboundAnchors": 71,
+      "outboundAnchors": 70,
       "distinctHrefs": 34,
       "shapes": [
         "citation-chip",
@@ -376,7 +376,7 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "outboundAnchors": 105,
+      "outboundAnchors": 104,
       "distinctHrefs": 46,
       "shapes": [
         "citation-chip",
@@ -818,17 +818,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 5503,
+  "outboundAnchors": 5495,
   "distinctOutboundHrefs": 1600,
   "anchorsByShape": {
-    "citation-chip": 2524,
+    "citation-chip": 2516,
     "footer": 152,
     "reference-entry": 1903,
     "other": 565,
     "figure-credit": 359
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 4916,
+  "anchorsWithNoreferrer": 4908,
   "keyboard": [
     {
       "route": "/",
@@ -1076,15 +1076,15 @@
       "reachedByTab": 93,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 234
+      "tabStops": 233
     },
     {
       "route": "/frontier/competing-theses/",
-      "outboundInDom": 92,
-      "reachedByTab": 92,
+      "outboundInDom": 86,
+      "reachedByTab": 86,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 241
+      "tabStops": 230
     },
     {
       "route": "/frontier/dexterity/",
@@ -1104,16 +1104,16 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "outboundInDom": 71,
-      "reachedByTab": 71,
+      "outboundInDom": 70,
+      "reachedByTab": 70,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 183
+      "tabStops": 181
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "outboundInDom": 105,
-      "reachedByTab": 105,
+      "outboundInDom": 104,
+      "reachedByTab": 104,
       "unreached": [],
       "withoutFocusIndicator": [],
       "tabStops": 252

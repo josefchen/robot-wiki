@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3060,
+      "visibleTextLength": 3029,
       "header": {
         "present": true,
         "display": "flex",
@@ -4764,7 +4764,7 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "visibleTextLength": 16177,
+      "visibleTextLength": 15683,
       "header": {
         "present": true,
         "display": "flex",
@@ -4926,7 +4926,7 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "visibleTextLength": 21614,
+      "visibleTextLength": 20263,
       "header": {
         "present": true,
         "display": "flex",
@@ -5250,7 +5250,7 @@
     },
     {
       "route": "/frontier/generalization/",
-      "visibleTextLength": 19495,
+      "visibleTextLength": 18613,
       "header": {
         "present": true,
         "display": "flex",
@@ -5412,7 +5412,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "visibleTextLength": 16487,
+      "visibleTextLength": 15732,
       "header": {
         "present": true,
         "display": "flex",
@@ -5574,7 +5574,7 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "visibleTextLength": 27353,
+      "visibleTextLength": 25820,
       "header": {
         "present": true,
         "display": "flex",

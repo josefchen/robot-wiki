@@ -166,6 +166,15 @@ function throughSeoPass(path: string) {
     expect(continues(cut, end)).toBe(true);
     end = cut.newHash;
   }
+  // The frontier length cut of 2026-10-13 then shortened the frontier
+  // articles among them, again with one edge each that continues it.
+  const frontierCutEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('length-cut-20261013-frontier-'));
+  expect(frontierCutEdges.length).toBeLessThanOrEqual(1);
+  for (const cut of frontierCutEdges) {
+    expect(continues(cut, end)).toBe(true);
+    end = cut.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 

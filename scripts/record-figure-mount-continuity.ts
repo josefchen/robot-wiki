@@ -85,12 +85,13 @@ async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-figure-mount-continuity.ts');
   const { wordBudgetTrimPredecessor } = await import('../lib/audit-word-budget-trim-continuity.ts');
   const { worldModelsLengthCutPredecessor } = await import('../lib/audit-length-cut-world-models-continuity.ts');
+  const { frontierLengthCutPredecessor } = await import('../lib/audit-length-cut-frontier-continuity.ts');
   let ok = true;
   for (const source of layer.loadFigureMountReview(root).sources) {
     try {
       // The newer world-models length-cut and word-budget trim layers hand back the figure-mount successor first.
       const prior = layer.figureMountPredecessor(root, source.before,
-        wordBudgetTrimPredecessor(root, source.before, worldModelsLengthCutPredecessor(root, source.before, readFileSync(join(root, source.after.path)))));
+        wordBudgetTrimPredecessor(root, source.before, worldModelsLengthCutPredecessor(root, source.before, frontierLengthCutPredecessor(root, source.before, readFileSync(join(root, source.after.path))))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {
       ok = false;

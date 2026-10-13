@@ -16,7 +16,7 @@ test('economics article and explorer retain named claims, source caveats and rea
   await page.goto(route);
   await page.evaluate(() => document.fonts.ready);
   const prose = page.locator('div.prose[data-pagefind-body]');
-  const flywheel = prose.locator('p').filter({ hasText: 'Bessemer’s investor outlook quotes Voxel51’s Brian Moore' }).last();
+  const flywheel = prose.locator('p').filter({ hasText: 'Bessemer quotes Voxel51’s Brian Moore' }).last();
   const glow = prose.locator('p').filter({ hasText: 'Bessemer quotes the Zeromatter CEO' }).last();
   await expect(flywheel).toContainText('Foxglove’s Adrian Macneil');
   await expect(flywheel).toContainText('better model improvements');
