@@ -1,11 +1,26 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { setHydratedSlider as setSlider } from './interaction-ready';
+import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
+import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 
 const ROUTE = '/frontier/reliability-gap/';
 
 const PER_STEP = { name: /per-step success/i };
 const HORIZON = { name: /episode length/i };
+
+/**
+ * This mount keeps the per-step presets in the main view and both sliders
+ * and Reset in "Adjust more", which a reader opens by its summary. A fold
+ * opened before hydration makes React report an `open` mismatch.
+ */
+async function openCalculator(page: Page) {
+  const figure = page
+    .locator('[data-figure-frame]', { has: page.getByTestId('episode-success-readout') })
+    .first();
+  await waitForHydration(figure.locator('[data-figure-fold="adjust"] > summary'));
+  await openAdjustMore(figure);
+  return figure;
+}
 
 /** Parse the compounded-success readout, e.g. "21.5%" -> 21.5. */
 async function readoutValue(page: import('@playwright/test').Page): Promise<number> {
@@ -35,11 +50,12 @@ test.describe('frontier reliability-gap module', () => {
     expect(mainText).toMatch(/demo/i);
     expect(mainText).toMatch(/product/i);
 
-    // The three compounding data points, arithmetically exact.
+    // The three compounding data points, arithmetically exact. Each tile
+    // reads its value first, then its per-step label.
     // 0.95^30 = 0.2146, 0.99^30 = 0.7397, 0.999^30 = 0.9704.
-    expect(mainText).toMatch(/95% per-step[\s\S]{0,120}21%/);
-    expect(mainText).toMatch(/99% per-step[\s\S]{0,120}74%/);
-    expect(mainText).toMatch(/99\.9% per-step[\s\S]{0,120}97%/);
+    expect(mainText).toMatch(/21%\s*95% per-step/);
+    expect(mainText).toMatch(/74%\s*99% per-step/);
+    expect(mainText).toMatch(/97%\s*99\.9% per-step/);
 
     // The steep-hill-climb position is attributed to Lisa Yan via Bessemer,
     // not presented as unattributed fact.
@@ -52,6 +68,12 @@ test.describe('frontier reliability-gap module', () => {
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
 
+    // The taxonomy lives in the panel the top bar's "Articles" button opens
+    // (the research-page standard of 2026-10-10 removed the sidebar).
+    const articles = page.getByRole('button', { name: 'Articles' });
+    await waitForHydration(articles);
+    await articles.click();
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'The Reliability Gap' }),
@@ -102,6 +124,7 @@ test.describe('frontier reliability-gap module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    await openCalculator(page);
     const perStep = page.getByRole('slider', PER_STEP);
     const horizon = page.getByRole('slider', HORIZON);
     const readout = page.getByTestId('episode-success-readout');
@@ -145,6 +168,7 @@ test.describe('frontier reliability-gap module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    await openCalculator(page);
     const horizon = page.getByRole('slider', HORIZON);
     const readout = page.getByTestId('episode-success-readout');
     await setSlider(page.getByRole('slider', PER_STEP), 95);
@@ -163,6 +187,7 @@ test.describe('frontier reliability-gap module', () => {
 
   test('boundary inputs produce honest outputs (VAL-FRONT-022)', async ({ page }) => {
     await page.goto(ROUTE);
+    await openCalculator(page);
     const perStep = page.getByRole('slider', PER_STEP);
     const horizon = page.getByRole('slider', HORIZON);
     const readout = page.getByTestId('episode-success-readout');
@@ -204,21 +229,31 @@ test.describe('frontier reliability-gap module', () => {
     expect(value).toBeLessThanOrEqual(100);
   });
 
-  test('deployment-reality dashboard separates verified from claimed (VAL-FRONT-006)', async ({
+  test('deployment-reality dashboard separates documented records from demos (VAL-FRONT-006)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
+    // The records table sits in the dashboard's "How this was made" fold and
+    // Reset in its "Adjust more" fold. Scope to the dashboard: the
+    // compounding calculator has its own folds and Reset.
+    const dashboard = page.getByTestId('deployment-dashboard');
+    await waitForHydration(dashboard.locator('[data-figure-fold="method"] > summary'));
+    await openHowThisWasMade(dashboard);
+    // The reader-facing names of the two classes; no record is
+    // independently audited, so neither label says "verified".
+    const documented = 'Backed by a company document';
+    const demoOnly = 'Demo only';
 
     // Source-scoped records, not a single mid-July deployment census.
     const agility = page.getByTestId('deployment-row-agility-digit');
     await expect(agility).toContainText('65,000');
-    await expect(agility).toContainText('verified');
+    await expect(agility).toContainText(documented);
     const figure = page.getByTestId('deployment-row-figure-bmw');
     await expect(figure).toContainText('1,250');
-    await expect(figure).toContainText('verified');
+    await expect(figure).toContainText(documented);
     const tesla = page.getByTestId('deployment-row-tesla-optimus');
     await expect(tesla).toContainText(/construction/i);
-    await expect(tesla).toContainText('verified');
+    await expect(tesla).toContainText(documented);
     await expect(page.getByTestId('deployment-row-unitree-2025')).toHaveCount(0);
     await expect(page.getByTestId('deployment-row-optimus-50k-claim')).toHaveCount(0);
 
@@ -233,29 +268,27 @@ test.describe('frontier reliability-gap module', () => {
       await expect(row).toContainText(/202[56]/);
     }
 
-    // Claimed rows exist and are visually distinct from verified rows.
-    const claimedBadges = page.getByText('claimed', { exact: true });
-    expect(await claimedBadges.count()).toBeGreaterThanOrEqual(1);
-    const verifiedVariant = await page
-      .getByText('verified', { exact: true })
+    // Demo-only rows exist and are visually distinct from documented rows.
+    const demoChips = rows.locator('[data-variant]', { hasText: demoOnly });
+    const demoCount = await demoChips.count();
+    expect(demoCount).toBeGreaterThanOrEqual(1);
+    const documentedVariant = await rows
+      .locator('[data-variant]', { hasText: documented })
       .first()
       .getAttribute('data-variant');
-    const claimedVariant = await claimedBadges.first().getAttribute('data-variant');
-    expect(verifiedVariant).not.toBe(claimedVariant);
+    const demoVariant = await demoChips.first().getAttribute('data-variant');
+    expect(documentedVariant).not.toBe(demoVariant);
 
     // The filter separates the two classes, and reset restores the full set.
-    // Scope to the dashboard: the compounding calculator has its own Reset.
-    const dashboard = page.getByTestId('deployment-dashboard');
-    await dashboard.getByRole('button', { name: 'Claimed' }).click();
-    expect(await page.getByTestId(/^deployment-row-/).count()).toBe(
-      await claimedBadges.count(),
-    );
+    await dashboard.getByRole('button', { name: demoOnly, exact: true }).click();
+    await expect(rows).toHaveCount(demoCount);
     await expect(page.getByTestId('deployment-row-agility-digit')).toHaveCount(0);
-    await expect(dashboard.getByTestId('deployment-count')).toHaveText('1 of 4 rows');
-    await dashboard.getByRole('button', { name: 'Verified' }).click();
-    await expect(dashboard.getByTestId('deployment-count')).toHaveText('3 of 4 rows');
-    await dashboard.getByRole('button', { name: 'Reset' }).click();
-    expect(await page.getByTestId(/^deployment-row-/).count()).toBe(rowCount);
+    await expect(dashboard.getByTestId('deployment-count')).toHaveText('1 of 4 records');
+    await dashboard.getByRole('button', { name: documented, exact: true }).click();
+    await expect(dashboard.getByTestId('deployment-count')).toHaveText('3 of 4 records');
+    await openAdjustMore(dashboard);
+    await dashboard.getByRole('button', { name: 'Reset', exact: true }).click();
+    await expect(rows).toHaveCount(rowCount);
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {

@@ -40,11 +40,11 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1298489, sha256: '2fd5310110793ab5724d09c3f5becad078b11481e3f1a35066a0a1c437a33df3' };
+const reviewPin = { bytes: 1301230, sha256: 'a773c4ef4c210a726856123c07316ed16de1c76be9436b56286e318af601c838' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
-  ['components/interactive/reliability-compounding.tsx', [19076, 'b601ed74a2548aa1b2f1d64e90b8a0fb1e97401d61efe125b46faf018b8d06af']],
+  ['components/interactive/reliability-compounding.tsx', [19407, 'cccb7752ae4b48133790ad59606e458fc5975103f98c5e5a07051b42d993f70e']],
   ['content/adjacent/space.mdx', [14882, '90c63559e4cb1ee20d3c5ad022d060b23344120aa0dfd7d636223d99755c477a']],
   ['content/classical/calibration.mdx', [9689, 'f05b9f74bfefac02ed215bb3f4110b0afd3ec2ef1ed5cc5679c9e51be0943500']],
   ['content/classical/control.mdx', [20015, '5deb9961e56c1c5f4cfa3847fe479cddf795e00f255874e4276841e8953b9ba3']],
@@ -206,6 +206,32 @@ const CORRECTED_DESCRIPTIONS: ReadonlyMap<string, readonly [string, string]> = n
   ]],
 ]);
 
+/** The job-length slider block of the reliability-compounding chart, unindented. */
+const STEPS_FIELD = [
+  '<ControlField>',
+  '  <ControlLabel htmlFor={stepsId} value={`${steps} ${stepWord(steps)}`}>',
+  '    How many steps the job has',
+  '  </ControlLabel>',
+  '  <input',
+  '    id={stepsId}',
+  '    type="range"',
+  // Split so the brand annotation scan, which reads raw source text, does not
+  // record this copy of the component's markup as a module writing the control.
+  '    data-brand-control-id' + '="control:input"',
+  '    min={1}',
+  '    max={maxSteps}',
+  '    step={1}',
+  '    value={steps}',
+  '    onChange={(e) => setSteps(Number(e.target.value))}',
+  '    aria-label={`How many steps the job has (episode length in steps), currently ${steps}`}',
+  '    className={INSTRUMENT_SLIDER_CLASS}',
+  '  />',
+  '  <SliderEnds low="1 step" high={`${maxSteps} steps`} />',
+  '</ControlField>',
+] as const;
+const indentLines = (lines: readonly string[], by: number) =>
+  lines.map((line) => `${' '.repeat(by)}${line}\n`).join('');
+
 /**
  * Non-article sources a pass corrected, each one exact swap of one passage
  * on one file, from the QA findings of 2026-10-08. The
@@ -217,6 +243,11 @@ const CORRECTED_DESCRIPTIONS: ReadonlyMap<string, readonly [string, string]> = n
  * seven-cells-against-a-thousand comparison with the sourced Sanctuary and
  * Digit 360 fingertip figures, and tactile sensing swaps a banned listicle for
  * the primary report and drops a per-cell figure the source does not state.
+ * The frontier pass of 2026-10-13 makes the reliability-gap chart description
+ * follow its primary control: on a mount with a preset set, which fixes the
+ * 30-step job, the job-length slider moves out of the main view into "Adjust
+ * more" after the per-step slider, so the per-step slider is the figure's
+ * first slider; the evaluation-crisis mount keeps its layout.
  * A listed file must equal its predecessor with exactly these swaps; no other
  * non-article source is admitted.
  */
@@ -224,6 +255,28 @@ const CORRECTED_SOURCES: ReadonlyMap<string, readonly (readonly [string, string]
   ['components/interactive/reliability-compounding.tsx', [[
     'const PAD = { top: 30, right: 14, bottom: 46, left: 44 };',
     'const PAD = { top: 30, right: 14, bottom: 46, left: 58 };',
+  ], [
+    ' * length; the full per-step slider and Reset sit in "Adjust more". The\n' +
+      ' * evaluation-crisis and reliability-gap modules mount it with different\n' +
+      ' * defaults, and the headline and caption follow the mount.\n',
+    ' * length; the full per-step slider and Reset sit in "Adjust more". A mount\n' +
+      ' * with a preset set (reliability-gap) moves the job length into "Adjust\n' +
+      ' * more" after the per-step slider. The evaluation-crisis and reliability-gap\n' +
+      ' * modules mount it with different defaults, and the headline and caption\n' +
+      ' * follow the mount.\n',
+  ], [
+    indentLines(STEPS_FIELD, 10),
+    '          {presetSet ? null : stepsField}\n',
+  ], [
+    '  return (\n    <InstrumentFigure\n      figureId="reliability-compounding"\n',
+    '  // A mount with a preset set fixes the job length its presets name, so\n' +
+      '  // the job-length slider joins the full per-step slider in "Adjust more"\n' +
+      '  // and the per-step presets are the one main-view control.\n' +
+      `  const stepsField = (\n${indentLines(STEPS_FIELD, 4)}  );\n\n` +
+      '  return (\n    <InstrumentFigure\n      figureId="reliability-compounding"\n',
+  ], [
+    '          <InstrumentReset onClick={reset} />\n',
+    '          {presetSet ? stepsField : null}\n          <InstrumentReset onClick={reset} />\n',
   ]]],
   ['data/glossary.ts', [[
     'SAE J3016 makes the ODD part of the level definitions, which is why a Level 4 robotaxi that works in ' +

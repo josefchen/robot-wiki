@@ -5412,7 +5412,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "visibleTextLength": 16540,
+      "visibleTextLength": 16487,
       "header": {
         "present": true,
         "display": "flex",

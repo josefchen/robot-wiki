@@ -161,6 +161,22 @@ describe('domain pass 2026-10-06 article successors', () => {
     expect(read(correctedSources[1]).toString()).not.toContain('not a contradiction but');
   });
 
+  it('admits the reliability-gap control move only as the recorded swaps', () => {
+    const path = correctedSources[0];
+    const source = review.sources.find(({ after }) => after.path === path)!;
+    const live = read(path).toString();
+    const prior = domainPassPredecessor(root, source.before, read(path)).toString();
+    // The job-length slider leaves the main view only on a mount with a preset set.
+    expect(live).toContain('          {presetSet ? null : stepsField}\n');
+    expect(live).toContain('          {presetSet ? stepsField : null}\n          <InstrumentReset onClick={reset} />\n');
+    // Keeping the slider in the main view on the reliability-gap mount, or
+    // leaving the PAD fix out, is a different file.
+    const keptInMainView = live.replace('{presetSet ? null : stepsField}', '{stepsField}');
+    expect(keepsDomainPassObligations(path, prior, keptInMainView)).toBe(false);
+    const unpadded = live.replace('bottom: 46, left: 58 }', 'bottom: 46, left: 44 }');
+    expect(keepsDomainPassObligations(path, prior, unpadded)).toBe(false);
+  });
+
   it('exempts only the listed secondary ids on their own articles, for the owner sweep reason', () => {
     expect(DROPPED_FOR_PRIMARIES.reason).toBe('owner sweep 20260929: secondary sources dropped for primaries');
     // Named ids per path, no patterns: widening the list is a reviewed gate change that fails here first.

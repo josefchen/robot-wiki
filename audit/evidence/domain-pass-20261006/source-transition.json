@@ -3,7 +3,7 @@
   "name": "domain-pass-20261006",
   "reviewedBy": "implementation worker for the opus-pass domain passes of 2026-10-06 (not independent acceptance)",
   "rationale": "The opus-pass domain passes rewrite each article from the owner's verified draft: shorter prose, at least 30 cited sources, no Callout or Aside boxes, every non-OK audit finding fixed. Each rewrite is recorded here as exact edits over the bytes the article had before the pass. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, its frontmatter differs only by appended citation ids, every citation it had is still cited and every figure and component mount is unchanged, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-12T12:03:07Z",
+  "observedAt": "2026-10-13T07:40:21Z",
   "sources": [
     {
       "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
@@ -14,13 +14,29 @@
       },
       "after": {
         "path": "components/interactive/reliability-compounding.tsx",
-        "bytes": 19076,
-        "sha256": "b601ed74a2548aa1b2f1d64e90b8a0fb1e97401d61efe125b46faf018b8d06af"
+        "bytes": 19407,
+        "sha256": "cccb7752ae4b48133790ad59606e458fc5975103f98c5e5a07051b42d993f70e"
       },
       "edits": [
         {
+          "before": " * length; the full per-step slider and Reset sit in \"Adjust more\". The\n * evaluation-crisis and reliability-gap modules mount it with different\n * defaults, and the headline and caption follow the mount.\n",
+          "after": " * length; the full per-step slider and Reset sit in \"Adjust more\". A mount\n * with a preset set (reliability-gap) moves the job length into \"Adjust\n * more\" after the per-step slider. The evaluation-crisis and reliability-gap\n * modules mount it with different defaults, and the headline and caption\n * follow the mount.\n"
+        },
+        {
           "before": "const PAD = { top: 30, right: 14, bottom: 46, left: 44 };\n",
           "after": "const PAD = { top: 30, right: 14, bottom: 46, left: 58 };\n"
+        },
+        {
+          "before": "    : [fromX, noteY + noteLineHeight + TEXT_H * 0.45];\n\n",
+          "after": "    : [fromX, noteY + noteLineHeight + TEXT_H * 0.45];\n\n  // A mount with a preset set fixes the job length its presets name, so\n  // the job-length slider joins the full per-step slider in \"Adjust more\"\n  // and the per-step presets are the one main-view control.\n  const stepsField = (\n    <ControlField>\n      <ControlLabel htmlFor={stepsId} value={`${steps} ${stepWord(steps)}`}>\n        How many steps the job has\n      </ControlLabel>\n      <input\n        id={stepsId}\n        type=\"range\"\n        data-brand-control-id=\"control:input\"\n        min={1}\n        max={maxSteps}\n        step={1}\n        value={steps}\n        onChange={(e) => setSteps(Number(e.target.value))}\n        aria-label={`How many steps the job has (episode length in steps), currently ${steps}`}\n        className={INSTRUMENT_SLIDER_CLASS}\n      />\n      <SliderEnds low=\"1 step\" high={`${maxSteps} steps`} />\n    </ControlField>\n  );\n\n"
+        },
+        {
+          "before": "          <ControlField>\n            <ControlLabel htmlFor={stepsId} value={`${steps} ${stepWord(steps)}`}>\n              How many steps the job has\n            </ControlLabel>\n            <input\n              id={stepsId}\n              type=\"range\"\n              data-brand-control-id=\"control:input\"\n              min={1}\n              max={maxSteps}\n              step={1}\n              value={steps}\n              onChange={(e) => setSteps(Number(e.target.value))}\n              aria-label={`How many steps the job has (episode length in steps), currently ${steps}`}\n              className={INSTRUMENT_SLIDER_CLASS}\n            />\n            <SliderEnds low=\"1 step\" high={`${maxSteps} steps`} />\n          </ControlField>\n",
+          "after": "          {presetSet ? null : stepsField}\n"
+        },
+        {
+          "before": "            />\n          </ControlField>\n",
+          "after": "            />\n          </ControlField>\n          {presetSet ? stepsField : null}\n"
         }
       ]
     },
