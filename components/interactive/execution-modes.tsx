@@ -1,41 +1,53 @@
 'use client';
 
-import { useId, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ControlField,
   ControlLabel,
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
   InstrumentReadout,
   InstrumentReset,
-  PlotStage,
   PresetGroup,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, IsoFigure, Line } from '@/components/iso/react/draw';
+import { asksForStillness } from '@/components/iso/react/live';
+import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
+import { PartView } from '@/components/iso/part-view';
 import {
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_TYPE,
-  CHART_VIEW_WIDTH,
-  ConstraintHatch,
-  DirectLabel,
-  LineTrace,
-  PointMarker,
-  StageAnnotation,
-  roleColour,
-  type PlotRect,
-} from '@/components/motion/chart';
+  BASE_PARTS,
+  GATE_PARTS,
+  HEIGHT as TRACK_HEIGHT,
+  LANES,
+  LANE_PARTS,
+  NEAR_PARTS,
+  WIDTH as TRACK_WIDTH,
+  X_START,
+  bobPaths,
+  dragPath,
+  faceMarks,
+  knobPointer,
+  overPath,
+  peakStep,
+  rodPath,
+  spokePath,
+  stepAt,
+  swingOf,
+  trolleyAt,
+  trolleyX,
+  type Part,
+} from '@/components/iso/figures/handoff-track';
 import {
-  HANDOFF_TICK,
   JERK_LIMIT,
   MAX_DELAY_MS,
   MIN_DELAY_MS,
   TICK_MS,
   TRACE_TICKS,
   executedTrace,
-  oldPlanVelocity,
   pauseTicks,
   peakDeltaV,
   type ExecutionMode,
@@ -43,12 +55,17 @@ import {
 
 /**
  * ExecutionModes: what the arm does when a new plan arrives while it is
- * still moving. Three lanes share one time axis: pause (synchronous: stop,
- * wait, restart), lurch (naive switch: jump to the new plan at once) and
- * blend (real-time chunking: keep the in-flight moves, then ease over).
- * The figure opens on a 0.2 second thinking delay, where the lurch is
- * plain; the presets step down to 0.1 second and none, where all three
- * lanes coincide.
+ * still moving, drawn as a three-lane test track (components/iso/figures/
+ * handoff-track.ts). Three trolleys run the same plan side by side; at the
+ * gate the new plan arrives late and each lane hands it over its own way:
+ * pause (synchronous: stop, wait, restart), lurch (naive switch: jump to
+ * the new speed at once) and blend (real-time chunking: keep the
+ * in-flight moves, then ease over). A pendulum gauge on each trolley swings
+ * with the speed step of each tick, and its drag pointer keeps the largest
+ * step against the 0.30 limit marks. The still pose is the end of the run;
+ * "Run the track" plays it ten times slower than the robot. The figure
+ * opens on a 0.2 second thinking delay, where the lurch is plain; the
+ * presets step down to 0.1 second and none, where all three lanes match.
  *
  * "Adjust more" holds the free delay slider, the per-tick velocity-step
  * readouts and Reset. "How this was made" holds the assumptions: these
@@ -78,139 +95,23 @@ const DELAY_PRESETS: ReadonlyArray<{ id: DelayPreset; label: string; ms: number 
 ];
 const DEFAULT_DELAY_MS = 200;
 
-const V_MAX = 2.0;
+/** The track runs this many control ticks a second: ten times slower than the robot's 20 ms ticks. */
+export const TICKS_PER_SECOND = 5;
+/** How long the finished run holds before the figure settles back to rest. */
+const HOLD_S = 0.5;
+/** The bob follows each tick's speed step this fast, in seconds on screen. */
+const BOB_TAU = 0.035;
 
-/** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
-const f = (v: number) => Number(v.toFixed(2));
+const still = () => typeof window !== 'undefined' && typeof window.matchMedia === 'function' && asksForStillness();
 
-const WIDTH = CHART_VIEW_WIDTH;
-const LEFT = 14;
-const RIGHT = WIDTH - 18;
-const LABEL_ASCENT = CHART_TYPE.labelPx * CHART_TYPE.ascent;
-const PANEL_H = 44;
-/** From a lane title's baseline to the top of its panel. */
-const TITLE_DROP = 6;
-/** From one panel's bottom to the next lane title's baseline. */
-const LANE_GAP = 20;
-/** The band under the lurch lane that holds the note. */
-const NOTE_BAND = 38;
-
-// Rows from the top: the hand-off label, then each lane title over its
-// panel, with the note band under the lurch lane, then the time axis.
-const HANDOFF_LABEL_Y = f(6 + LABEL_ASCENT);
-const PANELS: Record<ExecutionMode, PlotRect> = (() => {
-  const rects = {} as Record<ExecutionMode, PlotRect>;
-  let titleY = HANDOFF_LABEL_Y + LANE_GAP;
-  for (const mode of MODE_ORDER) {
-    const top = f(titleY + TITLE_DROP);
-    rects[mode] = { left: LEFT, right: RIGHT, top, bottom: top + PANEL_H };
-    titleY = rects[mode].bottom + LANE_GAP + (mode === 'naive' ? NOTE_BAND : 0);
-  }
-  return rects;
-})();
-const AXIS_Y = PANELS.rtc.bottom;
-const TICK_LABEL_Y = f(AXIS_Y + CHART_STROKE.tickLength + CHART_TYPE.tickPx + 2);
-const HEIGHT = Math.ceil(TICK_LABEL_Y + 8);
-const NOTE_Y = f(PANELS.naive.bottom + 16);
-
-const x = (tick: number) => f(LEFT + (tick / (TRACE_TICKS - 1)) * (RIGHT - LEFT));
-/** Time labels every 0.2 second, in trace ticks of TICK_MS each. */
-const TIME_TICKS: Array<[number, string]> = [
-  [0, '0'],
-  [10, '0.2 second'],
-  [20, '0.4 second'],
-];
-
-function spikeTickOf(trace: ReturnType<typeof executedTrace>): number {
-  return trace.reduce(
-    (best, p, i) =>
-      i > 0 && Math.abs(p.v - trace[i - 1].v) >= Math.abs(trace[best].v - trace[best - 1].v)
-        ? i
-        : best,
-    1,
-  );
+/** A geometry module's part list, with its slots filled by the live component. */
+function partsOf(parts: readonly Part[], slot: (part: Extract<Part, { kind: 'slot' }>) => ReactNode): ReactNode[] {
+  return parts.map((part, index) => (part.kind === 'slot' ? slot(part) : <PartView key={index} part={part} />));
 }
 
-function ModePanel({
-  mode,
-  delayMs,
-  panel,
-  hatchId,
-}: {
-  mode: ExecutionMode;
-  delayMs: number;
-  panel: PlotRect;
-  hatchId: string;
-}) {
-  const meta = MODE_META[mode];
-  const trace = executedTrace(mode, delayMs);
-  const peak = peakDeltaV(trace);
-  const within = peak <= JERK_LIMIT;
-
-  const y = (v: number) => f(panel.bottom - (v / V_MAX) * (panel.bottom - panel.top));
-  const path = trace
-    .map((p, i) => `${i === 0 ? 'M' : 'L'}${x(p.tick)},${y(p.v)}`)
-    .join(' ');
-  const guide = trace.map((p) => [x(p.tick), y(oldPlanVelocity(p.tick))] as const);
-
-  const pause = mode === 'synchronous' ? pauseTicks(delayMs) : 0;
-  const pauseFromX = x(HANDOFF_TICK + 4);
-  const pauseToX = x(HANDOFF_TICK + 4 + pause);
-  const spikeTick = spikeTickOf(trace);
-
-  return (
-    <g
-      data-testid={`panel-${mode}`}
-      role="img"
-      aria-label={`Illustrative velocity trace for ${meta.label} execution at ${delayMs} milliseconds of inference delay. Peak per-tick velocity step ${peak.toFixed(2)}, ${within ? 'within' : 'above'} the ${JERK_LIMIT.toFixed(2)} discontinuity-proxy limit, not physical jerk.`}
-    >
-      <DirectLabel x={panel.left} y={f(panel.top - TITLE_DROP)}>
-        {meta.plain}
-      </DirectLabel>
-      {pause > 0 ? (
-        <g data-em-stopped="">
-          <ConstraintHatch
-            id={hatchId}
-            x={pauseFromX}
-            y={panel.top}
-            width={f(pauseToX - pauseFromX)}
-            height={PANEL_H}
-          />
-          {/* The wait, named in words over the hatch. */}
-          <text
-            data-scene-tick=""
-            x={f((pauseFromX + pauseToX) / 2)}
-            y={f(panel.top + 12)}
-            textAnchor="middle"
-            fontSize={CHART_TYPE.tickPx}
-            fill={CHART_STRUCTURE.label}
-          >
-            waits
-          </text>
-        </g>
-      ) : null}
-      <g data-series="em-old-plan">
-        <LineTrace role="reference" points={guide} />
-      </g>
-      <path
-        data-series="em-command"
-        data-chart-mark="line"
-        data-chart-role="action"
-        data-testid={`trace-${mode}`}
-        d={path}
-        fill="none"
-        stroke={roleColour('action')}
-        strokeWidth={CHART_STROKE.trace}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {!within ? (
-        <g data-testid={`spike-${mode}`}>
-          <PointMarker x={x(spikeTick)} y={y(trace[spikeTick].v)} role="constraint" shape="cross" />
-        </g>
-      ) : null}
-    </g>
-  );
+/** "0.2 second", "no wait": the dead time in plain words. */
+function waitWords(ms: number): string {
+  return ms <= 0 ? 'no wait' : `${Number((ms / 1000).toFixed(2))} second`;
 }
 
 /** One readout row per lane, in lane order, on the stage text scale. */
@@ -254,7 +155,6 @@ function noteLines(delayMs: number, naiveFails: boolean): string[] {
 export function ExecutionModes({ className }: { className?: string }) {
   const uid = useId();
   const descriptionId = `${uid}-em-description`;
-  const hatchId = `em-dead-time-${uid.replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const [delayMs, setDelayMs] = useState(DEFAULT_DELAY_MS);
 
   const naiveTrace = executedTrace('naive', delayMs);
@@ -286,17 +186,174 @@ export function ExecutionModes({ className }: { className?: string }) {
     2,
   )}, both read against the illustrative ${JERK_LIMIT.toFixed(
     2,
-  )} discontinuity-proxy limit; these constructed traces use arbitrary velocity units, not physical jerk or measured robot data. The five-tick linear blend is not RTC inpainting, and the dashed guide is the uninterrupted toy old plan.`;
+  )} discontinuity-proxy limit; these constructed traces use arbitrary velocity units, not physical jerk or measured robot data. The five-tick linear blend is not RTC inpainting, and each trolley's pendulum gauge keeps its largest step on a drag pointer.`;
 
-  function reset() {
-    setDelayMs(DEFAULT_DELAY_MS);
+  // The track's runs come from the same executedTrace calls the table samples.
+  const traces = useMemo(
+    () => Object.fromEntries(LANES.map((mode) => [mode, executedTrace(mode, delayMs)])) as Record<ExecutionMode, ReturnType<typeof executedTrace>>,
+    [delayMs],
+  );
+  const [running, setRunning] = useState(false);
+  const lastTick = TRACE_TICKS - 1;
+  // While the track runs React renders the start; the loop writes every frame after it.
+  const shownTick = running ? 0 : lastTick;
+  const trolleyRefs = useRef<Partial<Record<ExecutionMode, SVGGElement | null>>>({});
+  const spokeRefs = useRef<Partial<Record<ExecutionMode, SVGPathElement | null>>>({});
+  const rodRefs = useRef<Partial<Record<ExecutionMode, SVGPathElement | null>>>({});
+  const bobRefs = useRef<Partial<Record<ExecutionMode, SVGGElement | null>>>({});
+  const dragRefs = useRef<Partial<Record<ExecutionMode, SVGPathElement | null>>>({});
+  const overRefs = useRef<Partial<Record<ExecutionMode, SVGGElement | null>>>({});
+  const phaseRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (!running) return;
+    let frame = 0;
+    let last = performance.now();
+    let tick = 0;
+    const swing: Record<string, number> = {};
+    const drag: Record<string, number> = {};
+    for (const mode of LANES) {
+      swing[mode] = 0;
+      drag[mode] = 0;
+    }
+    const draw = (t: number, dt: number) => {
+      for (const mode of LANES) {
+        const trace = traces[mode];
+        const x = trolleyX(trace, t);
+        trolleyRefs.current[mode]?.setAttribute('transform', trolleyAt(x));
+        spokeRefs.current[mode]?.setAttribute('d', spokePath(mode, (x - X_START) / 6.8));
+        const target = swingOf(stepAt(trace, t));
+        swing[mode] = dt > 0 ? swing[mode] + (target - swing[mode]) * (1 - Math.exp(-dt / BOB_TAU)) : target;
+        if (Math.abs(swing[mode]) > Math.abs(drag[mode])) drag[mode] = swing[mode];
+        rodRefs.current[mode]?.setAttribute('d', rodPath(mode, swing[mode]));
+        writeSolid(bobRefs.current[mode] ?? null, bobPaths(mode, swing[mode]));
+        dragRefs.current[mode]?.setAttribute('d', dragPath(mode, drag[mode]));
+        const over = overRefs.current[mode];
+        if (over) {
+          over.setAttribute('display', Math.abs(drag[mode]) > Math.abs(swingOf(JERK_LIMIT)) ? 'inline' : 'none');
+          over.querySelector('path')?.setAttribute('d', overPath(mode, drag[mode]));
+        }
+      }
+      if (phaseRef.current) {
+        const step = Math.min(lastTick, Math.floor(t));
+        phaseRef.current.textContent = t >= lastTick ? '' : `tick ${step} · ${step < 8 ? 'old plan' : 'new plan in'} · `;
+      }
+    };
+    const loop = (now: number) => {
+      const dt = Math.max(0, Math.min(now - last, 64)) / 1000;
+      last = now;
+      tick += dt * TICKS_PER_SECOND;
+      draw(Math.min(tick, lastTick), dt);
+      if (tick >= lastTick + HOLD_S * TICKS_PER_SECOND) {
+        setRunning(false);
+        return;
+      }
+      frame = requestAnimationFrame(loop);
+    };
+    draw(0, 0);
+    frame = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(frame);
+  }, [running, traces, lastTick]);
+
+  // At rest the readout carries no phase; a run that stops early leaves none behind.
+  useEffect(() => {
+    if (!running && phaseRef.current) phaseRef.current.textContent = '';
+  }, [running]);
+
+  // The track runs from the reader's control; under reduced motion it stays at the end of the run.
+  const toggleRun = () => {
+    if (running) {
+      setRunning(false);
+      return;
+    }
+    if (still()) return;
+    setRunning(true);
+  };
+
+  function chooseDelay(ms: number) {
+    setRunning(false);
+    setDelayMs(ms);
   }
 
-  const handoffX = x(HANDOFF_TICK);
-  const naive = PANELS.naive;
-  const naiveY = (v: number) => f(naive.bottom - (v / V_MAX) * (naive.bottom - naive.top));
-  const spikeTick = spikeTickOf(naiveTrace);
-  const spike: [number, number] = [x(spikeTick), naiveY(naiveTrace[spikeTick].v)];
+  function reset() {
+    chooseDelay(DEFAULT_DELAY_MS);
+  }
+
+  const peaks = Object.fromEntries(LANES.map((mode) => [mode, peakStep(traces[mode])])) as Record<ExecutionMode, number>;
+  const limitSwing = Math.abs(swingOf(JERK_LIMIT));
+  const trackLabel = `Three-lane test track for a plan hand-off at ${delayMs} milliseconds of inference delay: back to front, a trolley that pauses, one that lurches and one that blends, each with a pendulum gauge that swings with every tick's speed step. Peak per-tick velocity steps: pause ${peakDeltaV(traces.synchronous).toFixed(2)}, lurch ${naivePeak.toFixed(2)}, blend ${rtcPeak.toFixed(2)}, read against the ${JERK_LIMIT.toFixed(2)} discontinuity-proxy limit, not physical jerk; the pausing trolley stands still for ${deadMs} milliseconds.`;
+
+  const slotOf = (part: Extract<Part, { kind: 'slot' }>): ReactNode => {
+    if (part.name === 'knob') return <Line key="knob" d={knobPointer(delayMs)} tone="hi" free="end" />;
+    const mode = part.mode!;
+    const trace = traces[mode];
+    const x = trolleyX(trace, shownTick);
+    if (part.name === 'wheels') {
+      return (
+        <path
+          key="wheels"
+          ref={(node) => {
+            spokeRefs.current[mode] = node;
+          }}
+          className="iso-line"
+          data-tone="lo"
+          d={spokePath(mode, (x - X_START) / 6.8)}
+        />
+      );
+    }
+    const marks = faceMarks(mode);
+    const swing = running ? 0 : swingOf(stepAt(trace, lastTick));
+    const drag = running ? 0 : swingOf(peaks[mode]);
+    const over = Math.abs(peaks[mode]) > JERK_LIMIT;
+    return (
+      <g key="gauge" data-part="pendulum-gauge">
+        <Line d={marks.arc} tone="lo" />
+        <Line d={marks.minor} tone="lo" />
+        <Line d={marks.major} tone="mid" />
+        <Line d={marks.limit} tone="hi" />
+        <Dots points={marks.screws} size={0.45} />
+        <path
+          ref={(node) => {
+            dragRefs.current[mode] = node;
+          }}
+          className="iso-line"
+          data-tone="mid"
+          data-drag=""
+          d={dragPath(mode, drag)}
+        />
+        <Dots points={[marks.dragHub]} size={1.1} tone="mid" />
+        {over ? (
+          <g
+            ref={(node) => {
+              overRefs.current[mode] = node;
+            }}
+            display={running || Math.abs(drag) <= limitSwing ? 'none' : 'inline'}
+            data-testid={`spike-${mode}`}
+          >
+            <Line d={overPath(mode, swingOf(peaks[mode]))} tone="red" />
+          </g>
+        ) : null}
+        <Line d={marks.pin} tone="hi" />
+        <path
+          ref={(node) => {
+            rodRefs.current[mode] = node;
+          }}
+          className="iso-line"
+          data-tone="hi"
+          d={rodPath(mode, swing)}
+        />
+        <LiveSolid
+          ref={(node) => {
+            bobRefs.current[mode] = node;
+          }}
+          paths={bobPaths(mode, swing)}
+          tone="hi"
+          lit
+        />
+        <Dots points={[marks.hub]} size={0.9} tone="hi" />
+      </g>
+    );
+  };
 
   return (
     <InstrumentFigure
@@ -305,13 +362,24 @@ export function ExecutionModes({ className }: { className?: string }) {
       kicker="Chunk hand-off"
       heading="Three ways to swap plans: pause, lurch, or blend"
       controls={
-        <PresetGroup<DelayPreset>
-          label="Thinking delay"
-          presets={DELAY_PRESETS.map(({ id, label }) => ({ id, label }))}
-          value={preset}
-          onChange={(id) => setDelayMs(DELAY_PRESETS.find((p) => p.id === id)?.ms ?? DEFAULT_DELAY_MS)}
-          testId="em-delay"
-        />
+        <>
+          <PresetGroup<DelayPreset>
+            label="Thinking delay"
+            presets={DELAY_PRESETS.map(({ id, label }) => ({ id, label }))}
+            value={preset}
+            onChange={(id) => chooseDelay(DELAY_PRESETS.find((p) => p.id === id)?.ms ?? DEFAULT_DELAY_MS)}
+            testId="em-delay"
+          />
+          <button
+            type="button"
+            data-brand-control-id="control:secondary-action"
+            onClick={toggleRun}
+            data-testid="em-run"
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+          >
+            {running ? 'Stop the track' : 'Run the track'}
+          </button>
+        </>
       }
       adjust={
         <>
@@ -327,7 +395,7 @@ export function ExecutionModes({ className }: { className?: string }) {
               max={MAX_DELAY_MS}
               step={10}
               value={delayMs}
-              onChange={(e) => setDelayMs(Number(e.target.value))}
+              onChange={(e) => chooseDelay(Number(e.target.value))}
               aria-label={`Inference delay in milliseconds, currently ${delayMs}`}
               aria-valuetext={`${delayMs} milliseconds`}
               className={INSTRUMENT_SLIDER_CLASS}
@@ -346,86 +414,57 @@ export function ExecutionModes({ className }: { className?: string }) {
         </>
       }
       stage={
-        <FigureStage
-          footer={
-            <StageStatus>
-              Each solid line is the arm&apos;s speed; the dashed line is the old plan, had
-              nothing changed.
-            </StageStatus>
+        <AnatomyStage
+          viewWidth={TRACK_WIDTH}
+          hint={
+            running ? (
+              'Running ten times slower than the robot'
+            ) : (
+              <span data-figure-annotation="">
+                {noteLines(delayMs, naiveFails).map((line, k) => (
+                  <span key={k} className={k ? 'ml-1' : undefined}>
+                    {line}
+                  </span>
+                ))}
+              </span>
+            )
           }
+          readout={
+            <>
+              <span ref={phaseRef} data-em-phase="" />
+              pause {waitWords(deadMs)} · lurch {naivePeak.toFixed(2)} · blend {rtcPeak.toFixed(2)} · limit {JERK_LIMIT.toFixed(2)}
+            </>
+          }
+          status="Lanes, back to front: pause, lurch, blend. Each gauge swings with the speed step of every tick."
+          data-testid="em-stage-frame"
         >
-          {/* A group, not an image, so each lane keeps its own name; the
-              shared takeaway describes the group once. */}
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            role="group"
-            aria-label="Velocity traces for the three execution modes on one time axis"
-            aria-describedby={descriptionId}
-          >
-            {/* The hand-off instant is the same time in every lane; the
-                guide runs inside the panels only, never through a title. */}
-            <g data-scene-structure="handoff">
-              {MODE_ORDER.map((mode) => (
-                <line
+          <IsoFigure width={TRACK_WIDTH} height={TRACK_HEIGHT} label={trackLabel} describedBy={descriptionId}>
+            <g key={running ? 'running' : 'rest'}>
+              <g key="base">{partsOf(BASE_PARTS, slotOf)}</g>
+              {LANES.map((mode) => (
+                <g
                   key={mode}
-                  x1={handoffX}
-                  x2={handoffX}
-                  y1={PANELS[mode].top}
-                  y2={PANELS[mode].bottom}
-                  stroke={CHART_STRUCTURE.axes}
-                  strokeWidth={CHART_STROKE.structure}
-                  opacity={CHART_STRUCTURE.axesOpacity}
-                  strokeDasharray="3 3"
-                />
-              ))}
-              <DirectLabel x={handoffX + 4} y={HANDOFF_LABEL_Y}>
-                new plan due
-              </DirectLabel>
-            </g>
-            {MODE_ORDER.map((mode) => (
-              <ModePanel key={mode} mode={mode} delayMs={delayMs} panel={PANELS[mode]} hatchId={hatchId} />
-            ))}
-            <line
-              x1={LEFT}
-              x2={RIGHT}
-              y1={AXIS_Y}
-              y2={AXIS_Y}
-              stroke={CHART_STRUCTURE.axes}
-              strokeWidth={CHART_STROKE.structure}
-              opacity={CHART_STRUCTURE.axesOpacity}
-            />
-            {TIME_TICKS.map(([tick, label]) => (
-              <g key={tick}>
-                <line
-                  x1={x(tick)}
-                  x2={x(tick)}
-                  y1={AXIS_Y}
-                  y2={AXIS_Y + CHART_STROKE.tickLength}
-                  stroke={CHART_STRUCTURE.axes}
-                  strokeWidth={CHART_STROKE.structure}
-                  opacity={CHART_STRUCTURE.axesOpacity}
-                />
-                <text
-                  data-scene-tick=""
-                  x={x(tick)}
-                  y={TICK_LABEL_Y}
-                  textAnchor={tick === 0 ? 'start' : 'middle'}
-                  fontSize={CHART_TYPE.tickPx}
-                  fill={CHART_STRUCTURE.labelSecondary}
+                  data-testid={`panel-${mode}`}
+                  data-mode={mode}
+                  data-peak-step={Math.abs(peaks[mode]).toFixed(2)}
+                  data-em-stopped={mode === 'synchronous' && pauseTicks(delayMs) > 0 ? '' : undefined}
                 >
-                  {label}
-                </text>
-              </g>
-            ))}
-            <StageAnnotation
-              x={f(handoffX + 10)}
-              y={NOTE_Y}
-              lines={noteLines(delayMs, naiveFails)}
-              target={naiveFails ? spike : undefined}
-              from={naiveFails ? [spike[0], f(naive.bottom + 4)] : undefined}
-            />
-          </PlotStage>
-        </FigureStage>
+                  {partsOf(LANE_PARTS[mode].bed, slotOf)}
+                  <g
+                    ref={(node) => {
+                      trolleyRefs.current[mode] = node;
+                    }}
+                    transform={trolleyAt(trolleyX(traces[mode], shownTick))}
+                  >
+                    {partsOf(LANE_PARTS[mode].trolley, slotOf)}
+                  </g>
+                </g>
+              ))}
+              <g key="gate">{partsOf(GATE_PARTS, slotOf)}</g>
+              <g key="near">{partsOf(NEAR_PARTS, slotOf)}</g>
+            </g>
+          </IsoFigure>
+        </AnatomyStage>
       }
       caption="A robot that gets a new plan mid-motion can stop, lurch, or blend the two; blending keeps it moving smoothly."
       method={

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "90409e991ff5ea1a0e385a134977dd07dac10d777c160a54c7e7a1fd9b3fd9a2",
+  "fingerprint": "08d32ec1f992dc7ab820bbe687c8405068a4c8ad9a2b160f3b18d5ccc92814a2",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -225,7 +225,11 @@
       ],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Modern Robotics and Robot Learning | Robot Wiki",
@@ -241,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3004,
+      "visibleTextLength": 2985,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -339,7 +343,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "A-Z Index of Robotics Articles and Terms | Robot Wiki",
@@ -453,7 +461,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "About Robot Wiki: Scope and Reading Order | Robot Wiki",
@@ -567,7 +579,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robotics Applications Outside the Lab | Robot Wiki",
@@ -681,7 +697,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Autonomous Driving Stack: Modular vs End-to-End | Robot Wiki",
@@ -795,7 +815,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Autonomous Drone Flight, Racing and Swarms | Robot Wiki",
@@ -909,7 +933,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Space Robotics: Rovers, Arms and Autonomy | Robot Wiki",
@@ -1023,7 +1051,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Surgical Robotics: Systems, Safety and Autonomy | Robot Wiki",
@@ -1137,7 +1169,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Classical Robotics: Kinematics to Control | Robot Wiki",
@@ -1251,7 +1287,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Calibration: Hand-Eye and Camera | Robot Wiki",
@@ -1267,7 +1307,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22925,
+      "visibleTextLength": 20676,
       "route": "/classical/calibration/",
       "viewport": "1440x900"
     },
@@ -1365,7 +1405,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Control: PID, LQR, MPC and Impedance | Robot Wiki",
@@ -1381,7 +1425,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 35094,
+      "visibleTextLength": 29877,
       "route": "/classical/control/",
       "viewport": "1440x900"
     },
@@ -1479,7 +1523,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Grasp Planning: Force Closure and Grasp Quality | Robot Wiki",
@@ -1495,7 +1543,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29426,
+      "visibleTextLength": 26273,
       "route": "/classical/grasp-planning/",
       "viewport": "1440x900"
     },
@@ -1593,7 +1641,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Kinematics: FK, IK and the Jacobian | Robot Wiki",
@@ -1609,7 +1661,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25495,
+      "visibleTextLength": 23831,
       "route": "/classical/kinematics/",
       "viewport": "1440x900"
     },
@@ -1707,7 +1759,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Motion Planning: RRT, RRT* and TrajOpt | Robot Wiki",
@@ -1723,7 +1779,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 41287,
+      "visibleTextLength": 36010,
       "route": "/classical/motion-planning/",
       "viewport": "1440x900"
     },
@@ -1821,7 +1877,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Perception for Manipulation: 6D Pose | Robot Wiki",
@@ -1837,7 +1897,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 52506,
+      "visibleTextLength": 43060,
       "route": "/classical/perception/",
       "viewport": "1440x900"
     },
@@ -1935,7 +1995,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "ROS 2 for ML Engineers: Topics, QoS, tf2 | Robot Wiki",
@@ -1951,7 +2015,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19409,
+      "visibleTextLength": 18296,
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "1440x900"
     },
@@ -2049,7 +2113,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Mapping: Occupancy, SDF, SLAM, Splats | Robot Wiki",
@@ -2065,7 +2133,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 44241,
+      "visibleTextLength": 35872,
       "route": "/classical/scene-representation/",
       "viewport": "1440x900"
     },
@@ -2163,7 +2231,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot State Estimation: Kalman Filters, EKF | Robot Wiki",
@@ -2179,7 +2251,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 32906,
+      "visibleTextLength": 30127,
       "route": "/classical/state-estimation/",
       "viewport": "1440x900"
     },
@@ -2277,7 +2349,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Credits: Image Sources, Licences and Author | Robot Wiki",
@@ -2391,7 +2467,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning Data, Hardware and Benchmarks | Robot Wiki",
@@ -2505,7 +2585,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning Data Bottleneck: Hours vs Tokens | Robot Wiki",
@@ -2619,7 +2703,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning Datasets Compared (2026) | Robot Wiki",
@@ -2733,7 +2821,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Policy Evaluation and Benchmarks | Robot Wiki",
@@ -2847,7 +2939,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Hardware Prices 2026: Arms to Humanoids | Robot Wiki",
@@ -2961,7 +3057,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Industrial Robot Deployment: 2026 Stats and ROI | Robot Wiki",
@@ -3075,7 +3175,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning Pipeline: Data to Deployment | Robot Wiki",
@@ -3189,7 +3293,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Teleoperation and Data Collection Rigs | Robot Wiki",
@@ -3303,7 +3411,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Editorial Policy: Sources, Review, Corrections | Robot Wiki",
@@ -3417,7 +3529,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning Open Problems | Robot Wiki",
@@ -3531,7 +3647,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Humanoid Robot Hype: The Bear Case | Robot Wiki",
@@ -3645,7 +3765,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "VLAs vs World Models: How Robots Scale | Robot Wiki",
@@ -3759,7 +3883,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Dexterity and Tactile Hands | Robot Wiki",
@@ -3873,7 +4001,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Generalization in Unseen Homes | Robot Wiki",
@@ -3987,7 +4119,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Reliability: Why Demos Fail to Deploy | Robot Wiki",
@@ -4101,7 +4237,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Safety Standards for AI and Humanoids | Robot Wiki",
@@ -4215,7 +4355,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Glossary of Robotics and Robot Learning Terms | Robot Wiki",
@@ -4329,7 +4473,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "How Robots Work: Interactive 3D Explainers | Robot Wiki",
@@ -4443,7 +4591,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning and Manipulation Policies | Robot Wiki",
@@ -4557,7 +4709,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Action Chunking for Robotics: ACT and ALOHA | Robot Wiki",
@@ -4573,7 +4729,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28448,
+      "visibleTextLength": 25645,
       "route": "/manipulation/action-chunking/",
       "viewport": "1440x900"
     },
@@ -4671,7 +4827,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Action Spaces: Joint, Cartesian, Torque | Robot Wiki",
@@ -4687,7 +4847,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23772,
+      "visibleTextLength": 21177,
       "route": "/manipulation/action-spaces/",
       "viewport": "1440x900"
     },
@@ -4785,7 +4945,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Behavior Cloning: Compounding Error and DAgger | Robot Wiki",
@@ -4801,7 +4965,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26267,
+      "visibleTextLength": 23786,
       "route": "/manipulation/bc-foundations/",
       "viewport": "1440x900"
     },
@@ -4899,7 +5063,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "VLA Model Comparison Table for Robot Policies | Robot Wiki",
@@ -4915,7 +5083,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26774,
+      "visibleTextLength": 24541,
       "route": "/manipulation/comparison-matrix/",
       "viewport": "1440x900"
     },
@@ -5013,7 +5181,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Cross-Embodiment Learning for Robot Policies | Robot Wiki",
@@ -5029,7 +5201,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27540,
+      "visibleTextLength": 23495,
       "route": "/manipulation/cross-embodiment/",
       "viewport": "1440x900"
     },
@@ -5127,7 +5299,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Diffusion Policy for Robot Control | Robot Wiki",
@@ -5143,7 +5319,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24457,
+      "visibleTextLength": 21826,
       "route": "/manipulation/diffusion-policy/",
       "viewport": "1440x900"
     },
@@ -5241,7 +5417,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Foundation Models Explained | Robot Wiki",
@@ -5257,7 +5437,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24270,
+      "visibleTextLength": 21676,
       "route": "/manipulation/foundation-models/",
       "viewport": "1440x900"
     },
@@ -5355,7 +5535,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Generalist Robot Policies: Gemini, GR00T, Helix | Robot Wiki",
@@ -5371,7 +5555,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28924,
+      "visibleTextLength": 23947,
       "route": "/manipulation/generalist-policies/",
       "viewport": "1440x900"
     },
@@ -5469,7 +5653,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Hierarchical Robot Policies: Planners and VLAs | Robot Wiki",
@@ -5485,7 +5673,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 31497,
+      "visibleTextLength": 27052,
       "route": "/manipulation/hierarchical/",
       "viewport": "1440x900"
     },
@@ -5583,7 +5771,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Knowledge Insulation for VLA Training | Robot Wiki",
@@ -5599,7 +5791,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23993,
+      "visibleTextLength": 22283,
       "route": "/manipulation/knowledge-insulation/",
       "viewport": "1440x900"
     },
@@ -5697,7 +5889,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Pi0 to Pi0.7: Physical Intelligence VLA Models | Robot Wiki",
@@ -5713,7 +5909,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 31942,
+      "visibleTextLength": 26970,
       "route": "/manipulation/pi-line/",
       "viewport": "1440x900"
     },
@@ -5811,7 +6007,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Real-Time VLA Inference and Action Chunking | Robot Wiki",
@@ -5827,7 +6027,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27585,
+      "visibleTextLength": 24264,
       "route": "/manipulation/realtime-execution/",
       "viewport": "1440x900"
     },
@@ -5925,7 +6125,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "RL Fine-Tuning for VLA Robot Policies | Robot Wiki",
@@ -5941,7 +6145,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 48945,
+      "visibleTextLength": 41213,
       "route": "/manipulation/rl-finetuning/",
       "viewport": "1440x900"
     },
@@ -6039,7 +6243,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning Roadmap for ML Engineers | Robot Wiki",
@@ -6055,7 +6263,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20728,
+      "visibleTextLength": 19226,
       "route": "/manipulation/robot-learning-roadmap/",
       "viewport": "1440x900"
     },
@@ -6153,7 +6361,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Vision-Language-Action Models (VLAs) Explained | Robot Wiki",
@@ -6169,7 +6381,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 31331,
+      "visibleTextLength": 28482,
       "route": "/manipulation/vla-models/",
       "viewport": "1440x900"
     },
@@ -6267,7 +6479,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Market Map: Robotics and Embodied AI Companies | Robot Wiki",
@@ -6381,7 +6597,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "3D Kinematics Playground for a Robot Arm | Robot Wiki",
@@ -6495,7 +6715,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Privacy and Anonymous Analytics | Robot Wiki",
@@ -6609,7 +6833,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Reinforcement Learning and Sim-to-Real | Robot Wiki",
@@ -6723,7 +6951,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Humanoid Whole-Body Control and Motion Tracking | Robot Wiki",
@@ -6739,7 +6971,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 32147,
+      "visibleTextLength": 26217,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "1440x900"
     },
@@ -6837,7 +7069,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Legged Locomotion with RL: ANYmal to Humanoids | Robot Wiki",
@@ -6853,7 +7089,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27970,
+      "visibleTextLength": 24274,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "1440x900"
     },
@@ -6951,7 +7187,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Offline Reinforcement Learning for Robotics | Robot Wiki",
@@ -6967,7 +7207,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27691,
+      "visibleTextLength": 23344,
       "route": "/rl-sim2real/offline-rl/",
       "viewport": "1440x900"
     },
@@ -7065,7 +7305,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "GPU-Parallel Simulation for Robot RL | Robot Wiki",
@@ -7081,7 +7325,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26452,
+      "visibleTextLength": 23681,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "1440x900"
     },
@@ -7179,7 +7423,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Reward Design and MPC vs RL for Robots | Robot Wiki",
@@ -7195,7 +7443,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 38287,
+      "visibleTextLength": 32397,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "1440x900"
     },
@@ -7293,7 +7541,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Reinforcement Learning for Robotics | Robot Wiki",
@@ -7309,7 +7561,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 36413,
+      "visibleTextLength": 28115,
       "route": "/rl-sim2real/rl-for-robotics/",
       "viewport": "1440x900"
     },
@@ -7407,7 +7659,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Sim-to-Real Transfer for Robot Learning | Robot Wiki",
@@ -7423,7 +7679,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 37845,
+      "visibleTextLength": 30767,
       "route": "/rl-sim2real/sim2real-transfer/",
       "viewport": "1440x900"
     },
@@ -7521,7 +7777,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Sim-to-Real RL: Locomotion vs Manipulation | Robot Wiki",
@@ -7537,7 +7797,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24465,
+      "visibleTextLength": 22140,
       "route": "/rl-sim2real/why-rl-locomotion/",
       "viewport": "1440x900"
     },
@@ -7635,7 +7895,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Search | Robot Wiki",
@@ -7749,7 +8013,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Models for Robotics: Types, Uses, Limits | Robot Wiki",
@@ -7863,7 +8131,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Model Evaluation and Benchmarks | Robot Wiki",
@@ -7977,7 +8249,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Generative Simulation for Robot Learning | Robot Wiki",
@@ -8091,7 +8367,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Video World Models for Robots: Cosmos, Genie 3 | Robot Wiki",
@@ -8205,7 +8485,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "JEPA World Models for Robots: V-JEPA 2 | Robot Wiki",
@@ -8319,7 +8603,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Latent-Dynamics World Models: Dreamer, TD-MPC2 | Robot Wiki",
@@ -8433,7 +8721,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Model-Based Robot Learning with World Models | Robot Wiki",
@@ -8547,7 +8839,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "What Is a World Model? Definition and Types | Robot Wiki",
@@ -8661,7 +8957,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Models vs Physics Simulators for Robotics | Robot Wiki",
@@ -8821,7 +9121,11 @@
       ],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Modern Robotics and Robot Learning | Robot Wiki",
@@ -8837,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3029,
+      "visibleTextLength": 3010,
       "route": "/",
       "viewport": "375x812"
     },
@@ -8935,7 +9239,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "A-Z Index of Robotics Articles and Terms | Robot Wiki",
@@ -9049,7 +9357,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "About Robot Wiki: Scope and Reading Order | Robot Wiki",
@@ -9163,7 +9475,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robotics Applications Outside the Lab | Robot Wiki",
@@ -9277,7 +9593,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Autonomous Driving Stack: Modular vs End-to-End | Robot Wiki",
@@ -9391,7 +9711,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Autonomous Drone Flight, Racing and Swarms | Robot Wiki",
@@ -9505,7 +9829,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Space Robotics: Rovers, Arms and Autonomy | Robot Wiki",
@@ -9619,7 +9947,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Surgical Robotics: Systems, Safety and Autonomy | Robot Wiki",
@@ -9733,7 +10065,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Classical Robotics: Kinematics to Control | Robot Wiki",
@@ -9847,7 +10183,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Calibration: Hand-Eye and Camera | Robot Wiki",
@@ -9863,7 +10203,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16630,
+      "visibleTextLength": 15596,
       "route": "/classical/calibration/",
       "viewport": "375x812"
     },
@@ -9961,7 +10301,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Control: PID, LQR, MPC and Impedance | Robot Wiki",
@@ -9977,7 +10321,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26341,
+      "visibleTextLength": 23312,
       "route": "/classical/control/",
       "viewport": "375x812"
     },
@@ -10075,7 +10419,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Grasp Planning: Force Closure and Grasp Quality | Robot Wiki",
@@ -10091,7 +10439,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20025,
+      "visibleTextLength": 18628,
       "route": "/classical/grasp-planning/",
       "viewport": "375x812"
     },
@@ -10189,7 +10537,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Kinematics: FK, IK and the Jacobian | Robot Wiki",
@@ -10205,7 +10557,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17956,
+      "visibleTextLength": 16981,
       "route": "/classical/kinematics/",
       "viewport": "375x812"
     },
@@ -10303,7 +10655,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Motion Planning: RRT, RRT* and TrajOpt | Robot Wiki",
@@ -10319,7 +10675,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29268,
+      "visibleTextLength": 26481,
       "route": "/classical/motion-planning/",
       "viewport": "375x812"
     },
@@ -10417,7 +10773,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Perception for Manipulation: 6D Pose | Robot Wiki",
@@ -10433,7 +10793,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 39395,
+      "visibleTextLength": 33222,
       "route": "/classical/perception/",
       "viewport": "375x812"
     },
@@ -10531,7 +10891,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "ROS 2 for ML Engineers: Topics, QoS, tf2 | Robot Wiki",
@@ -10547,7 +10911,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14826,
+      "visibleTextLength": 14241,
       "route": "/classical/ros2-for-ml-engineers/",
       "viewport": "375x812"
     },
@@ -10645,7 +11009,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Mapping: Occupancy, SDF, SLAM, Splats | Robot Wiki",
@@ -10661,7 +11029,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 31301,
+      "visibleTextLength": 27431,
       "route": "/classical/scene-representation/",
       "viewport": "375x812"
     },
@@ -10759,7 +11127,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot State Estimation: Kalman Filters, EKF | Robot Wiki",
@@ -10775,7 +11147,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23606,
+      "visibleTextLength": 22264,
       "route": "/classical/state-estimation/",
       "viewport": "375x812"
     },
@@ -10873,7 +11245,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Credits: Image Sources, Licences and Author | Robot Wiki",
@@ -10987,7 +11363,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning Data, Hardware and Benchmarks | Robot Wiki",
@@ -11101,7 +11481,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning Data Bottleneck: Hours vs Tokens | Robot Wiki",
@@ -11215,7 +11599,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning Datasets Compared (2026) | Robot Wiki",
@@ -11329,7 +11717,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Policy Evaluation and Benchmarks | Robot Wiki",
@@ -11443,7 +11835,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Hardware Prices 2026: Arms to Humanoids | Robot Wiki",
@@ -11557,7 +11953,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Industrial Robot Deployment: 2026 Stats and ROI | Robot Wiki",
@@ -11671,7 +12071,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning Pipeline: Data to Deployment | Robot Wiki",
@@ -11785,7 +12189,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Teleoperation and Data Collection Rigs | Robot Wiki",
@@ -11899,7 +12307,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Editorial Policy: Sources, Review, Corrections | Robot Wiki",
@@ -12013,7 +12425,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning Open Problems | Robot Wiki",
@@ -12127,7 +12543,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Humanoid Robot Hype: The Bear Case | Robot Wiki",
@@ -12241,7 +12661,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "VLAs vs World Models: How Robots Scale | Robot Wiki",
@@ -12355,7 +12779,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Dexterity and Tactile Hands | Robot Wiki",
@@ -12469,7 +12897,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Generalization in Unseen Homes | Robot Wiki",
@@ -12583,7 +13015,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Reliability: Why Demos Fail to Deploy | Robot Wiki",
@@ -12697,7 +13133,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Safety Standards for AI and Humanoids | Robot Wiki",
@@ -12811,7 +13251,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Glossary of Robotics and Robot Learning Terms | Robot Wiki",
@@ -12925,7 +13369,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "How Robots Work: Interactive 3D Explainers | Robot Wiki",
@@ -13039,7 +13487,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning and Manipulation Policies | Robot Wiki",
@@ -13153,7 +13605,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Action Chunking for Robotics: ACT and ALOHA | Robot Wiki",
@@ -13169,7 +13625,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21967,
+      "visibleTextLength": 19851,
       "route": "/manipulation/action-chunking/",
       "viewport": "375x812"
     },
@@ -13267,7 +13723,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Action Spaces: Joint, Cartesian, Torque | Robot Wiki",
@@ -13283,7 +13743,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17949,
+      "visibleTextLength": 16413,
       "route": "/manipulation/action-spaces/",
       "viewport": "375x812"
     },
@@ -13381,7 +13841,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Behavior Cloning: Compounding Error and DAgger | Robot Wiki",
@@ -13397,7 +13861,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19374,
+      "visibleTextLength": 17853,
       "route": "/manipulation/bc-foundations/",
       "viewport": "375x812"
     },
@@ -13495,7 +13959,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "VLA Model Comparison Table for Robot Policies | Robot Wiki",
@@ -13511,7 +13979,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19773,
+      "visibleTextLength": 18109,
       "route": "/manipulation/comparison-matrix/",
       "viewport": "375x812"
     },
@@ -13609,7 +14077,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Cross-Embodiment Learning for Robot Policies | Robot Wiki",
@@ -13625,7 +14097,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20673,
+      "visibleTextLength": 17888,
       "route": "/manipulation/cross-embodiment/",
       "viewport": "375x812"
     },
@@ -13723,7 +14195,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Diffusion Policy for Robot Control | Robot Wiki",
@@ -13739,7 +14215,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18100,
+      "visibleTextLength": 16462,
       "route": "/manipulation/diffusion-policy/",
       "viewport": "375x812"
     },
@@ -13837,7 +14313,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Foundation Models Explained | Robot Wiki",
@@ -13853,7 +14333,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18773,
+      "visibleTextLength": 17003,
       "route": "/manipulation/foundation-models/",
       "viewport": "375x812"
     },
@@ -13951,7 +14431,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Generalist Robot Policies: Gemini, GR00T, Helix | Robot Wiki",
@@ -13967,7 +14451,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22463,
+      "visibleTextLength": 18582,
       "route": "/manipulation/generalist-policies/",
       "viewport": "375x812"
     },
@@ -14065,7 +14549,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Hierarchical Robot Policies: Planners and VLAs | Robot Wiki",
@@ -14081,7 +14569,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24327,
+      "visibleTextLength": 21272,
       "route": "/manipulation/hierarchical/",
       "viewport": "375x812"
     },
@@ -14179,7 +14667,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Knowledge Insulation for VLA Training | Robot Wiki",
@@ -14195,7 +14687,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16306,
+      "visibleTextLength": 15498,
       "route": "/manipulation/knowledge-insulation/",
       "viewport": "375x812"
     },
@@ -14293,7 +14785,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Pi0 to Pi0.7: Physical Intelligence VLA Models | Robot Wiki",
@@ -14309,7 +14805,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23725,
+      "visibleTextLength": 20199,
       "route": "/manipulation/pi-line/",
       "viewport": "375x812"
     },
@@ -14407,7 +14903,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Real-Time VLA Inference and Action Chunking | Robot Wiki",
@@ -14423,7 +14923,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20353,
+      "visibleTextLength": 17784,
       "route": "/manipulation/realtime-execution/",
       "viewport": "375x812"
     },
@@ -14521,7 +15021,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "RL Fine-Tuning for VLA Robot Policies | Robot Wiki",
@@ -14537,7 +15041,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 37866,
+      "visibleTextLength": 31427,
       "route": "/manipulation/rl-finetuning/",
       "viewport": "375x812"
     },
@@ -14635,7 +15139,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Robot Learning Roadmap for ML Engineers | Robot Wiki",
@@ -14651,7 +15159,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15261,
+      "visibleTextLength": 14206,
       "route": "/manipulation/robot-learning-roadmap/",
       "viewport": "375x812"
     },
@@ -14749,7 +15257,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Vision-Language-Action Models (VLAs) Explained | Robot Wiki",
@@ -14765,7 +15277,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23136,
+      "visibleTextLength": 21221,
       "route": "/manipulation/vla-models/",
       "viewport": "375x812"
     },
@@ -14863,7 +15375,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Market Map: Robotics and Embodied AI Companies | Robot Wiki",
@@ -14977,7 +15493,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "3D Kinematics Playground for a Robot Arm | Robot Wiki",
@@ -15091,7 +15611,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Privacy and Anonymous Analytics | Robot Wiki",
@@ -15205,7 +15729,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Reinforcement Learning and Sim-to-Real | Robot Wiki",
@@ -15319,7 +15847,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Humanoid Whole-Body Control and Motion Tracking | Robot Wiki",
@@ -15335,7 +15867,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25235,
+      "visibleTextLength": 21214,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "375x812"
     },
@@ -15433,7 +15965,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Legged Locomotion with RL: ANYmal to Humanoids | Robot Wiki",
@@ -15449,7 +15985,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21529,
+      "visibleTextLength": 18985,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "375x812"
     },
@@ -15547,7 +16083,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Offline Reinforcement Learning for Robotics | Robot Wiki",
@@ -15563,7 +16103,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20643,
+      "visibleTextLength": 17993,
       "route": "/rl-sim2real/offline-rl/",
       "viewport": "375x812"
     },
@@ -15661,7 +16201,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "GPU-Parallel Simulation for Robot RL | Robot Wiki",
@@ -15677,7 +16221,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18696,
+      "visibleTextLength": 16928,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "375x812"
     },
@@ -15775,7 +16319,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Reward Design and MPC vs RL for Robots | Robot Wiki",
@@ -15791,7 +16339,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28832,
+      "visibleTextLength": 24657,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "375x812"
     },
@@ -15889,7 +16437,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Reinforcement Learning for Robotics | Robot Wiki",
@@ -15905,7 +16457,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27328,
+      "visibleTextLength": 21985,
       "route": "/rl-sim2real/rl-for-robotics/",
       "viewport": "375x812"
     },
@@ -16003,7 +16555,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Sim-to-Real Transfer for Robot Learning | Robot Wiki",
@@ -16019,7 +16575,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28443,
+      "visibleTextLength": 23891,
       "route": "/rl-sim2real/sim2real-transfer/",
       "viewport": "375x812"
     },
@@ -16117,7 +16673,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Sim-to-Real RL: Locomotion vs Manipulation | Robot Wiki",
@@ -16133,7 +16693,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17927,
+      "visibleTextLength": 16821,
       "route": "/rl-sim2real/why-rl-locomotion/",
       "viewport": "375x812"
     },
@@ -16231,7 +16791,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Search | Robot Wiki",
@@ -16345,7 +16909,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Models for Robotics: Types, Uses, Limits | Robot Wiki",
@@ -16459,7 +17027,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Model Evaluation and Benchmarks | Robot Wiki",
@@ -16573,7 +17145,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Generative Simulation for Robot Learning | Robot Wiki",
@@ -16687,7 +17263,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Video World Models for Robots: Cosmos, Genie 3 | Robot Wiki",
@@ -16801,7 +17381,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "JEPA World Models for Robots: V-JEPA 2 | Robot Wiki",
@@ -16915,7 +17499,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Latent-Dynamics World Models: Dreamer, TD-MPC2 | Robot Wiki",
@@ -17029,7 +17617,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Model-Based Robot Learning with World Models | Robot Wiki",
@@ -17143,7 +17735,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "What Is a World Model? Definition and Types | Robot Wiki",
@@ -17257,7 +17853,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "World Models vs Physics Simulators for Robotics | Robot Wiki",
@@ -17373,7 +17973,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "3D Kinematics Playground for a Robot Arm | Robot Wiki",
@@ -17491,7 +18095,11 @@
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
-      "iconDeclarations": [],
+      "iconDeclarations": [
+        "icon=/favicon.ico?favicon.28v0p2mlhsezf.ico",
+        "icon=/icon.svg?icon.3t6tocvhda8jm.svg",
+        "apple-touch-icon=/apple-icon.png?apple-icon.3edmeu1m-kfar.png"
+      ],
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "3D Kinematics Playground for a Robot Arm | Robot Wiki",

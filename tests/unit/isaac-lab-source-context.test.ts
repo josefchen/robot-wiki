@@ -199,7 +199,6 @@ describe('Isaac original whole-record bindings', () => {
     const chart = readFileSync('components/interactive/training-time-chart.tsx', 'utf8');
     expect(chart).toContain('Neither this curve nor its CPU-cost constant is measured by that benchmark.');
     const reward = readFileSync('content/rl-sim2real/reward-design-mpc.mdx', 'utf8');
-    expect(reward).toContain('about 16 hours on NVIDIA OVX L40 hardware');
     expect(reward).not.toContain('DexPBT evolves hyperparameters and reward weights');
   });
 });

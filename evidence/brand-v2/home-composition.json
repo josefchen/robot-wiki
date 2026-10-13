@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "5e8b121ad787c53d1ce1c7f9159f7fd61647abede5e01aece78b86997dfcd112",
+  "fingerprint": "3dbe3811f6196a37b161a536ff23263b07dc44178c9185336be5b722faf5c7de",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2795,
+  "visibleTextLength": 2776,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -772,8 +772,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Safety and Assurance",
-      "href": "/frontier/safety-and-assurance/",
+      "accessibleName": "Robot Calibration",
+      "href": "/classical/calibration/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2179.89,
@@ -781,8 +781,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Bear Case",
-      "href": "/frontier/bear-case/",
+      "accessibleName": "Control",
+      "href": "/classical/control/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2229.89,
@@ -790,8 +790,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Competing Theses",
-      "href": "/frontier/competing-theses/",
+      "accessibleName": "Grasp Planning",
+      "href": "/classical/grasp-planning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2279.89,
@@ -799,8 +799,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Generalization",
-      "href": "/frontier/generalization/",
+      "accessibleName": "Kinematics",
+      "href": "/classical/kinematics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2329.89,
@@ -808,8 +808,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Reliability Gap",
-      "href": "/frontier/reliability-gap/",
+      "accessibleName": "Motion Planning",
+      "href": "/classical/motion-planning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2379.89,
@@ -1045,7 +1045,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-13 Safety and Assurance 2026-10-13 The Bear Case 2026-10-13 Competing Theses 2026-10-13 Generalization 2026-10-13 The Reliability Gap"
+      "text": "RECENTLY UPDATED 2026-10-13 Robot Calibration 2026-10-13 Control 2026-10-13 Grasp Planning 2026-10-13 Kinematics 2026-10-13 Motion Planning"
     },
     {
       "label": "Tools",

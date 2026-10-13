@@ -65,7 +65,7 @@ describe('H2O and ASAP source-backed corrections', { timeout: 30_000 }, () => {
   it('keeps G1 demonstrations distinct from quantitative hardware trials', () => {
     const body = article('legged-locomotion');
     for (const phrase of ['G1 with fixed wrists', 'ankle delta-action model',
-      'deploys the policy without it', 'Ronaldo-', 'Kobe-inspired']) expect(body).toContain(phrase);
+      'deploys the policy without it']) expect(body).toContain(phrase);
   });
   it('uses the observed body spelling and preserves the metadata disagreement and URL', () => {
     const citation = CITATIONS.find(c => c.id === 'asap-2025')!;

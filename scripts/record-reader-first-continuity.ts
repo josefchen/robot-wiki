@@ -192,6 +192,7 @@ function main(paths: string[]): void {
 /** Reads every recorded successor back through the written layer. */
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-reader-first-continuity.ts');
+  const { lengthCutPredecessor } = await import('../lib/audit-length-cut-continuity.ts');
   const { kolBacklogPredecessor } = await import('../lib/audit-kol-backlog-continuity.ts');
   const { domainPassPredecessor } = await import('../lib/audit-domain-pass-continuity.ts');
   const { figureMountPredecessor } = await import('../lib/audit-figure-mount-continuity.ts');
@@ -203,12 +204,15 @@ async function verify(): Promise<boolean> {
   let ok = true;
   for (const source of layer.loadReaderFirstReview(root).sources) {
     try {
-      // The newer frontier length-cut, re-skin, parallel-local, world-models length-cut, word-budget trim, figure-mount, domain-pass and KOL backlog layers hand back the reader-first successor first.
+      // The newer frontier length-cut, re-skin, parallel-local, length-cut (manipulation, classical and rl-sim2real),
+      // world-models length-cut, word-budget trim, figure-mount, domain-pass and KOL backlog layers hand back the
+      // reader-first successor first.
       const live = kolBacklogPredecessor(root, source.before, domainPassPredecessor(root, source.before,
         figureMountPredecessor(root, source.before, wordBudgetTrimPredecessor(root, source.before,
-          worldModelsLengthCutPredecessor(root, source.before, parallelLocalPredecessor(root, source.before,
+          worldModelsLengthCutPredecessor(root, source.before, lengthCutPredecessor(root, source.before,
+          parallelLocalPredecessor(root, source.before,
             reskinPredecessor(root, source.before, frontierLengthCutPredecessor(root, source.before,
-              readFileSync(join(root, source.after.path))))))))));
+              readFileSync(join(root, source.after.path)))))))))));
       const prior = layer.readerFirstPredecessor(root, source.before, live);
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {

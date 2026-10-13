@@ -87,29 +87,27 @@ Offline reinforcement learning is training a robot policy from a fixed dataset o
 
 ## The fixed-data bargain
 
-<Term id="offline-reinforcement-learning">Offline RL</Term> learns from a static set of transitions `(observation, action, reward, next observation, termination)` produced by one or more behavior policies <Cite id="offline-rl-tutorial-2020" />. Value learning bootstraps, so error from actions outside the data accumulates through the Bellman backup <Cite id="bear-2019" />. For robots, support also spans commanded frame, controller mode, action magnitude, contact regime, task stage and recovery. Real-ORL, built on over 6,500 trajectories from 800 robot hours, found that offline RL and imitation prefer different action spaces <Cite id="real-orl-2022" />.
+<Term id="offline-reinforcement-learning">Offline RL</Term> learns from a static set of transitions `(observation, action, reward, next observation, termination)` produced by one or more behavior policies <Cite id="offline-rl-tutorial-2020" />. Value learning bootstraps, so error from actions outside the data accumulates through the Bellman backup <Cite id="bear-2019" />. For robots, support also spans controller mode, action magnitude, contact regime and task stage, and Real-ORL, built on over 6,500 trajectories from 800 robot hours, found that offline RL and imitation prefer different action spaces <Cite id="real-orl-2022" />.
 
 <OfflineValueOverreach className="my-6" />
-
-NEEDLE, from Shuran Song (Stanford) and colleagues (October 2026), adds short, verified action bridges between recorded observations, using only images, proprioception and episode outcomes, so training can skip detours and reuse failed episodes. On real-robot tasks it beat the strongest baseline on each task by 21 percentage points on average <Cite id="needlework-2026" />.
 
 ## Audit the dataset before choosing a method
 
 ### Behavior coverage
 
-Each episode's source (expert, novice, scripted controller, older policy or exploration) and its actions by task stage need mapping. D4RL builds its datasets from hand-designed controllers, human demonstrators, multitask data and policy mixtures <Cite id="d4rl-2020" />.
+Map each episode's source (expert, novice, scripted controller, older policy or exploration) and its actions by task stage. D4RL builds its datasets from hand-designed controllers, human demonstrators, multitask data and policy mixtures <Cite id="d4rl-2020" />.
 
 ### Outcome coverage
 
-The reward must separate successes, partial progress and failures at the learning time scale, though a completion label can suffice. COG chained four robot skills under a +1/0 reward, from prior data that never solved the new task <Cite id="cog-2020" />.
+The reward must separate successes, partial progress and failures, though a completion label can suffice: COG chained four robot skills under a +1/0 reward, from prior data that never solved the new task <Cite id="cog-2020" />.
 
 ### Transition integrity
 
-Timestamps, episode boundaries, terminations and action units need checks. Mishandled time limits cause state aliasing and invalidate experience replay; when limits only aid training, Pardo and colleagues bootstrap from each partial episode's final state <Cite id="time-limits-2017" />.
+Check timestamps, episode boundaries, terminations and action units. Mishandled time limits cause state aliasing and invalidate experience replay <Cite id="time-limits-2017" />.
 
 ### Deployment overlap
 
-Support is judged in the policy's input representation and in physical operating variables, where a camera or control-rate change can outweigh the task label. PTR learned new tasks in a new domain on a real WidowX from as few as 10 demonstrations after offline RL pretraining <Cite id="ptr-2022" />. The [datasets guide](/data-hardware/datasets) and the [robot-learning stack](/data-hardware/robot-learning-stack) cover selection and provenance.
+Judge support in the policy's input representation and in physical operating variables, where a camera or control-rate change can outweigh the task label. PTR learned new tasks in a new domain on a real WidowX from as few as 10 demonstrations after offline RL pretraining <Cite id="ptr-2022" />. The [datasets guide](/data-hardware/datasets) and the [robot-learning stack](/data-hardware/robot-learning-stack) cover selection and provenance.
 
 ## Four ways to remain close to evidence
 
@@ -125,61 +123,57 @@ Implicit Q-Learning fits a state value by expectile regression over dataset acti
 
 ### Regularizing the policy toward behavior
 
-TD3+BC adds a cloning term and state normalization to an off-policy actor-critic and matches more elaborate algorithms <Cite id="td3-bc-2021" />. Flow Q-Learning trains a one-step policy with RL instead of steering an iterative flow policy, and performs strongly on 73 benchmark tasks <Cite id="flow-q-learning-2025" />.
+TD3+BC adds a cloning term and state normalization to an off-policy actor-critic and matches more elaborate algorithms <Cite id="td3-bc-2021" />.
 
 ### Discretizing and scaling the value function
 
-QT-Opt trained a Q-function on over 580,000 real grasp attempts and reached 96% success on unseen objects <Cite id="qt-opt-2018" />. Q-Transformer predicts Q-values autoregressively over discretized action dimensions, so it can train on large robot logs <Cite id="q-transformer-2023" />. With datasets up to 1000 times the usual size, many offline RL algorithms saturate well short of maximum performance, and long horizons form a fundamental barrier <Cite id="horizon-reduction-2025" />.
-
-In SeeQ (September 2026), Aviral Kumar (Carnegie Mellon) and colleagues shorten the horizon by learning Q-values for the active subtask, which the model names in text before scoring it. Subtask labels in offline robot data let temporal-difference learning use broad, suboptimal datasets, and the reported gains are in best-of-N policy steering on four real tasks with two bimanual robots <Cite id="seeq-2026" />.
+QT-Opt trained a Q-function on over 580,000 real grasp attempts and reached 96% success on unseen objects <Cite id="qt-opt-2018" />. With datasets up to 1000 times the usual size, many offline RL algorithms still saturate well short of maximum performance, and long horizons form a fundamental barrier <Cite id="horizon-reduction-2025" />.
 
 ## When behavior cloning is the better tool
 
-Behavior cloning is the default for clean expert demonstrations: it fits the action labels and has no bootstrapped critic. Robomimic found recurrent cloning a strong baseline on human demonstrations, where batch-RL methods struggled <Cite id="robomimic-2021" />. Kumar and colleagues favor offline RL for sparse rewards, suboptimal or noisy data, and long horizons with composable trajectories <Cite id="offline-rl-vs-bc-2022" />.
+Behavior cloning is the default for clean expert demonstrations: it fits the action labels and has no bootstrapped critic. Robomimic found recurrent cloning a strong baseline on human demonstrations, where batch-RL methods struggled <Cite id="robomimic-2021" />, and Kumar and colleagues favor offline RL for sparse rewards, suboptimal or noisy data, and long horizons with composable trajectories <Cite id="offline-rl-vs-bc-2022" />.
 
 <TrajectoryStitching className="my-6" />
 
-Neither method repairs missing support. Robo-ValueRL ties success to value reliability over 240 hours of demonstrations and over 3,000 rollouts; reliable values let offline RL scale better than quality-agnostic cloning <Cite id="robo-valuerl-2026" />. With online improvement added, the full system reaches 86% on millimeter-level chip insertion <Cite id="robo-valuerl-2026" />. From 30 to 60 demonstrations, CO-RFT's chunked offline RL raised a VLA's success rate 57% over supervised fine-tuning <Cite id="co-rft-2025" />. The [behavior-cloning guide](/manipulation/bc-foundations) covers the baseline.
+Neither method repairs missing support. Over 240 hours of demonstrations and over 3,000 rollouts, Robo-ValueRL ties success to value reliability, and reliable values let offline RL scale better than quality-agnostic cloning <Cite id="robo-valuerl-2026" />. The [behavior-cloning guide](/manipulation/bc-foundations) covers the baseline.
 
 <span id="an-evaluation-protocol-that-does-not-flatter-the-critic" />
 ## A six-step evaluation protocol
 
-Checkpoints are not chosen by the Q-values they maximize. Paine and colleagues found offline RL algorithms not robust to hyperparameters, yet able to rank policies reliably once the algorithm and Q-estimation method are controlled <Cite id="paine-hparam-2020" />.
+Do not choose checkpoints by the Q-values they maximize. Paine and colleagues found offline RL algorithms not robust to hyperparameters, yet able to rank policies reliably once the algorithm and Q-estimation method are controlled <Cite id="paine-hparam-2020" />.
 
 ### 1. Lock the data split by deployment factor
 
-Held-out environments, objects, operators or periods match the intended generalization, since random transition splits leak adjacent frames. Kumar and colleagues' workflow adapts cross-validation to tune offline RL without online evaluation, tested on two real robots <Cite id="offline-rl-workflow-2021" />.
+Hold out environments, objects, operators or periods to match the intended generalization; random transition splits leak adjacent frames. Kumar and colleagues adapt cross-validation to tune offline RL without online evaluation <Cite id="offline-rl-workflow-2021" />.
 
 ### 2. Establish three baselines
 
-The baselines are cloning, a recurrent cloner when history matters, and the simplest regularized offline-RL method. RvS's goal- or reward-conditioned two-layer MLP competes with TD and transformer methods but is weak on random data <Cite id="rvs-2021" />.
+Use cloning, a recurrent cloner when history matters, and the simplest regularized offline-RL method. RvS's conditioned two-layer MLP competes with TD and transformer methods but is weak on random data <Cite id="rvs-2021" />.
 
 ### 3. Report support-aware diagnostics
 
-Reports add action distance from the data, critic disagreement, saturation rate and per-source performance. EDAC penalizes out-of-distribution actions through Q-ensemble uncertainty <Cite id="edac-2021" />.
+Report action distance from the data, critic disagreement, saturation rate and per-source performance; EDAC, for one, penalizes out-of-distribution actions through Q-ensemble uncertainty <Cite id="edac-2021" />.
 
 ### 4. Use simulation only where it is predictive
 
-Simulation rejects unstable policies but ranks close checkpoints only where its link to hardware is measured, as SIMPLER did with paired real evaluations <Cite id="simpler-2024" />. SCORE limits simulated RL to the support of a real-data policy, raising eight real dexterous tasks from 37.8% to 89.9% average success, against 59.5% for the best baseline <Cite id="score-2026" />.
+Simulation ranks close checkpoints only where its link to hardware is measured, as SIMPLER did with paired real evaluations <Cite id="simpler-2024" />. SCORE limits simulated RL to the support of a real-data policy, raising eight real dexterous tasks from 37.8% to 89.9% average success, against 59.5% for the best baseline <Cite id="score-2026" />.
 
 ### 5. Run blinded physical trials
 
-The protocol is fixed before policy identities are known, with randomized conditions and counted interventions, collisions and resets. TRI compared policies through blind, randomized trials <Cite id="tri-lbm-2025" />.
+Fix the protocol before policy identities are known, randomize conditions, and count interventions, collisions and resets, as TRI did <Cite id="tri-lbm-2025" />.
 
 ### 6. Keep a fixed canary set
 
-A repeatable physical suite runs for every candidate, with episode IDs kept. The TriFinger benchmark offers a reproducible real-hardware setup with simulation for debugging <Cite id="trifinger-offline-2023" />.
+Run one repeatable physical suite for every candidate and keep the episode IDs; the TriFinger benchmark offers a reproducible real-hardware setup <Cite id="trifinger-offline-2023" />.
 
 ## From a fixed dataset to controlled online improvement
 
-RLPD mixes offline data into off-policy online learning without separate conservative pretraining <Cite id="rlpd-2023" />. Conservative critics fine-tune poorly, so Cal-QL calibrates CQL with a one-line change and leads on 9 of 11 benchmarks <Cite id="cal-ql-2023" />. Q-chunking runs TD learning over chunks of future actions, so the offline data's temporally consistent behavior guides online exploration, and it beat prior offline-to-online methods on long-horizon, sparse-reward manipulation tasks <Cite id="q-chunking-2025" />.
+RLPD mixes offline data into off-policy online learning without separate conservative pretraining <Cite id="rlpd-2023" />. Conservative critics fine-tune poorly, so Cal-QL calibrates CQL with a one-line change and leads on 9 of 11 benchmarks <Cite id="cal-ql-2023" />. Retaining offline data in replay is a safe default, though WSRL shows it is unnecessary with a well-designed online method <Cite id="wsrl-2024" />.
 
-Action bounds and command validation sit outside the learned policy, interventions and resets are defined, and each promotion is compared with the frozen offline checkpoint. Retaining offline data in replay is a safety default; WSRL shows it is unnecessary with a well-designed online method <Cite id="wsrl-2024" />. Dong and colleagues find naive Q-function pretraining often helps little over random initialization <Cite id="dong-q-pretrain-2026" />.
-
-PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% real-world success in 40 minutes <Cite id="pa-rl-2024" />. Physical Intelligence pretrains π\*0.6 with offline RL and reports more than doubled throughput on some of the hardest tasks <Cite id="pistar06-2025" />. LWD applies offline-to-online RL to a pretrained VLA across a fleet of 16 dual-arm robots and reports 95% average success over eight tasks <Cite id="lwd-2026" />. Q2RL keeps a behavior-cloning policy's good actions by gating between cloned and RL actions on their Q-values, and learned contact-rich pipe assembly and kitting on a robot in one to two hours <Cite id="q2rl-2026" />. BORA updates only a residual actor on a frozen VLA, raising success on standard objects from 60.8% to 82.5% with 20 online trajectories per task <Cite id="bora-2026" />. The [RL fine-tuning guide](/manipulation/rl-finetuning) covers this phase.
+Keep action bounds and command validation outside the learned policy, define interventions and resets, and compare each promotion with the frozen offline checkpoint. PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% real-world success in 40 minutes <Cite id="pa-rl-2024" />. LWD applies offline-to-online RL to a pretrained VLA across a fleet of 16 dual-arm robots and reports 95% average success over eight tasks <Cite id="lwd-2026" />. The [RL fine-tuning guide](/manipulation/rl-finetuning) covers this phase.
 
 <RealRobotRlGains className="my-6" />
 
 ## A compact go/no-go checklist
 
-An offline-RL experiment proceeds when actions, rewards, terminations and timing are trustworthy, and the data holds behavior that cloning should not imitate uniformly. Deployment must lie inside the data's support, since generalization to out-of-support states is often a big barrier <Cite id="park-bottleneck-2024" />. A cloning baseline must reproduce, selection must not rest on learned Q-values alone, and any online phase needs external command limits and rollback.
+Run an offline-RL experiment only when actions, rewards, terminations and timing are trustworthy, the data holds behavior that cloning should not imitate uniformly, and deployment lies inside the data's support, since generalization to out-of-support states is often a big barrier <Cite id="park-bottleneck-2024" />.

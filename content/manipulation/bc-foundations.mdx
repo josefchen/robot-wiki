@@ -86,7 +86,7 @@ Try “A teacher corrects it” to watch DAgger-style relabeling <Cite id="dagge
 
 ## Origins in driving
 
-ALVINN (1988), a three-layer back-propagation network with camera and laser-range inputs, trained on simulated road images and was tested on NAVLAB, a modified Chevy van <Cite id="alvinn-1988" />. By 1991 it learned in under 5 minutes by watching a human driver, then drove at up to 20 mph <Cite id="pomerleau-1991" />. Later systems added off-centre, rotated training views <Cite id="bojarski-e2e-driving-2016" />, or synthesized perturbations after 30 million examples proved not enough <Cite id="chauffeurnet-2018" />.
+ALVINN (1988), a three-layer back-propagation network with camera and laser-range inputs, trained on simulated road images and was tested on NAVLAB, a modified Chevy van <Cite id="alvinn-1988" />. Later driving systems added off-centre, rotated training views <Cite id="bojarski-e2e-driving-2016" />, or synthesized perturbations once 30 million examples proved too few <Cite id="chauffeurnet-2018" />.
 
 ## Covariate shift, stated precisely
 
@@ -96,7 +96,7 @@ $$
 J(\pi) \leq J(\pi^*) + T^2\varepsilon
 $$
 
-With log-loss, behavior cloning reaches horizon-independent sample complexity when payoff range and policy-class complexity are controlled; absent further assumptions, online interaction cannot beat it for deterministic stationary policies <Cite id="foster-bc-horizon-2024" />. A tabular lower bound of order $|S|T^2/N$ survives even active expert queries <Cite id="rajaraman-il-limits-2020" />. With continuous actions, smooth deterministic imitators can suffer execution error exponentially larger in the horizon than their training error <Cite id="simchowitz-continuous-il-2025" />. Physical Intelligence finds occasional VLA success relatively easy and reliable success quite hard <Cite id="pistar06-blog-2025" />.
+With log-loss, behavior cloning reaches horizon-independent sample complexity when payoff range and policy-class complexity are controlled <Cite id="foster-bc-horizon-2024" />, though a tabular lower bound of order $|S|T^2/N$ survives even active expert queries <Cite id="rajaraman-il-limits-2020" />. With continuous actions, smooth deterministic imitators can suffer execution error exponentially larger in the horizon than their training error <Cite id="simchowitz-continuous-il-2025" />.
 
 <Image id="covariate-shift" />
 
@@ -104,11 +104,9 @@ With log-loss, behavior cloning reaches horizon-independent sample complexity wh
 
 On demonstrations with several valid strategies, energy-based implicit policies often beat mean-squared-error and mixture-density policies <Cite id="implicit-bc-2021" />, and <Term id="diffusion-policy">Diffusion Policy</Term> learns both Push-T modes, committing to one per rollout <Cite id="diffusion-policy-2023" />. Pan et al. (2025) attribute generative policies' benchmark gains to iterative computation instead of multimodality <Cite id="much-ado-noising-2025" />.
 
-A single Markovian state cannot predict pauses, so single-step policies confuse waiting with acting and freeze, as ACT and Diffusion Policy document <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />. Temporal context is the usual fix. Yet more input information can worsen a cloned policy under shift <Cite id="causal-confusion-2019" />, and a history-conditioned policy can cheat by copying the expert's previous action <Cite id="copycat-bc-2020" />.
+A single Markovian state cannot predict pauses, so single-step policies freeze, as ACT and Diffusion Policy document <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />. Temporal context is the usual fix, yet more input information can worsen a cloned policy under shift <Cite id="causal-confusion-2019" />, and a history-conditioned policy can cheat by copying the expert's previous action <Cite id="copycat-bc-2020" />.
 
-Behavior cloning at best matches its demonstrator; robomimic found results depend on demonstration quality and checkpoint selection <Cite id="robomimic-2021" />. Past a threshold, extra demonstrations per environment or object barely help; diversity matters far more <Cite id="lin-data-scaling-laws-2024" />. Minibatch SGD noise can swing long-horizon reward while barely moving cloning loss, and an exponential moving average of iterates is surprisingly effective <Cite id="butterfly-sgd-noise-2023" />.
-
-In October 2026, Seohong Park and Sergey Levine of UC Berkeley released OCBench, a GPU-accelerated manipulation benchmark whose scripted demonstrators mimic key properties of human demonstrations, so such effects can be studied under control. In it, success can keep rising as a policy overfits, and on two tasks closed-loop policies almost completely fail where action chunking works, even with streaming data <Cite id="ocbench-2026" />.
+Behavior cloning at best matches its demonstrator, and robomimic found results depend on demonstration quality and checkpoint selection <Cite id="robomimic-2021" />. Past a threshold, extra demonstrations per environment or object barely help; diversity matters far more <Cite id="lin-data-scaling-laws-2024" />. In Park and Levine's OCBench (October 2026), whose scripted demonstrators mimic human ones, success can keep rising as a policy overfits, and on two tasks closed-loop policies almost completely fail where action chunking works <Cite id="ocbench-2026" />.
 
 ## DAgger: relabel the states you actually visit
 
@@ -140,23 +138,21 @@ $$
 
 Excess cost is linear in $T$ only if $u$ is independent of $T$; in the worst case $u$ is $O(T)$. The guarantee is existential; Algorithm 3.1 returns the policy best on validation. Finite-sample Theorem 3.4 holds with probability at least ${1-\delta}$ for empirical loss $\hat{\varepsilon}_N$, $m=O(1)$ trajectories per iteration and $N=O(u^2T^2\log(1/\delta))$ <Cite id="dagger-2011" />.
 
-Off-policy DART injects noise into demonstrations so the supervisor shows recoveries, gaining 62% on average over behavior cloning at grasping in clutter <Cite id="dart-2017" />. Diffusion Meets DAgger synthesizes out-of-distribution samples, reaching 80% pushing success from 8 demonstrations against behavior cloning's 20% <Cite id="diffusion-meets-dagger-2024" />.
+Off-policy DART injects noise into demonstrations so the supervisor shows recoveries, gaining 62% on average over behavior cloning at grasping in clutter <Cite id="dart-2017" />, and Diffusion Meets DAgger synthesizes out-of-distribution samples, reaching 80% pushing success from 8 demonstrations against behavior cloning's 20% <Cite id="diffusion-meets-dagger-2024" />.
 
-Labeling arbitrary failure states is unnatural for teleoperators. In HG-DAgger the human takes over when needed, steers back to a safe, stable region and hands back control, labeling the recovery <Cite id="hg-dagger-2019" />. BC-Z gathered such interventions by shared autonomy and did 24 unseen tasks at 44% average success <Cite id="bc-z-2022" />. Compliant Residual DAgger takes delta corrections without pausing the policy, raising base success by 64% on four tasks <Cite id="cr-dagger-2025" />.
+Labeling arbitrary failure states is unnatural for teleoperators. In HG-DAgger the human takes over when needed, steers back to a safe, stable region and hands back control, labeling the recovery <Cite id="hg-dagger-2019" />. BC-Z gathered such interventions by shared autonomy and did 24 unseen tasks at 44% average success <Cite id="bc-z-2022" />, and Compliant Residual DAgger takes delta corrections without pausing the policy, raising base success by 64% on four tasks <Cite id="cr-dagger-2025" />.
 
-Fourteen years after DAgger, Physical Intelligence's Recap coaches a vision-language-action policy with corrections at visited states <Cite id="pistar06-blog-2025" />. SOP runs HG-DAgger and Recap on a robot fleet, with performance scaling near-linearly in fleet size <Cite id="sop-2026" />. RaC found imitation plateaus far below perfect despite thousands of demonstrations; recovery-and-correction data beat the prior best with 10× less collection <Cite id="rac-2025" />.
+Physical Intelligence's Recap coaches a vision-language-action policy with corrections at visited states <Cite id="pistar06-blog-2025" />. RaC found imitation plateaus far below perfect despite thousands of demonstrations, and its recovery-and-correction data beat the prior best with 10× less collection <Cite id="rac-2025" />. In September 2026, Abhishek Gupta, Yi Shao and colleagues used DAgger to distill a state-based RL teacher into an RGB student; their RebarSim seated rebar at 1.4 mm clearance in 137 of 150 real rollouts, and in simulation pure behavior cloning in place of the DAgger mixture cut success from 96.1% to 68.9% <Cite id="rebarsim-2026" />.
 
-In September 2026, Abhishek Gupta (University of Washington), Yi Shao (McGill University) and colleagues used DAgger to distill a state-based RL teacher into an RGB student. Their RebarSim seated rebar at 1.4 mm clearance in 137 of 150 real rollouts. In simulation, pure behavior cloning in place of the DAgger mixture cut success from 96.1% to 68.9% <Cite id="rebarsim-2026" />.
+NVIDIA's Recova (October 2026) has an agent develop recovery skills in a digital twin of each task. On four real tasks at 20 trials each, DAgger fine-tuning raised mean success from 23.8% to 77.5%, and recovery skills raised it to 87.5% <Cite id="recova-2026" />.
 
-DITTO-X, posted on September 30, 2026 by Stanford and Columbia researchers including Jiajun Wu, is an actuated hand exoskeleton for taking over a dexterous robot hand. It back-drives the operator's fingers into the robot's configuration before control passes. In a six-person study, interventions succeeded on 78.3% of trials against 27.7% with a commercial glove <Cite id="ditto-x-2026" />.
+<span id="where-this-leads" />
 
-Linxi Fan, Yuke Zhu and colleagues at NVIDIA, UC San Diego and UT Austin posted Recova on October 1, 2026. It has an agent monitor rollouts and develop recovery skills in a digital twin of each task. On four real tasks at 20 trials each, DAgger fine-tuning raised mean success from 23.8% to 77.5%, and recovery skills raised it to 87.5% <Cite id="recova-2026" />.
-
-## Where this leads
+## Beyond DAgger
 
 [Action chunking](/manipulation/action-chunking/) and exploratory data collection each provably avoid exponential compounding through control-theoretic stability <Cite id="zhang-chunking-exploration-2025" />. A generative imitator, such as a [diffusion policy](/manipulation/diffusion-policy/), over a stabilizing controller can match the per-step distribution of expert trajectories <Cite id="block-generative-bc-2023" />.
 
-GAIL's adversarial imitation needs no expert queries <Cite id="gail-2016" />, nor does DARP's nearest-neighbour retrieval, 15 to 46% better than behavior cloning <Cite id="darp-2026" />. HIL-SERL adds real-world RL, reaching near-perfect success in 1 to 2.5 hours, doubling baseline success with 1.8x faster execution <Cite id="hil-serl-2024" />. In blind, randomized trials, multitask pretraining made cloned policies more robust and faster to teach new tasks with a fraction of the data <Cite id="tri-lbm-2025" />.
+GAIL's adversarial imitation needs no expert queries <Cite id="gail-2016" />, nor does DARP's nearest-neighbour retrieval, 15 to 46% better than behavior cloning <Cite id="darp-2026" />. HIL-SERL adds real-world RL, reaching near-perfect success in 1 to 2.5 hours <Cite id="hil-serl-2024" />.
 
 <SelfCheck
   prompt="A behavior-cloned pick-and-place policy demos perfectly on 20-second trials but drifts off the object within two minutes on the line. Where does the fix have to come from?"

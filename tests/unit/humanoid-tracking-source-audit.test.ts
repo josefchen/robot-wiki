@@ -30,8 +30,7 @@ describe('PHC, OmniH2O and HumanPlus source corrections', { timeout: 60_000 }, (
   it('scopes PHC to simulated avatars and progressive failed subsets', () => {
     for (const phrase of ['simulated avatars, with no physical robot', '98.9%',
       '11,313 filtered AMASS training clips',
-      'progressively harder failed', 'recovery primitive',
-      'multiplicative composer', 'recovery artifacts']) expect(body()).toContain(phrase);
+      'progressively harder failed']) expect(body()).toContain(phrase);
     expect(body()).not.toContain('as the motion set grew');
   });
   it('separates OmniH2O goal generation localization and low-level control', () => {

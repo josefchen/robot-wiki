@@ -103,21 +103,21 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       await open(page, info);
       const prose = page.locator('div.prose[data-pagefind-body]');
       const checks = [
-        { start: 'Classical detectors return boxes', parts: [
-          'Mask R-CNN extends Faster R-CNN', 'feature enhancer, query selection and decoder',
+        { start: 'Classical detectors return boxes', parts: ['Mask R-CNN extends Faster R-CNN'] },
+        // The humanize pass of 2026-10-12 gave open-vocabulary detection its own paragraph; its pins moved with it.
+        { start: 'Open-vocabulary detection removes the fixed list', parts: [
+          'feature enhancer, query selection and decoder',
           'performs weakly on referring expressions without REC training data', '52.5 AP on COCO 2017 validation',
           'Swin-L model', 'O365, OpenImage and GoldG', 'without COCO training images',
         ] },
         { start: 'DINOv2 learns', parts: ['LVD-142M', 'freeze the encoder and train linear heads for classification and segmentation',
           'linear or DPT heads for depth'] },
         { start: 'A box around a mug', parts: ['Segment Anything (SAM, 2023)',
-          '1.1 billion automatically generated masks on 11 million images', 'several candidate masks'] },
-        { start: "In SAM's single-point test", parts: ["ground-truth mask's center", "SAM's most confident mask",
-          "beats RITM's mIoU on 16", 'separately trained, CLIP-conditioned proof of concept',
-          'assumes a precomputed embedding', 'heavy image encoder prevents overall real-time performance'] },
-        { start: 'SAM 2 extends', parts: ['SAM 2.1', 'Hiera-B+ at resolution 1024', 'three clicks', 'nine video datasets',
-          'actual user effort was not measured', 'SA-1B-only', '58.9 one-click mIoU',
-          '130.1 images per second against 21.7', 'one A100 with image batches of 10', 'bfloat16', '37 datasets',
+          '1.1 billion automatically generated masks on 11 million images', 'several candidate masks',
+          'heavy image encoder prevents overall real-time performance'] },
+        // The humanize pass of 2026-10-12 cut SAM's single-point benchmark and SAM 2's interaction and
+        // throughput figures, and retired their pins with the text (audit/evidence/length-cut-20261012/).
+        { start: 'SAM 2 extends', parts: ['streaming memory of earlier predictions and prompted frames',
           'Objects are inferred independently'] },
       ];
       await page.mouse.move(0, 0);

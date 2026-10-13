@@ -6,6 +6,7 @@ import { figureMountPredecessor } from '../../lib/audit-figure-mount-continuity.
 import { kolBacklogPredecessor } from '../../lib/audit-kol-backlog-continuity.ts';
 import { frontierLengthCutPredecessor } from '../../lib/audit-length-cut-frontier-continuity.ts';
 import { worldModelsLengthCutPredecessor } from '../../lib/audit-length-cut-world-models-continuity.ts';
+import { lengthCutPredecessor } from '../../lib/audit-length-cut-continuity.ts';
 import { parallelLocalPredecessor } from '../../lib/audit-parallel-local-continuity.ts';
 import { readerFirstPredecessor } from '../../lib/audit-reader-first-continuity.ts';
 import { reskinPredecessor } from '../../lib/audit-reskin-site-foundation-continuity.ts';
@@ -64,7 +65,17 @@ export function preWordBudgetTrim(path: string): Buffer {
  * hand on.
  */
 export function preWorldModelsLengthCut(path: string): Buffer {
-  return worldModelsLengthCutPredecessor(root, { path, bytes: 0, sha256: '' }, preParallelLocal(path));
+  return worldModelsLengthCutPredecessor(root, { path, bytes: 0, sha256: '' }, preLengthCut(path));
+}
+
+/**
+ * The bytes the length-cut layer of 2026-10-12 (manipulation, classical and
+ * rl-sim2real), which landed after the world-models cut, hands every check
+ * older than the cut: the rebuilt pre-cut article while the live article is
+ * the reviewed successor, otherwise the bytes the newer layers hand on.
+ */
+export function preLengthCut(path: string): Buffer {
+  return lengthCutPredecessor(root, { path, bytes: 0, sha256: '' }, preParallelLocal(path));
 }
 
 /**

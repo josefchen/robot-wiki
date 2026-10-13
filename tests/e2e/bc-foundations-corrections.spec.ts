@@ -43,7 +43,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(toy).toBeVisible();
     await expect(reveal).not.toHaveAttribute('open');
     await expect(toy).toContainText('Original deterministic toy');
-    await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('1505');
+    await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('1,505');
     await expect(toy.getByTestId('half-deviation-readout')).toHaveText('370');
     await expect(toy.locator('[data-figure-stage] [data-figure-annotation]')).toHaveText(
       'Twice as long:about four times as far off course',
@@ -59,15 +59,15 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await horizon.focus();
     await page.keyboard.press('End');
     await expect(horizon).toHaveValue('240');
-    await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('1505');
+    await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('1,505');
     await toy.getByRole('button', { name: '25 moves per plan', exact: true }).click();
-    const chunk = Number(await toy.getByTestId('accumulated-deviation-readout').textContent());
+    const chunk = Number((await toy.getByTestId('accumulated-deviation-readout').textContent())?.replace(/,/g, ''));
     expect(chunk).toBeLessThan(1505);
     await toy.getByRole('button', { name: 'A teacher corrects it', exact: true }).click();
-    expect(Number(await toy.getByTestId('accumulated-deviation-readout').textContent())).toBeLessThan(1505);
+    expect(Number((await toy.getByTestId('accumulated-deviation-readout').textContent())?.replace(/,/g, ''))).toBeLessThan(1505);
     await capture('toy-changed');
     await toy.getByRole('button', { name: 'Reset', exact: true }).click();
-    await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('1505');
+    await expect(toy.getByTestId('accumulated-deviation-readout')).toHaveText('1,505');
     for (const [name, heading] of [
       ['theory', 'Covariate shift, stated precisely'],
       ['dagger', 'DAgger: relabel the states you actually visit'],

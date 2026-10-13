@@ -4,7 +4,17 @@ import type { ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { CitationRecordsProvider } from '@/components/article/citation-records';
-import { RetargetingGap, footGapCm } from '@/components/interactive/retargeting-gap';
+import {
+  PERSON_HIP_CM,
+  RATIO_MAX,
+  RATIO_MIN,
+  RetargetingGap,
+  UNITS_PER_CM,
+  footGapCm,
+  readoutFor,
+  soleGapUnits,
+} from '@/components/interactive/retargeting-gap';
+import { FLOOR, HIPS, HIP_Z, WALK, jointsOf, legDrop } from '@/components/iso/figures/retarget-frame';
 import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
 import { mainViewSymbolHits } from '@/lib/figure-main-view';
 import { widgetCitationRecords } from '@/lib/widget-citations';
@@ -31,14 +41,43 @@ describe('RetargetingGap', () => {
     expect(footGapCm(120)).toBe(-18);
   });
 
+  it('hangs both bodies at one hip height and measures the drawn gap with the model', () => {
+    // The mannequin's planted foot stands on the floor; both hips hang from the beam at its hip height.
+    expect(jointsOf(HIPS.mannequin, 1, 'near').sole[2]).toBeCloseTo(FLOOR, 9);
+    expect(jointsOf(HIPS.robot, 0.8, 'near').hip[2]).toBe(HIP_Z);
+    expect(jointsOf(HIPS.mannequin, 1, 'far').hip[2]).toBe(HIP_Z);
+    // Same joint angles: the robot's thigh and shin point the same way as the mannequin's at any length.
+    for (const leg of ['near', 'far'] as const) {
+      const person = jointsOf(HIPS.mannequin, 1, leg);
+      const robot = jointsOf(HIPS.robot, 1.2, leg);
+      const slope = (a: number[], b: number[]) => (b[2] - a[2]) / (b[0] - a[0]);
+      expect(slope(robot.hip, robot.knee)).toBeCloseTo(slope(person.hip, person.knee), 9);
+      expect(slope(robot.knee, robot.sole)).toBeCloseTo(slope(person.knee, person.sole), 9);
+    }
+    // The drawn gap under the planted foot, read on the gauge's centimetre scale, is the model's gap.
+    expect(UNITS_PER_CM).toBeCloseTo(legDrop(WALK, 1) / PERSON_HIP_CM, 9);
+    for (let ratio = RATIO_MIN; ratio <= RATIO_MAX; ratio += 5) {
+      const drawnCm = soleGapUnits(ratio / 100) / UNITS_PER_CM;
+      expect(drawnCm).toBeCloseTo(PERSON_HIP_CM * (1 - ratio / 100), 9);
+      expect(Math.abs(drawnCm - footGapCm(ratio))).toBeLessThanOrEqual(0.5 + 1e-9);
+    }
+    expect(readoutFor(75)).toBe('feet float 23 cm');
+    expect(readoutFor(100)).toBe('feet land');
+    expect(readoutFor(120)).toBe('feet sink 18 cm');
+  });
+
   it('opens with floating feet and drives the gap from the one slider', () => {
     const { container } = renderFigure();
-    expect(screen.getByTestId('retargeting-gap')).toBeInTheDocument();
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(/Feet float\s*23 cm up/);
+    expect(screen.getByTestId('retargeting-gap')).toHaveAttribute('data-gap', '23');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('feet float 23 cm');
+    // The robot's planted foot is the one lit part.
+    expect(container.querySelectorAll('.iso-solid[data-lit]')).toHaveLength(1);
+    expect(screen.getByTestId('retargeting-robot').querySelector('.iso-solid[data-lit]')).not.toBeNull();
     const slider = screen.getByRole('slider', { name: /leg length as a percentage/ });
     fireEvent.change(slider, { target: { value: '100' } });
     expect(screen.getByTestId('retargeting-ratio')).toHaveTextContent('100% as long');
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('Feet land');
+    expect(screen.getByTestId('retargeting-gap')).toHaveAttribute('data-gap', '0');
+    expect(screen.getByRole('img', { name: /legs 100% as long.*Same proportions: the feet land/ })).toBeInTheDocument();
     fireEvent.change(slider, { target: { value: '120' } });
     expect(slider).toHaveAttribute('aria-valuetext', expect.stringContaining('feet sink 18 cm into the floor'));
   });

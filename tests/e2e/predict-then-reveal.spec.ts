@@ -68,7 +68,7 @@ const PLACEMENTS: Placement[] = [
     // task-length and how-it's-run presets; both sliders moved into
     // "Adjust more".
     primaryControl: /per-step error/i,
-    mountedReadout: /1505/,
+    mountedReadout: /1,505/,
     primaryControlInAdjust: true,
   },
 ];

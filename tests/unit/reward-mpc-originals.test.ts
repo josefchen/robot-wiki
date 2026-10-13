@@ -64,18 +64,17 @@ describe('three independently whole reward and MPC originals', () => {
     }
     expect(text.includes('the training recipe is the commodity')).toBe(false);
   });
-  it('separates RDA success, visual alignment and the original Eureka human-feedback extension', () => {
+  // The RDA comparison was cut with the 2026-10-12 length cut; its pins are retired in that review.
+  it('keeps the original Eureka human-feedback extension', () => {
     const text = read('reward-design-mpc');
-    for (const phrase of ['same language-model backbone', 'SAC and SimbaV2', '0.70 against',
-      '0.47', 'success of 0.42', 'rates five rollout videos',
-      'each queried four times', 'human-written reward reflection']) {
+    for (const phrase of ['human-written reward reflection']) {
       expect(text.includes(phrase), phrase).toBe(true);
     }
     expect(text.includes('which is an admission')).toBe(false);
   });
   it('keeps the MPC computational, sensing, intervention and venue limits explicit', () => {
     const text = read('reward-design-mpc');
-    for (const phrase of ['to appear at ICRA 2026', 'finite-difference derivatives', 'one warm-started iLQR update per solve',
+    for (const phrase of ['to appear at ICRA 2026', 'one warm-started iLQR update per solve',
       '50 Hz and 300 Hz', '100 Hz OptiTrack', '500 Hz joint data',
       '20-core 13th-generation Intel i9', 'onboard-only deployment is untested']) {
       expect(text.includes(phrase), phrase).toBe(true);

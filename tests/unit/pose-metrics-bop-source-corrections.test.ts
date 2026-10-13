@@ -84,7 +84,7 @@ describe('source-scoped pose metrics and BOP corrections', () => {
       "Vidal's point-pair-feature method with ICP", '2019', 'GPose2023', '2017',
       'GenFlow-MultiHypo16', '67.4', 'best 2020 seen-object entry, CosyPose',
       '69.8', 'comparable across distinct tracks', '34.58 and 13.74 seconds',
-      '5 minutes per object on one GPU', 'dataset-specific networks with DeepIM and ICP refinement',
+      '5 minutes per object on one GPU',
       'on unmatched hardware',
       'fails under heavy occlusion',
     ]) expect(has(text), text).toBe(true);

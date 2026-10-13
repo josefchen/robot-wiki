@@ -46,7 +46,9 @@ seeAlso:
   - "manipulation/bc-foundations"
 ---
 
-The robot learning curriculum for ML engineers is a staged path through the robotics that policy experiments depend on: geometry, data, imitation, action representation, evaluation and deployment, each learned just before an experiment needs it. A 2025 open tutorial runs from behavior cloning and reinforcement learning to generalist policies <Cite id="robot-learning-tutorial-2025" />. Try the check below.
+The robot learning curriculum for ML engineers is a staged path through the robotics that policy experiments depend on: geometry, data, imitation, action representation, evaluation and deployment, each learned just before an experiment needs it. A 2025 open tutorial runs from behavior cloning and reinforcement learning to generalist policies <Cite id="robot-learning-tutorial-2025" />.
+
+Try the check below.
 
 <SelfCheck
   prompt="You have a small set of clean demonstrations for one tabletop task and no trusted success detector. What should you build first?"
@@ -73,49 +75,39 @@ The robot learning curriculum for ML engineers is a staged path through the robo
 
 ## Stage 1: coordinates
 
-Start with [kinematics](/classical/kinematics/): know which frame an object pose and an end-effector delta use, whether rotations compose on the left or right, and where joint limits enter. *Modern Robotics* supplies the vocabulary <Cite id="modern-robotics-2017" />, and Tedrake warns that sloppy kinematic notation "will inevitably lead to confusion and bugs" <Cite id="tedrake-manipulation-2026" />.
-
-Then study [calibration](/classical/calibration/) and [state estimation](/classical/state-estimation/): a drifting camera transform or timestamp mismatch can look like a stochastic policy. Kalibr estimates sensor time offsets to a fraction of the smallest measurement period <Cite id="kalibr-2013" />.
+Start with [kinematics](/classical/kinematics/): which frame an object pose or end-effector delta uses, and where joint limits enter. *Modern Robotics* supplies the vocabulary <Cite id="modern-robotics-2017" />, and Tedrake warns that sloppy kinematic notation "will inevitably lead to confusion and bugs" <Cite id="tedrake-manipulation-2026" />. A drifting camera transform or timestamp mismatch can look like a stochastic policy, so [calibration](/classical/calibration/) and [state estimation](/classical/state-estimation/) come next; Kalibr estimates sensor time offsets to a fraction of the smallest measurement period <Cite id="kalibr-2013" />.
 
 ## Stage 2: data as a system
 
 Each transition couples synchronized observations, commanded and realized actions, robot state, task identity, termination and provenance; RLDS stores such episodes losslessly <Cite id="rlds-2021" />. Among public [datasets](/data-hardware/datasets/), Open X-Embodiment pools 22 robots from 21 institutions <Cite id="open-x-embodiment-2023" />, and DROID holds 76k trajectories from 13 institutions <Cite id="droid-2024" />.
 
-Before scaling, record ten episodes and replay them: plot timestamp gaps, render actions onto the robot state, and check units and rotation conventions. Past a threshold per environment or object, more demonstrations add little, and diversity matters far more <Cite id="lin-data-scaling-laws-2024" />.
-
-GELLO collects demonstrations more reliably than VR controllers or 3D spacemice <Cite id="gello-2023" />, and LeRobot spans the [robot-learning stack](/data-hardware/robot-learning-stack/) from motor middleware to dataset streaming <Cite id="lerobot-paper-2026" />.
+Record and replay ten episodes before scaling, checking timestamps, units and rotation conventions. Past a threshold per environment or object, more demonstrations add little and diversity matters far more <Cite id="lin-data-scaling-laws-2024" />. GELLO collects demonstrations more reliably than VR controllers or 3D spacemice <Cite id="gello-2023" />, and LeRobot spans the [robot-learning stack](/data-hardware/robot-learning-stack/) from motor middleware to dataset streaming <Cite id="lerobot-paper-2026" />.
 
 ## Stage 3: imitation baseline
 
-[Behavior cloning](/manipulation/bc-foundations/) trains on expert states and then visits its own, a closed-loop distribution shift. DAgger formalized why errors compound and why corrective labels on learner-induced states change the problem <Cite id="dagger-2011" />. HG-DAgger adapts it for human experts, whose labels can degrade without full control <Cite id="hg-dagger-2019" />.
+[Behavior cloning](/manipulation/bc-foundations/) trains on expert states and then visits its own; DAgger formalized why errors compound and why corrective labels on learner-induced states change the problem <Cite id="dagger-2011" />. Start with the smallest closed-loop baseline, such as an image encoder and MLP on one camera, task and action convention, and debug alignment, normalization and reset diversity before adding scale. robomimic found results sensitive to design choices, demonstration quality and stopping criteria <Cite id="robomimic-2021" />.
 
-Run the smallest closed-loop baseline, such as an image encoder and MLP, on one camera, task and action convention. If it fails, inspect alignment, normalization, reset diversity and label multimodality before adding scale. robomimic found results sensitive to design choices, demonstration quality and stopping criteria <Cite id="robomimic-2021" />.
-
-Add temporal structure. ACT predicts action chunks and temporally ensembles overlapping predictions <Cite id="act-aloha-2023" />. Diffusion Policy models a multimodal distribution over action sequences, executed in a receding horizon <Cite id="diffusion-policy-2023" />.
+Then add temporal structure: ACT predicts action chunks <Cite id="act-aloha-2023" />, and Diffusion Policy models a multimodal distribution over action sequences <Cite id="diffusion-policy-2023" />.
 
 ## Stage 4: action contract
 
-Among [action spaces](/manipulation/action-spaces/), joint positions are mechanism-specific; end-effector deltas share a task-space convention across compatible controllers and frames. Torque and tokens add low-level and decoding costs, and per-dimension binning tokenizers handle high-frequency dexterous data poorly <Cite id="pi0-fast-2025" />.
-
-The action representation is part of the dataset: it fixes the labels, the controller, the error modes and which robots can share data. Change it apart from the model. Variable-impedance end-effector actions improved sample efficiency and safety in three manipulation tasks <Cite id="martin-martin-2019" />.
+Among [action spaces](/manipulation/action-spaces/), joint positions are mechanism-specific, while end-effector deltas share a task-space convention across compatible controllers. Per-dimension binning tokenizers handle high-frequency dexterous data poorly <Cite id="pi0-fast-2025" />. The action representation is part of the dataset, fixing the labels, controller, error modes and which robots can share data, so change it separately from the model.
 
 ## Stage 5: pretraining
 
-A VLA helps when language, semantic generalization or multi-task transfer matters. OpenVLA made the recipe reproducible: fuse spatial and semantic vision features into a language backbone, then fine-tune it to emit actions <Cite id="openvla-2024" />. π0 pretrains on over 10,000 hours of robot data <Cite id="pi0-2024" />, and SmolVLA trains on one GPU yet performs comparably to VLAs ten times larger <Cite id="smolvla-2025" />.
-
-[Pretraining](/manipulation/foundation-models/) can help recognize an unseen object category; a wrong hand-eye transform still needs calibration. In TRI's blind, randomized trials, multitask pretraining made policies more successful and robust and taught new tasks with a fraction of the data <Cite id="tri-lbm-2025" />.
+A VLA helps when language, semantic generalization or multi-task transfer matters. OpenVLA made the recipe reproducible <Cite id="openvla-2024" />, π0 pretrains on over 10,000 hours of robot data <Cite id="pi0-2024" />, and SmolVLA trains on one GPU yet performs comparably to VLAs ten times larger <Cite id="smolvla-2025" />. [Pretraining](/manipulation/foundation-models/) can help recognize an unseen object category, but a wrong hand-eye transform still needs calibration; in TRI's blind, randomized trials, multitask pretraining taught new tasks with a fraction of the data <Cite id="tri-lbm-2025" />.
 
 ## Stage 6: evaluation
 
 Define success, failure, intervention, reset and timeout before the main run, and separate familiar configurations from changed objects, backgrounds, lighting and geometry. Papers often give little or no information on run counts, initial conditions, success criteria or statistics <Cite id="kress-gazit-evaluation-2024" />. Report trial counts and uncertainty; STEP's sequential test needs up to 32% fewer trials than prior tests <Cite id="optimal-stopping-2025" />.
 
-Open-loop loss is a diagnostic. Check datasets for leakage, action distributions, timestamps and annotations; open-loop error and calibration on held-out episodes; closed-loop success, interventions and failures under controlled shifts; and deployment cycle time, recovery, resets, faults and operator load. LIBERO-Plus shifts object layout, camera viewpoint, initial state, language, lighting, background and sensor noise <Cite id="libero-plus-2025" />. SIMPLER's simulated scores correlate with real performance <Cite id="simpler-2024" />, and RoboArena's double-blind pairwise trials rank generalist policies better than centralized evaluation <Cite id="roboarena-2025" />. For deployment, [ROS 2](/classical/ros2-for-ml-engineers/) was rebuilt with the production-grade features ROS 1 lacked <Cite id="ros2-science-robotics-2022" />.
+Open-loop loss is only a diagnostic; closed-loop success under controlled shifts is the measure. LIBERO-Plus shifts layout, viewpoint, initial state, language, lighting, background and sensor noise <Cite id="libero-plus-2025" />, SIMPLER's simulated scores correlate with real performance <Cite id="simpler-2024" />, and RoboArena's double-blind pairwise trials rank generalist policies better than centralized evaluation <Cite id="roboarena-2025" />. For deployment, [ROS 2](/classical/ros2-for-ml-engineers/) adds the production-grade features ROS 1 lacked <Cite id="ros2-science-robotics-2022" />.
 
 ## Simulation and RL
 
-Simulation tests controller stability, robustness to parameter variation and safe reward optimization. Domain randomization aims to make the real world look like one more simulated variation <Cite id="tobin-2017" />. Isaac Lab targets large-scale, multi-modal robot learning <Cite id="isaac-lab-2025" />; measure its dynamics gap to the hardware.
+Simulation tests controller stability and safe reward optimization. Domain randomization aims to make the real world look like one more simulated variation <Cite id="tobin-2017" />, and Isaac Lab targets large-scale robot learning <Cite id="isaac-lab-2025" />, though its dynamics gap to the hardware needs measuring.
 
-Offline RL learns from logged data without new collection <Cite id="offline-rl-tutorial-2020" />, so it fits logs whose outcome quality varies and a reward can rank. Online RL needs safe exploration, automatic resets and cheap evaluation; SERL bundles an off-policy learner with reward computation, resets and a controller <Cite id="serl-2024" />. Without those, <Term id="imitation-learning">imitation learning</Term> is the practical first use of demonstrations. In simulation, RL can stand in for scarce demonstrations: SimpleVLA-RL lifted OpenVLA-OFT trained on one demonstration per task from 48.9% to 96.9% average LIBERO success <Cite id="simplevla-rl-2025" />.
+Offline RL learns from logged data without new collection <Cite id="offline-rl-tutorial-2020" />. Online RL needs safe exploration, automatic resets and cheap evaluation, which SERL bundles with an off-policy learner <Cite id="serl-2024" />; without them, start with <Term id="imitation-learning">imitation learning</Term>. In simulation, RL can stand in for scarce demonstrations: SimpleVLA-RL lifted OpenVLA-OFT trained on one demonstration per task from 48.9% to 96.9% average LIBERO success <Cite id="simplevla-rl-2025" />.
 
 ## A practical sequence
 

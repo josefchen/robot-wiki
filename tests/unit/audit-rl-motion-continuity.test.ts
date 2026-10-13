@@ -44,6 +44,8 @@ function fixture() {
     'audit/evidence/domain-pass-20261006/source-transition.json',
     // The rl-sim2real simple figures (2026-10-10) rebuild the pre-mount articles from this review.
     'audit/evidence/figure-mounts-20261007/source-transition.json',
+    // The rl-sim2real length cut (2026-10-12) rebuilds the pre-cut articles from this review.
+    'audit/evidence/length-cut-20261012/source-transition.json',
     // The parallel18 rebinding (2026-10-12) archived the proofs the parallel-sim-rl population names.
     'audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json',
     ...entries.flatMap((entry) => [entry.snapshot.path, entry.current.path]),

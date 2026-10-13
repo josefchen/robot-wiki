@@ -1,12 +1,28 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
+import { JSDOM } from 'jsdom';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { CompoundingError } from '@/components/interactive/compounding-error';
 import { mainViewSymbolHits } from '@/lib/figure-main-view';
+import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
+import {
+  DRIFT_SPAN,
+  MAX_MOVES,
+  RUN_LENGTH,
+  WORST_EPSILON,
+  X0,
+  correctionPoints,
+  driftScale,
+  moveX,
+  offsetAt,
+  rolloutOf,
+} from '@/components/iso/figures/copy-tracing-bench';
+import { DAGGER_INTERVAL, accumulatedCost, simulateDeviation } from '@/lib/compounding-error';
 
 function readout(): number {
   const el = screen.getByTestId('accumulated-deviation-readout');
-  const value = Number.parseFloat(el.textContent ?? '');
+  const value = Number.parseFloat((el.textContent ?? '').replace(/,/g, ''));
   expect(Number.isFinite(value)).toBe(true);
   return value;
 }
@@ -52,8 +68,12 @@ describe('CompoundingError', () => {
     const { container } = render(<CompoundingError defaultSteps={240} />);
     const note = container.querySelector('[data-figure-stage] [data-figure-annotation]');
     expect(note?.textContent).toBe('Twice as long:about four times as far off course');
-    expect(screen.getByTestId('accumulated-deviation-readout')).toHaveTextContent('1505');
+    expect(screen.getByTestId('accumulated-deviation-readout')).toHaveTextContent('1,505');
     expect(screen.getByTestId('half-deviation-readout')).toHaveTextContent('370');
+    // The readout says it in plain words, from the same model sums.
+    expect(container.querySelector('[data-readout]')?.textContent).toBe(
+      '240 moves · drift 1,505 units · the first 120 moves drift 370',
+    );
     expect(screen.getByTestId('robot-gripper')).toBeInTheDocument();
     expect(container.querySelector('[data-figure-stage]')?.textContent).toContain('the path a person showed it');
   });
@@ -105,9 +125,7 @@ describe('CompoundingError', () => {
     await user.click(screen.getByRole('button', { name: 'A teacher corrects it' }));
     expect(readout()).toBeLessThan(plain);
     expect(screen.getByRole('button', { name: 'A teacher corrects it' })).toHaveAttribute('aria-pressed', 'true');
-    expect(
-      container.querySelectorAll('[data-series="teacher-corrections"] [data-chart-mark="cross"]'),
-    ).toHaveLength(6);
+    expect(container.querySelectorAll('[data-part="teacher-corrections"] [data-correction]')).toHaveLength(6);
   });
 
   it('reset restores the default state', async () => {
@@ -162,5 +180,76 @@ describe('CompoundingError', () => {
     expect(predText.length).toBeGreaterThan(60);
     expect(norm(labText)).not.toBe(norm(predText));
     expect(predText).toMatch(/prediction-step reference panel/i);
+  });
+
+  it('draws the copy-tracing bench: the slide sits at the model drift, the wash is split at half the task', () => {
+    const { container } = render(<CompoundingError defaultSteps={240} />);
+    const svg = container.querySelector('[data-anatomy-drawing] svg')!;
+    expect(svg).toHaveAccessibleName(/copy-tracing bench/i);
+    expect(svg).toHaveAccessibleName(/1505 units, against 370 over the first 120 moves/);
+    expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
+    expect(svg.querySelectorAll('[data-series]')).toHaveLength(0);
+    expect(screen.getByTestId('drift-first-half').getAttribute('d')).toMatch(/^M/);
+    expect(screen.getByTestId('drift-second-half').getAttribute('d')).toMatch(/^M/);
+    expect(svg.querySelectorAll('.iso-solid[data-lit]').length).toBeGreaterThan(0);
+  });
+
+  it('starts and stops the bench from the one run button, with no pressed state', () => {
+    render(<CompoundingError />);
+    const run = screen.getByTestId('ce-run');
+    expect(run).toHaveTextContent('Run the bench');
+    fireEvent.click(run);
+    expect(run).toHaveTextContent('Stop the bench');
+    expect(run).not.toHaveAttribute('aria-pressed');
+    fireEvent.click(run);
+    expect(run).toHaveTextContent('Run the bench');
+    fireEvent.click(run);
+    fireEvent.click(screen.getByRole('button', { name: 'A teacher corrects it' }));
+    expect(run).toHaveTextContent('Run the bench');
+  });
+});
+
+describe('copy-tracing bench model', () => {
+  const params = { epsilon: 0.05, steps: 240, mode: 'per-step' as const, chunkSize: 25, dagger: false, maxSteps: 240 };
+
+  it('moves the slide by the same recurrence the readout sums', () => {
+    const bench = rolloutOf(params);
+    const deviation = simulateDeviation(params);
+    expect(bench.deviation).toEqual(deviation);
+    for (const t of [0, 37, 120, 240]) expect(offsetAt(bench, t)).toBeCloseTo(deviation[t] * bench.scale);
+    expect(Math.round(accumulatedCost(bench.deviation))).toBe(1505);
+    expect(Math.round(accumulatedCost(bench.deviation.slice(0, 121)))).toBe(370);
+  });
+
+  it('fixes the drift scale at the worst reachable case, so the worst drift spans the template', () => {
+    const worst = simulateDeviation({ epsilon: WORST_EPSILON, steps: 240, mode: 'per-step', chunkSize: 25, dagger: false });
+    expect(driftScale(240, 25) * worst[240]).toBeCloseTo(DRIFT_SPAN);
+    const bench = rolloutOf({ ...params, epsilon: WORST_EPSILON });
+    expect(offsetAt(bench, 240)).toBeCloseTo(DRIFT_SPAN);
+  });
+
+  it('runs the task along the whole bench and marks one correction per teacher round', () => {
+    expect(moveX(0, MAX_MOVES)).toBe(X0);
+    expect(moveX(MAX_MOVES, MAX_MOVES)).toBe(X0 + RUN_LENGTH);
+    const taught = rolloutOf({ ...params, dagger: true });
+    expect(correctionPoints(taught, 240, true)).toHaveLength(240 / DAGGER_INTERVAL);
+    expect(correctionPoints(taught, 240, false)).toHaveLength(0);
+    // Each round winds the slide three quarters back.
+    expect(offsetAt(taught, 20)).toBeCloseTo(0.25 * offsetAt(rolloutOf({ ...params, steps: 20 }), 20));
+  });
+});
+
+describe('CompoundingError served HTML', () => {
+  const html = `<!doctype html><html><body><main>${renderToStaticMarkup(<CompoundingError defaultSteps={240} />)}</main></body></html>`;
+
+  it('passes the figure-system check', () => {
+    const { figures, violations } = inspectFigureDocument(html, '/manipulation/bc-foundations/');
+    expect(figures).toEqual(['compounding-error']);
+    expect(violations.map(formatViolation)).toEqual([]);
+  });
+
+  it('shows no symbol, formula or bare unit in the main view', () => {
+    const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
+    expect(mainViewSymbolHits(frame)).toEqual([]);
   });
 });

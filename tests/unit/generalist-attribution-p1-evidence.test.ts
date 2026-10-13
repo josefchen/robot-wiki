@@ -12,7 +12,7 @@ import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash, showAt } from './helpers/continuation-merge-ledger';
 import { committedSource } from '../helpers/continuation-integration';
 import { preDomainPass, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
-import { domainPassEndpoint, preDomainPassCitations } from '../helpers/domain-pass';
+import { domainPassEndpoint, humanize20261012Endpoint, preDomainPassCitations } from '../helpers/domain-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '9ea4a171131e45deacfbd1b54921940162f3afbf';
@@ -175,7 +175,7 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
       .filter(a => a.manifest === 'prose' && a.memberId === 'article:manipulation/generalist-policies'
         && !a.id.startsWith('humanizer-manipulation-v3-') && !a.id.startsWith('educational-cue-20260926-')
         && !a.id.startsWith('seo-pass-20261002-') && !a.id.startsWith('reader-first-20261003-')
-        && !a.id.startsWith('domain-pass-20261006-'))
+        && !a.id.startsWith('domain-pass-20261006-') && !a.id.startsWith('humanize-20261012-manipulation-'))
       .at(-1)!.newHash;
     expect(hashOf(corrected)).toBe(lastPrePassAnchor);
     // The cue re-anchor is a sealed resolution that binds every prior
@@ -192,10 +192,12 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     expect(readerFirst.reconciles?.some(binding => binding.id === seo.id && binding.newHash === seo.newHash)).toBe(true);
     expect(hashOf(preDomainPass(articlePath).toString('utf8'))).toBe(readerFirst.newHash);
     // The 2026-10-06 domain pass rewrote the article from the owner's draft;
-    // its edge reconciles the reader-first endpoint, and its last batch reaches the live article.
+    // its edge reconciles the reader-first endpoint, and the 2026-10-12
+    // manipulation humanize pass carries its last batch to the live article.
     const domainPass = approvals.find(a => a.id === 'domain-pass-20261006-g3-prose-generalist-policies')!;
     expect(domainPass.reconciles?.some(binding => binding.id === readerFirst.id && binding.newHash === readerFirst.newHash)).toBe(true);
-    expect(hashOf(read(articlePath))).toBe(domainPassEndpoint(approvals, domainPass).newHash);
+    expect(hashOf(read(articlePath))).toBe(humanize20261012Endpoint(approvals, 'prose',
+      'article:manipulation/generalist-policies', domainPassEndpoint(approvals, domainPass).newHash));
     expect(article.split(newSpan.replace('Its inspected v4 methods describe', 'Its inspected methods describe'))).toHaveLength(2);
     expect(matter(article).data).toEqual(matter(before(articlePath)).data);
     expect(article).not.toContain('GO-1 was open-sourced alongside');
@@ -370,7 +372,11 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
           expect(domainPass.oldHash === seo?.newHash
             || (domainPass.reconciles ?? []).some(binding => binding.newHash === seo?.newHash)).toBe(true);
         }
-        if (seo) expect(domainPass?.newHash ?? seo.newHash).toBe(currentHash(manifest, memberId));
+        // The 2026-10-12 manipulation humanize pass then carries the member on to HEAD.
+        if (seo) {
+          expect(humanize20261012Endpoint(approvals, manifest, memberId, domainPass?.newHash ?? seo.newHash))
+            .toBe(currentHash(manifest, memberId));
+        }
         expect(a?.newHash).toBe(endpoint);
         // A lane-only member needs no integration re-anchor; if one exists it must be exact.
         if (reanchor) expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: endpoint });

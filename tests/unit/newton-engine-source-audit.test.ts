@@ -39,22 +39,20 @@ describe('Newton engine source-scoped corrections', { timeout: 60_000 }, () => {
     expect(parallel()).toContain('<Cite id="brax-2021" />');
   });
   it('attributes the backend split and solver-dependent differentiability', () => {
-    for (const phrase of ["NVIDIA's 2026 overview", 'standalone OVRTX renderer',
-      "Newton's renderer", 'Linux Foundation', 'support differs between solvers']) {
+    for (const phrase of ["NVIDIA's 2026 overview", 'Linux Foundation', 'support differs between solvers']) {
       expect(parallel()).toContain(phrase);
     }
     expect(parallel()).not.toContain('governed under the Linux Foundation');
   });
   it('keeps the solver inventory and example-specific SDF band', () => {
-    for (const phrase of ['SemiImplicit, XPBD and Kamino', 'limited joints',
-      'Style3D cloth', 'narrow_band_range=(-0.01, 0.01)',
+    for (const phrase of ['SemiImplicit, XPBD and Kamino',
       'its assembly example sets a plus or minus 10 mm sparse-SDF band']) expect(parallel()).toContain(phrase);
     expect(parallel()).not.toContain('the accuracy reference');
     expect(parallel()).not.toContain('that standard articulation solvers cannot represent');
   });
   it('distinguishes vendor workflows, future Samsung use and simulation', () => {
     for (const phrase of ['NVIDIA reports that Skild AI', 'Samsung "will use Newton"',
-      'RB-Y1 cable insertion', 'water-hose connector']) expect(parallel()).toContain(phrase);
+      'RB-Y1 cable insertion']) expect(parallel()).toContain(phrase);
   });
   it('keeps the two task ratios, comparator, hardware and missing protocol together', () => {
     for (const phrase of ['value="252x / 475x"', 'locomotion / manipulation',

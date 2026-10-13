@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { committedSource } from '../helpers/continuation-integration';
 import { preDomainPass, preSeoPassText } from '../helpers/seo-pass';
-import { kolQueue20261012Endpoint } from '../helpers/domain-pass';
+import { humanize20261012Endpoint, kolQueue20261012Endpoint } from '../helpers/domain-pass';
 import { originalClaimDigest, parseLedger, type CompoundPlan } from '../../lib/audit-ledger';
 import {
   buildManifest, compareBaseline, sha256, validateApprovedDeltas,
@@ -227,8 +227,10 @@ describe('hierarchy original 14 source-backed correction', () => {
         || (edge.reconciles ?? []).some(binding => binding.id === previous.id && binding.newHash === previous.newHash)).toBe(true);
       previous = edge;
     }
-    // The 2026-10-12 KOL triage batch then adds one dated paragraph.
+    // The 2026-10-12 KOL triage batch then adds one dated paragraph, and the
+    // 2026-10-12 manipulation humanize pass tightens the prose after it.
     expect(prose(readFileSync(articlePath, 'utf8')).members[0].hash)
-      .toBe(kolQueue20261012Endpoint(approvals, 'prose', 'article:manipulation/hierarchical', previous.newHash));
+      .toBe(humanize20261012Endpoint(approvals, 'prose', 'article:manipulation/hierarchical',
+        kolQueue20261012Endpoint(approvals, 'prose', 'article:manipulation/hierarchical', previous.newHash)));
   });
 });

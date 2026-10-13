@@ -13,6 +13,7 @@ import {
   type IdentityRouteObservation,
   type IdentityStateObservation,
 } from '../../lib/brand-v2-identity-evidence';
+import { isApprovedTabIconDeclaration } from '../../lib/brand-v2-census';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 import {
   expectedIdentitySlots,
@@ -586,8 +587,14 @@ test.describe('brand-v2 public identity', () => {
       ),
     );
     expect(v1Residue).toEqual([]);
+    // The owner-approved tab icon set (Josef, 2026-10-12, lib/brand-v2-census.ts)
+    // is the one icon slot a route may fill; any other icon, touch icon,
+    // mask or manifest declaration, and any symbol inside a lockup, fails.
     const symbols = swept.flatMap(({ route, symbolNodesInLockups, iconDeclarations }) =>
-      [...symbolNodesInLockups, ...iconDeclarations].map((entry) => `${route}: ${entry}`),
+      [
+        ...symbolNodesInLockups,
+        ...iconDeclarations.filter((declaration) => !isApprovedTabIconDeclaration(declaration)),
+      ].map((entry) => `${route}: ${entry}`),
     );
     expect(symbols).toEqual([]);
     const stateNames = stateObservations.flatMap(({ state, wordmarkRoleSlots }) =>

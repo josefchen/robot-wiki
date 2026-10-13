@@ -560,10 +560,29 @@
       },
       "jsonLd": [],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "1819ab425b3a8a14af06b7f3154e155f97eba428413bd57763b416322d2bf0db"
+      "fingerprint": "35ebb90117c8349b4b78348421b6744b2b8e2787abf49d7c2d2653632cc95221"
     },
     {
       "id": "metadata:/a-z/",
@@ -589,10 +608,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "2eeca43e303d281e7339fd9b25c4d4760ea9ae43dc2550acdcfd0cbc0a315e45"
+      "fingerprint": "eacf438abb33553845cd8f64cea2b2d80e3e60942258e257a8201c75ea1d313c"
     },
     {
       "id": "metadata:/about/",
@@ -616,10 +654,29 @@
       },
       "jsonLd": [],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "de19b16017fabbc27a4de7a1c6861eb685d21d30fba41faaeddb93133beb8c65"
+      "fingerprint": "86cd281eaadee8fc10805679f4063a08d27f4d5f523248add3e5525f62bf1d7e"
     },
     {
       "id": "metadata:/adjacent/",
@@ -645,10 +702,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c0b00cb7dacb1bfbb980abaab191bfa5a8e5dd4833131076c767512ae1904be0"
+      "fingerprint": "ed165ef4b6b2083bb89a0c2f9ec15e162f288a087f29055d3f76e4308838634d"
     },
     {
       "id": "metadata:/adjacent/autonomous-vehicles/",
@@ -674,10 +750,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "4c7f165913af9abfccce3fa52854ea4c368eb7086ae5927f20aec9d99a92d9e0"
+      "fingerprint": "bf2e2d719956650af49e9525e98b330bd474f54423b909005f26ebf3e0dddb8e"
     },
     {
       "id": "metadata:/adjacent/drones/",
@@ -703,10 +798,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e904854b83db7ad2f68ce3a96b30f1a7bdb05b18c71f11bebc2fe59b7b000375"
+      "fingerprint": "53b1ceac9369fe3304a8aca12b85730b5fbf8392fab13ffc5e1bcb1987c66b97"
     },
     {
       "id": "metadata:/adjacent/space/",
@@ -732,10 +846,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "53c9f0e8013bcdada3757269f8c8480137aa84036c1022de90bee8b7347083e4"
+      "fingerprint": "1833a643f43252935ec129bcddb6639c4c6e71b0cc69404503112548c5dc836c"
     },
     {
       "id": "metadata:/adjacent/surgical/",
@@ -761,10 +894,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "a9d442bab1067783d1ab0abb2c25553bf4d195909e7a49b97d58e0207f544ec9"
+      "fingerprint": "3d06e127f6b4c1d46ed97cc862a3ad6182c17fa042383faa65c36fc7e3f66ac7"
     },
     {
       "id": "metadata:/classical/",
@@ -790,10 +942,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e291897ea04f3fb1e37ae6a1ecc39fe558c836814d8420be3b1a3aa45f01e341"
+      "fingerprint": "f4bcf18a405cad7b820cdc7fee2436650674c89ab014f733698f3db2c44b7d91"
     },
     {
       "id": "metadata:/classical/calibration/",
@@ -819,10 +990,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "cf5458788e3ca0c1c1a37fca7260e7ff7ac7a7d58801c142a62088f667dcc099"
+      "fingerprint": "1189d1512dd904b92ac7e53aecd0a9b66dfe1d616335a2c8d97a12eb3a34551c"
     },
     {
       "id": "metadata:/classical/control/",
@@ -848,10 +1038,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0129a6144c75b96187114845fd22560187649516f78dd9167e7c7f293da1014a"
+      "fingerprint": "e23d05f2d6da3439e1c261f4280531a3e6561eaefb178a0b20333b96b9bc10ad"
     },
     {
       "id": "metadata:/classical/grasp-planning/",
@@ -877,10 +1086,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "287595e9df6013a522c1c9e4ba46a4cdb820dbd53e48123112c53cc6fac81945"
+      "fingerprint": "bfaac73877163c0860cadcb760a8202c35d41765675d4ed9f55a45c49e68949a"
     },
     {
       "id": "metadata:/classical/kinematics/",
@@ -906,10 +1134,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b70f8444dc7491308e5353a583f292a5dda945c6f8d99c3fe33363666cfcda67"
+      "fingerprint": "3a54c018434b48244e0e17fac168928a5650214d4b302577acc9640ab92c4b18"
     },
     {
       "id": "metadata:/classical/motion-planning/",
@@ -935,10 +1182,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "12a2104f9fd38fa9e14f320b53e42a1fd0fc6a555932a073b9294cf2ca335fe8"
+      "fingerprint": "3c292bd76180099da3b4b1585c666677f04b0e6ffb5f808732eefda28d7b4d63"
     },
     {
       "id": "metadata:/classical/perception/",
@@ -964,10 +1230,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "7363948a1e0a133c8e31d2f267cfaeea841c012fd707249ccc8316da69a28028"
+      "fingerprint": "5e414778a57eca8a0df638a23718688e079840f9a7b37c57379071e2275dd09b"
     },
     {
       "id": "metadata:/classical/ros2-for-ml-engineers/",
@@ -993,10 +1278,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ca4f08019c0df19ec8e9aa6fcd2155d5adb0097f16c48d18baecb38f771e1725"
+      "fingerprint": "0cc1802b4016ecef0323ce79c4d65a11f3cff7cc777a0c5cf3fb8ddddd86b083"
     },
     {
       "id": "metadata:/classical/scene-representation/",
@@ -1022,10 +1326,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "2125abd6fb59893da693a943a03c33fed14c34006b8f9d189a6b8aa0a37bf07d"
+      "fingerprint": "97779cf5e940871c1b350ae581b20275ce0fb02a8666bcb9eb6ae4a6d96a5b6a"
     },
     {
       "id": "metadata:/classical/state-estimation/",
@@ -1051,10 +1374,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "632eeefc0c85b4e2d21abf6a616a0307d9085c6ba3f6c3edb4329fc59c9547e6"
+      "fingerprint": "86ce7ad50c6c70bbaca4c3c2ca9a95d4d3af13859c4d85deb19455142c8f6392"
     },
     {
       "id": "metadata:/credits/",
@@ -1078,10 +1420,29 @@
       },
       "jsonLd": [],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c4ee2dc799bbde05db5fbb95d09636d9eff369333684b823a3646cc2fa1a880d"
+      "fingerprint": "efefb28424baa6191360bc0a617769d49b8564f307c0f2461d769f16d93ef3aa"
     },
     {
       "id": "metadata:/data-hardware/",
@@ -1107,10 +1468,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "dc0ac1b295a4646f2902f024350cbbb119efe0cef3fc4264755808a4a54fc5ce"
+      "fingerprint": "1f40ec9d060b52737bd3d3b0408956528d50626edc19ef5fe41bd608de740b2a"
     },
     {
       "id": "metadata:/data-hardware/data-bottleneck/",
@@ -1136,10 +1516,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "fd2d41873b81c464edc436467a6a3b0779228b67d2db407d16608aa7eb0015bc"
+      "fingerprint": "db96c8aadbbe5372f80d15023ebea172903efd5198a851b2033739297704928b"
     },
     {
       "id": "metadata:/data-hardware/datasets/",
@@ -1165,10 +1564,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "50d1b879c5459e32c9d02c3206481fab2c334c310e8c8a0f2485d767877e0b48"
+      "fingerprint": "23ee7e2d001f70bb59c6862c8f25c0e21fc2fb1d3539a4a6ac495d1cf8712075"
     },
     {
       "id": "metadata:/data-hardware/evaluation-crisis/",
@@ -1194,10 +1612,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0ea5a16948b383add414151ea01308d1e1dfd202fbeae9d6dfe2f4fe39678fcc"
+      "fingerprint": "4d89a520c3e2f512224b54bf0a8bbd1d182e99b57d997775725b603a149e1d20"
     },
     {
       "id": "metadata:/data-hardware/hardware-taxonomy/",
@@ -1223,10 +1660,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "aae65fb459b461a48c4cd1391bdb9d53c6ed1a1e7c5d85354dc295b2ea2218b0"
+      "fingerprint": "ee891963cfc7a6a4b650c58ad3bd1becf97ad7ef124151b9ae288c3ae3eccbda"
     },
     {
       "id": "metadata:/data-hardware/industrial-deployment/",
@@ -1252,10 +1708,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "99c5576aa447bed3f0ce3a4f860b9f1ac951a2823327d7b5c56aa5b76f968995"
+      "fingerprint": "39dcabadcb00b08b6f39b14eb4d287f0688e884193184f00521537bee0ace25f"
     },
     {
       "id": "metadata:/data-hardware/robot-learning-stack/",
@@ -1281,10 +1756,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ea50a6ae4330db1752249f529b12cebf8843e333d2922f98a2db7f132fe8c73c"
+      "fingerprint": "dfbc244b1e50859bae29a8aa72f37c64f4195209e159cf098def39ebdbb0f7f6"
     },
     {
       "id": "metadata:/data-hardware/teleop-rigs/",
@@ -1310,10 +1804,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0fd87697a9a8e4d125260b884c42a062504f2709e2f5e2b90ee95ffc94b98e3c"
+      "fingerprint": "f6083940e6d41a5dd3ca9746648c220acda80e3531afbb1ec172bcf7570252c4"
     },
     {
       "id": "metadata:/editorial-policy/",
@@ -1337,10 +1850,29 @@
       },
       "jsonLd": [],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b7079ece74caa41f64d3dcd63f6e2b4b916c9c0c7622e4dfa72623343d0b69a7"
+      "fingerprint": "b937555d95750ebb26ab1fbf50bc8f4acad1b8fde73c25b6f58795f7c057b39a"
     },
     {
       "id": "metadata:/frontier/",
@@ -1366,10 +1898,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "dcd341124ea923cdf757fc1185c4904ca7801a3aff5bb4a5e83cebfb742fdf30"
+      "fingerprint": "06dea7793c34dfc6c571284894cded5b28d1cd10baa2bcb8809ddddac07d9034"
     },
     {
       "id": "metadata:/frontier/bear-case/",
@@ -1395,10 +1946,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "8b2b708ffa0da82110b509ab5cf1a11b9a730d6eca3f85c70e0728f2a560e40e"
+      "fingerprint": "947c0805a7669e1f4c0fc7e0e79994af3c244a605512af31e572ce68c5da912c"
     },
     {
       "id": "metadata:/frontier/competing-theses/",
@@ -1424,10 +1994,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "f30c6f1a6560634693f460244a40f72ae9dd33a793495463daf67919ae39cbbb"
+      "fingerprint": "2ba0ef7aebdf48b8119ea6d8d30a2c159da8af7926ed14029aa7f54779f02423"
     },
     {
       "id": "metadata:/frontier/dexterity/",
@@ -1453,10 +2042,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "397dc3c6bd56afde0c573f15f20da7f835813374e692d681d5346daabced4f0e"
+      "fingerprint": "0144035a9651f6cc3cb5c2f204c06706d5ce31618eb75a290000011cd89c3e89"
     },
     {
       "id": "metadata:/frontier/generalization/",
@@ -1482,10 +2090,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "165b2c7092693b35b5e01b4334f8231c39c51e582d99f73c7731f5649d760b59"
+      "fingerprint": "6bc0cc9204ecb76dd66dac567f63516af168e31243d1ba70ba3dbbf711bf527b"
     },
     {
       "id": "metadata:/frontier/reliability-gap/",
@@ -1511,10 +2138,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "1ecf0776552c77d665137dcd525fbb7f9d61127bf9f6d802badc30610628f8ed"
+      "fingerprint": "663d80716d370cd367d880f0c18069e7dc27f22b436623c0a8836877c2e80997"
     },
     {
       "id": "metadata:/frontier/safety-and-assurance/",
@@ -1540,10 +2186,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "37155114388159535b3fc35b19b5ca06f2e705ea3820409280c06445f35caee3"
+      "fingerprint": "c5addff62585569ac57ac044518c533b5f708aea279a88be35827a404a1b3f00"
     },
     {
       "id": "metadata:/glossary/",
@@ -1567,10 +2232,29 @@
       },
       "jsonLd": [],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "4bfc6df0e38e7ed63ac2a7a5cb3581a02c5b03cafb37aec7e9d9bd48aa1455d0"
+      "fingerprint": "1824194fb7df0186bb596d514ad8a4397f495a1caea363bb238b01a92ebcaec4"
     },
     {
       "id": "metadata:/how-robots-work/",
@@ -1594,10 +2278,29 @@
       },
       "jsonLd": [],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "7ec6317253f0951ad9c7be06cd23314c8ff7f2577b8e5ab4406f9cfcb44e0dba"
+      "fingerprint": "af1e9ac582c07b7e2bfd1f4b4438a656387644dc307efbc066b02fd618d05b7f"
     },
     {
       "id": "metadata:/manipulation/",
@@ -1623,10 +2326,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "cca8e4d17ac2a618276f7f13292203989ad4065b8ecd9bf9afe1e9aacb55c3af"
+      "fingerprint": "01ebde72615132b82bc37fec6e9b43c76b36ebcde2f035ff010d076f9668cb07"
     },
     {
       "id": "metadata:/manipulation/action-chunking/",
@@ -1652,10 +2374,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "4bafbc718fc667c790213851f784de3d8322c37a240bd93e43553dd39028e97b"
+      "fingerprint": "e4c830365c68e5015211658f43a9258954864f9aa9663f09e2c8791152db1a38"
     },
     {
       "id": "metadata:/manipulation/action-spaces/",
@@ -1681,10 +2422,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "f3c40e61af784fae73a3dde86604fcf9a70a812118958779d60c07fe906c7a01"
+      "fingerprint": "39db2fcab300fcca1d6e05fbb9d3c02ebc6839343a267601257c54cb16b1dfff"
     },
     {
       "id": "metadata:/manipulation/bc-foundations/",
@@ -1710,10 +2470,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "d6801d9c09eb02352c537056541bc551d72e3d33b02293f1e7e99d248aaaf98f"
+      "fingerprint": "827e2e28a27741577f238372fc309aedb2d5e9e1d535f95a6ee57be8c70fe474"
     },
     {
       "id": "metadata:/manipulation/comparison-matrix/",
@@ -1739,10 +2518,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c2eac2191a7c3daefd2c9fa0fd43160244fb22c421223530681f77ccf264281c"
+      "fingerprint": "2e1dca96860cd8e45af3bd9f0898ae83565520aa82490c1f30c6a0843a119430"
     },
     {
       "id": "metadata:/manipulation/cross-embodiment/",
@@ -1768,10 +2566,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "fc6c109a67e07dd440ca3419590d220f7daea90f1d8214aed85bf5b3a2417037"
+      "fingerprint": "2cfeb6063130c9a3509feb74716522fdc80689ed8e17140e80589e1bacac4a80"
     },
     {
       "id": "metadata:/manipulation/diffusion-policy/",
@@ -1797,10 +2614,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3415bde16c6d80e978b476394745ef11eb76621edda52dd9e3b300bf44b9f755"
+      "fingerprint": "ffca0012ac82c21b873c372649fccfc9c054be8d787775ac847acb85a2cbaae6"
     },
     {
       "id": "metadata:/manipulation/foundation-models/",
@@ -1826,10 +2662,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "1b6d724699ca93b624e2e5adddfc2ae0484499e68e27d36043e3c807e462f2b1"
+      "fingerprint": "53b61fe3cb527bee523edacad0269a45ce623a7ec3158be4c7195da6314096f5"
     },
     {
       "id": "metadata:/manipulation/generalist-policies/",
@@ -1855,10 +2710,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "27fe24fbca4028c8668035ede668dcd1f6a30c0c7e23f4b9184a7e5d07d450c8"
+      "fingerprint": "5f7e9f615c4ec12b9cf818399c55588186e7aa3b20a95e49f2d270045697fd61"
     },
     {
       "id": "metadata:/manipulation/hierarchical/",
@@ -1884,10 +2758,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b26f69e0a84eced3de94e65a877934df3f23c7981421decc06b9b2bd109469fa"
+      "fingerprint": "c2d9c7cace1d4c7d458fe1327df1769d11433633e82a6a37c2f165ff825f9f04"
     },
     {
       "id": "metadata:/manipulation/knowledge-insulation/",
@@ -1913,10 +2806,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "50dc34dc18e860ad1b6c9341c800fe472e682ac360671034d8b64fe1227a99d7"
+      "fingerprint": "b7be23c7575bafaff2a57de054dc4660f3b2bc0cb29efa74f82b59ea6efc3cba"
     },
     {
       "id": "metadata:/manipulation/pi-line/",
@@ -1942,10 +2854,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "7f1fa0ea3380c90cf72311594e6b51a8bdb448843e9858222197592ed6474fc1"
+      "fingerprint": "e03550744a9655ed61e480aeba6d5547da995f00186323d3c00197a14c31e659"
     },
     {
       "id": "metadata:/manipulation/realtime-execution/",
@@ -1971,10 +2902,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "16aba65b66f591730f3aeb869b48682d90ecd99c1fd2c8312ff30f37133b6fc3"
+      "fingerprint": "262f55ac79a04a3dc3f4022c8a05733402785e7344da0e4e915cde43fdfbbb7a"
     },
     {
       "id": "metadata:/manipulation/rl-finetuning/",
@@ -2000,10 +2950,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0569c1ab21ea802ffad1fa9963984c0f934dec370676376c5aaa9a3c12f9e1f6"
+      "fingerprint": "00c8699f98f1c71a3c2033d448a8711f631ae45a3ee8fa45238f8045abcf035a"
     },
     {
       "id": "metadata:/manipulation/robot-learning-roadmap/",
@@ -2029,10 +2998,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "7b085b83d7c2b57d913d41bf833ef164615d06697da93d3133709af6abca92fd"
+      "fingerprint": "01177cd19e9c8cae4047580f16a6b41e78394cacc5f153112ba0bda800c3637f"
     },
     {
       "id": "metadata:/manipulation/vla-models/",
@@ -2058,10 +3046,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e483115e37ad69e97f676d7507f273b21d5666a44bf7884a4203a4fff3d300ff"
+      "fingerprint": "a349db8d02b6531b2d0b311e23662004187e9c32955499015b317c3b8e8822f2"
     },
     {
       "id": "metadata:/market-map/",
@@ -2085,10 +3092,29 @@
       },
       "jsonLd": [],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b33963dce62ae0eeeb211872a84aa9a9b8da11b2bed849adb36a53639c4f0659"
+      "fingerprint": "e8bdf988bfb2e6c8e31f5a7ad895ad915dc13c8151136a7ce50fca9e8f77a0bf"
     },
     {
       "id": "metadata:/playground/",
@@ -2112,10 +3138,29 @@
       },
       "jsonLd": [],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "fd7b6a48de82601c0c667e226cb184922c5ec3656fab8071618731b4ff617928"
+      "fingerprint": "d0bf39c5c8eceafce8dc217e01c2bbf7127f9fb5b002ee2475a85fa2f544f811"
     },
     {
       "id": "metadata:/privacy/",
@@ -2139,10 +3184,29 @@
       },
       "jsonLd": [],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "916507934320e62a827b65e00b8fafccaa962fc695bf5a5e49f5ddd9c5c64103"
+      "fingerprint": "f7caaaafeb2698ddc6f60c268be5f0add826eadbbafdfe6e910e9242ee817891"
     },
     {
       "id": "metadata:/rl-sim2real/",
@@ -2168,10 +3232,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "5ccd25ad6b4c1321dcda1cdc1cf06b7f2f1dafd95c84b4ec8708be882b296363"
+      "fingerprint": "75110b4e96835a6b129e5df91e9305e16bef098095a7bf78957db680122fa154"
     },
     {
       "id": "metadata:/rl-sim2real/humanoid-wbc/",
@@ -2197,10 +3280,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "02bfba53a98dd0a198b98f7ac8fe303d90e190a2d7e5708bdf44d8ead5e11220"
+      "fingerprint": "6c0af9259b49f5de5928c91d8b9401f3cb418fee4c716dec9e8ff86355df4669"
     },
     {
       "id": "metadata:/rl-sim2real/legged-locomotion/",
@@ -2226,10 +3328,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0b9da68fe05cf2e59491c0b0072277d1b0a5ffdb3aebf51352884d98acfbd0d1"
+      "fingerprint": "01c0876f61d570c072bd1cf76d4bed262b5bf29543854eb50095def76d93bed2"
     },
     {
       "id": "metadata:/rl-sim2real/offline-rl/",
@@ -2255,10 +3376,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6a7a7bc642700acd5831fbb9a6e455b08dec95cedeef5eb20de88742c978bf08"
+      "fingerprint": "92e41fb6f44e7768ef63240f7d46617f5dd06c33616bb795ac45ecac3f749d73"
     },
     {
       "id": "metadata:/rl-sim2real/parallel-sim-rl/",
@@ -2284,10 +3424,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "1aca03f171ffd72359e8d8fa71ab434be0fc2ed38f7b82b8816d705c0caab5cb"
+      "fingerprint": "5e94d3dba525fa75276cef1be1aa0d6228905ef7cafc612f0f0b4c081e216f6c"
     },
     {
       "id": "metadata:/rl-sim2real/reward-design-mpc/",
@@ -2313,10 +3472,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6ba503c179e7d42cf118f238932257f8c35860a0a97026a557abeca770aceb1d"
+      "fingerprint": "e263807078f19ebe2d8c022f4122d8136ccba07b3e87b6eb451f9ac82de3bd6a"
     },
     {
       "id": "metadata:/rl-sim2real/rl-for-robotics/",
@@ -2342,10 +3520,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "83c4320910762ae627354eedeb66194cbf03d167661c2a039af8d4bd27afcb00"
+      "fingerprint": "37471fa5372e1ad25918233ab863dc7745a39a0ace3fc4814d39e2a27dba18ca"
     },
     {
       "id": "metadata:/rl-sim2real/sim2real-transfer/",
@@ -2371,10 +3568,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "dcf3f0e4a002abb59d199595b8810884db0ce2f6d9c31dbf36a12e02a622d73e"
+      "fingerprint": "f4fe41d1fb795af66610d79353ba141b3092d07abd32d8f5f1c2087f58540e6d"
     },
     {
       "id": "metadata:/rl-sim2real/why-rl-locomotion/",
@@ -2400,10 +3616,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "405d850d689870dc7773f678a6fb06f5948bbe917c52af0b700f213e2661962f"
+      "fingerprint": "15b0872f2746bbbc2b9d6c216a92f0ce05da79de9c086063dc806628a309941e"
     },
     {
       "id": "metadata:/search/",
@@ -2427,10 +3662,29 @@
       },
       "jsonLd": [],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3c86e97522b9726d92c18ddc20863661554d7180647c1d3f6960f27ed8b85152"
+      "fingerprint": "c613435550437b28002cc74227bd9df91ed98d81a66d3d88a1c007014bc26146"
     },
     {
       "id": "metadata:/world-models/",
@@ -2456,10 +3710,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ad9c6f19ae25d60af2b981062bb47746777d74a57eaf31180c62fe91660533b4"
+      "fingerprint": "07de3be0e37944c5ea4034ac1f87db72d3f4c289143bd86f2dc952f1327c5216"
     },
     {
       "id": "metadata:/world-models/evaluation/",
@@ -2485,10 +3758,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "4ed4d12986eb2583445226f9569245014bf595b9d56ba3896df307d5756a5ef2"
+      "fingerprint": "30505238dfd53c00fad0a69735348808fef108dc5c962f0ad6b6dfc2efc59ccc"
     },
     {
       "id": "metadata:/world-models/generative-sim/",
@@ -2514,10 +3806,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b4651753a37a70fb30070d58f5eca0072bc35bdae1f4d682f2b39526eead2e4c"
+      "fingerprint": "628c84589bb409f7032a0c7e81c288459995ea4bc8437a2daf9fbac79950c2a7"
     },
     {
       "id": "metadata:/world-models/generative-video/",
@@ -2543,10 +3854,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "fca51f5189f6b87a972144142e1d3fd8ab413ea95ab1aca16fea3df9eadf1225"
+      "fingerprint": "a4c334a0169f974b7cb833bcec901f3345857a776a22a9b45cdcc8946586176b"
     },
     {
       "id": "metadata:/world-models/jepa/",
@@ -2572,10 +3902,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c0718d17af6602943376eb14dc32723ddc813bed9c6a61b77823a2637333e80e"
+      "fingerprint": "071fa76e9737554de78a466ddf92263a129be6914b5eccdd38ea42754b655f96"
     },
     {
       "id": "metadata:/world-models/latent-dynamics/",
@@ -2601,10 +3950,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "602c9dc569c395edf4c8cf31087739efde16189a7c3a33c0a5a91e59b251082d"
+      "fingerprint": "4a8d30a3ceac1fc2f7e075d3d164ddbc35f86acf8f3173fc6562307aabb956e1"
     },
     {
       "id": "metadata:/world-models/model-based-robot-learning/",
@@ -2630,10 +3998,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "9ae26979f875a1342248f458c0a23cdde79cbfe6ebeeb90ba3d0d4c311347b17"
+      "fingerprint": "a489522588410f65289ea9b6887237460c33a486966288b07795a9d385da3716"
     },
     {
       "id": "metadata:/world-models/taxonomy/",
@@ -2659,10 +4046,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "a8654cfce8bb44e6c29de1be49e5d793f94ff73c0a2f63e2eddf21ebcbb46bf4"
+      "fingerprint": "f4905b10ccece09070510bbb9cee6e72ce31aaecffb7569345cf607831e63fed"
     },
     {
       "id": "metadata:/world-models/world-models-vs-simulators/",
@@ -2688,10 +4094,29 @@
         "BreadcrumbList"
       ],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "25a52a898bd070a46ec50b9fc2cbd5f476a9cf195955a20c67b35fb25f586e2d"
+      "fingerprint": "1ef8570effb89dfeedd211529d32b8a119ce466ca39405a05b8c1008c634e053"
     },
     {
       "id": "metadata:/404/",
@@ -2715,13 +4140,32 @@
       },
       "jsonLd": [],
       "manifest": null,
-      "icons": [],
+      "icons": [
+        {
+          "rel": "icon",
+          "href": "/favicon.ico",
+          "source": "app/favicon.ico",
+          "byteHash": "ac6b44117b0a93dc8e282b85106e3cc85f68ef18fdf53cd805e73d26fe6f3517"
+        },
+        {
+          "rel": "icon",
+          "href": "/icon.svg",
+          "source": "app/icon.svg",
+          "byteHash": "7e5b818f0caea7d7b38b53845ec32ccfde28c668b1cbc1cf0e4f2b4dc540cef8"
+        },
+        {
+          "rel": "apple-touch-icon",
+          "href": "/apple-icon.png",
+          "source": "app/apple-icon.png",
+          "byteHash": "bdadc29c59a40a39927bebf68c55322d9c66fb7c1e9310707fb32b518344fbf2"
+        }
+      ],
       "themeColour": null,
       "notFoundPolicy": {
         "publicContent": false,
         "index": false
       },
-      "fingerprint": "b7a7040c85bbe036db137cec94a5bd8e3fdd0606632c56e84a7d59b82bd8ee85"
+      "fingerprint": "3cd329dfa1260b13d65b92313e729a1e94d7b5f1e5ac804e39457fd1c6b60731"
     }
   ],
   "assets": [
@@ -13829,8 +15273,10 @@
         "components/interactive/actuator-gap.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
+        "components/interactive/compounding-error.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/eureka-loop.tsx",
+        "components/interactive/execution-modes.tsx",
         "components/interactive/gait-diagram.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
@@ -13838,6 +15284,7 @@
         "components/interactive/helix-clockwork.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/jepa-planning.tsx",
+        "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/pendulum-controller.tsx",
@@ -13880,14 +15327,17 @@
         "components/interactive/actuator-gap.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/comparison-matrix.tsx",
+        "components/interactive/compounding-error.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/eureka-loop.tsx",
+        "components/interactive/execution-modes.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",
         "components/interactive/helix-clockwork.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/jepa-planning.tsx",
+        "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/pendulum-controller.tsx",
@@ -13931,7 +15381,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "2fbf85208f9402e565889a0831132fdf40460407ce02e3d9154eadcff891d9bd"
+      "fingerprint": "8dae4731400854281e01814ee8d2dbb428e25fee685686636851dcfe5aaa56bb"
     },
     {
       "id": "control:selection",
@@ -14404,5 +15854,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "ac8e0f52aac4b7f78ac7d7dc9d11233ebe12bd910ae86365ba7bdada5405fad8"
+  "rootFingerprint": "db0ecac4b2afe9fe5491b3bd39512b9bb7f09e08ff527e65abbd6a46408ce4c5"
 }

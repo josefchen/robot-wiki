@@ -49,25 +49,25 @@ import { ChunkSizeCurve } from '@/components/interactive/chunk-size-curve';
 import { LatencyComparison } from '@/components/interactive/latency-comparison';
 import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
 
-Action chunking is a policy design in which each inference predicts a sequence of future actions instead of a single action <Cite id="act-aloha-2023" />. The term comes from psychology, where grouped actions execute as one unit and become cheaper to store <Cite id="act-aloha-2023" /> <Cite id="lai-action-chunking-2022" />.
+Action chunking is a policy design in which each inference predicts a sequence of future actions instead of one <Cite id="act-aloha-2023" />. The term comes from psychology, where actions grouped into one unit are cheaper to store and execute <Cite id="act-aloha-2023" /> <Cite id="lai-action-chunking-2022" />.
 
-Chunking is now standard in robot policies, from diffusion and flow policies to vision-language-action models <Cite id="dehp-2026" />. Try “100 moves per plan”.
+Diffusion, flow and vision-language-action policies now all chunk <Cite id="dehp-2026" />. Try “100 moves per plan”.
 
 <ChunkSizeCurve className="my-6" />
 
 ## Why chunking works
 
-<Term id="behavior-cloning">Behavior cloning</Term> with per-step error ε on the expert's states can accumulate cost quadratic in episode length T, as each mistake carries the robot into states the expert never visited <Cite id="dagger-2011" />. <Term id="dagger">DAgger</Term> relabels the states the policy visits; its excess cost is linear in T only if u, the rise in expert cost-to-go after one action, does not grow with T <Cite id="dagger-2011" />:
+<Term id="behavior-cloning">Behavior cloning</Term> with per-step error ε on the expert's states can accumulate cost quadratic in episode length T, because each mistake carries the robot into states the expert never visited <Cite id="dagger-2011" />. <Term id="dagger">DAgger</Term> relabels the states the policy visits; its excess cost is linear in T only if u, the rise in expert cost-to-go after one action, does not grow with T <Cite id="dagger-2011" />:
 
 $$
 \underset{\text{behavior cloning}}{O(\varepsilon T^2)} \qquad \underset{\text{DAgger}}{O(u\,\varepsilon T)}
 $$
 
-<Term id="action-chunking">Action chunking</Term> shrinks the horizon instead: predicting k actions per inference cuts the effective horizon k-fold <Cite id="act-aloha-2023" />. With continuous actions, any smooth, deterministic imitator can suffer execution error exponentially larger in the horizon than its training error, which helps explain why chunking and diffusion policies work <Cite id="simchowitz-continuous-il-2025" />. Zhang et al. show that chunking and exploratory data collection each avoid that exponential compounding in different regimes, with control-theoretic stability as the mechanism <Cite id="zhang-chunking-exploration-2025" />.
+<Term id="action-chunking">Action chunking</Term> shortens the horizon instead: k actions per inference cut it k-fold <Cite id="act-aloha-2023" />. With continuous actions, smooth deterministic imitators can suffer execution error exponentially larger in the horizon than their training error, part of why chunking and diffusion policies work <Cite id="simchowitz-continuous-il-2025" />, and chunking avoids that compounding through control-theoretic stability <Cite id="zhang-chunking-exploration-2025" />.
 
 ## ACT: chunking with a CVAE
 
-Action Chunking with Transformers (ACT), introduced with the ALOHA bimanual [teleoperation hardware](/data-hardware/teleop-rigs/), wraps chunking in a <Term id="cvae">conditional variational autoencoder</Term>. In training, an encoder maps the demonstration's action sequence to a latent style variable. At test time the policy decodes a chunk from camera images, joint positions and the latent set to zero. Removing the CVAE objective barely changes scripted-data results but cuts human-data success from 35.3% to 2% <Cite id="act-aloha-2023" />.
+Action Chunking with Transformers (ACT), introduced with the ALOHA bimanual [teleoperation hardware](/data-hardware/teleop-rigs/), wraps chunking in a <Term id="cvae">conditional variational autoencoder</Term>: training encodes each demonstrated action sequence as a latent style variable, and at test time the policy decodes a chunk from camera images and joint positions with that latent at zero. Dropping the CVAE objective barely changes scripted-data results and cuts human-data success from 35.3% to 2% <Cite id="act-aloha-2023" />.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="chunk size k" value="100" note="2 s of motion per inference" />
@@ -88,17 +88,15 @@ Action Chunking with Transformers (ACT), introduced with the ALOHA bimanual [tel
   />
 </Card>
 
-The 14 action coordinates are six joints and one gripper coordinate for each of two six-DoF ViperX arms; the paper's "7+7=14 DoF" counts the grippers <Cite id="act-aloha-2023" />. Mobile ALOHA's 14 arm-action coordinates include two continuous gripper actions <Cite id="mobile-aloha-2024" />. ACT's implementation description specifies L1 reconstruction, which the authors found more precise than L2, while the printed algorithm uses MSE; both add a weighted KL term <Cite id="act-aloha-2023" />.
+The 14 action coordinates are six joints and one gripper coordinate for each of two six-DoF ViperX arms; the paper's "7+7=14 DoF" counts the grippers. ACT's implementation description specifies L1 reconstruction, while the printed algorithm uses MSE; both add a weighted KL term <Cite id="act-aloha-2023" />.
 
 ### The chunk-size dial
 
-ACT's ablation averages two simulated MuJoCo tasks, Cube Transfer and Bimanual Insertion, each trained on scripted and on human demonstrations, with temporal ensembling disabled. Success rises from 1% at k=1 to 44% at k=100, then dips at k=200 and k=400, close to open-loop control. BC-ConvMLP and VINN retrofitted with chunking follow the same trend <Cite id="act-aloha-2023" />. Too small a k brings back <Term id="compounding-error">compounding error</Term>; too large a k costs reactivity to unexpected states <Cite id="bidirectional-decoding-2024" />.
-
-The best execution horizon depends on the task: in flow-based VLAs, success first rises and then falls as it grows <Cite id="autohorizon-2026" />. PACE finds success non-monotonic in the horizon and chooses it online, raising real ALOHA and Franka success from 50.7% to 70.4% <Cite id="pace-2026" />. DEHP predicts short horizons in fine stages and long ones in free-space motion <Cite id="dehp-2026" />. Mixing horizons in training brought π0.5 to 99% average success on LIBERO <Cite id="moh-2025" />.
+In ACT's ablation, averaged over two simulated tasks with temporal ensembling off, success rises from 1% at k=1 to 44% at k=100 and dips at k=200 and k=400, near open-loop control; chunked BC-ConvMLP and VINN follow the same trend <Cite id="act-aloha-2023" />. A small k brings back <Term id="compounding-error">compounding error</Term>, and a large one reacts slowly to unexpected states <Cite id="bidirectional-decoding-2024" />. The best execution horizon is task-dependent: in flow-based VLAs success rises and then falls as it lengthens <Cite id="autohorizon-2026" />, and PACE, which picks it online, lifted real ALOHA and Franka success from 50.7% to 70.4% <Cite id="pace-2026" />.
 
 ## Temporal ensembling and its limits
 
-The pinned ACT reference implementation uses <Term id="temporal-ensembling">temporal ensembling</Term>: it queries the policy every timestep and averages the retained predictions for the current action, oldest to newest. Weights are $w_i = \exp(-m \cdot i)$, where $i = 0$ is the earliest prediction and $m = 0.01$, so the oldest prediction weighs most, and larger $m$ shifts weight further toward older ones <Cite id="act-reference-2023" />. The best decay rate varies by task <Cite id="bidirectional-decoding-2024" />.
+The pinned ACT reference implementation uses <Term id="temporal-ensembling">temporal ensembling</Term>: it queries the policy every timestep and averages, oldest to newest, the retained predictions for the current action. Weights are $w_i = \exp(-m \cdot i)$, where $i = 0$ is the earliest prediction and $m = 0.01$, so the oldest prediction weighs most <Cite id="act-reference-2023" />. The best decay rate varies by task <Cite id="bidirectional-decoding-2024" />.
 
 <Image id="temporal-ensembling" />
 
@@ -115,32 +113,28 @@ def temporal_ensemble(preds: list[np.ndarray], m: float = 0.01) -> np.ndarray:
 
 For oldest-to-newest predictions `[0, 10, 20]` after selection, $m = 0.01$ gives normalized weights of about `[0.33667217, 0.33332222, 0.33000561]` and an average of `9.93333444`; the reference occupancy filter would discard a literal zero <Cite id="act-reference-2023" />.
 
-When consecutive chunks diverge in strategy, say left versus right around an obstacle, averaging them can backfire <Cite id="bidirectional-decoding-2024" />. Demonstration pauses, unpredictable from a single-step Markovian state, freeze single-step policies, as both ACT and [Diffusion Policy](/manipulation/diffusion-policy/) document <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />.
+When consecutive chunks diverge in strategy, say left versus right around an obstacle, averaging them can backfire <Cite id="bidirectional-decoding-2024" />. Demonstration pauses, unpredictable from a single Markovian state, freeze single-step policies, as both ACT and [Diffusion Policy](/manipulation/diffusion-policy/) document <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />.
 
-<Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) treats [the hand-off between chunks](/manipulation/realtime-execution/) as inpainting on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlap is partially attended to, and the rest is generated fresh. With π0.5 at five denoising steps, model latency was 76 ms for the baselines and 97 ms for RTC, plus 10 to 20 ms over LAN. Temporal-ensembling variants triggered protective stops at an added 100 or 200 ms of injected delay, while RTC kept average task throughput through +200 ms without retraining <Cite id="real-time-chunking-2025" />. The RTC blog averages six tasks, ten episodes each <Cite id="pi-real-time-chunking-blog-2025" />.
+<Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) treats [the hand-off between chunks](/manipulation/realtime-execution/) as inpainting: it freezes actions that will already have run and generates the rest. With π0.5 at five denoising steps, model latency was 76 ms for the baselines and 97 ms for RTC, plus 10 to 20 ms over LAN. At 100 or 200 ms of injected delay, temporal-ensembling variants triggered protective stops, while RTC held average task throughput through +200 ms without retraining <Cite id="real-time-chunking-2025" />, over six tasks, ten episodes each <Cite id="pi-real-time-chunking-blog-2025" />.
 
-A training-time variant matched inference-time RTC's task performance and speed on π0.6 box building and espresso at lower compute <Cite id="training-time-rtc-2025" />, and LeRobot ships RTC for Pi0, Pi0.5 and SmolVLA <Cite id="lerobot-rtc-docs" />. A2C2 adds a per-step correction head to an unchanged VLA and beats RTC by 23 points on Kinetix and 7 on LIBERO Spatial <Cite id="a2c2-2025" />. REMAC targets intra-chunk inconsistency, where the executing chunk misaligns with current perception <Cite id="remac-2026" />. In the toy below, press “None” to watch the two plans agree.
+A training-time variant matched inference-time RTC at lower compute <Cite id="training-time-rtc-2025" />, LeRobot ships RTC for Pi0, Pi0.5 and SmolVLA <Cite id="lerobot-rtc-docs" />, and A2C2's per-step correction head beats RTC by 23 points on Kinetix <Cite id="a2c2-2025" />. In the toy below, press “None” to watch the two plans agree.
 
 <LatencyComparison className="my-6" />
 
 ## The lineage in numbers
 
-In the table, `not disclosed` means the source omits the value; weights means download availability. Physical Intelligence's openpi README, at its pinned commit of 24 August 2026 and last edited 21 November 2025, lists base checkpoints for π0, π0-FAST and π0.5 <Cite id="openpi-repo-2024" />.
+In the table, `not disclosed` means the source omits the value, and weights means download availability. Physical Intelligence's openpi README lists base checkpoints for π0, π0-FAST and π0.5 <Cite id="openpi-repo-2024" />.
 
 <PolicyChunkingTable className="my-6" />
 
-Octo's ALOHA fine-tuning example predicts 64 actions and executes 12 before replanning. Other setups predict Franka actions at 15 Hz, run a coffee-task controller at 10 Hz and control a ViperX end effector at 5 Hz, with a diffusion head <Cite id="octo-2024" />. RT-1 predicts one action per timestep at 3 Hz on the Everyday Robots manipulator, with each dimension in 256 uniform bins and six frames of history; its paper announces open code <Cite id="rt1-2022" />.
+Octo's ALOHA fine-tuning example predicts 64 actions and executes 12 before replanning <Cite id="octo-2024" />, and RT-1 predicts one action per timestep; its paper announces open code <Cite id="rt1-2022" />. [π0](/manipulation/pi-line/) generates its chunks with conditional <Term id="flow-matching">flow matching</Term> <Cite id="pi0-2024" />, and π0.5 combines FAST tokens with flow matching <Cite id="pi05-2025" />, though openpi supports only its flow-matching head <Cite id="openpi-repo-2024" />.
 
-[π0](/manipulation/pi-line/) predicts 50 actions with conditional <Term id="flow-matching">flow matching</Term>. UR5e and Franka run at 20 Hz and execute 16 before replanning, other robots run at 50 Hz and execute 25, and the paper describes operation at up to 50 Hz <Cite id="pi0-2024" />. π0.5 predicts 50 action entries (inclusive indexing, H=49), sends targets at 50 Hz on two mobile platforms and combines FAST tokens with flow matching <Cite id="pi05-2025" />; openpi supports only its flow-matching head <Cite id="openpi-repo-2024" />.
+The π0.6 model card, dated November 17, 2025, reports 63 ms per action chunk with five denoising steps and three cameras on one H100 <Cite id="pi06-model-card-2025" />. π0.7 predicts 50-step chunks and executes 15 or 25, at 20 Hz on UR5e and 50 Hz elsewhere; it distills experience from RL-trained π*0.6 <Cite id="pi07-2026" />. NVIDIA's GR00T N1.7 README lists a predicted horizon of 40 and downloadable weights, under Apache 2.0 in its overview and the NVIDIA Open Model License in its License section <Cite id="isaac-gr00t-repo-2026" />; GR00T N1 processed actions "in chunks as in Zhao et al. (2023)" with H=16 <Cite id="gr00t-n1-2025" />.
 
-The π0.6 model card, dated November 17, 2025, pairs a flow-matching action expert with FAST tokens that supervise the backbone in training. It reports 63 ms per action chunk with five denoising steps and three cameras on one H100 <Cite id="pi06-model-card-2025" />. π0.7 predicts 50-step chunks with five denoising steps and executes 15 or 25, at 20 Hz on UR5e and 50 Hz elsewhere; FAST tokens again supervise its backbone, and it distills experience from RL-trained π*0.6 <Cite id="pi07-2026" />.
+Figure's January 27, 2026 announcement has Helix 02's S1 sending full-body joint targets at 200 Hz, tracked by S0 actuator commands at 1 kHz <Cite id="helix-02-2026" />. Gemini Robotics turns about 250 ms of end-to-end latency into an effective 50 Hz control frequency by packing several actions into each chunk <Cite id="gemini-robotics-2025" />.
 
-NVIDIA's Isaac GR00T README describes N1.7 with a predicted horizon of 40, a flow-matching DiT head, relative end-effector and SONIC latent-action outputs, and downloadable weights. Its overview says Apache 2.0, while its License section puts weights under the NVIDIA Open Model License <Cite id="isaac-gr00t-repo-2026" />. GR00T N1 processed actions "in chunks as in Zhao et al. (2023)" with H=16, sampling a chunk in 63.9 ms on an L40 <Cite id="gr00t-n1-2025" />.
+<span id="where-the-idea-travels-next" />
 
-Figure's January 27, 2026 announcement reports Helix 02's S1 sending full-body joint targets at 200 Hz, tracked by S0 actuator commands at 1 kHz <Cite id="helix-02-2026" />. Gemini Robotics turns about 250 ms of end-to-end latency into an effective 50 Hz control frequency by packing several actions into each chunk <Cite id="gemini-robotics-2025" />.
+## Chunking on mobile robots and in RL
 
-## Where the idea travels next
-
-Mobile ALOHA extends the recipe to a wheeled whole-body platform, and co-training on static ALOHA data lifts mobile manipulation success substantially <Cite id="mobile-aloha-2024" />. ALOHA Unleashed collected over 26,000 real demonstrations for 5 tasks, trained a diffusion policy and ran each chunk open loop, surpassing its 50 Hz target <Cite id="aloha-unleashed-2024" />.
-
-In [RL fine-tuning](/manipulation/rl-finetuning/), Q-chunking runs RL in a chunked action space for better exploration and unbiased n-step backups <Cite id="q-chunking-2025" />.
+Mobile ALOHA moves the recipe to a wheeled whole-body platform, where co-training on static ALOHA data raises success substantially <Cite id="mobile-aloha-2024" />, and ALOHA Unleashed scaled it to over 26,000 real demonstrations for 5 tasks with a diffusion policy <Cite id="aloha-unleashed-2024" />. In [RL fine-tuning](/manipulation/rl-finetuning/), Q-chunking runs RL in a chunked action space for better exploration and unbiased n-step backups <Cite id="q-chunking-2025" />.

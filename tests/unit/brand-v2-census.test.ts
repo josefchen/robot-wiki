@@ -5,8 +5,11 @@ import { extname, join, relative } from 'node:path';
 import { DOMAINS, publishedModules } from '@/data/modules';
 import { scanAnnotationAssignments } from '@/lib/brand-v2-annotation-scan';
 import {
+  APPROVED_TAB_ICONS,
   configurationFingerprint,
+  isApprovedTabIconDeclaration,
   reconcileNamedSets,
+  validateApprovedTabIcons,
   validateExactRegistryParity,
   validateInteractiveRegistry,
   validateNoInventedSymbols,
@@ -220,14 +223,103 @@ describe('brand-v2 canonical census', () => {
   });
 
   it('rejects invented favicon, monogram, mascot, mask, and brand-symbol paths', () => {
+    const invented = [
+      'public/favicon.ico',
+      'public/rw-monogram.svg',
+      'public/robot-head-logo.svg',
+      'app/manifest.ts:maskable',
+      'public/apple-touch-icon.png',
+      'public/images/apple-icon.png',
+      'app/icon.png',
+      'app/icon1.svg',
+      'app/about/apple-icon.png',
+      'app/(content)/[domain]/icon.tsx',
+      'app/glossary/favicon.ico',
+    ];
+    expect(
+      validateNoInventedSymbols(invented).map(({ memberId, reason }) => [memberId, reason]),
+    ).toEqual(invented.map((path) => [path, 'invented-brand-symbol']));
     expect(
       validateNoInventedSymbols([
-        'app/favicon.ico',
-        'public/rw-monogram.svg',
-        'public/robot-head-logo.svg',
-        'app/manifest.ts:maskable',
+        'app/layout.tsx',
+        'app/opengraph-image.tsx',
+        'components/ui/icon-button.tsx',
+        'public/images/diagram.svg',
       ]),
-    ).toHaveLength(4);
+    ).toEqual([]);
+  });
+
+  // Josef, 2026-10-12: "ensure we fix the favicon". The one exception to the
+  // sealed identity's empty icon slots is this set, with these bytes.
+  it('admits exactly the owner-approved tab icon set and its bytes', () => {
+    expect(APPROVED_TAB_ICONS.map(({ path, rel, href }) => [path, rel, href])).toEqual([
+      ['app/favicon.ico', 'icon', '/favicon.ico'],
+      ['app/icon.svg', 'icon', '/icon.svg'],
+      ['app/apple-icon.png', 'apple-touch-icon', '/apple-icon.png'],
+    ]);
+    expect(validateNoInventedSymbols(APPROVED_TAB_ICONS.map(({ path }) => path))).toEqual([]);
+    const read = (path: string) =>
+      existsSync(join(ROOT, path)) ? readFileSync(join(ROOT, path)) : null;
+    expect(validateApprovedTabIcons(read)).toEqual([]);
+    for (const icon of APPROVED_TAB_ICONS) {
+      expect(configurationFingerprint(readFileSync(join(ROOT, icon.path))), icon.path).toBe(icon.sha256);
+    }
+    expect(
+      validateApprovedTabIcons((path) =>
+        path === 'app/icon.svg' ? Buffer.from('<svg xmlns="http://www.w3.org/2000/svg"/>') : read(path),
+      ).map(({ memberId, reason }) => [memberId, reason]),
+    ).toEqual([['app/icon.svg', 'unapproved-tab-icon-bytes']]);
+    expect(validateApprovedTabIcons(() => null).map(({ reason }) => reason)).toEqual(
+      Array(3).fill('missing-approved-tab-icon'),
+    );
+
+    expect(isApprovedTabIconDeclaration('icon=/favicon.ico')).toBe(true);
+    expect(isApprovedTabIconDeclaration('icon=/icon.svg?icon.0a1b2c3d.svg')).toBe(true);
+    expect(isApprovedTabIconDeclaration('apple-touch-icon=/apple-icon.png?5e6f7a8b')).toBe(true);
+    expect(isApprovedTabIconDeclaration('icon=/apple-icon.png')).toBe(false);
+    expect(isApprovedTabIconDeclaration('shortcut icon=/favicon.ico')).toBe(false);
+    expect(isApprovedTabIconDeclaration('mask-icon=/icon.svg')).toBe(false);
+    expect(isApprovedTabIconDeclaration('manifest=/manifest.webmanifest')).toBe(false);
+    expect(isApprovedTabIconDeclaration('icon=/images/logos/robot-wiki.svg')).toBe(false);
+    expect(isApprovedTabIconDeclaration('icon=/favicon.ico.svg')).toBe(false);
+  });
+
+  it('draws the approved icons as the wordmark R in the paper and ink tokens', () => {
+    const PNG_SIGNATURE = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+    const css = readFileSync(join(ROOT, 'app/globals.css'), 'utf8');
+    const token = (name: string) =>
+      css.match(new RegExp(`--color-${name}:\\s*(#[0-9A-Fa-f]{6})`))?.[1]?.toUpperCase();
+    const ink = token('ink');
+    const paper = token('paper');
+    expect([ink, paper]).toEqual(['#1C1C1A', '#FAFAF8']);
+
+    // The vector mark: a square viewBox, an ink rounded square and one
+    // paper outline. The glyph is a path, so no font has to load, and the
+    // file references nothing outside itself.
+    const svg = readFileSync(join(ROOT, 'app/icon.svg'), 'utf8');
+    expect(svg).toMatch(/^<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg" viewBox="0 0 64 64">/);
+    expect(svg).toContain(`<rect width="64" height="64" rx="14" fill="${ink}"/>`);
+    expect(svg.match(/<path fill="([^"]+)" d="M[^"]+Z"\/>/)?.[1]).toBe(paper);
+    expect(svg).not.toMatch(/<text|<image|<use|<style|<script|href=|url\(|@import|font/i);
+
+    // favicon.ico: PNG entries at 16, 32 and 48 px.
+    const ico = readFileSync(join(ROOT, 'app/favicon.ico'));
+    expect([ico.readUInt16LE(0), ico.readUInt16LE(2)]).toEqual([0, 1]);
+    const entries = Array.from({ length: ico.readUInt16LE(4) }, (_, index) => {
+      const entry = 6 + 16 * index;
+      const offset = ico.readUInt32LE(entry + 12);
+      const png = ico.subarray(offset, offset + ico.readUInt32LE(entry + 8));
+      expect(png.subarray(0, 8).equals(PNG_SIGNATURE)).toBe(true);
+      expect([png.readUInt32BE(16), png.readUInt32BE(20)]).toEqual([ico[entry], ico[entry + 1]]);
+      return ico[entry];
+    });
+    expect(entries).toEqual([16, 32, 48]);
+
+    // apple-icon.png: 180 x 180 and opaque (colour type 2, RGB), so iOS
+    // rounds full-bleed ink rather than transparent corners.
+    const apple = readFileSync(join(ROOT, 'app/apple-icon.png'));
+    expect(apple.subarray(0, 8).equals(PNG_SIGNATURE)).toBe(true);
+    expect([apple.readUInt32BE(16), apple.readUInt32BE(20), apple[25]]).toEqual([180, 180, 2]);
   });
 
   it('reconciles fixed, domain, and article routes without counting 404 as public', () => {
@@ -528,7 +620,15 @@ describe('brand-v2 canonical census', () => {
       expect(entry.twitter.card).toBe('summary_large_image');
       expect(entry.twitter.image).toBe(entry.openGraph.image);
       expect(entry.manifest).toBeNull();
-      expect(entry.icons).toEqual([]);
+      // Every route, and the 404, declares the approved tab icon set.
+      expect(entry.icons).toEqual(
+        APPROVED_TAB_ICONS.map(({ path, rel, href, sha256 }) => ({
+          rel,
+          href,
+          source: path,
+          byteHash: sha256,
+        })),
+      );
       expect(entry.themeColour).toBeNull();
       expect(entry.fingerprint).toMatch(/^[a-f0-9]{64}$/);
     }

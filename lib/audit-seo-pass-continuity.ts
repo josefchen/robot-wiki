@@ -23,6 +23,7 @@ import { figureMountPredecessor } from './audit-figure-mount-continuity.ts';
 import { kolBacklogPredecessor } from './audit-kol-backlog-continuity.ts';
 import { frontierLengthCutPredecessor } from './audit-length-cut-frontier-continuity.ts';
 import { worldModelsLengthCutPredecessor } from './audit-length-cut-world-models-continuity.ts';
+import { lengthCutPredecessor } from './audit-length-cut-continuity.ts';
 import { parallelLocalPredecessor } from './audit-parallel-local-continuity.ts';
 import { readerFirstPredecessor } from './audit-reader-first-continuity.ts';
 import { reskinPredecessor } from './audit-reskin-site-foundation-continuity.ts';
@@ -363,17 +364,18 @@ function revealPredecessor(root: string, ref: Artifact, live: Buffer): Buffer {
  * The newer layers see the live bytes first: the 2026-10-13 frontier
  * length-cut layer, which landed last, then the site-foundation re-skin
  * layer, then the 2026-10-11 parallel-local suite layer,
- * then the 2026-10-12 world-models length-cut layer, then the 2026-10-10
- * word-budget trim layer, then the
+ * then the 2026-10-12 length-cut layer (manipulation, classical and
+ * rl-sim2real), then the 2026-10-12 world-models length-cut layer, then the
+ * 2026-10-10 word-budget trim layer, then the
  * 2026-10-07 figure-mount layer, then the 2026-10-06 domain-pass layer, then
  * the 2026-10-05 KOL backlog layer, then the reader-first layer.
  */
 export function seoPassPredecessor(root: string, ref: Artifact, liveBytes: Buffer): Buffer {
   const live = readerFirstPredecessor(root, ref,
     kolBacklogPredecessor(root, ref, domainPassPredecessor(root, ref, figureMountPredecessor(root, ref,
-      wordBudgetTrimPredecessor(root, ref, worldModelsLengthCutPredecessor(root, ref,
+      wordBudgetTrimPredecessor(root, ref, worldModelsLengthCutPredecessor(root, ref, lengthCutPredecessor(root, ref,
         parallelLocalPredecessor(root, ref, reskinPredecessor(root, ref,
-          frontierLengthCutPredecessor(root, ref, liveBytes)))))))));
+          frontierLengthCutPredecessor(root, ref, liveBytes))))))))));
   if (ref.path === revealAfter.path) return revealPredecessor(root, ref, live);
   const spec = specSuccessors.get(ref.path);
   if (spec) {

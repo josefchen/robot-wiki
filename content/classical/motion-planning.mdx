@@ -62,7 +62,7 @@ import {
   TrajOptFullBodyTable,
 } from '@/components/mdx/trajopt-results-table';
 
-Motion planning is the computation of a collision-free route from a robot's current configuration to a goal <Cite id="lavalle-2006" />. Sampling-based planners explore configurations and the connections between them; trajectory optimizers improve a complete candidate trajectory against an objective <Cite id="ratliff-2009" /><Cite id="schulman-2013" />. [Kinematics](/classical/kinematics) maps joint angles to poses, and planning sequences them.
+Motion planning computes a collision-free route from a robot's current configuration to a goal <Cite id="lavalle-2006" />, a sequence of the joint angles that [kinematics](/classical/kinematics) maps to poses. Sampling-based planners explore configurations and the connections between them; trajectory optimizers improve a complete candidate trajectory against an objective <Cite id="ratliff-2009" /><Cite id="schulman-2013" />.
 
 <RrtExplorer className="my-6" />
 
@@ -83,9 +83,11 @@ $$
 \mathcal{C} = \mathcal{C}_{obs} \cup \mathcal{C}_{free}, \qquad \mathcal{C}_{free} = \mathcal{C} \setminus \mathcal{C}_{obs}
 $$
 
-Shrinking the robot to a point and growing each obstacle by its shape reduces collision checking to point membership. Planning becomes the search for a continuous curve in $\mathcal{C}_{free}$ from $q_{start}$ to $q_{goal}$ <Cite id="lozano-perez-1983" />. Explicit boundary or solid models of $\mathcal{C}_{obs}$ are difficult to build, though semi-algebraic models for chains and trees can be generated automatically. The basic semi-algebraic mover problem is PSPACE-hard when the number of <Term id="degrees-of-freedom">degrees of freedom</Term> is unbounded <Cite id="lavalle-2006" />. Hardness holds for a planar linkage with multiple links and for a multi-arm robot among 3D polyhedra; Canny's roadmap method is singly exponential <Cite id="solovey-complexity-2020" />.
+Shrinking the robot to a point and growing each obstacle by its shape reduces collision checking to point membership. Planning becomes the search for a continuous curve in $\mathcal{C}_{free}$ from $q_{start}$ to $q_{goal}$ <Cite id="lozano-perez-1983" />.
 
-Sampling-based methods skip building $\mathcal{C}_{obs}$ by querying a collision checker and validating whole local paths, though closed-chain constraints make sampling difficult <Cite id="lavalle-2006" />. On humanoids, manifold-constrained planners can take tens of seconds; a 2026 SIMD projection method reports speed-ups of up to 100 to 1000 times <Cite id="mcvamp-2026" />.
+Explicit boundary or solid models of $\mathcal{C}_{obs}$ are difficult to build, though semi-algebraic models for chains and trees can be generated automatically. The basic semi-algebraic mover problem is PSPACE-hard when the number of <Term id="degrees-of-freedom">degrees of freedom</Term> is unbounded <Cite id="lavalle-2006" />. Hardness holds for a planar linkage with multiple links and for a multi-arm robot among 3D polyhedra; Canny's roadmap method is singly exponential <Cite id="solovey-complexity-2020" />.
+
+Sampling-based methods skip building $\mathcal{C}_{obs}$ by querying a collision checker and validating whole local paths, though closed-chain constraints make sampling difficult <Cite id="lavalle-2006" />.
 
 ## Sampling-based planning
 
@@ -99,13 +101,13 @@ $$
 
 with starting state $x$ and input $u$; the report recommends a higher-order integrator such as Runge-Kutta <Cite id="lavalle-1998" />. LaValle's 2006 book drops the step size: each sample connects to the nearest point on the tree's swath, the union of its edge paths, splitting an edge when needed <Cite id="lavalle-2006" />.
 
-Nearest-neighbor selection gives RRT a Voronoi bias, because frontier vertices own larger Voronoi regions. The report leaves convergence rates open <Cite id="lavalle-1998" />. LaValle and Kuffner's kinodynamic version steers with controls instead of straight lines <Cite id="lavalle-kuffner-2001" />. Such planners must solve two-point boundary value problems or propagate dynamics; for differentially flat robots, FLASK obtains closed-form solutions and plans in microseconds to milliseconds <Cite id="flask-2026" />.
+Nearest-neighbor selection gives RRT a Voronoi bias, because frontier vertices own larger Voronoi regions. The report leaves convergence rates open <Cite id="lavalle-1998" />. LaValle and Kuffner's kinodynamic version steers with controls instead of straight lines <Cite id="lavalle-kuffner-2001" />.
 
 Kuffner and LaValle's RRT-Connect grows two trees, rooted at the start and the goal <Cite id="rrt-connect-2000" />. In the six manipulation problems of a 2023 comparison, it had the best overall success rate <Cite id="orthey-review-2023" />.
 
-Probabilistic completeness means the chance of finding an existing solution approaches one as sampling continues, with no finite-budget guarantee <Cite id="lavalle-2006" />. Karaman and Frazzoli prove it for simplified PRM (sPRM) and geometric RRT on $X=(0,1)^d$, $d\geq2$. They assume a solution with clearance $\delta>0$, uniform independent samples, a fixed sPRM radius, capped RRT steering and straight-line collision tests. A 1-nearest-neighbor sPRM is not probabilistically complete <Cite id="karaman-frazzoli-2011" />.
+Probabilistic completeness means the chance of finding an existing solution approaches one as sampling continues, with no finite-budget guarantee <Cite id="lavalle-2006" />. Karaman and Frazzoli prove it for simplified PRM (sPRM) and geometric RRT on $X=(0,1)^d$, $d\geq2$, assuming a solution with clearance $\delta>0$, uniform independent samples, a fixed sPRM radius, capped RRT steering and straight-line collision tests. A 1-nearest-neighbor sPRM is not probabilistically complete <Cite id="karaman-frazzoli-2011" />.
 
-VAMP exploits fine-grained parallelism to accelerate forward kinematics and collision checking without specialized hardware. Its authors report gains of more than 500x on 7 to 14 DoF robots, bringing planning times into microseconds <Cite id="vamp-2023" />. The pRRTC planner runs all of RRT-Connect on a GPU and reports up to 10x speedups on constrained reaching with 5.4x lower standard deviation <Cite id="prrtc-2025" />. OMPL 2.0 targets real-time planning through hardware acceleration <Cite id="ompl-2-2026" />; release 2.0.0 of April 6, 2026 added VAMP as a SIMD backend, reaching planning speeds up to 25 kHz <Cite id="ompl-release-notes-2026" />. The library implements PRM and RRT, includes benchmarking tools and plugs into external collision checkers and visualizers <Cite id="ompl-2012" />.
+OMPL 2.0.0, released April 6, 2026, added VAMP as a SIMD backend for planning speeds up to 25 kHz <Cite id="ompl-release-notes-2026" />; VAMP's authors report gains of more than 500x from fine-grained parallelism on 7 to 14 DoF robots <Cite id="vamp-2023" />. The library implements PRM and RRT, includes benchmarking tools and plugs into external collision checkers and visualizers <Cite id="ompl-2012" />.
 
 ## Optimality: RRT\*
 
@@ -135,8 +137,6 @@ $$
 
 This prolate hyperspheroid has the start and goal as foci and the best path length $c_{best}$ as transverse diameter. It contains every state on a strictly improving path, but its states need not be collision-free, so collision checks remain. Over 100 runs per variation with 60 seconds of refinement, it refined faster than RRT\*, and it gains nothing once the set covers the domain <Cite id="gammell-2014" />.
 
-FMT\* gave the first convergence-rate bounds in optimal sampling-based planning <Cite id="fmt-star-2013" />. BIT\* orders its search by potential solution quality, as in A\*, and keeps improving with more time, as in RRT\* <Cite id="bit-star-2017" />. AORRTC finds first solutions as fast as RRT-Connect, then converges. It solves difficult high-DoF problems in milliseconds where other almost-surely asymptotically optimal planners failed to find solutions consistently within seconds <Cite id="aorrtc-2025" />.
-
 ## Trajectory optimization
 
 <Term id="trajectory-optimization">Trajectory optimization</Term> makes the trajectory the decision variable, with smoothness, clearance and task terms in the objective or constraints. Neither the objective nor an initial guess guarantees a collision-free result. CHOMP and TrajOpt both plan from infeasible guesses as well as refine existing trajectories <Cite id="ratliff-2009" /><Cite id="schulman-2013" />. Graphs of Convex Sets (GCS) poses planning as a mixed-integer program with a very tight convex relaxation, so in most cases a cheap rounding suffices for globally optimal trajectories <Cite id="gcs-2022" />.
@@ -152,9 +152,9 @@ $$
 
 The first-derivative term penalizes squared velocity; higher-order terms penalize other dynamics. The obstacle cost integrates a signed-distance penalty over the robot's body, weighted by arc length so that moving faster through a costly region cannot lower it. Covariant descent uses the inverse smoothness metric to spread each gradient step smoothly along the trajectory <Cite id="ratliff-2009" />.
 
-On the first six joints of a seven-DoF Barrett WAM, CHOMP solved 99 of 105 problems from 15 endpoint configurations. With a $50\times50\times50$ voxel grid and a Matlab distance field, 400 iterations took about 12 seconds; the core optimization finished within the first 100, about 3 seconds, in most runs. On LittleDog it ran inside a footstep controller with a separate footstep planner and a ZMP preview controller seeding the trunk. Trajectories were computed before execution because worst-case optimization took about 1.5 times as long as execution <Cite id="ratliff-2009" />.
+On the first six joints of a seven-DoF Barrett WAM, CHOMP solved 99 of 105 problems from 15 endpoint configurations. On LittleDog it ran inside a footstep controller with a separate footstep planner and a ZMP preview controller seeding the trunk. Trajectories were computed before execution because worst-case optimization took about 1.5 times as long as execution <Cite id="ratliff-2009" />.
 
-The paper also tests a Hamiltonian Monte Carlo variant and records finite-time local-minimum failures <Cite id="ratliff-2009" />. The 2013 journal CHOMP uses Hamiltonian Monte Carlo against high-cost local minima and for probabilistic completeness, and respects hard trajectory constraints <Cite id="chomp-ijrr-2013" />. STOMP's authors show that its stochastic updates overcome local minima that trap gradient methods like CHOMP <Cite id="stomp-2011" />.
+The paper also tests a Hamiltonian Monte Carlo variant and records finite-time local-minimum failures <Cite id="ratliff-2009" />; the 2013 journal CHOMP uses Hamiltonian Monte Carlo against high-cost local minima and for probabilistic completeness, and respects hard trajectory constraints <Cite id="chomp-ijrr-2013" />.
 
 ### TrajOpt: penalties, trust regions, and collision limits
 
@@ -166,11 +166,11 @@ $$
 
 It is nonzero inside the safety margin. Pairs out to $d_{\mathrm{check}}>d_{\mathrm{safe}}$ enter the linearized subproblem, including some with zero current penalty. A box trust region bounds each step, expanding when actual improvement matches the local model and shrinking otherwise <Cite id="schulman-2013" />.
 
-Waypoint checks can miss collisions between waypoints, so TrajOpt penalizes a swept volume: the convex hull of endpoint shapes, inflated for rotation. The rotation bound adds $d_{\mathrm{arc}}=r\phi^2/8$ to the safety margin, a correction omitted in experiments because it was well under 1 cm. The swept-volume gradient is not guaranteed accurate in 3D. The implementation used Bullet with convex hulls of robot meshes and penalized self-collisions only at discrete times <Cite id="schulman-2013" />. The 2014 journal version covers 7-DoF arms, 18-DoF full-body robots, statically stable walking for the 34-DoF Atlas humanoid and physical experiments with the 18-DoF PR2 <Cite id="trajopt-ijrr-2014" />.
+Waypoint checks can miss collisions between waypoints, so TrajOpt penalizes a swept volume: the convex hull of endpoint shapes, inflated for rotation. The rotation bound adds $d_{\mathrm{arc}}=r\phi^2/8$ to the safety margin, a correction omitted in experiments because it was well under 1 cm. The swept-volume gradient is not guaranteed accurate in 3D, and the implementation used Bullet with convex hulls of robot meshes and penalized self-collisions only at discrete times <Cite id="schulman-2013" />.
 
 ### What the TrajOpt benchmark measured
 
-The 2013 benchmark used four simulated MoveIt scenes with fixed endpoints: 198 seven-DoF PR2 arm problems with 11 timesteps and 96 eighteen-DoF full-body problems with 41. Single initialization was a straight line. Multiple initialization used four hand-picked intermediate arm configurations, or up to five collision-free base configurations sampled with arms tucked. OMPL ran with default parameters and MoveIt's default smoother, and path length was normalized by the shortest path any planner found. Both tables give historical 2013 timings <Cite id="schulman-2013" />.
+The 2013 benchmark used four simulated MoveIt scenes with fixed endpoints: 198 seven-DoF PR2 arm problems with 11 timesteps and 96 eighteen-DoF full-body problems with 41. OMPL ran with default parameters and MoveIt's default smoother, and path length was normalized by the shortest path any planner found. Both tables give historical 2013 timings <Cite id="schulman-2013" />.
 
 <TrajOptArmTable className="my-6" />
 
@@ -180,19 +180,17 @@ On the arm, single-initialization TrajOpt solved fewer problems than either OMPL
 
 The full-body comparison omits CHOMP, for which the authors lacked documentation or data. The introduction gives every planner ten seconds, while the experiments specify three seconds per CHOMP initialization and thirty seconds for full-body OMPL <Cite id="schulman-2013" />.
 
-cuRobo runs many parallel optimizer seeds on GPUs and solves difficult motion generation problems within 50 ms on average, 60x faster than state-of-the-art trajectory optimization <Cite id="curobo-2023" />. In a 2025 industrial integration with a 7th-axis gantry, cuRobo planned in 45 ± 8 ms against 1,200 ± 400 ms for MoveIt with OMPL's RRTConnect <Cite id="industrial-curobo-2025" />.
+cuRobo runs many parallel optimizer seeds on GPUs and solves difficult motion generation problems within 50 ms on average, 60x faster than state-of-the-art trajectory optimization <Cite id="curobo-2023" />.
 
 ### Initial guesses and the two-stage pattern
 
-CHOMP and TrajOpt both need an initial trajectory and can stall in bad local minima. In CHOMP's tests, straight-line seeds often beat RRT seeds on the objective where collision removal succeeded; in TrajOpt's, multiple initializations changed success rates <Cite id="ratliff-2009" /><Cite id="schulman-2013" />. The GPU multi-robot planner MR. POP supplies diverse seeds that raise downstream optimizer success, for example from 4% to 72% <Cite id="mr-pop-2026" />.
+CHOMP and TrajOpt both need an initial trajectory and can stall in bad local minima. In CHOMP's tests, straight-line seeds often beat RRT seeds on the objective where collision removal succeeded; in TrajOpt's, multiple initializations changed success rates <Cite id="ratliff-2009" /><Cite id="schulman-2013" />.
 
-Ratliff and colleagues describe PRM and RRT as commonly deployed in two phases: find a feasible path, then remove redundant or jerky motion. Schulman and colleagues give trajectory optimization two roles, refining another method's output or planning from scratch <Cite id="ratliff-2009" /><Cite id="schulman-2013" />. Shortcutting, a cheap second stage, repeatedly picks two trajectory points and tries to replace the segment between them with a shorter collision-free one <Cite id="hauser-shortcut-2010" />.
-
-As of January 2023, MoveIt 2 recommends Time-Optimal Trajectory Generation (TOTG) for time parameterization <Cite id="moveit-trajectory-processing-2026" />. Because TOTG sets no jerk limits, Ruckig jerk-limited smoothing can follow it as a further post-processing step <Cite id="moveit-time-parameterization-2026" />. PickNik's MoveIt Pro 10.1.0, released September 18, 2026, includes a ProRRT shortcut stage <Cite id="moveit-pro-10-1-2026" />.
+Ratliff and colleagues describe PRM and RRT as commonly deployed in two phases: find a feasible path, then remove redundant or jerky motion <Cite id="ratliff-2009" />. Shortcutting, a cheap second stage, repeatedly picks two trajectory points and tries to replace the segment between them with a shorter collision-free one <Cite id="hauser-shortcut-2010" />.
 
 ## Where this meets the learned stack
 
-Motion Policy Networks trained on over 3 million motion planning problems in over 500,000 [environments](/world-models/generative-sim) <Cite id="mpinets-2022" />. Neural MP distills motion-planner data into a reactive generalist policy and adds lightweight optimization for safety. Its authors report success gains of 23%, 17% and 79% over sampling, optimization and learning-based planners <Cite id="neural-mp-2024" />. A 2026 survey of neural motion planners finds that they often struggle to generalize to unseen, out-of-distribution planning settings <Cite id="neural-motion-planner-survey-2026" />.
+Motion Policy Networks trained on over 3 million motion planning problems in over 500,000 [environments](/world-models/generative-sim) <Cite id="mpinets-2022" />. A 2026 survey finds that neural motion planners often struggle to generalize to unseen, out-of-distribution planning settings <Cite id="neural-motion-planner-survey-2026" />.
 
 Deep Reactive Policy replaced AIT\* with cuRobo as its expert planner because GPU acceleration let it scale to 10 million expert trajectories. Its authors report that AIT\* achieved 0% success on all dynamic tasks, and cuRobo fell to 3.00% when the goal was temporarily obstructed <Cite id="deep-reactive-policy-2025" />.
 
@@ -202,6 +200,8 @@ Receding-horizon model-predictive control keeps optimization inside the feedback
 
 ## The runtime handoff contract
 
-A deployable planner needs the robot model, current state, collision geometry, allowed contacts, attached objects, joint and timing limits and a controller that can execute the result. A path checked against a stale scene is unsafe. TOTG time-parameterizes a path, computing the time-optimal trajectory that exactly follows a differentiable joint-space path within velocity and acceleration bounds <Cite id="totg-2012" />. Ruckig adds real-time jerk-limited generation; its authors tested it on over 1,000,000,000 random trajectories <Cite id="ruckig-2021" />. The cuRoboV2 authors note that fast planners output physically unexecutable trajectories, and report 99.7% success under a 3 kg payload against 72 to 77% for baselines <Cite id="curobo-v2-2026" />.
+A deployable planner needs the robot model, current state, collision geometry, allowed contacts, attached objects, joint and timing limits and a controller that can execute the result, and a path checked against a stale scene is unsafe. Time-Optimal Trajectory Generation (TOTG) computes the time-optimal trajectory that exactly follows a differentiable joint-space path within velocity and acceleration bounds <Cite id="totg-2012" />, and MoveIt 2 has recommended it for time parameterization since January 2023 <Cite id="moveit-trajectory-processing-2026" />. Because TOTG sets no jerk limits, Ruckig, a real-time jerk-limited generator <Cite id="ruckig-2021" />, can smooth its output <Cite id="moveit-time-parameterization-2026" />.
+
+The cuRoboV2 authors note that fast planners output physically unexecutable trajectories, and report 99.7% success under a 3 kg payload against 72 to 77% for baselines <Cite id="curobo-v2-2026" />.
 
 The [ROS 2 guide](/classical/ros2-for-ml-engineers) maps these artifacts onto the runtime graph. In hybrid systems a learned component proposes a goal, cost, waypoint or action chunk, and a planner or command gate checks what the model cannot certify. Validators fail too: MoveIt Pro 10.1.0 fixed a shortcut stage that let paths pass through obstacles between collision checks, and a ValidateTrajectory bug that checked the wrong robot configuration and risked passing a colliding trajectory as collision-free <Cite id="moveit-pro-10-1-2026" />.

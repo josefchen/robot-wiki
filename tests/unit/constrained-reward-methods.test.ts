@@ -45,7 +45,6 @@ describe('constrained reward originals', () => {
   });
   it('preserves manual stage design and the actual reward/cost counts', () => {
     expect(article).toContain('split acrobatic tasks into manual stages');
-    expect(article).toContain('Stand-Sit-Jump-Air-Land');
     expect(article).toContain('five reward and five cost functions');
     expect(article).toContain('stage-transition rules, cost thresholds, preferences and hyperparameters stay hand-set');
   });

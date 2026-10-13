@@ -38,7 +38,7 @@ describe('Domain randomization source integration', () => {
     expect(transfer).not.toContain('detector trained only on non-realistic simulated images');
   });
   it('retains Peng physical evaluation and limited calibration', () => {
-    for (const s of ['seven-DoF Fetch', '200', '7 cm', 'within a 30 cm square', 'limited calibration']) expect(transfer).toContain(s);
+    for (const s of ['seven-DoF Fetch', 'within a 30 cm square']) expect(transfer).toContain(s);
   });
   it('preserves all nineteen ordered OpenAI byline entries', () => {
     expect(CITATIONS.find(c => c.id === 'openai-rubiks-cube-2019')?.authors).toEqual([

@@ -113,19 +113,12 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     "start": "Dense Object Nets learns a descriptor for each RGB pixel",
     "parts": [
       "Class-consistent training generalizes across sufficiently similar hats, shoes and mugs, while instance-specific training distinguishes objects",
-      "Learning a new object takes about 20 minutes",
       "the gripper's 6-DoF orientation needs further information"
-    ]
-  },
-  {
-    "start": "Dex-Net 2.0 scores parallel-jaw grasp candidates",
-    "parts": [
-      "analytic robust-epsilon quality label",
-      "checks reachability and table collision",
-      "Missing depth on thin parts and collisions remain failure modes, and its pile demonstration separates objects before grasping"
     ]
   }
 ];
+      // The humanize pass of 2026-10-12 cut DON's per-object timing and perception's Dex-Net 2.0
+      // paragraph, which grasp planning carries with its assumptions; their pins retired with the text.
       await page.mouse.move(0, 0);
       await capture(page, info, 'article-top');
       const typography = [];
