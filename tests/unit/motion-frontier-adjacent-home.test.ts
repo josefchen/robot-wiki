@@ -3,10 +3,8 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { beatSpans, posterTime } from '@/components/motion/timeline';
-import { RELIABILITY_THRESHOLD_SCENE, reliabilityThresholdFrame } from '@/components/motion/scenes/reliability-threshold';
 import { TACTILE_SLIP_METHOD_NOTE, TACTILE_SLIP_SCENE, tactileSlipFrame } from '@/components/motion/scenes/tactile-slip';
 import { SENSE_AVOID_METHOD_NOTE, SENSE_AVOID_SCENE, senseAvoidDistances, senseAvoidFrame } from '@/components/motion/scenes/sense-avoid';
-import { compoundedSuccessRate } from '@/lib/reliability';
 import { DEFAULT_AGILITY, SENSORS, latencyOutcome } from '@/lib/aerial-latency';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
@@ -40,10 +38,16 @@ const figures = new Set([
   'PerceptionLatency', 'SwarmControlTable', 'OrbitalServicingTable',
   'SurgicalSystemsTable', 'ReliabilityThreshold', 'TactileSlip', 'SenseAvoid',
 ]);
-const homeFigures = ['ReliabilityThreshold'];
+/**
+ * Home's one figure is the 3D explainer it features from How robots work;
+ * it is no motion scene, so its row keeps it and names no scene.
+ */
+const homeFigures = ['FeaturedExplainer'];
 /** Figures home once mounted; their inventory rows record the removal. */
-const homeRemoved = ['ReliabilityCompounding', 'ImageRef', 'So101ChainPreview', 'MarketMapPoster'];
-const scenes = [RELIABILITY_THRESHOLD_SCENE, TACTILE_SLIP_SCENE, SENSE_AVOID_SCENE];
+const homeRemoved = [
+  'ReliabilityCompounding', 'ImageRef', 'So101ChainPreview', 'MarketMapPoster', 'ReliabilityThreshold',
+];
+const scenes = [TACTILE_SLIP_SCENE, SENSE_AVOID_SCENE];
 
 describe('frontier, adjacent and home motion inventory', () => {
   it('accounts for every first-party figure and independent assessment mount', () => {
@@ -63,6 +67,9 @@ describe('frontier, adjacent and home motion inventory', () => {
     for (const element of homeFigures) {
       expect(home).toContain(`<${element}`);
       mounts.push(`home:${element}:1`);
+      const row = inventory.find((entry) => entry.article === 'home' && entry.element === element);
+      expect(row?.decision).toBe('keep');
+      expect(row?.sceneId).toBeUndefined();
     }
     for (const element of homeRemoved) {
       expect(home).not.toContain(`<${element}`);
@@ -89,23 +96,13 @@ describe('frontier, adjacent and home motion inventory', () => {
       if (row.decision === 'add') {
         expect(scenes.map((scene) => scene.id)).toContain(row.sceneId);
       }
+      // A retired scene leaves no row naming it.
+      expect(row.sceneId).not.toBe('reliability-threshold');
     }
   });
 });
 
 describe('frontier and adjacent scene truth', () => {
-  it('holds a fixed episode length while conditional reliability changes', () => {
-    const spans = beatSpans(RELIABILITY_THRESHOLD_SCENE.beats);
-    for (const index of [0, 1, 2, 3]) {
-      const frame = reliabilityThresholdFrame(spans[index].end);
-      expect(frame.episodeSuccess).toBe(compoundedSuccessRate(frame.perStep, 30));
-    }
-    expect(reliabilityThresholdFrame(spans[1].end).episodeSuccess)
-      .toBeLessThan(reliabilityThresholdFrame(spans[2].end).episodeSuccess);
-    expect(spans[1].linear).toBe(true);
-    expect(RELIABILITY_THRESHOLD_SCENE.beats[0].caption).toMatch(/95%.*21\.5%/);
-  });
-
   it('shows a toy slip and a distinct tactile correction, without a performance claim', () => {
     const spans = beatSpans(TACTILE_SLIP_SCENE.beats);
     expect(tactileSlipFrame(spans[0].end).slip).toBe(0);

@@ -6,6 +6,7 @@ import { getCitation } from '../data/citations.ts';
 import { publishedModules } from '../data/modules.ts';
 import { TEKTUR_ROLE_INSTANCES } from '../data/type-roles.ts';
 import { formatLongDate } from './dates.ts';
+import { referencesInPrintOrder } from './reference-order.ts';
 import { inlineCitationIds, moduleBody, resolveReferences } from './references.ts';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
@@ -208,10 +209,8 @@ export function titleSheetSourceFacts(
           (id): id is string => typeof id === 'string',
         )
       : [];
-    const citationIds = resolveReferences(
-      declared,
-      inlineCitationIds(moduleBody(raw)),
-      getCitation,
+    const citationIds = referencesInPrintOrder(
+      resolveReferences(declared, inlineCitationIds(moduleBody(raw)), getCitation),
     ).map(({ citation }) => citation.id);
     facts.set(`/${domain}/${slug}/`, {
       route: `/${domain}/${slug}/`,

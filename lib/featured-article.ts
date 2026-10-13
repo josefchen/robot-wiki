@@ -1,29 +1,40 @@
-import { DOMAIN_META, publishedModules } from '../data/modules.ts';
-import { leadExcerpt, wordCount } from './article-lead.ts';
+import { HOME_FEATURED_PICKS, type HomeFeaturedPick } from '../data/home-featured.ts';
+import { DOMAIN_META, getModule, publishedModules } from '../data/modules.ts';
+import { wordCount } from './article-lead.ts';
 import { homeCopyProblems } from './home-copy.ts';
-import { moduleSource } from './module-source.ts';
 
 /**
- * The home page's featured article: one published article's opening
- * sentences, verbatim, chosen by the date so the choice rotates without an
- * edit. The selection runs when the page is built.
+ * The home page's featured article: the first of the editor's picks in
+ * data/home-featured.ts, with the dek written for home. It changes only
+ * when an editor edits that list, never with the date.
  */
-export const FEATURED_LEAD_MAX_WORDS = 25;
+export const FEATURED_DEK_MAX_WORDS = 25;
 
 /**
  * The words the featured article and "Recently updated" share on home: the
- * featured title and lead, and each update's date and title. Both change
- * without an edit to home, one with the date and the other with each
- * content commit, so on a day when the update titles run long the featured
- * pick passes over the longer leads. The rest of <main> fits in what this
- * leaves of the 250-word VAL-OPUS-021 budget, which
- * tests/e2e/home-front-page.spec.ts measures.
+ * featured title and dek, and each update's date and title. The update
+ * titles change with each content commit, so every pick has to fit this
+ * share beside the five longest titles any update could print; the rest of
+ * <main> fits in what this leaves of the 250-word VAL-OPUS-021 budget,
+ * which tests/e2e/home-front-page.spec.ts measures.
  */
-export const HOME_ROTATING_WORDS = 54;
+export const HOME_ROTATING_WORDS = 56;
 
 /** The words a "Recently updated" list prints: an ISO date and a title per row. */
 export function recentListWords(entries: readonly { title: string }[]): number {
   return entries.reduce((sum, { title }) => sum + 1 + wordCount(title), 0);
+}
+
+/**
+ * The most words a five-row "Recently updated" list can print: the five
+ * longest published titles, each with its date.
+ */
+export function longestRecentListWords(
+  entries: readonly { title: string }[] = publishedModules(),
+): number {
+  return recentListWords(
+    [...entries].sort((left, right) => wordCount(right.title) - wordCount(left.title)).slice(0, 5),
+  );
 }
 
 export type FeaturedArticle = {
@@ -31,38 +42,8 @@ export type FeaturedArticle = {
   slug: string;
   title: string;
   href: string;
-  excerpt: string;
+  dek: string;
 };
-
-// An opening that points at the rest of the site ("the previous module",
-// "the scene below") reads as a fragment once it is lifted onto home.
-const SITE_REFERENCE = /\b(?:modules?|previous|below|above|scrubber|scene)\b/i;
-
-const TITLE_STOPWORDS = new Set([
-  'about',
-  'and',
-  'for',
-  'from',
-  'into',
-  'other',
-  'that',
-  'the',
-  'what',
-  'when',
-  'where',
-  'which',
-  'with',
-]);
-
-/** Whether the excerpt names what the article is about, by a title word. */
-export function namesTopic(title: string, excerpt: string): boolean {
-  const text = excerpt.toLowerCase();
-  return title
-    .toLowerCase()
-    .split(/[^a-z0-9]+/)
-    .filter((word) => word.length >= 4 && !TITLE_STOPWORDS.has(word))
-    .some((word) => text.includes(word.slice(0, 5)));
-}
 
 /**
  * The domain display names `text` mentions. VAL-DESIGN-008 fails a home
@@ -78,52 +59,70 @@ export function domainNamesIn(text: string): string[] {
 
 export const FEATURED_MAX_DOMAIN_NAMES = 3;
 
-/** Every published article whose lead can be featured, in registry order. */
-export function featuredCandidates(
-  read: (domain: string, slug: string) => string = moduleSource,
-): FeaturedArticle[] {
-  const candidates: FeaturedArticle[] = [];
-  for (const { domain, slug, title } of publishedModules()) {
-    const excerpt = leadExcerpt(read(domain, slug), FEATURED_LEAD_MAX_WORDS);
-    if (!excerpt || SITE_REFERENCE.test(excerpt)) continue;
-    if (!namesTopic(title, excerpt)) continue;
-    if (homeCopyProblems(excerpt).length > 0) continue;
-    if (domainNamesIn(`${title} ${excerpt}`).length > FEATURED_MAX_DOMAIN_NAMES) continue;
-    candidates.push({ domain, slug, title, href: `/${domain}/${slug}/`, excerpt });
+/**
+ * Every reason `pick` could not be featured on home; empty when it can. A
+ * dek prints no digit, because a number on home needs a citation and the
+ * dek carries none.
+ */
+export function featuredPickProblems(pick: HomeFeaturedPick): string[] {
+  const problems: string[] = [];
+  const entry = getModule(pick.domain, pick.slug);
+  if (!entry || entry.status !== 'published') {
+    problems.push(`${pick.domain}/${pick.slug} is not a published article`);
   }
-  return candidates;
+  const words = wordCount(pick.dek);
+  if (words === 0) problems.push('the dek is empty');
+  if (words > FEATURED_DEK_MAX_WORDS) {
+    problems.push(`the dek runs to ${words} words, over ${FEATURED_DEK_MAX_WORDS}`);
+  }
+  if (/\d/.test(pick.dek)) problems.push('the dek prints a number with no citation');
+  for (const problem of homeCopyProblems(pick.dek)) problems.push(`the dek carries ${problem}`);
+  const named = domainNamesIn(`${entry?.title ?? ''} ${pick.dek}`);
+  if (named.length > FEATURED_MAX_DOMAIN_NAMES) {
+    problems.push(`the title and dek name ${named.length} domains, which only the contents index may list`);
+  }
+  return problems;
 }
 
-/** Days since the Unix epoch for the calendar date `date` falls on in UTC. */
-export function utcDayNumber(date: Date): number {
-  return Math.floor(
-    Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()) /
-      86_400_000,
-  );
+/** One pick as home prints it, or an error naming why it cannot be featured. */
+export function featuredArticleFrom(pick: HomeFeaturedPick): FeaturedArticle {
+  const problems = featuredPickProblems(pick);
+  if (problems.length > 0) {
+    throw new Error(`the featured pick ${pick.domain}/${pick.slug} cannot be featured: ${problems.join('; ')}`);
+  }
+  const { title } = getModule(pick.domain, pick.slug)!;
+  return {
+    domain: pick.domain,
+    slug: pick.slug,
+    title,
+    href: `/${pick.domain}/${pick.slug}/`,
+    dek: pick.dek,
+  };
 }
 
-/** The article featured on `date`; consecutive days step through the pool. */
-export function featuredArticleFor(
-  date: Date,
-  candidates: readonly FeaturedArticle[] = featuredCandidates(),
+/** The featured article: the first pick, and only the first. */
+export function featuredArticle(
+  picks: readonly HomeFeaturedPick[] = HOME_FEATURED_PICKS,
 ): FeaturedArticle {
-  if (candidates.length === 0) {
-    throw new Error('no published article has a lead that can be featured');
-  }
-  return candidates[utcDayNumber(date) % candidates.length];
+  if (picks.length === 0) throw new Error('home has no featured pick');
+  return featuredArticleFrom(picks[0]);
 }
 
-/** The article featured on `date` among those whose title and lead fit in `maxWords`. */
+/**
+ * The featured article, refused when its title and dek do not fit in
+ * `maxWords`, so a list of updates that leaves too little room fails the
+ * build rather than the word budget.
+ */
 export function featuredArticleWithin(
-  date: Date,
   maxWords: number,
-  candidates: readonly FeaturedArticle[] = featuredCandidates(),
+  picks: readonly HomeFeaturedPick[] = HOME_FEATURED_PICKS,
 ): FeaturedArticle {
-  const fitting = candidates.filter(
-    ({ title, excerpt }) => wordCount(title) + wordCount(excerpt) <= maxWords,
-  );
-  if (fitting.length === 0) {
-    throw new Error(`no featured title and lead fit in the ${maxWords} words home has left`);
+  const featured = featuredArticle(picks);
+  const words = wordCount(featured.title) + wordCount(featured.dek);
+  if (words > maxWords) {
+    throw new Error(
+      `the featured title and dek run to ${words} words, over the ${maxWords} home has left`,
+    );
   }
-  return featuredArticleFor(date, fitting);
+  return featured;
 }

@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1984515, sha256: '05184f51592a078180fbc82d398dc2d9d527cd5901112e134d69aa856792e021' };
+const reviewPin = { bytes: 1996578, sha256: '880315ff6c13d9de929bdec30df8578cff6e22fda76210ae9d5e5354f30d2714' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -106,7 +106,6 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/motion/scenes/diffusion-denoising.tsx', [30926, 'b6d6cb41a9d639624727fe8eba1e654ef095c0a07f6688f8582d5b1714d06fd4']],
   ['components/motion/scenes/jam-overhead.tsx', [17104, '5cefad7cf3983dcf420d9540dd048d8c7aaa927379761a769dee02306e55569d']],
   ['components/motion/scenes/kalman-predict-update.tsx', [31431, 'd81996fda746115c7613552355425caf8a33d8cc88c305cb110640e65fa51512']],
-  ['components/motion/scenes/reliability-threshold.tsx', [4996, '50d68a826a06583ffb0a581edf9f588d58bcbd9e4d08c270a629e7086080ee86']],
   ['components/motion/scenes/sense-avoid.tsx', [17526, 'b80468ebc9c82eb6240e8fc63861af9d549cb6fdf99c9351381d79ce43127c01']],
   ['components/motion/scenes/tactile-slip.tsx', [16405, 'cae57d8ffdd91c8efca1712b9f179c0ef91383be13c0fa8fe9f959a780a84504']],
   ['components/motion/stage.css', [14504, 'f516081aea061fdc210ae2f429660249cad84b5ae2a902fb979195d80d9c1669']],
@@ -220,7 +219,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/legged-locomotion.spec.ts', [7769, 'a51f62c715f375401b90dfb7c0ea3c2ac80c7f71ee76b8a80ad5de183dd1f0b2']],
   ['tests/e2e/market-map.spec.ts', [16946, 'eee9bc3d893a4ea45834eb7b79efbfab3501d80c377fefe57a186603ce56dc04']],
   ['tests/e2e/motion-data-hardware.spec.ts', [9234, '843c3d0146ed5a34b0f97d7b0889884afeac43d10045ec46fb5627d0af19d453']],
-  ['tests/e2e/motion-frontier-adjacent-home.spec.ts', [9612, '60f0e13044bb551268f502e79acf1193989d8e61eaa0e269dad6edf2d0a9afe8']],
+  ['tests/e2e/motion-frontier-adjacent-home.spec.ts', [10125, '48ef70a9c3960f4cab1dd97fec9ead50e39db15e2084eb2dc5bc2d9e3f0dcd17']],
   ['tests/e2e/motion-manipulation.spec.ts', [6138, '0b9242c61ae84e005e8f7f31929d3b9d3fb20b537ce40c06ddaa7fc55aa50a92']],
   ['tests/e2e/motion-planning.spec.ts', [17893, '7552079a8db4715813e28ffbd42e9a3abd7fea819eaf698a751f5cc1e3eb1d2b']],
   ['tests/e2e/motion-world-models.spec.ts', [15213, '2aee315d353e86be71671007d11d0da0fc9b0de1179d5c87517c1762d2215c93']],
@@ -249,9 +248,9 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/brand-v2-figure-evidence.test.ts', [32916, 'f0f5ea49951c939dc67090ed351f69482ed6c3bbe44e21ecc48b38abad99fbf7']],
   ['tests/unit/classical-closure-evidence.test.ts', [16186, '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148']],
   ['tests/unit/final-seven-closure-evidence.test.ts', [8105, 'e2591c622ca23b1415aa48e2e53605426d4668b4180bfad71f2d198a0b32b27f']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [136548, 'a6eefd675443684ea9b92ac6d3e6964a20f531da1c4b107984959ba2c50affff']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [139922, '60656536e8d7880707ae68c7f7c1f3578b1c7ef296c0dab2c90413616471c30d']],
   ['tests/unit/motion-data-hardware.test.ts', [10895, 'd9a5ffee78d77b45a6155155c84992e3299e892e4e32e2a9c08fd62837842648']],
-  ['tests/unit/motion-frontier-adjacent-home.test.ts', [10479, '38a9b2bc7d0bdba19884b22804a055a1ec2cf20de3eee378fa2ff2cb01e930c3']],
+  ['tests/unit/motion-frontier-adjacent-home.test.ts', [10127, '4076049105b4ba02bd5459b55604e6cbce8497ca17a0e0632f53ac27c37f10a5']],
   ['tests/unit/motion-tokens.test.ts', [5443, 'b364833eb29a4892bdb2892304cb0cca5c9e5f995f510e567fed0362c6786e41']],
   ['tests/unit/parallel-local-evidence.test.ts', [5415, 'd2c39b3c94fad8f22da07efe5fa4517aef9325dc77477f510c65275e421fb687']],
   ['tests/unit/reader-release-integration.test.ts', [24191, 'd5822e8f5613291fc185fbcd707582f66869005d86763d409d4fdfbc67e64565']],

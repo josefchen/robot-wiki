@@ -266,20 +266,21 @@ test.describe('home page', () => {
     }
   });
 
-  test('featured scene svg top edge is within the first 1200px', async ({
+  test('featured scene stage top edge is within the first 1200px', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
     const featured = page.getByRole('region', { name: 'Featured scene' });
     // Strictly below 1200px (VAL-HOME-003/VAL-DSHOME-003): the bound is
-    // "begins before y=1200", so exactly 1200 does not satisfy it.
-    const top = await featured
-      .locator('[data-motion-scene] svg')
-      .first()
-      .evaluate((el) => {
-        return el.getBoundingClientRect().top + window.scrollY;
-      });
+    // "begins before y=1200", so exactly 1200 does not satisfy it. The
+    // explainer's stage holds its poster, then its canvas, in one box.
+    const stage = featured.locator('[data-explainer-scene] [data-x="stage"]');
+    await expect(stage).toHaveCount(1);
+    await expect(stage.locator('[data-x="poster"]')).toBeVisible();
+    const top = await stage.evaluate((el) => {
+      return el.getBoundingClientRect().top + window.scrollY;
+    });
     expect(top).toBeLessThan(1200);
   });
 

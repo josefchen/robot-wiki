@@ -1,71 +1,62 @@
 {
-  "scenes": 8,
-  "beatImagesPerViewport": 34,
+  "scenes": 7,
+  "beatImagesPerViewport": 30,
   "budgetBytes": 25600,
   "chunks": [
     {
       "id": "kalman-predict-update",
       "chunks": [
-        "1paqpvenoz_2u.js"
+        "3011x450svjp9.js"
       ],
-      "gzipBytes": 7688,
+      "gzipBytes": 7668,
       "withinBudget": true
     },
     {
       "id": "diffusion-denoising",
       "chunks": [
-        "2-khhqc8se55v.js"
+        "2ghkhvft6evmo.js"
       ],
-      "gzipBytes": 7302,
+      "gzipBytes": 7295,
       "withinBudget": true
     },
     {
       "id": "batch-scale",
       "chunks": [
-        "04luls7mp3v4x.js"
+        "0a1rl0fs5bs_3.js"
       ],
-      "gzipBytes": 3626,
+      "gzipBytes": 3625,
       "withinBudget": true
     },
     {
       "id": "gait-support",
       "chunks": [
-        "1kioz8ai6nmet.js"
+        "3qqm2wuhe8or7.js"
       ],
-      "gzipBytes": 6586,
+      "gzipBytes": 6482,
       "withinBudget": true
     },
     {
       "id": "jam-overhead",
       "chunks": [
-        "39sey3b8ui59-.js"
+        "1qv16fll89ih6.js"
       ],
-      "gzipBytes": 3694,
-      "withinBudget": true
-    },
-    {
-      "id": "reliability-threshold",
-      "chunks": [
-        "0rlxkpge2j68d.js",
-        "2qr3-h1m_2w2v.js"
-      ],
-      "gzipBytes": 9439,
+      "gzipBytes": 12388,
       "withinBudget": true
     },
     {
       "id": "tactile-slip",
       "chunks": [
-        "3_4jppuys1xhb.js"
+        "3_3ibep7whih9.js"
       ],
-      "gzipBytes": 2255,
+      "gzipBytes": 11910,
       "withinBudget": true
     },
     {
       "id": "sense-avoid",
       "chunks": [
-        "2sfcx2993y6kl.js"
+        "11wzf879_jsvv.js"
       ],
-      "gzipBytes": 3377,
+      "gzipBytes": 3893,
       "withinBudget": true
     }
   ],
@@ -171,22 +162,6 @@
     {
       "path": "evidence/motion/scenes/jam-overhead/375-beat-4.png",
       "sha256": "223e7f7d6d09b7b949b396007ac6fb6c87a3bd42bcd95b01456b93d7bca19c89"
-    },
-    {
-      "path": "evidence/motion/scenes/reliability-threshold/375-beat-1.png",
-      "sha256": "256ccbdcdffbf6ba1596fcc856b684858fe55831b8ca5b66ed985b144975bc5f"
-    },
-    {
-      "path": "evidence/motion/scenes/reliability-threshold/375-beat-2.png",
-      "sha256": "7445b957be90c01295eb2a57cb7aba6d5ba6ffc7809bf6a723a4dd716f53d37c"
-    },
-    {
-      "path": "evidence/motion/scenes/reliability-threshold/375-beat-3.png",
-      "sha256": "af7970396358e08737867fe9a6dad0ac62f6a27d637d1e625d0f71eab45087cb"
-    },
-    {
-      "path": "evidence/motion/scenes/reliability-threshold/375-beat-4.png",
-      "sha256": "0b9032041c35159f6b305c240560200bd5d2adf9010478ed88427fecef37c536"
     },
     {
       "path": "evidence/motion/scenes/tactile-slip/375-beat-1.png",
@@ -307,22 +282,6 @@
     {
       "path": "evidence/motion/scenes/jam-overhead/1440-beat-4.png",
       "sha256": "7c1464fafb9963cd2e2d8a0a734fdcf96f0b473ed016eb89c08b7a26b186f4e5"
-    },
-    {
-      "path": "evidence/motion/scenes/reliability-threshold/1440-beat-1.png",
-      "sha256": "a92c82f185bbb59f959323235bdb7466f7584e8eae965d6cee1900d24a496933"
-    },
-    {
-      "path": "evidence/motion/scenes/reliability-threshold/1440-beat-2.png",
-      "sha256": "8e035f5ea61bb79df4205071b1ca549909fcbeef58fd964364774ad8d33567b0"
-    },
-    {
-      "path": "evidence/motion/scenes/reliability-threshold/1440-beat-3.png",
-      "sha256": "8cf2fc9e75493311f07eec7c1d68154750574bdfc8c732928f4f0553cab81596"
-    },
-    {
-      "path": "evidence/motion/scenes/reliability-threshold/1440-beat-4.png",
-      "sha256": "8f4c9058441a9c5b395dabb115ea2472c88d11a00df289ded1f08a491ab47689"
     },
     {
       "path": "evidence/motion/scenes/tactile-slip/1440-beat-1.png",

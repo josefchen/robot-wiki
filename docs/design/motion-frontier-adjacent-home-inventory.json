@@ -199,9 +199,8 @@
     "article": "frontier/reliability-gap",
     "element": "ReliabilityThreshold",
     "decision": "remove",
-    "sceneId": "reliability-threshold",
     "teachingGoal": "Hold thirty decisions constant while per-decision success rises across three toy cases.",
-    "reason": "Removed: the calculator's presets step the same three per-step bars over the same horizon under the reader's control, so the paced scene repeated it here. The scene stays on the front page."
+    "reason": "Removed: the calculator's presets step the same three per-step bars over the same horizon under the reader's control, so the paced scene repeated it here. It stayed on the front page until the 3D humanoid explainer replaced it there, and was then retired."
   },
   {
     "article": "frontier/reliability-gap",
@@ -305,9 +304,15 @@
   {
     "article": "home",
     "element": "ReliabilityThreshold",
-    "decision": "add",
-    "sceneId": "reliability-threshold",
+    "decision": "remove",
     "teachingGoal": "Share the frontier's fixed-horizon compounding explanation on the home page.",
-    "reason": "One reused scene is the front page's featured scene and avoids a second motion grammar."
+    "reason": "Removed: the owner replaced the front page's featured scene with the 3D humanoid explainer on 13 October 2026, and the scene had no other mount, so it was retired."
+  },
+  {
+    "article": "home",
+    "element": "FeaturedExplainer",
+    "decision": "keep",
+    "teachingGoal": "Take a Unitree G1 apart in 3D and count where its 23 motors go: 12 move the legs and keep it balanced.",
+    "reason": "The front page's featured scene is the humanoid explainer from How robots work, in the same viewer with the same scene, shown on its poster until the reader starts it."
   }
 ]

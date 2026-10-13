@@ -2,9 +2,10 @@
  * The reader-first registry and its five-second reader test records.
  *
  * The registry (`contract/reader-first-registry.json`) holds one entry per
- * figure on an article, on `/credits/`, and the home featured scene: its
- * route, mount identity, frame id, audit item, source files and the
- * takeaway in one plain sentence. Each entry has one record under
+ * figure frame on an article, on `/credits/` and on the home page (whose
+ * featured scene, a 3D explainer from /how-robots-work/, is no figure
+ * frame): its route, mount identity, frame id, audit item, source files and
+ * the takeaway in one plain sentence. Each entry has one record under
  * `evidence/reader-first/`, written after a reviewer with no engineering
  * background saw only the frame's two screenshots, at 1280 and 375 px wide.
  * A record is current while the digest of the registered source files

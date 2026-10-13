@@ -17,13 +17,13 @@
       "route": "/",
       "signature": "plain/module-heading/lead-excerpt",
       "owner": "opus-pass-homepage",
-      "purpose": "The featured article: one title and its lead, verbatim and within 50 words, chosen by date."
+      "purpose": "The featured article: the editor's first pick, its title and a dek of 25 words or fewer written for home."
     },
     {
       "route": "/",
       "signature": "plain/module-heading/motion-scene",
       "owner": "opus-pass-homepage",
-      "purpose": "The featured scene: one registered motion scene on its poster frame that plays only when the reader starts it."
+      "purpose": "The featured scene: one 3D explainer from How robots work on its poster, which runs only when the reader starts it."
     },
     {
       "route": "/",

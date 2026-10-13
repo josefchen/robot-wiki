@@ -1,4 +1,6 @@
-import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   leadExcerpt,
   leadParagraph,
@@ -7,20 +9,22 @@ import {
   wordCount,
 } from '@/lib/article-lead';
 import {
-  FEATURED_LEAD_MAX_WORDS,
+  FEATURED_DEK_MAX_WORDS,
   FEATURED_MAX_DOMAIN_NAMES,
   HOME_ROTATING_WORDS,
   domainNamesIn,
-  featuredArticleFor,
+  featuredArticle,
+  featuredArticleFrom,
   featuredArticleWithin,
-  featuredCandidates,
-  namesTopic,
+  featuredPickProblems,
+  longestRecentListWords,
   recentListWords,
-  utcDayNumber,
 } from '@/lib/featured-article';
 import { homeCopyProblems } from '@/lib/home-copy';
-import { moduleSource } from '@/lib/module-source';
-import { getModule, publishedModules } from '@/data/modules';
+import { HOME_FEATURED_PICKS, HOME_FEATURED_SCENE } from '@/data/home-featured';
+import { DOMAIN_META, getModule, publishedModules } from '@/data/modules';
+import { EXPLAINER_ORDER } from '@/components/explainers/catalog';
+import { EXPLAINER_WORDS } from '@/components/explainers/words';
 
 describe('article lead excerpts', () => {
   const source = (body: string) => `---\ntitle: Test\n---\n\n${body}\n`;
@@ -68,114 +72,157 @@ describe('article lead excerpts', () => {
 });
 
 describe('featured article', () => {
-  const candidates = featuredCandidates();
+  afterEach(() => vi.useRealTimers());
 
-  it('holds the lead within the 50-word bound of VAL-OPUS-016', () => {
-    expect(FEATURED_LEAD_MAX_WORDS).toBeLessThanOrEqual(50);
-  });
-
-  it('draws from a pool of published articles', () => {
-    expect(candidates.length).toBeGreaterThanOrEqual(2);
-    for (const candidate of candidates) {
-      expect(getModule(candidate.domain, candidate.slug)?.status).toBe('published');
-      expect(candidate.href).toBe(`/${candidate.domain}/${candidate.slug}/`);
-    }
-  });
-
-  it('features each lead verbatim, within budget and in wording home may show', () => {
-    for (const candidate of candidates) {
-      const paragraph = leadParagraph(moduleSource(candidate.domain, candidate.slug));
-      expect(paragraph, candidate.href).not.toBeNull();
-      const rendered = renderedLeadText(paragraph ?? '');
-      expect(rendered.startsWith(candidate.excerpt), candidate.href).toBe(true);
-      expect(wordCount(candidate.excerpt)).toBeLessThanOrEqual(FEATURED_LEAD_MAX_WORDS);
-      expect(homeCopyProblems(candidate.excerpt), candidate.href).toEqual([]);
-      expect(namesTopic(candidate.title, candidate.excerpt), candidate.href).toBe(true);
-      expect(
-        domainNamesIn(`${candidate.title} ${candidate.excerpt}`).length,
-        candidate.href,
-      ).toBeLessThanOrEqual(FEATURED_MAX_DOMAIN_NAMES);
-    }
-  });
-
-  it('passes over a lead that reads as a reading guide or lists the taxonomy', () => {
-    const [guide, order, taxonomy, plain] = publishedModules();
-    const taxonomyLead = `${taxonomy.title} touches World Models, Classical Foundations, Adjacent Domains and Frontier & Open Problems.`;
-    const bodies = new Map([
-      [`${guide.domain}/${guide.slug}`, `${guide.title} has one prerequisite, supervised learning.`],
-      [`${order.domain}/${order.slug}`, `The reading order for ${order.title} starts with the basics.`],
-      [`${taxonomy.domain}/${taxonomy.slug}`, taxonomyLead],
-      [`${plain.domain}/${plain.slug}`, `${plain.title} is one way to train a robot policy.`],
-    ]);
-    const picked = featuredCandidates((domain, slug) => {
-      const body = bodies.get(`${domain}/${slug}`);
-      return body ? `---\ntitle: Test\n---\n\n${body}\n` : '';
+  it('features the first editor pick, the world-models taxonomy, with its own dek', () => {
+    expect(HOME_FEATURED_PICKS[0]).toMatchObject({ domain: 'world-models', slug: 'taxonomy' });
+    const featured = featuredArticle();
+    expect(featured).toEqual({
+      domain: 'world-models',
+      slug: 'taxonomy',
+      title: getModule('world-models', 'taxonomy')?.title,
+      href: '/world-models/taxonomy/',
+      dek: HOME_FEATURED_PICKS[0].dek,
     });
-    expect(picked.map(({ href }) => href)).toEqual([`/${plain.domain}/${plain.slug}/`]);
-    expect(domainNamesIn(taxonomyLead).length).toBeGreaterThan(FEATURED_MAX_DOMAIN_NAMES);
-    expect(homeCopyProblems('It has one prerequisite.')).toEqual([
-      'reading-guide wording "prerequisite"',
+    expect(featured.title).toBe('What Is a World Model?');
+  });
+
+  it('keeps the pick for every date: only an edit to the list moves it', () => {
+    const picks = new Set<string>();
+    for (const day of [0, 1, 2, 30, 365]) {
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date(Date.UTC(2026, 9, 13 + day, 12)));
+      picks.add(featuredArticle().href);
+      vi.useRealTimers();
+    }
+    expect([...picks]).toEqual(['/world-models/taxonomy/']);
+    // An editor who reorders the list moves the pick, and nothing else does.
+    const [first, second, ...rest] = HOME_FEATURED_PICKS;
+    expect(featuredArticle([second, first, ...rest]).href).toBe(`/${second.domain}/${second.slug}/`);
+    expect(() => featuredArticle([])).toThrow(/no featured pick/);
+  });
+
+  it('keeps a short ordered list of hot picks, each a published article with a dek home may show', () => {
+    expect(HOME_FEATURED_PICKS.map(({ domain, slug }) => `${domain}/${slug}`)).toEqual([
+      'world-models/taxonomy',
+      'rl-sim2real/humanoid-wbc',
+      'world-models/generative-video',
     ]);
+    expect(FEATURED_DEK_MAX_WORDS).toBeLessThanOrEqual(25);
+    for (const pick of HOME_FEATURED_PICKS) {
+      const label = `${pick.domain}/${pick.slug}`;
+      expect(featuredPickProblems(pick), label).toEqual([]);
+      expect(getModule(pick.domain, pick.slug)?.status, label).toBe('published');
+      expect(wordCount(pick.dek), label).toBeGreaterThan(5);
+      expect(wordCount(pick.dek), label).toBeLessThanOrEqual(FEATURED_DEK_MAX_WORDS);
+      expect(pick.dek, label).not.toMatch(/\d/);
+      expect(pick.dek, label).toMatch(/^[A-Z].*\.$/);
+      expect(homeCopyProblems(pick.dek), label).toEqual([]);
+      expect(featuredArticleFrom(pick).href).toBe(`/${pick.domain}/${pick.slug}/`);
+    }
   });
 
-  it('rotates by date without a code edit', () => {
-    const today = featuredArticleFor(new Date('2026-09-30T12:00:00Z'), candidates);
-    const tomorrow = featuredArticleFor(new Date('2026-10-01T12:00:00Z'), candidates);
-    expect(today.href).not.toBe(tomorrow.href);
-    const picks = new Set(
-      Array.from({ length: candidates.length }, (_, day) =>
-        featuredArticleFor(new Date(Date.UTC(2026, 8, 30 + day)), candidates).href,
-      ),
-    );
-    expect(picks.size).toBe(candidates.length);
-  });
-
-  it('keeps one choice for the whole of a UTC day', () => {
-    const morning = featuredArticleFor(new Date('2026-09-30T00:00:01Z'), candidates);
-    const night = featuredArticleFor(new Date('2026-09-30T23:59:59Z'), candidates);
-    expect(morning.href).toBe(night.href);
-    expect(utcDayNumber(new Date('2026-09-30T23:59:59Z'))).toBe(
-      utcDayNumber(new Date('2026-09-30T00:00:00Z')),
-    );
-  });
-
-  it('fails loudly when no lead can be featured', () => {
-    expect(() => featuredArticleFor(new Date(), [])).toThrow(/no published article/);
+  it('refuses a pick that is unpublished, long, numbered, dashed, banned or lists the taxonomy', () => {
+    const base = HOME_FEATURED_PICKS[0];
+    const problems = (dek: string, slug = base.slug) =>
+      featuredPickProblems({ domain: base.domain, slug, dek });
+    expect(problems(base.dek)).toEqual([]);
+    expect(problems(base.dek, 'no-such-article')).toEqual([
+      'world-models/no-such-article is not a published article',
+    ]);
+    expect(problems(Array.from({ length: 26 }, () => 'word').join(' '))).toEqual([
+      'the dek runs to 26 words, over 25',
+    ]);
+    expect(problems('A model trained on 1,000 hours of video.')).toEqual([
+      'the dek prints a number with no citation',
+    ]);
+    expect(problems('A model that imagines \u2014 then acts.')).toEqual([
+      'the dek carries an em or en dash',
+    ]);
+    expect(problems('A groundbreaking model.')).toEqual(['the dek carries banned wording "groundbreaking"']);
+    expect(problems('Its one prerequisite is a model.')).toEqual([
+      'the dek carries reading-guide wording "prerequisite"',
+    ]);
+    const taxonomy = Object.values(DOMAIN_META).slice(0, 4).map(({ name }) => name).join(', ');
+    expect(domainNamesIn(taxonomy).length).toBeGreaterThan(FEATURED_MAX_DOMAIN_NAMES);
+    expect(problems(`It touches ${taxonomy}.`)[0]).toMatch(/name \d+ domains/);
+    expect(() =>
+      featuredArticle([{ ...base, dek: 'A model trained on 1,000 hours of video.' }]),
+    ).toThrow(/cannot be featured: the dek prints a number/);
   });
 });
 
 describe('featured article beside "Recently updated"', () => {
-  const candidates = featuredCandidates();
-  const fitWords = ({ title, excerpt }: { title: string; excerpt: string }) =>
-    wordCount(title) + wordCount(excerpt);
-
   it('counts each update as its ISO date and its title', () => {
     expect(
       recentListWords([{ title: 'State Estimation' }, { title: 'What Is a World Model?' }]),
     ).toBe(1 + 2 + 1 + 5);
   });
 
-  it('only picks a title and lead that fit the words left', () => {
-    const tightest = Math.min(...candidates.map(fitWords));
-    for (let day = 0; day < candidates.length; day += 1) {
-      const pick = featuredArticleWithin(new Date(Date.UTC(2026, 8, 30 + day)), tightest, candidates);
-      expect(fitWords(pick)).toBe(tightest);
-    }
-    expect(() => featuredArticleWithin(new Date(), tightest - 1, candidates)).toThrow(
-      /no featured title and lead fit/,
-    );
-  });
-
-  it('still rotates when the five longest titles are the latest updates', () => {
+  it('fits every pick beside the five longest titles an update list could print', () => {
     const longest = [...publishedModules()]
       .sort((left, right) => wordCount(right.title) - wordCount(left.title))
       .slice(0, 5);
-    const left = HOME_ROTATING_WORDS - recentListWords(longest);
-    const picks = new Set(
-      Array.from({ length: candidates.length }, (_, day) =>
-        featuredArticleWithin(new Date(Date.UTC(2026, 8, 30 + day)), left, candidates).href,
-      ),
+    expect(longestRecentListWords()).toBe(recentListWords(longest));
+    for (const pick of HOME_FEATURED_PICKS) {
+      const { title, dek } = featuredArticleFrom(pick);
+      expect(
+        wordCount(title) + wordCount(dek) + longestRecentListWords(),
+        `${pick.domain}/${pick.slug} beside the longest update list`,
+      ).toBeLessThanOrEqual(HOME_ROTATING_WORDS);
+      // So no content commit can leave the build without room for it.
+      expect(featuredArticleWithin(HOME_ROTATING_WORDS - longestRecentListWords(), [pick]).href)
+        .toBe(`/${pick.domain}/${pick.slug}/`);
+    }
+  });
+
+  it('refuses a featured title and dek that do not fit the words left', () => {
+    const { title, dek } = featuredArticle();
+    const fit = wordCount(title) + wordCount(dek);
+    expect(featuredArticleWithin(fit).href).toBe('/world-models/taxonomy/');
+    expect(() => featuredArticleWithin(fit - 1)).toThrow(/over the \d+ home has left/);
+  });
+});
+
+describe('featured scene', () => {
+  const scene = HOME_FEATURED_SCENE;
+  const sceneSource = readFileSync(
+    join(process.cwd(), 'components/explainers/scenes', `${scene.explainer}.js`),
+    'utf8',
+  );
+
+  it('features one explainer from the How robots work catalog, credited to a published article', () => {
+    expect(scene.explainer).toBe('humanoid');
+    const entry = EXPLAINER_ORDER.find(({ id }) => id === scene.explainer);
+    expect(entry?.label).toBe('Inside a humanoid');
+    expect(scene.related).toEqual({ domain: 'rl-sim2real', slug: 'humanoid-wbc' });
+    expect(getModule(scene.related.domain, scene.related.slug)).toMatchObject({
+      status: 'published',
+      title: 'Humanoid Whole-Body Control',
+    });
+  });
+
+  it('captions the scene in 25 words or fewer, with only numbers the scene itself prints from its spec page', () => {
+    expect(wordCount(scene.caption)).toBeGreaterThan(5);
+    expect(wordCount(scene.caption)).toBeLessThanOrEqual(25);
+    expect(homeCopyProblems(scene.caption)).toEqual([]);
+    // The scene's own motor tally and the spec page it cites for it.
+    expect(sceneSource).toContain('Numbers: Unitree G1 spec page (unitree.com/g1)');
+    const tally = /ui\.readout\('Motors: legs <b>(\d+)<\/b>, arms <b>(\d+)<\/b>, waist <b>(\d+)<\/b>\. That is all <b>(\d+)<\/b>/.exec(
+      sceneSource,
     );
-    expect(picks.size).toBeGreaterThanOrEqual(2);
+    expect(tally, 'the scene prints its motor tally').not.toBeNull();
+    const [legs, arms, waist, total] = tally!.slice(1).map(Number);
+    expect(legs + arms + waist).toBe(total);
+    expect(EXPLAINER_WORDS.humanoid.steps.join(' ')).toContain(`It has ${total} motors`);
+    // Numbers as words: the 1 in the model name G1 is no count.
+    const numbers = [...scene.caption.matchAll(/(?<![A-Za-z\d])\d+(?![A-Za-z\d])/g)].map(([value]) => Number(value));
+    expect(numbers).toEqual([total, legs]);
+    expect(scene.caption).toMatch(new RegExp(`${total} motors, ${legs} move its legs`));
+  });
+
+  it('labels the start control in a few plain words', () => {
+    expect(wordCount(scene.startLabel)).toBeLessThanOrEqual(4);
+    expect(homeCopyProblems(scene.startLabel)).toEqual([]);
   });
 });

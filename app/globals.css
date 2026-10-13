@@ -314,6 +314,53 @@
   margin-bottom: 16px;
 }
 
+/*
+ * The featured article and the featured scene: the article's title set in
+ * the display face, then a dek written for home; the scene's caption takes
+ * the dek's type above the explainer's stage, which runs the sheet's full
+ * width.
+ */
+.home-feature-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.15rem + 1.1vw, 2rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.home-feature-dek {
+  max-width: 62ch;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.home-feature-title + .home-feature-dek {
+  margin-top: 10px;
+}
+
+.home-explainer > .home-feature-dek {
+  margin-bottom: 14px;
+}
+
+.home-explainer-source {
+  margin-top: 14px;
+}
+
+/* On a phone the explainer's stage is 4:5 while its poster is the 16:10
+   desktop still, so home crops the poster to the stage, centred on the
+   scene, and the robot fills it rather than sitting in a letterbox until
+   the reader starts the 3D scene. */
+@container (max-width: 560px) {
+  .home-explainer .stage[data-mode='poster'] .poster {
+    object-fit: cover;
+  }
+}
+
 /* A plain text link in the house manner: ink, 1px underline. */
 .ink-link {
   color: var(--ink);
@@ -523,19 +570,24 @@ article > hr {
 }
 
 /*
- * The article title: the display H1. Sized against the viewport so it
- * scales continuously from about 44px on a phone to 87px at 1440. A title
- * is one long word more often than any scale allows for ("Counterargument"
- * is wider than a 320px column at the floor), so it may break.
+ * The article title: the display H1, scaling from 40px on a phone to 87px
+ * at 1440. Its phone floor sits 4px under the page H1's because a title
+ * word has to fit one line of the 327px column: "Counterargument" sets
+ * 345px wide at 44px and 318px at 40px, the lowest size VAL-B2-TYPE-007
+ * allows. Hyphenation cannot carry that word: Chromium never auto-hyphenates
+ * a capitalised English word, so `hyphens: auto` breaks only the lowercase
+ * ones (the root element declares lang="en"), and a word wider than the
+ * line would still break with no hyphen.
  */
 .article-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.75rem, 0.6rem + 5.4vw, 5.46rem);
+  font-size: clamp(2.5rem, 0.6rem + 5.4vw, 5.46rem);
   line-height: 0.93;
   letter-spacing: -0.025em;
   color: var(--ink);
   overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .article-masthead .page-lead {

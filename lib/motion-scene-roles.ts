@@ -17,7 +17,6 @@ const ROLE_RULES: Record<string, readonly [RegExp, SceneRole | 'gait-phase'][]> 
   'gait-support': [[/^[a-z]+-foot-\d+$/, 'state']],
   'jam-overhead': [[/^productive-time$/, 'value'],
     [/^clearing-time$|^downtime$/, 'constraint']],
-  'reliability-threshold': [[/^episode-\d+$/, 'value']],
   'tactile-slip': [[/^held-object$/, 'state'], [/^(left|right)-touch$/, 'measurement']],
   'sense-avoid': [[/^latency-budget$|^obstacle$/, 'constraint'],
     [/^avoidance-budget$/, 'action']],

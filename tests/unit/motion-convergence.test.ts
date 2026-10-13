@@ -17,9 +17,13 @@ describe('site-wide motion convergence', () => {
       .filter((name) => name.endsWith('.tsx'))
       .map((name) => name.slice(0, -4)).sort();
     const ids = SCENE_TARGETS.map((scene) => scene.id);
-    // Eight scenes remain once every scene that repeated its page's lab was
-    // deleted; retiring another one is a reviewed change to this floor.
-    expect(ids.length).toBeGreaterThanOrEqual(8);
+    // Eight scenes remained once every scene that repeated its page's lab
+    // was deleted. The owner's front-page decision of 13 October 2026 put the
+    // humanoid explainer in place of the reliability scene, whose only mount
+    // was home, so it was retired; retiring another one is a reviewed change
+    // to this floor.
+    expect(ids.length).toBeGreaterThanOrEqual(7);
+    expect(ids).not.toContain('reliability-threshold');
     expect(new Set(ids).size).toBe(ids.length);
     expect([...ids].sort()).toEqual(files);
     for (const scene of SCENE_TARGETS) {
@@ -33,7 +37,8 @@ describe('site-wide motion convergence', () => {
 
   it('registers role semantics for the whole scene census, with shared quantities aligned', () => {
     expect(registeredRoleScenes().sort()).toEqual(SCENE_TARGETS.map((scene) => scene.id).sort());
-    expect(expectedSceneRole('reliability-threshold', 'episode-0')).toBe('value');
+    // A retired scene keeps no role rules, so a mark it drew has no role.
+    expect(() => expectedSceneRole('reliability-threshold', 'episode-0')).toThrow(/semantic roles/);
     // Time that produces work is a value and time spent on cost is a
     // constraint, in every scene that splits time.
     expect(expectedSceneRole('batch-scale', 'fixed-budget-time')).toBe('value');
