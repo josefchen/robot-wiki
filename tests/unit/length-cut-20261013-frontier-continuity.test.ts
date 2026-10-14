@@ -18,8 +18,16 @@ const read = (path: string) => readFileSync(join(root, path));
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /frontier length cut continuity drift/;
 const blank = { bytes: 0, sha256: '' };
-const paths = ['bear-case', 'competing-theses', 'generalization', 'reliability-gap', 'safety-and-assurance']
+const paths = ['bear-case', 'competing-theses', 'dexterity', 'generalization', 'reliability-gap', 'safety-and-assurance']
   .map((slug) => `content/frontier/${slug}.mdx`);
+/** Dexterity's pins, as [spec under tests/, how many, disposition], in review order. */
+const dexterityPins = (counts: ReadonlyArray<readonly [string, number, string?]>) =>
+  counts.flatMap(([test, n, disposition = 'moved']) =>
+    Array.from({ length: n }, () => ['content/frontier/dexterity.mdx', `tests/${test}`, disposition]));
+// A spec literal escapes the quote character it is written in.
+const literals = (text: string) => [`'${text.replaceAll("'", "\\'")}'`, `"${text.replaceAll('"', '\\"')}"`];
+const holds = (spec: string, text: string) =>
+  [text, text.replaceAll("'", "\\'"), text.replaceAll('"', '\\"')].some((form) => spec.includes(form));
 
 const scratchRoots: string[] = [];
 afterEach(() => {
@@ -29,12 +37,14 @@ afterEach(() => {
 describe('frontier length cut 2026-10-13 article successors', () => {
   const review = loadFrontierLengthCutReview(root);
 
-  it('reviews the five cut frontier articles, under the owner instruction, and leaves dexterity alone', () => {
+  it('reviews the six cut frontier articles, under the owner instruction, dexterity from its later base', () => {
     expect(frontierLengthCutSuccessorPaths()).toEqual(paths);
-    expect(paths).not.toContain('content/frontier/dexterity.mdx');
     expect(review.ownerApproval).toContain(
       '"ensure we remove AI slop etc and keep it extremely premium. not too long text."');
     expect(review.sources.map(({ after }) => after.path)).toEqual(paths);
+    // Five were cut from a3137297; dexterity was cut after the images-a landing, from 9a0a3ae5.
+    expect(review.sources.map(({ archivedFrom }) => archivedFrom.slice(0, 8))).toEqual(
+      ['a3137297', 'a3137297', '9a0a3ae5', 'a3137297', 'a3137297', 'a3137297']);
   });
 
   it('rebuilds every reviewed successor into its recorded predecessor, which the older layers still decide', () => {
@@ -45,7 +55,8 @@ describe('frontier length cut 2026-10-13 article successors', () => {
       expect(frontierLengthCutPredecessor(root, source.after, live)).toBe(live);
       // Older checks read the rebuilt bytes through the shared helper chain.
       expect(sha(preFrontierLengthCut(source.after.path))).toBe(source.before.sha256);
-      // The figure-mount layer is next for competing theses, the 2026-10-06 domain pass for the rest.
+      // The figure-mount layer is next for competing theses, the 2026-10-06 domain pass for the rest,
+      // dexterity included.
       const ref = { path: source.after.path, ...blank };
       if (source.after.path.endsWith('competing-theses.mdx')) {
         expect(figureMountSuccessorPaths()).toContain(source.after.path);
@@ -80,6 +91,15 @@ describe('frontier length cut 2026-10-13 article successors', () => {
       ['content/frontier/competing-theses.mdx', 'tests/e2e/brooks-theses-readers.spec.ts', 'moved'],
       ['content/frontier/competing-theses.mdx', 'tests/e2e/brooks-theses-readers.spec.ts', 'retired'],
       ['content/frontier/competing-theses.mdx', 'tests/e2e/thesis-economics-readers.spec.ts', 'moved'],
+      ...dexterityPins([
+        ['e2e/dexterity-brooks-readers.spec.ts', 2], ['e2e/dexterity-brooks-remaining-readers.spec.ts', 1],
+        ['e2e/dexterity-figure-holson-remaining-readers.spec.ts', 4], ['e2e/dexterity.spec.ts', 5],
+        ['unit/dexterity-brooks-remaining-source.test.ts', 1], ['unit/dexterity-brooks-source.test.ts', 2],
+        ['unit/dexterity-figure-holson-remaining-source.test.ts', 3], ['unit/dexterity-figure15-source.test.ts', 1, 'retired'],
+        ['helpers/kol-backlog-20261001.ts', 3], ['helpers/kol-backlog-20261005.ts', 1],
+        ['helpers/kol-backlog-20261007.ts', 1], ['helpers/kol-backlog-20261009.ts', 1],
+        ['helpers/kol-backlog-20261012.ts', 3],
+      ]),
       ['content/frontier/safety-and-assurance.mdx', 'tests/helpers/kol-backlog-20261012.ts', 'moved'],
     ]);
     for (const { path, test, phrase, disposition, to, reason } of pinned) {
@@ -90,15 +110,20 @@ describe('frontier length cut 2026-10-13 article successors', () => {
       if (disposition === 'moved' && test.startsWith('tests/helpers/kol-backlog-')) {
         // The KOL batch helper keeps the paragraph as its batch wrote it, as a record.
         expect(live).toContain(to);
-        expect(spec).toContain(phrase);
+        expect(holds(spec, phrase)).toBe(true);
       } else if (disposition === 'moved') {
         expect(live).toContain(to);
-        expect(spec).toContain(`'${to}'`);
-        expect(spec).not.toContain(phrase);
-      } else {
+        expect(literals(to!).some((literal) => spec.includes(literal)), `${test} selects: ${to}`).toBe(true);
+        expect(holds(spec, phrase), `${test} still selects: ${phrase}`).toBe(false);
+      } else if (path.endsWith('competing-theses.mdx')) {
         // The thesis explorer's form-factor card keeps the fact, and the spec checks it there.
         expect(read('lib/competing-theses.ts').toString()).toContain(phrase);
         expect(spec).toContain(`await expect(detail).toContainText('${phrase}');`);
+      } else {
+        // The Figure hand card keeps the unassigned comparison, and the source test checks it there.
+        const card = `A${phrase.slice(1)}`;
+        expect(read('lib/dexterous-hands.ts').toString()).toContain(card);
+        expect(spec).toContain(`expect(readFileSync('lib/dexterous-hands.ts', 'utf8')).toContain('${card}');`);
       }
     }
   });
@@ -124,7 +149,7 @@ describe('frontier length cut 2026-10-13 article successors', () => {
     const [source] = review.sources;
     const drifted = Buffer.concat([read(source.after.path), Buffer.from('\n')]);
     expect(frontierLengthCutPredecessor(root, source.before, drifted)).toBe(drifted);
-    expect(frontierLengthCutPredecessor(root, { path: 'content/frontier/dexterity.mdx', ...blank }, drifted))
+    expect(frontierLengthCutPredecessor(root, { path: 'content/adjacent/space.mdx', ...blank }, drifted))
       .toBe(drifted);
     expect(() => verifyFrontierLengthCutSource(source, drifted)).toThrow(drift);
   });

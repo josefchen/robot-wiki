@@ -8,8 +8,11 @@ function identities(inventory: ReturnType<typeof termConsumerInventory>) {
 }
 // The retained pin predates one reviewed change: the 2026-10-02 SEO pass
 // opened the knowledge-insulation lead with its defining Term, moving that one
-// trigger ahead of the other three. Express it explicitly; every other
-// route, order and occurrence remains pinned.
+// trigger ahead of the other three. The 2026-10-14 dexterity length cut
+// removed the first of its two in-hand-manipulation triggers with the
+// module-scope sentence (recorded in the brand-v2 approved-deltas ledger).
+// Express both explicitly; every other route, order and occurrence remains
+// pinned.
 function currentPinned() {
   const articles = structuredClone(pinned.articles);
   const insulation = articles.find(a => a.route === '/manipulation/knowledge-insulation/');
@@ -18,6 +21,13 @@ function currentPinned() {
     throw new Error('historical knowledge-insulation Term pin is not the reviewed predecessor');
   }
   insulation.termIds = ['knowledge-insulation', 'flow-matching', 'vision-language-model', 'action-tokenization'];
+  const dexterity = articles.find(a => a.route === '/frontier/dexterity/');
+  if (dexterity?.rawOpeningTags !== 6 || dexterity.termIds.join(',') !==
+    'contact-rich-manipulation,in-hand-manipulation,mechanoreceptor,teleoperation,degrees-of-freedom,in-hand-manipulation') {
+    throw new Error('historical dexterity Term pin is not the reviewed predecessor');
+  }
+  dexterity.rawOpeningTags = 5;
+  dexterity.termIds = ['contact-rich-manipulation', 'mechanoreceptor', 'teleoperation', 'degrees-of-freedom', 'in-hand-manipulation'];
   return articles;
 }
 function assertPopulation(actual: ReturnType<typeof identities>) {

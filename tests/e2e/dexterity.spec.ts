@@ -42,10 +42,10 @@ test.describe('frontier dexterity module', () => {
     expect(mainText).toMatch(/anesthetized/);
     expect(mainText).toMatch(/Johansson/);
     expect(mainText).toContain('Rodney Brooks');
-    expect(mainText).toContain("These are the essay's descriptions of the demonstration");
+    expect(mainText).toContain('In his account, lighting a match took seven seconds');
     expect(mainText).toContain('an imagined inner dialogue');
     expect(mainText).toContain('will likely require the right sensory data and the right thing to learn');
-    expect(mainText).toContain('His assessment belongs to the time of the essay');
+    expect(mainText).toContain('When he wrote the essay, Brooks concluded');
     expect(mainText).not.toContain('Her vision is intact');
     expect(mainText).not.toContain('Nothing about her plan changed');
     expect(mainText).not.toContain('If touch-driven pipelines get there first');
@@ -105,11 +105,11 @@ test.describe('frontier dexterity module', () => {
     expect(mainText).toContain("the first time we've demonstrated neural network policies that depend on these modalities");
     expect(mainText).not.toContain('the first Figure has shown that consumes touch directly');
     expect(mainText).toMatch(/Gemini Robotics 2 drives the 22-DoF SharpaWave hand/);
-    expect(mainText).toMatch(/does not exist yet is a tactile training pipeline/);
+    expect(mainText).toContain('no tactile training pipeline yet runs at vision scale');
 
     // The page does not declare the question resolved; it stays hedged.
-    expect(mainText).toContain('The honest 2026 position is intermediate');
-    expect(mainText).toContain('will be settled less by argument than');
+    expect(mainText).toContain('Touch now ships on flagship hands');
+    expect(mainText).toContain('The open question is which data closes the gap.');
     expect(mainText).toContain('Nobody is close');
     expect(mainText).not.toMatch(/the (debate|question|dispute) is (settled|resolved|over)/i);
 

@@ -43,7 +43,7 @@ test('Holson/outlook/keyring readers: corrected spans, Cite metadata and Referen
   expect(keyringText).toContain("dropped into the robot's waiting palm or gripper");
   expect(keyringText).toContain('Without putting the keys down');
   expect(keyringText).toContain('align, insert, and turn the correct key');
-  expect(keyringText).toContain('challenge rules, not a report that a robot completed the task');
+  expect(keyringText).toContain('The challenge rules do not report a completed robot run.');
   expect(keyringText).not.toContain('handed a keyring');
 
   const statusSpan = prose.locator('p').filter({

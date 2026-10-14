@@ -4,7 +4,7 @@
   "reviewedBy": "implementation worker for the frontier domain pass (opus-pass-frontier), under the owner directive of 2026-10-12 and the length decision of the same day (not independent acceptance)",
   "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. The frontier pass applies it to the frontier articles. Not release approval.",
   "rationale": "The owner asked for short, premium articles, and the frontier domain pass applies the humanizer standard and the length decision to the frontier articles: leads of at most two sentences, paragraphs of at most four, and about a quarter less text. That cut drops recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit. This review records each cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, records each corrected component block (an unsourced stat tile, a stale date, an unsupported self-check explanation) with its reason, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-13T16:04:58Z",
+  "observedAt": "2026-10-14T01:44:02Z",
   "sources": [
     {
       "archivedFrom": "a313729713ac7cbcd555a746a971ea1ce40802ab",
@@ -353,6 +353,355 @@
           "reason": "The 'robot data ~300k h' tile was an estimated global total with no source in the article; it gives way to Figure's $3.5B compute commitment to training Helix, which the lead already states and cites to Figure's Helix 2.5 report. The 'settled 0 of the six' tile is dated October 2026, the month of this review, in place of August 2026: no thesis has settled since."
         }
       ]
+    },
+    {
+      "archivedFrom": "9a0a3ae5b454de2c884f6b840c27e4fce7f1932f",
+      "before": {
+        "path": "content/frontier/dexterity.mdx",
+        "bytes": 21446,
+        "sha256": "d9a1f74f72d3bc18ccb948ef986093b13ed603650f37cc8bf77d8130d5b730d2"
+      },
+      "after": {
+        "path": "content/frontier/dexterity.mdx",
+        "bytes": 17605,
+        "sha256": "52bd079db4db68d829a7350df2fcecf1022e8515fb05f8c7d3aa0c70a778cd48"
+      },
+      "edits": [
+        {
+          "before": "Dexterity is skilled manipulation through contact, such as reorienting an object in the hand or folding cloth. Rodney Brooks opens his dexterity essay with Heinrich Ernst's PhD work: by 1961, he writes, Ernst had connected a computer-controlled arm and hand to MIT's TX-0 and had it picking up and stacking blocks <Cite id=\"brooks-dexterity-2025\" />. The reason is contact. A walking or driving robot moves through free space and senses the world at a distance. A hand has to close the loop through the object: grip force, slip, and contact geometry decide success, and most of that state becomes invisible to cameras the moment the fingers close around it. This module covers <Term id=\"contact-rich-manipulation\">contact-rich manipulation</Term> and the tactile gap it creates, the industry's split over whether touch is needed at all, and the two capability frontiers where that argument gets settled: <Term id=\"in-hand-manipulation\">in-hand manipulation</Term> and deformable objects.\n",
+          "after": "Dexterity is skilled <Term id=\"contact-rich-manipulation\">contact-rich manipulation</Term>, such as reorienting an object in the hand or folding cloth. It remains unsolved: a model Physical Intelligence fine-tuned on Benjie Holson's Humanoid Olympics tasks averaged 52% success on them <Cite id=\"pi-olympics-2025\" />.\n\nRodney Brooks opens his dexterity essay with Heinrich Ernst's PhD work: by 1961, he writes, Ernst had connected a computer-controlled arm and hand to MIT's TX-0 and had it picking up and stacking blocks <Cite id=\"brooks-dexterity-2025\" />. Hands are hard because of contact: grip force, slip and contact geometry decide success, and cameras lose most of that state once the fingers close. [Impedance control](/classical/control) governs a contact where position or force commands alone cannot, and touch lets a controller observe the contact it shapes.\n"
+        },
+        {
+          "before": "Five 2026 hands are compared below on the specs their makers disclose. Switch \"Sort by\" from \"Lightest touch felt\" to \"Lowest price\" and the disagreement is immediate: the two orders do not match, and several cards read \"not disclosed\" because the maker never published the number.\n",
+          "after": "The five 2026 hands below rank differently by touch and by price.\n"
+        },
+        {
+          "before": "The human hand is a sensor first and a mechanism second. A review of Roland Johansson's work reports about 17,000 low-threshold <Term id=\"mechanoreceptor\">mechanoreceptors</Term> in the glabrous skin of the hand, roughly 1,000 of them at each fingertip <Cite id=\"macefield-touch-2022\" />. Brooks uses two videos from Roland Johansson's lab to make his case for touch. He describes the first match-lighting attempt as taking seven seconds and the second, after the same person's fingertips were anesthetized, as taking four times as long, with difficulty picking up and orienting the match. He says she could still sense other things in the rest of her fingers and hand and all the forces she ordinarily felt with her skeletal muscle system <Cite id=\"brooks-dexterity-2025\" />. These are the essay's descriptions of the demonstration. They do not establish an independent timing measurement or a clinical finding that all proprioception remained intact.\n",
+          "after": "A review of Roland Johansson's work reports about 17,000 low-threshold <Term id=\"mechanoreceptor\">mechanoreceptors</Term> in the hand's glabrous skin, roughly 1,000 of them at each fingertip <Cite id=\"macefield-touch-2022\" />. Brooks cites two videos from Johansson's lab. In his account, lighting a match took seven seconds, then four times as long once the same person's fingertips were anesthetized, with difficulty picking up and orienting the match. He says she could still sense other things in the rest of her fingers and hand and all the forces she ordinarily felt with her skeletal muscle system <Cite id=\"brooks-dexterity-2025\" />.\n\nIn his September 8, 2025 post, Benjie Holson described limitations of the learning-from-demonstration setups he was seeing, explicitly calling them a general trend with exceptions. He pointed to the lack of good standard ways to relay wrist-force information to the human teleoperator, difficulty controlling fingers beyond open and close, and the difficulty of making human-like touch sensing available to the puppeteer. His estimate of about 1 to 3 cm of task precision was a guess from videos. He said it was likely more a <Term id=\"teleoperation\">teleoperation</Term> limitation than a model limitation and pointed to a video he described as showing sub-centimeter tasks <Cite id=\"holson-olympics-2025\" />.\n"
+        },
+        {
+          "before": "In his September 8, 2025 post, Benjie Holson described limitations of the learning-from-demonstration setups he was seeing, explicitly calling them a general trend with exceptions. He pointed to the lack of good standard ways to relay wrist-force information to the human teleoperator, difficulty controlling fingers beyond open and close, and the difficulty of making human-like touch sensing available to the puppeteer. His estimate of about 1 to 3 cm of task precision was a guess from videos; he said it was likely more a teleoperation limitation than a model limitation and pointed to a video he described as showing sub-centimeter tasks <Cite id=\"holson-olympics-2025\" />. Luo and colleagues define tactile robotics as developing and integrating tactile-sensing technologies into robotic systems. Their 2025 outlook discusses challenges across sensor materials, networks, simulation, benchmarking, data interpretation, multimodal learning, and active touch <Cite id=\"tactile-outlook-2025\" />. Brooks's conclusion is qualified and time-bound: \"It looks like humanoid robots will need a sense of touch, and a level of touch sensing that no one has yet built in the lab\" for tasks such as the match demonstration <Cite id=\"brooks-dexterity-2025\" />. His assessment belongs to the time of the essay; it does not survey every current tactile sensor. The classical control stack is not silent on this question: the [impedance-control](/classical/control) half of the control module exists precisely because commanding position or force alone cannot govern a contact, and a tactile channel is what lets such a controller observe the contact it is shaping.\n",
+          "after": "Luo and colleagues define tactile robotics as developing and integrating tactile-sensing technologies into robotic systems. Their 2025 outlook discusses challenges across sensor materials, networks, simulation, benchmarking, data interpretation, multimodal learning, and active touch <Cite id=\"tactile-outlook-2025\" />. When he wrote the essay, Brooks concluded: \"It looks like humanoid robots will need a sense of touch, and a level of touch sensing that no one has yet built in the lab\" for tasks such as the match demonstration <Cite id=\"brooks-dexterity-2025\" />.\n"
+        },
+        {
+          "before": "Brooks frames the scaling counterargument as an imagined inner dialogue: end-to-end learning succeeded in speech-to-text, image labeling, and language models, so collecting examples of human hand use might yield dexterous control. His reply is that those earlier successes depended on engineered inputs, and that success at dexterity learning will likely require the right sensory data and the right thing to learn <Cite id=\"brooks-dexterity-2025\" />. Brooks reproduces an eWeek report that describes Tesla as moving Optimus training toward a \"vision-only approach\" instead of motion capture suits and teleoperation. The quoted report says workers wear helmet-and-backpack rigs with five in-house cameras, record tasks such as folding a t-shirt or picking up an object, and use the videos to train Optimus to mimic those actions <Cite id=\"brooks-dexterity-2025\" />. This is the report as reproduced in Brooks's essay, without verifying Tesla's complete training pipeline or tested dexterity. Figure's September 2025 Project Go-Big announcement describes a pretraining data-collection initiative; it reports no general-dexterity result: its initial human-video result is navigation, with Helix trained on 100% egocentric human video, no robot demonstrations for that approach, mapping images and language to low-level SE(2) velocity commands, a transfer Figure calls zero-shot and, \"to our knowledge\", a first. Brookfield collection in its residential environments had begun and would expand, and the announcement's more than 100,000 residential units describe Brookfield's portfolio, without stating that those units were homes or trajectories collected <Cite id=\"figure-go-big-2025\" />.\n",
+          "after": "Brooks frames the scaling counterargument as an imagined inner dialogue: end-to-end learning succeeded in speech-to-text, image labeling, and language models, so collecting examples of human hand use might yield dexterous control. He replies that those successes depended on engineered inputs and that dexterity learning will likely require the right sensory data and the right thing to learn <Cite id=\"brooks-dexterity-2025\" />.\n\nBrooks reproduces an eWeek report that describes Tesla as moving Optimus training toward a \"vision-only approach\" instead of motion capture suits and teleoperation. The quoted report says workers wear helmet-and-backpack rigs with five in-house cameras, record tasks such as folding a t-shirt or picking up an object, and use the videos to train Optimus to mimic those actions <Cite id=\"brooks-dexterity-2025\" />.\n"
+        },
+        {
+          "before": "The case for the bet is real. Video of humans manipulating objects is the only manipulation data that exists at internet scale, <Term id=\"teleoperation\">teleoperation</Term> data is expensive and carries no force channel either, and every sensor added to a hand is cost, weight, wiring, and a new failure mode in a product that needs to be manufactured. If the bet pays off, the winners skip the tactile hardware problem entirely.\n",
+          "after": "Figure's September 2025 Project Go-Big announcement describes a pretraining data-collection initiative; it reports no general-dexterity result. Its initial human-video result is navigation. Helix, trained on 100% egocentric human video with no robot demonstrations for that approach, maps images and language to low-level SE(2) velocity commands, a transfer Figure calls zero-shot and, \"to our knowledge\", a first. Collection in Brookfield's residential environments had begun and would expand; the announcement's more than 100,000 residential units describe Brookfield's portfolio, without stating that those units were homes or trajectories collected <Cite id=\"figure-go-big-2025\" />.\n"
+        },
+        {
+          "before": "A camera can also stand in for a force sensor. In October 2026, Haonan Chen, Edward Adelson, Jiajun Wu, Robert Howe, Yilun Du and colleagues trained an estimator that reads grip force from how a compliant Fin Ray gripper visibly bends. On three held-out episodes its mean error was 0.91 N, against 4.20 N for an estimate from the gripper's motor current. A Diffusion Policy that also outputs a force value then drew 32 candidate actions at each step and kept the one whose force was closest to a target taken from the demonstrations. On an ARX arm with no force or tactile sensor, over 15 trials per task, this raised success compared with a single sample from 46.7% to 86.7% for grasping an empty soda can, 0% to 73.3% for berry picking, 6.7% to 46.7% for in-hand reorientation and 26.7% to 73.3% for plug insertion <Cite id=\"visual-predicted-force-2026\" />.\n",
+          "after": "In October 2026, Haonan Chen, Edward Adelson, Jiajun Wu, Robert Howe, Yilun Du and colleagues used a camera in place of a force sensor, reading grip force from how a compliant Fin Ray gripper visibly bends. On three held-out episodes the mean error was 0.91 N, against 4.20 N from motor current. Their Diffusion Policy also outputs force, samples 32 candidate actions per step and keeps the one whose force is closest to a target from the demonstrations. On an ARX arm with no force or tactile sensor, over 15 trials per task, this raised success over a single sample from 46.7% to 86.7% for grasping an empty soda can, 0% to 73.3% for berry picking, 6.7% to 46.7% for in-hand reorientation and 26.7% to 73.3% for plug insertion <Cite id=\"visual-predicted-force-2026\" />.\n"
+        },
+        {
+          "before": "The other side argues the bet cannot pay off, because the information is not in the video. Jeremy Fishel, principal researcher at Sanctuary AI, puts it in one sentence: with video alone you do not know you have touched something until well after the collision has physically moved the object <Cite id=\"sanctuary-tactile-2025\" />. Sanctuary's CEO James Wells calls touch a key enabler for creating human-level dexterity in robots, and the company built its Phoenix hands around that position: hydraulic actuation, and fingerpad arrays of micro-barometer cells sensitive to about five millinewtons, against roughly three for a human fingertip <Cite id=\"sanctuary-tactile-2025\" /><Cite id=\"robozaps-phoenix-2026\" />.\n",
+          "after": "Jeremy Fishel, principal researcher at Sanctuary AI, counters that with video alone you do not know you have touched something until well after the collision has physically moved the object <Cite id=\"sanctuary-tactile-2025\" />. Sanctuary's CEO James Wells calls touch a key enabler for creating human-level dexterity in robots <Cite id=\"sanctuary-tactile-2025\" />. The company's hydraulic Phoenix hands carry fingerpad arrays of micro-barometer cells sensitive to about five millinewtons, against roughly three for a human fingertip <Cite id=\"robozaps-phoenix-2026\" />.\n\nFigure's October 2025 announcement describes a palm camera in each Figure 03 hand. It says each fingertip sensor can detect \"three grams of pressure\", comparing the sensitivity to a paperclip's weight <Cite id=\"figure-03-2025\" />. Its January 2026 Helix 02 announcement lists head cameras, palm cameras, fingertip tactile sensors, and full-body proprioception as System 1 inputs. Figure describes this as \"the first time we've demonstrated neural network policies that depend on these modalities\" <Cite id=\"helix-02-2026\" />.\n"
+        },
+        {
+          "before": "The hardware is arriving regardless of which thesis wins. Figure's October 2025 announcement describes a palm camera in each Figure 03 hand and says each fingertip sensor can detect \"three grams of pressure\", comparing the sensitivity to a paperclip's weight <Cite id=\"figure-03-2025\" />. Its January 2026 Helix 02 announcement lists head cameras, palm cameras, fingertip tactile sensors, and full-body proprioception as System 1 inputs. Figure describes this as \"the first time we've demonstrated neural network policies that depend on these modalities\" <Cite id=\"helix-02-2026\" />. Shadow Robot's Dexterous Hand, the two-decade research benchmark, runs more than 100 sensors at 1 kHz <Cite id=\"shadow-dexterous-hand-2026\" />. On the research flank, tactile foundation models now exist: Sparsh-X pretrained on about a million contact-rich interactions from Meta's Digit 360 sensor and lifted policy success rates by 63% over an end-to-end model using tactile images <Cite id=\"sparsh-x-2025\" />, and TouchWorld couples a tactile world model with a fast tactile refinement policy to reach 65% success on six long-horizon contact-rich tasks, 15.7 points over the strongest baseline <Cite id=\"touchworld-2026\" />.\n",
+          "after": "Touch now ships on flagship hands, Figure's included, and tactile foundation models exist, but no tactile training pipeline yet runs at vision scale. Sparsh-X pretrained on about a million contact-rich interactions from Meta's Digit 360 sensor and lifted policy success rates by 63% over an end-to-end model using tactile images <Cite id=\"sparsh-x-2025\" />. TouchWorld couples a tactile world model with a fast tactile refinement policy to reach 65% success on six long-horizon contact-rich tasks, 15.7 points over the strongest baseline <Cite id=\"touchworld-2026\" />.\n"
+        },
+        {
+          "before": "In June 2026, Dantong Niu, Yuke Zhu, Trevor Darrell and colleagues described T-Rex, which pairs a 100-hour tactile-rich dataset with a vision-language-action model that reads high-frequency touch through a variable-rate mixture-of-transformers and a temporal tactile encoder. On 12 tasks requiring delicate force control and deformable-object manipulation, its average success rate was more than 30% higher than the strongest baseline's <Cite id=\"t-rex-2026\" />.\n",
+          "after": "In June 2026, Dantong Niu, Yuke Zhu, Trevor Darrell and colleagues described T-Rex. It pairs a 100-hour tactile-rich dataset with a vision-language-action model that reads high-frequency touch through a variable-rate mixture-of-transformers and a temporal tactile encoder. On 12 tasks requiring delicate force control and deformable-object manipulation, its average success rate was more than 30% higher than the strongest baseline's <Cite id=\"t-rex-2026\" />.\n"
+        },
+        {
+          "before": "In September 2026, Enyi Wang and Yan Wang of Tsinghua University's Institute for AI Industry Research and colleagues reported TacDyn-WAM, a world action model that predicts learned tactile representations instead of reconstructing tactile images. On five real-robot tasks with 60 demonstrations each, it averaged 71.0% success, 16 points above the tactile policy FTP-1, and 85.0% after pretraining on about 6,000 real visuo-tactile trajectories <Cite id=\"tacdyn-wam-2026\" />.\n",
+          "after": "In September 2026, Enyi Wang and Yan Wang of Tsinghua University's Institute for AI Industry Research and colleagues reported TacDyn-WAM. This world action model predicts learned tactile representations instead of reconstructing tactile images. On five real-robot tasks with 60 demonstrations each, it averaged 71.0% success, 16 points above the tactile policy FTP-1. Pretraining on about 6,000 real visuo-tactile trajectories raised that to 85.0% <Cite id=\"tacdyn-wam-2026\" />.\n"
+        },
+        {
+          "before": "The honest 2026 position is intermediate, and both camps occupy it. Tactile sensors ship on flagship hands, and even Figure, the loudest vision-data bet, now runs its newest policy on touch. What does not exist yet is a tactile training pipeline at anything like vision scale: the largest public tactile pretraining effort is built on about a million interactions, where vision pipelines consume billions of images. The results show the distance left. Google's Gemini Robotics 2 drives the 22-DoF SharpaWave hand, itself a tactile design <Cite id=\"gemini-robotics-2-2026\" /><Cite id=\"robozaps-unitree-h2-2026\" />, and reports 92% success unscrewing a light bulb but 32 to 44% on its other multi-finger tasks, a spread DeepMind itself flags as the hard remainder <Cite id=\"gemini-robotics-2-2026\" />. The question of whether dexterity needs touch will be settled less by argument than by which training pipeline reaches deployment-grade reliability first.\n",
+          "after": "Google's Gemini Robotics 2 drives the 22-DoF SharpaWave hand, itself a tactile design <Cite id=\"gemini-robotics-2-2026\" /><Cite id=\"robozaps-unitree-h2-2026\" />. It reports 92% success unscrewing a light bulb but 32 to 44% on its other multi-finger tasks. DeepMind itself flags this spread as the hard remainder <Cite id=\"gemini-robotics-2-2026\" />.\n"
+        },
+        {
+          "before": "The hands on offer in 2026 span two orders of magnitude in price and no agreement on how dexterity will be learned. The hand cards at the top of this module compare five of them on the specs their makers disclose, with the full table under \"How this was made\" and the blanks left blank: a spec the maker has not published renders as \"not disclosed\"; no number is guessed.\n",
+          "after": "Of the five hands compared above, Tesla's 22-<Term id=\"degrees-of-freedom\">degree-of-freedom</Term> tendon design has the most articulation and an admitted redesign behind it. Days after the V3 hand patents surfaced, Musk said of the design, \"this one didn't actually work\" <Cite id=\"teslarati-optimus-hand-2026\" /> <Cite id=\"droids-optimus-v3-hand-2026\" />. Sanctuary's hydraulic hand pairs the most sensitive disclosed touch with a working in-hand demo, and its maker has since pivoted to selling software <Cite id=\"robozaps-phoenix-2026\" />.\n\nShadow's Dexterous Hand, the two-decade research benchmark, runs more than 100 sensors at 1 kHz <Cite id=\"shadow-dexterous-hand-2026\" />. Each finger has independent side-to-side motion for in-hand work <Cite id=\"shadow-dexterous-hand-2026\" />, and the lab price is €110,000 including support <Cite id=\"shadow-hand-cost-2022\" />.\n"
+        },
+        {
+          "before": "The spread is the story. Tesla's 22-<Term id=\"degrees-of-freedom\">degree-of-freedom</Term> tendon design has the most articulation here and an admitted redesign behind it: days after the V3 hand patents surfaced, Musk said of the design, \"this one didn't actually work\" <Cite id=\"teslarati-optimus-hand-2026\" /> <Cite id=\"droids-optimus-v3-hand-2026\" />. Sanctuary's hydraulic hand pairs the most sensitive disclosed touch with a working in-hand demo, and its maker has since pivoted to selling software <Cite id=\"robozaps-phoenix-2026\" />. Shadow's hand remains the research benchmark at a lab price of €110,000 including support <Cite id=\"shadow-hand-cost-2022\" />. Unitree lists the entire H2 robot at \\$29,900, but the base model ships with non-functional placeholder hands, and its tactile option, the H2 Plus with Sharpa Wave hands, lists at \\$100,000 <Cite id=\"robozaps-unitree-h2-2026\" />. Figure holds the middle: its August 6, 2024 release for Figure 02, Figure's own announcement hosted by PRNewswire, describes the second-generation robot's \"4th generation hands\" as \"equipped with 16 degrees of freedom\" without saying whether that count is per hand or combined, or giving an actuator count <Cite id=\"figure-02-2024\" />, and on Figure 03 a 3-gram fingertip threshold, the only maker in this table that puts the number on its own product page.\n",
+          "after": "Unitree lists the entire H2 robot at \\$29,900, but the base model ships with non-functional placeholder hands. Its tactile option, the H2 Plus with Sharpa Wave hands, lists at \\$100,000 <Cite id=\"robozaps-unitree-h2-2026\" />. Figure's own release for Figure 02, dated August 6, 2024 and hosted by PRNewswire, describes the second-generation robot's \"4th generation hands\" as \"equipped with 16 degrees of freedom\". It does not say whether that count is per hand or combined, or give an actuator count <Cite id=\"figure-02-2024\" />.\n"
+        },
+        {
+          "before": "Boston Dynamics announced a new Atlas hand on October 1, 2026, with four fingers and 13 directly actuated degrees of freedom, up from seven, and pressure sensors across the fingertips and palm <Cite id=\"bd-atlas-hand-2026\" />. It has no little finger, which would have needed three more actuators, and it is built to be simulated accurately enough for training with reinforcement learning <Cite id=\"bd-atlas-hand-2026\" />.\n",
+          "after": "Boston Dynamics announced a new Atlas hand on October 1, 2026. It has four fingers and 13 directly actuated degrees of freedom, up from seven, and pressure sensors across the fingertips and palm <Cite id=\"bd-atlas-hand-2026\" />. It has no little finger, which would have needed three more actuators. It is built to be simulated accurately enough for training with reinforcement learning <Cite id=\"bd-atlas-hand-2026\" />.\n"
+        },
+        {
+          "before": "A hand can also be the whole robot. In September 2026, Amirhossein Kazemipour, Hehui Zheng and Robert Katzschmann of ETH Zurich's Soft Robotics Lab trained reinforcement-learning policies that let an off-the-shelf 738 g WUJI hand, carrying its own power and computer, crawl on its fingers and use the same fingers to work. Training ran in a simulator calibrated from hardware measurements. On hardware it got back up from a fall in 21 of 25 trials, pressed the commanded arrow key for 29 of 32 consecutive commands while supporting its own weight, and, guided by an overhead camera, completed 15 cube deliveries to targets 10 to 40 cm away with a mean final error of 17 mm <Cite id=\"fingers-as-legs-2026\" />.\n",
+          "after": "In September 2026, Amirhossein Kazemipour, Hehui Zheng and Robert Katzschmann of ETH Zurich's Soft Robotics Lab made a hand the whole robot. Their reinforcement-learning policies, trained in a simulator calibrated from hardware measurements, let an off-the-shelf 738 g WUJI hand with its own power and computer crawl on its fingers and work with them. On hardware it got back up from a fall in 21 of 25 trials and pressed the commanded arrow key for 29 of 32 consecutive commands while supporting its own weight. Guided by an overhead camera, it completed 15 cube deliveries to targets 10 to 40 cm away with a mean final error of 17 mm <Cite id=\"fingers-as-legs-2026\" />.\n"
+        },
+        {
+          "before": "<Term id=\"in-hand-manipulation\">In-hand manipulation</Term> is the skill that separates a hand from a gripper: reorienting a held object without setting it down, the way you walk a key around between your fingers until it faces the lock. In the gold-medal \"Use a key\" event of Holson's Humanoid Olympics, a keyring with at least two keys and a keychain is dropped into the robot's waiting palm or gripper. Without putting the keys down, the robot must align, insert, and turn the correct key in a lock <Cite id=\"holson-olympics-2025\" />. The challenge rules do not report a completed robot run.\n",
+          "after": "<Term id=\"in-hand-manipulation\">In-hand manipulation</Term>, reorienting a held object without setting it down, separates a hand from a gripper. In the gold-medal \"Use a key\" event of Holson's Humanoid Olympics, a keyring with at least two keys and a keychain is dropped into the robot's waiting palm or gripper. Without putting the keys down, the robot must align, insert, and turn the correct key in a lock <Cite id=\"holson-olympics-2025\" />. The challenge rules do not report a completed robot run.\n\nSanctuary announced in-hand manipulation with its 21-DoF hydraulic hands in December 2024 <Cite id=\"sanctuary-inhand-2024\" /> <Cite id=\"robozaps-phoenix-2026\" />. It then showed a sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result <Cite id=\"sanctuary-hydraulic-rl-2025\" />.\n"
+        },
+        {
+          "before": "Progress here is real but narrow. Sanctuary announced in-hand manipulation with its 21-DoF hydraulic hands in December 2024, reorienting held objects without setting them down <Cite id=\"sanctuary-inhand-2024\" /> <Cite id=\"robozaps-phoenix-2026\" />, then showed a sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result the company published itself <Cite id=\"sanctuary-hydraulic-rl-2025\" />. Figure says Helix 02, using Figure 03's fingertip sensors and palm cameras, performs four tasks it describes as manipulation previously out of reach for its stack, in videos it calls fully autonomous and without teleoperation: unscrewing a bottle cap, extracting a single pill from an organizer, a task titled \"Push exactly 5 ml from a syringe\", and picking small metal parts from clutter. The announcement publishes no task-level success rates, volume calibration, or sensor-ablation results <Cite id=\"helix-02-2026\" />. Shadow's hand was designed for exactly this: each finger has independent side-to-side motion for in-hand work <Cite id=\"shadow-dexterous-hand-2026\" />. None of these is the general skill. Each is a task or a task family with its own training run.\n",
+          "after": "Figure says Helix 02, using Figure 03's fingertip sensors and palm cameras, performs four tasks it describes as manipulation previously out of reach for its stack, in videos it calls fully autonomous and without teleoperation: unscrewing a bottle cap, extracting a single pill from an organizer, a task titled \"Push exactly 5 ml from a syringe\", and picking small metal parts from clutter. The announcement publishes no task-level success rates, volume calibration, or sensor-ablation results <Cite id=\"helix-02-2026\" />. None of these is the general skill. Each is a task or a task family with its own training run.\n"
+        },
+        {
+          "before": "In June 2026, Xinghao Zhu, Yuke Zhu and colleagues reported CHORD, a reinforcement-learning framework for long-horizon dexterous manipulation that compares human and robot motions by the forces and torques they can induce on the object. On 1,831 tasks from its simulated benchmark of 4,739 bimanual tasks, it averaged 82.12% success, and its learned policies transferred to the real world <Cite id=\"chord-2026\" />.\n",
+          "after": "In June 2026, Xinghao Zhu, Yuke Zhu and colleagues reported CHORD, a reinforcement-learning framework for long-horizon dexterous manipulation. It compares human and robot motions by the forces and torques they can induce on the object. On 1,831 tasks from its simulated benchmark of 4,739 bimanual tasks, it averaged 82.12% success. Its learned policies transferred to the real world <Cite id=\"chord-2026\" />.\n"
+        },
+        {
+          "before": "In September 2026, Yutong Liang, Quanquan Peng, Matthew Kim and Xiaolong Wang reported FINGR, a flow policy that turns Rubik's Cube layers with a single real dexterous hand. It succeeded on 99.0% of 300 turn attempts, against 79.7% for the base flow policy, and with grasping and table-assisted regrasping added it solved all ten scrambled 2×2×2 cubes in about 137 seconds on average <Cite id=\"fingr-2026\" />.\n",
+          "after": "In September 2026, Yutong Liang, Quanquan Peng, Matthew Kim and Xiaolong Wang reported FINGR, a flow policy that turns Rubik's Cube layers with a single real dexterous hand. It succeeded on 99.0% of 300 turn attempts, against 79.7% for the base flow policy. With grasping and table-assisted regrasping added, it solved all ten scrambled 2×2×2 cubes in about 137 seconds on average <Cite id=\"fingr-2026\" />.\n"
+        },
+        {
+          "before": "In October 2026, Harsh Gupta, Tyler Ga Wei Lum, Jeannette Bohg, Shuran Song and colleagues at Stanford reported that human hand-motion priors help most when they structure exploration and leave the action space unchanged. Their EigenDEXplore adds noise along eigenvectors of human hand motion to ordinary joint-space noise, and across several dexterous hands it outperformed joint-space and learned action-space baselines in grasping, in-hand reorientation and contact-rich manipulation, with the largest gains where rewards and curricula were least engineered <Cite id=\"eigendexplore-2026\" />.\n",
+          "after": "In October 2026, Harsh Gupta, Tyler Ga Wei Lum, Jeannette Bohg, Shuran Song and colleagues at Stanford reported that human hand-motion priors help most when they structure exploration and leave the action space unchanged. Their EigenDEXplore adds noise along eigenvectors of human hand motion to ordinary joint-space noise. Across several dexterous hands, it outperformed joint-space and learned action-space baselines in grasping, in-hand reorientation and contact-rich manipulation, with the largest gains where rewards and curricula were least engineered <Cite id=\"eigendexplore-2026\" />.\n"
+        },
+        {
+          "before": "Rigid objects are the easy case. A wooden block rests on one of six sides; a towel can be bunched up in more ways than any state estimator will ever enumerate, and that is before the task involves water, grease, or peanut butter <Cite id=\"holson-olympics-2025\" />. Cloth, liquids, and compliant packaging dominate actual housework, which is why Holson's task list is full of them: hang a dress shirt that starts with one sleeve inside out, clean peanut butter off your own manipulator.\n",
+          "after": "A wooden block rests on one of six sides. A towel can be bunched up in more ways than any state estimator will ever enumerate, and some tasks add water, grease, or peanut butter <Cite id=\"holson-olympics-2025\" />. Cloth, liquids, and compliant packaging fill Holson's task list: hang a dress shirt that starts with one sleeve inside out, clean peanut butter off your own manipulator.\n\nRL-100 folds cloth and ran a juicing robot in a shopping mall for about seven hours without failure, both per-task results earned through on-robot reinforcement learning <Cite id=\"rl-100-2025\" />. Physical Intelligence's π0.7 does laundry and espresso tasks with language steering <Cite id=\"pi07-2026\" />.\n"
+        },
+        {
+          "before": "The measured record is thin but no longer empty. RL-100 folds cloth and ran a juicing robot in a shopping mall for about seven hours without failure, both per-task results earned through on-robot reinforcement learning <Cite id=\"rl-100-2025\" />. Physical Intelligence's π0.7 does laundry and espresso tasks with language steering <Cite id=\"pi07-2026\" />. The most informative datapoint is the Olympics scoreboard itself: Physical Intelligence fine-tuned its π0.6-based model on Holson's tasks and took gold in three of five categories with under nine hours of data for most tasks, but averaged 52% success and 72% task progress, while a baseline VLM without robot pretraining managed 9% progress <Cite id=\"pi-olympics-2025\" />. Two gold tasks were physically impossible for their gripper; peeling an orange needed a tool and did not count <Cite id=\"pi-olympics-2025\" />. Read the number both ways: half-success on tasks chosen by a critic is real progress, and half-success is not a product.\n",
+          "after": "Physical Intelligence fine-tuned its π0.6-based model on Holson's tasks and took gold in three of five categories with under nine hours of data for most tasks. The model averaged 52% success and 72% task progress, against 9% progress for a baseline VLM without robot pretraining. Two gold tasks were physically impossible for its gripper, and peeling an orange needed a tool and did not count <Cite id=\"pi-olympics-2025\" />.\n"
+        },
+        {
+          "before": "In September 2026, Nidhya Shivakumar, Ken Goldberg and colleagues reported TRACE, which traces monochrome cables in both directions and uses interactive perception primitives to resolve ambiguous crossings. In 110 physical experiments with up to 4 cables and 40 crossings, it raised the share of cable length traced correctly from about 60% with the strongest prior method, HANDLOOM 2.0, to about 90% <Cite id=\"trace-cables-2026\" />.\n",
+          "after": "In September 2026, Nidhya Shivakumar, Ken Goldberg and colleagues reported TRACE, which traces monochrome cables in both directions. It uses interactive perception primitives to resolve ambiguous crossings. In 110 physical experiments with up to 4 cables and 40 crossings, it traced about 90% of cable length correctly. The strongest prior method, HANDLOOM 2.0, managed about 60% <Cite id=\"trace-cables-2026\" />.\n"
+        },
+        {
+          "before": "Dexterity is solved when a single policy does Holson's fifteen tasks in unseen homes at human-competent speed, with no per-task data collection, and with the success rates published. Nobody is close: the best public scoreboard stands at 52% with per-task training, and the strongest multi-finger results from the largest labs sit between 32% and 92% per task. The open question is which data closes the gap. If Tesla or Figure reach household dexterity from video at scale, the tactile gap was a transitional hardware shortage. The hands are shipping either way; watch the training pipelines.\n",
+          "after": "Dexterity is solved when one policy does Holson's fifteen tasks in unseen homes at human-competent speed, with no per-task data and with published success rates. Nobody is close: the best public scoreboard is about half success with per-task training. The open question is which data closes the gap. If Tesla or Figure reach household dexterity from video at scale, the tactile gap was a transitional hardware shortage.\n"
+        }
+      ],
+      "dropped": {
+        "citations": [],
+        "numbers": [
+          {
+            "value": "03",
+            "claim": "Figure holds the middle: its August 6, 2024 release for Figure 02, Figure's own announcement hosted by PRNewswire, describes the second-generation robot's \"4th generation hands\" as \"equipped with 16 degrees of freedom\" without saying whether that count is per hand or combined, or giving an actuator count [figure-02-2024], and on Figure 03 a 3-gram fingertip threshold, the only maker in this table "
+          },
+          {
+            "value": "2026",
+            "claim": "The hands on offer in 2026 span two orders of magnitude in price and no agreement on how dexterity will be learned."
+          },
+          {
+            "value": "2026",
+            "claim": "The honest 2026 position is intermediate, and both camps occupy it."
+          },
+          {
+            "value": "3",
+            "claim": "Figure holds the middle: its August 6, 2024 release for Figure 02, Figure's own announcement hosted by PRNewswire, describes the second-generation robot's \"4th generation hands\" as \"equipped with 16 degrees of freedom\" without saying whether that count is per hand or combined, or giving an actuator count [figure-02-2024], and on Figure 03 a 3-gram fingertip threshold, the only maker in this table "
+          },
+          {
+            "value": "32",
+            "claim": "Nobody is close: the best public scoreboard stands at 52% with per-task training, and the strongest multi-finger results from the largest labs sit between 32% and 92% per task."
+          },
+          {
+            "value": "92",
+            "claim": "Nobody is close: the best public scoreboard stands at 52% with per-task training, and the strongest multi-finger results from the largest labs sit between 32% and 92% per task."
+          }
+        ],
+        "links": [],
+        "terms": [
+          {
+            "value": "in-hand-manipulation",
+            "claim": "This module covers contact-rich manipulation and the tactile gap it creates, the industry's split over whether touch is needed at all, and the two capability frontiers where that argument gets settled: in-hand manipulation and deformable objects."
+          }
+        ]
+      },
+      "pins": [
+        {
+          "test": "tests/e2e/dexterity-brooks-readers.spec.ts",
+          "disposition": "moved",
+          "phrase": "These are the essay's descriptions of the demonstration",
+          "to": "In his account, lighting a match took seven seconds",
+          "reason": "The two-sentence disclaimer after the demonstration was cut; the attribution moved into the sentence itself (\"Brooks cites two videos from Johansson's lab. In his account, lighting a match took seven seconds ...\"), so the timing still reads as Brooks's report, not an independent measurement, and the spec checks that wording."
+        },
+        {
+          "test": "tests/e2e/dexterity-brooks-readers.spec.ts",
+          "disposition": "moved",
+          "phrase": "The hands are shipping either way; watch the training pipelines.",
+          "to": "The open question is which data closes the gap.",
+          "reason": "A one-line closer with no source, cut under the humanizer standard; the closing paragraph keeps its open question (\"The open question is which data closes the gap.\"), which the spec now selects."
+        },
+        {
+          "test": "tests/e2e/dexterity-brooks-remaining-readers.spec.ts",
+          "disposition": "moved",
+          "phrase": "The reason is contact",
+          "to": "Hands are hard because of contact",
+          "reason": "The lead cut left \"The reason is contact\" with no antecedent; the sentence now says plainly that contact makes hands hard, with the same grip-force, slip and geometry clause."
+        },
+        {
+          "test": "tests/e2e/dexterity-figure-holson-remaining-readers.spec.ts",
+          "disposition": "moved",
+          "phrase": "mapping images and language to low-level SE(2) velocity commands",
+          "to": "maps images and language to low-level SE(2) velocity commands",
+          "reason": "The Go-Big navigation sentence was split for length; Helix now \"maps\" images and language to the same SE(2) velocity commands, in its own paragraph that the spec selects."
+        },
+        {
+          "test": "tests/e2e/dexterity-figure-holson-remaining-readers.spec.ts",
+          "disposition": "moved",
+          "phrase": "The spread is the story",
+          "to": "dated August 6, 2024 and hosted by PRNewswire",
+          "reason": "The staging sentence \"The spread is the story\" was cut; the Figure 02 release sentence now stands in the Unitree paragraph, and the spec selects it by its date and host."
+        },
+        {
+          "test": "tests/e2e/dexterity-figure-holson-remaining-readers.spec.ts",
+          "disposition": "moved",
+          "phrase": "its August 6, 2024 release for Figure 02",
+          "to": "release for Figure 02, dated August 6, 2024",
+          "reason": "The Figure 02 release is named first and dated after it, keeping the vendor provenance (Figure's own release, hosted by PRNewswire) and the date."
+        },
+        {
+          "test": "tests/e2e/dexterity-figure-holson-remaining-readers.spec.ts",
+          "disposition": "moved",
+          "phrase": "without saying whether that count is per hand or combined, or giving an actuator count",
+          "to": "It does not say whether that count is per hand or combined, or give an actuator count",
+          "reason": "The ambiguity disclosure became its own sentence when the long Figure 02 sentence was split; both unknowns (per hand or combined, actuator count) stay."
+        },
+        {
+          "test": "tests/e2e/dexterity.spec.ts",
+          "disposition": "moved",
+          "phrase": "These are the essay's descriptions of the demonstration",
+          "to": "In his account, lighting a match took seven seconds",
+          "reason": "The two-sentence disclaimer after the demonstration was cut; the attribution moved into the sentence itself (\"Brooks cites two videos from Johansson's lab. In his account, lighting a match took seven seconds ...\"), so the timing still reads as Brooks's report, not an independent measurement, and the spec checks that wording."
+        },
+        {
+          "test": "tests/e2e/dexterity.spec.ts",
+          "disposition": "moved",
+          "phrase": "His assessment belongs to the time of the essay",
+          "to": "When he wrote the essay, Brooks concluded",
+          "reason": "The qualifier keeps its meaning in fewer words: the quoted conclusion is now introduced as \"When he wrote the essay, Brooks concluded\"."
+        },
+        {
+          "test": "tests/e2e/dexterity.spec.ts",
+          "disposition": "moved",
+          "phrase": "does not exist yet is a tactile training pipeline",
+          "to": "no tactile training pipeline yet runs at vision scale",
+          "reason": "The intermediate 2026 state (VAL-FRONT-008) is now one sentence: touch ships on flagship hands and tactile foundation models exist, but no tactile training pipeline yet runs at vision scale."
+        },
+        {
+          "test": "tests/e2e/dexterity.spec.ts",
+          "disposition": "moved",
+          "phrase": "The honest 2026 position is intermediate",
+          "to": "Touch now ships on flagship hands",
+          "reason": "The staged \"honest position\" opener was cut under the humanizer standard; the same intermediate state is stated directly, and the spec checks it."
+        },
+        {
+          "test": "tests/e2e/dexterity.spec.ts",
+          "disposition": "moved",
+          "phrase": "will be settled less by argument than",
+          "to": "The open question is which data closes the gap.",
+          "reason": "The page still declines to call the dispute settled: the closing paragraph keeps \"Nobody is close\" and its open question, which the spec now checks in place of the cut forecast."
+        },
+        {
+          "test": "tests/unit/dexterity-brooks-remaining-source.test.ts",
+          "disposition": "moved",
+          "phrase": "This is the report as reproduced in Brooks's essay, without verifying Tesla's complete training pipeline or tested dexterity.",
+          "to": "The quoted report says workers wear helmet-and-backpack rigs with five in-house cameras, record tasks",
+          "reason": "A disclaimer sentence cut under the humanizer standard: the paragraph still attributes every detail to the eWeek report as Brooks reproduces it (\"Brooks reproduces an eWeek report\", \"The quoted report says\") and states no pipeline or dexterity result, and the spec checks the attribution."
+        },
+        {
+          "test": "tests/unit/dexterity-brooks-source.test.ts",
+          "disposition": "moved",
+          "phrase": "These are the essay's descriptions of the demonstration",
+          "to": "In his account, lighting a match took seven seconds",
+          "reason": "The two-sentence disclaimer after the demonstration was cut; the attribution moved into the sentence itself (\"Brooks cites two videos from Johansson's lab. In his account, lighting a match took seven seconds ...\"), so the timing still reads as Brooks's report, not an independent measurement, and the spec checks that wording."
+        },
+        {
+          "test": "tests/unit/dexterity-brooks-source.test.ts",
+          "disposition": "moved",
+          "phrase": "His assessment belongs to the time of the essay",
+          "to": "When he wrote the essay, Brooks concluded",
+          "reason": "The qualifier keeps its meaning in fewer words: the quoted conclusion is now introduced as \"When he wrote the essay, Brooks concluded\"."
+        },
+        {
+          "test": "tests/unit/dexterity-figure-holson-remaining-source.test.ts",
+          "disposition": "moved",
+          "phrase": "was a guess from videos; he said it was likely more a teleoperation limitation than a model limitation and pointed to a video he described as showing sub-centimeter tasks <Cite id=\"holson-olympics-2025\" />.",
+          "to": "was a guess from videos. He said it was likely more a <Term id=\"teleoperation\">teleoperation</Term> limitation than a model limitation and pointed to a video he described as showing sub-centimeter tasks <Cite id=\"holson-olympics-2025\" />.",
+          "reason": "The semicolon sentence was split in two, and the teleoperation glossary link, whose earlier sentence was cut, now sits on this first mention; the guessed precision and the teleoperation-versus-model point stay word for word."
+        },
+        {
+          "test": "tests/unit/dexterity-figure-holson-remaining-source.test.ts",
+          "disposition": "moved",
+          "phrase": "its initial human-video result is navigation, with Helix trained on 100% egocentric human video, no robot demonstrations for that approach, mapping images and language to low-level SE(2) velocity commands",
+          "to": "Its initial human-video result is navigation. Helix, trained on 100% egocentric human video with no robot demonstrations for that approach, maps images and language to low-level SE(2) velocity commands",
+          "reason": "The navigation scope of the Go-Big result stays; the long sentence is split, keeping 100% egocentric human video, no robot demonstrations for that approach and the SE(2) velocity commands."
+        },
+        {
+          "test": "tests/unit/dexterity-figure-holson-remaining-source.test.ts",
+          "disposition": "moved",
+          "phrase": "its August 6, 2024 release for Figure 02, Figure's own announcement hosted by PRNewswire, describes the second-generation robot's \"4th generation hands\" as \"equipped with 16 degrees of freedom\" without saying whether that count is per hand or combined, or giving an actuator count",
+          "to": "Figure's own release for Figure 02, dated August 6, 2024 and hosted by PRNewswire, describes the second-generation robot's \"4th generation hands\" as \"equipped with 16 degrees of freedom\". It does not say whether that count is per hand or combined, or give an actuator count",
+          "reason": "The quoted release wording, its vendor provenance, date and both disclosed unknowns stay; the sentence is split in two for length."
+        },
+        {
+          "test": "tests/unit/dexterity-figure15-source.test.ts",
+          "disposition": "retired",
+          "phrase": "a 3-gram fingertip threshold, the only maker in this table",
+          "reason": "The unassigned comparison was a closing clause on the cut \"spread\" paragraph; the hand card for Figure 02/03 (lib/dexterous-hands.ts) still states it, and the spec now checks it there."
+        },
+        {
+          "test": "tests/helpers/kol-backlog-20261001.ts",
+          "disposition": "moved",
+          "phrase": "In June 2026, Dantong Niu, Yuke Zhu, Trevor Darrell and colleagues described T-Rex, which pairs a 100-hour tactile-rich dataset with a vision-language-action model that reads high-frequency touch through a variable-rate mixture-of-transformers and a temporal tactile encoder. On 12 tasks requiring delicate force control and deformable-object manipulation, its average success rate was more than 30% higher than the strongest baseline's <Cite id=\"t-rex-2026\" />.",
+          "to": "In June 2026, Dantong Niu, Yuke Zhu, Trevor Darrell and colleagues described T-Rex. It pairs a 100-hour tactile-rich dataset with a vision-language-action model that reads high-frequency touch through a variable-rate mixture-of-transformers and a temporal tactile encoder. On 12 tasks requiring delicate force control and deformable-object manipulation, its average success rate was more than 30% higher than the strongest baseline's <Cite id=\"t-rex-2026\" />.",
+          "reason": "The 2026-10-01 KOL batch helper keeps the paragraph as that batch added it, as its record; the length cut splits its long sentences and tightens the wording, keeping every name, date, number and the citation."
+        },
+        {
+          "test": "tests/helpers/kol-backlog-20261001.ts",
+          "disposition": "moved",
+          "phrase": "In June 2026, Xinghao Zhu, Yuke Zhu and colleagues reported CHORD, a reinforcement-learning framework for long-horizon dexterous manipulation that compares human and robot motions by the forces and torques they can induce on the object. On 1,831 tasks from its simulated benchmark of 4,739 bimanual tasks, it averaged 82.12% success, and its learned policies transferred to the real world <Cite id=\"chord-2026\" />.",
+          "to": "In June 2026, Xinghao Zhu, Yuke Zhu and colleagues reported CHORD, a reinforcement-learning framework for long-horizon dexterous manipulation. It compares human and robot motions by the forces and torques they can induce on the object. On 1,831 tasks from its simulated benchmark of 4,739 bimanual tasks, it averaged 82.12% success. Its learned policies transferred to the real world <Cite id=\"chord-2026\" />.",
+          "reason": "The 2026-10-01 KOL batch helper keeps the paragraph as that batch added it, as its record; the length cut splits its long sentences and tightens the wording, keeping every name, date, number and the citation."
+        },
+        {
+          "test": "tests/helpers/kol-backlog-20261001.ts",
+          "disposition": "moved",
+          "phrase": "In September 2026, Nidhya Shivakumar, Ken Goldberg and colleagues reported TRACE, which traces monochrome cables in both directions and uses interactive perception primitives to resolve ambiguous crossings. In 110 physical experiments with up to 4 cables and 40 crossings, it raised the share of cable length traced correctly from about 60% with the strongest prior method, HANDLOOM 2.0, to about 90% <Cite id=\"trace-cables-2026\" />.",
+          "to": "In September 2026, Nidhya Shivakumar, Ken Goldberg and colleagues reported TRACE, which traces monochrome cables in both directions. It uses interactive perception primitives to resolve ambiguous crossings. In 110 physical experiments with up to 4 cables and 40 crossings, it traced about 90% of cable length correctly. The strongest prior method, HANDLOOM 2.0, managed about 60% <Cite id=\"trace-cables-2026\" />.",
+          "reason": "The 2026-10-01 KOL batch helper keeps the paragraph as that batch added it, as its record; the length cut splits its long sentences and tightens the wording, keeping every name, date, number and the citation."
+        },
+        {
+          "test": "tests/helpers/kol-backlog-20261005.ts",
+          "disposition": "moved",
+          "phrase": "In September 2026, Yutong Liang, Quanquan Peng, Matthew Kim and Xiaolong Wang reported FINGR, a flow policy that turns Rubik's Cube layers with a single real dexterous hand. It succeeded on 99.0% of 300 turn attempts, against 79.7% for the base flow policy, and with grasping and table-assisted regrasping added it solved all ten scrambled 2×2×2 cubes in about 137 seconds on average <Cite id=\"fingr-2026\" />.",
+          "to": "In September 2026, Yutong Liang, Quanquan Peng, Matthew Kim and Xiaolong Wang reported FINGR, a flow policy that turns Rubik's Cube layers with a single real dexterous hand. It succeeded on 99.0% of 300 turn attempts, against 79.7% for the base flow policy. With grasping and table-assisted regrasping added, it solved all ten scrambled 2×2×2 cubes in about 137 seconds on average <Cite id=\"fingr-2026\" />.",
+          "reason": "The 2026-10-05 KOL batch helper keeps the paragraph as that batch added it, as its record; the length cut splits its long sentences and tightens the wording, keeping every name, date, number and the citation."
+        },
+        {
+          "test": "tests/helpers/kol-backlog-20261007.ts",
+          "disposition": "moved",
+          "phrase": "In September 2026, Enyi Wang and Yan Wang of Tsinghua University's Institute for AI Industry Research and colleagues reported TacDyn-WAM, a world action model that predicts learned tactile representations instead of reconstructing tactile images. On five real-robot tasks with 60 demonstrations each, it averaged 71.0% success, 16 points above the tactile policy FTP-1, and 85.0% after pretraining on about 6,000 real visuo-tactile trajectories <Cite id=\"tacdyn-wam-2026\" />.",
+          "to": "In September 2026, Enyi Wang and Yan Wang of Tsinghua University's Institute for AI Industry Research and colleagues reported TacDyn-WAM. This world action model predicts learned tactile representations instead of reconstructing tactile images. On five real-robot tasks with 60 demonstrations each, it averaged 71.0% success, 16 points above the tactile policy FTP-1. Pretraining on about 6,000 real visuo-tactile trajectories raised that to 85.0% <Cite id=\"tacdyn-wam-2026\" />.",
+          "reason": "The 2026-10-07 KOL batch helper keeps the paragraph as that batch added it, as its record; the length cut splits its long sentences and tightens the wording, keeping every name, date, number and the citation."
+        },
+        {
+          "test": "tests/helpers/kol-backlog-20261009.ts",
+          "disposition": "moved",
+          "phrase": "Boston Dynamics announced a new Atlas hand on October 1, 2026, with four fingers and 13 directly actuated degrees of freedom, up from seven, and pressure sensors across the fingertips and palm <Cite id=\"bd-atlas-hand-2026\" />. It has no little finger, which would have needed three more actuators, and it is built to be simulated accurately enough for training with reinforcement learning <Cite id=\"bd-atlas-hand-2026\" />.",
+          "to": "Boston Dynamics announced a new Atlas hand on October 1, 2026. It has four fingers and 13 directly actuated degrees of freedom, up from seven, and pressure sensors across the fingertips and palm <Cite id=\"bd-atlas-hand-2026\" />. It has no little finger, which would have needed three more actuators. It is built to be simulated accurately enough for training with reinforcement learning <Cite id=\"bd-atlas-hand-2026\" />.",
+          "reason": "The 2026-10-09 KOL batch helper keeps the paragraph as that batch added it, as its record; the length cut splits its long sentences and tightens the wording, keeping every name, date, number and the citation."
+        },
+        {
+          "test": "tests/helpers/kol-backlog-20261012.ts",
+          "disposition": "moved",
+          "phrase": "In October 2026, Harsh Gupta, Tyler Ga Wei Lum, Jeannette Bohg, Shuran Song and colleagues at Stanford reported that human hand-motion priors help most when they structure exploration and leave the action space unchanged. Their EigenDEXplore adds noise along eigenvectors of human hand motion to ordinary joint-space noise, and across several dexterous hands it outperformed joint-space and learned action-space baselines in grasping, in-hand reorientation and contact-rich manipulation, with the largest gains where rewards and curricula were least engineered <Cite id=\"eigendexplore-2026\" />.",
+          "to": "In October 2026, Harsh Gupta, Tyler Ga Wei Lum, Jeannette Bohg, Shuran Song and colleagues at Stanford reported that human hand-motion priors help most when they structure exploration and leave the action space unchanged. Their EigenDEXplore adds noise along eigenvectors of human hand motion to ordinary joint-space noise. Across several dexterous hands, it outperformed joint-space and learned action-space baselines in grasping, in-hand reorientation and contact-rich manipulation, with the largest gains where rewards and curricula were least engineered <Cite id=\"eigendexplore-2026\" />.",
+          "reason": "The 2026-10-12 KOL batch helper keeps the paragraph as that batch added it, as its record; the length cut splits its long sentences and tightens the wording, keeping every name, date, number and the citation."
+        },
+        {
+          "test": "tests/helpers/kol-backlog-20261012.ts",
+          "disposition": "moved",
+          "phrase": "A camera can also stand in for a force sensor. In October 2026, Haonan Chen, Edward Adelson, Jiajun Wu, Robert Howe, Yilun Du and colleagues trained an estimator that reads grip force from how a compliant Fin Ray gripper visibly bends. On three held-out episodes its mean error was 0.91 N, against 4.20 N for an estimate from the gripper's motor current. A Diffusion Policy that also outputs a force value then drew 32 candidate actions at each step and kept the one whose force was closest to a target taken from the demonstrations. On an ARX arm with no force or tactile sensor, over 15 trials per task, this raised success compared with a single sample from 46.7% to 86.7% for grasping an empty soda can, 0% to 73.3% for berry picking, 6.7% to 46.7% for in-hand reorientation and 26.7% to 73.3% for plug insertion <Cite id=\"visual-predicted-force-2026\" />.",
+          "to": "In October 2026, Haonan Chen, Edward Adelson, Jiajun Wu, Robert Howe, Yilun Du and colleagues used a camera in place of a force sensor, reading grip force from how a compliant Fin Ray gripper visibly bends. On three held-out episodes the mean error was 0.91 N, against 4.20 N from motor current. Their Diffusion Policy also outputs force, samples 32 candidate actions per step and keeps the one whose force is closest to a target from the demonstrations. On an ARX arm with no force or tactile sensor, over 15 trials per task, this raised success over a single sample from 46.7% to 86.7% for grasping an empty soda can, 0% to 73.3% for berry picking, 6.7% to 46.7% for in-hand reorientation and 26.7% to 73.3% for plug insertion <Cite id=\"visual-predicted-force-2026\" />.",
+          "reason": "The 2026-10-12 KOL batch helper keeps the paragraph as that batch added it, as its record; the length cut splits its long sentences and tightens the wording, keeping every name, date, number and the citation."
+        },
+        {
+          "test": "tests/helpers/kol-backlog-20261012.ts",
+          "disposition": "moved",
+          "phrase": "A hand can also be the whole robot. In September 2026, Amirhossein Kazemipour, Hehui Zheng and Robert Katzschmann of ETH Zurich's Soft Robotics Lab trained reinforcement-learning policies that let an off-the-shelf 738 g WUJI hand, carrying its own power and computer, crawl on its fingers and use the same fingers to work. Training ran in a simulator calibrated from hardware measurements. On hardware it got back up from a fall in 21 of 25 trials, pressed the commanded arrow key for 29 of 32 consecutive commands while supporting its own weight, and, guided by an overhead camera, completed 15 cube deliveries to targets 10 to 40 cm away with a mean final error of 17 mm <Cite id=\"fingers-as-legs-2026\" />.",
+          "to": "In September 2026, Amirhossein Kazemipour, Hehui Zheng and Robert Katzschmann of ETH Zurich's Soft Robotics Lab made a hand the whole robot. Their reinforcement-learning policies, trained in a simulator calibrated from hardware measurements, let an off-the-shelf 738 g WUJI hand with its own power and computer crawl on its fingers and work with them. On hardware it got back up from a fall in 21 of 25 trials and pressed the commanded arrow key for 29 of 32 consecutive commands while supporting its own weight. Guided by an overhead camera, it completed 15 cube deliveries to targets 10 to 40 cm away with a mean final error of 17 mm <Cite id=\"fingers-as-legs-2026\" />.",
+          "reason": "The 2026-10-12 KOL batch helper keeps the paragraph as that batch added it, as its record; the length cut splits its long sentences and tightens the wording, keeping every name, date, number and the citation."
+        }
+      ],
+      "corrected": []
     },
     {
       "archivedFrom": "a313729713ac7cbcd555a746a971ea1ce40802ab",

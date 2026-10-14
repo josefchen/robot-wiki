@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3010,
+      "visibleTextLength": 3004,
       "header": {
         "present": true,
         "display": "flex",
@@ -5088,7 +5088,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 27989,
+      "visibleTextLength": 24186,
       "header": {
         "present": true,
         "display": "flex",

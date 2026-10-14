@@ -39,7 +39,7 @@ describe('Brooks dexterity source corrections', () => {
   test('binds body and Stat to essay-reported timing and residual sensation', () => {
     expect(text).toContain('match lighting (Brooks)');
     expect(text).toContain('his reported first-video time; second described as four times as long');
-    expect(text).toContain("These are the essay's descriptions of the demonstration");
+    expect(text).toContain('In his account, lighting a match took seven seconds');
     expect(text).toContain('He says she could still sense other things in the rest of her fingers and hand');
     expect(text).not.toContain('Her vision is intact');
     expect(text).not.toContain('Nothing about her plan changed');
@@ -54,7 +54,7 @@ describe('Brooks dexterity source corrections', () => {
   test('keeps the complete qualifier and cuts the necessity-from-first-deployment inference', () => {
     expect(text).toContain('"It looks like humanoid robots will need a sense of touch');
     expect(text).toContain('for tasks such as the match demonstration');
-    expect(text).toContain('His assessment belongs to the time of the essay');
+    expect(text).toContain('When he wrote the essay, Brooks concluded');
     expect(text).not.toContain('If touch-driven pipelines get there first, Brooks');
     expect(text).not.toContain("Brooks's conclusion is blunt");
   });

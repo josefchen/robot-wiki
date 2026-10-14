@@ -91768,6 +91768,239 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261014-frontier-prose-dexterity",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "bfd72e1fd7f59b69dc046bdf51eb4c50974e7054c695227c53ba59a0d45ba7e0",
+      "reason": "Frontier length cut of 2026-10-14 on frontier/dexterity, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 35 earlier approved edges exactly, ending with domain-pass-20261012-kol-prose-dexterity. Measured on the rendered page, the article drops from 3,155 to 2,516 words (20.3 percent). It drops the recap lines that restated the hand cards and the touch debate ('The hands on offer in 2026 span two orders of magnitude', 'The spread is the story', 'The honest 2026 position is intermediate', 'The hardware is arriving regardless of which thesis wins'), the closing recap of the 32% to 92% multi-finger range (the Gemini Robotics 2 sentence keeps 92% and 32 to 44%), the remark that Figure is the only maker in the hand table to put its 3-gram fingertip threshold on its own product page (the Figure card in lib/dexterous-hands.ts keeps that remark, and the Figure 03 sentence keeps the \"three grams of pressure\" quote), the uncited case-for-the-bet paragraph, the module-scope sentence with one of the article's two in-hand-manipulation glossary links, and the reporting caveats that attribution now carries ('In his account', 'When he wrote the essay', 'The quoted report says'). The lead becomes two sentences that define the topic and state the 52% Humanoid Olympics average under its existing citation, and the impedance-control link moves into the opening section. The cut removes no citation occurrence, 6 number occurrences and 1 glossary occurrence from the body; every source stays cited (32 distinct), and the frontmatter, imports, mounts, headings and link targets stay; no fact, number, source or quote is added. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of about a fifth to frontier/dexterity, the frontier article the 2026-10-13 frontier length cut left for later, under the owner-session length decision of 2026-10-12 (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and the dropped glossary link recorded for content/frontier/dexterity.mdx in audit/evidence/length-cut-20261013-frontier/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-083",
+        "VAL-OPUS-084",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "dexterity-brooks-four-20260914-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "aa38e524616bee37d42d9350a7cc3a69d607928cb6d9c8f3cf3ba3bd595fedb8"
+        },
+        {
+          "id": "dexterity-figure15-20260914-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "191c0065fb6913e9c987df66bca3465522fe47fbb7f02d7ee9083e33f7035876"
+        },
+        {
+          "id": "dexterity-holson-pipeline-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196"
+        },
+        {
+          "id": "dexterity-tactile-outlook-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196"
+        },
+        {
+          "id": "dexterity-keyring-rules-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196"
+        },
+        {
+          "id": "dexterity-brooks-ernst-1-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d"
+        },
+        {
+          "id": "dexterity-brooks-eweek-4-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d"
+        },
+        {
+          "id": "dexterity-brooks-forecast-7-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d"
+        },
+        {
+          "id": "dexterity-holson-original8-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dexterity-gobig-navigation-12-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dexterity-figure02-dof-23-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dexterity-helix02-tasks-25-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dex-r9-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r13-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r14-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r16-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r17-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r18-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r19-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r20-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r21-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r22-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r24-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r26-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r27-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r29-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r30-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-dexterity",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "e4bc7f30b385437286b631fa642bec0c209a4d0352e04530670bfd57697b4878"
+        },
+        {
+          "id": "kol-backlog-20261001-frontier-prose-dexterity",
+          "oldHash": "e4bc7f30b385437286b631fa642bec0c209a4d0352e04530670bfd57697b4878",
+          "newHash": "488ab8aeb5cecc9f8911316d4e2005b9bade9fb8d7ce314b91642bfbfde69408"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-dexterity",
+          "oldHash": "488ab8aeb5cecc9f8911316d4e2005b9bade9fb8d7ce314b91642bfbfde69408",
+          "newHash": "cf0888dfe6b0e5adcd4266d6f125a46c5896632cc9c4318ce90763ef661b4350"
+        },
+        {
+          "id": "reader-first-20261002-prose-frontier-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "18d2f738d3097cc288cb8f4fa88cec26fec6a96f86acbd8bfdb473e1363cb7a3"
+        },
+        {
+          "id": "kol-backlog-20261005-frontier-prose-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "5176aef5b158467497e1f49780aac3f9e959e7deab69fae18b43534666d46c83"
+        },
+        {
+          "id": "domain-pass-20261006-g7-prose-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "119e1135a0961aa0f75791aacb142052e1163b8ad0abfa096dd84c754af85923"
+        },
+        {
+          "id": "domain-pass-20261009-kol-prose-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "f84340db9994c6dbd1e8b7d399a2f9963d97ff14203973c37b7a71a5af9c0e6b"
+        },
+        {
+          "id": "domain-pass-20261012-kol-prose-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "e08aa86fa0c022029d2b888b95edfc5ce98b527e1712a2f24e6631517bd97d35"
+        }
+      ]
+    },
+    {
+      "id": "length-cut-20261014-frontier-relationships-dexterity",
+      "manifest": "relationships",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "845a118c1fb4504ff99f339c32bff7c265023e7d0770ef2493ad5a6150e6ac89",
+      "newHash": "1510afa1baf8c7a292db9f1bc24bfe8f74e2ffaf5490b7693f40155853dfff0d",
+      "reason": "Frontier length cut of 2026-10-14 on frontier/dexterity, under the owner's length decision, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-relationships-dexterity). The relationships record loses only the glossary occurrence the cut removed (1 occurrence; linked fewer times: in-hand-manipulation, which the In-hand manipulation section still links); inline citations, seeAlso entries and internal link targets are unchanged. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of about a fifth to frontier/dexterity, the frontier article the 2026-10-13 frontier length cut left for later, under the owner-session length decision of 2026-10-12 (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and the dropped glossary link recorded for content/frontier/dexterity.mdx in audit/evidence/length-cut-20261013-frontier/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-083",
+        "VAL-OPUS-084",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "length-cut-20261014-frontier-value-states-dexterity-not-disclosed-1",
+      "manifest": "value-states",
+      "memberId": "state-site:content/frontier/dexterity.mdx:not-disclosed:1",
+      "oldHash": "2fc002fdf0857344d4b639d433ca557137a66ce34f087f43e6fac06ec999d7c6",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Frontier length cut of 2026-10-14 on frontier/dexterity, under the owner's length decision, as one plain edge from the sealed hash to an absent member. The cut drops the two prose sentences that described the hand cards' blanks ('several cards read \"not disclosed\"' and 'a spec the maker has not published renders as \"not disclosed\"'), so the article no longer writes the token and its first render site closes. No value changes state: the HandComparison cards and their full table still render an unpublished spec as \"not disclosed\" from components/interactive/hand-comparison.tsx, whose render sites this cut does not touch. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "ownerApproval": "Owner directive of 2026-10-12 16:50 (Josef Chen; mission AGENTS.md): \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" It applies the humanizer standard and a cut of about a fifth to frontier/dexterity, the frontier article the 2026-10-13 frontier length cut left for later, under the owner-session length decision of 2026-10-12 (robot-wiki-out/patches/humanize/LENGTH-DECISION.md), which authorizes editorial cuts of recap paragraphs, numbers and claims stated twice, secondary corroboration, minor reporting caveats and background, keeping every caveat whose removal would overstate a result and at least 30 cited sources per article. It is the owner approval for the dropped numbers and the dropped glossary link recorded for content/frontier/dexterity.mdx in audit/evidence/length-cut-20261013-frontier/source-transition.json. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-083",
+        "VAL-OPUS-084",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

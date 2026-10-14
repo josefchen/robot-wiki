@@ -35,12 +35,12 @@ test('Brooks readers: complete corrected prose, Stat, citation and References', 
     }
   }
   const paragraphs = prose.locator('p');
-  await capture('reported-demo', paragraphs.filter({ hasText: "These are the essay's descriptions of the demonstration" }));
+  await capture('reported-demo', paragraphs.filter({ hasText: 'In his account, lighting a match took seven seconds' }));
   await capture('residual-sensation', paragraphs.filter({ hasText: 'He says she could still sense other things' }));
   await capture('reported-stat', page.getByText('his reported first-video time; second described as four times as long', { exact: true }).locator('..'));
   await capture('imagined-dialogue', paragraphs.filter({ hasText: 'an imagined inner dialogue' }));
-  await capture('qualified-conclusion', paragraphs.filter({ hasText: 'his assessment at the time of the essay' }));
-  await capture('victory-inference-removed', paragraphs.filter({ hasText: 'The hands are shipping either way; watch the training pipelines.' }));
+  await capture('qualified-conclusion', paragraphs.filter({ hasText: 'When he wrote the essay, Brooks concluded' }));
+  await capture('victory-inference-removed', paragraphs.filter({ hasText: 'The open question is which data closes the gap.' }));
   const source = 'https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/';
   const chip = prose.getByRole('link', { name: 'Brooks 2025' }).first();
   await expect(chip).toHaveAttribute('href', source);
@@ -67,7 +67,7 @@ test('Brooks readers: concluding cut endpoint closeout', async ({ page }, info) 
   await page.goto('/frontier/dexterity/');
   await page.evaluate(() => document.fonts.ready);
   const target = page.locator('div.prose[data-pagefind-body] p').filter({
-    hasText: 'The hands are shipping either way; watch the training pipelines.',
+    hasText: 'The open question is which data closes the gap.',
   });
   await expect(target).toHaveCount(1);
   const text = await target.innerText();

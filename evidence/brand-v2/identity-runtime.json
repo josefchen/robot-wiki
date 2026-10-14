@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5867d6d0ced76af6e53423f36b815cecc3028b4dfb691f3c24ce673cdd0d7eef",
+  "fingerprint": "c4857e5c425fcdd11ac4f9ebf54360a16e6a244cbfdd05aaa41c18fba6810298",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 2985,
+      "visibleTextLength": 2979,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -3903,7 +3903,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 33559,
+      "visibleTextLength": 29757,
       "route": "/frontier/dexterity/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3010,
+      "visibleTextLength": 3004,
       "route": "/",
       "viewport": "375x812"
     },
@@ -12799,7 +12799,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27989,
+      "visibleTextLength": 24186,
       "route": "/frontier/dexterity/",
       "viewport": "375x812"
     },
