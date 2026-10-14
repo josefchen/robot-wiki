@@ -56,13 +56,13 @@ export type FrontierLengthCutReview = {
 
 // BEGIN frontier length-cut pins (written by scripts/record-length-cut-frontier-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 188515, sha256: '8551190b84a1ed4ba3cb9e0124ca0a473b3337c84e6945069530f62e7a339fd2' };
+const reviewPin = { bytes: 188701, sha256: 'cf8a83caeb527f4347d8f8c0b02e2d79960a4ff9bc9a3cacb6a48165854aa7b3' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/frontier/bear-case.mdx', [10051, '6d04e10afeba9b203f1da2393329d0ec98ac250a93f3bf4347d953666e338938']],
   ['content/frontier/competing-theses.mdx', [14273, '67f5cef40b7496b71f03449c495e470620b63a77b79fc5cea3b32823e38a0704']],
-  ['content/frontier/dexterity.mdx', [17605, '52bd079db4db68d829a7350df2fcecf1022e8515fb05f8c7d3aa0c70a778cd48']],
+  ['content/frontier/dexterity.mdx', [17633, 'd4d2943d584dd841377d54fa28976665f99f558898f6381f790c8c096ec76ab9']],
   ['content/frontier/generalization.mdx', [13782, '013a705bcc0bb5568020a1fe29c8fe87d85763e39ed2a19dd623a612ac9f8f69']],
   ['content/frontier/reliability-gap.mdx', [10756, '78330757c0d25fae42486ad39b2fae0190968ea489b821ac76431087368aabd9']],
   ['content/frontier/safety-and-assurance.mdx', [18159, '2be7ebef52a06c85830867d9249b1d566183a11f9f7ec353d9b8903340a390e4']],
