@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2139399, sha256: 'e555f30c08e68c4eb480788da9b291db0b494d69df55017fcb93c828e4b49ac4' };
+const reviewPin = { bytes: 2158140, sha256: '31f1159479d8c460a6be503a81061a5744f1bfbd7077b5221bf31f954f1b5be0' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -181,18 +181,18 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/component/wm-disambiguator.test.tsx', [9527, '7736ae8871e1a50756e6f0277ccc6f3cc0452221f6ae2b8431409e2d6aaf3b20']],
   ['tests/e2e/bc-foundations-corrections.spec.ts', [7577, '59005455642289cdd63bddb890f0f5b74a02fe9a0d528e8f0e9a15ce10901b24']],
   ['tests/e2e/bc-foundations.spec.ts', [4724, 'b559717657b1732f24d60641bab53f80d9a6f263b81666529971de45f0751cc7']],
-  ['tests/e2e/bear-case.spec.ts', [12692, 'cc8ddca86af6d75029a3a8d55b8ad25722444628aafda708c689e368132ec820']],
+  ['tests/e2e/bear-case.spec.ts', [12990, 'b25ae17ab2dea6b1422dec8e73a2e05ee81b1bf2aa8b90344cfa90153e473db0']],
   ['tests/e2e/brand-v2-figures.spec.ts', [10556, 'fbae3d209cf5b933244b5a7da42d1391abbf814f71ca65ffd4208befc6fdefa3']],
-  ['tests/e2e/brooks-theses-readers.spec.ts', [8519, '690677e5bd3c72f842fe6b3f1ea442272f124f559319bab3c53063d9a0601ea9']],
+  ['tests/e2e/brooks-theses-readers.spec.ts', [9951, '31905f7862abc3b7a408dba18a158adc035e50edd1f50370e1a5057d72f26a59']],
   ['tests/e2e/chart-coverage-sweep.spec.ts', [12272, '0b05cc763dbc74fb1e31ad53c7bcfce17b3d4001b540129e6d7e85fa5e6b1c35']],
   ['tests/e2e/chart-description-registry.spec.ts', [6569, '458e4b53e02328a4f47069cf4057a3f98c1855acf5b88b3ebe3ae9a450e19781']],
   ['tests/e2e/chart-descriptions.spec.ts', [15828, '24d3ad5f40f51fb875f064bdace5fa23551f2e7438d4192671bd009766444009']],
   ['tests/e2e/chart-state-descriptions.spec.ts', [24444, 'ab7c5b47bde8cf9392d5e45acab9a33b506ef0c362a99403caac12a19b8d58ca']],
-  ['tests/e2e/competing-theses.spec.ts', [10397, '55bec22b99e2f97b84dacd3dc9ffae924b44e91e18ef8021210d494d0aa9fc02']],
+  ['tests/e2e/competing-theses.spec.ts', [11126, '6de28707a92dfa4754ffff0259f29430bad22c1f6140ed8f5e51909417db1ee7']],
   ['tests/e2e/control.spec.ts', [27778, 'a55612829a2153a5b3fd9b53c34eb3ffa14abefc71eeff449580eb28bbcef8dd']],
   ['tests/e2e/data-bottleneck.spec.ts', [7827, 'aa6c97f41580e006c54cc443e728b00d2a6acc908da19a2fca857b6322e4bb1b']],
   ['tests/e2e/deviation-axis.spec.ts', [11583, 'ed700f0bca858bfeed0319f7fe4c8fe6934117601cc8e8962cb8276b9f86d2e4']],
-  ['tests/e2e/dexterity.spec.ts', [13240, '0ce7e18947fc800b465ea515d3f72b37f7db67f266cf30403e9450f04965884e']],
+  ['tests/e2e/dexterity.spec.ts', [13268, 'c0573b4c5c4b4d32105145f81d000583f4167fcac7e34a610aabc99758a7bf97']],
   ['tests/e2e/drones.spec.ts', [8481, '2eabafccd68f8a97c0c53a57e480fd6807d9ec96a3df784d08edb75483dd147f']],
   ['tests/e2e/economics-local-evidence.spec.ts', [7280, 'c5b734e45e0824af19e8839b2940128f4a3dee682bb1bb99241f7f06ca03738b']],
   ['tests/e2e/economics-release-evidence.spec.ts', [7357, 'deabf8219a2c4f76d8ffafa3234ea9659de572e267fad4d3772f824cae73dced']],
@@ -201,7 +201,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/evaluation-statistics-originals.spec.ts', [12940, 'f182771432890940106c79302c074a891c6e8ac53f53a595d57d47327cc287be']],
   ['tests/e2e/figure-light-stage.spec.ts', [6136, 'aac59bfa7d5c66866984c1d1046ce0398d1958be6216a316325bda311d7f4bf5']],
   ['tests/e2e/final-seven-closure-evidence.spec.ts', [7904, '5ef9167e6772d7edc8273a148aa758593d8a4f754838e2ff553d4ee91fc0385c']],
-  ['tests/e2e/generalization.spec.ts', [10396, 'f4a04c10bf95ddd6fc5b8ca25d914e2b9073b38559b87d560cda3c3345d88dcf']],
+  ['tests/e2e/generalization.spec.ts', [10493, '5013f229702cddf7b77a66149f1c901bfa935423036468ce3d52bae46ca447d7']],
   ['tests/e2e/generative-sim.spec.ts', [10756, '270ff5c6d9ed927136c2cada0419d2c086524397ff5619de722c40d0acf27126']],
   ['tests/e2e/generative-video.spec.ts', [13277, '925f409f8c48d83f2e28ca6c3537bfe32febb4bd1d8d1402faada4d1e0d912ca']],
   ['tests/e2e/grasp-planning.spec.ts', [18927, '849bc7524782c660211c06576ae2ca9b4a68542178a867f6c5baff01c65f46e4']],
@@ -226,7 +226,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/parallel-sim-rl.spec.ts', [4329, 'aed3776613ecf45b4ae25f64d73f05dbbd085213835f1d2e3cefc42b103e2dc0']],
   ['tests/e2e/perception-depth-readers.spec.ts', [22377, '35d77ff776ad4f4ffdc847f515a435b3176282c418938db53c6fe4e900c0fbf5']],
   ['tests/e2e/perception.spec.ts', [37417, '7ad6e146b37c8b85d53dc66e169a5db76ec6d6e1d7229c208d8be73d5636a585']],
-  ['tests/e2e/pi-helix-theses-readers.spec.ts', [3798, 'd4d426d40a5d6ab1020e7e955e2c4d0c10e55d1a04ae6ac062b763743f2d9686']],
+  ['tests/e2e/pi-helix-theses-readers.spec.ts', [5152, '2a033dfa258f908ff731fe7b4ce609856f772c9862b378afc6bf1f8f4e71c0a8']],
   ['tests/e2e/predict-then-reveal.spec.ts', [41093, '69e5b9cb6105fc3a628e34a39a4009083151e2f05358a56d39f4d3e5269912f0']],
   ['tests/e2e/randomization-reader-closeout.spec.ts', [22249, 'dc2948af10c7b3c0c222e1725e0094daaa5f225dd4b1a97dd18f735905c8a182']],
   ['tests/e2e/reliability-gap.spec.ts', [13492, '0f61ea40d11b824db1a935f3862a0cd0ee52c340bc27c2c545a9cfc750acd3ba']],
@@ -236,13 +236,13 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/reward-local-evidence.spec.ts', [8673, 'fc5e110a889c08e69cf46d2872eff973fbea7d29fa5140a632daf02e73fb15fa']],
   ['tests/e2e/rl-finetuning.spec.ts', [11831, '7b280a8981f129fa4e5ac5593d6ee9a29fefb3e32d760284570b5b98f89e9889']],
   ['tests/e2e/rma-kl-reader.spec.ts', [13423, '9379e30dbaa93975abcc60c064d1e251db06034002fbff4442cde16e114ca027']],
-  ['tests/e2e/safety-and-assurance.spec.ts', [23615, 'd273a5a8f2f53236f8c2a5e2b85d941c85d26f46470e1c6740383ae262bcd43f']],
+  ['tests/e2e/safety-and-assurance.spec.ts', [24795, 'a4c318942fbef715ae9db5f7a0911546c5f2660e833dff3036dac212477a236e']],
   ['tests/e2e/scene-representation.spec.ts', [25615, '91b39f565d61de6930e96d2a801ea678af8c1f66aa001cf0662cd1d9813f0e6c']],
   ['tests/e2e/seo-static-integrity.spec.ts', [21129, 'c43f69878d376a0d0f8d7ec520af9c3771469dc33efec7493165efefd353ed51']],
   ['tests/e2e/sim2real-local-evidence.spec.ts', [10571, '2402780098148d7f88f6f1c1d99bb70eee36733433475027cea638de52fe135b']],
   ['tests/e2e/sim2real-transfer.spec.ts', [11651, 'c3a9e12e4ef9e5198e515ac9de209458df7aaa19683cb80358046f76ce1b24b5']],
   ['tests/e2e/state-estimation.spec.ts', [14104, 'acf481dfb999c01b3e0739d399eb1bfe848eae10b3a2d6f122a236cd1ee062bb']],
-  ['tests/e2e/thesis-economics-readers.spec.ts', [6149, 'f328a7b9350ed6b5a34883992eb70fbf681a78d9dd971549a31cc36a23ed442c']],
+  ['tests/e2e/thesis-economics-readers.spec.ts', [7185, '7d97ab72f9fde12f1ca79cce79fbcdb61a4f3286b4f781b198e0d4e0ceac5b54']],
   ['tests/e2e/why-rl-locomotion.spec.ts', [5041, '2a0377ca5049411af190a5cfc785dbb9a46dad3663910c42a9cb76aa84470e13']],
   ['tests/e2e/wm-taxonomy.spec.ts', [6559, '016d7f7426e98a847b6912feb7fae16d3f1f50af04eff1537b423756626366c7']],
   ['tests/unit/appearance-physics-push.test.ts', [5351, '7e9275704d3f5dca27c2fa72a760aaff5083ff37625daf297900cb3f1051b0d6']],

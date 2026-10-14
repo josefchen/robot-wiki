@@ -1,6 +1,7 @@
 import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeNoteInMargin, citeParts, clickCiteMark, closeCiteNote, revealCiteNote } from './helpers/citation-note';
 import { test as base, expect } from '@playwright/test';
 import { test as evidenceTest } from './helpers/state-smoothing-fixture';
 import { getCitation, citationMeta } from '../../data/citations';
@@ -88,29 +89,49 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(page.getByTestId('thesis-readout')).toHaveText('6 bets. Tap one to read the evidence for and against.');
 
     const citations = [];
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the tooltip chip became a numbered sidenote holding the
+    // title and meta the tooltip showed. At 1440 the note stands in the
+    // margin at rest and the number jumps to the reference. At 375 the
+    // number opens the note inline and closes it again, by pointer and by
+    // keyboard, and the reference is reached through the number's own
+    // #ref- target.
     for (const id of ['brooks-better-lesson-2019', 'brooks-dexterity-2025', 'enpire-2026']) {
       const citation = getCitation(id)!;
       const chip = prose.locator(`[data-cite-id="${id}"]`).first();
-      const link = chip.locator('a[target="_blank"]');
-      const tooltip = chip.getByRole('tooltip');
+      const { mark, note: tooltip, source: link } = citeParts(chip);
       await expect(link).toHaveAttribute('href', citation.url);
-      await link.hover();
+      await expect(mark).toHaveAttribute('href', `#ref-${id}`);
+      const inMargin = await citeNoteInMargin(chip);
+      expect(inMargin, `${id} note placement`).toBe(viewport.width >= 1200);
+      await mark.scrollIntoViewIfNeeded();
+      await revealCiteNote(chip, 'pointer');
       await expect(tooltip).toBeVisible();
       await expect(tooltip).toContainText(citation.title);
       await expect(tooltip).toContainText(citationMeta(citation));
-      await page.keyboard.press('Escape');
-      await expect(tooltip).toBeHidden();
+      await closeCiteNote(chip);
+      if (!inMargin) await expect(tooltip).toBeHidden();
       await page.mouse.move(0, 0);
-      await link.focus();
+      await mark.focus();
+      await revealCiteNote(chip, 'keyboard');
       await expect(tooltip).toBeVisible();
       const box = await tooltip.boundingBox();
       expect(box).not.toBeNull();
       expect(box!.x).toBeGreaterThanOrEqual(0);
       expect(box!.x + box!.width).toBeLessThanOrEqual(viewport.width + 1);
-      await page.keyboard.press('Escape');
-      await expect(tooltip).toBeHidden();
-      await expect(link).toBeFocused();
-      await chip.locator(`a[href="#ref-${id}"]`).click();
+      if (!inMargin) {
+        await page.keyboard.press('Enter');
+        await expect(tooltip).toBeHidden();
+      }
+      await expect(mark).toBeFocused();
+      if (inMargin) {
+        await clickCiteMark(mark);
+      } else {
+        await page.evaluate((hash) => {
+          history.replaceState(null, '', location.pathname + location.search);
+          location.hash = hash;
+        }, `#ref-${id}`);
+      }
       const reference = page.locator(`#ref-${id}`);
       await expect(reference).toBeInViewport();
       await expect(reference.locator('[data-reference-source-link]')).toHaveAttribute('href', citation.url);
@@ -121,25 +142,28 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       citations.push({ id, url: citation.url, shortMeta: citationMeta(citation), fullAuthors: citation.authors, tooltipBounds: box });
     }
 
-    if (viewport.width === 375) {
-      const open = page.getByRole('button', { name: 'Open navigation menu' });
-      await open.click();
-      const drawer = page.getByRole('dialog', { name: 'Site navigation' });
-      await expect(drawer).toBeVisible();
-      await expect(page.locator('#main-content')).toHaveAttribute('inert', '');
-      await expect(drawer.getByRole('link', { name: 'Competing Theses', exact: true })).toHaveAttribute('aria-current', 'page');
-      for (let index = 0; index < 12; index++) {
-        await page.keyboard.press('Tab');
-        expect(await drawer.evaluate(el => el.contains(document.activeElement))).toBe(true);
-      }
-      await page.keyboard.press('Escape');
-      await expect(drawer).toBeHidden();
-      await expect(open).toBeFocused();
-      await expect(page.locator('#main-content')).not.toHaveAttribute('inert', '');
-    } else {
-      await expect(page.getByRole('navigation', { name: 'Robot Wiki taxonomy', exact: true })
-        .getByRole('link', { name: 'Competing Theses', exact: true })).toHaveAttribute('aria-current', 'page');
+    // The top bar's "Articles" button opens the navigation panel at every
+    // width (the research-page standard), so the drawer cycle the phone
+    // menu ran, and the taxonomy highlight the desktop sidebar showed, are
+    // both checked in that panel at each width. The page is long hydrated
+    // here, and the hash jump above leaves history.state empty, so the
+    // button is pressed directly rather than through openArticlesPanel.
+    const open = page.getByRole('button', { name: 'Articles' });
+    await open.click();
+    const drawer = page.getByRole('dialog', { name: 'Site navigation' });
+    await expect(drawer).toBeVisible();
+    await expect(page.locator('#main-content')).toHaveAttribute('inert', '');
+    await expect(drawer.getByRole('link', { name: 'Competing Theses', exact: true })).toHaveAttribute('aria-current', 'page');
+    await expect(page.getByRole('navigation', { name: 'Robot Wiki taxonomy drawer', exact: true })
+      .getByRole('link', { name: 'Competing Theses', exact: true })).toHaveAttribute('aria-current', 'page');
+    for (let index = 0; index < 12; index++) {
+      await page.keyboard.press('Tab');
+      expect(await drawer.evaluate(el => el.contains(document.activeElement))).toBe(true);
     }
+    await page.keyboard.press('Escape');
+    await expect(drawer).toBeHidden();
+    await expect(open).toBeFocused();
+    await expect(page.locator('#main-content')).not.toHaveAttribute('inert', '');
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
     expect(overflow).toBeLessThanOrEqual(0);
     const axe = await new AxeBuilder({ page }).include('#main-content').analyze();

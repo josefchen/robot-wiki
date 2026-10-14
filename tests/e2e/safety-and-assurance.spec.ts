@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
@@ -96,7 +97,10 @@ test.describe('safety-and-assurance module', () => {
       page.getByRole('heading', { level: 1, name: TITLE }),
     ).toBeVisible();
 
-    // 1: the sidebar, in the frontier group, carrying the active highlight.
+    // 1: the taxonomy navigation (the sidebar until the research-page
+    // standard moved it into the "Articles" panel), in the frontier group,
+    // carrying the active highlight.
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     const navLink = nav.getByRole('link', { name: TITLE, exact: true });
     await expect(navLink).toHaveAttribute('aria-current', 'page');
@@ -159,6 +163,7 @@ test.describe('safety-and-assurance module', () => {
         `${route} h1`,
       ).toBeVisible();
 
+      await openArticlesPanel(page);
       await expect(
         page
           .getByRole('navigation', { name: 'Robot Wiki taxonomy' })
@@ -451,14 +456,33 @@ test.describe('safety-and-assurance module', () => {
   }) => {
     await page.goto(ROUTE);
 
+    // Under the research-page standard the visible trail is the masthead
+    // eyebrow: the top bar names the site and the H1 names the page, so the
+    // eyebrow links the one ancestor between them, and the full Home >
+    // domain > article trail is the page's BreadcrumbList structured data
+    // (both halves are graded site-wide in lib/brand-v2-apparatus-evidence.ts).
     const crumbs = page.getByRole('navigation', { name: 'Breadcrumb' });
     await expect(crumbs).toBeVisible();
-    await expect(crumbs.getByRole('link', { name: 'Home' })).toHaveAttribute(
-      'href',
-      '/',
-    );
-    await expect(crumbs.getByRole('link')).toHaveCount(2);
-    await expect(crumbs.getByText(TITLE)).toBeVisible();
+    await expect(
+      crumbs.getByRole('link', { name: 'Frontier & Open Problems' }),
+    ).toHaveAttribute('href', '/frontier/');
+    await expect(crumbs.getByRole('link')).toHaveCount(1);
+    const trail = await page
+      .locator('script[type="application/ld+json"]')
+      .evaluateAll((scripts) =>
+        scripts.flatMap((script) => {
+          const data = JSON.parse(script.textContent ?? 'null');
+          if (data?.['@type'] !== 'BreadcrumbList') return [];
+          return (data.itemListElement as Array<{ name: string; item: string }>).map(
+            (item) => [item.name, new URL(item.item).pathname],
+          );
+        }),
+      );
+    expect(trail).toEqual([
+      ['Home', '/'],
+      ['Frontier & Open Problems', '/frontier/'],
+      [TITLE, ROUTE],
+    ]);
 
     const seeAlso = page.locator('section[data-section="see-also"]');
     await expect(seeAlso).toBeVisible();

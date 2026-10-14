@@ -3,6 +3,7 @@ import { test as evidenceTest } from './helpers/state-smoothing-fixture';
 import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeNoteInMargin, citeParts, closeCiteNote, revealCiteNote } from './helpers/citation-note';
 
 const test = process.env.ROBOT_WIKI_GATE_INPUTS ? evidenceTest : base;
 const route = '/frontier/competing-theses/';
@@ -32,8 +33,16 @@ test('PI and Helix qualifications survive interactive selection and reset', asyn
       await expect(detail.getByText(label, { exact: true })).toBeVisible();
     }
   }
-  for (const url of ['https://www.pi.website/download/pi07.pdf', 'https://www.pi.website/blog/pi07']) {
-    await expect(detail.locator(`a[href="${url}"]`).first()).toBeVisible();
+  // Inside a figure a citation is a number whose note opens inline, and the
+  // note's author-year link is the source link the chip used to show.
+  for (const [id, url] of [
+    ['pi07-2026', 'https://www.pi.website/download/pi07.pdf'],
+    ['pi07-blog-2026', 'https://www.pi.website/blog/pi07'],
+  ] as const) {
+    const cite = detail.locator(`[data-cite-id="${id}"]`).first();
+    await revealCiteNote(cite, 'keyboard');
+    await expect(citeParts(cite).source).toBeVisible();
+    await expect(citeParts(cite).source).toHaveAttribute('href', url);
   }
   await explorer.scrollIntoViewIfNeeded();
   await page.screenshot({ path: testInfo.outputPath('pi-helix-selected.png') });
@@ -48,24 +57,39 @@ test('PI and Helix qualifications survive interactive selection and reset', asyn
 test('PI and Figure citation chips retain URLs and keyboard dismissal', async ({ page }, testInfo) => {
   await page.goto(route);
   const prose = page.locator('div.prose[data-pagefind-body]');
-  for (const url of [
-    'https://www.pi.website/download/pi07.pdf',
-    'https://www.pi.website/blog/pi07',
-    'https://www.figure.ai/news/helix-02',
-  ]) {
-    const chip = prose.locator(`a[href="${url}"]`).first();
-    await chip.scrollIntoViewIfNeeded();
-    await chip.hover();
-    await expect(page.getByRole('tooltip')).toBeVisible();
-    await page.keyboard.press('Escape');
-    await expect(page.getByRole('tooltip')).toHaveCount(0);
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): the tooltip chip became a numbered sidenote. From 1200 px the
+  // note stands in the margin at rest. Where there is no margin the number
+  // opens the note inline and closes it again, so the pointer and keyboard
+  // dismissal the tooltip had is checked at 375 px.
+  const sources = [
+    ['pi07-2026', 'https://www.pi.website/download/pi07.pdf'],
+    ['pi07-blog-2026', 'https://www.pi.website/blog/pi07'],
+    ['helix-02-2026', 'https://www.figure.ai/news/helix-02'],
+  ] as const;
+  for (const [id, url] of sources) {
+    const cite = prose.locator(`[data-cite-id="${id}"]`).first();
+    await expect(citeParts(cite).note).toBeVisible();
+    expect(await citeNoteInMargin(cite), `${id} note in the margin`).toBe(true);
+    await expect(citeParts(cite).source).toHaveAttribute('href', url);
+  }
+  await page.setViewportSize({ width: 375, height: 812 });
+  for (const [id, url] of sources) {
+    const cite = prose.locator(`[data-cite-id="${id}"]`).first();
+    const { mark, note, source } = citeParts(cite);
+    await mark.scrollIntoViewIfNeeded();
+    await expect(note).toBeHidden();
+    await revealCiteNote(cite, 'pointer');
+    await expect(note).toHaveAttribute('data-open', 'true');
+    await closeCiteNote(cite);
+    await expect(note).toBeHidden();
     await page.mouse.move(0, 0);
-    await chip.focus();
-    await expect(page.getByRole('tooltip')).toBeVisible();
-    await page.keyboard.press('Escape');
-    await expect(page.getByRole('tooltip')).toHaveCount(0);
-    await expect(chip).toBeFocused();
-    await expect(chip).toHaveAttribute('href', url);
+    await revealCiteNote(cite, 'keyboard');
+    await expect(mark).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(note).toBeHidden();
+    await expect(mark).toBeFocused();
+    await expect(source).toHaveAttribute('href', url);
   }
   await page.screenshot({ path: testInfo.outputPath('pi-helix-citation.png') });
 });

@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
 import { CITATIONS } from '../../data/citations';
 import {
   SLIDER_MAX,
@@ -66,6 +67,7 @@ test.describe('frontier generalization module', () => {
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
 
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Generalization' }),

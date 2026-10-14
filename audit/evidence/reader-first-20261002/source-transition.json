@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-14T04:36:25Z",
+  "observedAt": "2026-10-14T16:41:57Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -8743,13 +8743,13 @@
       },
       "after": {
         "path": "tests/e2e/bear-case.spec.ts",
-        "bytes": 12692,
-        "sha256": "cc8ddca86af6d75029a3a8d55b8ad25722444628aafda708c689e368132ec820"
+        "bytes": 12990,
+        "sha256": "b25ae17ab2dea6b1422dec8e73a2e05ee81b1bf2aa8b90344cfa90153e473db0"
       },
       "edits": [
         {
           "before": "import AxeBuilder from '@axe-core/playwright';\n",
-          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\n"
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\nimport { openArticlesPanel } from './helpers/articles-panel';\n"
         },
         {
           "before": "const MILESTONE_NAMES = [\n",
@@ -8758,6 +8758,10 @@
         {
           "before": "    expect(mainText.length).toBeGreaterThan(4000);\n",
           "after": "    const prose = main.locator('div.prose[data-pagefind-body]');\n    const sources = await prose.locator('[data-cite-id]').evaluateAll(\n      (els) => new Set(els.map((el) => el.getAttribute('data-cite-id'))).size,\n    );\n    expect(sources).toBeGreaterThanOrEqual(30);\n    const leadWords = await prose.locator(':scope > p').first().evaluate((p) => {\n      const copy = p.cloneNode(true) as HTMLElement;\n      copy.querySelectorAll('[data-cite-id], [role=\"tooltip\"]').forEach((el) => el.remove());\n      return (copy.textContent ?? '').split(/\\s+/).filter((word) => /[\\p{L}\\p{N}]/u.test(word)).length;\n    });\n    expect(leadWords).toBeLessThanOrEqual(60);\n"
+        },
+        {
+          "before": "    expect(mainText).not.toContain('$$');\n\n",
+          "after": "    expect(mainText).not.toContain('$$');\n\n    await openArticlesPanel(page);\n"
         },
         {
           "before": "      'https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm',\n",
@@ -8800,8 +8804,8 @@
           "after": "      await panel.getByRole('button', { name, exact: true }).click();\n"
         },
         {
-          "before": "    await page.getByRole('button', { name: 'Partial', exact: true }).click();\n    await expect(page.getByTestId(/^milestone-row-/)).toHaveCount(4);\n    await expect(readout).toHaveText('showing 4 of 8 milestones (partial)');\n",
-          "after": "    await panel.getByRole('button', { name: 'Partly', exact: true }).click();\n    await expect(page.getByTestId(/^milestone-tile-/)).toHaveCount(5);\n    await expect(readout).toHaveText('Showing 5 of 8: partly there');\n"
+          "before": "    // Filter narrows the board and the readout follows.\n    await page.getByRole('button', { name: 'Partial', exact: true }).click();\n    await expect(page.getByTestId(/^milestone-row-/)).toHaveCount(4);\n    await expect(readout).toHaveText('showing 4 of 8 milestones (partial)');\n",
+          "after": "    // Filter narrows the board and the readout follows. Touch sensing is\n    // partly there, so the milestone opened last stays on the filtered\n    // board and the readout names it as open.\n    await panel.getByRole('button', { name: 'Partly', exact: true }).click();\n    await expect(page.getByTestId(/^milestone-tile-/)).toHaveCount(5);\n    await expect(readout).toHaveText(\n      'Showing 5 of 8: partly there, open: Touch sensing built into the robot’s brain',\n    );\n"
         },
         {
           "before": "    // The met filter renders the explicit empty state.\n    await page.getByRole('button', { name: 'Met', exact: true }).click();\n    await expect(page.getByTestId(/^milestone-row-/)).toHaveCount(0);\n",
@@ -8877,13 +8881,13 @@
       },
       "after": {
         "path": "tests/e2e/brooks-theses-readers.spec.ts",
-        "bytes": 8519,
-        "sha256": "690677e5bd3c72f842fe6b3f1ea442272f124f559319bab3c53063d9a0601ea9"
+        "bytes": 9951,
+        "sha256": "31905f7862abc3b7a408dba18a158adc035e50edd1f50370e1a5057d72f26a59"
       },
       "edits": [
         {
           "before": "import AxeBuilder from '@axe-core/playwright';\n",
-          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\nimport { citeNoteInMargin, citeParts, clickCiteMark, closeCiteNote, revealCiteNote } from './helpers/citation-note';\n"
         },
         {
           "before": "import { THESES } from '../../lib/competing-theses';\n\n",
@@ -8924,6 +8928,34 @@
         {
           "before": "    await expect(page.getByTestId('thesis-readout')).toHaveText('6 theses, showing: End-to-end VLA scaling');\n",
           "after": "    await expect(page.getByTestId('thesis-readout')).toHaveText('6 bets. Tap one to read the evidence for and against.');\n"
+        },
+        {
+          "before": "    const citations = [];\n",
+          "after": "    const citations = [];\n    // Owner-approved successor (Josef, 2026-10-10, the research-page\n    // standard): the tooltip chip became a numbered sidenote holding the\n    // title and meta the tooltip showed. At 1440 the note stands in the\n    // margin at rest and the number jumps to the reference. At 375 the\n    // number opens the note inline and closes it again, by pointer and by\n    // keyboard, and the reference is reached through the number's own\n    // #ref- target.\n"
+        },
+        {
+          "before": "      const link = chip.locator('a[target=\"_blank\"]');\n      const tooltip = chip.getByRole('tooltip');\n",
+          "after": "      const { mark, note: tooltip, source: link } = citeParts(chip);\n"
+        },
+        {
+          "before": "      await link.hover();\n",
+          "after": "      await expect(mark).toHaveAttribute('href', `#ref-${id}`);\n      const inMargin = await citeNoteInMargin(chip);\n      expect(inMargin, `${id} note placement`).toBe(viewport.width >= 1200);\n      await mark.scrollIntoViewIfNeeded();\n      await revealCiteNote(chip, 'pointer');\n"
+        },
+        {
+          "before": "      await expect(tooltip).toContainText(citationMeta(citation));\n      await page.keyboard.press('Escape');\n      await expect(tooltip).toBeHidden();\n",
+          "after": "      await expect(tooltip).toContainText(citationMeta(citation));\n      await closeCiteNote(chip);\n      if (!inMargin) await expect(tooltip).toBeHidden();\n"
+        },
+        {
+          "before": "      await link.focus();\n",
+          "after": "      await mark.focus();\n      await revealCiteNote(chip, 'keyboard');\n"
+        },
+        {
+          "before": "      await page.keyboard.press('Escape');\n      await expect(tooltip).toBeHidden();\n      await expect(link).toBeFocused();\n      await chip.locator(`a[href=\"#ref-${id}\"]`).click();\n",
+          "after": "      if (!inMargin) {\n        await page.keyboard.press('Enter');\n        await expect(tooltip).toBeHidden();\n      }\n      await expect(mark).toBeFocused();\n      if (inMargin) {\n        await clickCiteMark(mark);\n      } else {\n        await page.evaluate((hash) => {\n          history.replaceState(null, '', location.pathname + location.search);\n          location.hash = hash;\n        }, `#ref-${id}`);\n      }\n"
+        },
+        {
+          "before": "    if (viewport.width === 375) {\n      const open = page.getByRole('button', { name: 'Open navigation menu' });\n      await open.click();\n      const drawer = page.getByRole('dialog', { name: 'Site navigation' });\n      await expect(drawer).toBeVisible();\n      await expect(page.locator('#main-content')).toHaveAttribute('inert', '');\n      await expect(drawer.getByRole('link', { name: 'Competing Theses', exact: true })).toHaveAttribute('aria-current', 'page');\n      for (let index = 0; index < 12; index++) {\n        await page.keyboard.press('Tab');\n        expect(await drawer.evaluate(el => el.contains(document.activeElement))).toBe(true);\n      }\n      await page.keyboard.press('Escape');\n      await expect(drawer).toBeHidden();\n      await expect(open).toBeFocused();\n      await expect(page.locator('#main-content')).not.toHaveAttribute('inert', '');\n    } else {\n      await expect(page.getByRole('navigation', { name: 'Robot Wiki taxonomy', exact: true })\n        .getByRole('link', { name: 'Competing Theses', exact: true })).toHaveAttribute('aria-current', 'page');\n    }\n",
+          "after": "    // The top bar's \"Articles\" button opens the navigation panel at every\n    // width (the research-page standard), so the drawer cycle the phone\n    // menu ran, and the taxonomy highlight the desktop sidebar showed, are\n    // both checked in that panel at each width. The page is long hydrated\n    // here, and the hash jump above leaves history.state empty, so the\n    // button is pressed directly rather than through openArticlesPanel.\n    const open = page.getByRole('button', { name: 'Articles' });\n    await open.click();\n    const drawer = page.getByRole('dialog', { name: 'Site navigation' });\n    await expect(drawer).toBeVisible();\n    await expect(page.locator('#main-content')).toHaveAttribute('inert', '');\n    await expect(drawer.getByRole('link', { name: 'Competing Theses', exact: true })).toHaveAttribute('aria-current', 'page');\n    await expect(page.getByRole('navigation', { name: 'Robot Wiki taxonomy drawer', exact: true })\n      .getByRole('link', { name: 'Competing Theses', exact: true })).toHaveAttribute('aria-current', 'page');\n    for (let index = 0; index < 12; index++) {\n      await page.keyboard.press('Tab');\n      expect(await drawer.evaluate(el => el.contains(document.activeElement))).toBe(true);\n    }\n    await page.keyboard.press('Escape');\n    await expect(drawer).toBeHidden();\n    await expect(open).toBeFocused();\n    await expect(page.locator('#main-content')).not.toHaveAttribute('inert', '');\n"
         }
       ]
     },
@@ -9096,13 +9128,13 @@
       },
       "after": {
         "path": "tests/e2e/competing-theses.spec.ts",
-        "bytes": 10397,
-        "sha256": "55bec22b99e2f97b84dacd3dc9ffae924b44e91e18ef8021210d494d0aa9fc02"
+        "bytes": 11126,
+        "sha256": "6de28707a92dfa4754ffff0259f29430bad22c1f6140ed8f5e51909417db1ee7"
       },
       "edits": [
         {
           "before": "import AxeBuilder from '@axe-core/playwright';\n",
-          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\nimport { openArticlesPanel } from './helpers/articles-panel';\nimport { citeParts, revealCiteNote } from './helpers/citation-note';\n"
         },
         {
           "before": "  'End-to-end VLA scaling',\n  'Hierarchical planner over skills',\n  'World-model-based training',\n  'RL fine-tuning on imitation',\n  'Teleoperation as a bridge',\n  'Humanoid versus task-specific',\n",
@@ -9111,6 +9143,14 @@
         {
           "before": "    expect(mainText.length).toBeGreaterThan(4000);\n",
           "after": "    const prose = main.locator('div.prose[data-pagefind-body]');\n    const sources = await prose.locator('[data-cite-id]').evaluateAll(\n      (els) => new Set(els.map((el) => el.getAttribute('data-cite-id'))).size,\n    );\n    expect(sources).toBeGreaterThanOrEqual(30);\n    const leadWords = await prose.locator(':scope > p').first().evaluate((p) => {\n      const copy = p.cloneNode(true) as HTMLElement;\n      copy.querySelectorAll('[data-cite-id], [role=\"tooltip\"]').forEach((el) => el.remove());\n      return (copy.textContent ?? '').split(/\\s+/).filter((word) => /[\\p{L}\\p{N}]/u.test(word)).length;\n    });\n    expect(leadWords).toBeLessThanOrEqual(60);\n"
+        },
+        {
+          "before": "    const menu = page.getByRole('button', { name: 'Open navigation menu' });\n    const mobileMenu = await menu.isVisible();\n    if (mobileMenu) await menu.click();\n",
+          "after": "    // The top bar's \"Articles\" button opens the taxonomy panel at every\n    // width, so the close-and-return-focus check the mobile menu ran now\n    // runs at each width.\n    const menu = page.getByRole('button', { name: 'Articles' });\n    await openArticlesPanel(page);\n"
+        },
+        {
+          "before": "    if (mobileMenu) {\n      await page.keyboard.press('Escape');\n      await expect(menu).toBeFocused();\n      await expect(nav).not.toBeVisible();\n    }\n",
+          "after": "    await page.keyboard.press('Escape');\n    await expect(menu).toBeFocused();\n    await expect(nav).not.toBeVisible();\n"
         },
         {
           "before": "    await expect(page.getByTestId('thesis-readout')).toHaveText(\n      '6 theses, showing: End-to-end VLA scaling',\n",
@@ -9133,6 +9173,10 @@
           "after": "      '6 bets, showing: Let the robot imagine first',\n"
         },
         {
+          "before": "    // Citations are present in the detail view.\n",
+          "after": "    // Citations are present in the detail view. Inside a figure a citation\n    // is a number whose note opens inline, and the note holds the source\n    // link the chip used to carry.\n    const vjepa = detail.locator('[data-cite-id=\"vjepa2-2025\"]').first();\n    await revealCiteNote(vjepa, 'pointer');\n    await expect(citeParts(vjepa).mark).toHaveAttribute('href', '#ref-vjepa2-2025');\n"
+        },
+        {
           "before": "    // Mouse: select the teleop bridge thesis.\n    await explorer\n      .getByRole('button', { name: 'Teleoperation as a bridge' })\n",
           "after": "    // Mouse: select the teleop bridge thesis.\n    await explorer\n      .getByRole('button', { name: 'Humans steer while robots learn' })\n"
         },
@@ -9147,6 +9191,18 @@
         {
           "before": "      name: 'RL fine-tuning on imitation',\n",
           "after": "      name: 'Copy first, then practise',\n"
+        },
+        {
+          "before": "    // Focus state is visible (the global accent focus ring,\n    // signal blue #245FFF under brand-v2). The row's\n    // transition-colors animates the outline over ~150ms, so poll.\n",
+          "after": "    // Focus state is visible: the research-page standard's keyboard ring,\n    // a 1 px ink (#1C1C1A) outline offset 2 px, in place of the brand-v2\n    // signal blue. The row's transition-colors animates the outline over\n    // ~150ms, so poll.\n"
+        },
+        {
+          "before": "        rlButton.evaluate((el) => getComputedStyle(el).outlineColor),\n",
+          "after": "        rlButton.evaluate((el) => {\n          const style = getComputedStyle(el);\n          return `${style.outlineColor} ${style.outlineWidth} ${style.outlineOffset}`;\n        }),\n"
+        },
+        {
+          "before": "      .toBe('rgb(36, 95, 255)');\n",
+          "after": "      .toBe('rgb(28, 28, 26) 1px 2px');\n"
         },
         {
           "before": "    // Reset restores the default selection.\n",
@@ -9380,13 +9436,13 @@
       },
       "after": {
         "path": "tests/e2e/dexterity.spec.ts",
-        "bytes": 13240,
-        "sha256": "0ce7e18947fc800b465ea515d3f72b37f7db67f266cf30403e9450f04965884e"
+        "bytes": 13268,
+        "sha256": "c0573b4c5c4b4d32105145f81d000583f4167fcac7e34a610aabc99758a7bf97"
       },
       "edits": [
         {
           "before": "import AxeBuilder from '@axe-core/playwright';\n",
-          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\n"
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\nimport { openArticlesPanel } from './helpers/articles-panel';\n"
         },
         {
           "before": "    expect(mainText).toContain(\"These are the essay's descriptions of the demonstration\");\n",
@@ -9395,6 +9451,14 @@
         {
           "before": "    expect(mainText).toContain('His assessment belongs to the time of the essay');\n",
           "after": "    expect(mainText).toContain('When he wrote the essay, Brooks concluded');\n"
+        },
+        {
+          "before": "    const openMenu = page.getByRole(\"button\", { name: \"Open navigation menu\" });\n    const mobileMenu = await openMenu.isVisible();\n    if (mobileMenu) await openMenu.click();\n",
+          "after": "    // The top bar's \"Articles\" button opens the taxonomy panel at every\n    // width, so the check the mobile menu ran now runs at each width.\n    await openArticlesPanel(page);\n"
+        },
+        {
+          "before": "    if (mobileMenu) {\n      await page.screenshot({ path: test.info().outputPath(\"mobile-navigation.png\") });\n      await page.keyboard.press(\"Escape\");\n      await expect(nav).toBeHidden();\n    }\n",
+          "after": "    await page.screenshot({ path: test.info().outputPath(\"articles-panel.png\") });\n    await page.keyboard.press(\"Escape\");\n    await expect(nav).toBeHidden();\n"
         },
         {
           "before": "    expect(mainText).toMatch(/does not exist yet is a tactile training pipeline/);\n",
@@ -9763,13 +9827,13 @@
       },
       "after": {
         "path": "tests/e2e/generalization.spec.ts",
-        "bytes": 10396,
-        "sha256": "f4a04c10bf95ddd6fc5b8ca25d914e2b9073b38559b87d560cda3c3345d88dcf"
+        "bytes": 10493,
+        "sha256": "5013f229702cddf7b77a66149f1c901bfa935423036468ce3d52bae46ca447d7"
       },
       "edits": [
         {
           "before": "import { CITATIONS } from '../../data/citations';\nimport {\n  SLIDER_MAX,\n  SLIDER_MIN,\n  hoursToSlider,\n} from '@/lib/egoscale-law';\n\nconst ROUTE = '/frontier/generalization/';\n\n/**\n * The article's only scaling chart sits inside the prediction step's\n * disclosure, seeded at the 250k h horizon; it is hidden until the step\n * opens.\n */\nfunction egs(page: Page) {\n  return page.locator('[data-figure-frame=\"egoscale-scaling\"]');\n}\n\nasync function openStep(page: Page) {\n  const reveal = page.locator(\n    'details[data-reveal]:has([data-figure-frame=\"egoscale-scaling\"])',\n  );\n  await reveal.locator(':scope > summary').click();\n  await expect(reveal).toHaveAttribute('open');\n}\n\n\nconst HORIZON = { name: /extrapolation horizon/i };\n\ntest.describe('frontier generalization module', () => {\n  test('renders with prose, headings, and active sidebar state (VAL-FRONT-001, VAL-FRONT-002)', async ({\n    page,\n  }) => {\n    const errors: string[] = [];\n    page.on('pageerror', (err) => errors.push(err.message));\n    await page.goto(ROUTE);\n    await expect(\n      page.getByRole('heading', { level: 1, name: 'Generalization' }),\n    ).toBeVisible();\n\n    const main = page.locator('#main-content');\n    const headings = await main\n      .locator('h2')\n      .allTextContents();\n    expect(headings.length).toBeGreaterThanOrEqual(4);\n    const proseLength = (await main.textContent())?.length ?? 0;\n    expect(proseLength).toBeGreaterThan(4000);\n\n    // No raw MDX or component syntax leaks into the rendered page.\n    const mainText = (await main.textContent()) ?? '';\n    expect(mainText).not.toContain('import {');\n    expect(mainText).not.toContain('<Cite');\n    expect(mainText).not.toContain('$$');\n\n    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });\n    await expect(\n      nav.getByRole('link', { name: 'Generalization' }),\n    ).toHaveAttribute('aria-current', 'page');\n    expect(errors).toEqual([]);\n  });\n\n  test('states what pi0.5/pi0.7 demonstrate, and what they do not (VAL-FRONT-010)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    const main = page.locator('#main-content');\n    const text = (await main.textContent()) ?? '';\n\n    // The demonstrated results.\n    expect(text).toMatch(/cleaning kitchens and bedrooms in homes/i);\n    expect(text).toMatch(/air fryer/i);\n    expect(text).toMatch(/UR5e/);\n    expect(text).toMatch(/85\\.6%/);\n    expect(text).toMatch(/375 hours/);\n\n    // The explicit, unhedged limits.\n    expect(text).toMatch(/does not finish the task without coaching/i);\n    expect(text).toMatch(/no published result shows a generalist policy/i);\n    expect(text).toMatch(/three homes and ten trials per task/i);\n\n    // The open-world gap passage: distribution shift, lab scenes vs homes.\n    expect(text).toMatch(/distribution shift/i);\n    expect(text).toMatch(/one-centimeter grasp error/i);\n  });\n\n  test('citation chips resolve and link externally (VAL-FRONT-003)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    const main = page.locator('#main-content');\n    await expect(\n      main.getByRole('link', { name: 'Physical Intelligence et al. 2025' }).first(),\n    ).toHaveAttribute('href', CITATIONS.find((c) => c.id === 'pi05-2025')!.url);\n    await expect(\n      main.getByRole('link', { name: 'Zheng et al. 2026' }).first(),\n    ).toHaveAttribute('href', 'https://arxiv.org/abs/2602.16710');\n    await expect(\n      main.getByRole('link', { name: 'Goldberg 2025' }).first(),\n    ).toHaveAttribute(\n      'href',\n      'https://doi.org/10.1126/scirobotics.aea7390',\n    );\n    // Scoped to the authored prose: the generated References bibliography\n    // also renders external links inside main, and with every inline chip deleted its 12 registry anchors alone still passed this floor.\n    const chips = page\n      .locator('div.prose[data-pagefind-body]')\n      .locator('a[href^=\"https://\"]');\n    expect(await chips.count()).toBeGreaterThanOrEqual(5);\n    for (const id of [\n      'pi05-2025',\n      'pi07-2026',\n      'pi07-blog-2026',\n      'egoscale-2026',\n      'goldberg-data-gap-2025',\n      'karcini-position-2026',\n    ]) {\n      expect(await main.getByText(`missing citation: ${id}`).count()).toBe(0);\n    }\n  });\n\n  test('scaling-law interactive extrapolates with an uncertainty band and caveat (VAL-FRONT-011)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    await openStep(page);\n    const slider = egs(page).getByRole('slider', HORIZON);\n    await expect(slider).toBeVisible();\n    await expect(\n      egs(page).getByRole('button', { name: /reset/i }),\n    ).toBeVisible();\n\n    // Default 250k horizon: the band and dashed extrapolation are visible\n    // once the step opens, both scenarios are read out, and the fit is\n    // already past 100%.\n    const band = egs(page).getByTestId('uncertainty-band');\n    await expect(band).toBeVisible();\n    await expect(egs(page).getByTestId('extrapolated-loss-law')).toBeVisible();\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('250k h');\n    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0074');\n    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0150');\n    await expect(egs(page).getByTestId('impossible-note')).toBeVisible();\n\n    // The validation-loss caveat is the figure's source line; the band's\n    // status is named in the legend.\n    const caveat = egs(page).getByTestId('scaling-caveat');\n    await expect(caveat).toContainText(/validation loss/i);\n    await expect(caveat).toContainText(/real-world success rate/i);\n    await expect(egs(page).locator('[data-figure-legend]')).toContainText(\n      /not a confidence interval/i,\n    );\n\n    // Pulling back to the measured-range boundary removes the band.\n    await setSlider(slider, SLIDER_MIN);\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('20k h');\n    await expect(egs(page).getByTestId('uncertainty-band')).toHaveCount(0);\n\n    // Pushing to 1M updates the projection and flags the impossible fit.\n    await setSlider(slider, SLIDER_MAX);\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('1M h');\n    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0033');\n    await expect(egs(page).getByTestId('impossible-note')).toBeVisible();\n\n    // Keyboard operation moves the horizon.\n    await setSlider(slider, hoursToSlider(100_000));\n    const before = await egs(page).getByTestId('horizon-readout').textContent();\n    await slider.focus();\n    for (let i = 0; i < 50; i += 1) await page.keyboard.press('ArrowRight');\n    await expect(egs(page).getByTestId('horizon-readout')).not.toHaveText(\n      before ?? '',\n    );\n\n    // Reset restores the default.\n    await egs(page).getByRole('button', { name: /reset/i }).click();\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('250k h');\n  });\n\n  test('defines the solved bar and notes no system meets it (VAL-FRONT-012)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    const main = page.locator('#main-content');\n    const text = (await main.textContent()) ?? '';\n\n    // The criterion: >90% across many unseen homes, no per-site data.\n    expect(text).toMatch(/better than 90% success across many unseen homes/i);\n    expect(text).toMatch(/no per-site data collection/i);\n    // The honest note.\n    expect(text).toMatch(\n      /no current system has been evaluated this way/i,\n    );\n    // The bar is drawn on the chart, and at 100k hours the fit is still\n    // below it.\n    await openStep(page);\n    await expect(egs(page).getByTestId('solved-bar')).toBeVisible();\n    await setSlider(\n      egs(page).getByRole('slider', HORIZON),\n      hoursToSlider(100_000),\n    );\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('100k h');\n    await expect(egs(page).getByTestId('completion-readout')).toContainText(\n      /below the solved bar/i,\n",
-          "after": "import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\nimport { CITATIONS } from '../../data/citations';\nimport {\n  SLIDER_MAX,\n  SLIDER_MIN,\n  hoursToSlider,\n} from '@/lib/egoscale-law';\n\nconst ROUTE = '/frontier/generalization/';\n\n/**\n * The article's only scaling chart is the prediction step's figure, seeded\n * at the 250k h horizon. It renders between the question and the reasoning,\n * visible at settle without answering; its slider, the loss-panel toggle and\n * reset sit in \"Adjust more\", its method and caveats in \"How this was made\".\n */\nfunction egs(page: Page) {\n  return page.locator('[data-figure-frame=\"egoscale-scaling\"]');\n}\n\nasync function openStep(page: Page) {\n  // Nothing to answer first: the figure is outside the closed reasoning.\n  await expect(\n    page.locator('details[data-reveal] [data-figure-frame=\"egoscale-scaling\"]'),\n  ).toHaveCount(0);\n  await expect(egs(page).locator('[data-figure-stage]')).toBeVisible();\n  await openAdjustMore(egs(page));\n}\n\nconst HORIZON = { name: /hours of video/i };\n\ntest.describe('frontier generalization module', () => {\n  test('renders with prose, headings, and active sidebar state (VAL-FRONT-001, VAL-FRONT-002)', async ({\n    page,\n  }) => {\n    const errors: string[] = [];\n    page.on('pageerror', (err) => errors.push(err.message));\n    await page.goto(ROUTE);\n    await expect(\n      page.getByRole('heading', { level: 1, name: 'Generalization' }),\n    ).toBeVisible();\n\n    const main = page.locator('#main-content');\n    const headings = await main\n      .locator('h2')\n      .allTextContents();\n    expect(headings.length).toBeGreaterThanOrEqual(4);\n    const prose = main.locator('div.prose[data-pagefind-body]');\n    const sources = await prose.locator('[data-cite-id]').evaluateAll(\n      (els) => new Set(els.map((el) => el.getAttribute('data-cite-id'))).size,\n    );\n    expect(sources).toBeGreaterThanOrEqual(30);\n    const leadWords = await prose.locator(':scope > p').first().evaluate((p) => {\n      const copy = p.cloneNode(true) as HTMLElement;\n      copy.querySelectorAll('[data-cite-id], [role=\"tooltip\"]').forEach((el) => el.remove());\n      return (copy.textContent ?? '').split(/\\s+/).filter((word) => /[\\p{L}\\p{N}]/u.test(word)).length;\n    });\n    expect(leadWords).toBeLessThanOrEqual(60);\n\n    // No raw MDX or component syntax leaks into the rendered page.\n    const mainText = (await main.textContent()) ?? '';\n    expect(mainText).not.toContain('import {');\n    expect(mainText).not.toContain('<Cite');\n    expect(mainText).not.toContain('$$');\n\n    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });\n    await expect(\n      nav.getByRole('link', { name: 'Generalization' }),\n    ).toHaveAttribute('aria-current', 'page');\n    expect(errors).toEqual([]);\n  });\n\n  test('states what pi0.5/pi0.7 demonstrate, and what they do not (VAL-FRONT-010)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    const main = page.locator('#main-content');\n    const text = (await main.textContent()) ?? '';\n\n    // The demonstrated results.\n    expect(text).toMatch(/cleaning kitchens and bedrooms in homes/i);\n    expect(text).toMatch(/air fryer/i);\n    expect(text).toMatch(/UR5e/);\n    expect(text).toMatch(/85\\.6%/);\n    expect(text).toMatch(/375 hours/);\n\n    // The explicit, unhedged limits.\n    expect(text).toMatch(/does not finish the task without coaching/i);\n    expect(text).toMatch(/no published result shows a generalist policy/i);\n    expect(text).toMatch(/three homes and ten trials per task/i);\n\n    // The open-world gap passage: distribution shift, lab scenes vs homes.\n    expect(text).toMatch(/distribution shift/i);\n    expect(text).toMatch(/one-centimeter grasp error/i);\n  });\n\n  test('citation chips resolve and link externally (VAL-FRONT-003)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    const main = page.locator('#main-content');\n    await expect(\n      main.getByRole('link', { name: 'Physical Intelligence et al. 2025' }).first(),\n    ).toHaveAttribute('href', CITATIONS.find((c) => c.id === 'pi05-2025')!.url);\n    await expect(\n      main.getByRole('link', { name: 'Zheng et al. 2026' }).first(),\n    ).toHaveAttribute('href', 'https://arxiv.org/abs/2602.16710');\n    await expect(\n      main.getByRole('link', { name: 'Goldberg 2025' }).first(),\n    ).toHaveAttribute(\n      'href',\n      'https://doi.org/10.1126/scirobotics.aea7390',\n    );\n    // Scoped to the authored prose: the generated References bibliography\n    // also renders external links inside main, and with every inline chip deleted its 12 registry anchors alone still passed this floor.\n    const chips = page\n      .locator('div.prose[data-pagefind-body]')\n      .locator('a[href^=\"https://\"]');\n    expect(await chips.count()).toBeGreaterThanOrEqual(5);\n    for (const id of [\n      'pi05-2025',\n      'pi07-2026',\n      'pi07-blog-2026',\n      'egoscale-2026',\n      'goldberg-data-gap-2025',\n      'karcini-position-2026',\n    ]) {\n      expect(await main.getByText(`missing citation: ${id}`).count()).toBe(0);\n    }\n  });\n\n  test('scaling-law interactive extrapolates with an uncertainty band and caveat (VAL-FRONT-011)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    await openStep(page);\n    const slider = egs(page).getByRole('slider', HORIZON);\n    await expect(slider).toBeVisible();\n    await expect(\n      egs(page).getByRole('button', { name: /reset/i }),\n    ).toBeVisible();\n\n    // Default 250k horizon: at settle the \"About 12 times more\" preset is\n    // pressed and the impossible crossing is annotated on the stage.\n    await expect(egs(page).getByTestId('egoscale-preset-twelve')).toHaveAttribute('aria-pressed', 'true');\n    await expect(egs(page).getByTestId('impossible-note')).toBeVisible();\n    await expect(egs(page).getByTestId('projection-summary')).toContainText('250k hours');\n    // The paper's own law and the scenario bands are one toggle away; the\n    // band and dashed extrapolation are visible once it is on, and both\n    // scenarios are read out.\n    await egs(page).getByRole('button', { name: /show the paper.s error measure/i }).click();\n    const band = egs(page).getByTestId('uncertainty-band');\n    await expect(band).toBeVisible();\n    await expect(egs(page).getByTestId('extrapolated-loss-law')).toBeVisible();\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('250k h');\n    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0074');\n    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0150');\n    await expect(egs(page).getByTestId('impossible-note')).toBeVisible();\n\n    // The validation-loss caveat and the band's status are in \"How this\n    // was made\".\n    const method = await openHowThisWasMade(egs(page));\n    const caveat = egs(page).getByTestId('scaling-caveat');\n    await expect(caveat).toBeVisible();\n    await expect(caveat).toContainText(/validation loss/i);\n    await expect(caveat).toContainText(/real-world success rate/i);\n    await expect(method).toContainText(/not a confidence interval/i);\n\n    // Pulling back to the measured-range boundary removes the band.\n    await setSlider(slider, SLIDER_MIN);\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('20k h');\n    await expect(egs(page).getByTestId('uncertainty-band')).toHaveCount(0);\n\n    // Pushing to 1M updates the projection and flags the impossible fit.\n    await setSlider(slider, SLIDER_MAX);\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('1M h');\n    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0033');\n    await expect(egs(page).getByTestId('impossible-note')).toBeVisible();\n\n    // Keyboard operation moves the horizon.\n    await setSlider(slider, hoursToSlider(100_000));\n    const before = await egs(page).getByTestId('horizon-readout').textContent();\n    await slider.focus();\n    for (let i = 0; i < 50; i += 1) await page.keyboard.press('ArrowRight');\n    await expect(egs(page).getByTestId('horizon-readout')).not.toHaveText(\n      before ?? '',\n    );\n\n    // Reset restores the default.\n    await egs(page).getByRole('button', { name: /reset/i }).click();\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('250k h');\n  });\n\n  test('defines the solved bar and notes no system meets it (VAL-FRONT-012)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    const main = page.locator('#main-content');\n    const text = (await main.textContent()) ?? '';\n\n    // The criterion: >90% across many unseen homes, no per-site data.\n    expect(text).toMatch(/better than 90% success across many unseen homes/i);\n    expect(text).toMatch(/no per-site data collection/i);\n    // The honest note.\n    expect(text).toMatch(\n      /no current system has been evaluated this way/i,\n    );\n    // The bar is drawn on the chart, and at 100k hours the fit is still\n    // below it.\n    await openStep(page);\n    await expect(egs(page).getByTestId('solved-bar')).toBeVisible();\n    await setSlider(\n      egs(page).getByRole('slider', HORIZON),\n      hoursToSlider(100_000),\n    );\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('100k h');\n    await expect(egs(page).getByTestId('completion-fit-readout')).toContainText(\n      /below the solved bar/i,\n    );\n    // The same point by preset, read out on the stage in plain words.\n    await egs(page).getByTestId('egoscale-preset-five').click();\n    await expect(egs(page).getByTestId('completion-readout')).toContainText(\n      '0.89, or 89%, still below the bar for solved',\n"
+          "after": "import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\nimport { openArticlesPanel } from './helpers/articles-panel';\nimport { CITATIONS } from '../../data/citations';\nimport {\n  SLIDER_MAX,\n  SLIDER_MIN,\n  hoursToSlider,\n} from '@/lib/egoscale-law';\n\nconst ROUTE = '/frontier/generalization/';\n\n/**\n * The article's only scaling chart is the prediction step's figure, seeded\n * at the 250k h horizon. It renders between the question and the reasoning,\n * visible at settle without answering; its slider, the loss-panel toggle and\n * reset sit in \"Adjust more\", its method and caveats in \"How this was made\".\n */\nfunction egs(page: Page) {\n  return page.locator('[data-figure-frame=\"egoscale-scaling\"]');\n}\n\nasync function openStep(page: Page) {\n  // Nothing to answer first: the figure is outside the closed reasoning.\n  await expect(\n    page.locator('details[data-reveal] [data-figure-frame=\"egoscale-scaling\"]'),\n  ).toHaveCount(0);\n  await expect(egs(page).locator('[data-figure-stage]')).toBeVisible();\n  await openAdjustMore(egs(page));\n}\n\nconst HORIZON = { name: /hours of video/i };\n\ntest.describe('frontier generalization module', () => {\n  test('renders with prose, headings, and active sidebar state (VAL-FRONT-001, VAL-FRONT-002)', async ({\n    page,\n  }) => {\n    const errors: string[] = [];\n    page.on('pageerror', (err) => errors.push(err.message));\n    await page.goto(ROUTE);\n    await expect(\n      page.getByRole('heading', { level: 1, name: 'Generalization' }),\n    ).toBeVisible();\n\n    const main = page.locator('#main-content');\n    const headings = await main\n      .locator('h2')\n      .allTextContents();\n    expect(headings.length).toBeGreaterThanOrEqual(4);\n    const prose = main.locator('div.prose[data-pagefind-body]');\n    const sources = await prose.locator('[data-cite-id]').evaluateAll(\n      (els) => new Set(els.map((el) => el.getAttribute('data-cite-id'))).size,\n    );\n    expect(sources).toBeGreaterThanOrEqual(30);\n    const leadWords = await prose.locator(':scope > p').first().evaluate((p) => {\n      const copy = p.cloneNode(true) as HTMLElement;\n      copy.querySelectorAll('[data-cite-id], [role=\"tooltip\"]').forEach((el) => el.remove());\n      return (copy.textContent ?? '').split(/\\s+/).filter((word) => /[\\p{L}\\p{N}]/u.test(word)).length;\n    });\n    expect(leadWords).toBeLessThanOrEqual(60);\n\n    // No raw MDX or component syntax leaks into the rendered page.\n    const mainText = (await main.textContent()) ?? '';\n    expect(mainText).not.toContain('import {');\n    expect(mainText).not.toContain('<Cite');\n    expect(mainText).not.toContain('$$');\n\n    await openArticlesPanel(page);\n    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });\n    await expect(\n      nav.getByRole('link', { name: 'Generalization' }),\n    ).toHaveAttribute('aria-current', 'page');\n    expect(errors).toEqual([]);\n  });\n\n  test('states what pi0.5/pi0.7 demonstrate, and what they do not (VAL-FRONT-010)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    const main = page.locator('#main-content');\n    const text = (await main.textContent()) ?? '';\n\n    // The demonstrated results.\n    expect(text).toMatch(/cleaning kitchens and bedrooms in homes/i);\n    expect(text).toMatch(/air fryer/i);\n    expect(text).toMatch(/UR5e/);\n    expect(text).toMatch(/85\\.6%/);\n    expect(text).toMatch(/375 hours/);\n\n    // The explicit, unhedged limits.\n    expect(text).toMatch(/does not finish the task without coaching/i);\n    expect(text).toMatch(/no published result shows a generalist policy/i);\n    expect(text).toMatch(/three homes and ten trials per task/i);\n\n    // The open-world gap passage: distribution shift, lab scenes vs homes.\n    expect(text).toMatch(/distribution shift/i);\n    expect(text).toMatch(/one-centimeter grasp error/i);\n  });\n\n  test('citation chips resolve and link externally (VAL-FRONT-003)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    const main = page.locator('#main-content');\n    await expect(\n      main.getByRole('link', { name: 'Physical Intelligence et al. 2025' }).first(),\n    ).toHaveAttribute('href', CITATIONS.find((c) => c.id === 'pi05-2025')!.url);\n    await expect(\n      main.getByRole('link', { name: 'Zheng et al. 2026' }).first(),\n    ).toHaveAttribute('href', 'https://arxiv.org/abs/2602.16710');\n    await expect(\n      main.getByRole('link', { name: 'Goldberg 2025' }).first(),\n    ).toHaveAttribute(\n      'href',\n      'https://doi.org/10.1126/scirobotics.aea7390',\n    );\n    // Scoped to the authored prose: the generated References bibliography\n    // also renders external links inside main, and with every inline chip deleted its 12 registry anchors alone still passed this floor.\n    const chips = page\n      .locator('div.prose[data-pagefind-body]')\n      .locator('a[href^=\"https://\"]');\n    expect(await chips.count()).toBeGreaterThanOrEqual(5);\n    for (const id of [\n      'pi05-2025',\n      'pi07-2026',\n      'pi07-blog-2026',\n      'egoscale-2026',\n      'goldberg-data-gap-2025',\n      'karcini-position-2026',\n    ]) {\n      expect(await main.getByText(`missing citation: ${id}`).count()).toBe(0);\n    }\n  });\n\n  test('scaling-law interactive extrapolates with an uncertainty band and caveat (VAL-FRONT-011)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    await openStep(page);\n    const slider = egs(page).getByRole('slider', HORIZON);\n    await expect(slider).toBeVisible();\n    await expect(\n      egs(page).getByRole('button', { name: /reset/i }),\n    ).toBeVisible();\n\n    // Default 250k horizon: at settle the \"About 12 times more\" preset is\n    // pressed and the impossible crossing is annotated on the stage.\n    await expect(egs(page).getByTestId('egoscale-preset-twelve')).toHaveAttribute('aria-pressed', 'true');\n    await expect(egs(page).getByTestId('impossible-note')).toBeVisible();\n    await expect(egs(page).getByTestId('projection-summary')).toContainText('250k hours');\n    // The paper's own law and the scenario bands are one toggle away; the\n    // band and dashed extrapolation are visible once it is on, and both\n    // scenarios are read out.\n    await egs(page).getByRole('button', { name: /show the paper.s error measure/i }).click();\n    const band = egs(page).getByTestId('uncertainty-band');\n    await expect(band).toBeVisible();\n    await expect(egs(page).getByTestId('extrapolated-loss-law')).toBeVisible();\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('250k h');\n    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0074');\n    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0150');\n    await expect(egs(page).getByTestId('impossible-note')).toBeVisible();\n\n    // The validation-loss caveat and the band's status are in \"How this\n    // was made\".\n    const method = await openHowThisWasMade(egs(page));\n    const caveat = egs(page).getByTestId('scaling-caveat');\n    await expect(caveat).toBeVisible();\n    await expect(caveat).toContainText(/validation loss/i);\n    await expect(caveat).toContainText(/real-world success rate/i);\n    await expect(method).toContainText(/not a confidence interval/i);\n\n    // Pulling back to the measured-range boundary removes the band.\n    await setSlider(slider, SLIDER_MIN);\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('20k h');\n    await expect(egs(page).getByTestId('uncertainty-band')).toHaveCount(0);\n\n    // Pushing to 1M updates the projection and flags the impossible fit.\n    await setSlider(slider, SLIDER_MAX);\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('1M h');\n    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0033');\n    await expect(egs(page).getByTestId('impossible-note')).toBeVisible();\n\n    // Keyboard operation moves the horizon.\n    await setSlider(slider, hoursToSlider(100_000));\n    const before = await egs(page).getByTestId('horizon-readout').textContent();\n    await slider.focus();\n    for (let i = 0; i < 50; i += 1) await page.keyboard.press('ArrowRight');\n    await expect(egs(page).getByTestId('horizon-readout')).not.toHaveText(\n      before ?? '',\n    );\n\n    // Reset restores the default.\n    await egs(page).getByRole('button', { name: /reset/i }).click();\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('250k h');\n  });\n\n  test('defines the solved bar and notes no system meets it (VAL-FRONT-012)', async ({\n    page,\n  }) => {\n    await page.goto(ROUTE);\n    const main = page.locator('#main-content');\n    const text = (await main.textContent()) ?? '';\n\n    // The criterion: >90% across many unseen homes, no per-site data.\n    expect(text).toMatch(/better than 90% success across many unseen homes/i);\n    expect(text).toMatch(/no per-site data collection/i);\n    // The honest note.\n    expect(text).toMatch(\n      /no current system has been evaluated this way/i,\n    );\n    // The bar is drawn on the chart, and at 100k hours the fit is still\n    // below it.\n    await openStep(page);\n    await expect(egs(page).getByTestId('solved-bar')).toBeVisible();\n    await setSlider(\n      egs(page).getByRole('slider', HORIZON),\n      hoursToSlider(100_000),\n    );\n    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('100k h');\n    await expect(egs(page).getByTestId('completion-fit-readout')).toContainText(\n      /below the solved bar/i,\n    );\n    // The same point by preset, read out on the stage in plain words.\n    await egs(page).getByTestId('egoscale-preset-five').click();\n    await expect(egs(page).getByTestId('completion-readout')).toContainText(\n      '0.89, or 89%, still below the bar for solved',\n"
         }
       ]
     },
@@ -11274,13 +11338,13 @@
       },
       "after": {
         "path": "tests/e2e/pi-helix-theses-readers.spec.ts",
-        "bytes": 3798,
-        "sha256": "d4d426d40a5d6ab1020e7e955e2c4d0c10e55d1a04ae6ac062b763743f2d9686"
+        "bytes": 5152,
+        "sha256": "2a033dfa258f908ff731fe7b4ce609856f772c9862b378afc6bf1f8f4e71c0a8"
       },
       "edits": [
         {
           "before": "import AxeBuilder from '@axe-core/playwright';\n",
-          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\nimport { citeNoteInMargin, citeParts, closeCiteNote, revealCiteNote } from './helpers/citation-note';\n"
         },
         {
           "before": "    ['World-model-based training', 'the images condition the action policy'],\n    ['Hierarchical planner over skills', 'Figure reports a continuous four-minute Helix 02 dishwasher unloading-and-reloading'],\n    ['RL fine-tuning on imitation', 'successful episodes per hour, not inference speed'],\n",
@@ -11291,12 +11355,24 @@
           "after": "    for (const label of ['Evidence for', 'Evidence against', 'We’d know it’s wrong if']) {\n"
         },
         {
+          "before": "  for (const url of ['https://www.pi.website/download/pi07.pdf', 'https://www.pi.website/blog/pi07']) {\n    await expect(detail.locator(`a[href=\"${url}\"]`).first()).toBeVisible();\n",
+          "after": "  // Inside a figure a citation is a number whose note opens inline, and the\n  // note's author-year link is the source link the chip used to show.\n  for (const [id, url] of [\n    ['pi07-2026', 'https://www.pi.website/download/pi07.pdf'],\n    ['pi07-blog-2026', 'https://www.pi.website/blog/pi07'],\n  ] as const) {\n    const cite = detail.locator(`[data-cite-id=\"${id}\"]`).first();\n    await revealCiteNote(cite, 'keyboard');\n    await expect(citeParts(cite).source).toBeVisible();\n    await expect(citeParts(cite).source).toHaveAttribute('href', url);\n"
+        },
+        {
           "before": "  await page.screenshot({ path: testInfo.outputPath('pi-helix-selected.png') });\n",
           "after": "  await page.screenshot({ path: testInfo.outputPath('pi-helix-selected.png') });\n  await openAdjustMore(explorer);\n"
         },
         {
           "before": "  await expect(page.getByTestId('thesis-readout')).toHaveText('6 theses, showing: End-to-end VLA scaling');\n",
           "after": "  await expect(page.getByTestId('thesis-readout')).toHaveText('6 bets. Tap one to read the evidence for and against.');\n"
+        },
+        {
+          "before": "  for (const url of [\n    'https://www.pi.website/download/pi07.pdf',\n    'https://www.pi.website/blog/pi07',\n    'https://www.figure.ai/news/helix-02',\n  ]) {\n    const chip = prose.locator(`a[href=\"${url}\"]`).first();\n    await chip.scrollIntoViewIfNeeded();\n    await chip.hover();\n    await expect(page.getByRole('tooltip')).toBeVisible();\n    await page.keyboard.press('Escape');\n    await expect(page.getByRole('tooltip')).toHaveCount(0);\n",
+          "after": "  // Owner-approved successor (Josef, 2026-10-10, the research-page\n  // standard): the tooltip chip became a numbered sidenote. From 1200 px the\n  // note stands in the margin at rest. Where there is no margin the number\n  // opens the note inline and closes it again, so the pointer and keyboard\n  // dismissal the tooltip had is checked at 375 px.\n  const sources = [\n    ['pi07-2026', 'https://www.pi.website/download/pi07.pdf'],\n    ['pi07-blog-2026', 'https://www.pi.website/blog/pi07'],\n    ['helix-02-2026', 'https://www.figure.ai/news/helix-02'],\n  ] as const;\n  for (const [id, url] of sources) {\n    const cite = prose.locator(`[data-cite-id=\"${id}\"]`).first();\n    await expect(citeParts(cite).note).toBeVisible();\n    expect(await citeNoteInMargin(cite), `${id} note in the margin`).toBe(true);\n    await expect(citeParts(cite).source).toHaveAttribute('href', url);\n  }\n  await page.setViewportSize({ width: 375, height: 812 });\n  for (const [id, url] of sources) {\n    const cite = prose.locator(`[data-cite-id=\"${id}\"]`).first();\n    const { mark, note, source } = citeParts(cite);\n    await mark.scrollIntoViewIfNeeded();\n    await expect(note).toBeHidden();\n    await revealCiteNote(cite, 'pointer');\n    await expect(note).toHaveAttribute('data-open', 'true');\n    await closeCiteNote(cite);\n    await expect(note).toBeHidden();\n"
+        },
+        {
+          "before": "    await chip.focus();\n    await expect(page.getByRole('tooltip')).toBeVisible();\n    await page.keyboard.press('Escape');\n    await expect(page.getByRole('tooltip')).toHaveCount(0);\n    await expect(chip).toBeFocused();\n    await expect(chip).toHaveAttribute('href', url);\n",
+          "after": "    await revealCiteNote(cite, 'keyboard');\n    await expect(mark).toBeFocused();\n    await page.keyboard.press('Enter');\n    await expect(note).toBeHidden();\n    await expect(mark).toBeFocused();\n    await expect(source).toHaveAttribute('href', url);\n"
         }
       ]
     },
@@ -11932,13 +12008,21 @@
       },
       "after": {
         "path": "tests/e2e/safety-and-assurance.spec.ts",
-        "bytes": 23615,
-        "sha256": "d273a5a8f2f53236f8c2a5e2b85d941c85d26f46470e1c6740383ae262bcd43f"
+        "bytes": 24795,
+        "sha256": "a4c318942fbef715ae9db5f7a0911546c5f2660e833dff3036dac212477a236e"
       },
       "edits": [
         {
           "before": "import AxeBuilder from '@axe-core/playwright';\n",
-          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\n"
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';\nimport { openArticlesPanel } from './helpers/articles-panel';\n"
+        },
+        {
+          "before": "    // 1: the sidebar, in the frontier group, carrying the active highlight.\n",
+          "after": "    // 1: the taxonomy navigation (the sidebar until the research-page\n    // standard moved it into the \"Articles\" panel), in the frontier group,\n    // carrying the active highlight.\n    await openArticlesPanel(page);\n"
+        },
+        {
+          "before": "      ).toBeVisible();\n\n",
+          "after": "      ).toBeVisible();\n\n      await openArticlesPanel(page);\n"
         },
         {
           "before": "    // The two procedural modes state a constraint instead of a number.\n",
@@ -11955,6 +12039,14 @@
         {
           "before": "    await page.getByRole('button', { name: 'Reset' }).click();\n",
           "after": "    await frame.getByRole('button', { name: 'Reset' }).click();\n"
+        },
+        {
+          "before": "    await page.goto(ROUTE);\n\n",
+          "after": "    await page.goto(ROUTE);\n\n    // Under the research-page standard the visible trail is the masthead\n    // eyebrow: the top bar names the site and the H1 names the page, so the\n    // eyebrow links the one ancestor between them, and the full Home >\n    // domain > article trail is the page's BreadcrumbList structured data\n    // (both halves are graded site-wide in lib/brand-v2-apparatus-evidence.ts).\n"
+        },
+        {
+          "before": "    await expect(crumbs.getByRole('link', { name: 'Home' })).toHaveAttribute(\n      'href',\n      '/',\n    );\n    await expect(crumbs.getByRole('link')).toHaveCount(2);\n    await expect(crumbs.getByText(TITLE)).toBeVisible();\n",
+          "after": "    await expect(\n      crumbs.getByRole('link', { name: 'Frontier & Open Problems' }),\n    ).toHaveAttribute('href', '/frontier/');\n    await expect(crumbs.getByRole('link')).toHaveCount(1);\n    const trail = await page\n      .locator('script[type=\"application/ld+json\"]')\n      .evaluateAll((scripts) =>\n        scripts.flatMap((script) => {\n          const data = JSON.parse(script.textContent ?? 'null');\n          if (data?.['@type'] !== 'BreadcrumbList') return [];\n          return (data.itemListElement as Array<{ name: string; item: string }>).map(\n            (item) => [item.name, new URL(item.item).pathname],\n          );\n        }),\n      );\n    expect(trail).toEqual([\n      ['Home', '/'],\n      ['Frontier & Open Problems', '/frontier/'],\n      [TITLE, ROUTE],\n    ]);\n"
         },
         {
           "before": "  test('the inbound prose link sits in reliability-gap\\'s \"What solved would look like\" section', async ({\n",
@@ -12266,21 +12358,41 @@
       },
       "after": {
         "path": "tests/e2e/thesis-economics-readers.spec.ts",
-        "bytes": 6149,
-        "sha256": "f328a7b9350ed6b5a34883992eb70fbf681a78d9dd971549a31cc36a23ed442c"
+        "bytes": 7185,
+        "sha256": "7d97ab72f9fde12f1ca79cce79fbcdb61a4f3286b4f781b198e0d4e0ceac5b54"
       },
       "edits": [
         {
           "before": "import AxeBuilder from '@axe-core/playwright';\n",
-          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\n"
+          "after": "import AxeBuilder from '@axe-core/playwright';\nimport { openAdjustMore } from './helpers/figure-fold';\nimport { citeNoteInMargin, citeParts, closeCiteNote, revealCiteNote } from './helpers/citation-note';\n"
         },
         {
           "before": "  const flywheel = prose.locator('p').filter({ hasText: 'Bessemer’s investor outlook quotes Voxel51’s Brian Moore' }).last();\n",
           "after": "  const flywheel = prose.locator('p').filter({ hasText: 'Bessemer quotes Voxel51’s Brian Moore' }).last();\n"
         },
         {
+          "before": "  const observations: unknown[] = [];\n  for (const [name, paragraph] of [['article-flywheel', flywheel], ['article-glow', glow]] as const) {\n",
+          "after": "  const observations: unknown[] = [];\n  // Owner-approved successor (Josef, 2026-10-10, the research-page\n  // standard): the tooltip chip became a numbered sidenote. From 1200 px the\n  // note stands in the margin at rest. Where there is no margin the number\n  // opens the note inline and closes it again, so the pointer and keyboard\n  // states, the note's bounds and the dismissal are checked at 375 px.\n  const desktop = page.viewportSize()!;\n  for (const [name, paragraph] of [['article-flywheel', flywheel], ['article-glow', glow]] as const) {\n    await page.setViewportSize(desktop);\n"
+        },
+        {
+          "before": "    const chip = paragraph.locator(`a[href=\"${source}\"]`).first();\n    await chip.scrollIntoViewIfNeeded();\n    await chip.hover();\n    await expect(page.getByRole('tooltip')).toBeVisible();\n    await expect(page.getByRole('tooltip')).toContainText('Bessemer Predicts');\n    await page.keyboard.press('Escape');\n    await expect(page.getByRole('tooltip')).toHaveCount(0);\n",
+          "after": "    const cite = paragraph.locator('[data-cite-id=\"bessemer-robotics-2026\"]').first();\n    const { mark, note, source: link } = citeParts(cite);\n    await expect(link).toHaveAttribute('href', source);\n    await expect(note).toBeVisible();\n    await expect(note).toContainText('Bessemer Predicts');\n    expect(await citeNoteInMargin(cite), `${name} note in the margin`).toBe(true);\n    await page.setViewportSize({ width: 375, height: 812 });\n    await mark.scrollIntoViewIfNeeded();\n    await revealCiteNote(cite, 'pointer');\n    await expect(note).toContainText('Bessemer Predicts');\n    await closeCiteNote(cite);\n    await expect(note).toBeHidden();\n"
+        },
+        {
+          "before": "    await chip.focus();\n    const tip = page.getByRole('tooltip');\n    await expect(tip).toBeVisible();\n    const box = await tip.boundingBox();\n    observations.push({ name, viewport: page.viewportSize(), tooltip: box, sourceHref: await chip.getAttribute('href') });\n",
+          "after": "    await revealCiteNote(cite, 'keyboard');\n    const box = await note.boundingBox();\n    observations.push({ name, viewport: page.viewportSize(), note: box, sourceHref: await link.getAttribute('href') });\n"
+        },
+        {
+          "before": "    await page.keyboard.press('Escape');\n    await expect(tip).toHaveCount(0);\n    await expect(chip).toBeFocused();\n  }\n",
+          "after": "    await page.keyboard.press('Enter');\n    await expect(note).toBeHidden();\n    await expect(mark).toBeFocused();\n  }\n  await page.setViewportSize(desktop);\n"
+        },
+        {
           "before": "  const choice = explorer.getByRole('button', { name: 'Teleoperation as a bridge', exact: true });\n",
           "after": "  const choice = explorer.getByRole('button', { name: 'Humans steer while robots learn', exact: true });\n"
+        },
+        {
+          "before": "  const detailChip = detail.locator(`a[href=\"${source}\"]`).last();\n  await detailChip.scrollIntoViewIfNeeded();\n  await detailChip.focus();\n  await expect(page.getByRole('tooltip')).toBeVisible();\n  await page.keyboard.press('Escape');\n  await expect(detailChip).toBeFocused();\n",
+          "after": "  // In the figure the number opens its note inline and closes it again.\n  const detailCite = detail.locator('[data-cite-id=\"bessemer-robotics-2026\"]').last();\n  const detailParts = citeParts(detailCite);\n  await detailParts.mark.scrollIntoViewIfNeeded();\n  await revealCiteNote(detailCite, 'keyboard');\n  await expect(detailParts.source).toHaveAttribute('href', source);\n  await page.keyboard.press('Enter');\n  await expect(detailParts.note).toBeHidden();\n  await expect(detailParts.mark).toBeFocused();\n"
         },
         {
           "before": "  expect(axe.violations).toEqual([]);\n",

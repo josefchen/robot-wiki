@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 const ROUTE = '/frontier/bear-case/';
 
@@ -59,6 +60,7 @@ test.describe('frontier bear-case module', () => {
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
 
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'The Bear Case' }),
@@ -210,10 +212,14 @@ test.describe('frontier bear-case module', () => {
       ).toBeGreaterThanOrEqual(1);
     }
 
-    // Filter narrows the board and the readout follows.
+    // Filter narrows the board and the readout follows. Touch sensing is
+    // partly there, so the milestone opened last stays on the filtered
+    // board and the readout names it as open.
     await panel.getByRole('button', { name: 'Partly', exact: true }).click();
     await expect(page.getByTestId(/^milestone-tile-/)).toHaveCount(5);
-    await expect(readout).toHaveText('Showing 5 of 8: partly there');
+    await expect(readout).toHaveText(
+      'Showing 5 of 8: partly there, open: Touch sensing built into the robot’s brain',
+    );
 
     // The Done filter renders the explicit empty state.
     await panel.getByRole('button', { name: 'Done (0)', exact: true }).click();

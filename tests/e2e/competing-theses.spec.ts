@@ -3,6 +3,8 @@ import { test as evidenceTest } from './helpers/state-smoothing-fixture';
 import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
+import { citeParts, revealCiteNote } from './helpers/citation-note';
 
 // Normal E2E remains runnable without program-only evidence inputs.
 // Guarded Mission runs retain the strict input-bound offline fixture.
@@ -51,18 +53,18 @@ test.describe('frontier competing-theses module', () => {
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
 
-    const menu = page.getByRole('button', { name: 'Open navigation menu' });
-    const mobileMenu = await menu.isVisible();
-    if (mobileMenu) await menu.click();
+    // The top bar's "Articles" button opens the taxonomy panel at every
+    // width, so the close-and-return-focus check the mobile menu ran now
+    // runs at each width.
+    const menu = page.getByRole('button', { name: 'Articles' });
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Competing Theses' }),
     ).toHaveAttribute('aria-current', 'page');
-    if (mobileMenu) {
-      await page.keyboard.press('Escape');
-      await expect(menu).toBeFocused();
-      await expect(nav).not.toBeVisible();
-    }
+    await page.keyboard.press('Escape');
+    await expect(menu).toBeFocused();
+    await expect(nav).not.toBeVisible();
     expect(errors).toEqual([]);
   });
 
@@ -158,7 +160,12 @@ test.describe('frontier competing-theses module', () => {
     );
     await expect(detail).toContainText('V-JEPA 2');
     await expect(detail).toContainText('Cosmos 3');
-    // Citations are present in the detail view.
+    // Citations are present in the detail view. Inside a figure a citation
+    // is a number whose note opens inline, and the note holds the source
+    // link the chip used to carry.
+    const vjepa = detail.locator('[data-cite-id="vjepa2-2025"]').first();
+    await revealCiteNote(vjepa, 'pointer');
+    await expect(citeParts(vjepa).mark).toHaveAttribute('href', '#ref-vjepa2-2025');
     await expect(
       detail.getByRole('link', { name: 'Assran et al. 2025' }).first(),
     ).toHaveAttribute('href', expect.stringMatching(/^https?:\/\//));
@@ -189,14 +196,18 @@ test.describe('frontier competing-theses module', () => {
     await expect(rlButton).toHaveAttribute('aria-pressed', 'true');
     await expect(rlButton).toBeFocused();
 
-    // Focus state is visible (the global accent focus ring,
-    // signal blue #245FFF under brand-v2). The row's
-    // transition-colors animates the outline over ~150ms, so poll.
+    // Focus state is visible: the research-page standard's keyboard ring,
+    // a 1 px ink (#1C1C1A) outline offset 2 px, in place of the brand-v2
+    // signal blue. The row's transition-colors animates the outline over
+    // ~150ms, so poll.
     await expect
       .poll(() =>
-        rlButton.evaluate((el) => getComputedStyle(el).outlineColor),
+        rlButton.evaluate((el) => {
+          const style = getComputedStyle(el);
+          return `${style.outlineColor} ${style.outlineWidth} ${style.outlineOffset}`;
+        }),
       )
-      .toBe('rgb(36, 95, 255)');
+      .toBe('rgb(28, 28, 26) 1px 2px');
 
     // Reset, under "Adjust more", closes the open card.
     await openAdjustMore(explorer);
