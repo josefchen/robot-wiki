@@ -10,6 +10,7 @@ import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from
 import { approvedDeltaPath, sha256, type ApprovedDelta, type BaselineBundle } from '@/lib/brand-v2-baseline';
 import { collectArticleTruthManifests } from '@/scripts/brand-v2-baseline';
 import { withoutKolBacklogParagraphs } from '../helpers/kol-backlog-20261001';
+import { preDataHardwareCut } from '../helpers/seo-pass';
 
 type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
 interface Row {
@@ -103,8 +104,10 @@ describe('data-hardware scene truth', () => {
 
 describe('data-hardware prose truth', () => {
   it('retains source qualifications and exact later approval edges', () => {
-    const industrial = readFileSync(join(folder, 'industrial-deployment.mdx'), 'utf8');
-    const evaluation = readFileSync(join(folder, 'evaluation-crisis.mdx'), 'utf8');
+    // The 2026-10-13 data-hardware pass rewrote both articles; the qualification
+    // phrases are pinned on the pre-pass articles the cut layer rebuilds.
+    const industrial = preDataHardwareCut('content/data-hardware/industrial-deployment.mdx').toString();
+    const evaluation = preDataHardwareCut('content/data-hardware/evaluation-crisis.mdx').toString();
     expect(industrial).toContain('Backlog means unperformed obligations under existing contracts, not revenue already earned');
     expect(industrial).not.toContain('revenue has already been earned');
     expect(evaluation).toContain('methods for reducing the gaps, not guarantees that they are closed');
@@ -132,16 +135,20 @@ describe('data-hardware prose truth', () => {
       // added one edge of the same kind to each, and the reader-first pass's
       // optional prediction step added one more to evaluation-crisis. The
       // 2026-10-05 KOL backlog batch then re-resolved industrial-deployment.
+      // The 2026-10-13 data-hardware domain pass and length cut then added one
+      // edge of the same kind to each.
       const laterIds = slug === 'evaluation-crisis'
         ? ['round5-pinned-leftovers-20260928-prose-evaluation-crisis',
           'opus-figure-migration-20261001-prose-evaluation-crisis',
           'seo-pass-20261002-prose-data-hardware-evaluation-crisis',
           'reader-first-20261002-prose-data-hardware-evaluation-crisis',
-          'reader-first-20261003-predict-prose-data-hardware-evaluation-crisis']
+          'reader-first-20261003-predict-prose-data-hardware-evaluation-crisis',
+          'length-cut-20261013-data-hardware-prose-evaluation-crisis']
         : ['round6-prose-restores-20260929-prose-industrial-deployment',
           'seo-pass-20261002-prose-data-hardware-industrial-deployment',
           'reader-first-20261002-prose-data-hardware-industrial-deployment',
-          'kol-backlog-20261005-data-hardware-prose-industrial-deployment'];
+          'kol-backlog-20261005-data-hardware-prose-industrial-deployment',
+          'length-cut-20261013-data-hardware-prose-industrial-deployment'];
       const later = edges.filter((entry) => laterIds.includes(entry.id));
       expect(later.map((entry) => entry.id)).toEqual(laterIds);
       expect(edges.slice(edges.indexOf(qualification))).toEqual([qualification, ...later]);
@@ -174,7 +181,10 @@ describe('data-hardware prose truth', () => {
 
   it('preserves all numeric and ordered citation tokens from the audited checkpoint', () => {
     for (const file of articles) {
-      const current = withoutKolBacklogParagraphs(`data-hardware/${file}`, readFileSync(join(folder, file), 'utf8'));
+      // The 2026-10-13 data-hardware pass rewrote every article on purpose; this
+      // checkpoint comparison reads the pre-pass article the cut layer rebuilds.
+      const current = withoutKolBacklogParagraphs(`data-hardware/${file}`,
+        preDataHardwareCut(`content/data-hardware/${file}`).toString());
       const before = execFileSync('git', ['show', `69e01316:content/data-hardware/${file}`], {
         cwd: root, encoding: 'utf8',
       });

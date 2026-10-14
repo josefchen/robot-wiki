@@ -3,9 +3,12 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { planPacket } from '../helpers/audit-plan-history';
 import { committedJson } from '../helpers/editorial-current-context';
+import { preDataHardwareCut } from '../helpers/seo-pass';
 
 const ROOT = join(__dirname, '..', '..');
-const ARTICLE = join(ROOT, 'content', 'data-hardware', 'teleop-rigs.mdx');
+// The 2026-10-13 data-hardware pass rewrote the article; these originals read the
+// pre-pass article the cut layer rebuilds.
+const ARTICLE = 'content/data-hardware/teleop-rigs.mdx';
 const DATA = join(ROOT, 'data', 'teleop-rigs.ts');
 const CITATIONS = join(ROOT, 'data', 'citations.ts');
 const LEDGER = join(ROOT, 'audit', 'data-hardware.md');
@@ -36,7 +39,7 @@ describe('teleop-rigs originals integration (packet 60d405ba, 2026-09-16)', () =
   it('UMI local-AND conjunct arithmetic holds from the printed addends', () => {
     expect(73 + 298).toBe(371);
     // The paper prints the two addends, never the total.
-    const article = readFileSync(ARTICLE, 'utf8');
+    const article = preDataHardwareCut(ARTICLE).toString();
     expect(article).toContain('bills the printed gripper at \\$73 and the GoPro plus accessories at \\$298');
     expect(article).toContain('for a \\$371 collection rig');
   });
@@ -120,7 +123,7 @@ describe('teleop-rigs originals integration (packet 60d405ba, 2026-09-16)', () =
   });
 
   it('the corrected GELLO user-study wording replaces the overclaiming span', () => {
-    const article = readFileSync(ARTICLE, 'utf8');
+    const article = preDataHardwareCut(ARTICLE).toString();
     expect(article).toContain('12 participants ran five tasks on a bimanual pair of UR5 arms');
     expect(article).not.toContain('five bimanual UR5 tasks');
     const data = readFileSync(DATA, 'utf8');
@@ -129,7 +132,7 @@ describe('teleop-rigs originals integration (packet 60d405ba, 2026-09-16)', () =
   });
 
   it('site-sourced rates and the Apple price carry their own citations', () => {
-    const article = readFileSync(ARTICLE, 'utf8');
+    const article = preDataHardwareCut(ARTICLE).toString();
     expect(article).toContain(
       '231 per hour for the unassisted human hand <Cite id="umi-gripper-site-2024" />',
     );

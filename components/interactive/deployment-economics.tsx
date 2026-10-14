@@ -290,14 +290,19 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
   const jamLabelY = BAR.top - 8;
   const constraint = roleColour('constraint');
 
-  const sampleRows = JAM_SAMPLES.filter((jam) => jam === 5 || jam % 60 === 0 || jam === 15).map((jam) => {
-    const rare = computeEconomics({ ...inputs, successRatePercent: PRESET_SUCCESS.rare, jamClearSeconds: jam }).paybackMonths;
-    const common = computeEconomics({ ...inputs, successRatePercent: PRESET_SUCCESS.common, jamClearSeconds: jam }).paybackMonths;
-    return {
-      label: `${jam}`,
-      values: [rare === null ? 'never' : rare.toFixed(2), common === null ? 'never' : common.toFixed(2)],
-    };
-  });
+  // The table and the fold line print months to the readout's one decimal,
+  // so a reader who sets a sampled fix time finds the same numbers in both.
+  const presetMonths = (jam: number) =>
+    (['rare', 'common'] as const).map((id) => {
+      const months = computeEconomics({ ...inputs, successRatePercent: PRESET_SUCCESS[id], jamClearSeconds: jam }).paybackMonths;
+      return months === null ? 'never' : months.toFixed(1);
+    });
+  const sampleRows = JAM_SAMPLES.filter((jam) => jam === 5 || jam % 60 === 0 || jam === 15).map((jam) => ({
+    label: `${jam}`,
+    values: presetMonths(jam),
+  }));
+  const [rareNow, commonNow] = presetMonths(inputs.jamClearSeconds);
+  const withUnit = (months: string) => (months === 'never' ? 'never' : `${months} months`);
 
   function sliderField(spec: ControlSpec, visible: boolean) {
     const id = `${uid}-${spec.key}`;
@@ -539,6 +544,10 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
             {out.netPicksPerHour.toFixed(0)} modeled picks per elapsed hour and{' '}
             {out.monthlyPicks.toLocaleString('en-US', { maximumFractionDigits: 0 })} per{' '}
             {ROBOT_HOURS_PER_MONTH}-hour month; jam rate {out.jamRatePercent.toFixed(2)}%.
+          </p>
+          <p data-testid="payback-both-rates">
+            With {formatSeconds(inputs.jamClearSeconds)} to fix each jam, it pays back in{' '}
+            {withUnit(rareNow)} when 1 pick in 1,000 fails and {withUnit(commonNow)} when 1 in 100 fails.
           </p>
           <p>
             Where the elapsed hour goes:{' '}

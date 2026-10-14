@@ -19,7 +19,7 @@ import {
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
 import { headReanchorFor, sealedHash } from './helpers/continuation-merge-ledger';
-import { preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
+import { preSeoPassHash, preSeoPassText, preDataHardwareCut } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '1e07db26e614dd24e9f1c0c79a651df26cdec88b';
@@ -29,7 +29,9 @@ const before = (path: string) => showAt(base, path);
 const atDisclosure = (path: string) => showAt(disclosureCommit, path);
 const articlePath = 'content/data-hardware/datasets.mdx';
 const ledgerPath = 'audit/data-hardware.md';
-const article = read(articlePath);
+// The data-hardware domain pass and length cut of 2026-10-13 rewrote this article; these
+// originals pin the reviewed pre-pass wording, which the cut layer rebuilds from the live file.
+const article = preDataHardwareCut(articlePath).toString();
 const ledger = read(ledgerPath);
 const plans: CompoundPlan[] = JSON.parse(read('audit/compound-evidence.json'));
 const oldPlans: CompoundPlan[] = JSON.parse(before('audit/compound-evidence.json'));
@@ -98,7 +100,10 @@ function assertDisclosure(text: string, dataset: Dataset) {
   expect(text).not.toContain('The 107k dataset is licensed under Apache-2.0.');
 }
 
-function scopedBundle(stage: 'before' | 'historical' | 'sealed' | 'preMotion' | 'preSeoPass' | 'current'): BaselineBundle {
+// The datasets article as the 2026-10-13 data-hardware pass found it, rebuilt
+// by the cut layer from the live file.
+const preCutText = preDataHardwareCut(articlePath).toString();
+function scopedBundle(stage: 'before' | 'historical' | 'sealed' | 'preMotion' | 'preSeoPass' | 'preDataHardwareCut' | 'current'): BaselineBundle {
   const members = [
     ['prose', 'article:data-hardware/datasets', '4d2f822a1df86e4a4a78b4fdc6bba8fd580bf78ee1ab98d5beaa45902041cf95'],
     ['relationships', 'article:data-hardware/datasets', '40bbf9cc032869ee25165c5d9b2ab3c88cc848bbdaa5f3063050409103f2cc39'],
@@ -110,6 +115,21 @@ function scopedBundle(stage: 'before' | 'historical' | 'sealed' | 'preMotion' | 
       if (stage === 'sealed') return { id, hash: sealedHash(kind, id) };
       if (stage === 'preSeoPass') return { id, hash: preSeoPassHash(kind, id) };
       const manifests = stage === 'historical' ? historicalTruth
+        : stage === 'preDataHardwareCut' ? [
+          buildManifest('prose', [{
+            id: 'article:data-hardware/datasets',
+            value: { path: articlePath, body: matter(preCutText).content.trim() },
+          }]),
+          buildManifest('relationships', [{
+            id: 'article:data-hardware/datasets',
+            value: {
+              seeAlso: matter(preCutText).data.seeAlso,
+              citations: [...matter(preCutText).content.matchAll(/<Cite\s+id=["']([^"']+)["']/g)].map(m => m[1]).sort(),
+              terms: [...matter(preCutText).content.matchAll(/<Term\s+id=["']([^"']+)["']/g)].map(m => m[1]).sort(),
+              internalLinks: [...matter(preCutText).content.matchAll(/\]\((\/[^)#?]+\/?)(?:#[^)]+)?\)/g)].map(m => m[1]).sort(),
+            },
+          }]),
+        ]
         : stage === 'preMotion' ? [
           buildManifest('prose', [{
             id: 'article:data-hardware/datasets',
@@ -299,17 +319,24 @@ describe('RoboMIND original10 truthful release licensing disclosure', { timeout:
       ['4d2f822a1df86e4a4a78b4fdc6bba8fd580bf78ee1ab98d5beaa45902041cf95',
         '40bbf9cc032869ee25165c5d9b2ab3c88cc848bbdaa5f3063050409103f2cc39'].includes(a.oldHash));
     const reanchors = (['prose', 'relationships'] as const).map(kind =>
-      headReanchorFor(approvals.filter(a => !a.id.startsWith('seo-pass-20261002-')),
+      headReanchorFor(approvals.filter(a => !a.id.startsWith('seo-pass-20261002-')
+        && !a.id.startsWith('length-cut-20261013-data-hardware-')),
         kind, 'article:data-hardware/datasets')!);
     const motion = approvals.find(a => a.id === 'motion-data-hardware-humanizer-v3-20260927-prose-datasets')!;
     const seoPass = approvals.filter(a => a.id.startsWith('seo-pass-20261002-') &&
       a.memberId === 'article:data-hardware/datasets');
     expect(seoPass.map(a => a.manifest)).toEqual(['prose', 'relationships']);
+    // The 2026-10-13 data-hardware domain pass and length cut then moved both
+    // members with one plain edge each, from the SEO endpoints to HEAD.
+    const dataHardwareCut = approvals.filter(a => a.id.startsWith('length-cut-20261013-data-hardware-') &&
+      a.memberId === 'article:data-hardware/datasets');
+    expect(dataHardwareCut.map(a => a.manifest)).toEqual(['prose', 'relationships']);
     for (const [previous, next, edges] of [
       [scopedBundle('before'), scopedBundle('historical'), relevant],
       [scopedBundle('sealed'), scopedBundle('preMotion'), reanchors],
       [scopedBundle('preMotion'), scopedBundle('preSeoPass'), [motion]],
-      [scopedBundle('preSeoPass'), scopedBundle('current'), seoPass],
+      [scopedBundle('preSeoPass'), scopedBundle('preDataHardwareCut'), seoPass],
+      [scopedBundle('preDataHardwareCut'), scopedBundle('current'), dataHardwareCut],
     ] as const) {
       const comparison = compareBaseline(previous, next, edges);
       expect(comparison.ok, JSON.stringify(comparison)).toBe(true);

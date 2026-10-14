@@ -1,6 +1,7 @@
 import { writeFileSync } from 'node:fs';
 import type { Locator } from '@playwright/test';
 import { test, expect, readerBaseURL } from './dexterity-reader-fixture';
+import { citeNoteInMargin, citeParts, cycleInlineCiteNote } from './helpers/citation-note';
 
 test('Brooks readers: complete corrected prose, Stat, citation and References', async ({ page }, info) => {
   test.skip(!readerBaseURL, 'Requires the current owned offline dexterity reader and qualified inputs.');
@@ -42,12 +43,23 @@ test('Brooks readers: complete corrected prose, Stat, citation and References', 
   await capture('qualified-conclusion', paragraphs.filter({ hasText: 'When he wrote the essay, Brooks concluded' }));
   await capture('victory-inference-removed', paragraphs.filter({ hasText: 'The open question is which data closes the gap.' }));
   const source = 'https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/';
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): the chip's hover tooltip became a numbered sidenote, and
+  // "Brooks 2025" is now the note's source link. At this width the note
+  // stands in the margin at rest; the tooltip's hover and Escape are checked
+  // as the inline open and close at 375 px.
   const chip = prose.getByRole('link', { name: 'Brooks 2025' }).first();
   await expect(chip).toHaveAttribute('href', source);
   await chip.scrollIntoViewIfNeeded();
-  await chip.hover();
-  await expect(page.getByRole('tooltip')).toBeVisible();
+  // A role query finds the link only while its note is shown, so the
+  // citation is pinned by id for the narrow-width cycle.
+  const cite = prose.locator('[data-cite-id="brooks-dexterity-2025"]').first();
+  await expect(citeParts(cite).source).toHaveText('Brooks 2025');
+  await expect(citeParts(cite).source).toHaveAttribute('href', source);
+  await expect(citeParts(cite).note).toBeVisible();
+  expect(await citeNoteInMargin(cite)).toBe(true);
   await page.screenshot({ path: info.outputPath('brooks-citation-popover.png'), animations: 'disabled' });
+  await cycleInlineCiteNote(page, cite);
   await page.mouse.move(1, 1);
   await page.keyboard.press('Escape');
   await expect(page.getByRole('tooltip')).toHaveCount(0);

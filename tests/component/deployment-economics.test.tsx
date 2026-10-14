@@ -7,6 +7,7 @@ import {
   INPUT_RANGES,
   computeEconomics,
 } from '../../lib/deployment-economics';
+import { cellNumericToken, cellTokenInReadout } from '../e2e/helpers/table-agreement';
 
 function mount() {
   return render(<DeploymentEconomics />);
@@ -120,6 +121,29 @@ describe('DeploymentEconomics component', () => {
     expect(slider(/per-pick success/i).max).toBe(
       String(INPUT_RANGES.successRatePercent.max),
     );
+  });
+
+  it('carries both payback columns of the sampled table at the jam time the slider sets', () => {
+    // VAL-EDU-023 clause (c), as chart-table-agreement.spec.ts probes it:
+    // set the jam slider to a sampled row, then read the figure with the
+    // table removed. Every numeric cell of that row must be there at the
+    // precision the table prints.
+    const { container } = mount();
+    const table = container.querySelector('details[data-chart-data][data-chart-form="table"]')!;
+    const rows = Array.from(table.querySelectorAll('tbody tr')).map((tr) => ({
+      label: tr.querySelector('th')!.textContent!.trim(),
+      cells: Array.from(tr.querySelectorAll('td')).map((td) => td.textContent!.trim()),
+    }));
+    expect(rows.length).toBeGreaterThanOrEqual(2);
+    for (const row of rows) {
+      fireEvent.change(slider(/jam-clearing time/i), { target: { value: row.label } });
+      const clone = container.querySelector('[data-figure-frame]')!.cloneNode(true) as Element;
+      clone.querySelectorAll('details[data-chart-data]').forEach((d) => d.remove());
+      const readout = (clone.textContent ?? '').replace(/\s+/g, ' ');
+      for (const cell of row.cells.filter((c) => cellNumericToken(c) != null)) {
+        expect(cellTokenInReadout(cell, readout), `${row.label} s: [${cell}] in [${readout.slice(0, 200)}]`).toBe(true);
+      }
+    }
   });
 
   it('time breakdown shares are announced and non-negative', () => {

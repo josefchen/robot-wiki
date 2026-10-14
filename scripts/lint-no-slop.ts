@@ -175,7 +175,7 @@ if (!reportOnly) {
 // (source-only, full, report-structural-only) so the floor binds wherever
 // the lint runs, including postbuild.
 {
-  for (const domain of ['manipulation', 'classical', 'rl-sim2real', 'world-models', 'frontier']) {
+  for (const domain of ['manipulation', 'classical', 'rl-sim2real', 'world-models', 'frontier', 'data-hardware']) {
     const dir = join(contentDir, domain);
     const files = readdirSync(dir).filter((file) => /\.mdx?$/.test(file));
     const rows = files.map((file) => {

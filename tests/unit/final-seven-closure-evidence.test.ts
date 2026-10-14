@@ -12,6 +12,7 @@ import {
 } from '../../lib/safety-modes.ts';
 import { compoundedSuccessRate } from '../../lib/reliability.ts';
 import { LOCAL_BASIS_REQUIRED_TARGETS, recomputeLocalDerivation } from '../../lib/audit-local-basis.ts';
+import { preDataHardwareCut } from '../helpers/seo-pass';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 
@@ -38,7 +39,8 @@ describe('final-seven corrected reader disclosures and independent arithmetic', 
   });
 
   it('keeps dataset counts separate from authored projection inputs', () => {
-    const article = read('content/data-hardware/data-bottleneck.mdx');
+    // The 2026-10-13 data-hardware pass rewrote the page; the closure pins the pre-pass article.
+    const article = preDataHardwareCut('content/data-hardware/data-bottleneck.mdx').toString();
     expect(article).toContain('The chart assigns it no hour estimate');
     expect(article).not.toContain('350 hours divided by 50 collectors happens to equal seven');
     expect(ROBOT_POINTS.some(point => point.id === 'oxe')).toBe(false);
@@ -52,7 +54,8 @@ describe('final-seven corrected reader disclosures and independent arithmetic', 
   });
 
   it('qualifies episode arithmetic as constant conditional probability', () => {
-    const article = read('content/data-hardware/evaluation-crisis.mdx');
+    // The 2026-10-13 data-hardware pass rewrote the page; the closure pins the pre-pass article.
+    const article = preDataHardwareCut('content/data-hardware/evaluation-crisis.mdx').toString();
     expect(article).toContain('same probability p of success conditional on all earlier decisions succeeding');
     expect(article).not.toContain('an order of magnitude apart in real capability');
     expect(100 * .95 ** 30).toBeCloseTo(21.463876784);

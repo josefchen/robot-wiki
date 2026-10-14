@@ -18,6 +18,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { figureMountPredecessor } from './audit-figure-mount-continuity.ts';
 import { imageMountPredecessor } from './audit-image-mount-continuity.ts';
+import { dataHardwareCutPredecessor } from './audit-length-cut-data-hardware-continuity.ts';
 import { frontierLengthCutPredecessor } from './audit-length-cut-frontier-continuity.ts';
 import { worldModelsLengthCutPredecessor } from './audit-length-cut-world-models-continuity.ts';
 import { lengthCutPredecessor } from './audit-length-cut-continuity.ts';
@@ -463,12 +464,12 @@ function rebuiltPrior(root: string, path: string, live: Buffer): Buffer {
 export function preDomainPassCitations(root: string, path: string, citations: readonly string[]): readonly string[] {
   const pinned = successors.get(path);
   if (!pinned) return citations;
-  // The newer image-mount (2026-10-13), frontier length-cut, length-cut (manipulation, classical and rl-sim2real),
+  // The newer data-hardware cut (2026-10-13), image-mount (2026-10-13), frontier length-cut, length-cut (manipulation, classical and rl-sim2real),
   // world-models length-cut, word-budget trim and figure-mount layers hand back the domain-pass successor first.
   const ref = { path, bytes: 0, sha256: '' };
   const live = figureMountPredecessor(root, ref, wordBudgetTrimPredecessor(root, ref,
     worldModelsLengthCutPredecessor(root, ref, lengthCutPredecessor(root, ref,
-      frontierLengthCutPredecessor(root, ref, imageMountPredecessor(root, ref, readFileSync(join(root, path))))))));
+      frontierLengthCutPredecessor(root, ref, imageMountPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, readFileSync(join(root, path)))))))));
   if (live.length !== pinned[0] || digest(live) !== pinned[1]) return citations;
   const prior = citationList(frontmatter(rebuiltPrior(root, path, live).toString()) ?? '');
   const current = citationList(frontmatter(live.toString()) ?? '');

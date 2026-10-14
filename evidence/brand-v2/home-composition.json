@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "a7c4f59222e0b476b017b40baf92ca1d73be81b209cfcfe5963cf4bf9c1b9c8e",
+  "fingerprint": "d231df6f76f872e55406338821f2d19c5a78325c92d681ef6ce1c9fc8e943e7d",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2770,
+  "visibleTextLength": 2787,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -772,8 +772,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Dexterity",
-      "href": "/frontier/dexterity/",
+      "accessibleName": "The Data Bottleneck",
+      "href": "/data-hardware/data-bottleneck/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2179.89,
@@ -781,8 +781,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Robot Calibration",
-      "href": "/classical/calibration/",
+      "accessibleName": "Major Datasets",
+      "href": "/data-hardware/datasets/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2229.89,
@@ -790,8 +790,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Control",
-      "href": "/classical/control/",
+      "accessibleName": "The Evaluation Crisis",
+      "href": "/data-hardware/evaluation-crisis/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2279.89,
@@ -799,8 +799,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Grasp Planning",
-      "href": "/classical/grasp-planning/",
+      "accessibleName": "Hardware Taxonomy",
+      "href": "/data-hardware/hardware-taxonomy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2329.89,
@@ -808,8 +808,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Kinematics",
-      "href": "/classical/kinematics/",
+      "accessibleName": "Industrial Deployment",
+      "href": "/data-hardware/industrial-deployment/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2379.89,
@@ -974,7 +974,7 @@
       "headingSizePx": null
     }
   ],
-  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1180 sources · 119 glossary terms Search | Robot Wiki | Search |  | Search | CONTENTS | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | FEATURED ARTICLE | FEATURED SCENE | Of a Unitree G1's 23 motors, 12 move its legs and keep it balanced. Turn it in 3D 1 2 3 4 5 A humanoid is shaped like us so it can use our doors, stairs and tools. Back Next All 12 explainers in How robots work Related: Humanoid Whole-Body Control | Turn it in 3D | 1 | 2 | 3 | 4 | 5 | Back | Next | DID YOU KNOW | RECENTLY UPDATED | TOOLS Playground How robots work Market Map | A humanoid is shaped like us so it can use our doors, stairs and tools. | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | 3D explainer: Inside a humanoid | Step 1 | Step 2 | Step 3 | Step 4 | Step 5 | Tools",
+  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1255 sources · 119 glossary terms Search | Robot Wiki | Search |  | Search | CONTENTS | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | FEATURED ARTICLE | FEATURED SCENE | Of a Unitree G1's 23 motors, 12 move its legs and keep it balanced. Turn it in 3D 1 2 3 4 5 A humanoid is shaped like us so it can use our doors, stairs and tools. Back Next All 12 explainers in How robots work Related: Humanoid Whole-Body Control | Turn it in 3D | 1 | 2 | 3 | 4 | 5 | Back | Next | DID YOU KNOW | RECENTLY UPDATED | TOOLS Playground How robots work Market Map | A humanoid is shaped like us so it can use our doors, stairs and tools. | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | 3D explainer: Inside a humanoid | Step 1 | Step 2 | Step 3 | Step 4 | Step 5 | Tools",
   "domainAnchorCounts": {
     "Manipulation & Learned Policies": 1,
     "RL, Sim-to-Real & Locomotion": 1,
@@ -1014,8 +1014,8 @@
     {
       "label": "Introduction",
       "signature": "sheet/display-lockup/search-form",
-      "prose": "Citation-first encyclopedia of modern robot learning. 57 articles 1180 sources 119 glossary terms",
-      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1180 sources · 119 glossary terms Search"
+      "prose": "Citation-first encyclopedia of modern robot learning. 57 articles 1255 sources 119 glossary terms",
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1255 sources · 119 glossary terms Search"
     },
     {
       "label": "CONTENTS",
@@ -1038,14 +1038,14 @@
     {
       "label": "DID YOU KNOW",
       "signature": "plain/module-heading/cited-facts",
-      "prose": "An ANYmal quadruped on flat ground in under four minutes on one GPU. ACT reached 80-90% success on six bimanual tasks, each from about. By 1961, Heinrich Ernst had a stacking blocks at MIT.",
-      "text": "DID YOU KNOW An ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU Rudin et al. 2021. ACT reached 80-90% success on six bimanual tasks, each from about 10 minutes of demonstrations Zhao et al. 2023. By 1961, Heinrich Ernst had a computer-controlled arm and hand stacking blocks at MIT Brooks 2025."
+      "prose": "An ANYmal quadruped on flat ground in under four minutes on one GPU. ACT learned six bimanual tasks, each from about. By 1961, Heinrich Ernst had a stacking blocks at MIT.",
+      "text": "DID YOU KNOW An ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU Rudin et al. 2021. ACT learned six bimanual tasks, each from about 10 minutes of demonstrations Zhao et al. 2023. By 1961, Heinrich Ernst had a computer-controlled arm and hand stacking blocks at MIT Brooks 2025."
     },
     {
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-14 Dexterity 2026-10-14 Robot Calibration 2026-10-14 Control 2026-10-14 Grasp Planning 2026-10-14 Kinematics"
+      "text": "RECENTLY UPDATED 2026-10-14 The Data Bottleneck 2026-10-14 Major Datasets 2026-10-14 The Evaluation Crisis 2026-10-14 Hardware Taxonomy 2026-10-14 Industrial Deployment"
     },
     {
       "label": "Tools",

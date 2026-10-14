@@ -17,10 +17,13 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
+import { preDataHardwareCut } from '../helpers/seo-pass';
 
 const root = join(__dirname, '..', '..');
 const ledger = readFileSync(join(root, 'audit/data-hardware.md'), 'utf8');
-const article = readFileSync(join(root, 'content/data-hardware/hardware-taxonomy.mdx'), 'utf8');
+// The data-hardware domain pass and length cut of 2026-10-13 rewrote this article; these
+// originals pin the reviewed pre-pass wording, which the cut layer rebuilds from the live file.
+const article = preDataHardwareCut('content/data-hardware/hardware-taxonomy.mdx').toString();
 const plans = parseCompoundPlans(
   JSON.parse(readFileSync(join(root, 'audit/compound-evidence.json'), 'utf8')),
 );

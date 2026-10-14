@@ -67,7 +67,7 @@ describe('TeleopRigMatrix', () => {
     );
     // Known GELLO/UMI costs precede the two undisclosed numeric totals.
     expect(costs.slice(-2).every((value) => value.includes('not disclosed'))).toBe(true);
-    expect(costs.some((value) => value.includes('Community issue'))).toBe(true);
+    expect(costs.some((value) => value.includes('ACT paper (2023)'))).toBe(true);
     expect(costs[0]).toContain('$300');
   });
 

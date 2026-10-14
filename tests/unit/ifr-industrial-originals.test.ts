@@ -7,11 +7,14 @@ import { committedSource } from '../helpers/continuation-integration';
 import {
   compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger, type CompoundPlan,
 } from '../../lib/audit-ledger';
+import { preDataHardwareCut } from '../helpers/seo-pass';
 
 const ordinals = [1, 2, 3, 4, 13];
 const plans: CompoundPlan[] = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
 const ledger = readFileSync('audit/data-hardware.md', 'utf8');
-const article = readFileSync('content/data-hardware/industrial-deployment.mdx', 'utf8');
+// The data-hardware domain pass and length cut of 2026-10-13 rewrote this article; these
+// originals pin the reviewed pre-pass wording, which the cut layer rebuilds from the live file.
+const article = preDataHardwareCut('content/data-hardware/industrial-deployment.mdx').toString();
 const selected = plans.filter(p => p.ledgerPath === 'audit/data-hardware.md'
   && p.articleSlug === 'industrial-deployment' && ordinals.includes(p.rowOrdinal));
 const localBasis = loadLocalBasisContext(process.cwd(), publishedModules().map(m => `/${m.domain}/${m.slug}/`));

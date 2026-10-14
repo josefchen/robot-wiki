@@ -3,7 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const source = 'https://github.com/alpibrusl/lex-robot/issues/3';
+const source = 'https://arxiv.org/abs/2304.13705';
 const evidence = process.env.PRICING_EVIDENCE_DIR;
 
 async function settled(page: Page) {
@@ -64,13 +64,14 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     const aloha = table.locator('tbody tr').filter({ hasText: 'ALOHA-class workstation' });
     const cost = aloha.locator('td').nth(1);
     await expect(cost.getByText('not disclosed', { exact: true })).toBeVisible();
-    for (const text of ['researched Jun 2026', 'ALOHA / ALOHA 2', '$17k-32k', 'currency code', 'configurations', 'inclusions/exclusions', 'not a vendor quote']) {
+    for (const text of ['ACT paper (2023)', 'original ALOHA bimanual setup', '$18k', '$20k with optional add-ons such as cameras', 'not a vendor quote']) {
       await expect(cost).toContainText(text);
     }
+    await expect(cost).not.toContainText('$17k-32k');
     await expect(table.locator('tbody td:nth-child(2)').getByText('not disclosed', { exact: true })).toHaveCount(2);
     await expect(table.getByText('n/a', { exact: true })).toHaveCount(0);
     await cost.scrollIntoViewIfNeeded();
-    await capture('teleop-community-cell');
+    await capture('teleop-paper-cost-cell');
     const highlight = page.getByRole('button', { name: 'Cost', exact: true });
     await highlight.focus();
     await page.keyboard.press('Enter');
@@ -79,13 +80,13 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await capture('teleop-cost-disclosure');
     await page.keyboard.press('Enter');
     await expect(page.getByRole('region', { name: 'Dimension detail' })).toHaveCount(0);
-    const communityLink = aloha.getByRole('link', { name: 'Community estimate (Jun 2026)' });
-    await communityLink.focus();
-    await expect(communityLink).toBeFocused();
-    await expect(communityLink).toHaveAttribute('href', source);
-    await expect(communityLink).toHaveAttribute('rel', /noopener/);
+    const paperLink = aloha.getByRole('link', { name: 'ACT paper', exact: true });
+    await paperLink.focus();
+    await expect(paperLink).toBeFocused();
+    await expect(paperLink).toHaveAttribute('href', source);
+    await expect(paperLink).toHaveAttribute('rel', /noopener/);
     // Inspect the citation without opening a new external source request.
-    const chip = page.locator('div.prose[data-pagefind-body] a').filter({ hasText: /2026/ }).and(page.locator(`a[href="${source}"]`)).first();
+    const chip = page.locator('div.prose[data-pagefind-body] a').filter({ hasText: /2023/ }).and(page.locator(`a[href="${source}"]`)).first();
     await chip.focus();
     await expect(chip).toBeFocused();
     await expect(chip).toHaveAttribute('href', source);
@@ -100,17 +101,17 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await unknownFilter.focus();
     await page.keyboard.press('Enter');
     await expect(unknownFilter).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByText('20 of 40 entries')).toBeVisible();
+    await expect(page.getByText('18 of 40 entries')).toBeVisible();
     const hardware = page.getByRole('table', { name: /hardware entries/i });
     const hardwarePrice = hardware.locator('tbody tr').filter({ has: page.getByText('ALOHA 2', { exact: true }) }).locator('td').nth(2);
     await expect(hardwarePrice.getByText('not disclosed', { exact: true })).toBeVisible();
     await expect(hardwarePrice).toContainText('not a vendor quote');
     await expect(hardwarePrice).not.toContainText('as of');
-    const issue = hardwarePrice.getByRole('link', { name: 'Community estimate (Jun 2026)' });
-    await issue.focus();
-    await expect(issue).toBeFocused();
-    await expect(issue).toHaveAttribute('href', source);
-    await capture('hardware-community-cell');
+    const paper = hardwarePrice.getByRole('link', { name: 'ACT paper (2023)' });
+    await paper.focus();
+    await expect(paper).toBeFocused();
+    await expect(paper).toHaveAttribute('href', source);
+    await capture('hardware-paper-cost-cell');
     await inspect('/data-hardware/hardware-taxonomy/');
     expect(errors).toEqual([]);
     writeFileSync(join(output, `${viewport.width}-render-checks.json`), JSON.stringify({
@@ -129,13 +130,13 @@ test('mobile price provenance remains readable after bounded table scrolling', a
   await page.getByRole('button', { name: 'No listed price', exact: true }).click();
   const table = page.getByRole('table', { name: /hardware entries/i });
   const cell = table.locator('tbody tr').filter({ has: page.getByText('ALOHA 2', { exact: true }) }).locator('td').nth(2);
-  await cell.getByRole('link', { name: 'Community estimate (Jun 2026)' }).focus();
+  await cell.getByRole('link', { name: 'ACT paper (2023)' }).focus();
   await cell.evaluate((element) => element.scrollIntoView({ block: 'center', inline: 'center' }));
   const bounds = await cell.boundingBox();
   expect(bounds!.x).toBeGreaterThanOrEqual(0);
   expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(375);
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
-  await expect(cell).toContainText('inclusions/exclusions not itemized');
+  await expect(cell).toContainText('no ALOHA 2 price published');
   const output = evidence ?? testInfo.outputPath('pricing-provenance');
   mkdirSync(output, { recursive: true });
   await page.screenshot({ path: join(output, '375-hardware-price-scrolled.png'), animations: 'disabled' });

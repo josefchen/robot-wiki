@@ -5,6 +5,7 @@ import { committedSource } from '../helpers/continuation-integration';
 import {
   compoundPartDigest, compoundPlanDigest, parseLedger, type CompoundPlan,
 } from '../../lib/audit-ledger';
+import { preDataHardwareCut } from '../helpers/seo-pass';
 
 const plans: CompoundPlan[] = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8'));
 const markdown = readFileSync('audit/data-hardware.md', 'utf8');
@@ -13,7 +14,9 @@ const selected = plans.filter(p => p.ledgerPath === 'audit/data-hardware.md'
 const parse = (input = plans) => parseLedger('audit/data-hardware.md', markdown,
   new Set(CITATIONS.map(c => c.id)), { compoundPlans: input })
   .find(s => s.slug === 'industrial-deployment')!;
-const article = readFileSync('content/data-hardware/industrial-deployment.mdx', 'utf8');
+// The data-hardware domain pass and length cut of 2026-10-13 rewrote this article; these
+// originals pin the reviewed pre-pass wording, which the cut layer rebuilds from the live file.
+const article = preDataHardwareCut('content/data-hardware/industrial-deployment.mdx').toString();
 const section = article.split("## The integrator's multiple\n")[1].split('\n## ')[0];
 
 describe('industrial cost and responsibility coupled originals', () => {

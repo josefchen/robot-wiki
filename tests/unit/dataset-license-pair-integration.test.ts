@@ -222,6 +222,14 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
         let head = approvals.findLast(candidate => candidate.manifest === manifest &&
           candidate.memberId === memberId && candidate.newHash === currentHash(manifest, memberId))!;
         expect(head).toMatchObject({ newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        // The 2026-10-13 data-hardware domain pass and length cut continues the
+        // prose and the related links with one plain edge each; the endpoint it
+        // continued is checked below like the SEO pass's.
+        if (head.id.startsWith('length-cut-20261013-data-hardware-') && head.reconciles === undefined) {
+          const continued = head.oldHash;
+          head = approvals.findLast(candidate => candidate.manifest === manifest &&
+            candidate.memberId === memberId && candidate.newHash === continued)!;
+        }
         // The 2026-10-02 SEO pass continues the prose and the related links
         // with one plain edge each; the endpoint it continued is checked here.
         const preSeoPass = approvals.filter(candidate => !candidate.id.startsWith('seo-pass-20261002-'));
@@ -232,11 +240,26 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
         }
         if (memberId === 'article:data-hardware/datasets' && manifest === 'prose') {
           expect(head.id).toBe('motion-data-hardware-humanizer-v3-20260927-prose-datasets');
-          expect(head.oldHash).toBe(headReanchorFor(preSeoPass, manifest, memberId)!.newHash);
+          // The later data-hardware cut edge is not the re-anchor this edge continued.
+          expect(head.oldHash).toBe(headReanchorFor(preSeoPass.filter(candidate =>
+            !candidate.id.startsWith('length-cut-20261013-data-hardware-')), manifest, memberId)!.newHash);
         } else expect(head.oldHash).toBe(sealedHash(manifest, memberId));
         expect(approvals.indexOf(head)).toBeGreaterThanOrEqual(approvals.indexOf(reanchor!));
       } else {
-        expect(a?.newHash).toBe(currentHash(manifest, memberId));
+        // The 2026-10-13 data-hardware domain pass and length cut later moved one
+        // lane-only member, the datasets front matter (it appends the citation
+        // ids the rewritten body cites), with one plain edge that continues the
+        // lane endpoint to HEAD.
+        const later = approvals.filter(x => x.id.startsWith('length-cut-20261013-data-hardware-') &&
+          x.manifest === manifest && x.memberId === memberId);
+        expect(later.length).toBeLessThanOrEqual(1);
+        let end = a?.newHash;
+        for (const edge of later) {
+          expect(edge.oldHash).toBe(end);
+          expect(edge.reconciles).toBeUndefined();
+          end = edge.newHash;
+        }
+        expect(end).toBe(currentHash(manifest, memberId));
         // A lane-only member needs no integration re-anchor; if one exists it must be exact.
         if (reanchor) expect(reanchor).toMatchObject({ oldHash: sealedHash(manifest, memberId), newHash: currentHash(manifest, memberId) });
       }
@@ -247,10 +270,16 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
     const laneMembers = oldHashes.filter(entry => !touched(entry));
     const laneApprovals = selectedApprovals.filter(a => laneMembers.some(([k, id]) => a.manifest === k && a.memberId === id));
     expect(laneApprovals.length).toBeGreaterThan(0);
-    expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals).ok).toBe(true);
-    for (const approval of laneApprovals) {
-      expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals.filter(a => a.id !== approval.id)).ok).toBe(false);
-      expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), laneApprovals.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
+    // The 2026-10-13 data-hardware pass continues the datasets front matter from
+    // the lane endpoint to HEAD with one plain edge.
+    const laterLane = approvals.filter(a => a.id.startsWith('length-cut-20261013-data-hardware-') &&
+      laneMembers.some(([k, id]) => a.manifest === k && a.memberId === id));
+    expect(laterLane.map(a => a.id)).toEqual(['length-cut-20261013-data-hardware-frontmatter-datasets']);
+    const lanePath = [...laneApprovals, ...laterLane];
+    expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), lanePath).ok).toBe(true);
+    for (const approval of lanePath) {
+      expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), lanePath.filter(a => a.id !== approval.id)).ok).toBe(false);
+      expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), lanePath.map(a => a.id === approval.id ? { ...a, newHash: '0'.repeat(64) } : a)).ok).toBe(false);
     }
     // Members the production line also changed: seal -> HEAD through the latest integration re-anchors.
     const mergedMembers = oldHashes.filter(touched).map(([k, id]) => [k, id, sealedHash(k, id)] as [BaselineKind, string, string]);

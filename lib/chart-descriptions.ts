@@ -55,7 +55,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/data-scale-chart.tsx',
     route: '/data-hardware/data-bottleneck/',
     quantityNames: ['hours', 'tokens'],
-    text: 'Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale) across 6 robot and human datasets, while pretraining tokens span 300B (GPT-3) to 15T (Llama 3), 9 orders of magnitude apart with no honest hour-to-token exchange rate between the lanes; your 10-rig farm at the low-rate hypothetical rate projects 70 h per year, reaching the authored 10,000-hour target in 143 yr and the authored 1,000,000-hour target in 14,286 yr. No OXE hour estimate is supplied or plotted here.',
+    text: 'Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale) across 6 robot and human datasets, while pretraining tokens span 300B (GPT-3) to 15T (Llama 3), on separate rulers with no honest hour-to-token exchange rate between them; your 10-rig farm at the low-rate hypothetical rate projects 70 h per year, reaching the authored 10,000-hour target in 143 yr and the authored 1,000,000-hour target in 14,286 yr. No OXE hour estimate is supplied or plotted here.',
   },
   {
     component: 'GaitDiagram',

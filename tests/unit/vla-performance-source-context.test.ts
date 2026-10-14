@@ -2,10 +2,13 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { HARDWARE } from '@/data/hardware';
+import { preDataHardwareCut } from '../helpers/seo-pass';
 
 const article = (path: string) => readFileSync(resolve(process.cwd(), path), 'utf8');
 const realtime = () => article('content/manipulation/realtime-execution.mdx');
-const hardware = () => article('content/data-hardware/hardware-taxonomy.mdx');
+// The data-hardware domain pass and length cut of 2026-10-13 rewrote this article; these
+// originals pin the reviewed pre-pass wording, which the cut layer rebuilds from the live file.
+const hardware = () => preDataHardwareCut('content/data-hardware/hardware-taxonomy.mdx').toString();
 
 describe('VLA-Perf source context', () => {
   it('distinguishes analytical predictions from empirical profiling in both articles', () => {

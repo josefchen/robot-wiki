@@ -18,6 +18,29 @@ citations:
   - open-television-2024
   - bunny-visionpro-2024
   - apple-visionpro-price-2024
+  - generalist-gen1-2026
+  - xiaomi-robotics-1-2026
+  - meta-quest-3s-2024
+  - aloha-2-2024
+  - aloha-unleashed-2024
+  - rt1-2022
+  - airexo-2-2025
+  - homie-2025
+  - forcemimic-2024
+  - lin-data-scaling-laws-2024
+  - hifi-umi-2026
+  - roboturk-2018
+  - open-teach-2024
+  - apple-vision-pro-m5-2025
+  - humanplus-2024
+  - dexumi-2025
+  - seed-umi-2026
+  - sunday-act1-2025
+  - ditto-x-2026
+  - bd-atlas-hand-2026
+  - egomimic-2024
+  - egodex-2025
+  - generalist-gen0-2025
 seeAlso:
   - "manipulation/action-chunking"
   - "data-hardware/datasets"
@@ -26,51 +49,57 @@ seeAlso:
 
 import { TeleopRigMatrix } from '@/components/interactive/teleop-rig-matrix';
 
-<Term id="teleoperation">Teleoperation</Term> rigs are the hardware a person uses to drive a robot, or a stand-in for one, while a demonstration is recorded. Nearly every demonstration in a robot learning dataset was produced by a human moving hardware. The human drives the robot itself, moves a scaled twin of it, holds a gripper proxy in hand, or works inside a headset while the robot mirrors them. Four rig families cover most of that collection in 2026: ALOHA-class bimanual workstations, GELLO kinematically matched exoskeletons, UMI handheld grippers, and VR teleoperation. Each family is a different bet on four axes: what the rig costs, how faithfully its demonstrations map onto robot execution, how cheaply its demonstration volume scales, and how large the gap is between the recorded motion and the robot's. Cost figures do not all describe comparable purchases: GELLO's sub-\$300 paper BOM buys the controller; its robot arm costs extra <Cite id="gello-2023" />.
-
-<Cite id="lerobot-pricing-2026" /> A community issue researched in June 2026 estimates the combined “ALOHA / ALOHA 2” category at about \$17k-32k, but does not specify the currency code, configurations, or itemized inclusions and exclusions. That estimate is not a current vendor quote or a verified ALOHA 2 system total.
+<Term id="teleoperation">Teleoperation</Term> rigs are the hardware a person moves to drive a robot, or a stand-in for one, while a demonstration is recorded. Leader-follower arms, GELLO replicas, UMI handheld grippers and VR headsets trade cost and collection speed against the embodiment gap, and the largest corpora reported by 2026, 100,000 hours and more, came from wearable and handheld devices <Cite id="generalist-gen1-2026" /> <Cite id="xiaomi-robotics-1-2026" />.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="entry rig" value="$300" note="GELLO parts BOM, arm excluded" accent />
   <Stat label="UMI collection" value="111/h" note="demos per hour vs 35/h spacemouse teleop" />
   <Stat label="VR fleet scale" value="76k" note="DROID trajectories from 50 operators" />
-  <Stat label="workstation USD total" value="not disclosed" note="Community estimate below is not an itemized vendor quote" />
+  <Stat label="workstation USD total" value="not disclosed" note="the ACT paper's $18k ALOHA build cost is not a vendor quote" />
 </div>
 
 ## The comparison matrix
 
 <TeleopRigMatrix className="my-6 wide-measure" />
 
-Three reading rules for the matrix. First, ratings run low, medium, high, and the note in each cell states what the rating means for that rig and dimension, because "high throughput" is good news and "high embodiment gap" is not. Second, the highlight buttons swap the legend and print the per-rig detail for one dimension at a time. Third, every column sorts, cells with no published value are marked "not disclosed", and those cells sort last in both directions. Two cost cells remain “not disclosed”: the VR family has no published system total, and the cited ALOHA/ALOHA 2 community estimate does not establish a configuration-specific USD total. The estimate remains visible as source context, not a sortable price. Try the Cost highlight and the matrix prints the per-rig cost detail.
+VR system totals are unpublished, but Meta lists the Quest 3S from \$299.99 <Cite id="meta-quest-3s-2024" />. Try the Cost highlight and the matrix prints the per-rig cost detail.
 
 ## Bimanual workstations: fidelity first
 
-The ALOHA design seats a human at a leader arm that is a twin of the follower arm the policy runs on. ACT, the policy built for that rig, learned six difficult bimanual tasks to 80-90% success, each from about 10 minutes of demonstrations, precisely because the demonstrations arrive already written in the robot's joint space <Cite id="act-aloha-2023" />. Mobile ALOHA bolted a mobile base onto the same idea for whole-body tasks: with 50 demonstrations per task and co-training on existing static ALOHA data, success rates rose by up to 90% on tasks like sauteing shrimp and opening a two-door wall cabinet <Cite id="mobile-aloha-2024" />.
+In ALOHA, an operator drives a leader arm that twins the follower, so demonstrations arrive in the robot's own joint space. ACT, the [action-chunking](/manipulation/action-chunking) policy built for that rig, learned six bimanual tasks, each from about 10 minutes of demonstrations. It reached 84 to 96% final success on four of them, 64% on taping and 20% on threading a velcro tie. The paper put the bimanual setup at \$18k, or \$20k with add-ons such as cameras <Cite id="act-aloha-2023" />.
 
-The hardware line behind these papers rebranded as Trossen AI in 2025-2026: \$23,995.95 for the bimanual Stationary AI, \$33,695.95 for Mobile AI on a base, \$4,545.95 for the single-arm WidowX AI entry point, all running 500 Hz CAN FD control on the iNerve board with LeRobot and OpenPI integration <Cite id="trossen-ai-2026" />.
+Mobile ALOHA added a base; with 50 demonstrations per task and co-training on static ALOHA data, success rose by up to 90% on tasks like sauteing shrimp and opening a two-door wall cabinet <Cite id="mobile-aloha-2024" />. ALOHA 2's hardware designs are open source <Cite id="aloha-2-2024" />. The line now sells as Trossen AI at \$23,995.95 for the bimanual Stationary AI, \$33,695.95 for Mobile AI and \$4,545.95 for a single WidowX AI arm <Cite id="trossen-ai-2026" />.
 
-<Cite id="lerobot-pricing-2026" /> The community issue in alpibrusl/lex-robot, self-described as researched in June 2026, lists “ALOHA / ALOHA 2” as “research bimanual” at approximately \$17k-32k. It warns generally that DIY BOMs, assembled products, and tariffs produce wide spreads, but does not tie the two endpoints to named configurations. The currency code, included hardware, and exclusions are not itemized; this secondary estimate cannot stand in for current vendor pricing.
-
-The trade is throughput. Each additional collector needs another full workstation and the space to put it, so fleet scale here takes capital and space. No fleet-scale collection numbers are published for ALOHA-class rigs; the family earns its keep on data quality instead.
+Each extra collector needs another workstation. In ALOHA Unleashed, a pool of 35 operators without researcher oversight collected over 26,000 episodes for 5 tasks on 10 robots in 2 buildings over 8 months <Cite id="aloha-unleashed-2024" />. RT-1's fleet of 13 robots gathered about 130k episodes over 17 months <Cite id="rt1-2022" />.
 
 ## GELLO: the kinematic twin
 
-GELLO takes the matched-kinematics idea and shrinks it. The device is a scaled replica of the target arm built from 3D-printed links and off-the-shelf motors, so the operator moves it like the arm itself and joint readings map one-to-one onto robot commands. Parts cost under \$300, the paper calls the assembly process straightforward, says it needs minimal technical expertise, and quotes no build time; the published designs cover Franka, UR5, and xArm <Cite id="gello-2023" />. In the paper's user study, 12 participants ran five tasks on a bimanual pair of UR5 arms using GELLO, VR controllers, and a 3D spacemouse; GELLO came out more reliable and faster than both <Cite id="gello-2023" />.
+GELLO is a scaled replica of the target arm built from 3D-printed links and off-the-shelf motors, so joint readings map one-to-one onto robot commands. Parts cost under \$300, and the published designs cover Franka, UR5 and xArm. In the paper's user study, 12 participants ran five tasks on a bimanual pair of UR5 arms, and GELLO was more reliable and faster than VR controllers or a 3D spacemouse. The \$300 buys a controller only, and every new arm needs its own design <Cite id="gello-2023" />.
 
-Two limits define the family. The \$300 buys a controller only; the robot arm it drives is a separate cost. And kinematic matching is per-model: every new arm needs its own GELLO design, which is the price of the one-to-one joint mapping.
+A policy trained only on adapted AirExo-2 data performed comparably to one trained on teleoperated data <Cite id="airexo-2-2025" />. HOMIE's \$500 humanoid cockpit pairs an exoskeleton arm and motion-sensing gloves with a pedal-driven locomotion policy, finishing tasks in half the time of earlier systems <Cite id="homie-2025" />.
 
 ## UMI: collection without a robot
 
-UMI removes the robot from collection entirely. The operator holds a 3D-printed parallel-jaw gripper fitted with a wrist-mounted GoPro and a 155-degree fisheye lens, performs the task wherever it naturally happens, and SLAM recovers the gripper pose from the video <Cite id="umi-2024" />. The paper bills the printed gripper at \$73 and the GoPro plus accessories at \$298, for a \$371 collection rig <Cite id="umi-2024" />. The paper measures throughput in 15-minute collection windows and reports the gripper more than 3x faster than spacemouse teleoperation at 48% of bare-hand speed; the project site's rates are 111 demonstrations per hour on the cup arrangement task, against 35 per hour for teleoperation and 231 per hour for the unassisted human hand <Cite id="umi-gripper-site-2024" />.
+The UMI operator holds a 3D-printed parallel-jaw gripper with a wrist-mounted GoPro and a 155-degree fisheye lens, and SLAM recovers the gripper pose from the video. The paper bills the printed gripper at \$73 and the GoPro and accessories at \$298, for a \$371 collection rig <Cite id="umi-2024" />. On cup arrangement the project site reports 111 demonstrations per hour, against 35 for spacemouse teleoperation and 231 by bare hand <Cite id="umi-gripper-site-2024" />.
 
-The price of robot-free collection is an embodiment gap the interface has to close at deployment time. UMI does it with inference-time latency matching and a camera-relative action representation, and the resulting policies deploy zero-shot onto any arm with a compatible gripper and camera setup; the paper demonstrates UR5 and Franka, and its own printed gripper has an 80 mm finger stroke <Cite id="umi-2024" />. What the data lacks is a force channel, which matters for contact-rich tasks. Where robot-free collection fits in the wider data economics is the subject of [The Data Bottleneck](/data-hardware/data-bottleneck).
+Latency matching at inference time and a camera-relative action representation let UMI policies deploy zero-shot on any arm with a compatible gripper and camera, shown on UR5 and Franka. The data lack a force channel <Cite id="umi-2024" />. ForceMimic adds one: its operator peeled a zucchini in 5 minutes, against over 13 with force-feedback teleoperation <Cite id="forcemimic-2024" />.
+
+Four collectors gathered enough UMI data in one afternoon for about 90% success in new environments <Cite id="lin-data-scaling-laws-2024" />. A policy post-trained only on HiFi-UMI data matched in-domain teleoperation across three backbones <Cite id="hifi-umi-2026" />.
 
 ## VR teleoperation: scale through headsets
 
-VR teleoperation keeps the robot fixed and lets the operator move from inside a headset, with the robot mirroring the operator's hand or controller poses through a <Term id="retargeting">retargeting</Term> layer. DROID is the fleet-scale proof of the family: 50 operators across 13 institutions teleoperated Franka Panda rigs with Meta Quest 2 headsets and collected 76,000 trajectories totaling 350 hours over 12 months <Cite id="droid-2024" />. <Term id="diffusion-policy">Diffusion policies</Term> trained on that pool beat policies trained on the next-best dataset by 22% in-distribution in controlled comparisons <Cite id="droid-2024" />, and the project maintains calibration protocols because multi-site retargeting drifts without them.
+In VR teleoperation the robot mirrors the operator's hand or controller poses through a <Term id="retargeting">retargeting</Term> layer. In [DROID](/data-hardware/datasets), 50 operators at 13 institutions used Meta Quest 2 headsets on Franka Panda rigs to collect 76,000 trajectories totaling 350 hours over 12 months. <Term id="diffusion-policy">Diffusion policies</Term> trained on that pool beat the next-best dataset by 22% in-distribution <Cite id="droid-2024" />. RoboTurk's phone interface was statistically similar to VR controllers on task completion time <Cite id="roboturk-2018" />.
 
-The newer systems push on immersion and fidelity. Open-TeleVision renders the robot's surroundings stereoscopically and mirrors the operator's arm and hand motion, validated on long-horizon tasks on two humanoid platforms <Cite id="open-television-2024" />. Bunny-VisionPro runs on an Apple Vision Pro (launch price \$3,499 <Cite id="apple-visionpro-price-2024" />), adds low-cost haptic feedback devices for the operator, and builds collision and singularity avoidance into the retargeting <Cite id="bunny-visionpro-2024" />. The family's weakness is the embodiment gap itself: human hands share no kinematics with robot arms, so every action passes through <Term id="inverse-kinematics">IK</Term> and calibration, and that mapping is where demonstration quality is kept or lost.
+OPEN TEACH runs on a \$500 Meta Quest 3 at up to 90 Hz <Cite id="open-teach-2024" />. Open-TeleVision renders the robot's surroundings in stereo and mirrors the operator's arm and hand motion on two humanoids <Cite id="open-television-2024" />. Bunny-VisionPro adds low-cost haptic feedback and collision and singularity avoidance in retargeting <Cite id="bunny-visionpro-2024" />. The Apple Vision Pro it runs on launched at \$3,499 <Cite id="apple-visionpro-price-2024" />, and the October 2025 M5 model keeps that price <Cite id="apple-vision-pro-m5-2025" />.
+
+Human and robot arms share no kinematics, so every action passes through <Term id="inverse-kinematics">IK</Term> and calibration. [HumanPlus](/rl-sim2real/humanoid-wbc) shadows a person from one RGB camera and reaches 60 to 100% success with up to 40 demonstrations <Cite id="humanplus-2024" />.
+
+## Gloves and wearables
+
+DexUMI's hand exoskeleton gives the operator direct haptic feedback and adapts human motion to feasible robot-hand motion, for an 86% average success rate <Cite id="dexumi-2025" />. SEED-UMI collects data 3.0x faster than exoskeleton-based teleoperation <Cite id="seed-umi-2026" />. Sunday's Skill Capture Glove shares its robot hand's geometry and sensor layout, and Sunday reports converting glove data to robot data with a 90% success rate <Cite id="sunday-act1-2025" />. DITTO-X, from Stanford and Columbia researchers (September 2026), renders joint-level force and fingertip contacts from the robot hand and improved demonstration quality and throughput over a commercial hand-tracking glove <Cite id="ditto-x-2026" />.
+
+Boston Dynamics argues that wearables capture only proxy signals for controlling a dexterous hand, and that reinforcement learning in simulation is an essential component <Cite id="bd-atlas-hand-2026" />. EgoMimic found an extra hour of hand data worth more than an extra hour of robot data <Cite id="egomimic-2024" />. Apple's EgoDex recorded 829 hours with Vision Pro hand tracking <Cite id="egodex-2025" />, and Generalist AI reports over 270,000 hours for GEN-0 <Cite id="generalist-gen0-2025" />.
 
 ## Choosing by axis
 
-No rig wins all four axes, which is why all four families are still in use. If the constraint is data fidelity on one platform, an ALOHA-class workstation or a GELLO built for the target arm records demonstrations with the smallest gap between collection and deployment. If the constraint is demonstration volume across many scenes, UMI collects without a robot in the room and VR scales through commodity headsets, as DROID showed across 13 institutions. If the constraint is capital, distinguish GELLO's under-\$300 controller BOM and UMI's \$371 collection rig from a complete workstation. The community ALOHA/ALOHA 2 estimate is not a verified minimum workstation budget. The embodiment gap is the bill each family pays differently: matched kinematics up top, interface design (UMI) and calibration protocols (DROID) in the middle, retargeted human motion at the VR end.
+Leader arms and GELLO leave the smallest gap between collection and deployment, while UMI, gloves and headsets scale across scenes, as DROID did across 13 institutions <Cite id="droid-2024" />. [The Data Bottleneck](/data-hardware/data-bottleneck) covers what the extra hours buy.

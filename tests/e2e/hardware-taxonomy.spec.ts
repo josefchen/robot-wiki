@@ -60,9 +60,9 @@ test.describe('data-hardware hardware-taxonomy module', () => {
       const priceCell = bodyRows.nth(i).locator('td:nth-child(3)');
       const text = (await priceCell.textContent()) ?? '';
       if (await priceCell.getByText('not disclosed', { exact: true }).count()) {
-        if (text.includes('Community issue')) {
+        if (text.includes('ACT paper (2023)')) {
           expect(text).toContain('not a vendor quote');
-          expect(text).toContain('researched Jun 2026');
+          expect(text).toContain('no ALOHA 2 price published');
         }
         continue;
       }
@@ -147,8 +147,8 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    // No compute row carries a listed price: NVIDIA publishes no Thor
-    // module price and VLA-Perf quotes no card prices.
+    // No compute row lists a price under $1k: NVIDIA lists the Thor modules
+    // at $2,999 and $4,999 (1KU+) and VLA-Perf quotes no card prices.
     await page.getByRole('button', { name: 'Compute', exact: true }).click();
     await page.getByRole('button', { name: 'Under $1k' }).click();
     const status = page.getByRole('status');

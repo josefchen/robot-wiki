@@ -7,9 +7,9 @@
  *   - Figures no source publishes are null and render as "not disclosed";
  *     nothing is guessed (the VR family's total system cost).
  *   - Numeric costs require a supported USD value and purchase scope. GELLO
- *     and UMI retain their cited primary BOMs. The ALOHA / ALOHA 2 community
- *     dollar estimate is labelled in cost context, not converted into a
- *     configuration-specific USD sorting value. No other cost was re-audited.
+ *     and UMI retain their cited primary BOMs. The ALOHA-class row states the
+ *     ACT paper's build cost for the original 2023 ALOHA in cost context, not
+ *     as a configuration-specific USD sorting value. No other cost was re-audited.
  *   - Ratings are ordered low < medium < high; each note states what the
  *     rating means for that dimension and row.
  *
@@ -32,7 +32,7 @@ const ROWS: TeleopRig[] = [
     family: 'Bimanual leader-follower workstation',
     representatives: ['ALOHA 2 (Stanford)', 'Trossen AI Stationary and Mobile AI'],
     costUsd: null,
-    costNote: 'Community issue, researched Jun 2026: ALOHA / ALOHA 2 ~ $17k-32k; currency code, configurations and inclusions/exclusions not itemized; not a vendor quote',
+    costNote: 'ACT paper (2023): the original ALOHA bimanual setup cost $18k, $20k with optional add-ons such as cameras; a build cost for one configuration, not a vendor quote',
     dataQuality: 'high',
     dataQualityNote:
       'Leader and follower arms share kinematics; demonstrations land directly in the robot joint space at 500 Hz',
@@ -44,24 +44,22 @@ const ROWS: TeleopRig[] = [
       'The operator drives a kinematically identical arm, so recorded motion is the robot motion',
     details: {
       cost:
-        'A June 2026 community compilation in alpibrusl/lex-robot estimates the combined ALOHA / ALOHA 2 category at about $17k-32k. It does not identify the currency code, endpoint configurations, or itemized inclusions/exclusions; this is not a current vendor quote. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, lists the bimanual Stationary AI at $23,995.95 and Mobile AI at $33,695.95, with the single-arm WidowX AI entry point at $4,545.95.',
+        'The 2023 ACT paper put the original bimanual ALOHA at $18k, or $20k after optional add-ons such as cameras. That is the authors\' build cost for one configuration, not a current vendor quote. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, lists the bimanual Stationary AI at $23,995.95 and Mobile AI at $33,695.95, with the single-arm WidowX AI entry point at $4,545.95.',
       dataQuality:
-        'The leader arm is a twin of the follower arm, so demonstrations are recorded directly in the robot joint space with no retargeting step. The Trossen AI line runs a 500 Hz CAN FD control loop with the iNerve board and integrates LeRobot and OpenPI. ACT learned six difficult bimanual tasks to 80-90% success from only 10 minutes of demonstrations on the original low-cost ALOHA hardware.',
+        'The leader arm is a twin of the follower arm, so demonstrations are recorded directly in the robot joint space with no retargeting step. The Trossen AI line runs a 500 Hz CAN FD control loop with the iNerve board and integrates LeRobot and OpenPI. On the original low-cost ALOHA hardware, ACT learned six bimanual tasks, each from about 10 minutes of demonstrations, and reached 84-96% final success on four of them, 64% on taping and 20% on threading a velcro tie.',
       throughput:
-        'Scaling an ALOHA-class fleet requires another workstation and operator; the community estimate does not establish a complete per-station budget. Mobile ALOHA collected 50 demonstrations per task for its whole-body mobile skills. No fleet-scale collection numbers are published for the family; the throughput story here is per-rig quality, not volume.',
+        'Scaling an ALOHA-class fleet requires another workstation and operator; the paper\'s build cost does not establish a complete per-station budget. Mobile ALOHA collected 50 demonstrations per task for its whole-body mobile skills. No fleet-scale collection numbers are published for the family; the throughput story here is per-rig quality, not volume.',
       embodimentGap:
         'Effectively zero by construction: the operator moves the same kinematic chain the policy will run on, so the only gap is between the operator skill and the task, not between two different bodies.',
     },
     links: [
       { label: 'ACT paper', url: 'https://arxiv.org/abs/2304.13705' },
       { label: 'Trossen AI', url: 'https://www.trossenrobotics.com/ai' },
-      { label: 'Community estimate (Jun 2026)', url: 'https://github.com/alpibrusl/lex-robot/issues/3' },
     ],
     sources: [
       'act-aloha-2023',
       'mobile-aloha-2024',
       'trossen-ai-2026',
-      'lerobot-pricing-2026',
     ],
   },
   {

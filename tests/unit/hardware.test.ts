@@ -121,11 +121,19 @@ describe('HARDWARE data', () => {
     expect(optimus?.dof).toBeNull();
     expect(optimus?.availability).toBe('closed');
 
-    // Jetson Thor is orderable through partners but NVIDIA publishes no
-    // module price.
+    // Jetson Thor is orderable through partners; NVIDIA's Jetson FAQ lists
+    // volume suggested pricing at 1KU+ (read Oct 2026): T5000 module $4999,
+    // T4000 module $2999, so the rows carry those prices, not null.
     const thor = HARDWARE.find((e) => e.id === 'jetson-thor-t5000');
-    expect(thor?.priceUsd).toBeNull();
+    expect(thor?.priceUsd).toBe(4999);
+    expect(thor?.priceAsOf).toBe('Oct 2026');
+    expect(thor?.priceNote).toContain('1,000-unit volume');
+    expect(thor?.sources).toContain('nvidia-jetson-faq');
     expect(thor?.availability).toBe('buy');
+    const t4000 = HARDWARE.find((e) => e.id === 'jetson-thor-t4000');
+    expect(t4000?.priceUsd).toBe(2999);
+    expect(t4000?.priceAsOf).toBe('Oct 2026');
+    expect(t4000?.sources).toContain('nvidia-jetson-faq');
 
     // Boston Dynamics does not publish an Atlas price.
     expect(
@@ -193,6 +201,8 @@ describe('filterHardware', () => {
       price: '1k-10k',
     });
     expect(mid.map((e) => e.id).sort()).toEqual([
+      'jetson-thor-t4000',
+      'jetson-thor-t5000',
       'leap-hand',
       'noetix-bumi',
       'unitree-r1',
@@ -223,12 +233,13 @@ describe('filterHardware', () => {
       'unitree-h2',
     ]);
 
-    // Unlisted entries never match a numeric bucket (null-honesty).
+    // Unlisted entries never match a numeric bucket (null-honesty). The two
+    // Jetson Thor modules left this set when their 1KU+ prices were sourced.
     const unlisted = filterHardware(HARDWARE, {
       ...DEFAULT_HARDWARE_FILTERS,
       price: 'unlisted',
     });
-    expect(unlisted).toHaveLength(20);
+    expect(unlisted).toHaveLength(18);
     expect(unlisted.map((entry) => entry.id)).toContain('aloha-2');
     expect(unlisted.every((e) => e.priceUsd === null)).toBe(true);
     for (const price of ['under-1k', '1k-10k', '10k-25k', '25k-plus'] as const) {

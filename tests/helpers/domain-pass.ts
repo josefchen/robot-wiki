@@ -165,6 +165,35 @@ export const isImagesA20261013Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
   entry.id.startsWith('images-a-20261013-');
 
 /**
+ * Edges the data-hardware domain pass and length cut of 2026-10-13 appended
+ * as one block after images bundle A: one prose, relationships and
+ * front-matter edge per data-hardware article, its removed state sites, the
+ * citation rendering resolution and one edge per registered citation.
+ */
+export const isDataHardwareCut20261013Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('length-cut-20261013-data-hardware-');
+
+/**
+ * The hash the 2026-10-13 data-hardware cut leaves on a member whose chain
+ * ends at `from`: its one edge on the member must continue `from`, as a plain
+ * edge or as a resolution that reconciles it; an untouched member stays at
+ * `from`.
+ */
+export function dataHardwareCut20261013Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isDataHardwareCut20261013Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-13 data-hardware edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
+/**
  * The hash images bundle A leaves on a member whose chain ends at `from`:
  * its one edge on the member must continue `from`, as a plain edge or as a
  * resolution that reconciles it; an untouched member stays at `from`.

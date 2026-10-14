@@ -224,14 +224,15 @@ describe('HardwareGuide', () => {
 });
 
 
-it('keeps the ALOHA community estimate beside an undisclosed USD cell with its own source', () => {
+it('keeps the ACT paper ALOHA build cost beside an undisclosed USD cell with its own source', () => {
   render(<HardwareGuide />);
   const row = rowNamed('ALOHA 2')!;
   const price = within(row).getAllByRole('cell')[2];
   expect(within(price).getByText('not disclosed', { exact: true })).toBeInTheDocument();
-  expect(price).toHaveTextContent('researched Jun 2026');
-  expect(price).toHaveTextContent('inclusions/exclusions not itemized');
+  expect(price).toHaveTextContent('the original ALOHA bimanual setup cost $18k, $20k with optional add-ons such as cameras');
+  expect(price).toHaveTextContent('no ALOHA 2 price published');
   expect(price).toHaveTextContent('not a vendor quote');
-  expect(within(price).getByRole('link', { name: 'Community estimate (Jun 2026)' })).toHaveAttribute('href', 'https://github.com/alpibrusl/lex-robot/issues/3');
+  expect(price).not.toHaveTextContent('$17k-32k');
+  expect(within(price).getByRole('link', { name: 'ACT paper (2023)' })).toHaveAttribute('href', 'https://arxiv.org/abs/2304.13705');
   expect(price).not.toHaveTextContent('as of');
 });

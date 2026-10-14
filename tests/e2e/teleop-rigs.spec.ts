@@ -181,7 +181,7 @@ test.describe('data-hardware teleop-rigs module', () => {
     expect(await costCells.filter({ hasText: '$300' }).count()).toBe(1);
     expect(await costCells.filter({ hasText: '$371' }).count()).toBe(1);
     expect(await costCells.filter({ hasText: '$17,000' }).count()).toBe(0);
-    await expect(costCells.filter({ hasText: 'Community issue' })).toContainText('not a vendor quote');
+    await expect(costCells.filter({ hasText: 'ACT paper (2023)' })).toContainText('not a vendor quote');
     expect(
       await costCells.getByText('not disclosed', { exact: true }).count(),
     ).toBe(2);

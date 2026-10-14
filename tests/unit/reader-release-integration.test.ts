@@ -196,6 +196,16 @@ function throughSeoPass(path: string) {
     expect(continues(images, end)).toBe(true);
     end = images.newHash;
   }
+  // The data-hardware domain pass and length cut of 2026-10-13 landed after
+  // images bundle A; its one edge on a data-hardware article continues the
+  // previous endpoint the same way.
+  const dataHardwareEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('length-cut-20261013-data-hardware-'));
+  expect(dataHardwareEdges.length).toBeLessThanOrEqual(1);
+  for (const cut of dataHardwareEdges) {
+    expect(continues(cut, end)).toBe(true);
+    end = cut.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 
