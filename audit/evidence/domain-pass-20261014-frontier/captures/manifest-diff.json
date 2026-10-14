@@ -1,0 +1,590 @@
+{
+ "start": "c6082348",
+ "end": "9f7a17aa",
+ "widths": {
+  "375": {
+   "routeCounts": {
+    "/frontier/": {
+     "start": {
+      "dom": 0,
+      "manifest": 0
+     },
+     "end": {
+      "dom": 0,
+      "manifest": 0
+     }
+    },
+    "/frontier/reliability-gap/": {
+     "start": {
+      "dom": 2,
+      "manifest": 2
+     },
+     "end": {
+      "dom": 2,
+      "manifest": 2
+     }
+    },
+    "/frontier/dexterity/": {
+     "start": {
+      "dom": 2,
+      "manifest": 2
+     },
+     "end": {
+      "dom": 2,
+      "manifest": 2
+     }
+    },
+    "/frontier/generalization/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/frontier/competing-theses/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 2,
+      "manifest": 2
+     }
+    },
+    "/frontier/bear-case/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/frontier/safety-and-assurance/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    }
+   },
+   "visuals": [
+    {
+     "route": "/frontier/reliability-gap/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "327x1395 -> 327x1398",
+     "pixelShareOver64": null,
+     "alignedPixelShareOver64": {
+      "offsetPx": -2,
+      "share": 6.13
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Even a robot that rarely slips usually fails a long chore, which is why each step must be almost perfect.",
+      "after": "Even a robot that rarely slips usually fails a long chore, which is why each step must be almost perfect."
+     }
+    },
+    {
+     "route": "/frontier/reliability-gap/",
+     "idx": 1,
+     "kind": "figure/instrument",
+     "size": "327x2026 -> 327x2162",
+     "pixelShareOver64": null,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 8.56
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [],
+      "after": []
+     },
+     "label": {
+      "before": "None of these numbers has been checked by an outside auditor, so read them as what companies say, not proven performance",
+      "after": "None of these numbers has been checked by an outside auditor, so read them as what companies say, not proven performance"
+     }
+    },
+    {
+     "route": "/frontier/dexterity/",
+     "idx": 0,
+     "kind": "scene",
+     "size": "327x1029 -> 327x1576",
+     "pixelShareOver64": null,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 13.76
+     },
+     "entryChanges": [],
+     "coloursAdded": [
+      "#FAFAF8",
+      "#DEDEDB",
+      "#FFFFFF",
+      "#A3A39E"
+     ],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Motion scene: Touch catches a slipping glass",
+      "after": "Motion scene: Touch catches a slipping glass"
+     }
+    },
+    {
+     "route": "/frontier/dexterity/",
+     "idx": 1,
+     "kind": "figure/instrument",
+     "size": "327x2349 -> 327x2349",
+     "pixelShareOver64": 0.74,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 0.74
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [],
+      "after": []
+     },
+     "label": {
+      "before": "Two numbers buyers need, touch sensitivity and price, are never published together for these five robot hands.",
+      "after": "Two numbers buyers need, touch sensitivity and price, are never published together for these five robot hands."
+     }
+    },
+    {
+     "route": "/frontier/generalization/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "327x2041 -> 327x2041",
+     "pixelShareOver64": 0,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 0
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Training on more first-person human video made robots finish more tasks, but the study stopped at 20,000 hours, so furth",
+      "after": "Training on more first-person human video made robots finish more tasks, but the study stopped at 20,000 hours, so furth"
+     }
+    },
+    {
+     "route": "/frontier/competing-theses/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "327x3133 -> 327x3269",
+     "pixelShareOver64": null,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 1.05
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [],
+      "after": []
+     },
+     "label": {
+      "before": "Experts disagree on how to make robots generally capable; each bet here names the result that would prove it wrong.",
+      "after": "Experts disagree on how to make robots generally capable; each bet here names the result that would prove it wrong."
+     }
+    },
+    {
+     "route": "/frontier/competing-theses/",
+     "idx": 1,
+     "added": true,
+     "removed": false,
+     "kind": "figure/instrument",
+     "scene": null,
+     "size": "327x1234",
+     "offPalette": [
+      "#000000"
+     ],
+     "label": "Figure's Helix 02 sets joint targets 200 times a second, and its whole-body controller acts 1,000 times a second: 5 step"
+    },
+    {
+     "route": "/frontier/bear-case/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "327x3236 -> 327x3796",
+     "pixelShareOver64": null,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 8.91
+     },
+     "entryChanges": [
+      "label"
+     ],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Watch these eight: as of August 2026 four are partly there, and each one met would weaken the case that robotics is over",
+      "after": "Watch these eight: as of August 2026 five are partly there, and each one met would weaken the case that robotics is over"
+     }
+    },
+    {
+     "route": "/frontier/safety-and-assurance/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "327x2205 -> 327x2205",
+     "pixelShareOver64": 3.74,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 3.74
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Robots working beside people must either keep their distance or move gently enough that a bump stays under a safe force ",
+      "after": "Robots working beside people must either keep their distance or move gently enough that a bump stays under a safe force "
+     }
+    }
+   ]
+  },
+  "1440": {
+   "routeCounts": {
+    "/frontier/": {
+     "start": {
+      "dom": 0,
+      "manifest": 0
+     },
+     "end": {
+      "dom": 0,
+      "manifest": 0
+     }
+    },
+    "/frontier/reliability-gap/": {
+     "start": {
+      "dom": 2,
+      "manifest": 2
+     },
+     "end": {
+      "dom": 2,
+      "manifest": 2
+     }
+    },
+    "/frontier/dexterity/": {
+     "start": {
+      "dom": 2,
+      "manifest": 2
+     },
+     "end": {
+      "dom": 2,
+      "manifest": 2
+     }
+    },
+    "/frontier/generalization/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/frontier/competing-theses/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 2,
+      "manifest": 2
+     }
+    },
+    "/frontier/bear-case/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    },
+    "/frontier/safety-and-assurance/": {
+     "start": {
+      "dom": 1,
+      "manifest": 1
+     },
+     "end": {
+      "dom": 1,
+      "manifest": 1
+     }
+    }
+   },
+   "visuals": [
+    {
+     "route": "/frontier/reliability-gap/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "930x1311 -> 930x1294",
+     "pixelShareOver64": null,
+     "alignedPixelShareOver64": {
+      "offsetPx": -2,
+      "share": 6.38
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Even a robot that rarely slips usually fails a long chore, which is why each step must be almost perfect.",
+      "after": "Even a robot that rarely slips usually fails a long chore, which is why each step must be almost perfect."
+     }
+    },
+    {
+     "route": "/frontier/reliability-gap/",
+     "idx": 1,
+     "kind": "figure/instrument",
+     "size": "930x1368 -> 930x1368",
+     "pixelShareOver64": 4.6,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 4.6
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [],
+      "after": []
+     },
+     "label": {
+      "before": "None of these numbers has been checked by an outside auditor, so read them as what companies say, not proven performance",
+      "after": "None of these numbers has been checked by an outside auditor, so read them as what companies say, not proven performance"
+     }
+    },
+    {
+     "route": "/frontier/dexterity/",
+     "idx": 0,
+     "kind": "scene",
+     "size": "930x965 -> 930x1496",
+     "pixelShareOver64": null,
+     "alignedPixelShareOver64": {
+      "offsetPx": -1,
+      "share": 4.21
+     },
+     "entryChanges": [],
+     "coloursAdded": [
+      "#FAFAF8",
+      "#DEDEDB",
+      "#FFFFFF",
+      "#A3A39E"
+     ],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Motion scene: Touch catches a slipping glass",
+      "after": "Motion scene: Touch catches a slipping glass"
+     }
+    },
+    {
+     "route": "/frontier/dexterity/",
+     "idx": 1,
+     "kind": "figure/instrument",
+     "size": "930x1545 -> 930x1545",
+     "pixelShareOver64": 1.45,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 1.45
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [],
+      "after": []
+     },
+     "label": {
+      "before": "Two numbers buyers need, touch sensitivity and price, are never published together for these five robot hands.",
+      "after": "Two numbers buyers need, touch sensitivity and price, are never published together for these five robot hands."
+     }
+    },
+    {
+     "route": "/frontier/generalization/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "930x1521 -> 930x1521",
+     "pixelShareOver64": 1.38,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 1.38
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Training on more first-person human video made robots finish more tasks, but the study stopped at 20,000 hours, so furth",
+      "after": "Training on more first-person human video made robots finish more tasks, but the study stopped at 20,000 hours, so furth"
+     }
+    },
+    {
+     "route": "/frontier/competing-theses/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "986x1674 -> 986x1731",
+     "pixelShareOver64": null,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 7.65
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [],
+      "after": []
+     },
+     "label": {
+      "before": "Experts disagree on how to make robots generally capable; each bet here names the result that would prove it wrong.",
+      "after": "Experts disagree on how to make robots generally capable; each bet here names the result that would prove it wrong."
+     }
+    },
+    {
+     "route": "/frontier/competing-theses/",
+     "idx": 1,
+     "added": true,
+     "removed": false,
+     "kind": "figure/instrument",
+     "scene": null,
+     "size": "930x1094",
+     "offPalette": [
+      "#000000"
+     ],
+     "label": "Figure's Helix 02 sets joint targets 200 times a second, and its whole-body controller acts 1,000 times a second: 5 step"
+    },
+    {
+     "route": "/frontier/bear-case/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "986x2218 -> 986x2519",
+     "pixelShareOver64": null,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 10.52
+     },
+     "entryChanges": [
+      "label"
+     ],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Watch these eight: as of August 2026 four are partly there, and each one met would weaken the case that robotics is over",
+      "after": "Watch these eight: as of August 2026 five are partly there, and each one met would weaken the case that robotics is over"
+     }
+    },
+    {
+     "route": "/frontier/safety-and-assurance/",
+     "idx": 0,
+     "kind": "figure/instrument",
+     "size": "930x1340 -> 930x1340",
+     "pixelShareOver64": 0,
+     "alignedPixelShareOver64": {
+      "offsetPx": 0,
+      "share": 0
+     },
+     "entryChanges": [],
+     "coloursAdded": [],
+     "coloursRemoved": [],
+     "offPalette": {
+      "before": [
+       "#000000"
+      ],
+      "after": [
+       "#000000"
+      ]
+     },
+     "label": {
+      "before": "Robots working beside people must either keep their distance or move gently enough that a bump stays under a safe force ",
+      "after": "Robots working beside people must either keep their distance or move gently enough that a bump stays under a safe force "
+     }
+    }
+   ]
+  }
+ }
+}

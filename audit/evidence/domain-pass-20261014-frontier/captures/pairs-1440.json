@@ -1,0 +1,124 @@
+[
+ {
+  "route": "/frontier/reliability-gap/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Even a robot that rarely slips usually fails a long chore, which is why each step must be almost perfect.",
+   "file": "frontier__reliability-gap__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Even a robot that rarely slips usually fails a long chore, which is why each step must be almost perfect.",
+   "file": "frontier__reliability-gap__00.png"
+  }
+ },
+ {
+  "route": "/frontier/reliability-gap/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "None of these numbers has been checked by an outside auditor, so read them as what companies say, not proven performance",
+   "file": "frontier__reliability-gap__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "None of these numbers has been checked by an outside auditor, so read them as what companies say, not proven performance",
+   "file": "frontier__reliability-gap__01.png"
+  }
+ },
+ {
+  "route": "/frontier/dexterity/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Touch catches a slipping glass",
+   "file": "frontier__dexterity__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Touch catches a slipping glass",
+   "file": "frontier__dexterity__00.png"
+  }
+ },
+ {
+  "route": "/frontier/dexterity/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Two numbers buyers need, touch sensitivity and price, are never published together for these five robot hands.",
+   "file": "frontier__dexterity__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Two numbers buyers need, touch sensitivity and price, are never published together for these five robot hands.",
+   "file": "frontier__dexterity__01.png"
+  }
+ },
+ {
+  "route": "/frontier/generalization/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Training on more first-person human video made robots finish more tasks, but the study stopped at 20,000 hours, so furth",
+   "file": "frontier__generalization__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Training on more first-person human video made robots finish more tasks, but the study stopped at 20,000 hours, so furth",
+   "file": "frontier__generalization__00.png"
+  }
+ },
+ {
+  "route": "/frontier/competing-theses/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Experts disagree on how to make robots generally capable; each bet here names the result that would prove it wrong.",
+   "file": "frontier__competing-theses__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Experts disagree on how to make robots generally capable; each bet here names the result that would prove it wrong.",
+   "file": "frontier__competing-theses__00.png"
+  }
+ },
+ {
+  "route": "/frontier/competing-theses/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 1,
+   "label": "Figure's Helix 02 sets joint targets 200 times a second, and its whole-body controller acts 1,000 times a second: 5 step",
+   "file": "frontier__competing-theses__01.png"
+  }
+ },
+ {
+  "route": "/frontier/bear-case/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Watch these eight: as of August 2026 four are partly there, and each one met would weaken the case that robotics is over",
+   "file": "frontier__bear-case__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Watch these eight: as of August 2026 five are partly there, and each one met would weaken the case that robotics is over",
+   "file": "frontier__bear-case__00.png"
+  }
+ },
+ {
+  "route": "/frontier/safety-and-assurance/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Robots working beside people must either keep their distance or move gently enough that a bump stays under a safe force ",
+   "file": "frontier__safety-and-assurance__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Robots working beside people must either keep their distance or move gently enough that a bump stays under a safe force ",
+   "file": "frontier__safety-and-assurance__00.png"
+  }
+ }
+]
