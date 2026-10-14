@@ -681,12 +681,14 @@ describe('the apparatus verdict families', () => {
     // mutated member has to be a sealed one: a member that exists only as an
     // approved addition has no sealed hash to move from. It also has to be
     // one no approved delta names yet, or the drift reads as a stale delta.
-    const sealedIndex = current.findIndex(
-      ({ id }) =>
-        sealedIds.has(id) &&
-        !articleMetadataDeltas.some(({ memberId }) => memberId === id),
-    );
+    // Since the 2026-10-13 data-hardware pass appended citations to
+    // evaluation-crisis, the last sealed article no delta named, every sealed
+    // member carries one, so the check takes the first sealed member and
+    // reads the ledger without that member's own entries.
+    const sealedIndex = current.findIndex(({ id }) => sealedIds.has(id));
     expect(sealedIndex).toBeGreaterThanOrEqual(0);
+    const unnamed = articleMetadataDeltas.filter(({ memberId }) => memberId !== current[sealedIndex].id);
+    expect(unnamed.length).toBeGreaterThan(0);
     const moved = current.map((member, index) =>
       index === sealedIndex ? { ...member, hash: '0'.repeat(64) } : member,
     );
@@ -695,7 +697,7 @@ describe('the apparatus verdict families', () => {
         ...frontmatterFactDrift({
           sealed,
           current: moved,
-          deltas: readRelationshipDeltas(ROOT, 'article-metadata'),
+          deltas: unnamed,
         }).values(),
       ]
         .flat()
@@ -712,7 +714,7 @@ describe('the apparatus verdict families', () => {
           sealed,
           current: moved,
           deltas: [
-            ...readRelationshipDeltas(ROOT, 'article-metadata'),
+            ...unnamed,
             {
               id: 'test-frontmatter-delta',
               manifest: 'article-metadata',

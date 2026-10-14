@@ -2,6 +2,7 @@ import { writeFileSync } from 'node:fs';
 import type { Locator } from '@playwright/test';
 import { CITATIONS } from '../../data/citations';
 import { test, expect, readerBaseURL } from './dexterity-reader-fixture';
+import { citeNoteInMargin, citeParts, clickCiteMark, cycleInlineCiteNote } from './helpers/citation-note';
 
 test('Brooks remaining readers: corrected Ernst and eWeek spans, Cite metadata and References at both widths', async ({ page }, info) => {
   test.skip(!readerBaseURL, 'Requires the current owned offline dexterity reader and qualified inputs.');
@@ -82,24 +83,31 @@ test('Brooks remaining readers: corrected Ernst and eWeek spans, Cite metadata a
     const sourceLink = chipRoot.first().locator(`a[href="${citation.url}"]`);
     await expect(sourceLink).toHaveAttribute('target', '_blank');
     await expect(sourceLink).toHaveAttribute('rel', /noopener/);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the tooltip became the citation's numbered sidenote. At this
+    // width the note stands in the margin at rest with the title and year the
+    // tooltip showed, inside the viewport; the tooltip's pointer and keyboard
+    // dismissal is checked as the inline open and close at 375 px.
+    const note = citeParts(chipRoot.first()).note;
     await sourceLink.scrollIntoViewIfNeeded();
-    await sourceLink.hover();
-    const tooltip = page.getByRole('tooltip');
-    await expect(tooltip).toBeVisible();
-    await expect(tooltip).toContainText(citation.title);
-    await expect(tooltip).toContainText(String(citation.year));
-    const box = await tooltip.boundingBox();
+    await expect(note).toBeVisible();
+    expect(await citeNoteInMargin(chipRoot.first())).toBe(true);
+    await expect(note).toContainText(citation.title);
+    await expect(note).toContainText(String(citation.year));
+    await note.evaluate(element => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
+    const box = await note.boundingBox();
     expect(box).not.toBeNull();
     expect(box!.x).toBeGreaterThanOrEqual(0);
     expect(box!.y).toBeGreaterThanOrEqual(0);
     expect(box!.x + box!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
     expect(box!.y + box!.height).toBeLessThanOrEqual(page.viewportSize()!.height);
-    const metadata = await tooltip.innerText();
+    const metadata = await note.innerText();
     await page.screenshot({ path: info.outputPath(`brooks-dexterity-2025-citation-metadata-${host === ernst ? 'ernst' : 'eweek'}.png`), animations: 'disabled' });
+    await cycleInlineCiteNote(page, chipRoot.first());
     await page.keyboard.press('Escape');
     await page.mouse.move(1, 1);
-    await expect(tooltip).toHaveCount(0);
-    await chipRoot.first().locator('a[href="#ref-brooks-dexterity-2025"]').click();
+    await expect(page.getByRole('tooltip')).toHaveCount(0);
+    await clickCiteMark(chipRoot.first().locator('a[href="#ref-brooks-dexterity-2025"]'));
     await expect(page).toHaveURL(/#ref-brooks-dexterity-2025$/);
     const reference = page.locator('#ref-brooks-dexterity-2025');
     await expect(reference).toBeInViewport();

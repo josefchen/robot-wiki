@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "e49e92aebfa3dccc212f29589c1e2b903f27d10afa339c4e013ee8850120c9fc",
+  "fingerprint": "155a93bd3b6a04587a5c266e5843004c6390a6b5962500012662386677e50be2",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -93,8 +93,8 @@
     "graphicTag": "canvas",
     "graphicHeightPx": 541,
     "playerMountedAtFirstPaint": true,
-    "idleFrameRequests": 46,
-    "playingFrameRequests": 25,
+    "idleFrameRequests": 45,
+    "playingFrameRequests": 22,
     "startControl": null,
     "focusOutlineWidthPx": null,
     "focusOutlineStyle": null,
@@ -2932,9 +2932,9 @@
         },
         {
           "memberId": "count:/:sources",
-          "text": "1180 sources",
-          "expected": 1180,
-          "actual": 1180
+          "text": "1255 sources",
+          "expected": 1255,
+          "actual": 1255
         },
         {
           "memberId": "count:/:glossary-terms",

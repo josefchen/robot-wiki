@@ -74,12 +74,12 @@ function priceCell(entry: HardwareEntry): ReactNode {
         </span>
         <a
           data-brand-control-id="control:link-focus"
-          href="https://github.com/alpibrusl/lex-robot/issues/3"
+          href="https://arxiv.org/abs/2304.13705"
           target="_blank"
           rel="noopener"
           className="block font-mono text-xs text-accent underline underline-offset-2"
         >
-          Community estimate (Jun 2026)
+          ACT paper (2023)
         </a>
       </span>
     );

@@ -2,6 +2,7 @@ import { writeFileSync } from 'node:fs';
 import type { Locator } from '@playwright/test';
 import { CITATIONS } from '../../data/citations';
 import { test, expect, readerBaseURL } from './dexterity-reader-fixture';
+import { citeNoteInMargin, citeParts } from './helpers/citation-note';
 
 const goBig = CITATIONS.find(c => c.id === 'figure-go-big-2025')!;
 const figure02 = CITATIONS.find(c => c.id === 'figure-02-2024')!;
@@ -63,8 +64,17 @@ test('Figure/Holson remaining readers: corrected Go-Big, Figure 02 DoF and Helix
   expect(refText).toContain('Project Go-Big: Internet-Scale Humanoid Pretraining and Direct Human-to-Robot Transfer');
   expect(refText).toContain('Figure unveils Figure 02, its second-generation humanoid');
   expect(refText).toContain('Introducing Helix 02: Full-Body Autonomy');
-  for (const c of [goBig, figure02, helix02]) {
-    await expect(page.locator('main').locator(`a[href="${c.url}"]`).first()).toBeVisible();
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): a citation's source link sits in its numbered sidenote and in
+  // its References entry. The hand table's closed sources fold now holds the
+  // first Figure 02 and Helix 02 link in the page, so the check reads the
+  // margin note on each corrected span and the entry, both visible.
+  for (const [c, host] of [[goBig, betAgainst], [figure02, spreadPara], [helix02, inHand]] as const) {
+    const cite = host.locator(`[data-cite-id="${c.id}"]`).first();
+    expect(await citeNoteInMargin(cite)).toBe(true);
+    await expect(citeParts(cite).source).toHaveAttribute('href', c.url);
+    await expect(citeParts(cite).source).toBeVisible();
+    await expect(page.locator(`#ref-${c.id}`).locator(`a[href="${c.url}"]`)).toBeVisible();
   }
 
   const frames: object[] = [];

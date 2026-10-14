@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '@/data/citations';
 import { compoundPartDigest, parseCompoundPlans, parseLedger } from '@/lib/audit-ledger';
+import { preDataHardwareCut } from '../helpers/seo-pass';
 
 const text = (path: string) => readFileSync(path, 'utf8');
 const targets = [
@@ -48,7 +49,8 @@ describe('retained cross-article source scope', () => {
     expect(article).not.toContain('ROS 2 navigation stack is the reference implementation');
   });
   it('attributes payback estimates to the vendor and removes inferred buyer rejection', () => {
-    const article = text('content/data-hardware/industrial-deployment.mdx');
+    // The 2026-10-13 data-hardware pass rewrote the page; this scope check reads the pre-pass article.
+    const article = preDataHardwareCut('content/data-hardware/industrial-deployment.mdx').toString();
     expect(article).toContain("EVST's guide estimates 12 to 24 months for multi-shift palletising cells");
     expect(article).toContain('single-shift or lower-throughput operations typically stretch closer to 24 to 36 months');
     expect(article).not.toContain('paybacks past that horizon rejected');

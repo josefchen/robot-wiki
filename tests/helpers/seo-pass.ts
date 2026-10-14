@@ -5,6 +5,7 @@ import { domainPassCheckerPredecessor, domainPassPredecessor } from '../../lib/a
 import { figureMountPredecessor } from '../../lib/audit-figure-mount-continuity.ts';
 import { imageMountPredecessor } from '../../lib/audit-image-mount-continuity.ts';
 import { kolBacklogPredecessor } from '../../lib/audit-kol-backlog-continuity.ts';
+import { dataHardwareCutPredecessor } from '../../lib/audit-length-cut-data-hardware-continuity.ts';
 import { frontierLengthCutPredecessor } from '../../lib/audit-length-cut-frontier-continuity.ts';
 import { worldModelsLengthCutPredecessor } from '../../lib/audit-length-cut-world-models-continuity.ts';
 import { lengthCutPredecessor } from '../../lib/audit-length-cut-continuity.ts';
@@ -113,10 +114,21 @@ export function preFrontierLengthCut(path: string): Buffer {
  * The bytes the image-mount layer of 2026-10-13 (images bundle A), which
  * landed after the frontier length cut, hands every check older than the
  * mounts: the rebuilt pre-mount article while the live article is the
- * reviewed successor, otherwise the live bytes.
+ * reviewed successor, otherwise the bytes the newer data-hardware cut layer
+ * hands on.
  */
 export function preImageMounts(path: string): Buffer {
-  return imageMountPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return imageMountPredecessor(root, { path, bytes: 0, sha256: '' }, preDataHardwareCut(path));
+}
+
+/**
+ * The bytes the data-hardware cut layer of 2026-10-13, which landed after the
+ * image mounts, hands every check older than the data-hardware domain pass:
+ * the rebuilt pre-pass article while the live article is the reviewed
+ * successor, otherwise the live bytes.
+ */
+export function preDataHardwareCut(path: string): Buffer {
+  return dataHardwareCutPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
 }
 
 /**

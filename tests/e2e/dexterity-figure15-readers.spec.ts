@@ -2,6 +2,7 @@ import { writeFileSync } from 'node:fs';
 import type { Locator } from '@playwright/test';
 import { CITATIONS } from '../../data/citations';
 import { test, expect, readerBaseURL } from './dexterity-reader-fixture';
+import { citeNoteInMargin, citeParts, clickCiteMark, cycleInlineCiteNote } from './helpers/citation-note';
 
 test('Figure15 readers: complete corrected paragraph, both Cite metadata and full References', async ({ page }, info) => {
   test.skip(!readerBaseURL, 'Requires the current owned offline dexterity reader and qualified inputs.');
@@ -54,25 +55,32 @@ test('Figure15 readers: complete corrected paragraph, both Cite metadata and ful
     const sourceLink = chipRoot.locator(`a[href="${citation.url}"]`);
     await expect(sourceLink).toHaveAttribute('target', '_blank');
     await expect(sourceLink).toHaveAttribute('rel', /noopener/);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the tooltip became the citation's numbered sidenote. At this
+    // width the note stands in the margin at rest with the title, author and
+    // year the tooltip showed, inside the viewport; the tooltip's pointer and
+    // keyboard dismissal is checked as the inline open and close at 375 px.
+    const note = citeParts(chipRoot).note;
     await sourceLink.scrollIntoViewIfNeeded();
-    await sourceLink.hover();
-    const tooltip = page.getByRole('tooltip');
-    await expect(tooltip).toBeVisible();
-    await expect(tooltip).toContainText(citation.title);
-    await expect(tooltip).toContainText('Figure AI');
-    await expect(tooltip).toContainText(String(citation.year));
-    const box = await tooltip.boundingBox();
+    await expect(note).toBeVisible();
+    expect(await citeNoteInMargin(chipRoot)).toBe(true);
+    await expect(note).toContainText(citation.title);
+    await expect(note).toContainText('Figure AI');
+    await expect(note).toContainText(String(citation.year));
+    await note.evaluate(element => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
+    const box = await note.boundingBox();
     expect(box).not.toBeNull();
     expect(box!.x).toBeGreaterThanOrEqual(0);
     expect(box!.y).toBeGreaterThanOrEqual(0);
     expect(box!.x + box!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
     expect(box!.y + box!.height).toBeLessThanOrEqual(page.viewportSize()!.height);
-    const metadata = await tooltip.innerText();
+    const metadata = await note.innerText();
     await page.screenshot({ path: info.outputPath(`${id}-citation-metadata.png`), animations: 'disabled' });
+    await cycleInlineCiteNote(page, chipRoot);
     await page.keyboard.press('Escape');
     await page.mouse.move(1, 1);
     await expect(page.getByRole('tooltip')).toHaveCount(0);
-    await chipRoot.locator(`a[href="#ref-${id}"]`).click();
+    await clickCiteMark(chipRoot.locator(`a[href="#ref-${id}"]`));
     await expect(page).toHaveURL(new RegExp(`#ref-${id}$`));
     const reference = page.locator(`#ref-${id}`);
     await expect(reference).toBeInViewport();

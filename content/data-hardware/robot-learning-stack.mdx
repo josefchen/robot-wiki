@@ -17,6 +17,34 @@ citations:
   - libero-plus-2025
   - openvla-2024
   - exploy-2026
+  - lerobot-paper-2026
+  - hidden-technical-debt-2015
+  - kalibr-2013
+  - ros2-iron-mcap-2023
+  - rlds-2021
+  - robomind-2024
+  - lerobot-dataset-v3-2025
+  - pi0-fast-2025
+  - lin-data-scaling-laws-2024
+  - openvla-oft-2025
+  - pistar06-2025
+  - polaris-2025
+  - simfoundry-2026
+  - sim-real-cotraining-2025
+  - kress-gazit-evaluation-2024
+  - roboarena-2025
+  - autoeval-2025
+  - robodojo-2026
+  - beyond-binary-success-2026
+  - ros2-science-robotics-2022
+  - intrinsic-core-2026
+  - qualcomm-picknik-2026
+  - real-time-chunking-2025
+  - smolvla-2025
+  - dagger-2011
+  - sirius-2022
+  - cupid-2025
+  - mulligan-2026
 seeAlso:
   - "data-hardware/evaluation-crisis"
   - "data-hardware/teleop-rigs"
@@ -25,11 +53,9 @@ seeAlso:
 
 import { SceneSplit } from '@/components/interactive/scene-split';
 
-A robot-learning system is a pipeline from physical events to decisions and back again. The checkpoint is one component. Data capture, synchronization, schemas, calibration, training, evaluation, serving, control integration and recovery decide whether that checkpoint can be reproduced or trusted.
+A robot-learning system is a pipeline from physical events to decisions and back again, in which the checkpoint is one component among capture, schemas, training, evaluation, serving and recovery. The open-source LeRobot library spans that stack, from motor middleware to dataset storage, streaming and asynchronous inference <Cite id="lerobot-paper-2026" />.
 
-The stack is easiest to reason about as seven contracts. Each contract has an artifact, an owner and a test. If a policy failure cannot be localized to one of them, the system is not yet observable enough.
-
-Try the check below and choose the artifact that lets you reconstruct a robot episode. Video alone lets you watch it again.
+Machine learning systems tend to incur massive ongoing maintenance costs from data dependencies, configuration issues and hidden feedback loops <Cite id="hidden-technical-debt-2015" />. Splitting the stack into seven contracts, each with an artifact and a test, lets a failure be traced to one boundary. Try the check below; video alone only lets you watch an episode again.
 
 <SelfCheck
   prompt="Which dataset record is sufficient to reconstruct one policy transition after the camera mount and training code have changed?"
@@ -56,86 +82,54 @@ Try the check below and choose the artifact that lets you reconstruct a robot ep
 
 ## Contract 1: hardware and calibration
 
-The stack begins with the physical interface: cameras, joint encoders, gripper state, force or tactile sensors, controller and reset procedure. Record serial numbers, firmware, resolution, control mode and calibrated transforms. A dataset split cannot correct a camera that moved halfway through collection unless the movement is recorded.
-
-Define the action convention beside the hardware. Joint target, Cartesian delta and torque are different labels even when their array widths match. The [action-space guide](/manipulation/action-spaces) gives the selection rules; [calibration](/classical/calibration) covers the frame and timing residuals.
-
-The artifact is a machine-readable hardware manifest and calibration bundle. The test is a repeatable preflight sequence that checks frames, timestamps, joint limits and command response.
+Record firmware, control mode and calibrated transforms for every camera, encoder, gripper and sensor, because a dataset split cannot correct a camera that moved during collection unless the move is recorded. Time offsets between sensors are calibration parameters too, estimable together with the spatial ones <Cite id="kalibr-2013" />, and [calibration](/classical/calibration) covers the residuals.
 
 ## Contract 2: episode capture
 
-An episode should contain raw or minimally processed observations, robot state, commanded action, measured response where available, task identity, termination, success, intervention and timestamps. Keep resets and failures. Removing them creates a dataset that describes only the easy interior of the task.
+An episode holds raw observations, robot state, commanded action, measured response, outcome, interventions and timestamps. ROS 2 made MCAP its default bag format in the Iron release, after testing found SQLite3 storage often not performant enough <Cite id="ros2-iron-mcap-2023" />. RLDS is a standard, lossless format for sharing episodes <Cite id="rlds-2021" />. Keep resets and failures: RoboMIND releases 5,000 real-world failure demonstrations with annotated causes <Cite id="robomind-2024" />.
 
-DROID standardized collection hardware and protocols across institutions, producing 76k in-the-wild demonstration trajectories with a shared collection platform and action-recording convention <Cite id="droid-2024" />. <Term id="open-x-embodiment">Open X-Embodiment</Term> chose breadth instead, normalizing more than one million trajectories across 22 embodiments <Cite id="open-x-embodiment-2023" />. The contrast is architectural: consistency simplifies labels; breadth increases transfer coverage and schema complexity.
-
-The artifact is an immutable episode store with checksums and provenance. The test replays random episodes, verifies monotonic timestamps, resolves every transform and plots command versus measured motion.
+DROID standardized [collection hardware](/data-hardware/teleop-rigs) and protocols across institutions to gather 76k in-the-wild trajectories <Cite id="droid-2024" />, while <Term id="open-x-embodiment">Open X-Embodiment</Term> chose breadth, normalizing more than one million trajectories across 22 embodiments <Cite id="open-x-embodiment-2023" />.
 
 ## Contract 3: a versioned training schema
 
-Raw messages must become aligned model examples. This layer selects camera frames, interpolates state, transforms actions, normalizes values, chunks time and assigns splits. Every transformation needs a version.
+Every preprocessing step, from frame selection to normalization and splits, needs a version. LeRobot provides datasets, policy implementations and tools around a common workflow <Cite id="lerobot-docs-2026" />. Its v3.0 format packs many episodes into each file after one file per episode hit file-system limits at millions of episodes <Cite id="lerobot-dataset-v3-2025" />.
 
-LeRobot provides datasets, policy implementations and tools around a common robot-learning workflow <Cite id="lerobot-docs-2026" />. That common shape is useful, but a format does not settle semantics. Record units, frame, rotation representation, control rate, horizon and missing-data policy explicitly.
+Joint targets, Cartesian deltas and torques are different [action labels](/manipulation/action-spaces) even at equal array widths. Per-dimension binning tokenizers perform poorly on high-frequency dexterous data, and FAST+ is a universal tokenizer trained on 1M real trajectories <Cite id="pi0-fast-2025" />.
 
-Split by the factor you claim to generalize across. Random episode splits can leak near-identical scenes and operators. Hold out environments for environment generalization, tasks for task generalization and embodiments for cross-embodiment claims.
+Split by the factor a claim generalizes across: random episode splits leak near-identical scenes. Across 15,000+ real rollouts, environment and object diversity mattered far more than demonstration count <Cite id="lin-data-scaling-laws-2024" />.
 
 <SceneSplit className="my-6" />
 
-The artifact is a dataset manifest with schema version, transformation code, split definition and summary statistics. The test rebuilds the same sample IDs and distributions from the raw store.
-
 ## Contract 4: reproducible training
 
-Training should emit more than weights. Save configuration, source revision, dataset manifest hash, random seeds, optimizer state, normalization statistics, dependency lock and metric history. Register every checkpoint with the exact preprocessing contract it expects.
+A training run saves configuration, code revision, dataset hash, seeds and normalization statistics with its weights. In robomimic's study of offline human demonstrations, recurrent behavior cloning was strong, and the batch RL algorithms it studied struggled to learn from the same data <Cite id="robomimic-2021" />.
 
-Begin with a baseline that minimizes moving parts. robomimic's study of offline human demonstrations found history-dependent models such as recurrent behavior cloning strong on the human datasets, and the batch RL algorithms it studied struggled to learn from them <Cite id="robomimic-2021" />. That is a stack lesson: a sophisticated learner cannot compensate for a dataset whose behavior and reward structure do not support it.
-
-OpenVLA illustrates the opposite end: a public seven-billion-parameter VLA adapted on standardized robot trajectories <Cite id="openvla-2024" />. Fine-tuning it still needs the same action normalization, cameras and evaluation protocol as a smaller policy.
-
-The artifact is an addressable model package containing weights plus preprocessing and action-contract metadata. The test loads it in a clean environment and reproduces a fixed batch of outputs.
+OpenVLA is a public seven-billion-parameter VLA adapted on standardized robot trajectories <Cite id="openvla-2024" />, and the OpenVLA-OFT recipe raised its average LIBERO success from 76.5% to 97.1% and its action throughput 26-fold <Cite id="openvla-oft-2025" />. Physical Intelligence reports that RECAP, which learns from deployment experience, more than doubles throughput on some of its hardest tasks <Cite id="pistar06-2025" />.
 
 ## Contract 5: simulation and offline evaluation
 
-Simulation is a test surface with limits on what it can tell you about hardware. Use it for deterministic regression, safety envelopes, parameter sweeps and scenarios too expensive to repeat physically. Isaac Lab supports large batches of robot-learning environments and sensor modalities <Cite id="isaac-lab-2025" />.
+Isaac Lab supports large batches of robot-learning environments and sensor modalities <Cite id="isaac-lab-2025" />. Simulated scores help only when they rank policies as hardware does, which SIMPLER measures on matched tasks <Cite id="simpler-2024" />. PolaRiS rebuilds real scenes from short video scans and reports a much stronger correlation with real performance than existing simulated benchmarks <Cite id="polaris-2025" />. SimFoundry reports a mean Pearson correlation of 0.911 across 7 tasks <Cite id="simfoundry-2026" />.
 
-Calibrate simulation utility against hardware. SIMPLER measures how simulated policy performance correlates with real robot performance under matched tasks <Cite id="simpler-2024" />. If the rank order disagrees, more simulated episodes can increase confidence in the wrong selection.
-
-Offline evaluation should include dataset leakage checks, action-distribution support, open-loop errors and latency profiling. It cannot replace closed-loop trials.
-
-The artifact is a versioned evaluation suite with scenario seeds and expected ranges. The test runs every candidate checkpoint against the same suite before hardware access.
+Co-training on simulated and real data raised real-world task performance by 38% on average <Cite id="sim-real-cotraining-2025" />.
 
 ## Contract 6: real-world evaluation
 
-Define success, timeout, intervention and reset before the run. Randomize initial conditions according to a recorded protocol. Report trial counts, uncertainty and failure categories. Save every evaluation episode back into the same data system.
+Papers often report success rates with little or no information on the number of runs, initial conditions or success criteria <Cite id="kress-gazit-evaluation-2024" />. LIBERO-Plus showed that controlled perturbations across seven dimensions reveal robustness gaps that impressive benchmark success rates can mask <Cite id="libero-plus-2025" />; the [evaluation crisis](/data-hardware/evaluation-crisis) covers the statistics.
 
-Stress one factor at a time. LIBERO-Plus showed that controlled perturbations across seven dimensions reveal robustness gaps that impressive benchmark success rates can mask <Cite id="libero-plus-2025" />. Your suite should likewise separate lighting, distractors, object pose, camera pose, friction and instruction changes.
-
-The artifact is a signed evaluation record linking model version, environment version and episode IDs. The test verifies that the displayed aggregate can be recomputed from those episodes.
+RoboArena ranks generalist policies through double-blind pairwise episodes run at several universities <Cite id="roboarena-2025" />. AutoEval runs evaluations around the clock <Cite id="autoeval-2025" />, and RoboDojo pairs 42 simulated and 18 real-world tasks <Cite id="robodojo-2026" />. A sequential test that can stop early cut evaluation burden by up to 70% against batch methods <Cite id="beyond-binary-success-2026" />.
 
 ## Contract 7: serving and robot integration
 
-Production inference needs an observation assembler, model server, command gate, controller bridge and supervisor. The [ROS 2 guide](/classical/ros2-for-ml-engineers) defines their runtime interfaces. Keep safety and high-rate feedback below the learned policy where possible.
+Production inference needs an observation assembler, model server, command gate, controller bridge and supervisor, with safety and high-rate feedback below the learned policy. ROS 2 was redesigned from the ground up because ROS 1 lacked production-grade features <Cite id="ros2-science-robotics-2022" />, and the [ROS 2 guide](/classical/ros2-for-ml-engineers) defines the interfaces. In September 2026 Intrinsic released Intrinsic Core, ROS-compatible real-time control, motion planning and Gazebo simulation under Apache 2.0 <Cite id="intrinsic-core-2026" />. The same month, Qualcomm agreed to acquire PickNik, the longtime steward of MoveIt <Cite id="qualcomm-picknik-2026" />.
 
-Measure end-to-end age as well as GPU kernel time. Log sensor timestamp, inference start and end, command publish and controller acceptance. Specify what happens on deadline miss, invalid observation, NaN output, out-of-range action and lost communication.
-
-Porting the policy from training code to the robot is its own source of bugs. Exploy, an open-source library the RAI Institute announced on October 7, 2026, traces a PyTorch training environment's observation code, network and action processing into one ONNX file with its configuration, which a C++ runtime then loads. The institute says this removes hand-written C++ copies of the observation and action code, that the library includes tools to check step-by-step numerical equivalence with the original PyTorch policy before hardware runs, and that it already deploys policies on Spot, Atlas, the Unitree G1 and the institute's own robots <Cite id="exploy-2026" />.
-
-The artifact is a deployable model bundle plus interface declaration and rollback target. The test injects each failure and proves the supervisor reaches a safe, observable state.
+Real-time chunking generates the next action chunk during execution, avoiding pauses at chunk boundaries <Cite id="real-time-chunking-2025" />, and SmolVLA decouples action prediction from execution <Cite id="smolvla-2025" />; [real-time execution](/manipulation/realtime-execution) has the latency budgets. Exploy, which the RAI Institute open-sourced on October 7, 2026, exports a PyTorch policy's observation code, network and action processing into one ONNX file for a C++ runtime. It checks numerical equivalence before hardware runs, and the institute says it already deploys policies on Spot, Atlas and the Unitree G1 <Cite id="exploy-2026" />.
 
 ## The data loop after deployment
 
-Failures should return to the dataset with context. A folder of interesting clips loses the failure stage, operator intervention, hardware state and suspected cause. Tag those fields and separate correction data from ordinary demonstrations so its sampling weight can be controlled.
+In imitation learning, future observations depend on the policy's own actions, which breaks the i.i.d. assumption of statistical learning <Cite id="dagger-2011" />. Failures should therefore return to the dataset tagged with their cause. Sirius re-weights samples by approximated human trust and reports 27% higher real-hardware success than prior methods <Cite id="sirius-2022" />. CUPID shows that less than 33% of curated data can yield state-of-the-art diffusion policies on RoboMimic <Cite id="cupid-2025" />.
 
-Promotion should be gated. A new checkpoint must pass offline regression, simulation where predictive, a small physical canary set, then the full evaluation matrix. Keep the previous package deployable until the new one has survived realistic duty cycles.
+Mulligan, from Shuran Song, Chelsea Finn and colleagues at Stanford (October 2026), starts each round of supervised episodes at observed failures and untried object placements. With value-based action selection it raised final success on three real tasks by 10 to 34 percentage points, scored on 2,550 held-out, blinded episodes <Cite id="mulligan-2026" />.
 
 ## A minimal stack for a small team
 
-The stack does not require a platform department. A small team can begin with:
-
-- append-only raw episode files and a manifest;
-- one versioned conversion command;
-- a locked training configuration and checkpoint registry;
-- a deterministic offline test batch;
-- a scripted real-world evaluation sheet linked to episode IDs;
-- a policy process separated from command gating and control;
-- dashboards for observation age, inference latency, interventions and success.
-
-The principle is more important than the tools: every boundary has a contract and every claim can be traced to an artifact. That is what turns a model experiment into a robot-learning system.
+Start with append-only episode files, one versioned conversion command, a checkpoint registry, a deterministic offline test batch, an evaluation sheet linked to episode IDs, and a policy process kept apart from command gating. The LeRobot library already integrates much of this, from dataset collection and storage to streaming <Cite id="lerobot-paper-2026" />.

@@ -1,4 +1,4 @@
-import { expect, type Locator } from '@playwright/test';
+import { expect, type Locator, type Page } from '@playwright/test';
 
 /**
  * Citation sidenotes for the specs that read the retired citation tooltip.
@@ -86,4 +86,30 @@ export async function closeCiteNote(cite: Locator): Promise<void> {
     await clickCiteMark(mark);
     await expect(note).toHaveAttribute('data-open', 'false');
   }
+}
+
+/**
+ * The tooltip's pointer and keyboard dismissal, checked on its successor:
+ * at 375 px the number opens the note inline, with the title the margin
+ * keeps for screen readers now shown, and closes it again, by click and by
+ * Enter, with focus kept on the number. Restores the viewport.
+ */
+export async function cycleInlineCiteNote(page: Page, cite: Locator): Promise<void> {
+  const viewport = page.viewportSize()!;
+  await page.setViewportSize({ width: 375, height: 812 });
+  const { mark, note } = citeParts(cite);
+  await mark.scrollIntoViewIfNeeded();
+  await expect(note).toBeHidden();
+  await revealCiteNote(cite, 'pointer');
+  await expect(note).toHaveAttribute('data-open', 'true');
+  await expect(note.locator('.sidenote-title')).toBeVisible();
+  await closeCiteNote(cite);
+  await expect(note).toBeHidden();
+  await page.mouse.move(0, 0);
+  await revealCiteNote(cite, 'keyboard');
+  await expect(mark).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(note).toBeHidden();
+  await expect(mark).toBeFocused();
+  await page.setViewportSize(viewport);
 }

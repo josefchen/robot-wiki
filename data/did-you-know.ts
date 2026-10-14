@@ -36,11 +36,11 @@ export const DID_YOU_KNOW: readonly DidYouKnowFact[] = [
     domain: 'data-hardware',
     slug: 'teleop-rigs',
     citationId: 'act-aloha-2023',
-    before: 'ACT reached 80-90% success on six bimanual tasks, each from about ',
+    before: 'ACT learned six bimanual tasks, each from about ',
     linked: '10 minutes of demonstrations',
     after: '',
     passage:
-      'learned six difficult bimanual tasks to 80-90% success, each from about 10 minutes of demonstrations',
+      'learned six bimanual tasks, each from about 10 minutes of demonstrations',
   },
   {
     id: 'ernst-1961',

@@ -18,8 +18,8 @@ import { readerTruthAt, READER_RELEASE_BASE } from '../helpers/reader-integratio
 import { currentAuditContext, finalSevenBefore } from '../helpers/residual-integration';
 import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedText, committedJson } from '../helpers/editorial-current-context';
-import { preKolBacklog, preReaderFirst, preSeoPassText } from '../helpers/seo-pass';
-import { kolQueue20261012Endpoint } from '../helpers/domain-pass';
+import { preKolBacklog, preReaderFirst, preSeoPassText, preDataHardwareCut } from '../helpers/seo-pass';
+import { dataHardwareCut20261013Endpoint, kolQueue20261012Endpoint } from '../helpers/domain-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '358f5050333386606f041505613e4a65d90dc703';
@@ -30,7 +30,9 @@ const before = (path: string) => committedText(base, path);
 const atHours = (path: string) => committedText(hoursCommit, path);
 const articlePath = 'content/data-hardware/datasets.mdx';
 const adjacentPath = 'content/data-hardware/data-bottleneck.mdx';
-const article = read(articlePath);
+// The data-hardware domain pass and length cut of 2026-10-13 rewrote this article; these
+// originals pin the reviewed pre-pass wording, which the cut layer rebuilds from the live file.
+const article = preDataHardwareCut(articlePath).toString();
 const ledgerPath = 'audit/data-hardware.md';
 const plans: CompoundPlan[] = JSON.parse(read('audit/compound-evidence.json'));
 const planId = 'datasets-10-robomind-20260916c';
@@ -236,11 +238,16 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     expect(kol[0].reconciles).toBeUndefined();
     // The 2026-10-12 KOL triage batch then added two dated paragraphs with one
     // more plain edge, from that endpoint to the live article.
-    expect(adjacentHash(read(adjacentPath))).toBe(kolQueue20261012Endpoint(
-      JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries, 'prose',
-      'article:data-hardware/data-bottleneck', kol[0].newHash));
+    // The 2026-10-13 data-hardware domain pass and length cut then rewrote the
+    // article with one more edge that continues that endpoint to the live
+    // article; the triage paragraph is pinned on the pre-pass article.
+    const entries = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries;
+    const triage = kolQueue20261012Endpoint(entries, 'prose', 'article:data-hardware/data-bottleneck', kol[0].newHash);
+    expect(adjacentHash(read(adjacentPath))).toBe(dataHardwareCut20261013Endpoint(
+      entries, 'prose', 'article:data-hardware/data-bottleneck', triage));
+    expect(adjacentHash(preDataHardwareCut(adjacentPath).toString())).toBe(triage);
     expect(adjacentHash(read(adjacentPath))).not.toBe(kol[0].newHash);
-    expect(read(adjacentPath)).toContain('Real-world robot data is different. Every hour of it');
+    expect(preDataHardwareCut(adjacentPath).toString()).toContain('Real-world robot data is different. Every hour of it');
     // The SEO pass replaced only the related links in the frontmatter.
     expect({ ...matter(article).data, seeAlso: undefined })
       .toEqual({ ...matter(preSeoPassText(articlePath)).data, seeAlso: undefined });
@@ -252,7 +259,7 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
       'Robot data is different. Every hour of it',
       'Real-world robot data is different. Every hour of it',
     ));
-    expect(read(adjacentPath)).toContain('Real-world robot data is different. Every hour of it');
+    expect(preDataHardwareCut(adjacentPath).toString()).toContain('Real-world robot data is different. Every hour of it');
     expect(matter(atHours(articlePath)).data).toEqual(matter(before(articlePath)).data);
     expect(atHours('data/citations.ts')).toBe(before('data/citations.ts'));
   });

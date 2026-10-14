@@ -15,10 +15,13 @@ import { applyException, classifyStatus } from '../../lib/citation-links';
 import { DEFAULT_PARAMS, SLIDER_SPECS, composeBudget, handEyeErrorMm } from '../../lib/perception-error';
 import { committedSource, preservedApprovalPacket, preservedCompoundPacket, RELEASE_BASE } from '../helpers/continuation-integration';
 import { preFigureMigration } from '../helpers/figure-migration';
+import { preDataHardwareCut } from '../helpers/seo-pass';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 const hash = (text: string) => createHash('sha256').update(text).digest('hex');
-const industrial = read('content/data-hardware/industrial-deployment.mdx');
+// The data-hardware domain pass and length cut of 2026-10-13 rewrote this article; these
+// originals pin the reviewed pre-pass wording, which the cut layer rebuilds from the live file.
+const industrial = preDataHardwareCut('content/data-hardware/industrial-deployment.mdx').toString();
 const perception = read('content/classical/perception.mdx');
 const component = read('components/interactive/perception-error-budget.tsx');
 const library = read('lib/perception-error.ts');

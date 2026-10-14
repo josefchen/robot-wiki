@@ -54,31 +54,31 @@
     },
     "data-hardware/data-bottleneck": {
       "published": "2026-08-08T23:06:19+01:00",
-      "modified": "2026-10-12T11:45:35+02:00"
+      "modified": "2026-10-14T23:27:16+02:00"
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T16:59:07+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-14T23:27:16+02:00"
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T20:01:27+01:00",
-      "modified": "2026-10-03T07:37:15+02:00"
+      "modified": "2026-10-14T23:27:16+02:00"
     },
     "data-hardware/hardware-taxonomy": {
       "published": "2026-08-09T18:27:43+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-14T23:27:16+02:00"
     },
     "data-hardware/industrial-deployment": {
       "published": "2026-08-22T21:24:51+01:00",
-      "modified": "2026-10-05T07:03:59+02:00"
+      "modified": "2026-10-14T23:27:16+02:00"
     },
     "data-hardware/robot-learning-stack": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-13T04:19:09+02:00"
+      "modified": "2026-10-14T23:27:16+02:00"
     },
     "data-hardware/teleop-rigs": {
       "published": "2026-08-09T19:30:31+01:00",
-      "modified": "2026-10-02T05:08:36+02:00"
+      "modified": "2026-10-14T23:27:16+02:00"
     },
     "frontier/bear-case": {
       "published": "2026-08-12T17:20:13+01:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-10-14T13:18:08+02:00"
+      "modified": "2026-10-14T23:27:16+02:00"
     },
     "/manipulation/": {
       "modified": "2026-10-11T23:46:59+02:00"
@@ -264,7 +264,7 @@
       "modified": "2026-10-13T09:06:06+02:00"
     },
     "/glossary/": {
-      "modified": "2026-10-12T14:40:47+02:00"
+      "modified": "2026-10-14T23:27:16+02:00"
     },
     "/credits/": {
       "modified": "2026-10-14T00:20:13+02:00"

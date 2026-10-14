@@ -124,32 +124,32 @@
     "minutes": 9
   },
   "data-hardware/data-bottleneck": {
-    "words": 2098,
-    "minutes": 10
-  },
-  "data-hardware/datasets": {
-    "words": 1994,
-    "minutes": 10
-  },
-  "data-hardware/hardware-taxonomy": {
-    "words": 3394,
-    "minutes": 17
-  },
-  "data-hardware/teleop-rigs": {
-    "words": 1726,
+    "words": 1712,
     "minutes": 9
   },
-  "data-hardware/evaluation-crisis": {
-    "words": 2055,
-    "minutes": 10
+  "data-hardware/datasets": {
+    "words": 1563,
+    "minutes": 8
   },
-  "data-hardware/industrial-deployment": {
-    "words": 2779,
+  "data-hardware/hardware-taxonomy": {
+    "words": 2782,
     "minutes": 14
   },
-  "data-hardware/robot-learning-stack": {
-    "words": 1394,
+  "data-hardware/teleop-rigs": {
+    "words": 1403,
     "minutes": 7
+  },
+  "data-hardware/evaluation-crisis": {
+    "words": 1662,
+    "minutes": 8
+  },
+  "data-hardware/industrial-deployment": {
+    "words": 2161,
+    "minutes": 11
+  },
+  "data-hardware/robot-learning-stack": {
+    "words": 1157,
+    "minutes": 6
   },
   "classical/kinematics": {
     "words": 1772,

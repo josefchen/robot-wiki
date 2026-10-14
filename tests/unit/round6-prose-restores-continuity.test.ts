@@ -21,7 +21,7 @@ import { committedSource } from '../helpers/continuation-integration';
 import { carriesThroughFigureMigration, preFigureMigration } from '../helpers/figure-migration';
 // The 2026-10-06 domain pass rewrote motion planning from the owner's draft;
 // its reviewed successor hands these checks the article as it stood before.
-import { preDomainPass } from '../helpers/seo-pass';
+import { preDataHardwareCut, preDomainPass } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-round6-prose-restores-20260929/';
@@ -244,9 +244,12 @@ it('keeps every phrase the RL motion and release reviews require on each live RL
   }
 });
 
-it('keeps the data-hardware review phrases on the live industrial article with one reviewed replacement', () => {
+it('keeps the data-hardware review phrases on the industrial article with one reviewed replacement', () => {
   const entry = loadDataHardwareMotionReview(root).entries[2];
-  const live = read(entry.current.path).toString();
+  // The 2026-10-13 data-hardware domain pass and length cut rewrote the live
+  // article; the review's phrases are pinned on the pre-pass article the cut
+  // layer rebuilds from the live file.
+  const live = preDataHardwareCut(entry.current.path).toString();
   expect(entry.requiredPresent.filter((phrase) => phrase === oldCoverage)).toHaveLength(1);
   for (const phrase of entry.requiredPresent.filter((candidate) => candidate !== oldCoverage)) {
     expect(live).toContain(phrase);

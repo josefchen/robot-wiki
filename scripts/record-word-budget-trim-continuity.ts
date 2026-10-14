@@ -89,14 +89,15 @@ async function verify(): Promise<boolean> {
   const mounts = await import('../lib/audit-figure-mount-continuity.ts');
   const { worldModelsLengthCutPredecessor } = await import('../lib/audit-length-cut-world-models-continuity.ts');
   const { frontierLengthCutPredecessor } = await import('../lib/audit-length-cut-frontier-continuity.ts');
+  const { dataHardwareCutPredecessor } = await import('../lib/audit-length-cut-data-hardware-continuity.ts');
   let ok = true;
   for (const source of layer.loadWordBudgetTrimReview(root).sources) {
     try {
-      // The newer image-mount (2026-10-13), frontier length-cut, length-cut (manipulation, classical and
+      // The newer data-hardware cut (2026-10-13), image-mount (2026-10-13), frontier length-cut, length-cut (manipulation, classical and
       // rl-sim2real) and world-models length-cut layers hand back the word-budget trim successor first.
       const prior = layer.wordBudgetTrimPredecessor(root, source.before, worldModelsLengthCutPredecessor(root, source.before,
         lengthCutPredecessor(root, source.before,
-          frontierLengthCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, readFileSync(join(root, source.after.path)))))));
+          frontierLengthCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, readFileSync(join(root, source.after.path))))))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
       if (mounts.figureMountSuccessorPaths().includes(source.after.path)) {
         mounts.figureMountPredecessor(root, { path: source.after.path, bytes: 0, sha256: '' }, prior);

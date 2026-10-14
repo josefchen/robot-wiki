@@ -4,8 +4,11 @@ import { CITATIONS } from '../../data/citations';
 import { compoundPlanDigest, compoundPartDigest, parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
 import { currentAuditContext, finalSevenBefore } from '../helpers/residual-integration';
 import { committedText } from '../helpers/editorial-current-context';
+import { preDataHardwareCut } from '../helpers/seo-pass';
 const ordinals = [8, 10, 11, 12, 13];
-const prose = readFileSync('content/data-hardware/evaluation-crisis.mdx', 'utf8');
+// The data-hardware domain pass and length cut of 2026-10-13 rewrote this article; these
+// originals pin the reviewed pre-pass wording, which the cut layer rebuilds from the live file.
+const prose = preDataHardwareCut('content/data-hardware/evaluation-crisis.mdx').toString();
 const plans = parseCompoundPlans(JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')));
 const selected = plans.filter(p => p.articleSlug === 'evaluation-crisis' && ordinals.includes(p.rowOrdinal));
 const ledger = readFileSync('audit/data-hardware.md', 'utf8');

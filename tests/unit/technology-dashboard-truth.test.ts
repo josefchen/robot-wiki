@@ -4,6 +4,7 @@ import { CITATIONS } from '@/data/citations';
 import { DEPLOYMENT_ROWS, filterDeployments } from '@/lib/deployment-reality';
 import { MILESTONES } from '@/lib/bear-case';
 import { THESES } from '@/lib/competing-theses';
+import { preDataHardwareCut } from '../helpers/seo-pass';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 
@@ -60,7 +61,9 @@ describe('Technology.org withdrawal and primary-source scope', () => {
   });
 
   it('retains the sourced IFR operands but drops dependent humanoid comparisons', () => {
-    const industrial = read('content/data-hardware/industrial-deployment.mdx');
+    // The 2026-10-13 data-hardware pass moved the page to World Robotics 2026; this
+    // withdrawal record pins the pre-pass article the cut layer rebuilds.
+    const industrial = preDataHardwareCut('content/data-hardware/industrial-deployment.mdx').toString();
     for (const value of ['4,663,698', '542,076', '54%']) expect(industrial).toContain(value);
     expect(industrial).not.toMatch(/5,500|4,200|hundred times either|volume leader/);
     const reliability = read('content/frontier/reliability-gap.mdx');

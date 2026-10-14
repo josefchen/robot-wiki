@@ -14,7 +14,8 @@
  *
  * Primary-source verification dates: Unitree G1/H2 pages, 1X NEO, Jetson
  * Thor, Seeed SO-ARM101 Pro, SO-ARM100 BOM, and the Trossen AI line were
- * checked against live vendor pages Aug 2026; the humanoid table was
+ * checked against live vendor pages Aug 2026, and the Jetson Thor module
+ * prices against NVIDIA's Jetson FAQ in Oct 2026; the humanoid table was
  * re-verified against manufacturer pages by RoboZaps on 2026-07-13.
  *
  * The GPU rows carry no price: the VLA-Perf paper the rows are sourced from
@@ -168,7 +169,7 @@ export const HARDWARE: HardwareEntry[] = [
     category: 'arm',
     priceUsd: null,
     priceMaxUsd: null,
-    priceNote: 'Community issue (researched Jun 2026): ALOHA / ALOHA 2 ~ $17k-32k; currency code, configurations and inclusions/exclusions not itemized; not a vendor quote',
+    priceNote: 'ACT paper (2023): the original ALOHA bimanual setup cost $18k, $20k with optional add-ons such as cameras; no ALOHA 2 price published; not a vendor quote',
     priceAsOf: null,
     dof: null,
     dofNote: null,
@@ -176,7 +177,7 @@ export const HARDWARE: HardwareEntry[] = [
     availabilityNote: 'Orderable via Trossen',
     highlight: 'The ACT platform; the rig behind Mobile ALOHA',
     url: 'https://www.trossenrobotics.com/ai',
-    sources: ['lerobot-pricing-2026', 'act-aloha-2023'],
+    sources: ['act-aloha-2023'],
   },
   {
     id: 'reachy-2',
@@ -616,34 +617,34 @@ export const HARDWARE: HardwareEntry[] = [
     name: 'Jetson Thor T5000',
     maker: 'NVIDIA',
     category: 'compute',
-    priceUsd: null,
+    priceUsd: 4999,
     priceMaxUsd: null,
-    priceNote: null,
-    priceAsOf: null,
+    priceNote: 'NVIDIA suggested module price at 1,000-unit volume; the AGX Thor developer kit lists at $5,499',
+    priceAsOf: 'Oct 2026',
     dof: null,
     dofNote: null,
     availability: 'buy',
-    availabilityNote: 'Via NVIDIA partners; module pricing not published',
+    availabilityNote: 'Via NVIDIA partners; module priced per unit at 1,000-unit volume',
     highlight: '2,070 FP4 TFLOPS; 128 GB LPDDR5X at 273 GB/s; 40-130 W',
     url: 'https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/',
-    sources: ['jetson-thor-2026'],
+    sources: ['jetson-thor-2026', 'nvidia-jetson-faq'],
   },
   {
     id: 'jetson-thor-t4000',
     name: 'Jetson Thor T4000',
     maker: 'NVIDIA',
     category: 'compute',
-    priceUsd: null,
+    priceUsd: 2999,
     priceMaxUsd: null,
-    priceNote: null,
-    priceAsOf: null,
+    priceNote: 'NVIDIA suggested module price at 1,000-unit volume',
+    priceAsOf: 'Oct 2026',
     dof: null,
     dofNote: null,
     availability: 'buy',
-    availabilityNote: 'Via NVIDIA partners; module pricing not published',
+    availabilityNote: 'Via NVIDIA partners; module priced per unit at 1,000-unit volume',
     highlight: '1,200 FP4 TFLOPS; 64 GB; 40-70 W',
     url: 'https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/',
-    sources: ['jetson-thor-2026'],
+    sources: ['jetson-thor-2026', 'nvidia-jetson-faq'],
   },
   {
     id: 'rtx-4090',

@@ -15,7 +15,7 @@ import {
 // The 2026-10-01 figure migration later edited the three repaired specs; its
 // reviewed successor returns the bytes this review names.
 import { carriesThroughFigureMigration, preFigureMigration } from '../helpers/figure-migration';
-import { preDomainPass, preReaderFirst } from '../helpers/seo-pass';
+import { preDomainPass, preReaderFirst, preDataHardwareCut } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const directory = 'audit/evidence/motion-round6-remaining-repairs-20260929/';
@@ -195,7 +195,8 @@ it.each(repairs)('changes only the named $name edits and keeps every assertion l
 });
 
 it('keeps the recorded industrial and economics checks and matches the live article wording', () => {
-  const article = read('content/data-hardware/industrial-deployment.mdx').toString();
+  // The 2026-10-13 data-hardware pass rewrote the page; the recorded check reads the pre-pass article.
+  const article = preDataHardwareCut('content/data-hardware/industrial-deployment.mdx').toString();
   const refreshPath = 'tests/e2e/industrial-citation-refresh.spec.ts';
   const economicsPath = 'tests/e2e/economics-release-evidence.spec.ts';
   const refresh = preFigureMigration(sourceOf('citation-refresh-current-wording').after).toString();
