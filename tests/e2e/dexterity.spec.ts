@@ -1,6 +1,7 @@
 import { expect, test } from './dexterity-reader-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 const ROUTE = '/frontier/dexterity/';
 
@@ -56,19 +57,17 @@ test.describe('frontier dexterity module', () => {
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
 
-    const openMenu = page.getByRole("button", { name: "Open navigation menu" });
-    const mobileMenu = await openMenu.isVisible();
-    if (mobileMenu) await openMenu.click();
+    // The top bar's "Articles" button opens the taxonomy panel at every
+    // width, so the check the mobile menu ran now runs at each width.
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(nav.getByRole('link', { name: 'Dexterity' })).toHaveAttribute(
       'aria-current',
       'page',
     );
-    if (mobileMenu) {
-      await page.screenshot({ path: test.info().outputPath("mobile-navigation.png") });
-      await page.keyboard.press("Escape");
-      await expect(nav).toBeHidden();
-    }
+    await page.screenshot({ path: test.info().outputPath("articles-panel.png") });
+    await page.keyboard.press("Escape");
+    await expect(nav).toBeHidden();
     expect(errors).toEqual([]);
   });
 

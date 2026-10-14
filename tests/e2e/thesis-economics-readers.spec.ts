@@ -3,6 +3,7 @@ import { test as evidenceTest } from './helpers/state-smoothing-fixture';
 import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeNoteInMargin, citeParts, closeCiteNote, revealCiteNote } from './helpers/citation-note';
 
 // Match existing thesis readers: strict input-bound/offline mode only in the program lane.
 const test = process.env.ROBOT_WIKI_GATE_INPUTS ? evidenceTest : base;
@@ -27,29 +28,40 @@ test('economics article and explorer retain named claims, source caveats and rea
   await expect(prose).not.toContainText('Teleoperation is expensive and slow');
   await page.screenshot({ path: info.outputPath('article-top.png') });
   const observations: unknown[] = [];
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): the tooltip chip became a numbered sidenote. From 1200 px the
+  // note stands in the margin at rest. Where there is no margin the number
+  // opens the note inline and closes it again, so the pointer and keyboard
+  // states, the note's bounds and the dismissal are checked at 375 px.
+  const desktop = page.viewportSize()!;
   for (const [name, paragraph] of [['article-flywheel', flywheel], ['article-glow', glow]] as const) {
+    await page.setViewportSize(desktop);
     await paragraph.scrollIntoViewIfNeeded();
     await paragraph.screenshot({ path: info.outputPath(`${name}.png`) });
-    const chip = paragraph.locator(`a[href="${source}"]`).first();
-    await chip.scrollIntoViewIfNeeded();
-    await chip.hover();
-    await expect(page.getByRole('tooltip')).toBeVisible();
-    await expect(page.getByRole('tooltip')).toContainText('Bessemer Predicts');
-    await page.keyboard.press('Escape');
-    await expect(page.getByRole('tooltip')).toHaveCount(0);
+    const cite = paragraph.locator('[data-cite-id="bessemer-robotics-2026"]').first();
+    const { mark, note, source: link } = citeParts(cite);
+    await expect(link).toHaveAttribute('href', source);
+    await expect(note).toBeVisible();
+    await expect(note).toContainText('Bessemer Predicts');
+    expect(await citeNoteInMargin(cite), `${name} note in the margin`).toBe(true);
+    await page.setViewportSize({ width: 375, height: 812 });
+    await mark.scrollIntoViewIfNeeded();
+    await revealCiteNote(cite, 'pointer');
+    await expect(note).toContainText('Bessemer Predicts');
+    await closeCiteNote(cite);
+    await expect(note).toBeHidden();
     await page.mouse.move(0, 0);
-    await chip.focus();
-    const tip = page.getByRole('tooltip');
-    await expect(tip).toBeVisible();
-    const box = await tip.boundingBox();
-    observations.push({ name, viewport: page.viewportSize(), tooltip: box, sourceHref: await chip.getAttribute('href') });
+    await revealCiteNote(cite, 'keyboard');
+    const box = await note.boundingBox();
+    observations.push({ name, viewport: page.viewportSize(), note: box, sourceHref: await link.getAttribute('href') });
     expect(box!.x).toBeGreaterThanOrEqual(0);
     expect(box!.x + box!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
     await page.screenshot({ path: info.outputPath(`${name}-citation.png`) });
-    await page.keyboard.press('Escape');
-    await expect(tip).toHaveCount(0);
-    await expect(chip).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(note).toBeHidden();
+    await expect(mark).toBeFocused();
   }
+  await page.setViewportSize(desktop);
   const explorer = page.getByTestId('thesis-explorer');
   const choice = explorer.getByRole('button', { name: 'Humans steer while robots learn', exact: true });
   await choice.focus();
@@ -63,12 +75,15 @@ test('economics article and explorer retain named claims, source caveats and rea
   }
   await expect(detail.locator(`a[href="${source}"]`)).toHaveCount(2);
   await detail.screenshot({ path: info.outputPath('explorer-both-economics-endpoints.png') });
-  const detailChip = detail.locator(`a[href="${source}"]`).last();
-  await detailChip.scrollIntoViewIfNeeded();
-  await detailChip.focus();
-  await expect(page.getByRole('tooltip')).toBeVisible();
-  await page.keyboard.press('Escape');
-  await expect(detailChip).toBeFocused();
+  // In the figure the number opens its note inline and closes it again.
+  const detailCite = detail.locator('[data-cite-id="bessemer-robotics-2026"]').last();
+  const detailParts = citeParts(detailCite);
+  await detailParts.mark.scrollIntoViewIfNeeded();
+  await revealCiteNote(detailCite, 'keyboard');
+  await expect(detailParts.source).toHaveAttribute('href', source);
+  await page.keyboard.press('Enter');
+  await expect(detailParts.note).toBeHidden();
+  await expect(detailParts.mark).toBeFocused();
   const axe = await new AxeBuilder({ page }).include('[data-testid="thesis-explorer"]').analyze();
   writeFileSync(info.outputPath('axe-economics.json'), JSON.stringify(axe, null, 2));
   expect(axe.violations).toEqual([]);
