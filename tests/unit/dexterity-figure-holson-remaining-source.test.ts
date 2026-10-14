@@ -67,7 +67,7 @@ describe('Holson dexterity original8 correction', () => {
     expect(text).toContain(
       'In his September 8, 2025 post, Benjie Holson described limitations of the learning-from-demonstration setups he was seeing, explicitly calling them a general trend with exceptions.',
     );
-    expect(text).toContain('was a guess from videos; he said it was likely more a teleoperation limitation than a model limitation and pointed to a video he described as showing sub-centimeter tasks <Cite id="holson-olympics-2025" />.');
+    expect(text).toContain('was a guess from videos. He said it was likely more a <Term id="teleoperation">teleoperation</Term> limitation than a model limitation and pointed to a video he described as showing sub-centimeter tasks <Cite id="holson-olympics-2025" />.');
     expect(records()[7].note).toContain('original8');
     expect(records()[7].note).toContain('remains unverified');
   });
@@ -105,7 +105,7 @@ describe('Figure Go-Big dexterity original12 correction', () => {
   test('article span narrows the result to navigation and cuts the coupled full-scale lead', () => {
     expect(text).not.toContain('Two of the best-funded humanoid programs are running that experiment at full scale.');
     expect(text).toContain("Figure's September 2025 Project Go-Big announcement describes a pretraining data-collection initiative; it reports no general-dexterity result");
-    expect(text).toContain('its initial human-video result is navigation, with Helix trained on 100% egocentric human video, no robot demonstrations for that approach, mapping images and language to low-level SE(2) velocity commands');
+    expect(text).toContain('Its initial human-video result is navigation. Helix, trained on 100% egocentric human video with no robot demonstrations for that approach, maps images and language to low-level SE(2) velocity commands');
     expect(text).toContain("a transfer Figure calls zero-shot and, \"to our knowledge\", a first");
     expect(text).toContain("the announcement's more than 100,000 residential units describe Brookfield's portfolio, without stating that those units were homes or trajectories collected");
     expect(text).not.toContain('trains its Helix model on 100% egocentric human video with no robot demonstrations at all');
@@ -149,7 +149,7 @@ describe('Figure 02 dexterity original23 correction', () => {
   });
 
   test('article span quotes the release and discloses the per-hand/combined limit', () => {
-    expect(text).toContain('its August 6, 2024 release for Figure 02, Figure\'s own announcement hosted by PRNewswire, describes the second-generation robot\'s "4th generation hands" as "equipped with 16 degrees of freedom" without saying whether that count is per hand or combined, or giving an actuator count');
+    expect(text).toContain('Figure\'s own release for Figure 02, dated August 6, 2024 and hosted by PRNewswire, describes the second-generation robot\'s "4th generation hands" as "equipped with 16 degrees of freedom". It does not say whether that count is per hand or combined, or give an actuator count');
     expect(text).not.toContain('16 degrees of freedom on the Figure 02 hand');
   });
 

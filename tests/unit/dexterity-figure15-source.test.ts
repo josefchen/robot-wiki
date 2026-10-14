@@ -101,8 +101,10 @@ describe('Figure15 retained-source correction', () => {
     expect(text).toContain('Figure describes this as "the first time we\'ve demonstrated neural network policies that depend on these modalities" <Cite id="helix-02-2026" />.');
     expect(text).not.toContain('Figure 03 ships fingertip tactile sensors');
     expect(text).not.toContain('the first Figure has shown that consumes touch directly');
-    // Unassigned comparison and superlative are deliberately not certified by this correction.
-    expect(text).toContain('a 3-gram fingertip threshold, the only maker in this table');
+    // Unassigned comparison and superlative are deliberately not certified by this correction;
+    // since the 2026-10-13 length cut only the hand card states them.
+    expect(text).not.toContain('a 3-gram fingertip threshold, the only maker in this table');
+    expect(readFileSync('lib/dexterous-hands.ts', 'utf8')).toContain('A 3-gram fingertip threshold, the only maker in this table');
   });
 
   test('preserves the old error and administrative hold as non-counted history', () => {

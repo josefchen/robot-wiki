@@ -26,32 +26,32 @@ test('Figure/Holson remaining readers: corrected Go-Big, Figure 02 DoF and Helix
 
   // D12: coupled lead cut, navigation-scoped Go-Big sentence.
   const betAgainst = prose.locator('p').filter({
-    hasText: 'Brooks frames the scaling counterargument as an imagined inner dialogue',
+    hasText: "Figure's September 2025 Project Go-Big announcement",
   });
   await expect(betAgainst).toHaveCount(1);
   const betText = await betAgainst.innerText();
   expect(betText).not.toContain('running that experiment at full scale');
-  expect(betText).toContain("Figure's September 2025 Project Go-Big announcement describes a pretraining data-collection initiative rather than a general-dexterity result");
-  expect(betText).toContain('mapping images and language to low-level SE(2) velocity commands');
+  expect(betText).toContain("Figure's September 2025 Project Go-Big announcement describes a pretraining data-collection initiative; it reports no general-dexterity result");
+  expect(betText).toContain('maps images and language to low-level SE(2) velocity commands');
   expect(betText).toContain('a transfer Figure calls zero-shot and, "to our knowledge", a first');
-  expect(betText).toContain("describe Brookfield's portfolio, not homes or trajectories collected");
+  expect(betText).toContain("describe Brookfield's portfolio, without stating that those units were homes or trajectories collected");
   expect(betText).not.toContain('no robot demonstrations at all');
 
   // D23: quoted release wording with disclosed ambiguity.
-  const spreadPara = prose.locator('p').filter({ hasText: 'The spread is the story' });
+  const spreadPara = prose.locator('p').filter({ hasText: 'dated August 6, 2024 and hosted by PRNewswire' });
   await expect(spreadPara).toHaveCount(1);
   const spreadText = await spreadPara.innerText();
-  expect(spreadText).toContain('its August 6, 2024 release for Figure 02');
+  expect(spreadText).toContain('release for Figure 02, dated August 6, 2024');
   expect(spreadText).toContain('"4th generation hands"');
   expect(spreadText).toContain('"equipped with 16 degrees of freedom"');
-  expect(spreadText).toContain('without saying whether that count is per hand or combined, or giving an actuator count');
+  expect(spreadText).toContain('It does not say whether that count is per hand or combined, or give an actuator count');
   expect(spreadText).not.toContain('16 degrees of freedom on the Figure 02 hand');
 
   // D25: Figure-characterized four tasks with titled syringe task.
   const inHand = prose.locator('p').filter({ hasText: 'Figure says Helix 02, using Figure 03' });
   await expect(inHand).toHaveCount(1);
   const inHandText = await inHand.innerText();
-  expect(inHandText).toContain('manipulation previously out of reach for its stack, in videos it calls fully autonomous rather than teleoperated');
+  expect(inHandText).toContain('manipulation previously out of reach for its stack, in videos it calls fully autonomous and without teleoperation');
   expect(inHandText).toContain('a task titled "Push exactly 5 ml from a syringe"');
   expect(inHandText).toContain('The announcement publishes no task-level success rates, volume calibration, or sensor-ablation results');
   expect(inHandText).not.toContain('dispensing exactly 5 ml from a syringe');

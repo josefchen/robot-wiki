@@ -3270,11 +3270,11 @@
                   "Frontier & Open Problems"
                 ],
                 "lastReviewed": "2026-08-18",
-                "readingMinutes": 16,
+                "readingMinutes": 13,
                 "citationCount": 33,
                 "reviewDateText": "18 August 2026",
                 "reviewDateTime": "2026-08-18",
-                "readingTimeText": "16 min read",
+                "readingTimeText": "13 min read",
                 "citationCountText": "33 sources",
                 "bibliographyIds": [
                   "brooks-dexterity-2025",
@@ -12231,7 +12231,7 @@
                 },
                 {
                   "kind": "glossary",
-                  "count": 6,
+                  "count": 5,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "underline",
                   "decorationStyle": "dotted",
@@ -12241,7 +12241,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|underline|dotted|rgb(108, 107, 102)|geist|inline border:0px/solid radius:0px",
-                      "count": 6,
+                      "count": 5,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "underline",
                       "decorationStyle": "dotted",
@@ -97499,11 +97499,11 @@
                   "Frontier & Open Problems"
                 ],
                 "lastReviewed": "2026-08-18",
-                "readingMinutes": 16,
+                "readingMinutes": 13,
                 "citationCount": 33,
                 "reviewDateText": "18 August 2026",
                 "reviewDateTime": "2026-08-18",
-                "readingTimeText": "16 min read",
+                "readingTimeText": "13 min read",
                 "citationCountText": "33 sources",
                 "bibliographyIds": [
                   "brooks-dexterity-2025",
@@ -103284,6 +103284,7 @@
                   "unitree-dex5-1-2026"
                 ],
                 "citationMarkers": [
+                  "pi-olympics-2025",
                   "brooks-dexterity-2025",
                   "macefield-touch-2022",
                   "brooks-dexterity-2025",
@@ -103299,7 +103300,6 @@
                   "robozaps-phoenix-2026",
                   "figure-03-2025",
                   "helix-02-2026",
-                  "shadow-dexterous-hand-2026",
                   "sparsh-x-2025",
                   "touchworld-2026",
                   "t-rex-2026",
@@ -103310,6 +103310,8 @@
                   "teslarati-optimus-hand-2026",
                   "droids-optimus-v3-hand-2026",
                   "robozaps-phoenix-2026",
+                  "shadow-dexterous-hand-2026",
+                  "shadow-dexterous-hand-2026",
                   "shadow-hand-cost-2022",
                   "robozaps-unitree-h2-2026",
                   "figure-02-2024",
@@ -103321,14 +103323,12 @@
                   "robozaps-phoenix-2026",
                   "sanctuary-hydraulic-rl-2025",
                   "helix-02-2026",
-                  "shadow-dexterous-hand-2026",
                   "chord-2026",
                   "fingr-2026",
                   "eigendexplore-2026",
                   "holson-olympics-2025",
                   "rl-100-2025",
                   "pi07-2026",
-                  "pi-olympics-2025",
                   "pi-olympics-2025",
                   "trace-cables-2026"
                 ],
@@ -154919,7 +154919,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:frontier/dexterity moved from 4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4 to e08aa86fa0c022029d2b888b95edfc5ce98b527e1712a2f24e6631517bd97d35 exactly as approved delta domain-pass-20261012-kol-prose-dexterity permits: KOL triage batch of 2026-10-12 (notes older than 72 hours) on frontier/dexterity: adds three dated paragraphs: visual predicted force at the end of \"The bet against touch\" (grip-force error 0.91 N against 4.20 N from motor current; force search over 32 samples raises success on four tasks, for example berry picking from 0% to 73.3% over 15 trials; visual-predicted-force-2026, arXiv 2610.04741), the walking WUJI hand at the end of \"Five hands, five bets\" (21 of 25 fall recoveries, 29 of 32 key presses, 17 mm mean pushing error; fingers-as-legs-2026, arXiv 2609.17172) and EigenDEXplore at the end of \"In-hand manipulation\", which adds noise along human hand-motion eigenvectors to joint-space noise and outperforms joint-space and learned action-space baselines (eigendexplore-2026, arXiv 2610.07681). No other text changes. The edge starts from the sealed bytes and reconciles the member's 34 earlier approved edges exactly.",
+      "actual": "prose member article:frontier/dexterity moved from 4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4 to bfd72e1fd7f59b69dc046bdf51eb4c50974e7054c695227c53ba59a0d45ba7e0 exactly as approved delta length-cut-20261014-frontier-prose-dexterity permits: Frontier length cut of 2026-10-14 on frontier/dexterity, under the owner's length decision, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 35 earlier approved edges exactly, ending with domain-pass-20261012-kol-prose-dexterity. Measured on the rendered page, the article drops from 3,155 to 2,516 words (20.3 percent). It drops the recap lines that restated the hand cards and the touch debate ('The hands on offer in 2026 span two orders of magnitude', 'The spread is the story', 'The honest 2026 position is intermediate', 'The hardware is arriving regardless of which thesis wins'), the closing recap of the 32% to 92% multi-finger range (the Gemini Robotics 2 sentence keeps 92% and 32 to 44%), the remark that Figure is the only maker in the hand table to put its 3-gram fingertip threshold on its own product page (the Figure card in lib/dexterous-hands.ts keeps that remark, and the Figure 03 sentence keeps the \"three grams of pressure\" quote), the uncited case-for-the-bet paragraph, the module-scope sentence with one of the article's two in-hand-manipulation glossary links, and the reporting caveats that attribution now carries ('In his account', 'When he wrote the essay', 'The quoted report says'). The lead becomes two sentences that define the topic and state the 52% Humanoid Olympics average under its existing citation, and the impedance-control link moves into the opening section. The cut removes no citation occurrence, 6 number occurrences and 1 glossary occurrence from the body; every source stays cited (32 distinct), and the frontmatter, imports, mounts, headings and link targets stay; no fact, number, source or quote is added. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -154931,9 +154931,9 @@
           "manifest": "prose",
           "member": "article:frontier/dexterity",
           "baselineHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
-          "currentHash": "e08aa86fa0c022029d2b888b95edfc5ce98b527e1712a2f24e6631517bd97d35",
+          "currentHash": "bfd72e1fd7f59b69dc046bdf51eb4c50974e7054c695227c53ba59a0d45ba7e0",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261012-kol-prose-dexterity"
+          "approvedDelta": "length-cut-20261014-frontier-prose-dexterity"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -156515,7 +156515,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:frontier/dexterity moved from 775975450148df398e0e7dda1f2a353caff7231b642ee045832f759f23dacc4f to 845a118c1fb4504ff99f339c32bff7c265023e7d0770ef2493ad5a6150e6ac89 exactly as approved delta domain-pass-20261012-kol-relationships-dexterity permits: KOL triage batch of 2026-10-12 (notes older than 72 hours) on frontier/dexterity: adds three dated paragraphs: visual predicted force at the end of \"The bet against touch\" (grip-force error 0.91 N against 4.20 N from motor current; force search over 32 samples raises success on four tasks, for example berry picking from 0% to 73.3% over 15 trials; visual-predicted-force-2026, arXiv 2610.04741), the walking WUJI hand at the end of \"Five hands, five bets\" (21 of 25 fall recoveries, 29 of 32 key presses, 17 mm mean pushing error; fingers-as-legs-2026, arXiv 2609.17172) and EigenDEXplore at the end of \"In-hand manipulation\", which adds noise along human hand-motion eigenvectors to joint-space noise and outperforms joint-space and learned action-space baselines (eigendexplore-2026, arXiv 2610.07681). The relationships record gains the inline citations eigendexplore-2026 and visual-predicted-force-2026 and fingers-as-legs-2026; no other citation, route or link changes. This edge moves the member from its last approved endpoint (domain-pass-20261009-kol-relationships-dexterity).",
+      "actual": "relationships member article:frontier/dexterity moved from 775975450148df398e0e7dda1f2a353caff7231b642ee045832f759f23dacc4f to 1510afa1baf8c7a292db9f1bc24bfe8f74e2ffaf5490b7693f40155853dfff0d exactly as approved delta length-cut-20261014-frontier-relationships-dexterity permits: Frontier length cut of 2026-10-14 on frontier/dexterity, under the owner's length decision, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-relationships-dexterity). The relationships record loses only the glossary occurrence the cut removed (1 occurrence; linked fewer times: in-hand-manipulation, which the In-hand manipulation section still links); inline citations, seeAlso entries and internal link targets are unchanged. The frontier length-cut continuity review (audit/evidence/length-cut-20261013-frontier/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -156527,9 +156527,9 @@
           "manifest": "relationships",
           "member": "article:frontier/dexterity",
           "baselineHash": "775975450148df398e0e7dda1f2a353caff7231b642ee045832f759f23dacc4f",
-          "currentHash": "845a118c1fb4504ff99f339c32bff7c265023e7d0770ef2493ad5a6150e6ac89",
+          "currentHash": "1510afa1baf8c7a292db9f1bc24bfe8f74e2ffaf5490b7693f40155853dfff0d",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261012-kol-relationships-dexterity"
+          "approvedDelta": "length-cut-20261014-frontier-relationships-dexterity"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -158789,7 +158789,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/dexterity/ ships 93 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 93 outbound anchor occurrences on it with a visible focus ring in 223 stops",
+      "actual": "/frontier/dexterity/ ships 93 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 93 outbound anchor occurrences on it with a visible focus ring in 221 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158809,7 +158809,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 80,
           "reachedByTab": 93,
-          "tabStops": 223,
+          "tabStops": 221,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -182345,7 +182345,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 5995 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 5983 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -183805,7 +183805,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/dexterity/ rendered no v1 identity spelling and no v1 descriptor in 61548 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/dexterity/ rendered no v1 identity spelling and no v1 descriptor in 53943 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -290248,7 +290248,7 @@
             {
               "id": "/frontier/dexterity/",
               "observed": {
-                "paragraphCount": 25,
+                "paragraphCount": 32,
                 "familyHeads": [
                   "geist"
                 ],
@@ -297551,7 +297551,7 @@
             {
               "id": "/frontier/dexterity/",
               "observed": {
-                "paragraphCount": 50,
+                "paragraphCount": 64,
                 "registeredFrameParagraphCount": 22,
                 "offendingFamilies": []
               }

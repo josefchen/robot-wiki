@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "da7aee49aae6785c6c786d411642fdf4f28a10d304b7af3fda732e18b3476bef",
+  "fingerprint": "80ed5fe962ca65bffd7f79c9bf6b0886fbf9614a07dcdab96d466a476f98e791",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2776,
+  "visibleTextLength": 2770,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -772,8 +772,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Robot Calibration",
-      "href": "/classical/calibration/",
+      "accessibleName": "Dexterity",
+      "href": "/frontier/dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2179.89,
@@ -781,8 +781,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Control",
-      "href": "/classical/control/",
+      "accessibleName": "Robot Calibration",
+      "href": "/classical/calibration/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2229.89,
@@ -790,8 +790,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Grasp Planning",
-      "href": "/classical/grasp-planning/",
+      "accessibleName": "Control",
+      "href": "/classical/control/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2279.89,
@@ -799,8 +799,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Kinematics",
-      "href": "/classical/kinematics/",
+      "accessibleName": "Grasp Planning",
+      "href": "/classical/grasp-planning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2329.89,
@@ -808,8 +808,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Motion Planning",
-      "href": "/classical/motion-planning/",
+      "accessibleName": "Kinematics",
+      "href": "/classical/kinematics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2379.89,
@@ -1045,7 +1045,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-14 Robot Calibration 2026-10-14 Control 2026-10-14 Grasp Planning 2026-10-14 Kinematics 2026-10-14 Motion Planning"
+      "text": "RECENTLY UPDATED 2026-10-14 Dexterity 2026-10-14 Robot Calibration 2026-10-14 Control 2026-10-14 Grasp Planning 2026-10-14 Kinematics"
     },
     {
       "label": "Tools",

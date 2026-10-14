@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "a574cf91f2afd5b1526009df95e9ca15ef99b83e9c23d305149acac2cbd962f2",
+  "fingerprint": "71d05914514db3349f2308673215f39be4df8a84f74892ed10c4915f1c0f5acd",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3010,
+      "visibleTextLength": 3004,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20017,7 +20017,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27989,
+      "visibleTextLength": 24186,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20069,11 +20069,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 16,
+        "readingMinutes": 13,
         "citationCount": 33,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "16 min read",
+        "readingTimeText": "13 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "brooks-dexterity-2025",
@@ -20133,7 +20133,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Dexterity is skilled manipulation through contact, such as r"
+          "text": "Dexterity is skilled contact-rich manipulationcontact-rich m"
         },
         {
           "familyHead": "geist",
@@ -20142,7 +20142,16 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Five 2026 hands are compared below on the specs their makers"
+          "text": "Rodney Brooks opens his dexterity essay with Heinrich Ernst'"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The five 2026 hands below rank differently by touch and by p"
         },
         {
           "familyHead": "geist",
@@ -20250,7 +20259,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The human hand is a sensor first and a mechanism second. A r"
+          "text": "A review of Roland Johansson's work reports about 17,000 low"
         },
         {
           "familyHead": "geist",
@@ -20268,6 +20277,15 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Luo and colleagues define tactile robotics as developing and"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Brooks frames the scaling counterargument as an imagined inn"
         },
         {
@@ -20277,7 +20295,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The case for the bet is real. Video of humans manipulating o"
+          "text": "Brooks reproduces an eWeek report that describes Tesla as mo"
         },
         {
           "familyHead": "geist",
@@ -20286,7 +20304,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A camera can also stand in for a force sensor. In October 20"
+          "text": "Figure's September 2025 Project Go-Big announcement describe"
         },
         {
           "familyHead": "geist",
@@ -20295,7 +20313,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The other side argues the bet cannot pay off, because the in"
+          "text": "In October 2026, Haonan Chen, Edward Adelson, Jiajun Wu, Rob"
         },
         {
           "familyHead": "geist",
@@ -20304,7 +20322,25 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The hardware is arriving regardless of which thesis wins. Fi"
+          "text": "Jeremy Fishel, principal researcher at Sanctuary AI, counter"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Figure's October 2025 announcement describes a palm camera i"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Touch now ships on flagship hands, Figure's included, and ta"
         },
         {
           "familyHead": "geist",
@@ -20331,7 +20367,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The honest 2026 position is intermediate, and both camps occ"
+          "text": "Google's Gemini Robotics 2 drives the 22-DoF SharpaWave hand"
         },
         {
           "familyHead": "geist",
@@ -20340,7 +20376,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The hands on offer in 2026 span two orders of magnitude in p"
+          "text": "Of the five hands compared above, Tesla's 22-degree-of-freed"
         },
         {
           "familyHead": "geist",
@@ -20349,7 +20385,16 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The spread is the story. Tesla's 22-degree-of-freedomdegrees"
+          "text": "Shadow's Dexterous Hand, the two-decade research benchmark, "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Unitree lists the entire H2 robot at $29,900, but the base m"
         },
         {
           "familyHead": "geist",
@@ -20367,7 +20412,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A hand can also be the whole robot. In September 2026, Amirh"
+          "text": "In September 2026, Amirhossein Kazemipour, Hehui Zheng and R"
         },
         {
           "familyHead": "geist",
@@ -20385,7 +20430,16 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Progress here is real but narrow. Sanctuary announced in-han"
+          "text": "Sanctuary announced in-hand manipulation with its 21-DoF hyd"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Figure says Helix 02, using Figure 03's fingertip sensors an"
         },
         {
           "familyHead": "geist",
@@ -20421,7 +20475,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Rigid objects are the easy case. A wooden block rests on one"
+          "text": "A wooden block rests on one of six sides. A towel can be bun"
         },
         {
           "familyHead": "geist",
@@ -20430,7 +20484,16 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The measured record is thin but no longer empty. RL-100 fold"
+          "text": "RL-100 folds cloth and ran a juicing robot in a shopping mal"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Physical Intelligence fine-tuned its π0.6-based model on Hol"
         },
         {
           "familyHead": "geist",
@@ -20448,7 +20511,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Dexterity is solved when a single policy does Holson's fifte"
+          "text": "Dexterity is solved when one policy does Holson's fifteen ta"
         }
       ],
       "sectionLinks": [
@@ -20658,7 +20721,7 @@
         },
         {
           "kind": "glossary",
-          "count": 6,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
@@ -20668,7 +20731,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|dotted|rgb(108, 107, 102)|geist|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "dotted",
@@ -20702,7 +20765,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -20712,7 +20775,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -53678,7 +53741,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3010,
+      "visibleTextLength": 3004,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73310,7 +73373,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33559,
+      "visibleTextLength": 29757,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73362,11 +73425,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 16,
+        "readingMinutes": 13,
         "citationCount": 33,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "16 min read",
+        "readingTimeText": "13 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "brooks-dexterity-2025",
@@ -73426,7 +73489,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Dexterity is skilled manipulation through contact, such as r"
+          "text": "Dexterity is skilled contact-rich manipulationcontact-rich m"
         },
         {
           "familyHead": "geist",
@@ -73435,7 +73498,16 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Five 2026 hands are compared below on the specs their makers"
+          "text": "Rodney Brooks opens his dexterity essay with Heinrich Ernst'"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "The five 2026 hands below rank differently by touch and by p"
         },
         {
           "familyHead": "geist",
@@ -73543,7 +73615,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The human hand is a sensor first and a mechanism second. A r"
+          "text": "A review of Roland Johansson's work reports about 17,000 low"
         },
         {
           "familyHead": "geist",
@@ -73561,6 +73633,15 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Luo and colleagues define tactile robotics as developing and"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Brooks frames the scaling counterargument as an imagined inn"
         },
         {
@@ -73570,7 +73651,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The case for the bet is real. Video of humans manipulating o"
+          "text": "Brooks reproduces an eWeek report that describes Tesla as mo"
         },
         {
           "familyHead": "geist",
@@ -73579,7 +73660,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A camera can also stand in for a force sensor. In October 20"
+          "text": "Figure's September 2025 Project Go-Big announcement describe"
         },
         {
           "familyHead": "geist",
@@ -73588,7 +73669,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The other side argues the bet cannot pay off, because the in"
+          "text": "In October 2026, Haonan Chen, Edward Adelson, Jiajun Wu, Rob"
         },
         {
           "familyHead": "geist",
@@ -73597,7 +73678,25 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The hardware is arriving regardless of which thesis wins. Fi"
+          "text": "Jeremy Fishel, principal researcher at Sanctuary AI, counter"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Figure's October 2025 announcement describes a palm camera i"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Touch now ships on flagship hands, Figure's included, and ta"
         },
         {
           "familyHead": "geist",
@@ -73624,7 +73723,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The honest 2026 position is intermediate, and both camps occ"
+          "text": "Google's Gemini Robotics 2 drives the 22-DoF SharpaWave hand"
         },
         {
           "familyHead": "geist",
@@ -73633,7 +73732,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The hands on offer in 2026 span two orders of magnitude in p"
+          "text": "Of the five hands compared above, Tesla's 22-degree-of-freed"
         },
         {
           "familyHead": "geist",
@@ -73642,7 +73741,16 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The spread is the story. Tesla's 22-degree-of-freedomdegrees"
+          "text": "Shadow's Dexterous Hand, the two-decade research benchmark, "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Unitree lists the entire H2 robot at $29,900, but the base m"
         },
         {
           "familyHead": "geist",
@@ -73660,7 +73768,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A hand can also be the whole robot. In September 2026, Amirh"
+          "text": "In September 2026, Amirhossein Kazemipour, Hehui Zheng and R"
         },
         {
           "familyHead": "geist",
@@ -73678,7 +73786,16 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Progress here is real but narrow. Sanctuary announced in-han"
+          "text": "Sanctuary announced in-hand manipulation with its 21-DoF hyd"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Figure says Helix 02, using Figure 03's fingertip sensors an"
         },
         {
           "familyHead": "geist",
@@ -73714,7 +73831,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Rigid objects are the easy case. A wooden block rests on one"
+          "text": "A wooden block rests on one of six sides. A towel can be bun"
         },
         {
           "familyHead": "geist",
@@ -73723,7 +73840,16 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The measured record is thin but no longer empty. RL-100 fold"
+          "text": "RL-100 folds cloth and ran a juicing robot in a shopping mal"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Physical Intelligence fine-tuned its π0.6-based model on Hol"
         },
         {
           "familyHead": "geist",
@@ -73741,7 +73867,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Dexterity is solved when a single policy does Holson's fifte"
+          "text": "Dexterity is solved when one policy does Holson's fifteen ta"
         }
       ],
       "sectionLinks": [
@@ -73951,7 +74077,7 @@
         },
         {
           "kind": "glossary",
-          "count": 6,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
@@ -73961,7 +74087,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|dotted|rgb(108, 107, 102)|geist|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "dotted",
@@ -73995,7 +74121,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -74005,7 +74131,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
