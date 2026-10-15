@@ -18,12 +18,15 @@ test.describe('adjacent drones module', () => {
 
     const prose = page.locator('div.prose[data-pagefind-body]');
     await expect(prose).toBeVisible();
-    const text = (await prose.textContent()) ?? '';
-    const words = text.trim().split(/\s+/).filter(Boolean).length;
-    // Concise but substantive: the module targets roughly 2,000+ words
-    // (VAL-ADJ-003 requires prose; VAL-ADJ-001's 3,000-word bar applies
-    // only to the autonomous-vehicles module).
-    expect(words, `article word count (${words})`).toBeGreaterThanOrEqual(1500);
+    const sources = await prose.locator('[data-cite-id]').evaluateAll((chips) =>
+      new Set(chips.map((chip) => chip.getAttribute('data-cite-id'))).size);
+    expect(sources, `distinct cited sources (${sources})`).toBeGreaterThanOrEqual(30);
+    const leadWords = await prose.locator(':scope > p').first().evaluate((lead) => {
+      const copy = lead.cloneNode(true) as HTMLElement;
+      copy.querySelectorAll('[data-cite-id], [role="tooltip"]').forEach((node) => node.remove());
+      return (copy.textContent ?? '').split(/\s+/).filter((word) => /[\p{L}\p{N}]/u.test(word)).length;
+    });
+    expect(leadWords, `lead word count (${leadWords})`).toBeLessThanOrEqual(60);
 
     const fontFamily = await prose.evaluate((el) =>
       getComputedStyle(el).getPropertyValue('font-family'),

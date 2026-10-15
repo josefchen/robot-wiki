@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { openArticlesPanel } from './helpers/articles-panel';
+import { mugOffset, mugTransform } from '@/components/iso/figures/push-bench';
 
 const ROUTE = '/world-models/generative-sim/';
 
@@ -142,10 +143,12 @@ test.describe('world-models generative-sim module', () => {
     await expect(push).toBeVisible();
     await push.click();
     expect(await displacementCm(page)).toBe(0);
+    // The real mug still waits on its stand: nothing was on the plate to push.
     await expect(page.getByTestId('mug')).toHaveAttribute(
       'transform',
-      'translate(80 0)',
+      mugTransform(mugOffset(0, 0, 1)),
     );
+    await expect(page.getByTestId('mug')).toHaveAttribute('data-position-mm', '0');
     await openHowThisWasMade(figure);
     await expect(page.getByTestId('push-test-note')).toContainText(
       /renderer is not a simulator/i,
@@ -156,7 +159,8 @@ test.describe('world-models generative-sim module', () => {
     const afterOne = await displacementCm(page);
     expect(afterOne).toBeGreaterThan(10);
     await expect(withPhysics).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByTestId('collision-hull')).toBeVisible();
+    await expect(page.getByTestId('mug')).toHaveAttribute('data-on-plate', '');
+    await expect(page.getByTestId('mug')).toBeVisible();
     await expect(page.getByTestId('motion-ghost').first()).toBeVisible();
     await expect(page.getByTestId('push-test-note')).toContainText(
       /collision geometry/i,

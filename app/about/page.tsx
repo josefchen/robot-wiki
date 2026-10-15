@@ -80,11 +80,10 @@ export default function AboutPage() {
           , which shows the format every article follows.
         </p>
         <p className={prose}>
-          The one prerequisite is fluency in machine learning; no robotics
-          background is assumed. When an article needs a classical result, it
-          links to the article that derives it, so you can read forward and
-          fill gaps as you go. Terms are defined where they first appear and
-          collected in the{' '}
+          The one prerequisite is machine learning; no robotics background
+          is assumed. When an article needs a classical result, it links to
+          the article that derives it. Terms are defined where they first
+          appear and collected in the{' '}
           <IntentLink
             data-brand-control-id="control:link-focus"
             href="/glossary/"
@@ -98,10 +97,9 @@ export default function AboutPage() {
           Technical claims trace to cited evidence. A citation chip links
           each claim to its named source, and every article ends with its
           full bibliography. Sources range from research papers to
-          first-party documentation and labelled community estimates, so a
-          citation tells you where a claim comes from, and the kind of source
-          tells you how far to trust it. Where researchers disagree, the text
-          names who holds which position.
+          first-party documentation and labelled community estimates, and
+          the kind of source tells you how far to trust it. Where researchers
+          disagree, the text names who holds which position.
         </p>
       </section>
 

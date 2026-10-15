@@ -60,6 +60,8 @@ import { CollaborativeOperationModes } from '@/components/interactive/collaborat
 
 Safety assurance is the procedure for showing that a robot system is safe enough to run. Industrial robots have a settled, numerical standards stack, but none certifies a learned policy, so what ships is a verifiable safety layer around it <Cite id="iso-iec-tr-5469-2024" />.
 
+<Image id="robotic-welding-cell-guarding-2014" />
+
 <span id="four-ways-to-share-a-workspace" />
 ## Fenceless robots use four collaborative modes, two of them quantitative
 
@@ -96,6 +98,8 @@ The robot-specific layer splits liability in two. ISO 10218-1 covers the robot a
 
 ISO 13850, at edition 3 from 2015, specifies the <Term id="emergency-stop">emergency stop</Term> independently of the energy source and names IEC 60204-1, at its 2016 edition, for the electrical realisation <Cite id="iso-13850-2015" /> <Cite id="iec-60204-1-2016" />. The button cannot detect a hazard; it waits for a person to see one and press. In stop category 0 the actuators lose power and the brakes engage, while in category 1 power is maintained through a controlled stop <Cite id="marvel-norcross-2017" />.
 
+<Image id="emergency-stop-siemens-2006" />
+
 For mobile robots, ISO 3691-4, at edition 2 from 2023, covers driverless industrial trucks, naming automated guided vehicles and autonomous mobile robots among its examples <Cite id="iso-3691-4-2023" />. In the United States the R15.08 series covers industrial mobile robots, with Part 1 published in 2020 and Part 2 in 2023 <Cite id="a3-robot-safety-standards" />.
 
 <span id="the-humanoid-gap-and-the-standard-that-is-not-finished" />
@@ -127,6 +131,8 @@ In 2026 the pattern reached vision-language-action policies. VLPSA wraps π0.5 i
 
 Barrier functions are also being adapted to bodies that rigid-arm controllers handle poorly. In September 2026, Zijian Cai, Daniela Rus, Cecilia Laschi and colleagues weighted the control barrier functions along a slender hyper-redundant robot to enforce obstacle constraints while correcting tracking errors from uneven loading. On a circular path-following task with obstacles, fixed weights cut the root-mean-square tracking error of the unweighted method by up to 59.6% in simulation and 87.7% in physical experiments <Cite id="wcbf-hyper-redundant-2026" />.
 
+<Image id="wcbf-hyper-redundant-robot-2026" />
+
 The industrial instance is cruder and far more widely deployed: force limiting in the actuator, velocity limiting in the drive, and workspace limiting in the safety controller. The standards above know how to rate those mechanisms, whatever generated the trajectory. Guardrails inside a model are no substitute: RoboPAIR jailbroke LLM-controlled robots, often with 100% attack success, including a deployed Unitree Go2 <Cite id="robopair-2024" />.
 
 <span id="the-assurance-case-for-what-testing-cannot-reach" />
@@ -140,6 +146,8 @@ An argument built to conclude that a system is safe will usually reach that conc
 ## Conformal prediction and monitors tell a learned system when to stop or ask
 
 <Term id="conformal-prediction">Conformal prediction</Term> turns any model's raw output into a prediction set with a guaranteed coverage rate under exchangeability. Vovk, Gammerman and Shafer built the framework <Cite id="vovk-conformal-2022" />, and Angelopoulos and Bates's tutorial carried it into general machine-learning practice <Cite id="angelopoulos-conformal-2021" />. In KnowNo, Ren and colleagues calibrate a language-model planner conformally so that the robot asks a human for help when its prediction set is ambiguous, with a statistical guarantee on task completion <Cite id="knowno-2023" />.
+
+<Image id="knowno-ask-for-help-2023" />
 
 <Term id="out-of-distribution-detection">Out-of-distribution detection</Term> asks whether the observation resembles anything the policy was trained on. Sinha and colleagues run a fast anomaly detector on the live observation stream to trigger a reactive fallback while slower reasoning catches up <Cite id="sinha-anomaly-2024" />. Runtime monitoring generalises both: Farid and colleagues detect trajectory-predictor failures by their effect on the planner, with guarantees on false-positive and false-negative rates <Cite id="farid-failure-2022" />.
 

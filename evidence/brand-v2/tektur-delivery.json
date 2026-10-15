@@ -2861,7 +2861,10 @@
       "heads": [
         "DM Sans",
         "Geist",
-        "Geist Mono"
+        "Geist Mono",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "math"
       ],
       "headsOutsideMath": [
         "DM Sans",
@@ -2875,7 +2878,10 @@
       "heads": [
         "DM Sans",
         "Geist",
-        "Geist Mono"
+        "Geist Mono",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "math"
       ],
       "headsOutsideMath": [
         "DM Sans",
@@ -2889,7 +2895,10 @@
       "heads": [
         "DM Sans",
         "Geist",
-        "Geist Mono"
+        "Geist Mono",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "math"
       ],
       "headsOutsideMath": [
         "DM Sans",
@@ -2903,7 +2912,10 @@
       "heads": [
         "DM Sans",
         "Geist",
-        "Geist Mono"
+        "Geist Mono",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "math"
       ],
       "headsOutsideMath": [
         "DM Sans",

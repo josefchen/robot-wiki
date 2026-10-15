@@ -51,6 +51,8 @@ import { TactileSlip } from '@/components/motion/scenes/tactile-slip';
 
 Dexterity is skilled <Term id="contact-rich-manipulation">contact-rich manipulation</Term>, such as reorienting an object in the hand or folding cloth. It remains unsolved: a model Physical Intelligence fine-tuned on Benjie Holson's Humanoid Olympics tasks averaged 52% success on them <Cite id="pi-olympics-2025" />.
 
+<Image id="uskin-tactile-allegro-hand-2021" />
+
 Rodney Brooks opens his dexterity essay with Heinrich Ernst's PhD work: by 1961, he writes, Ernst had connected a computer-controlled arm and hand to MIT's TX-0 and had it picking up and stacking blocks <Cite id="brooks-dexterity-2025" />. Hands are hard because of contact: grip force, slip and contact geometry decide success, and cameras lose most of that state once the fingers close. [Impedance control](/classical/control) governs a contact where position or force commands alone cannot, and touch lets a controller observe the contact it shapes.
 
 The five 2026 hands below rank differently by touch and by price.
@@ -94,6 +96,8 @@ Touch now ships on flagship hands, Figure's included, and tactile foundation mod
 
 In June 2026, Dantong Niu, Yuke Zhu, Trevor Darrell and colleagues described T-Rex. It pairs a 100-hour tactile-rich dataset with a vision-language-action model that reads high-frequency touch through a variable-rate mixture-of-transformers and a temporal tactile encoder. On 12 tasks requiring delicate force control and deformable-object manipulation, its average success rate was more than 30% higher than the strongest baseline's <Cite id="t-rex-2026" />.
 
+<Image id="t-rex-bimanual-tactile-setup-2026" />
+
 In September 2026, Enyi Wang and Yan Wang of Tsinghua University's Institute for AI Industry Research and colleagues reported TacDyn-WAM. This world action model predicts learned tactile representations instead of reconstructing tactile images. On five real-robot tasks with 60 demonstrations each, it averaged 71.0% success, 16 points above the tactile policy FTP-1. Pretraining on about 6,000 real visuo-tactile trajectories raised that to 85.0% <Cite id="tacdyn-wam-2026" />.
 
 Google's Gemini Robotics 2 drives the 22-DoF SharpaWave hand, itself a tactile design <Cite id="gemini-robotics-2-2026" /><Cite id="robozaps-unitree-h2-2026" />. It reports 92% success unscrewing a light bulb but 32 to 44% on its other multi-finger tasks. DeepMind itself flags this spread as the hard remainder <Cite id="gemini-robotics-2-2026" />.
@@ -121,6 +125,8 @@ Figure says Helix 02, using Figure 03's fingertip sensors and palm cameras, perf
 In June 2026, Xinghao Zhu, Yuke Zhu and colleagues reported CHORD, a reinforcement-learning framework for long-horizon dexterous manipulation. It compares human and robot motions by the forces and torques they can induce on the object. On 1,831 tasks from its simulated benchmark of 4,739 bimanual tasks, it averaged 82.12% success. Its learned policies transferred to the real world <Cite id="chord-2026" />.
 
 In September 2026, Yutong Liang, Quanquan Peng, Matthew Kim and Xiaolong Wang reported FINGR, a flow policy that turns Rubik's Cube layers with a single real dexterous hand. It succeeded on 99.0% of 300 turn attempts, against 79.7% for the base flow policy. With grasping and table-assisted regrasping added, it solved all ten scrambled 2×2×2 cubes in about 137 seconds on average <Cite id="fingr-2026" />.
+
+<Image id="fingr-cube-layer-turn-2026" />
 
 In October 2026, Harsh Gupta, Tyler Ga Wei Lum, Jeannette Bohg, Shuran Song and colleagues at Stanford reported that human hand-motion priors help most when they structure exploration and leave the action space unchanged. Their EigenDEXplore adds noise along eigenvectors of human hand motion to ordinary joint-space noise. Across several dexterous hands, it outperformed joint-space and learned action-space baselines in grasping, in-hand reorientation and contact-rich manipulation, with the largest gains where rewards and curricula were least engineered <Cite id="eigendexplore-2026" />.
 

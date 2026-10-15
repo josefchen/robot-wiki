@@ -194,6 +194,35 @@ export function dataHardwareCut20261013Endpoint(
 }
 
 /**
+ * Edges the adjacent domain pass and length cut of 2026-10-14 appended
+ * as one block after the data-hardware domain pass and length cut: one prose, relationships and
+ * front-matter edge per adjacent article, its removed state sites, the
+ * citation rendering resolution and one edge per registered citation.
+ */
+export const isAdjacentCut20261014Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('length-cut-20261014-adjacent-');
+
+/**
+ * The hash the 2026-10-14 adjacent cut leaves on a member whose chain
+ * ends at `from`: its one edge on the member must continue `from`, as a plain
+ * edge or as a resolution that reconciles it; an untouched member stays at
+ * `from`.
+ */
+export function adjacentCut20261014Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isAdjacentCut20261014Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-14 adjacent edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
+/**
  * The hash images bundle A leaves on a member whose chain ends at `from`:
  * its one edge on the member must continue `from`, as a plain edge or as a
  * resolution that reconciles it; an untouched member stays at `from`.
@@ -204,6 +233,34 @@ export function imagesA20261013Endpoint(
   const edges = entries.filter((entry) => isImagesA20261013Edge(entry)
     && entry.manifest === manifest && entry.memberId === memberId);
   if (edges.length > 1) throw new Error(`more than one 2026-10-13 images edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
+/**
+ * Edges the discovery pass of 2026-10-14 (opus-pass-home-hubs-and-discovery)
+ * appended as one block after the adjacent images: one edge per rewritten
+ * article summary in data/modules.ts and one each for the modules and glossary
+ * sources.
+ */
+export const isHomeHubs20261014Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('opus-pass-home-hubs-20261014-');
+
+/**
+ * The hash the discovery pass leaves on a member whose chain ends at `from`:
+ * its one edge on the member must continue `from`, as a plain edge or as a
+ * resolution that reconciles it; an untouched member stays at `from`.
+ */
+export function homeHubs20261014Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isHomeHubs20261014Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-14 discovery edge on ${manifest} ${memberId}`);
   const [edge] = edges;
   if (!edge) return from;
   if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
@@ -376,6 +433,30 @@ export const DOMAIN_PASS_REGISTRY_CORRECTIONS: readonly (readonly [string, strin
       'Timothy Lillicrap',
     ],
     year: 2023,
+`],
+  // adjacent, 2026-10-14 (owner sweep item: Reynolds reference defect): Crossref
+  // gives the canonical venue, Computer Graphics 21(4):25-34, so the venue drops
+  // the Soria-printed range and the process note (audit/citations.md).
+  [`    // behavioral model. Comput. Graph. 21, 25-43 (1987)." The ACM DL record
+    // (doi 10.1145/37402.37406) is Cloudflare-walled to machines (HTTP 403
+    // in the preparing session), so the ACM-canonical page range is not
+    // confirmed; the venue records the Soria-printed range with that caveat.
+    id: 'reynolds-boids-1987',
+    title: 'Flocks, Herds and Schools: A Distributed Behavioral Model',
+    authors: ['Craig W. Reynolds'],
+    year: 1987,
+    venue:
+      "Computer Graphics (SIGGRAPH '87) 21, pages 25-43 as printed by the fetched Soria reference list; ACM DL machine-walled so canonical pages unconfirmed",
+`,
+    `    // behavioral model. Comput. Graph. 21, 25-43 (1987)." Crossref (doi
+    // 10.1145/37402.37406, read 2026-10-14) gives the canonical record: ACM
+    // SIGGRAPH Computer Graphics 21(4):25-34, August 1987, so the venue
+    // carries Crossref's page range, not the Soria-printed one.
+    id: 'reynolds-boids-1987',
+    title: 'Flocks, Herds and Schools: A Distributed Behavioral Model',
+    authors: ['Craig W. Reynolds'],
+    year: 1987,
+    venue: "Computer Graphics 21(4):25-34 (SIGGRAPH '87)",
 `],
 ];
 

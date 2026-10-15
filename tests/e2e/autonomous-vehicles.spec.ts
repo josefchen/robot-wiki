@@ -4,7 +4,7 @@ import AxeBuilder from '@axe-core/playwright';
 const ROUTE = '/adjacent/autonomous-vehicles/';
 
 test.describe('adjacent autonomous-vehicles module', () => {
-  test('renders with at least 3,000 words of article prose (VAL-ADJ-001)', async ({
+  test('renders article prose with at least 30 sources and a lead of at most 60 words (VAL-ADJ-001)', async ({
     page,
   }) => {
     const errors: string[] = [];
@@ -19,9 +19,15 @@ test.describe('adjacent autonomous-vehicles module', () => {
     // time from).
     const prose = page.locator('div.prose[data-pagefind-body]');
     await expect(prose).toBeVisible();
-    const text = (await prose.textContent()) ?? '';
-    const words = text.trim().split(/\s+/).filter(Boolean).length;
-    expect(words, `article word count (${words})`).toBeGreaterThanOrEqual(3000);
+    const sources = await prose.locator('[data-cite-id]').evaluateAll((chips) =>
+      new Set(chips.map((chip) => chip.getAttribute('data-cite-id'))).size);
+    expect(sources, `distinct cited sources (${sources})`).toBeGreaterThanOrEqual(30);
+    const leadWords = await prose.locator(':scope > p').first().evaluate((lead) => {
+      const copy = lead.cloneNode(true) as HTMLElement;
+      copy.querySelectorAll('[data-cite-id], [role="tooltip"]').forEach((node) => node.remove());
+      return (copy.textContent ?? '').split(/\s+/).filter((word) => /[\p{L}\p{N}]/u.test(word)).length;
+    });
+    expect(leadWords, `lead word count (${leadWords})`).toBeLessThanOrEqual(60);
 
     // Serif long-form typography is applied to the article region.
     const fontFamily = await prose.evaluate((el) =>

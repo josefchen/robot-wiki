@@ -90,16 +90,17 @@ async function verify(): Promise<boolean> {
   const { worldModelsLengthCutPredecessor } = await import('../lib/audit-length-cut-world-models-continuity.ts');
   const { frontierLengthCutPredecessor } = await import('../lib/audit-length-cut-frontier-continuity.ts');
   const { dataHardwareCutPredecessor } = await import('../lib/audit-length-cut-data-hardware-continuity.ts');
+  const { adjacentCutPredecessor } = await import('../lib/audit-length-cut-adjacent-continuity.ts');
   let ok = true;
   for (const source of layer.loadKolBacklogReview(root).sources) {
     try {
-      // The newer image-mount (2026-10-13), frontier length-cut, length-cut (manipulation, classical and
+      // The newer image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut, length-cut (manipulation, classical and
       // rl-sim2real), world-models length-cut, word-budget trim, figure-mount and domain-pass layers hand back the
       // KOL backlog successor first.
       const live = domainPassPredecessor(root, source.before, figureMountPredecessor(root, source.before,
         wordBudgetTrimPredecessor(root, source.before, worldModelsLengthCutPredecessor(root, source.before,
           lengthCutPredecessor(root, source.before,
-            frontierLengthCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, readFileSync(join(root, source.after.path))))))))));
+            frontierLengthCutPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, readFileSync(join(root, source.after.path)))))))))));
       const prior = layer.kolBacklogPredecessor(root, source.before, live);
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {

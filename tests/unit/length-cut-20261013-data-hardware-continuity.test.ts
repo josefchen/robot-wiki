@@ -58,11 +58,12 @@ describe('data-hardware domain pass and length cut 2026-10-13 article successors
       expect([prior.length, sha(prior)]).toEqual([source.before.bytes, source.before.sha256]);
       expect(dataHardwareCutPredecessor(root, source.after, live)).toBe(live);
       // Older checks read the rebuilt bytes through the shared helper chain:
-      // the image-mount and frontier layers, which landed before this pass,
-      // leave the data-hardware articles alone, and the SEO-pass reader still
+      // the image-mount layer, which now sits innermost and mounts no image
+      // on these articles, hands this layer its successor, the frontier layer leaves
+      // the data-hardware articles alone, and the SEO-pass reader still
       // rebuilds its own earlier article from them.
+      expect(sha(preImageMounts(source.after.path))).toBe(source.after.sha256);
       expect(sha(preDataHardwareCut(source.after.path))).toBe(source.before.sha256);
-      expect(sha(preImageMounts(source.after.path))).toBe(source.before.sha256);
       expect(sha(preFrontierLengthCut(source.after.path))).toBe(source.before.sha256);
       expect(preSeoPass(source.after.path)).not.toEqual(prior);
     }

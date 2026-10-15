@@ -152,15 +152,15 @@
     "minutes": 6
   },
   "classical/kinematics": {
-    "words": 1772,
+    "words": 1787,
     "minutes": 9
   },
   "classical/motion-planning": {
-    "words": 2770,
+    "words": 2769,
     "minutes": 14
   },
   "classical/control": {
-    "words": 2279,
+    "words": 2288,
     "minutes": 11
   },
   "classical/state-estimation": {
@@ -188,43 +188,43 @@
     "minutes": 6
   },
   "frontier/reliability-gap": {
-    "words": 1248,
-    "minutes": 6
+    "words": 1321,
+    "minutes": 7
   },
   "frontier/dexterity": {
-    "words": 2517,
+    "words": 2631,
     "minutes": 13
   },
   "frontier/generalization": {
-    "words": 1623,
-    "minutes": 8
+    "words": 1708,
+    "minutes": 9
   },
   "frontier/competing-theses": {
-    "words": 1969,
+    "words": 2051,
     "minutes": 10
   },
   "frontier/bear-case": {
-    "words": 1191,
+    "words": 1260,
     "minutes": 6
   },
   "frontier/safety-and-assurance": {
-    "words": 2313,
+    "words": 2468,
     "minutes": 12
   },
   "adjacent/autonomous-vehicles": {
-    "words": 3631,
-    "minutes": 18
+    "words": 2755,
+    "minutes": 14
   },
   "adjacent/drones": {
-    "words": 2358,
-    "minutes": 12
+    "words": 1950,
+    "minutes": 10
   },
   "adjacent/surgical": {
-    "words": 2164,
-    "minutes": 11
+    "words": 1795,
+    "minutes": 9
   },
   "adjacent/space": {
-    "words": 2197,
-    "minutes": 11
+    "words": 1863,
+    "minutes": 9
   }
 }

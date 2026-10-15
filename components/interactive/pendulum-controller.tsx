@@ -12,12 +12,10 @@ import {
   controlTorque,
   formatDeg,
   playbackCadence,
-  tipPosition,
   type PidGains,
   type PendulumState,
   type Stability,
 } from '@/lib/pendulum';
-import { MOTION_STAGE } from '@/lib/motion-tokens';
 import { ChartDescription } from '@/components/ui';
 import {
   ControlField,
@@ -27,27 +25,35 @@ import {
   InstrumentFigure,
   InstrumentReadout,
   InstrumentReset,
-  PlotStage,
   PresetGroup,
   type Preset,
 } from '@/components/ui/instrument';
-import { FigureStage } from '@/components/motion/figure-frame';
+import { roleColour } from '@/components/motion/chart';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { PartView } from '@/components/iso/part-view';
+import { Dots, Line, Solid } from '@/components/iso/react/draw';
+import { Stage } from '@/components/iso/react/live';
 import {
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_TYPE,
-  CHART_VIEW_WIDTH,
-  DirectLabel,
-  StageAnnotation,
-  roleColour,
-} from '@/components/motion/chart';
+  DEG_PER_NM,
+  PARTS,
+  VIEW_BOX,
+  WIDTH,
+  gaugeNeedles,
+  poleParts,
+  shaftEnd,
+  trailFor,
+  type Part,
+} from '@/components/iso/figures/pendulum-stand';
 
 /**
  * PendulumController: a live PID lab on a torque-actuated inverted
- * pendulum. The pole is released 12 degrees off vertical with a small
- * off-center payload supplying a constant disturbance torque. The stage
- * draws the motor at the pivot with a curved push-back arrow sized by its
- * torque, and gravity's pull at the tip. "Correction strength" picks a
+ * pendulum, drawn as a balance stand (components/iso/figures/pendulum-stand.ts).
+ * The pole is released 12 degrees off vertical with a small off-center
+ * payload supplying a constant disturbance torque. A motor at the pivot
+ * holds the pole in front of a round dial plate that reads the lean, and a
+ * torque gauge beside it carries two needles from one zero: the short one
+ * gravity's pull on the leaning pole, the long lit one the motor's push
+ * back. "Correction strength" picks a
  * proportional gain just under gravity's pull (9.5) or the stock 25 and
  * releases the pole; "Give it a push" applies a fixed angular-velocity
  * kick. The three gain sliders, Run and Reset sit in "Adjust more": default
@@ -65,25 +71,6 @@ import {
  * discrete jumps under prefers-reduced-motion; nothing animates until the
  * user runs or pushes.
  */
-
-const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 226;
-// The pivot sits on a support post well above the ground line, so the pole
-// stays fully in frame in every regime: upright, hanging straight down, or
-// tumbling through. It stands right of centre so the note fits on the left.
-const GROUND_Y = 214;
-const PIVOT = { x: 196, y: 116 };
-const ROD_PX = 92;
-const ROD_WIDTH = CHART_STROKE.trace;
-const MASS_R = 6;
-const MOTOR_R = 11;
-const PUSH_ARC_R = 25;
-/** How far beyond the push arc its word sits, so the word never touches the arc or the rod. */
-const PUSH_WORD_R = PUSH_ARC_R + 14;
-
-/** Degrees of push-back arc per newton-metre of motor torque. */
-const PUSH_ARC_DEG_PER_NM = 9;
-const GRAVITY_ARROW_PX = 32;
 
 type StrengthId = 'gentle' | 'enough';
 const STRENGTHS: readonly (Preset<StrengthId> & { kp: number })[] = [
@@ -110,18 +97,6 @@ function stageWord(stability: Stability, theta: number): string {
   return STAGE_WORD[stability];
 }
 
-/** Round every rendered geometry value: SSR HTML and hydration agree. */
-const f = (v: number) => Number(v.toFixed(2));
-
-/** The note's arrow runs from beside the note to the motor's rim. */
-const NOTE_FROM = [162, 141] as const;
-const NOTE_TARGET = (() => {
-  const [fx, fy] = NOTE_FROM;
-  const d = Math.hypot(PIVOT.x - fx, PIVOT.y - fy);
-  const rim = MOTOR_R + 2;
-  return [f(PIVOT.x - ((PIVOT.x - fx) / d) * rim), f(PIVOT.y - ((PIVOT.y - fy) / d) * rim)] as const;
-})();
-
 function prefersReducedMotion(): boolean {
   return (
     typeof window !== 'undefined' &&
@@ -144,101 +119,80 @@ const GAIN_LABEL: Record<keyof PidGains, string> = {
   kd: 'Calm the swing (D)',
 };
 
-/** Past this lean the plant is treated as fallen rather than recovering. */
-const FALL_LINE_RAD = Math.PI / 3;
-
-/** A point on a circle round the pivot, `angle` measured clockwise from straight up. */
-function aroundPivot(angle: number, radius: number): [number, number] {
-  return [f(PIVOT.x + radius * Math.sin(angle)), f(PIVOT.y - radius * Math.cos(angle))];
+/**
+ * Gravity's pull on the leaning pole with the side load it carries, in
+ * newton-metres: m·g·l·sin(lean) plus the load's constant 0.8. The motor's
+ * push must beat it to bring the pole back.
+ */
+export function gravityPull(theta: number): number {
+  const { massKg, gravity, lengthM, biasTorque } = PENDULUM_PARAMS;
+  return Math.abs(massKg * gravity * lengthM * Math.sin(theta) + biasTorque);
 }
 
-/** An arrowhead at (x, y) pointing along the unit direction (dx, dy). */
-function arrowHead(x: number, y: number, dx: number, dy: number): string {
-  return [
-    [x + dx * 4, y + dy * 4],
-    [x - dx * 6 - dy * 4.5, y - dy * 6 + dx * 4.5],
-    [x - dx * 6 + dy * 4.5, y - dy * 6 - dx * 4.5],
-  ].map(([px, py]) => `${f(px)},${f(py)}`).join(' ');
+/** A lean in whole degrees, in words: "1 degree", "12 degrees". */
+function degreesOff(theta: number): string {
+  const deg = Math.round(Math.abs((theta * 180) / Math.PI));
+  return `${deg} ${deg === 1 ? 'degree' : 'degrees'}`;
 }
 
-/** Ground, its hatch ticks and the post under the motor. */
-function PendulumSupport() {
-  return (
-    <g data-scene-structure="pendulum-support" stroke={CHART_STRUCTURE.axes}>
-      <line x1={34} y1={GROUND_Y + 0.5} x2={306} y2={GROUND_Y + 0.5} strokeWidth={CHART_STROKE.structure} />
-      <g opacity={CHART_STRUCTURE.axesOpacity}>
-        {Array.from({ length: 21 }, (_, i) => 46 + i * 13).map((x) => (
-          <line key={x} x1={x} y1={GROUND_Y + 0.5} x2={x - 4} y2={GROUND_Y + 5} strokeWidth={CHART_STROKE.structure} />
-        ))}
-        <rect x={PIVOT.x - 4} y={PIVOT.y + MOTOR_R} width={8} height={GROUND_Y - PIVOT.y - MOTOR_R} fill="none" strokeWidth={CHART_STROKE.structure} />
+/** Parts in drawing order, grouped where consecutive parts share an id (the motor). */
+const GROUPS = PARTS.reduce<{ id?: string; parts: Part[] }[]>((groups, part) => {
+  const last = groups[groups.length - 1];
+  if (last && part.kind !== 'slot' && last.id && last.id === part.id) last.parts.push(part);
+  else groups.push({ id: part.kind === 'slot' ? undefined : part.id, parts: [part] });
+  return groups;
+}, []);
+
+/** What the parts of the stand draw for the moving pole, the needles and the ink. */
+function StandSlot({ part, theta, torque, pull, trail }: {
+  part: Extract<Part, { kind: 'slot' }>;
+  theta: number;
+  torque: number;
+  pull: number;
+  trail: number[];
+}) {
+  if (part.slot === 'trail') {
+    const ink = trailFor(trail);
+    return ink ? (
+      <g data-testid="pendulum-trail">
+        <Line d={ink.d} tone="lo" />
+        <Dots points={[ink.start]} size={0.9} tone="mid" />
       </g>
-    </g>
-  );
-}
-
-/**
- * The motor at the pivot and its push on the pole: an arc from the rod
- * toward upright whose length grows with the motor's torque.
- */
-function MotorPush({ theta, torque }: { theta: number; torque: number }) {
-  const colour = roleColour('highlight');
-  const sweep = (Math.min(Math.abs(torque) * PUSH_ARC_DEG_PER_NM, 160) * Math.PI) / 180;
-  const turn = Math.sign(torque);
-  const end = theta + turn * sweep;
-  const [x0, y0] = aroundPivot(theta, PUSH_ARC_R);
-  const [x1, y1] = aroundPivot(end, PUSH_ARC_R);
-  return (
-    <g data-testid="pendulum-motor">
-      <circle cx={PIVOT.x} cy={PIVOT.y} r={MOTOR_R} fill={MOTION_STAGE.background} stroke={CHART_STRUCTURE.axes} strokeWidth={CHART_STROKE.trace} />
-      {Math.abs(torque) > 0.05 ? (
-        <g data-testid="pendulum-push-arrow" data-chart-role="highlight" data-push-sweep-deg={f((sweep * 180) / Math.PI)}>
-          <path
-            d={`M ${x0} ${y0} A ${PUSH_ARC_R} ${PUSH_ARC_R} 0 ${sweep > Math.PI ? 1 : 0} ${turn > 0 ? 1 : 0} ${x1} ${y1}`}
-            fill="none"
-            stroke={colour}
-            strokeWidth={CHART_STROKE.trace}
-            strokeLinecap="round"
-          />
-          <polygon points={arrowHead(x1, y1, turn * Math.cos(end), turn * Math.sin(end))} fill={colour} />
-          <PushWord angle={end} colour={colour} />
+    ) : null;
+  }
+  if (part.slot === 'pole') {
+    const pole = poleParts(theta);
+    return (
+      <g data-series="pendulum-pole" data-part="pole">
+        <g data-testid="pendulum-rod">
+          {pole.rod.map((p, i) => (p.kind === 'slot' ? null : <PartView key={i} part={p} />))}
         </g>
-      ) : null}
-    </g>
-  );
-}
-
-/**
- * The word "push" past the arrowhead, on the side the arrow points to, so a
- * reader sees the small arrow is the motor's push.
- */
-function PushWord({ angle, colour }: { angle: number; colour: string }) {
-  const [x, y] = aroundPivot(angle, PUSH_WORD_R);
+        <g data-testid="pendulum-mass">
+          {pole.weight.map((p, i) => (p.kind === 'slot' ? null : <PartView key={i} part={p} />))}
+        </g>
+        {pole.hub.map((p, i) => (p.kind === 'slot' ? null : <PartView key={i} part={p} />))}
+      </g>
+    );
+  }
+  if (part.slot === 'index') {
+    const { index } = poleParts(theta);
+    return index.kind === 'line' ? (
+      <g data-part="rotor-index">
+        <Line d={index.d} tone="hi" />
+        <Dots points={[shaftEnd]} size={0.9} tone="hi" />
+      </g>
+    ) : null;
+  }
+  const needles = gaugeNeedles(torque, pull);
   return (
-    <text
-      data-testid="pendulum-push-word"
-      x={x}
-      y={f(y + CHART_TYPE.labelPx * 0.35)}
-      textAnchor={x < PIVOT.x ? 'end' : 'start'}
-      fontSize={CHART_TYPE.labelPx}
-      fill={colour}
-    >
-      push
-    </text>
-  );
-}
-
-/** Gravity's pull at the tip mass, drawn while the mass is above the pivot. */
-function GravityPull({ tip }: { tip: { x: number; y: number } }) {
-  const colour = CHART_STRUCTURE.labelSecondary;
-  const top = tip.y + MASS_R + 3;
-  const bottom = top + GRAVITY_ARROW_PX;
-  return (
-    <g data-testid="pendulum-gravity-arrow">
-      <line x1={f(tip.x)} y1={f(top)} x2={f(tip.x)} y2={f(bottom - 4)} stroke={colour} strokeWidth={CHART_STROKE.trace} />
-      <polygon points={arrowHead(f(tip.x), f(bottom - 4), 0, 1)} fill={colour} />
-      <DirectLabel x={f(tip.x + 9)} y={f(bottom - 6)}>
-        gravity
-      </DirectLabel>
+    <g data-part="gauge-needles">
+      <g data-testid="pendulum-gravity-arrow" data-pull-sweep-deg={needles.pull.sweepDeg.toFixed(2)}>
+        <Solid paths={needles.pull.paths} tone="mid" />
+      </g>
+      <g data-testid="pendulum-push-arrow" data-push-sweep-deg={needles.push.sweepDeg.toFixed(2)}>
+        <Solid paths={needles.push.paths} tone="hi" lit />
+      </g>
+      <Solid paths={needles.hub} tone="mid" />
     </g>
   );
 }
@@ -332,8 +286,6 @@ export function PendulumController({
   const status = started
     ? STATUS_TEXT[classifyStability(history)]
     : 'holding at release';
-  const pastFallLine = Math.abs(sim.theta) > FALL_LINE_RAD;
-  const tip = tipPosition(sim.theta, ROD_PX, PIVOT);
   const torque = controlTorque(sim, gains, PENDULUM_PARAMS);
   // The takeaway names the gains "Default" only while they actually are
   // the defaults: the label follows the live sliders, not the mount, so
@@ -344,10 +296,19 @@ export function PendulumController({
     gains.kd === DEFAULT_GAINS.kd;
 
   const strength = STRENGTHS.find((option) => option.kp === gains.kp)?.id ?? null;
-  // The tip's path over the last two seconds of the run.
-  const trail = started
-    ? history.map((h) => tipPosition(h.theta, ROD_PX, PIVOT)).map((p) => `${f(p.x)},${f(p.y)}`).join(' ')
-    : '';
+  // The weight's path over the last two seconds of the run, inked on the plate.
+  const trail = started ? history.map((h) => h.theta) : [];
+  // Gravity's pull on the leaning pole, with the side load it carries: the
+  // torque the motor must beat, in newton-metres.
+  const pull = gravityPull(sim.theta);
+  const stageReadout = started ? (
+    <>
+      <span data-testid="pendulum-stage-status">{stageWord(classifyStability(history), sim.theta)}</span>
+      {` · ${degreesOff(sim.theta)} off upright`}
+    </>
+  ) : (
+    `Released ${degreesOff(sim.theta)} off upright`
+  );
 
   const push = () => {
     setRun((prev) => ({ ...prev, sim: applyPush(prev.sim) }));
@@ -409,84 +370,39 @@ export function PendulumController({
       kicker="PID control"
       heading="Push back harder than gravity to keep the pole upright"
       stage={
-        <FigureStage>
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`Inverted pendulum with PID control. Pole angle ${formatDeg(
-              sim.theta,
-            )} degrees from upright, status ${status}.`}
-            aria-describedby={descriptionId}
-            data-testid="pendulum-scene"
-          >
-            <PendulumSupport />
-            <g data-series="pendulum-setpoint" data-chart-role="reference">
-              <line
-                x1={PIVOT.x}
-                y1={PIVOT.y - MOTOR_R - 3}
-                x2={PIVOT.x}
-                y2={PIVOT.y - ROD_PX - 12}
-                stroke={roleColour('reference')}
-                strokeWidth={CHART_STROKE.reference}
-                strokeDasharray={CHART_STROKE.dash}
-              />
-            </g>
-            <DirectLabel x={PIVOT.x - 8} y={PIVOT.y - ROD_PX - 2} anchor="end">
-              upright
-            </DirectLabel>
-            {trail ? (
-              <polyline
-                data-testid="pendulum-trail"
-                points={trail}
-                fill="none"
-                stroke={roleColour('reference')}
-                strokeWidth={CHART_STROKE.structure}
-                opacity={0.7}
-              />
-            ) : null}
-            <MotorPush theta={sim.theta} torque={torque} />
-            {/* Past the fall line the rod breaks into dashes and the tip mass
-                opens into a broken ring, so the failed regime reads from the
-                shape as well as from the status word. */}
-            <g data-series="pendulum-pole" data-chart-role="state">
-              <line
-                data-testid="pendulum-rod"
-                x1={PIVOT.x}
-                y1={PIVOT.y}
-                x2={f(tip.x)}
-                y2={f(tip.y)}
-                stroke={state}
-                strokeWidth={ROD_WIDTH}
-                strokeLinecap="round"
-                strokeDasharray={pastFallLine ? CHART_STROKE.dash : undefined}
-              />
-              <circle
-                data-testid="pendulum-mass"
-                cx={f(tip.x)}
-                cy={f(tip.y)}
-                r={MASS_R}
-                fill={pastFallLine ? MOTION_STAGE.background : state}
-                stroke={state}
-                strokeWidth={pastFallLine ? CHART_STROKE.trace : 0}
-                strokeDasharray={pastFallLine ? CHART_STROKE.dash : undefined}
-              />
-            </g>
-            <circle cx={PIVOT.x} cy={PIVOT.y} r={3} fill={CHART_STRUCTURE.axes} />
-            {Math.abs(sim.theta) < Math.PI / 2 ? <GravityPull tip={tip} /> : null}
-            {started ? (
-              <DirectLabel x={WIDTH - 8} y={22} anchor="end" role={status === 'fallen' ? 'constraint' : undefined}>
-                <tspan data-testid="pendulum-stage-status">{stageWord(classifyStability(history), sim.theta)}</tspan>
-              </DirectLabel>
-            ) : null}
-            <StageAnnotation
-              x={8}
-              y={146}
-              lines={['Gravity tips it over;', 'the motor at the base', 'pushes back']}
-              target={NOTE_TARGET}
-              from={NOTE_FROM}
-              pointer="arrow"
-            />
-          </PlotStage>
-        </FigureStage>
+        <AnatomyStage
+          viewWidth={WIDTH}
+          hint="Long needle: the motor's push. Short needle: gravity's pull."
+          readout={stageReadout}
+          status="Illustrative simulation: 1 kg on a 1 m pole"
+          data-testid="pendulum-stage-frame"
+        >
+          <Stage className="iso-stage">
+            <svg
+              className="iso-svg"
+              viewBox={VIEW_BOX}
+              role="img"
+              focusable="false"
+              aria-label={`Inverted pendulum with PID control. Pole angle ${formatDeg(
+                sim.theta,
+              )} degrees from upright, status ${status}.`}
+              aria-describedby={descriptionId}
+              data-testid="pendulum-scene"
+            >
+              {GROUPS.map(({ id, parts }, index) => (
+                <g key={index} data-testid={id === 'motor' ? 'pendulum-motor' : undefined}>
+                  {parts.map((part, n) =>
+                    part.kind === 'slot' ? (
+                      <StandSlot key={part.slot} part={part} theta={sim.theta} torque={torque} pull={pull} trail={trail} />
+                    ) : (
+                      <PartView key={n} part={part} />
+                    ),
+                  )}
+                </g>
+              ))}
+            </svg>
+          </Stage>
+        </AnatomyStage>
       }
       controls={
         <>
@@ -566,8 +482,11 @@ export function PendulumController({
             upright, the pole can only be held upright when Kp exceeds m·g·l = {PENDULUM_PARAMS.gravity.toFixed(2)}{' '}
             N·m per radian, so below it no I or D setting helps. Too gentle sets Kp to 9.5: the pole sags until the
             motor&apos;s push matches gravity&apos;s pull, about 50 degrees off upright. Strong enough sets the stock
-            25. The push-back arc grows {PUSH_ARC_DEG_PER_NM} degrees per N·m of motor torque, and the faint trail
-            is the tip&apos;s path over the last two seconds. The balance problem follows Tedrake&apos;s
+            25. On the gauge both needles sweep {DEG_PER_NM} degrees per N·m from one zero: the long one is the
+            motor&apos;s torque, the short one gravity&apos;s pull on the leaning pole plus the load&apos;s 0.8 N·m, so
+            the pole can only come back while the long needle is past the short one. On the dial plate a printed band
+            marks upright within 10 degrees and another marks past 60 degrees, where the lab calls the pole fallen; the
+            faint ink is the weight&apos;s path over the last two seconds. The balance problem follows Tedrake&apos;s
             Underactuated Robotics, chapters 2 and 3; the PID structure follows Åström and Murray&apos;s Feedback
             Systems.
           </p>

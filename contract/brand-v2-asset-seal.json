@@ -128,6 +128,20 @@
       "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"ALOHA Unleashed: A Simple Recipe for Robot Dexterity\" (2410.13126), credited to Tony Z. Zhao et al.: MainFigure (task overview), illustrating the action chunking article."
     },
     {
+      "path": "images/amazon-drive-unit-2023.jpg",
+      "sha256": "f14242b633acd893152919ad1644167e483b5aad6491a2e46e6d6abaa64249f0",
+      "byteCount": 244608,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of an Amazon warehouse drive unit, credited to Geni under CC BY-SA 4.0 and used beside the task-specific thesis in competing theses."
+    },
+    {
+      "path": "images/amazon-swindon-slam-line-2025.jpg",
+      "sha256": "9805d7f193e5ee181f6baae0a18619ae0e52e203507bc2e4646012d4ede06903",
+      "byteCount": 927484,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a parcel labelling line at Amazon's Swindon fulfilment centre, credited to Auledas under CC BY 4.0 and used as the reliability-gap lead image."
+    },
+    {
       "path": "images/anymal-anybotics-2022.jpg",
       "sha256": "65bd6998719c0f2f7c65c492072fb66bb3a78ec501d7e00a1e9555c9cf5d8a5b",
       "byteCount": 706854,
@@ -154,6 +168,13 @@
       "byteCount": 581831,
       "owner": "robot-wiki-editorial",
       "purpose": "Editorial photograph of an Apollo inertial measurement unit, credited to ArnoldReinhold under CC BY-SA 4.0 and used as the state-estimation lead image."
+    },
+    {
+      "path": "images/asimo-miraikan-2016.jpg",
+      "sha256": "09ffa03d3757f365b478afc1c18404cc354569e75bc1e2bb80e416cb11e773df",
+      "byteCount": 419927,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of Honda's ASIMO at Miraikan, credited to Sylvain Kalache under CC BY 2.0 and used as the bear-case lead image."
     },
     {
       "path": "images/atlas-darpa-frontview-2013.jpg",
@@ -226,6 +247,13 @@
       "purpose": "Public-domain US Army photograph of a Clearpath Jackal ground robot, used beside the Nav2 navigation text in the ROS 2 article."
     },
     {
+      "path": "images/cmu-boss-urban-challenge-winner.jpg",
+      "sha256": "86102eb919e0cbf1ee127ea0f1c5a78fff9a71f0dc59bed66974cf09530cd50a",
+      "byteCount": 566323,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of Carnegie Mellon's Boss autonomous vehicle, credited to Steve Jurvetson under CC BY 2.0 and used beside the planning text in autonomous vehicles."
+    },
+    {
       "path": "images/conrft-real-world-tasks-2025.jpg",
       "sha256": "2ed930abd63c1f458d47cf9a05aacd13834e9f4e9220c3bd43d20ef70bef7fc3",
       "byteCount": 259551,
@@ -245,6 +273,20 @@
       "byteCount": 2589,
       "owner": "robot-wiki-editorial",
       "purpose": "First-party explanatory diagram of covariate shift between demonstration corridor and policy rollout, drawn for the behaviour-cloning articles."
+    },
+    {
+      "path": "images/da-vinci-xi-patient-cart-2018.jpg",
+      "sha256": "a7fd76f12f5bb5ec900a1034c374c38e3889004ffce1a2655298ad66b53d7921",
+      "byteCount": 498149,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a da Vinci Xi patient-side cart, credited to Alvarogarciamd under CC BY-SA 4.0 and used as the surgical-robotics lead image."
+    },
+    {
+      "path": "images/da-vinci-xi-surgeon-console-vesoul-2023.jpg",
+      "sha256": "1437667d524352b4b89a00454c77d7688b3e1243e2db3ec472ac36d43b568dd9",
+      "byteCount": 392780,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a da Vinci Xi surgeon console, credited to A.BourgeoisP under CC BY-SA 4.0 and used beside the teleoperation-baseline text in surgical robotics."
     },
     {
       "path": "images/daydreamer-a1-push-recovery-2022.jpg",
@@ -268,6 +310,20 @@
       "purpose": "Editorial reuse of a CC BY 4.0 arXiv still from \"DayDreamer: World Models for Physical Robot Learning\" (2206.14176), credited to Philipp Wu et al.: UR5 Multi Object Visual Pick and Place (first frame), illustrating the latent dynamics article."
     },
     {
+      "path": "images/dextre-canadarm2-iss-2017.jpg",
+      "sha256": "352acd8f71b7306880e82dc6777717d6cc5a8cf5d3b5ed88817cc0034118820a",
+      "byteCount": 467098,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Public-domain NASA photograph of Dextre on Canadarm2 outside the International Space Station, used beside the orbital-robotics text in space robotics."
+    },
+    {
+      "path": "images/dji-mavic-pro-in-flight.jpg",
+      "sha256": "8376cd484fcb0cb21c86d03d84b53e6c5f8a2c5620e93270cfd805f1da33a215",
+      "byteCount": 172000,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a DJI Mavic Pro quadcopter in flight, credited to Sinky under CC BY-SA 4.0 and used beside the autonomy-stack text in drones."
+    },
+    {
       "path": "images/dp3-real-robot-setup-2024.jpg",
       "sha256": "ffa1affa5610438dbb70442a194884b95b74a9ca075be94f3a84b568e50bbdd5",
       "byteCount": 111033,
@@ -280,6 +336,13 @@
       "byteCount": 84372,
       "owner": "robot-wiki-editorial",
       "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Mastering Diverse Domains through World Models\" (2301.04104), credited to Danijar Hafner et al.: Multi-step video predictions (quadruped row), illustrating the taxonomy article."
+    },
+    {
+      "path": "images/droid-cook-lentils-rollouts-2024.jpg",
+      "sha256": "fa4f6b8100692909541316ee879d37f83874b2bf466bf841b7744758d2ff358a",
+      "byteCount": 302812,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Paper figure of DROID Cook Lentils policy rollouts, credited to Alexander Khazatsky et al. under CC BY 4.0 and used as the generalization lead image."
     },
     {
       "path": "images/droid-in-the-wild-scenes-2024.jpg",
@@ -301,6 +364,27 @@
       "byteCount": 228650,
       "owner": "robot-wiki-editorial",
       "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data\" (2602.16710), credited to Ruijie Zheng et al.: two-stage human-to-robot framework, illustrating the cross embodiment article."
+    },
+    {
+      "path": "images/egoscale-robot-platforms-2026.jpg",
+      "sha256": "91b4ac21cc7acb19337b611270e7c02bda5f0a174ec4957258e35bf2a120ebba",
+      "byteCount": 97774,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Paper figure of the two EgoScale robot platforms and their hands, credited to Ruijie Zheng et al. under CC BY 4.0 and used beside the transfer limits in generalization."
+    },
+    {
+      "path": "images/emergency-stop-siemens-2006.jpg",
+      "sha256": "5c1fe860a39431bf6cd8433d0ac09a7feabe470e68faad84592d1a7d7a4e3f76",
+      "byteCount": 461711,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Siemens emergency-stop actuator, credited to Stahlkocher under CC BY-SA 3.0 and used beside the emergency-stop text in safety and assurance."
+    },
+    {
+      "path": "images/fingr-cube-layer-turn-2026.jpg",
+      "sha256": "38fb9b7c5e7b9faa77af693f8cd49e513e827e2c29c0936034ca7e94ededbee3",
+      "byteCount": 114280,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Paper figure of a real dexterous hand turning a cube layer, credited to Yutong Liang et al. under CC BY 4.0 and used beside the in-hand manipulation text in dexterity."
     },
     {
       "path": "images/franka-emika-panda-cebit-2017.jpg",
@@ -373,6 +457,13 @@
       "purpose": "Public-domain 1878 Eadweard Muybridge chronophotograph sequence of a galloping horse, illustrating a gait as a footfall timing pattern."
     },
     {
+      "path": "images/ingenuity-mastcam-z-closeup-2021.jpg",
+      "sha256": "b9043c1effd10826a8761a9ac4c293aaa3d203250354fed127e89017842aba3a",
+      "byteCount": 956286,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Public-domain NASA photograph of the Ingenuity helicopter on Mars, used beside the Ingenuity text in space robotics."
+    },
+    {
       "path": "images/isaac-gym-allegro-envs-2021.jpg",
       "sha256": "e740169c52f0f55f1a729d1288becf96896815ed12161e7061b49822ddac0014",
       "byteCount": 102311,
@@ -443,6 +534,13 @@
       "purpose": "Public-domain photograph of a Kinect for Xbox One time-of-flight sensor by Evan-Amos, used beside the depth-sensing failure text in perception."
     },
     {
+      "path": "images/knowno-ask-for-help-2023.jpg",
+      "sha256": "635ae3c4637d6092e8f2758777ed55e71c580aae949f2ee871103c5788e94480",
+      "byteCount": 245752,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Paper figure of the KnowNo conformal ask-for-help pipeline, credited to Allen Z. Ren et al. under CC BY 4.0 and used beside the conformal prediction text in safety and assurance."
+    },
+    {
       "path": "images/leica-laser-tracker-ats600.jpg",
       "sha256": "839507df6c4cb488620162c9d79d8fc4dec19f833b89b350f5b2e2eb5d0bb055",
       "byteCount": 226185,
@@ -462,6 +560,13 @@
       "byteCount": 279463,
       "owner": "robot-wiki-editorial",
       "purpose": "Editorial photograph of performers in marker suits in an optical motion capture volume, credited to Applearts123 under CC BY-SA 4.0, illustrating the human motion data behind humanoid tracking policies."
+    },
+    {
+      "path": "images/moxie-installation-perseverance-2020.jpg",
+      "sha256": "8e176366fb98b853725e080e3d900ca0b3aee952a42c870dad730558ea1fb1f1",
+      "byteCount": 500772,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Public-domain NASA photograph of MOXIE being installed in the Perseverance rover, used beside the ISRU text in space robotics."
     },
     {
       "path": "images/mujoco-playground-environments-2025.jpg",
@@ -504,6 +609,13 @@
       "byteCount": 529655,
       "owner": "robot-wiki-editorial",
       "purpose": "Editorial lidar point-cloud rendering of a San Francisco intersection, credited to Daniel L. Lu under CC BY 4.0 and used as the scene-representation lead image."
+    },
+    {
+      "path": "images/perseverance-selfie-rochette-2021.jpg",
+      "sha256": "f8bdb57c5ed72bcaaee2c9d999a8e84538327fc8fe8ec68096867df8f77dcd7a",
+      "byteCount": 566933,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Public-domain NASA photograph of the Perseverance rover beside the rock Rochette, used as the space-robotics lead image."
     },
     {
       "path": "images/phantom-human-video-robot-2025.jpg",
@@ -576,6 +688,13 @@
       "purpose": "Editorial stroboscopic photograph of a PUMA 560 arm at NASA Ames, a public-domain image used to illustrate classical industrial manipulation."
     },
     {
+      "path": "images/racing-quadrotor-minion-220-2016.jpg",
+      "sha256": "126fa0a5425aa1b4530f00a9e80b6a78de7845dc73ba3cde7b80e363315daf58",
+      "byteCount": 383145,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Minion 220 racing quadrotor, credited to Commanderbryce under CC BY-SA 4.0 and used as the drones lead image."
+    },
+    {
       "path": "images/realsense-d435-depth-camera.jpg",
       "sha256": "3eaba8124ded123d1b62604818de7e5b63175914a7141f25115a467d4fc15e79",
       "byteCount": 185095,
@@ -611,6 +730,13 @@
       "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"RoboCat: A Self-Improving Generalist Agent for Robotic Manipulation\" (2306.11706), credited to Konstantinos Bousmalis et al.: embodiments and control modes, illustrating the foundation models article."
     },
     {
+      "path": "images/robotic-welding-cell-guarding-2014.jpg",
+      "sha256": "6b443b814f4ddc3a8fc47351deb0f577ee0b3c0778db1a5189508dd5be714dbc",
+      "byteCount": 715800,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a guarded robotic weld cell, credited to WireCrafters under CC BY-SA 4.0 and used as the safety-and-assurance lead image."
+    },
+    {
       "path": "images/roboworld-bair-forcing-2026.jpg",
       "sha256": "2e4817efcc61fa6d7693696e5aa692dd630fbcdba990a6912be6d107e36fab31",
       "byteCount": 368363,
@@ -630,6 +756,13 @@
       "byteCount": 125452,
       "owner": "robot-wiki-editorial",
       "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation\" (2607.01060), credited to Byeongguk Jeon et al.: Qualitative examples in synthetic extreme environments, illustrating the model based robot learning article."
+    },
+    {
+      "path": "images/roomba-870-2014.jpg",
+      "sha256": "01f9f9a455d5dc1d1dc0859a84968114415c48ce262603beb01781a6f36cc722",
+      "byteCount": 631590,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of an iRobot Roomba 870, credited to Kārlis Dambrāns under CC BY 2.0 and used beside the skeptic record in the bear case."
     },
     {
       "path": "images/rt-h-language-corrections-2024.jpg",
@@ -681,6 +814,13 @@
       "purpose": "Editorial photograph of a Boston Dynamics Spot quadruped on a forest path, credited to Jonte under CC BY-SA 4.0, leading the legged locomotion article."
     },
     {
+      "path": "images/t-rex-bimanual-tactile-setup-2026.jpg",
+      "sha256": "6b2b1f472cce6f49d763f53cd5de78671cddb704af696e96ac797b0b3120f229",
+      "byteCount": 145419,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Paper figure of the T-Rex bimanual tactile robot and teleoperation setup, credited to Dantong Niu et al. under CC BY 4.0 and used beside the T-Rex text in dexterity."
+    },
+    {
       "path": "images/tdmpc2-task-grid-2023.jpg",
       "sha256": "6b8eb322db2b7b3f7929b5373704a5e63c362e35fb622599ed0ea6f301b88324",
       "byteCount": 284595,
@@ -695,6 +835,20 @@
       "purpose": "First-party explanatory diagram of temporal ensembling across overlapping action chunks, drawn for the action-chunking article."
     },
     {
+      "path": "images/tesla-optimus-stockholm-2024.jpg",
+      "sha256": "11bcb437828e62fc355f097a3b356684083a6f9a4a79a0730f0500f552bb97ca",
+      "byteCount": 374649,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Public-domain photograph of two Tesla Optimus humanoids on display in Stockholm by Ulf Klingström, used beside the deployment record in the reliability-gap article."
+    },
+    {
+      "path": "images/unitree-g1-stage-japan-mobility-2025.jpg",
+      "sha256": "5fea99e726d4f9f75b27800e5ae7a4762b0fbe5d3eca4f7e71184606078a0984",
+      "byteCount": 279417,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Unitree G1 on stage at the Japan Mobility Show 2025, credited to RuinDig/Yuki Uchida under CC BY 4.0 and used as the competing-theses lead image."
+    },
+    {
       "path": "images/unitree-robots-japan-mobility-show-2025.jpg",
       "sha256": "2408c2496423afb1a572c0f8f9b45e6323e9e304e2e504dbe41cef8340fb83ea",
       "byteCount": 610563,
@@ -707,6 +861,13 @@
       "byteCount": 289607,
       "owner": "robot-wiki-editorial",
       "purpose": "Editorial photograph of a Universal Robots UR16e six-joint arm, credited to Auledas under CC BY-SA 4.0 and used as the kinematics lead image."
+    },
+    {
+      "path": "images/uskin-tactile-allegro-hand-2021.jpg",
+      "sha256": "4d7537fb3a710be6bc9c1919e186ad77a58813f68e1c8bc56fad0f4a745e34c9",
+      "byteCount": 147193,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of uSkin tactile sensors on an Allegro hand, credited to XELA Robotics under CC BY-SA 4.0 and used as the dexterity lead image."
     },
     {
       "path": "images/velodyne-hdl64-lidar-2009.jpg",
@@ -728,6 +889,27 @@
       "byteCount": 314161,
       "owner": "robot-wiki-editorial",
       "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning\" (2506.09985), credited to Mido Assran et al.: Pick and Place Cup (first lab), illustrating the jepa article."
+    },
+    {
+      "path": "images/waymo-jaguar-ipace-san-francisco-2023.jpg",
+      "sha256": "cae8c8f5aeb7cb2448fd9ffef585dad6e75ad84dcfc3f1afec189f4851199489",
+      "byteCount": 399910,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a driverless Waymo Jaguar I-Pace in San Francisco, credited to Dllu under CC BY 4.0 and used as the autonomous-vehicles lead image."
+    },
+    {
+      "path": "images/waymo-roof-sensor-suite-2025.jpg",
+      "sha256": "9a790178f2337cb9b33b9796496a128bff4a826712babfbd831ce720e21073ef",
+      "byteCount": 397348,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Waymo roof sensor package, credited to 9yz under CC BY 4.0 and used beside the perception text in autonomous vehicles."
+    },
+    {
+      "path": "images/wcbf-hyper-redundant-robot-2026.jpg",
+      "sha256": "ade050d83bd094d754494937365746a27d87a272e5c35c2a8324751abdcf99f4",
+      "byteCount": 106375,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Paper figure of a hyper-redundant robot controlled with weighted barrier functions, credited to Zijian Cai et al. under CC BY 4.0 and used beside the barrier-function text in safety and assurance."
     },
     {
       "path": "models/so101/assets/base_motor_holder_so101_v1.glb",

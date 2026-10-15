@@ -375,6 +375,13 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   registered its 75 new records, each member with one edge from its last
  *   approved endpoint, or one resolution from the sealed hash where its
  *   chain already holds one.
+ * - `length-cut-20261014-adjacent-`: the adjacent domain pass and length
+ *   cut of 2026-10-14 moved the prose, relationships and front-matter
+ *   citation lists of the four adjacent articles and
+ *   `citation-rendering:label-and-meta`, corrected the reynolds-boids-1987
+ *   record and registered its 108 new records, each member with one edge
+ *   from its last approved endpoint, or one resolution from the sealed hash
+ *   where its chain already holds one.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -423,6 +430,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'images-a-20261013-prose-classical-ros2-for-ml-engineers',
   'images-a-20261013-prose-classical-state-estimation',
   'length-cut-20261013-data-hardware-',
+  'length-cut-20261014-adjacent-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

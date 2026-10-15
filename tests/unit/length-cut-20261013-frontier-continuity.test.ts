@@ -11,7 +11,7 @@ import {
   verifyFrontierLengthCutSource,
 } from '../../lib/audit-length-cut-frontier-continuity';
 import { MIN_BODY_SOURCES, type LengthCutDrops } from '../../lib/audit-length-cut-world-models-continuity';
-import { preFrontierLengthCut } from '../helpers/seo-pass';
+import { preFrontierLengthCut, preImageMounts } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const read = (path: string) => readFileSync(join(root, path));
@@ -49,7 +49,8 @@ describe('frontier length cut 2026-10-13 article successors', () => {
 
   it('rebuilds every reviewed successor into its recorded predecessor, which the older layers still decide', () => {
     for (const source of review.sources) {
-      const live = read(source.after.path);
+      // The newer image-mount layer (the frontier images of 2026-10-15) hands back the cut successor first.
+      const live = preImageMounts(source.after.path);
       const prior = frontierLengthCutPredecessor(root, source.before, live);
       expect([prior.length, sha(prior)]).toEqual([source.before.bytes, source.before.sha256]);
       expect(frontierLengthCutPredecessor(root, source.after, live)).toBe(live);
@@ -71,7 +72,7 @@ describe('frontier length cut 2026-10-13 article successors', () => {
   it('cuts each article by words and keeps 30 sources, listing every drop with the claim it came from', () => {
     const words = (bytes: Buffer) => bytes.toString().replace(/^---\n[\s\S]*?\n---\n/, '').split(/\s+/).length;
     for (const source of review.sources) {
-      const live = read(source.after.path);
+      const live = preImageMounts(source.after.path);
       const body = live.toString().replace(/^---\n[\s\S]*?\n---\n/, '');
       expect(new Set([...body.matchAll(/<Cite id="([^"]+)"/g)].map((m) => m[1])).size)
         .toBeGreaterThanOrEqual(MIN_BODY_SOURCES);
@@ -147,7 +148,7 @@ describe('frontier length cut 2026-10-13 article successors', () => {
 
   it('passes other bytes through and rejects a successor whose edits no longer replay', () => {
     const [source] = review.sources;
-    const drifted = Buffer.concat([read(source.after.path), Buffer.from('\n')]);
+    const drifted = Buffer.concat([preImageMounts(source.after.path), Buffer.from('\n')]);
     expect(frontierLengthCutPredecessor(root, source.before, drifted)).toBe(drifted);
     expect(frontierLengthCutPredecessor(root, { path: 'content/adjacent/space.mdx', ...blank }, drifted))
       .toBe(drifted);
@@ -198,7 +199,7 @@ describe('frontier length cut 2026-10-13 article successors', () => {
       else writeFileSync(file, readFileSync(file, 'utf8')
         .replace('"length-cut-20261013-frontier"', '"length-cut-drift"'));
       expect(() => loadFrontierLengthCutReview(tmp)).toThrow(drift);
-      expect(() => frontierLengthCutPredecessor(tmp, source.before, read(source.after.path))).toThrow(drift);
+      expect(() => frontierLengthCutPredecessor(tmp, source.before, preImageMounts(source.after.path))).toThrow(drift);
     }
   });
 });

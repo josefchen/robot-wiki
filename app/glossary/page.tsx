@@ -46,14 +46,12 @@ export default function GlossaryPage() {
           Glossary
         </h1>
         <p className="page-lead mt-[30px]">
-          Reference definitions for the jargon of modern robotics, each one
-          written from a cited primary source. The articles mark these terms
-          up inline; hovering or keyboard-focusing a marked term shows the
-          same definition listed here.
+          Definitions of the terms the articles use, each written from a
+          cited primary source. In an article, hover over or focus a marked
+          term to see the same definition.
         </p>
         <p className="meta-line mt-6">
-          <span className="font-mono tabular-nums">{terms.length}</span> terms,
-          every definition written from a cited primary source
+          <span className="font-mono tabular-nums">{terms.length}</span> terms
         </p>
       </header>
 
@@ -95,7 +93,9 @@ export default function GlossaryPage() {
                     >
                       {source.title}
                     </a>
-                    <span className="shrink-0 font-sans text-[12px] text-text-dim">
+                    {/* The byline wraps: a long author list held on one
+                        line overflowed the page at 320 px. */}
+                    <span className="min-w-0 break-words font-sans text-[12px] text-text-dim">
                       {citationLabel(source)}
                     </span>
                   </li>

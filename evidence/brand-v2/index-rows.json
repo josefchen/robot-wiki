@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "fingerprint": "ca982d8c7a8e764321afedd2b2137475c413b11c8ac3a7f36a4dc772b5d596a9",
+  "fingerprint": "8ef5f4fe2355d02512f7bed0b183a15b245bcbb560de43dd696b8c93ec76df3a",
   "viewport": "1440x900",
   "surfaces": [
     {
       "route": "/",
-      "visibleTextLength": 4083,
+      "visibleTextLength": 4077,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Robot Wiki",
@@ -36,7 +36,7 @@
     },
     {
       "route": "/manipulation/",
-      "visibleTextLength": 8774,
+      "visibleTextLength": 8705,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Manipulation & Learned Policies",
@@ -67,7 +67,7 @@
     },
     {
       "route": "/rl-sim2real/",
-      "visibleTextLength": 4975,
+      "visibleTextLength": 5191,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "RL, Sim-to-Real & Locomotion",
@@ -98,7 +98,7 @@
     },
     {
       "route": "/world-models/",
-      "visibleTextLength": 5132,
+      "visibleTextLength": 5208,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "World Models",
@@ -129,7 +129,7 @@
     },
     {
       "route": "/data-hardware/",
-      "visibleTextLength": 4380,
+      "visibleTextLength": 4568,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Data, Hardware & Evaluation",
@@ -160,7 +160,7 @@
     },
     {
       "route": "/classical/",
-      "visibleTextLength": 5231,
+      "visibleTextLength": 5233,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Classical Foundations",
@@ -191,7 +191,7 @@
     },
     {
       "route": "/frontier/",
-      "visibleTextLength": 3634,
+      "visibleTextLength": 3727,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Frontier & Open Problems",
@@ -222,7 +222,7 @@
     },
     {
       "route": "/adjacent/",
-      "visibleTextLength": 2583,
+      "visibleTextLength": 2604,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Adjacent Domains",
@@ -253,7 +253,7 @@
     },
     {
       "route": "/a-z/",
-      "visibleTextLength": 6248,
+      "visibleTextLength": 6213,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "A-Z Index",
@@ -288,7 +288,7 @@
     },
     {
       "route": "/glossary/",
-      "visibleTextLength": 180169,
+      "visibleTextLength": 175700,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Glossary",
@@ -323,7 +323,7 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 47989,
+      "visibleTextLength": 54950,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Credits",
@@ -333,7 +333,7 @@
       "rowLists": [
         {
           "key": "credits-entry",
-          "rowCount": 202,
+          "rowCount": 228,
           "containerDisplay": "block",
           "rowDisplayKinds": [
             "list-item"

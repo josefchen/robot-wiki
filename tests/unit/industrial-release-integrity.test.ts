@@ -247,6 +247,8 @@ describe('industrial release preserves both evidence histories', { timeout: 60_0
             'audit/evidence/image-mounts-20261013',
             // The data-hardware domain pass and length cut (2026-10-13) rebuilds the pre-pass articles from this review.
             'audit/evidence/length-cut-20261013-data-hardware',
+            // The adjacent domain pass and length cut (2026-10-14) rebuilds the pre-pass articles from this review.
+            'audit/evidence/length-cut-20261014-adjacent',
             'audit/evidence/parallel-local-20261009/checker-transition.json',
             'audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json',
             'audit/evidence/citation-closeout-20260924/relevant-continuity.json',

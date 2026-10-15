@@ -18,12 +18,10 @@ export type { CoreDomain, Domain } from './domains.ts';
 export type { ModuleRegistryEntry } from './schemas/module.ts';
 
 /**
- * `readingOrder` states what the domain landing page's ordering actually
- * means, which the one-line `description` cannot: a reader arriving on a
- * landing route sees a numbered list and has no way to know whether the
- * order is editorial or arbitrary. It is also the landing page's only
- * route-unique prose, so it is what makes the route reachable by search
- * rather than only by the sidebar link that points at it.
+ * `readingOrder` is one sentence saying what the landing page's numbered
+ * order means, which the one-line `description` cannot: without it a reader
+ * cannot tell an editorial order from an arbitrary one. The landing page
+ * prints it after the article count.
  */
 export const DOMAIN_META: Record<
   Domain,
@@ -34,49 +32,49 @@ export const DOMAIN_META: Record<
     description:
       'From behavior cloning to vision-language-action models: how modern robots learn to act.',
     readingOrder:
-      'behavior cloning first, then the architectures that scaled it, with the cross-embodiment and real-time constraints those architectures ran into at the end.',
+      'Behavior cloning comes first, then the architectures that scaled it and the limits they met, then a curriculum and two reference guides.',
   },
   'rl-sim2real': {
     name: 'RL, Sim-to-Real & Locomotion',
     description:
       'Reinforcement learning at scale, from massively parallel simulation to the transfer problem.',
     readingOrder:
-      'why reinforcement learning took locomotion before manipulation, then the parallel-simulation machinery behind that result, then the transfer gap it left over.',
+      'The basics come first, then why reinforcement learning won locomotion before manipulation, the simulation and transfer methods behind that result, and the work built on them.',
   },
   'world-models': {
     name: 'World Models',
     description:
       'Learned simulators and action-conditioned video prediction, with the JEPA counterargument.',
     readingOrder:
-      'what the term denotes, then the latent-dynamics and generative-video families that each claim it, then the argument that generation is the wrong objective entirely.',
+      'The definition comes first, then the latent, video, representation-space and simulation approaches, then how to learn with, evaluate and compare world models.',
   },
   'data-hardware': {
     name: 'Data, Hardware & Evaluation',
     description:
-      'The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.',
+      'Robot training data, the hardware that collects it and runs the models, plus how results are measured.',
     readingOrder:
-      'where embodied training data comes from, then the rigs that produce it, then why two reported benchmark numbers are usually not comparable at all.',
+      'Data comes first, then the hardware and rigs that collect it, then evaluation, deployment and the full training stack.',
   },
   classical: {
     name: 'Classical Foundations',
     description:
       'The kinematics, planning, control and estimation stack that sits under every learned policy.',
     readingOrder:
-      'a dependency chain rather than a survey. Kinematics is assumed by planning and planning by control. Each entry leans on whatever came before it, so the last two rest on the whole chain.',
+      'Each article builds on the ones before it: planning assumes kinematics, and control assumes planning.',
   },
   frontier: {
     name: 'Frontier & Open Problems',
     description:
       'The reliability gap that keeps demos out of production, and the competing theses about closing it.',
     readingOrder:
-      'the reliability gap first, because the entries after it are competing arguments about how to close that gap.',
+      'The reliability gap comes first, and the articles after it argue about how to close it.',
   },
   adjacent: {
     name: 'Adjacent Domains',
     description:
       'Autonomous vehicles, drones and surgical and space robotics, each in brief.',
     readingOrder:
-      'a survey rather than a sequence, so any entry stands on its own: each field met the same underlying problems under a different safety and certification regime.',
+      'Each article stands alone: each field met the same robotics problems under its own safety and certification rules.',
   },
 };
 
@@ -110,7 +108,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'manipulation',
     'pi-line',
     'The Pi Line',
-    'pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and source-scoped checkpoint availability.',
+    'pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization and which checkpoints are released.',
   ],
   [
     'manipulation',
@@ -134,7 +132,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'manipulation',
     'rl-finetuning',
     'RL Fine-Tuning of Policies',
-    'DPPO, ConRFT, Recap, pi_RL, residual RL, and HIL-SERL: closing the reliability gap with on-policy experience.',
+    'DPPO, ConRFT, Recap, pi_RL, residual RL and HIL-SERL: improving a pretrained policy from its own online experience.',
   ],
   [
     'manipulation',
@@ -146,7 +144,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'manipulation',
     'cross-embodiment',
     'Cross-Embodiment Transfer',
-    'Padded action vectors, shared relative end-effector frames, soft prompts and human-to-robot transfer: how one policy learns from many bodies.',
+    'Padded action vectors, relative end-effector actions, latent actions and human-to-robot transfer: how one policy learns from many bodies.',
   ],
   [
     'manipulation',
@@ -176,7 +174,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'rl-sim2real',
     'rl-for-robotics',
     'RL for Robotics',
-    'Sample efficiency decides which reinforcement learning algorithms a robot can actually be trained with, from PPO in simulation to offline learning on a fixed dataset.',
+    'Sample efficiency decides which reinforcement learning algorithms a robot can be trained with, from PPO in simulation to offline learning on a fixed dataset.',
   ],
   [
     'rl-sim2real',
@@ -194,25 +192,25 @@ const entries: Array<[Domain, string, string, string]> = [
     'rl-sim2real',
     'sim2real-transfer',
     'Sim-to-Real Transfer',
-    'Domain randomization, teacher-student distillation, system identification, and real-to-sim correction.',
+    'Domain randomization, teacher-student distillation, system identification and real-to-sim reconstruction.',
   ],
   [
     'rl-sim2real',
     'legged-locomotion',
     'Legged Locomotion Lineage',
-    'From ANYmal to Unitree and the MIT humanoid line: how learned gaits became the default.',
+    "From ANYmal's actuator networks to Unitree humanoids and Boston Dynamics: how learned gaits became the default.",
   ],
   [
     'rl-sim2real',
     'humanoid-wbc',
     'Humanoid Whole-Body Control',
-    'Motion tracking from PHC to ASAP and GMT, and the three decompositions of 2026.',
+    'Tracking retargeted human motion, from PHC to ASAP and GMT, and the three decompositions Figure, NVIDIA and Google DeepMind shipped in 2026.',
   ],
   [
     'rl-sim2real',
     'reward-design-mpc',
     'Reward Design and the MPC Debate',
-    'LLM-written rewards and curricula; where classical trajectory optimization still wins.',
+    'Hand-tuned reward weights, reward code written by language models, curricula and the comparison with model-predictive control.',
   ],
   [
     'rl-sim2real',
@@ -236,7 +234,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'world-models',
     'generative-video',
     'Generative Video World Models',
-    'Cosmos, Genie, and GR-2: action-conditioned video prediction and the conditioning-strength problem.',
+    'Cosmos, Genie and GR-2: action-conditioned video prediction as a simulator, and the weak action conditioning that limits it.',
   ],
   [
     'world-models',
@@ -248,7 +246,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'world-models',
     'generative-sim',
     'Generative Simulation',
-    'Generated content inside real physics engines beats generated dynamics: RoboGen, Holodeck, RoboCasa.',
+    'RoboGen, Holodeck and RoboCasa: generated tasks, scenes and assets inside a physics engine that keeps the dynamics.',
   ],
   [
     'world-models',
@@ -260,7 +258,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'world-models',
     'evaluation',
     'World Model Evaluation for Robotics',
-    'Visual fidelity is not enough: evaluate action sensitivity, rollout consistency, task progress, policy ranking and real-world agreement.',
+    'Testing a world model on what a robot needs from it: action sensitivity, temporal consistency, task progress, policy ranking and agreement with real trials.',
   ],
   [
     'world-models',
@@ -272,13 +270,13 @@ const entries: Array<[Domain, string, string, string]> = [
     'data-hardware',
     'data-bottleneck',
     'The Data Bottleneck',
-    'Robot-hours versus LLM tokens: the log-log reality of embodied data and teleop-farm economics.',
+    'Robot data is counted in hours and language data in trillions of tokens: the gap, the teleop-farm arithmetic and the data that needs no robot.',
   ],
   [
     'data-hardware',
     'datasets',
     'Major Datasets',
-    'Open X-Embodiment, DROID, BridgeData V2, AgiBot World, RoboMIND: five datasets compared.',
+    'Open X-Embodiment, DROID, BridgeData V2, AgiBot World and RoboMIND compared by what each collected, on which robots and under which license.',
   ],
   [
     'data-hardware',
@@ -296,7 +294,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'data-hardware',
     'evaluation-crisis',
     'The Evaluation Crisis',
-    'Why N-of-10 trials and unreported variance mislead: 95% per-step success is unusable at 30 steps.',
+    'What a success rate hides: trial count, task length, setup and scorer. At 95% per step, a 30-step task succeeds about one time in five.',
   ],
   [
     'data-hardware',
@@ -308,7 +306,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'data-hardware',
     'robot-learning-stack',
     'The Robot Learning Stack',
-    'Data capture, schemas, training, simulation, evaluation, serving and robot integration as one reproducible system rather than a model checkpoint.',
+    'Data capture, schemas, training, simulation, evaluation, serving and robot integration as one reproducible system, with the checkpoint as one part.',
   ],
   [
     'classical',
@@ -320,7 +318,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'classical',
     'motion-planning',
     'Motion Planning',
-    'RRT and its optimal variants, trajectory optimization, and CHOMP/TrajOpt.',
+    'Configuration space, RRT and its optimal variants, and trajectory optimization with CHOMP and TrajOpt.',
   ],
   [
     'classical',
@@ -350,7 +348,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'classical',
     'scene-representation',
     'Scene Representation and Mapping',
-    'What a robot remembers about the space around it, and why the map that renders best is not the map a planner can use.',
+    'What a robot keeps in memory about the space around it, from point clouds and occupancy grids to Gaussian splats, and which of them a planner can use.',
   ],
   [
     'classical',
@@ -368,7 +366,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'frontier',
     'reliability-gap',
     'The Reliability Gap',
-    '80% is a demo, 99.9% is a product: what deployment numbers actually show.',
+    '80% task success is a demo and 99.9% is a product: the per-step arithmetic, the methods closing the gap and the deployment records.',
   ],
   [
     'frontier',
@@ -380,13 +378,13 @@ const entries: Array<[Domain, string, string, string]> = [
     'frontier',
     'generalization',
     'Generalization',
-    'What the pi0.5 and pi0.7 results demonstrate, and what they do not: the open-world gap.',
+    'What pi0.5 and pi0.7 show about working in unseen homes, the EgoScale scaling law and the bar no system meets yet.',
   ],
   [
     'frontier',
     'competing-theses',
     'Competing Theses',
-    'End-to-end scaling versus hierarchy versus world models versus RL fine-tuning, with falsification criteria.',
+    'Six bets on how robot intelligence gets built, from end-to-end scaling to the humanoid form, each with the result that would prove it wrong.',
   ],
   [
     'frontier',
@@ -398,7 +396,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'frontier',
     'safety-and-assurance',
     'Safety and Assurance',
-    'Industrial robotics can certify a control system but not a learned policy, so what ships is a verifiable safety layer wrapped around an unverifiable one.',
+    'No industrial safety standard certifies a learned policy, so what ships is a verifiable safety layer around it.',
   ],
   [
     'adjacent',
@@ -410,7 +408,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'adjacent',
     'drones',
     'Drones and Aerial Robotics',
-    'Autonomous flight, aggressive maneuvers, and swarm coordination.',
+    'Autonomous flight from state estimation to champion-level racing, swarm coordination, and delivery under regulation.',
   ],
   [
     'adjacent',

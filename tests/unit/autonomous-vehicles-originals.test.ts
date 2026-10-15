@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseLedger, parseCompoundPlans, originalClaimDigest } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
+import { preAdjacentCut } from '../helpers/seo-pass';
 
 /**
  * Pins the 2026-09-15 autonomous-vehicles originals integration: the
@@ -140,7 +141,16 @@ describe('autonomous-vehicles originals: 20260917a row 2 completion (No Hands Ac
   });
 
   it('re-cites the tour span in the article and fixes the P3 defect', () => {
-    const article = readFileSync(join(ROOT, 'content/adjacent/autonomous-vehicles.mdx'), 'utf8');
+    // The adjacent domain pass of 2026-10-14 rewrote the lead; this check
+    // reads the article it reviewed through that pass's successor record,
+    // and the live article keeps the tour span with its citation.
+    const article = preAdjacentCut('content/adjacent/autonomous-vehicles.mdx').toString();
+    const live = readFileSync(join(ROOT, 'content/adjacent/autonomous-vehicles.mdx'), 'utf8');
+    expect(live).toContain(
+      'steered for 2,797 of 2,849 miles, 98.2 percent, while the researchers handled throttle and brake <Cite id="no-hands-across-america-1995" />',
+    );
+    expect(live).not.toContain('and drove it across America in a demonstration tour');
+    expect(live).toContain('  - alvinn-1988\n  - no-hands-across-america-1995\n');
     expect(article).toContain(
       'In 1988, ALVINN trained a three-layer neural network to steer a van from images from a camera and a laser range finder <Cite id="alvinn-1988" />. Its lineage went on to steer a van across America: in the 1995 No Hands Across America tour, the ALVINN-lineage RALPH program did the steering for 2,797 of 2,849 miles, 98.2 percent of the run, while the human researchers handled the throttle and brake <Cite id="no-hands-across-america-1995" />',
     );

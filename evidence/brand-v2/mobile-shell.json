@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "b8b5c223fb74826579ee9b0fc90f2a208783c8ab787d89b8163f567a2fbff7ad",
+  "fingerprint": "e579d2c59d36fc4fd5fccdf1c73db976cde6a8fc3f4364a9e1c942125a6f35c7",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3024,
+      "visibleTextLength": 3018,
       "header": {
         "present": true,
         "display": "flex",
@@ -244,7 +244,7 @@
     },
     {
       "route": "/a-z/",
-      "visibleTextLength": 6613,
+      "visibleTextLength": 6578,
       "header": {
         "present": true,
         "display": "flex",
@@ -406,7 +406,7 @@
     },
     {
       "route": "/about/",
-      "visibleTextLength": 2604,
+      "visibleTextLength": 2486,
       "header": {
         "present": true,
         "display": "flex",
@@ -560,7 +560,7 @@
     },
     {
       "route": "/adjacent/",
-      "visibleTextLength": 949,
+      "visibleTextLength": 918,
       "header": {
         "present": true,
         "display": "flex",
@@ -722,7 +722,7 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "visibleTextLength": 29543,
+      "visibleTextLength": 31830,
       "header": {
         "present": true,
         "display": "flex",
@@ -884,7 +884,7 @@
     },
     {
       "route": "/adjacent/drones/",
-      "visibleTextLength": 18220,
+      "visibleTextLength": 22143,
       "header": {
         "present": true,
         "display": "flex",
@@ -1046,7 +1046,7 @@
     },
     {
       "route": "/adjacent/space/",
-      "visibleTextLength": 18584,
+      "visibleTextLength": 22931,
       "header": {
         "present": true,
         "display": "flex",
@@ -1208,7 +1208,7 @@
     },
     {
       "route": "/adjacent/surgical/",
-      "visibleTextLength": 17887,
+      "visibleTextLength": 21779,
       "header": {
         "present": true,
         "display": "flex",
@@ -1370,7 +1370,7 @@
     },
     {
       "route": "/classical/",
-      "visibleTextLength": 1767,
+      "visibleTextLength": 1707,
       "header": {
         "present": true,
         "display": "flex",
@@ -1532,7 +1532,7 @@
     },
     {
       "route": "/classical/calibration/",
-      "visibleTextLength": 16059,
+      "visibleTextLength": 16119,
       "header": {
         "present": true,
         "display": "flex",
@@ -1694,7 +1694,7 @@
     },
     {
       "route": "/classical/control/",
-      "visibleTextLength": 24065,
+      "visibleTextLength": 24275,
       "header": {
         "present": true,
         "display": "flex",
@@ -1856,7 +1856,7 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "visibleTextLength": 19099,
+      "visibleTextLength": 19162,
       "header": {
         "present": true,
         "display": "flex",
@@ -2018,7 +2018,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "visibleTextLength": 17200,
+      "visibleTextLength": 17311,
       "header": {
         "present": true,
         "display": "flex",
@@ -2180,7 +2180,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 26952,
+      "visibleTextLength": 27210,
       "header": {
         "present": true,
         "display": "flex",
@@ -2342,7 +2342,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 33720,
+      "visibleTextLength": 33753,
       "header": {
         "present": true,
         "display": "flex",
@@ -2504,7 +2504,7 @@
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
-      "visibleTextLength": 14726,
+      "visibleTextLength": 14748,
       "header": {
         "present": true,
         "display": "flex",
@@ -2666,7 +2666,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "visibleTextLength": 28153,
+      "visibleTextLength": 28219,
       "header": {
         "present": true,
         "display": "flex",
@@ -2828,7 +2828,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 22789,
+      "visibleTextLength": 22849,
       "header": {
         "present": true,
         "display": "flex",
@@ -2990,7 +2990,7 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 47604,
+      "visibleTextLength": 54695,
       "header": {
         "present": true,
         "display": "flex",
@@ -3152,7 +3152,7 @@
     },
     {
       "route": "/data-hardware/",
-      "visibleTextLength": 1470,
+      "visibleTextLength": 1531,
       "header": {
         "present": true,
         "display": "flex",
@@ -3314,7 +3314,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 19999,
+      "visibleTextLength": 20302,
       "header": {
         "present": true,
         "display": "flex",
@@ -3476,7 +3476,7 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "visibleTextLength": 20993,
+      "visibleTextLength": 21080,
       "header": {
         "present": true,
         "display": "flex",
@@ -3638,7 +3638,7 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "visibleTextLength": 20635,
+      "visibleTextLength": 20988,
       "header": {
         "present": true,
         "display": "flex",
@@ -3800,7 +3800,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 26744,
+      "visibleTextLength": 26805,
       "header": {
         "present": true,
         "display": "flex",
@@ -3962,7 +3962,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 24063,
+      "visibleTextLength": 24170,
       "header": {
         "present": true,
         "display": "flex",
@@ -4124,7 +4124,7 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "visibleTextLength": 17585,
+      "visibleTextLength": 17677,
       "header": {
         "present": true,
         "display": "flex",
@@ -4286,7 +4286,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 17865,
+      "visibleTextLength": 18122,
       "header": {
         "present": true,
         "display": "flex",
@@ -4602,7 +4602,7 @@
     },
     {
       "route": "/frontier/",
-      "visibleTextLength": 1232,
+      "visibleTextLength": 1249,
       "header": {
         "present": true,
         "display": "flex",
@@ -4764,7 +4764,7 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "visibleTextLength": 15683,
+      "visibleTextLength": 16208,
       "header": {
         "present": true,
         "display": "flex",
@@ -4926,7 +4926,7 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "visibleTextLength": 20263,
+      "visibleTextLength": 20864,
       "header": {
         "present": true,
         "display": "flex",
@@ -5088,7 +5088,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 24214,
+      "visibleTextLength": 24913,
       "header": {
         "present": true,
         "display": "flex",
@@ -5250,7 +5250,7 @@
     },
     {
       "route": "/frontier/generalization/",
-      "visibleTextLength": 18613,
+      "visibleTextLength": 19204,
       "header": {
         "present": true,
         "display": "flex",
@@ -5412,7 +5412,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "visibleTextLength": 15732,
+      "visibleTextLength": 16635,
       "header": {
         "present": true,
         "display": "flex",
@@ -5574,7 +5574,7 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "visibleTextLength": 25820,
+      "visibleTextLength": 26807,
       "header": {
         "present": true,
         "display": "flex",
@@ -5736,7 +5736,7 @@
     },
     {
       "route": "/glossary/",
-      "visibleTextLength": 84400,
+      "visibleTextLength": 82106,
       "header": {
         "present": true,
         "display": "flex",
@@ -6060,7 +6060,7 @@
     },
     {
       "route": "/manipulation/",
-      "visibleTextLength": 2851,
+      "visibleTextLength": 2788,
       "header": {
         "present": true,
         "display": "flex",
@@ -6222,7 +6222,7 @@
     },
     {
       "route": "/manipulation/action-chunking/",
-      "visibleTextLength": 20384,
+      "visibleTextLength": 20382,
       "header": {
         "present": true,
         "display": "flex",
@@ -6384,7 +6384,7 @@
     },
     {
       "route": "/manipulation/action-spaces/",
-      "visibleTextLength": 16984,
+      "visibleTextLength": 16986,
       "header": {
         "present": true,
         "display": "flex",
@@ -6546,7 +6546,7 @@
     },
     {
       "route": "/manipulation/bc-foundations/",
-      "visibleTextLength": 18377,
+      "visibleTextLength": 18585,
       "header": {
         "present": true,
         "display": "flex",
@@ -6708,7 +6708,7 @@
     },
     {
       "route": "/manipulation/comparison-matrix/",
-      "visibleTextLength": 18861,
+      "visibleTextLength": 18899,
       "header": {
         "present": true,
         "display": "flex",
@@ -6870,7 +6870,7 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "visibleTextLength": 18690,
+      "visibleTextLength": 18853,
       "header": {
         "present": true,
         "display": "flex",
@@ -7032,7 +7032,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 17002,
+      "visibleTextLength": 17019,
       "header": {
         "present": true,
         "display": "flex",
@@ -7194,7 +7194,7 @@
     },
     {
       "route": "/manipulation/foundation-models/",
-      "visibleTextLength": 17818,
+      "visibleTextLength": 17941,
       "header": {
         "present": true,
         "display": "flex",
@@ -7356,7 +7356,7 @@
     },
     {
       "route": "/manipulation/generalist-policies/",
-      "visibleTextLength": 19377,
+      "visibleTextLength": 19574,
       "header": {
         "present": true,
         "display": "flex",
@@ -7518,7 +7518,7 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "visibleTextLength": 22081,
+      "visibleTextLength": 22237,
       "header": {
         "present": true,
         "display": "flex",
@@ -7680,7 +7680,7 @@
     },
     {
       "route": "/manipulation/knowledge-insulation/",
-      "visibleTextLength": 16022,
+      "visibleTextLength": 16133,
       "header": {
         "present": true,
         "display": "flex",
@@ -7842,7 +7842,7 @@
     },
     {
       "route": "/manipulation/pi-line/",
-      "visibleTextLength": 20693,
+      "visibleTextLength": 20747,
       "header": {
         "present": true,
         "display": "flex",
@@ -8004,7 +8004,7 @@
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "visibleTextLength": 18257,
+      "visibleTextLength": 18352,
       "header": {
         "present": true,
         "display": "flex",
@@ -8166,7 +8166,7 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "visibleTextLength": 32228,
+      "visibleTextLength": 32282,
       "header": {
         "present": true,
         "display": "flex",
@@ -8328,7 +8328,7 @@
     },
     {
       "route": "/manipulation/robot-learning-roadmap/",
-      "visibleTextLength": 15044,
+      "visibleTextLength": 15096,
       "header": {
         "present": true,
         "display": "flex",
@@ -8490,7 +8490,7 @@
     },
     {
       "route": "/manipulation/vla-models/",
-      "visibleTextLength": 21957,
+      "visibleTextLength": 22202,
       "header": {
         "present": true,
         "display": "flex",
@@ -9130,7 +9130,7 @@
     },
     {
       "route": "/rl-sim2real/",
-      "visibleTextLength": 1692,
+      "visibleTextLength": 1789,
       "header": {
         "present": true,
         "display": "flex",
@@ -9292,7 +9292,7 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "visibleTextLength": 22048,
+      "visibleTextLength": 22178,
       "header": {
         "present": true,
         "display": "flex",
@@ -9454,7 +9454,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "visibleTextLength": 19837,
+      "visibleTextLength": 19819,
       "header": {
         "present": true,
         "display": "flex",
@@ -9616,7 +9616,7 @@
     },
     {
       "route": "/rl-sim2real/offline-rl/",
-      "visibleTextLength": 18592,
+      "visibleTextLength": 18622,
       "header": {
         "present": true,
         "display": "flex",
@@ -9778,7 +9778,7 @@
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "visibleTextLength": 17509,
+      "visibleTextLength": 17827,
       "header": {
         "present": true,
         "display": "flex",
@@ -9940,7 +9940,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "visibleTextLength": 25206,
+      "visibleTextLength": 25290,
       "header": {
         "present": true,
         "display": "flex",
@@ -10102,7 +10102,7 @@
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "visibleTextLength": 22535,
+      "visibleTextLength": 22628,
       "header": {
         "present": true,
         "display": "flex",
@@ -10264,7 +10264,7 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "visibleTextLength": 24427,
+      "visibleTextLength": 24669,
       "header": {
         "present": true,
         "display": "flex",
@@ -10426,7 +10426,7 @@
     },
     {
       "route": "/rl-sim2real/why-rl-locomotion/",
-      "visibleTextLength": 17409,
+      "visibleTextLength": 17596,
       "header": {
         "present": true,
         "display": "flex",
@@ -10588,7 +10588,7 @@
     },
     {
       "route": "/search/",
-      "visibleTextLength": 660,
+      "visibleTextLength": 600,
       "header": {
         "present": true,
         "display": "flex",
@@ -10742,7 +10742,7 @@
     },
     {
       "route": "/world-models/",
-      "visibleTextLength": 1773,
+      "visibleTextLength": 1789,
       "header": {
         "present": true,
         "display": "flex",
@@ -10904,7 +10904,7 @@
     },
     {
       "route": "/world-models/evaluation/",
-      "visibleTextLength": 16843,
+      "visibleTextLength": 16914,
       "header": {
         "present": true,
         "display": "flex",
@@ -11066,7 +11066,7 @@
     },
     {
       "route": "/world-models/generative-sim/",
-      "visibleTextLength": 20589,
+      "visibleTextLength": 20767,
       "header": {
         "present": true,
         "display": "flex",
@@ -11228,7 +11228,7 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "visibleTextLength": 21549,
+      "visibleTextLength": 21798,
       "header": {
         "present": true,
         "display": "flex",
@@ -11390,7 +11390,7 @@
     },
     {
       "route": "/world-models/jepa/",
-      "visibleTextLength": 18902,
+      "visibleTextLength": 18979,
       "header": {
         "present": true,
         "display": "flex",
@@ -11552,7 +11552,7 @@
     },
     {
       "route": "/world-models/latent-dynamics/",
-      "visibleTextLength": 16358,
+      "visibleTextLength": 16398,
       "header": {
         "present": true,
         "display": "flex",
@@ -11714,7 +11714,7 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "visibleTextLength": 14730,
+      "visibleTextLength": 14835,
       "header": {
         "present": true,
         "display": "flex",
@@ -11876,7 +11876,7 @@
     },
     {
       "route": "/world-models/taxonomy/",
-      "visibleTextLength": 20482,
+      "visibleTextLength": 20628,
       "header": {
         "present": true,
         "display": "flex",
@@ -12038,7 +12038,7 @@
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
-      "visibleTextLength": 21271,
+      "visibleTextLength": 21335,
       "header": {
         "present": true,
         "display": "flex",
