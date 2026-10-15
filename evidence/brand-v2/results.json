@@ -2606,11 +2606,11 @@
                   "Data, Hardware & Evaluation"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
+                "readingMinutes": 8,
                 "citationCount": 36,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
+                "readingTimeText": "8 min read",
                 "citationCountText": "36 sources",
                 "bibliographyIds": [
                   "gpt3-2020",
@@ -11789,7 +11789,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 76,
+                  "count": 74,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -11799,7 +11799,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 38,
+                      "count": 37,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -11809,7 +11809,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 38,
+                      "count": 37,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -11921,7 +11921,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 70,
+                  "count": 72,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -11931,7 +11931,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 35,
+                      "count": 36,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -11941,7 +11941,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 35,
+                      "count": 36,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -98499,11 +98499,11 @@
                   "Data, Hardware & Evaluation"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
+                "readingMinutes": 8,
                 "citationCount": 36,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
+                "readingTimeText": "8 min read",
                 "citationCountText": "36 sources",
                 "bibliographyIds": [
                   "gpt3-2020",
@@ -104916,8 +104916,7 @@
                   "dagger-2011",
                   "sirius-2022",
                   "cupid-2025",
-                  "mulligan-2026",
-                  "lerobot-paper-2026"
+                  "mulligan-2026"
                 ],
                 "seeAlso": [
                   "data-hardware/evaluation-crisis",
@@ -105018,6 +105017,7 @@
                   "forcemimic-2024",
                   "lin-data-scaling-laws-2024",
                   "hifi-umi-2026",
+                  "droid-2024",
                   "droid-2024",
                   "roboturk-2018",
                   "open-teach-2024",
@@ -158872,7 +158872,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to 5daee08e30e9c46f431c333b338c358ecb497f711127192500fe935426f7ae32 exactly as approved delta length-cut-20261013-data-hardware-prose-data-bottleneck permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/data-bottleneck, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-prose-data-bottleneck). It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. The body cites 21 sources it did not cite before and drops 0 citation occurrences and 11 number occurrences. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence, and the 1 test pin the pass moved or retired.",
+      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to b302c9cf9b5823a46e0c4d8f50c608f6c7ae3e79a7832a0162f3fbc1a37d7c84 exactly as approved delta length-cut-20261013-data-hardware-prose-data-bottleneck permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/data-bottleneck, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-prose-data-bottleneck). It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. The body cites 21 sources it did not cite before and drops 0 citation occurrences and 11 number occurrences. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence, and the 1 test pin the pass moved or retired.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158884,7 +158884,7 @@
           "manifest": "prose",
           "member": "article:data-hardware/data-bottleneck",
           "baselineHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
-          "currentHash": "5daee08e30e9c46f431c333b338c358ecb497f711127192500fe935426f7ae32",
+          "currentHash": "b302c9cf9b5823a46e0c4d8f50c608f6c7ae3e79a7832a0162f3fbc1a37d7c84",
           "status": "approved-delta",
           "approvedDelta": "length-cut-20261013-data-hardware-prose-data-bottleneck"
         },
@@ -158928,7 +158928,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to 3d6da6108ddf24e9129b8af3cbb3be9c5855d7f7b1df1251e46e8fd5f53e7654 exactly as approved delta length-cut-20261013-data-hardware-prose-evaluation-crisis permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/evaluation-crisis, as one plain edge from the member's last approved endpoint (reader-first-20261003-predict-prose-data-hardware-evaluation-crisis). It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. The body cites 23 sources it did not cite before and drops 8 citation occurrences and 7 number occurrences. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence, and the 7 test pins the pass moved or retired.",
+      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to d791937e1875fe15786073bf370685cf25bd30d47453343123d4fcf2df4ced61 exactly as approved delta length-cut-20261013-data-hardware-prose-evaluation-crisis permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/evaluation-crisis, as one plain edge from the member's last approved endpoint (reader-first-20261003-predict-prose-data-hardware-evaluation-crisis). It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. The body cites 23 sources it did not cite before and drops 8 citation occurrences and 7 number occurrences. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence, and the 7 test pins the pass moved or retired.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158940,7 +158940,7 @@
           "manifest": "prose",
           "member": "article:data-hardware/evaluation-crisis",
           "baselineHash": "a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e",
-          "currentHash": "3d6da6108ddf24e9129b8af3cbb3be9c5855d7f7b1df1251e46e8fd5f53e7654",
+          "currentHash": "d791937e1875fe15786073bf370685cf25bd30d47453343123d4fcf2df4ced61",
           "status": "approved-delta",
           "approvedDelta": "length-cut-20261013-data-hardware-prose-evaluation-crisis"
         },
@@ -158956,7 +158956,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/hardware-taxonomy moved from c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0 to c199d1c36d0eb8034535857fb399a885184c3d39048c0309ef84d196df9e8a66 exactly as approved delta length-cut-20261013-data-hardware-prose-hardware-taxonomy permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/hardware-taxonomy, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 29 earlier approved edges exactly, ending with seo-pass-20261002-prose-data-hardware-hardware-taxonomy. It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. The body cites 25 sources it did not cite before and drops 19 citation occurrences and 57 number occurrences; 3 sources leave the body and stay in the front matter as further reading. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence, and the 11 test pins the pass moved or retired.",
+      "actual": "prose member article:data-hardware/hardware-taxonomy moved from c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0 to fc15dd2dc6919b3a4695b40f972ae175352c9a659c9c7fda881d1a50d0982f18 exactly as approved delta length-cut-20261013-data-hardware-prose-hardware-taxonomy permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/hardware-taxonomy, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 29 earlier approved edges exactly, ending with seo-pass-20261002-prose-data-hardware-hardware-taxonomy. It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. The body cites 25 sources it did not cite before and drops 19 citation occurrences and 57 number occurrences; 3 sources leave the body and stay in the front matter as further reading. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence, and the 11 test pins the pass moved or retired.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158968,7 +158968,7 @@
           "manifest": "prose",
           "member": "article:data-hardware/hardware-taxonomy",
           "baselineHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
-          "currentHash": "c199d1c36d0eb8034535857fb399a885184c3d39048c0309ef84d196df9e8a66",
+          "currentHash": "fc15dd2dc6919b3a4695b40f972ae175352c9a659c9c7fda881d1a50d0982f18",
           "status": "approved-delta",
           "approvedDelta": "length-cut-20261013-data-hardware-prose-hardware-taxonomy"
         },
@@ -159012,7 +159012,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/robot-learning-stack moved from null to 8c95693befab7cbb3f0165402465ce8e90f51bf5dd31520bd823154b5979de6c exactly as approved delta length-cut-20261013-data-hardware-prose-robot-learning-stack permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/robot-learning-stack, as one plain edge from the member's last approved endpoint (anatomy-2-figures-20261012-prose-robot-learning-stack). It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. The body cites 28 sources it did not cite before and drops 0 citation occurrences and 0 number occurrences. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence.",
+      "actual": "prose member article:data-hardware/robot-learning-stack moved from null to f4e4200aa362815cfb07e979ce583b34c6cfb3e69c84e97970ec58ea17ff7525 exactly as approved delta length-cut-20261013-data-hardware-prose-robot-learning-stack permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/robot-learning-stack, as one plain edge from the member's last approved endpoint (anatomy-2-figures-20261012-prose-robot-learning-stack). It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. The body cites 28 sources it did not cite before and drops 0 citation occurrences and 0 number occurrences. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -159024,7 +159024,7 @@
           "manifest": "prose",
           "member": "article:data-hardware/robot-learning-stack",
           "baselineHash": null,
-          "currentHash": "8c95693befab7cbb3f0165402465ce8e90f51bf5dd31520bd823154b5979de6c",
+          "currentHash": "f4e4200aa362815cfb07e979ce583b34c6cfb3e69c84e97970ec58ea17ff7525",
           "status": "approved-addition",
           "approvedDelta": "length-cut-20261013-data-hardware-prose-robot-learning-stack"
         },
@@ -159040,7 +159040,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/teleop-rigs moved from 09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29 to 0f2cc752c4b3f963d2321bade5dc8fa92a2a6bc8620a4f389a79be3b61b5a24f exactly as approved delta length-cut-20261013-data-hardware-prose-teleop-rigs permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/teleop-rigs, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 21 earlier approved edges exactly, ending with seo-pass-20261002-prose-data-hardware-teleop-rigs. It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. It corrects 1 component block with the reason recorded in the review. The body cites 23 sources it did not cite before and drops 5 citation occurrences and 12 number occurrences; 1 source leaves the body and stays in the front matter as further reading. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence, and the 7 test pins the pass moved or retired.",
+      "actual": "prose member article:data-hardware/teleop-rigs moved from 09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29 to 663d4df611a904ab841911959250fd2a4f3966a4357efb66b5d7fde1652b6670 exactly as approved delta length-cut-20261013-data-hardware-prose-teleop-rigs permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/teleop-rigs, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 21 earlier approved edges exactly, ending with seo-pass-20261002-prose-data-hardware-teleop-rigs. It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. It corrects 1 component block with the reason recorded in the review. The body cites 23 sources it did not cite before and drops 5 citation occurrences and 12 number occurrences; 1 source leaves the body and stays in the front matter as further reading. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence, and the 7 test pins the pass moved or retired.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -159052,7 +159052,7 @@
           "manifest": "prose",
           "member": "article:data-hardware/teleop-rigs",
           "baselineHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
-          "currentHash": "0f2cc752c4b3f963d2321bade5dc8fa92a2a6bc8620a4f389a79be3b61b5a24f",
+          "currentHash": "663d4df611a904ab841911959250fd2a4f3966a4357efb66b5d7fde1652b6670",
           "status": "approved-delta",
           "approvedDelta": "length-cut-20261013-data-hardware-prose-teleop-rigs"
         },
@@ -160608,7 +160608,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:data-hardware/robot-learning-stack moved from null to d83819555f8b3b6b776f63ba52a2612c0195a407fa06f86b5c419abdaf51f767 exactly as approved delta length-cut-20261013-data-hardware-relationships-robot-learning-stack permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/robot-learning-stack, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-relationships-robot-learning-stack). The relationships record follows the inline citations the rewrite changed: 28 sources are newly cited in the body; seeAlso entries, glossary ids and internal link targets are unchanged. audit/evidence/length-cut-20261013-data-hardware/source-transition.json lists every citation occurrence that left or entered the body with its sentence.",
+      "actual": "relationships member article:data-hardware/robot-learning-stack moved from null to 5dec16fbd2bb13aba03b011cc581a9b9034ddbd03cf7a183a382afb63a512489 exactly as approved delta length-cut-20261013-data-hardware-relationships-robot-learning-stack permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/robot-learning-stack, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-relationships-robot-learning-stack). The relationships record follows the inline citations the rewrite changed: 28 sources are newly cited in the body; seeAlso entries, glossary ids and internal link targets are unchanged. audit/evidence/length-cut-20261013-data-hardware/source-transition.json lists every citation occurrence that left or entered the body with its sentence.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160620,7 +160620,7 @@
           "manifest": "relationships",
           "member": "article:data-hardware/robot-learning-stack",
           "baselineHash": null,
-          "currentHash": "d83819555f8b3b6b776f63ba52a2612c0195a407fa06f86b5c419abdaf51f767",
+          "currentHash": "5dec16fbd2bb13aba03b011cc581a9b9034ddbd03cf7a183a382afb63a512489",
           "status": "approved-addition",
           "approvedDelta": "length-cut-20261013-data-hardware-relationships-robot-learning-stack"
         },
@@ -160636,7 +160636,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:data-hardware/teleop-rigs moved from 7896402c203a788b3dd91511a92d09dd38cb6825e6ca4aed71fa8f9fe5c53041 to af26325cc56e3cced16116f7acd0f077107bcc4fde432f9fbedfbdb1e86b3871 exactly as approved delta length-cut-20261013-data-hardware-relationships-teleop-rigs permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/teleop-rigs, as one plain edge from the member's last approved endpoint (seo-pass-20261002-relationships-data-hardware-teleop-rigs). The relationships record follows the inline citations the rewrite changed: 23 sources are newly cited in the body, and no longer cited in the body: lerobot-pricing-2026; seeAlso entries, glossary ids and internal link targets are unchanged. audit/evidence/length-cut-20261013-data-hardware/source-transition.json lists every citation occurrence that left or entered the body with its sentence.",
+      "actual": "relationships member article:data-hardware/teleop-rigs moved from 7896402c203a788b3dd91511a92d09dd38cb6825e6ca4aed71fa8f9fe5c53041 to 9cd5743394b2f816d4dac51f893f64f37d2f10b5a66b16a7102bcb472716530b exactly as approved delta length-cut-20261013-data-hardware-relationships-teleop-rigs permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/teleop-rigs, as one plain edge from the member's last approved endpoint (seo-pass-20261002-relationships-data-hardware-teleop-rigs). The relationships record follows the inline citations the rewrite changed: 23 sources are newly cited in the body, and no longer cited in the body: lerobot-pricing-2026; seeAlso entries, glossary ids and internal link targets are unchanged. audit/evidence/length-cut-20261013-data-hardware/source-transition.json lists every citation occurrence that left or entered the body with its sentence.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160648,7 +160648,7 @@
           "manifest": "relationships",
           "member": "article:data-hardware/teleop-rigs",
           "baselineHash": "7896402c203a788b3dd91511a92d09dd38cb6825e6ca4aed71fa8f9fe5c53041",
-          "currentHash": "af26325cc56e3cced16116f7acd0f077107bcc4fde432f9fbedfbdb1e86b3871",
+          "currentHash": "9cd5743394b2f816d4dac51f893f64f37d2f10b5a66b16a7102bcb472716530b",
           "status": "approved-delta",
           "approvedDelta": "length-cut-20261013-data-hardware-relationships-teleop-rigs"
         },
@@ -162776,7 +162776,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/robot-learning-stack/ ships 78 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 78 outbound anchor occurrences on it with a visible focus ring in 202 stops",
+      "actual": "/data-hardware/robot-learning-stack/ ships 77 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 77 outbound anchor occurrences on it with a visible focus ring in 200 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -162784,7 +162784,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/data-hardware/robot-learning-stack/",
-          "outboundAnchors": 78,
+          "outboundAnchors": 77,
           "distinctHrefs": 40,
           "shapes": [
             "citation-chip",
@@ -162793,9 +162793,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 75,
-          "reachedByTab": 78,
-          "tabStops": 202,
+          "anchorsWithNoreferrer": 74,
+          "reachedByTab": 77,
+          "tabStops": 200,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -162813,7 +162813,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/teleop-rigs/ ships 81 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 81 outbound anchor occurrences on it with a visible focus ring in 196 stops",
+      "actual": "/data-hardware/teleop-rigs/ ships 82 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 82 outbound anchor occurrences on it with a visible focus ring in 198 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -162821,7 +162821,7 @@
         "kind": "browser-state",
         "computed": {
           "route": "/data-hardware/teleop-rigs/",
-          "outboundAnchors": 81,
+          "outboundAnchors": 82,
           "distinctHrefs": 39,
           "shapes": [
             "citation-chip",
@@ -162830,9 +162830,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 69,
-          "reachedByTab": 81,
-          "tabStops": 196,
+          "anchorsWithNoreferrer": 70,
+          "reachedByTab": 82,
+          "tabStops": 198,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -186550,7 +186550,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6017 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6031 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -187493,7 +187493,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 46995 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 46621 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -187587,7 +187587,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 48871 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 48623 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -187634,7 +187634,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/hardware-taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 61059 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/hardware-taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 60263 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -187728,7 +187728,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/robot-learning-stack/ rendered no v1 identity spelling and no v1 descriptor in 41941 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/robot-learning-stack/ rendered no v1 identity spelling and no v1 descriptor in 41274 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -187775,7 +187775,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/teleop-rigs/ rendered no v1 identity spelling and no v1 descriptor in 41241 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/teleop-rigs/ rendered no v1 identity spelling and no v1 descriptor in 41130 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",

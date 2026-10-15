@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "d231df6f76f872e55406338821f2d19c5a78325c92d681ef6ce1c9fc8e943e7d",
+  "fingerprint": "259921c2d3dfb3836a41105be175cd1de5cfcac4af73f256286804e3d15c6039",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2787,
+  "visibleTextLength": 2794,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -781,8 +781,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Major Datasets",
-      "href": "/data-hardware/datasets/",
+      "accessibleName": "The Evaluation Crisis",
+      "href": "/data-hardware/evaluation-crisis/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2229.89,
@@ -790,8 +790,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Evaluation Crisis",
-      "href": "/data-hardware/evaluation-crisis/",
+      "accessibleName": "Hardware Taxonomy",
+      "href": "/data-hardware/hardware-taxonomy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2279.89,
@@ -799,8 +799,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Hardware Taxonomy",
-      "href": "/data-hardware/hardware-taxonomy/",
+      "accessibleName": "The Robot Learning Stack",
+      "href": "/data-hardware/robot-learning-stack/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2329.89,
@@ -808,8 +808,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Industrial Deployment",
-      "href": "/data-hardware/industrial-deployment/",
+      "accessibleName": "Teleoperation Rigs",
+      "href": "/data-hardware/teleop-rigs/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2379.89,
@@ -1045,7 +1045,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-14 The Data Bottleneck 2026-10-14 Major Datasets 2026-10-14 The Evaluation Crisis 2026-10-14 Hardware Taxonomy 2026-10-14 Industrial Deployment"
+      "text": "RECENTLY UPDATED 2026-10-15 The Data Bottleneck 2026-10-15 The Evaluation Crisis 2026-10-15 Hardware Taxonomy 2026-10-15 The Robot Learning Stack 2026-10-15 Teleoperation Rigs"
     },
     {
       "label": "Tools",

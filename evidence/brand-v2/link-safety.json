@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "4c99f098c9ffa60873a8af113e7a320823c402bf527ea1bcd9573f6f576585fa",
+  "fingerprint": "78faeb9a3f301af6eb2869052deaea275f882acdd3294335406af9b953a10a4c",
   "source": "out/ static export",
   "routes": [
     {
@@ -282,7 +282,7 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "outboundAnchors": 78,
+      "outboundAnchors": 77,
       "distinctHrefs": 40,
       "shapes": [
         "citation-chip",
@@ -293,7 +293,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "outboundAnchors": 81,
+      "outboundAnchors": 82,
       "distinctHrefs": 39,
       "shapes": [
         "citation-chip",
@@ -1059,19 +1059,19 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "outboundInDom": 78,
-      "reachedByTab": 78,
+      "outboundInDom": 77,
+      "reachedByTab": 77,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 202
+      "tabStops": 200
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "outboundInDom": 81,
-      "reachedByTab": 81,
+      "outboundInDom": 82,
+      "reachedByTab": 82,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 196
+      "tabStops": 198
     },
     {
       "route": "/editorial-policy/",
