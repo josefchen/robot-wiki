@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { CITATIONS } from '../../data/citations';
+import { citeNoteInMargin, citeParts, clickCiteMark, closeCiteNote } from './helpers/citation-note';
 
 const route = '/data-hardware/industrial-deployment/';
 const sha = (data: string | Buffer) => createHash('sha256').update(data).digest('hex');
@@ -31,18 +32,33 @@ test.beforeEach(async ({ page }) => {
 test('IFR retained science, chronology, disagreement and Stat values', async ({ page }, info) => {
   expect((await page.goto(route))?.status()).toBe(200);
   const prose = page.locator('div.prose[data-pagefind-body]');
+  // The data-hardware length cut of 2026-10-13 gave the lead and the Stat
+  // tiles World Robotics 2026's count, moved the World Robotics 2025 figures
+  // to the paragraph that follows it, and cut IFR's May 5, 2026 industry
+  // breakdown with its page 13 and page 16 disagreement and unspecified
+  // share. The 2025 figures are read where they stand now, each cut figure is
+  // replaced by a 2026 figure the page still reports, and each move and
+  // retirement is recorded with its reason in
+  // audit/evidence/length-cut-20261013-data-hardware/source-transition.json.
   const lead = prose.locator(':scope > p').first();
-  for (const text of [
-    '4,663,698', '2021 through 2024', '542,076', '2,027,190', '450,530',
-    '4.5 times', '295,045', '54 percent', 'May 5, 2026', '128,899',
-    '126,088', '88,777', '23 percent on page 13 but 24 percent on page 16',
-    'describe customer industries', '14 percent',
-  ]) await expect(lead).toContainText(text, { useInnerText: true });
+  const current = prose.locator('p').filter({ hasText: "IFR's World Robotics 2026, released on" });
+  const earlier = prose.locator('p').filter({ hasText: 'A year earlier, World Robotics 2025 counted' });
+  for (const text of ['5 million', 'more than 600,000 installations', '59 percent']) {
+    await expect(lead).toContainText(text, { useInnerText: true });
+  }
+  for (const text of ['September 24, 2026', 'up 9 percent', 'up 11 percent', '354,000 units',
+    'almost 38,500 installations', 'passed Japan to become the second-largest market']) {
+    await expect(current).toContainText(text, { useInnerText: true });
+  }
+  for (const text of ['4,663,698', 'in each year from 2021', '542,076', '2,027,190', '450,530',
+    '4.5 times', '295,045', '54 percent']) {
+    await expect(earlier).toContainText(text, { useInnerText: true });
+  }
   const stats = prose.locator(':scope > div.grid').first();
-  for (const text of ['4,663,698', '542,076', '2021-2024 each above 500k', '54%', 'in 2024']) {
+  for (const text of ['5 million', 'industrial robots worldwide, 2025', '600,000+', 'up 11% on 2024', '59%']) {
     await expect(stats).toContainText(text);
   }
-  const uses = prose.locator('p').filter({ hasText: 'OSHA’s Technical Manual lists uses' });
+  const uses = prose.locator('p').filter({ hasText: "OSHA's Technical Manual lists uses" });
   await expect(uses).toContainText('including arc and resistance welding');
   await expect(uses).toContainText('machine-tool loading and unloading');
   await expect(uses).toContainText('materials handling and packaging');
@@ -59,14 +75,17 @@ test('IFR retained science, chronology, disagreement and Stat values', async ({ 
     }
   }
   writeFileSync(info.outputPath('science.json'), JSON.stringify({
-    captures, lead: await lead.innerText(), stats: await stats.innerText(), uses: await uses.innerText(),
+    captures, lead: await lead.innerText(), current: await current.innerText(), earlier: await earlier.innerText(),
+    stats: await stats.innerText(), uses: await uses.innerText(),
     viewport: info.project.use.viewport, inputs: process.env.ROBOT_WIKI_GATE_INPUTS,
   }, null, 2));
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
+// The length cut left World Robotics 2025 two citations: the May 5, 2026
+// release and the unspecified-industry share it also supported were cut.
 for (const [id, count] of [
-  ['ifr-world-robotics-2025', 3],
+  ['ifr-world-robotics-2025', 2],
   ['ifr-china-five-year-plan-2026', 1],
   ['osha-otm-robots', 1],
 ] as const) {
@@ -77,7 +96,7 @@ for (const [id, count] of [
     await page.evaluate(() => document.fonts.ready);
     const citation = CITATIONS.find(c => c.id === id)!;
     const parent = id === 'osha-otm-robots'
-      ? page.locator('div.prose p').filter({ hasText: 'OSHA’s Technical Manual lists uses' })
+      ? page.locator('div.prose p').filter({ hasText: "OSHA's Technical Manual lists uses" })
       : page.locator('div.prose[data-pagefind-body]');
     const chips = parent.locator(`[data-cite-id="${id}"]`);
     await expect(chips).toHaveCount(count);
@@ -87,45 +106,77 @@ for (const [id, count] of [
       inputs: process.env.ROBOT_WIKI_GATE_INPUTS,
       inputSha256: process.env.ROBOT_WIKI_GATE_INPUTS ? sha(readFileSync(process.env.ROBOT_WIKI_GATE_INPUTS)) : null,
     }, null, 2));
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+    // the chip's hover and focus tooltip became the citation's numbered
+    // sidenote. From 1200 px the note stands in the margin at rest and the
+    // number jumps to the References entry; narrower, the number opens the
+    // note inline, by pointer (the hover state) or by Enter (the focus
+    // state). Title, byline, bounds, source link and focus ring are read off
+    // the note and the number, the keyboard stop that replaced the chip link.
+    const wide = info.project.use.viewport!.width >= 1200;
     for (let i = 0; i < count; i++) {
       const chip = chips.nth(i);
-      const link = chip.locator('a[target="_blank"]');
+      const { mark, note, source: link } = citeParts(chip);
       await expect(link).toHaveAttribute('href', citation.url);
       await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+      expect(await citeNoteInMargin(chip)).toBe(wide);
+      // Reaching the number by keyboard is what shows the keyboard-only ring.
+      const tabToMark = async () => {
+        await mark.focus(); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Tab');
+        await expect(mark).toBeFocused();
+      };
       for (const placement of ['reading', 'lower-edge']) {
         await chip.evaluate((e, p) => scrollBy(0, e.getBoundingClientRect().top -
           (p === 'reading' ? innerHeight / 2 : innerHeight - 100)), placement);
         for (const mode of ['hover', 'focus']) {
-          await link.evaluate(e => e.blur());
-          if (mode === 'hover') await link.hover();
-          else { await page.mouse.move(0, 0); await link.focus(); await expect(link).toBeFocused(); }
-          const tip = chip.getByRole('tooltip');
-          await expect(tip).toBeVisible();
-          await expect(tip).toContainText(citation.title);
-          await expect(tip).toContainText(citation.authors.join(', '));
-          const box = (await tip.boundingBox())!;
-          const focus = await link.evaluate(e => {
+          await mark.evaluate(e => e.blur());
+          if (mode === 'hover') {
+            // Aimed at the number's own box, as clickCiteMark aims its click.
+            const target = (await mark.boundingBox())!;
+            await mark.hover({ position: { x: target.width / 2, y: target.height / 2 } });
+            if (!wide) await clickCiteMark(mark);
+          } else {
+            await page.mouse.move(0, 0); await tabToMark();
+            if (!wide) await page.keyboard.press('Enter');
+          }
+          await expect(note).toBeVisible();
+          await expect(note).toContainText(citation.title);
+          await expect(note).toContainText(citation.authors.join(', '));
+          const box = (await note.boundingBox())!;
+          const focus = await mark.evaluate(e => {
             const s = getComputedStyle(e);
-            return { style: s.outlineStyle, width: s.outlineWidth, color: s.outlineColor };
+            return { visible: e.matches(':focus-visible'), style: s.outlineStyle, width: s.outlineWidth,
+              offset: s.outlineOffset, color: s.outlineColor };
           });
           const path = info.outputPath(`${i}-${placement}-${mode}.png`);
           await page.screenshot({ path });
-          states.push({ i, placement, mode, box, focus, path, sha256: sha(readFileSync(path)), at: new Date().toISOString() });
+          states.push({ i, placement, mode, box, focus, inMargin: wide, path, sha256: sha(readFileSync(path)), at: new Date().toISOString() });
           save();
           expect.soft(box.x, `${i} ${placement} ${mode} left`).toBeGreaterThanOrEqual(0);
           expect.soft(box.x + box.width, `${i} ${placement} ${mode} right`).toBeLessThanOrEqual(info.project.use.viewport!.width);
           expect.soft(box.y, `${i} ${placement} ${mode} top`).toBeGreaterThanOrEqual(0);
           expect.soft(box.y + box.height, `${i} ${placement} ${mode} bottom`).toBeLessThanOrEqual(info.project.use.viewport!.height);
           if (mode === 'focus') {
+            // The locked ring: a 1 px ink outline offset 2 px, keyboard only,
+            // in place of the 2 px brand-v2 ring.
+            expect(focus.visible).toBe(true);
             expect(focus.style).not.toBe('none');
-            expect(parseFloat(focus.width)).toBeGreaterThanOrEqual(2);
+            expect(parseFloat(focus.width)).toBe(1);
+            expect(parseFloat(focus.offset)).toBe(2);
+            expect(focus.color).toBe('rgb(28, 28, 26)');
           }
+          await closeCiteNote(chip);
         }
       }
-      expect(await link.evaluate(e => {
+      // The number is the chip's hit target now: nothing may cover it.
+      expect(await mark.evaluate(e => {
         const r = e.getBoundingClientRect();
         return e.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2));
       })).toBe(true);
+      // Below 1200 px the number opens the note instead of jumping, so the
+      // jump to the References entry is taken at the desktop width there.
+      const viewport = page.viewportSize()!;
+      if (!wide) await page.setViewportSize({ width: 1280, height: viewport.height });
       const jump = chip.locator(`a[href="#ref-${id}"]`);
       await jump.focus();
       await page.keyboard.press('Enter');
@@ -148,6 +199,7 @@ for (const [id, count] of [
         activeHTML: document.activeElement?.outerHTML.slice(0, 300),
       })) });
       save();
+      if (!wide) await page.setViewportSize(viewport);
     }
     expect(errors).toEqual([]);
   });

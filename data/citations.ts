@@ -18883,6 +18883,18 @@ export const CITATIONS: Citation[] = [
     url: 'https://droid-dataset.github.io/',
     type: 'docs',
   },
+  // fineart-2026: domain pass 2026-10-06, KOL intake note of Hugging Face LeRobot (dataset card of 2026-10-05),
+  // added 2026-10-15 for the data-hardware pass (data-hardware/datasets); the card was the lead and the paper is
+  // the source. arXiv abstract page and HTML read 2026-10-15 (HTTP 200; v1 29 Sep 2026, v3 5 Oct 2026).
+  {
+    id: 'fineart-2026',
+    title: 'FineART: Fine-Grained Annotated Robotic Trajectory Dataset and Vision-Language-Action Model for Bimanual Manipulation',
+    authors: ['Jade Choghari', 'Pepijn Kooijmans', 'Mansi Agarwal', 'Yusuf Umut Ciftci', 'Aseem Doriwala', 'Catherine Weaver', 'Mouli Sivapurapu', 'Kai Yang', 'Thomas Wolf', 'Jackson Lee', 'Pragna Mannam'],
+    year: 2026,
+    arxiv: '2609.36416',
+    url: 'https://arxiv.org/abs/2609.36416',
+    type: 'paper',
+  },
   // galaxea-open-world-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
   {
     id: 'galaxea-open-world-2025',

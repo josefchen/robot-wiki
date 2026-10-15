@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3028,
+      "visibleTextLength": 3024,
       "header": {
         "present": true,
         "display": "flex",
@@ -3314,7 +3314,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 19989,
+      "visibleTextLength": 19999,
       "header": {
         "present": true,
         "display": "flex",
@@ -3476,7 +3476,7 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "visibleTextLength": 20488,
+      "visibleTextLength": 20993,
       "header": {
         "present": true,
         "display": "flex",
@@ -3638,7 +3638,7 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "visibleTextLength": 20687,
+      "visibleTextLength": 20668,
       "header": {
         "present": true,
         "display": "flex",

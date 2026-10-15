@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "1eabf04f3a6e0cae2a31cdc0ff15770adbf22a9e3929b6e3876fc2d9ff614ce1",
+  "fingerprint": "9196e376a16b7ebc73e4d2632db65fba8ad1a4c34592c82deb6589a24e1ac022",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3028,
+      "visibleTextLength": 3024,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12243,7 +12243,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 19989,
+      "visibleTextLength": 19999,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12515,6 +12515,15 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Expert diversity hurt: different operator styles make veloci"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "UMI collects without a robot: an operator holds a 3D-printed"
         },
         {
@@ -12765,7 +12774,7 @@
         },
         {
           "kind": "citation",
-          "count": 86,
+          "count": 88,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -12775,7 +12784,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -12785,7 +12794,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -13145,7 +13154,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20488,
+      "visibleTextLength": 20993,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -13198,11 +13207,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 8,
-        "citationCount": 37,
+        "citationCount": 38,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "8 min read",
-        "citationCountText": "37 sources",
+        "citationCountText": "38 sources",
         "bibliographyIds": [
           "open-x-embodiment-2023",
           "droid-2024",
@@ -13240,7 +13249,8 @@
           "axis-2026",
           "robocasa365-2026",
           "datasheets-for-datasets-2018",
-          "lerobot-dataset-v3-2025"
+          "lerobot-dataset-v3-2025",
+          "fineart-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -13419,6 +13429,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "RoboCOIN offers over 180,000 bimanual demonstrations from 15"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In simulation, RoboCasa365 offers 365 tasks across 2,500 kit"
         },
         {
           "familyHead": "geist",
@@ -13628,7 +13647,7 @@
         },
         {
           "kind": "reference",
-          "count": 37,
+          "count": 38,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -13638,7 +13657,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 37,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -13650,7 +13669,7 @@
         },
         {
           "kind": "citation",
-          "count": 94,
+          "count": 96,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -13660,7 +13679,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 47,
+              "count": 48,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -13670,7 +13689,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 47,
+              "count": 48,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -13736,7 +13755,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -13746,7 +13765,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -14087,6 +14106,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 11 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -14118,7 +14145,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20687,
+      "visibleTextLength": 20668,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14341,7 +14368,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Simulation used automated predicates for scoring. TRI plots "
+          "text": "Simulation used automated predicates for scoring. TRI draws "
         },
         {
           "familyHead": "geist",
@@ -14440,7 +14467,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Real evaluation costs labour. OpenVLA's evaluation needed ov"
+          "text": "OpenVLA's evaluation needed over 2,500 rollouts and over 100"
         },
         {
           "familyHead": "geist",
@@ -14458,7 +14485,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Scoring is also moving past binary success. Eval-Actions arg"
+          "text": "Eval-Actions argues binary success rates hide process-level "
         },
         {
           "familyHead": "geist",
@@ -54409,7 +54436,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3028,
+      "visibleTextLength": 3024,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66366,7 +66393,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 26632,
+      "visibleTextLength": 26767,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66638,6 +66665,15 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Expert diversity hurt: different operator styles make veloci"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "UMI collects without a robot: an operator holds a 3D-printed"
         },
         {
@@ -66888,7 +66924,7 @@
         },
         {
           "kind": "citation",
-          "count": 86,
+          "count": 88,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -66898,7 +66934,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -66908,7 +66944,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -67257,7 +67293,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27840,
+      "visibleTextLength": 28552,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67310,11 +67346,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 8,
-        "citationCount": 37,
+        "citationCount": 38,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "8 min read",
-        "citationCountText": "37 sources",
+        "citationCountText": "38 sources",
         "bibliographyIds": [
           "open-x-embodiment-2023",
           "droid-2024",
@@ -67352,7 +67388,8 @@
           "axis-2026",
           "robocasa365-2026",
           "datasheets-for-datasets-2018",
-          "lerobot-dataset-v3-2025"
+          "lerobot-dataset-v3-2025",
+          "fineart-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -67531,6 +67568,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "RoboCOIN offers over 180,000 bimanual demonstrations from 15"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "In simulation, RoboCasa365 offers 365 tasks across 2,500 kit"
         },
         {
           "familyHead": "geist",
@@ -67740,7 +67786,7 @@
         },
         {
           "kind": "reference",
-          "count": 37,
+          "count": 38,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -67750,7 +67796,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 37,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -67762,7 +67808,7 @@
         },
         {
           "kind": "citation",
-          "count": 94,
+          "count": 96,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -67772,7 +67818,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 47,
+              "count": 48,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -67782,7 +67828,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 47,
+              "count": 48,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -67848,7 +67894,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -67858,7 +67904,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -68199,6 +68245,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 11 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -68219,7 +68273,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27936,
+      "visibleTextLength": 27917,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68442,7 +68496,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Simulation used automated predicates for scoring. TRI plots "
+          "text": "Simulation used automated predicates for scoring. TRI draws "
         },
         {
           "familyHead": "geist",
@@ -68541,7 +68595,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Real evaluation costs labour. OpenVLA's evaluation needed ov"
+          "text": "OpenVLA's evaluation needed over 2,500 rollouts and over 100"
         },
         {
           "familyHead": "geist",
@@ -68559,7 +68613,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Scoring is also moving past binary success. Eval-Actions arg"
+          "text": "Eval-Actions argues binary success rates hide process-level "
         },
         {
           "familyHead": "geist",

@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 const ROUTE = '/data-hardware/teleop-rigs/';
 
@@ -12,9 +13,10 @@ test.describe('data-hardware teleop-rigs module', () => {
       page.getByRole('heading', { level: 1, name: 'Teleoperation Rigs' }),
     ).toBeVisible();
     const main = page.locator('#main-content');
-    // All four reference rig families appear in the prose.
+    // All four reference rig families appear in the prose; the lead names
+    // the ALOHA-class bimanual family by its leader-follower arms.
     for (const family of [
-      /ALOHA-class bimanual workstations/,
+      /Leader-follower arms/,
       /GELLO/,
       /UMI/,
       /VR teleoperation/,
@@ -39,6 +41,7 @@ test.describe('data-hardware teleop-rigs module', () => {
     expect(mainText).not.toContain('import {');
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Teleoperation Rigs' }),

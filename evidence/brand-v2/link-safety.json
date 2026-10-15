@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "78faeb9a3f301af6eb2869052deaea275f882acdd3294335406af9b953a10a4c",
+  "fingerprint": "3f58813bea5efb2b790c680976e0426ccd261d397a2911da2a814a8fd325b817",
   "source": "out/ static export",
   "routes": [
     {
@@ -225,7 +225,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundAnchors": 83,
+      "outboundAnchors": 84,
       "distinctHrefs": 40,
       "shapes": [
         "citation-chip",
@@ -237,8 +237,8 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "outboundAnchors": 94,
-      "distinctHrefs": 44,
+      "outboundAnchors": 96,
+      "distinctHrefs": 45,
       "shapes": [
         "citation-chip",
         "footer",
@@ -837,17 +837,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 5831,
-  "distinctOutboundHrefs": 1712,
+  "outboundAnchors": 5834,
+  "distinctOutboundHrefs": 1713,
   "anchorsByShape": {
-    "citation-chip": 2334,
+    "citation-chip": 2336,
     "footer": 152,
-    "reference-entry": 2062,
+    "reference-entry": 2063,
     "other": 564,
     "figure-credit": 719
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 5245,
+  "anchorsWithNoreferrer": 5248,
   "keyboard": [
     {
       "route": "/",
@@ -1019,19 +1019,19 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundInDom": 83,
-      "reachedByTab": 83,
+      "outboundInDom": 84,
+      "reachedByTab": 84,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 209
+      "tabStops": 211
     },
     {
       "route": "/data-hardware/datasets/",
-      "outboundInDom": 94,
-      "reachedByTab": 94,
+      "outboundInDom": 96,
+      "reachedByTab": 96,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 247
+      "tabStops": 252
     },
     {
       "route": "/data-hardware/evaluation-crisis/",

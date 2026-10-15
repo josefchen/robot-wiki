@@ -5,6 +5,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { CITATIONS, citationLabel, citationMeta } from '../../data/citations';
 import { GLOSSARY } from '../../data/glossary';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeNoteInMargin, citeParts, clickCiteMark, closeCiteNote } from './helpers/citation-note';
 import { setSlider } from './slider';
 
 const evaluation = '/data-hardware/evaluation-crisis/';
@@ -52,38 +53,55 @@ for (const width of [375, 1440]) {
         await page.evaluate(() => document.fonts.ready);
         const slug = route.split('/').filter(Boolean).at(-1)!;
         const observations = [];
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the chip's author-year link and its tooltip became the
+        // citation's numbered sidenote. The label, source link, title and
+        // byline are read off the note; from 1200 px it stands in the margin
+        // at rest and the number jumps to the References entry, and narrower
+        // the number opens it inline, by pointer (the hover state) or by
+        // Enter (the keyboard state). The number is the hit target now.
+        const wide = width >= 1200;
         for (const citation of route === evaluation ? [tri, snyder] : [tri]) {
           const chip = page.locator(`div.prose [data-cite-id="${citation.id}"]`).first();
-          const source = chip.locator('a').first();
+          const { mark, note, source } = citeParts(chip);
           await expect(source).toHaveText(citationLabel(citation));
           await expect(source).toHaveAttribute('href', citation.url);
           await expect(source).toHaveAttribute('target', '_blank');
           await expect(source).toHaveAttribute('rel', 'noopener noreferrer');
-          const tooltip = chip.getByRole('tooltip');
+          expect(await citeNoteInMargin(chip)).toBe(wide);
           for (const position of ['reading', 'lower-edge']) {
-            await source.evaluate((element, low) => {
+            await mark.evaluate((element, low) => {
               const top = element.getBoundingClientRect().top + window.scrollY;
               window.scrollTo(0, top - (low ? window.innerHeight - 80 : 340));
             }, position === 'lower-edge');
             for (const method of ['hover', 'keyboard']) {
-              if (method === 'hover') await source.hover();
-              else {
+              if (method === 'hover') {
+                // Aimed at the number's own box, as clickCiteMark aims its click.
+                const target = (await mark.boundingBox())!;
+                await mark.hover({ position: { x: target.width / 2, y: target.height / 2 } });
+                if (!wide) await clickCiteMark(mark);
+              } else {
                 await page.mouse.move(0, 0);
-                await source.focus();
+                await mark.focus();
+                if (!wide) await page.keyboard.press('Enter');
               }
-              await expect(tooltip).toBeVisible();
-              await expect(tooltip).toContainText(citation.title);
-              await expect(tooltip).toContainText(citationMeta(citation));
-              observations.push({ citation: citation.id, position, method,
-                box: await tooltip.boundingBox() });
+              await expect(note).toBeVisible();
+              await expect(note).toContainText(citation.title);
+              await expect(note).toContainText(citationMeta(citation));
+              observations.push({ citation: citation.id, position, method, inMargin: wide,
+                box: await note.boundingBox() });
               await capture(page, `${slug}-${width}-${citation.id}-${position}-${method}`);
-              await bounds(tooltip, width, height);
-              expect(await source.evaluate((element) => {
+              await bounds(note, width, height);
+              expect(await mark.evaluate((element) => {
                 const rect = element.getBoundingClientRect();
                 return element.contains(document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2));
               })).toBe(true);
+              await closeCiteNote(chip);
             }
           }
+          // Below 1200 px the number opens the note instead of jumping, so
+          // the jump to the References entry is taken at the desktop width.
+          if (!wide) await page.setViewportSize({ width: 1280, height });
           const jump = chip.locator('a[href^="#ref-"]');
           await jump.focus();
           await page.keyboard.press('Enter');
@@ -96,6 +114,9 @@ for (const width of [375, 1440]) {
             await page.keyboard.press('Enter');
             await expect(ref.getByRole('button', { name: 'Show 8 authors' })).toHaveAttribute('aria-expanded', 'true');
           }
+          // The expanded entry is read, captured and checked for overflow at
+          // the width under test.
+          if (!wide) await page.setViewportSize({ width, height });
           await expect(ref.locator('[data-author-names]')).toHaveText(citation.authors.join(', '));
           if (citation.id === tri.id) await expect(ref).not.toContainText('Science Robotics 2026');
           await capture(page, `${slug}-${width}-${citation.id}-full-authors`);
@@ -130,9 +151,13 @@ for (const width of [375, 1440]) {
           loaded: [...document.fonts].filter((f) => f.status === 'loaded').map((f) => f.family),
           resources: performance.getEntriesByType('resource').map((r) => r.name).filter((n) => /woff2/.test(n)),
         }));
-        expect(fonts.heading).toMatch(/tektur/i);
-        expect(fonts.prose).toMatch(/newsreader/i);
-        for (const role of [/tektur/i, /plex.*sans/i, /newsreader/i, /plex.*mono/i]) {
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): DM Sans (display), Geist (body and interface) and Geist
+        // Mono (numerals) replace Tektur, Newsreader and the two IBM Plex
+        // roles. Names match whole, so Geist Mono cannot pass for Geist.
+        expect(fonts.heading).toMatch(/^"?DM Sans"?,/);
+        expect(fonts.prose).toMatch(/^"?Geist"?,/);
+        for (const role of [/^"?DM Sans"?$/, /^"?Geist"?$/, /^"?Geist Mono"?$/]) {
           expect(fonts.loaded.some((f) => role.test(f))).toBe(true);
         }
         expect(fonts.resources.length).toBeGreaterThan(0);

@@ -2458,7 +2458,7 @@ describe('two-parent exact approval reconciliation', () => {
       `${prefix}citation-rendering`,
       ...registered,
     ]);
-    expect(registered).toHaveLength(75);
+    expect(registered).toHaveLength(76);
     for (const id of dataHardwareCut20261013Appends) {
       const entry = merged.find(x => x.id === id)!;
       // Approved by the owner's instruction, not as release approval, and

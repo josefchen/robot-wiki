@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import { expect, test } from '@playwright/test';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, clickCiteMark, closeCiteNote } from './helpers/citation-note';
 import { setSlider } from './slider';
 
 const route = '/data-hardware/evaluation-crisis/';
@@ -57,10 +58,20 @@ for (const width of [375, 1440]) {
           expect(sourceCount, `${id} source population`).toBeGreaterThan(0);
           const roots = page.locator(`div.prose [${group.attribute}="${id}"]`);
           await expect(roots).toHaveCount(sourceCount);
+          // Owner-approved successor (Josef, 2026-10-10, the research-page
+          // standard): a citation's tooltip became its numbered sidenote,
+          // which is the element measured for a Cite identity, and the
+          // number is its trigger. From 1200 px the note stands in the margin
+          // at rest; narrower, the number opens it inline, by pointer (the
+          // hover identity) or by Enter (the keyboard identity), and the
+          // note is closed again before the next identity. Glossary Term
+          // tooltips are unchanged.
+          const cite = group.component === 'Cite';
+          const narrowCite = cite && width < 1200;
           for (let occurrence = 0; occurrence < sourceCount; occurrence++) {
             const root = roots.nth(occurrence);
-            const source = root.locator('a').first();
-            const tooltip = root.getByRole('tooltip');
+            const source = cite ? citeParts(root).mark : root.locator('a').first();
+            const tooltip = cite ? citeParts(root).note : root.getByRole('tooltip');
             for (const position of positions) {
               for (const method of methods) {
                 const identity = [width, id, occurrence, position, method, 'containment'].join(':');
@@ -71,11 +82,18 @@ for (const width of [375, 1440]) {
                   const target = placement === 'reading' ? 500 : placement === 'upper-edge' ? 100 : innerHeight - 80;
                   window.scrollBy(0, element.getBoundingClientRect().top - target);
                 }, position);
-                if (method === 'hover') await source.hover();
-                else {
+                if (method === 'hover') {
+                  if (cite) {
+                    // Aimed at the number's own box, as clickCiteMark aims its click.
+                    const box = (await source.boundingBox())!;
+                    await source.hover({ position: { x: box.width / 2, y: box.height / 2 } });
+                    if (narrowCite) await clickCiteMark(source);
+                  } else await source.hover();
+                } else {
                   await source.focus();
                   await page.keyboard.press('Tab');
                   await page.keyboard.press('Shift+Tab');
+                  if (narrowCite) await page.keyboard.press('Enter');
                 }
                 await page.evaluate(() => new Promise<void>(resolve =>
                   requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
@@ -105,6 +123,7 @@ for (const width of [375, 1440]) {
                     (position === 'reading' || position === 'upper-edge' && id === 'libero-2023')) {
                   await page.screenshot({ path: info.outputPath(`${id}-${position}.png`) });
                 }
+                if (narrowCite) await closeCiteNote(root);
               }
             }
           }
@@ -167,7 +186,12 @@ for (const width of [375, 1440]) {
       const history = [];
       for (const id of selected[0].ids) {
         const root = page.locator(`[data-cite-id="${id}"]`).first();
-        const sourceURL = await root.locator('a').first().getAttribute('href');
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the source URL is read off the citation's sidenote, and
+        // below 1200 px, where the number opens that note instead of
+        // jumping, the jump to the References entry is taken at 1280 px.
+        const sourceURL = await citeParts(root).source.getAttribute('href');
+        if (width < 1200) await page.setViewportSize({ width: 1280, height: 900 });
         const beforeURL = page.url();
         await root.locator('a[href^="#ref-"]').focus();
         await page.keyboard.press('Enter');
@@ -177,6 +201,7 @@ for (const width of [375, 1440]) {
         await expect(page).toHaveURL(beforeURL);
         history.push({ id, beforeURL, afterURL: page.url(),
           activeTag: await page.evaluate(() => document.activeElement?.tagName) });
+        if (width < 1200) await page.setViewportSize({ width, height: 900 });
       }
       const term = page.locator('[data-term-id="system-identification"] a').first();
       const beforeURL = page.url();
