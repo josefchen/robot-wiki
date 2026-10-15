@@ -184,7 +184,7 @@ test('diffusion camera closes on one guess and the relation is rewritten glyph b
   }
 });
 
-test('Kalman camera closes on the gap and the worked step is rewritten glyph by glyph', async ({ page }) => {
+test('Kalman blend copies the guess, lands between it and the reading, and closes narrower than both', async ({ page }) => {
   const directory = join(process.cwd(), 'evidence/motion/scenes/kalman-predict-update');
   mkdirSync(directory, { recursive: true });
   for (const width of [375, 1440]) {
@@ -205,51 +205,60 @@ test('Kalman camera closes on the gap and the worked step is rewritten glyph by 
       }
       return alpha;
     });
-    const zoom = async () => Number(
-      (await group.locator('[data-scene-camera]').getAttribute('transform'))?.match(/scale\(([\d.]+)\)/)?.[1],
-    );
+    // A band's painted box: every lane is equally deep, so a wider box is a wider gap between the jaws.
+    const band = (lane: string) => group.locator(`[data-scene-mark="${lane}-area"]`).evaluate((node) => {
+      const box = node.getBoundingClientRect();
+      return { left: box.left, right: box.right, width: box.width };
+    });
+    const point = () => group.locator('[data-scene-mark="blend-point"]').evaluate((node) => {
+      const box = node.getBoundingClientRect();
+      return box.left + box.width / 2;
+    });
     const clean = async (moment: string) => {
       const audit = await group.evaluate(auditSceneElement);
+      expect(audit.textCount, `${width} ${moment}: words in the drawing`).toBe(0);
       expect(audit.intersections, `${width} ${moment}`).toEqual([]);
       expect(audit.overflow, `${width} ${moment}`).toEqual([]);
     };
+    const settle = () => page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
 
-    // 40% into the blend beat the camera holds on the gap, inside the zoom
-    // token, with the bracket drawn and the labels stepped aside.
-    await scrubber.fill('3800');
-    expect(await zoom()).toBeGreaterThan(1.5);
-    expect(await zoom()).toBeLessThanOrEqual(MOTION_CAMERA.focusMaxZoom);
-    expect(await opacity('[data-scene-mark="blend-point"]')).toBeGreaterThan(0.9);
-    expect(await opacity('text:text("my guess")')).toBeLessThan(0.01);
-    await clean('camera hold');
-    await group.screenshot({ path: join(directory, `${width}-camera-hold.png`) });
+    // Just past 22% into the blend beat the blend caliper is an exact copy of the guess: the same gap.
+    await scrubber.fill('3450');
+    await settle();
+    expect(Math.abs((await band('blend')).width - (await band('guess')).width)).toBeLessThan(0.5);
+    expect(await opacity('[data-scene-mark="blend-curve"]')).toBeGreaterThan(0.9);
+    expect(await opacity('[data-scene-mark="blend-share"]')).toBeLessThan(0.01);
+    await clean('blend copy');
+    await group.screenshot({ path: join(directory, `${width}-blend-copy.png`) });
 
-    // The symbols beat first writes the step in the filter's own numbers.
-    await scrubber.fill('5600');
-    expect(await opacity('[data-scene-glyph="reading"]')).toBe(1);
-    expect(await opacity('[data-scene-glyph="reading-symbol"]')).toBe(0);
-    await clean('numbers written');
-    await group.screenshot({ path: join(directory, `${width}-numbers-written.png`) });
+    // Mid-slide the rule is laid and the blend runs along it, its jaws closing.
+    await scrubber.fill('4100');
+    await settle();
+    const sliding = await band('blend');
+    expect(sliding.width).toBeLessThan((await band('guess')).width);
+    expect(await opacity('[data-scene-mark="blend-share"]')).toBeGreaterThan(0.9);
+    await clean('blend sliding');
+    await group.screenshot({ path: join(directory, `${width}-blend-sliding.png`) });
 
-    // The numbers have left and the shared signs slide; the symbols wait for room.
-    await scrubber.fill('6300');
-    expect(await opacity('[data-scene-glyph="equals"]')).toBe(1);
-    expect(await opacity('[data-scene-glyph="reading"]')).toBe(0);
-    expect(await opacity('[data-scene-glyph="reading-symbol"]')).toBe(0);
-    await clean('glyphs sliding');
-    await group.screenshot({ path: join(directory, `${width}-symbols-slide.png`) });
-    await scrubber.fill('7000');
-    expect(await opacity('[data-scene-glyph="estimate"]')).toBe(1);
-    await clean('rule written');
+    // The symbols beat measures the share out along the rule, from the guess's stop.
+    await scrubber.fill('6000');
+    await settle();
+    const fill = await group.locator('[data-scene-part="share-measured"]').evaluate((node) => node.getBoundingClientRect().right);
+    expect(fill).toBeLessThan(await point());
+    await clean('share measured');
+    await group.screenshot({ path: join(directory, `${width}-share-measured.png`) });
 
-    // The camera is home and every symbol gone on the finished frame.
+    // The finished frame: narrower than both, the measured share ending at the blend's pointer.
     await scrubber.fill('8000');
-    expect(await zoom()).toBe(1);
-    for (const id of ['blend', 'equals', 'estimate', 'gain-symbol', 'reading-symbol', 'close']) {
-      expect(await opacity(`[data-scene-glyph="${id}"]`), id).toBe(0);
-    }
+    await settle();
+    const [guess, reading, blend] = [await band('guess'), await band('reading'), await band('blend')];
+    expect(guess.width).toBeGreaterThan(reading.width);
+    expect(reading.width).toBeGreaterThan(blend.width);
+    const measured = await group.locator('[data-scene-part="share-measured"]').evaluate((node) => node.getBoundingClientRect().right);
+    expect(Math.abs(measured - (await point()))).toBeLessThan(2.5);
+    await expect(group.getByTestId('motion-readout')).toContainText('Jaws either side: guess 1.27 · reading 1.00 · blend 0.79');
 
-    // Between the beat ends too: labels, glyphs and marks never collide mid-move.
+    // Between the beat ends too: no mark leaves the stage margin mid-move, and no word appears.
     for (let t = 0; t <= 8000; t += 100) {
       await scrubber.fill(String(t));
       await clean(`t=${t}`);
@@ -287,8 +296,10 @@ test('a camera window that reaches the stage edge fails the 4px margin', async (
 });
 
 test('painted horizontal, vertical, and thick strokes fail overlap and 4px margins', async ({ page }) => {
-  await page.goto('/classical/state-estimation/', { waitUntil: 'networkidle' });
-  const group = page.locator('[data-motion-scene="kalman-predict-update"]');
+  // The diffusion scene keeps stage labels to plant strokes across; the
+  // Kalman rail has no words in its drawing.
+  await page.goto('/manipulation/diffusion-policy/', { waitUntil: 'networkidle' });
+  const group = page.locator('[data-motion-scene="diffusion-denoising"]');
   const svg = group.locator('[data-motion-stage] svg');
   await svg.evaluate((node) => {
     const label = node.querySelector('text');

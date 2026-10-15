@@ -219,6 +219,20 @@
       "purpose": "Editorial photograph of a Rethink Robotics Baxter, credited to Scailyna under CC BY-SA 4.0 and used beside the series elastic actuation text."
     },
     {
+      "path": "images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+      "sha256": "893c7312567f621bbaa4e8b89b17b329d530ebcbce39d7aa71a166faf7afd369",
+      "byteCount": 664431,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of KUKA robots spot-welding car bodies at BMW's Leipzig plant, credited to BMW Werk Leipzig under CC BY-SA 2.0 DE, leading the industrial deployment article."
+    },
+    {
+      "path": "images/bridgedata-v2-sink-tasks-2023.jpg",
+      "sha256": "44b5ece5ea703236f7ebb5f3c39937bcd4549ebb5b236f15cd36409e747fcf14",
+      "byteCount": 228786,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Paper figure from the OpenVLA paper (Kim et al., CC BY 4.0 on arXiv) showing BridgeData V2 toy-sink demonstrations on a WidowX, illustrating the BridgeData V2 section of the datasets article."
+    },
+    {
       "path": "images/care-o-bot-grasping-2010.jpg",
       "sha256": "9b9863cb7fc03685991f1ba5e27ad976cc8feb134abfdb5bf772e98d64c82a95",
       "byteCount": 293998,
@@ -336,6 +350,13 @@
       "byteCount": 84372,
       "owner": "robot-wiki-editorial",
       "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Mastering Diverse Domains through World Models\" (2301.04104), credited to Danijar Hafner et al.: Multi-step video predictions (quadruped row), illustrating the taxonomy article."
+    },
+    {
+      "path": "images/droid-camera-calibration-2024.jpg",
+      "sha256": "9fd9c904c0025e6e8da6b516aa289fd302fb3b397f6830ec9b7bb3c6ee23cc64",
+      "byteCount": 371987,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Paper figure from the DROID paper (Khazatsky et al., CC BY 4.0 on arXiv) showing robot masks rendered from camera-to-base calibration, illustrating the hardware and calibration contract of the robot-learning stack article."
     },
     {
       "path": "images/droid-cook-lentils-rollouts-2024.jpg",
@@ -464,6 +485,13 @@
       "purpose": "Public-domain NASA photograph of the Ingenuity helicopter on Mars, used beside the Ingenuity text in space robotics."
     },
     {
+      "path": "images/inl-hot-cell-manipulators-2006.jpg",
+      "sha256": "fd46440c740e36393ddd8e89ef3c6277eefa64d542412d719d2cf72e33716998",
+      "byteCount": 282675,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a master-slave hot-cell manipulator at Idaho National Laboratory, credited to Idaho National Laboratory under CC BY 2.0, leading the teleoperation rigs article."
+    },
+    {
       "path": "images/isaac-gym-allegro-envs-2021.jpg",
       "sha256": "e740169c52f0f55f1a729d1288becf96896815ed12161e7061b49822ddac0014",
       "byteCount": 102311,
@@ -541,11 +569,25 @@
       "purpose": "Paper figure of the KnowNo conformal ask-for-help pipeline, credited to Allen Z. Ren et al. under CC BY 4.0 and used beside the conformal prediction text in safety and assurance."
     },
     {
+      "path": "images/kuka-bread-palletizing-bakery-2005.jpg",
+      "sha256": "f4e08078b94a56b3413402d297b50163ab0406bbcd10f6abd48f670be93358f8",
+      "byteCount": 734215,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a KUKA bread-crate palletising cell, released into the public domain by KUKA Roboter GmbH, illustrating cell integration cost in the industrial deployment article."
+    },
+    {
       "path": "images/leica-laser-tracker-ats600.jpg",
       "sha256": "839507df6c4cb488620162c9d79d8fc4dec19f833b89b350f5b2e2eb5d0bb055",
       "byteCount": 226185,
       "owner": "robot-wiki-editorial",
       "purpose": "Editorial photograph of a Leica ATS600 laser tracker, credited to FanchonH under CC BY-SA 4.0 and used as the calibration lead image."
+    },
+    {
+      "path": "images/libero-benchmark-overview-2023.jpg",
+      "sha256": "ad92236fd6800c4cf9c24a51d58fa20401f4a978ebddc5b6283971bbb13b5054",
+      "byteCount": 259197,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Paper figure from the LIBERO paper (Liu et al., CC BY 4.0 on arXiv) showing its simulated task suites, illustrating clean-benchmark overstatement in the evaluation crisis article."
     },
     {
       "path": "images/mini-cheetah-spin-rapid-locomotion-2022.jpg",
@@ -590,6 +632,20 @@
       "purpose": "Editorial photograph of Carnegie Mellon's Navlab 1 to 5 autonomous research vehicles, credited to Firefly4342 under CC BY-SA 4.0, illustrating the driving origins of behavior cloning."
     },
     {
+      "path": "images/nist-dexterous-manipulation-testbed-2013.jpg",
+      "sha256": "8aa9319c1d0a23d206363e198195faef262dbe378f1df460488d9a5633f1f546",
+      "byteCount": 303903,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of the NIST Dexterous Manipulation Testbed arm and three-fingered hand, a public-domain US government image leading the hardware taxonomy article."
+    },
+    {
+      "path": "images/ocado-warehouse-grid-bots-2017.jpg",
+      "sha256": "428e5be03b462991dd8eeeb5fd1326713a3469c2a439c2e6910ec5e1a02d1936",
+      "byteCount": 797109,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of robots on an Ocado warehouse storage grid, credited to Techwords under CC BY-SA 4.0, illustrating grid-robot warehouses in the industrial deployment article."
+    },
+    {
       "path": "images/octo-evaluation-setups-2024.jpg",
       "sha256": "5a2fbdacfbc87006ae4567f8b2f053a0d74216859c4087d356ab7ad748d2c77f",
       "byteCount": 128840,
@@ -602,6 +658,13 @@
       "byteCount": 174604,
       "owner": "robot-wiki-editorial",
       "purpose": "Editorial reuse of a CC BY 4.0 arXiv figure from \"Open X-Embodiment: Robotic Learning Datasets and RT-X Models\" (2310.08864), credited to Open X-Embodiment Collaboration: dataset overview, illustrating the cross embodiment and vla models articles."
+    },
+    {
+      "path": "images/openvla-overview-2024.jpg",
+      "sha256": "228f8ec2aa2bbfddcfc0c6e72f7c3899954defe367ca4024bca8278cb591d46a",
+      "byteCount": 258044,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Paper figure from the OpenVLA paper (Kim et al., CC BY 4.0 on arXiv) showing the model, its training data and robots, leading the robot-learning stack article."
     },
     {
       "path": "images/ouster-lidar-point-cloud-sf.jpg",
@@ -840,6 +903,20 @@
       "byteCount": 374649,
       "owner": "robot-wiki-editorial",
       "purpose": "Public-domain photograph of two Tesla Optimus humanoids on display in Stockholm by Ulf Klingström, used beside the deployment record in the reliability-gap article."
+    },
+    {
+      "path": "images/umi-handheld-grippers-2024.jpg",
+      "sha256": "0856e71393efeb44585efd61b0244d4ec215ea3fdec7a33b1fac76f32402684b",
+      "byteCount": 95547,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Paper figure from Lin et al.'s data-scaling study (CC BY 4.0 on arXiv) showing four UMI handheld grippers, illustrating the UMI section of the teleoperation rigs article."
+    },
+    {
+      "path": "images/umi-test-environments-2024.jpg",
+      "sha256": "f31f3c48024bbd2a09c27418da665e42ca97251fae0143d8066f28c15e593bd0",
+      "byteCount": 251145,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Paper figure from Lin et al.'s data-scaling study (CC BY 4.0 on arXiv) showing its eight test environments through the gripper's fisheye camera, illustrating diversity over density in the data bottleneck article."
     },
     {
       "path": "images/unitree-g1-stage-japan-mobility-2025.jpg",

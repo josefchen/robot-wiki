@@ -1,11 +1,34 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { JSDOM } from 'jsdom';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { CollaborativeOperationModes } from '@/components/interactive/collaborative-operation-modes';
+import { cellRun } from '@/components/iso/figures/cobot-cell';
+import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
+import { mainViewSymbolHits } from '@/lib/figure-main-view';
 import { TRANSIENT_CONTACT_LIMIT_LABEL } from '@/lib/force-limits';
-import { MODES } from '@/lib/safety-modes';
+import { MODES, peakContactForceN, protectiveSeparationM, separationTerms } from '@/lib/safety-modes';
 
 const readout = (id: string) => screen.getByTestId(id).textContent?.trim() ?? '';
+const stageReadout = (container: HTMLElement) => container.querySelector('[data-readout]')?.textContent?.trim() ?? '';
+
+const originalMatchMedia = window.matchMedia;
+function mockReducedMotion(matches: boolean) {
+  window.matchMedia = vi.fn().mockImplementation((query: string) => ({
+    matches,
+    media: query,
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    addListener: () => {},
+    removeListener: () => {},
+    onchange: null,
+    dispatchEvent: () => false,
+  })) as unknown as typeof window.matchMedia;
+}
+afterEach(() => {
+  window.matchMedia = originalMatchMedia;
+});
 
 function robotSlider() {
   return screen.getByRole('slider', { name: /robot speed/i });
@@ -57,16 +80,16 @@ describe('CollaborativeOperationModes', () => {
     expect(screen.getByText('illustrative')).toHaveAttribute('data-figure-status');
   });
 
-  it('splits the gap into its four parts in words and points at the zone edge', () => {
+  it('splits the gap into its four parts in words and draws the zone to its edge', () => {
     const { container } = render(<CollaborativeOperationModes />);
     const bar = screen.getByTestId('gap-bar');
     expect(bar).toHaveTextContent('You walk in while it reacts: 0.32 metres');
     expect(bar).toHaveTextContent('It keeps moving: 0.10 metres');
     expect(bar).toHaveTextContent('Braking: 0.05 metres');
     expect(bar).toHaveTextContent('Safety margin: 0.95 metres');
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(
-      'The robot must stay out of this zone,about 1.4 metres from you',
-    );
+    expect(screen.getByTestId('scanner-zone')).toHaveAttribute('data-metres', '1.42');
+    expect(screen.getByTestId('gap-riders')).toHaveAttribute('data-terms', '0.10 0.05 0.95 0.32');
+    expect(stageReadout(container)).toBe('needs 1.42 m, you stand at 1.60 m');
     expect(screen.getByTestId('safety-plain-readout')).toHaveTextContent(
       'At this speed the robot needs a gap of about 1.4 metres; you are 1.6 metres away, so it keeps working.',
     );
@@ -77,7 +100,7 @@ describe('CollaborativeOperationModes', () => {
     render(<CollaborativeOperationModes />);
     await user.click(screen.getByRole('button', { name: 'Gentle enough to bump' }));
     expect(screen.getByTestId('force-bar')).toHaveTextContent(
-      'Bump: about 316 newtons. Safe limit (the line): 255 newtons.',
+      'Bump: about 316 newtons. Safe limit (the gauge’s long mark): 255 newtons.',
     );
     expect(readout('force-limited-speed')).toBe('0.81 m/s');
     fireEvent.change(robotSlider(), { target: { value: '0.5' } });
@@ -164,11 +187,12 @@ describe('CollaborativeOperationModes', () => {
     expect(seen.size).toBe(MODES.length);
   });
 
-  it('flags a safety-rated stop once the separation distance overruns the cell', () => {
-    render(<CollaborativeOperationModes />);
-    expect(screen.queryByTestId('stopped-label')).not.toBeInTheDocument();
+  it('lights the stop lamp once the separation distance overruns the cell', () => {
+    const { container } = render(<CollaborativeOperationModes />);
+    expect(screen.getByTestId('stack-light')).toHaveAttribute('data-lamp', 'run');
     fireEvent.change(robotSlider(), { target: { value: '2' } });
-    expect(screen.getByTestId('stopped-label')).toBeInTheDocument();
+    expect(screen.getByTestId('stack-light')).toHaveAttribute('data-lamp', 'stop');
+    expect(stageReadout(container)).toBe('needs 1.83 m, you stand at 1.60 m');
   });
 
   it('names which modes the current settings satisfy', () => {
@@ -204,5 +228,85 @@ describe('CollaborativeOperationModes', () => {
     expect(document.getElementById(describedBy)?.textContent ?? '').toMatch(
       /protective separation distance/i,
     );
+  });
+
+  it('reads every drawn number from the safety model as the settings change', async () => {
+    const user = userEvent.setup();
+    render(<CollaborativeOperationModes />);
+    for (const [robot, human] of [['0.25', '1.6'], ['1.75', '0.5'], ['2', '2']] as const) {
+      fireEvent.change(robotSlider(), { target: { value: robot } });
+      fireEvent.change(humanSlider(), { target: { value: human } });
+      const terms = separationTerms(Number(robot), Number(human));
+      expect(screen.getByTestId('scanner-zone')).toHaveAttribute(
+        'data-metres',
+        protectiveSeparationM(Number(robot), Number(human)).toFixed(2),
+      );
+      expect(screen.getByTestId('gap-riders')).toHaveAttribute(
+        'data-terms',
+        [terms.robotReactionM, terms.brakingM, terms.marginM, terms.humanTravelM].map((m) => m.toFixed(2)).join(' '),
+      );
+    }
+    await user.click(screen.getByTestId('mode-power-force'));
+    expect(screen.queryByTestId('scanner-zone')).not.toBeInTheDocument();
+    expect(screen.getByTestId('bump-gauge')).toHaveAttribute('data-newtons', String(Math.round(peakContactForceN(2))));
+  });
+
+  it('hands each mode’s guard to one lit part of the cell', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<CollaborativeOperationModes />);
+    const lit = () => container.querySelectorAll('svg [data-lit], svg .iso-line[data-tone="lit"]');
+    expect(screen.getByTestId('scanner-zone').querySelectorAll('[data-lit], [data-tone="lit"]').length).toBe(lit().length);
+    await user.click(screen.getByTestId('mode-hand-guiding'));
+    expect(screen.queryByTestId('scanner-zone')).not.toBeInTheDocument();
+    expect(screen.getByTestId('cobot-arm').querySelectorAll('[data-lit]')).toHaveLength(lit().length);
+    await user.click(screen.getByTestId('mode-power-force'));
+    expect(screen.getByTestId('bump-gauge').querySelectorAll('[data-tone="lit"]')).toHaveLength(lit().length);
+    await user.click(screen.getByTestId('mode-monitored-stop'));
+    expect(screen.getByTestId('scanner-zone')).toHaveAttribute('data-metres', '1.98');
+    expect(screen.getByTestId('stack-light')).toHaveAttribute('data-lamp', 'stop');
+  });
+
+  it('runs the cell from a reader control without a pressed state, and stops on demand', async () => {
+    const user = userEvent.setup();
+    render(<CollaborativeOperationModes />);
+    const run = screen.getByTestId('cell-run');
+    expect(run).toHaveTextContent('Run the cell');
+    expect(run).not.toHaveAttribute('aria-pressed');
+    await user.click(run);
+    expect(run).toHaveTextContent('Stop the run');
+    expect(run).not.toHaveAttribute('aria-pressed');
+    await user.click(run);
+    expect(run).toHaveTextContent('Run the cell');
+  });
+
+  it('under reduced motion jumps a separation run to its end: stopped with the margin left', async () => {
+    mockReducedMotion(true);
+    const user = userEvent.setup();
+    const { container } = render(<CollaborativeOperationModes />);
+    await act(async () => {
+      await user.click(screen.getByTestId('cell-run'));
+    });
+    const end = cellRun('speed-separation', 1, 1.6);
+    expect(end.trigger?.gapM.toFixed(2)).toBe('0.95');
+    expect(stageReadout(container)).toBe('stopped, 0.95 m left between you');
+    expect(screen.getByTestId('stack-light')).toHaveAttribute('data-lamp', 'stop');
+  });
+
+  it('draws no words inside the drawing', () => {
+    const { container } = render(<CollaborativeOperationModes />);
+    const svg = container.querySelector('svg[role="img"]')!;
+    expect(svg.querySelectorAll('text, title, desc, foreignObject, tspan')).toHaveLength(0);
+  });
+});
+
+describe('CollaborativeOperationModes served HTML', () => {
+  const html = `<!doctype html><html><body><main>${renderToStaticMarkup(<CollaborativeOperationModes />)}</main></body></html>`;
+
+  it('passes the figure-system check and shows no symbol or bare unit in the main view', () => {
+    const { figures, violations } = inspectFigureDocument(html, '/frontier/safety-and-assurance/');
+    expect(figures).toEqual(['collaborative-operation-modes']);
+    expect(violations.map(formatViolation)).toEqual([]);
+    const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
+    expect(mainViewSymbolHits(frame)).toEqual([]);
   });
 });

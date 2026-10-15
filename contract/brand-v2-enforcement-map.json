@@ -2292,6 +2292,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|bmw-leipzig-body-shop-spot-welding-2005#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|booster-robotics-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -2303,6 +2308,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|brain-corp-logo#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|bridgedata-v2-sink-tasks-2023#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -2438,6 +2448,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|dreamerv3-open-loop-quadruped-2023#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|droid-camera-calibration-2024#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -2637,6 +2652,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|inl-hot-cell-manipulators-2006#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|intuitive-surgical-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -2717,6 +2737,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|kuka-bread-palletizing-bakery-2005#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|leaderdrive-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -2728,6 +2753,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|leju-robotics-logo#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|libero-benchmark-overview-2023#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -2842,12 +2872,22 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|nist-dexterous-manipulation-testbed-2013#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|nuro-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|nvidia-logo#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|ocado-warehouse-grid-bots-2017#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -2863,6 +2903,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|openai-logo#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|openvla-overview-2024#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -3177,6 +3222,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|umi-handheld-grippers-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|umi-test-environments-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|unitree-g1-stage-japan-mobility-2025#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -3432,6 +3487,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|bmw-leipzig-body-shop-spot-welding-2005#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|booster-robotics-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -3443,6 +3503,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|brain-corp-logo#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|bridgedata-v2-sink-tasks-2023#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -3578,6 +3643,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|dreamerv3-open-loop-quadruped-2023#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|droid-camera-calibration-2024#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -3777,6 +3847,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|inl-hot-cell-manipulators-2006#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|intuitive-surgical-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -3857,6 +3932,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|kuka-bread-palletizing-bakery-2005#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|leaderdrive-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -3868,6 +3948,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|leju-robotics-logo#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|libero-benchmark-overview-2023#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -3982,12 +4067,22 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|nist-dexterous-manipulation-testbed-2013#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|nuro-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|nvidia-logo#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|ocado-warehouse-grid-bots-2017#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -4003,6 +4098,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|openai-logo#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|openvla-overview-2024#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -4317,6 +4417,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|umi-handheld-grippers-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|umi-test-environments-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|unitree-g1-stage-japan-mobility-2025#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -4407,6 +4517,66 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/data-bottleneck/|1440x900|droid-in-the-wild-scenes-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/data-bottleneck/|1440x900|umi-test-environments-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/data-bottleneck/|375x812|droid-in-the-wild-scenes-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/data-bottleneck/|375x812|umi-test-environments-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/datasets/|1440x900|bridgedata-v2-sink-tasks-2023#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/datasets/|1440x900|open-x-embodiment-overview-2023#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/datasets/|375x812|bridgedata-v2-sink-tasks-2023#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/datasets/|375x812|open-x-embodiment-overview-2023#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/evaluation-crisis/|1440x900|libero-benchmark-overview-2023#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/evaluation-crisis/|1440x900|roboarena-evaluation-2025#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/evaluation-crisis/|375x812|libero-benchmark-overview-2023#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/evaluation-crisis/|375x812|roboarena-evaluation-2025#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|1440x900|atlas-darpa-frontview-2013#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -4417,12 +4587,102 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|1440x900|jetson-agx-orin-auledas-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|1440x900|nist-dexterous-manipulation-testbed-2013#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|375x812|atlas-darpa-frontview-2013#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|375x812|franka-emika-panda-cebit-2017#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|375x812|jetson-agx-orin-auledas-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|375x812|nist-dexterous-manipulation-testbed-2013#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/industrial-deployment/|1440x900|bmw-leipzig-body-shop-spot-welding-2005#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/industrial-deployment/|1440x900|kuka-bread-palletizing-bakery-2005#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/industrial-deployment/|1440x900|ocado-warehouse-grid-bots-2017#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/industrial-deployment/|375x812|bmw-leipzig-body-shop-spot-welding-2005#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/industrial-deployment/|375x812|kuka-bread-palletizing-bakery-2005#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/industrial-deployment/|375x812|ocado-warehouse-grid-bots-2017#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/robot-learning-stack/|1440x900|droid-camera-calibration-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/robot-learning-stack/|1440x900|openvla-overview-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/robot-learning-stack/|375x812|droid-camera-calibration-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/robot-learning-stack/|375x812|openvla-overview-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/teleop-rigs/|1440x900|inl-hot-cell-manipulators-2006#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/teleop-rigs/|1440x900|umi-handheld-grippers-2024#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/teleop-rigs/|375x812|inl-hot-cell-manipulators-2006#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/data-hardware/teleop-rigs/|375x812|umi-handheld-grippers-2024#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -5383,7 +5643,7 @@
         "statement": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
         "expected": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 710,
+        "populationSize": 762,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5487,9 +5747,11 @@
           "result:VAL-B2-ART-005:/credits/|1440x900|baxter-rethink-innorobo-2015#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|bedrock-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|berkshire-grey-logo#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|bmw-leipzig-body-shop-spot-welding-2005#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|booster-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|boston-dynamics-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|brain-corp-logo#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|bridgedata-v2-sink-tasks-2023#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|carbon-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|care-o-bot-grasping-2010#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|cassie-oregon-state-2017#0",
@@ -5517,6 +5779,7 @@
           "result:VAL-B2-ART-005:/credits/|1440x900|dji-mavic-pro-in-flight#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|dp3-real-robot-setup-2024#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|dreamerv3-open-loop-quadruped-2023#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|droid-camera-calibration-2024#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|droid-cook-lentils-rollouts-2024#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|droid-in-the-wild-scenes-2024#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|droid-robot-platform-2024#0",
@@ -5556,6 +5819,7 @@
           "result:VAL-B2-ART-005:/credits/|1440x900|hugging-face-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|humanoid-uk-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|ingenuity-mastcam-z-closeup-2021#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|inl-hot-cell-manipulators-2006#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|intuitive-surgical-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|irobot-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|isaac-gym-allegro-envs-2021#0",
@@ -5572,9 +5836,11 @@
           "result:VAL-B2-ART-005:/credits/|1440x900|kinect-xbox-one-sensor#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|knightscope-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|knowno-ask-for-help-2023#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|kuka-bread-palletizing-bakery-2005#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|leaderdrive-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|leica-laser-tracker-ats600#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|leju-robotics-logo#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|libero-benchmark-overview-2023#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|lila-sciences-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|limx-dynamics-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|locus-robotics-logo#0",
@@ -5597,11 +5863,14 @@
           "result:VAL-B2-ART-005:/credits/|1440x900|navlab-1-5-cmu-2017#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|neura-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|nimble-robotics-logo#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|nuro-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|nvidia-logo#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|ocado-warehouse-grid-bots-2017#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|octo-evaluation-setups-2024#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|open-x-embodiment-overview-2023#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|openai-logo#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|openvla-overview-2024#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|ouster-lidar-point-cloud-sf#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|paxini-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|perseverance-selfie-rochette-2021#0",
@@ -5664,6 +5933,8 @@
           "result:VAL-B2-ART-005:/credits/|1440x900|tesla-optimus-stockholm-2024#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|the-bot-company-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|ubtech-logo#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|umi-handheld-grippers-2024#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|umi-test-environments-2024#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|unitree-g1-stage-japan-mobility-2025#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|unitree-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|unitree-robots-japan-mobility-show-2025#0",
@@ -5715,9 +5986,11 @@
           "result:VAL-B2-ART-005:/credits/|375x812|baxter-rethink-innorobo-2015#0",
           "result:VAL-B2-ART-005:/credits/|375x812|bedrock-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|berkshire-grey-logo#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|bmw-leipzig-body-shop-spot-welding-2005#0",
           "result:VAL-B2-ART-005:/credits/|375x812|booster-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|boston-dynamics-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|brain-corp-logo#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|bridgedata-v2-sink-tasks-2023#0",
           "result:VAL-B2-ART-005:/credits/|375x812|carbon-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|care-o-bot-grasping-2010#0",
           "result:VAL-B2-ART-005:/credits/|375x812|cassie-oregon-state-2017#0",
@@ -5745,6 +6018,7 @@
           "result:VAL-B2-ART-005:/credits/|375x812|dji-mavic-pro-in-flight#0",
           "result:VAL-B2-ART-005:/credits/|375x812|dp3-real-robot-setup-2024#0",
           "result:VAL-B2-ART-005:/credits/|375x812|dreamerv3-open-loop-quadruped-2023#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|droid-camera-calibration-2024#0",
           "result:VAL-B2-ART-005:/credits/|375x812|droid-cook-lentils-rollouts-2024#0",
           "result:VAL-B2-ART-005:/credits/|375x812|droid-in-the-wild-scenes-2024#0",
           "result:VAL-B2-ART-005:/credits/|375x812|droid-robot-platform-2024#0",
@@ -5784,6 +6058,7 @@
           "result:VAL-B2-ART-005:/credits/|375x812|hugging-face-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|humanoid-uk-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|ingenuity-mastcam-z-closeup-2021#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|inl-hot-cell-manipulators-2006#0",
           "result:VAL-B2-ART-005:/credits/|375x812|intuitive-surgical-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|irobot-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|isaac-gym-allegro-envs-2021#0",
@@ -5800,9 +6075,11 @@
           "result:VAL-B2-ART-005:/credits/|375x812|kinect-xbox-one-sensor#0",
           "result:VAL-B2-ART-005:/credits/|375x812|knightscope-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|knowno-ask-for-help-2023#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|kuka-bread-palletizing-bakery-2005#0",
           "result:VAL-B2-ART-005:/credits/|375x812|leaderdrive-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|leica-laser-tracker-ats600#0",
           "result:VAL-B2-ART-005:/credits/|375x812|leju-robotics-logo#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|libero-benchmark-overview-2023#0",
           "result:VAL-B2-ART-005:/credits/|375x812|lila-sciences-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|limx-dynamics-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|locus-robotics-logo#0",
@@ -5825,11 +6102,14 @@
           "result:VAL-B2-ART-005:/credits/|375x812|navlab-1-5-cmu-2017#0",
           "result:VAL-B2-ART-005:/credits/|375x812|neura-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|nimble-robotics-logo#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-ART-005:/credits/|375x812|nuro-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|nvidia-logo#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|ocado-warehouse-grid-bots-2017#0",
           "result:VAL-B2-ART-005:/credits/|375x812|octo-evaluation-setups-2024#0",
           "result:VAL-B2-ART-005:/credits/|375x812|open-x-embodiment-overview-2023#0",
           "result:VAL-B2-ART-005:/credits/|375x812|openai-logo#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|openvla-overview-2024#0",
           "result:VAL-B2-ART-005:/credits/|375x812|ouster-lidar-point-cloud-sf#0",
           "result:VAL-B2-ART-005:/credits/|375x812|paxini-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|perseverance-selfie-rochette-2021#0",
@@ -5892,6 +6172,8 @@
           "result:VAL-B2-ART-005:/credits/|375x812|tesla-optimus-stockholm-2024#0",
           "result:VAL-B2-ART-005:/credits/|375x812|the-bot-company-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|ubtech-logo#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|umi-handheld-grippers-2024#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|umi-test-environments-2024#0",
           "result:VAL-B2-ART-005:/credits/|375x812|unitree-g1-stage-japan-mobility-2025#0",
           "result:VAL-B2-ART-005:/credits/|375x812|unitree-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|unitree-robots-japan-mobility-show-2025#0",
@@ -5910,10 +6192,40 @@
           "result:VAL-B2-ART-005:/credits/|375x812|xdof-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|xela-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|zebra-robotics-automation-logo#0",
+          "result:VAL-B2-ART-005:/data-hardware/data-bottleneck/|1440x900|droid-in-the-wild-scenes-2024#0",
+          "result:VAL-B2-ART-005:/data-hardware/data-bottleneck/|1440x900|umi-test-environments-2024#0",
+          "result:VAL-B2-ART-005:/data-hardware/data-bottleneck/|375x812|droid-in-the-wild-scenes-2024#0",
+          "result:VAL-B2-ART-005:/data-hardware/data-bottleneck/|375x812|umi-test-environments-2024#0",
+          "result:VAL-B2-ART-005:/data-hardware/datasets/|1440x900|bridgedata-v2-sink-tasks-2023#0",
+          "result:VAL-B2-ART-005:/data-hardware/datasets/|1440x900|open-x-embodiment-overview-2023#0",
+          "result:VAL-B2-ART-005:/data-hardware/datasets/|375x812|bridgedata-v2-sink-tasks-2023#0",
+          "result:VAL-B2-ART-005:/data-hardware/datasets/|375x812|open-x-embodiment-overview-2023#0",
+          "result:VAL-B2-ART-005:/data-hardware/evaluation-crisis/|1440x900|libero-benchmark-overview-2023#0",
+          "result:VAL-B2-ART-005:/data-hardware/evaluation-crisis/|1440x900|roboarena-evaluation-2025#0",
+          "result:VAL-B2-ART-005:/data-hardware/evaluation-crisis/|375x812|libero-benchmark-overview-2023#0",
+          "result:VAL-B2-ART-005:/data-hardware/evaluation-crisis/|375x812|roboarena-evaluation-2025#0",
           "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|1440x900|atlas-darpa-frontview-2013#0",
           "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|1440x900|franka-emika-panda-cebit-2017#0",
+          "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|1440x900|jetson-agx-orin-auledas-2024#0",
+          "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|1440x900|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|375x812|atlas-darpa-frontview-2013#0",
           "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|375x812|franka-emika-panda-cebit-2017#0",
+          "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|375x812|jetson-agx-orin-auledas-2024#0",
+          "result:VAL-B2-ART-005:/data-hardware/hardware-taxonomy/|375x812|nist-dexterous-manipulation-testbed-2013#0",
+          "result:VAL-B2-ART-005:/data-hardware/industrial-deployment/|1440x900|bmw-leipzig-body-shop-spot-welding-2005#0",
+          "result:VAL-B2-ART-005:/data-hardware/industrial-deployment/|1440x900|kuka-bread-palletizing-bakery-2005#0",
+          "result:VAL-B2-ART-005:/data-hardware/industrial-deployment/|1440x900|ocado-warehouse-grid-bots-2017#0",
+          "result:VAL-B2-ART-005:/data-hardware/industrial-deployment/|375x812|bmw-leipzig-body-shop-spot-welding-2005#0",
+          "result:VAL-B2-ART-005:/data-hardware/industrial-deployment/|375x812|kuka-bread-palletizing-bakery-2005#0",
+          "result:VAL-B2-ART-005:/data-hardware/industrial-deployment/|375x812|ocado-warehouse-grid-bots-2017#0",
+          "result:VAL-B2-ART-005:/data-hardware/robot-learning-stack/|1440x900|droid-camera-calibration-2024#0",
+          "result:VAL-B2-ART-005:/data-hardware/robot-learning-stack/|1440x900|openvla-overview-2024#0",
+          "result:VAL-B2-ART-005:/data-hardware/robot-learning-stack/|375x812|droid-camera-calibration-2024#0",
+          "result:VAL-B2-ART-005:/data-hardware/robot-learning-stack/|375x812|openvla-overview-2024#0",
+          "result:VAL-B2-ART-005:/data-hardware/teleop-rigs/|1440x900|inl-hot-cell-manipulators-2006#0",
+          "result:VAL-B2-ART-005:/data-hardware/teleop-rigs/|1440x900|umi-handheld-grippers-2024#0",
+          "result:VAL-B2-ART-005:/data-hardware/teleop-rigs/|375x812|inl-hot-cell-manipulators-2006#0",
+          "result:VAL-B2-ART-005:/data-hardware/teleop-rigs/|375x812|umi-handheld-grippers-2024#0",
           "result:VAL-B2-ART-005:/frontier/bear-case/|1440x900|asimo-miraikan-2016#0",
           "result:VAL-B2-ART-005:/frontier/bear-case/|1440x900|roomba-870-2014#0",
           "result:VAL-B2-ART-005:/frontier/bear-case/|375x812|asimo-miraikan-2016#0",
@@ -7653,47 +7965,47 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#18",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#11",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#21",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#13",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#23",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#14",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#26",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#19",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#28",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#24",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#29",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#25",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#34",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#3",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#39",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#6",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#40",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#8",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -7713,22 +8025,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#11",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#12",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#13",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#14",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -7748,7 +8045,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#19",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#18",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -7763,67 +8060,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#21",
+          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#22",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#24",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#25",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#27",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#3",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#30",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#31",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#32",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#33",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#35",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#36",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#37",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#38",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#23",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -7838,17 +8085,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#6",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#7",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#8",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -7858,47 +8095,47 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#18",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#11",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#21",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#13",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#23",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#14",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#26",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#19",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#28",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#24",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#29",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#25",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#34",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#3",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#39",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#6",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#40",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#8",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -7918,22 +8155,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#11",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#12",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#13",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#14",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -7953,7 +8175,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#19",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#18",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -7968,67 +8190,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#21",
+          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#22",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#24",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#25",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#27",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#3",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#30",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#31",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#32",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#33",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#35",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#36",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#37",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#38",
+          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#23",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -8043,17 +8215,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#6",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#7",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#8",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -9059,7 +9221,7 @@
         "statement": "Equations expose accessible text or an equivalent explanation.",
         "expected": "Equations expose accessible text or an equivalent explanation.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 570,
+        "populationSize": 540,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -9360,87 +9522,57 @@
           "result:VAL-B2-ART-007:/classical/scene-representation/|375x812|inline#1",
           "result:VAL-B2-ART-007:/classical/scene-representation/|375x812|inline#2",
           "result:VAL-B2-ART-007:/classical/scene-representation/|375x812|inline#3",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#18",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#21",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#23",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#26",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#28",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#29",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#34",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#39",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#40",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#11",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#13",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#14",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#19",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#24",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#25",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#3",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#6",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|display#8",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#0",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#1",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#10",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#11",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#12",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#13",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#14",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#15",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#16",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#17",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#19",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#18",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#2",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#20",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#21",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#22",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#24",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#25",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#27",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#3",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#30",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#31",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#32",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#33",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#35",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#36",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#37",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#38",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#23",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#4",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#5",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#6",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#7",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#8",
           "result:VAL-B2-ART-007:/classical/state-estimation/|1440x900|inline#9",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#18",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#21",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#23",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#26",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#28",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#29",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#34",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#39",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#40",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#11",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#13",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#14",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#19",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#24",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#25",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#3",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#6",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|display#8",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#0",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#1",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#10",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#11",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#12",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#13",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#14",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#15",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#16",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#17",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#19",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#18",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#2",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#20",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#21",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#22",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#24",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#25",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#27",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#3",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#30",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#31",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#32",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#33",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#35",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#36",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#37",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#38",
+          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#23",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#4",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#5",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#6",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#7",
-          "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#8",
           "result:VAL-B2-ART-007:/classical/state-estimation/|375x812|inline#9",
           "result:VAL-B2-ART-007:/data-hardware/evaluation-crisis/|1440x900|inline#0",
           "result:VAL-B2-ART-007:/data-hardware/evaluation-crisis/|1440x900|inline#1",
@@ -11782,11 +11914,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/reliability-compounding.tsx:aria-label:2",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/reliability-compounding.tsx:aria-label:3",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -21081,7 +21208,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1960,
+        "populationSize": 1959,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21193,7 +21320,6 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/receding-horizon.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/reliability-compounding.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/reliability-compounding.tsx:aria-label:2",
-          "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/reliability-compounding.tsx:aria-label:3",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/replay-reuse.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/retargeting-gap.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/reward-shaping.tsx:aria-label:1",
@@ -29914,6 +30040,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/bridgedata-v2-sink-tasks-2023.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ID-006:asset:images/care-o-bot-grasping-2010.jpg",
           "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
         },
@@ -29995,6 +30131,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ID-006:asset:images/dreamerv3-open-loop-quadruped-2023.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/droid-camera-calibration-2024.jpg",
           "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
         },
         {
@@ -30089,6 +30230,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/inl-hot-cell-manipulators-2006.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ID-006:asset:images/isaac-gym-allegro-envs-2021.jpg",
           "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
         },
@@ -30144,7 +30290,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/kuka-bread-palletizing-bakery-2005.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ID-006:asset:images/leica-laser-tracker-ats600.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/libero-benchmark-overview-2023.jpg",
           "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
         },
         {
@@ -30179,12 +30335,27 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/nist-dexterous-manipulation-testbed-2013.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/ocado-warehouse-grid-bots-2017.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ID-006:asset:images/octo-evaluation-setups-2024.jpg",
           "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ID-006:asset:images/open-x-embodiment-overview-2023.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/openvla-overview-2024.jpg",
           "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
         },
         {
@@ -30359,6 +30530,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/umi-handheld-grippers-2024.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/umi-test-environments-2024.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ID-006:asset:images/unitree-g1-stage-japan-mobility-2025.jpg",
           "mechanism": "VAL-B2-ID-006 per-member evidence derived from the checked-in byte seal contract/brand-v2-asset-seal.json, reconciled in both directions against contract/brand-v2-registries.json#assets:first-party-visual and re-hashed per asset, plus the decoded content description of each sealed asset"
         },
@@ -30501,7 +30682,7 @@
         "statement": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
         "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 144,
+        "populationSize": 155,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -30541,6 +30722,8 @@
           "result:VAL-B2-ID-006:asset:images/atlas-vrc-simulation-2013.jpg",
           "result:VAL-B2-ID-006:asset:images/baxter-gripper-wrist-camera.jpg",
           "result:VAL-B2-ID-006:asset:images/baxter-rethink-innorobo-2015.jpg",
+          "result:VAL-B2-ID-006:asset:images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+          "result:VAL-B2-ID-006:asset:images/bridgedata-v2-sink-tasks-2023.jpg",
           "result:VAL-B2-ID-006:asset:images/care-o-bot-grasping-2010.jpg",
           "result:VAL-B2-ID-006:asset:images/cassie-oregon-state-2017.jpg",
           "result:VAL-B2-ID-006:asset:images/centrifugal-governor-queen-street-mill.jpg",
@@ -30558,6 +30741,7 @@
           "result:VAL-B2-ID-006:asset:images/dji-mavic-pro-in-flight.jpg",
           "result:VAL-B2-ID-006:asset:images/dp3-real-robot-setup-2024.jpg",
           "result:VAL-B2-ID-006:asset:images/dreamerv3-open-loop-quadruped-2023.jpg",
+          "result:VAL-B2-ID-006:asset:images/droid-camera-calibration-2024.jpg",
           "result:VAL-B2-ID-006:asset:images/droid-cook-lentils-rollouts-2024.jpg",
           "result:VAL-B2-ID-006:asset:images/droid-in-the-wild-scenes-2024.jpg",
           "result:VAL-B2-ID-006:asset:images/droid-robot-platform-2024.jpg",
@@ -30576,6 +30760,7 @@
           "result:VAL-B2-ID-006:asset:images/hil-serl-tasks-2024.jpg",
           "result:VAL-B2-ID-006:asset:images/horse-in-motion-muybridge-1878.jpg",
           "result:VAL-B2-ID-006:asset:images/ingenuity-mastcam-z-closeup-2021.jpg",
+          "result:VAL-B2-ID-006:asset:images/inl-hot-cell-manipulators-2006.jpg",
           "result:VAL-B2-ID-006:asset:images/isaac-gym-allegro-envs-2021.jpg",
           "result:VAL-B2-ID-006:asset:images/isaac-gym-anymal-real-stairs-2021.jpg",
           "result:VAL-B2-ID-006:asset:images/isaac-gym-anymal-terrain-2021.jpg",
@@ -30587,15 +30772,20 @@
           "result:VAL-B2-ID-006:asset:images/kinect-xbox-360-sensor.jpg",
           "result:VAL-B2-ID-006:asset:images/kinect-xbox-one-sensor.jpg",
           "result:VAL-B2-ID-006:asset:images/knowno-ask-for-help-2023.jpg",
+          "result:VAL-B2-ID-006:asset:images/kuka-bread-palletizing-bakery-2005.jpg",
           "result:VAL-B2-ID-006:asset:images/leica-laser-tracker-ats600.jpg",
+          "result:VAL-B2-ID-006:asset:images/libero-benchmark-overview-2023.jpg",
           "result:VAL-B2-ID-006:asset:images/mini-cheetah-spin-rapid-locomotion-2022.jpg",
           "result:VAL-B2-ID-006:asset:images/motion-capture-session-hyderabad-2026.jpg",
           "result:VAL-B2-ID-006:asset:images/moxie-installation-perseverance-2020.jpg",
           "result:VAL-B2-ID-006:asset:images/mujoco-playground-environments-2025.jpg",
           "result:VAL-B2-ID-006:asset:images/mujoco-playground-franka-block-2025.jpg",
           "result:VAL-B2-ID-006:asset:images/navlab-1-5-cmu-2017.jpg",
+          "result:VAL-B2-ID-006:asset:images/nist-dexterous-manipulation-testbed-2013.jpg",
+          "result:VAL-B2-ID-006:asset:images/ocado-warehouse-grid-bots-2017.jpg",
           "result:VAL-B2-ID-006:asset:images/octo-evaluation-setups-2024.jpg",
           "result:VAL-B2-ID-006:asset:images/open-x-embodiment-overview-2023.jpg",
+          "result:VAL-B2-ID-006:asset:images/openvla-overview-2024.jpg",
           "result:VAL-B2-ID-006:asset:images/ouster-lidar-point-cloud-sf.jpg",
           "result:VAL-B2-ID-006:asset:images/perseverance-selfie-rochette-2021.jpg",
           "result:VAL-B2-ID-006:asset:images/phantom-human-video-robot-2025.jpg",
@@ -30630,6 +30820,8 @@
           "result:VAL-B2-ID-006:asset:images/tdmpc2-task-grid-2023.jpg",
           "result:VAL-B2-ID-006:asset:images/temporal-ensembling.svg",
           "result:VAL-B2-ID-006:asset:images/tesla-optimus-stockholm-2024.jpg",
+          "result:VAL-B2-ID-006:asset:images/umi-handheld-grippers-2024.jpg",
+          "result:VAL-B2-ID-006:asset:images/umi-test-environments-2024.jpg",
           "result:VAL-B2-ID-006:asset:images/unitree-g1-stage-japan-mobility-2025.jpg",
           "result:VAL-B2-ID-006:asset:images/unitree-robots-japan-mobility-show-2025.jpg",
           "result:VAL-B2-ID-006:asset:images/ur16e-cobot-arm-2020.jpg",
@@ -31387,6 +31579,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/bridgedata-v2-sink-tasks-2023.jpg",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/care-o-bot-grasping-2010.jpg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
@@ -31468,6 +31670,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/dreamerv3-open-loop-quadruped-2023.jpg",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/droid-camera-calibration-2024.jpg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -31562,6 +31769,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/inl-hot-cell-manipulators-2006.jpg",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/isaac-gym-allegro-envs-2021.jpg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
@@ -31617,7 +31829,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/kuka-bread-palletizing-bakery-2005.jpg",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/leica-laser-tracker-ats600.jpg",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/libero-benchmark-overview-2023.jpg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -32207,12 +32429,27 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/nist-dexterous-manipulation-testbed-2013.jpg",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/ocado-warehouse-grid-bots-2017.jpg",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/octo-evaluation-setups-2024.jpg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/open-x-embodiment-overview-2023.jpg",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/openvla-overview-2024.jpg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -32387,6 +32624,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/umi-handheld-grippers-2024.jpg",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/umi-test-environments-2024.jpg",
+          "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/unitree-g1-stage-japan-mobility-2025.jpg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
@@ -32529,7 +32776,7 @@
         "statement": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
         "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 256,
+        "populationSize": 267,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -32570,6 +32817,8 @@
           "result:VAL-B2-IMG-001:asset:images/atlas-vrc-simulation-2013.jpg",
           "result:VAL-B2-IMG-001:asset:images/baxter-gripper-wrist-camera.jpg",
           "result:VAL-B2-IMG-001:asset:images/baxter-rethink-innorobo-2015.jpg",
+          "result:VAL-B2-IMG-001:asset:images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+          "result:VAL-B2-IMG-001:asset:images/bridgedata-v2-sink-tasks-2023.jpg",
           "result:VAL-B2-IMG-001:asset:images/care-o-bot-grasping-2010.jpg",
           "result:VAL-B2-IMG-001:asset:images/cassie-oregon-state-2017.jpg",
           "result:VAL-B2-IMG-001:asset:images/centrifugal-governor-queen-street-mill.jpg",
@@ -32587,6 +32836,7 @@
           "result:VAL-B2-IMG-001:asset:images/dji-mavic-pro-in-flight.jpg",
           "result:VAL-B2-IMG-001:asset:images/dp3-real-robot-setup-2024.jpg",
           "result:VAL-B2-IMG-001:asset:images/dreamerv3-open-loop-quadruped-2023.jpg",
+          "result:VAL-B2-IMG-001:asset:images/droid-camera-calibration-2024.jpg",
           "result:VAL-B2-IMG-001:asset:images/droid-cook-lentils-rollouts-2024.jpg",
           "result:VAL-B2-IMG-001:asset:images/droid-in-the-wild-scenes-2024.jpg",
           "result:VAL-B2-IMG-001:asset:images/droid-robot-platform-2024.jpg",
@@ -32605,6 +32855,7 @@
           "result:VAL-B2-IMG-001:asset:images/hil-serl-tasks-2024.jpg",
           "result:VAL-B2-IMG-001:asset:images/horse-in-motion-muybridge-1878.jpg",
           "result:VAL-B2-IMG-001:asset:images/ingenuity-mastcam-z-closeup-2021.jpg",
+          "result:VAL-B2-IMG-001:asset:images/inl-hot-cell-manipulators-2006.jpg",
           "result:VAL-B2-IMG-001:asset:images/isaac-gym-allegro-envs-2021.jpg",
           "result:VAL-B2-IMG-001:asset:images/isaac-gym-anymal-real-stairs-2021.jpg",
           "result:VAL-B2-IMG-001:asset:images/isaac-gym-anymal-terrain-2021.jpg",
@@ -32616,7 +32867,9 @@
           "result:VAL-B2-IMG-001:asset:images/kinect-xbox-360-sensor.jpg",
           "result:VAL-B2-IMG-001:asset:images/kinect-xbox-one-sensor.jpg",
           "result:VAL-B2-IMG-001:asset:images/knowno-ask-for-help-2023.jpg",
+          "result:VAL-B2-IMG-001:asset:images/kuka-bread-palletizing-bakery-2005.jpg",
           "result:VAL-B2-IMG-001:asset:images/leica-laser-tracker-ats600.jpg",
+          "result:VAL-B2-IMG-001:asset:images/libero-benchmark-overview-2023.jpg",
           "result:VAL-B2-IMG-001:asset:images/logos/1x-technologies.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/abb.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/agibot.png",
@@ -32734,8 +32987,11 @@
           "result:VAL-B2-IMG-001:asset:images/mujoco-playground-environments-2025.jpg",
           "result:VAL-B2-IMG-001:asset:images/mujoco-playground-franka-block-2025.jpg",
           "result:VAL-B2-IMG-001:asset:images/navlab-1-5-cmu-2017.jpg",
+          "result:VAL-B2-IMG-001:asset:images/nist-dexterous-manipulation-testbed-2013.jpg",
+          "result:VAL-B2-IMG-001:asset:images/ocado-warehouse-grid-bots-2017.jpg",
           "result:VAL-B2-IMG-001:asset:images/octo-evaluation-setups-2024.jpg",
           "result:VAL-B2-IMG-001:asset:images/open-x-embodiment-overview-2023.jpg",
+          "result:VAL-B2-IMG-001:asset:images/openvla-overview-2024.jpg",
           "result:VAL-B2-IMG-001:asset:images/ouster-lidar-point-cloud-sf.jpg",
           "result:VAL-B2-IMG-001:asset:images/perseverance-selfie-rochette-2021.jpg",
           "result:VAL-B2-IMG-001:asset:images/phantom-human-video-robot-2025.jpg",
@@ -32770,6 +33026,8 @@
           "result:VAL-B2-IMG-001:asset:images/tdmpc2-task-grid-2023.jpg",
           "result:VAL-B2-IMG-001:asset:images/temporal-ensembling.svg",
           "result:VAL-B2-IMG-001:asset:images/tesla-optimus-stockholm-2024.jpg",
+          "result:VAL-B2-IMG-001:asset:images/umi-handheld-grippers-2024.jpg",
+          "result:VAL-B2-IMG-001:asset:images/umi-test-environments-2024.jpg",
           "result:VAL-B2-IMG-001:asset:images/unitree-g1-stage-japan-mobility-2025.jpg",
           "result:VAL-B2-IMG-001:asset:images/unitree-robots-japan-mobility-show-2025.jpg",
           "result:VAL-B2-IMG-001:asset:images/ur16e-cobot-arm-2020.jpg",
@@ -32893,6 +33151,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+          "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/bridgedata-v2-sink-tasks-2023.jpg",
+          "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/care-o-bot-grasping-2010.jpg",
           "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
@@ -32974,6 +33242,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/dreamerv3-open-loop-quadruped-2023.jpg",
+          "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/droid-camera-calibration-2024.jpg",
           "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
         {
@@ -33068,6 +33341,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/inl-hot-cell-manipulators-2006.jpg",
+          "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/isaac-gym-allegro-envs-2021.jpg",
           "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
@@ -33123,7 +33401,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/kuka-bread-palletizing-bakery-2005.jpg",
+          "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/leica-laser-tracker-ats600.jpg",
+          "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/libero-benchmark-overview-2023.jpg",
           "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
         {
@@ -33158,12 +33446,27 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/nist-dexterous-manipulation-testbed-2013.jpg",
+          "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/ocado-warehouse-grid-bots-2017.jpg",
+          "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/octo-evaluation-setups-2024.jpg",
           "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/open-x-embodiment-overview-2023.jpg",
+          "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/openvla-overview-2024.jpg",
           "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
         {
@@ -33338,6 +33641,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/umi-handheld-grippers-2024.jpg",
+          "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/umi-test-environments-2024.jpg",
+          "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-002:asset:images/unitree-g1-stage-japan-mobility-2025.jpg",
           "mechanism": "VAL-B2-IMG-002 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
@@ -33404,7 +33717,7 @@
         "statement": "Every external photograph, figure, or texture uses one §1.13 closed legal-basis enum value and records creator/owner, official source URL, retrieval date, content hash, attribution text, licence/permission reference, and preservation policy in canonical metadata and visible credit where required; automation verifies the record and bytes, not a legal opinion.",
         "expected": "Every external photograph, figure, or texture uses one §1.13 closed legal-basis enum value and records creator/owner, official source URL, retrieval date, content hash, attribution text, licence/permission reference, and preservation policy in canonical metadata and visible credit where required; automation verifies the record and bytes, not a legal opinion.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 117,
+        "populationSize": 128,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -33431,6 +33744,8 @@
           "result:VAL-B2-IMG-002:asset:images/atlas-vrc-simulation-2013.jpg",
           "result:VAL-B2-IMG-002:asset:images/baxter-gripper-wrist-camera.jpg",
           "result:VAL-B2-IMG-002:asset:images/baxter-rethink-innorobo-2015.jpg",
+          "result:VAL-B2-IMG-002:asset:images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+          "result:VAL-B2-IMG-002:asset:images/bridgedata-v2-sink-tasks-2023.jpg",
           "result:VAL-B2-IMG-002:asset:images/care-o-bot-grasping-2010.jpg",
           "result:VAL-B2-IMG-002:asset:images/cassie-oregon-state-2017.jpg",
           "result:VAL-B2-IMG-002:asset:images/centrifugal-governor-queen-street-mill.jpg",
@@ -33448,6 +33763,7 @@
           "result:VAL-B2-IMG-002:asset:images/dji-mavic-pro-in-flight.jpg",
           "result:VAL-B2-IMG-002:asset:images/dp3-real-robot-setup-2024.jpg",
           "result:VAL-B2-IMG-002:asset:images/dreamerv3-open-loop-quadruped-2023.jpg",
+          "result:VAL-B2-IMG-002:asset:images/droid-camera-calibration-2024.jpg",
           "result:VAL-B2-IMG-002:asset:images/droid-cook-lentils-rollouts-2024.jpg",
           "result:VAL-B2-IMG-002:asset:images/droid-in-the-wild-scenes-2024.jpg",
           "result:VAL-B2-IMG-002:asset:images/droid-robot-platform-2024.jpg",
@@ -33466,6 +33782,7 @@
           "result:VAL-B2-IMG-002:asset:images/hil-serl-tasks-2024.jpg",
           "result:VAL-B2-IMG-002:asset:images/horse-in-motion-muybridge-1878.jpg",
           "result:VAL-B2-IMG-002:asset:images/ingenuity-mastcam-z-closeup-2021.jpg",
+          "result:VAL-B2-IMG-002:asset:images/inl-hot-cell-manipulators-2006.jpg",
           "result:VAL-B2-IMG-002:asset:images/isaac-gym-allegro-envs-2021.jpg",
           "result:VAL-B2-IMG-002:asset:images/isaac-gym-anymal-real-stairs-2021.jpg",
           "result:VAL-B2-IMG-002:asset:images/isaac-gym-anymal-terrain-2021.jpg",
@@ -33477,15 +33794,20 @@
           "result:VAL-B2-IMG-002:asset:images/kinect-xbox-360-sensor.jpg",
           "result:VAL-B2-IMG-002:asset:images/kinect-xbox-one-sensor.jpg",
           "result:VAL-B2-IMG-002:asset:images/knowno-ask-for-help-2023.jpg",
+          "result:VAL-B2-IMG-002:asset:images/kuka-bread-palletizing-bakery-2005.jpg",
           "result:VAL-B2-IMG-002:asset:images/leica-laser-tracker-ats600.jpg",
+          "result:VAL-B2-IMG-002:asset:images/libero-benchmark-overview-2023.jpg",
           "result:VAL-B2-IMG-002:asset:images/mini-cheetah-spin-rapid-locomotion-2022.jpg",
           "result:VAL-B2-IMG-002:asset:images/motion-capture-session-hyderabad-2026.jpg",
           "result:VAL-B2-IMG-002:asset:images/moxie-installation-perseverance-2020.jpg",
           "result:VAL-B2-IMG-002:asset:images/mujoco-playground-environments-2025.jpg",
           "result:VAL-B2-IMG-002:asset:images/mujoco-playground-franka-block-2025.jpg",
           "result:VAL-B2-IMG-002:asset:images/navlab-1-5-cmu-2017.jpg",
+          "result:VAL-B2-IMG-002:asset:images/nist-dexterous-manipulation-testbed-2013.jpg",
+          "result:VAL-B2-IMG-002:asset:images/ocado-warehouse-grid-bots-2017.jpg",
           "result:VAL-B2-IMG-002:asset:images/octo-evaluation-setups-2024.jpg",
           "result:VAL-B2-IMG-002:asset:images/open-x-embodiment-overview-2023.jpg",
+          "result:VAL-B2-IMG-002:asset:images/openvla-overview-2024.jpg",
           "result:VAL-B2-IMG-002:asset:images/ouster-lidar-point-cloud-sf.jpg",
           "result:VAL-B2-IMG-002:asset:images/perseverance-selfie-rochette-2021.jpg",
           "result:VAL-B2-IMG-002:asset:images/phantom-human-video-robot-2025.jpg",
@@ -33520,6 +33842,8 @@
           "result:VAL-B2-IMG-002:asset:images/tdmpc2-task-grid-2023.jpg",
           "result:VAL-B2-IMG-002:asset:images/temporal-ensembling.svg",
           "result:VAL-B2-IMG-002:asset:images/tesla-optimus-stockholm-2024.jpg",
+          "result:VAL-B2-IMG-002:asset:images/umi-handheld-grippers-2024.jpg",
+          "result:VAL-B2-IMG-002:asset:images/umi-test-environments-2024.jpg",
           "result:VAL-B2-IMG-002:asset:images/unitree-g1-stage-japan-mobility-2025.jpg",
           "result:VAL-B2-IMG-002:asset:images/unitree-robots-japan-mobility-show-2025.jpg",
           "result:VAL-B2-IMG-002:asset:images/ur16e-cobot-arm-2020.jpg",
@@ -34142,6 +34466,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|bmw-leipzig-body-shop-spot-welding-2005#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|booster-robotics-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -34153,6 +34482,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|brain-corp-logo#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|bridgedata-v2-sink-tasks-2023#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -34288,6 +34622,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|dreamerv3-open-loop-quadruped-2023#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|droid-camera-calibration-2024#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -34487,6 +34826,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|inl-hot-cell-manipulators-2006#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|intuitive-surgical-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -34567,6 +34911,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|kuka-bread-palletizing-bakery-2005#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|leaderdrive-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -34578,6 +34927,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|leju-robotics-logo#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|libero-benchmark-overview-2023#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -34692,12 +35046,22 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|nist-dexterous-manipulation-testbed-2013#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|nuro-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|nvidia-logo#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|ocado-warehouse-grid-bots-2017#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -34713,6 +35077,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|openai-logo#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|openvla-overview-2024#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -35027,6 +35396,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|umi-handheld-grippers-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|umi-test-environments-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|unitree-g1-stage-japan-mobility-2025#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -35282,6 +35661,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|bmw-leipzig-body-shop-spot-welding-2005#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|booster-robotics-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -35293,6 +35677,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|brain-corp-logo#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|bridgedata-v2-sink-tasks-2023#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -35428,6 +35817,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|dreamerv3-open-loop-quadruped-2023#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|droid-camera-calibration-2024#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -35627,6 +36021,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|inl-hot-cell-manipulators-2006#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|intuitive-surgical-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -35707,6 +36106,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|kuka-bread-palletizing-bakery-2005#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|leaderdrive-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -35718,6 +36122,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|leju-robotics-logo#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|libero-benchmark-overview-2023#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -35832,12 +36241,22 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|nist-dexterous-manipulation-testbed-2013#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|nuro-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|nvidia-logo#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|ocado-warehouse-grid-bots-2017#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -35853,6 +36272,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|openai-logo#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|openvla-overview-2024#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -36167,6 +36591,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|umi-handheld-grippers-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|umi-test-environments-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|unitree-g1-stage-japan-mobility-2025#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -36257,6 +36691,66 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/data-bottleneck/|1440x900|droid-in-the-wild-scenes-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/data-bottleneck/|1440x900|umi-test-environments-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/data-bottleneck/|375x812|droid-in-the-wild-scenes-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/data-bottleneck/|375x812|umi-test-environments-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/datasets/|1440x900|bridgedata-v2-sink-tasks-2023#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/datasets/|1440x900|open-x-embodiment-overview-2023#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/datasets/|375x812|bridgedata-v2-sink-tasks-2023#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/datasets/|375x812|open-x-embodiment-overview-2023#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/evaluation-crisis/|1440x900|libero-benchmark-overview-2023#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/evaluation-crisis/|1440x900|roboarena-evaluation-2025#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/evaluation-crisis/|375x812|libero-benchmark-overview-2023#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/evaluation-crisis/|375x812|roboarena-evaluation-2025#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|1440x900|atlas-darpa-frontview-2013#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -36267,12 +36761,102 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|1440x900|jetson-agx-orin-auledas-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|1440x900|nist-dexterous-manipulation-testbed-2013#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|375x812|atlas-darpa-frontview-2013#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|375x812|franka-emika-panda-cebit-2017#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|375x812|jetson-agx-orin-auledas-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|375x812|nist-dexterous-manipulation-testbed-2013#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/industrial-deployment/|1440x900|bmw-leipzig-body-shop-spot-welding-2005#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/industrial-deployment/|1440x900|kuka-bread-palletizing-bakery-2005#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/industrial-deployment/|1440x900|ocado-warehouse-grid-bots-2017#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/industrial-deployment/|375x812|bmw-leipzig-body-shop-spot-welding-2005#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/industrial-deployment/|375x812|kuka-bread-palletizing-bakery-2005#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/industrial-deployment/|375x812|ocado-warehouse-grid-bots-2017#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/robot-learning-stack/|1440x900|droid-camera-calibration-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/robot-learning-stack/|1440x900|openvla-overview-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/robot-learning-stack/|375x812|droid-camera-calibration-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/robot-learning-stack/|375x812|openvla-overview-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/teleop-rigs/|1440x900|inl-hot-cell-manipulators-2006#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/teleop-rigs/|1440x900|umi-handheld-grippers-2024#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/teleop-rigs/|375x812|inl-hot-cell-manipulators-2006#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/data-hardware/teleop-rigs/|375x812|umi-handheld-grippers-2024#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -37233,7 +37817,7 @@
         "statement": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
         "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 710,
+        "populationSize": 762,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -37337,9 +37921,11 @@
           "result:VAL-B2-IMG-005:/credits/|1440x900|baxter-rethink-innorobo-2015#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|bedrock-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|berkshire-grey-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|bmw-leipzig-body-shop-spot-welding-2005#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|booster-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|boston-dynamics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|brain-corp-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|bridgedata-v2-sink-tasks-2023#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|carbon-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|care-o-bot-grasping-2010#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|cassie-oregon-state-2017#0",
@@ -37367,6 +37953,7 @@
           "result:VAL-B2-IMG-005:/credits/|1440x900|dji-mavic-pro-in-flight#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|dp3-real-robot-setup-2024#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|dreamerv3-open-loop-quadruped-2023#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|droid-camera-calibration-2024#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|droid-cook-lentils-rollouts-2024#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|droid-in-the-wild-scenes-2024#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|droid-robot-platform-2024#0",
@@ -37406,6 +37993,7 @@
           "result:VAL-B2-IMG-005:/credits/|1440x900|hugging-face-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|humanoid-uk-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|ingenuity-mastcam-z-closeup-2021#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|inl-hot-cell-manipulators-2006#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|intuitive-surgical-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|irobot-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|isaac-gym-allegro-envs-2021#0",
@@ -37422,9 +38010,11 @@
           "result:VAL-B2-IMG-005:/credits/|1440x900|kinect-xbox-one-sensor#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|knightscope-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|knowno-ask-for-help-2023#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|kuka-bread-palletizing-bakery-2005#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|leaderdrive-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|leica-laser-tracker-ats600#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|leju-robotics-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|libero-benchmark-overview-2023#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|lila-sciences-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|limx-dynamics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|locus-robotics-logo#0",
@@ -37447,11 +38037,14 @@
           "result:VAL-B2-IMG-005:/credits/|1440x900|navlab-1-5-cmu-2017#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|neura-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|nimble-robotics-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|nuro-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|nvidia-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|ocado-warehouse-grid-bots-2017#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|octo-evaluation-setups-2024#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|open-x-embodiment-overview-2023#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|openai-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|openvla-overview-2024#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|ouster-lidar-point-cloud-sf#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|paxini-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|perseverance-selfie-rochette-2021#0",
@@ -37514,6 +38107,8 @@
           "result:VAL-B2-IMG-005:/credits/|1440x900|tesla-optimus-stockholm-2024#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|the-bot-company-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|ubtech-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|umi-handheld-grippers-2024#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|umi-test-environments-2024#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|unitree-g1-stage-japan-mobility-2025#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|unitree-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|unitree-robots-japan-mobility-show-2025#0",
@@ -37565,9 +38160,11 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|baxter-rethink-innorobo-2015#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|bedrock-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|berkshire-grey-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|bmw-leipzig-body-shop-spot-welding-2005#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|booster-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|boston-dynamics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|brain-corp-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|bridgedata-v2-sink-tasks-2023#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|carbon-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|care-o-bot-grasping-2010#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|cassie-oregon-state-2017#0",
@@ -37595,6 +38192,7 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|dji-mavic-pro-in-flight#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|dp3-real-robot-setup-2024#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|dreamerv3-open-loop-quadruped-2023#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|droid-camera-calibration-2024#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|droid-cook-lentils-rollouts-2024#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|droid-in-the-wild-scenes-2024#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|droid-robot-platform-2024#0",
@@ -37634,6 +38232,7 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|hugging-face-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|humanoid-uk-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|ingenuity-mastcam-z-closeup-2021#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|inl-hot-cell-manipulators-2006#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|intuitive-surgical-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|irobot-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|isaac-gym-allegro-envs-2021#0",
@@ -37650,9 +38249,11 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|kinect-xbox-one-sensor#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|knightscope-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|knowno-ask-for-help-2023#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|kuka-bread-palletizing-bakery-2005#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|leaderdrive-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|leica-laser-tracker-ats600#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|leju-robotics-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|libero-benchmark-overview-2023#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|lila-sciences-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|limx-dynamics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|locus-robotics-logo#0",
@@ -37675,11 +38276,14 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|navlab-1-5-cmu-2017#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|neura-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|nimble-robotics-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|nuro-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|nvidia-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|ocado-warehouse-grid-bots-2017#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|octo-evaluation-setups-2024#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|open-x-embodiment-overview-2023#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|openai-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|openvla-overview-2024#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|ouster-lidar-point-cloud-sf#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|paxini-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|perseverance-selfie-rochette-2021#0",
@@ -37742,6 +38346,8 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|tesla-optimus-stockholm-2024#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|the-bot-company-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|ubtech-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|umi-handheld-grippers-2024#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|umi-test-environments-2024#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|unitree-g1-stage-japan-mobility-2025#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|unitree-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|unitree-robots-japan-mobility-show-2025#0",
@@ -37760,10 +38366,40 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|xdof-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|xela-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|zebra-robotics-automation-logo#0",
+          "result:VAL-B2-IMG-005:/data-hardware/data-bottleneck/|1440x900|droid-in-the-wild-scenes-2024#0",
+          "result:VAL-B2-IMG-005:/data-hardware/data-bottleneck/|1440x900|umi-test-environments-2024#0",
+          "result:VAL-B2-IMG-005:/data-hardware/data-bottleneck/|375x812|droid-in-the-wild-scenes-2024#0",
+          "result:VAL-B2-IMG-005:/data-hardware/data-bottleneck/|375x812|umi-test-environments-2024#0",
+          "result:VAL-B2-IMG-005:/data-hardware/datasets/|1440x900|bridgedata-v2-sink-tasks-2023#0",
+          "result:VAL-B2-IMG-005:/data-hardware/datasets/|1440x900|open-x-embodiment-overview-2023#0",
+          "result:VAL-B2-IMG-005:/data-hardware/datasets/|375x812|bridgedata-v2-sink-tasks-2023#0",
+          "result:VAL-B2-IMG-005:/data-hardware/datasets/|375x812|open-x-embodiment-overview-2023#0",
+          "result:VAL-B2-IMG-005:/data-hardware/evaluation-crisis/|1440x900|libero-benchmark-overview-2023#0",
+          "result:VAL-B2-IMG-005:/data-hardware/evaluation-crisis/|1440x900|roboarena-evaluation-2025#0",
+          "result:VAL-B2-IMG-005:/data-hardware/evaluation-crisis/|375x812|libero-benchmark-overview-2023#0",
+          "result:VAL-B2-IMG-005:/data-hardware/evaluation-crisis/|375x812|roboarena-evaluation-2025#0",
           "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|1440x900|atlas-darpa-frontview-2013#0",
           "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|1440x900|franka-emika-panda-cebit-2017#0",
+          "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|1440x900|jetson-agx-orin-auledas-2024#0",
+          "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|1440x900|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|375x812|atlas-darpa-frontview-2013#0",
           "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|375x812|franka-emika-panda-cebit-2017#0",
+          "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|375x812|jetson-agx-orin-auledas-2024#0",
+          "result:VAL-B2-IMG-005:/data-hardware/hardware-taxonomy/|375x812|nist-dexterous-manipulation-testbed-2013#0",
+          "result:VAL-B2-IMG-005:/data-hardware/industrial-deployment/|1440x900|bmw-leipzig-body-shop-spot-welding-2005#0",
+          "result:VAL-B2-IMG-005:/data-hardware/industrial-deployment/|1440x900|kuka-bread-palletizing-bakery-2005#0",
+          "result:VAL-B2-IMG-005:/data-hardware/industrial-deployment/|1440x900|ocado-warehouse-grid-bots-2017#0",
+          "result:VAL-B2-IMG-005:/data-hardware/industrial-deployment/|375x812|bmw-leipzig-body-shop-spot-welding-2005#0",
+          "result:VAL-B2-IMG-005:/data-hardware/industrial-deployment/|375x812|kuka-bread-palletizing-bakery-2005#0",
+          "result:VAL-B2-IMG-005:/data-hardware/industrial-deployment/|375x812|ocado-warehouse-grid-bots-2017#0",
+          "result:VAL-B2-IMG-005:/data-hardware/robot-learning-stack/|1440x900|droid-camera-calibration-2024#0",
+          "result:VAL-B2-IMG-005:/data-hardware/robot-learning-stack/|1440x900|openvla-overview-2024#0",
+          "result:VAL-B2-IMG-005:/data-hardware/robot-learning-stack/|375x812|droid-camera-calibration-2024#0",
+          "result:VAL-B2-IMG-005:/data-hardware/robot-learning-stack/|375x812|openvla-overview-2024#0",
+          "result:VAL-B2-IMG-005:/data-hardware/teleop-rigs/|1440x900|inl-hot-cell-manipulators-2006#0",
+          "result:VAL-B2-IMG-005:/data-hardware/teleop-rigs/|1440x900|umi-handheld-grippers-2024#0",
+          "result:VAL-B2-IMG-005:/data-hardware/teleop-rigs/|375x812|inl-hot-cell-manipulators-2006#0",
+          "result:VAL-B2-IMG-005:/data-hardware/teleop-rigs/|375x812|umi-handheld-grippers-2024#0",
           "result:VAL-B2-IMG-005:/frontier/bear-case/|1440x900|asimo-miraikan-2016#0",
           "result:VAL-B2-IMG-005:/frontier/bear-case/|1440x900|roomba-870-2014#0",
           "result:VAL-B2-IMG-005:/frontier/bear-case/|375x812|asimo-miraikan-2016#0",
@@ -37976,7 +38612,7 @@
         "statement": "Third-party marks retain required attribution and are not modified beyond consistent sizing, placement, and neutral-plate treatment.",
         "expected": "Third-party marks retain required attribution and are not modified beyond consistent sizing, placement, and neutral-plate treatment.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 256,
+        "populationSize": 267,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -38010,7 +38646,7 @@
         "statement": "Visual-asset parity holds among physical files, JS/TS imports, CSS URLs, inline-SVG dependencies, asset registries, rendered uses, and credits; orphan files, missing files, unregistered uses, stale credits, extras, and symlinks fail except narrow documented generated/tooling exceptions.",
         "expected": "Visual-asset parity holds among physical files, JS/TS imports, CSS URLs, inline-SVG dependencies, asset registries, rendered uses, and credits; orphan files, missing files, unregistered uses, stale credits, extras, and symlinks fail except narrow documented generated/tooling exceptions.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 256,
+        "populationSize": 267,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -38119,6 +38755,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+          "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/bridgedata-v2-sink-tasks-2023.jpg",
+          "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/care-o-bot-grasping-2010.jpg",
           "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
@@ -38200,6 +38846,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/dreamerv3-open-loop-quadruped-2023.jpg",
+          "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/droid-camera-calibration-2024.jpg",
           "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
         {
@@ -38294,6 +38945,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/inl-hot-cell-manipulators-2006.jpg",
+          "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/isaac-gym-allegro-envs-2021.jpg",
           "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
@@ -38349,7 +39005,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/kuka-bread-palletizing-bakery-2005.jpg",
+          "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/leica-laser-tracker-ats600.jpg",
+          "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/libero-benchmark-overview-2023.jpg",
           "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
         {
@@ -38384,12 +39050,27 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/nist-dexterous-manipulation-testbed-2013.jpg",
+          "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/ocado-warehouse-grid-bots-2017.jpg",
+          "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/octo-evaluation-setups-2024.jpg",
           "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/open-x-embodiment-overview-2023.jpg",
+          "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/openvla-overview-2024.jpg",
           "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
         {
@@ -38564,6 +39245,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/umi-handheld-grippers-2024.jpg",
+          "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/umi-test-environments-2024.jpg",
+          "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-008:asset:images/unitree-g1-stage-japan-mobility-2025.jpg",
           "mechanism": "VAL-B2-IMG-008 pending rollout evidence over contract/brand-v2-registries.json#assets:editorial-image"
         },
@@ -38630,7 +39321,7 @@
         "statement": "Reusable editorial photographs/figures/textures require one approved reusable-content value from the §1.13 closed enum; `unlicensed` is never approved. Official company marks use only the distinct `official-identification-use` path in `VAL-B2-MAP-010`. Validation checks enum membership, official URLs, hashes, attribution fields, and preservation; it does not independently decide legality.",
         "expected": "Reusable editorial photographs/figures/textures require one approved reusable-content value from the §1.13 closed enum; `unlicensed` is never approved. Official company marks use only the distinct `official-identification-use` path in `VAL-B2-MAP-010`. Validation checks enum membership, official URLs, hashes, attribution fields, and preservation; it does not independently decide legality.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 117,
+        "populationSize": 128,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -38657,6 +39348,8 @@
           "result:VAL-B2-IMG-008:asset:images/atlas-vrc-simulation-2013.jpg",
           "result:VAL-B2-IMG-008:asset:images/baxter-gripper-wrist-camera.jpg",
           "result:VAL-B2-IMG-008:asset:images/baxter-rethink-innorobo-2015.jpg",
+          "result:VAL-B2-IMG-008:asset:images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+          "result:VAL-B2-IMG-008:asset:images/bridgedata-v2-sink-tasks-2023.jpg",
           "result:VAL-B2-IMG-008:asset:images/care-o-bot-grasping-2010.jpg",
           "result:VAL-B2-IMG-008:asset:images/cassie-oregon-state-2017.jpg",
           "result:VAL-B2-IMG-008:asset:images/centrifugal-governor-queen-street-mill.jpg",
@@ -38674,6 +39367,7 @@
           "result:VAL-B2-IMG-008:asset:images/dji-mavic-pro-in-flight.jpg",
           "result:VAL-B2-IMG-008:asset:images/dp3-real-robot-setup-2024.jpg",
           "result:VAL-B2-IMG-008:asset:images/dreamerv3-open-loop-quadruped-2023.jpg",
+          "result:VAL-B2-IMG-008:asset:images/droid-camera-calibration-2024.jpg",
           "result:VAL-B2-IMG-008:asset:images/droid-cook-lentils-rollouts-2024.jpg",
           "result:VAL-B2-IMG-008:asset:images/droid-in-the-wild-scenes-2024.jpg",
           "result:VAL-B2-IMG-008:asset:images/droid-robot-platform-2024.jpg",
@@ -38692,6 +39386,7 @@
           "result:VAL-B2-IMG-008:asset:images/hil-serl-tasks-2024.jpg",
           "result:VAL-B2-IMG-008:asset:images/horse-in-motion-muybridge-1878.jpg",
           "result:VAL-B2-IMG-008:asset:images/ingenuity-mastcam-z-closeup-2021.jpg",
+          "result:VAL-B2-IMG-008:asset:images/inl-hot-cell-manipulators-2006.jpg",
           "result:VAL-B2-IMG-008:asset:images/isaac-gym-allegro-envs-2021.jpg",
           "result:VAL-B2-IMG-008:asset:images/isaac-gym-anymal-real-stairs-2021.jpg",
           "result:VAL-B2-IMG-008:asset:images/isaac-gym-anymal-terrain-2021.jpg",
@@ -38703,15 +39398,20 @@
           "result:VAL-B2-IMG-008:asset:images/kinect-xbox-360-sensor.jpg",
           "result:VAL-B2-IMG-008:asset:images/kinect-xbox-one-sensor.jpg",
           "result:VAL-B2-IMG-008:asset:images/knowno-ask-for-help-2023.jpg",
+          "result:VAL-B2-IMG-008:asset:images/kuka-bread-palletizing-bakery-2005.jpg",
           "result:VAL-B2-IMG-008:asset:images/leica-laser-tracker-ats600.jpg",
+          "result:VAL-B2-IMG-008:asset:images/libero-benchmark-overview-2023.jpg",
           "result:VAL-B2-IMG-008:asset:images/mini-cheetah-spin-rapid-locomotion-2022.jpg",
           "result:VAL-B2-IMG-008:asset:images/motion-capture-session-hyderabad-2026.jpg",
           "result:VAL-B2-IMG-008:asset:images/moxie-installation-perseverance-2020.jpg",
           "result:VAL-B2-IMG-008:asset:images/mujoco-playground-environments-2025.jpg",
           "result:VAL-B2-IMG-008:asset:images/mujoco-playground-franka-block-2025.jpg",
           "result:VAL-B2-IMG-008:asset:images/navlab-1-5-cmu-2017.jpg",
+          "result:VAL-B2-IMG-008:asset:images/nist-dexterous-manipulation-testbed-2013.jpg",
+          "result:VAL-B2-IMG-008:asset:images/ocado-warehouse-grid-bots-2017.jpg",
           "result:VAL-B2-IMG-008:asset:images/octo-evaluation-setups-2024.jpg",
           "result:VAL-B2-IMG-008:asset:images/open-x-embodiment-overview-2023.jpg",
+          "result:VAL-B2-IMG-008:asset:images/openvla-overview-2024.jpg",
           "result:VAL-B2-IMG-008:asset:images/ouster-lidar-point-cloud-sf.jpg",
           "result:VAL-B2-IMG-008:asset:images/perseverance-selfie-rochette-2021.jpg",
           "result:VAL-B2-IMG-008:asset:images/phantom-human-video-robot-2025.jpg",
@@ -38746,6 +39446,8 @@
           "result:VAL-B2-IMG-008:asset:images/tdmpc2-task-grid-2023.jpg",
           "result:VAL-B2-IMG-008:asset:images/temporal-ensembling.svg",
           "result:VAL-B2-IMG-008:asset:images/tesla-optimus-stockholm-2024.jpg",
+          "result:VAL-B2-IMG-008:asset:images/umi-handheld-grippers-2024.jpg",
+          "result:VAL-B2-IMG-008:asset:images/umi-test-environments-2024.jpg",
           "result:VAL-B2-IMG-008:asset:images/unitree-g1-stage-japan-mobility-2025.jpg",
           "result:VAL-B2-IMG-008:asset:images/unitree-robots-japan-mobility-show-2025.jpg",
           "result:VAL-B2-IMG-008:asset:images/ur16e-cobot-arm-2020.jpg",
@@ -38780,7 +39482,7 @@
         "statement": "Photo and logo binaries are byte-hash preserved against baseline except approved-delta entries; SVGs use normalized semantic comparison; every asset and rendered use carries a stable registry/ownership ID.",
         "expected": "Photo and logo binaries are byte-hash preserved against baseline except approved-delta entries; SVGs use normalized semantic comparison; every asset and rendered use carries a stable registry/ownership ID.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 256,
+        "populationSize": 267,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -38814,7 +39516,7 @@
         "statement": "Favicon, web manifest icons, touch icons, inline symbols, CSS masks, and unused first-party symbol assets are swept; any invented first-party mark, unregistered icon byte, orphan symbol, or stale v1 identity asset fails.",
         "expected": "Favicon, web manifest icons, touch icons, inline symbols, CSS masks, and unused first-party symbol assets are swept; any invented first-party mark, unregistered icon byte, orphan symbol, or stale v1 identity asset fails.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 256,
+        "populationSize": 267,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",

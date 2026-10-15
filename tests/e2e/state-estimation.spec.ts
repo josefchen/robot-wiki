@@ -221,24 +221,29 @@ test.describe('classical state-estimation module', () => {
     await expect(scene.getByTestId('motion-beat-count')).toHaveText(
       'beat 1 / 5',
     );
-    for (const [step, pattern] of [
-      [1, /Guess: from where it was/],
-      [2, /Measure: a sensor/],
-      [3, /Blend: the robot mixes/],
-      [4, /in numbers, then in symbols/],
-      [5, /never knows exactly where it is/],
+    const readout = scene.getByTestId('motion-readout');
+    for (const [step, pattern, words] of [
+      [1, /Guess: from where it was/, 'Guess 0.03 · jaws open from 0.94 to 1.27 either side'],
+      [2, /Measure: a sensor/, 'Reading 0.82 · jaws 1.00 either side'],
+      [3, /Blend: the robot mixes/, 'Blend 0.52 · jaws 0.79 either side, closer than both'],
+      [4, /in numbers, then in symbols/, '0.03 plus 62% of the way to 0.82 is 0.52'],
+      [5, /never knows exactly where it is/, 'Jaws either side: guess 1.27 · reading 1.00 · blend 0.79'],
     ] as const) {
       await page.keyboard.press('ArrowRight');
       await expect(caption).toHaveText(pattern);
       await expect(scene.getByTestId('motion-beat-count')).toHaveText(
         `beat ${step} / 5`,
       );
+      // Each beat's numbers are said in words under the drawing, never in it.
+      await expect(readout).toContainText(words);
     }
 
-    // The settled stage names its point in words; the filter's own numbers
-    // for the demonstrated step (the gain, the reading and the walk of the
-    // spread) are one click away, in "How this was made".
-    await expect(scene.locator('[data-figure-annotation]')).toHaveText('62% of the way from guess to sensor');
+    // The settled stage shows its point as a machine with no words in the
+    // drawing; the filter's own numbers for the demonstrated step (the
+    // gain, the reading and the walk of the spread) are one click away, in
+    // "How this was made".
+    await expect(scene.locator('[data-motion-stage] svg text')).toHaveCount(0);
+    await expect(scene.locator('[data-motion-stage] svg [data-scene-mark="blend-point"]')).toBeVisible();
     const method = await openHowThisWasMade(scene);
     await expect(method.getByTestId('kalman-gain-value')).toHaveText('0.62');
     const numbers = (await method.textContent()) ?? '';

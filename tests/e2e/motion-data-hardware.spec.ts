@@ -133,17 +133,18 @@ test('paired data/hardware labs retain semantic roles under both schemes and cha
         await expect(evaluationStep.locator('details[data-reveal]')).not.toHaveAttribute('open');
         await expect(evaluationStep.locator(':scope > [data-predict-figure] [data-testid="episode-success-readout"]')).toBeVisible();
         const lab = page.locator('[data-brand-module-signature="instrument-frame"]:has([data-testid="episode-success-readout"])').first();
-        const trace = 'path[data-series="episode-success"]';
-        expect(await lab.locator(trace).evaluate((node) => getComputedStyle(node).stroke))
-          .toBe(await stageRole('value-graphic', trace));
+        // The figure is a marble run: the finish tray holds the readout's
+        // share of a hundred jobs, its marbles the one lit part.
+        const tray = '[data-testid="finish-tray"]';
+        const finished = async () => Number(await lab.locator(tray).getAttribute('data-marbles'));
+        expect(await finished()).toBe(Math.round(Number.parseFloat((await lab.getByTestId('episode-success-readout').textContent()) ?? '')));
         expect(await lab.getByTestId('episode-success-readout').evaluate((node) => getComputedStyle(node).color))
-          .toBe(await stageRole('value-text', trace));
+          .toBe(await stageRole('value-text', tray));
         // The full per-step slider sits in the frame's "Adjust more" fold
         // behind the three presets, so it is opened as a reader opens it.
         await openAdjustMore(lab);
         await lab.getByRole('slider', { name: /per-step success probability/i }).fill('99');
-        expect(await lab.locator(trace).evaluate((node) => getComputedStyle(node).stroke))
-          .toBe(await stageRole('value-graphic', trace));
+        expect(await finished()).toBe(Math.round(Number.parseFloat((await lab.getByTestId('episode-success-readout').textContent()) ?? '')));
         await expect(lab.getByTestId('episode-success-readout')).not.toBeEmpty();
       } finally {
         await context.close();

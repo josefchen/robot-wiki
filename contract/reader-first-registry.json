@@ -192,7 +192,7 @@
       "figure": "scene:gait-support",
       "audit": "A16",
       "sources": [
-        "components/motion/robot-dog.tsx",
+        "components/iso/figures/gait-treadmill.ts",
         "components/motion/scenes/gait-support.tsx",
         "lib/gait.ts"
       ],
@@ -279,6 +279,7 @@
       "audit": "A23",
       "sources": [
         "components/motion/scenes/kalman-predict-update.tsx",
+        "components/iso/figures/kalman-rail.ts",
         "lib/kalman.ts"
       ],
       "takeaway": "Mixing the robot's own guess of where it is with a noisy sensor reading gives an estimate surer than either one alone."
@@ -460,6 +461,7 @@
       "audit": "A39",
       "sources": [
         "components/interactive/deployment-economics.tsx",
+        "components/iso/figures/payback-steelyard.ts",
         "lib/deployment-economics.ts"
       ],
       "takeaway": "The longer each jam takes a person to fix, the longer a picking robot takes to pay for itself."
@@ -645,6 +647,7 @@
       "audit": "A54",
       "sources": [
         "components/interactive/reliability-compounding.tsx",
+        "components/iso/figures/marble-run.ts",
         "lib/reliability.ts"
       ],
       "takeaway": "Even a robot that gets each step 95% right usually fails a long job, so every step has to be almost perfect."
@@ -657,6 +660,7 @@
       "audit": "A55",
       "sources": [
         "components/interactive/collaborative-operation-modes.tsx",
+        "components/iso/figures/cobot-cell.ts",
         "lib/safety-modes.ts"
       ],
       "takeaway": "The faster a robot moves, the bigger the gap it must keep from people."
@@ -691,6 +695,7 @@
       "audit": "A58",
       "sources": [
         "components/interactive/reliability-compounding.tsx",
+        "components/iso/figures/marble-run.ts",
         "lib/reliability.ts"
       ],
       "takeaway": "At 95% success per step about half of 14-step jobs fail, because a long job works only if every step works."

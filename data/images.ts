@@ -1053,7 +1053,7 @@ const ARTICLE_IMAGES: SiteImage[] = [
     file: '/images/droid-in-the-wild-scenes-2024.jpg',
     alt: 'A grid of robot camera frames grouped by scene type, showing the same Franka arm working in kitchens, bedrooms, bathrooms, offices, laundry rooms and other real buildings.',
     caption:
-      'Every stage of the curriculum meets real robot data like DROID\'s: 76k trajectories from 13 institutions, recorded with one Franka setup in kitchens, bedrooms, offices and other real buildings. Example frames grouped into the dataset\'s 9 scene types.',
+      'Frames from DROID grouped into its 9 scene types. The same Franka setup recorded every trajectory, in kitchens, bedrooms, offices and other real buildings.',
     sourceName: 'arXiv',
     sourceUrl:
       'https://arxiv.org/abs/2403.12945',
@@ -3177,6 +3177,327 @@ const ARTICLE_IMAGES: SiteImage[] = [
     // the Vesoul hospital).
   },
   // END adjacent images (image brief, 2026-10-11)
+  // BEGIN data-hardware images (image brief, 2026-10-11)
+  {
+    id: 'umi-test-environments-2024',
+    figureKind: 'paper-figure',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Paper figure: Fanqi Lin et al. / arXiv. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/umi-test-environments-2024.jpg',
+    alt: "Eight round fisheye views from a gripper's camera, each a different office or meeting-room table with a mug or bottle in front of the gripper's purple and white jaws.",
+    caption:
+      "The eight test environments in Lin and colleagues' data-scaling study, seen through the gripper's fisheye camera. None was in the training data, and every task was tested in all eight.",
+    sourceName: 'arXiv',
+    sourceUrl: 'https://arxiv.org/abs/2410.18647',
+    creator: 'Fanqi Lin et al.',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 2000,
+    height: 900,
+    // Licence read on the abstract page arxiv.org/abs/2410.18647: the
+    // licence link ("view license") points to
+    // http://creativecommons.org/licenses/by/4.0/, Creative Commons
+    // Attribution 4.0 International. File figures/images/eval_env2.jpg
+    // from the arXiv source (5085 x 2287), the paper's Figure 12, captioned
+    // "Testing environments. These 8 environments are not included in the
+    // training data and are used across all tasks."; resized to 2000 px,
+    // JPEG quality 82. Re-read on 2026-10-15: the abstract page's licence
+    // link is still http://creativecommons.org/licenses/by/4.0/.
+  },
+  {
+    id: 'bridgedata-v2-sink-tasks-2023',
+    figureKind: 'paper-figure',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Paper figure: Moo Jin Kim et al. / arXiv. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/bridgedata-v2-sink-tasks-2023.jpg',
+    alt: "Seven labelled camera frames from BridgeData V2 demonstrations in a toy kitchen sink, such as Put Carrot on Plate and Put Eggplant into Pot, each with a WidowX robot's black gripper above the toy objects.",
+    caption:
+      'Seven BridgeData V2 tasks in one toy-sink scene, such as putting a carrot on a plate, each recorded on a WidowX 250.',
+    sourceName: 'arXiv',
+    sourceUrl: 'https://arxiv.org/abs/2406.09246',
+    creator: 'Moo Jin Kim et al.',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 2000,
+    height: 839,
+    // Licence read on the abstract page arxiv.org/abs/2406.09246 (OpenVLA):
+    // the licence link ("view license") points to
+    // http://creativecommons.org/licenses/by/4.0/, Creative Commons
+    // Attribution 4.0 International. The figure shows frames from the
+    // BridgeData V2 dataset, whose project page
+    // (rail-berkeley.github.io/bridgedata) states "All data is provided
+    // under the Creative Commons Attribution 4.0 International License".
+    // The paper's figures/original_bridge_tasks.pdf rasterised at 150 dpi
+    // (its 640 x 480 frames at native size), white margin trimmed, resized
+    // to 2000 px, JPEG quality 82. Re-read on 2026-10-15: the same licence
+    // link on the abstract page and the same sentence on the project page.
+  },
+  {
+    id: 'libero-benchmark-overview-2023',
+    figureKind: 'paper-figure',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Paper figure: Bo Liu et al. / arXiv. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/libero-benchmark-overview-2023.jpg',
+    alt: 'The LIBERO overview: rendered scenes of a simulated robot arm at kitchen tables in four suites labelled LIBERO-Spatial, LIBERO-Object, LIBERO-Goal and LIBERO-100 around a procedural-generation step, above five research questions such as distribution shift and task ordering.',
+    caption:
+      "LIBERO's simulated task suites. LIBERO-Spatial changes only the layout, LIBERO-Object only the objects and LIBERO-Goal only the goal, and LIBERO-100 holds 100 more varied tasks.",
+    sourceName: 'arXiv',
+    sourceUrl: 'https://arxiv.org/abs/2306.03310',
+    creator: 'Bo Liu et al.',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 2000,
+    height: 1091,
+    // Licence read on the abstract page arxiv.org/abs/2306.03310: the
+    // licence link ("view license") points to
+    // http://creativecommons.org/licenses/by/4.0/, Creative Commons
+    // Attribution 4.0 International. File figures/original_fig1.png from
+    // the arXiv source (4400 x 2400), the paper's overview figure;
+    // flattened on white, resized to 2000 px, JPEG quality 82. Re-read on
+    // 2026-10-15: the abstract page's licence link is unchanged.
+  },
+  {
+    id: 'nist-dexterous-manipulation-testbed-2013',
+    figureKind: 'photograph',
+    legalBasis: 'public-domain',
+    attributionText:
+      'Photo: National Institute of Standards and Technology / Wikimedia Commons. Licence: Public domain.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/nist-dexterous-manipulation-testbed-2013.jpg',
+    alt: 'An orange robot arm with grey joints holds a cast-metal part in a three-fingered robotic hand, against a plain grey backdrop.',
+    caption:
+      "A seven-DoF arm and a three-fingered hand on NIST's Dexterous Manipulation Testbed in 2013, used to measure manipulation for manufacturing tasks.",
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:NIST_Dexterous_Manipulation_Testbed_(9502902636).jpg',
+    creator: 'National Institute of Standards and Technology',
+    licence: 'public-domain',
+    licenceUrl: 'https://commons.wikimedia.org/wiki/Template:PD-USGov-NIST',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1258,
+    // Licence sentence read on the file page: "This image is in the public
+    // domain in the United States because it is a work of the United
+    // States Federal Government, specifically an employee of the National
+    // Institute of Standards and Technology, under the terms of Title 17,
+    // Chapter 1, Section 105 of the US Code." (PD-USGov-NIST, NIST Flickr
+    // stream, taken 2013-07-10). The description reads "a seven
+    // degree-of-freedom highly dexterous robot and a seven
+    // degree-of-freedom, three fingered robotic hand", used "to gauge the
+    // operational characteristics of manipulation for manufacturing tasks".
+    // Original 3200 x 2097; shipped as the Commons 1920 px thumbnail, bytes
+    // as served. Re-read on 2026-10-15: same licence sentence, and the file
+    // is byte for byte the current 1920 px Commons thumbnail.
+  },
+  {
+    id: 'bmw-leipzig-body-shop-spot-welding-2005',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by-sa',
+    attributionText:
+      'Photo: BMW Werk Leipzig / Wikimedia Commons. Licence: CC BY-SA 2.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/bmw-leipzig-body-shop-spot-welding-2005.jpg',
+    alt: 'Orange KUKA industrial robot arms with welding guns surround a bare metal car body shell on a body-shop line at the BMW plant in Leipzig, with more robots in the hall behind.',
+    caption:
+      'KUKA robots spot-welding BMW 3 Series bodies at the Leipzig plant in 2005. Fixed cells repeating one motion like this make up most of the installed base.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:BMW_Leipzig_MEDIA_050719_Download_Karosseriebau_max.jpg',
+    creator: 'BMW Werk Leipzig',
+    licence: 'cc-by-sa-2.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by-sa/2.0/de/',
+    retrieved: '2026-10-11',
+    width: 1840,
+    height: 1228,
+    // Licence sentence read on the file page: "This file is licensed under
+    // the Creative Commons Attribution-Share Alike 2.0 Germany license."
+    // (Cc-by-sa-2.0-de, the ported German variant of CC BY-SA 2.0; author
+    // BMW Werk Leipzig, from the plant's media site, permission archived
+    // as VRTS ticket 2007071610007769). The description reads "Spot welding
+    // of BMW 3 series car bodies with KUKA industrial robots", dated
+    // 2005-07-19. Original 1840 x 1228, shipped byte for byte. Re-read on
+    // 2026-10-15: same licence sentence, and the file is byte for byte the
+    // current Commons original.
+  },
+  {
+    id: 'ocado-warehouse-grid-bots-2017',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by-sa',
+    attributionText:
+      'Photo: Techwords / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/ocado-warehouse-grid-bots-2017.jpg',
+    alt: 'Boxy white robots with blue tops run on the rails of an aluminium storage grid that fills an Ocado warehouse hall; one robot on the left is blurred by motion.',
+    caption:
+      'Bots on the storage grid of an Ocado warehouse in 2017. They run on top of the grid and fetch bins from the stacks inside it.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:Ocado_warehouse_bots.jpg',
+    creator: 'Techwords',
+    licence: 'cc-by-sa-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1321,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, hereby publish it under the following license: This file
+    // is licensed under the Creative Commons Attribution-Share Alike 4.0
+    // International license." (author Techwords, own work, "Bots moving
+    // inside an Ocado warehouse", 2017-01-12). Original 2853 x 1963;
+    // shipped as the Commons 1920 px thumbnail, bytes as served. Re-read on
+    // 2026-10-15: same licence sentence, and the file is byte for byte the
+    // current 1920 px Commons thumbnail.
+  },
+  {
+    id: 'kuka-bread-palletizing-bakery-2005',
+    figureKind: 'photograph',
+    legalBasis: 'public-domain',
+    attributionText:
+      'Photo: KUKA Roboter GmbH / Wikimedia Commons. Licence: Public domain.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/kuka-bread-palletizing-bakery-2005.jpg',
+    alt: 'Orange KUKA robot arms inside a wire-mesh safety fence lift yellow crates of bread from a roller conveyor and stack them in tall piles, in a bakery hall.',
+    caption:
+      "KUKA robots palletising bread crates at a German bakery in 2005. The grippers, conveyors and safety fence around them are part of the cell's cost.",
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:Factory_Automation_Robotics_Palettizing_Bread.jpg',
+    creator: 'KUKA Roboter GmbH',
+    licence: 'public-domain',
+    licenceUrl: 'https://commons.wikimedia.org/wiki/Template:PD-author',
+    retrieved: '2026-10-11',
+    width: 1600,
+    height: 1200,
+    // Licence sentence read on the file page: "This work has been released
+    // into the public domain by its author, KUKA Roboter Gmbh."
+    // (PD-author, permission archived as VRTS ticket 2010011610015881). The
+    // description reads "Factory Automation with industrial robots for
+    // palletizing food products like bread and toast at a bakery in
+    // Germany", dated 2005. Original 3417 x 2563; the Commons 1920 px
+    // thumbnail (1.24 MB) resized to 1600 px at JPEG quality 82. Re-read on
+    // 2026-10-15: same licence sentence.
+  },
+  {
+    id: 'openvla-overview-2024',
+    figureKind: 'paper-figure',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Paper figure: Moo Jin Kim et al. / arXiv. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/openvla-overview-2024.jpg',
+    alt: 'The OpenVLA overview figure: a montage labelled 970k Robot Episodes feeds a vision-language-action model built on Llama 2 7B, above photos of three robots it controls, a WidowX at a toy sink, a mobile robot by an apple and a banana, and a Franka with a dustpan.',
+    caption:
+      "OpenVLA's overview traces one path through the stack: 970k robot episodes, a 7B vision-language-action model and closed-loop control of several robots.",
+    sourceName: 'arXiv',
+    sourceUrl: 'https://arxiv.org/abs/2406.09246',
+    creator: 'Moo Jin Kim et al.',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 2000,
+    height: 1029,
+    // Licence read on the abstract page arxiv.org/abs/2406.09246 (see
+    // bridgedata-v2-sink-tasks-2023). The paper's teaser figure
+    // (figures/openvla_teaser.pdf) rasterised at 300 dpi, white margin
+    // trimmed, resized to 2000 px, JPEG quality 82. Re-read on 2026-10-15:
+    // the abstract page's licence link is unchanged.
+  },
+  {
+    id: 'droid-camera-calibration-2024',
+    figureKind: 'paper-figure',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Paper figure: Alexander Khazatsky et al. / arXiv. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/droid-camera-calibration-2024.jpg',
+    alt: 'A grid of DROID camera frames from different scenes, each with a purple mask of the robot arm rendered over the real arm in the image.',
+    caption:
+      "DROID frames with the robot's mesh rendered from the estimated camera-to-base transform. Where the mask covers the real arm, the calibration holds; a moved camera shows as a mask that misses.",
+    sourceName: 'arXiv',
+    sourceUrl: 'https://arxiv.org/abs/2403.12945',
+    creator: 'Alexander Khazatsky et al.',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 2000,
+    height: 1124,
+    // Licence read on the abstract page arxiv.org/abs/2403.12945 (see
+    // droid-in-the-wild-scenes-2024). File figures/cam2base_calib.jpg from the
+    // arXiv source (3836 x 2156), the paper's camera-to-robot base
+    // calibration figure; resized to 2000 px, JPEG quality 82. Re-read on
+    // 2026-10-15: the abstract page's licence link is unchanged.
+  },
+  {
+    id: 'inl-hot-cell-manipulators-2006',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Photo: Idaho National Laboratory / Wikimedia Commons. Licence: CC BY 2.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/inl-hot-cell-manipulators-2006.jpg',
+    alt: 'Seen from behind, a researcher holds the handle of a master-slave manipulator below a thick leaded-glass hot-cell window lit yellow from inside.',
+    caption:
+      "A researcher at Idaho National Laboratory in 2006 works radioactive material through a leaded-glass window, a handle outside driving tongs inside. ALOHA's leader arm uses the same principle.",
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:Remote_manipulators_002.jpg',
+    creator: 'Idaho National Laboratory',
+    licence: 'cc-by-2.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/2.0',
+    retrieved: '2026-10-11',
+    width: 1280,
+    height: 1920,
+    // Licence sentence read on the file page: "This file is licensed under
+    // the Creative Commons Attribution 2.0 Generic license." (Idaho
+    // National Laboratory on Flickr, 2006-06-23; "Leaded glass windows and
+    // manipulators allow researchers to safely work with highly
+    // radioactive materials."). Flickr review: "This image, originally
+    // posted to Flickr, was reviewed on 2 December 2011 by the administrator
+    // or reviewer Ww2censor, who confirmed that it was available on Flickr
+    // under the stated license on that date." Original 1800 x 2700; the
+    // Commons 1280 px thumbnail is CMYK (U.S. Web Coated SWOP v2),
+    // converted to sRGB with the Artifex sRGB profile at JPEG quality 82.
+    // Re-read on 2026-10-15: same licence sentence and review.
+  },
+  {
+    id: 'umi-handheld-grippers-2024',
+    figureKind: 'paper-figure',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Paper figure: Fanqi Lin et al. / arXiv. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/umi-handheld-grippers-2024.jpg',
+    alt: 'Four UMI handheld grippers in a row on a white background, each a white 3D-printed body with purple parallel jaws and a black GoPro camera mounted on top.',
+    caption:
+      "The four UMI handheld grippers used in Lin and colleagues' data-scaling study. A Franka arm with matching purple fingers and a wrist GoPro ran the trained policies.",
+    sourceName: 'arXiv',
+    sourceUrl: 'https://arxiv.org/abs/2410.18647',
+    creator: 'Fanqi Lin et al.',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 1886,
+    height: 1061,
+    // Licence read on the abstract page arxiv.org/abs/2410.18647 (see
+    // umi-test-environments-2024). File figures/images/4_UMI.jpg from the
+    // arXiv source, the paper's Figure 18 ("UMI hand-held grippers"); its
+    // appendix calls them "the four hand-held grippers used in our study"
+    // and deploys on a Franka Emika Panda with "soft, compliant fingers
+    // printed using purple 95A TPU material" and "a wrist-mounted GoPro Hero
+    // 10 camera with a fisheye lens". Re-encoded at JPEG quality 82, size
+    // unchanged. Re-read on 2026-10-15: the abstract page's licence link is
+    // unchanged.
+  },
+  // END data-hardware images (image brief, 2026-10-11)
 ];
 
 export const IMAGES: SiteImage[] = [...ARTICLE_IMAGES, ...LOGO_IMAGES];

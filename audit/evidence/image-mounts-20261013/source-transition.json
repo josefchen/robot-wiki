@@ -1,10 +1,10 @@
 {
   "schemaVersion": "image-mount-continuity-v1",
   "name": "image-mounts-20261013",
-  "reviewedBy": "integration workers for images bundle A (2026-10-13), the frontier images (2026-10-15) and the adjacent images of bundle B (2026-10-15) (not independent acceptance)",
+  "reviewedBy": "integration workers for images bundle A (2026-10-13), the frontier images (2026-10-15), the adjacent images of bundle B (2026-10-15) and the data-hardware images (2026-10-15) (not independent acceptance)",
   "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, under the licence gate of data/schemas/image.ts. Not release approval.",
-  "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13, the six frontier articles on 2026-10-15, and the adjacent articles on 2026-10-15 after their length cut: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-15T12:40:31Z",
+  "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13, the six frontier articles on 2026-10-15, and the adjacent and data-hardware articles on 2026-10-15 after their length cuts: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
+  "observedAt": "2026-10-15T16:52:24Z",
   "sources": [
     {
       "archivedFrom": "488f773433ed5556396cb5012639f6b0fd11e7c4",
@@ -374,6 +374,200 @@
         {
           "before": "McGee and Schmidt's 1985 NASA history credits Schmidt's Ames group with adapting the filter to nonlinear circumlunar navigation in the early 1960s. By early 1961 simulations supported the approach, though operation on available flight computers was unverified. The report separates this work from Battin's Apollo studies at MIT and Potter's square-root implementation used in Apollo. Primary Apollo navigation used ground radar, with an onboard backup <Cite id=\"mcgee-schmidt-1985\" />.\n",
           "after": "McGee and Schmidt's 1985 NASA history credits Schmidt's Ames group with adapting the filter to nonlinear circumlunar navigation in the early 1960s. By early 1961 simulations supported the approach, though operation on available flight computers was unverified. The report separates this work from Battin's Apollo studies at MIT and Potter's square-root implementation used in Apollo. Primary Apollo navigation used ground radar, with an onboard backup <Cite id=\"mcgee-schmidt-1985\" />.\n\n<Image id=\"apollo-guidance-computer-dsky\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6aa2e8b04e9f0d7a491f1aa52c74b363473a3994",
+      "before": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 13075,
+        "sha256": "adb7afc8bb6914c190fd1ba7b21948c57729daa487e05af716e6ac790244ba08"
+      },
+      "after": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 13164,
+        "sha256": "8d7e40d18510d4e932570bc0da38f3a05a452bcb60b41b889296147abff6ae24"
+      },
+      "mounts": [
+        "droid-in-the-wild-scenes-2024",
+        "umi-test-environments-2024"
+      ],
+      "edits": [
+        {
+          "before": "The data bottleneck is the shortage of robot training data compared with the text language models learn from. The largest [public robot datasets](/data-hardware/datasets) hold hundreds to a few thousand hours <Cite id=\"droid-2024\" /> <Cite id=\"agibot-world-2025\" />, while Llama 4 Scout trained on about 40 trillion tokens <Cite id=\"llama-4-model-card-2025\" /> and companies report private corpora of 100,000 hours or more from handheld and wearable devices <Cite id=\"xiaomi-robotics-1-2026\" /> <Cite id=\"generalist-gen1-2026\" />.\n\n",
+          "after": "The data bottleneck is the shortage of robot training data compared with the text language models learn from. The largest [public robot datasets](/data-hardware/datasets) hold hundreds to a few thousand hours <Cite id=\"droid-2024\" /> <Cite id=\"agibot-world-2025\" />, while Llama 4 Scout trained on about 40 trillion tokens <Cite id=\"llama-4-model-card-2025\" /> and companies report private corpora of 100,000 hours or more from handheld and wearable devices <Cite id=\"xiaomi-robotics-1-2026\" /> <Cite id=\"generalist-gen1-2026\" />.\n\n<Image id=\"droid-in-the-wild-scenes-2024\" />\n\n"
+        },
+        {
+          "before": "Lin et al. collected over 40,000 demonstrations and ran over 15,000 real-world rollouts on <Term id=\"imitation-learning\">imitation learning</Term> <Cite id=\"lin-data-scaling-laws-2024\" />. Success with new environments and objects follows a rough power law in the number of training environments and objects; demonstrations per environment saturate past about 50. Their recipe, 32 environments with 50 demonstrations each, reached about 90% success with unseen objects; four operators collected it in one afternoon.\n",
+          "after": "Lin et al. collected over 40,000 demonstrations and ran over 15,000 real-world rollouts on <Term id=\"imitation-learning\">imitation learning</Term> <Cite id=\"lin-data-scaling-laws-2024\" />. Success with new environments and objects follows a rough power law in the number of training environments and objects; demonstrations per environment saturate past about 50. Their recipe, 32 environments with 50 demonstrations each, reached about 90% success with unseen objects; four operators collected it in one afternoon.\n\n<Image id=\"umi-test-environments-2024\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6aa2e8b04e9f0d7a491f1aa52c74b363473a3994",
+      "before": {
+        "path": "content/data-hardware/datasets.mdx",
+        "bytes": 12020,
+        "sha256": "05e13772e4e89d8a5130849b4d9329d3dae7b46566ea43be5d2207f2476629e0"
+      },
+      "after": {
+        "path": "content/data-hardware/datasets.mdx",
+        "bytes": 12114,
+        "sha256": "698cf0598593f1319c0eae955056fd78f927db7bd3a3f026c795ad3aad00fc51"
+      },
+      "mounts": [
+        "open-x-embodiment-overview-2023",
+        "bridgedata-v2-sink-tasks-2023"
+      ],
+      "edits": [
+        {
+          "before": "Major robot learning datasets are the open collections of recorded robot trajectories that generalist policies train on. <Term id=\"open-x-embodiment\">Open X-Embodiment</Term> pools over a million trajectories from 22 embodiments <Cite id=\"open-x-embodiment-2023\" />, AgiBot World holds 1,001,552 (2,976 hours) on one robot platform <Cite id=\"agibot-world-2025\" />, and DROID holds 76,000 (350 hours) across 564 scenes <Cite id=\"droid-2024\" />.\n\n",
+          "after": "Major robot learning datasets are the open collections of recorded robot trajectories that generalist policies train on. <Term id=\"open-x-embodiment\">Open X-Embodiment</Term> pools over a million trajectories from 22 embodiments <Cite id=\"open-x-embodiment-2023\" />, AgiBot World holds 1,001,552 (2,976 hours) on one robot platform <Cite id=\"agibot-world-2025\" />, and DROID holds 76,000 (350 hours) across 564 scenes <Cite id=\"droid-2024\" />.\n\n<Image id=\"open-x-embodiment-overview-2023\" />\n\n"
+        },
+        {
+          "before": "BridgeData V2 holds 60,096 trajectories on a WidowX 250, a low-cost 6-DoF arm: 50,365 teleoperated demonstrations collected with a VR controller at 5 Hz and 9,731 scripted pick-and-place rollouts, across 24 environments and 13 skills <Cite id=\"bridgedata-v2-2023\" />. Trajectories average 38 timesteps <Cite id=\"bridgedata-v2-project-page\" />. Its 2021 predecessor had 7,200 demonstrations of 71 tasks in 10 environments, and joint training with 50 demonstrations of a new task in a new domain doubled success on average <Cite id=\"bridge-data-2021\" />.\n",
+          "after": "BridgeData V2 holds 60,096 trajectories on a WidowX 250, a low-cost 6-DoF arm: 50,365 teleoperated demonstrations collected with a VR controller at 5 Hz and 9,731 scripted pick-and-place rollouts, across 24 environments and 13 skills <Cite id=\"bridgedata-v2-2023\" />. Trajectories average 38 timesteps <Cite id=\"bridgedata-v2-project-page\" />. Its 2021 predecessor had 7,200 demonstrations of 71 tasks in 10 environments, and joint training with 50 demonstrations of a new task in a new domain doubled success on average <Cite id=\"bridge-data-2021\" />.\n\n<Image id=\"bridgedata-v2-sink-tasks-2023\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6aa2e8b04e9f0d7a491f1aa52c74b363473a3994",
+      "before": {
+        "path": "content/data-hardware/evaluation-crisis.mdx",
+        "bytes": 14910,
+        "sha256": "c81a2b0d30dc2b3c0ea31ab6ffb9b084c5365a281397b9d56a8625f21df40e54"
+      },
+      "after": {
+        "path": "content/data-hardware/evaluation-crisis.mdx",
+        "bytes": 14999,
+        "sha256": "ebdc3f24dcd30fbc4ef0209eabb8dc5d560c79f72d79b330a171dfd3f928369c"
+      },
+      "mounts": [
+        "roboarena-evaluation-2025",
+        "libero-benchmark-overview-2023"
+      ],
+      "edits": [
+        {
+          "before": "The evaluation crisis is the gap between the success rates robot learning papers report and what those rates can establish. A <Term id=\"success-rate\">success rate</Term> folds trial count, task length, scene setup and scorer into one number, and papers often report it with little or no information on the number of runs, initial conditions or success criteria <Cite id=\"kress-gazit-evaluation-2024\" />.\n\n",
+          "after": "The evaluation crisis is the gap between the success rates robot learning papers report and what those rates can establish. A <Term id=\"success-rate\">success rate</Term> folds trial count, task length, scene setup and scorer into one number, and papers often report it with little or no information on the number of runs, initial conditions or success criteria <Cite id=\"kress-gazit-evaluation-2024\" />.\n\n<Image id=\"roboarena-evaluation-2025\" />\n\n"
+        },
+        {
+          "before": "LIBERO reports 130 tasks: ten each in LIBERO-Spatial, LIBERO-Object and LIBERO-Goal, plus LIBERO-100: 90 short-horizon pretraining tasks and ten long-horizon downstream tasks. Each task has 50 human-expert demonstrations collected by Spacemouse teleoperation <Cite id=\"libero-2023\" />. LIBERO-Plus perturbs the benchmark along seven dimensions: object layout, camera viewpoint, robot initial state, language instruction, lighting, background texture and sensor noise. Models that score 95% on the clean benchmark fall below 30% under modest camera or initial-state shifts, and shuffling or removing the instruction barely moves performance, suggesting the models largely ignore the language <Cite id=\"libero-plus-2025\" />.\n",
+          "after": "LIBERO reports 130 tasks: ten each in LIBERO-Spatial, LIBERO-Object and LIBERO-Goal, plus LIBERO-100: 90 short-horizon pretraining tasks and ten long-horizon downstream tasks. Each task has 50 human-expert demonstrations collected by Spacemouse teleoperation <Cite id=\"libero-2023\" />. LIBERO-Plus perturbs the benchmark along seven dimensions: object layout, camera viewpoint, robot initial state, language instruction, lighting, background texture and sensor noise. Models that score 95% on the clean benchmark fall below 30% under modest camera or initial-state shifts, and shuffling or removing the instruction barely moves performance, suggesting the models largely ignore the language <Cite id=\"libero-plus-2025\" />.\n\n<Image id=\"libero-benchmark-overview-2023\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6aa2e8b04e9f0d7a491f1aa52c74b363473a3994",
+      "before": {
+        "path": "content/data-hardware/hardware-taxonomy.mdx",
+        "bytes": 10656,
+        "sha256": "8d68b257c69ade1c696c14c2cb2c8249ee04447dfa6f58ab061518f7b6f9f770"
+      },
+      "after": {
+        "path": "content/data-hardware/hardware-taxonomy.mdx",
+        "bytes": 10758,
+        "sha256": "e88ad6efb97d24537100a0c3fcd5e22163d544bd490ddc5355f0f1bedf0c3e47"
+      },
+      "mounts": [
+        "nist-dexterous-manipulation-testbed-2013",
+        "jetson-agx-orin-auledas-2024"
+      ],
+      "edits": [
+        {
+          "before": "Robot-learning hardware is the equipment a learned policy runs on: arms, humanoids, dexterous hands, tactile sensors and the edge computers closing the control loop. Prices run from about \\$122 in parts for an SO-101 arm <Cite id=\"so-arm100-repo-2026\" /> to \\$29,900 for a Unitree H2 humanoid <Cite id=\"unitree-h2-2026\" />, and Boston Dynamics has scheduled its 2026 Atlas deployments at Hyundai and Google DeepMind <Cite id=\"bd-atlas-unveil-2026\" />.\n\n",
+          "after": "Robot-learning hardware is the equipment a learned policy runs on: arms, humanoids, dexterous hands, tactile sensors and the edge computers closing the control loop. Prices run from about \\$122 in parts for an SO-101 arm <Cite id=\"so-arm100-repo-2026\" /> to \\$29,900 for a Unitree H2 humanoid <Cite id=\"unitree-h2-2026\" />, and Boston Dynamics has scheduled its 2026 Atlas deployments at Hyundai and Google DeepMind <Cite id=\"bd-atlas-unveil-2026\" />.\n\n<Image id=\"nist-dexterous-manipulation-testbed-2013\" />\n\n"
+        },
+        {
+          "before": "VLA-Perf's roofline model predicts π0 inference at 19.0 Hz on Jetson Thor, 32.2 Hz on RTX 4090, 61.7 Hz on A100, 162.5 Hz on H100 and 314.4 Hz on B100, without network latency. These are batch-one analytical predictions for the 2.7B π0 baseline, with 3 cameras, 14 action dimensions, chunk size 50 and 10 denoising steps, and no measurements from running the policy on all five GPUs. On B100, raising denoising steps from 10 to 50 raises total latency 2.15×; raising chunk size from 50 to 250 raises it 11% <Cite id=\"vla-perf-2026\" />. [Real-Time Execution](/manipulation/realtime-execution) develops these latency budgets.\n",
+          "after": "VLA-Perf's roofline model predicts π0 inference at 19.0 Hz on Jetson Thor, 32.2 Hz on RTX 4090, 61.7 Hz on A100, 162.5 Hz on H100 and 314.4 Hz on B100, without network latency. These are batch-one analytical predictions for the 2.7B π0 baseline, with 3 cameras, 14 action dimensions, chunk size 50 and 10 denoising steps, and no measurements from running the policy on all five GPUs. On B100, raising denoising steps from 10 to 50 raises total latency 2.15×; raising chunk size from 50 to 250 raises it 11% <Cite id=\"vla-perf-2026\" />. [Real-Time Execution](/manipulation/realtime-execution) develops these latency budgets.\n\n<Image id=\"jetson-agx-orin-auledas-2024\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6aa2e8b04e9f0d7a491f1aa52c74b363473a3994",
+      "before": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 16650,
+        "sha256": "2b25e765a66095b18c8827c834c003a285a53585ae45c8afa4fd47d38be56e61"
+      },
+      "after": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 16804,
+        "sha256": "94b8a5c72d665ae962cea8660744c5642e22577817f123bb321a4273749b708b"
+      },
+      "mounts": [
+        "bmw-leipzig-body-shop-spot-welding-2005",
+        "ocado-warehouse-grid-bots-2017",
+        "kuka-bread-palletizing-bakery-2005"
+      ],
+      "edits": [
+        {
+          "before": "Industrial deployment is the installation of robots in factories and warehouses, where each cell has to pay back its cost. IFR counts a record 5 million industrial robots operating worldwide in 2025, after more than 600,000 installations that year, 59 percent of them in China <Cite id=\"ifr-world-robotics-2026-release\" />.\n\n",
+          "after": "Industrial deployment is the installation of robots in factories and warehouses, where each cell has to pay back its cost. IFR counts a record 5 million industrial robots operating worldwide in 2025, after more than 600,000 installations that year, 59 percent of them in China <Cite id=\"ifr-world-robotics-2026-release\" />.\n\n<Image id=\"bmw-leipzig-body-shop-spot-welding-2005\" />\n\n"
+        },
+        {
+          "before": "In November 2025 Kroger said it would close three robotic warehouses in Wisconsin, Maryland and Florida and was monitoring its five remaining sites <Cite id=\"kroger-ocado-closures-2025\" />. On December 5, 2025 Ocado and Kroger agreed a one-off \\$350 million payment that also covers Kroger's decision not to proceed with Charlotte. Ocado expects the closures to cut its FY26 fee revenue by about \\$50 million <Cite id=\"ocado-kroger-rns-2025\" />. Ocado Intelligent Automation sells the same grid-robot warehouses outward into healthcare, third-party logistics and industrial parts <Cite id=\"ocado-oia-2026\" />.\n\n",
+          "after": "In November 2025 Kroger said it would close three robotic warehouses in Wisconsin, Maryland and Florida and was monitoring its five remaining sites <Cite id=\"kroger-ocado-closures-2025\" />. On December 5, 2025 Ocado and Kroger agreed a one-off \\$350 million payment that also covers Kroger's decision not to proceed with Charlotte. Ocado expects the closures to cut its FY26 fee revenue by about \\$50 million <Cite id=\"ocado-kroger-rns-2025\" />. Ocado Intelligent Automation sells the same grid-robot warehouses outward into healthcare, third-party logistics and industrial parts <Cite id=\"ocado-oia-2026\" />.\n\n<Image id=\"ocado-warehouse-grid-bots-2017\" />\n\n"
+        },
+        {
+          "before": "A robot arm is a minority of what a cell costs. EVST puts complete palletising cells at two to three times the arm's price <Cite id=\"evst-cell-cost-2026\" />. Its July 15, 2026 commercial palletising-cell guide lists application-specific end-of-arm tooling, fencing, light curtains or area scanners, interlocked gates, safety-rated PLCs, installation, PLC/HMI integration, commissioning, pattern programming, software licences and any vision-guided pick logic for mixed loads. The surrounding-line work depends on what is already installed <Cite id=\"evst-cell-cost-2026\" />.\n",
+          "after": "A robot arm is a minority of what a cell costs. EVST puts complete palletising cells at two to three times the arm's price <Cite id=\"evst-cell-cost-2026\" />. Its July 15, 2026 commercial palletising-cell guide lists application-specific end-of-arm tooling, fencing, light curtains or area scanners, interlocked gates, safety-rated PLCs, installation, PLC/HMI integration, commissioning, pattern programming, software licences and any vision-guided pick logic for mixed loads. The surrounding-line work depends on what is already installed <Cite id=\"evst-cell-cost-2026\" />.\n\n<Image id=\"kuka-bread-palletizing-bakery-2005\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6aa2e8b04e9f0d7a491f1aa52c74b363473a3994",
+      "before": {
+        "path": "content/data-hardware/robot-learning-stack.mdx",
+        "bytes": 10316,
+        "sha256": "9a9a8b44561dba0fc5df4759328928ad7b8efe3927a1cff6b6867d3e3b2430ee"
+      },
+      "after": {
+        "path": "content/data-hardware/robot-learning-stack.mdx",
+        "bytes": 10400,
+        "sha256": "d99fefaa46143123a2137469f40151feff6f3c8824ee35e796b95b09b7628ff7"
+      },
+      "mounts": [
+        "openvla-overview-2024",
+        "droid-camera-calibration-2024"
+      ],
+      "edits": [
+        {
+          "before": "A robot-learning system is a pipeline from physical events to decisions and back again; the checkpoint is one component among capture, schemas, training, evaluation, serving and recovery. The open-source LeRobot library spans that stack, from motor middleware to dataset storage, streaming and asynchronous inference <Cite id=\"lerobot-paper-2026\" />.\n\n",
+          "after": "A robot-learning system is a pipeline from physical events to decisions and back again; the checkpoint is one component among capture, schemas, training, evaluation, serving and recovery. The open-source LeRobot library spans that stack, from motor middleware to dataset storage, streaming and asynchronous inference <Cite id=\"lerobot-paper-2026\" />.\n\n<Image id=\"openvla-overview-2024\" />\n\n"
+        },
+        {
+          "before": "Record firmware, control mode and calibrated transforms for every camera, encoder, gripper and sensor: a dataset split cannot correct an unrecorded camera move. Time offsets between sensors are calibration parameters too, estimable together with the spatial ones <Cite id=\"kalibr-2013\" />, and [calibration](/classical/calibration) covers the residuals.\n",
+          "after": "Record firmware, control mode and calibrated transforms for every camera, encoder, gripper and sensor: a dataset split cannot correct an unrecorded camera move. Time offsets between sensors are calibration parameters too, estimable together with the spatial ones <Cite id=\"kalibr-2013\" />, and [calibration](/classical/calibration) covers the residuals.\n\n<Image id=\"droid-camera-calibration-2024\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "6aa2e8b04e9f0d7a491f1aa52c74b363473a3994",
+      "before": {
+        "path": "content/data-hardware/teleop-rigs.mdx",
+        "bytes": 8784,
+        "sha256": "cea19803af57601809d29f0e26061bda4ff1226257286b90abcf8470c889e0bc"
+      },
+      "after": {
+        "path": "content/data-hardware/teleop-rigs.mdx",
+        "bytes": 8874,
+        "sha256": "ddf115791949d04f844312d78797864dfd4d0b88fff8bdd3ba29fb41c3c513ab"
+      },
+      "mounts": [
+        "inl-hot-cell-manipulators-2006",
+        "umi-handheld-grippers-2024"
+      ],
+      "edits": [
+        {
+          "before": "<Term id=\"teleoperation\">Teleoperation</Term> rigs are the hardware a person moves to drive a robot, or a stand-in for one, while a demonstration is recorded. Leader-follower arms, GELLO replicas, UMI handheld grippers and VR headsets trade cost and collection speed against the embodiment gap, and the largest corpora reported by 2026, 100,000 hours and more, came from wearable and handheld devices <Cite id=\"generalist-gen1-2026\" /> <Cite id=\"xiaomi-robotics-1-2026\" />.\n\n",
+          "after": "<Term id=\"teleoperation\">Teleoperation</Term> rigs are the hardware a person moves to drive a robot, or a stand-in for one, while a demonstration is recorded. Leader-follower arms, GELLO replicas, UMI handheld grippers and VR headsets trade cost and collection speed against the embodiment gap, and the largest corpora reported by 2026, 100,000 hours and more, came from wearable and handheld devices <Cite id=\"generalist-gen1-2026\" /> <Cite id=\"xiaomi-robotics-1-2026\" />.\n\n<Image id=\"inl-hot-cell-manipulators-2006\" />\n\n"
+        },
+        {
+          "before": "The UMI operator holds a 3D-printed parallel-jaw gripper with a wrist-mounted GoPro and a 155-degree fisheye lens; SLAM recovers the gripper pose from the video. The paper bills the printed gripper at \\$73 and the GoPro and accessories at \\$298, for a \\$371 rig <Cite id=\"umi-2024\" />. On cup arrangement the project site reports 111 demonstrations per hour, against 35 for spacemouse teleoperation and 231 by bare hand <Cite id=\"umi-gripper-site-2024\" />.\n",
+          "after": "The UMI operator holds a 3D-printed parallel-jaw gripper with a wrist-mounted GoPro and a 155-degree fisheye lens; SLAM recovers the gripper pose from the video. The paper bills the printed gripper at \\$73 and the GoPro and accessories at \\$298, for a \\$371 rig <Cite id=\"umi-2024\" />. On cup arrangement the project site reports 111 demonstrations per hour, against 35 for spacemouse teleoperation and 231 by bare hand <Cite id=\"umi-gripper-site-2024\" />.\n\n<Image id=\"umi-handheld-grippers-2024\" />\n"
         }
       ]
     },

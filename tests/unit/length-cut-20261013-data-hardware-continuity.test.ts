@@ -13,7 +13,8 @@ import { DID_YOU_KNOW } from '../../data/did-you-know';
 import { preDataHardwareCut, preFrontierLengthCut, preImageMounts, preSeoPass } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-const read = (path: string) => readFileSync(join(root, path));
+// The newer image-mount layer (the data-hardware images of 2026-10-15) hands back the cut's successor first.
+const read = (path: string) => preImageMounts(path);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /data-hardware cut continuity drift/;
 const blank = { bytes: 0, sha256: '' };
@@ -58,8 +59,8 @@ describe('data-hardware domain pass and length cut 2026-10-13 article successors
       expect([prior.length, sha(prior)]).toEqual([source.before.bytes, source.before.sha256]);
       expect(dataHardwareCutPredecessor(root, source.after, live)).toBe(live);
       // Older checks read the rebuilt bytes through the shared helper chain:
-      // the image-mount layer, which now sits innermost and mounts no image
-      // on these articles, hands this layer its successor, the frontier layer leaves
+      // the image-mount layer, which mounted images on the cut articles after
+      // this pass, hands this layer its successor, the frontier layer leaves
       // the data-hardware articles alone, and the SEO-pass reader still
       // rebuilds its own earlier article from them.
       expect(sha(preImageMounts(source.after.path))).toBe(source.after.sha256);

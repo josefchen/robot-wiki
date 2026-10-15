@@ -842,12 +842,31 @@ const anatomy4WorldModels20261015Appends = merged
   .filter(x => x.id.startsWith('anatomy-4-world-models-20261015-')).map(x => x.id);
 // The discovery pass of 2026-10-14 (opus-pass-home-hubs-and-discovery: the
 // domain hubs, glossary, A-Z, search and about pages) lands after the adjacent
-// images and the world-models b02 figure batch and appends its block last: one edge per rewritten article summary
+// images and the world-models b02 figure batch and appends its block: one edge per rewritten article summary
 // in data/modules.ts and one each for the modules and glossary sources, each
 // from the member's last approved endpoint or one resolution from the seal
 // where the member's chain already holds one.
 const homeHubs20261014Appends = merged
   .filter(x => x.id.startsWith('opus-pass-home-hubs-20261014-')).map(x => x.id);
+// The isometric figure batch b06 of 2026-10-15 (the shared episode-success
+// calculator, the deployment payback calculator and the gait scene redrawn
+// as working machines, under the owner directive of 2026-10-12) lands after
+// the discovery pass of 2026-10-14 and appends its block: one edge per
+// accessible name its redrawn figures moved, from the member's last approved
+// endpoint.
+const anatomyB0620261015Appends = merged
+  .filter(x => x.id.startsWith('anatomy-b06-figures-20261015-')).map(x => x.id);
+// The data-hardware images of 2026-10-15 (the owner's image directive of
+// 2026-10-11, applied to the seven data-hardware articles after their length
+// cut) land after the isometric figure batch b06 and append their block last:
+// one prose edge per article that gained image mounts, each from the member's
+// last approved endpoint or one resolution from the seal where the member's
+// chain already holds one, one edge from an absent seal per registered image
+// they added, and one plain edge for the caption of the bundle A DROID figure
+// they reuse. The image-mount continuity review rebuilds each article's
+// earlier bytes.
+const imagesDh20261015Appends = merged
+  .filter(x => x.id.startsWith('images-dh-20261015-')).map(x => x.id);
 const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,
   ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends,
   ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends,
@@ -856,7 +875,7 @@ const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends
   ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends,
   ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends,
   ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends,
-  ...homeHubs20261014Appends];
+  ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends];
 const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));
 const howRobotsWorkAppends = [
   'how-robots-work-20261002-accessible-names-explainers-rail',
@@ -943,7 +962,15 @@ const anatomy4WorldModels20261015Edges = (manifest: string, memberId: string) =>
 const homeHubs20261014Edges = (manifest: string, memberId: string) => merged
   .filter(x => homeHubs20261014Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
   .map(x => x.id);
-const afterAnatomy4WorldModels20261015 = merged.length - homeHubs20261014Appends.length;
+const anatomyB0620261015Edges = (manifest: string, memberId: string) => merged
+  .filter(x => anatomyB0620261015Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const imagesDh20261015Edges = (manifest: string, memberId: string) => merged
+  .filter(x => imagesDh20261015Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const afterAnatomyB0620261015 = merged.length - imagesDh20261015Appends.length;
+const afterHomeHubs20261014 = afterAnatomyB0620261015 - anatomyB0620261015Appends.length;
+const afterAnatomy4WorldModels20261015 = afterHomeHubs20261014 - homeHubs20261014Appends.length;
 const afterImagesBAdjacent20261015 = afterAnatomy4WorldModels20261015 - anatomy4WorldModels20261015Appends.length;
 const afterAdjacentCut20261014 = afterImagesBAdjacent20261015 - imagesBAdjacent20261015Appends.length;
 const afterImagesFrontier20261015 = afterAdjacentCut20261014 - adjacentCut20261014Appends.length;
@@ -1022,7 +1049,8 @@ describe('two-parent exact approval reconciliation', () => {
     // adjacent domain pass and length cut appends its block, the adjacent
     // images of bundle B append their block, the 2026-10-15 world-models b02
     // isometric figure batch appends its block, and the 2026-10-14 discovery
-    // pass (hubs, glossary, A-Z, search, about) appends its block last.
+    // pass (hubs, glossary, A-Z, search, about) appends its block, and the
+    // 2026-10-15 isometric figure batch b06 appends its block last.
     expect([main.length, local.length, localOnly.length, merged.length])
       .toEqual([1558, 1104, 7, 2026 + readerFirstAppends.length + howRobotsWorkAppends.length
         + readerFirstManipulationAppends.length + kolBacklog20261005Appends.length
@@ -1037,11 +1065,12 @@ describe('two-parent exact approval reconciliation', () => {
         + frontierLengthCut20261014Appends.length + dataHardwareCut20261013Appends.length
         + imagesFrontier20261015Appends.length + adjacentCut20261014Appends.length
         + imagesBAdjacent20261015Appends.length + anatomy4WorldModels20261015Appends.length
-        + homeHubs20261014Appends.length]);
+        + homeHubs20261014Appends.length + anatomyB0620261015Appends.length
+        + imagesDh20261015Appends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -1388,8 +1417,8 @@ describe('two-parent exact approval reconciliation', () => {
       // Only a named figure-migration, SEO pass, reader-first, 2026-10-05 KOL
       // backlog or later pass edge (up to the second isometric figure landing's
       // mount edges, the frontier length cut, the humanize pass, images bundle A,
-      // the data-hardware cut, the frontier images, the adjacent cut and the
-      // adjacent images of bundle B)
+      // the data-hardware cut, the frontier images, the adjacent cut, the
+      // adjacent images of bundle B and the data-hardware images)
       // may follow the restore; the restore is
       // checked against the chain it closed.
       const edges = all.slice(0, all.findIndex(x => x.id === round6ProseRestoreAppends[index]) + 1);
@@ -1404,7 +1433,7 @@ describe('two-parent exact approval reconciliation', () => {
         ...dataHardwareCut20261013Edges('prose', memberId), ...imagesFrontier20261015Edges('prose', memberId),
         ...adjacentCut20261014Edges('prose', memberId),
         ...imagesBAdjacent20261015Edges('prose', memberId),
-        ...homeHubs20261014Edges('prose', memberId)]);
+        ...homeHubs20261014Edges('prose', memberId), ...imagesDh20261015Edges('prose', memberId)]);
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       const entry = edges.at(-1)!;
       const prior = edges.slice(0, -1);
@@ -1944,9 +1973,10 @@ describe('two-parent exact approval reconciliation', () => {
       // figure mount in the robot-learning stack), the frontier length cut
       // (safety and assurance), the humanize pass, images bundle A of
       // 2026-10-13, the 2026-10-14 frontier length cut (dexterity), the
-      // data-hardware cut of 2026-10-13, the frontier images of 2026-10-15 and
-      // the adjacent cut of 2026-10-14 may move a member after it, in that
-      // order.
+      // data-hardware cut of 2026-10-13, the frontier images of 2026-10-15,
+      // the adjacent cut of 2026-10-14, the adjacent images of bundle B, the
+      // discovery pass and the data-hardware images of 2026-10-15 may move a
+      // member after it, in that order.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id)).toEqual([
         ...frontierPass20261010Edges(entry.manifest, entry.memberId),
         ...worldModelsLengthCut20261012Edges(entry.manifest, entry.memberId),
@@ -1959,7 +1989,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...imagesFrontier20261015Edges(entry.manifest, entry.memberId),
         ...adjacentCut20261014Edges(entry.manifest, entry.memberId),
         ...imagesBAdjacent20261015Edges(entry.manifest, entry.memberId),
-        ...homeHubs20261014Edges(entry.manifest, entry.memberId)]);
+        ...homeHubs20261014Edges(entry.manifest, entry.memberId),
+        ...imagesDh20261015Edges(entry.manifest, entry.memberId)]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
@@ -2187,15 +2218,17 @@ describe('two-parent exact approval reconciliation', () => {
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
       // Only the frontier length cut, then the data-hardware cut (one figure
       // mount in the robot-learning stack), then the frontier images of
-      // 2026-10-15, the adjacent cut and the adjacent images of bundle B, which
-      // landed after this landing, may move a member after it, in that order.
+      // 2026-10-15, the adjacent cut, the adjacent images of bundle B, the
+      // discovery pass and the data-hardware images, which landed after this
+      // landing, may move a member after it, in that order.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id)).toEqual([
         ...frontierLengthCut20261013Edges(entry.manifest, entry.memberId),
         ...dataHardwareCut20261013Edges(entry.manifest, entry.memberId),
         ...imagesFrontier20261015Edges(entry.manifest, entry.memberId),
         ...adjacentCut20261014Edges(entry.manifest, entry.memberId),
         ...imagesBAdjacent20261015Edges(entry.manifest, entry.memberId),
-        ...homeHubs20261014Edges(entry.manifest, entry.memberId)]);
+        ...homeHubs20261014Edges(entry.manifest, entry.memberId),
+        ...imagesDh20261015Edges(entry.manifest, entry.memberId)]);
       expect(anatomy2Figures20261012Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -2424,8 +2457,8 @@ describe('two-parent exact approval reconciliation', () => {
       .toEqual(imagesA20261013Appends);
     const review: { sources: Array<{ after: { path: string }; mounts: string[] }> } = JSON.parse(
       readFileSync('audit/evidence/image-mounts-20261013/source-transition.json', 'utf8'));
-    // The shared review also holds the frontier articles (2026-10-15) and the
-    // adjacent articles of bundle B (2026-10-15).
+    // Bundle A's articles; the frontier, adjacent (bundle B) and data-hardware
+    // articles the same review holds belong to their own 2026-10-15 blocks.
     const bundleA = review.sources.filter(({ after }) =>
       /^content\/(manipulation|world-models|classical|rl-sim2real)\//.test(after.path));
     expect(bundleA).toHaveLength(40);
@@ -2450,7 +2483,12 @@ describe('two-parent exact approval reconciliation', () => {
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
-      expect(edges.at(-1)).toBe(entry);
+      // Only the data-hardware images of 2026-10-15, which landed after this
+      // landing, may move a member after it (the caption of the DROID figure
+      // they reuse).
+      expect(edges).toContain(entry);
+      expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
+        .toEqual(imagesDh20261015Edges(entry.manifest, entry.memberId));
       expect(imagesA20261013Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -2583,13 +2621,15 @@ describe('two-parent exact approval reconciliation', () => {
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
-      // Only the frontier images of 2026-10-15 and the adjacent cut of
-      // 2026-10-14, which landed after this pass, may move a member after it
-      // (the citation rendering record).
+      // Only the frontier images of 2026-10-15, the adjacent cut of 2026-10-14
+      // and the data-hardware images of 2026-10-15, which landed after this
+      // pass, may move a member after it (the citation rendering record and
+      // the article prose).
       expect(edges).toContain(entry);
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id)).toEqual([
         ...imagesFrontier20261015Edges(entry.manifest, entry.memberId),
-        ...adjacentCut20261014Edges(entry.manifest, entry.memberId)]);
+        ...adjacentCut20261014Edges(entry.manifest, entry.memberId),
+        ...imagesDh20261015Edges(entry.manifest, entry.memberId)]);
       expect(dataHardwareCut20261013Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -2877,7 +2917,8 @@ describe('two-parent exact approval reconciliation', () => {
   });
 
   it('binds each 2026-10-14 discovery pass edge to its previous endpoint or to the sealed hash', () => {
-    expect(merged.slice(afterAnatomy4WorldModels20261015).map(x => x.id)).toEqual(homeHubs20261014Appends);
+    expect(merged.slice(afterAnatomy4WorldModels20261015, afterHomeHubs20261014).map(x => x.id))
+      .toEqual(homeHubs20261014Appends);
     const prefix = 'opus-pass-home-hubs-20261014-';
     const summaries = homeHubs20261014Appends.filter(id => id.startsWith(`${prefix}summary-`));
     // One edge per rewritten article summary, then the modules and glossary
@@ -2911,6 +2952,121 @@ describe('two-parent exact approval reconciliation', () => {
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
+      if (prior.some(x => x.reconciles !== undefined)) {
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));
+      } else {
+        expect(entry.reconciles).toBeUndefined();
+        expect(entry.oldHash).toBe(previous);
+      }
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
+  });
+
+  it('binds each 2026-10-15 isometric figure edge to its previous endpoint, and names only the redrawn figures', () => {
+    expect(merged.slice(afterHomeHubs20261014, afterAnatomyB0620261015).map(x => x.id))
+      .toEqual(anatomyB0620261015Appends);
+    expect(anatomyB0620261015Appends).toEqual([
+      'anatomy-b06-figures-20261015-accessible-names-reliability-compounding-expression-aria-label-3',
+    ]);
+    // The edge is an accessible name on a redrawn figure, cites the owner
+    // directive that ordered the redraw, and is not release approval.
+    const sources = ['reliability-compounding', 'deployment-economics'].map(name => `components/interactive/${name}.tsx`);
+    for (const id of anatomyB0620261015Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      expect(entry.manifest).toBe('accessible-names');
+      expect(sources).toContain(entry.memberId.replace(/^(?:expression|literal):/, '').replace(/:aria-label:\d+$/, ''));
+      expect(entry.ownerApproval).toContain(
+        '"Redo all of the animations and stuff like that with this type of animation and with this skill');
+      expect(entry.ownerApproval).toContain('Not release approval.');
+      expect(entry.reason).toContain('marble run');
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      expect(edges.at(-1)).toBe(entry);
+      expect(anatomyB0620261015Edges(entry.manifest, entry.memberId)).toEqual([id]);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      const previous = prior.at(-1)?.newHash ?? sealed;
+      expect(prior.some(x => x.reconciles !== undefined)).toBe(false);
+      expect(entry.reconciles).toBeUndefined();
+      expect(entry.oldHash).toBe(previous);
+      expect(entry.newHash).not.toBe(previous);
+      expect(approvedDeltaPath(prior, sealed, previous).status).toBe('approved');
+      // The old line chart's name is gone: the chain from the sealed name now
+      // ends at the absent member, and this removal edge is the approved path
+      // that drops it from the article-truth population.
+      expect(sealed).not.toBe(MISSING_MEMBER);
+      expect(entry.newHash).toBe(MISSING_MEMBER);
+      expect(approvedDeltaPath(edges, sealed, entry.newHash).status).toBe('approved');
+      // Before it, the member's last approved endpoint was the old chart name, still present.
+      expect(previous).not.toBe(MISSING_MEMBER);
+    }
+  });
+
+  it('binds each 2026-10-15 data-hardware image edge to its previous endpoint or to an absent seal', () => {
+    expect(merged.slice(afterAnatomyB0620261015).map(x => x.id)).toEqual(imagesDh20261015Appends);
+    const review: { sources: Array<{ after: { path: string }; mounts: string[] }> } = JSON.parse(
+      readFileSync('audit/evidence/image-mounts-20261013/source-transition.json', 'utf8'));
+    const dataHardware = review.sources.filter(({ after }) => after.path.startsWith('content/data-hardware/'));
+    const articles = dataHardware.map(({ after }) => after.path.replace(/^content\//, '').replace(/\.mdx$/, ''));
+    expect(articles).toEqual(['data-bottleneck', 'datasets', 'evaluation-crisis', 'hardware-taxonomy',
+      'industrial-deployment', 'robot-learning-stack', 'teleop-rigs'].map(slug => `data-hardware/${slug}`));
+    const mounted = new Set(dataHardware.flatMap(({ mounts }) => mounts));
+    // The landing reuses four bundle A entries (one caption changes) and registers the rest.
+    const reused = ['droid-in-the-wild-scenes-2024', 'jetson-agx-orin-auledas-2024', 'open-x-embodiment-overview-2023',
+      'roboarena-evaluation-2025'];
+    for (const image of reused) expect(mounted).toContain(image);
+    const images = [...mounted].filter(image => !reused.includes(image));
+    expect(images).toHaveLength(11);
+    const byMember = (a: string, b: string) => a.localeCompare(b, 'en', { numeric: true });
+    // One prose edge per article that gained image mounts, then one edge per
+    // registered image and the reused caption, each group in member order.
+    expect(imagesDh20261015Appends).toEqual([
+      ...articles.map(article => `images-dh-20261015-prose-${article.replace('/', '-')}`),
+      ...[...images, 'droid-in-the-wild-scenes-2024'].map(image => `registered-image:${image}`).sort(byMember)
+        .map(memberId => `images-dh-20261015-assets-svg-${memberId.replace(':', '-')}`),
+    ]);
+    for (const id of imagesDh20261015Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      // Approved by the owner's directive, and not a release approval.
+      expect(entry.ownerApproval).toContain(
+        '"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia"');
+      expect(entry.ownerApproval).toContain('Not release approval.');
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      expect(edges.at(-1)).toBe(entry);
+      expect(imagesDh20261015Edges(entry.manifest, entry.memberId)).toEqual([id]);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      const previous = prior.at(-1)?.newHash ?? sealed;
+      expect(entry.newHash).not.toBe(previous);
+      if (entry.manifest === 'prose') {
+        // An article edge names the continuity review that rebuilds the
+        // article's earlier bytes by taking out exactly its image mounts, and
+        // follows the data-hardware cut's edge on the same member.
+        expect(articles).toContain(entry.memberId.slice('article:'.length));
+        expect(entry.reason).toContain('audit/evidence/image-mounts-20261013/source-transition.json');
+        expect(dataHardwareCut20261013Edges(entry.manifest, entry.memberId)).toHaveLength(1);
+      } else if (entry.memberId === 'registered-image:droid-in-the-wild-scenes-2024') {
+        // The reused bundle A entry: one plain edge after bundle A's own, for its caption only.
+        expect(prior.map(x => x.id)).toEqual(['images-a-20261013-assets-svg-registered-image-droid-in-the-wild-scenes-2024']);
+        expect(entry.reason).toContain('caption');
+        expect(entry.reason).toContain('data-hardware/data-bottleneck');
+      } else {
+        // A registered image is new: the seal never held it and no earlier
+        // edge names it.
+        expect(entry.manifest).toBe('assets-svg');
+        const image = entry.memberId.slice('registered-image:'.length);
+        expect(images).toContain(image);
+        expect(sealed).toBe(MISSING_MEMBER);
+        expect(prior).toEqual([]);
+        expect(entry.reason).toContain(`public/images/${image}.jpg`);
+      }
       if (prior.some(x => x.reconciles !== undefined)) {
         expect(entry.oldHash).toBe(sealed);
         expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));

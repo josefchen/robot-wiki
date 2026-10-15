@@ -26,7 +26,7 @@ import {
   sealedHash,
   showAt,
 } from './helpers/continuation-merge-ledger';
-import { preDataHardwareCut, preKolBacklog, preReaderFirst, preSeoPassText } from '../helpers/seo-pass';
+import { preDataHardwareCut, preImageMounts, preKolBacklog, preReaderFirst, preSeoPassText } from '../helpers/seo-pass';
 
 const ledgerPath = 'audit/data-hardware.md';
 const markdown = readFileSync(ledgerPath, 'utf8');
@@ -353,14 +353,24 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     });
     expect(kol.newHash).toBe(proseHash(preDataHardwareCut(articlePath).toString('utf8')));
     // The 2026-10-13 data-hardware domain pass and length cut resolution binds
-    // the KOL endpoint and reaches the live article.
+    // the KOL endpoint and reaches the article before its image mounts.
     const cut = approvals.find(delta =>
       delta.id === 'length-cut-20261013-data-hardware-prose-industrial-deployment')!;
     expect(cut.oldHash).toBe(preMotion.oldHash);
     expect(cut.reconciles?.at(-1)).toEqual({
       id: kol.id, oldHash: kol.oldHash, newHash: kol.newHash,
     });
-    expect(cut.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
+    expect(cut.newHash).toBe(proseHash(preImageMounts(articlePath).toString('utf8')));
+    // The data-hardware images' resolution of 2026-10-15 binds the cut
+    // endpoint and reaches the live article, which gains its three image
+    // mounts.
+    const images = approvals.find(delta =>
+      delta.id === 'images-dh-20261015-prose-data-hardware-industrial-deployment')!;
+    expect(images.oldHash).toBe(preMotion.oldHash);
+    expect(images.reconciles?.at(-1)).toEqual({
+      id: cut.id, oldHash: cut.oldHash, newHash: cut.newHash,
+    });
+    expect(images.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
     expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
     expect(showAt('ac65cf4', articlePath).match(/<Cite\s/g)).toHaveLength(33);
     expect(showAt('0cbdda1', articlePath).match(/<Cite\s/g)).toHaveLength(34);

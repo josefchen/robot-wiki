@@ -1,29 +1,50 @@
 'use client';
 
-import { AnimatedElement, AnimatedGroup, AnimatedPath } from '@/components/motion/animated';
+import { AnimatedElement, AnimatedGroup } from '@/components/motion/animated';
 import { clamp01, smooth } from '@/components/motion/easing';
-import { focusViewBox, laggedProgress } from '@/components/motion/primitives';
-import { AnimatedRobotDog, type DogFeet, type DogPose } from '@/components/motion/robot-dog';
 import { SceneMount } from '@/components/motion/scene-mount';
 import { StageSvg } from '@/components/motion/stage';
 import { beatSpans, type SceneDefinition } from '@/components/motion/timeline';
 import { LegendItem } from '@/components/ui/instrument';
+import { PartView } from '@/components/iso/part-view';
+import type { SolidPaths, Tone } from '@/components/iso/iso-kit';
 import {
-  DEFAULT_GAIT, GAITS, GAIT_ORDER, legPhase, minStanceCount, stanceLegs,
+  BELT_BAND,
+  BODY_PARTS,
+  FOOT_ORDER,
+  PAPER_PER_STRIDE,
+  PARTS,
+  STRIDE,
+  VIEW_BOX,
+  beltSlats,
+  blendPose,
+  bodyShift,
+  gaitPose,
+  inkBars,
+  legParts,
+  needlePath,
+  penParts,
+  type FootPose,
+  type Slot,
+} from '@/components/iso/figures/gait-treadmill';
+import {
+  DEFAULT_GAIT, GAITS, GAIT_ORDER, minStanceCount, stanceLegs,
   type GaitId, type LegId,
 } from '@/lib/gait';
-import { MOTION_CAMERA } from '@/lib/motion-tokens';
 
 /**
- * Gait support: three robot dogs line up on one ground line, one per gait,
- * from the walk to the hop. Each beat brings in the next dog; the camera
- * closes in while it takes two strides, then pulls back as it stops at the
- * moment that shows its gait best: three feet down in the walk, two in the
- * trot, none mid-leap in the hop. A last, still beat draws the trade the
- * line-up teaches, from steadier to more bounce, over all three dogs; its
- * end is the poster. The bound sits between the trot and the hop but also
- * stops mid-leap with no feet down, so drawn beside the hop it hid the
- * trend; its numbers stay in "How this was made".
+ * Gait support: one four-legged robot on a treadmill
+ * (components/iso/figures/gait-treadmill.ts), wired to a four-pen gait
+ * recorder. Each beat the robot changes gait and takes two strides: a pen
+ * inks its lane on the moving paper while its foot is on the ground, and the
+ * control box's counter shows how many feet are down. It walks with three
+ * feet down, trots with two, and hops with at times none, and the paper
+ * keeps all three side by side, so the recap holds the whole trade: which
+ * feet move together decides how many stay on the ground. Each beat ends on
+ * the moment that shows its gait best: three feet down in the walk, two in
+ * the trot, none mid-leap in the hop. The bound sits between the trot and
+ * the hop but also stops mid-leap with no feet down, so beside the hop it
+ * hid the trend; its numbers stay in "How this was made".
  */
 export const GAIT_SUPPORT_SCENE: SceneDefinition = {
   id: 'gait-support',
@@ -41,34 +62,32 @@ export const GAIT_SUPPORT_SCENE: SceneDefinition = {
   ],
 };
 
-/** The gaits the line-up draws, left to right. */
+/** The gaits the robot runs through, one per beat, in order. */
 export const LINE_UP: readonly GaitId[] = ['walk', 'trot', 'pronk'];
 
 /** Four moments of the stride at which the method note lists the feet on the ground. */
 export const GAIT_SUPPORT_SAMPLES = [0.10, 0.48, 0.60, 0.98] as const;
 
 const SPANS = beatSpans(GAIT_SUPPORT_SCENE.beats);
-/** Strides the newest dog takes in its beat; whole strides end it where it started. */
-const STRIDES_PER_BEAT = 2;
+/** Strides the robot takes in each gait's beat; whole strides end it where it started. */
+export const STRIDES_PER_BEAT = 2;
 /**
- * The moment of the stride each dog stops at: the walk with one back foot
+ * The moment of the stride each beat ends on: the walk with one back foot
  * up, the trot on a diagonal pair, the bound and the hop mid-leap.
  */
 export const SETTLE_PHASE: Record<GaitId, number> = { walk: 0.875, trot: 0.25, bound: 0.475, pronk: 0.675 };
 /**
- * Within each beat the camera is in by 30%, holds to 60% and is home by
- * 85%. The newest dog steps from 10% to 85%, and the labels come back after.
+ * Within each gait's beat the robot changes gait (and the paper feeds a
+ * blank gap) by 10%, strides from 10% to 85%, and holds its settle moment
+ * to the end.
  */
-const CAMERA = { inStart: 0.1, inEnd: 0.3, outStart: 0.6, outEnd: 0.85 } as const;
-/** The recap follows the last gait: no dog steps and the camera stays home. */
+export const BEAT_TIMING = { change: 0.1, strideEnd: 0.85 } as const;
+/** The blank paper fed between two gaits. */
+export const PAPER_GAP = 4;
+/** The recap follows the last gait: the robot holds still and the chart is complete. */
 export const RECAP_INDEX = LINE_UP.length;
-/** The trade arrives left to right, the way the line-up reads: steadier, the arrow drawing on, more bounce. */
-const TRADE_LABELS: readonly string[] = ['steadier', 'arrow', 'bounce'];
-/** In the recap the trade arrives one lag apart by 60% of the beat, then the whole picture holds. */
-export const RECAP_REVEAL = { start: 0.1, end: 0.6 } as const;
 
 const wrap01 = (v: number) => ((v % 1) + 1) % 1;
-const r = (v: number) => Number(v.toFixed(2));
 const r3 = (v: number) => Number(v.toFixed(3));
 
 /** Plain names for the four gaits, in order. */
@@ -84,36 +103,100 @@ function beatAt(t: number) {
   return { index, u: clamp01((t - span.start) / span.duration) };
 }
 
-/** How far the camera has closed in on the newest dog, 0 (home) to 1; home at every beat end and in the recap. */
-function cameraShare(index: number, u: number): number {
-  if (index >= RECAP_INDEX || u <= CAMERA.inStart || u >= CAMERA.outEnd) return 0;
-  if (u < CAMERA.inEnd) return (u - CAMERA.inStart) / (CAMERA.inEnd - CAMERA.inStart);
-  if (u < CAMERA.outStart) return 1;
-  return (CAMERA.outEnd - u) / (CAMERA.outEnd - CAMERA.outStart);
+/** How far through its two strides the robot is in a gait's beat, 0 to 1, eased in and out. */
+const strided = (u: number) => smooth(clamp01((u - BEAT_TIMING.change) / (BEAT_TIMING.strideEnd - BEAT_TIMING.change)));
+/** Where the robot is in its stride: it steps, easing in and out, and stops where it began. */
+const steppingPhase = (gait: GaitId, u: number) => r3(wrap01(SETTLE_PHASE[gait] + STRIDES_PER_BEAT * (strided(u) - 1)));
+/** Paper fed per gait's beat: the gap, then the two strides. */
+const SECTION = PAPER_GAP + STRIDES_PER_BEAT * PAPER_PER_STRIDE;
+
+/** The stretches of a stride range (from phase a, a stride count long) a foot spends on the ground, as stride offsets. */
+function stanceStretches(gait: GaitId, leg: LegId, from: number, strides: number): Array<[number, number]> {
+  const { dutyFactor, offsets } = GAITS[gait];
+  const out: Array<[number, number]> = [];
+  for (let k = Math.floor(from - offsets[leg]) - 1; k <= Math.ceil(from + strides - offsets[leg]) + 1; k++) {
+    const start = offsets[leg] + k;
+    const a = Math.max(start, from);
+    const b = Math.min(start + dutyFactor, from + strides);
+    if (b > a) out.push([a - from, b - from]);
+  }
+  return out;
 }
 
-/** Where the newest dog is in its stride: it steps, easing in and out, and stops where it began. */
-function steppingPhase(gait: GaitId, u: number): number {
-  const stepping = smooth(clamp01((u - CAMERA.inStart) / (CAMERA.outEnd - CAMERA.inStart)));
-  return r3(wrap01(SETTLE_PHASE[gait] + STRIDES_PER_BEAT * (stepping - 1)));
+/**
+ * The ink each lane carries for a gait once its beat has run to `progress`
+ * (0 to 1 of its strides), in paper positions: its section starts after the
+ * earlier gaits' sections and a blank gap.
+ */
+function inkFor(gait: GaitId, leg: LegId, progress: number): Array<readonly [number, number]> {
+  const index = LINE_UP.indexOf(gait);
+  const start = index * SECTION + PAPER_GAP;
+  const from = SETTLE_PHASE[gait] - STRIDES_PER_BEAT;
+  const done = STRIDES_PER_BEAT * progress;
+  return stanceStretches(gait, leg, from, STRIDES_PER_BEAT)
+    .map(([a, b]) => [a, Math.min(b, done)] as const)
+    .filter(([a, b]) => b > a)
+    .map(([a, b]) => [start + a * PAPER_PER_STRIDE, start + b * PAPER_PER_STRIDE] as const);
 }
 
-/** The scene at time t: the newest dog, its stride, the camera, and the gaits met so far. */
+/** The robot's pose at time t: a gait's moment, or a blend from the last gait's settle moment while it changes gait. */
+function poseAt(t: number) {
+  const { index, u } = beatAt(t);
+  if (index >= RECAP_INDEX) return gaitPose('pronk', SETTLE_PHASE.pronk);
+  const gait = LINE_UP[index];
+  const here = gaitPose(gait, steppingPhase(gait, u));
+  if (index === 0 || u >= BEAT_TIMING.change) return here;
+  const before = LINE_UP[index - 1];
+  return blendPose(gaitPose(before, SETTLE_PHASE[before]), here, smooth(u / BEAT_TIMING.change));
+}
+
+/** The feet on the ground at time t. */
+const feetDownAt = (t: number) => poseAt(t).feet.filter((foot) => foot.down).length;
+
+/** The scene at time t: the gait, its stride, the paper and the ink, the counter and the belt. */
 export function gaitSupportFrame(t: number) {
   const { index, u } = beatAt(t);
   const recap = index >= RECAP_INDEX;
   const gait = LINE_UP[Math.min(index, RECAP_INDEX - 1)];
+  const pose = poseAt(t);
+  // Paper: whole sections for the beats run, then this beat's gap and strides.
+  const paper = recap
+    ? LINE_UP.length * SECTION
+    : index * SECTION + PAPER_GAP * smooth(Math.min(1, u / BEAT_TIMING.change)) + STRIDES_PER_BEAT * PAPER_PER_STRIDE * strided(u);
+  // The belt carries a foot on the ground back a stride per stance: faster for a shorter stance.
+  const belt = LINE_UP.slice(0, Math.min(index, RECAP_INDEX)).reduce((sum, id) => sum + (STRIDES_PER_BEAT * STRIDE) / GAITS[id].dutyFactor, 0) +
+    (recap ? 0 : (STRIDES_PER_BEAT * STRIDE * strided(u)) / GAITS[gait].dutyFactor);
+  // The counter's needle averages the last 100 ms, so it swings rather than snaps.
+  const needle = [0, 25, 50, 75, 100].reduce((sum, back) => sum + feetDownAt(Math.max(0, t - back)), 0) / 5;
+  const ink = Object.fromEntries(LINE_UP.map((id, k) => [id, Object.fromEntries(FOOT_ORDER.map((leg) => [leg,
+    k < index || recap ? inkFor(id, leg, 1) : k === index ? inkFor(id, leg, strided(u)) : []]))])) as Record<GaitId, Record<LegId, Array<readonly [number, number]>>>;
   return {
     gait,
     index,
     recap,
     phase: recap ? SETTLE_PHASE[gait] : steppingPhase(gait, u),
-    camera: r3(cameraShare(index, u)),
-    visibleGaits: LINE_UP.slice(0, index + 1),
+    pose,
+    paper: r3(paper),
+    belt: r3(belt),
+    needle: r3(needle),
+    ink,
+    /** The gaits the paper carries so far. */
+    visibleGaits: LINE_UP.slice(0, recap ? RECAP_INDEX : index + 1),
     minimumSupport: Object.fromEntries(GAIT_ORDER.map((id) => [id, minStanceCount(GAITS[id])])) as Record<GaitId, number>,
     stanceAtQuarter: Object.fromEntries(GAIT_ORDER.map((id) => [id, stanceLegs(GAITS[id], 0.25)])) as Record<GaitId, LegId[]>,
   };
 }
+
+type Frame = ReturnType<typeof gaitSupportFrame>;
+/** Every binding of a moment reads the same frame, so it is computed once per moment. */
+const frameCache: { t: number; frame: Frame | null } = { t: Number.NaN, frame: null };
+const frameAt = (t: number): Frame => {
+  if (t !== frameCache.t || !frameCache.frame) {
+    frameCache.frame = gaitSupportFrame(t);
+    frameCache.t = t;
+  }
+  return frameCache.frame;
+};
 
 /** The readout line: the fewest feet the gait keeps on the ground. */
 export function supportWords(id: GaitId): string {
@@ -139,249 +222,132 @@ export function recapWords(): string {
   return `${LINE_UP.map((id, k) => `${k === 0 ? GAIT_WORDS[id] : GAIT_WORDS[id].toLowerCase()} ${LIFTS[id]}`).join(', ')}.`;
 }
 
-/** The names of the first `count` gaits, in the order they come back. */
-const nameKeys = (count: number) => LINE_UP.slice(0, count).map((id) => `name-${id}`);
+/** The mark for one foot's ink in one gait's stretch of paper. */
+export const footMark = (gait: GaitId, leg: LegId) => `${gait}-foot-${FOOT_ORDER.indexOf(leg)}`;
 
-/** How far one part of the trade has arrived in the recap, 0 to 1, before easing. */
-export function tradeProgress(key: string, t: number): number {
-  const { index, u } = beatAt(t);
-  const position = TRADE_LABELS.indexOf(key);
-  if (index < RECAP_INDEX || position < 0) return 0;
-  const reveal = clamp01((u - RECAP_REVEAL.start) / (RECAP_REVEAL.end - RECAP_REVEAL.start));
-  return laggedProgress(reveal, position, TRADE_LABELS.length);
-}
+const STATE = 'var(--role-state-stage)';
 
-/**
- * A stage label's opacity. Labels sit at fixed stage positions, so they
- * step aside while the camera leaves home and return one after another,
- * a lag apart, once it is back. In the recap the names stay and the trade
- * arrives the same way.
- */
-export function labelOpacity(key: string, t: number): number {
-  const { index, u } = beatAt(t);
-  if (index >= RECAP_INDEX) {
-    if (TRADE_LABELS.includes(key)) return r3(smooth(tradeProgress(key, t)));
-    return nameKeys(LINE_UP.length).includes(key) ? 1 : 0;
-  }
-  const order = nameKeys(index + 1);
-  const position = order.indexOf(key);
-  if (u >= CAMERA.outEnd) {
-    if (position < 0) return 0;
-    return r3(smooth(laggedProgress((u - CAMERA.outEnd) / (1 - CAMERA.outEnd), position, order.length)));
-  }
-  return nameKeys(index).includes(key) ? r3(1 - smooth(clamp01(u / CAMERA.inStart))) : 0;
-}
-
-/** A dog's opacity: the newest one fades in, the ones already lined up step back while the camera is away. */
-export function dogOpacity(k: number, t: number): number {
-  const { index, u } = beatAt(t);
-  if (k > index) return 0;
-  if (k === index) return r3(smooth(clamp01(u / CAMERA.inStart)));
-  return r3(1 - 0.65 * smooth(cameraShare(index, u)));
-}
-
-// Stage geometry, in stage units. Stage text keeps 14 CSS px at every width
-// while the drawing scales, so the trade words hang under the arrow by an
-// em offset: they stay by the arrow on a wide stage and clear it at 320 px.
-const WIDTH = 340;
-const HEIGHT = 156;
-const GROUND_Y = 106;
-const COLUMN_X = [57, 170, 283] as const;
-const STATUS_Y = 20;
-/** Gait names sit just above the highest body, clear of a dog mid-leap. */
-const NAME_Y = GROUND_Y - 60;
-const ARROW_Y = GROUND_Y + 14;
-const ARROW_HEAD = 5;
-const ARROW_LEFT = 12;
-const ARROW_RIGHT = WIDTH - 12;
-const TRADE_Y = ARROW_Y + ARROW_HEAD + 1;
-const TRADE_DY = '1.25em';
-/**
- * Each dog is drawn about its own ground point, nose to the right, then
- * scaled into its column. The far legs hang just ahead of the near ones: a
- * pair moving in step reads as one leg, where a wider gap drew it as a
- * hollow outline.
- */
-const DOG = { rear: -37, front: 25, hipY: -38, segment: 22, farOffset: 3 } as const;
-const DOG_SCALE = 0.66;
-const STRIDE = 22;
-const STEP_LIFT = 10;
-/** How high each gait's body rises at the middle of a leap. */
-const LEAP: Record<GaitId, number> = { walk: 0, trot: 0, bound: 10, pronk: 18 };
-
-/**
- * The dog's feet and how high its body rides at one moment of a gait, in
- * drawing order (back far, back near, front far, front near). A foot on the
- * ground slides back under the body; a foot in the air swings forward.
- */
-export function dogPose(id: GaitId, phase: number) {
-  const gait = GAITS[id];
-  const order: LegId[] = ['rh', 'lh', 'rf', 'lf'];
-  const legs = order.map((leg) => {
-    const p = legPhase(gait, leg, phase);
-    if (p < gait.dutyFactor) return { p, down: true, dx: STRIDE / 2 - STRIDE * (p / gait.dutyFactor), lift: 0 };
-    const swing = (p - gait.dutyFactor) / (1 - gait.dutyFactor);
-    return { p, down: false, dx: -STRIDE / 2 + STRIDE * swing, lift: STEP_LIFT * Math.sin(Math.PI * swing) };
-  });
-  let rise = 0;
-  if (legs.every((leg) => !leg.down)) {
-    // Mid-leap: from the last foot leaving the ground to the next one landing.
-    const sinceLift = Math.min(...legs.map((leg) => leg.p - gait.dutyFactor));
-    const untilLand = Math.min(...legs.map((leg) => 1 - leg.p));
-    rise = LEAP[id] * Math.sin(Math.PI * (sinceLift / (sinceLift + untilLand)));
-  }
-  const hips = [DOG.rear + DOG.farOffset, DOG.rear, DOG.front + DOG.farOffset, DOG.front];
-  const feet = legs.map((leg, i) => [r(hips[i] + leg.dx), r(-leg.lift - rise)] as const) as unknown as DogFeet;
-  return { feet, down: legs.map((leg) => leg.down), hipY: r(DOG.hipY - rise) };
-}
-
-const PAW_DOWN = 'var(--role-state-stage)';
-const INK = 'var(--motion-stage-label)';
-const DIM = 'var(--motion-stage-label-secondary)';
-const HIGHLIGHT = 'var(--role-highlight-stage)';
-
-/** Dog k's pose at time t: stepping while it is the newest, still at its settle moment after. */
-function scenePose(k: number) {
-  const id = LINE_UP[k];
-  return (t: number): DogPose => {
-    const { index, u } = beatAt(t);
-    const pose = dogPose(id, k === index ? steppingPhase(id, u) : SETTLE_PHASE[id]);
-    return { hipY: pose.hipY, feet: pose.feet, footFill: pose.down.map((down) => (down ? PAW_DOWN : undefined)) };
-  };
-}
-
-/** The camera window stays 6 units inside the stage, so a mark it cuts keeps the 4 px margin. */
-export const CAMERA_WINDOW = { x: 6, y: 6, width: WIDTH - 12, height: HEIGHT - 12 } as const;
-/**
- * What the camera closes in on: one dog, with room above the highest leap,
- * so a dimmed neighbour's head stays clear of the status label.
- */
-export const focusBox = (k: number) => ({ x: COLUMN_X[k] - 44, y: GROUND_Y - 66, width: 88, height: 72 });
-/** As close as the window still holds the whole dog, never past the token. */
-export const FOCUS_ZOOM = Math.min(
-  MOTION_CAMERA.focusMaxZoom,
-  CAMERA_WINDOW.width / focusBox(0).width,
-  CAMERA_WINDOW.height / focusBox(0).height,
-);
-
-/** The camera as a transform on the line-up, eased by focusViewBox. */
-export function gaitCameraTransform(t: number): string {
-  const { index, u } = beatAt(t);
-  const share = cameraShare(index, u);
-  if (share === 0) return 'translate(0 0) scale(1)';
-  const [x, y, width] = focusViewBox({ x: 0, y: 0, width: WIDTH, height: HEIGHT }, focusBox(index), share, FOCUS_ZOOM)
-    .split(' ')
-    .map(Number);
-  const scale = WIDTH / width;
-  return `translate(${r(-x * scale)} ${r(-y * scale)}) scale(${r3(scale)})`;
-}
-
-const CAMERA_CLIP = 'gait-support-camera';
-/**
- * The shaft grows from the steadier end as path geometry. The scene clock
- * writes each binding with setAttribute under its key, so a camelCase dash
- * binding would keep its poster value while playing.
- */
-const arrowShaft = (t: number) =>
-  `M${ARROW_LEFT} ${ARROW_Y} H${r(ARROW_LEFT + (ARROW_RIGHT - ARROW_LEFT) * smooth(tradeProgress('arrow', t)))}`;
-const ARROW_LEFT_HEAD = `M${ARROW_LEFT + ARROW_HEAD} ${ARROW_Y - ARROW_HEAD} L${ARROW_LEFT} ${ARROW_Y} L${ARROW_LEFT + ARROW_HEAD} ${ARROW_Y + ARROW_HEAD}`;
-const ARROW_RIGHT_HEAD = `M${ARROW_RIGHT - ARROW_HEAD} ${ARROW_Y - ARROW_HEAD} L${ARROW_RIGHT} ${ARROW_Y} L${ARROW_RIGHT - ARROW_HEAD} ${ARROW_Y + ARROW_HEAD}`;
-const feetDownAt = (id: GaitId) => stanceLegs(GAITS[id], SETTLE_PHASE[id]).length;
-
-/** One end of the trade-off arrow, hanging under it in the highlight role. */
-function TradeWord({ x, anchor, word, opacity }: {
-  x: number; anchor: 'start' | 'end'; word: string; opacity: (t: number) => number;
-}) {
+/** A solid whose shape changes with scene time, drawn as the kit's Solid draws it. */
+function LiveSolid({ build, tone, lit = false }: { build: (t: number) => SolidPaths; tone: Tone | ((t: number) => Tone); lit?: boolean }) {
   return (
-    <AnimatedElement
-      as="text"
-      data-scene-stage-label="annotation"
-      x={x}
-      y={TRADE_Y}
-      dy={TRADE_DY}
-      textAnchor={anchor}
-      fontSize={14}
-      fontWeight={600}
-      fill={HIGHLIGHT}
-      bindings={{ opacity }}
-    >
-      {word}
-    </AnimatedElement>
+    <g className="iso-solid" data-lit={lit ? '' : undefined}>
+      <AnimatedElement as="path" className="iso-fill" bindings={{ d: (t) => build(t).fill }} />
+      {[0, 1, 2, 3].map((shade) => (
+        <AnimatedElement key={shade} as="path" className="iso-shade" data-shade={shade} bindings={{ d: (t) => build(t).shades[shade] || 'M0 0' }} />
+      ))}
+      <AnimatedElement as="path" className="iso-top" bindings={{ d: (t) => build(t).top || 'M0 0' }} />
+      <AnimatedElement as="path" className="iso-line iso-crease" data-tone="faint" bindings={{ d: (t) => build(t).crease || 'M0 0' }} />
+      <AnimatedElement as="path" className="iso-line iso-bevel" data-tone="faint" bindings={{ d: (t) => build(t).bevel || 'M0 0' }} />
+      <AnimatedElement
+        as="path"
+        className="iso-line iso-edge"
+        data-tone={typeof tone === 'string' ? tone : undefined}
+        bindings={typeof tone === 'string' ? { d: (t) => build(t).outline } : { d: (t) => build(t).outline, 'data-tone': tone }}
+      />
+    </g>
   );
 }
 
-function GaitSupportStage() {
+/** One leg, rebuilt each moment from the pose. */
+function Leg({ leg }: { leg: LegId }) {
+  const index = FOOT_ORDER.indexOf(leg);
+  const cache: { t: number; parts: ReturnType<typeof legParts> | null } = { t: Number.NaN, parts: null };
+  const parts = (t: number) => {
+    if (t !== cache.t || !cache.parts) {
+      const { pose } = frameAt(t);
+      cache.parts = legParts(pose.feet[index] as FootPose, pose.rise);
+      cache.t = t;
+    }
+    return cache.parts;
+  };
   return (
-    <StageSvg viewBox={`0 0 ${WIDTH} ${HEIGHT}`}>
-      <text x={8} y={STATUS_Y} fontSize={14} fill={DIM}>schematic, not measured</text>
-
-      <defs data-scene-structure="camera-clip">
-        <clipPath id={CAMERA_CLIP}>
-          <rect {...CAMERA_WINDOW} />
-        </clipPath>
-      </defs>
-      {/* The camera: the ground and the dogs move with it; the labels stay on the stage. */}
-      <g clipPath={`url(#${CAMERA_CLIP})`}>
-        <AnimatedGroup data-scene-camera="" bindings={{ transform: gaitCameraTransform }}>
-          {/* The ground runs past the stage so a close-up never shows its end; the window clips it. */}
-          <g data-scene-structure="ground" stroke="var(--motion-stage-axes)" strokeWidth={1.5} strokeLinecap="round">
-            <line x1={-WIDTH} x2={2 * WIDTH} y1={GROUND_Y} y2={GROUND_Y} />
-          </g>
-          {LINE_UP.map((id, k) => (
-            <AnimatedGroup key={id} data-gait-dog={id} bindings={{ opacity: (t) => dogOpacity(k, t) }}>
-              <g transform={`translate(${COLUMN_X[k]} ${GROUND_Y}) scale(${DOG_SCALE})`}>
-                <AnimatedRobotDog
-                  rear={DOG.rear}
-                  front={DOG.front}
-                  baseHipY={DOG.hipY}
-                  segment={DOG.segment}
-                  farOffset={DOG.farOffset}
-                  ink={INK}
-                  farLegOpacity={1}
-                  joints={false}
-                  pose={scenePose(k)}
-                  footMarks={[`${id}-foot-0`, `${id}-foot-1`, `${id}-foot-2`, `${id}-foot-3`]}
-                  testId={`gait-dog-${id}`}
-                />
-              </g>
-            </AnimatedGroup>
-          ))}
-        </AnimatedGroup>
-      </g>
-
-      {LINE_UP.map((id, k) => (
-        <AnimatedElement
-          as="text"
-          key={id}
-          data-scene-stage-label="gait-name"
-          x={COLUMN_X[k]}
-          y={NAME_Y}
-          textAnchor="middle"
-          fontSize={14}
-          fontWeight={600}
-          fill={INK}
-          bindings={{ opacity: (t) => labelOpacity(`name-${id}`, t) }}
-        >
-          {GAIT_WORDS[id]}
-        </AnimatedElement>
+    <g data-scene-part={`leg-${leg}`}>
+      {[0, 1, 2, 3, 4].map((piece) => (
+        <LiveSolid key={piece} build={(t) => parts(t)[piece]!.paths} tone={(t) => parts(t)[piece]!.tone} />
       ))}
+    </g>
+  );
+}
 
-      {/* The recap's note: the line-up runs from steadier to more bounce, and the arrow draws on that way. */}
-      <AnimatedGroup data-figure-annotation="" bindings={{ opacity: (t) => (tradeProgress('steadier', t) > 0 ? 1 : 0) }}>
-        <g data-scene-structure="annotation-arrow" fill="none" stroke={HIGHLIGHT} strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-          <AnimatedPath d={ARROW_LEFT_HEAD} bindings={{ opacity: (t) => labelOpacity('steadier', t) }} />
-          <AnimatedPath strokeLinecap="butt" bindings={{ d: arrowShaft }} />
-          <AnimatedPath d={ARROW_RIGHT_HEAD} bindings={{ opacity: (t) => labelOpacity('bounce', t) }} />
+/** One pen, lowered onto its lane while its foot is on the ground. */
+function Pen({ leg }: { leg: LegId }) {
+  const index = FOOT_ORDER.indexOf(leg);
+  const down = (t: number) => [0, 15, 30].reduce((sum, back) => sum + (poseAt(Math.max(0, t - back)).feet[index]!.down ? 1 : 0), 0) / 3;
+  return (
+    <g data-scene-part={`pen-${leg}`}>
+      {[0, 1].map((piece) => (
+        <LiveSolid key={piece} build={(t) => penParts(leg, down(t))[piece]!.paths} tone={piece === 1 ? 'hi' : 'mid'} />
+      ))}
+    </g>
+  );
+}
+
+function SlotView({ slot }: { slot: Slot }) {
+  switch (slot) {
+    case 'belt':
+      return (
+        <g data-scene-part="belt">
+          <path className="iso-fill" d={BELT_BAND} />
+          <path className="iso-shade" data-shade={1} d={BELT_BAND} />
+          <AnimatedElement as="path" className="iso-line" data-tone="lo" bindings={{ d: (t) => beltSlats(frameAt(t).belt) || 'M0 0' }} />
         </g>
-        <TradeWord x={ARROW_LEFT} anchor="start" word="steadier" opacity={(t) => labelOpacity('steadier', t)} />
-        <TradeWord x={ARROW_RIGHT} anchor="end" word="more bounce" opacity={(t) => labelOpacity('bounce', t)} />
-      </AnimatedGroup>
-    </StageSvg>
+      );
+    case 'legs-far':
+      return <>{(['rh', 'rf'] as const).map((leg) => <Leg key={leg} leg={leg} />)}</>;
+    case 'legs-near':
+      return <>{(['lh', 'lf'] as const).map((leg) => <Leg key={leg} leg={leg} />)}</>;
+    case 'body':
+      return (
+        <AnimatedGroup data-scene-part="body" bindings={{ transform: (t) => bodyShift(frameAt(t).pose.rise) }}>
+          {BODY_PARTS.map((part, index) => <PartView key={index} part={part} />)}
+        </AnimatedGroup>
+      );
+    case 'needle':
+      // The stance counter's needle: the one lit part.
+      return <AnimatedElement as="path" className="iso-line" data-tone="lit" data-free="end" style={{ strokeWidth: 1.4 }} bindings={{ d: (t) => needlePath(frameAt(t).needle) }} />;
+    case 'chart':
+      // The ink: each foot's lane, one mark per gait, painted as a foot on the ground.
+      return (
+        <g data-scene-part="chart">
+          {LINE_UP.flatMap((gait) =>
+            FOOT_ORDER.map((leg) => (
+              <AnimatedElement
+                key={`${gait}-${leg}`}
+                as="path"
+                data-scene-mark={footMark(gait, leg)}
+                data-legend-series="gait-support"
+                fill={STATE}
+                stroke="none"
+                bindings={{
+                  d: (t) => inkBars(leg, frameAt(t).ink[gait][leg], frameAt(t).paper) || 'M0 0',
+                  opacity: (t) => (frameAt(t).visibleGaits.includes(gait) ? 1 : 0),
+                }}
+              />
+            )),
+          )}
+        </g>
+      );
+    case 'pens':
+      return <>{(['lf', 'rf', 'lh', 'rh'] as const).map((leg) => <Pen key={leg} leg={leg} />)}</>;
+    default:
+      return null;
+  }
+}
+
+/** The stage alone, so tests can render any moment inside a static-time provider. */
+export function GaitSupportStage() {
+  return (
+    <div className="iso" data-anatomy-drawing="">
+      <StageSvg viewBox={VIEW_BOX} className="iso-svg">
+        {PARTS.map((part, index) => (part.kind === 'slot' ? <SlotView key={part.slot} slot={part.slot} /> : <PartView key={index} part={part} />))}
+      </StageSvg>
+    </div>
   );
 }
 
 const pct = (phase: number) => `${Math.round(phase * 100)}%`;
 const footList = (legs: LegId[]) => (legs.length ? legs.map((leg) => FOOT_WORDS[leg]).join(', ') : 'none');
+const feetDownAtSettle = (id: GaitId) => stanceLegs(GAITS[id], SETTLE_PHASE[id]).length;
 
 const GAIT_METHOD_NOTE = `Each gait is an authored timing pattern, not measured robot footfalls. A foot stays on the ground for a fixed share of the stride, its duty factor: walk ${GAITS.walk.dutyFactor}, trot ${GAITS.trot.dutyFactor}, bound ${GAITS.bound.dutyFactor} and hop ${GAITS.pronk.dutyFactor}. Each foot lands at its own point in the stride, its phase offset: the walk lands back left, front left, back right, front right a quarter stride apart; the trot pairs front left with back right and front right with back left half a stride apart; the bound lands the front pair, then the back pair half a stride later; the hop, which robotics papers call a pronk, lands all four together.`;
 
@@ -398,6 +364,7 @@ export function GaitSupport({ className }: { className?: string }) {
         </LegendItem>
       }
       readout={({ beatIndex }) => (beatIndex >= RECAP_INDEX ? recapWords() : supportWords(LINE_UP[beatIndex] ?? DEFAULT_GAIT))}
+      statusLine="Schematic, not measured: authored gait timings."
       method={<>
         <p data-testid="gait-method">{GAIT_METHOD_NOTE}</p>
         <p>
@@ -414,12 +381,16 @@ export function GaitSupport({ className }: { className?: string }) {
           ))}
         </ul>
         <p>
-          The line-up stops each dog at one moment of its stride, {LINE_UP.map((id) => `${GAIT_WORDS[id].toLowerCase()} at ${pct(SETTLE_PHASE[id])} with ${feetDownAt(id)} feet down`).join(', ')}.
-          The camera closes in on each dog while it steps and is back at the whole line-up at the end of every step.
-          The last step holds the line-up still and draws the arrow from steadier to more bounce.
+          The drawing is a robot on a treadmill wired to a gait recorder. While a foot is on the ground its pen inks
+          its lane on the moving paper, front left at the back of the strip and back right at the front, so the strip
+          is a footfall chart: a long bar is a foot that stays down most of the stride. The counter on the control box
+          shows how many feet are down. Each step the robot takes {STRIDES_PER_BEAT} strides in one gait and stops at
+          one moment of its stride, {LINE_UP.map((id) => `${GAIT_WORDS[id].toLowerCase()} at ${pct(SETTLE_PHASE[id])} with ${feetDownAtSettle(id)} feet down`).join(', ')};
+          the paper keeps all three gaits side by side for the last step. The treadmill and recorder are an
+          illustration, not a test rig.
         </p>
         <p>
-          The line-up leaves out the bound, which sits between the trot and the hop: the front pair lands, then the
+          The robot leaves out the bound, which sits between the trot and the hop: the front pair lands, then the
           back pair, so two feet are down for most of the stride, with a short leap in between.
         </p>
         <p>The steps, in order:</p>

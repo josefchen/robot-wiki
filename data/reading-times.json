@@ -48,7 +48,7 @@
     "minutes": 5
   },
   "manipulation/robot-learning-roadmap": {
-    "words": 935,
+    "words": 921,
     "minutes": 5
   },
   "manipulation/action-spaces": {
@@ -76,7 +76,7 @@
     "minutes": 9
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1671,
+    "words": 1668,
     "minutes": 8
   },
   "rl-sim2real/humanoid-wbc": {
@@ -124,31 +124,31 @@
     "minutes": 9
   },
   "data-hardware/data-bottleneck": {
-    "words": 1677,
-    "minutes": 8
+    "words": 1755,
+    "minutes": 9
   },
   "data-hardware/datasets": {
-    "words": 1589,
+    "words": 1661,
     "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 2710,
+    "words": 2782,
     "minutes": 14
   },
   "data-hardware/teleop-rigs": {
-    "words": 1380,
+    "words": 1458,
     "minutes": 7
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1629,
+    "words": 1684,
     "minutes": 8
   },
   "data-hardware/industrial-deployment": {
-    "words": 2161,
+    "words": 2228,
     "minutes": 11
   },
   "data-hardware/robot-learning-stack": {
-    "words": 1114,
+    "words": 1191,
     "minutes": 6
   },
   "classical/kinematics": {
@@ -164,8 +164,8 @@
     "minutes": 11
   },
   "classical/state-estimation": {
-    "words": 2518,
-    "minutes": 13
+    "words": 2487,
+    "minutes": 12
   },
   "classical/grasp-planning": {
     "words": 1748,
@@ -188,8 +188,8 @@
     "minutes": 6
   },
   "frontier/reliability-gap": {
-    "words": 1321,
-    "minutes": 7
+    "words": 1297,
+    "minutes": 6
   },
   "frontier/dexterity": {
     "words": 2631,

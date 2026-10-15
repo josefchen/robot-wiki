@@ -51,6 +51,8 @@ import { TeleopRigMatrix } from '@/components/interactive/teleop-rig-matrix';
 
 <Term id="teleoperation">Teleoperation</Term> rigs are the hardware a person moves to drive a robot, or a stand-in for one, while a demonstration is recorded. Leader-follower arms, GELLO replicas, UMI handheld grippers and VR headsets trade cost and collection speed against the embodiment gap, and the largest corpora reported by 2026, 100,000 hours and more, came from wearable and handheld devices <Cite id="generalist-gen1-2026" /> <Cite id="xiaomi-robotics-1-2026" />.
 
+<Image id="inl-hot-cell-manipulators-2006" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="entry rig" value="$300" note="GELLO parts BOM, arm excluded" accent />
   <Stat label="UMI collection" value="111/h" note="demos per hour vs 35/h spacemouse teleop" />
@@ -81,6 +83,8 @@ A policy trained only on adapted AirExo-2 data performed comparably to one train
 ## UMI: collection without a robot
 
 The UMI operator holds a 3D-printed parallel-jaw gripper with a wrist-mounted GoPro and a 155-degree fisheye lens; SLAM recovers the gripper pose from the video. The paper bills the printed gripper at \$73 and the GoPro and accessories at \$298, for a \$371 rig <Cite id="umi-2024" />. On cup arrangement the project site reports 111 demonstrations per hour, against 35 for spacemouse teleoperation and 231 by bare hand <Cite id="umi-gripper-site-2024" />.
+
+<Image id="umi-handheld-grippers-2024" />
 
 Latency matching at inference time and a camera-relative action representation let UMI policies deploy zero-shot on any arm with a compatible gripper and camera, shown on UR5 and Franka. The data lack a force channel <Cite id="umi-2024" />. ForceMimic adds one: its operator peeled a zucchini in 5 minutes, against over 13 with force-feedback teleoperation <Cite id="forcemimic-2024" />.
 

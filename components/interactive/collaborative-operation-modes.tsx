@@ -1,28 +1,47 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { forwardRef, useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
   ControlField,
   ControlLabel,
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
   InstrumentReadout,
   InstrumentReset,
-  PlotStage,
   PresetGroup,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, Line, Solid, Wire } from '@/components/iso/react/draw';
+import { Stage, asksForStillness } from '@/components/iso/react/live';
+import type { SolidPaths, Tone } from '@/components/iso/iso-kit';
 import {
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_VIEW_WIDTH,
-  ConstraintHatch,
-  DirectLabel,
-  StageAnnotation,
-  roleColour,
-} from '@/components/motion/chart';
+  FORCE_FACE,
+  LAMPS,
+  PARTS,
+  RIGHT_ARM,
+  SLED_PARTS,
+  SLOW,
+  SPEED_FACE,
+  VIEW_BOX,
+  WIDTH,
+  armParts,
+  cellRun,
+  fieldAt,
+  forceNeedle,
+  forceNeedleDegrees,
+  restPose,
+  ridersAt,
+  sledShift,
+  speedNeedle,
+  speedNeedleDegrees,
+  ENTRANCE_M,
+  type CellPose,
+  type Part,
+  type Phase,
+} from '@/components/iso/figures/cobot-cell';
 import {
   CONTACT_LIMIT_LABEL,
   CONTACT_LIMIT_N,
@@ -47,47 +66,32 @@ import {
   verdict,
   type ModeId,
 } from '@/lib/safety-modes';
-import { MOTION_STAGE } from '@/lib/motion-tokens';
-import { cx } from '@/lib/utils';
 
 /**
- * CollaborativeOperationModes: one robot arm beside one person, drawn four
- * ways, once per collaborative operation mode, with the mode's own
- * constraint computed live rather than described.
+ * CollaborativeOperationModes: a cobot cell, a robot arm on a pedestal and a
+ * test mannequin on a floor track, shared four ways, once per collaborative
+ * operation mode, with the mode's own constraint computed live rather than
+ * described.
+ *
+ * Each mode hands the job of guarding the person to one part of the cell,
+ * the lit one: the floor scanner's zone (as wide as the whole cell for a
+ * monitored stop, as long as the protective separation distance for speed
+ * and separation monitoring), the handle on the robot's wrist (hand
+ * guiding), or the bump gauge's needle (power and force limiting). The
+ * drawing and the run come from components/iso/figures/cobot-cell.ts; the
+ * numbers come from lib/safety-modes, unchanged.
  *
  * The contact-force limit and its label come from lib/force-limits through
  * lib/safety-modes, the same module the impedance lab on /classical/control
  * renders, so the two pages cannot drift apart (VAL-FRONT-029).
  *
- * The main view speaks in words: the gap the robot must keep, split into
- * its four parts under the drawing, or how hard a bump would push against
- * the safe limit. The formula, the exact readouts in metres and newtons,
- * the per-mode explanation and the teaching choices are in "How this was
- * made". The arm is drawn at the computed reach rather than at the slider
- * value, so a reader sees the gap overrun the cell before the readout says
- * so. Nothing animates, so the figure is reduced-motion safe as drawn.
+ * The main view speaks in words: the gap the robot must keep, laid on the
+ * floor ruler as its four parts and named under the drawing, or how hard a
+ * bump pushes against the safe limit. The formula, the exact readouts in
+ * metres and newtons, the per-mode explanation and the teaching choices are
+ * in "How this was made". Nothing moves until the reader runs the cell, and
+ * under reduced motion a run jumps to its end.
  */
-
-const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 150;
-const CELL_LEFT = 12;
-const CELL_RIGHT = WIDTH - 12;
-const BAND_TOP = 52;
-const FLOOR_Y = 128;
-const FLOOR_LABEL_Y = 145;
-/** Metres of workcell drawn across the plotted width. */
-const CELL_SPAN_M = 2.4;
-
-/** Round rendered geometry so server HTML and hydrated DOM agree. */
-const f = (v: number) => Number(v.toFixed(2));
-
-const pxPerM = (CELL_RIGHT - CELL_LEFT) / CELL_SPAN_M;
-/** Robot base at the left wall; the person stands at the drawn distance. */
-const ROBOT_BASE_X = CELL_LEFT + 22;
-const HUMAN_X = f(ROBOT_BASE_X + WORKCELL_SEPARATION_M * pxPerM);
-
-const ROBOT = roleColour('state');
-const PERSON = CHART_STRUCTURE.label;
 
 const MODE_PRESETS: ReadonlyArray<{ id: ModeId; label: string }> = [
   { id: 'monitored-stop', label: 'Stops when you step in' },
@@ -111,87 +115,31 @@ function speedWords(v: number, defaultGloss?: { at: number; gloss: string }): st
 }
 
 /**
- * An industrial arm: a base, a shoulder, two links and a two-finger
- * gripper. A halted arm is drawn dashed as well as labelled, so a reader
- * who cannot see the hue can still tell a moving arm from a stopped one.
+ * The four parts of the gap, in the order they lie on the floor ruler from
+ * the tool: the robot's own travel before it stops, the margin, then the
+ * person's walk. The swatch draws each rider's look.
  */
-function RobotArm({ x, stopped }: { x: number; stopped: boolean }) {
-  const shoulder: [number, number] = [ROBOT_BASE_X, FLOOR_Y - 22];
-  const wrist: [number, number] = [f(x), FLOOR_Y - 44];
-  const elbow: [number, number] = [f(ROBOT_BASE_X + (x - ROBOT_BASE_X) * 0.45), FLOOR_Y - 84];
-  const dash = stopped ? CHART_STROKE.dash : undefined;
-  return (
-    <g data-chart-mark="robot" data-chart-role="state" fill="none" stroke={ROBOT} strokeLinejoin="round">
-      <path
-        d={`M${ROBOT_BASE_X - 15} ${FLOOR_Y} L${ROBOT_BASE_X - 10} ${FLOOR_Y - 14} H${ROBOT_BASE_X + 10} L${ROBOT_BASE_X + 15} ${FLOOR_Y} Z`}
-        strokeWidth={CHART_STROKE.structure}
-      />
-      <line x1={ROBOT_BASE_X} y1={FLOOR_Y - 14} x2={shoulder[0]} y2={shoulder[1]} strokeWidth={CHART_STROKE.trace} />
-      <polyline
-        points={`${shoulder[0]},${shoulder[1]} ${elbow[0]},${elbow[1]} ${wrist[0]},${wrist[1]}`}
-        strokeWidth={CHART_STROKE.trace}
-        strokeDasharray={dash}
-        strokeLinecap="round"
-      />
-      <circle cx={shoulder[0]} cy={shoulder[1]} r={3.5} strokeWidth={CHART_STROKE.structure} fill={MOTION_STAGE.background} />
-      <circle cx={elbow[0]} cy={elbow[1]} r={3} strokeWidth={CHART_STROKE.structure} fill={MOTION_STAGE.background} />
-      <path
-        d={`M${wrist[0]} ${wrist[1]} V${wrist[1] + 6} M${wrist[0] - 6} ${wrist[1] + 6} H${wrist[0] + 6} M${wrist[0] - 6} ${wrist[1] + 6} V${wrist[1] + 15} M${wrist[0] + 6} ${wrist[1] + 6} V${wrist[1] + 15}`}
-        strokeWidth={CHART_STROKE.structure}
-        strokeDasharray={dash}
-      />
-    </g>
-  );
-}
-
-/**
- * Where the person stands: a hairline post from the floor to head height
- * with a small open marker, labelled "you" under the floor. A position
- * marker, not a pictogram.
- */
-function WalkingPerson({ x }: { x: number }) {
-  const top = FLOOR_Y - 66;
-  return (
-    <g data-chart-mark="operator" fill="none" stroke={PERSON} strokeWidth={CHART_STROKE.structure}>
-      <line x1={f(x)} y1={top + 4} x2={f(x)} y2={FLOOR_Y} strokeDasharray={CHART_STROKE.dash} />
-      <circle cx={f(x)} cy={top} r={4} fill={MOTION_STAGE.background} />
-    </g>
-  );
-}
-
 const GAP_PARTS = [
-  { key: 'humanTravelM', label: 'You walk in while it reacts', opacity: 1 },
-  { key: 'robotReactionM', label: 'It keeps moving', opacity: 0.7 },
-  { key: 'brakingM', label: 'Braking', opacity: 0.45 },
-  { key: 'marginM', label: 'Safety margin', opacity: 0.25 },
+  { key: 'robotReactionM', label: 'It keeps moving', swatch: 'robot' },
+  { key: 'brakingM', label: 'Braking', swatch: 'robot' },
+  { key: 'marginM', label: 'Safety margin', swatch: 'margin' },
+  { key: 'humanTravelM', label: 'You walk in while it reacts', swatch: 'walk' },
 ] as const;
 
-/** The gap drawn as one bar split into its four parts, labelled in words. */
+const SWATCH_CLASS: Record<(typeof GAP_PARTS)[number]['swatch'], string> = {
+  robot: 'border [border-color:var(--anatomy-mid)] [background:var(--anatomy-shade-1)]',
+  margin: 'border [border-color:var(--anatomy-lo)] [background:var(--anatomy-paper)]',
+  walk: 'border [border-color:var(--anatomy-hi)] [background:var(--anatomy-shade-0)]',
+};
+
+/** The gap's four parts in words, keyed to the riders on the floor ruler. */
 function GapBar({ terms }: { terms: ReturnType<typeof separationTerms> }) {
-  const constraint = roleColour('constraint');
   return (
-    <div data-testid="gap-bar" className="pb-2 pt-3 font-sans text-[12px]">
-      <div className="flex h-1.5 w-full overflow-hidden" aria-hidden="true">
-        {GAP_PARTS.map((part) => (
-          <span
-            key={part.key}
-            style={{
-              width: `${(terms[part.key] / terms.totalM) * 100}%`,
-              backgroundColor: constraint,
-              opacity: part.opacity,
-            }}
-            className="border-r [border-color:var(--paper,var(--color-paper))] last:border-r-0"
-          />
-        ))}
-      </div>
-      <ul className="m-0! mt-1.5 grid list-none grid-cols-1 gap-x-4 gap-y-0.5 p-0! sm:grid-cols-2">
+    <div data-testid="gap-bar" className="pb-1 pt-3 font-sans text-[12px]">
+      <ul className="m-0! grid list-none grid-cols-1 gap-x-4 gap-y-0.5 p-0! sm:grid-cols-2">
         {GAP_PARTS.map((part) => (
           <li key={part.key} className="m-0! flex items-center gap-1.5 text-text-dim">
-            <span
-              aria-hidden="true"
-              className="inline-block size-2 shrink-0"
-              style={{ backgroundColor: constraint, opacity: part.opacity }}
-            />
+            <span aria-hidden="true" className={`inline-block h-1.5 w-3 shrink-0 ${SWATCH_CLASS[part.swatch]}`} />
             {part.label}: <span className="text-text">{terms[part.key].toFixed(2)} metres</span>
           </li>
         ))}
@@ -202,26 +150,11 @@ function GapBar({ terms }: { terms: ReturnType<typeof separationTerms> }) {
 
 /** How hard a bump would push, against the safe limit. */
 function ForceBar({ force }: { force: number }) {
-  const scale = Math.max(force, CONTACT_LIMIT_N) * 1.15;
-  const over = force > CONTACT_LIMIT_N;
   return (
-    <div data-testid="force-bar" className="pb-2 pt-3 font-sans text-[12px]">
-      <div className="relative h-1.5 w-full border [border-color:var(--line-strong)]" aria-hidden="true">
-        <span
-          className="absolute inset-y-0 left-0"
-          style={{
-            width: `${(force / scale) * 100}%`,
-            backgroundColor: over ? roleColour('constraint') : ROBOT,
-          }}
-        />
-        <span
-          className="absolute -inset-y-1.5 w-px bg-text"
-          style={{ left: `${(CONTACT_LIMIT_N / scale) * 100}%` }}
-        />
-      </div>
-      <p className="m-0 mt-1.5 text-text-dim">
+    <div data-testid="force-bar" className="pb-1 pt-3 font-sans text-[12px]">
+      <p className="m-0 text-text-dim">
         Bump: <span className="text-text">about {Math.round(force)} newtons</span>. Safe limit
-        (the line): <span className="text-text">{CONTACT_LIMIT_N} newtons</span>.
+        (the gauge&rsquo;s long mark): <span className="text-text">{CONTACT_LIMIT_N} newtons</span>.
       </p>
     </div>
   );
@@ -260,13 +193,123 @@ function Reading({ label, value, testId }: { label: string; value: string; testI
   );
 }
 
+/** One static part of the cell, as the kit draws it. */
+function PartView({ part }: { part: Exclude<Part, { kind: 'slot' }> }): ReactNode {
+  if (part.kind === 'solid') {
+    return <Solid paths={part.paths} tone={part.tone} lit={part.lit} crease={part.crease} inner={part.inner ? <Line d={part.inner} tone="faint" /> : undefined} />;
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  if (part.kind === 'dots') return <Dots points={part.points} size={part.size} tone={part.tone} />;
+  if (part.kind === 'wire') return <Wire from={part.from} to={part.to} via={part.via} tone={part.tone} />;
+  if (part.fill === 'paper') return <path className="iso-fill" d={part.d} />;
+  return (
+    <g>
+      <path className="iso-fill" d={part.d} />
+      {part.fill === 'top' ? <path className="iso-top" d={part.d} /> : <path className="iso-shade" data-shade={part.fill} d={part.d} />}
+    </g>
+  );
+}
+
+/**
+ * One solid of the arm, rebuilt each frame: it always renders every path
+ * (fill, four shades, top, crease, bevel, its seam, outline), so the live
+ * code can rewrite each `d` in place without a React render.
+ */
+const ArmSolid = forwardRef<SVGGElement, { paths: SolidPaths; inner?: string; tone: Tone; lit?: boolean }>(function ArmSolid(
+  { paths, inner, tone, lit = false },
+  ref,
+) {
+  return (
+    <g ref={ref} className="iso-solid" data-lit={lit ? '' : undefined}>
+      <path className="iso-fill" data-arm="fill" d={paths.fill} />
+      {[0, 1, 2, 3].map((shade) => (
+        <path key={shade} className="iso-shade" data-shade={shade} data-arm={`shade-${shade}`} d={paths.shades[shade] ?? ''} />
+      ))}
+      <path className="iso-top" data-arm="top" d={paths.top} />
+      <path className="iso-line iso-crease" data-tone="faint" data-arm="crease" d={paths.crease} />
+      <path className="iso-line iso-bevel" data-tone="faint" data-arm="bevel" d={paths.bevel ?? ''} />
+      <path className="iso-line" data-tone="faint" data-arm="inner" d={inner ?? ''} />
+      <path className="iso-line iso-edge" data-tone={tone} data-arm="edge" d={paths.outline} />
+    </g>
+  );
+});
+
+function writeArm(group: SVGGElement | null, paths: SolidPaths, inner: string | undefined) {
+  if (!group) return;
+  const set = (name: string, d: string) => group.querySelector(`[data-arm="${name}"]`)?.setAttribute('d', d);
+  set('fill', paths.fill);
+  for (let shade = 0; shade < 4; shade++) set(`shade-${shade}`, paths.shades[shade] ?? '');
+  set('top', paths.top);
+  set('crease', paths.crease);
+  set('bevel', paths.bevel ?? '');
+  set('inner', inner ?? '');
+  set('edge', paths.outline);
+}
+
+/** Round rendered numbers so server HTML and hydrated DOM agree. */
+const f = (v: number) => Number(v.toFixed(2));
+
+type Lamp = 'stop' | 'wait' | 'run';
+const lampOf = (pose: CellPose): Lamp => (pose.stopped ? 'stop' : pose.toolSpeed > 0.005 ? 'run' : 'wait');
+
+/** The stage readout, in plain words, for a mode at a moment of the cell. */
+function stageReadout(mode: ModeId, phase: Phase, pose: CellPose, robotSpeed: number, humanSpeed: number): string {
+  const separation = protectiveSeparationM(robotSpeed, humanSpeed);
+  const force = peakContactForceN(robotSpeed);
+  if (mode === 'speed-separation') {
+    if (phase === 'setup') return 'you step back out of its zone';
+    if (phase === 'walk') return humanSpeed > 0 ? 'you walk in, it keeps working' : 'you stand still, it keeps working';
+    if (phase === 'work') return 'you stand still, it keeps working';
+    if (phase === 'react') return 'you cross the edge, it reacts';
+    if (phase === 'brake') return 'it brakes, you keep walking';
+    if (phase === 'stopped') {
+      const run = cellRun(mode, robotSpeed, humanSpeed);
+      return run.trigger ? `stopped, ${run.trigger.gapM.toFixed(2)} m left between you` : 'it stays stopped while you stand in its zone';
+    }
+    return `needs ${separation.toFixed(2)} m, you stand at ${WORKCELL_SEPARATION_M.toFixed(2)} m`;
+  }
+  if (mode === 'monitored-stop') {
+    if (phase === 'out') return 'you walk out, it holds still';
+    if (phase === 'work') return 'you are outside the cell, it works';
+    if (phase === 'in') return 'you walk back in';
+    if (phase === 'brake') return 'you step into the cell, it stops';
+    return pose.stopped ? 'you are inside the cell, it holds still' : 'it works';
+  }
+  if (mode === 'hand-guiding') {
+    if (phase === 'push') return 'you push its handle, it follows';
+    if (phase === 'held') return 'you stop pushing, it holds still';
+    return 'it moves only while you guide it';
+  }
+  if (phase === 'setup') return 'it backs off to its fixture';
+  if (phase === 'approach') return `it moves toward you at ${speedWords(robotSpeed)}`;
+  return `a bump pushes ${Math.round(force)} newtons, the limit is ${CONTACT_LIMIT_N}: ${force <= CONTACT_LIMIT_N ? 'gentle enough' : 'too hard'}`;
+}
+
+const HINTS: Record<ModeId, string> = {
+  'monitored-stop': 'Lit: the scanner’s zone, the whole cell',
+  'hand-guiding': 'Lit: the handle on the robot’s wrist',
+  'speed-separation': 'Lit: the scanner’s zone',
+  'power-force': 'Lit: the bump gauge’s needle',
+};
+
+type RunState = 'idle' | 'running' | 'done';
+
+interface Refs {
+  sled: SVGGElement | null;
+  rightArm: SVGGElement | null;
+  arm: Array<SVGGElement | null>;
+  speedNeedle: SVGGElement | null;
+  forceNeedle: SVGGElement | null;
+}
+
 export function CollaborativeOperationModes({ className }: { className?: string }) {
   const uid = useId();
   const descriptionId = `${uid}-description`;
-  const hatchId = `safety-separation-hatch-${uid.replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const [modeId, setModeId] = useState<ModeId>(DEFAULT_MODE);
   const [robotSpeed, setRobotSpeed] = useState(DEFAULT_ROBOT_SPEED_M_S);
   const [humanSpeed, setHumanSpeed] = useState(DEFAULT_HUMAN_SPEED_M_S);
+  const [runState, setRunState] = useState<RunState>('idle');
+  const [live, setLive] = useState<{ phase: Phase; lamp: Lamp }>({ phase: 'rest', lamp: 'run' });
 
   const mode = modeById(modeId);
   const terms = separationTerms(robotSpeed, humanSpeed);
@@ -275,25 +318,101 @@ export function CollaborativeOperationModes({ className }: { className?: string 
   const outcome = verdict(robotSpeed, humanSpeed);
   const gentleSpeed = forceLimitedSpeedMs();
 
-  /**
-   * Where the arm may reach. Under separation monitoring the arm is held
-   * back to the protective distance and stops outright when that distance
-   * has already overrun the person's position. A monitored stop holds the
-   * arm still while the person is in the cell. The other modes have no
-   * distance rule, so the arm reaches its natural extent.
-   */
-  const stopped =
-    (modeId === 'speed-separation' && !outcome.separationSatisfied) || modeId === 'monitored-stop';
-  const reachM =
-    modeId === 'speed-separation'
-      ? Math.max(0, WORKCELL_SEPARATION_M - separation)
-      : modeId === 'monitored-stop'
-        ? WORKCELL_SEPARATION_M * 0.45
-        : WORKCELL_SEPARATION_M - 0.35;
-  const armX = f(ROBOT_BASE_X + Math.max(0.15, reachM) * pxPerM);
-  const bandLeft = f(Math.max(CELL_LEFT, HUMAN_X - separation * pxPerM));
+  // The still pose shows each mode's point; a finished run holds its last moment.
+  const rest = restPose(modeId, robotSpeed, humanSpeed);
+  const run = cellRun(modeId, robotSpeed, humanSpeed);
+  const end = run.at(run.duration);
+  const held = runState === 'done' ? end : rest;
+  const phase: Phase = runState === 'running' ? live.phase : held.phase;
+  const lamp: Lamp = runState === 'running' ? live.lamp : lampOf(held);
+
+  const refs = useRef<Refs>({ sled: null, rightArm: null, arm: [], speedNeedle: null, forceNeedle: null });
+  const pose = useRef<CellPose>(rest);
+
+  useEffect(() => {
+    const r = refs.current;
+    const place = (p: CellPose) => {
+      pose.current = p;
+      const shift = sledShift(p.personX);
+      r.sled?.setAttribute('transform', shift);
+      r.rightArm?.setAttribute('transform', shift);
+      armParts(p.toolX, p.toolZ, modeId, p.roll).forEach((part, index) => writeArm(r.arm[index] ?? null, part.paths, part.inner));
+      r.speedNeedle?.setAttribute('transform', `rotate(${f(speedNeedleDegrees(p.toolSpeed))})`);
+      r.forceNeedle?.setAttribute('transform', `rotate(${f(forceNeedleDegrees(p.forceN))})`);
+    };
+    const cell = cellRun(modeId, robotSpeed, humanSpeed);
+    if (runState === 'done') {
+      place(cell.at(cell.duration));
+      return;
+    }
+    let frame = 0;
+    let last = 0;
+    if (runState === 'running') {
+      let clock = 0;
+      let shown = { phase: '' as Phase | '', lamp: '' as Lamp | '' };
+      const tick = (now: number) => {
+        const dt = last ? Math.min(now - last, 64) / 1000 : 1 / 60;
+        last = now;
+        clock = Math.min(cell.duration, clock + dt / SLOW);
+        const p = cell.at(clock);
+        place(p);
+        const lampNow = lampOf(p);
+        if (p.phase !== shown.phase || lampNow !== shown.lamp) {
+          shown = { phase: p.phase, lamp: lampNow };
+          setLive({ phase: p.phase, lamp: lampNow });
+        }
+        if (clock >= cell.duration) {
+          setRunState('done');
+          return;
+        }
+        frame = requestAnimationFrame(tick);
+      };
+      frame = requestAnimationFrame(tick);
+      return () => cancelAnimationFrame(frame);
+    }
+    // Idle: ease from wherever the cell is to the still pose of the current settings.
+    const target = restPose(modeId, robotSpeed, humanSpeed);
+    if (asksForStillness()) {
+      place(target);
+      return;
+    }
+    const tick = (now: number) => {
+      const dt = last ? Math.min(now - last, 64) / 1000 : 1 / 60;
+      last = now;
+      const k = 1 - Math.exp(-dt / 0.3);
+      const c = pose.current;
+      const next: CellPose = {
+        toolX: c.toolX + (target.toolX - c.toolX) * k,
+        toolZ: c.toolZ + (target.toolZ - c.toolZ) * k,
+        toolSpeed: c.toolSpeed + (target.toolSpeed - c.toolSpeed) * k,
+        personX: c.personX + (target.personX - c.personX) * k,
+        forceN: c.forceN + (target.forceN - c.forceN) * k,
+        stopped: target.stopped,
+        roll: c.roll + (target.roll - c.roll) * k,
+        phase: 'rest',
+      };
+      const settled =
+        Math.abs(next.toolX - target.toolX) < 1e-4 &&
+        Math.abs(next.toolZ - target.toolZ) < 1e-4 &&
+        Math.abs(next.personX - target.personX) < 1e-4 &&
+        Math.abs(next.toolSpeed - target.toolSpeed) < 1e-3 &&
+        Math.abs(next.roll - target.roll) < 1e-3 &&
+        Math.abs(next.forceN - target.forceN) < 0.05;
+      place(settled ? target : next);
+      if (!settled) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [runState, modeId, robotSpeed, humanSpeed]);
+
+  /** Any choice ends a run and eases the cell to the new still pose. */
+  const choose = (next: () => void) => {
+    setRunState('idle');
+    next();
+  };
 
   const reset = () => {
+    setRunState('idle');
     setModeId(DEFAULT_MODE);
     setRobotSpeed(DEFAULT_ROBOT_SPEED_M_S);
     setHumanSpeed(DEFAULT_HUMAN_SPEED_M_S);
@@ -305,45 +424,6 @@ export function CollaborativeOperationModes({ className }: { className?: string 
       : mode.readout === 'force'
         ? `At ${formatSpeed(robotSpeed)} robot speed the peak transient contact force is ${formatForce(force)} against the ${formatForce(CONTACT_LIMIT_N)} limit, so an impact with a 4 kg effective mass ${force <= CONTACT_LIMIT_N ? 'stays under' : 'exceeds'} the threshold while the ${formatMetres(separation)} separation distance the other continuous mode would need goes unused.`
         : `Under ${mode.name.toLowerCase()} the ${formatSpeed(robotSpeed)} robot speed and ${formatSpeed(humanSpeed)} operator approach set no distance and no force budget, because the mode permits no autonomous motion beside the operator: the ${formatMetres(separation)} separation and ${formatForce(force)} impact force are what the other two modes would have to hold.`;
-
-  /** The one highlight note on the stage, naming what binds in this mode. */
-  const note: { lines: string[]; target: [number, number]; x: number; anchor: 'start' | 'end' } =
-    mode.readout === 'separation'
-      ? outcome.separationSatisfied
-        ? {
-            lines: ['The robot must stay out of this zone,', `about ${metresWords(separation)} from you`],
-            target: [bandLeft, BAND_TOP + 8],
-            x: CELL_RIGHT,
-            anchor: 'end',
-          }
-        : {
-            lines: [`The gap needed, ${metresWords(separation)},`, 'is wider than the cell: it stops'],
-            target: [bandLeft, BAND_TOP + 8],
-            x: CELL_RIGHT,
-            anchor: 'end',
-          }
-      : mode.readout === 'force'
-        ? {
-            lines: force <= CONTACT_LIMIT_N
-              ? ['A bump here stays under', 'the safe limit, so touching is allowed']
-              : ['A bump here would push too hard;', `below ${speedWords(Number(gentleSpeed.toFixed(1)))} it would not`],
-            target: [armX, FLOOR_Y - 29],
-            x: CELL_RIGHT,
-            anchor: 'end',
-          }
-        : modeId === 'monitored-stop'
-          ? {
-              lines: ['It stands still while', 'you are inside the cell'],
-              target: [armX, FLOOR_Y - 44],
-              x: CELL_RIGHT,
-              anchor: 'end',
-            }
-          : {
-              lines: ['It moves only while', 'you push it by hand'],
-              target: [armX, FLOOR_Y - 29],
-              x: CELL_RIGHT,
-              anchor: 'end',
-            };
 
   const plainReadout =
     mode.readout === 'separation'
@@ -358,6 +438,112 @@ export function CollaborativeOperationModes({ className }: { className?: string 
           ? 'The robot stands still while you are in the cell, so no gap or force limit applies.'
           : 'The robot moves only while you guide it, so no gap or force limit applies.';
 
+  const zone = modeId === 'speed-separation' ? fieldAt(separation) : modeId === 'monitored-stop' ? fieldAt(ENTRANCE_M) : null;
+  const riders = modeId === 'speed-separation' ? ridersAt(terms) : null;
+  const limit = FORCE_FACE.bandOf(CONTACT_LIMIT_N);
+  const armNow = armParts(held.toolX, held.toolZ, modeId, held.roll);
+  const readout = stageReadout(modeId, phase, held, robotSpeed, humanSpeed);
+
+  const slot = (name: string): ReactNode => {
+    switch (name) {
+      case 'field':
+        return zone ? (
+          <g data-testid="scanner-zone" data-metres={(zone.x / 100).toFixed(2)}>
+            <path className="iso-fill" d={zone.fill} />
+            <path className="iso-shade" data-shade={3} d={zone.fill} />
+            <Line d={zone.outline} tone="lit" />
+            <Solid paths={zone.edge} tone="hi" lit />
+          </g>
+        ) : null;
+      case 'riders':
+        return riders ? (
+          <g data-testid="gap-riders" data-terms={[terms.robotReactionM, terms.brakingM, terms.marginM, terms.humanTravelM].map((m) => m.toFixed(2)).join(' ')}>
+            {riders.reaction ? <Solid paths={riders.reaction} tone="mid" /> : null}
+            {riders.braking ? <Solid paths={riders.braking} tone="mid" /> : null}
+            {riders.margin ? <Solid paths={riders.margin} tone="lo" /> : null}
+            {riders.walk ? <Solid paths={riders.walk} tone="hi" /> : null}
+          </g>
+        ) : null;
+      case 'speed-needle':
+        return (
+          <g transform={SPEED_FACE.matrix} data-testid="speed-dial">
+            <path className="iso-fill" d={SPEED_FACE.face} />
+            <path className="iso-top" d={SPEED_FACE.face} />
+            <Line d={SPEED_FACE.rim} tone="lo" />
+            <Line d={SPEED_FACE.arc} tone="lo" />
+            <Line d={SPEED_FACE.minor} tone="lo" />
+            <Line d={SPEED_FACE.major} tone="mid" />
+            <g ref={(el) => { refs.current.speedNeedle = el; }} transform={`rotate(${f(speedNeedleDegrees(held.toolSpeed))})`}>
+              <Line d={speedNeedle()} tone="hi" free />
+            </g>
+            <path className="iso-fill" d={SPEED_FACE.hub} />
+            <Line d={SPEED_FACE.hub} tone="lo" />
+          </g>
+        );
+      case 'lamps':
+        return (
+          <g data-testid="stack-light" data-lamp={lamp}>
+            {(['run', 'wait', 'stop'] as const).map((name) => (
+              <Solid key={name} paths={LAMPS[name].paths} tone={lamp === name ? 'hi' : 'lo'} inner={<Line d={LAMPS[name].inner} tone="faint" />} />
+            ))}
+            <Solid paths={LAMPS.cap} tone="mid" />
+          </g>
+        );
+      case 'sled':
+        return (
+          <g ref={(el) => { refs.current.sled = el; }} transform={sledShift(held.personX)} data-testid="mannequin-sled">
+            {SLED_PARTS.map((part, index) =>
+              part.kind === 'slot' ? (
+                <g key="force-dial" transform={FORCE_FACE.matrix} data-testid="bump-gauge" data-newtons={Math.round(force)}>
+                  <path className="iso-fill" d={FORCE_FACE.face} />
+                  <path className="iso-top" d={FORCE_FACE.face} />
+                  <Line d={FORCE_FACE.rim} tone="lo" />
+                  <path className="iso-shade" data-shade={1} d={limit.band} />
+                  <Line d={limit.band} tone="lo" />
+                  <Line d={FORCE_FACE.arc} tone="lo" />
+                  <Line d={FORCE_FACE.minor} tone="lo" />
+                  <Line d={FORCE_FACE.major} tone="mid" />
+                  <Line d={limit.mark} tone="hi" />
+                  <g ref={(el) => { refs.current.forceNeedle = el; }} transform={`rotate(${f(forceNeedleDegrees(held.forceN))})`}>
+                    <Line d={forceNeedle()} tone={modeId === 'power-force' ? 'lit' : 'hi'} free />
+                  </g>
+                  <path className="iso-fill" d={FORCE_FACE.hub} />
+                  <Line d={FORCE_FACE.hub} tone="lo" />
+                </g>
+              ) : (
+                <PartView key={index} part={part} />
+              ),
+            )}
+          </g>
+        );
+      case 'arm':
+        return (
+          <g data-testid="cobot-arm">
+            {armNow.map((part, index) => (
+              <ArmSolid
+                key={part.name}
+                ref={(el) => { refs.current.arm[index] = el; }}
+                paths={part.paths}
+                inner={part.inner}
+                tone={part.tone}
+                lit={part.lit}
+              />
+            ))}
+          </g>
+        );
+      case 'right-arm':
+        return (
+          <g ref={(el) => { refs.current.rightArm = el; }} transform={sledShift(held.personX)}>
+            {(modeId === 'hand-guiding' ? RIGHT_ARM.reach : RIGHT_ARM.down).map((part, index) =>
+              part.kind === 'slot' ? null : <PartView key={index} part={part} />,
+            )}
+          </g>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <InstrumentFigure
       figureId="collaborative-operation-modes"
@@ -370,7 +556,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
             label="How it keeps you safe"
             presets={MODE_PRESETS}
             value={modeId}
-            onChange={setModeId}
+            onChange={(id) => choose(() => setModeId(id))}
             testId="mode"
           />
           <ControlField className="w-full basis-full content-start sm:max-w-sm">
@@ -388,12 +574,32 @@ export function CollaborativeOperationModes({ className }: { className?: string 
               max={ROBOT_SPEED_RANGE.max}
               step={ROBOT_SPEED_RANGE.step}
               value={robotSpeed}
-              onChange={(e) => setRobotSpeed(Number(e.target.value))}
+              onChange={(e) => choose(() => setRobotSpeed(Number(e.target.value)))}
               aria-label={`Robot speed, currently ${speedWords(robotSpeed)}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
             <SliderEnds low="slow" high="fast" />
           </ControlField>
+          <button
+            type="button"
+            data-brand-control-id="control:secondary-action"
+            onClick={() => {
+              if (runState === 'running') {
+                setRunState('idle');
+                return;
+              }
+              // Reduced motion shows the run's last moment without the motion.
+              setLive({ phase: run.at(0).phase, lamp: lampOf(run.at(0)) });
+              setRunState(typeof window.matchMedia === 'function' && asksForStillness() ? 'done' : 'running');
+            }}
+            data-testid="cell-run"
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+          >
+            {runState === 'running' ? 'Stop the run' : 'Run the cell'}
+          </button>
+          <InstrumentReadout data-testid="safety-plain-readout" className="basis-full">
+            {plainReadout}
+          </InstrumentReadout>
         </>
       }
       adjust={
@@ -413,7 +619,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
               max={HUMAN_SPEED_RANGE.max}
               step={HUMAN_SPEED_RANGE.step}
               value={humanSpeed}
-              onChange={(e) => setHumanSpeed(Number(e.target.value))}
+              onChange={(e) => choose(() => setHumanSpeed(Number(e.target.value)))}
               aria-label={`Your walking speed (operator approach speed), currently ${speedWords(humanSpeed)}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
@@ -423,89 +629,44 @@ export function CollaborativeOperationModes({ className }: { className?: string 
         </>
       }
       stage={
-        <FigureStage
-          footer={
-            <>
-              <InstrumentReadout data-testid="safety-plain-readout">{plainReadout}</InstrumentReadout>
-              <StageStatus>illustrative</StageStatus>
-            </>
-          }
+        <AnatomyStage
+          viewWidth={WIDTH}
+          hint={runState === 'running' ? `Played ${SLOW} times slower than real time` : HINTS[modeId]}
+          readout={readout}
+          status="illustrative"
+          data-testid="cobot-cell-stage"
         >
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`A robot arm at the left and a person ${formatMetres(
-              WORKCELL_SEPARATION_M,
-            )} away, under ${mode.name.toLowerCase()}. Robot speed ${formatSpeed(
-              robotSpeed,
-            )}, operator approach ${formatSpeed(humanSpeed)}. ${
-              mode.readout === 'separation'
-                ? `Protective separation distance ${formatMetres(separation)}, ${
-                    outcome.separationSatisfied ? 'inside' : 'overrunning'
-                  } the cell.`
-                : mode.readout === 'force'
-                  ? `Peak transient contact force ${formatForce(force)} against a ${formatForce(
-                      CONTACT_LIMIT_N,
-                    )} limit.`
-                  : 'No separation distance or contact force applies in this mode.'
-            }`}
-            aria-describedby={descriptionId}
-          >
-            <g
-              stroke={CHART_STRUCTURE.axes}
-              strokeOpacity={CHART_STRUCTURE.axesOpacity}
-              strokeWidth={CHART_STROKE.structure}
+          <Stage className="iso-stage">
+            <svg
+              className="iso-svg"
+              viewBox={VIEW_BOX}
+              role="img"
+              focusable="false"
+              aria-label={`A robot arm at the left and a person ${formatMetres(
+                WORKCELL_SEPARATION_M,
+              )} away, under ${mode.name.toLowerCase()}. Robot speed ${formatSpeed(
+                robotSpeed,
+              )}, operator approach ${formatSpeed(humanSpeed)}. ${
+                mode.readout === 'separation'
+                  ? `Protective separation distance ${formatMetres(separation)}, ${
+                      outcome.separationSatisfied ? 'inside' : 'overrunning'
+                    } the cell.`
+                  : mode.readout === 'force'
+                    ? `Peak transient contact force ${formatForce(force)} against a ${formatForce(
+                        CONTACT_LIMIT_N,
+                      )} limit.`
+                    : 'No separation distance or contact force applies in this mode.'
+              }`}
+              aria-describedby={descriptionId}
             >
-              <line x1={CELL_LEFT} y1={FLOOR_Y} x2={CELL_RIGHT} y2={FLOOR_Y} />
-            </g>
-
-            {mode.readout === 'separation' && (
-              <g data-testid="separation-band">
-                <ConstraintHatch
-                  id={hatchId}
-                  x={bandLeft}
-                  y={BAND_TOP}
-                  width={f(Math.max(0, HUMAN_X - bandLeft))}
-                  height={FLOOR_Y - BAND_TOP}
-                />
-                <line
-                  x1={bandLeft}
-                  y1={BAND_TOP}
-                  x2={bandLeft}
-                  y2={FLOOR_Y}
-                  stroke={roleColour('constraint')}
-                  strokeWidth={CHART_STROKE.reference}
-                />
-              </g>
-            )}
-
-            <RobotArm x={armX} stopped={stopped} />
-            <WalkingPerson x={HUMAN_X} />
-
-            <StageAnnotation
-              x={note.x}
-              y={16}
-              anchor={note.anchor}
-              lines={note.lines}
-              target={note.target}
-              from={[note.target[0], 36]}
-            />
-            <DirectLabel x={ROBOT_BASE_X} y={FLOOR_LABEL_Y} anchor="middle">
-              robot
-            </DirectLabel>
-            {stopped && (
-              <g data-testid="stopped-label">
-                <DirectLabel x={ROBOT_BASE_X + 22} y={FLOOR_LABEL_Y} role="constraint">
-                  stopped
-                </DirectLabel>
-              </g>
-            )}
-            <DirectLabel x={HUMAN_X} y={FLOOR_LABEL_Y} anchor="middle">
-              you
-            </DirectLabel>
-          </PlotStage>
+              {PARTS.map((part, index) =>
+                part.kind === 'slot' ? <g key={part.slot}>{slot(part.slot)}</g> : <PartView key={index} part={part} />,
+              )}
+            </svg>
+          </Stage>
           {mode.readout === 'separation' && <GapBar terms={terms} />}
           {mode.readout === 'force' && <ForceBar force={force} />}
-        </FigureStage>
+        </AnatomyStage>
       }
       caption="Robots working beside people must either keep their distance or move gently enough that a bump stays under a safe force limit."
       method={
@@ -540,7 +701,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
             )}
           </ul>
           {mode.readout === 'force' && (
-            <p data-testid="force-limit-label" className={cx('text-text-dim')}>
+            <p data-testid="force-limit-label" className="text-text-dim">
               {CONTACT_LIMIT_LABEL}
             </p>
           )}
@@ -548,9 +709,14 @@ export function CollaborativeOperationModes({ className }: { className?: string 
             &ldquo;Stops when you step in&rdquo; is a safety-rated monitored stop; &ldquo;You guide
             it by hand&rdquo; is hand guiding; &ldquo;Keeps its distance&rdquo; is speed and
             separation monitoring; &ldquo;Gentle enough to bump&rdquo; is power and force limiting.
-            The hatched zone is the protective separation distance measured back from the person;
-            the gap bar splits it into the formula&rsquo;s four terms. A safety-rated stop halts the
-            arm when the zone reaches it.
+            In the drawing, a floor scanner guards a zone: the whole cell for a monitored stop, and
+            for separation monitoring a zone as long as the protective separation distance, its four
+            terms laid on the ruler from the tool. A run walks the mannequin in; when it crosses the
+            zone&rsquo;s edge the arm keeps moving for the reaction time, brakes, and stops with the
+            margin left between them. The bump gauge&rsquo;s pad stands in for a thigh, and its needle
+            holds the peak force of a bump at the robot&rsquo;s speed. Runs play {SLOW} times slower
+            than real time; where the walk starts, the tray and the fixture, and the guiding push
+            (0.15 m at 0.4 m/s) are the drawing&rsquo;s own choices.
           </p>
           <ModelAssumptions />
           <ChartDescription

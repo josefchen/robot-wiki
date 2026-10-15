@@ -59,7 +59,7 @@ describe('data-hardware motion inventory', () => {
     expect(mounts.sort()).toEqual(covered.sort());
     expect(new Set(covered).size).toBe(active.length);
     expect(articles).toHaveLength(7);
-    expect(inventory).toHaveLength(41);
+    expect(inventory).toHaveLength(56);
     for (const row of inventory) {
       expect(articles).toContain(`${row.article}.mdx`);
       expect(row.teachingGoal.length).toBeGreaterThan(25);
@@ -136,19 +136,22 @@ describe('data-hardware prose truth', () => {
       // optional prediction step added one more to evaluation-crisis. The
       // 2026-10-05 KOL backlog batch then re-resolved industrial-deployment.
       // The 2026-10-13 data-hardware domain pass and length cut then added one
-      // edge of the same kind to each.
+      // edge of the same kind to each, and the data-hardware images of
+      // 2026-10-15 one more (their image mounts).
       const laterIds = slug === 'evaluation-crisis'
         ? ['round5-pinned-leftovers-20260928-prose-evaluation-crisis',
           'opus-figure-migration-20261001-prose-evaluation-crisis',
           'seo-pass-20261002-prose-data-hardware-evaluation-crisis',
           'reader-first-20261002-prose-data-hardware-evaluation-crisis',
           'reader-first-20261003-predict-prose-data-hardware-evaluation-crisis',
-          'length-cut-20261013-data-hardware-prose-evaluation-crisis']
+          'length-cut-20261013-data-hardware-prose-evaluation-crisis',
+          'images-dh-20261015-prose-data-hardware-evaluation-crisis']
         : ['round6-prose-restores-20260929-prose-industrial-deployment',
           'seo-pass-20261002-prose-data-hardware-industrial-deployment',
           'reader-first-20261002-prose-data-hardware-industrial-deployment',
           'kol-backlog-20261005-data-hardware-prose-industrial-deployment',
-          'length-cut-20261013-data-hardware-prose-industrial-deployment'];
+          'length-cut-20261013-data-hardware-prose-industrial-deployment',
+          'images-dh-20261015-prose-data-hardware-industrial-deployment'];
       const later = edges.filter((entry) => laterIds.includes(entry.id));
       expect(later.map((entry) => entry.id)).toEqual(laterIds);
       expect(edges.slice(edges.indexOf(qualification))).toEqual([qualification, ...later]);

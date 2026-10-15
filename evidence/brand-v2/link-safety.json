@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "3ca03ed7922acdcafc3e5d7c7e46b7db17cece355c49a9bd08d3f3ce622c7649",
+  "fingerprint": "cefa9b0fdf75284334ee0d149c5a6a7a3f9206f6c2aa463a2961d9f802c2451f",
   "source": "out/ static export",
   "routes": [
     {
@@ -211,8 +211,8 @@
     },
     {
       "route": "/credits/",
-      "outboundAnchors": 458,
-      "distinctHrefs": 224,
+      "outboundAnchors": 480,
+      "distinctHrefs": 235,
       "shapes": [
         "figure-credit",
         "footer",
@@ -229,8 +229,8 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundAnchors": 84,
-      "distinctHrefs": 40,
+      "outboundAnchors": 88,
+      "distinctHrefs": 41,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -241,10 +241,11 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "outboundAnchors": 96,
-      "distinctHrefs": 45,
+      "outboundAnchors": 100,
+      "distinctHrefs": 46,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -252,10 +253,11 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "outboundAnchors": 78,
-      "distinctHrefs": 35,
+      "outboundAnchors": 82,
+      "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -263,8 +265,8 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "outboundAnchors": 148,
-      "distinctHrefs": 63,
+      "outboundAnchors": 152,
+      "distinctHrefs": 67,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -275,10 +277,11 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "outboundAnchors": 88,
-      "distinctHrefs": 42,
+      "outboundAnchors": 94,
+      "distinctHrefs": 48,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -286,10 +289,11 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "outboundAnchors": 77,
-      "distinctHrefs": 40,
+      "outboundAnchors": 81,
+      "distinctHrefs": 41,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -297,10 +301,11 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "outboundAnchors": 82,
-      "distinctHrefs": 39,
+      "outboundAnchors": 86,
+      "distinctHrefs": 42,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -844,17 +849,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 6215,
-  "distinctOutboundHrefs": 1841,
+  "outboundAnchors": 6267,
+  "distinctOutboundHrefs": 1849,
   "anchorsByShape": {
     "citation-chip": 2502,
     "footer": 152,
-    "figure-credit": 823,
+    "figure-credit": 875,
     "reference-entry": 2174,
     "other": 564
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 5629,
+  "anchorsWithNoreferrer": 5681,
   "keyboard": [
     {
       "route": "/",
@@ -1010,11 +1015,11 @@
     },
     {
       "route": "/credits/",
-      "outboundInDom": 458,
-      "reachedByTab": 458,
+      "outboundInDom": 480,
+      "reachedByTab": 480,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 714
+      "tabStops": 751
     },
     {
       "route": "/data-hardware/",
@@ -1026,38 +1031,6 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundInDom": 84,
-      "reachedByTab": 84,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 212
-    },
-    {
-      "route": "/data-hardware/datasets/",
-      "outboundInDom": 96,
-      "reachedByTab": 96,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 252
-    },
-    {
-      "route": "/data-hardware/evaluation-crisis/",
-      "outboundInDom": 78,
-      "reachedByTab": 78,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 207
-    },
-    {
-      "route": "/data-hardware/hardware-taxonomy/",
-      "outboundInDom": 148,
-      "reachedByTab": 148,
-      "unreached": [],
-      "withoutFocusIndicator": [],
-      "tabStops": 287
-    },
-    {
-      "route": "/data-hardware/industrial-deployment/",
       "outboundInDom": 88,
       "reachedByTab": 88,
       "unreached": [],
@@ -1065,20 +1038,52 @@
       "tabStops": 216
     },
     {
-      "route": "/data-hardware/robot-learning-stack/",
-      "outboundInDom": 77,
-      "reachedByTab": 77,
+      "route": "/data-hardware/datasets/",
+      "outboundInDom": 100,
+      "reachedByTab": 100,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 200
+      "tabStops": 256
     },
     {
-      "route": "/data-hardware/teleop-rigs/",
+      "route": "/data-hardware/evaluation-crisis/",
       "outboundInDom": 82,
       "reachedByTab": 82,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 198
+      "tabStops": 212
+    },
+    {
+      "route": "/data-hardware/hardware-taxonomy/",
+      "outboundInDom": 152,
+      "reachedByTab": 152,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 291
+    },
+    {
+      "route": "/data-hardware/industrial-deployment/",
+      "outboundInDom": 94,
+      "reachedByTab": 94,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 222
+    },
+    {
+      "route": "/data-hardware/robot-learning-stack/",
+      "outboundInDom": 81,
+      "reachedByTab": 81,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 204
+    },
+    {
+      "route": "/data-hardware/teleop-rigs/",
+      "outboundInDom": 86,
+      "reachedByTab": 86,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 202
     },
     {
       "route": "/editorial-policy/",
@@ -1134,7 +1139,7 @@
       "reachedByTab": 74,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 188
+      "tabStops": 189
     },
     {
       "route": "/frontier/safety-and-assurance/",
@@ -1142,7 +1147,7 @@
       "reachedByTab": 112,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 258
+      "tabStops": 259
     },
     {
       "route": "/glossary/",

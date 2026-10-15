@@ -299,8 +299,8 @@
     "element": "KalmanPredictUpdate",
     "decision": "keep",
     "sceneId": "kalman-predict-update",
-    "teachingGoal": "Guess, measure and blend one filter step along a robot's track, see the blend come out narrower than either, then watch the step's own numbers turn into the update rule.",
-    "reason": "The classical flagship scene: the camera closes on the gap from the guess to the reading while the blend lands, the reading rises with a staggered reveal, and the worked step is written glyph by glyph before its numbers give way to symbols; the finished frame carries no symbol and the method fold keeps the full rule."
+    "teachingGoal": "Guess, measure and blend one filter step on an estimating rail, see the blend's caliper close narrower than either, then see the share of the way it moved measured out along a rule.",
+    "reason": "The classical flagship scene, drawn as a machine: a cart tows the guess's caliper while its odometer counts the roll, a rangefinder drives the reading's caliper, and the blend's caliper copies the guess and runs along a share rule to the update, its jaws one spread either side; the drawing carries no words, the readout says each beat's numbers and the method fold keeps the full rule."
   },
   {
     "article": "state-estimation",

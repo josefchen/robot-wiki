@@ -133,7 +133,8 @@ export function preAdjacentCut(path: string): Buffer {
 
 /**
  * The bytes the image-mount layer (images bundle A of 2026-10-13, extended
- * on 2026-10-15 by the adjacent images of bundle B after the adjacent cut)
+ * on 2026-10-15 by the adjacent images of bundle B after the adjacent cut
+ * and by the data-hardware images after the data-hardware cut)
  * hands every check older than the
  * mounts: the rebuilt pre-mount article while the live article is the
  * reviewed successor, otherwise the live bytes.

@@ -69,6 +69,22 @@
     "reason": "The table is a source-qualified multi-row reference, not a temporal observation."
   },
   {
+    "article": "data-bottleneck",
+    "element": "Image",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "data-bottleneck",
+    "element": "Image",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
     "article": "datasets",
     "element": "Stat",
     "occurrence": 1,
@@ -106,6 +122,22 @@
     "decision": "keep",
     "teachingGoal": "Filter and sort dataset cohorts while reading license, count, duration and disclosure scope together.",
     "reason": "Independent sorting and unknown cells are useful direct controls; playback would flatten incompatible release scopes."
+  },
+  {
+    "article": "datasets",
+    "element": "Image",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "datasets",
+    "element": "Image",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
   },
   {
     "article": "evaluation-crisis",
@@ -177,6 +209,22 @@
     "reason": "This is a scored judgement with explicit uncertainty feedback, not a process illustration."
   },
   {
+    "article": "evaluation-crisis",
+    "element": "Image",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "evaluation-crisis",
+    "element": "Image",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
     "article": "hardware-taxonomy",
     "element": "Stat",
     "occurrence": 1,
@@ -220,16 +268,32 @@
     "element": "Image",
     "occurrence": 1,
     "decision": "keep",
-    "teachingGoal": "Identify the historically photographed Franka platform with its existing license and credit.",
-    "reason": "A sourced external photograph retains its caption and bytes; recoloring or moving it would obscure provenance."
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "hardware-taxonomy",
     "element": "Image",
     "occurrence": 2,
     "decision": "keep",
+    "teachingGoal": "Identify the historically photographed Franka platform with its existing license and credit.",
+    "reason": "A sourced external photograph retains its caption and bytes; recoloring or moving it would obscure provenance."
+  },
+  {
+    "article": "hardware-taxonomy",
+    "element": "Image",
+    "occurrence": 3,
+    "decision": "keep",
     "teachingGoal": "Identify the historical Atlas photograph separately from current electric Atlas specs.",
     "reason": "The image is a licensed historical reference and must not masquerade as a current product render."
+  },
+  {
+    "article": "hardware-taxonomy",
+    "element": "Image",
+    "occurrence": 4,
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
     "article": "industrial-deployment",
@@ -271,11 +335,51 @@
     "reason": "The companion scene traces one controlled contrast, while all calculator sliders and source qualifications remain available."
   },
   {
+    "article": "industrial-deployment",
+    "element": "Image",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "industrial-deployment",
+    "element": "Image",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "industrial-deployment",
+    "element": "Image",
+    "occurrence": 3,
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
     "article": "robot-learning-stack",
     "element": "SelfCheck",
     "decision": "keep",
     "teachingGoal": "Identify a versioned episode artifact that can reconstruct a policy transition.",
     "reason": "A reader-triggered answer and explanation better tests the seven-contract prose than forced playback."
+  },
+  {
+    "article": "robot-learning-stack",
+    "element": "Image",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "robot-learning-stack",
+    "element": "Image",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
   },
   {
     "article": "teleop-rigs",
@@ -315,5 +419,21 @@
     "decision": "keep",
     "teachingGoal": "Highlight an axis and sort all four rig families to compare cost, fidelity, throughput and embodiment gap.",
     "reason": "The axis changes are independent reader choices; motion would hide simultaneous notes and unknown costs."
+  },
+  {
+    "article": "teleop-rigs",
+    "element": "Image",
+    "occurrence": 1,
+    "decision": "keep",
+    "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",
+    "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
+  },
+  {
+    "article": "teleop-rigs",
+    "element": "Image",
+    "occurrence": 2,
+    "decision": "keep",
+    "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
+    "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
   }
 ]

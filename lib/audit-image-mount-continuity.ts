@@ -44,7 +44,7 @@ export type ImageMountReview = {
 
 // BEGIN image-mount pins (written by scripts/record-image-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 155172, sha256: 'c6a11981cfd56f9bc5ae686a2434968989316f2fdf4025b81422e8e5bba399a4' };
+const reviewPin = { bytes: 176288, sha256: '568fa9b45e29389df5239b82cbbc484d3a5e47274005d57e2589f3edef42f3d3' };
 
 /** The registered image ids whose one-line mounts the review admits. */
 const admitted: ReadonlySet<string> = new Set([
@@ -64,6 +64,8 @@ const admitted: ReadonlySet<string> = new Set([
   'atlas-vrc-simulation-2013',
   'baxter-gripper-wrist-camera',
   'baxter-rethink-innorobo-2015',
+  'bmw-leipzig-body-shop-spot-welding-2005',
+  'bridgedata-v2-sink-tasks-2023',
   'care-o-bot-grasping-2010',
   'cassie-oregon-state-2017',
   'centrifugal-governor-queen-street-mill',
@@ -80,6 +82,7 @@ const admitted: ReadonlySet<string> = new Set([
   'dji-mavic-pro-in-flight',
   'dp3-real-robot-setup-2024',
   'dreamerv3-open-loop-quadruped-2023',
+  'droid-camera-calibration-2024',
   'droid-cook-lentils-rollouts-2024',
   'droid-in-the-wild-scenes-2024',
   'droid-robot-platform-2024',
@@ -97,6 +100,7 @@ const admitted: ReadonlySet<string> = new Set([
   'hil-serl-tasks-2024',
   'horse-in-motion-muybridge-1878',
   'ingenuity-mastcam-z-closeup-2021',
+  'inl-hot-cell-manipulators-2006',
   'isaac-gym-allegro-envs-2021',
   'isaac-gym-anymal-real-stairs-2021',
   'isaac-gym-anymal-terrain-2021',
@@ -108,15 +112,20 @@ const admitted: ReadonlySet<string> = new Set([
   'kinect-xbox-360-sensor',
   'kinect-xbox-one-sensor',
   'knowno-ask-for-help-2023',
+  'kuka-bread-palletizing-bakery-2005',
   'leica-laser-tracker-ats600',
+  'libero-benchmark-overview-2023',
   'mini-cheetah-spin-rapid-locomotion-2022',
   'motion-capture-session-hyderabad-2026',
   'moxie-installation-perseverance-2020',
   'mujoco-playground-environments-2025',
   'mujoco-playground-franka-block-2025',
   'navlab-1-5-cmu-2017',
+  'nist-dexterous-manipulation-testbed-2013',
+  'ocado-warehouse-grid-bots-2017',
   'octo-evaluation-setups-2024',
   'open-x-embodiment-overview-2023',
+  'openvla-overview-2024',
   'ouster-lidar-point-cloud-sf',
   'perseverance-selfie-rochette-2021',
   'phantom-human-video-robot-2025',
@@ -149,6 +158,8 @@ const admitted: ReadonlySet<string> = new Set([
   't-rex-bimanual-tactile-setup-2026',
   'tdmpc2-task-grid-2023',
   'tesla-optimus-stockholm-2024',
+  'umi-handheld-grippers-2024',
+  'umi-test-environments-2024',
   'unitree-g1-stage-japan-mobility-2025',
   'unitree-robots-japan-mobility-show-2025',
   'ur16e-cobot-arm-2020',
@@ -176,6 +187,13 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/ros2-for-ml-engineers.mdx', [8903, '676d1a3e723e9478440dba49b0e10f70bd4f37e5b68bea5d1c8daa2d6730a520']],
   ['content/classical/scene-representation.mdx', [16376, '6edf589ee7e9df47cb1a2c4abb73af29bc2e9de446f4a509da924e1c06d0b0cc']],
   ['content/classical/state-estimation.mdx', [13954, '4f1273c98646879313c894112257f0297e352e88510b52132ab1254537a9742e']],
+  ['content/data-hardware/data-bottleneck.mdx', [13164, '8d7e40d18510d4e932570bc0da38f3a05a452bcb60b41b889296147abff6ae24']],
+  ['content/data-hardware/datasets.mdx', [12114, '698cf0598593f1319c0eae955056fd78f927db7bd3a3f026c795ad3aad00fc51']],
+  ['content/data-hardware/evaluation-crisis.mdx', [14999, 'ebdc3f24dcd30fbc4ef0209eabb8dc5d560c79f72d79b330a171dfd3f928369c']],
+  ['content/data-hardware/hardware-taxonomy.mdx', [10758, 'e88ad6efb97d24537100a0c3fcd5e22163d544bd490ddc5355f0f1bedf0c3e47']],
+  ['content/data-hardware/industrial-deployment.mdx', [16804, '94b8a5c72d665ae962cea8660744c5642e22577817f123bb321a4273749b708b']],
+  ['content/data-hardware/robot-learning-stack.mdx', [10400, 'd99fefaa46143123a2137469f40151feff6f3c8824ee35e796b95b09b7628ff7']],
+  ['content/data-hardware/teleop-rigs.mdx', [8874, 'ddf115791949d04f844312d78797864dfd4d0b88fff8bdd3ba29fb41c3c513ab']],
   ['content/frontier/bear-case.mdx', [10119, 'bfac4a48de3b0c71bd41e20e1eb1b7508898fd31d60e904729b50714b073e2a8']],
   ['content/frontier/competing-theses.mdx', [14365, '86e4399da86ea923b7ea52759b903c61deba9df47b5167a6d021429da1d3bec7']],
   ['content/frontier/dexterity.mdx', [17774, '62e378f98f9ae2edaacb5e154f17ab248d5c2afd7e0909174841a6fd3858beeb']],

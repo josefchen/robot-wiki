@@ -7,6 +7,9 @@ import { getImage } from '../../data/images';
 import { adjacentCutPredecessor, adjacentCutSuccessorPaths } from '../../lib/audit-length-cut-adjacent-continuity';
 import { lengthCutPredecessor, lengthCutSuccessorPaths } from '../../lib/audit-length-cut-continuity';
 import {
+  dataHardwareCutPredecessor, dataHardwareCutSuccessorPaths,
+} from '../../lib/audit-length-cut-data-hardware-continuity';
+import {
   frontierLengthCutPredecessor, frontierLengthCutSuccessorPaths,
 } from '../../lib/audit-length-cut-frontier-continuity';
 import {
@@ -34,7 +37,7 @@ afterEach(() => {
 describe('image mounts 2026-10-13 article successors', () => {
   const review = loadImageMountReview(root);
 
-  it('reviews exactly the articles of images bundle A, the frontier images and adjacent bundle B', () => {
+  it('reviews exactly the articles of images bundle A, the frontier images, adjacent bundle B and the data-hardware images', () => {
     expect(imageMountSuccessorPaths()).toEqual([
       'content/adjacent/autonomous-vehicles.mdx',
       'content/adjacent/drones.mdx',
@@ -49,6 +52,13 @@ describe('image mounts 2026-10-13 article successors', () => {
       'content/classical/ros2-for-ml-engineers.mdx',
       'content/classical/scene-representation.mdx',
       'content/classical/state-estimation.mdx',
+      'content/data-hardware/data-bottleneck.mdx',
+      'content/data-hardware/datasets.mdx',
+      'content/data-hardware/evaluation-crisis.mdx',
+      'content/data-hardware/hardware-taxonomy.mdx',
+      'content/data-hardware/industrial-deployment.mdx',
+      'content/data-hardware/robot-learning-stack.mdx',
+      'content/data-hardware/teleop-rigs.mdx',
       'content/frontier/bear-case.mdx',
       'content/frontier/competing-theses.mdx',
       'content/frontier/dexterity.mdx',
@@ -126,8 +136,9 @@ describe('image mounts 2026-10-13 article successors', () => {
       expect(imageMountPredecessor(root, source.after, live)).toBe(live);
       // The rebuilt bytes are the successor of the length cut that last changed the article, which that layer
       // still decides: the world-models cut for world-models, the 2026-10-13 frontier cut (dexterity's later cut
-      // included) for frontier, the adjacent cut for the adjacent articles of bundle B, and the 2026-10-12 cut for
-      // the other three domains.
+      // included) for frontier, the adjacent cut for the adjacent articles of bundle B, the 2026-10-13
+      // data-hardware cut for the data-hardware images of 2026-10-15, and the 2026-10-12 cut for the other
+      // three domains.
       const domain = source.after.path.split('/')[1];
       const [olderPaths, olderPredecessor] = domain === 'world-models'
         ? [worldModelsLengthCutSuccessorPaths(), worldModelsLengthCutPredecessor]
@@ -135,7 +146,9 @@ describe('image mounts 2026-10-13 article successors', () => {
           ? [frontierLengthCutSuccessorPaths(), frontierLengthCutPredecessor]
           : domain === 'adjacent'
             ? [adjacentCutSuccessorPaths(), adjacentCutPredecessor]
-            : [lengthCutSuccessorPaths(), lengthCutPredecessor];
+            : domain === 'data-hardware'
+              ? [dataHardwareCutSuccessorPaths(), dataHardwareCutPredecessor]
+              : [lengthCutSuccessorPaths(), lengthCutPredecessor];
       expect(olderPaths).toContain(source.after.path);
       expect(olderPredecessor(root, { path: source.after.path, ...blank }, prior)).not.toEqual(prior);
       expect(olderPredecessor(root, { path: source.after.path, ...blank }, live)).toBe(live);

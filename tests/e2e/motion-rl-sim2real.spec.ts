@@ -153,7 +153,7 @@ test('paired RL scenes keep value, constraint, highlight and stance roles in bot
   }
 });
 
-test('paired RL stage labels render at least twelve CSS pixels across every reveal', async ({ browser }) => {
+test('paired RL stage labels render at least twelve CSS pixels across every reveal, and the gait drawing carries none', async ({ browser }) => {
   for (const { id, route, captions } of scenes) {
     for (const width of [375, 1440]) {
       const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
@@ -183,27 +183,28 @@ test('paired RL stage labels render at least twelve CSS pixels across every reve
                 px: Number.parseFloat(getComputedStyle(text).fontSize) * (scale ? Math.hypot(scale.a, scale.b) : 0),
               };
             }));
-          expect(sizes.length, `${id} ${width} ${beat} labels`).toBeGreaterThan(0);
-          expect(sizes.some((label) => !label.annotated), `${id} ${width} ${beat} unannotated text covered`).toBe(true);
-          const texts = sizes.map((label) => label.text);
-          expect(texts, `${id} ${width} ${beat} stage heading`).toContain(
-            id === 'gait-support' ? 'Walk' : 'training time',
-          );
           if (id === 'gait-support') {
-            expect(texts, `${id} ${width} ${beat} toy disclosure`).toEqual(
-              expect.arrayContaining(['schematic, not measured']),
-            );
+            // The gait scene is a treadmill and a gait recorder with no words in
+            // the drawing at any beat: the readout, legend and status line under
+            // the stage carry them.
+            expect(sizes, `${id} ${width} ${beat} words in the drawing`).toEqual([]);
+            expect(await scene.locator('svg.motion-stage-svg').evaluate((svg) => svg.querySelectorAll('text, title, desc, foreignObject').length)).toBe(0);
+            await expect(scene, `${id} ${width} ${beat} toy disclosure`).toContainText('Schematic, not measured');
             if (beat === 'poster' || beat === `beat ${captions.length}`) {
-              expect(texts, `${id} ${width} ${beat} recap`).toEqual(
-                expect.arrayContaining(['Walk', 'Trot', 'Hop', 'steadier', 'more bounce']),
-              );
-              // The bound left the line-up: beside the hop it also showed no feet down and hid the trend.
-              expect(texts, `${id} ${width} ${beat} no bound`).not.toContain('Bound');
+              await expect(scene.getByTestId('motion-readout'), `${id} ${width} ${beat} recap`).toContainText('Walk lifts one foot at a time, trot a diagonal pair, hop all four at once.');
+              // The bound left the run: beside the hop it also showed no feet down and hid the trend.
+              await expect(scene.getByTestId('motion-readout'), `${id} ${width} ${beat} no bound`).not.toContainText('Bound');
             }
-          } else if (beat === 'poster' || beat === 'beat 4') {
-            expect(texts, `${id} ${width} ${beat} recap`).toEqual(
-              expect.arrayContaining(['16,384 at once:', 'about 1.5 minutes']),
-            );
+          } else {
+            expect(sizes.length, `${id} ${width} ${beat} labels`).toBeGreaterThan(0);
+            expect(sizes.some((label) => !label.annotated), `${id} ${width} ${beat} unannotated text covered`).toBe(true);
+            const texts = sizes.map((label) => label.text);
+            expect(texts, `${id} ${width} ${beat} stage heading`).toContain('training time');
+            if (beat === 'poster' || beat === 'beat 4') {
+              expect(texts, `${id} ${width} ${beat} recap`).toEqual(
+                expect.arrayContaining(['16,384 at once:', 'about 1.5 minutes']),
+              );
+            }
           }
           for (const label of sizes) expect(label.px, `${id} ${width} ${beat} ${label.text}`).toBeGreaterThanOrEqual(12);
           const audit = await scene.evaluate(auditSceneElement);

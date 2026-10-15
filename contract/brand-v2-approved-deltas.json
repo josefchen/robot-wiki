@@ -99942,6 +99942,774 @@
         "VAL-B2-BASE-012"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "anatomy-b06-figures-20261015-accessible-names-reliability-compounding-expression-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/reliability-compounding.tsx:aria-label:3",
+      "oldHash": "756b0c7bcb8bff0f9e31fcd2d03075dcf87ff73cb497b2123e51000a4f06bfc2",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Isometric figure batch b06 of 2026-10-15 (the shared episode-success calculator ReliabilityCompounding on evaluation-crisis and reliability-gap redrawn as a marble run, DeploymentEconomics on industrial-deployment as a payback steelyard, and the GaitSupport motion scene on legged-locomotion as a treadmill with a gait recorder), as one plain edge from the member's last approved endpoint (reader-first-20261002-name-reliability-compounding-expression-aria-label-3). ReliabilityCompounding (evaluation-crisis and reliability-gap, one component, both variants and every prop kept) is now a marble run: a hundred trapdoor gates on ten stepped rails, the first n armed as the job's steps, and a hundred marbles, one job each; each armed gate holds the share p of the marbles that reach it, and the finish tray counts round(100 p^n) jobs, the readout's share in whole jobs. The kit's IsoFigure (components/iso/react/draw.tsx, approved by the first isometric landing) draws each redrawn figure as one role=\"img\" svg named by its label prop; the stage name (\"A marble run with 100 trapdoor gates on 10 rails ...\", the armed steps, the per-step share and the two trays' counts) now comes through that label, so this file's third aria-label expression, the old line chart's name, is gone. The job-length and per-step sliders keep their names, unchanged, as members 1 and 2. The model (lib/reliability.ts) is unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-12 (Josef Chen; mission AGENTS.md, owner directives of 2026-10-12 01:30 and 13:40): \"Redo all of the animations and stuff like that with this type of animation and with this skill [...]\". Every concept figure becomes an isometric drawing of a small working machine whose working is the idea, built with the figure kit in components/iso, and the 13:40 directive names this ledger as the record for the accessible-name members the redraws move, the continuity pins on the redrawn sources and the specs that pinned the old drawings. The same directive is the authority that moves the byte pins on the redrawn sources, the reliability-compounding chart's domain-pass pin among them. The owner's scope decision of the same day keeps these figures to places where they explain a concept; the three in this batch each explain a mechanism (compounding per-step success, payback as a balance of cost and monthly value, footfall timing). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-057",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-prose-data-hardware-data-bottleneck",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "16cb894be65fc6eab160bec7d032c020d3313e3b7b69e86bab6615fd74356c58",
+      "newHash": "ea9eac89dc11bcadc53d0f8e14b39b410c0139173d01ecbf19c8f9d3120097fd",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one plain edge from the member's last approved endpoint (length-cut-20261013-data-hardware-prose-data-bottleneck). The article gains 2 registered images, each a one-line <Image id=\"...\" /> mount on its own line between blank lines: droid-in-the-wild-scenes-2024 after the lead paragraph and umi-test-environments-2024 in \"What the scaling laws say: diversity beats density\". No prose, number, citation, link target, glossary id, frontmatter field, import or other mount changes. The image-mount continuity review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds the article's earlier bytes from the live file by taking out exactly these mounts.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-prose-data-hardware-datasets",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "7c0a6b0465772bfeea1c66812793b319ebb11ce6dbd2cb9113b001717e6f2567",
+      "newHash": "2c281577ecb87be0523efc74c7e7ba6a2fed864139daa09d116460d337f30d5c",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one plain edge from the member's last approved endpoint (length-cut-20261013-data-hardware-prose-datasets). The article gains 2 registered images, each a one-line <Image id=\"...\" /> mount on its own line between blank lines: open-x-embodiment-overview-2023 after the lead paragraph and bridgedata-v2-sink-tasks-2023 in \"BridgeData V2: the academic workhorse\". No prose, number, citation, link target, glossary id, frontmatter field, import or other mount changes. The image-mount continuity review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds the article's earlier bytes from the live file by taking out exactly these mounts.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-prose-data-hardware-evaluation-crisis",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/evaluation-crisis",
+      "oldHash": "8aa967a0bffe48238f0e13232c99ab522149451e29c65ee878df98ac7bc51e54",
+      "newHash": "a8a71e83a0dad4816aefdc4bc0ed05f2c705a035b307e81ea9fa71cec52c34cd",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one plain edge from the member's last approved endpoint (length-cut-20261013-data-hardware-prose-evaluation-crisis). The article gains 2 registered images, each a one-line <Image id=\"...\" /> mount on its own line between blank lines: roboarena-evaluation-2025 after the lead paragraph and libero-benchmark-overview-2023 in \"Clean benchmarks overstate\". No prose, number, citation, link target, glossary id, frontmatter field, import or other mount changes. The image-mount continuity review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds the article's earlier bytes from the live file by taking out exactly these mounts.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-prose-data-hardware-hardware-taxonomy",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+      "newHash": "acfe8dc62f1895ae6e6ecfc148508ce2c8f58c8b853d68748f94c26f05655955",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 30 earlier approved edges exactly, ending with length-cut-20261013-data-hardware-prose-hardware-taxonomy. The article gains 2 registered images, each a one-line <Image id=\"...\" /> mount on its own line between blank lines: nist-dexterous-manipulation-testbed-2013 after the lead paragraph and jetson-agx-orin-auledas-2024 in \"Compute: closing the loop\". No prose, number, citation, link target, glossary id, frontmatter field, import or other mount changes. The image-mount continuity review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds the article's earlier bytes from the live file by taking out exactly these mounts.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "pricing-provenance-20260907-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e3b64b8c4cff51a0b9c577fd501a95e6ef67bc82ea1723cdd2390cfae13fa4c9"
+        },
+        {
+          "id": "pricing-provenance-20260907-9",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "a1637546f18dfb48550d5cef0d0a68f17367192f788fdf5fa56012c79cd75c20"
+        },
+        {
+          "id": "performance-worldmodels-20260908-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "754695d09e014226b660fab2d3f30997506f223495a06157a752f6306d4c260d"
+        },
+        {
+          "id": "hardware-taxonomy-r1-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r2-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r3-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r4-20260915-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r5-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r6-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r7-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r8-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r9-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r10-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r11-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r12-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r13-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r14-20260915-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r15-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r16-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r17-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r18-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r19-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r20-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r25-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "reader-f20-dates-20260923-2",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "motion-data-hardware-humanizer-v3-20260927-prose-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "558956d6f13ce7c7c7c1c7a37df64bc879248777c0910a0fd7caf08cbb3ed7a3"
+        },
+        {
+          "id": "seo-pass-20261002-prose-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "968143da16731393e77b21d1e27a5e2cb965c1dc86cb08d83f042d97e5d05fec"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-prose-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "df76d0fb7992a19bed98944b84599efd78eed419c327653146401a3e33357cad"
+        }
+      ]
+    },
+    {
+      "id": "images-dh-20261015-prose-data-hardware-industrial-deployment",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "bd1c878eb6a3f22324cb71ab85e31cd942b6021c15ca5dd5c4f8fb14c03f7811",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 33 earlier approved edges exactly, ending with length-cut-20261013-data-hardware-prose-industrial-deployment. The article gains 3 registered images, each a one-line <Image id=\"...\" /> mount on its own line between blank lines: bmw-leipzig-body-shop-spot-welding-2005 after the lead paragraph, ocado-warehouse-grid-bots-2017 in \"What is actually automated at scale\" and kuka-bread-palletizing-bakery-2005 in \"The integrator's multiple\". No prose, number, citation, link target, glossary id, frontmatter field, import or other mount changes. The image-mount continuity review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds the article's earlier bytes from the live file by taking out exactly these mounts.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "content-audit-2026-09-06-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "a7ae31d224104e331b62665cad4264c944f258ab4bf05f6038894be78fefe9ba"
+        },
+        {
+          "id": "retained-cross-20260907-3",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "750d2a819dc0093fef156ec7664555225ef2ab527b2b5c477832859034aea589"
+        },
+        {
+          "id": "retained-cross-20260907-6",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "25f89d2b66a3c7cba5c35145cefaa828a445b6dccf6f55f0bb73f01932e3a9e4"
+        },
+        {
+          "id": "industrial-cost-responsibility-20260909-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "1c7ea96deb80f4e7c1c7d3b76cecf79a22f690a5c241230e3188bd5787870330"
+        },
+        {
+          "id": "ifr-industrial-originals-20260912-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "f4886dbb51051a51cba727226c04a0373213b1f97987338862f8d6bf13e01b77"
+        },
+        {
+          "id": "symbotic-a3-industrial-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "46eb8ae18d6f630cd556e387a5a7519cb841e378274b9528627caf51eb17378b"
+        },
+        {
+          "id": "amazon-industrial-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "499dd7bc6734ff5e01ac914b97242a49689345824b9ec9e93d3243ab2a99b97a"
+        },
+        {
+          "id": "amazon-industrial-tooltip-placement-20260913",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "18f396ad337f224e3eb055525e10eb03dc529c7e05201045de408bfc8b4f6292"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "0dd12f5fa30be2bd301761106404bce26e2ec66d6ad49269ac364ed3312d336d"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-4",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8"
+        },
+        {
+          "id": "osha-industrial-modes-38-20260915-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8"
+        },
+        {
+          "id": "seo-20260824-prose-349c6badf01f",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "349c6badf01fc723272a19107d627800666788f0699e068e0699ddde8ff1fbb0"
+        },
+        {
+          "id": "seo-merge-20260916-prose-9",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d3c361e063873351e4a90bd1372d09076bd3792149cb3c9e583a7dcc7d2c9b45"
+        },
+        {
+          "id": "as0917a-industrial-ocado-scope",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d"
+        },
+        {
+          "id": "mit-industrial-43-prose-20260921",
+          "oldHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d",
+          "newHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "04577b7063dd224b8a7d0ed35fa2527b17870f253c029f55f54c794e72789a49"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-1",
+          "oldHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba",
+          "newHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "76eee12ee99d7fedbc725d7be11966f66df5d2633e96e496011aec9b925dc909"
+        },
+        {
+          "id": "economics-local-20260923-1",
+          "oldHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048",
+          "newHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1430-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
+        },
+        {
+          "id": "industrial-closure-20260923-6",
+          "oldHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422",
+          "newHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "1aea5cd4a2064ec784e74a5a804c5338a4c57154b6a95ee7787141fc63172afc"
+        },
+        {
+          "id": "citation-closeout-20260924-kroger-temporal-prose",
+          "oldHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c",
+          "newHash": "f502a1a2d97d58701321a793dc285deb1e340725c3575155d7c0f38789503528"
+        },
+        {
+          "id": "main-merge-20260924-industrial-prose",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "4448010ee139b50e98f5967aa77eebcb5d842ff39a9dc1d16287a70a359b052c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d8f091fdc26d87b8de37a8736324f0e715ad60759a23271c0ce7168661c6360a"
+        },
+        {
+          "id": "educational-relocation-20260926-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "915117232269b0ec152a0ccedd7ac8bdeb0126e40fdf1891118e84b68eabf3a8"
+        },
+        {
+          "id": "motion-data-hardware-humanizer-v3-20260927-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "f76ec68e7881c2c2e748561fcebb76d6829909e3827711484fb0f591dc1662fe"
+        },
+        {
+          "id": "motion-data-hardware-source-qualification-20260927-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d6912e7b80390fcfa1b2430b4fe4b0c3d8f3e01b32ec8cf7259a6800119d32f3"
+        },
+        {
+          "id": "round6-prose-restores-20260929-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d52ef321eaa188ee867b49f827b0f8445992ed79e8399ee577ffb47b84542249"
+        },
+        {
+          "id": "seo-pass-20261002-prose-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "ef1736ed9508d63bf57e307d1cde7b03450a9a400becc3abb0ceb1499cb9b06b"
+        },
+        {
+          "id": "reader-first-20261002-prose-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "af0b3110dde1f4f7fb6c766084cd4ced074fb36ad375787a5df06d194affbcca"
+        },
+        {
+          "id": "kol-backlog-20261005-data-hardware-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "faca0356b24dc53223dbebb7706d7f0d100da7ceb3e3c16519c06d941003fc83"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "f7ddef9c4c2b92c847636bf3afaa9302eeb11e71d84198ee327fc291e825ba8b"
+        }
+      ]
+    },
+    {
+      "id": "images-dh-20261015-prose-data-hardware-robot-learning-stack",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/robot-learning-stack",
+      "oldHash": "f4e4200aa362815cfb07e979ce583b34c6cfb3e69c84e97970ec58ea17ff7525",
+      "newHash": "ed6c817e7ef8350ad958444a1aff2af28a32ddc7ac0bfa95b267d6f25512e966",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one plain edge from the member's last approved endpoint (length-cut-20261013-data-hardware-prose-robot-learning-stack). The article gains 2 registered images, each a one-line <Image id=\"...\" /> mount on its own line between blank lines: openvla-overview-2024 after the lead paragraph and droid-camera-calibration-2024 in \"Contract 1: hardware and calibration\". No prose, number, citation, link target, glossary id, frontmatter field, import or other mount changes. The image-mount continuity review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds the article's earlier bytes from the live file by taking out exactly these mounts.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-prose-data-hardware-teleop-rigs",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/teleop-rigs",
+      "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+      "newHash": "68a3411f2c97f7f1992930d36e6e027b6366c012ccf0dc3f24dd4f99784a2b40",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 22 earlier approved edges exactly, ending with length-cut-20261013-data-hardware-prose-teleop-rigs. The article gains 2 registered images, each a one-line <Image id=\"...\" /> mount on its own line between blank lines: inl-hot-cell-manipulators-2006 after the lead paragraph and umi-handheld-grippers-2024 in \"UMI: collection without a robot\". No prose, number, citation, link target, glossary id, frontmatter field, import or other mount changes. The image-mount continuity review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds the article's earlier bytes from the live file by taking out exactly these mounts.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "pricing-provenance-20260907-2",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "c7f5ed81362bb02abcd2374d81b8e26a2019a091a19ba65ef68e13675338bc3c"
+        },
+        {
+          "id": "pricing-provenance-20260907-7",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "9eb059ec3ac376ca34210418538187aa2e29e50773116da0d55a59a47cba8caa"
+        },
+        {
+          "id": "pricing-provenance-20260907-8",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c"
+        },
+        {
+          "id": "tr-r1-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r2-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r3-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r5-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r6-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r7-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r8-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r9-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r10-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r11-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r12-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r13-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "seo-merge-20260916-prose-11",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "round5-closeout-teleop-rigs-prose",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "educational-cue-20260926-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "dc7c65001342ac5decfa2db1607e03a15111d92b706aa43f999e7c29ee15ab21"
+        },
+        {
+          "id": "motion-data-hardware-humanizer-v3-20260927-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "b82c876afa479ce49a0291cb4e0e41a4a7336c6d0d0f7f846a25dfb35f863ffa"
+        },
+        {
+          "id": "seo-pass-20261002-prose-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "417fe107f09c07786ae8749eaf8df5d9bf998fe0d82000435fe5636f153d4e28"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "663d4df611a904ab841911959250fd2a4f3966a4357efb66b5d7fde1652b6670"
+        }
+      ]
+    },
+    {
+      "id": "images-dh-20261015-assets-svg-registered-image-bmw-leipzig-body-shop-spot-welding-2005",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:bmw-leipzig-body-shop-spot-welding-2005",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b05d60077bafa0f5b3a0ac0b9dbf56052835019c73d495fcd17e1af63343fc10",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one edge from an absent seal: the member is new. It registers bmw-leipzig-body-shop-spot-welding-2005, a photograph by BMW Werk Leipzig from Wikimedia Commons (https://commons.wikimedia.org/wiki/File:BMW_Leipzig_MEDIA_050719_Download_Karosseriebau_max.jpg), licence CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0/de/), legal basis cc-by-sa, preservation policy external-bytes-preserved, retrieved 2026-10-11, 1840 x 1228 px, served at public/images/bmw-leipzig-body-shop-spot-welding-2005.jpg and sealed in contract/brand-v2-asset-seal.json; the licence reading on the source page is recorded beside its entry in data/images.ts, and /credits lists it. Mounted in data-hardware/industrial-deployment.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008",
+        "VAL-B2-IMG-009",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-assets-svg-registered-image-bridgedata-v2-sink-tasks-2023",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:bridgedata-v2-sink-tasks-2023",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "63b7309e97498d9bad3454a0f59e350c138fb297738cfbb35a392008405661a5",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one edge from an absent seal: the member is new. It registers bridgedata-v2-sink-tasks-2023, a paper figure by Moo Jin Kim et al. from arXiv (https://arxiv.org/abs/2406.09246), licence CC BY 4.0 (https://creativecommons.org/licenses/by/4.0), legal basis cc-by, preservation policy external-bytes-preserved, retrieved 2026-10-11, 2000 x 839 px, served at public/images/bridgedata-v2-sink-tasks-2023.jpg and sealed in contract/brand-v2-asset-seal.json; the licence reading on the source page is recorded beside its entry in data/images.ts, and /credits lists it. Mounted in data-hardware/datasets.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008",
+        "VAL-B2-IMG-009",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-assets-svg-registered-image-droid-camera-calibration-2024",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:droid-camera-calibration-2024",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bbec0d62e56184ab5b768e50ffa193e2772b9d2aaea92df179596413bfb813ee",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one edge from an absent seal: the member is new. It registers droid-camera-calibration-2024, a paper figure by Alexander Khazatsky et al. from arXiv (https://arxiv.org/abs/2403.12945), licence CC BY 4.0 (https://creativecommons.org/licenses/by/4.0), legal basis cc-by, preservation policy external-bytes-preserved, retrieved 2026-10-11, 2000 x 1124 px, served at public/images/droid-camera-calibration-2024.jpg and sealed in contract/brand-v2-asset-seal.json; the licence reading on the source page is recorded beside its entry in data/images.ts, and /credits lists it. Mounted in data-hardware/robot-learning-stack.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008",
+        "VAL-B2-IMG-009",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-assets-svg-registered-image-droid-in-the-wild-scenes-2024",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:droid-in-the-wild-scenes-2024",
+      "oldHash": "6fd7ce6b46e17a6ad8d5cdd073ee466c141e9537c5d38e514c578a12207bc9eb",
+      "newHash": "b276da15d18cc5ef807731eaec762d70f93946c2d612e927c3cf6001cc198ead",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one plain edge from the member's last approved endpoint (images-a-20261013-assets-svg-registered-image-droid-in-the-wild-scenes-2024). Its caption drops the opener that tied it to the curriculum article (\"Every stage of the curriculum meets real robot data like DROID's:\") and the counts the data-bottleneck paragraph beside its new mount already gives (76k trajectories, 13 institutions), so the same figure reads under the robot-learning roadmap lead and the data-bottleneck lead. It keeps the 9 scene types and the one Franka setup recording in kitchens, bedrooms, offices and other real buildings. The file, bytes, seal row, licence, credit and alt text are unchanged. Mounted in data-hardware/data-bottleneck and manipulation/robot-learning-roadmap.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008",
+        "VAL-B2-IMG-009",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-assets-svg-registered-image-inl-hot-cell-manipulators-2006",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:inl-hot-cell-manipulators-2006",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6bcae56f4da218fa0c2ec9978baa31696cc7482f6090d33084d964a5b86627c1",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one edge from an absent seal: the member is new. It registers inl-hot-cell-manipulators-2006, a photograph by Idaho National Laboratory from Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Remote_manipulators_002.jpg), licence CC BY 2.0 (https://creativecommons.org/licenses/by/2.0), legal basis cc-by, preservation policy external-bytes-preserved, retrieved 2026-10-11, 1280 x 1920 px, served at public/images/inl-hot-cell-manipulators-2006.jpg and sealed in contract/brand-v2-asset-seal.json; the licence reading on the source page is recorded beside its entry in data/images.ts, and /credits lists it. Mounted in data-hardware/teleop-rigs.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008",
+        "VAL-B2-IMG-009",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-assets-svg-registered-image-kuka-bread-palletizing-bakery-2005",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:kuka-bread-palletizing-bakery-2005",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e1998e6e7e8f3efddff7dce005ecb7606d65b156d6318d5bcced454e2b50f851",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one edge from an absent seal: the member is new. It registers kuka-bread-palletizing-bakery-2005, a photograph by KUKA Roboter GmbH from Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Factory_Automation_Robotics_Palettizing_Bread.jpg), licence Public domain (https://commons.wikimedia.org/wiki/Template:PD-author), legal basis public-domain, preservation policy external-bytes-preserved, retrieved 2026-10-11, 1600 x 1200 px, served at public/images/kuka-bread-palletizing-bakery-2005.jpg and sealed in contract/brand-v2-asset-seal.json; the licence reading on the source page is recorded beside its entry in data/images.ts, and /credits lists it. Mounted in data-hardware/industrial-deployment.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008",
+        "VAL-B2-IMG-009",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-assets-svg-registered-image-libero-benchmark-overview-2023",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:libero-benchmark-overview-2023",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "1ad69af32a92634a7e9561591fddac26c54a4d973da8b03fa4d9347ea1bb581c",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one edge from an absent seal: the member is new. It registers libero-benchmark-overview-2023, a paper figure by Bo Liu et al. from arXiv (https://arxiv.org/abs/2306.03310), licence CC BY 4.0 (https://creativecommons.org/licenses/by/4.0), legal basis cc-by, preservation policy external-bytes-preserved, retrieved 2026-10-11, 2000 x 1091 px, served at public/images/libero-benchmark-overview-2023.jpg and sealed in contract/brand-v2-asset-seal.json; the licence reading on the source page is recorded beside its entry in data/images.ts, and /credits lists it. Mounted in data-hardware/evaluation-crisis.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008",
+        "VAL-B2-IMG-009",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-assets-svg-registered-image-nist-dexterous-manipulation-testbed-2013",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:nist-dexterous-manipulation-testbed-2013",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "5387c85f862fca511f88060d9cfe421f9d243e859da9a67acb679e2b24c12d7d",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one edge from an absent seal: the member is new. It registers nist-dexterous-manipulation-testbed-2013, a photograph by National Institute of Standards and Technology from Wikimedia Commons (https://commons.wikimedia.org/wiki/File:NIST_Dexterous_Manipulation_Testbed_(9502902636).jpg), licence Public domain (https://commons.wikimedia.org/wiki/Template:PD-USGov-NIST), legal basis public-domain, preservation policy external-bytes-preserved, retrieved 2026-10-11, 1920 x 1258 px, served at public/images/nist-dexterous-manipulation-testbed-2013.jpg and sealed in contract/brand-v2-asset-seal.json; the licence reading on the source page is recorded beside its entry in data/images.ts, and /credits lists it. Mounted in data-hardware/hardware-taxonomy.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008",
+        "VAL-B2-IMG-009",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-assets-svg-registered-image-ocado-warehouse-grid-bots-2017",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:ocado-warehouse-grid-bots-2017",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7dc902e48bc1a947bbe8c693243d17c9022f3da2580f29e734b9012d3ea4d782",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one edge from an absent seal: the member is new. It registers ocado-warehouse-grid-bots-2017, a photograph by Techwords from Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Ocado_warehouse_bots.jpg), licence CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0), legal basis cc-by-sa, preservation policy external-bytes-preserved, retrieved 2026-10-11, 1920 x 1321 px, served at public/images/ocado-warehouse-grid-bots-2017.jpg and sealed in contract/brand-v2-asset-seal.json; the licence reading on the source page is recorded beside its entry in data/images.ts, and /credits lists it. Mounted in data-hardware/industrial-deployment.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008",
+        "VAL-B2-IMG-009",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-assets-svg-registered-image-openvla-overview-2024",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:openvla-overview-2024",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "73389e42ebfffb1573f44d56a18a688d50475b465768b91ebfa17075883f501d",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one edge from an absent seal: the member is new. It registers openvla-overview-2024, a paper figure by Moo Jin Kim et al. from arXiv (https://arxiv.org/abs/2406.09246), licence CC BY 4.0 (https://creativecommons.org/licenses/by/4.0), legal basis cc-by, preservation policy external-bytes-preserved, retrieved 2026-10-11, 2000 x 1029 px, served at public/images/openvla-overview-2024.jpg and sealed in contract/brand-v2-asset-seal.json; the licence reading on the source page is recorded beside its entry in data/images.ts, and /credits lists it. Mounted in data-hardware/robot-learning-stack.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008",
+        "VAL-B2-IMG-009",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-assets-svg-registered-image-umi-handheld-grippers-2024",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:umi-handheld-grippers-2024",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e5d510f7dd2292ca7a1fc818ea5fc5c2f88cbd8f398400530e9a2941a29a1fab",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one edge from an absent seal: the member is new. It registers umi-handheld-grippers-2024, a paper figure by Fanqi Lin et al. from arXiv (https://arxiv.org/abs/2410.18647), licence CC BY 4.0 (https://creativecommons.org/licenses/by/4.0), legal basis cc-by, preservation policy external-bytes-preserved, retrieved 2026-10-11, 1886 x 1061 px, served at public/images/umi-handheld-grippers-2024.jpg and sealed in contract/brand-v2-asset-seal.json; the licence reading on the source page is recorded beside its entry in data/images.ts, and /credits lists it. Mounted in data-hardware/teleop-rigs.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008",
+        "VAL-B2-IMG-009",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "images-dh-20261015-assets-svg-registered-image-umi-test-environments-2024",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:umi-test-environments-2024",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "92ccedb0585826695528e510c337626e03c6003bfb28a5d232fb7000d2241c83",
+      "reason": "The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one edge from an absent seal: the member is new. It registers umi-test-environments-2024, a paper figure by Fanqi Lin et al. from arXiv (https://arxiv.org/abs/2410.18647), licence CC BY 4.0 (https://creativecommons.org/licenses/by/4.0), legal basis cc-by, preservation policy external-bytes-preserved, retrieved 2026-10-11, 2000 x 900 px, served at public/images/umi-test-environments-2024.jpg and sealed in contract/brand-v2-asset-seal.json; the licence reading on the source page is recorded beside its entry in data/images.ts, and /credits lists it. Mounted in data-hardware/data-bottleneck.",
+      "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day (robot-wiki-out/IMAGE-BRIEF.md) sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, and admits CC0, public domain and CC BY or CC BY-SA 2.0, 3.0 and 4.0, never NC or ND variants; the licence of each image is read on its own file or abstract page. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008",
+        "VAL-B2-IMG-009",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

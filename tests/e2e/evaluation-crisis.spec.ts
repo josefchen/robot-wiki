@@ -16,7 +16,7 @@ const HORIZON = { name: /episode length/i };
  * "Adjust more" fold, so every test opens that fold first, as a reader would.
  */
 async function calculator(page: import('@playwright/test').Page) {
-  const step = page.locator('[data-predict]:has(svg[aria-label^="Line chart of episode success"])');
+  const step = page.locator('[data-predict]:has(svg[aria-label^="A marble run with"])');
   await expect(step.locator(':scope > details[data-reveal]')).not.toHaveAttribute('open');
   const mount = step.locator(':scope > [data-predict-figure] [data-brand-module-signature="instrument-frame"]');
   await expect(mount).toBeVisible();
