@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "975992736ac27a528c6cb51186abed779b65d448625485393d409b2a30af1cc6",
+  "fingerprint": "4025bed2ff384d49a7b9b6085c72750e2719014d5711c5c1135fd25ce8d4ac69",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3021,
+      "visibleTextLength": 3023,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2008,7 +2008,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22143,
+      "visibleTextLength": 22168,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2936,7 +2936,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22931,
+      "visibleTextLength": 22957,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3576,7 +3576,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21779,
+      "visibleTextLength": 21784,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4410,7 +4410,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16119,
+      "visibleTextLength": 16116,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4618,19 +4618,10 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 162,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "3 poses: just enough to solve"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Illustrative ring; pose counts cited"
+          "text": "Illustrative iris; pose counts cited"
         },
         {
           "familyHead": "geist",
@@ -5168,7 +5159,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24275,
+      "visibleTextLength": 24194,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8705,7 +8696,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33753,
+      "visibleTextLength": 33690,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29831,7 +29822,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17019,
+      "visibleTextLength": 16617,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29883,11 +29874,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 7,
         "citationCount": 34,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "34 sources",
         "bibliographyIds": [
           "diffusion-policy-2023",
@@ -30020,7 +30011,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "beat 5 / 5 60 random guesses, each nudged onto a good move i"
+          "text": "beat 5 / 5 Two random guesses, two good moves · neither hits"
         },
         {
           "familyHead": "geist",
@@ -30047,7 +30038,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The guess the camera follows starts 3.17 from its move and e"
+          "text": "The guess the scene follows starts 0.82 from its move and en"
         },
         {
           "familyHead": "geist",
@@ -30056,7 +30047,16 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The sample positions come from an illustrative two-move mode"
+          "text": "The pin heights come from an illustrative model with fixed r"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a pin gauge, two of them side by side. Each p"
         },
         {
           "familyHead": "geist",
@@ -34195,7 +34195,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20747,
+      "visibleTextLength": 20718,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34325,15 +34325,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "π0 kept a pretrained vision-language backbone and replaced d"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
-          "widthPx": 293,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "Average distance from the good move with 10 steps: 0.05; wit"
         },
         {
           "familyHead": "geist",
@@ -34875,6 +34866,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the stylus",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -55131,7 +55130,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3021,
+      "visibleTextLength": 3023,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56985,7 +56984,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32436,
+      "visibleTextLength": 32461,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57902,7 +57901,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 34662,
+      "visibleTextLength": 34688,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58531,7 +58530,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32245,
+      "visibleTextLength": 32250,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59354,7 +59353,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21199,
+      "visibleTextLength": 21196,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59562,19 +59561,10 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 162,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "3 poses: just enough to solve"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Illustrative ring; pose counts cited"
+          "text": "Illustrative iris; pose counts cited"
         },
         {
           "familyHead": "geist",
@@ -60101,7 +60091,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30840,
+      "visibleTextLength": 30759,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63594,7 +63584,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 43591,
+      "visibleTextLength": 43528,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84478,7 +84468,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22383,
+      "visibleTextLength": 21981,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84530,11 +84520,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 7,
         "citationCount": 34,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "34 sources",
         "bibliographyIds": [
           "diffusion-policy-2023",
@@ -84664,10 +84654,10 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 364,
+          "widthPx": 339,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "beat 5 / 5 60 random guesses, each nudged onto a good move i"
+          "text": "beat 5 / 5 Two random guesses, two good moves · neither hits"
         },
         {
           "familyHead": "geist",
@@ -84694,7 +84684,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The guess the camera follows starts 3.17 from its move and e"
+          "text": "The guess the scene follows starts 0.82 from its move and en"
         },
         {
           "familyHead": "geist",
@@ -84703,7 +84693,16 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The sample positions come from an illustrative two-move mode"
+          "text": "The pin heights come from an illustrative model with fixed r"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a pin gauge, two of them side by side. Each p"
         },
         {
           "familyHead": "geist",
@@ -88787,7 +88786,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27518,
+      "visibleTextLength": 27489,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -88917,15 +88916,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "π0 kept a pretrained vision-language backbone and replaced d"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
-          "widthPx": 451,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "Average distance from the good move with 10 steps: 0.05; wit"
         },
         {
           "familyHead": "geist",
@@ -89467,6 +89457,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the stylus",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",

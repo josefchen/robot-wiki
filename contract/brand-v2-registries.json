@@ -16620,6 +16620,7 @@
         "components/interactive/dataset-table.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/execution-modes.tsx",
+        "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/gait-diagram.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
@@ -16676,6 +16677,7 @@
         "components/interactive/dataset-table.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/execution-modes.tsx",
+        "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",
@@ -16727,7 +16729,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "bf983944a57d7876b42c4d1eb6debba0a6cc99c7dc8ba79d434025768b556c7e"
+      "fingerprint": "7ca18195d25fed611354d10a89c278fca730ea575c16f57b87f9dc4f6201f157"
     },
     {
       "id": "control:selection",
@@ -17200,5 +17202,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "dab858d8dd98c9c4cf2bd6c9022ff9d257b86d6f9fc2f3df22d32464976b229b"
+  "rootFingerprint": "219ba37799fe29b9e29fc7ba8f145b6a19eea35274001322087125f3f740c927"
 }

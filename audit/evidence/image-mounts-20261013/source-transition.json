@@ -4,7 +4,7 @@
   "reviewedBy": "integration workers for images bundle A (2026-10-13), the frontier images (2026-10-15), the adjacent images of bundle B (2026-10-15) and the data-hardware images (2026-10-15) (not independent acceptance)",
   "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, under the licence gate of data/schemas/image.ts. Not release approval.",
   "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13, the six frontier articles on 2026-10-15, and the adjacent and data-hardware articles on 2026-10-15 after their length cuts: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-15T16:52:24Z",
+  "observedAt": "2026-10-15T21:09:33Z",
   "sources": [
     {
       "archivedFrom": "488f773433ed5556396cb5012639f6b0fd11e7c4",
@@ -39,16 +39,16 @@
       ]
     },
     {
-      "archivedFrom": "488f773433ed5556396cb5012639f6b0fd11e7c4",
+      "archivedFrom": "f4792db975aa54907dd8b8f7a13f9b1caf83cf83",
       "before": {
         "path": "content/adjacent/drones.mdx",
-        "bytes": 12877,
-        "sha256": "8d9694bad0c1f600929f42918e63019e0e75f06bdea20d38daf733bf6da82e64"
+        "bytes": 12903,
+        "sha256": "0a0d001423f03e2e44eaec22718e463a4f6b684f06076be3b282024597ac9c77"
       },
       "after": {
         "path": "content/adjacent/drones.mdx",
-        "bytes": 12966,
-        "sha256": "b309b1b0f36bf01cb57a68935a3662787cfb1828d61bd98384cf31ff82ea6065"
+        "bytes": 12992,
+        "sha256": "701be0c28cea61567e4a48e1dda26df1c213747fbbad71fe3fd5e39a7b588958"
       },
       "mounts": [
         "racing-quadrotor-minion-220-2016",
@@ -66,16 +66,16 @@
       ]
     },
     {
-      "archivedFrom": "488f773433ed5556396cb5012639f6b0fd11e7c4",
+      "archivedFrom": "f4792db975aa54907dd8b8f7a13f9b1caf83cf83",
       "before": {
         "path": "content/adjacent/space.mdx",
-        "bytes": 13534,
-        "sha256": "0c12367881b2f5da94dc51c56a7441bf5dced4e2e951922ff128d62b13a17d0e"
+        "bytes": 13557,
+        "sha256": "b1bb87b73841035d85cdb1b74c8a7785f1846ffcb10aa2c6c716ce265a7291a5"
       },
       "after": {
         "path": "content/adjacent/space.mdx",
-        "bytes": 13728,
-        "sha256": "5f341f0de96549d5e1495018af34c9560062af76b290f463775759f338760619"
+        "bytes": 13751,
+        "sha256": "65e0c08f4d86447344531aee2e1231ff77cb6131f254752e2b789dfdd869a7e4"
       },
       "mounts": [
         "perseverance-selfie-rochette-2021",

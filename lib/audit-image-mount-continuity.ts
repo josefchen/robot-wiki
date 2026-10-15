@@ -44,7 +44,7 @@ export type ImageMountReview = {
 
 // BEGIN image-mount pins (written by scripts/record-image-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 176288, sha256: '568fa9b45e29389df5239b82cbbc484d3a5e47274005d57e2589f3edef42f3d3' };
+const reviewPin = { bytes: 176288, sha256: '56cf61d00f223c22721dbd997c6402694aea33f72555c9faa543232b666f898b' };
 
 /** The registered image ids whose one-line mounts the review admits. */
 const admitted: ReadonlySet<string> = new Set([
@@ -175,8 +175,8 @@ const admitted: ReadonlySet<string> = new Set([
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/adjacent/autonomous-vehicles.mdx', [20460, '49118a4634c77b3a64dbef740232adb56675a62b5d3527649c327268fe20816b']],
-  ['content/adjacent/drones.mdx', [12966, 'b309b1b0f36bf01cb57a68935a3662787cfb1828d61bd98384cf31ff82ea6065']],
-  ['content/adjacent/space.mdx', [13728, '5f341f0de96549d5e1495018af34c9560062af76b290f463775759f338760619']],
+  ['content/adjacent/drones.mdx', [12992, '701be0c28cea61567e4a48e1dda26df1c213747fbbad71fe3fd5e39a7b588958']],
+  ['content/adjacent/space.mdx', [13751, '65e0c08f4d86447344531aee2e1231ff77cb6131f254752e2b789dfdd869a7e4']],
   ['content/adjacent/surgical.mdx', [12431, 'af0187f6b73b19cf8f85c772672725687f36788afaf090ea1ba3893ada5cf7e3']],
   ['content/classical/calibration.mdx', [8186, '1be288684890f4acb3526b0054ded937aacbe67aee8caa185089e12c86bb2c9d']],
   ['content/classical/control.mdx', [16856, 'b9262408942a654683cd35db3711dbb3d94611b14007855651a6b8a3a2e4a54a']],

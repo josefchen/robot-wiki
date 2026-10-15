@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import {
   CLEARANCE_MM,
   DEFAULT_PARAMS,
@@ -21,26 +21,44 @@ import {
   ControlLabel,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
-  InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
-  LegendItem,
   PlotStage,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_TYPE,
   CHART_VIEW_WIDTH,
   ConstraintHatch,
-  DirectLabel,
-  LegendSwatch,
-  StageAnnotation,
   roleColour,
 } from '@/components/motion/chart';
 import { CiteRef } from '@/components/article/citation-records';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, Line, Solid } from '@/components/iso/react/draw';
+import { Stage, asksForStillness } from '@/components/iso/react/live';
+import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
+import { pathOf } from '@/components/iso/iso-kit';
+import {
+  HEIGHT as BENCH_HEIGHT,
+  PARTS,
+  WIDTH as BENCH_WIDTH,
+  beamOf,
+  cableAt,
+  cameraAt,
+  carriageAt,
+  drawnTilt,
+  overTop,
+  sightTo,
+  spindleAt,
+  thimbleAt,
+  type LiveId,
+  type Part,
+  M as MISS_UNITS,
+  SCALE_MM,
+  U as RAIL_UNITS,
+} from '@/components/iso/figures/tilt-miss-bench';
 
 /**
  * Authored teaching model: controls select three input magnitudes, composed
@@ -48,12 +66,14 @@ import { CiteRef } from '@/components/article/citation-records';
  * A distance sweep changes only the chosen ray-to-plane term. Model bands
  * and target multipliers are teaching settings, not collision predictions.
  *
- * The stage draws that one distance-dependent term: a side view of the
- * camera's true line of sight and the one the robot assumes, tilted by the
- * hand-eye angle, with the miss d * tan(theta) bracketed at the working
- * distance. The vertical is drawn far steeper than the horizontal so a
- * fraction of a degree shows. The composed budget, its other inputs and
- * its readouts sit in "Adjust more".
+ * The stage draws that one distance-dependent term as an optical bench
+ * (components/iso/figures/tilt-miss-bench.ts): a camera tilts in a yoke at
+ * one end of a rail, set by a micrometer under its tail, and a target staff
+ * rides the rail. The camera's line of sight, the lit beam, lands on the
+ * staff's scale above the peg that sits on the rail's own line, so the gap
+ * is the miss d * tan(theta) at the staff's distance. The miss is drawn far
+ * steeper than the distance so a fraction of a degree shows. The composed
+ * budget, its other inputs and its readouts sit in "Adjust more".
  *
  * Roles in the budget chart: the three inputs are value bars, the composed
  * total is the state outline, the 15 mm model band is the dashed reference
@@ -91,51 +111,128 @@ function axisMax(totalMm: number): number {
   return Math.ceil(needed / step) * step;
 }
 
-/** The side view: where the lens sits and how far the sight lines run. */
-const LENS_X = 50;
-const SIGHT_RIGHT = WIDTH - 14;
-/** The true line of sight, which doubles as the distance axis. */
-const SIGHT_Y = 160;
-/** The assumed line of sight is clipped here, under the annotation row. */
-const SIGHT_TOP = 44;
-const NOTE_Y = 22;
-/** The object's name sits under its dot, above the distance numbers. */
-const OBJECT_LABEL_Y = SIGHT_Y + 16;
-const SIDE_TICK_Y = SIGHT_Y + 34;
-const SIDE_AXIS_Y = SIGHT_Y + 56;
-const SIDE_H = SIDE_AXIS_Y + 8;
+/** How many times steeper the bench draws the miss than the distance. */
+const BENCH_MISS_SCALE = Math.round((MISS_UNITS * 1000) / RAIL_UNITS);
+
+/** The rail's far end, metres: the description also states the miss there. */
 const FAR_M = SLIDER_SPECS.distance.max;
-const UNITS_PER_M = (SIGHT_RIGHT - LENS_X) / FAR_M;
-/**
- * Stage units per millimetre of miss: the vertical runs about 27 times
- * steeper than the horizontal, so half a degree reads as a visible wedge.
- */
-const UNITS_PER_MM = 5;
-const VISIBLE_MISS_MM = (SIGHT_Y - SIGHT_TOP) / UNITS_PER_MM;
-const SIDE_TICKS = [0.5, 1, 1.5] as const;
 
-const sideX = (m: number) => f(LENS_X + m * UNITS_PER_M);
-const sideY = (mm: number) => f(SIGHT_Y - Math.min(mm, VISIBLE_MISS_MM) * UNITS_PER_MM);
-
-/** The stage note: how far the robot misses at the chosen distance. */
-function missNote(missMm: number): string {
-  if (missMm < 0.05) return 'No tilt: the hand reaches the object';
-  return `The hand goes here: ${missMm.toFixed(1)} millimetres off`;
+/** The stage's words: the miss at the staff, in plain words. */
+function benchReadout(tiltDeg: number, distanceM: number): string {
+  const miss = handEyeErrorMm(tiltDeg, distanceM);
+  const where = `${tiltDeg.toFixed(1)} degrees at ${distanceM.toFixed(2)} metres`;
+  if (miss < 0.05) return `${where} · the beam lands on the peg`;
+  return `${where} · misses by ${miss.toFixed(1)} millimetres${overTop(miss) ? ', past the scale' : ''}`;
 }
 
-/** A camera seen from the side, its lens touching the lines of sight. */
-function CameraGlyph({ ink }: { ink: string }) {
-  const y = SIGHT_Y;
-  return (
-    <g data-figure-glyph="camera">
-      <rect x={12} y={y - 10} width={28} height={20} rx={3} fill="none" stroke={ink} strokeWidth={CHART_STROKE.trace} />
-      <rect x={17} y={y - 14} width={9} height={4} fill={ink} />
-      <path d={`M40 ${y - 6} L${LENS_X} ${y - 3} L${LENS_X} ${y + 3} L40 ${y + 6} Z`} fill={ink} />
-      <text data-chart-label="" x={30} y={SIDE_TICK_Y} textAnchor="middle" fontSize={CHART_TYPE.labelPx} fill={ink}>
-        camera
-      </text>
-    </g>
-  );
+/** The bench's parts in painter's order, cut into runs: the static art and the staff's moving carriage. */
+const RUNS: Array<{ group: Part['group']; parts: Part[] }> = [];
+for (const part of PARTS) {
+  const last = RUNS[RUNS.length - 1];
+  if (last && last.group === part.group) last.parts.push(part);
+  else RUNS.push({ group: part.group, parts: [part] });
+}
+
+function BenchPart({ part }: { part: Part }) {
+  if (part.kind === 'solid') {
+    return (
+      <Solid
+        paths={part.paths}
+        tone={part.tone}
+        lit={part.lit}
+        crease={part.crease}
+        inner={part.inner ? <Line d={part.inner} tone={part.innerTone ?? 'faint'} /> : undefined}
+      />
+    );
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  if (part.kind === 'dots') return <Dots points={part.points} size={part.size} tone={part.tone} />;
+  return null;
+}
+
+/**
+ * The bench for one tilt (degrees) and distance (metres). The component draws it once, for the settings it
+ * opens on, so the server and the first client render agree and later renders never rewrite the live paths.
+ */
+function benchAt(tiltDeg: number, distanceM: number) {
+  const miss = handEyeErrorMm(tiltDeg, distanceM);
+  const tilt = drawnTilt(miss, distanceM);
+  return {
+    tiltDeg,
+    distanceM,
+    carriage: carriageAt(distanceM),
+    sight: sightTo(distanceM),
+    beam: beamOf(miss, distanceM),
+    camera: cameraAt(tilt),
+    spindle: spindleAt(tilt),
+    thimble: thimbleAt(tiltDeg),
+    cable: cableAt(tilt),
+  };
+}
+
+type BenchRefs = {
+  carriage: SVGGElement | null;
+  sight: SVGPathElement | null;
+  beam: SVGPathElement | null;
+  ramp: SVGPathElement | null;
+  rampGradient: SVGLinearGradientElement | null;
+  spot: SVGCircleElement | null;
+  hood: SVGGElement | null;
+  barrel: SVGGElement | null;
+  mount: SVGGElement | null;
+  body: SVGGElement | null;
+  connector: SVGGElement | null;
+  screws: SVGGElement | null;
+  spindle: SVGGElement | null;
+  thimble: SVGGElement | null;
+  knurl: SVGPathElement | null;
+  cable: SVGPathElement | null;
+  cableEnds: SVGGElement | null;
+};
+
+const tenth = (value: number) => String(Math.round(value * 10) / 10);
+
+/** Draw the bench for a tilt (degrees) and a distance (metres). */
+function drawBench(refs: BenchRefs, tiltDeg: number, distanceM: number) {
+  const miss = handEyeErrorMm(tiltDeg, distanceM);
+  const tilt = drawnTilt(miss, distanceM);
+  refs.carriage?.setAttribute('transform', carriageAt(distanceM));
+  refs.sight?.setAttribute('d', sightTo(distanceM));
+  const beam = beamOf(miss, distanceM);
+  refs.beam?.setAttribute('d', pathOf([beam.from, beam.fadeFrom]));
+  refs.ramp?.setAttribute('d', beam.over ? pathOf([beam.fadeFrom, beam.to]) : '');
+  if (refs.rampGradient) {
+    refs.rampGradient.setAttribute('x1', tenth(beam.fadeFrom[0]));
+    refs.rampGradient.setAttribute('y1', tenth(beam.fadeFrom[1]));
+    refs.rampGradient.setAttribute('x2', tenth(beam.to[0]));
+    refs.rampGradient.setAttribute('y2', tenth(beam.to[1]));
+  }
+  if (refs.spot) {
+    refs.spot.setAttribute('cx', tenth(beam.to[0]));
+    refs.spot.setAttribute('cy', tenth(beam.to[1]));
+    refs.spot.style.display = beam.over ? 'none' : '';
+  }
+  const camera = cameraAt(tilt);
+  writeSolid(refs.hood, camera.hood);
+  writeSolid(refs.barrel, camera.barrel);
+  writeSolid(refs.mount, camera.mount);
+  writeSolid(refs.body, camera.body);
+  writeSolid(refs.connector, camera.connector);
+  refs.screws?.querySelectorAll('circle').forEach((dot, index) => {
+    const point = camera.screws[index];
+    if (!point) return;
+    dot.setAttribute('cx', tenth(point[0]));
+    dot.setAttribute('cy', tenth(point[1]));
+  });
+  writeSolid(refs.spindle, spindleAt(tilt));
+  const thimble = thimbleAt(tiltDeg);
+  writeSolid(refs.thimble, thimble.paths);
+  refs.knurl?.setAttribute('d', thimble.knurl);
+  const cable = cableAt(tilt);
+  refs.cable?.setAttribute('d', pathOf([cable.from, ...cable.via, cable.to]));
+  const ends = refs.cableEnds?.querySelectorAll('circle');
+  ends?.[0]?.setAttribute('cx', tenth(cable.from[0]));
+  ends?.[0]?.setAttribute('cy', tenth(cable.from[1]));
 }
 
 export function PerceptionErrorBudget({ className }: { className?: string }) {
@@ -143,6 +240,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
   const descriptionId = `${uid}-description`;
   const sideDescriptionId = `${uid}-side-description`;
   const hatchId = `perception-above-band-${uid.replace(/[^a-zA-Z0-9_-]/g, '')}`;
+  const rampId = `perception-beam-fade-${uid.replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const [params, setParams] = useState<BudgetParams>(DEFAULT_PARAMS);
 
   const budget = composeBudget(params);
@@ -171,17 +269,42 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
   const value = roleColour('value');
   const state = roleColour('state');
   const reference = roleColour('reference');
-  const highlight = roleColour('highlight');
 
   const distance = params.workingDistanceM;
   const missMm = handEyeErrorMm(params.handEyeDeg, distance);
   const farMissMm = handEyeErrorMm(params.handEyeDeg, FAR_M);
-  // The miss grows linearly with distance, so the assumed line leaves the
-  // drawing at the distance where it reaches the visible ceiling.
-  const sightEndM = farMissMm > VISIBLE_MISS_MM ? FAR_M * (VISIBLE_MISS_MM / farMissMm) : FAR_M;
-  const offChart = missMm > VISIBLE_MISS_MM;
-  const objectX = sideX(distance);
-  const aimY = sideY(missMm);
+
+  // The bench eases to the chosen tilt and distance: the staff's carriage glides along the rail, the camera tips
+  // in its yoke and the beam follows. Reduced motion jumps there. The readout is written from the same instant.
+  const stageRef = useRef<HTMLDivElement>(null);
+  const bench = useRef<BenchRefs>({
+    carriage: null, sight: null, beam: null, ramp: null, rampGradient: null, spot: null, hood: null, barrel: null,
+    mount: null, body: null, connector: null, screws: null, spindle: null, thimble: null, knurl: null, cable: null,
+    cableEnds: null,
+  });
+  const [opening] = useState(() => benchAt(params.handEyeDeg, params.workingDistanceM));
+  const shown = useRef({ tilt: opening.tiltDeg, distance: opening.distanceM });
+  const goalTilt = params.handEyeDeg;
+  useEffect(() => {
+    const calm = asksForStillness();
+    const readout = stageRef.current?.closest('[data-anatomy-stage]')?.querySelector<HTMLElement>('[data-readout]');
+    let frame = 0;
+    let last = performance.now();
+    const tick = (now: number) => {
+      const dt = Math.min(now - last, 64) / 1000;
+      last = now;
+      const s = shown.current;
+      const ease = (value: number, to: number) => (calm || Math.abs(to - value) < 1e-3 ? to : value + (to - value) * (1 - Math.exp(-dt / 0.16)));
+      s.tilt = ease(s.tilt, goalTilt);
+      s.distance = ease(s.distance, distance);
+      drawBench(bench.current, s.tilt, s.distance);
+      if (readout) readout.textContent = benchReadout(s.tilt, s.distance);
+      frame = s.tilt === goalTilt && s.distance === distance ? 0 : requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [goalTilt, distance]);
+  const b = bench.current;
 
   const targetField = (
     <fieldset className="min-w-0 border-0 p-0">
@@ -453,94 +576,97 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
     </PlotStage>
   );
 
+  const liveView = (id: LiveId) => {
+    if (id === 'sight') return <path key={id} ref={(el) => void (b.sight = el)} className="iso-line" data-tone="lo" d={opening.sight} />;
+    if (id === 'beam') {
+      return (
+        <g key={id} data-testid="perception-beam" data-miss={missMm.toFixed(2)}>
+          <defs>
+            <linearGradient
+              ref={(el) => void (b.rampGradient = el)}
+              id={rampId}
+              gradientUnits="userSpaceOnUse"
+              x1={opening.beam.fadeFrom[0]}
+              y1={opening.beam.fadeFrom[1]}
+              x2={opening.beam.to[0]}
+              y2={opening.beam.to[1]}
+            >
+              <stop offset="0" stopOpacity={1} style={{ stopColor: 'var(--anatomy-lit)' }} />
+              <stop offset="1" stopOpacity={0} style={{ stopColor: 'var(--anatomy-lit)' }} />
+            </linearGradient>
+          </defs>
+          <path ref={(el) => void (b.beam = el)} className="iso-line" data-tone="lit" d={pathOf([opening.beam.from, opening.beam.fadeFrom])} />
+          <path ref={(el) => void (b.ramp = el)} className="iso-line" data-tone="lit" data-free="end" style={{ stroke: `url(#${rampId})` }} d={opening.beam.over ? pathOf([opening.beam.fadeFrom, opening.beam.to]) : ''} />
+          <g className="iso-wire" data-tone="lit">
+            <circle ref={(el) => void (b.spot = el)} className="iso-wire-end" data-testid="perception-spot" cx={opening.beam.to[0]} cy={opening.beam.to[1]} r={1.3} />
+          </g>
+        </g>
+      );
+    }
+    if (id === 'lens') {
+      return (
+        <g key={id}>
+          <LiveSolid ref={(el) => void (b.hood = el)} paths={opening.camera.hood} tone="mid" />
+          <LiveSolid ref={(el) => void (b.barrel = el)} paths={opening.camera.barrel} tone="mid" />
+          <LiveSolid ref={(el) => void (b.mount = el)} paths={opening.camera.mount} tone="mid" />
+        </g>
+      );
+    }
+    if (id === 'camera') {
+      return (
+        <g key={id} data-testid="perception-camera">
+          <LiveSolid ref={(el) => void (b.body = el)} paths={opening.camera.body} />
+          <g ref={(el) => void (b.screws = el)} className="iso-dots" data-tone="mid">
+            {opening.camera.screws.map(([x, y], index) => (
+              <circle key={index} cx={Math.round(x * 10) / 10} cy={Math.round(y * 10) / 10} r={0.45} />
+            ))}
+          </g>
+          <LiveSolid ref={(el) => void (b.connector = el)} paths={opening.camera.connector} tone="mid" />
+        </g>
+      );
+    }
+    if (id === 'spindle') return <LiveSolid key={id} ref={(el) => void (b.spindle = el)} paths={opening.spindle} />;
+    if (id === 'thimble') {
+      return (
+        <g key={id}>
+          <LiveSolid ref={(el) => void (b.thimble = el)} paths={opening.thimble.paths} tone="mid" />
+          <path ref={(el) => void (b.knurl = el)} className="iso-line" data-tone="lo" d={opening.thimble.knurl} />
+        </g>
+      );
+    }
+    return (
+      <g key={id} className="iso-wire" data-tone="lo">
+        <path ref={(el) => void (b.cable = el)} className="iso-line" data-tone="lo" d={pathOf([opening.cable.from, ...opening.cable.via, opening.cable.to])} />
+        <g ref={(el) => void (b.cableEnds = el)}>
+          <circle className="iso-wire-end" cx={opening.cable.from[0]} cy={opening.cable.from[1]} r={1.1} />
+          <circle className="iso-wire-end" cx={opening.cable.to[0]} cy={opening.cable.to[1]} r={1.1} />
+        </g>
+      </g>
+    );
+  };
+
   const sideView = (
-    <PlotStage
-      viewBox={`0 0 ${WIDTH} ${SIDE_H}`}
-      aria-label={`A camera seen from the side, its assumed line of sight tilted ${params.handEyeDeg.toFixed(1)} degrees from the true one: at ${distance.toFixed(2)} metres the robot misses by ${missMm.toFixed(1)} millimetres.`}
-      aria-describedby={sideDescriptionId}
-      data-testid="perception-sight-view"
-    >
-      <line
-        data-series="true-sight"
-        x1={LENS_X}
-        y1={SIGHT_Y}
-        x2={SIGHT_RIGHT}
-        y2={SIGHT_Y}
-        stroke={reference}
-        strokeWidth={CHART_STROKE.reference}
-        strokeDasharray={CHART_STROKE.dash}
-      />
-      {SIDE_TICKS.map((tick) => (
-        <g key={tick}>
-          <line
-            x1={sideX(tick)}
-            y1={SIGHT_Y}
-            x2={sideX(tick)}
-            y2={SIGHT_Y + CHART_STROKE.tickLength}
-            stroke={CHART_STRUCTURE.axes}
-            strokeOpacity={CHART_STRUCTURE.axesOpacity}
-            strokeWidth={CHART_STROKE.structure}
-          />
-          <text
-            data-scene-tick=""
-            x={sideX(tick)}
-            y={SIDE_TICK_Y}
-            textAnchor={tick === FAR_M ? 'end' : 'middle'}
-            fontSize={CHART_TYPE.tickPx}
-            fill={CHART_STRUCTURE.labelSecondary}
-          >
-            {tick}
-          </text>
-        </g>
-      ))}
-      <text
-        data-scene-axis=""
-        x={f((LENS_X + SIGHT_RIGHT) / 2)}
-        y={SIDE_AXIS_Y}
-        textAnchor="middle"
-        fontSize={CHART_TYPE.axisPx}
-        fill={CHART_STRUCTURE.labelSecondary}
+    <Stage className="iso-stage">
+      <svg
+        className="iso-svg"
+        viewBox={`0 0 ${BENCH_WIDTH} ${BENCH_HEIGHT}`}
+        role="img"
+        focusable="false"
+        aria-label={`A camera seen from the side, its assumed line of sight tilted ${params.handEyeDeg.toFixed(1)} degrees from the true one: at ${distance.toFixed(2)} metres the robot misses by ${missMm.toFixed(1)} millimetres.`}
+        aria-describedby={sideDescriptionId}
+        data-testid="perception-sight-view"
       >
-        distance from the camera, in metres
-      </text>
-      <line
-        data-series="assumed-sight"
-        data-chart-role="state"
-        x1={LENS_X}
-        y1={SIGHT_Y}
-        x2={sideX(sightEndM)}
-        y2={sideY(handEyeErrorMm(params.handEyeDeg, sightEndM))}
-        stroke={state}
-        strokeWidth={CHART_STROKE.trace}
-        strokeLinecap="round"
-      />
-      {missMm >= 0.05 ? (
-        <g data-series="miss" data-testid="perception-miss-bracket">
-          <line x1={objectX} y1={SIGHT_Y} x2={objectX} y2={aimY} stroke={highlight} strokeWidth={CHART_STROKE.structure * 2} />
-          {/* End caps make the bracket read as a measured gap, not a pointer. */}
-          <line x1={objectX - 5} y1={SIGHT_Y} x2={objectX + 5} y2={SIGHT_Y} stroke={highlight} strokeWidth={CHART_STROKE.structure * 2} />
-          {offChart ? null : (
-            <line x1={objectX - 5} y1={aimY} x2={objectX + 5} y2={aimY} stroke={highlight} strokeWidth={CHART_STROKE.structure * 2} />
-          )}
-          {offChart ? (
-            <path d={`M${objectX - 5} ${aimY + 6} L${objectX} ${aimY - 2} L${objectX + 5} ${aimY + 6} Z`} fill={highlight} />
-          ) : null}
-        </g>
-      ) : null}
-      <circle data-series="object" cx={objectX} cy={SIGHT_Y} r={CHART_STROKE.markerRadius + 1} fill={CHART_STRUCTURE.label} />
-      <DirectLabel x={f(Math.min(objectX, WIDTH - 24))} y={OBJECT_LABEL_Y} anchor="middle">
-        object
-      </DirectLabel>
-      <StageAnnotation
-        x={EDGE + 2}
-        y={NOTE_Y}
-        lines={[missNote(missMm)]}
-        target={[objectX, aimY]}
-        from={[f(Math.min(Math.max(objectX - 36, EDGE + 16), WIDTH - 90)), NOTE_Y + 6]}
-        pointer="arrow"
-      />
-      <CameraGlyph ink={CHART_STRUCTURE.label} />
-    </PlotStage>
+        {RUNS.map((run, index) => {
+          const body = run.parts.map((part, k) => (part.kind === 'live' ? liveView(part.id) : <BenchPart key={k} part={part} />));
+          if (run.group === 'static') return <g key={index}>{body}</g>;
+          return (
+            <g key={index} ref={(el) => void (b.carriage = el)} transform={opening.carriage} data-testid="perception-staff">
+              {body}
+            </g>
+          );
+        })}
+      </svg>
+    </Stage>
   );
 
   const budgetView = (
@@ -628,23 +754,15 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         </>
       }
       stage={
-        <FigureStage
-          footer={
-            <>
-              <InstrumentLegend>
-                <LegendItem series="assumed-sight" swatch={<LegendSwatch role="state" mark="line" />}>
-                  where the robot thinks the camera looks
-                </LegendItem>
-                <LegendItem series="true-sight" swatch={<LegendSwatch role="reference" mark="dash" />}>
-                  where the camera really looks
-                </LegendItem>
-              </InstrumentLegend>
-              <StageStatus>Schematic: the tilt and the miss are drawn far larger than they are</StageStatus>
-            </>
-          }
+        <AnatomyStage
+          viewWidth={BENCH_WIDTH}
+          hint="Slide the target away: the same tilt misses by more"
+          readout={benchReadout(opening.tiltDeg, opening.distanceM)}
+          status="Schematic: the tilt and the miss are drawn far larger than they are"
+          data-testid="perception-bench"
         >
-          <div className="@container">{sideView}</div>
-        </FigureStage>
+          <div ref={stageRef}>{sideView}</div>
+        </AnatomyStage>
       }
       caption="Robots reach for what their camera sees, so a camera angle off by a fraction of a degree puts the hand beside the object."
       method={
@@ -654,9 +772,11 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
             misses by e = d · tan θ at distance d, about 1.7 mm at 10 cm and 17 mm at 1 m for one degree. At{' '}
             {params.handEyeDeg.toFixed(1)} degrees and {distance.toFixed(2)} m the miss is {missMm.toFixed(2)} mm.
             The tilt runs from 0 to 3 degrees in steps of 0.1 and the distance from 0.15 to 1.5 m in steps of
-            0.05 m; both open at 0.5. The vertical is drawn {UNITS_PER_MM} stage units per millimetre against{' '}
-            {f(UNITS_PER_M / 1000)} per millimetre of distance, so the drawn angle is far steeper than the real one;
-            a miss above {VISIBLE_MISS_MM.toFixed(1)} mm runs off the top of the drawing.
+            0.05 m; both open at 0.5. The drawing is an optical bench: the camera tilts in a yoke, set by the
+            micrometer under its tail, and its line of sight, the lit beam, lands on the scale of a target staff
+            that slides along the rail. The peg on the staff sits on the rail&apos;s own line, where the robot assumes
+            the camera looks. The miss is drawn {BENCH_MISS_SCALE} times steeper than the distance, so the drawn
+            tilt is far larger than the real one; a miss above {SCALE_MM} mm passes over the staff&apos;s top.
           </p>
           <p>{referenceNote}</p>
           <ChartDescription

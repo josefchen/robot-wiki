@@ -1,4 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { act, fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -8,6 +8,7 @@ import { PerceptionErrorBudget } from '@/components/interactive/perception-error
 import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
 import { mainViewSymbolHits, mainViewText } from '@/lib/figure-main-view';
 import { SLIDER_SPECS, handEyeErrorMm } from '@/lib/perception-error';
+import { LENS_X, LENS_Z, M, SCALE_MM, SLEEVE_TOP, U, carriageAt, drawnTilt, onPeg, overTop, spindleTop, spotAt, spotPoint, staffX } from '@/components/iso/figures/tilt-miss-bench';
 import { widgetCitationRecords } from '@/lib/widget-citations';
 import { renderWithCitations } from '../helpers/widget-citations';
 
@@ -56,26 +57,39 @@ describe('PerceptionErrorBudget main view', () => {
     expect(foldOf(container, 'method')).toContainElement(screen.getByTestId('perception-simplification-label'));
   });
 
-  it('brackets the miss at the chosen distance and names it on the stage', () => {
+  it('lands the beam the miss above the peg and says the miss in the readout', async () => {
+    stillMotion();
     const { container } = render(<PerceptionErrorBudget />);
-    const view = screen.getByTestId('perception-sight-view');
-    const note = () => view.querySelector('[data-figure-annotation]')?.textContent;
-    const bracketHeight = () => {
-      const line = screen.getByTestId('perception-miss-bracket').querySelector('line')!;
-      return Number(line.getAttribute('y1')) - Number(line.getAttribute('y2'));
+    const readout = () => container.querySelector('[data-readout]')?.textContent;
+    const spot = () => {
+      const dot = screen.getByTestId('perception-spot');
+      return [Number(dot.getAttribute('cx')), Number(dot.getAttribute('cy'))];
     };
-    expect(note()).toBe('The hand goes here: 4.4 millimetres off');
-    expect(bracketHeight()).toBeCloseTo(handEyeErrorMm(0.5, 0.5) * 5, 1);
+    const expectSpot = (tilt: number, distance: number) => {
+      const [x, y] = spotPoint(handEyeErrorMm(tilt, distance), distance);
+      expect(spot()[0]).toBeCloseTo(x, 0);
+      expect(spot()[1]).toBeCloseTo(y, 0);
+    };
+    expect(readout()).toBe('0.5 degrees at 0.50 metres · misses by 4.4 millimetres');
+    expect(screen.getByTestId('perception-beam')).toHaveAttribute('data-miss', handEyeErrorMm(0.5, 0.5).toFixed(2));
+    await frame();
+    expectSpot(0.5, 0.5);
     fireEvent.change(slider(/working distance/i), { target: { value: '1.5' } });
-    expect(note()).toBe('The hand goes here: 13.1 millimetres off');
-    expect(bracketHeight()).toBeCloseTo(handEyeErrorMm(0.5, 1.5) * 5, 1);
+    await frame();
+    expect(readout()).toBe('0.5 degrees at 1.50 metres · misses by 13.1 millimetres');
+    expectSpot(0.5, 1.5);
+    expect(screen.getByTestId('perception-staff').getAttribute('transform')).toBe(carriageAt(1.5));
     fireEvent.change(slider(/hand-eye rotation error/i), { target: { value: '3' } });
-    expect(note()).toBe('The hand goes here: 78.6 millimetres off');
-    expect(bracketHeight()).toBe(116);
+    await frame();
+    expect(readout()).toBe('3.0 degrees at 1.50 metres · misses by 78.6 millimetres, past the scale');
+    expect(screen.getByTestId('perception-spot').style.display).toBe('none');
     fireEvent.change(slider(/hand-eye rotation error/i), { target: { value: '0' } });
-    expect(note()).toBe('No tilt: the hand reaches the object');
-    expect(screen.queryByTestId('perception-miss-bracket')).toBeNull();
-    expect(container.querySelector('[data-figure-glyph="camera"]')).toHaveTextContent('camera');
+    await frame();
+    expect(readout()).toBe('0.0 degrees at 1.50 metres · the beam lands on the peg');
+    expectSpot(0, 1.5);
+    const drawing = screen.getByTestId('perception-sight-view');
+    expect(drawing.querySelector('text, title, desc, foreignObject')).toBeNull();
+    expect(drawing.textContent).toBe('');
   });
 });
 
@@ -97,11 +111,20 @@ describe('PerceptionErrorBudget served HTML', () => {
     const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
     expect(mainViewSymbolHits(frame)).toEqual([]);
     const { lines } = mainViewText(frame);
-    expect(lines).toContain('The hand goes here: 4.4 millimetres off');
-    expect(lines).toContain('object');
+    expect(lines).toContain('Slide the target away: the same tilt misses by more0.5 degrees at 0.50 metres · misses by 4.4 millimetres');
     expect(lines.some((line) => line.includes('root-sum-of-squares'))).toBe(false);
   });
 });
+
+/** Reduced motion: the bench jumps to each setting on its next frame. */
+function stillMotion() {
+  window.matchMedia = ((query: string) => ({
+    matches: query.includes('reduce'), media: query, onchange: null, addEventListener() {}, removeEventListener() {},
+    addListener() {}, removeListener() {}, dispatchEvent: () => false,
+  })) as unknown as typeof window.matchMedia;
+}
+
+const frame = () => act(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
 
 function slider(name: RegExp) {
   return screen.getByRole('slider', { name });
@@ -262,5 +285,35 @@ describe('PerceptionErrorBudget', () => {
       (slider(/object-pose translation error/i) as HTMLInputElement).value,
     ).toBe(opening.pose);
     expect(screen.getByTestId('perception-target-opaque')).toBeChecked();
+  });
+});
+
+describe('PerceptionErrorBudget bench model', () => {
+  it('lands the beam the miss above the peg on the staff the slider puts at that distance', () => {
+    for (const tilt of [0.1, 0.5, 1, 2, 3]) {
+      for (const distance of [0.15, 0.5, 1, 1.5]) {
+        const miss = handEyeErrorMm(tilt, distance);
+        const spot = spotAt(miss, distance);
+        // The beam leaves the lens at the camera's drawn tilt, so the camera's axis is the beam.
+        expect((spot[2] - LENS_Z) / (LENS_X - spot[0])).toBeCloseTo(Math.tan(drawnTilt(miss, distance)), 9);
+        if (onPeg(miss)) {
+          // A miss smaller than the peg lands on the peg's own face, in front of the staff.
+          expect(spot[0]).toBeGreaterThan(staffX(distance));
+        } else {
+          // Otherwise on the staff's face, the miss above the peg on the scale.
+          expect(spot[0]).toBeCloseTo(staffX(distance), 9);
+          expect(spot[2] - LENS_Z).toBeCloseTo(miss * M, 9);
+        }
+        expect(overTop(miss)).toBe(miss > SCALE_MM + 2);
+        // The micrometer's spindle still reaches the camera's underside at every tilt.
+        expect(spindleTop(drawnTilt(miss, distance))).toBeGreaterThan(SLEEVE_TOP + 1);
+      }
+      // The same tilt misses three times as far at three times the distance.
+      expect(handEyeErrorMm(tilt, 1.5) * M).toBeCloseTo(3 * handEyeErrorMm(tilt, 0.5) * M, 9);
+      // The drawn tilt depends only on the tilt, not on where the staff stands.
+      expect(drawnTilt(handEyeErrorMm(tilt, 0.15), 0.15)).toBeCloseTo(drawnTilt(handEyeErrorMm(tilt, 1.5), 1.5), 9);
+    }
+    // The rail's ruler reads the distance from the lens: one metre is U units of rail.
+    expect(LENS_X - staffX(1)).toBe(U);
   });
 });

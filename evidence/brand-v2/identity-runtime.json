@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "e8893ee1b55ec78c7647a8dd717f8e155ccd982d20eec6379c45b99c94e88d96",
+  "fingerprint": "767800bae047f1fa8d7314d407cacc307afdc88474459783378caa1aef7d25c3",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 2996,
+      "visibleTextLength": 2998,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -835,7 +835,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 32436,
+      "visibleTextLength": 32461,
       "route": "/adjacent/drones/",
       "viewport": "1440x900"
     },
@@ -953,7 +953,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 34662,
+      "visibleTextLength": 34688,
       "route": "/adjacent/space/",
       "viewport": "1440x900"
     },
@@ -1071,7 +1071,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 32245,
+      "visibleTextLength": 32250,
       "route": "/adjacent/surgical/",
       "viewport": "1440x900"
     },
@@ -1307,7 +1307,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21199,
+      "visibleTextLength": 21196,
       "route": "/classical/calibration/",
       "viewport": "1440x900"
     },
@@ -1425,7 +1425,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 30840,
+      "visibleTextLength": 30759,
       "route": "/classical/control/",
       "viewport": "1440x900"
     },
@@ -1897,7 +1897,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 43591,
+      "visibleTextLength": 43528,
       "route": "/classical/perception/",
       "viewport": "1440x900"
     },
@@ -5319,7 +5319,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22383,
+      "visibleTextLength": 21981,
       "route": "/manipulation/diffusion-policy/",
       "viewport": "1440x900"
     },
@@ -5909,7 +5909,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27518,
+      "visibleTextLength": 27489,
       "route": "/manipulation/pi-line/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3021,
+      "visibleTextLength": 3023,
       "route": "/",
       "viewport": "375x812"
     },
@@ -9731,7 +9731,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22143,
+      "visibleTextLength": 22168,
       "route": "/adjacent/drones/",
       "viewport": "375x812"
     },
@@ -9849,7 +9849,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22931,
+      "visibleTextLength": 22957,
       "route": "/adjacent/space/",
       "viewport": "375x812"
     },
@@ -9967,7 +9967,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21779,
+      "visibleTextLength": 21784,
       "route": "/adjacent/surgical/",
       "viewport": "375x812"
     },
@@ -10203,7 +10203,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16119,
+      "visibleTextLength": 16116,
       "route": "/classical/calibration/",
       "viewport": "375x812"
     },
@@ -10321,7 +10321,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24275,
+      "visibleTextLength": 24194,
       "route": "/classical/control/",
       "viewport": "375x812"
     },
@@ -10793,7 +10793,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 33753,
+      "visibleTextLength": 33690,
       "route": "/classical/perception/",
       "viewport": "375x812"
     },
@@ -14215,7 +14215,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17019,
+      "visibleTextLength": 16617,
       "route": "/manipulation/diffusion-policy/",
       "viewport": "375x812"
     },
@@ -14805,7 +14805,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20747,
+      "visibleTextLength": 20718,
       "route": "/manipulation/pi-line/",
       "viewport": "375x812"
     },

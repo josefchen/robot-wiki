@@ -1,84 +1,71 @@
 'use client';
 
 /**
- * Diffusion-policy denoising, the manipulation reference scene. Sixty
- * possible moves from an illustrative action-space model (two demonstrated
- * ways to make the same move, the Diffusion Policy paper's 10-step DDIM
- * schedule) drawn as motion: the two demonstrated moves, the training noise
- * that blurs every move into one random cloud, the ten clean-up steps that
- * carry the cloud back onto the two moves, guided by what the robot sees,
- * the same idea in symbols, and the finished frame. During the clean-up the
- * camera closes in on one guess (the worked instance, with its own
- * distances in the readout) and pulls back to the whole cloud; the next
- * beat turns a ~ p(a) into a ~ p(a | o) glyph by glyph. The camera is home
- * at every beat end and the symbols leave before the finished frame, so the
- * poster is that frame, with faint trails back to each guess's random
- * start. The sample positions are the model's own; the picture is
- * schematic, with no axes.
+ * Diffusion-policy denoising, the manipulation reference scene, drawn as a
+ * denoising gauge (the isometric figure kit,
+ * components/iso/figures/denoising-gauge.ts).
+ *
+ * A move is sixteen planned positions, Diffusion Policy's prediction
+ * horizon, and each of two pin gauges holds one move: every pin's height is
+ * one position, and a thread through the pins' ball heads is the move. A
+ * bar the camera sees crosses both gauges. People demonstrated two good
+ * ways past it: the thread arching over the bar, and sagging under it. In
+ * training, noise is mixed into the demonstrations until the pins stand at
+ * random heights; to act, the step dial clicks through ten clean-up steps
+ * and every pin moves to the model's next height, guided by what the
+ * camera sees. The front gauge's guess is followed; the back one starts
+ * from another random guess. Each lands on a good move, one under the bar
+ * and one over it, and neither on the straight average that would hit it.
+ *
+ * Every pin height is the model's (lib/denoising-gauge.ts). There is no
+ * text in the drawing: the readout under it carries the numbers in words.
  */
+import { useLayoutEffect, useRef } from 'react';
 import { SceneMount } from '@/components/motion/scene-mount';
-import { StageSvg, type PlotArea } from '@/components/motion/stage';
-import {
-  AnimatedCircle,
-  AnimatedElement,
-  AnimatedGroup,
-} from '@/components/motion/animated';
-import {
-  Create,
-  focusViewBox,
-  laggedProgress,
-  transformMatchingTex,
-  type TexGlyph,
-} from '@/components/motion/primitives';
-import { beatSpans, type SceneDefinition } from '@/components/motion/timeline';
+import { StageSvg } from '@/components/motion/stage';
+import { AnimatedElement, AnimatedGroup } from '@/components/motion/animated';
+import { useSceneTime, useStaticTime } from '@/components/motion/scene-context';
+import { beatSpans, locate, type SceneDefinition } from '@/components/motion/timeline';
 import { clamp01, smooth } from '@/components/motion/easing';
+import { LegendItem } from '@/components/ui/instrument';
+import { PartView } from '@/components/iso/part-view';
+import { Dots } from '@/components/iso/react/draw';
+import type { SolidPaths } from '@/components/iso/iso-kit';
+import {
+  BALL_PX,
+  BEAM,
+  BEAM_START,
+  DIAL_HUB,
+  LEFT_PINS,
+  LENS_GLASS,
+  PARTS,
+  RIGHT_PINS,
+  VIEW_BOX,
+  ballAt,
+  crankPin,
+  dialPointer,
+  leverAt,
+  pinRod,
+  threadKnots,
+  threadPath,
+  type Lane,
+  type Slot,
+} from '@/components/iso/figures/denoising-gauge';
 import {
   DENOISING_STEPS,
-  MODE_CENTERS,
-  SAMPLE_COUNT,
-  generateDenoisingTrajectory,
-  meanDistanceToMode,
-} from '@/lib/denoising';
-import { SCENE_EQUATIONS, SCENE_GLYPHS } from '@/lib/motion-equations';
-import { MOTION_CAMERA, MOTION_LAG } from '@/lib/motion-tokens';
-import { LegendItem } from '@/components/ui/instrument';
-
-const WIDTH = 340;
-const HEIGHT = 240;
-/**
- * The band the samples move in. Every random start and every finished move
- * stays inside it, so the labels above, below and beside it never meet a
- * sample at any moment of the scene.
- */
-const PLOT: PlotArea = { left: 96, right: 244, top: 56, bottom: 208 };
-const X_DOMAIN = { min: -3.1, max: 2.7 };
-const Y_DOMAIN = { min: -2.75, max: 2.85 };
-const FONT = 14;
-const DOT_R = 1.6;
-
-const TRAJECTORY = generateDenoisingTrajectory();
-/**
- * Box-Muller's Math.log/Math.cos are not bit-portable between the server
- * runtime and the browser, so the sample doubles can differ by an ulp and
- * hydration would flag the geometry. Rounding to nine decimals (the
- * readout shows two) makes both sides agree exactly.
- */
-const Q = (x: number): number => Number(x.toFixed(9));
-const SAMPLES = TRAJECTORY.targets.map((target, index) => ({
-  target: {
-    x: Q(target.x),
-    y: Q(target.y),
-    mode: target.mode,
-  },
-  noise: {
-    x: Q(TRAJECTORY.noise[index].x),
-    y: Q(TRAJECTORY.noise[index].y),
-  },
-}));
-const NOISE_DISPERSION = meanDistanceToMode(
-  SAMPLES.map((sample) => ({ ...sample.noise, mode: sample.target.mode })),
-);
-const FINAL_DISPERSION = meanDistanceToMode(SAMPLES.map((sample) => sample.target));
+  GUESSES,
+  PIN_COUNT,
+  cleanUp,
+  distance,
+  nearestMode,
+  noiseOf,
+  noisedMove,
+  profileOf,
+  signalLeft,
+  stepTime,
+  type Mode,
+} from '@/lib/denoising-gauge';
+import { SCENE_EQUATIONS } from '@/lib/motion-equations';
 
 const SCENE: SceneDefinition = {
   id: 'diffusion-denoising',
@@ -122,621 +109,372 @@ const SCENE: SceneDefinition = {
 export const DIFFUSION_SCENE = SCENE;
 const SPANS = beatSpans(SCENE.beats);
 const BEAT_WORDS = ['one', 'two', 'three', 'four', 'five', 'six'][SCENE.beats.length - 1];
+const [DEMOS, NOISE, STEPS, SYMBOLS, RECAP] = SPANS.map((_, index) => index);
 
 const beatProgress = (index: number) => (t: number) =>
   clamp01((t - SPANS[index].start) / SPANS[index].duration);
+const within = (k: number, from: number, to: number) => smooth(clamp01((k - from) / (to - from)));
+const r2 = (value: number) => Number(value.toFixed(2));
+const r3 = (value: number) => Number(value.toFixed(3));
 
-const xScale = (v: number) =>
-  PLOT.left + ((v - X_DOMAIN.min) / (X_DOMAIN.max - X_DOMAIN.min)) * (PLOT.right - PLOT.left);
-const yScale = (v: number) =>
-  PLOT.bottom - ((v - Y_DOMAIN.min) / (Y_DOMAIN.max - Y_DOMAIN.min)) * (PLOT.bottom - PLOT.top);
+// ---------------------------------------------------------------- the model
+/** The two guesses: what each was noised from, its random guess, and every clean-up step. */
+const RUNS = GUESSES.map(({ seed, demo }) => {
+  const noise = noiseOf(seed);
+  const states = cleanUp(noise);
+  return { demo, noise, states, lands: nearestMode(states[DENOISING_STEPS]).mode };
+});
+/** Where each guess ends: the front one under the bar, the back one over it. */
+export const DIFFUSION_LANDINGS: readonly Mode[] = RUNS.map((run) => run.lands);
+/** The guess the scene follows: the front gauge. */
+export const FOLLOWED: Lane = 0;
+/** Where the pins wait before the demonstrations are set: low in their guides. */
+const DOWN = -1.6;
 
-/** The model's convergence curve, continuous in the beat's progress. */
-const convergence = (x: number) => {
-  const c = clamp01(x);
-  return c * c * (3 - 2 * c);
-};
-const mixNumber = (a: number, b: number, k: number) => a + (b - a) * k;
-
-const ORIGIN: [number, number] = [xScale(0), yScale(0)];
-const MODE_POINTS = MODE_CENTERS.map(
-  (center) => [xScale(center.x), yScale(center.y)] as [number, number],
-);
-
-/** An arrowhead triangle plus where its shaft should stop. */
-function arrowhead(from: readonly [number, number], to: readonly [number, number]) {
-  const dx = to[0] - from[0];
-  const dy = to[1] - from[1];
-  const len = Math.hypot(dx, dy) || 1;
-  const ux = dx / len;
-  const uy = dy / len;
-  const headLen = 10;
-  const halfWidth = 4.2;
-  const tip: [number, number] = [to[0] + ux * headLen * 0.55, to[1] + uy * headLen * 0.55];
-  const base: [number, number] = [
-    to[0] - ux * headLen * 0.45,
-    to[1] - uy * headLen * 0.45,
-  ];
-  const px = -uy;
-  const py = ux;
-  return {
-    lineEnd: base,
-    points: `${tip[0].toFixed(1)},${tip[1].toFixed(1)} ${(base[0] + px * halfWidth).toFixed(1)},${(
-      base[1] + py * halfWidth
-    ).toFixed(1)} ${(base[0] - px * halfWidth).toFixed(1)},${(base[1] - py * halfWidth).toFixed(1)}`,
-  };
-}
-
-const ARROWS = MODE_POINTS.map((to) => ({
-  head: arrowhead(ORIGIN, to),
-  shaft: `M ${ORIGIN[0].toFixed(1)} ${ORIGIN[1].toFixed(1)} L ${arrowhead(ORIGIN, to).lineEnd[0].toFixed(1)} ${arrowhead(
-    ORIGIN,
-    to,
-  ).lineEnd[1].toFixed(1)}`,
-}));
-
-/** Arrow i of the demonstration pair draws on during the first beat. */
-const arrowProgress = (index: number) => (t: number) =>
-  clamp01(beatProgress(0)(t) * 2.4 - index * 0.7);
-
-/**
- * Sample i's position at scene time t, a pure function: clustered for the
- * demonstrations, jittered to its noise draw through the lagged start, and
- * transported back along the model's convergence curve. Tests pin this.
- */
-export function diffusionSampleAt(index: number, t: number): [number, number] {
-  const { target, noise } = SAMPLES[index];
-  if (t < SPANS[1].start) return [target.x, target.y];
-  if (t < SPANS[1].end) {
-    const k = laggedProgress(
-      beatProgress(1)(t),
-      index,
-      SAMPLE_COUNT,
-      MOTION_LAG.dense,
-    );
-    return [mixNumber(target.x, noise.x, k), mixNumber(target.y, noise.y, k)];
-  }
-  if (t < SPANS[2].end) {
-    const k = convergence(beatProgress(2)(t));
-    return [mixNumber(noise.x, target.x, k), mixNumber(noise.y, target.y, k)];
-  }
-  return [target.x, target.y];
-}
-
-/** Sample i's position on the stage, in stage pixels, at scene time t. */
-export function diffusionSamplePointAt(index: number, t: number): [number, number] {
-  const [x, y] = diffusionSampleAt(index, t);
-  return [xScale(x), yScale(y)];
-}
-
-/** The reverse-process step the clock is showing, 0..10. */
-export function diffusionStepAt(t: number): number {
-  if (t < SPANS[2].start) return 0;
-  return Math.min(DENOISING_STEPS, Math.round(beatProgress(2)(t) * DENOISING_STEPS));
-}
-
-/** Round rendered geometry so server HTML and hydrated DOM agree. */
-const r2 = (v: number) => Number(v.toFixed(2));
-const r3 = (v: number) => Number(v.toFixed(3));
-
-/** The worked instance: a guess whose whole clean-up path the camera can frame. */
-export const WORKED_GUESS = 11;
-const WORKED = SAMPLES[WORKED_GUESS];
-const distanceToMove = (point: { x: number; y: number }) => {
-  const center = MODE_CENTERS[WORKED.target.mode];
-  return Math.hypot(point.x - center.x, point.y - center.y);
-};
-/** The worked guess's distance from its move, at its random start and at the end. */
+/** The followed guess's distance from the move it lands on, at its random start and at the end. */
 export const WORKED_DISTANCES = {
-  start: distanceToMove(WORKED.noise),
-  end: distanceToMove(WORKED.target),
+  start: distance(RUNS[FOLLOWED].noise, profileOf(RUNS[FOLLOWED].lands)),
+  end: distance(RUNS[FOLLOWED].states[DENOISING_STEPS], profileOf(RUNS[FOLLOWED].lands)),
+} as const;
+/** Both guesses' mean distance from the move each lands on, before and after the ten steps. */
+export const GUESS_DISTANCES = {
+  start: RUNS.reduce((sum, run) => sum + distance(run.noise, profileOf(run.lands)), 0) / RUNS.length,
+  end: RUNS.reduce((sum, run) => sum + distance(run.states[DENOISING_STEPS], profileOf(run.lands)), 0) / RUNS.length,
 } as const;
 
-/** Above this line the stage keeps its status lines; the camera never paints there. */
-const CAMERA_TOP = 30;
-/**
- * The camera window stays inside the stage's 4 px margin, so a mark it cuts
- * never touches the edge; 6 units keep 4 px on stages drawn narrower than 1:1.
- */
-const WINDOW_INSET = 6;
-export const CAMERA_WINDOW = {
-  x: WINDOW_INSET,
-  y: CAMERA_TOP,
-  width: WIDTH - 2 * WINDOW_INSET,
-  height: HEIGHT - CAMERA_TOP - WINDOW_INSET,
-} as const;
-const FOCUS_PAD = 16;
-/** The worked guess's path with a margin: the detail the camera closes in on. */
-const FOCUS_BOX = (() => {
-  const xs = [xScale(WORKED.noise.x), xScale(WORKED.target.x)];
-  const ys = [yScale(WORKED.noise.y), yScale(WORKED.target.y)];
-  const x = Math.min(...xs) - FOCUS_PAD;
-  const y = Math.min(...ys) - FOCUS_PAD;
-  return { x, y, width: Math.max(...xs) + FOCUS_PAD - x, height: Math.max(...ys) + FOCUS_PAD - y };
-})();
-/** Close enough to fill the stage below the status lines, never past the token. */
-export const FOCUS_ZOOM = Math.min(
-  MOTION_CAMERA.focusMaxZoom,
-  WIDTH / FOCUS_BOX.width,
-  (HEIGHT - 2 * CAMERA_TOP) / FOCUS_BOX.height,
-);
-const CAMERA = { inEnd: 0.25, outStart: 0.6, outEnd: 0.9 } as const;
+/** Inside a clean-up step's slot, the pins move during the first share and then hold, like a ratchet click. */
+const CLICK = 0.6;
 
-/**
- * How far the camera has closed in on the worked guess, 0 (home) to 1. It
- * moves only inside the clean-up beat and is home at every beat end.
- */
-export function diffusionCameraAt(t: number): number {
-  if (t <= SPANS[2].start || t >= SPANS[2].end) return 0;
-  const k = beatProgress(2)(t);
-  if (k < CAMERA.inEnd) return k / CAMERA.inEnd;
-  if (k < CAMERA.outStart) return 1;
-  return clamp01((CAMERA.outEnd - k) / (CAMERA.outEnd - CAMERA.outStart));
+/** The clean-up steps done at scene time t, 0 to 10, as the dial shows it. */
+export function diffusionStepAt(t: number): number {
+  if (t < SPANS[STEPS].start) return 0;
+  return Math.min(DENOISING_STEPS, Math.floor(beatProgress(STEPS)(t) * DENOISING_STEPS + 1e-9));
 }
 
-/** The camera as a transform on the data layer, eased by focusViewBox. */
-export function diffusionCameraTransform(t: number): string {
-  const share = diffusionCameraAt(t);
-  if (share === 0) return 'translate(0 0) scale(1)';
-  const [x, y, width] = focusViewBox(
-    { x: 0, y: 0, width: WIDTH, height: HEIGHT },
-    FOCUS_BOX,
-    share,
-    FOCUS_ZOOM,
-  ).split(' ').map(Number);
-  const scale = WIDTH / width;
-  return `translate(${r2(-x * scale)} ${r2(-y * scale)}) scale(${r3(scale)})`;
+/** How far through the clean-up the pins are, in steps (fractional while a click moves them). */
+function stepsMoved(t: number): number {
+  if (t <= SPANS[STEPS].start) return 0;
+  if (t >= SPANS[STEPS].end) return DENOISING_STEPS;
+  const k = beatProgress(STEPS)(t) * DENOISING_STEPS;
+  const done = Math.floor(k + 1e-9);
+  return Math.min(DENOISING_STEPS, done + smooth(clamp01((k - done) / CLICK)));
 }
-
-/** Labels pinned to stage positions step aside while the camera is away. */
-const labelShare = (t: number) => {
-  if (t <= SPANS[2].start || t >= SPANS[2].end) return 1;
-  const k = beatProgress(2)(t);
-  if (k < 0.5) return r2(1 - smooth(clamp01(k / 0.15)));
-  return r2(smooth(clamp01((k - 0.85) / 0.15)));
-};
-
-/** The highlight ring that Indicates the worked guess while the camera is on it. */
-const ringShare = (t: number) => {
-  if (t <= SPANS[2].start || t >= SPANS[2].end) return 0;
-  const k = beatProgress(2)(t);
-  return r2(Math.min(smooth(clamp01((k - 0.08) / 0.17)), 1 - smooth(clamp01((k - 0.6) / 0.12))));
-};
-
-type GlyphName = keyof typeof SCENE_GLYPHS;
-/** KaTeX advance widths in em, from its Main and Math-Italic font metrics. */
-const GLYPH_EM: Record<GlyphName, number> = {
-  a: 0.52859,
-  sim: 0.77778,
-  p: 0.50313,
-  lparen: 0.38889,
-  mid: 0.27778,
-  o: 0.48472,
-  rparen: 0.38889,
-};
-/** KaTeX sets a relation between two thick spaces of 5/18 em. */
-const RELATIONS = new Set<GlyphName>(['sim', 'mid']);
-const REL_SPACE = 5 / 18;
-/** The stage's equation size: 16 px text at KaTeX's own 1.21 em. */
-const GLYPH_PX = 16 * 1.21;
-const GLYPH_Y = 30;
-const GLYPH_H = 24;
-type Slot = { id: string; glyph: GlyphName };
-const BEFORE: Slot[] = [
-  { id: 'a', glyph: 'a' },
-  { id: 'sim', glyph: 'sim' },
-  { id: 'p', glyph: 'p' },
-  { id: 'open', glyph: 'lparen' },
-  { id: 'arg', glyph: 'a' },
-  { id: 'close', glyph: 'rparen' },
-];
-const AFTER: Slot[] = [
-  ...BEFORE.slice(0, 5),
-  { id: 'given', glyph: 'mid' },
-  { id: 'seen', glyph: 'o' },
-  BEFORE[5],
-];
-const GLYPH_OF = new Map([...BEFORE, ...AFTER].map((slot) => [slot.id, slot.glyph]));
-
-/** Glyph left edges, centred on the stage, spaced as KaTeX spaces them. */
-function layoutGlyphs(slots: readonly Slot[]): TexGlyph[] {
-  let cursor = 0;
-  const lefts = slots.map(({ glyph }) => {
-    if (RELATIONS.has(glyph)) cursor += REL_SPACE;
-    const left = cursor;
-    cursor += GLYPH_EM[glyph] + (RELATIONS.has(glyph) ? REL_SPACE : 0);
-    return left;
-  });
-  const start = WIDTH / 2 - (cursor * GLYPH_PX) / 2;
-  return slots.map((slot, index) => ({ id: slot.id, x: start + lefts[index] * GLYPH_PX, y: GLYPH_Y }));
-}
-const MORPH = transformMatchingTex(layoutGlyphs(BEFORE), layoutGlyphs(AFTER));
-
-/** The relation is written in the symbols beat and leaves early in the recap. */
-const formulaShare = (t: number) => {
-  if (t <= SPANS[3].start) return 0;
-  if (t <= SPANS[3].end) return r2(smooth(clamp01(beatProgress(3)(t) / 0.2)));
-  return r2(1 - smooth(clamp01(beatProgress(4)(t) / 0.3)));
-};
 
 /**
- * Every glyph of the relation at scene time t. The glyphs a ~ p(a) share
- * keep their identity and slide to their places in a ~ p(a | o); only the
- * new "| o" fades in, and only once the slide has made room for it, so no
- * two glyphs ever overlap. Tests pin this.
+ * The pin heights of one gauge at scene time t, in arch heights, a pure
+ * function: rising into the demonstration, noised along the training
+ * schedule, then stepped through the model's ten clean-up states. Tests pin
+ * this to the model.
  */
-export function diffusionGlyphsAt(t: number) {
-  const progress = beatProgress(3)(t);
-  const leave = smooth(clamp01((progress - 0.2) / 0.15));
-  const slide = smooth(clamp01((progress - 0.3) / 0.3));
-  const arrive = smooth(clamp01((progress - 0.6) / 0.2));
-  const shown = formulaShare(t);
-  const glyph = (id: string) => GLYPH_OF.get(id) as GlyphName;
-  const width = (id: string) => r2(GLYPH_EM[glyph(id)] * GLYPH_PX);
-  return [
-    ...MORPH.matched.map(({ id, from, to }) => ({
-      id, glyph: glyph(id), x: r2(from.x + (to.x - from.x) * slide), width: width(id), opacity: shown, matched: true,
-    })),
-    ...MORPH.fadeIn.map(({ id, x }) => ({
-      id, glyph: glyph(id), x: r2(x), width: width(id), opacity: r2(shown * arrive), matched: false,
-    })),
-    ...MORPH.fadeOut.map(({ id, x }) => ({
-      id, glyph: glyph(id), x: r2(x), width: width(id), opacity: r2(shown * (1 - leave)), matched: false,
-    })),
-  ];
-}
-const GLYPH_IDS = diffusionGlyphsAt(0).map((item) => item.id);
-const glyphAt = (id: string, t: number) => diffusionGlyphsAt(t).find((item) => item.id === id)!;
-const GLYPH_INK: Partial<Record<GlyphName, string>> = {
-  a: 'var(--role-action-stage)',
-  o: 'var(--role-state-stage)',
-};
-/**
- * Article math styles resize and recolour every `.katex`, so each glyph pins
- * its own size (the layout's advance widths assume it) and its role colour.
- */
-const glyphMarkup = (glyph: GlyphName) =>
-  SCENE_GLYPHS[glyph].html.replace(
-    '<span class="katex">',
-    `<span class="katex" style="font-size:${r2(GLYPH_PX)}px;color:${GLYPH_INK[glyph] ?? 'var(--motion-stage-label)'}">`,
-  );
-
-const [MODE_ONE, MODE_TWO] = MODE_POINTS;
-/** The top edge of each finished cluster, where the note's leaders land. */
-const clusterTop = (mode: number) =>
-  Math.min(...SAMPLES.filter((sample) => sample.target.mode === mode).map((sample) => yScale(sample.target.y))) -
-  DOT_R;
-const clusterEdge = (mode: number, side: 'left' | 'right') => {
-  const xs = SAMPLES.filter((sample) => sample.target.mode === mode).map((sample) => xScale(sample.target.x));
-  return side === 'left' ? Math.min(...xs) - DOT_R - 3 : Math.max(...xs) + DOT_R + 3;
-};
-
-const STATUS_Y = 21;
-const NOTE_LINE = 18;
-const LABEL_Y = 229;
-
-/** Which of the status lines above the samples is showing at time t. */
-function statusShare(variant: 'demo' | 'noise' | number, t: number): number {
-  if (variant === 'demo') return t <= SPANS[0].end ? 1 : 0;
-  if (variant === 'noise') return t > SPANS[0].end && t <= SPANS[1].end ? 1 : 0;
-  if (t > SPANS[1].end && t <= SPANS[2].end) return diffusionStepAt(t) === variant ? 1 : 0;
-  // The last count stays while the symbols are written, then gives way to
-  // the note early in the final beat.
-  if (t > SPANS[2].end && variant === DENOISING_STEPS) {
-    if (t <= SPANS[3].end) return 1;
-    return r2(1 - clamp01(beatProgress(4)(t) / 0.4));
+export function diffusionPinsAt(lane: Lane, t: number): number[] {
+  const run = RUNS[lane];
+  if (t < SPANS[NOISE].start) {
+    const k = beatProgress(DEMOS)(t);
+    const demo = profileOf(run.demo);
+    return demo.map((height, i) => DOWN + (height - DOWN) * within(k, 0.04 * i, 0.04 * i + 0.4));
   }
-  return 0;
+  if (t < SPANS[STEPS].start) return noisedMove(run.demo, run.noise, beatProgress(NOISE)(t));
+  if (t >= SPANS[STEPS].end) return run.states[DENOISING_STEPS];
+  const moved = stepsMoved(t);
+  const done = Math.floor(moved);
+  if (done >= DENOISING_STEPS) return run.states[DENOISING_STEPS];
+  const k = moved - done;
+  const from = run.states[done];
+  const to = run.states[done + 1];
+  return from.map((height, i) => height + (to[i] - height) * k);
 }
 
-const noteShare = (t: number) => r2(smooth(clamp01((beatProgress(4)(t) - 0.4) / 0.6)));
+/** How settled the pins look, 0 (random) to 1 (a good move): the square of the signal left in them, so a ball turns ink only once its pin has nearly settled. */
+export function diffusionCleanAt(t: number): number {
+  if (t < SPANS[NOISE].start) return 1;
+  if (t < SPANS[STEPS].start) return r3(signalLeft(beatProgress(NOISE)(t)) ** 2);
+  if (t >= SPANS[STEPS].end) return 1;
+  return r3(signalLeft(stepTime(stepsMoved(t))) ** 2);
+}
 
-const dotsIn = (t: number) => smooth(clamp01((beatProgress(0)(t) - 0.7) / 0.3));
-const actionShare = (t: number) => {
-  if (t < SPANS[1].start) return 1;
-  if (t < SPANS[1].end) return 1 - smooth(beatProgress(1)(t));
-  return convergence(beatProgress(2)(t));
-};
-const leaderShare = (t: number) => r2(0.7 * actionShare(t) * dotsIn(t) * labelShare(t));
-const CAMERA_CLIP = 'diffusion-denoising-camera';
+/** The one lit part, beat by beat. */
+export function diffusionLitAt(t: number): 'none' | 'shaker' | 'followed' | 'camera' | 'moves' {
+  const beat = locate(SPANS, t).index;
+  return (['none', 'shaker', 'followed', 'camera', 'moves'] as const)[beat];
+}
 
-/** Everything drawn in action space: the layer the camera moves. */
-function ActionSpace() {
+/** Every binding of a moment reads the same frame, so it is computed once per moment. */
+type Frame = { heights: number[][]; rods: SolidPaths[][]; clean: number };
+const frameCache: { t: number; frame: Frame | null } = { t: Number.NaN, frame: null };
+function frameAt(t: number): Frame {
+  if (t !== frameCache.t || !frameCache.frame) {
+    const heights = ([0, 1] as const).map((lane) => diffusionPinsAt(lane, t));
+    frameCache.frame = {
+      heights,
+      rods: heights.map((list, lane) => list.map((height, i) => pinRod(lane as Lane, i, height))),
+      clean: diffusionCleanAt(t),
+    };
+    frameCache.t = t;
+  }
+  return frameCache.frame;
+}
+
+const fixed = (value: number) => value.toFixed(2);
+const WHERE: Record<Mode, string> = { over: 'over the bar', under: 'under the bar' };
+
+/** The readout under the drawing at scene time t, in plain words. */
+export function diffusionReadoutAt(t: number): string {
+  const beat = locate(SPANS, t).index;
+  if (beat === DEMOS) return 'Two demonstrations: one over the bar, one under it';
+  if (beat === NOISE) {
+    const noise = Math.round((1 - signalLeft(beatProgress(NOISE)(t))) * 100);
+    return noise >= 100 ? 'Training: all noise, nothing of the moves left' : `Training: ${noise}% noise mixed in`;
+  }
+  if (beat === STEPS) {
+    const heights = diffusionPinsAt(FOLLOWED, t);
+    const gap = distance(heights, profileOf(RUNS[FOLLOWED].lands));
+    return `Step ${diffusionStepAt(t)} of ${DENOISING_STEPS} · the lit guess is ${fixed(gap)} from a good move`;
+  }
+  if (beat === SYMBOLS) {
+    return `Both fit what the camera sees: one ${WHERE[RUNS[0].lands]}, one ${WHERE[RUNS[1].lands]}`;
+  }
+  return 'Two random guesses, two good moves · neither hits the bar';
+}
+
+// ---------------------------------------------------------------- drawing
+/** A pin's rod, rebuilt each moment: fill, the four side shades, top and outline. */
+function Rod({ lane, i }: { lane: Lane; i: number }) {
+  const rod = (t: number) => frameAt(t).rods[lane][i];
+  return (
+    <g className="iso-solid">
+      <AnimatedElement as="path" className="iso-fill" bindings={{ d: (t) => rod(t).fill }} />
+      {[0, 1, 2, 3].map((shade) => (
+        <AnimatedElement key={shade} as="path" className="iso-shade" data-shade={shade} bindings={{ d: (t) => rod(t).shades[shade] || 'M0 0' }} />
+      ))}
+      <AnimatedElement as="path" className="iso-top" bindings={{ d: (t) => rod(t).top }} />
+      <AnimatedElement as="path" className="iso-line iso-edge" data-tone="mid" bindings={{ d: (t) => rod(t).outline }} />
+    </g>
+  );
+}
+
+/** A pin's ball head: a grey ball while random, an ink ball once it is set, crossfaded. */
+function Ball({ lane, i }: { lane: Lane; i: number }) {
+  const n = lane * PIN_COUNT + i;
+  const cx = (t: number) => r2(ballAt(lane, i, frameAt(t).heights[lane][i])[0]);
+  const cy = (t: number) => r2(ballAt(lane, i, frameAt(t).heights[lane][i])[1]);
   return (
     <>
-      {/* Faint trails from each random start to where it finished. */}
-      <AnimatedGroup
-        data-scene-structure="denoising-trails"
-        bindings={{ opacity: (t) => r2(0.5 * smooth(beatProgress(4)(t))) }}
-      >
-        {SAMPLES.map((sample, index) => (
-          <line
-            key={`trail-${index}`}
-            x1={r2(xScale(sample.noise.x))}
-            y1={r2(yScale(sample.noise.y))}
-            x2={r2(xScale(sample.target.x))}
-            y2={r2(yScale(sample.target.y))}
-            stroke="var(--role-reference-stage)"
-            strokeWidth={0.8}
-          />
-        ))}
-      </AnimatedGroup>
-      <AnimatedCircle
-        data-scene-mark="observed-state"
-        cx={r2(ORIGIN[0])}
-        cy={r2(ORIGIN[1])}
-        r={3}
-        fill="var(--role-state-stage)"
-        bindings={{ opacity: (t) => Number(smooth(clamp01(beatProgress(0)(t) * 3)).toFixed(3)) }}
+      <AnimatedElement
+        as="circle"
+        data-scene-mark={`noise-${n}`}
+        data-legend-series="diffusion-noise"
+        r={r2(BALL_PX)}
+        fill="var(--role-reference-stage)"
+        bindings={{ cx, cy, opacity: (t) => r3(1 - frameAt(t).clean) }}
       />
-
-      {/* Demonstration arrows: action-coloured while clean, dashed
-          reference outlines while the cloud is noised or denoising. */}
-      {ARROWS.map((arrow, index) => (
-        <g key={`demo-${index}`}>
-          <AnimatedGroup
-            bindings={{ opacity: (t) => Number(actionShare(t).toFixed(3)) }}
-          >
-            <Create
-              data-scene-mark={`demonstration-${index}`}
-              d={arrow.shaft}
-              progress={arrowProgress(index)}
-              roleVar="var(--role-action-stage)"
-              strokeWidth={1.5}
-            />
-            <AnimatedElement
-              as="polygon"
-              data-scene-mark={`action-arrow-${index}`}
-              points={arrow.head.points}
-              fill="var(--role-action-stage)"
-              bindings={{
-                opacity: (t) =>
-                  Number(clamp01((arrowProgress(index)(t) - 0.75) / 0.25).toFixed(3)),
-              }}
-            />
-          </AnimatedGroup>
-          <AnimatedElement
-            as="polygon"
-            data-scene-mark={`reference-arrow-${index}`}
-            points={arrow.head.points}
-            fill="var(--role-reference-stage)"
-            bindings={{
-              opacity: (t) => Number(((1 - actionShare(t)) * 0.55).toFixed(3)),
-            }}
-          />
-        </g>
-      ))}
-
-      {/* The samples: one gray and one action dot per sample, crossfaded
-          so colour tracks meaning without interpolating hex channels. */}
-      {SAMPLES.map((_sample, index) => {
-        const cx = (t: number) => Number(xScale(diffusionSampleAt(index, t)[0]).toFixed(2));
-        const cy = (t: number) => Number(yScale(diffusionSampleAt(index, t)[1]).toFixed(2));
-        return (
-          <g key={`sample-${index}`}>
-            <AnimatedCircle
-              data-scene-mark={`noise-${index}`}
-              r={DOT_R}
-              fill="var(--role-reference-stage)"
-              bindings={{
-                cx,
-                cy,
-                opacity: (t) => Number((dotsIn(t) * (1 - actionShare(t))).toFixed(3)),
-              }}
-            />
-            <AnimatedCircle
-              data-scene-mark={`action-${index}`}
-              r={DOT_R}
-              fill="var(--role-action-stage)"
-              bindings={{
-                cx,
-                cy,
-                opacity: (t) => Number((dotsIn(t) * actionShare(t)).toFixed(3)),
-              }}
-            />
-          </g>
-        );
-      })}
-
-      {/* The worked guess, Indicated while the camera is on it. */}
-      <AnimatedCircle
-        data-scene-mark="worked-guess"
-        r={DOT_R + 2.4}
-        fill="none"
-        stroke="var(--role-highlight-stage)"
-        strokeWidth={1.2}
-        bindings={{
-          cx: (t) => r2(diffusionSamplePointAt(WORKED_GUESS, t)[0]),
-          cy: (t) => r2(diffusionSamplePointAt(WORKED_GUESS, t)[1]),
-          opacity: ringShare,
-        }}
+      <AnimatedElement
+        as="circle"
+        data-scene-mark={`action-${n}`}
+        data-legend-series="diffusion-action"
+        r={r2(BALL_PX)}
+        fill="var(--role-action-stage)"
+        bindings={{ cx, cy, opacity: (t) => frameAt(t).clean }}
+      />
+      {/* The ball's shine, up toward the light, so it reads round. */}
+      <AnimatedElement
+        as="circle"
+        data-scene-structure="ball-shine"
+        r={r2(BALL_PX * 0.3)}
+        fill="var(--paper)"
+        opacity={0.55}
+        bindings={{ cx: (t) => r2(cx(t) - BALL_PX * 0.32), cy: (t) => r2(cy(t) - BALL_PX * 0.36) }}
       />
     </>
   );
 }
 
-function DiffusionStage() {
+function Pins({ lane, which }: { lane: Lane; which: readonly number[] }) {
   return (
-    <StageSvg viewBox={`0 0 ${WIDTH} ${HEIGHT}`}>
-      {/* The stage's first text: the observed state every move is chosen
-          given. It steps aside only while the camera is away. Its leader
-          and dot are drawn below. */}
-      <AnimatedElement
-        as="text"
-        x={r2(ORIGIN[0])}
-        y={LABEL_Y}
-        textAnchor="middle"
-        fontSize={FONT}
-        fill="var(--role-state-stage)"
-        bindings={{ opacity: labelShare }}
-      >
-        what the robot sees; both moves start here
-      </AnimatedElement>
-      {/* Status line above the samples: one sentence per beat. */}
-      <AnimatedElement
-        as="text"
-        x={WIDTH / 2}
-        y={STATUS_Y}
-        textAnchor="middle"
-        fontSize={FONT}
-        fill="var(--motion-stage-label)"
-        bindings={{ opacity: (t) => statusShare('demo', t) }}
-      >
-        Two demonstrated moves
-      </AnimatedElement>
-      <AnimatedElement
-        as="text"
-        x={WIDTH / 2}
-        y={STATUS_Y}
-        textAnchor="middle"
-        fontSize={FONT}
-        fill="var(--motion-stage-label)"
-        bindings={{ opacity: (t) => statusShare('noise', t) }}
-      >
-        Random guesses
-      </AnimatedElement>
-      {Array.from({ length: DENOISING_STEPS + 1 }, (_, k) => (
-        <AnimatedElement
-          as="text"
-          key={`step-${k}`}
-          x={WIDTH / 2}
-          y={STATUS_Y}
-          textAnchor="middle"
-          fontSize={FONT}
-          fill="var(--motion-stage-label)"
-          bindings={{ opacity: (t) => statusShare(k, t) }}
-        >
-          {`Clean-up step ${k} of ${DENOISING_STEPS}`}
-        </AnimatedElement>
-      ))}
-
-      {/* What the robot sees: every move is chosen given this. */}
-      <AnimatedElement
-        as="line"
-        data-scene-structure="observed-state-leader"
-        x1={r2(ORIGIN[0])}
-        y1={LABEL_Y - 16}
-        x2={r2(ORIGIN[0])}
-        y2={r2(ORIGIN[1] + 7)}
-        stroke="var(--role-state-stage)"
-        strokeWidth={1}
-        bindings={{ opacity: (t) => r2(0.6 * labelShare(t)) }}
-      />
-
-      <defs data-scene-structure="camera-clip">
-        <clipPath id={CAMERA_CLIP}>
-          <rect {...CAMERA_WINDOW} />
-        </clipPath>
-      </defs>
-      {/* The camera: everything drawn in action space moves with it. */}
-      <g clipPath={`url(#${CAMERA_CLIP})`}>
-        <AnimatedGroup data-scene-camera="" bindings={{ transform: diffusionCameraTransform }}>
-          <ActionSpace />
-        </AnimatedGroup>
-      </g>
-
-      {/* The two moves, named beside the clusters they finish in. */}
-      <AnimatedElement
-        as="line"
-        data-scene-structure="move-one-leader"
-        x1={PLOT.left - 6}
-        y1={r2(MODE_ONE[1])}
-        x2={r2(clusterEdge(0, 'left'))}
-        y2={r2(MODE_ONE[1])}
-        stroke="var(--motion-stage-label-secondary)"
-        strokeWidth={1}
-        bindings={{ opacity: leaderShare }}
-      />
-      <AnimatedElement
-        as="text"
-        x={PLOT.left - 8}
-        y={r2(MODE_ONE[1] + 5)}
-        textAnchor="end"
-        fontSize={FONT}
-        fill="var(--motion-stage-label)"
-        bindings={{ opacity: labelShare }}
-      >
-        move one
-      </AnimatedElement>
-      <AnimatedElement
-        as="line"
-        data-scene-structure="move-two-leader"
-        x1={r2(clusterEdge(1, 'right'))}
-        y1={r2(MODE_TWO[1])}
-        x2={PLOT.right + 6}
-        y2={r2(MODE_TWO[1])}
-        stroke="var(--motion-stage-label-secondary)"
-        strokeWidth={1}
-        bindings={{ opacity: leaderShare }}
-      />
-      <AnimatedElement
-        as="text"
-        x={PLOT.right + 8}
-        y={r2(MODE_TWO[1] + 5)}
-        textAnchor="start"
-        fontSize={FONT}
-        fill="var(--motion-stage-label)"
-        bindings={{ opacity: labelShare }}
-      >
-        move two
-      </AnimatedElement>
-
-      {/* The relation, glyph by glyph: shared glyphs slide, "| o" fades in. */}
-      <g data-scene-formula="diffusion">
-        {GLYPH_IDS.map((id) => {
-          const glyph = GLYPH_OF.get(id) as GlyphName;
-          const { width } = glyphAt(id, 0);
-          return (
-            <AnimatedGroup
-              key={`glyph-${id}`}
-              bindings={{
-                transform: (t) => `translate(${glyphAt(id, t).x} 0)`,
-                opacity: (t) => glyphAt(id, t).opacity,
-              }}
-            >
-              <foreignObject
-                x={0}
-                y={GLYPH_Y}
-                width={r2(width - 0.4)}
-                height={GLYPH_H}
-                overflow="visible"
-                data-scene-glyph={id}
-              >
-                <div
-                  {...{ xmlns: 'http://www.w3.org/1999/xhtml' }}
-                  className="whitespace-nowrap text-center leading-[24px]"
-                  dangerouslySetInnerHTML={{ __html: glyphMarkup(glyph) }}
-                />
-              </foreignObject>
-            </AnimatedGroup>
-          );
-        })}
-      </g>
-
-      {/* The one highlight note, pointing at both finished clusters. */}
-      <AnimatedElement as="g" data-figure-annotation="" bindings={{ opacity: noteShare }}>
-        <g data-scene-structure="note-leaders" stroke="var(--role-highlight-stage)" strokeWidth={1}>
-          <line x1={r2(MODE_ONE[0])} y1={STATUS_Y + NOTE_LINE + 8} x2={r2(MODE_ONE[0])} y2={r2(clusterTop(0) - 3)} />
-          <line x1={r2(MODE_TWO[0])} y1={STATUS_Y + NOTE_LINE + 8} x2={r2(MODE_TWO[0])} y2={r2(clusterTop(1) - 3)} />
+    <g data-scene-part={`gauge-${lane}-pins`}>
+      {which.map((i) => (
+        <g key={i}>
+          <Rod lane={lane} i={i} />
+          <Ball lane={lane} i={i} />
         </g>
-        <text
-          x={WIDTH / 2}
-          y={STATUS_Y}
-          textAnchor="middle"
-          fontSize={FONT}
-          fontWeight={600}
-          fill="var(--role-highlight-stage)"
-        >
-          <tspan x={WIDTH / 2} dy={0}>Two valid moves, kept apart</tspan>
-          <tspan x={WIDTH / 2} dy={NOTE_LINE}>instead of averaged into one</tspan>
-        </text>
-      </AnimatedElement>
-    </StageSvg>
+      ))}
+    </g>
   );
 }
 
+/**
+ * A gauge's thread, the move: a thin line always, the demonstration in
+ * action ink while it is set, the followed guess lit while it is cleaned
+ * up, and both moves lit in the recap.
+ */
+function Thread({ lane }: { lane: Lane }) {
+  const d = (t: number) => threadPath(lane, frameAt(t).heights[lane]);
+  const demoShare = (t: number) => {
+    if (t >= SPANS[STEPS].start) return 0;
+    if (t < SPANS[NOISE].start) return r3(within(beatProgress(DEMOS)(t), 0.5, 1));
+    return r3(signalLeft(beatProgress(NOISE)(t)) ** 2);
+  };
+  const settled = (t: number) => (t >= SPANS[STEPS].end ? 1 : 0);
+  const recap = (t: number) => r3(within(beatProgress(RECAP)(t), 0, 0.3));
+  const followed = (t: number) => {
+    if (t < SPANS[STEPS].start || t >= SPANS[SYMBOLS].start) return 0;
+    return r3(within(beatProgress(STEPS)(t), 0, 0.06));
+  };
+  return (
+    <g data-scene-part={`gauge-${lane}-thread`}>
+      <AnimatedElement as="path" className="iso-line" data-tone="lo" bindings={{ d }} />
+      <AnimatedElement
+        as="path"
+        data-scene-mark={`demonstration-${lane}`}
+        fill="none"
+        stroke="var(--role-action-stage)"
+        strokeWidth={1.1}
+        strokeLinejoin="round"
+        bindings={{ d, opacity: demoShare }}
+      />
+      <AnimatedElement as="path" className="iso-line" data-tone="hi" style={{ strokeWidth: 1.1 }} bindings={{ d, opacity: (t) => r3(settled(t) * (1 - recap(t))) }} />
+      {lane === FOLLOWED ? (
+        <AnimatedElement
+          as="path"
+          data-scene-mark="worked-guess"
+          data-legend-series="followed"
+          fill="none"
+          stroke="var(--role-highlight-stage)"
+          strokeWidth={1.3}
+          strokeLinejoin="round"
+          bindings={{ d, opacity: followed }}
+        />
+      ) : null}
+      <AnimatedElement as="path" className="iso-line" data-tone="lit" style={{ strokeWidth: 1.3 }} bindings={{ d, opacity: recap }} />
+      {/* The knots that tie the thread to the start and end posts. */}
+      <Dots points={threadKnots(lane)} size={0.75} tone="hi" />
+    </g>
+  );
+}
+
+/** The step dial's pointer, turned one tick per clean-up step. */
+function Dial() {
+  return (
+    <g data-scene-part="step-dial">
+      <AnimatedElement as="path" className="iso-line" data-tone="hi" data-free="" bindings={{ d: (t) => dialPointer(stepsMoved(t)) }} />
+      <path className="iso-line" data-tone="lo" d={DIAL_HUB} />
+    </g>
+  );
+}
+
+/** The shaker's crank pin: it orbits the cam while training noises the pins. */
+function Shaker() {
+  const turn = (t: number) => 0.6 + beatProgress(NOISE)(t) * Math.PI * 2 * 5;
+  const pin = (t: number) => crankPin(turn(t));
+  return (
+    <g className="iso-solid" data-scene-part="shaker">
+      <AnimatedElement as="path" className="iso-fill" bindings={{ d: (t) => pin(t).fill }} />
+      {[0, 1, 2, 3].map((shade) => (
+        <AnimatedElement key={shade} as="path" className="iso-shade" data-shade={shade} bindings={{ d: (t) => pin(t).shades[shade] || 'M0 0' }} />
+      ))}
+      <AnimatedElement as="path" className="iso-top" bindings={{ d: (t) => pin(t).top }} />
+      <AnimatedElement
+        as="path"
+        className="iso-line iso-edge"
+        bindings={{ d: (t) => pin(t).outline, 'data-tone': (t) => (diffusionLitAt(t) === 'shaker' ? 'lit' : 'hi') }}
+      />
+    </g>
+  );
+}
+
+/** The step lever: it rocks forward and back with every click. */
+function Lever() {
+  const tilt = (t: number) => {
+    const moved = stepsMoved(t);
+    const k = moved - Math.floor(moved);
+    return -0.32 + 0.6 * Math.sin(Math.PI * k);
+  };
+  const lever = (t: number) => leverAt(tilt(t));
+  return (
+    <g data-scene-part="step-lever">
+      <g className="iso-solid">
+        <AnimatedElement as="path" className="iso-fill" bindings={{ d: (t) => lever(t).arm.fill }} />
+        {[0, 1, 2, 3].map((shade) => (
+          <AnimatedElement key={shade} as="path" className="iso-shade" data-shade={shade} bindings={{ d: (t) => lever(t).arm.shades[shade] || 'M0 0' }} />
+        ))}
+        <AnimatedElement as="path" className="iso-top" bindings={{ d: (t) => lever(t).arm.top }} />
+        <AnimatedElement as="path" className="iso-line iso-edge" data-tone="mid" bindings={{ d: (t) => lever(t).arm.outline }} />
+      </g>
+      <AnimatedElement as="circle" className="iso-fill" r={r2(leverAt(0).knobR)} bindings={{ cx: (t) => r2(lever(t).knob[0]), cy: (t) => r2(lever(t).knob[1]) }} />
+      <AnimatedElement as="circle" className="iso-line" data-tone="hi" fill="none" r={r2(leverAt(0).knobR)} bindings={{ cx: (t) => r2(lever(t).knob[0]), cy: (t) => r2(lever(t).knob[1]) }} />
+    </g>
+  );
+}
+
+function SlotView({ slot }: { slot: Slot }) {
+  switch (slot) {
+    case 'pins-0-left':
+      return <Pins lane={0} which={LEFT_PINS} />;
+    case 'pins-0-right':
+      return <Pins lane={0} which={RIGHT_PINS} />;
+    case 'pins-1-left':
+      return <Pins lane={1} which={LEFT_PINS} />;
+    case 'pins-1-right':
+      return <Pins lane={1} which={RIGHT_PINS} />;
+    case 'thread-0':
+      return <Thread lane={0} />;
+    case 'thread-1':
+      return <Thread lane={1} />;
+    case 'lens':
+      // The camera's lens glass: what the robot sees, the observation every move is drawn for.
+      return <path data-scene-mark="observed-state" d={LENS_GLASS} fill="var(--role-state-stage)" />;
+    case 'beam':
+      // The camera's sight line to the bar, lit while the scene says what the move is drawn for.
+      return (
+        <AnimatedGroup data-scene-part="sight-line" bindings={{ opacity: (t) => r3(diffusionLitAt(t) === 'camera' ? within(beatProgress(SYMBOLS)(t), 0, 0.15) : 0) }}>
+          <path className="iso-line" data-tone="lit" style={{ strokeWidth: 1.1 }} d={BEAM} />
+          {/* The emitter's spot on the lens glass, where the sight line leaves. */}
+          <Dots points={[BEAM_START]} size={0.9} tone="hi" />
+        </AnimatedGroup>
+      );
+    case 'dial':
+      return <Dial />;
+    case 'shaker':
+      return <Shaker />;
+    case 'lever':
+      return <Lever />;
+    default:
+      return null;
+  }
+}
+
+/** The stage alone, so tests can render any frame inside a static-time provider. */
+export function DiffusionStage() {
+  return (
+    <div className="iso" data-anatomy-drawing="">
+      <StageSvg viewBox={VIEW_BOX} className="iso-svg">
+        {PARTS.map((part, index) => (part.kind === 'slot' ? <SlotView key={part.slot} slot={part.slot} /> : <PartView key={index} part={part} />))}
+      </StageSvg>
+    </div>
+  );
+}
+
+/** The readout follows the scene clock without re-rendering; it is not a live region. */
+function DiffusionReadout() {
+  const time = useSceneTime();
+  const poster = useStaticTime();
+  const node = useRef<HTMLSpanElement>(null);
+  useLayoutEffect(() => {
+    if (!time) return;
+    const apply = (t: number) => {
+      if (node.current) node.current.textContent = diffusionReadoutAt(t);
+    };
+    apply(time.get());
+    return time.on('change', apply);
+  }, [time]);
+  return <span aria-live="off" ref={node}>{diffusionReadoutAt(poster)}</span>;
+}
+
 /** What the scene is and is not: the method note under "How this was made". */
-export const DIFFUSION_METHOD_NOTE = `The sample positions come from an illustrative two-move model with a fixed random seed: ${SAMPLE_COUNT} samples run through the ${DENOISING_STEPS}-step DDIM inference schedule used in the Diffusion Policy paper (Chi et al., 2023, arXiv 2303.04137). The cloud, the arrows and the trails are a schematic, not a trained network\u2019s outputs.`;
+export const DIFFUSION_METHOD_NOTE = `The pin heights come from an illustrative model with fixed random seeds. Each move is ${PIN_COUNT} planned positions, the prediction horizon of the Diffusion Policy paper (Chi et al., 2023, arXiv 2303.04137); training mixes in noise on improved DDPM's square-cosine schedule, and acting runs the ${DENOISING_STEPS} deterministic DDIM steps the paper uses on real robots. The denoiser is the ideal one for a training set of just the two demonstrations, not a trained network’s output.`;
+
+const swatch = (style: Record<string, string>, className: string) => (
+  <span aria-hidden className={`inline-block ${className}`} style={style} />
+);
 
 export function DiffusionDenoising({ className }: { className?: string }) {
   const { html } = SCENE_EQUATIONS.diffusion;
@@ -747,56 +485,18 @@ export function DiffusionDenoising({ className }: { className?: string }) {
       stage={<DiffusionStage />}
       legend={
         <>
-          <LegendItem
-            series="diffusion-action"
-            swatch={
-              <span
-                aria-hidden
-                className="inline-block h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: 'var(--role-action-graphic)' }}
-              />
-            }
-          >
-            possible move
+          <LegendItem series="diffusion-action" swatch={swatch({ backgroundColor: 'var(--role-action-graphic)' }, 'h-2.5 w-2.5 rounded-full')}>
+            pin set to a good move
           </LegendItem>
-          <LegendItem
-            series="diffusion-noise"
-            swatch={
-              <span
-                aria-hidden
-                className="inline-block h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: 'var(--role-reference-graphic)' }}
-              />
-            }
-          >
-            random guess and its path
+          <LegendItem series="diffusion-noise" swatch={swatch({ backgroundColor: 'var(--role-reference-graphic)' }, 'h-2.5 w-2.5 rounded-full')}>
+            pin still random
+          </LegendItem>
+          <LegendItem series="followed" swatch={swatch({ backgroundColor: 'var(--role-highlight-graphic)' }, 'h-0.5 w-4')}>
+            thread through the pins: the move
           </LegendItem>
         </>
       }
-      readout={({ beatIndex }) => {
-        // The worked guess first, then the whole cloud: numbers before symbols.
-        if (beatIndex === 2) {
-          return (
-            <>
-              One guess: {WORKED_DISTANCES.start.toFixed(2)} {'\u2192'}{' '}
-              {WORKED_DISTANCES.end.toFixed(2)} from its move
-            </>
-          );
-        }
-        if (beatIndex === 3) {
-          return (
-            <>
-              All {SAMPLE_COUNT} guesses: {NOISE_DISPERSION.toFixed(2)} {'\u2192'}{' '}
-              {FINAL_DISPERSION.toFixed(2)} from their moves, on average
-            </>
-          );
-        }
-        return (
-          <>
-            {SAMPLE_COUNT} random guesses, each nudged onto a good move in {DENOISING_STEPS} steps
-          </>
-        );
-      }}
+      readout={() => <DiffusionReadout />}
       statusLine="Illustrative: a drawn model of the idea, not a trained robot’s output."
       method={
         <>
@@ -804,18 +504,25 @@ export function DiffusionDenoising({ className }: { className?: string }) {
             In symbols, the policy samples{' '}
             <span data-scene-equation="diffusion" dangerouslySetInnerHTML={{ __html: html }} />
             : an action a is drawn from a distribution of actions conditioned on what the robot
-            observes, o. Over the {DENOISING_STEPS} clean-up steps the average distance from a
-            sample to its move falls from{' '}
+            observes, o. Over the {DENOISING_STEPS} clean-up steps the two guesses&rsquo; average
+            distance from the move each lands on falls from{' '}
             <span data-testid="diffusion-dispersion">
-              {NOISE_DISPERSION.toFixed(2)} {'\u2192'} {FINAL_DISPERSION.toFixed(2)}
+              {fixed(GUESS_DISTANCES.start)} {'→'} {fixed(GUESS_DISTANCES.end)}
             </span>
-            .
+            , measured in arch heights.
           </p>
           <p>
-            The guess the camera follows starts {WORKED_DISTANCES.start.toFixed(2)} from its move
-            and ends {WORKED_DISTANCES.end.toFixed(2)} away.
+            The guess the scene follows starts {fixed(WORKED_DISTANCES.start)} from its move and ends{' '}
+            {fixed(WORKED_DISTANCES.end)} away.
           </p>
           <p>{DIFFUSION_METHOD_NOTE}</p>
+          <p>
+            The drawing is a pin gauge, two of them side by side. Each pin&rsquo;s height is one planned
+            position, and the thread through the pins is the move. The bar is what the camera sees.
+            A demonstration arches the thread over the bar or sags it under; a thread pulled straight,
+            the average of the two, would run into it. The gauge, the bar and the camera are an
+            illustration.
+          </p>
           <p>The {BEAT_WORDS} steps, in order:</p>
           <ol>
             {SCENE.beats.map((beat) => (
@@ -824,11 +531,11 @@ export function DiffusionDenoising({ className }: { className?: string }) {
           </ol>
         </>
       }
-      textAlternative={`${SCENE.title}. A ${BEAT_WORDS}-beat scene among possible robot moves. ${SCENE.beats.map(
-        (beat, index) => `Beat ${index + 1}: ${beat.caption}`,
-      ).join(
-        ' ',
-      )} The relation a ~ p(a | o) means an action a is sampled from a distribution of actions conditioned on the observed state o. The guess the camera follows starts ${WORKED_DISTANCES.start.toFixed(2)} from its move and ends ${WORKED_DISTANCES.end.toFixed(2)} away. Mean distance from a sample to its mode falls from ${NOISE_DISPERSION.toFixed(2)} to ${FINAL_DISPERSION.toFixed(2)} over the ten steps.`}
+      textAlternative={`${SCENE.title}. A ${BEAT_WORDS}-beat scene on two pin gauges, where each pin is one planned position of a move and a thread through the pins is the move, passing a bar the robot's camera sees. ${SCENE.beats
+        .map((beat, index) => `Beat ${index + 1}: ${beat.caption}`)
+        .join(
+          ' ',
+        )} The relation a ~ p(a | o) means an action a is sampled from a distribution of actions conditioned on the observed state o. The guess the scene follows starts ${fixed(WORKED_DISTANCES.start)} from its move and ends ${fixed(WORKED_DISTANCES.end)} away; one guess ends ${WHERE[RUNS[0].lands]} and the other ${WHERE[RUNS[1].lands]}, and neither on the straight average that would hit the bar.`}
     />
   );
 }

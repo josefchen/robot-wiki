@@ -491,7 +491,7 @@
     },
     "control:secondary-action": {
       "kind": "controls",
-      "fingerprint": "bf983944a57d7876b42c4d1eb6debba0a6cc99c7dc8ba79d434025768b556c7e",
+      "fingerprint": "7ca18195d25fed611354d10a89c278fca730ea575c16f57b87f9dc4f6201f157",
       "mountState": "production",
       "definedIn": [
         "components/article/author-list.tsx",
@@ -510,6 +510,7 @@
         "components/interactive/dataset-table.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/execution-modes.tsx",
+        "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/gait-diagram.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
@@ -566,6 +567,7 @@
         "components/interactive/dataset-table.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/execution-modes.tsx",
+        "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hardware-guide.tsx",

@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { binIndex, generateActionChunk } from '@/lib/action-tokenization';
+import { endpointDispersion, generateFlowField, transportVelocity } from '@/lib/flow-matching';
 import { openAdjustMore } from './helpers/figure-fold';
 
 test('paired manipulation labs use action/reference roles and only highlight the current selection', async ({ browser }) => {
@@ -27,20 +28,50 @@ test('paired manipulation labs use action/reference roles and only highlight the
         const flow = page.getByRole('img', { name: /2D action-space view/i });
         await expect(flow).toBeVisible();
         const flowStage = '[data-testid="fm-step-readout"]';
-        const action = await stageRole('action-graphic', flowStage);
-        const reference = await stageRole('reference-graphic', flowStage);
-        expect(await flow.locator('polyline').first().evaluate((node) => getComputedStyle(node).stroke)).toBe(action);
-        expect(await flow.locator('circle').last().evaluate((node) => getComputedStyle(node).fill)).toBe(action);
-        const modes = await flow.locator('g:has(> path)').all();
-        expect(modes.length).toBeGreaterThan(0);
+        // The field table paints in the drawing's grey inks with one lit part: the ink the stylus lays down, in
+        // the page's one accent, ending on its landing hop mark. The two pockets (the good moves) keep the plain
+        // structure ink, and no words sit in the drawing.
+        const drawingInk = (token: string) => page.evaluate(([value, selector]) => {
+          const probe = document.createElement('span');
+          probe.style.color = `var(${value})`;
+          document.querySelector(selector)!.closest('[data-figure-stage]')!.querySelector('[data-anatomy-drawing]')!.append(probe);
+          const resolved = getComputedStyle(probe).color;
+          probe.remove();
+          return resolved;
+        }, [token, flowStage] as const);
+        const litInk = await drawingInk('--anatomy-lit');
+        const plainInk = await drawingInk('--anatomy-mid');
+        const ink = flow.getByTestId('fm-ink');
+        await expect(flow.locator('[data-tone="lit"], .iso-solid[data-lit]')).toHaveCount(1);
+        expect(await ink.locator('.iso-line[data-tone="lit"]').evaluate((node) => getComputedStyle(node).stroke)).toBe(litInk);
+        expect(await ink.locator('[data-hop]').last().evaluate((node) => getComputedStyle(node).fill)).toBe(litInk);
+        const modes = await flow.locator('[data-flow-mode]').all();
+        expect(modes).toHaveLength(2);
         for (const target of modes) {
-          expect(await target.locator('path').evaluate((node) => getComputedStyle(node).stroke)).toBe(reference);
-          expect(await target.locator('text').evaluate((node) => getComputedStyle(node).fill)).toBe(await stageRole('reference-text', flowStage));
+          expect(await target.locator('.iso-line').first().evaluate((node) => getComputedStyle(node).stroke)).toBe(plainInk);
         }
+        await expect(flow.locator('text, title, desc, foreignObject')).toHaveCount(0);
+        // The numbers come from the model: the ink's hops, one vane per hop turned to the velocity that hop reads
+        // (action x runs along the plate's -x), and the mean endpoint error in the readout.
+        const field = generateFlowField();
+        const followed = field.samples[0]!;
+        const readsTheModel = async (steps: number) => {
+          await expect(page.getByTestId('fm-step-readout')).toHaveText(`${steps} steps`);
+          await expect(page.getByTestId('fm-dispersion-readout')).toHaveText(endpointDispersion(field, steps).toFixed(2));
+          await expect(ink).toHaveAttribute('data-hops', String(steps));
+          await expect(ink.locator('[data-hop]')).toHaveCount(steps + 1);
+          const vanes = flow.locator('[data-flow-reading]');
+          await expect(vanes).toHaveCount(steps);
+          for (let hop = 0; hop < steps; hop++) {
+            const v = transportVelocity(followed, hop / steps);
+            await expect(vanes.nth(hop)).toHaveAttribute('data-angle', Math.atan2(v.y, -v.x).toFixed(4));
+          }
+        };
+        await readsTheModel(10);
         // The step presets are the main view; five steps is π0.6's and π0.7's setting.
         await page.getByRole('button', { name: /^5 steps/ }).click();
-        await expect(page.getByTestId('fm-step-readout')).toHaveText('5 steps');
-        expect(await flow.locator('polyline').first().evaluate((node) => getComputedStyle(node).stroke)).toBe(action);
+        await readsTheModel(5);
+        expect(await ink.locator('.iso-line[data-tone="lit"]').evaluate((node) => getComputedStyle(node).stroke)).toBe(litInk);
 
         await page.goto('/manipulation/vla-models/', { waitUntil: 'networkidle' });
         await expect(page.locator('[data-motion-scene]')).toHaveCount(0);

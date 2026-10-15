@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3021,
+      "visibleTextLength": 3023,
       "header": {
         "present": true,
         "display": "flex",
@@ -884,7 +884,7 @@
     },
     {
       "route": "/adjacent/drones/",
-      "visibleTextLength": 22143,
+      "visibleTextLength": 22168,
       "header": {
         "present": true,
         "display": "flex",
@@ -1046,7 +1046,7 @@
     },
     {
       "route": "/adjacent/space/",
-      "visibleTextLength": 22931,
+      "visibleTextLength": 22957,
       "header": {
         "present": true,
         "display": "flex",
@@ -1208,7 +1208,7 @@
     },
     {
       "route": "/adjacent/surgical/",
-      "visibleTextLength": 21779,
+      "visibleTextLength": 21784,
       "header": {
         "present": true,
         "display": "flex",
@@ -1532,7 +1532,7 @@
     },
     {
       "route": "/classical/calibration/",
-      "visibleTextLength": 16119,
+      "visibleTextLength": 16116,
       "header": {
         "present": true,
         "display": "flex",
@@ -1694,7 +1694,7 @@
     },
     {
       "route": "/classical/control/",
-      "visibleTextLength": 24275,
+      "visibleTextLength": 24194,
       "header": {
         "present": true,
         "display": "flex",
@@ -2342,7 +2342,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 33753,
+      "visibleTextLength": 33690,
       "header": {
         "present": true,
         "display": "flex",
@@ -7032,7 +7032,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 17019,
+      "visibleTextLength": 16617,
       "header": {
         "present": true,
         "display": "flex",
@@ -7842,7 +7842,7 @@
     },
     {
       "route": "/manipulation/pi-line/",
-      "visibleTextLength": 20747,
+      "visibleTextLength": 20718,
       "header": {
         "present": true,
         "display": "flex",

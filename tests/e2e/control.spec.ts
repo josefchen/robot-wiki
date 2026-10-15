@@ -502,17 +502,17 @@ test.describe('classical control module', () => {
     expect(text).toMatch(/series elastic actuation/i);
   });
 
-  test('impedance lab renders first paint with a live trace, torque default (VAL-CLASS-035 setup)', async ({
+  test('impedance lab renders first paint with a live gauge, torque default (VAL-CLASS-035 setup)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
     const lab = page.getByTestId('impedance-lab');
     await expect(lab).toBeVisible();
     await expect(lab.getByTestId('impedance-hardware-torque')).toBeChecked();
-    await expect(lab.getByTestId('impedance-force-trace')).toBeVisible();
-    // The main view names the first bump against the crush line; the exact
+    await expect(lab.getByTestId('impedance-needle')).toBeVisible();
+    // The main view names the first bump against the crush mark; the exact
     // readouts sit in "Adjust more".
-    await expect(lab.locator('[data-figure-annotation]')).toHaveText(/First bump: just under/);
+    await expect(lab.locator('[data-readout]')).toHaveText(/First bump 23\.7 newtons · just under the crushing force/);
     await expect(lab.getByTestId('impedance-stiffness-slider')).toBeVisible();
     await openAdjustMore(lab);
     const peak = await lab

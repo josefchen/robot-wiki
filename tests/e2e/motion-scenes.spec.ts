@@ -36,12 +36,12 @@ const SCENES = [
     id: 'diffusion-denoising',
     route: '/manipulation/diffusion-policy/',
     title: /diffusion policy/i,
-    // A schematic of possible moves with no axes. The typeset relation sits
-    // in "How this was made"; the stage writes it glyph by glyph only in the
-    // symbols beat, so the settled poster shows none of it.
+    // A denoising gauge: two pin gauges, a bar and a camera, no axes and no
+    // words in the drawing at any beat. The legend and the readout under the
+    // stage carry the words; the typeset relation sits in "How this was made".
     axes: [],
-    minText: 4,
-    maxText: Number.POSITIVE_INFINITY,
+    minText: 0,
+    maxText: 0,
     beats: [
       /demonstrations/i,
       /random noise is added/i,

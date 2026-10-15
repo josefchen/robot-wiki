@@ -8,15 +8,15 @@
     "minutes": 10
   },
   "manipulation/diffusion-policy": {
-    "words": 1513,
-    "minutes": 8
+    "words": 1422,
+    "minutes": 7
   },
   "manipulation/vla-models": {
     "words": 1716,
     "minutes": 9
   },
   "manipulation/pi-line": {
-    "words": 1803,
+    "words": 1801,
     "minutes": 9
   },
   "manipulation/generalist-policies": {
@@ -160,7 +160,7 @@
     "minutes": 14
   },
   "classical/control": {
-    "words": 2288,
+    "words": 2270,
     "minutes": 11
   },
   "classical/state-estimation": {
@@ -172,7 +172,7 @@
     "minutes": 9
   },
   "classical/perception": {
-    "words": 3010,
+    "words": 3000,
     "minutes": 15
   },
   "classical/scene-representation": {
@@ -216,15 +216,15 @@
     "minutes": 14
   },
   "adjacent/drones": {
-    "words": 1950,
+    "words": 1956,
     "minutes": 10
   },
   "adjacent/surgical": {
-    "words": 1795,
+    "words": 1794,
     "minutes": 9
   },
   "adjacent/space": {
-    "words": 1863,
+    "words": 1867,
     "minutes": 9
   }
 }
