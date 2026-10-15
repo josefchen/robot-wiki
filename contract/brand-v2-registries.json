@@ -4490,6 +4490,26 @@
       "fingerprint": "14e5f3088d0367bd63ae4bba0ade114e41fa5532675704a49a05ac22192574b4"
     },
     {
+      "id": "asset:images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+      "path": "images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:bmw-leipzig-body-shop-spot-welding-2005",
+      "sourceRegistryId": "bmw-leipzig-body-shop-spot-welding-2005",
+      "byteHash": "893c7312567f621bbaa4e8b89b17b329d530ebcbce39d7aa71a166faf7afd369",
+      "semanticHash": null,
+      "fingerprint": "0bc6f6c5c00b03c6d5be529b95f6e0f4dba520503b64da051dd8db5f297c666c"
+    },
+    {
+      "id": "asset:images/bridgedata-v2-sink-tasks-2023.jpg",
+      "path": "images/bridgedata-v2-sink-tasks-2023.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:bridgedata-v2-sink-tasks-2023",
+      "sourceRegistryId": "bridgedata-v2-sink-tasks-2023",
+      "byteHash": "44b5ece5ea703236f7ebb5f3c39937bcd4549ebb5b236f15cd36409e747fcf14",
+      "semanticHash": null,
+      "fingerprint": "c34e4e8fdc0e237f6bdc1ddd06609f98cfffc0cf1f76d9916fbd3b0cddbeca9e"
+    },
+    {
       "id": "asset:images/care-o-bot-grasping-2010.jpg",
       "path": "images/care-o-bot-grasping-2010.jpg",
       "category": "editorial-image",
@@ -4658,6 +4678,16 @@
       "byteHash": "258420ec194e719106931a7ad4788fe2a1a8bd22a6ffd18fd942459815bb2052",
       "semanticHash": null,
       "fingerprint": "11b92462e9999f255b234aa8ebebddb7142886574b3ec54603d4e1980c3d8e56"
+    },
+    {
+      "id": "asset:images/droid-camera-calibration-2024.jpg",
+      "path": "images/droid-camera-calibration-2024.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:droid-camera-calibration-2024",
+      "sourceRegistryId": "droid-camera-calibration-2024",
+      "byteHash": "9fd9c904c0025e6e8da6b516aa289fd302fb3b397f6830ec9b7bb3c6ee23cc64",
+      "semanticHash": null,
+      "fingerprint": "1665e14a4730c7b3543674dd38e77b787d4df1493ad408239021f0d7470ad545"
     },
     {
       "id": "asset:images/droid-cook-lentils-rollouts-2024.jpg",
@@ -4840,6 +4870,16 @@
       "fingerprint": "5cebfaa75347535cab318ec2d738b94e97aae864c0f1f84fd3992909fc0dc5a7"
     },
     {
+      "id": "asset:images/inl-hot-cell-manipulators-2006.jpg",
+      "path": "images/inl-hot-cell-manipulators-2006.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:inl-hot-cell-manipulators-2006",
+      "sourceRegistryId": "inl-hot-cell-manipulators-2006",
+      "byteHash": "fd46440c740e36393ddd8e89ef3c6277eefa64d542412d719d2cf72e33716998",
+      "semanticHash": null,
+      "fingerprint": "7a50d7b057420fa84c557f39885649b64767a1b4d2607a4a318744c5de720c69"
+    },
+    {
       "id": "asset:images/isaac-gym-allegro-envs-2021.jpg",
       "path": "images/isaac-gym-allegro-envs-2021.jpg",
       "category": "editorial-image",
@@ -4950,6 +4990,16 @@
       "fingerprint": "469fbd6492571c1a64ae813ce07bc0db2c21cb928f79f575e354d14f48b7f1b2"
     },
     {
+      "id": "asset:images/kuka-bread-palletizing-bakery-2005.jpg",
+      "path": "images/kuka-bread-palletizing-bakery-2005.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:kuka-bread-palletizing-bakery-2005",
+      "sourceRegistryId": "kuka-bread-palletizing-bakery-2005",
+      "byteHash": "f4e08078b94a56b3413402d297b50163ab0406bbcd10f6abd48f670be93358f8",
+      "semanticHash": null,
+      "fingerprint": "0501defdeaac6edc32f2ffd364973c9a9b08a7f00cfb52126a8ee695bf6bebe1"
+    },
+    {
       "id": "asset:images/leica-laser-tracker-ats600.jpg",
       "path": "images/leica-laser-tracker-ats600.jpg",
       "category": "editorial-image",
@@ -4958,6 +5008,16 @@
       "byteHash": "839507df6c4cb488620162c9d79d8fc4dec19f833b89b350f5b2e2eb5d0bb055",
       "semanticHash": null,
       "fingerprint": "acf5e596f2d76070ea74315af0e5a9d724cbf9ac6c580013f3112ccb2c0bff77"
+    },
+    {
+      "id": "asset:images/libero-benchmark-overview-2023.jpg",
+      "path": "images/libero-benchmark-overview-2023.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:libero-benchmark-overview-2023",
+      "sourceRegistryId": "libero-benchmark-overview-2023",
+      "byteHash": "ad92236fd6800c4cf9c24a51d58fa20401f4a978ebddc5b6283971bbb13b5054",
+      "semanticHash": null,
+      "fingerprint": "62e162a66a16f418c8be82ddfde87c2192c6d8ff107eda0b4253b0b593fb88e0"
     },
     {
       "id": "asset:images/logos/1x-technologies.svg",
@@ -6130,6 +6190,26 @@
       "fingerprint": "4fab891dd45f82970d32dfaa8e6493c5b2bf3bd2d9363eeec6c64c476515fbe4"
     },
     {
+      "id": "asset:images/nist-dexterous-manipulation-testbed-2013.jpg",
+      "path": "images/nist-dexterous-manipulation-testbed-2013.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:nist-dexterous-manipulation-testbed-2013",
+      "sourceRegistryId": "nist-dexterous-manipulation-testbed-2013",
+      "byteHash": "8aa9319c1d0a23d206363e198195faef262dbe378f1df460488d9a5633f1f546",
+      "semanticHash": null,
+      "fingerprint": "71a8723f5da3b518095b8f3e51b6c3fca61fac6fdf48d4987e9ce6de55d34ed7"
+    },
+    {
+      "id": "asset:images/ocado-warehouse-grid-bots-2017.jpg",
+      "path": "images/ocado-warehouse-grid-bots-2017.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:ocado-warehouse-grid-bots-2017",
+      "sourceRegistryId": "ocado-warehouse-grid-bots-2017",
+      "byteHash": "428e5be03b462991dd8eeeb5fd1326713a3469c2a439c2e6910ec5e1a02d1936",
+      "semanticHash": null,
+      "fingerprint": "bc105d250ca9be9b273872876543c5ffd7590e527886519ca35c48aca8f8bcfa"
+    },
+    {
       "id": "asset:images/octo-evaluation-setups-2024.jpg",
       "path": "images/octo-evaluation-setups-2024.jpg",
       "category": "editorial-image",
@@ -6148,6 +6228,16 @@
       "byteHash": "e7130ad74e4dfc8704a17c99e5c81cbda87e6a05b980f1653ea9953952dac0e4",
       "semanticHash": null,
       "fingerprint": "18788d5aec1a4ab1c4e9dcc13444c55062b178cdcb27332dc99fd0d6298313b0"
+    },
+    {
+      "id": "asset:images/openvla-overview-2024.jpg",
+      "path": "images/openvla-overview-2024.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:openvla-overview-2024",
+      "sourceRegistryId": "openvla-overview-2024",
+      "byteHash": "228f8ec2aa2bbfddcfc0c6e72f7c3899954defe367ca4024bca8278cb591d46a",
+      "semanticHash": null,
+      "fingerprint": "c809fe0b1c49cb7516e0811f2f8c22ef7e80e7d089cc91b64a985a4040e5e530"
     },
     {
       "id": "asset:images/ouster-lidar-point-cloud-sf.jpg",
@@ -6490,6 +6580,26 @@
       "fingerprint": "0e59de048029f88fd21295041238467f62f4c9815a04259ab47e1306bd0b92d1"
     },
     {
+      "id": "asset:images/umi-handheld-grippers-2024.jpg",
+      "path": "images/umi-handheld-grippers-2024.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:umi-handheld-grippers-2024",
+      "sourceRegistryId": "umi-handheld-grippers-2024",
+      "byteHash": "0856e71393efeb44585efd61b0244d4ec215ea3fdec7a33b1fac76f32402684b",
+      "semanticHash": null,
+      "fingerprint": "430a9fc1c8fa85e38819cc25b364d79b61ceb394c65e2b1cdb0d864f80c65456"
+    },
+    {
+      "id": "asset:images/umi-test-environments-2024.jpg",
+      "path": "images/umi-test-environments-2024.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:umi-test-environments-2024",
+      "sourceRegistryId": "umi-test-environments-2024",
+      "byteHash": "f31f3c48024bbd2a09c27418da665e42ca97251fae0143d8066f28c15e593bd0",
+      "semanticHash": null,
+      "fingerprint": "0623aeb8019af482c9a9073e40ad4a100dc3a47ea768790134f03e8ae8f368b2"
+    },
+    {
       "id": "asset:images/unitree-g1-stage-japan-mobility-2025.jpg",
       "path": "images/unitree-g1-stage-japan-mobility-2025.jpg",
       "category": "editorial-image",
@@ -6764,6 +6874,8 @@
     "asset:images/atlas-vrc-simulation-2013.jpg",
     "asset:images/baxter-gripper-wrist-camera.jpg",
     "asset:images/baxter-rethink-innorobo-2015.jpg",
+    "asset:images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+    "asset:images/bridgedata-v2-sink-tasks-2023.jpg",
     "asset:images/care-o-bot-grasping-2010.jpg",
     "asset:images/cassie-oregon-state-2017.jpg",
     "asset:images/centrifugal-governor-queen-street-mill.jpg",
@@ -6781,6 +6893,7 @@
     "asset:images/dji-mavic-pro-in-flight.jpg",
     "asset:images/dp3-real-robot-setup-2024.jpg",
     "asset:images/dreamerv3-open-loop-quadruped-2023.jpg",
+    "asset:images/droid-camera-calibration-2024.jpg",
     "asset:images/droid-cook-lentils-rollouts-2024.jpg",
     "asset:images/droid-in-the-wild-scenes-2024.jpg",
     "asset:images/droid-robot-platform-2024.jpg",
@@ -6799,6 +6912,7 @@
     "asset:images/hil-serl-tasks-2024.jpg",
     "asset:images/horse-in-motion-muybridge-1878.jpg",
     "asset:images/ingenuity-mastcam-z-closeup-2021.jpg",
+    "asset:images/inl-hot-cell-manipulators-2006.jpg",
     "asset:images/isaac-gym-allegro-envs-2021.jpg",
     "asset:images/isaac-gym-anymal-real-stairs-2021.jpg",
     "asset:images/isaac-gym-anymal-terrain-2021.jpg",
@@ -6810,7 +6924,9 @@
     "asset:images/kinect-xbox-360-sensor.jpg",
     "asset:images/kinect-xbox-one-sensor.jpg",
     "asset:images/knowno-ask-for-help-2023.jpg",
+    "asset:images/kuka-bread-palletizing-bakery-2005.jpg",
     "asset:images/leica-laser-tracker-ats600.jpg",
+    "asset:images/libero-benchmark-overview-2023.jpg",
     "asset:images/logos/1x-technologies.svg",
     "asset:images/logos/abb.svg",
     "asset:images/logos/agibot.png",
@@ -6928,8 +7044,11 @@
     "asset:images/mujoco-playground-environments-2025.jpg",
     "asset:images/mujoco-playground-franka-block-2025.jpg",
     "asset:images/navlab-1-5-cmu-2017.jpg",
+    "asset:images/nist-dexterous-manipulation-testbed-2013.jpg",
+    "asset:images/ocado-warehouse-grid-bots-2017.jpg",
     "asset:images/octo-evaluation-setups-2024.jpg",
     "asset:images/open-x-embodiment-overview-2023.jpg",
+    "asset:images/openvla-overview-2024.jpg",
     "asset:images/ouster-lidar-point-cloud-sf.jpg",
     "asset:images/perseverance-selfie-rochette-2021.jpg",
     "asset:images/phantom-human-video-robot-2025.jpg",
@@ -6964,6 +7083,8 @@
     "asset:images/tdmpc2-task-grid-2023.jpg",
     "asset:images/temporal-ensembling.svg",
     "asset:images/tesla-optimus-stockholm-2024.jpg",
+    "asset:images/umi-handheld-grippers-2024.jpg",
+    "asset:images/umi-test-environments-2024.jpg",
     "asset:images/unitree-g1-stage-japan-mobility-2025.jpg",
     "asset:images/unitree-robots-japan-mobility-show-2025.jpg",
     "asset:images/ur16e-cobot-arm-2020.jpg",
@@ -16493,6 +16614,7 @@
         "components/interactive/action-tokenization.tsx",
         "components/interactive/actuator-gap.tsx",
         "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/collaborative-operation-modes.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/compounding-error.tsx",
         "components/interactive/dataset-table.tsx",
@@ -16512,6 +16634,7 @@
         "components/interactive/perception-latency.tsx",
         "components/interactive/qos-queue-age.tsx",
         "components/interactive/receding-horizon.tsx",
+        "components/interactive/reliability-compounding.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/rrt-explorer.tsx",
@@ -16547,6 +16670,7 @@
         "components/interactive/action-tokenization.tsx",
         "components/interactive/actuator-gap.tsx",
         "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/collaborative-operation-modes.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/compounding-error.tsx",
         "components/interactive/dataset-table.tsx",
@@ -16565,6 +16689,7 @@
         "components/interactive/perception-latency.tsx",
         "components/interactive/qos-queue-age.tsx",
         "components/interactive/receding-horizon.tsx",
+        "components/interactive/reliability-compounding.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/rrt-explorer.tsx",
@@ -16602,7 +16727,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "8dae4731400854281e01814ee8d2dbb428e25fee685686636851dcfe5aaa56bb"
+      "fingerprint": "bf983944a57d7876b42c4d1eb6debba0a6cc99c7dc8ba79d434025768b556c7e"
     },
     {
       "id": "control:selection",
@@ -17075,5 +17200,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "08ff458fecc84f9220483002ccd26585d93577a0ae527167571f28ab20b96769"
+  "rootFingerprint": "dab858d8dd98c9c4cf2bd6c9022ff9d257b86d6f9fc2f3df22d32464976b229b"
 }

@@ -13,7 +13,7 @@
     {
       "id": "kalman-predict-update",
       "route": "/classical/state-estimation/",
-      "sourceSha256": "d81996fda746115c7613552355425caf8a33d8cc88c305cb110640e65fa51512",
+      "sourceSha256": "dc30bbc875832a9ebd62219356052d7e4335e1f51288191d59c37aafea41d7df",
       "marks": [
         {
           "mark": "blend-area",
@@ -1363,10 +1363,66 @@
     {
       "id": "gait-support",
       "route": "/rl-sim2real/legged-locomotion/",
-      "sourceSha256": "10b43d1cd40e1bedcaf6eec668e28c53f83bf33935a279ce8e6520b70b3a0c55",
+      "sourceSha256": "840a98ecf46602a078a45295d886f03b0e4f1b4a2a18859f0d7c75608f08330f",
       "marks": [
         {
+          "mark": "pronk-foot-0",
+          "role": "state",
+          "hex": "#1C1C1A",
+          "beats": [
+            3,
+            4
+          ]
+        },
+        {
+          "mark": "pronk-foot-1",
+          "role": "state",
+          "hex": "#1C1C1A",
+          "beats": [
+            3,
+            4
+          ]
+        },
+        {
+          "mark": "pronk-foot-2",
+          "role": "state",
+          "hex": "#1C1C1A",
+          "beats": [
+            3,
+            4
+          ]
+        },
+        {
+          "mark": "pronk-foot-3",
+          "role": "state",
+          "hex": "#1C1C1A",
+          "beats": [
+            3,
+            4
+          ]
+        },
+        {
           "mark": "trot-foot-0",
+          "role": "state",
+          "hex": "#1C1C1A",
+          "beats": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "mark": "trot-foot-1",
+          "role": "state",
+          "hex": "#1C1C1A",
+          "beats": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "mark": "trot-foot-2",
           "role": "state",
           "hex": "#1C1C1A",
           "beats": [
@@ -1387,6 +1443,17 @@
         },
         {
           "mark": "walk-foot-0",
+          "role": "state",
+          "hex": "#1C1C1A",
+          "beats": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "mark": "walk-foot-1",
           "role": "state",
           "hex": "#1C1C1A",
           "beats": [

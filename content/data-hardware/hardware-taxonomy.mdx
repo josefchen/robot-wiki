@@ -64,6 +64,8 @@ import { HardwareGuide } from '@/components/interactive/hardware-guide';
 
 Robot-learning hardware is the equipment a learned policy runs on: arms, humanoids, dexterous hands, tactile sensors and the edge computers closing the control loop. Prices run from about \$122 in parts for an SO-101 arm <Cite id="so-arm100-repo-2026" /> to \$29,900 for a Unitree H2 humanoid <Cite id="unitree-h2-2026" />, and Boston Dynamics has scheduled its 2026 Atlas deployments at Hyundai and Google DeepMind <Cite id="bd-atlas-unveil-2026" />.
 
+<Image id="nist-dexterous-manipulation-testbed-2013" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="entry arm" value="$122" note="US BOM, one SO-101 arm" accent />
   <Stat label="entry humanoid" value="$1,400" note="Bumi presale at ¥9,998" />
@@ -120,6 +122,8 @@ NVIDIA's Jetson Thor T5000 delivers 2,070 sparse FP4 TFLOPS with 128 GB of LPDDR
 The 1X NEO runs on a Jetson Thor at up to 2,070 FP4 TFLOPS <Cite id="1x-neo-2026" />. Figure's Helix runs entirely on embedded low-power GPUs, with a 7-9 Hz vision-language model guiding a 200 Hz controller <Cite id="helix-2025" />.
 
 VLA-Perf's roofline model predicts π0 inference at 19.0 Hz on Jetson Thor, 32.2 Hz on RTX 4090, 61.7 Hz on A100, 162.5 Hz on H100 and 314.4 Hz on B100, without network latency. These are batch-one analytical predictions for the 2.7B π0 baseline, with 3 cameras, 14 action dimensions, chunk size 50 and 10 denoising steps, and no measurements from running the policy on all five GPUs. On B100, raising denoising steps from 10 to 50 raises total latency 2.15×; raising chunk size from 50 to 250 raises it 11% <Cite id="vla-perf-2026" />. [Real-Time Execution](/manipulation/realtime-execution) develops these latency budgets.
+
+<Image id="jetson-agx-orin-auledas-2024" />
 
 ## How to read these prices
 

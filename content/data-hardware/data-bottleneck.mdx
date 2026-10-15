@@ -54,6 +54,8 @@ import { ScalingLawsTable } from '@/components/mdx/scaling-laws-table';
 
 The data bottleneck is the shortage of robot training data compared with the text language models learn from. The largest [public robot datasets](/data-hardware/datasets) hold hundreds to a few thousand hours <Cite id="droid-2024" /> <Cite id="agibot-world-2025" />, while Llama 4 Scout trained on about 40 trillion tokens <Cite id="llama-4-model-card-2025" /> and companies report private corpora of 100,000 hours or more from handheld and wearable devices <Cite id="xiaomi-robotics-1-2026" /> <Cite id="generalist-gen1-2026" />.
 
+<Image id="droid-in-the-wild-scenes-2024" />
+
 DROID reports 76,000 successful trajectories totaling 350 interaction hours. Fifty data collectors used 18 robots across 13 institutions over 12 months, and the release adds roughly 16,000 unsuccessful trajectories outside that count <Cite id="droid-2024" />. Drag “Robots collecting” to change fleet size at two authored hypothetical rates: 1,000 or 7 productive hours per rig-year.
 
 <PredictThenReveal
@@ -104,6 +106,8 @@ Toyota Research Institute's Large Behavior Models trained on about 1,700 hours o
 <Term id="scaling-law">Scaling laws</Term> come from language modelling: loss falls as a power law in model size, dataset size and compute <Cite id="kaplan-scaling-laws-2020" />. A meta-analysis of 327 robotics papers finds power laws there too <Cite id="sartor-robotics-scaling-2024" />.
 
 Lin et al. collected over 40,000 demonstrations and ran over 15,000 real-world rollouts on <Term id="imitation-learning">imitation learning</Term> <Cite id="lin-data-scaling-laws-2024" />. Success with new environments and objects follows a rough power law in the number of training environments and objects; demonstrations per environment saturate past about 50. Their recipe, 32 environments with 50 demonstrations each, reached about 90% success with unseen objects; four operators collected it in one afternoon.
+
+<Image id="umi-test-environments-2024" />
 
 On the AgiBot World stack, Shi et al. split diversity into task, embodiment and expert <Cite id="diversity-scaling-2025" />. Task diversity mattered more than demonstrations per task. Models pretrained on high-quality single-embodiment data transferred to other robots and scaled better in fine-tuning than [multi-embodiment](/manipulation/cross-embodiment) models.
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import {
   ControlField,
   ControlLabel,
@@ -10,23 +10,32 @@ import {
   InstrumentReadout,
   InstrumentReset,
   LegendItem,
-  PlotStage,
   PresetGroup,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageNumber, StageReadout, StageStatus } from '@/components/motion/figure-frame';
+import { StageNumber } from '@/components/motion/figure-frame';
+import { Bar, ConstraintHatch, LegendSwatch, roleColour } from '@/components/motion/chart';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, IsoFigure, Line, Solid } from '@/components/iso/react/draw';
+import { asksForStillness } from '@/components/iso/react/live';
+import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
+import { translateAlong } from '@/components/iso/iso-kit';
 import {
-  Bar,
-  ChartAxes,
-  ConstraintHatch,
-  DirectLabel,
-  LegendSwatch,
-  StageAnnotation,
-  roleColour,
-  CHART_STROKE,
-  CHART_TYPE,
-  CHART_VIEW_WIDTH,
-} from '@/components/motion/chart';
+  HEIGHT as DRAWING_HEIGHT,
+  HOUR_FACE,
+  HORIZON_MONTHS,
+  P as PROJECTION,
+  PARTS,
+  SCALE_MONTHS,
+  WIDTH as DRAWING_WIDTH,
+  balanceOf,
+  beamParts,
+  discStack,
+  loadParts,
+  loadShift,
+  tiltWhileMoving,
+  type Part,
+} from '@/components/iso/figures/payback-steelyard';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   AMORTIZATION_MONTHS,
@@ -39,23 +48,25 @@ import {
   paysBackWithinTarget,
   type EconomicsInputs,
 } from '@/lib/deployment-economics';
-import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
 
 /**
- * DeploymentEconomics: the payback calculator for a robotic pick cell.
+ * DeploymentEconomics: the payback calculator for a robotic pick cell, drawn
+ * as a payback steelyard (components/iso/figures/payback-steelyard.ts).
  *
  * Two controls stay in view: how often a pick fails (two presets) and the
  * time a person needs to fix each jam. The other five inputs, the raw
- * per-pick success slider and the reset sit in "Adjust more". The stage
- * draws months to pay back against the time to fix each jam for both
- * failure rates, so the settle frame already shows that slow fixes only
- * hurt once failures are common, and under it the hour bar of the current
- * case. The selected case is the ring, not the line weight. Pure arithmetic lives in lib/deployment-economics.ts.
+ * per-pick success slider and the reset sit in "Adjust more". On the stage
+ * the cell's cost hangs from the steelyard's short arm as slotted weights,
+ * and a poise standing for one month of the cell's labour value slides along
+ * the long arm, graduated in months, to where the beam balances: the payback.
+ * Slow jam fixes eat the working hour (the hour plate on the base), the month
+ * of value gets lighter, and the poise has to slide further out past the
+ * buyer's 24-month collar. Pure arithmetic lives in lib/deployment-economics.ts.
  *
  * Interactive contract: typed props, deterministic render, visible
  * numeric readouts, reset control, keyboard-accessible native sliders, no
- * auto-playing motion, no layout shift (both plots keep fixed axes per
- * state).
+ * auto-playing motion (the poise settles to each new balance and stops), no
+ * layout shift.
  */
 
 type DeploymentEconomicsProps = {
@@ -156,39 +167,11 @@ function formatMoney(v: number): string {
 type FailurePreset = 'rare' | 'common';
 const PRESET_SUCCESS: Record<FailurePreset, number> = { rare: 99.9, common: 99 };
 
-const WIDTH = CHART_VIEW_WIDTH;
-/** Stage text height in stage units on the narrowest full-size stage. */
-const TEXT_UNITS = CHART_VIEW_WIDTH / MOTION_STAGE_TYPE.fullSizeMinStagePx;
-const LINE = CHART_TYPE.labelPx * TEXT_UNITS * 1.25;
-const ASCENT = CHART_TYPE.labelPx * TEXT_UNITS * CHART_TYPE.ascent;
-
-/** The payback chart: months to pay back against minutes to fix a jam. */
-const CHART = { left: 40, right: WIDTH - 14, top: 22 + LINE * 3, bottom: 22 + LINE * 3 + 96 };
-const AXIS_BAND = LINE * 2 + 10;
-/** The hour bar of the current case, under the chart. */
-const BAR_TOP = CHART.bottom + AXIS_BAND + LINE + 10;
-const BAR_HEIGHT = 3;
-const BAR = { left: 14, right: WIDTH - 14, top: BAR_TOP, bottom: BAR_TOP + BAR_HEIGHT };
-const HEIGHT = BAR.bottom + AXIS_BAND;
-
 const JAM_RANGE = INPUT_RANGES.jamClearSeconds;
 const JAM_SAMPLES = Array.from(
   { length: (JAM_RANGE.max - JAM_RANGE.min) / JAM_RANGE.step + 1 },
   (_, i) => JAM_RANGE.min + i * JAM_RANGE.step,
 );
-/** y-axis tops with their tick step: never more than five labelled ticks. */
-const Y_SCALES: ReadonlyArray<[number, number]> = [
-  [12, 3], [18, 6], [24, 6], [30, 10], [36, 12], [48, 12], [60, 15], [120, 30],
-  [240, 60], [480, 120], [1200, 300], [2400, 600], [6000, 1500],
-];
-
-function scaleJam(seconds: number): number {
-  return CHART.left + (seconds / JAM_RANGE.max) * (CHART.right - CHART.left);
-}
-
-function scaleHour(seconds: number): number {
-  return BAR.left + (seconds / SECONDS_PER_HOUR) * (BAR.right - BAR.left);
-}
 
 /** The three shares of the hour bar, in drawing order. */
 const SEGMENTS = [
@@ -196,6 +179,23 @@ const SEGMENTS = [
   { key: 'jamClearing', title: 'Jam clearing', series: 'economics-jam-clearing' },
   { key: 'downtime', title: 'Downtime', series: 'economics-downtime' },
 ] as const;
+
+/** One static part of the steelyard, as the kit draws it. */
+function PartView({ part }: { part: Exclude<Part, { kind: 'slot' }> }) {
+  if (part.kind === 'solid') {
+    return (
+      <Solid
+        paths={part.paths}
+        tone={part.tone}
+        lit={part.lit}
+        crease={part.crease}
+        inner={part.inner ? <g dangerouslySetInnerHTML={{ __html: part.inner }} /> : undefined}
+      />
+    );
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  return <Dots points={part.points} size={part.size} tone={part.tone} />;
+}
 
 export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
   const uid = useId();
@@ -232,6 +232,9 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
     breakdownTotal > 0 ? `${((v / breakdownTotal) * 100).toFixed(1)}%` : '0%';
   const seconds = (key: (typeof SEGMENTS)[number]['key']) =>
     breakdownTotal > 0 ? (breakdown[key] / breakdownTotal) * SECONDS_PER_HOUR : 0;
+  // The hour plate on the steelyard's base, in its own face plane: sixty
+  // minutes over the plate's length.
+  const scaleHour = (secondsIn: number) => (secondsIn / SECONDS_PER_HOUR) * HOUR_FACE.length;
   const segments = SEGMENTS.map((segment, index) => {
     const start = SEGMENTS.slice(0, index).reduce((sum, prior) => sum + seconds(prior.key), 0);
     const x = scaleHour(start);
@@ -239,56 +242,76 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
     return { ...segment, x, width, share: pct(breakdown[segment.key]) };
   });
 
-  // Payback against fix time, for both failure presets and, when a fold
-  // control moved success off both, for the current rate too.
-  const curves = useMemo(() => {
-    const curveFor = (successRatePercent: number) =>
-      JAM_SAMPLES.map((jam) => {
-        const months = computeEconomics({ ...inputs, successRatePercent, jamClearSeconds: jam }).paybackMonths;
-        return [jam, months ?? Number.POSITIVE_INFINITY] as const;
-      });
-    const common = curveFor(PRESET_SUCCESS.common);
-    const rare = curveFor(PRESET_SUCCESS.rare);
-    const current = preset === null ? curveFor(inputs.successRatePercent) : null;
-    return { common, rare, current };
-  }, [inputs, preset]);
-
-  const finite = [...curves.common, ...curves.rare, ...(curves.current ?? [])]
-    .map(([, m]) => m)
-    .filter((m) => Number.isFinite(m));
-  const peak = Math.max(...finite, 1);
-  const [yMax, yStep] = Y_SCALES.find(([top]) => top >= peak * 1.6) ?? Y_SCALES[Y_SCALES.length - 1];
-  const yTicks = Array.from({ length: Math.round(yMax / yStep) + 1 }, (_, i) => i * yStep);
-  const scaleMonths = (m: number) =>
-    CHART.bottom - (Math.min(m, yMax) / yMax) * (CHART.bottom - CHART.top);
-  const pathOf = (curve: ReadonlyArray<readonly [number, number]>) =>
-    curve
-      .map(([jam, m], i) => `${i === 0 ? 'M' : 'L'}${scaleJam(jam).toFixed(2)} ${scaleMonths(m).toFixed(2)}`)
-      .join(' ');
-
-  const commonEnd = curves.common[curves.common.length - 1];
+  // The two failure presets at the slowest fix, for the description.
+  const atSlowest = (successRatePercent: number) =>
+    [JAM_RANGE.max, computeEconomics({ ...inputs, successRatePercent, jamClearSeconds: JAM_RANGE.max }).paybackMonths ?? Number.POSITIVE_INFINITY] as const;
+  const commonEnd = atSlowest(PRESET_SUCCESS.common);
   const commonQuick = computeEconomics({ ...inputs, successRatePercent: PRESET_SUCCESS.common, jamClearSeconds: DEFAULT_INPUTS.jamClearSeconds }).paybackMonths;
-  const rareEnd = curves.rare[curves.rare.length - 1];
-  // The annotation names the steep line, so it alone is drawn at full
-  // emphasis whichever case is selected; the ring marks the selection.
-  const roleFor = (curve: FailurePreset) => (curve === 'common' ? 'value' : 'reference');
-  const marker = {
-    x: scaleJam(inputs.jamClearSeconds),
-    y: scaleMonths(out.paybackMonths ?? yMax),
-  };
-  const endTarget: [number, number] = [scaleJam(commonEnd[0]), scaleMonths(commonEnd[1])];
-  const annotationLines = [
-    'When 1 pick in 100 fails and fixes',
-    `take 5 minutes: ${commonEnd[1].toFixed(1)} months to pay back`,
-  ];
-  const noteX = CHART.right;
-  const noteY = 22 + ASCENT * 0.2;
-  const noteFrom: [number, number] = [endTarget[0] - 6, noteY + LINE + 6];
+  const rareEnd = atSlowest(PRESET_SUCCESS.rare);
 
-  const jamSegment = segments[1];
-  const jamCentre = jamSegment.x + jamSegment.width / 2;
-  const jamLabelY = BAR.top - 8;
-  const constraint = roleColour('constraint');
+  // The steelyard: the cost on the short arm, the poise at the payback.
+  const balance = balanceOf(out.paybackMonths);
+  const discs = useMemo(() => discStack(inputs.robotCost, inputs.integrationMultiple), [inputs.robotCost, inputs.integrationMultiple]);
+  const load = useMemo(() => loadParts(discs), [discs]);
+  // The drawing renders the first balance once; afterwards only the live
+  // code writes the beam and the load, so a re-render never jumps them.
+  const [first] = useState(() => ({
+    beam: beamParts(balance.tilt, balance.poise),
+    shift: translateAlong(PROJECTION, loadShift(balance.tilt)),
+  }));
+  const restBeam = first.beam;
+
+  // The live poise and beam: they settle (critically damped) to each new balance and stop.
+  const beamRef = useRef<SVGGElement>(null);
+  const loadRef = useRef<SVGGElement>(null);
+  const motion = useRef({ poise: balance.poise, rate: 0, tilt: balance.tilt });
+  useEffect(() => {
+    const target = balanceOf(out.paybackMonths);
+    const state = motion.current;
+    const draw = () => {
+      const tilt = tiltWhileMoving(state.poise, target.poise, target.tilt);
+      state.tilt = tilt;
+      const built = beamParts(tilt, state.poise);
+      const group = beamRef.current;
+      if (group) {
+        group.querySelectorAll<SVGGElement>('[data-beam-solid]').forEach((node, index) => writeSolid(node, built.solids[index]!.paths));
+        const set = (name: string, d: string) => group.querySelector(`[data-beam-line="${name}"]`)?.setAttribute('d', d);
+        set('minor', built.minor);
+        set('major', built.major);
+        set('index', built.index);
+        set('seam', built.seam);
+      }
+      loadRef.current?.setAttribute('transform', translateAlong(PROJECTION, loadShift(tilt)));
+    };
+    if (asksForStillness()) {
+      state.poise = target.poise;
+      state.rate = 0;
+      draw();
+      return;
+    }
+    let frame = 0;
+    let last = 0;
+    const tick = (now: number) => {
+      const dt = last ? Math.min(now - last, 64) / 1000 : 1 / 60;
+      last = now;
+      // Critically damped: no overshoot past the balance point.
+      const w = 1 / 0.3;
+      for (let step = 0; step < 4; step++) {
+        const h = dt / 4;
+        state.rate += (w * w * (target.poise - state.poise) - 2 * w * state.rate) * h;
+        state.poise += state.rate * h;
+      }
+      const settled = Math.abs(target.poise - state.poise) < 1e-3 && Math.abs(state.rate) < 1e-3;
+      if (settled) {
+        state.poise = target.poise;
+        state.rate = 0;
+      }
+      draw();
+      if (!settled) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [out.paybackMonths]);
 
   // The table and the fold line print months to the readout's one decimal,
   // so a reader who sets a sampled fix time finds the same numbers in both.
@@ -365,165 +388,112 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
         </>
       }
       stage={
-        <FigureStage
-          footer={
+        <AnatomyStage
+          viewWidth={DRAWING_WIDTH}
+          hint="The poise rests where the beam balances: the months to pay back"
+          readout={
             <>
-              <StageReadout>
-                Pays for itself in{' '}
-                <StageNumber data-testid="payback-months" style={{ color: roleColour('value') }}>
-                  {paybackText}
-                </StageNumber>
-              </StageReadout>
-              <InstrumentReadout data-testid="payback-verdict" className="text-text-dim">
-                {verdictPass
-                  ? `Pays back inside ${PAYBACK_TARGET_MONTHS} months`
-                  : `Outside a ${PAYBACK_TARGET_MONTHS}-month horizon`}
-              </InstrumentReadout>
-              <InstrumentLegend className="basis-full">
-                <LegendItem series="economics-productive" swatch={<LegendSwatch role="value" mark="bar" />}>
-                  <span data-testid="hour-legend-productive" style={{ color: roleColour('value') }}>robot picking</span>
-                </LegendItem>
-                <LegendItem series="economics-jam-clearing" swatch={<LegendSwatch role="constraint" mark="hatch" />}>
-                  <span data-testid="hour-legend-jams">a person fixing jams</span>
-                </LegendItem>
-                <LegendItem series="economics-downtime" swatch={<LegendSwatch role="reference" mark="bar" />}>
-                  <span data-testid="hour-legend-downtime">stopped for upkeep</span>
-                </LegendItem>
-              </InstrumentLegend>
-              <StageStatus>Illustrative: chosen inputs, not a measured cell.</StageStatus>
+              Pays for itself in{' '}
+              <StageNumber data-testid="payback-months" style={{ color: roleColour('value') }}>
+                {paybackText}
+              </StageNumber>
             </>
           }
+          status="Illustrative: chosen inputs, not a measured cell."
+          data-testid="payback-steelyard-stage"
         >
-          <PlotStage
-            data-testid="time-breakdown"
-            viewBox={`0 0 ${WIDTH} ${HEIGHT.toFixed(1)}`}
-            aria-label={`Time breakdown per elapsed hour: ${pct(
-              breakdown.productive,
-            )} productive cycles, ${pct(
-              breakdown.jamClearing,
-            )} jam clearing, ${pct(breakdown.downtime)} downtime`}
-            aria-describedby={`${captionId} ${descriptionId}`}
+          <IsoFigure
+            width={DRAWING_WIDTH}
+            height={DRAWING_HEIGHT}
+            label={`A steelyard: the cell's cost, ${formatMoney(out.totalCellCost)}, hangs from the short arm as ${discs.length} slotted weights, and a poise for one month of labour value rests ${out.paybackMonths === null || out.paybackMonths > SCALE_MONTHS ? `on the end stop at ${SCALE_MONTHS} months, short of balance` : `${paybackText} out along the arm`}, against a collar at ${HORIZON_MONTHS} months.`}
+            describedBy={`${captionId} ${descriptionId}`}
           >
-            <DirectLabel x={BAR.left} y={CHART.top - 12}>months to pay back</DirectLabel>
-            <ChartAxes
-              plot={CHART}
-              x={scaleJam}
-              y={scaleMonths}
-              xTicks={[60, 120, 180, 240, 300]}
-              yTicks={yTicks}
-              formatX={(s) => `${s / 60}`}
-              xLabel="minutes to fix each jam"
-            />
-            <g data-series="payback-rare" data-curve="rare">
-              <path
-                data-chart-mark="line"
-                data-chart-role={roleFor('rare')}
-                d={pathOf(curves.rare)}
-                fill="none"
-                stroke={roleColour(roleFor('rare'))}
-                strokeWidth={roleFor('rare') === 'value' ? CHART_STROKE.trace : CHART_STROKE.reference}
-                strokeDasharray={roleFor('rare') === 'value' ? undefined : CHART_STROKE.dash}
-                strokeLinejoin="round"
-              />
-              <DirectLabel
-                x={CHART.right}
-                y={scaleMonths(rareEnd[1]) + LINE}
-                anchor="end"
-                role={roleFor('rare')}
-              >
-                1 in 1,000 picks fail
-              </DirectLabel>
-            </g>
-            <g data-series="payback-common" data-curve="common">
-              <path
-                data-chart-mark="line"
-                data-chart-role={roleFor('common')}
-                d={pathOf(curves.common)}
-                fill="none"
-                stroke={roleColour(roleFor('common'))}
-                strokeWidth={roleFor('common') === 'value' ? CHART_STROKE.trace : CHART_STROKE.reference}
-                strokeDasharray={roleFor('common') === 'value' ? undefined : CHART_STROKE.dash}
-                strokeLinejoin="round"
-              />
-            </g>
-            {curves.current ? (
-              <g data-series="payback-current" data-curve="current">
-                <path
-                  data-chart-mark="line"
-                  data-chart-role="reference"
-                  d={pathOf(curves.current)}
-                  fill="none"
-                  stroke={roleColour('reference')}
-                  strokeWidth={CHART_STROKE.reference}
-                  strokeLinejoin="round"
-                />
-              </g>
-            ) : null}
-            <circle
-              data-chart-mark="playhead"
-              data-chart-role="highlight"
-              cx={marker.x}
-              cy={marker.y}
-              r={CHART_STROKE.markerRadius + 2}
-              fill="none"
-              stroke={roleColour('highlight')}
-              strokeWidth={CHART_STROKE.trace}
-            />
-            <StageAnnotation
-              x={noteX}
-              y={noteY}
-              anchor="end"
-              lines={annotationLines}
-              from={noteFrom}
-              target={endTarget}
-            />
-
-            {/* The hour bar of the current case. */}
-            <g data-series="economics-jam-label">
-              <DirectLabel x={jamCentre - 4} y={jamLabelY} anchor="end">
-                {`fixing jams: ${formatSeconds(breakdown.jamClearing)}`}
-              </DirectLabel>
-              <line
-                x1={jamCentre}
-                x2={jamCentre}
-                y1={jamLabelY + 5}
-                y2={BAR.top}
-                stroke={constraint}
-                strokeWidth={CHART_STROKE.structure}
-              />
-            </g>
-            {segments.map((segment) => (
-              <g
-                key={segment.key}
-                data-series={segment.series}
-                data-breakdown-segment={segment.title}
-                data-share={segment.share}
-              >
-                {segment.key === 'jamClearing' ? (
-                  <ConstraintHatch id={hatchId} x={segment.x} y={BAR.top} width={segment.width} height={BAR_HEIGHT} />
-                ) : (
-                  <Bar
-                    x={segment.x}
-                    y={BAR.top}
-                    width={segment.width}
-                    height={BAR_HEIGHT}
-                    role={segment.key === 'productive' ? 'value' : 'reference'}
-                  />
-                )}
-              </g>
-            ))}
-            <ChartAxes
-              plot={BAR}
-              x={scaleHour}
-              y={() => BAR.bottom}
-              xTicks={[0, 900, 1800, 2700, 3600]}
-              formatX={(s) => `${s / 60}`}
-              grid={false}
-              yAxis={false}
-              xLabel="minutes of one working hour"
-            />
-          </PlotStage>
-        </FigureStage>
+            {PARTS.map((part, index) => {
+              if (part.kind !== 'slot') return <PartView key={index} part={part} />;
+              if (part.slot === 'hour') {
+                return (
+                  <g key="hour" transform={HOUR_FACE.matrix}>
+                    <path className="iso-fill" d={HOUR_FACE.plate} />
+                    <path className="iso-shade" data-shade={3} d={HOUR_FACE.plate} />
+                    <Line d={HOUR_FACE.plate} tone="lo" />
+                    <g
+                      data-testid="time-breakdown"
+                      role="img"
+                      aria-label={`Time breakdown per elapsed hour: ${pct(
+                        breakdown.productive,
+                      )} productive cycles, ${pct(
+                        breakdown.jamClearing,
+                      )} jam clearing, ${pct(breakdown.downtime)} downtime`}
+                    >
+                      {segments.map((segment) => (
+                        <g
+                          key={segment.key}
+                          data-series={segment.series}
+                          data-breakdown-segment={segment.title}
+                          data-share={segment.share}
+                        >
+                          {segment.key === 'jamClearing' ? (
+                            <ConstraintHatch id={hatchId} x={segment.x} y={HOUR_FACE.bandY} width={segment.width} height={HOUR_FACE.bandHeight} />
+                          ) : (
+                            <Bar
+                              x={segment.x}
+                              y={HOUR_FACE.bandY}
+                              width={segment.width}
+                              height={HOUR_FACE.bandHeight}
+                              role={segment.key === 'productive' ? 'value' : 'reference'}
+                            />
+                          )}
+                        </g>
+                      ))}
+                    </g>
+                    <Line d={HOUR_FACE.frame} tone="lo" />
+                    <Line d={HOUR_FACE.minor} tone="lo" />
+                    <Line d={HOUR_FACE.major} tone="mid" />
+                    <Dots points={HOUR_FACE.screws} size={0.45} tone="mid" />
+                  </g>
+                );
+              }
+              if (part.slot === 'load') {
+                return (
+                  <g key="load" ref={loadRef} data-testid="cost-load" data-discs={discs.length} transform={first.shift}>
+                    {load.map((piece, at) => (piece.kind === 'slot' ? null : <PartView key={at} part={piece} />))}
+                  </g>
+                );
+              }
+              return (
+                <g key="beam" ref={beamRef} data-testid="steelyard-beam">
+                  {restBeam.solids.map((piece, at) => (
+                    <g key={at} data-beam-solid="">
+                      <LiveSolid paths={piece.paths} tone={piece.tone} lit={piece.lit} />
+                    </g>
+                  ))}
+                  <path className="iso-line" data-tone="faint" data-beam-line="seam" d={restBeam.seam} />
+                  <path className="iso-line" data-tone="lo" data-beam-line="minor" d={restBeam.minor} />
+                  <path className="iso-line" data-tone="mid" data-beam-line="major" d={restBeam.major} />
+                  <path className="iso-line" data-tone="lit" data-beam-line="index" d={restBeam.index} />
+                </g>
+              );
+            })}
+          </IsoFigure>
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 pt-2">
+            <InstrumentLegend>
+              <LegendItem series="economics-productive" swatch={<LegendSwatch role="value" mark="bar" />}>
+                <span data-testid="hour-legend-productive" style={{ color: roleColour('value') }}>robot picking</span>
+              </LegendItem>
+              <LegendItem series="economics-jam-clearing" swatch={<LegendSwatch role="constraint" mark="hatch" />}>
+                <span data-testid="hour-legend-jams">a person fixing jams</span>
+              </LegendItem>
+              <LegendItem series="economics-downtime" swatch={<LegendSwatch role="reference" mark="bar" />}>
+                <span data-testid="hour-legend-downtime">stopped for upkeep</span>
+              </LegendItem>
+            </InstrumentLegend>
+            <InstrumentReadout data-testid="payback-verdict" className="text-text-dim">
+              {verdictPass
+                ? `Pays back inside ${PAYBACK_TARGET_MONTHS} months`
+                : `Outside a ${PAYBACK_TARGET_MONTHS}-month horizon`}
+            </InstrumentReadout>
+          </div>
+        </AnatomyStage>
       }
       caption="Every failed pick pulls a person over, and how long that takes decides when the robot earns back its price."
       captionProps={{ id: captionId }}

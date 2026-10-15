@@ -222,6 +222,14 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
         let head = approvals.findLast(candidate => candidate.manifest === manifest &&
           candidate.memberId === memberId && candidate.newHash === currentHash(manifest, memberId))!;
         expect(head).toMatchObject({ newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        // The data-hardware images of 2026-10-15 continue the prose with one
+        // plain edge (their image mounts); the endpoint they continued is
+        // checked below.
+        if (head.id.startsWith('images-dh-20261015-') && head.reconciles === undefined) {
+          const continued = head.oldHash;
+          head = approvals.findLast(candidate => candidate.manifest === manifest &&
+            candidate.memberId === memberId && candidate.newHash === continued)!;
+        }
         // The 2026-10-13 data-hardware domain pass and length cut continues the
         // prose and the related links with one plain edge each; the endpoint it
         // continued is checked below like the SEO pass's.
@@ -240,9 +248,10 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
         }
         if (memberId === 'article:data-hardware/datasets' && manifest === 'prose') {
           expect(head.id).toBe('motion-data-hardware-humanizer-v3-20260927-prose-datasets');
-          // The later data-hardware cut edge is not the re-anchor this edge continued.
+          // The later data-hardware cut and image edges are not the re-anchor this edge continued.
           expect(head.oldHash).toBe(headReanchorFor(preSeoPass.filter(candidate =>
-            !candidate.id.startsWith('length-cut-20261013-data-hardware-')), manifest, memberId)!.newHash);
+            !candidate.id.startsWith('length-cut-20261013-data-hardware-')
+            && !candidate.id.startsWith('images-dh-20261015-')), manifest, memberId)!.newHash);
         } else expect(head.oldHash).toBe(sealedHash(manifest, memberId));
         expect(approvals.indexOf(head)).toBeGreaterThanOrEqual(approvals.indexOf(reanchor!));
       } else {

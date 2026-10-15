@@ -67,7 +67,7 @@
     "element": "GaitSupport",
     "decision": "add",
     "sceneId": "gait-support",
-    "teachingGoal": "Line up the walk, trot and hop with the camera on each dog as it steps, then hold a still recap of the trade from steadier to more bounce; the bound's numbers stay in the method note.",
+    "teachingGoal": "Run one robot on a treadmill through the walk, trot and hop while a four-pen recorder inks each foot's time on the ground, then hold the finished footfall chart as the recap: three feet down, then two, then at times none; the bound's numbers stay in the method note.",
     "reason": "The order shows the loss of continuous support without presenting the examples as measured robot footfalls."
   },
   {

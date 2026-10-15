@@ -8,6 +8,7 @@ import {
   computeEconomics,
 } from '../../lib/deployment-economics';
 import { cellNumericToken, cellTokenInReadout } from '../e2e/helpers/table-agreement';
+import { balanceOf, beamParts, discStack } from '../../components/iso/figures/payback-steelyard';
 
 function mount() {
   return render(<DeploymentEconomics />);
@@ -162,5 +163,46 @@ describe('DeploymentEconomics component', () => {
       expect(Number.isFinite(seconds)).toBe(true);
       expect(seconds).toBeGreaterThanOrEqual(0);
     }
+  });
+
+  it('hangs the cell cost as slotted weights and rests the poise at the payback in months', () => {
+    // Under reduced motion the poise goes straight to each new balance, so the drawing can be read at once.
+    const original = window.matchMedia;
+    window.matchMedia = ((query: string) => ({ matches: query.includes('reduce'), media: query, addEventListener() {}, removeEventListener() {} })) as unknown as typeof window.matchMedia;
+    try {
+      const { container } = mount();
+      const load = container.querySelector('[data-testid="cost-load"]')!;
+      expect(Number(load.getAttribute('data-discs'))).toBe(discStack(DEFAULT_INPUTS.robotCost, DEFAULT_INPUTS.integrationMultiple).length);
+      expect(Number(load.getAttribute('data-discs'))).toBe(10);
+      const beam = container.querySelector('[data-testid="steelyard-beam"]')!;
+      const index = () => beam.querySelector('[data-beam-line="index"]')!.getAttribute('d');
+      expect(index()).toBe(beamParts(0, computeEconomics(DEFAULT_INPUTS).paybackMonths!).index);
+      // A slower fix lightens a month of value: the poise's balance moves out along the arm.
+      fireEvent.change(slider(/jam-clearing time/i), { target: { value: '300' } });
+      fireEvent.change(slider(/per-pick success/i), { target: { value: '99' } });
+      const out = computeEconomics({ ...DEFAULT_INPUTS, jamClearSeconds: 300, successRatePercent: 99 });
+      expect(balanceOf(out.paybackMonths).poise).toBeCloseTo(17.3, 2);
+      expect(screen.getByTestId('payback-months').textContent).toBe('17.3 months');
+      expect(index()).toBe(beamParts(0, out.paybackMonths!).index);
+      // More robot price adds discs to the hanger.
+      fireEvent.change(slider(/robot cost/i), { target: { value: '120000' } });
+      expect(Number(load.getAttribute('data-discs'))).toBe(discStack(120000, DEFAULT_INPUTS.integrationMultiple).length);
+    } finally {
+      window.matchMedia = original;
+    }
+  });
+
+  it('draws no words: the steelyard carries no text, title, description or foreign object', () => {
+    const { container } = mount();
+    const svg = container.querySelector('svg.iso-svg')!;
+    expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
+    expect((svg.textContent ?? '').trim()).toBe('');
+    // The hour plate's three bands fill the hour, in the shares its name announces.
+    const shares = Array.from(svg.querySelectorAll('[data-breakdown-segment]')).map((g) => Number.parseFloat(g.getAttribute('data-share')!));
+    expect(shares).toHaveLength(3);
+    expect(shares.reduce((a, b) => a + b, 0)).toBeCloseTo(100, 0);
+    // The one lit part: the poise.
+    expect(svg.querySelectorAll('[data-testid="steelyard-beam"] [data-lit]').length).toBeGreaterThan(0);
+    expect(svg.querySelectorAll('[data-lit]').length).toBe(svg.querySelectorAll('[data-testid="steelyard-beam"] [data-lit]').length);
   });
 });

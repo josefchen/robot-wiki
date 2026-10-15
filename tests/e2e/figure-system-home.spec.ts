@@ -258,7 +258,7 @@ for (const width of [375, 1440]) {
 }
 
 const CONCEPTS: { name: string; selector: string; canonical: string | null }[] = [
-  { name: 'episode-success chart', selector: 'svg[aria-label^="Line chart of episode success"]', canonical: '/data-hardware/evaluation-crisis/' },
+  { name: 'episode-success chart', selector: 'svg[aria-label^="A marble run with"]', canonical: '/data-hardware/evaluation-crisis/' },
   // The scene's own hook, not its frame's, so a run over the pre-frame export still finds it.
   // It left /frontier/reliability-gap/, where the calculator presets carry its beats (VAL-OPUS-131),
   // and was retired when the humanoid explainer became the front page's featured scene on

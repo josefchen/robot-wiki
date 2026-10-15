@@ -269,6 +269,34 @@ export function homeHubs20261014Endpoint(
   return edge.newHash;
 }
 
+/**
+ * Edges the data-hardware images of 2026-10-15 appended as one block after
+ * the isometric figure batch b06: one prose edge per data-hardware article that gained
+ * image mounts, one edge from an absent seal per registered image they added,
+ * and one plain edge for the caption of the bundle A DROID figure they reuse.
+ */
+export const isImagesDh20261015Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('images-dh-20261015-');
+
+/**
+ * The hash the data-hardware images leave on a member whose chain ends at
+ * `from`: their one edge on the member must continue `from`, as a plain edge
+ * or as a resolution that reconciles it; an untouched member stays at `from`.
+ */
+export function imagesDh20261015Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isImagesDh20261015Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-15 data-hardware images edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
 /** The citation list a frontmatter P1 row declared for `content/<domain>/<slug>.mdx`. */
 export const preDomainPassCitations = (domain: string, slug: string, citations: readonly string[]) =>
   preDomainPassCitationList(root, `content/${domain}/${slug}.mdx`, citations);

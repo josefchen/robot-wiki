@@ -45,11 +45,11 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1342088, sha256: 'f1058c7eea688bf9f2d95d09151b7a16f1c67ef090fe53541f2cd2075482737e' };
+const reviewPin = { bytes: 1365972, sha256: 'b17f705001a5ce191dd3d2b086f5badee08e43520bce6f3d8eb4946b04e9a0c9' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
-  ['components/interactive/reliability-compounding.tsx', [19407, 'cccb7752ae4b48133790ad59606e458fc5975103f98c5e5a07051b42d993f70e']],
+  ['components/interactive/reliability-compounding.tsx', [24180, '6e906ad2c7a7e7d6674a51e7015b6bf90a1518da34064ab26c1edd82acdfe9a3']],
   ['content/adjacent/space.mdx', [14882, '90c63559e4cb1ee20d3c5ad022d060b23344120aa0dfd7d636223d99755c477a']],
   ['content/classical/calibration.mdx', [9689, 'f05b9f74bfefac02ed215bb3f4110b0afd3ec2ef1ed5cc5679c9e51be0943500']],
   ['content/classical/control.mdx', [20015, '5deb9961e56c1c5f4cfa3847fe479cddf795e00f255874e4276841e8953b9ba3']],
@@ -257,8 +257,9 @@ const indentLines = (lines: readonly string[], by: number) =>
  * rewords 35 glossary definitions, one swap each: openers that now define
  * the term, and filler, closers and uncited asides removed. No term, id,
  * citation or number changes.
- * A listed file must equal its predecessor with exactly these swaps; no other
- * non-article source is admitted.
+ * A listed file must equal its predecessor with exactly these swaps, or be
+ * an owner-approved redo of that corrected file under REDONE_SOURCES below;
+ * no other non-article source is admitted.
  */
 const CORRECTED_SOURCES: ReadonlyMap<string, readonly (readonly [string, string])[]> = new Map([
   ['components/interactive/reliability-compounding.tsx', [[
@@ -791,6 +792,82 @@ const CORRECTED_SOURCES: ReadonlyMap<string, readonly (readonly [string, string]
   ]]],
 ]);
 
+/**
+ * Non-article sources an owner-approved redo replaced whole after their
+ * corrections above. Josef, 12 Oct 2026: "Redo all of the animations and
+ * stuff like that with this type of animation and with this skill [...]"
+ * (model name elided). The Anatomy batch of 2026-10-15 redraws the
+ * reliability-compounding chart as a marble run (one trapdoor gate per step,
+ * a hundred marbles, the finished jobs counted in a tray) and keeps the
+ * component, its props and both mounts' variants. A redo is admitted only
+ * over the exactly corrected file, and only while it keeps byte for byte
+ * every passage named here: each `[start, end]` span (from `start` to the
+ * first `end` after it) and each whole `line`, found exactly once in both.
+ * They are the props and presets, the headlines and captions, the takeaway
+ * text, and the corrected job-length slider and its placement on a mount
+ * with a preset set, so a redo that touched any of them is still refused.
+ * The redo must also be the successor the recorder pinned, byte for byte.
+ */
+const REDONE_SOURCES: ReadonlyMap<string, { spans: readonly (readonly [string, string])[]; lines: readonly string[] }> = new Map([
+  ['components/interactive/reliability-compounding.tsx', {
+    spans: [
+      ['type ReliabilityCompoundingPreset = {', '\n};\n'],
+      ['const PRESET_SETS = {', '>>;\n'],
+      ['const PER_STEP_PRESETS = [', '\n] as const;\n'],
+      ['type ReliabilityCompoundingProps = {', '\n};\n'],
+      ['const HEADLINES: Record<Variant, string> = {', '\n};\n'],
+      ['const CAPTIONS: Record<Variant, string> = {', '\n};\n'],
+      ['function reliabilityTakeaway(args: {', '\n}\n'],
+      ['  const stepsField = (\n', '\n  );\n'],
+    ],
+    lines: [
+      '          {presetSet ? null : stepsField}\n',
+      '          {presetSet ? stepsField : null}\n          <InstrumentReset onClick={reset} />\n',
+      '      figureId="reliability-compounding"\n',
+      '              aria-label={`How often each step goes right (per-step success probability in percent), currently ${perStepPercent.toFixed(1)}`}\n',
+    ],
+  }],
+]);
+
+/** The passages a redo must keep: the named spans and lines of the corrected file, each found exactly once. */
+function keptPassages(text: string, redo: { spans: readonly (readonly [string, string])[]; lines: readonly string[] }): string[] | null {
+  const out: string[] = [];
+  for (const [start, end] of redo.spans) {
+    if (text.split(start).length !== 2) return null;
+    const from = text.indexOf(start);
+    const to = text.indexOf(end, from + start.length);
+    if (to < 0) return null;
+    out.push(text.slice(from, to + end.length));
+  }
+  for (const line of redo.lines) {
+    if (text.split(line).length !== 2) return null;
+    out.push(line);
+  }
+  return out;
+}
+
+/**
+ * The corrected file a redo replaced, its kept passages, and whether the
+ * redo keeps them: exported so the obligation can be exercised apart from
+ * the byte pins that normally gate it.
+ */
+export function keepsRedoneSource(path: string, corrected: string, current: string): boolean {
+  const redo = REDONE_SOURCES.get(path);
+  const pinned = successors.get(path);
+  if (!redo || !pinned || corrected === current) return false;
+  const kept = keptPassages(corrected, redo);
+  // The redo is the recorded successor, byte for byte, and keeps every named passage.
+  return Buffer.byteLength(current) === pinned[0] && digest(current) === pinned[1] &&
+    !!kept && kept.every((passage) => current.split(passage).length === 2);
+}
+
+/** The file a path's corrections give from its pre-pass bytes, or null where they do not replay. */
+export function correctedSource(path: string, prior: string): string | null {
+  const corrections = CORRECTED_SOURCES.get(path);
+  if (!corrections || !corrections.every(([from]) => prior.split(from).length === 2)) return null;
+  return applyExact(prior, corrections);
+}
+
 function applyExact(text: string, edits: readonly (readonly [string, string])[], message = drift): string {
   let result = text;
   for (const [from, to] of edits) {
@@ -835,8 +912,9 @@ const withoutListed = (head: string, ids: readonly string[]) => ids.length === 0
 export function keepsDomainPassObligations(path: string, prior: string, current: string): boolean {
   const corrections = CORRECTED_SOURCES.get(path);
   if (corrections) {
-    return corrections.every(([from]) => prior.split(from).length === 2) &&
-      applyExact(prior, corrections) === current;
+    const corrected = correctedSource(path, prior);
+    // The corrected file itself, or an owner-approved redo of it that keeps its named passages.
+    return corrected !== null && (corrected === current || keepsRedoneSource(path, corrected, current));
   }
   if (!path.startsWith('content/') || !path.endsWith('.mdx')) return false;
   const head = frontmatter(current);

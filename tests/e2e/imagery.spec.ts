@@ -140,7 +140,9 @@ test.describe('licensed imagery', () => {
     // sourceUrl, and its licence link equals its registry licenceUrl.
     const photo = IMAGES.find((i) => i.id === 'franka-emika-panda-cebit-2017')!;
     await page.goto(`${BASE}/data-hardware/hardware-taxonomy/`);
-    const credit = page.locator('main [data-image-credit]').first();
+    // The article now opens with another photograph, so the credit is read
+    // from the Franka figure itself.
+    const credit = page.locator(`main figure[data-image-id="${photo.id}"] [data-image-credit]`);
     await expect(
       credit.getByRole('link', { name: photo.sourceName }),
     ).toHaveAttribute('href', photo.sourceUrl!);

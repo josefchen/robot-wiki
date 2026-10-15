@@ -200,7 +200,7 @@ for (const width of [375, 1440]) {
       await capture(page, `science-${width}`);
       // The page's one calculator is its prediction step's figure, shown at
       // settle; the per-step slider and Reset sit in its "Adjust more" fold.
-      const step = page.locator('[data-predict]:has(svg[aria-label^="Line chart of episode success"])');
+      const step = page.locator('[data-predict]:has(svg[aria-label^="A marble run with"])');
       await expect(step.locator('details[data-reveal]')).not.toHaveAttribute('open');
       const mount = step.locator(':scope > [data-predict-figure] [data-brand-module-signature="instrument-frame"]');
       await expect(mount).toBeVisible();

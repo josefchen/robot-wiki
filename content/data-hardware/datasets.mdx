@@ -55,6 +55,8 @@ import { DatasetTable } from '@/components/interactive/dataset-table';
 
 Major robot learning datasets are the open collections of recorded robot trajectories that generalist policies train on. <Term id="open-x-embodiment">Open X-Embodiment</Term> pools over a million trajectories from 22 embodiments <Cite id="open-x-embodiment-2023" />, AgiBot World holds 1,001,552 (2,976 hours) on one robot platform <Cite id="agibot-world-2025" />, and DROID holds 76,000 (350 hours) across 564 scenes <Cite id="droid-2024" />.
 
+<Image id="open-x-embodiment-overview-2023" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="largest pool" value="1M+" note="trajectories, Open X-Embodiment" accent />
   <Stat label="one platform" value="350" note="hours, DROID's 12-month effort" />
@@ -89,6 +91,8 @@ Single-platform collections can be larger. RT-1's fleet of 13 robots gathered ab
 ## BridgeData V2: the academic workhorse
 
 BridgeData V2 holds 60,096 trajectories on a WidowX 250, a low-cost 6-DoF arm: 50,365 teleoperated demonstrations collected with a VR controller at 5 Hz and 9,731 scripted pick-and-place rollouts, across 24 environments and 13 skills <Cite id="bridgedata-v2-2023" />. Trajectories average 38 timesteps <Cite id="bridgedata-v2-project-page" />. Its 2021 predecessor had 7,200 demonstrations of 71 tasks in 10 environments, and joint training with 50 demonstrations of a new task in a new domain doubled success on average <Cite id="bridge-data-2021" />.
+
+<Image id="bridgedata-v2-sink-tasks-2023" />
 
 BridgeData V2's official project page states CC BY 4.0 for all data <Cite id="bridgedata-v2-project-page" />. The paper shipped baselines from goal-conditioned <Term id="behavior-cloning">behavior cloning</Term> to ACT and RT-1 <Cite id="bridgedata-v2-2023" />, and most of the data also ships inside OXE <Cite id="open-x-embodiment-2023" />.
 

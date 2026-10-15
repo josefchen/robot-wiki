@@ -366,7 +366,8 @@ function revealPredecessor(root: string, ref: Artifact, live: Buffer): Buffer {
  * The reviewed successor is verified, and its rebuilt predecessor returned.
  * The newer layers see the live bytes first: the image-mount layer
  * (images bundle A of 2026-10-13, extended on 2026-10-15 by the adjacent
- * images of bundle B, which landed last), then the 2026-10-14 adjacent cut layer, then the
+ * images of bundle B and then the data-hardware images, which landed last),
+ * then the 2026-10-14 adjacent cut layer, then the
  * 2026-10-13 data-hardware cut layer, then the 2026-10-13 frontier
  * length-cut layer, then the site-foundation re-skin layer, then the
  * 2026-10-11 parallel-local suite layer,

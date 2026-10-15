@@ -469,7 +469,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     const reliabilityFigure = page
       .locator('[data-figure-frame]')
       .filter({
-        has: page.locator('svg[aria-label^="Line chart of episode success"]'),
+        has: page.locator('svg[aria-label^="A marble run with"]'),
       })
       .first();
     // The full per-step slider sits in the frame's "Adjust more" fold. A fold

@@ -127,12 +127,19 @@ describe('RL and sim-to-real scene models', () => {
     }
   });
 
-  it('marks the gait names, the trade words and the batch axis labels for rendered-size checks', () => {
+  it('marks the batch axis labels for rendered-size checks and keeps every word out of the gait drawing', () => {
     const gait = renderToStaticMarkup(createElement(GaitSupport));
     const batch = renderToStaticMarkup(createElement(BatchScale));
     const count = (html: string) => [...html.matchAll(/data-scene-stage-label=/g)].length;
-    // One name per gait in the line-up and the two ends of the trade-off arrow.
-    expect(count(gait)).toBeGreaterThanOrEqual(LINE_UP.length + 2);
+    // The gait scene is a treadmill and a gait recorder: its stage carries no
+    // text at all, so there is nothing to size; its words are the readout,
+    // the legend and the captions under the stage.
+    const stage = gait.match(/<svg[^>]*motion-stage-svg[\s\S]*?<\/svg>/)?.[0] ?? '';
+    expect(stage).not.toBe('');
+    expect(count(stage)).toBe(0);
+    expect(stage).not.toMatch(/<(text|title|desc|foreignObject)\b/);
+    // One ink mark per gait and foot.
+    expect([...stage.matchAll(/data-scene-mark="[a-z]+-foot-\d"/g)]).toHaveLength(LINE_UP.length * 4);
     expect(count(batch)).toBeGreaterThanOrEqual(4);
   });
 });

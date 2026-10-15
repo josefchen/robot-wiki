@@ -3,25 +3,62 @@
 /**
  * Kalman filter, guess-measure-blend: the classical state-estimation
  * reference scene. One step of the seeded constant-velocity filter from
- * lib/kalman.ts (seed 1, matched beliefs sigma q 0.20, sigma r 1.00), drawn
- * along one line: a robot on a track and three bell curves for where it
- * might be. The robot's own guess (the predict step widens it), the sensor's
- * reading, and the blend the update makes of them, narrower than both and
- * the gain's fraction of the way toward the reading. During the blend the
- * camera closes in on the gap between the guess and the reading, where the
- * blend lands, and pulls back; the next beat writes the same step in the
- * filter's own numbers and turns them, glyph by glyph, into the update rule.
- * The camera is home at every beat end and the symbols leave before the
- * finished frame, so the poster is that frame. Position only; the velocity
- * half of the state is reported in the method fold. The curves are drawn to
- * scale from the real filter numbers.
+ * lib/kalman.ts (seed 1, matched beliefs sigma q 0.20, sigma r 1.00), shown
+ * on an estimating rail (the isometric figure kit,
+ * components/iso/figures/kalman-rail.ts).
+ *
+ * A cart rides a track. In front of it run three calipers, one per belief
+ * about where the cart is: each carriage stands at the estimate and its
+ * jaws stand one spread to either side, so a narrower gap is a surer
+ * estimate. The cart tows the guess caliper and its odometer drum counts
+ * the roll (the predict step), while the jaws open. A rangefinder at the
+ * end of the track drives the reading caliper to its noisy measurement.
+ * The blend caliper copies the guess, then runs along a share rule laid
+ * from the guess to the reading and stops at the gain's share of the way,
+ * its jaws closer than both; the next beat measures that share out along
+ * the rule. Every position and spread is the filter's own number, drawn to
+ * scale (one filter unit is U world units). Position only; the velocity
+ * half of the state is reported in the method fold. There is no text in
+ * the drawing: the readout under it carries the numbers in words.
  */
 import { SceneMount } from '@/components/motion/scene-mount';
 import { StageSvg } from '@/components/motion/stage';
 import { AnimatedElement, AnimatedGroup } from '@/components/motion/animated';
-import { focusViewBox, laggedProgress, transformMatchingTex, type TexGlyph } from '@/components/motion/primitives';
-import { beatSpans, type SceneDefinition } from '@/components/motion/timeline';
+import { beatSpans, locate, type SceneDefinition } from '@/components/motion/timeline';
 import { clamp01, smooth } from '@/components/motion/easing';
+import { LegendItem } from '@/components/ui/instrument';
+import { PartView } from '@/components/iso/part-view';
+import { Dots, Solid } from '@/components/iso/react/draw';
+import type { SolidPaths } from '@/components/iso/iso-kit';
+import {
+  BEAM_START,
+  CARRIAGES,
+  CART_PARTS,
+  DRUM_JOINS,
+  DRUM_NEAR,
+  DRUM_PATHS,
+  FRONT_WHEELS,
+  JAWS,
+  JAW_MIN,
+  LENS_PARTS,
+  PARK,
+  PARTS,
+  U,
+  VIEW_BOX,
+  bandPath,
+  beamPath,
+  drumMarks,
+  pointAt,
+  screwPaths,
+  shareParts,
+  shiftX,
+  wheelSpokes,
+  wheelTurn,
+  xOf,
+  type DrawnPart,
+  type LaneName,
+  type Slot,
+} from '@/components/iso/figures/kalman-rail';
 import {
   DEFAULT_SEED,
   DEFAULT_SETTINGS,
@@ -30,8 +67,8 @@ import {
   type Cov2,
   type KalmanStepDetail,
 } from '@/lib/kalman';
-import { KALMAN_GLYPHS, SCENE_EQUATIONS } from '@/lib/motion-equations';
-import { MOTION_CAMERA, MOTION_UNCERTAINTY } from '@/lib/motion-tokens';
+import { SCENE_EQUATIONS } from '@/lib/motion-equations';
+import { MOTION_UNCERTAINTY } from '@/lib/motion-tokens';
 
 /** The demonstrated step: first measured step at or after t = 40, seed 1. */
 const EPISODE = generateEpisode(DEFAULT_SEED);
@@ -75,7 +112,7 @@ const DETAIL: KalmanStepDetail = {
   gain: Q(KALMAN_STEP_DETAIL.gain),
 };
 
-/** One bell curve over position: its centre and its spread. */
+/** One belief about the cart's position: its centre and its spread (one standard deviation). */
 export interface Bump {
   mean: number;
   sigma: number;
@@ -86,8 +123,13 @@ const READING: Bump = { mean: DETAIL.measurement as number, sigma: DEFAULT_SETTI
 const BLEND: Bump = { mean: DETAIL.posterior.mean[0], sigma: Q(Math.sqrt(DETAIL.posterior.cov.p00)) };
 const GAIN = DETAIL.gain;
 const GAIN_PERCENT = Math.round(GAIN * 100);
-/** The four bells, exported for the tests that pin them to the filter. */
+/** The four beliefs, exported for the tests that pin them to the filter. */
 export const KALMAN_BUMPS = { prior: PRIOR, guess: GUESS, reading: READING, blend: BLEND } as const;
+/** Where the reading and blend calipers wait, closed, before their beats: at the left end of their lanes. */
+export const KALMAN_PARKED = {
+  reading: { mean: PARK.reading, sigma: JAW_MIN / U },
+  blend: { mean: PARK.blend, sigma: JAW_MIN / U },
+} as const;
 
 const SCENE: SceneDefinition = {
   id: 'kalman-predict-update',
@@ -128,182 +170,89 @@ const SCENE: SceneDefinition = {
 /** The scene definition, exported for the player-level tests. */
 export const KALMAN_SCENE = SCENE;
 const SPANS = beatSpans(SCENE.beats);
-const [GUESS_BEAT, MEASURE_BEAT, BLEND_BEAT, SYMBOLS_BEAT, RECAP_BEAT] = SPANS.map((_, index) => index);
+const [GUESS_BEAT, MEASURE_BEAT, BLEND_BEAT, SYMBOLS_BEAT] = SPANS.map((_, index) => index);
 
 const beatProgress = (index: number) => (t: number) =>
   clamp01((t - SPANS[index].start) / SPANS[index].duration);
+/** The share of a beat between two of its fractions, eased. */
+const within = (k: number, from: number, to: number) => smooth(clamp01((k - from) / (to - from)));
 const mix = (a: number, b: number, k: number) => a + (b - a) * k;
 const mixBump = (a: Bump, b: Bump, k: number): Bump => ({
   mean: mix(a.mean, b.mean, k),
   sigma: mix(a.sigma, b.sigma, k),
 });
-const r2 = (value: number) => Number(value.toFixed(2));
 const r3 = (value: number) => Number(value.toFixed(3));
 
 /**
- * Within the blend beat: the labels step aside by 10%, the camera is in by
- * 30%, holds to 60% and is home by 85%; only then do the labels return.
- * Labels sit at stage positions while the bells scale, so neither may move
- * while the other is on stage.
+ * Inside the blend beat: the blend caliper runs from its park to the guess
+ * and opens to the guess's jaws by 22%, its band showing as an exact copy
+ * from 16% to 22%; the share rule is laid from 24% to 34%; the blend then
+ * runs to the update and closes its jaws from 34% to 80%; and from 80% the
+ * guess's and reading's bands step back to 70% ink.
  */
-const CAMERA = { inStart: 0.1, inEnd: 0.3, outStart: 0.6, outEnd: 0.85 } as const;
+export const BLEND_TIMING = { copy: 0.22, shownFrom: 0.16, shownTo: 0.22, ruleFrom: 0.24, ruleTo: 0.34, slideTo: 0.8 } as const;
 
 /**
- * How far the camera has closed in on the gap between the guess and the
- * reading, 0 (home) to 1. It moves only inside the blend beat and is home
- * at every beat end.
- */
-export function kalmanCameraAt(t: number): number {
-  if (t <= SPANS[BLEND_BEAT].start || t >= SPANS[BLEND_BEAT].end) return 0;
-  const k = beatProgress(BLEND_BEAT)(t);
-  if (k < CAMERA.inStart) return 0;
-  if (k < CAMERA.inEnd) return (k - CAMERA.inStart) / (CAMERA.inEnd - CAMERA.inStart);
-  if (k < CAMERA.outStart) return 1;
-  return clamp01((CAMERA.outEnd - k) / (CAMERA.outEnd - CAMERA.outStart));
-}
-
-/** Labels pinned to stage positions step aside while the camera is away. */
-function labelShare(t: number): number {
-  if (t <= SPANS[BLEND_BEAT].start || t >= SPANS[BLEND_BEAT].end) return 1;
-  const k = beatProgress(BLEND_BEAT)(t);
-  if (k < 0.5) return r2(1 - smooth(clamp01(k / CAMERA.inStart)));
-  return r2(smooth(clamp01((k - CAMERA.outEnd) / (1 - CAMERA.outEnd))));
-}
-
-/**
- * The whole scene as a pure function of scene time: the robot's guess
- * (the prior widening into the prediction), the reading rising out of the
- * track, the blend (the guess sliding and sharpening toward the reading
- * while the camera holds on the gap), where the robot is drawn, and how far
- * each later element has faded in. Tests pin this determinism.
+ * The whole scene as a pure function of scene time: each caliper's centre
+ * and spread (in filter units), how far each band and the share rule have
+ * faded in, how far the share is measured out, where the cart is and how
+ * far it has rolled, and the rangefinder's beam. Tests pin this determinism.
  */
 export function kalmanFrameAt(t: number) {
   const guessing = smooth(beatProgress(GUESS_BEAT)(t));
   const measure = beatProgress(MEASURE_BEAT)(t);
   const blendBeat = beatProgress(BLEND_BEAT)(t);
-  const blending = smooth(clamp01((blendBeat - CAMERA.inEnd) / (CAMERA.outStart - CAMERA.inEnd)));
-  const recap = beatProgress(RECAP_BEAT)(t);
+  const symbols = beatProgress(SYMBOLS_BEAT)(t);
   const guess = mixBump(PRIOR, GUESS, guessing);
-  const blend = mixBump(GUESS, BLEND, blending);
-  const labels = labelShare(t);
+  const running = within(measure, 0.1, 0.75);
+  const reading = mixBump(KALMAN_PARKED.reading, READING, running);
+  const copy = within(blendBeat, 0, BLEND_TIMING.copy);
+  const slide = within(blendBeat, BLEND_TIMING.ruleTo, BLEND_TIMING.slideTo);
+  const blend = slide > 0 ? mixBump(GUESS, BLEND, slide) : mixBump(KALMAN_PARKED.blend, GUESS, copy);
   return {
     guess,
+    reading,
     blend,
-    robot: t < SPANS[BLEND_BEAT].start ? guess.mean : blend.mean,
-    /** The reading's bell rises out of the track, then its label follows, one lag apart. */
-    rise: r3(smooth(laggedProgress(measure, 0, 2))),
-    sensor: r3(smooth(laggedProgress(measure, 1, 2)) * labels),
-    guessLabel: labels,
+    /** The cart tows the guess caliper: it stands where the guess is. */
+    cart: guess.mean,
+    /** World units the cart has rolled since the start, for its wheels and odometer. */
+    rolled: r3((guess.mean - PRIOR.mean) * U),
+    readingShown: r3(within(measure, 0.55, 0.8)),
     /** The blend starts as an exact copy of the guess, so it can appear at full ink. */
-    blendShown: r3(smooth(clamp01((blendBeat - 0.2) / 0.1))),
-    blendLabel: r3(smooth(clamp01((blendBeat - CAMERA.outEnd) / (1 - CAMERA.outEnd)))),
-    /** The bracket from the guess to the reading draws while the camera closes in. */
-    bracket: r3(smooth(clamp01((blendBeat - CAMERA.inStart) / (CAMERA.inEnd - CAMERA.inStart)))),
-    /** The guess and the reading step back once the camera has let go of the blend. */
-    settled: r3(smooth(clamp01((blendBeat - CAMERA.outStart) / (CAMERA.outEnd - CAMERA.outStart)))),
-    annotation: r3(smooth(clamp01((recap - 0.3) / 0.5))),
+    blendShown: r3(within(blendBeat, BLEND_TIMING.shownFrom, BLEND_TIMING.shownTo)),
+    share: r3(within(blendBeat, BLEND_TIMING.ruleFrom, BLEND_TIMING.ruleTo)),
+    /** How much of the share rule is measured out, from the guess toward the reading. */
+    measured: r3(GAIN * within(symbols, 0.15, 0.75)),
+    /** The guess and the reading step back once the blend has landed. */
+    settled: r3(within(blendBeat, BLEND_TIMING.slideTo, 0.98)),
+    beam: r3(within(measure, 0, 0.12) * (1 - within(measure, 0.82, 1))),
   };
 }
 
-/*
- * Stage geometry. Text paints at 14 CSS px at every width, so at the
- * narrowest stage (299 px) a label is about 16 view units tall and "the
- * sensor says" about 130 wide; the two label rows sit above every bell's
- * box and the annotation sits under the bracket at that size too.
- */
-const WIDTH = 340;
-const HEIGHT = 226;
-const FONT = 14;
-const PLOT_LEFT = 14;
-const PLOT_RIGHT = 326;
-/** Wide enough for every bell out to about two and a half spreads. */
-const X_MIN = -2.9;
-const X_MAX = 3.1;
-const ROW_ONE = 24;
-const ROW_TWO = 46;
-/** The line the bells stand on, the rail the robot rides, the bracket. */
-const BASE = 140;
-const RAIL = 170;
-const BRACKET = 186;
-const NOTE_Y = 212;
-/**
- * The note centres a little left of the bracket's middle: at the narrowest
- * stage its one line is about 300 units wide and must clear both edges.
- */
-const NOTE_X = 172;
-/** The blend's peak height; every bell keeps the same area, so a narrower one stands taller. */
-const PEAK = 84;
-const SEGMENTS = 48;
+type Frame = ReturnType<typeof kalmanFrameAt>;
+/** Every binding of a frame reads the same frame, so it is computed once per moment. */
+const frameCache: { t: number; frame: Frame | null } = { t: Number.NaN, frame: null };
+const frameAt = (t: number): Frame => {
+  if (t !== frameCache.t || !frameCache.frame) {
+    frameCache.frame = kalmanFrameAt(t);
+    frameCache.t = t;
+  }
+  return frameCache.frame;
+};
 
-const fade = (value: number) => Number(value.toFixed(3));
-const xScale = (v: number) => PLOT_LEFT + ((v - X_MIN) / (X_MAX - X_MIN)) * (PLOT_RIGHT - PLOT_LEFT);
-/** Height of a bell above its base line, in view units, at position v. */
-export const bumpHeight = (bump: Bump, v: number) =>
-  PEAK * (BLEND.sigma / bump.sigma) * Math.exp(-((v - bump.mean) ** 2) / (2 * bump.sigma ** 2));
-const curveY = (bump: Bump, x: number) =>
-  BASE - bumpHeight(bump, X_MIN + ((x - PLOT_LEFT) / (PLOT_RIGHT - PLOT_LEFT)) * (X_MAX - X_MIN));
-
-/** A bell's outline; `lift` scales its height, so a bell can rise out of its base line. */
-function bumpPoints(bump: Bump, lift = 1): Array<[number, number]> {
-  const lo = Math.max(bump.mean - 2.5 * bump.sigma, X_MIN);
-  const hi = Math.min(bump.mean + 2.5 * bump.sigma, X_MAX);
-  return Array.from({ length: SEGMENTS + 1 }, (_, index) => {
-    const v = lo + ((hi - lo) * index) / SEGMENTS;
-    return [r2(xScale(v)), r2(BASE - lift * bumpHeight(bump, v))];
-  });
-}
-const curvePath = (bump: Bump, lift = 1) =>
-  `M${bumpPoints(bump, lift).map(([x, y]) => `${x} ${y}`).join(' L')}`;
-function areaPath(bump: Bump, lift = 1) {
-  const points = bumpPoints(bump, lift);
-  return `${curvePath(bump, lift)} L${points[points.length - 1][0]} ${BASE} L${points[0][0]} ${BASE} Z`;
+/** The one lit part, beat by beat: the odometer while it predicts, the rangefinder while it measures, then the share rule. */
+export function kalmanLitAt(t: number): 'odometer' | 'rangefinder' | 'share' {
+  const beat = locate(SPANS, t).index;
+  return beat === GUESS_BEAT ? 'odometer' : beat === MEASURE_BEAT ? 'rangefinder' : 'share';
 }
 
-const X_GUESS = r2(xScale(GUESS.mean));
-const X_READING = r2(xScale(READING.mean));
-const X_BLEND = r2(xScale(BLEND.mean));
-
-/**
- * The camera window stays 6 units inside the stage, so a mark it cuts keeps
- * the 4 px margin on stages drawn narrower than 1:1.
- */
-const WINDOW_INSET = 6;
-export const CAMERA_WINDOW = {
-  x: WINDOW_INSET,
-  y: WINDOW_INSET,
-  width: WIDTH - 2 * WINDOW_INSET,
-  height: HEIGHT - 2 * WINDOW_INSET,
-} as const;
-/**
- * The detail the camera closes in on: the three peaks over the gap from the
- * guess to the reading, from the blend's final peak down to the bracket, so
- * the reader watches the blend climb and slide while the point rides the bracket.
- */
-export const FOCUS_BOX = (() => {
-  const pad = 30;
-  const top = BASE - PEAK - 4;
-  return { x: X_GUESS - pad, y: top, width: X_READING - X_GUESS + 2 * pad, height: BRACKET + 6 - top };
-})();
-/** As close as the camera window still holds the whole focus box, never past the token. */
-export const FOCUS_ZOOM = Math.min(
-  MOTION_CAMERA.focusMaxZoom,
-  CAMERA_WINDOW.width / FOCUS_BOX.width,
-  CAMERA_WINDOW.height / FOCUS_BOX.height,
-);
-
-/** The camera as a transform on the track layer, eased by focusViewBox. */
-export function kalmanCameraTransform(t: number): string {
-  const share = kalmanCameraAt(t);
-  if (share === 0) return 'translate(0 0) scale(1)';
-  const [x, y, width] = focusViewBox({ x: 0, y: 0, width: WIDTH, height: HEIGHT }, FOCUS_BOX, share, FOCUS_ZOOM)
-    .split(' ')
-    .map(Number);
-  const scale = WIDTH / width;
-  return `translate(${r2(-x * scale)} ${r2(-y * scale)}) scale(${r3(scale)})`;
+/** A caliper's jaws in world units: the inner faces stand one spread either side of the centre. */
+export function jawFaces(bump: Bump) {
+  return { left: xOf(bump.mean) - bump.sigma * U, centre: xOf(bump.mean), right: xOf(bump.mean) + bump.sigma * U };
 }
 
 const fixed = (value: number) => value.toFixed(2);
-/** The worked step's numbers as the stage writes them; tests pin them to the filter. */
+/** The worked step's numbers as the readout and the fold write them; tests pin them to the filter. */
 export const KALMAN_WORKED_NUMBERS = {
   blend: fixed(BLEND.mean),
   guess: fixed(GUESS.mean),
@@ -311,445 +260,215 @@ export const KALMAN_WORKED_NUMBERS = {
   reading: fixed(READING.mean),
 } as const;
 
-type GlyphName =
-  | 'kalmanBlend' | 'kalmanGuess' | 'kalmanGain' | 'kalmanReading'
-  | 'equals' | 'plus' | 'minus' | 'lparen' | 'rparen' | 'xhat' | 'xprior' | 'gain' | 'z';
-/** A number such as 0.52: three KaTeX Main digits and a point. */
-const NUMBER_EM = 3 * 0.5 + 0.27778;
-/**
- * Advance widths in em, from KaTeX's Main and Math-Italic metrics; an italic
- * letter carries its italic correction, and x̂⁻ adds the minus at script size
- * (0.7) plus KaTeX's script space.
- */
-const GLYPH_EM: Record<GlyphName, number> = {
-  kalmanBlend: NUMBER_EM,
-  kalmanGuess: NUMBER_EM,
-  kalmanGain: NUMBER_EM,
-  kalmanReading: NUMBER_EM,
-  equals: 0.77778,
-  plus: 0.77778,
-  minus: 0.77778,
-  lparen: 0.38889,
-  rparen: 0.38889,
-  xhat: 0.57153,
-  xprior: 0.57153 + 0.7 * 0.77778 + 0.05,
-  gain: 0.84931 + 0.07153,
-  z: 0.46505 + 0.04398,
-};
-/** KaTeX sets a relation between two thick spaces and a binary sign between two medium ones. */
-const SPACE_EM: Partial<Record<GlyphName, number>> = { equals: 5 / 18, plus: 4 / 18, minus: 4 / 18 };
-/** The stage's equation size: 16 px text at KaTeX's own 1.21 em. */
-const GLYPH_PX = 16 * 1.21;
-/** The formula row under the bracket; the recap note takes it once the symbols have left. */
-const GLYPH_Y = 196;
-const GLYPH_H = 24;
-type Slot = { id: string; glyph: GlyphName };
-const WORKED: Slot[] = [
-  { id: 'blend', glyph: 'kalmanBlend' },
-  { id: 'equals', glyph: 'equals' },
-  { id: 'guess', glyph: 'kalmanGuess' },
-  { id: 'plus', glyph: 'plus' },
-  { id: 'gain', glyph: 'kalmanGain' },
-  { id: 'open', glyph: 'lparen' },
-  { id: 'reading', glyph: 'kalmanReading' },
-  { id: 'minus', glyph: 'minus' },
-  { id: 'guess-again', glyph: 'kalmanGuess' },
-  { id: 'close', glyph: 'rparen' },
-];
-const GENERAL: Slot[] = [
-  { id: 'estimate', glyph: 'xhat' },
-  WORKED[1],
-  { id: 'prediction', glyph: 'xprior' },
-  WORKED[3],
-  { id: 'gain-symbol', glyph: 'gain' },
-  WORKED[5],
-  { id: 'reading-symbol', glyph: 'z' },
-  WORKED[7],
-  { id: 'prediction-again', glyph: 'xprior' },
-  WORKED[9],
-];
-const GLYPH_OF = new Map([...WORKED, ...GENERAL].map((slot) => [slot.id, slot.glyph]));
-
-/** Glyph left edges, centred on the stage, spaced as KaTeX spaces them. */
-function layoutGlyphs(slots: readonly Slot[]): TexGlyph[] {
-  let cursor = 0;
-  const lefts = slots.map(({ glyph }) => {
-    cursor += SPACE_EM[glyph] ?? 0;
-    const left = cursor;
-    cursor += GLYPH_EM[glyph] + (SPACE_EM[glyph] ?? 0);
-    return left;
-  });
-  const start = WIDTH / 2 - (cursor * GLYPH_PX) / 2;
-  return slots.map((slot, index) => ({ id: slot.id, x: start + lefts[index] * GLYPH_PX, y: GLYPH_Y }));
-}
-const MORPH = transformMatchingTex(layoutGlyphs(WORKED), layoutGlyphs(GENERAL));
-
-/** The formula is written in the symbols beat and leaves early in the recap. */
-function formulaShare(t: number): number {
-  if (t <= SPANS[SYMBOLS_BEAT].start) return 0;
-  if (t <= SPANS[SYMBOLS_BEAT].end) return 1;
-  return r2(1 - smooth(clamp01(beatProgress(RECAP_BEAT)(t) / 0.3)));
-}
-
-/**
- * Every glyph of the formula at scene time t. The worked step is written
- * left to right, one lag apart; its numbers leave, the shared signs slide
- * to their places in the general rule, and the symbols arrive one lag apart
- * where the numbers stood. Phases never overlap, so no two glyphs share
- * ink. Tests pin this.
- */
-export function kalmanGlyphsAt(t: number) {
-  const progress = beatProgress(SYMBOLS_BEAT)(t);
-  const shown = formulaShare(t);
-  const write = clamp01(progress / 0.25);
-  const leave = clamp01((progress - 0.4) / 0.15);
-  const slide = smooth(clamp01((progress - 0.55) / 0.2));
-  const arrive = clamp01((progress - 0.75) / 0.2);
-  const order = (id: string) => WORKED.findIndex((slot) => slot.id === id);
-  const width = (id: string) => r2(GLYPH_EM[GLYPH_OF.get(id) as GlyphName] * GLYPH_PX);
-  const written = (id: string) => smooth(laggedProgress(write, order(id), WORKED.length));
-  return [
-    ...MORPH.matched.map(({ id, from, to }) => ({
-      id, glyph: GLYPH_OF.get(id) as GlyphName, x: r2(from.x + (to.x - from.x) * slide), width: width(id),
-      opacity: r2(shown * written(id)), matched: true,
-    })),
-    ...MORPH.fadeOut.map(({ id, x }, index) => ({
-      id, glyph: GLYPH_OF.get(id) as GlyphName, x: r2(x), width: width(id),
-      opacity: r2(shown * written(id) * (1 - smooth(laggedProgress(leave, index, MORPH.fadeOut.length)))),
-      matched: false,
-    })),
-    ...MORPH.fadeIn.map(({ id, x }, index) => ({
-      id, glyph: GLYPH_OF.get(id) as GlyphName, x: r2(x), width: width(id),
-      opacity: r2(shown * smooth(laggedProgress(arrive, index, MORPH.fadeIn.length))),
-      matched: false,
-    })),
-  ];
-}
-const GLYPH_IDS = kalmanGlyphsAt(0).map((item) => item.id);
-const glyphAt = (id: string, t: number) => kalmanGlyphsAt(t).find((item) => item.id === id)!;
-const GLYPH_INK: Partial<Record<GlyphName, string>> = {
-  kalmanBlend: 'var(--role-state-stage)',
-  xhat: 'var(--role-state-stage)',
-  kalmanGuess: 'var(--role-state-stage)',
-  xprior: 'var(--role-state-stage)',
-  kalmanReading: 'var(--role-measurement-stage)',
-  z: 'var(--role-measurement-stage)',
-  kalmanGain: 'var(--role-highlight-stage)',
-  gain: 'var(--role-highlight-stage)',
-};
-/**
- * Article math styles resize and recolour every `.katex`, so each glyph pins
- * its own size (the layout's advance widths assume it) and its role colour.
- */
-const glyphMarkup = (glyph: GlyphName) =>
-  KALMAN_GLYPHS[glyph].html.replace(
-    '<span class="katex">',
-    `<span class="katex" style="font-size:${r2(GLYPH_PX)}px;color:${GLYPH_INK[glyph] ?? 'var(--motion-stage-label)'}">`,
-  );
-/**
- * The two flank labels are right-aligned, so their leaders drop from a
- * point under the label at every text size: the guess's left flank, where
- * it is the top curve, and the reading's right flank, where it is.
- */
-const GUESS_LABEL_END = 128;
-const GUESS_LEADER_X = 112;
-const READING_LABEL_END = 332;
-const READING_LEADER_X = 290;
+/** The readout under the drawing, one line per beat, in plain words. */
+export const KALMAN_READOUTS = [
+  `Guess ${fixed(GUESS.mean)} · jaws open from ${fixed(PRIOR.sigma)} to ${fixed(GUESS.sigma)} either side`,
+  `Reading ${fixed(READING.mean)} · jaws ${fixed(READING.sigma)} either side`,
+  `Blend ${fixed(BLEND.mean)} · jaws ${fixed(BLEND.sigma)} either side, closer than both`,
+  `${KALMAN_WORKED_NUMBERS.guess} plus ${GAIN_PERCENT}% of the way to ${KALMAN_WORKED_NUMBERS.reading} is ${KALMAN_WORKED_NUMBERS.blend}`,
+  `Jaws either side: guess ${fixed(GUESS.sigma)} · reading ${fixed(READING.sigma)} · blend ${fixed(BLEND.sigma)}`,
+] as const;
 
 const ROLE_STAGE = {
   state: 'var(--role-state-stage)',
   measurement: 'var(--role-measurement-stage)',
+  highlight: 'var(--role-highlight-stage)',
 } as const;
 
-/** A small wheeled robot with a sensor on a mast, drawn where it believes it is. */
-function Robot() {
-  const ink = 'var(--motion-stage-label-secondary)';
+/** A solid whose shape changes with scene time, drawn as the kit's Solid draws it. */
+function LiveSolid({ build, tone, edgeTone }: { build: (t: number) => SolidPaths; tone: string; edgeTone?: (t: number) => string }) {
+  const at = (t: number) => build(t);
   return (
-    <AnimatedGroup
-      data-scene-structure="robot"
-      bindings={{ transform: (t) => `translate(${r2(xScale(kalmanFrameAt(t).robot))} 0)` }}
-    >
-      <rect x={-11} y={RAIL - 17} width={22} height={10} fill="var(--color-surface)" stroke={ink} strokeWidth={1.25} />
-      <line x1={3} y1={RAIL - 17} x2={3} y2={RAIL - 21} stroke={ink} strokeWidth={1} />
-      <rect x={-1} y={RAIL - 26} width={9} height={5} fill="var(--color-surface)" stroke={ink} strokeWidth={1} />
-      <circle cx={-6} cy={RAIL - 4} r={3.5} fill="var(--color-surface)" stroke={ink} strokeWidth={1.25} />
-      <circle cx={6} cy={RAIL - 4} r={3.5} fill="var(--color-surface)" stroke={ink} strokeWidth={1.25} />
-    </AnimatedGroup>
-  );
-}
-
-/** The floor the robot rides: one plain line, which first-time readers took ties under it for marks. */
-function Track() {
-  return (
-    <g data-scene-structure="track" stroke="var(--motion-stage-axes)" opacity="var(--motion-stage-axes-opacity)">
-      <line x1={PLOT_LEFT} y1={RAIL} x2={PLOT_RIGHT} y2={RAIL} strokeWidth={1.5} />
+    <g className="iso-solid">
+      <AnimatedElement as="path" className="iso-fill" bindings={{ d: (t) => at(t).fill }} />
+      {[0, 1, 2, 3].map((shade) => (
+        <AnimatedElement key={shade} as="path" className="iso-shade" data-shade={shade} bindings={{ d: (t) => at(t).shades[shade] || 'M0 0' }} />
+      ))}
+      <AnimatedElement as="path" className="iso-top" bindings={{ d: (t) => at(t).top }} />
+      <AnimatedElement as="path" className="iso-line iso-crease" data-tone="faint" bindings={{ d: (t) => at(t).crease || 'M0 0' }} />
+      <AnimatedElement as="path" className="iso-line iso-bevel" data-tone="faint" bindings={{ d: (t) => at(t).bevel || 'M0 0' }} />
+      <AnimatedElement as="path" className="iso-line iso-edge" data-tone={tone} bindings={edgeTone ? { d: (t) => at(t).outline, 'data-tone': edgeTone } : { d: (t) => at(t).outline }} />
     </g>
   );
 }
 
-/** One bell: a soft fill and its outline, each bound to the scene clock. */
-function Bell({
-  mark,
-  role,
+/** One built-once screw per caliper and moment, so its four paths share one rebuild. */
+function screwBuilder(lane: LaneName, bump: (frame: Frame) => Bump) {
+  const cache: { t: number; paths: SolidPaths | null } = { t: Number.NaN, paths: null };
+  return (t: number) => {
+    if (t !== cache.t || !cache.paths) {
+      const b = bump(frameAt(t));
+      cache.paths = screwPaths(lane, xOf(b.mean), b.sigma * U);
+      cache.t = t;
+    }
+    return cache.paths;
+  };
+}
+
+const parts = (list: readonly DrawnPart[]) => list.map((part, index) => <PartView key={index} part={part} />);
+
+/** A caliper: the band between its jaws (the mark), the left jaw, the screw, the carriage and the right jaw. */
+function Caliper({
+  lane,
   bump,
   shown,
-  fillAlpha,
+  dim,
+  role,
   strokeWidth,
-  dashed = false,
-  lift = () => 1,
 }: {
-  mark: string;
+  lane: LaneName;
+  bump: (frame: Frame) => Bump;
+  shown: (frame: Frame) => number;
+  dim: (frame: Frame) => number;
   role: 'state' | 'measurement';
-  bump: (t: number) => Bump;
-  /** Opacity of the whole bell as a function of scene time. */
-  shown: (t: number) => number;
-  fillAlpha: number;
   strokeWidth: number;
-  dashed?: boolean;
-  /** How far the bell has risen out of its base line, 0 to 1. */
-  lift?: (t: number) => number;
 }) {
-  const color = ROLE_STAGE[role];
+  const band = (t: number) => {
+    const b = bump(frameAt(t));
+    return bandPath(lane, xOf(b.mean), b.sigma * U);
+  };
+  const ink = (t: number) => r3(shown(frameAt(t)) * dim(frameAt(t)));
+  const series = lane === 'reading' ? 'reading' : lane;
   return (
-    <>
+    <g data-scene-part={`${lane}-caliper`}>
       <AnimatedElement
         as="path"
-        data-scene-mark={`${mark}-area`}
-        fill={color}
-        fillOpacity={fillAlpha}
+        data-scene-mark={`${lane}-area`}
+        data-legend-series={series}
+        fill={ROLE_STAGE[role]}
+        fillOpacity={MOTION_UNCERTAINTY.fillAlpha}
         stroke="none"
-        bindings={{ d: (t) => areaPath(bump(t), lift(t)), opacity: (t) => fade(shown(t)) }}
+        bindings={{ d: band, opacity: ink }}
       />
       <AnimatedElement
         as="path"
-        data-scene-mark={`${mark}-curve`}
+        data-scene-mark={`${lane}-curve`}
+        data-legend-series={series}
         fill="none"
-        stroke={color}
+        stroke={ROLE_STAGE[role]}
         strokeWidth={strokeWidth}
         strokeLinejoin="round"
-        strokeDasharray={dashed ? '5 4' : undefined}
-        bindings={{ d: (t) => curvePath(bump(t), lift(t)), opacity: (t) => fade(shown(t)) }}
+        bindings={{ d: band, opacity: ink }}
       />
-    </>
-  );
-}
-
-const LEADER_GAP = 2;
-const LEADER_HEAD = 6;
-/** A downward arrowhead whose tip stops just above the curve at `curve`. */
-const leaderHead = (x: number, curve: number) => {
-  const tip = r2(curve - LEADER_GAP);
-  const base = r2(tip - LEADER_HEAD);
-  return `${r2(x - 3.5)},${base} ${r2(x + 3.5)},${base} ${x},${tip}`;
-};
-
-/** A label in its bell's colour, with an optional leader down to the curve. */
-function BellLabel({
-  children,
-  role,
-  x,
-  y,
-  anchor,
-  shown,
-  leader,
-}: {
-  children: string;
-  role: 'state' | 'measurement';
-  x: number;
-  y: number;
-  anchor: 'start' | 'middle' | 'end';
-  shown: (t: number) => number;
-  leader?: { x: number; to: (t: number) => number };
-}) {
-  const color = ROLE_STAGE[role];
-  return (
-    <AnimatedGroup bindings={{ opacity: (t) => fade(shown(t)) }}>
-      <text x={x} y={y} textAnchor={anchor} fontSize={FONT} fontWeight={500} fill={color}>
-        {children}
-      </text>
-      {leader ? (
-        <g data-scene-structure="label-leader" stroke={color} strokeWidth={1.25}>
-          <AnimatedElement
-            as="line"
-            x1={leader.x}
-            x2={leader.x}
-            y1={y + 8}
-            bindings={{ y2: (t) => r2(leader.to(t) - LEADER_GAP - LEADER_HEAD) }}
-          />
-          {/* An arrowhead, so the leader reads as "this curve" and never as a mark of its own. */}
-          <AnimatedElement
-            as="polygon"
-            data-scene-structure="label-leader-head"
-            fill={color}
-            stroke="none"
-            bindings={{ points: (t) => leaderHead(leader.x, leader.to(t)) }}
-          />
-        </g>
-      ) : null}
-    </AnimatedGroup>
-  );
-}
-
-
-const CAMERA_CLIP = 'kalman-predict-update-camera';
-const SHARE_PATH = `M${X_GUESS} ${BRACKET - 4} V${BRACKET + 4} M${X_GUESS} ${BRACKET} H${X_READING} M${X_READING} ${BRACKET - 4} V${BRACKET + 4}`;
-
-/** Everything drawn on the track's own scale: it moves with the camera. */
-function TrackLayer() {
-  return (
-    <>
-      <Track />
-      <Bell
-        mark="guess"
-        role="state"
-        bump={(t) => kalmanFrameAt(t).guess}
-        shown={(t) => 1 - 0.5 * kalmanFrameAt(t).settled}
-        fillAlpha={MOTION_UNCERTAINTY.fillAlpha}
-        strokeWidth={1.5}
-      />
-      <Bell
-        mark="reading"
-        role="measurement"
-        bump={() => READING}
-        shown={(t) => (kalmanFrameAt(t).rise > 0 ? 1 - 0.5 * kalmanFrameAt(t).settled : 0)}
-        lift={(t) => kalmanFrameAt(t).rise}
-        fillAlpha={MOTION_UNCERTAINTY.fillAlpha}
-        strokeWidth={1.5}
-      />
-      <Bell
-        mark="blend"
-        role="state"
-        bump={(t) => kalmanFrameAt(t).blend}
-        shown={(t) => kalmanFrameAt(t).blendShown}
-        fillAlpha={MOTION_UNCERTAINTY.fillAlpha}
-        strokeWidth={2}
-      />
-      <Robot />
-      {/* The bracket from the guess to the reading, with the blend riding along it. */}
-      <AnimatedGroup bindings={{ opacity: (t) => fade(kalmanFrameAt(t).bracket) }}>
-        <path data-scene-mark="blend-share" d={SHARE_PATH} fill="none" stroke="var(--role-highlight-stage)" strokeWidth={1.25} />
-        <AnimatedElement
-          as="circle"
-          data-scene-mark="blend-point"
-          cy={BRACKET}
-          r={3.5}
-          fill="var(--role-highlight-stage)"
-          bindings={{ cx: (t) => r2(xScale(kalmanFrameAt(t).blend.mean)) }}
-        />
-      </AnimatedGroup>
-    </>
-  );
-}
-
-/** The formula row: the worked step in numbers, then the rule in symbols, glyph by glyph. */
-function FormulaRow() {
-  return (
-    <g data-scene-formula="kalman">
-      {GLYPH_IDS.map((id) => {
-        const glyph = GLYPH_OF.get(id) as GlyphName;
-        const { width } = glyphAt(id, 0);
-        return (
-          <AnimatedGroup
-            key={`glyph-${id}`}
-            bindings={{
-              transform: (t) => `translate(${glyphAt(id, t).x} 0)`,
-              opacity: (t) => glyphAt(id, t).opacity,
-            }}
-          >
-            <foreignObject x={0} y={GLYPH_Y} width={r2(width - 0.4)} height={GLYPH_H} overflow="visible" data-scene-glyph={id}>
-              <div
-                {...{ xmlns: 'http://www.w3.org/1999/xhtml' }}
-                className="whitespace-nowrap text-center leading-[24px]"
-                dangerouslySetInnerHTML={{ __html: glyphMarkup(glyph) }}
-              />
-            </foreignObject>
-          </AnimatedGroup>
-        );
-      })}
+      <AnimatedGroup bindings={{ transform: (t) => shiftX(jawFaces(bump(frameAt(t))).left) }}>{parts(JAWS[lane].left)}</AnimatedGroup>
+      <LiveSolid build={screwBuilder(lane, bump)} tone="mid" />
+      <AnimatedGroup bindings={{ transform: (t) => shiftX(jawFaces(bump(frameAt(t))).centre) }}>{parts(CARRIAGES[lane])}</AnimatedGroup>
+      <AnimatedGroup bindings={{ transform: (t) => shiftX(jawFaces(bump(frameAt(t))).right) }}>{parts(JAWS[lane].right)}</AnimatedGroup>
     </g>
   );
 }
+
+const SHARE = shareParts(xOf(GUESS.mean), xOf(READING.mean));
+/** The measured part of the share rule's top, from the guess's stop toward the reading's. */
+const measuredPath = (t: number) => {
+  const { measured } = frameAt(t);
+  const to = xOf(GUESS.mean) + measured * (xOf(READING.mean) - xOf(GUESS.mean));
+  return shareParts(xOf(GUESS.mean), Math.max(to, xOf(GUESS.mean) + 0.01)).top;
+};
+
+function SlotView({ slot }: { slot: Slot }) {
+  switch (slot) {
+    case 'beam':
+      // The rangefinder's beam, from its lens to the cart, while it measures.
+      return (
+        <AnimatedGroup data-scene-part="rangefinder-beam" bindings={{ opacity: (t) => frameAt(t).beam }}>
+          <path className="iso-line" data-tone="lit" d={beamPath(xOf(GUESS.mean))} />
+          {/* The emitter's spot on the lens glass, where the beam leaves. */}
+          <Dots points={[BEAM_START]} size={0.9} tone="hi" />
+        </AnimatedGroup>
+      );
+    case 'cart':
+      return (
+        <AnimatedGroup data-scene-part="cart" bindings={{ transform: (t) => shiftX(xOf(frameAt(t).cart)) }}>
+          {parts(CART_PARTS)}
+          <LiveSolid
+            build={() => DRUM_PATHS}
+            tone="hi"
+            edgeTone={(t) => (kalmanLitAt(t) === 'odometer' ? 'lit' : 'hi')}
+          />
+          <AnimatedElement as="path" className="iso-line" data-tone="lo" d={DRUM_JOINS} />
+          <AnimatedElement as="path" className="iso-line" data-tone="mid" bindings={{ d: (t) => drumMarks(frameAt(t).rolled) }} />
+          {parts(DRUM_NEAR)}
+          {parts(FRONT_WHEELS)}
+          <AnimatedElement as="path" className="iso-line" data-tone="lo" bindings={{ d: (t) => wheelSpokes(wheelTurn(frameAt(t).rolled)) }} />
+        </AnimatedGroup>
+      );
+    case 'guess':
+      return <Caliper lane="guess" bump={(f) => f.guess} shown={() => 1} dim={(f) => 1 - 0.3 * f.settled} role="state" strokeWidth={1.25} />;
+    case 'reading':
+      return <Caliper lane="reading" bump={(f) => f.reading} shown={(f) => f.readingShown} dim={(f) => 1 - 0.3 * f.settled} role="measurement" strokeWidth={1.25} />;
+    case 'share':
+      // The share rule from the guess's stop to the reading's, laid in the blend beat.
+      return (
+        <AnimatedGroup data-scene-part="share-rule" bindings={{ opacity: (t) => frameAt(t).share }}>
+          <Solid paths={SHARE.bar} tone="mid" />
+          {/* One mark: the rule's outline, and the part of it measured out from the guess's stop. */}
+          <g data-scene-mark="blend-share" data-legend-series="share" fill={ROLE_STAGE.highlight} stroke={ROLE_STAGE.highlight}>
+            <path d={SHARE.top} fill="none" strokeWidth={1.25} strokeLinejoin="round" />
+            <AnimatedElement as="path" data-scene-part="share-measured" stroke="none" bindings={{ d: measuredPath }} />
+          </g>
+          {parts(SHARE.stops)}
+        </AnimatedGroup>
+      );
+    case 'blend':
+      return (
+        <>
+          <Caliper lane="blend" bump={(f) => f.blend} shown={(f) => f.blendShown} dim={() => 1} role="state" strokeWidth={2} />
+          {/* The blend's pointer tip on the share rule. */}
+          <AnimatedElement
+            as="circle"
+            data-scene-mark="blend-point"
+            data-legend-series="share"
+            r={2.4}
+            fill={ROLE_STAGE.highlight}
+            bindings={{
+              cx: (t) => pointAt(xOf(frameAt(t).blend.mean))[0].toFixed(2),
+              cy: (t) => pointAt(xOf(frameAt(t).blend.mean))[1].toFixed(2),
+              opacity: (t) => frameAt(t).share,
+            }}
+          />
+        </>
+      );
+    default:
+      return null;
+  }
+}
+
+/** The lens barrel's parts, with the barrel's edge lit while the rangefinder measures. */
+function Lens() {
+  return (
+    <g data-scene-part="rangefinder-lens">
+      {LENS_PARTS.map((part, index) =>
+        index === 1 && part.kind === 'solid' ? (
+          <LiveSolid key={index} build={() => part.paths} tone="hi" edgeTone={(t) => (kalmanLitAt(t) === 'rangefinder' ? 'lit' : 'hi')} />
+        ) : (
+          <PartView key={index} part={part} />
+        ),
+      )}
+    </g>
+  );
+}
+
+const LENS_SET = new Set<DrawnPart>(LENS_PARTS);
 
 /** The stage alone, so tests can render any frame inside a static-time provider. */
 export function KalmanStage() {
   return (
-    <StageSvg viewBox={`0 0 ${WIDTH} ${HEIGHT}`}>
-      <defs data-scene-structure="camera-clip">
-        <clipPath id={CAMERA_CLIP}>
-          <rect {...CAMERA_WINDOW} />
-        </clipPath>
-      </defs>
-      {/* The camera: the track, the bells, the robot and the bracket move with it. */}
-      <g clipPath={`url(#${CAMERA_CLIP})`}>
-        <AnimatedGroup data-scene-camera="" bindings={{ transform: kalmanCameraTransform }}>
-          <TrackLayer />
-        </AnimatedGroup>
-      </g>
-
-      <BellLabel
-        role="state"
-        x={GUESS_LABEL_END}
-        y={ROW_TWO}
-        anchor="end"
-        shown={(t) => kalmanFrameAt(t).guessLabel}
-        leader={{ x: GUESS_LEADER_X, to: (t) => curveY(kalmanFrameAt(t).guess, GUESS_LEADER_X) }}
-      >
-        my guess
-      </BellLabel>
-      <BellLabel
-        role="measurement"
-        x={READING_LABEL_END}
-        y={ROW_ONE}
-        anchor="end"
-        shown={(t) => kalmanFrameAt(t).sensor}
-        leader={{ x: READING_LEADER_X, to: () => curveY(READING, READING_LEADER_X) }}
-      >
-        the sensor says
-      </BellLabel>
-      <BellLabel
-        role="state"
-        x={X_BLEND}
-        y={ROW_TWO}
-        anchor="middle"
-        shown={(t) => kalmanFrameAt(t).blendLabel}
-      >
-        best blend
-      </BellLabel>
-      {/* The key to every bell, on the first row's free left end. */}
-      <AnimatedElement
-        as="text"
-        data-scene-key="bell-width"
-        x={PLOT_LEFT}
-        y={ROW_ONE}
-        fontSize={FONT}
-        fill="var(--motion-stage-label-secondary)"
-        bindings={{ opacity: (t) => fade(kalmanFrameAt(t).guessLabel) }}
-      >
-        narrower bell: surer
-      </AnimatedElement>
-
-      <FormulaRow />
-
-      {/* The one highlight note: how far the blend moved toward the reading. */}
-      <AnimatedElement
-        as="g"
-        data-figure-annotation=""
-        bindings={{ opacity: (t) => fade(kalmanFrameAt(t).annotation) }}
-      >
-        <text
-          x={NOTE_X}
-          y={NOTE_Y}
-          textAnchor="middle"
-          fontSize={FONT}
-          fontWeight={600}
-          fill="var(--role-highlight-stage)"
-        >
-          {GAIN_PERCENT}% of the way from guess to sensor
-        </text>
-      </AnimatedElement>
-    </StageSvg>
+    <div className="iso" data-anatomy-drawing="">
+      <StageSvg viewBox={VIEW_BOX} className="iso-svg">
+        {PARTS.map((part, index) => {
+          if (part.kind === 'slot') return <SlotView key={part.slot} slot={part.slot} />;
+          if (LENS_SET.has(part)) return part === LENS_PARTS[0] ? <Lens key="lens" /> : null;
+          return <PartView key={index} part={part} />;
+        })}
+      </StageSvg>
+    </div>
   );
 }
+
+const swatch = (style: Record<string, string>, className: string) => (
+  <span aria-hidden className={`inline-block ${className}`} style={style} />
+);
 
 export function KalmanPredictUpdate({ className }: { className?: string }) {
   const { html } = SCENE_EQUATIONS.kalman;
@@ -758,6 +477,23 @@ export function KalmanPredictUpdate({ className }: { className?: string }) {
       scene={SCENE}
       className={className}
       stage={<KalmanStage />}
+      legend={
+        <>
+          <LegendItem series="guess" swatch={swatch({ borderColor: 'var(--role-state-graphic)' }, 'h-2.5 w-4 border')}>
+            the cart&rsquo;s guess
+          </LegendItem>
+          <LegendItem series="reading" swatch={swatch({ borderColor: 'var(--role-measurement-graphic)' }, 'h-2.5 w-4 border')}>
+            the sensor&rsquo;s reading
+          </LegendItem>
+          <LegendItem series="blend" swatch={swatch({ borderColor: 'var(--role-state-graphic)' }, 'h-2.5 w-4 border-2')}>
+            the blend
+          </LegendItem>
+          <LegendItem series="share" swatch={swatch({ backgroundColor: 'var(--role-highlight-graphic)' }, 'h-1 w-4')}>
+            its share of the way to the reading
+          </LegendItem>
+        </>
+      }
+      readout={({ beatIndex }) => KALMAN_READOUTS[beatIndex] ?? KALMAN_READOUTS[KALMAN_READOUTS.length - 1]}
       statusLine="Illustrative: one step of a simulated robot, drawn to scale."
       method={
         <>
@@ -770,19 +506,21 @@ export function KalmanPredictUpdate({ className }: { className?: string }) {
           <p>
             Here the gain is <span data-testid="kalman-gain-value">{fixed(GAIN)}</span>, the reading is{' '}
             {fixed(READING.mean)}, the predicted position {fixed(GUESS.mean)} and the blend{' '}
-            {fixed(BLEND.mean)}, so the fourth beat writes {KALMAN_WORKED_NUMBERS.blend} ={' '}
-            {KALMAN_WORKED_NUMBERS.guess} + {KALMAN_WORKED_NUMBERS.gain} &times; ({KALMAN_WORKED_NUMBERS.reading}{' '}
-            &minus; {KALMAN_WORKED_NUMBERS.guess}) before it turns into the rule. The spread of the position
-            estimate (one standard deviation) goes from {fixed(PRIOR.sigma)} to {fixed(GUESS.sigma)} in the
-            predict step and to {fixed(BLEND.sigma)} after the update; the reading&rsquo;s spread is{' '}
-            {fixed(READING.sigma)}.
+            {fixed(BLEND.mean)}, so {KALMAN_WORKED_NUMBERS.blend} = {KALMAN_WORKED_NUMBERS.guess} +{' '}
+            {KALMAN_WORKED_NUMBERS.gain} &times; ({KALMAN_WORKED_NUMBERS.reading} &minus; {KALMAN_WORKED_NUMBERS.guess}). The
+            spread of the position estimate (one standard deviation) goes from {fixed(PRIOR.sigma)} to{' '}
+            {fixed(GUESS.sigma)} in the predict step and to {fixed(BLEND.sigma)} after the update; the
+            reading&rsquo;s spread is {fixed(READING.sigma)}.
           </p>
           <p>
-            The bells are step {STEP} of the seeded constant-velocity filter (seed {DEFAULT_SEED},
-            process noise {fixed(DEFAULT_SETTINGS.sigmaQ)}, reading noise {fixed(DEFAULT_SETTINGS.sigmaR)},
-            the filter&rsquo;s beliefs matched to the world), drawn to scale. The filter tracks
-            position and velocity; the scene draws position only. The robot and its track are an
-            illustration.
+            The drawing is an estimating rail. The cart tows the guess&rsquo;s caliper while its odometer
+            counts the roll, a rangefinder drives the reading&rsquo;s caliper, and the blend&rsquo;s caliper
+            runs along a share rule from the guess to the reading. Each caliper&rsquo;s jaws stand one
+            spread either side of its estimate, so closer jaws mean surer. The numbers are step {STEP} of
+            the seeded constant-velocity filter (seed {DEFAULT_SEED}, process noise{' '}
+            {fixed(DEFAULT_SETTINGS.sigmaQ)}, reading noise {fixed(DEFAULT_SETTINGS.sigmaR)}, beliefs
+            matched to the world), drawn to scale. The drawing shows position only; the filter also
+            tracks velocity. The rail is an illustration.
           </p>
           <p>The steps, in order:</p>
           <ol>
@@ -792,7 +530,7 @@ export function KalmanPredictUpdate({ className }: { className?: string }) {
           </ol>
         </>
       }
-      textAlternative={`${SCENE.title}. A five-beat scene: a robot on a track and bell curves for where it might be. ${SCENE.beats
+      textAlternative={`${SCENE.title}. A five-beat scene: a cart on a track and three calipers whose jaws stand one spread either side of where the cart might be. ${SCENE.beats
         .map((beat, index) => `Beat ${index + 1}: ${beat.caption}`)
         .join(' ')} In filter terms, the posterior position equals the predicted position plus gain K (${fixed(GAIN)}) times the gap between reading z (${fixed(READING.mean)}) and the predicted position (${fixed(GUESS.mean)}). The spread of the position estimate goes from ${fixed(PRIOR.sigma)} to ${fixed(GUESS.sigma)} in the predict step and to ${fixed(BLEND.sigma)} after the update.`}
     />

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "c194db39c538c4a4deb31c11b84999cc876a2a89c4b966f4c65a138d7fec8ab8",
+  "fingerprint": "e8893ee1b55ec78c7647a8dd717f8e155ccd982d20eec6379c45b99c94e88d96",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 2993,
+      "visibleTextLength": 2996,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -823,14 +823,14 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Autonomous Drone Flight, Racing and Swarms | Robot Wiki",
-        "description": "How autonomous drones fly: perception latency limits, learned control that beat racing champions, and swarm coordination.",
+        "description": "How autonomous drones fly: perception latency limits, learned control that beat racing champions, swarm coordination, and delivery at scale.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Drones and Aerial Robotics",
-        "ogDescription": "How autonomous drones fly: perception latency limits, learned control that beat racing champions, and swarm coordination.",
+        "ogDescription": "How autonomous drones fly: perception latency limits, learned control that beat racing champions, swarm coordination, and delivery at scale.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Drones and Aerial Robotics",
         "ogImage": "https://robot-wiki.com/og/adjacent/drones.png",
         "twitterTitle": "Drones and Aerial Robotics",
-        "twitterDescription": "How autonomous drones fly: perception latency limits, learned control that beat racing champions, and swarm coordination.",
+        "twitterDescription": "How autonomous drones fly: perception latency limits, learned control that beat racing champions, swarm coordination, and delivery at scale.",
         "canonical": "https://robot-wiki.com/adjacent/drones/"
       },
       "repositoryHref": "https://github.com/josefchen",
@@ -1059,14 +1059,14 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Surgical Robotics: Systems, Safety and Autonomy | Robot Wiki",
-        "description": "Surgical robotics from da Vinci 5 to CMR and Moon Surgical: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.",
+        "description": "Surgical robotics from da Vinci 5 to Hugo and OTTAVA: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Surgical Robotics",
-        "ogDescription": "Surgical robotics from da Vinci 5 to CMR and Moon Surgical: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.",
+        "ogDescription": "Surgical robotics from da Vinci 5 to Hugo and OTTAVA: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Surgical Robotics",
         "ogImage": "https://robot-wiki.com/og/adjacent/surgical.png",
         "twitterTitle": "Surgical Robotics",
-        "twitterDescription": "Surgical robotics from da Vinci 5 to CMR and Moon Surgical: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.",
+        "twitterDescription": "Surgical robotics from da Vinci 5 to Hugo and OTTAVA: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.",
         "canonical": "https://robot-wiki.com/adjacent/surgical/"
       },
       "repositoryHref": "https://github.com/josefchen",
@@ -2251,7 +2251,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 30712,
+      "visibleTextLength": 30645,
       "route": "/classical/state-estimation/",
       "viewport": "1440x900"
     },
@@ -2369,7 +2369,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 54695,
+      "visibleTextLength": 57559,
       "route": "/credits/",
       "viewport": "1440x900"
     },
@@ -2605,7 +2605,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27070,
+      "visibleTextLength": 27543,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "1440x900"
     },
@@ -2723,7 +2723,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28639,
+      "visibleTextLength": 29057,
       "route": "/data-hardware/datasets/",
       "viewport": "1440x900"
     },
@@ -2841,7 +2841,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28237,
+      "visibleTextLength": 28644,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "1440x900"
     },
@@ -2959,7 +2959,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 33580,
+      "visibleTextLength": 34045,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "1440x900"
     },
@@ -3077,7 +3077,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 31586,
+      "visibleTextLength": 32051,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "1440x900"
     },
@@ -3195,7 +3195,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23781,
+      "visibleTextLength": 24258,
       "route": "/data-hardware/robot-learning-stack/",
       "viewport": "1440x900"
     },
@@ -3313,7 +3313,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23522,
+      "visibleTextLength": 24013,
       "route": "/data-hardware/teleop-rigs/",
       "viewport": "1440x900"
     },
@@ -4139,7 +4139,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21381,
+      "visibleTextLength": 21283,
       "route": "/frontier/reliability-gap/",
       "viewport": "1440x900"
     },
@@ -4257,7 +4257,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 37821,
+      "visibleTextLength": 37820,
       "route": "/frontier/safety-and-assurance/",
       "viewport": "1440x900"
     },
@@ -6263,7 +6263,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20116,
+      "visibleTextLength": 20022,
       "route": "/manipulation/robot-learning-roadmap/",
       "viewport": "1440x900"
     },
@@ -7089,7 +7089,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25108,
+      "visibleTextLength": 25098,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3018,
+      "visibleTextLength": 3021,
       "route": "/",
       "viewport": "375x812"
     },
@@ -9719,14 +9719,14 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Autonomous Drone Flight, Racing and Swarms | Robot Wiki",
-        "description": "How autonomous drones fly: perception latency limits, learned control that beat racing champions, and swarm coordination.",
+        "description": "How autonomous drones fly: perception latency limits, learned control that beat racing champions, swarm coordination, and delivery at scale.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Drones and Aerial Robotics",
-        "ogDescription": "How autonomous drones fly: perception latency limits, learned control that beat racing champions, and swarm coordination.",
+        "ogDescription": "How autonomous drones fly: perception latency limits, learned control that beat racing champions, swarm coordination, and delivery at scale.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Drones and Aerial Robotics",
         "ogImage": "https://robot-wiki.com/og/adjacent/drones.png",
         "twitterTitle": "Drones and Aerial Robotics",
-        "twitterDescription": "How autonomous drones fly: perception latency limits, learned control that beat racing champions, and swarm coordination.",
+        "twitterDescription": "How autonomous drones fly: perception latency limits, learned control that beat racing champions, swarm coordination, and delivery at scale.",
         "canonical": "https://robot-wiki.com/adjacent/drones/"
       },
       "repositoryHref": "https://github.com/josefchen",
@@ -9955,14 +9955,14 @@
       "symbolNodesInLockups": [],
       "metadata": {
         "title": "Surgical Robotics: Systems, Safety and Autonomy | Robot Wiki",
-        "description": "Surgical robotics from da Vinci 5 to CMR and Moon Surgical: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.",
+        "description": "Surgical robotics from da Vinci 5 to Hugo and OTTAVA: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Surgical Robotics",
-        "ogDescription": "Surgical robotics from da Vinci 5 to CMR and Moon Surgical: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.",
+        "ogDescription": "Surgical robotics from da Vinci 5 to Hugo and OTTAVA: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Surgical Robotics",
         "ogImage": "https://robot-wiki.com/og/adjacent/surgical.png",
         "twitterTitle": "Surgical Robotics",
-        "twitterDescription": "Surgical robotics from da Vinci 5 to CMR and Moon Surgical: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.",
+        "twitterDescription": "Surgical robotics from da Vinci 5 to Hugo and OTTAVA: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.",
         "canonical": "https://robot-wiki.com/adjacent/surgical/"
       },
       "repositoryHref": "https://github.com/josefchen",
@@ -11147,7 +11147,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22849,
+      "visibleTextLength": 22782,
       "route": "/classical/state-estimation/",
       "viewport": "375x812"
     },
@@ -11265,7 +11265,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 54695,
+      "visibleTextLength": 57559,
       "route": "/credits/",
       "viewport": "375x812"
     },
@@ -11501,7 +11501,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20302,
+      "visibleTextLength": 20775,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "375x812"
     },
@@ -11619,7 +11619,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21080,
+      "visibleTextLength": 21498,
       "route": "/data-hardware/datasets/",
       "viewport": "375x812"
     },
@@ -11737,7 +11737,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20988,
+      "visibleTextLength": 21395,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "375x812"
     },
@@ -11855,7 +11855,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26805,
+      "visibleTextLength": 27270,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "375x812"
     },
@@ -11973,7 +11973,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24170,
+      "visibleTextLength": 24635,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "375x812"
     },
@@ -12091,7 +12091,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17677,
+      "visibleTextLength": 18154,
       "route": "/data-hardware/robot-learning-stack/",
       "viewport": "375x812"
     },
@@ -12209,7 +12209,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18122,
+      "visibleTextLength": 18613,
       "route": "/data-hardware/teleop-rigs/",
       "viewport": "375x812"
     },
@@ -13035,7 +13035,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16635,
+      "visibleTextLength": 16537,
       "route": "/frontier/reliability-gap/",
       "viewport": "375x812"
     },
@@ -13153,7 +13153,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26807,
+      "visibleTextLength": 26806,
       "route": "/frontier/safety-and-assurance/",
       "viewport": "375x812"
     },
@@ -15159,7 +15159,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15096,
+      "visibleTextLength": 15002,
       "route": "/manipulation/robot-learning-roadmap/",
       "viewport": "375x812"
     },
@@ -15985,7 +15985,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19819,
+      "visibleTextLength": 19809,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "375x812"
     },

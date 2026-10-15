@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "a9398d5be474ae2a4c3dbf0bfbb11a1e6bd089923014b2731c32adda74e26b99",
+  "fingerprint": "6afa3774e0b8e73cf464dfebf9a3b4ec2676287304d885959767ccbdab5e959e",
   "viewports": [
     "375x812",
     "1440x900"
@@ -20,7 +20,13 @@
     "/classical/scene-representation/",
     "/classical/state-estimation/",
     "/credits/",
+    "/data-hardware/data-bottleneck/",
+    "/data-hardware/datasets/",
+    "/data-hardware/evaluation-crisis/",
     "/data-hardware/hardware-taxonomy/",
+    "/data-hardware/industrial-deployment/",
+    "/data-hardware/robot-learning-stack/",
+    "/data-hardware/teleop-rigs/",
     "/frontier/bear-case/",
     "/frontier/competing-theses/",
     "/frontier/dexterity/",
@@ -1389,7 +1395,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22849,
+      "visibleTextLength": 22782,
       "figures": [
         {
           "imageId": "apollo-imu-draper-2019",
@@ -1482,7 +1488,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 54695,
+      "visibleTextLength": 57559,
       "figures": [
         {
           "imageId": "atlas-darpa-frontview-2013",
@@ -3003,7 +3009,7 @@
           "renderedWidth": 286,
           "renderedHeight": 276.41,
           "overflowPx": 0,
-          "caption": "Every stage of the curriculum meets real robot data like DROID's: 76k trajectories from 13 institutions, recorded with one Franka setup in kitchens, bedrooms, offices and other real buildings. Example frames grouped into the dataset's 9 scene types.",
+          "caption": "Frames from DROID grouped into its 9 scene types. The same Franka setup recorded every trajectory, in kitchens, bedrooms, offices and other real buildings.",
           "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
           "captionContrast": 5.11,
           "credit": "Paper figure: Alexander Khazatsky et al. / arXiv. Licence: CC BY 4.0.",
@@ -6377,6 +6383,468 @@
             {
               "href": "https://creativecommons.org/licenses/by-sa/4.0",
               "text": "CC BY-SA 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "umi-test-environments-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/umi-test-environments-2024.jpg",
+          "alt": "Eight round fisheye views from a gripper's camera, each a different office or meeting-room table with a mug or bottle in front of the gripper's purple and white jaws.",
+          "declaredWidth": "2000",
+          "declaredHeight": "900",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 900,
+          "complete": true,
+          "renderedWidth": 293,
+          "renderedHeight": 132.94,
+          "overflowPx": 0,
+          "caption": "The eight test environments in Lin and colleagues' data-scaling study, seen through the gripper's fisheye camera. None was in the training data, and every task was tested in all eight.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Fanqi Lin et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2410.18647",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "bridgedata-v2-sink-tasks-2023",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/bridgedata-v2-sink-tasks-2023.jpg",
+          "alt": "Seven labelled camera frames from BridgeData V2 demonstrations in a toy kitchen sink, such as Put Carrot on Plate and Put Eggplant into Pot, each with a WidowX robot's black gripper above the toy objects.",
+          "declaredWidth": "2000",
+          "declaredHeight": "839",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 839,
+          "complete": true,
+          "renderedWidth": 293,
+          "renderedHeight": 124.06,
+          "overflowPx": 0,
+          "caption": "Seven BridgeData V2 tasks in one toy-sink scene, such as putting a carrot on a plate, each recorded on a WidowX 250.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Moo Jin Kim et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2406.09246",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "libero-benchmark-overview-2023",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/libero-benchmark-overview-2023.jpg",
+          "alt": "The LIBERO overview: rendered scenes of a simulated robot arm at kitchen tables in four suites labelled LIBERO-Spatial, LIBERO-Object, LIBERO-Goal and LIBERO-100 around a procedural-generation step, above five research questions such as distribution shift and task ordering.",
+          "declaredWidth": "2000",
+          "declaredHeight": "1091",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 1091,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 156.92,
+          "overflowPx": 0,
+          "caption": "LIBERO's simulated task suites. LIBERO-Spatial changes only the layout, LIBERO-Object only the objects and LIBERO-Goal only the goal, and LIBERO-100 holds 100 more varied tasks.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Bo Liu et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2306.03310",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "nist-dexterous-manipulation-testbed-2013",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/nist-dexterous-manipulation-testbed-2013.jpg",
+          "alt": "An orange robot arm with grey joints holds a cast-metal part in a three-fingered robotic hand, against a plain grey backdrop.",
+          "declaredWidth": "1920",
+          "declaredHeight": "1258",
+          "loading": "lazy",
+          "naturalWidth": 1920,
+          "naturalHeight": 1258,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 190.66,
+          "overflowPx": 0,
+          "caption": "A seven-DoF arm and a three-fingered hand on NIST's Dexterous Manipulation Testbed in 2013, used to measure manipulation for manufacturing tasks.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: National Institute of Standards and Technology / Wikimedia Commons. Licence: Public domain.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:NIST_Dexterous_Manipulation_Testbed_(9502902636).jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://commons.wikimedia.org/wiki/Template:PD-USGov-NIST",
+              "text": "Public domain"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "bmw-leipzig-body-shop-spot-welding-2005",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+          "alt": "Orange KUKA industrial robot arms with welding guns surround a bare metal car body shell on a body-shop line at the BMW plant in Leipzig, with more robots in the hall behind.",
+          "declaredWidth": "1840",
+          "declaredHeight": "1228",
+          "loading": "lazy",
+          "naturalWidth": 1840,
+          "naturalHeight": 1228,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 190.66,
+          "overflowPx": 0,
+          "caption": "KUKA robots spot-welding BMW 3 Series bodies at the Leipzig plant in 2005. Fixed cells repeating one motion like this make up most of the installed base.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: BMW Werk Leipzig / Wikimedia Commons. Licence: CC BY-SA 2.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:BMW_Leipzig_MEDIA_050719_Download_Karosseriebau_max.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by-sa/2.0/de/",
+              "text": "CC BY-SA 2.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "ocado-warehouse-grid-bots-2017",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/ocado-warehouse-grid-bots-2017.jpg",
+          "alt": "Boxy white robots with blue tops run on the rails of an aluminium storage grid that fills an Ocado warehouse hall; one robot on the left is blurred by motion.",
+          "declaredWidth": "1920",
+          "declaredHeight": "1321",
+          "loading": "lazy",
+          "naturalWidth": 1920,
+          "naturalHeight": 1321,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 190.66,
+          "overflowPx": 0,
+          "caption": "Bots on the storage grid of an Ocado warehouse in 2017. They run on top of the grid and fetch bins from the stacks inside it.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: Techwords / Wikimedia Commons. Licence: CC BY-SA 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Ocado_warehouse_bots.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by-sa/4.0",
+              "text": "CC BY-SA 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "kuka-bread-palletizing-bakery-2005",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/kuka-bread-palletizing-bakery-2005.jpg",
+          "alt": "Orange KUKA robot arms inside a wire-mesh safety fence lift yellow crates of bread from a roller conveyor and stack them in tall piles, in a bakery hall.",
+          "declaredWidth": "1600",
+          "declaredHeight": "1200",
+          "loading": "lazy",
+          "naturalWidth": 1600,
+          "naturalHeight": 1200,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 190.66,
+          "overflowPx": 0,
+          "caption": "KUKA robots palletising bread crates at a German bakery in 2005. The grippers, conveyors and safety fence around them are part of the cell's cost.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: KUKA Roboter GmbH / Wikimedia Commons. Licence: Public domain.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Factory_Automation_Robotics_Palettizing_Bread.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://commons.wikimedia.org/wiki/Template:PD-author",
+              "text": "Public domain"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "openvla-overview-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/openvla-overview-2024.jpg",
+          "alt": "The OpenVLA overview figure: a montage labelled 970k Robot Episodes feeds a vision-language-action model built on Llama 2 7B, above photos of three robots it controls, a WidowX at a toy sink, a mobile robot by an apple and a banana, and a Franka with a dustpan.",
+          "declaredWidth": "2000",
+          "declaredHeight": "1029",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 1029,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 148.11,
+          "overflowPx": 0,
+          "caption": "OpenVLA's overview traces one path through the stack: 970k robot episodes, a 7B vision-language-action model and closed-loop control of several robots.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Moo Jin Kim et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2406.09246",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "droid-camera-calibration-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/droid-camera-calibration-2024.jpg",
+          "alt": "A grid of DROID camera frames from different scenes, each with a purple mask of the robot arm rendered over the real arm in the image.",
+          "declaredWidth": "2000",
+          "declaredHeight": "1124",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 1124,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 161.59,
+          "overflowPx": 0,
+          "caption": "DROID frames with the robot's mesh rendered from the estimated camera-to-base transform. Where the mask covers the real arm, the calibration holds; a moved camera shows as a mask that misses.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Alexander Khazatsky et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2403.12945",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "inl-hot-cell-manipulators-2006",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/inl-hot-cell-manipulators-2006.jpg",
+          "alt": "Seen from behind, a researcher holds the handle of a master-slave manipulator below a thick leaded-glass hot-cell window lit yellow from inside.",
+          "declaredWidth": "1280",
+          "declaredHeight": "1920",
+          "loading": "lazy",
+          "naturalWidth": 1280,
+          "naturalHeight": 1920,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 190.66,
+          "overflowPx": 0,
+          "caption": "A researcher at Idaho National Laboratory in 2006 works radioactive material through a leaded-glass window, a handle outside driving tongs inside. ALOHA's leader arm uses the same principle.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: Idaho National Laboratory / Wikimedia Commons. Licence: CC BY 2.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Remote_manipulators_002.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/2.0",
+              "text": "CC BY 2.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "umi-handheld-grippers-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/umi-handheld-grippers-2024.jpg",
+          "alt": "Four UMI handheld grippers in a row on a white background, each a white 3D-printed body with purple parallel jaws and a black GoPro camera mounted on top.",
+          "declaredWidth": "1886",
+          "declaredHeight": "1061",
+          "loading": "lazy",
+          "naturalWidth": 1886,
+          "naturalHeight": 1061,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 161.77,
+          "overflowPx": 0,
+          "caption": "The four UMI handheld grippers used in Lin and colleagues' data-scaling study. A Franka arm with matching purple fingers and a wrist GoPro ran the trained policies.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Fanqi Lin et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2410.18647",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
             }
           ],
           "surfaceId": null,
@@ -11059,8 +11527,329 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 26805,
+      "visibleTextLength": 20775,
       "figures": [
+        {
+          "imageId": "droid-in-the-wild-scenes-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/droid-in-the-wild-scenes-2024.jpg",
+          "alt": "A grid of robot camera frames grouped by scene type, showing the same Franka arm working in kitchens, bedrooms, bathrooms, offices, laundry rooms and other real buildings.",
+          "declaredWidth": "1600",
+          "declaredHeight": "1546",
+          "loading": "lazy",
+          "naturalWidth": 1600,
+          "naturalHeight": 1546,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 276.41,
+          "overflowPx": 0,
+          "caption": "Frames from DROID grouped into its 9 scene types. The same Franka setup recorded every trajectory, in kitchens, bedrooms, offices and other real buildings.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Alexander Khazatsky et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2403.12945",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "umi-test-environments-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/umi-test-environments-2024.jpg",
+          "alt": "Eight round fisheye views from a gripper's camera, each a different office or meeting-room table with a mug or bottle in front of the gripper's purple and white jaws.",
+          "declaredWidth": "2000",
+          "declaredHeight": "900",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 900,
+          "complete": true,
+          "renderedWidth": 293,
+          "renderedHeight": 132.94,
+          "overflowPx": 0,
+          "caption": "The eight test environments in Lin and colleagues' data-scaling study, seen through the gripper's fisheye camera. None was in the training data, and every task was tested in all eight.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Fanqi Lin et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2410.18647",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/data-hardware/data-bottleneck/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "visibleTextLength": 21498,
+      "figures": [
+        {
+          "imageId": "open-x-embodiment-overview-2023",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/open-x-embodiment-overview-2023.jpg",
+          "alt": "An infographic framed by robot dataset thumbnails reading 1M episodes from 311 scenes, 34 research labs across 21 institutions, 22 embodiments, 527 skills and 60 datasets.",
+          "declaredWidth": "1600",
+          "declaredHeight": "490",
+          "loading": "lazy",
+          "naturalWidth": 1600,
+          "naturalHeight": 490,
+          "complete": true,
+          "renderedWidth": 293,
+          "renderedHeight": 91.11,
+          "overflowPx": 0,
+          "caption": "Open X-Embodiment pooled robot data into one training set: 1M episodes from 60 datasets, 22 embodiments and 527 skills, contributed by 34 labs at 21 institutions.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Open X-Embodiment Collaboration / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2310.08864",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "bridgedata-v2-sink-tasks-2023",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/bridgedata-v2-sink-tasks-2023.jpg",
+          "alt": "Seven labelled camera frames from BridgeData V2 demonstrations in a toy kitchen sink, such as Put Carrot on Plate and Put Eggplant into Pot, each with a WidowX robot's black gripper above the toy objects.",
+          "declaredWidth": "2000",
+          "declaredHeight": "839",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 839,
+          "complete": true,
+          "renderedWidth": 293,
+          "renderedHeight": 124.06,
+          "overflowPx": 0,
+          "caption": "Seven BridgeData V2 tasks in one toy-sink scene, such as putting a carrot on a plate, each recorded on a WidowX 250.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Moo Jin Kim et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2406.09246",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/data-hardware/datasets/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "visibleTextLength": 21395,
+      "figures": [
+        {
+          "imageId": "roboarena-evaluation-2025",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/roboarena-evaluation-2025.jpg",
+          "alt": "A diagram of RoboArena: a pool of generalist policies feeds a ring of photographed robot workstations, each running pairwise comparisons on its own task, which aggregate into a ranked score table.",
+          "declaredWidth": "1600",
+          "declaredHeight": "761",
+          "loading": "lazy",
+          "naturalWidth": 1600,
+          "naturalHeight": 761,
+          "complete": true,
+          "renderedWidth": 293,
+          "renderedHeight": 140.41,
+          "overflowPx": 0,
+          "caption": "RoboArena ranks policies from double-blind pairwise trials that many evaluators run on their own scenes and tasks. More than 600 real-robot episodes on the DROID platform ranked seven generalist policies.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Pranav Atreya et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2506.18123",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "libero-benchmark-overview-2023",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/libero-benchmark-overview-2023.jpg",
+          "alt": "The LIBERO overview: rendered scenes of a simulated robot arm at kitchen tables in four suites labelled LIBERO-Spatial, LIBERO-Object, LIBERO-Goal and LIBERO-100 around a procedural-generation step, above five research questions such as distribution shift and task ordering.",
+          "declaredWidth": "2000",
+          "declaredHeight": "1091",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 1091,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 156.92,
+          "overflowPx": 0,
+          "caption": "LIBERO's simulated task suites. LIBERO-Spatial changes only the layout, LIBERO-Object only the objects and LIBERO-Goal only the goal, and LIBERO-100 holds 100 more varied tasks.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Bo Liu et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2306.03310",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "visibleTextLength": 27270,
+      "figures": [
+        {
+          "imageId": "nist-dexterous-manipulation-testbed-2013",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/nist-dexterous-manipulation-testbed-2013.jpg",
+          "alt": "An orange robot arm with grey joints holds a cast-metal part in a three-fingered robotic hand, against a plain grey backdrop.",
+          "declaredWidth": "1920",
+          "declaredHeight": "1258",
+          "loading": "lazy",
+          "naturalWidth": 1920,
+          "naturalHeight": 1258,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 190.66,
+          "overflowPx": 0,
+          "caption": "A seven-DoF arm and a three-fingered hand on NIST's Dexterous Manipulation Testbed in 2013, used to measure manipulation for manufacturing tasks.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: National Institute of Standards and Technology / Wikimedia Commons. Licence: Public domain.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:NIST_Dexterous_Manipulation_Testbed_(9502902636).jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://commons.wikimedia.org/wiki/Template:PD-USGov-NIST",
+              "text": "Public domain"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
         {
           "imageId": "franka-emika-panda-cebit-2017",
           "index": 0,
@@ -11144,9 +11933,372 @@
           "label": null,
           "labelFontFamily": null,
           "labelContrast": null
+        },
+        {
+          "imageId": "jetson-agx-orin-auledas-2024",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/jetson-agx-orin-auledas-2024.jpg",
+          "alt": "An NVIDIA Jetson AGX Orin developer kit, a compact black and silver module with a heat sink, beside its retail box on a white background.",
+          "declaredWidth": "1920",
+          "declaredHeight": "1452",
+          "loading": "lazy",
+          "naturalWidth": 1920,
+          "naturalHeight": 1452,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 190.66,
+          "overflowPx": 0,
+          "caption": "On-robot compute such as the NVIDIA Jetson AGX Orin developer kit sets the hardware wall: a policy that fits a desktop GPU's budget can miss the control tick here.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: Auledas / Wikimedia Commons. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:NVidia_Jetson_Orin_AGX.png",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
         }
       ],
       "route": "/data-hardware/hardware-taxonomy/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "visibleTextLength": 24635,
+      "figures": [
+        {
+          "imageId": "bmw-leipzig-body-shop-spot-welding-2005",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+          "alt": "Orange KUKA industrial robot arms with welding guns surround a bare metal car body shell on a body-shop line at the BMW plant in Leipzig, with more robots in the hall behind.",
+          "declaredWidth": "1840",
+          "declaredHeight": "1228",
+          "loading": "lazy",
+          "naturalWidth": 1840,
+          "naturalHeight": 1228,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 190.66,
+          "overflowPx": 0,
+          "caption": "KUKA robots spot-welding BMW 3 Series bodies at the Leipzig plant in 2005. Fixed cells repeating one motion like this make up most of the installed base.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: BMW Werk Leipzig / Wikimedia Commons. Licence: CC BY-SA 2.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:BMW_Leipzig_MEDIA_050719_Download_Karosseriebau_max.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by-sa/2.0/de/",
+              "text": "CC BY-SA 2.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "ocado-warehouse-grid-bots-2017",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/ocado-warehouse-grid-bots-2017.jpg",
+          "alt": "Boxy white robots with blue tops run on the rails of an aluminium storage grid that fills an Ocado warehouse hall; one robot on the left is blurred by motion.",
+          "declaredWidth": "1920",
+          "declaredHeight": "1321",
+          "loading": "lazy",
+          "naturalWidth": 1920,
+          "naturalHeight": 1321,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 190.66,
+          "overflowPx": 0,
+          "caption": "Bots on the storage grid of an Ocado warehouse in 2017. They run on top of the grid and fetch bins from the stacks inside it.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: Techwords / Wikimedia Commons. Licence: CC BY-SA 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Ocado_warehouse_bots.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by-sa/4.0",
+              "text": "CC BY-SA 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "kuka-bread-palletizing-bakery-2005",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/kuka-bread-palletizing-bakery-2005.jpg",
+          "alt": "Orange KUKA robot arms inside a wire-mesh safety fence lift yellow crates of bread from a roller conveyor and stack them in tall piles, in a bakery hall.",
+          "declaredWidth": "1600",
+          "declaredHeight": "1200",
+          "loading": "lazy",
+          "naturalWidth": 1600,
+          "naturalHeight": 1200,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 190.66,
+          "overflowPx": 0,
+          "caption": "KUKA robots palletising bread crates at a German bakery in 2005. The grippers, conveyors and safety fence around them are part of the cell's cost.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: KUKA Roboter GmbH / Wikimedia Commons. Licence: Public domain.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Factory_Automation_Robotics_Palettizing_Bread.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://commons.wikimedia.org/wiki/Template:PD-author",
+              "text": "Public domain"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/data-hardware/industrial-deployment/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "visibleTextLength": 18154,
+      "figures": [
+        {
+          "imageId": "openvla-overview-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/openvla-overview-2024.jpg",
+          "alt": "The OpenVLA overview figure: a montage labelled 970k Robot Episodes feeds a vision-language-action model built on Llama 2 7B, above photos of three robots it controls, a WidowX at a toy sink, a mobile robot by an apple and a banana, and a Franka with a dustpan.",
+          "declaredWidth": "2000",
+          "declaredHeight": "1029",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 1029,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 148.11,
+          "overflowPx": 0,
+          "caption": "OpenVLA's overview traces one path through the stack: 970k robot episodes, a 7B vision-language-action model and closed-loop control of several robots.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Moo Jin Kim et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2406.09246",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "droid-camera-calibration-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/droid-camera-calibration-2024.jpg",
+          "alt": "A grid of DROID camera frames from different scenes, each with a purple mask of the robot arm rendered over the real arm in the image.",
+          "declaredWidth": "2000",
+          "declaredHeight": "1124",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 1124,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 161.59,
+          "overflowPx": 0,
+          "caption": "DROID frames with the robot's mesh rendered from the estimated camera-to-base transform. Where the mask covers the real arm, the calibration holds; a moved camera shows as a mask that misses.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Alexander Khazatsky et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2403.12945",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "visibleTextLength": 18613,
+      "figures": [
+        {
+          "imageId": "inl-hot-cell-manipulators-2006",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/inl-hot-cell-manipulators-2006.jpg",
+          "alt": "Seen from behind, a researcher holds the handle of a master-slave manipulator below a thick leaded-glass hot-cell window lit yellow from inside.",
+          "declaredWidth": "1280",
+          "declaredHeight": "1920",
+          "loading": "lazy",
+          "naturalWidth": 1280,
+          "naturalHeight": 1920,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 190.66,
+          "overflowPx": 0,
+          "caption": "A researcher at Idaho National Laboratory in 2006 works radioactive material through a leaded-glass window, a handle outside driving tongs inside. ALOHA's leader arm uses the same principle.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: Idaho National Laboratory / Wikimedia Commons. Licence: CC BY 2.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Remote_manipulators_002.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/2.0",
+              "text": "CC BY 2.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "umi-handheld-grippers-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/umi-handheld-grippers-2024.jpg",
+          "alt": "Four UMI handheld grippers in a row on a white background, each a white 3D-printed body with purple parallel jaws and a black GoPro camera mounted on top.",
+          "declaredWidth": "1886",
+          "declaredHeight": "1061",
+          "loading": "lazy",
+          "naturalWidth": 1886,
+          "naturalHeight": 1061,
+          "complete": true,
+          "renderedWidth": 286,
+          "renderedHeight": 161.77,
+          "overflowPx": 0,
+          "caption": "The four UMI handheld grippers used in Lin and colleagues' data-scaling study. A Franka arm with matching purple fingers and a wrist GoPro ran the trained policies.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Fanqi Lin et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2410.18647",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/data-hardware/teleop-rigs/",
       "viewport": "375x812"
     },
     {
@@ -11566,7 +12718,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16635,
+      "visibleTextLength": 16537,
       "figures": [
         {
           "imageId": "amazon-swindon-slam-line-2025",
@@ -11659,7 +12811,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 26807,
+      "visibleTextLength": 26806,
       "figures": [
         {
           "imageId": "robotic-welding-cell-guarding-2014",
@@ -13373,7 +14525,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 15096,
+      "visibleTextLength": 15002,
       "figures": [
         {
           "imageId": "droid-in-the-wild-scenes-2024",
@@ -13390,7 +14542,7 @@
           "renderedWidth": 286,
           "renderedHeight": 276.41,
           "overflowPx": 0,
-          "caption": "Every stage of the curriculum meets real robot data like DROID's: 76k trajectories from 13 institutions, recorded with one Franka setup in kitchens, bedrooms, offices and other real buildings. Example frames grouped into the dataset's 9 scene types.",
+          "caption": "Frames from DROID grouped into its 9 scene types. The same Franka setup recorded every trajectory, in kitchens, bedrooms, offices and other real buildings.",
           "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
           "captionContrast": 5.11,
           "credit": "Paper figure: Alexander Khazatsky et al. / arXiv. Licence: CC BY 4.0.",
@@ -13778,7 +14930,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 19819,
+      "visibleTextLength": 19809,
       "figures": [
         {
           "imageId": "spot-boston-dynamics-2023",
@@ -16751,7 +17903,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 30712,
+      "visibleTextLength": 30645,
       "figures": [
         {
           "imageId": "apollo-imu-draper-2019",
@@ -16844,7 +17996,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 54695,
+      "visibleTextLength": 57559,
       "figures": [
         {
           "imageId": "atlas-darpa-frontview-2013",
@@ -18365,7 +19517,7 @@
           "renderedWidth": 458,
           "renderedHeight": 442.61,
           "overflowPx": 0,
-          "caption": "Every stage of the curriculum meets real robot data like DROID's: 76k trajectories from 13 institutions, recorded with one Franka setup in kitchens, bedrooms, offices and other real buildings. Example frames grouped into the dataset's 9 scene types.",
+          "caption": "Frames from DROID grouped into its 9 scene types. The same Franka setup recorded every trajectory, in kitchens, bedrooms, offices and other real buildings.",
           "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
           "captionContrast": 5.11,
           "credit": "Paper figure: Alexander Khazatsky et al. / arXiv. Licence: CC BY 4.0.",
@@ -21739,6 +22891,468 @@
             {
               "href": "https://creativecommons.org/licenses/by-sa/4.0",
               "text": "CC BY-SA 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "umi-test-environments-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/umi-test-environments-2024.jpg",
+          "alt": "Eight round fisheye views from a gripper's camera, each a different office or meeting-room table with a mug or bottle in front of the gripper's purple and white jaws.",
+          "declaredWidth": "2000",
+          "declaredHeight": "900",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 900,
+          "complete": true,
+          "renderedWidth": 613,
+          "renderedHeight": 276.94,
+          "overflowPx": 0,
+          "caption": "The eight test environments in Lin and colleagues' data-scaling study, seen through the gripper's fisheye camera. None was in the training data, and every task was tested in all eight.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Fanqi Lin et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2410.18647",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "bridgedata-v2-sink-tasks-2023",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/bridgedata-v2-sink-tasks-2023.jpg",
+          "alt": "Seven labelled camera frames from BridgeData V2 demonstrations in a toy kitchen sink, such as Put Carrot on Plate and Put Eggplant into Pot, each with a WidowX robot's black gripper above the toy objects.",
+          "declaredWidth": "2000",
+          "declaredHeight": "839",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 839,
+          "complete": true,
+          "renderedWidth": 613,
+          "renderedHeight": 258.31,
+          "overflowPx": 0,
+          "caption": "Seven BridgeData V2 tasks in one toy-sink scene, such as putting a carrot on a plate, each recorded on a WidowX 250.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Moo Jin Kim et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2406.09246",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "libero-benchmark-overview-2023",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/libero-benchmark-overview-2023.jpg",
+          "alt": "The LIBERO overview: rendered scenes of a simulated robot arm at kitchen tables in four suites labelled LIBERO-Spatial, LIBERO-Object, LIBERO-Goal and LIBERO-100 around a procedural-generation step, above five research questions such as distribution shift and task ordering.",
+          "declaredWidth": "2000",
+          "declaredHeight": "1091",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 1091,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 250.73,
+          "overflowPx": 0,
+          "caption": "LIBERO's simulated task suites. LIBERO-Spatial changes only the layout, LIBERO-Object only the objects and LIBERO-Goal only the goal, and LIBERO-100 holds 100 more varied tasks.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Bo Liu et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2306.03310",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "nist-dexterous-manipulation-testbed-2013",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/nist-dexterous-manipulation-testbed-2013.jpg",
+          "alt": "An orange robot arm with grey joints holds a cast-metal part in a three-fingered robotic hand, against a plain grey backdrop.",
+          "declaredWidth": "1920",
+          "declaredHeight": "1258",
+          "loading": "lazy",
+          "naturalWidth": 1920,
+          "naturalHeight": 1258,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 305.33,
+          "overflowPx": 0,
+          "caption": "A seven-DoF arm and a three-fingered hand on NIST's Dexterous Manipulation Testbed in 2013, used to measure manipulation for manufacturing tasks.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: National Institute of Standards and Technology / Wikimedia Commons. Licence: Public domain.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:NIST_Dexterous_Manipulation_Testbed_(9502902636).jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://commons.wikimedia.org/wiki/Template:PD-USGov-NIST",
+              "text": "Public domain"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "bmw-leipzig-body-shop-spot-welding-2005",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+          "alt": "Orange KUKA industrial robot arms with welding guns surround a bare metal car body shell on a body-shop line at the BMW plant in Leipzig, with more robots in the hall behind.",
+          "declaredWidth": "1840",
+          "declaredHeight": "1228",
+          "loading": "lazy",
+          "naturalWidth": 1840,
+          "naturalHeight": 1228,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 305.33,
+          "overflowPx": 0,
+          "caption": "KUKA robots spot-welding BMW 3 Series bodies at the Leipzig plant in 2005. Fixed cells repeating one motion like this make up most of the installed base.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: BMW Werk Leipzig / Wikimedia Commons. Licence: CC BY-SA 2.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:BMW_Leipzig_MEDIA_050719_Download_Karosseriebau_max.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by-sa/2.0/de/",
+              "text": "CC BY-SA 2.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "ocado-warehouse-grid-bots-2017",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/ocado-warehouse-grid-bots-2017.jpg",
+          "alt": "Boxy white robots with blue tops run on the rails of an aluminium storage grid that fills an Ocado warehouse hall; one robot on the left is blurred by motion.",
+          "declaredWidth": "1920",
+          "declaredHeight": "1321",
+          "loading": "lazy",
+          "naturalWidth": 1920,
+          "naturalHeight": 1321,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 305.33,
+          "overflowPx": 0,
+          "caption": "Bots on the storage grid of an Ocado warehouse in 2017. They run on top of the grid and fetch bins from the stacks inside it.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: Techwords / Wikimedia Commons. Licence: CC BY-SA 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Ocado_warehouse_bots.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by-sa/4.0",
+              "text": "CC BY-SA 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "kuka-bread-palletizing-bakery-2005",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/kuka-bread-palletizing-bakery-2005.jpg",
+          "alt": "Orange KUKA robot arms inside a wire-mesh safety fence lift yellow crates of bread from a roller conveyor and stack them in tall piles, in a bakery hall.",
+          "declaredWidth": "1600",
+          "declaredHeight": "1200",
+          "loading": "lazy",
+          "naturalWidth": 1600,
+          "naturalHeight": 1200,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 305.33,
+          "overflowPx": 0,
+          "caption": "KUKA robots palletising bread crates at a German bakery in 2005. The grippers, conveyors and safety fence around them are part of the cell's cost.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: KUKA Roboter GmbH / Wikimedia Commons. Licence: Public domain.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Factory_Automation_Robotics_Palettizing_Bread.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://commons.wikimedia.org/wiki/Template:PD-author",
+              "text": "Public domain"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "openvla-overview-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/openvla-overview-2024.jpg",
+          "alt": "The OpenVLA overview figure: a montage labelled 970k Robot Episodes feeds a vision-language-action model built on Llama 2 7B, above photos of three robots it controls, a WidowX at a toy sink, a mobile robot by an apple and a banana, and a Franka with a dustpan.",
+          "declaredWidth": "2000",
+          "declaredHeight": "1029",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 1029,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 236.61,
+          "overflowPx": 0,
+          "caption": "OpenVLA's overview traces one path through the stack: 970k robot episodes, a 7B vision-language-action model and closed-loop control of several robots.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Moo Jin Kim et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2406.09246",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "droid-camera-calibration-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/droid-camera-calibration-2024.jpg",
+          "alt": "A grid of DROID camera frames from different scenes, each with a purple mask of the robot arm rendered over the real arm in the image.",
+          "declaredWidth": "2000",
+          "declaredHeight": "1124",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 1124,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 258.27,
+          "overflowPx": 0,
+          "caption": "DROID frames with the robot's mesh rendered from the estimated camera-to-base transform. Where the mask covers the real arm, the calibration holds; a moved camera shows as a mask that misses.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Alexander Khazatsky et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2403.12945",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "inl-hot-cell-manipulators-2006",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/inl-hot-cell-manipulators-2006.jpg",
+          "alt": "Seen from behind, a researcher holds the handle of a master-slave manipulator below a thick leaded-glass hot-cell window lit yellow from inside.",
+          "declaredWidth": "1280",
+          "declaredHeight": "1920",
+          "loading": "lazy",
+          "naturalWidth": 1280,
+          "naturalHeight": 1920,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 305.33,
+          "overflowPx": 0,
+          "caption": "A researcher at Idaho National Laboratory in 2006 works radioactive material through a leaded-glass window, a handle outside driving tongs inside. ALOHA's leader arm uses the same principle.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: Idaho National Laboratory / Wikimedia Commons. Licence: CC BY 2.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Remote_manipulators_002.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/2.0",
+              "text": "CC BY 2.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "umi-handheld-grippers-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/umi-handheld-grippers-2024.jpg",
+          "alt": "Four UMI handheld grippers in a row on a white background, each a white 3D-printed body with purple parallel jaws and a black GoPro camera mounted on top.",
+          "declaredWidth": "1886",
+          "declaredHeight": "1061",
+          "loading": "lazy",
+          "naturalWidth": 1886,
+          "naturalHeight": 1061,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 258.52,
+          "overflowPx": 0,
+          "caption": "The four UMI handheld grippers used in Lin and colleagues' data-scaling study. A Franka arm with matching purple fingers and a wrist GoPro ran the trained policies.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Fanqi Lin et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2410.18647",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
             }
           ],
           "surfaceId": null,
@@ -26421,8 +28035,329 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 33580,
+      "visibleTextLength": 27543,
       "figures": [
+        {
+          "imageId": "droid-in-the-wild-scenes-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/droid-in-the-wild-scenes-2024.jpg",
+          "alt": "A grid of robot camera frames grouped by scene type, showing the same Franka arm working in kitchens, bedrooms, bathrooms, offices, laundry rooms and other real buildings.",
+          "declaredWidth": "1600",
+          "declaredHeight": "1546",
+          "loading": "lazy",
+          "naturalWidth": 1600,
+          "naturalHeight": 1546,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 442.61,
+          "overflowPx": 0,
+          "caption": "Frames from DROID grouped into its 9 scene types. The same Franka setup recorded every trajectory, in kitchens, bedrooms, offices and other real buildings.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Alexander Khazatsky et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2403.12945",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "umi-test-environments-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/umi-test-environments-2024.jpg",
+          "alt": "Eight round fisheye views from a gripper's camera, each a different office or meeting-room table with a mug or bottle in front of the gripper's purple and white jaws.",
+          "declaredWidth": "2000",
+          "declaredHeight": "900",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 900,
+          "complete": true,
+          "renderedWidth": 875.63,
+          "renderedHeight": 395.13,
+          "overflowPx": 0,
+          "caption": "The eight test environments in Lin and colleagues' data-scaling study, seen through the gripper's fisheye camera. None was in the training data, and every task was tested in all eight.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Fanqi Lin et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2410.18647",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/data-hardware/data-bottleneck/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "visibleTextLength": 29057,
+      "figures": [
+        {
+          "imageId": "open-x-embodiment-overview-2023",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/open-x-embodiment-overview-2023.jpg",
+          "alt": "An infographic framed by robot dataset thumbnails reading 1M episodes from 311 scenes, 34 research labs across 21 institutions, 22 embodiments, 527 skills and 60 datasets.",
+          "declaredWidth": "1600",
+          "declaredHeight": "490",
+          "loading": "lazy",
+          "naturalWidth": 1600,
+          "naturalHeight": 490,
+          "complete": true,
+          "renderedWidth": 875.63,
+          "renderedHeight": 269.55,
+          "overflowPx": 0,
+          "caption": "Open X-Embodiment pooled robot data into one training set: 1M episodes from 60 datasets, 22 embodiments and 527 skills, contributed by 34 labs at 21 institutions.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Open X-Embodiment Collaboration / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2310.08864",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "bridgedata-v2-sink-tasks-2023",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/bridgedata-v2-sink-tasks-2023.jpg",
+          "alt": "Seven labelled camera frames from BridgeData V2 demonstrations in a toy kitchen sink, such as Put Carrot on Plate and Put Eggplant into Pot, each with a WidowX robot's black gripper above the toy objects.",
+          "declaredWidth": "2000",
+          "declaredHeight": "839",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 839,
+          "complete": true,
+          "renderedWidth": 875.63,
+          "renderedHeight": 368.48,
+          "overflowPx": 0,
+          "caption": "Seven BridgeData V2 tasks in one toy-sink scene, such as putting a carrot on a plate, each recorded on a WidowX 250.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Moo Jin Kim et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2406.09246",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/data-hardware/datasets/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "visibleTextLength": 28644,
+      "figures": [
+        {
+          "imageId": "roboarena-evaluation-2025",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/roboarena-evaluation-2025.jpg",
+          "alt": "A diagram of RoboArena: a pool of generalist policies feeds a ring of photographed robot workstations, each running pairwise comparisons on its own task, which aggregate into a ranked score table.",
+          "declaredWidth": "1600",
+          "declaredHeight": "761",
+          "loading": "lazy",
+          "naturalWidth": 1600,
+          "naturalHeight": 761,
+          "complete": true,
+          "renderedWidth": 875.63,
+          "renderedHeight": 417.52,
+          "overflowPx": 0,
+          "caption": "RoboArena ranks policies from double-blind pairwise trials that many evaluators run on their own scenes and tasks. More than 600 real-robot episodes on the DROID platform ranked seven generalist policies.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Pranav Atreya et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2506.18123",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "libero-benchmark-overview-2023",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/libero-benchmark-overview-2023.jpg",
+          "alt": "The LIBERO overview: rendered scenes of a simulated robot arm at kitchen tables in four suites labelled LIBERO-Spatial, LIBERO-Object, LIBERO-Goal and LIBERO-100 around a procedural-generation step, above five research questions such as distribution shift and task ordering.",
+          "declaredWidth": "2000",
+          "declaredHeight": "1091",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 1091,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 250.73,
+          "overflowPx": 0,
+          "caption": "LIBERO's simulated task suites. LIBERO-Spatial changes only the layout, LIBERO-Object only the objects and LIBERO-Goal only the goal, and LIBERO-100 holds 100 more varied tasks.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Bo Liu et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2306.03310",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "visibleTextLength": 34045,
+      "figures": [
+        {
+          "imageId": "nist-dexterous-manipulation-testbed-2013",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/nist-dexterous-manipulation-testbed-2013.jpg",
+          "alt": "An orange robot arm with grey joints holds a cast-metal part in a three-fingered robotic hand, against a plain grey backdrop.",
+          "declaredWidth": "1920",
+          "declaredHeight": "1258",
+          "loading": "lazy",
+          "naturalWidth": 1920,
+          "naturalHeight": 1258,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 305.33,
+          "overflowPx": 0,
+          "caption": "A seven-DoF arm and a three-fingered hand on NIST's Dexterous Manipulation Testbed in 2013, used to measure manipulation for manufacturing tasks.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: National Institute of Standards and Technology / Wikimedia Commons. Licence: Public domain.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:NIST_Dexterous_Manipulation_Testbed_(9502902636).jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://commons.wikimedia.org/wiki/Template:PD-USGov-NIST",
+              "text": "Public domain"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
         {
           "imageId": "franka-emika-panda-cebit-2017",
           "index": 0,
@@ -26506,9 +28441,372 @@
           "label": null,
           "labelFontFamily": null,
           "labelContrast": null
+        },
+        {
+          "imageId": "jetson-agx-orin-auledas-2024",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/jetson-agx-orin-auledas-2024.jpg",
+          "alt": "An NVIDIA Jetson AGX Orin developer kit, a compact black and silver module with a heat sink, beside its retail box on a white background.",
+          "declaredWidth": "1920",
+          "declaredHeight": "1452",
+          "loading": "lazy",
+          "naturalWidth": 1920,
+          "naturalHeight": 1452,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 305.33,
+          "overflowPx": 0,
+          "caption": "On-robot compute such as the NVIDIA Jetson AGX Orin developer kit sets the hardware wall: a policy that fits a desktop GPU's budget can miss the control tick here.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: Auledas / Wikimedia Commons. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:NVidia_Jetson_Orin_AGX.png",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
         }
       ],
       "route": "/data-hardware/hardware-taxonomy/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "visibleTextLength": 32051,
+      "figures": [
+        {
+          "imageId": "bmw-leipzig-body-shop-spot-welding-2005",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/bmw-leipzig-body-shop-spot-welding-2005.jpg",
+          "alt": "Orange KUKA industrial robot arms with welding guns surround a bare metal car body shell on a body-shop line at the BMW plant in Leipzig, with more robots in the hall behind.",
+          "declaredWidth": "1840",
+          "declaredHeight": "1228",
+          "loading": "lazy",
+          "naturalWidth": 1840,
+          "naturalHeight": 1228,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 305.33,
+          "overflowPx": 0,
+          "caption": "KUKA robots spot-welding BMW 3 Series bodies at the Leipzig plant in 2005. Fixed cells repeating one motion like this make up most of the installed base.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: BMW Werk Leipzig / Wikimedia Commons. Licence: CC BY-SA 2.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:BMW_Leipzig_MEDIA_050719_Download_Karosseriebau_max.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by-sa/2.0/de/",
+              "text": "CC BY-SA 2.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "ocado-warehouse-grid-bots-2017",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/ocado-warehouse-grid-bots-2017.jpg",
+          "alt": "Boxy white robots with blue tops run on the rails of an aluminium storage grid that fills an Ocado warehouse hall; one robot on the left is blurred by motion.",
+          "declaredWidth": "1920",
+          "declaredHeight": "1321",
+          "loading": "lazy",
+          "naturalWidth": 1920,
+          "naturalHeight": 1321,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 305.33,
+          "overflowPx": 0,
+          "caption": "Bots on the storage grid of an Ocado warehouse in 2017. They run on top of the grid and fetch bins from the stacks inside it.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: Techwords / Wikimedia Commons. Licence: CC BY-SA 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Ocado_warehouse_bots.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by-sa/4.0",
+              "text": "CC BY-SA 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "kuka-bread-palletizing-bakery-2005",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/kuka-bread-palletizing-bakery-2005.jpg",
+          "alt": "Orange KUKA robot arms inside a wire-mesh safety fence lift yellow crates of bread from a roller conveyor and stack them in tall piles, in a bakery hall.",
+          "declaredWidth": "1600",
+          "declaredHeight": "1200",
+          "loading": "lazy",
+          "naturalWidth": 1600,
+          "naturalHeight": 1200,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 305.33,
+          "overflowPx": 0,
+          "caption": "KUKA robots palletising bread crates at a German bakery in 2005. The grippers, conveyors and safety fence around them are part of the cell's cost.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: KUKA Roboter GmbH / Wikimedia Commons. Licence: Public domain.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Factory_Automation_Robotics_Palettizing_Bread.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://commons.wikimedia.org/wiki/Template:PD-author",
+              "text": "Public domain"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/data-hardware/industrial-deployment/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "visibleTextLength": 24258,
+      "figures": [
+        {
+          "imageId": "openvla-overview-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/openvla-overview-2024.jpg",
+          "alt": "The OpenVLA overview figure: a montage labelled 970k Robot Episodes feeds a vision-language-action model built on Llama 2 7B, above photos of three robots it controls, a WidowX at a toy sink, a mobile robot by an apple and a banana, and a Franka with a dustpan.",
+          "declaredWidth": "2000",
+          "declaredHeight": "1029",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 1029,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 236.61,
+          "overflowPx": 0,
+          "caption": "OpenVLA's overview traces one path through the stack: 970k robot episodes, a 7B vision-language-action model and closed-loop control of several robots.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Moo Jin Kim et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2406.09246",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "droid-camera-calibration-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/droid-camera-calibration-2024.jpg",
+          "alt": "A grid of DROID camera frames from different scenes, each with a purple mask of the robot arm rendered over the real arm in the image.",
+          "declaredWidth": "2000",
+          "declaredHeight": "1124",
+          "loading": "lazy",
+          "naturalWidth": 2000,
+          "naturalHeight": 1124,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 258.27,
+          "overflowPx": 0,
+          "caption": "DROID frames with the robot's mesh rendered from the estimated camera-to-base transform. Where the mask covers the real arm, the calibration holds; a moved camera shows as a mask that misses.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Alexander Khazatsky et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2403.12945",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewport": "1440x900"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "visibleTextLength": 24013,
+      "figures": [
+        {
+          "imageId": "inl-hot-cell-manipulators-2006",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/inl-hot-cell-manipulators-2006.jpg",
+          "alt": "Seen from behind, a researcher holds the handle of a master-slave manipulator below a thick leaded-glass hot-cell window lit yellow from inside.",
+          "declaredWidth": "1280",
+          "declaredHeight": "1920",
+          "loading": "lazy",
+          "naturalWidth": 1280,
+          "naturalHeight": 1920,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 305.33,
+          "overflowPx": 0,
+          "caption": "A researcher at Idaho National Laboratory in 2006 works radioactive material through a leaded-glass window, a handle outside driving tongs inside. ALOHA's leader arm uses the same principle.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Photo: Idaho National Laboratory / Wikimedia Commons. Licence: CC BY 2.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Remote_manipulators_002.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/2.0",
+              "text": "CC BY 2.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        },
+        {
+          "imageId": "umi-handheld-grippers-2024",
+          "index": 0,
+          "figureKind": "paper-figure",
+          "src": "/images/umi-handheld-grippers-2024.jpg",
+          "alt": "Four UMI handheld grippers in a row on a white background, each a white 3D-printed body with purple parallel jaws and a black GoPro camera mounted on top.",
+          "declaredWidth": "1886",
+          "declaredHeight": "1061",
+          "loading": "lazy",
+          "naturalWidth": 1886,
+          "naturalHeight": 1061,
+          "complete": true,
+          "renderedWidth": 458,
+          "renderedHeight": 258.52,
+          "overflowPx": 0,
+          "caption": "The four UMI handheld grippers used in Lin and colleagues' data-scaling study. A Franka arm with matching purple fingers and a wrist GoPro ran the trained policies.",
+          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "captionContrast": 5.11,
+          "credit": "Paper figure: Fanqi Lin et al. / arXiv. Licence: CC BY 4.0.",
+          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
+          "creditContrast": 5.11,
+          "creditLinks": [
+            {
+              "href": "https://arxiv.org/abs/2410.18647",
+              "text": "arXiv"
+            },
+            {
+              "href": "https://creativecommons.org/licenses/by/4.0",
+              "text": "CC BY 4.0"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/data-hardware/teleop-rigs/",
       "viewport": "1440x900"
     },
     {
@@ -26928,7 +29226,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21381,
+      "visibleTextLength": 21283,
       "figures": [
         {
           "imageId": "amazon-swindon-slam-line-2025",
@@ -27021,7 +29319,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 37821,
+      "visibleTextLength": 37820,
       "figures": [
         {
           "imageId": "robotic-welding-cell-guarding-2014",
@@ -28735,7 +31033,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 20116,
+      "visibleTextLength": 20022,
       "figures": [
         {
           "imageId": "droid-in-the-wild-scenes-2024",
@@ -28752,7 +31050,7 @@
           "renderedWidth": 458,
           "renderedHeight": 442.61,
           "overflowPx": 0,
-          "caption": "Every stage of the curriculum meets real robot data like DROID's: 76k trajectories from 13 institutions, recorded with one Franka setup in kitchens, bedrooms, offices and other real buildings. Example frames grouped into the dataset's 9 scene types.",
+          "caption": "Frames from DROID grouped into its 9 scene types. The same Franka setup recorded every trajectory, in kitchens, bedrooms, offices and other real buildings.",
           "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
           "captionContrast": 5.11,
           "credit": "Paper figure: Alexander Khazatsky et al. / arXiv. Licence: CC BY 4.0.",
@@ -29140,7 +31438,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 25108,
+      "visibleTextLength": 25098,
       "figures": [
         {
           "imageId": "spot-boston-dynamics-2023",

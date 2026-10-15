@@ -530,14 +530,14 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Autonomous Drone Flight, Racing and Swarms',
     headTerm: 'autonomous drone',
     description:
-      'How autonomous drones fly: perception latency limits, learned control that beat racing champions, and swarm coordination.',
+      'How autonomous drones fly: perception latency limits, learned control that beat racing champions, swarm coordination, and delivery at scale.',
     queries: ['autonomous drones', 'how autonomous drones fly', 'AI drone racing'],
   },
   '/adjacent/surgical/': {
     title: 'Surgical Robotics: Systems, Safety and Autonomy',
     headTerm: 'surgical robotics',
     description:
-      'Surgical robotics from da Vinci 5 to CMR and Moon Surgical: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.',
+      'Surgical robotics from da Vinci 5 to Hugo and OTTAVA: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.',
     queries: ['surgical robotics', 'surgical robots', 'robotic surgery systems', 'autonomous surgery'],
   },
   '/adjacent/space/': {

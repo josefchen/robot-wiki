@@ -236,6 +236,17 @@ function throughSeoPass(path: string) {
     expect(continues(images, end)).toBe(true);
     end = images.newHash;
   }
+  // The data-hardware images of 2026-10-15 landed after the data-hardware cut
+  // and the adjacent images of bundle B;
+  // their one edge on a data-hardware article that gained image mounts
+  // continues the previous endpoint the same way.
+  const dataHardwareImageEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('images-dh-20261015-'));
+  expect(dataHardwareImageEdges.length).toBeLessThanOrEqual(1);
+  for (const images of dataHardwareImageEdges) {
+    expect(continues(images, end)).toBe(true);
+    end = images.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 

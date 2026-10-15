@@ -4,8 +4,8 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
-  DOMAIN_PASS_CONTINUITY_DIR, DROPPED_FOR_PRIMARIES, domainPassCheckerPredecessor, domainPassPredecessor,
-  domainPassSuccessorPaths, keepsDomainPassObligations, loadDomainPassCheckerReview, loadDomainPassReview,
+  DOMAIN_PASS_CONTINUITY_DIR, DROPPED_FOR_PRIMARIES, correctedSource, domainPassCheckerPredecessor, domainPassPredecessor,
+  domainPassSuccessorPaths, keepsDomainPassObligations, keepsRedoneSource, loadDomainPassCheckerReview, loadDomainPassReview,
   verifyDomainPassSource,
 } from '../../lib/audit-domain-pass-continuity';
 import { parallelLocalCheckerPredecessor } from '../../lib/audit-parallel-local-continuity';
@@ -156,8 +156,11 @@ describe('domain pass 2026-10-06 article successors', () => {
       expect(keepsDomainPassObligations(path, prior, `${live}\n`)).toBe(false);
       expect(keepsDomainPassObligations(path, live, prior)).toBe(false);
     }
-    const chart = read(correctedSources[0]).toString();
-    expect(chart).toContain('const PAD = { top: 30, right: 14, bottom: 46, left: 58 };');
+    // The chart's corrected file carries the PAD fix; the live file is the marble-run redo of it.
+    const chartPath = correctedSources[0];
+    const chartSource = review.sources.find(({ after }) => after.path === chartPath)!;
+    const chartPrior = domainPassPredecessor(root, chartSource.before, read(chartPath)).toString();
+    expect(correctedSource(chartPath, chartPrior)).toContain('const PAD = { top: 30, right: 14, bottom: 46, left: 58 };');
     expect(read(correctedSources[1]).toString()).not.toContain('not a contradiction but');
   });
 
@@ -166,15 +169,48 @@ describe('domain pass 2026-10-06 article successors', () => {
     const source = review.sources.find(({ after }) => after.path === path)!;
     const live = read(path).toString();
     const prior = domainPassPredecessor(root, source.before, read(path)).toString();
-    // The job-length slider leaves the main view only on a mount with a preset set.
-    expect(live).toContain('          {presetSet ? null : stepsField}\n');
-    expect(live).toContain('          {presetSet ? stepsField : null}\n          <InstrumentReset onClick={reset} />\n');
+    const corrected = correctedSource(path, prior)!;
+    // The job-length slider leaves the main view only on a mount with a preset set, in the corrected file and in its redo.
+    for (const text of [corrected, live]) {
+      expect(text).toContain('          {presetSet ? null : stepsField}\n');
+      expect(text).toContain('          {presetSet ? stepsField : null}\n          <InstrumentReset onClick={reset} />\n');
+    }
     // Keeping the slider in the main view on the reliability-gap mount, or
     // leaving the PAD fix out, is a different file.
-    const keptInMainView = live.replace('{presetSet ? null : stepsField}', '{stepsField}');
+    const keptInMainView = corrected.replace('{presetSet ? null : stepsField}', '{stepsField}');
     expect(keepsDomainPassObligations(path, prior, keptInMainView)).toBe(false);
-    const unpadded = live.replace('bottom: 46, left: 58 }', 'bottom: 46, left: 44 }');
+    const unpadded = corrected.replace('bottom: 46, left: 58 }', 'bottom: 46, left: 44 }');
+    expect(unpadded).not.toEqual(corrected);
     expect(keepsDomainPassObligations(path, prior, unpadded)).toBe(false);
+    expect(keepsDomainPassObligations(path, prior, live.replace('{presetSet ? null : stepsField}', '{stepsField}'))).toBe(false);
+  });
+
+  it('admits the marble-run redo of the reliability chart only over its corrected file, keeping its named passages and recorded bytes', () => {
+    const path = correctedSources[0];
+    const source = review.sources.find(({ after }) => after.path === path)!;
+    const live = read(path).toString();
+    const prior = domainPassPredecessor(root, source.before, read(path)).toString();
+    const corrected = correctedSource(path, prior)!;
+    expect(live).toContain("from '@/components/iso/figures/marble-run'");
+    expect(corrected).not.toContain('marble-run');
+    expect(keepsRedoneSource(path, corrected, live)).toBe(true);
+    expect(keepsDomainPassObligations(path, prior, live)).toBe(true);
+    // Any other bytes, a changed headline, caption, prop, takeaway or slider, are refused.
+    expect(keepsRedoneSource(path, corrected, `${live}\n`)).toBe(false);
+    for (const [from, to] of [
+      ["evaluation: 'At 95% per step, half of 14-step jobs fail',", "evaluation: 'At 95% per step, most 14-step jobs fail',"],
+      ["  home: 'Even a robot that rarely slips", "  home: 'Even a robot that seldom slips"],
+      ['defaultSteps?: number;', 'defaultSteps?: number | undefined;'],
+      ['reports ${successPct} episode success after', 'shows ${successPct} episode success after'],
+      ['min={1}', 'min={2}'],
+    ] as const) {
+      expect(live.split(from).length, from).toBe(2);
+      expect(keepsRedoneSource(path, corrected, live.replace(from, to)), from).toBe(false);
+    }
+    // Over the uncorrected file, on another path, or as the corrected file itself, it is no redo.
+    expect(keepsRedoneSource(path, prior, live)).toBe(false);
+    expect(keepsRedoneSource(correctedSources[1], corrected, live)).toBe(false);
+    expect(keepsRedoneSource(path, corrected, corrected)).toBe(false);
   });
 
   it('exempts only the listed secondary ids on their own articles, for the owner sweep reason', () => {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "1f3cd74f57bdcd9348f713c34bb85184c801cfde57bd972211504c342e73eac2",
+  "fingerprint": "975992736ac27a528c6cb51186abed779b65d448625485393d409b2a30af1cc6",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3018,
+      "visibleTextLength": 3021,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11702,7 +11702,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22849,
+      "visibleTextLength": 22782,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11754,11 +11754,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 13,
+        "readingMinutes": 12,
         "citationCount": 39,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "13 min read",
+        "readingTimeText": "12 min read",
         "citationCountText": "39 sources",
         "bibliographyIds": [
           "kalman-1960-filter",
@@ -11830,10 +11830,10 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 0,
+          "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "beat 5 / 5"
+          "text": "beat 5 / 5 Jaws either side: guess 1.27 · reading 1.00 · ble"
         },
         {
           "familyHead": "geist",
@@ -11869,7 +11869,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The bells are step 41 of the seeded constant-velocity filter"
+          "text": "The drawing is an estimating rail. The cart tows the guess’s"
         },
         {
           "familyHead": "geist",
@@ -12527,7 +12527,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 54695,
+      "visibleTextLength": 57559,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12863,7 +12863,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 20302,
+      "visibleTextLength": 20775,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12915,11 +12915,11 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "gpt3-2020",
@@ -13448,7 +13448,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -13458,7 +13458,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -13774,7 +13774,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21080,
+      "visibleTextLength": 21498,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14343,14 +14343,24 @@
         },
         {
           "kind": "external",
-          "count": 7,
+          "count": 11,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
-          "familyHead": "geist mono",
+          "familyHead": "geist",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 5,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist mono|inline border:0px/solid radius:0px",
               "count": 6,
@@ -14359,16 +14369,6 @@
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
               "familyHead": "geist mono",
-              "shape": "inline border:0px/solid radius:0px"
-            },
-            {
-              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
-              "colour": "rgb(28, 28, 26)",
-              "decorationLine": "underline",
-              "decorationStyle": "solid",
-              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
-              "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -14765,7 +14765,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20988,
+      "visibleTextLength": 21395,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14907,15 +14907,6 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "At 95.0% per step, a 14-step job goes right 48.8% of the tim"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
-          "widthPx": 293,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
           "text": "Illustrative: a simple model, not a measured robot."
         },
         {
@@ -14934,7 +14925,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The tiles round the same number to whole jobs out of 100. Wo"
+          "text": "The drawing is a marble run of 100 trapdoor gates, ten to a "
         },
         {
           "familyHead": "geist",
@@ -15328,14 +15319,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -15412,6 +15414,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Roll the marbles",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -15595,7 +15605,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26805,
+      "visibleTextLength": 27270,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16111,14 +16121,24 @@
         },
         {
           "kind": "external",
-          "count": 45,
+          "count": 49,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
-          "familyHead": "geist mono",
+          "familyHead": "geist",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 8,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist mono|inline border:0px/solid radius:0px",
               "count": 41,
@@ -16127,16 +16147,6 @@
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
               "familyHead": "geist mono",
-              "shape": "inline border:0px/solid radius:0px"
-            },
-            {
-              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
-              "colour": "rgb(28, 28, 26)",
-              "decorationLine": "underline",
-              "decorationStyle": "solid",
-              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
-              "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -16485,7 +16495,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24170,
+      "visibleTextLength": 24635,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16617,15 +16627,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Drag the time to fix each jam and watch the payback change."
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
-          "widthPx": 171,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "Pays for itself in 11.6 months"
         },
         {
           "familyHead": "geist",
@@ -17226,14 +17227,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -17419,7 +17431,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17677,
+      "visibleTextLength": 18154,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18023,14 +18035,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -18296,7 +18319,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18122,
+      "visibleTextLength": 18613,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18780,14 +18803,24 @@
         },
         {
           "kind": "external",
-          "count": 9,
+          "count": 13,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
-          "familyHead": "geist mono",
+          "familyHead": "geist",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist mono|inline border:0px/solid radius:0px",
               "count": 9,
@@ -23272,7 +23305,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16635,
+      "visibleTextLength": 16537,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -23324,11 +23357,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 7,
+        "readingMinutes": 6,
         "citationCount": 31,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "6 min read",
         "citationCountText": "31 sources",
         "bibliographyIds": [
           "bessemer-robotics-2026",
@@ -23404,15 +23437,6 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "At 95.0% per step, a 30-step job goes right 21.5% of the tim"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
-          "widthPx": 293,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
           "text": "Illustrative: a simple model, not a measured robot."
         },
         {
@@ -23431,7 +23455,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The tiles round the same number to whole jobs out of 100. Wo"
+          "text": "The drawing is a marble run of 100 trapdoor gates, ten to a "
         },
         {
           "familyHead": "geist",
@@ -23894,6 +23918,14 @@
           "controlId": "control:selection"
         },
         {
+          "tag": "button",
+          "text": "Roll the marbles",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "summary",
           "text": "Adjust more",
           "familyHead": "geist",
@@ -24067,7 +24099,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26807,
+      "visibleTextLength": 26806,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24959,6 +24991,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the cell",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -37094,7 +37134,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15096,
+      "visibleTextLength": 15002,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41460,7 +41500,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19819,
+      "visibleTextLength": 19809,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41593,6 +41633,15 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, not measured: authored gait timings."
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 13,
           "lineHeightRatio": 1.5,
           "widthPx": 293,
@@ -41625,7 +41674,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The line-up stops each dog at one moment of its stride, walk"
+          "text": "The drawing is a robot on a treadmill wired to a gait record"
         },
         {
           "familyHead": "geist",
@@ -41634,7 +41683,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The line-up leaves out the bound, which sits between the tro"
+          "text": "The robot leaves out the bound, which sits between the trot "
         },
         {
           "familyHead": "geist",
@@ -55082,7 +55131,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3018,
+      "visibleTextLength": 3021,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66509,7 +66558,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30712,
+      "visibleTextLength": 30645,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66561,11 +66610,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 13,
+        "readingMinutes": 12,
         "citationCount": 39,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "13 min read",
+        "readingTimeText": "12 min read",
         "citationCountText": "39 sources",
         "bibliographyIds": [
           "kalman-1960-filter",
@@ -66637,10 +66686,10 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 0,
+          "widthPx": 309,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "beat 5 / 5"
+          "text": "beat 5 / 5 Jaws either side: guess 1.27 · reading 1.00 · ble"
         },
         {
           "familyHead": "geist",
@@ -66676,7 +66725,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The bells are step 41 of the seeded constant-velocity filter"
+          "text": "The drawing is an estimating rail. The cart tows the guess’s"
         },
         {
           "familyHead": "geist",
@@ -67323,7 +67372,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 54695,
+      "visibleTextLength": 57559,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67659,7 +67708,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 27070,
+      "visibleTextLength": 27543,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67711,11 +67760,11 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "gpt3-2020",
@@ -68244,7 +68293,7 @@
         },
         {
           "kind": "external",
-          "count": 1,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -68254,7 +68303,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -68559,7 +68608,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28639,
+      "visibleTextLength": 29057,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69128,14 +69177,24 @@
         },
         {
           "kind": "external",
-          "count": 7,
+          "count": 11,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
-          "familyHead": "geist mono",
+          "familyHead": "geist",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 5,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist mono|inline border:0px/solid radius:0px",
               "count": 6,
@@ -69144,16 +69203,6 @@
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
               "familyHead": "geist mono",
-              "shape": "inline border:0px/solid radius:0px"
-            },
-            {
-              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 1,
-              "colour": "rgb(28, 28, 26)",
-              "decorationLine": "underline",
-              "decorationStyle": "solid",
-              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
-              "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -69539,7 +69588,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28237,
+      "visibleTextLength": 28644,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69678,15 +69727,6 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 346,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "At 95.0% per step, a 14-step job goes right 48.8% of the tim"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
@@ -69708,7 +69748,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The tiles round the same number to whole jobs out of 100. Wo"
+          "text": "The drawing is a marble run of 100 trapdoor gates, ten to a "
         },
         {
           "familyHead": "geist",
@@ -70102,14 +70142,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -70186,6 +70237,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Roll the marbles",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -70358,7 +70417,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33580,
+      "visibleTextLength": 34045,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -70874,14 +70933,24 @@
         },
         {
           "kind": "external",
-          "count": 45,
+          "count": 49,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
-          "familyHead": "geist mono",
+          "familyHead": "geist",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 8,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist mono|inline border:0px/solid radius:0px",
               "count": 41,
@@ -70890,16 +70959,6 @@
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
               "familyHead": "geist mono",
-              "shape": "inline border:0px/solid radius:0px"
-            },
-            {
-              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
-              "colour": "rgb(28, 28, 26)",
-              "decorationLine": "underline",
-              "decorationStyle": "solid",
-              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
-              "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
           ]
@@ -71237,7 +71296,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 31586,
+      "visibleTextLength": 32051,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71369,15 +71428,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Drag the time to fix each jam and watch the payback change."
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
-          "widthPx": 171,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "Pays for itself in 11.6 months"
         },
         {
           "familyHead": "geist",
@@ -71978,14 +72028,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 6,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 6,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -72160,7 +72221,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23781,
+      "visibleTextLength": 24258,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -72764,14 +72825,25 @@
         },
         {
           "kind": "external",
-          "count": 0,
-          "colour": "",
-          "decorationLine": "",
-          "decorationStyle": "",
-          "decorationColour": "",
-          "familyHead": "",
-          "shape": "",
-          "variants": []
+          "count": 4,
+          "colour": "rgb(28, 28, 26)",
+          "decorationLine": "underline",
+          "decorationStyle": "solid",
+          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "familyHead": "geist",
+          "shape": "inline border:0px/solid radius:0px",
+          "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            }
+          ]
         },
         {
           "kind": "internal",
@@ -73026,7 +73098,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23522,
+      "visibleTextLength": 24013,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73510,14 +73582,24 @@
         },
         {
           "kind": "external",
-          "count": 9,
+          "count": 13,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
-          "familyHead": "geist mono",
+          "familyHead": "geist",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
+              "count": 4,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist mono|inline border:0px/solid radius:0px",
               "count": 9,
@@ -77947,7 +78029,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21381,
+      "visibleTextLength": 21283,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77999,11 +78081,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 7,
+        "readingMinutes": 6,
         "citationCount": 31,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "6 min read",
         "citationCountText": "31 sources",
         "bibliographyIds": [
           "bessemer-robotics-2026",
@@ -78076,15 +78158,6 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 345,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "At 95.0% per step, a 30-step job goes right 21.5% of the tim"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
@@ -78106,7 +78179,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The tiles round the same number to whole jobs out of 100. Wo"
+          "text": "The drawing is a marble run of 100 trapdoor gates, ten to a "
         },
         {
           "familyHead": "geist",
@@ -78569,6 +78642,14 @@
           "controlId": "control:selection"
         },
         {
+          "tag": "button",
+          "text": "Roll the marbles",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "summary",
           "text": "Adjust more",
           "familyHead": "geist",
@@ -78731,7 +78812,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 37821,
+      "visibleTextLength": 37820,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78881,7 +78962,7 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 578,
+          "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "At this speed the robot needs a gap of about 1.4 metres; you"
@@ -79623,6 +79704,14 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the cell",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -91604,7 +91693,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20116,
+      "visibleTextLength": 20022,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95937,7 +96026,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25108,
+      "visibleTextLength": 25098,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96070,6 +96159,15 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic, not measured: authored gait timings."
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 13,
           "lineHeightRatio": 1.5,
           "widthPx": 875.63,
@@ -96102,7 +96200,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The line-up stops each dog at one moment of its stride, walk"
+          "text": "The drawing is a robot on a treadmill wired to a gait record"
         },
         {
           "familyHead": "geist",
@@ -96111,7 +96209,7 @@
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The line-up leaves out the bound, which sits between the tro"
+          "text": "The robot leaves out the bound, which sits between the trot "
         },
         {
           "familyHead": "geist",

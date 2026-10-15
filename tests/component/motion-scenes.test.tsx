@@ -73,24 +73,26 @@ describe('motion scene mount', () => {
       .getAllByRole('button')
       .filter((button) => (button as HTMLButtonElement).disabled);
     expect(disabled.length).toBe(0);
-    // The main view speaks in plain words: a headline, three labelled
-    // bells, a key to their widths and one highlighted note; the symbols
-    // wait in the method fold.
+    // The main view speaks in plain words, all of them outside the
+    // drawing: a headline, a legend that names the three calipers and the
+    // share rule, and a readout of the jaws in words. The drawing carries
+    // no text at all, and the symbols wait in the method fold.
     const frame = document.querySelector('[data-motion-scene="kalman-predict-update"]')!;
     expect(frame).toHaveTextContent('Blend a guess and a noisy reading: sharper than either');
     const stage = frame.querySelector('[data-motion-stage] svg')!;
-    expect([...stage.querySelectorAll('text')].map((text) => text.textContent)).toEqual([
-      'my guess',
-      'the sensor says',
-      'best blend',
-      'narrower bell: surer',
-      '62% of the way from guess to sensor',
+    expect(stage.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
+    expect([...frame.querySelectorAll('[data-legend-item]')].map((item) => item.textContent)).toEqual([
+      'the cart’s guess',
+      'the sensor’s reading',
+      'the blend',
+      'its share of the way to the reading',
     ]);
-    expect(stage.querySelector('[data-figure-annotation]')).toHaveTextContent('62% of the way from guess to sensor');
-    // Every bell is solid, the floor carries no ties, and each label leader ends in an arrowhead.
+    expect(screen.getByTestId('motion-readout')).toHaveTextContent('Jaws either side: guess 1.27 · reading 1.00 · blend 0.79');
+    // Every band is solid; the cart, the three calipers and the share rule are drawn once each.
     expect(stage.querySelector('[stroke-dasharray]')).toBeNull();
-    expect(stage.querySelectorAll('[data-scene-structure="track"] line')).toHaveLength(1);
-    expect(stage.querySelectorAll('[data-scene-structure="label-leader-head"]')).toHaveLength(2);
+    for (const part of ['cart', 'guess-caliper', 'reading-caliper', 'blend-caliper', 'share-rule']) {
+      expect(stage.querySelectorAll(`[data-scene-part="${part}"]`), part).toHaveLength(1);
+    }
     expect(stage.querySelector('[data-scene-equation]')).toBeNull();
     expect(frame.querySelector('[data-scene-equation] .katex')).not.toBeNull();
     // The poster's blend is exactly the filter's posterior position.

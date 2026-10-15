@@ -18,12 +18,12 @@ const SCENES = [
     id: 'kalman-predict-update',
     route: '/classical/state-estimation/',
     title: /kalman filter/i,
-    // Three labelled bells along a robot's track, no axes. The guess is
-    // labelled from the first frame; the other labels arrive with their
-    // beats. The typeset rule sits in "How this was made"; the stage writes
-    // it glyph by glyph only in the symbols beat, so the poster shows none.
+    // An estimating rail: a cart and three calipers, no axes and no words
+    // in the drawing at any beat. The legend and the readout under the
+    // stage carry the words; the typeset rule sits in "How this was made".
     axes: [],
-    minText: 1,
+    minText: 0,
+    maxText: 0,
     beats: [
       /Guess: from where it was/,
       /Measure: a sensor/,
@@ -41,6 +41,7 @@ const SCENES = [
     // symbols beat, so the settled poster shows none of it.
     axes: [],
     minText: 4,
+    maxText: Number.POSITIVE_INFINITY,
     beats: [
       /demonstrations/i,
       /random noise is added/i,
@@ -56,6 +57,8 @@ const SCENES = [
   axes: readonly string[];
   /** Stage texts visible at every beat end and on the poster. */
   minText: number;
+  /** The most stage texts any beat end or the poster may show; 0 for a drawing with no words in it. */
+  maxText: number;
   beats: readonly RegExp[];
 }[];
 
@@ -92,6 +95,7 @@ for (const scene of SCENES) {
           const assertAudit = async (beat: string) => {
             const result = await scope.evaluate(auditSceneElement);
             expect(result.textCount).toBeGreaterThanOrEqual(scene.minText);
+            expect(result.textCount, `${scene.id} ${width} ${beat} words in the drawing`).toBeLessThanOrEqual(scene.maxText);
             expect(result.markCount).toBeGreaterThan(1);
             expect(result.intersections, `${scene.id} ${width} ${beat} intersections`).toEqual([]);
             expect(result.overflow, `${scene.id} ${width} ${beat} stage margin`).toEqual([]);
@@ -121,8 +125,17 @@ for (const scene of SCENES) {
       await page.keyboard.press('End');
       const svg = scope.locator('[data-motion-stage] svg');
       await svg.evaluate((node) => {
-        const label = node.querySelector('text');
-        if (!label) throw new Error('expected an axis label');
+        // A drawing with no words gets a planted label of its own, so the
+        // overlap check is proved on every scene.
+        let label = node.querySelector('text');
+        if (!label) {
+          label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          label.setAttribute('data-scene-label', 'planted-label');
+          label.setAttribute('x', '40');
+          label.setAttribute('y', '40');
+          label.textContent = 'planted label';
+          node.append(label);
+        }
         const overlapping = label.cloneNode(true) as SVGTextElement;
         overlapping.setAttribute('data-scene-label', 'planted-overlap');
         node.append(overlapping);
@@ -186,6 +199,11 @@ for (const scene of SCENES) {
           await expect(folded.locator('.katex .mord').first()).toBeAttached();
           await expect(folded.locator('math annotation[encoding="application/x-tex"]')).toHaveCount(1);
           const of = (name: string) => roles.text.filter((item) => item.role === name);
+          if (scene.maxText === 0) {
+            // No words in the drawing: nothing to size, and nothing may sneak in.
+            expect(roles.text, `${width} words in the drawing`).toEqual([]);
+            continue;
+          }
           expect(of('label').length, `${width} object labels`).toBeGreaterThan(0);
           expect(of('axis').map((item) => item.text).sort(), `${width} axis names`).toEqual([...scene.axes].sort());
           if (scene.axes.length > 0) {

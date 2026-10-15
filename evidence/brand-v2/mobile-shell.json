@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "e579d2c59d36fc4fd5fccdf1c73db976cde6a8fc3f4364a9e1c942125a6f35c7",
+  "fingerprint": "304545c13a09f8231ceea045614861b4031931ad7d3670b094e162806b0b3d7f",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3018,
+      "visibleTextLength": 3021,
       "header": {
         "present": true,
         "display": "flex",
@@ -2828,7 +2828,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 22849,
+      "visibleTextLength": 22782,
       "header": {
         "present": true,
         "display": "flex",
@@ -2990,7 +2990,7 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 54695,
+      "visibleTextLength": 57559,
       "header": {
         "present": true,
         "display": "flex",
@@ -3314,7 +3314,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 20302,
+      "visibleTextLength": 20775,
       "header": {
         "present": true,
         "display": "flex",
@@ -3476,7 +3476,7 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "visibleTextLength": 21080,
+      "visibleTextLength": 21498,
       "header": {
         "present": true,
         "display": "flex",
@@ -3638,7 +3638,7 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "visibleTextLength": 20988,
+      "visibleTextLength": 21395,
       "header": {
         "present": true,
         "display": "flex",
@@ -3800,7 +3800,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 26805,
+      "visibleTextLength": 27270,
       "header": {
         "present": true,
         "display": "flex",
@@ -3962,7 +3962,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 24170,
+      "visibleTextLength": 24635,
       "header": {
         "present": true,
         "display": "flex",
@@ -4124,7 +4124,7 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "visibleTextLength": 17677,
+      "visibleTextLength": 18154,
       "header": {
         "present": true,
         "display": "flex",
@@ -4286,7 +4286,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 18122,
+      "visibleTextLength": 18613,
       "header": {
         "present": true,
         "display": "flex",
@@ -5412,7 +5412,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "visibleTextLength": 16635,
+      "visibleTextLength": 16537,
       "header": {
         "present": true,
         "display": "flex",
@@ -5574,7 +5574,7 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "visibleTextLength": 26807,
+      "visibleTextLength": 26806,
       "header": {
         "present": true,
         "display": "flex",
@@ -8328,7 +8328,7 @@
     },
     {
       "route": "/manipulation/robot-learning-roadmap/",
-      "visibleTextLength": 15096,
+      "visibleTextLength": 15002,
       "header": {
         "present": true,
         "display": "flex",
@@ -9454,7 +9454,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "visibleTextLength": 19819,
+      "visibleTextLength": 19809,
       "header": {
         "present": true,
         "display": "flex",

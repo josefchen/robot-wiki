@@ -55,6 +55,8 @@ import { SceneSplit } from '@/components/interactive/scene-split';
 
 A robot-learning system is a pipeline from physical events to decisions and back again; the checkpoint is one component among capture, schemas, training, evaluation, serving and recovery. The open-source LeRobot library spans that stack, from motor middleware to dataset storage, streaming and asynchronous inference <Cite id="lerobot-paper-2026" />.
 
+<Image id="openvla-overview-2024" />
+
 Machine learning systems often incur massive ongoing maintenance costs from data dependencies, configuration issues and hidden feedback loops <Cite id="hidden-technical-debt-2015" />. Splitting the stack into seven contracts, each with an artifact and a test, lets a failure be traced to one boundary. Try the check below; video alone only replays an episode.
 
 <SelfCheck
@@ -83,6 +85,8 @@ Machine learning systems often incur massive ongoing maintenance costs from data
 ## Contract 1: hardware and calibration
 
 Record firmware, control mode and calibrated transforms for every camera, encoder, gripper and sensor: a dataset split cannot correct an unrecorded camera move. Time offsets between sensors are calibration parameters too, estimable together with the spatial ones <Cite id="kalibr-2013" />, and [calibration](/classical/calibration) covers the residuals.
+
+<Image id="droid-camera-calibration-2024" />
 
 ## Contract 2: episode capture
 

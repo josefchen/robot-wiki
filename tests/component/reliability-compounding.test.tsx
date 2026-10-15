@@ -240,3 +240,86 @@ describe('ReliabilityCompounding with full-range bounds', () => {
     expect(description()).toBe(initial);
   });
 });
+
+describe('ReliabilityCompounding drawn as a marble run', () => {
+  const finishedOf = (container: HTMLElement) =>
+    Number(container.querySelector('[data-testid="finish-tray"]')!.getAttribute('data-marbles'));
+  const rejectedOf = (container: HTMLElement) =>
+    Number(container.querySelector('[data-testid="reject-tray"]')!.getAttribute('data-marbles'));
+
+  it('arms one trapdoor per step and fills the finish tray with the readout in whole jobs', () => {
+    const { container } = render(<ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} />);
+    const armed = () => container.querySelectorAll('[data-gate="armed"]').length;
+    const pinned = () => container.querySelectorAll('[data-gate="pinned"]').length;
+    expect(armed()).toBe(30);
+    expect(pinned()).toBe(70);
+    // 0.95^30 = 21.5%: 21 of 100 marbles finish, 79 drop.
+    expect(finishedOf(container)).toBe(21);
+    expect(rejectedOf(container)).toBe(79);
+    const cases: Array<[string, string, number]> = [['99', '30', 74], ['95', '14', 49], ['95', '100', 1], ['99.9', '30', 97], ['0', '1', 0], ['100', '100', 100]];
+    for (const [p, n, finished] of cases) {
+      fireEvent.change(screen.getByRole('slider', { name: /per-step success/i }), { target: { value: p } });
+      fireEvent.change(screen.getByRole('slider', { name: /episode length/i }), { target: { value: n } });
+      expect(armed(), `${p}% over ${n}`).toBe(Number(n));
+      expect(finishedOf(container), `${p}% over ${n}`).toBe(finished);
+      expect(finishedOf(container) + rejectedOf(container)).toBe(100);
+      // The marbles drawn in each tray are the counts.
+      expect(container.querySelectorAll('[data-testid="finish-tray"] > g')).toHaveLength(finished);
+      expect(container.querySelectorAll('[data-testid="reject-tray"] > g')).toHaveLength(100 - finished);
+    }
+  });
+
+  it('keeps both mounts on one board: 49 of 100 at 14 steps, 21 at the 30-step preset', () => {
+    const evaluation = render(<ReliabilityCompounding defaultPerStep={0.95} defaultSteps={14} minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant="evaluation" />);
+    expect(finishedOf(evaluation.container)).toBe(49);
+    expect(evaluation.container.querySelectorAll('[data-gate="armed"]')).toHaveLength(14);
+    evaluation.unmount();
+    const reliability = render(<ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} presets="per-step-thresholds" descriptionVariant="reliability" />);
+    fireEvent.click(screen.getByRole('button', { name: '99 in 100' }));
+    expect(finishedOf(reliability.container)).toBe(74);
+    fireEvent.click(screen.getByRole('button', { name: '999 in 1,000' }));
+    expect(finishedOf(reliability.container)).toBe(97);
+  });
+
+  it('draws no words: the board carries no text, title, description or foreign object', () => {
+    const { container } = render(<ReliabilityCompounding />);
+    const svg = container.querySelector('svg.iso-svg')!;
+    expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
+    expect((svg.textContent ?? '').trim()).toBe('');
+    // The one lit part: the finished jobs' marbles.
+    expect(svg.querySelectorAll('[data-testid="finish-tray"] [data-lit]')).toHaveLength(21);
+    expect(svg.querySelectorAll('[data-testid="reject-tray"] [data-lit]')).toHaveLength(0);
+  });
+
+  it('starts a run from a labelled button with no pressed state, and stops it', () => {
+    render(<ReliabilityCompounding />);
+    const button = screen.getByTestId('marble-run');
+    expect(button).toHaveTextContent('Roll the marbles');
+    expect(button).toHaveAttribute('data-brand-control-id', 'control:secondary-action');
+    expect(button).not.toHaveAttribute('aria-pressed');
+    fireEvent.click(button);
+    expect(button).toHaveTextContent('Stop the run');
+    expect(button).not.toHaveAttribute('aria-pressed');
+    fireEvent.click(button);
+    expect(button).toHaveTextContent('Roll the marbles');
+    // A setting changed mid-run starts the run again on the new board; Reset ends it.
+    fireEvent.click(button);
+    fireEvent.click(screen.getByRole('button', { name: '99 in 100' }));
+    expect(button).toHaveTextContent('Stop the run');
+    fireEvent.click(screen.getByRole('button', { name: /reset/i }));
+    expect(button).toHaveTextContent('Roll the marbles');
+  });
+
+  it('under reduced motion a run shows its end, which is the still pose', () => {
+    const original = window.matchMedia;
+    window.matchMedia = ((query: string) => ({ matches: query.includes('reduce'), media: query, addEventListener() {}, removeEventListener() {} })) as unknown as typeof window.matchMedia;
+    try {
+      const { container } = render(<ReliabilityCompounding />);
+      fireEvent.click(screen.getByTestId('marble-run'));
+      expect(screen.getByTestId('marble-run')).toHaveTextContent('Roll the marbles');
+      expect(finishedOf(container)).toBe(21);
+    } finally {
+      window.matchMedia = original;
+    }
+  });
+});
