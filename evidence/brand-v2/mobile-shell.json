@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "51ed68c649968de87b6f6db7335e1973288b8ff5def3ef35412b8690080415ed",
+  "fingerprint": "b8b5c223fb74826579ee9b0fc90f2a208783c8ab787d89b8163f567a2fbff7ad",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -3638,7 +3638,7 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "visibleTextLength": 20668,
+      "visibleTextLength": 20635,
       "header": {
         "present": true,
         "display": "flex",

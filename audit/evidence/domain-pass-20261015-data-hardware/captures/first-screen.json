@@ -1,0 +1,290 @@
+[
+  {
+    "side": "start",
+    "width": 1440,
+    "route": "/data-hardware/",
+    "file": "first-screen-1440/start__data-hardware.png",
+    "status": 200,
+    "h1": "Data, Hardware & Evaluation",
+    "scrollHeight": 1585
+  },
+  {
+    "side": "start",
+    "width": 1440,
+    "route": "/data-hardware/data-bottleneck/",
+    "file": "first-screen-1440/start__data-hardware__data-bottleneck.png",
+    "status": 200,
+    "h1": "The Data Bottleneck",
+    "scrollHeight": 8670
+  },
+  {
+    "side": "start",
+    "width": 1440,
+    "route": "/data-hardware/datasets/",
+    "file": "first-screen-1440/start__data-hardware__datasets.png",
+    "status": 200,
+    "h1": "Major Datasets",
+    "scrollHeight": 7252
+  },
+  {
+    "side": "start",
+    "width": 1440,
+    "route": "/data-hardware/evaluation-crisis/",
+    "file": "first-screen-1440/start__data-hardware__evaluation-crisis.png",
+    "status": 200,
+    "h1": "The Evaluation Crisis",
+    "scrollHeight": 8253
+  },
+  {
+    "side": "start",
+    "width": 1440,
+    "route": "/data-hardware/hardware-taxonomy/",
+    "file": "first-screen-1440/start__data-hardware__hardware-taxonomy.png",
+    "status": 200,
+    "h1": "Hardware Taxonomy",
+    "scrollHeight": 12781
+  },
+  {
+    "side": "start",
+    "width": 1440,
+    "route": "/data-hardware/industrial-deployment/",
+    "file": "first-screen-1440/start__data-hardware__industrial-deployment.png",
+    "status": 200,
+    "h1": "Industrial Deployment",
+    "scrollHeight": 10530
+  },
+  {
+    "side": "start",
+    "width": 1440,
+    "route": "/data-hardware/robot-learning-stack/",
+    "file": "first-screen-1440/start__data-hardware__robot-learning-stack.png",
+    "status": 200,
+    "h1": "The Robot Learning Stack",
+    "scrollHeight": 7379
+  },
+  {
+    "side": "start",
+    "width": 1440,
+    "route": "/data-hardware/teleop-rigs/",
+    "file": "first-screen-1440/start__data-hardware__teleop-rigs.png",
+    "status": 200,
+    "h1": "Teleoperation Rigs",
+    "scrollHeight": 6633
+  },
+  {
+    "side": "end",
+    "width": 1440,
+    "route": "/data-hardware/",
+    "file": "first-screen-1440/end__data-hardware.png",
+    "status": 200,
+    "h1": "Data, Hardware & Evaluation",
+    "scrollHeight": 1585
+  },
+  {
+    "side": "end",
+    "width": 1440,
+    "route": "/data-hardware/data-bottleneck/",
+    "file": "first-screen-1440/end__data-hardware__data-bottleneck.png",
+    "status": 200,
+    "h1": "The Data Bottleneck",
+    "scrollHeight": 9844
+  },
+  {
+    "side": "end",
+    "width": 1440,
+    "route": "/data-hardware/datasets/",
+    "file": "first-screen-1440/end__data-hardware__datasets.png",
+    "status": 200,
+    "h1": "Major Datasets",
+    "scrollHeight": 9512
+  },
+  {
+    "side": "end",
+    "width": 1440,
+    "route": "/data-hardware/evaluation-crisis/",
+    "file": "first-screen-1440/end__data-hardware__evaluation-crisis.png",
+    "status": 200,
+    "h1": "The Evaluation Crisis",
+    "scrollHeight": 9711
+  },
+  {
+    "side": "end",
+    "width": 1440,
+    "route": "/data-hardware/hardware-taxonomy/",
+    "file": "first-screen-1440/end__data-hardware__hardware-taxonomy.png",
+    "status": 200,
+    "h1": "Hardware Taxonomy",
+    "scrollHeight": 13913
+  },
+  {
+    "side": "end",
+    "width": 1440,
+    "route": "/data-hardware/industrial-deployment/",
+    "file": "first-screen-1440/end__data-hardware__industrial-deployment.png",
+    "status": 200,
+    "h1": "Industrial Deployment",
+    "scrollHeight": 11408
+  },
+  {
+    "side": "end",
+    "width": 1440,
+    "route": "/data-hardware/robot-learning-stack/",
+    "file": "first-screen-1440/end__data-hardware__robot-learning-stack.png",
+    "status": 200,
+    "h1": "The Robot Learning Stack",
+    "scrollHeight": 8790
+  },
+  {
+    "side": "end",
+    "width": 1440,
+    "route": "/data-hardware/teleop-rigs/",
+    "file": "first-screen-1440/end__data-hardware__teleop-rigs.png",
+    "status": 200,
+    "h1": "Teleoperation Rigs",
+    "scrollHeight": 8304
+  },
+  {
+    "side": "start",
+    "width": 375,
+    "route": "/data-hardware/",
+    "file": "first-screen-375/start__data-hardware.png",
+    "status": 200,
+    "h1": "Data, Hardware & Evaluation",
+    "scrollHeight": 1974
+  },
+  {
+    "side": "start",
+    "width": 375,
+    "route": "/data-hardware/data-bottleneck/",
+    "file": "first-screen-375/start__data-hardware__data-bottleneck.png",
+    "status": 200,
+    "h1": "The Data Bottleneck",
+    "scrollHeight": 15320
+  },
+  {
+    "side": "start",
+    "width": 375,
+    "route": "/data-hardware/datasets/",
+    "file": "first-screen-375/start__data-hardware__datasets.png",
+    "status": 200,
+    "h1": "Major Datasets",
+    "scrollHeight": 13205
+  },
+  {
+    "side": "start",
+    "width": 375,
+    "route": "/data-hardware/evaluation-crisis/",
+    "file": "first-screen-375/start__data-hardware__evaluation-crisis.png",
+    "status": 200,
+    "h1": "The Evaluation Crisis",
+    "scrollHeight": 14757
+  },
+  {
+    "side": "start",
+    "width": 375,
+    "route": "/data-hardware/hardware-taxonomy/",
+    "file": "first-screen-375/start__data-hardware__hardware-taxonomy.png",
+    "status": 200,
+    "h1": "Hardware Taxonomy",
+    "scrollHeight": 20365
+  },
+  {
+    "side": "start",
+    "width": 375,
+    "route": "/data-hardware/industrial-deployment/",
+    "file": "first-screen-375/start__data-hardware__industrial-deployment.png",
+    "status": 200,
+    "h1": "Industrial Deployment",
+    "scrollHeight": 19156
+  },
+  {
+    "side": "start",
+    "width": 375,
+    "route": "/data-hardware/robot-learning-stack/",
+    "file": "first-screen-375/start__data-hardware__robot-learning-stack.png",
+    "status": 200,
+    "h1": "The Robot Learning Stack",
+    "scrollHeight": 12076
+  },
+  {
+    "side": "start",
+    "width": 375,
+    "route": "/data-hardware/teleop-rigs/",
+    "file": "first-screen-375/start__data-hardware__teleop-rigs.png",
+    "status": 200,
+    "h1": "Teleoperation Rigs",
+    "scrollHeight": 11667
+  },
+  {
+    "side": "end",
+    "width": 375,
+    "route": "/data-hardware/",
+    "file": "first-screen-375/end__data-hardware.png",
+    "status": 200,
+    "h1": "Data, Hardware & Evaluation",
+    "scrollHeight": 1974
+  },
+  {
+    "side": "end",
+    "width": 375,
+    "route": "/data-hardware/data-bottleneck/",
+    "file": "first-screen-375/end__data-hardware__data-bottleneck.png",
+    "status": 200,
+    "h1": "The Data Bottleneck",
+    "scrollHeight": 16229
+  },
+  {
+    "side": "end",
+    "width": 375,
+    "route": "/data-hardware/datasets/",
+    "file": "first-screen-375/end__data-hardware__datasets.png",
+    "status": 200,
+    "h1": "Major Datasets",
+    "scrollHeight": 16495
+  },
+  {
+    "side": "end",
+    "width": 375,
+    "route": "/data-hardware/evaluation-crisis/",
+    "file": "first-screen-375/end__data-hardware__evaluation-crisis.png",
+    "status": 200,
+    "h1": "The Evaluation Crisis",
+    "scrollHeight": 16309
+  },
+  {
+    "side": "end",
+    "width": 375,
+    "route": "/data-hardware/hardware-taxonomy/",
+    "file": "first-screen-375/end__data-hardware__hardware-taxonomy.png",
+    "status": 200,
+    "h1": "Hardware Taxonomy",
+    "scrollHeight": 21167
+  },
+  {
+    "side": "end",
+    "width": 375,
+    "route": "/data-hardware/industrial-deployment/",
+    "file": "first-screen-375/end__data-hardware__industrial-deployment.png",
+    "status": 200,
+    "h1": "Industrial Deployment",
+    "scrollHeight": 19337
+  },
+  {
+    "side": "end",
+    "width": 375,
+    "route": "/data-hardware/robot-learning-stack/",
+    "file": "first-screen-375/end__data-hardware__robot-learning-stack.png",
+    "status": 200,
+    "h1": "The Robot Learning Stack",
+    "scrollHeight": 14655
+  },
+  {
+    "side": "end",
+    "width": 375,
+    "route": "/data-hardware/teleop-rigs/",
+    "file": "first-screen-375/end__data-hardware__teleop-rigs.png",
+    "status": 200,
+    "h1": "Teleoperation Rigs",
+    "scrollHeight": 13687
+  }
+]

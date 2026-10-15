@@ -138,6 +138,9 @@ test('paired data/hardware labs retain semantic roles under both schemes and cha
           .toBe(await stageRole('value-graphic', trace));
         expect(await lab.getByTestId('episode-success-readout').evaluate((node) => getComputedStyle(node).color))
           .toBe(await stageRole('value-text', trace));
+        // The full per-step slider sits in the frame's "Adjust more" fold
+        // behind the three presets, so it is opened as a reader opens it.
+        await openAdjustMore(lab);
         await lab.getByRole('slider', { name: /per-step success probability/i }).fill('99');
         expect(await lab.locator(trace).evaluate((node) => getComputedStyle(node).stroke))
           .toBe(await stageRole('value-graphic', trace));

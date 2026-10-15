@@ -467,14 +467,14 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Robot Learning Data Bottleneck: Hours vs Tokens',
     headTerm: 'robot learning data bottleneck',
     description:
-      'Robot learning data bottleneck: how many hours of robot data exist in 2026, from DROID, AgiBot World and EgoScale, with what scaling laws say to collect.',
+      'Robot learning data bottleneck: how many hours of robot data exist in 2026, from DROID, AgiBot World and EgoScale to 100,000-hour private corpora.',
     queries: ['robot learning data bottleneck', 'how much data do robots need'],
   },
   '/data-hardware/datasets/': {
     title: 'Robot Learning Datasets Compared (2026)',
     headTerm: 'robot learning datasets',
     description:
-      'Open robot learning datasets compared by hours, episodes, tasks, embodiments and license: Open X-Embodiment, DROID, AgiBot World and more.',
+      'Open robot learning datasets compared by hours, episodes, tasks, embodiments and license: Open X-Embodiment, DROID, AgiBot World, Galaxea and more.',
     queries: ['robot learning datasets', 'open robot manipulation datasets comparison'],
   },
   '/data-hardware/hardware-taxonomy/': {
@@ -488,7 +488,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Robot Teleoperation and Data Collection Rigs',
     headTerm: 'robot teleoperation',
     description:
-      'Robot teleoperation rigs compared: ALOHA, GELLO, UMI and VR headsets on cost, demos per hour, data quality and the embodiment gap for robot learning.',
+      'Robot teleoperation rigs compared: ALOHA, GELLO, UMI, VR headsets and wearable gloves on cost, demos per hour, data quality and the embodiment gap.',
     queries: ['robot teleoperation data collection', 'ALOHA vs UMI'],
   },
   '/data-hardware/evaluation-crisis/': {
@@ -502,7 +502,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Industrial Robot Deployment: 2026 Stats and ROI',
     headTerm: 'industrial robot deployment',
     description:
-      'Industrial robot deployment per IFR: 4,663,698 robots in operation in 2024. Cell costs, payback, jam-rate arithmetic and where learned robots fit.',
+      'Industrial robot deployment per IFR 2026: 5 million robots in operation, 600,000+ installed in 2025. Cell costs, payback and jam-rate arithmetic.',
     queries: ['industrial robot statistics 2026', 'robot cell ROI payback'],
   },
   '/data-hardware/robot-learning-stack/': {

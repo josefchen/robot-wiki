@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "a8f316a8b1c461b87154c503f334591c0f0330ee6950c283d6c2a0fe0fb395e3",
+  "fingerprint": "405d48edebdcf7b9423f84a99521eeb8491a23be2c32da9987d1bf6f85fc2653",
   "viewport": "1440x900",
   "route": "/",
   "visibleTextLength": 2790,
@@ -772,8 +772,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Data Bottleneck",
-      "href": "/data-hardware/data-bottleneck/",
+      "accessibleName": "The Evaluation Crisis",
+      "href": "/data-hardware/evaluation-crisis/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2179.89,
@@ -781,8 +781,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Major Datasets",
-      "href": "/data-hardware/datasets/",
+      "accessibleName": "Hardware Taxonomy",
+      "href": "/data-hardware/hardware-taxonomy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2229.89,
@@ -790,8 +790,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Evaluation Crisis",
-      "href": "/data-hardware/evaluation-crisis/",
+      "accessibleName": "The Data Bottleneck",
+      "href": "/data-hardware/data-bottleneck/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2279.89,
@@ -799,8 +799,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Hardware Taxonomy",
-      "href": "/data-hardware/hardware-taxonomy/",
+      "accessibleName": "Major Datasets",
+      "href": "/data-hardware/datasets/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2329.89,
@@ -1045,7 +1045,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-15 The Data Bottleneck 2026-10-15 Major Datasets 2026-10-15 The Evaluation Crisis 2026-10-15 Hardware Taxonomy 2026-10-15 The Robot Learning Stack"
+      "text": "RECENTLY UPDATED 2026-10-15 The Evaluation Crisis 2026-10-15 Hardware Taxonomy 2026-10-15 The Data Bottleneck 2026-10-15 Major Datasets 2026-10-15 The Robot Learning Stack"
     },
     {
       "label": "Tools",

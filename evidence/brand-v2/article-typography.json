@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "9196e376a16b7ebc73e4d2632db65fba8ad1a4c34592c82deb6589a24e1ac022",
+  "fingerprint": "f641a71a0a4186de5b1914fa198620c638e7bffe1a65c44db9761580ef8e080a",
   "viewports": [
     "375x812",
     "1440x900"
@@ -14145,7 +14145,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20668,
+      "visibleTextLength": 20635,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14468,15 +14468,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "OpenVLA's evaluation needed over 2,500 rollouts and over 100"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 327,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "Five questions recover what the number hides. How many rollo"
         },
         {
           "familyHead": "geist",
@@ -15532,7 +15523,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -15542,7 +15533,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -68273,7 +68264,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27917,
+      "visibleTextLength": 27884,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68596,15 +68587,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "OpenVLA's evaluation needed over 2,500 rollouts and over 100"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 16,
-          "lineHeightRatio": 1.62,
-          "widthPx": 929.63,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "Five questions recover what the number hides. How many rollo"
         },
         {
           "familyHead": "geist",
@@ -69649,7 +69631,7 @@
         },
         {
           "kind": "internal",
-          "count": 4,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -69659,7 +69641,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",

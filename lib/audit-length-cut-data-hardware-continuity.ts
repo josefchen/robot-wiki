@@ -61,14 +61,14 @@ export type DataHardwareCutReview = {
 
 // BEGIN data-hardware cut pins (written by scripts/record-length-cut-data-hardware-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 438555, sha256: '67e28c5b866ff2ffd682c04c52d90a2a6a32aad51a2ebf041c67e197daa31594' };
+const reviewPin = { bytes: 438841, sha256: '232d9dbfae6fdc1b87c8770bad7ef57a4bf0af3541897175fd82ea25a5f21ed0' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/data-hardware/data-bottleneck.mdx', [13075, 'adb7afc8bb6914c190fd1ba7b21948c57729daa487e05af716e6ac790244ba08']],
   ['content/data-hardware/datasets.mdx', [12020, '05e13772e4e89d8a5130849b4d9329d3dae7b46566ea43be5d2207f2476629e0']],
-  ['content/data-hardware/evaluation-crisis.mdx', [14932, '4e7258c05358fec41976e6491fdf755befebd5fcfb2bd557833ead459dc30a80']],
-  ['content/data-hardware/hardware-taxonomy.mdx', [10626, '763582d82bb323cee374f60d4ab658c11bd0c198e13caf1c52273cc780c59eb4']],
+  ['content/data-hardware/evaluation-crisis.mdx', [14910, 'c81a2b0d30dc2b3c0ea31ab6ffb9b084c5365a281397b9d56a8625f21df40e54']],
+  ['content/data-hardware/hardware-taxonomy.mdx', [10656, '8d68b257c69ade1c696c14c2cb2c8249ee04447dfa6f58ab061518f7b6f9f770']],
   ['content/data-hardware/industrial-deployment.mdx', [16650, '2b25e765a66095b18c8827c834c003a285a53585ae45c8afa4fd47d38be56e61']],
   ['content/data-hardware/robot-learning-stack.mdx', [10316, '9a9a8b44561dba0fc5df4759328928ad7b8efe3927a1cff6b6867d3e3b2430ee']],
   ['content/data-hardware/teleop-rigs.mdx', [8784, 'cea19803af57601809d29f0e26061bda4ff1226257286b90abcf8470c889e0bc']],

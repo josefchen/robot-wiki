@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2210487, sha256: '84afaa0af1609cee4ed7760f52e9bd1cefd85e0b4fb20af1fbc946fb836290d2' };
+const reviewPin = { bytes: 2210856, sha256: '2f003e4ede837d004488b4a1182f2abd764be546b77e7651155be54a94cdeb4e' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -221,7 +221,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/latent-dynamics.spec.ts', [6987, '9d3a266fb2364ecef76c20ab45123678900bfe97365504cab8eb457b415c26c2']],
   ['tests/e2e/legged-locomotion.spec.ts', [7769, 'a51f62c715f375401b90dfb7c0ea3c2ac80c7f71ee76b8a80ad5de183dd1f0b2']],
   ['tests/e2e/market-map.spec.ts', [16946, 'eee9bc3d893a4ea45834eb7b79efbfab3501d80c377fefe57a186603ce56dc04']],
-  ['tests/e2e/motion-data-hardware.spec.ts', [9234, '843c3d0146ed5a34b0f97d7b0889884afeac43d10045ec46fb5627d0af19d453']],
+  ['tests/e2e/motion-data-hardware.spec.ts', [9419, '3d23580ec36a45c5d6fa6aa8316ee0bd7de0a9f073401efe8d56e96d6e465923']],
   ['tests/e2e/motion-frontier-adjacent-home.spec.ts', [10125, '48ef70a9c3960f4cab1dd97fec9ead50e39db15e2084eb2dc5bc2d9e3f0dcd17']],
   ['tests/e2e/motion-manipulation.spec.ts', [6138, '0b9242c61ae84e005e8f7f31929d3b9d3fb20b537ce40c06ddaa7fc55aa50a92']],
   ['tests/e2e/motion-planning.spec.ts', [17893, '7552079a8db4715813e28ffbd42e9a3abd7fea819eaf698a751f5cc1e3eb1d2b']],
