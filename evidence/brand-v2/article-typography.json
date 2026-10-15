@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "8823ff0a7405666b0fa0413bc846bf029000e65da2d2c3d23f09cd10b1b15b24",
+  "fingerprint": "a2fe7f1faf798cf8686afbd80b5e22aa3caf862630145d25c4d387ed2e6ff39d",
   "viewports": [
     "375x812",
     "1440x900"
@@ -16781,7 +16781,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17832,
+      "visibleTextLength": 17844,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17463,6 +17463,22 @@
         {
           "tag": "button",
           "text": "Run the split",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -70833,7 +70849,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24085,
+      "visibleTextLength": 24097,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71515,6 +71531,22 @@
         {
           "tag": "button",
           "text": "Run the split",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Adjust more",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
