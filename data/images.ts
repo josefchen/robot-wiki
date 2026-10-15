@@ -2502,6 +2502,681 @@ const ARTICLE_IMAGES: SiteImage[] = [
     // resized to 1600 px, JPEG quality 82.
   },
   // END rl-sim2real images (image brief, 2026-10-11)
+  // BEGIN frontier images (image brief, 2026-10-11)
+  {
+    id: 'amazon-swindon-slam-line-2025',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by',
+    attributionText: 'Photo: Auledas / Wikimedia Commons. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/amazon-swindon-slam-line-2025.jpg',
+    alt: "A scan, label, apply and manifest machine straddling a parcel conveyor inside Amazon's Swindon fulfilment centre, with label printers mounted above the belt inside a yellow guard frame.",
+    caption:
+      "A parcel labelling line at Amazon's Swindon fulfilment centre in 2025. Fixed automation repeats one narrow task and has to finish it nearly every time, the product end of the gap.",
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:BRS2_Amazon_fulfilment_centre_in_Swindon_2025_10.jpg',
+    creator: 'Auledas',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1440,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, hereby publish it under the following license: This file
+    // is licensed under the Creative Commons Attribution 4.0 International
+    // license." (author Auledas, own work, 2025-03-26). Re-read on
+    // 2026-10-15: same licence, and the file is byte for byte the current
+    // 1920 px Commons thumbnail.
+  },
+  {
+    id: 'tesla-optimus-stockholm-2024',
+    figureKind: 'photograph',
+    legalBasis: 'public-domain',
+    attributionText:
+      'Photo: Ulf Klingström / Wikimedia Commons. Licence: Public domain.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/tesla-optimus-stockholm-2024.jpg',
+    alt: 'Two silver and black Tesla Optimus humanoid robots standing on round black pedestals in a white-walled showroom.',
+    caption:
+      "Two Tesla Optimus humanoids on display in Stockholm in 2024. Tesla's 2026 updates list both of its Optimus production lines as still under construction.",
+    sourceName: 'Wikimedia Commons',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:StockholmOptimus01.jpg',
+    creator: 'Ulf Klingström',
+    licence: 'public-domain',
+    licenceUrl: 'https://commons.wikimedia.org/wiki/Template:PD-self',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1280,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, release this work into the public domain." (PD-self,
+    // uploader Ulkl, source Ulf Klingström, 2024-05-13, Stockholm).
+    // Re-read on 2026-10-15: same grant, and the file is byte for byte the
+    // current 1920 px Commons thumbnail.
+  },
+  {
+    id: 'asimo-miraikan-2016',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Photo: Sylvain Kalache / Wikimedia Commons. Licence: CC BY 2.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/asimo-miraikan-2016.jpg',
+    alt: "Honda's white ASIMO humanoid robot standing on a polished floor beneath the large suspended globe display at Miraikan, Tokyo.",
+    caption:
+      "Honda's ASIMO performing at Miraikan, Tokyo, in 2016. The bear case holds that capital arrives on demonstrations like this one and deployment evidence arrives late.",
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:ASIMO_in_Miraikan_(29459011826).jpg',
+    creator: 'Sylvain Kalache',
+    licence: 'cc-by-2.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/2.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1275,
+    // Licence sentence read on the file page: "This file is licensed under
+    // the Creative Commons Attribution 2.0 Generic license." Flickr review:
+    // "reviewed on 15 January 2026 by FlickreviewR 2 and was confirmed to
+    // be licensed under the terms of the cc-by-2.0". Re-read on
+    // 2026-10-15: same licence and review, and the file is byte for byte
+    // the current 1920 px Commons thumbnail.
+  },
+  {
+    id: 'roomba-870-2014',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Photo: Kārlis Dambrāns / Wikimedia Commons. Licence: CC BY 2.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/roomba-870-2014.jpg',
+    alt: 'A round grey and black iRobot Roomba 870 robot vacuum cleaner on a light wooden floor.',
+    caption:
+      'An iRobot Roomba 870 in 2014. Rodney Brooks co-founded iRobot, which makes the Roomba, so his forecasts come from someone who has shipped robots.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:IRobot_Roomba_870_(15860914940).jpg',
+    creator: 'Kārlis Dambrāns',
+    licence: 'cc-by-2.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/2.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1282,
+    // Licence sentence read on the file page: "This file is licensed under
+    // the Creative Commons Attribution 2.0 Generic license." Flickr review:
+    // "reviewed on 24 June 2015 by FlickreviewR and was confirmed to be
+    // licensed under the terms of the cc-by-2.0". Re-read on 2026-10-15:
+    // same licence and review, and the file is byte for byte the current
+    // 1920 px Commons thumbnail.
+  },
+  {
+    id: 'unitree-g1-stage-japan-mobility-2025',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Photo: RuinDig/Yuki Uchida / Wikimedia Commons. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/unitree-g1-stage-japan-mobility-2025.jpg',
+    alt: 'On a dark, spotlit stage, a Unitree G1 humanoid, a black four-legged FOX robot and a small Unitree Go2 robot dog stand in a row on a white floor.',
+    caption:
+      'A Unitree G1 humanoid on stage at the Japan Mobility Show 2025. Unitree is one of five backers of the humanoid thesis, one of six rival bets on how robot intelligence gets built.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:Japan-Mobility-Show-2025-RuinDig_0563.jpg',
+    creator: 'RuinDig/Yuki Uchida',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1080,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, hereby publish it under the following license: This file
+    // is licensed under the Creative Commons Attribution 4.0 International
+    // license." (own work, 2025-10-31, Tokyo Big Sight; the description
+    // names the G1, VISIONOID's FOX and a Unitree Go2, left to right).
+    // Re-read on 2026-10-15: same licence, and the file is byte for byte
+    // the current 1920 px Commons thumbnail.
+  },
+  {
+    id: 'amazon-drive-unit-2023',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by-sa',
+    attributionText: 'Photo: Geni / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/amazon-drive-unit-2023.jpg',
+    alt: 'An orange Amazon warehouse drive unit, a low square wheeled robot with a black circular lifting plate on top, standing on display.',
+    caption:
+      'An Amazon warehouse drive unit, photographed in 2023. Amazon has deployed its millionth robot, and the task-specific side bets that purpose-built machines like this one win on cost per task.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:Amazon_warehouse_robot_2020.JPG',
+    creator: 'Geni',
+    licence: 'cc-by-sa-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1417,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, hereby publish it under the following license: This file
+    // is licensed under the Creative Commons Attribution-Share Alike 4.0
+    // International license." (author Geni; the page dates it July 2023).
+    // Re-read on 2026-10-15: same licence, and the file is byte for byte
+    // the current 1920 px Commons thumbnail.
+  },
+  {
+    id: 'uskin-tactile-allegro-hand-2021',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by-sa',
+    attributionText:
+      'Photo: XELA Robotics / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/uskin-tactile-allegro-hand-2021.jpg',
+    alt: 'A four-fingered Allegro robot hand on a white background, every finger segment and fingertip covered in soft black tactile sensor pads.',
+    caption:
+      "XELA Robotics' uSkin tactile sensors on every finger segment of an Allegro hand, 2021. They measure the contact that cameras lose once the fingers close.",
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:USkin_Sensor_Integration.png',
+    creator: 'XELA Robotics',
+    licence: 'cc-by-sa-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    retrieved: '2026-10-11',
+    width: 1778,
+    height: 2000,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, hereby publish it under the following license: This file
+    // is licensed under the Creative Commons Attribution-Share Alike 4.0
+    // International license." (author XELA Robotics, own work,
+    // 2021-06-24). Commons PNG flattened onto white, resized to 2000 px
+    // tall and saved as JPEG quality 82. Re-read on 2026-10-15: same
+    // licence.
+  },
+  {
+    id: 't-rex-bimanual-tactile-setup-2026',
+    figureKind: 'paper-figure',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Paper figure: Dantong Niu et al. / arXiv. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/t-rex-bimanual-tactile-setup-2026.jpg',
+    alt: 'A white bimanual robot with two dexterous hands at a wooden table, shown from the front and the side, with callouts for its head camera and wrist cameras and, at left, the Manus gloves, Vive trackers and laptop controller used to teleoperate it.',
+    caption:
+      'The T-Rex rig: a bimanual robot with two 22-DoF Sharpa Wave hands, a head camera and two wrist cameras, and the gloves and trackers that teleoperate it.',
+    sourceName: 'arXiv',
+    sourceUrl: 'https://arxiv.org/abs/2606.17055',
+    creator: 'Dantong Niu et al.',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 1600,
+    height: 601,
+    // Licence read on the abstract page arxiv.org/abs/2606.17055: the
+    // licence link points to http://creativecommons.org/licenses/by/4.0/,
+    // Creative Commons Attribution 4.0 International. File
+    // figures/setup_v3_0528.pdf from the arXiv source (the robot-system
+    // setup figure), rasterised at 300 dpi, white margins trimmed, resized
+    // to 1600 px, JPEG quality 82. Re-read on 2026-10-15: same licence
+    // link; the paper's setup section names "a fixed-base bimanual Dexmate
+    // Vega-1 robot with two 22-DoF Sharpa Wave dexterous hands".
+  },
+  {
+    id: 'fingr-cube-layer-turn-2026',
+    figureKind: 'paper-figure',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Paper figure: Yutong Liang et al. / arXiv. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/fingr-cube-layer-turn-2026.jpg',
+    alt: "Six photographs of one robotic hand and a 2×2×2 cube, labelled Pick up, then Start, Turn, Complete and Reset for one 90-degree layer turn, then Solved.",
+    caption:
+      'FINGR picks up a 2×2×2 cube, turns one layer at a time inside a single real hand and resets its fingers between turns until the cube is solved.',
+    sourceName: 'arXiv',
+    sourceUrl: 'https://arxiv.org/abs/2609.33973',
+    creator: 'Yutong Liang et al.',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 1600,
+    height: 500,
+    // Licence read on the abstract page arxiv.org/abs/2609.33973: the
+    // licence link points to http://creativecommons.org/licenses/by/4.0/,
+    // Creative Commons Attribution 4.0 International. File
+    // figures/teaser.pdf from the arXiv source (the paper's first figure),
+    // rasterised at 300 dpi, white margins trimmed, resized to 1600 px,
+    // JPEG quality 82. Re-read on 2026-10-15: same licence link.
+  },
+  {
+    id: 'droid-cook-lentils-rollouts-2024',
+    figureKind: 'paper-figure',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Paper figure: Alexander Khazatsky et al. / arXiv. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/droid-cook-lentils-rollouts-2024.jpg',
+    alt: 'A grid of robot camera frames in a home kitchen: rows labelled DROID (ours), OXE and No Co-Train, columns labelled Remove Lid, Pick up Lentils, Pour Lentils and Turn on Stove, each frame outlined green for success or red for failure.',
+    caption:
+      "One cooking task in a home kitchen with unseen distractors, under three training mixes. Only the policy co-trained on DROID's in-the-wild data finishes all four steps.",
+    sourceName: 'arXiv',
+    sourceUrl: 'https://arxiv.org/abs/2403.12945',
+    creator: 'Alexander Khazatsky et al.',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 1600,
+    height: 700,
+    // Licence read on the abstract page arxiv.org/abs/2403.12945: the
+    // licence link points to http://creativecommons.org/licenses/by/4.0/,
+    // Creative Commons Attribution 4.0 International. File
+    // figures/droid_qualitative_rollout.pdf from the arXiv source (the
+    // paper's "Cook Lentils" rollout figure), rasterised, white margins
+    // trimmed, resized to 1600 px, JPEG quality 82. Re-read on 2026-10-15:
+    // same licence link; the paper's Fig. 7 caption places the task "in
+    // the kitchen of one of the authors" with "unseen distractor objects".
+  },
+  {
+    id: 'egoscale-robot-platforms-2026',
+    figureKind: 'paper-figure',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Paper figure: Ruijie Zheng et al. / arXiv. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/egoscale-robot-platforms-2026.jpg',
+    alt: 'Two humanoid robots side by side: a Galaxea R1 Pro labelled 22-dof Sharpa Hand and a Unitree G1 labelled 7-dof Tri-finger Hand, with lines to the OAK-D-Wide head camera and OAK-1-Wide wrist cameras each carries.',
+    caption:
+      "EgoScale's two robots: a Galaxea R1 Pro with 22-DoF Sharpa hands and a Unitree G1 with 7-DoF tri-finger hands. On the G1, human-video pretraining added over 30 points of absolute success on both evaluated tasks.",
+    sourceName: 'arXiv',
+    sourceUrl: 'https://arxiv.org/abs/2602.16710',
+    creator: 'Ruijie Zheng et al.',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 1600,
+    height: 860,
+    // Licence read on the abstract page arxiv.org/abs/2602.16710: the
+    // licence link points to http://creativecommons.org/licenses/by/4.0/,
+    // Creative Commons Attribution 4.0 International. File
+    // assets/sources/figures/robot_system.pdf from the arXiv source (the
+    // robot-system figure), rasterised at 300 dpi, white margins trimmed,
+    // resized to 1600 px, JPEG quality 82. Re-read on 2026-10-15: same
+    // licence link; the paper states "On the Unitree G1 robot with a
+    // tri-finger hand, human-pretrained policies also achieve over 30%
+    // absolute improvement in success rate across both evaluated tasks".
+  },
+  {
+    id: 'robotic-welding-cell-guarding-2014',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by-sa',
+    attributionText:
+      'Photo: WireCrafters / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/robotic-welding-cell-guarding-2014.jpg',
+    alt: 'A robotic welding cell on a factory floor, seen from above, enclosed by red weld curtains and yellow and black guard posts.',
+    caption:
+      'A robotic weld cell behind machine guarding and weld curtains. Fencing people out is the oldest safeguard; robots that work without a fence use one of four collaborative modes.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Robotic_Welding_Cell.jpg',
+    creator: 'WireCrafters',
+    licence: 'cc-by-sa-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1251,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, hereby publish it under the following license: This file
+    // is licensed under the Creative Commons Attribution-Share Alike 4.0
+    // International license." (author WireCrafters, own work, 2014-03-06).
+    // Re-read on 2026-10-15: same licence, and the file is byte for byte
+    // the current 1920 px Commons thumbnail.
+  },
+  {
+    id: 'emergency-stop-siemens-2006',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by-sa',
+    attributionText:
+      'Photo: Stahlkocher / Wikimedia Commons. Licence: CC BY-SA 3.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/emergency-stop-siemens-2006.jpg',
+    alt: 'A red mushroom-head Siemens emergency-stop button on a round yellow collar, set into a dark machine-control panel beside a keypad.',
+    caption:
+      'A Siemens emergency-stop actuator on a machine control panel. It acts only after a person has seen the hazard and pressed it.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:Not-Aus_Bet%C3%A4tiger.jpg',
+    creator: 'Stahlkocher',
+    licence: 'cc-by-sa-3.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by-sa/3.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1438,
+    // Licence sentence read on the file page: "This file is licensed under
+    // the Creative Commons Attribution-Share Alike 3.0 Unported license."
+    // The page grants it through the GFDL template's licence migration
+    // (GFDL 1.2 or later, relicensed); the site relies on CC BY-SA 3.0.
+    // Re-read on 2026-10-15: same licence, and the file is byte for byte
+    // the current 1920 px Commons thumbnail.
+  },
+  {
+    id: 'wcbf-hyper-redundant-robot-2026',
+    figureKind: 'paper-figure',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Paper figure: Zijian Cai et al. / arXiv. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/wcbf-hyper-redundant-robot-2026.jpg',
+    alt: 'Photograph of a slender robot of white frames linked by pairs of flexible racks, curving across a black background, with labels for Fixed Base, PLA Racks, Embedded Motor and Lighthouse Deck.',
+    caption:
+      "Cai and colleagues' hyper-redundant robot: five segments that extend and bend as their motors drive paired flexible racks. Weighted barrier functions kept it clear of obstacles while correcting its tracking.",
+    sourceName: 'arXiv',
+    sourceUrl: 'https://arxiv.org/abs/2609.24062',
+    creator: 'Zijian Cai et al.',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 1600,
+    height: 839,
+    // Licence read on the abstract page arxiv.org/abs/2609.24062: the
+    // licence link points to http://creativecommons.org/licenses/by/4.0/,
+    // Creative Commons Attribution 4.0 International. File
+    // Figures/robot_system_2_V2.pdf from the arXiv source (panel (a) of
+    // the robot-system figure), rasterised, white margins trimmed, resized
+    // to 1600 px, JPEG quality 82. Re-read on 2026-10-15: same licence
+    // link; the paper describes "a rack-based 5-segment hyper-redundant
+    // robot" whose racks extend a segment together and bend it
+    // differentially.
+  },
+  {
+    id: 'knowno-ask-for-help-2023',
+    figureKind: 'paper-figure',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Paper figure: Allen Z. Ren et al. / arXiv. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/knowno-ask-for-help-2023.jpg',
+    alt: 'Three-column diagram: a person asks a robot arm to put the bowl in the microwave; the planner scores four next steps, conformal prediction keeps two above its threshold, and the robot asks which one, plastic or metal; photos at right show the test environments.',
+    caption:
+      'Told to put the bowl in the microwave with a plastic and a metal bowl in view, KnowNo keeps two plans above its conformal threshold and asks which bowl is meant.',
+    sourceName: 'arXiv',
+    sourceUrl: 'https://arxiv.org/abs/2307.01928',
+    creator: 'Allen Z. Ren et al.',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 1600,
+    height: 866,
+    // Licence read on the abstract page arxiv.org/abs/2307.01928: the
+    // licence link points to http://creativecommons.org/licenses/by/4.0/,
+    // Creative Commons Attribution 4.0 International. File
+    // figures/robot-help-teaser.pdf from the arXiv source (the paper's
+    // first figure), rasterised at 300 dpi, white margins trimmed, resized
+    // to 1600 px, JPEG quality 82. Re-read on 2026-10-15: same licence
+    // link.
+  },
+  // END frontier images (image brief, 2026-10-11)
+  // BEGIN adjacent images (image brief, 2026-10-11)
+  {
+    id: 'waymo-jaguar-ipace-san-francisco-2023',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by',
+    attributionText: 'Photo: Dllu / Wikimedia Commons. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/waymo-jaguar-ipace-san-francisco-2023.jpg',
+    alt: 'A white Waymo Jaguar I-Pace with a roof-mounted sensor dome and sensor pods on its fenders driving through a San Francisco intersection, the downtown skyline behind it and nobody in the driver’s seat.',
+    caption:
+      "A Waymo Jaguar I-Pace driving itself through San Francisco in 2023. Waymo's 2025 study of 56.7 million rider-only miles found statistically significant crash reductions against human benchmarks in every outcome it could test.",
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:Waymo_Jaguar_I-Pace_in_San_Francisco_2023_dllu.jpg',
+    creator: 'Dllu',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1440,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, hereby publish it under the following license: This file
+    // is licensed under the Creative Commons Attribution 4.0 International
+    // license." (own work, 2023-11-21).
+  },
+  {
+    id: 'waymo-roof-sensor-suite-2025',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by',
+    attributionText: 'Photo: 9yz / Wikimedia Commons. Licence: CC BY 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/waymo-roof-sensor-suite-2025.jpg',
+    alt: 'Close-up of the roof of a white Waymo Jaguar I-Pace: a domed lidar housing on a raised black mount, ringed by smaller camera and radar windows.',
+    caption:
+      "The roof sensor package of a Waymo I-Pace in San Francisco, 2025. Waymo fuses lidar, camera and radar, paying for active range sensing that works in the dark and measures geometry directly.",
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:Waymo_Jaguar_I-Pace_-_Roof_Sensor_Closeup.jpg',
+    creator: '9yz',
+    licence: 'cc-by-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1281,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, hereby publish it under the following license: This file
+    // is licensed under the Creative Commons Attribution 4.0 International
+    // license." (own work, 2025-05-31).
+  },
+  {
+    id: 'cmu-boss-urban-challenge-winner',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by',
+    attributionText:
+      'Photo: Steve Jurvetson / Wikimedia Commons. Licence: CC BY 2.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/cmu-boss-urban-challenge-winner.jpg',
+    alt: "Front view of Carnegie Mellon's Boss, a black Chevrolet Tahoe numbered 19, with a rack of lidar and camera sensors on its roof and more sensors on its bumper, on display in a darkened hall.",
+    caption:
+      "Carnegie Mellon's Boss, winner of the 2007 DARPA Urban Challenge, on display in 2008. Route planning, behaviour decisions and local motion planning, the classical toolbox of its era, remain live production components.",
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:CMU_carbot_(2328347458).jpg',
+    creator: 'Steve Jurvetson',
+    licence: 'cc-by-2.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by/2.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1344,
+    // Licence sentence read on the file page: "This file is licensed under
+    // the Creative Commons Attribution 2.0 Generic license." Flickr review:
+    // "reviewed on 13 December 2020 by FlickreviewR 2 and was confirmed to
+    // be licensed under the terms of the cc-by-2.0". The Flickr description
+    // names it "The winner of the first DARPA urban challenge".
+  },
+  {
+    id: 'racing-quadrotor-minion-220-2016',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by-sa',
+    attributionText:
+      'Photo: Commanderbryce / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/racing-quadrotor-minion-220-2016.jpg',
+    alt: 'A small racing quadrotor on a wooden table: a bare carbon frame with four orange propellers, a green flight-controller board, a battery strapped on top and a forward-facing camera.',
+    caption:
+      'A Minion 220 racing quadrotor with its forward camera, 2016. Machines of this class exceed 100 km/h, and in 2023 a reinforcement-learning system beat three human world champions at racing them.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Racing_Drone.jpg',
+    creator: 'Commanderbryce',
+    licence: 'cc-by-sa-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1272,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, hereby publish it under the following license: This file
+    // is licensed under the Creative Commons Attribution-Share Alike 4.0
+    // International license." (own work, 2016-03-14).
+  },
+  {
+    id: 'dji-mavic-pro-in-flight',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by-sa',
+    attributionText: 'Photo: Sinky / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/dji-mavic-pro-in-flight.jpg',
+    alt: 'A grey DJI Mavic Pro quadcopter hovering against a cloudy sky, propellers blurred, its camera hanging below the front of the body.',
+    caption:
+      'A DJI Mavic Pro in flight, 2017. On an autonomous drone, visual-inertial odometry fuses camera features with inertial measurements into the pose and velocity the controller needs, with no GPS or motion capture.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:DJI_Mavic_Pro.jpg',
+    creator: 'Sinky',
+    licence: 'cc-by-sa-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1280,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, hereby publish it under the following license: This file
+    // is licensed under the Creative Commons Attribution-Share Alike 4.0
+    // International license." (own work, 2017-03-04).
+  },
+  {
+    id: 'perseverance-selfie-rochette-2021',
+    figureKind: 'photograph',
+    legalBasis: 'public-domain',
+    attributionText: 'Photo: NASA / Wikimedia Commons. Licence: Public domain.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/perseverance-selfie-rochette-2021.jpg',
+    alt: "NASA's Perseverance rover on reddish Martian ground, its mast camera head raised, beside a flat rock with two small drill holes, under a hazy orange sky.",
+    caption:
+      'Perseverance beside the rock Rochette on sol 198, September 2021, with two drill holes where its arm took cores. In its first Mars year, its AutoNav system evaluated 88 percent of the 17.7 km the rover drove.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:PIA24836_Perseverance%27s_Selfie_at_Rochette.jpg',
+    creator: 'NASA',
+    licence: 'public-domain',
+    licenceUrl: 'https://commons.wikimedia.org/wiki/Template:PD-NASA',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1080,
+    // Licence sentence read on the file page: "This file is in the public
+    // domain in the United States because it was solely created by NASA."
+    // (PIA24836; artist NASA; taken 2021-09-10, sol 198.)
+  },
+  {
+    id: 'ingenuity-mastcam-z-closeup-2021',
+    figureKind: 'photograph',
+    legalBasis: 'public-domain',
+    attributionText:
+      'Photo: NASA/JPL-Caltech/ASU/MSSS / Wikimedia Commons. Licence: Public domain.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/ingenuity-mastcam-z-closeup-2021.jpg',
+    alt: 'The Ingenuity helicopter standing on four thin legs on rust-coloured Martian soil, its two stacked rotors and the solar panel on top casting a long shadow.',
+    caption:
+      'Ingenuity on Mars, photographed by Perseverance on 5 April 2021, two weeks before its first flight. Qualified for five flights in thirty days, it flew 72 times over almost three years.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:Mastcam-Z_Gives_Ingenuity_a_Close-up.jpg',
+    creator: 'NASA/JPL-Caltech/ASU/MSSS',
+    licence: 'public-domain',
+    licenceUrl: 'https://commons.wikimedia.org/wiki/Template:PD-NASA',
+    retrieved: '2026-10-11',
+    width: 1604,
+    height: 1196,
+    // Licence sentence read on the file page: "This file is in the public
+    // domain in the United States because it was solely created by NASA."
+    // The original is 1604 px wide and ships as served.
+  },
+  {
+    id: 'moxie-installation-perseverance-2020',
+    figureKind: 'photograph',
+    legalBasis: 'public-domain',
+    attributionText: 'Photo: NASA / Wikimedia Commons. Licence: Public domain.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/moxie-installation-perseverance-2020.jpg',
+    alt: 'Technicians in white cleanroom suits lower a gold-coloured box, the MOXIE oxygen experiment, into the open chassis of the Perseverance rover in a clean room.',
+    caption:
+      "Mars 2020 team members install MOXIE in Perseverance's chassis. On Mars it made 122 grams of oxygen from atmospheric carbon dioxide across sixteen runs, about twice NASA's original production goals.",
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:PIA23154_MOXIE_experience_is_installed_into_the_chassis_of_the_Mars_rover_Perseverance.jpg',
+    creator: 'NASA',
+    licence: 'public-domain',
+    licenceUrl: 'https://commons.wikimedia.org/wiki/Template:PD-NASA',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1280,
+    // Licence sentence read on the file page: "This file is in the public
+    // domain in the United States because it was solely created by NASA."
+    // (PIA23154, 2020.)
+  },
+  {
+    id: 'dextre-canadarm2-iss-2017',
+    figureKind: 'photograph',
+    legalBasis: 'public-domain',
+    attributionText: 'Photo: NASA / Wikimedia Commons. Licence: Public domain.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/dextre-canadarm2-iss-2017.jpg',
+    alt: 'The two-armed Dextre robot hanging from the end of the long white Canadarm2 outside the International Space Station, with solar arrays and the black of space behind.',
+    caption:
+      "Dextre on the end of Canadarm2 in January 2017, during weeks spent swapping the station's batteries. Ground crews plan and fly every such task by teleoperation.",
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:ISS-50_Canadarm2_with_Dextre_robot_(1).jpg',
+    creator: 'NASA',
+    licence: 'public-domain',
+    licenceUrl: 'https://commons.wikimedia.org/wiki/Template:PD-NASA',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1278,
+    // Licence sentence read on the file page: "This file is in the public
+    // domain in the United States because it was solely created by NASA."
+    // (ISS-50 crew photograph, 2017-01-08.)
+  },
+  {
+    id: 'da-vinci-xi-patient-cart-2018',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by-sa',
+    attributionText:
+      'Photo: Alvarogarciamd / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/da-vinci-xi-patient-cart-2018.jpg',
+    alt: 'A white da Vinci Xi patient-side cart in a hospital room, four jointed instrument arms hanging from an overhead boom on a wheeled base.',
+    caption:
+      'A da Vinci Xi patient-side cart with its four instrument arms, 2018. Every motion its arms make is a surgeon’s command.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:New_Da_Vinci_Xi.jpg',
+    creator: 'Alvarogarciamd',
+    licence: 'cc-by-sa-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1440,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, hereby publish it under the following license: This file
+    // is licensed under the Creative Commons Attribution-Share Alike 4.0
+    // International license." (own work, 2018-09-29).
+  },
+  {
+    id: 'da-vinci-xi-surgeon-console-vesoul-2023',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by-sa',
+    attributionText:
+      'Photo: A.BourgeoisP / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
+    file: '/images/da-vinci-xi-surgeon-console-vesoul-2023.jpg',
+    alt: 'The front of a da Vinci Xi surgeon console: two eyepieces of the stereo viewer above a pair of hand controllers, with an armrest and touch panel below.',
+    caption:
+      'The stereo viewer and hand controllers of a da Vinci Xi surgeon console. Motion scaling and tremor filtering sit between these grips and the instruments, and the surgeon remains planner and controller: Level 0 autonomy.',
+    sourceName: 'Wikimedia Commons',
+    sourceUrl:
+      'https://commons.wikimedia.org/wiki/File:2023-09_-_Robot_chirurgien_Da_Vinci_Xi_-_Centre_hospitalier_de_Vesoul_-_09.jpg',
+    creator: 'A.BourgeoisP',
+    licence: 'cc-by-sa-4.0',
+    licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    retrieved: '2026-10-11',
+    width: 1920,
+    height: 1280,
+    // Licence sentence read on the file page: "I, the copyright holder of
+    // this work, hereby publish it under the following license: This file
+    // is licensed under the Creative Commons Attribution-Share Alike 4.0
+    // International license." (own work, 2023-09-23, public open day at
+    // the Vesoul hospital).
+  },
+  // END adjacent images (image brief, 2026-10-11)
 ];
 
 export const IMAGES: SiteImage[] = [...ARTICLE_IMAGES, ...LOGO_IMAGES];

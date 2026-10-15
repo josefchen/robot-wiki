@@ -472,7 +472,8 @@
       "audit": "A40",
       "sources": [
         "components/interactive/rrt-explorer.tsx",
-        "lib/rrt.ts"
+        "lib/rrt.ts",
+        "components/iso/figures/rrt-plotter.ts"
       ],
       "takeaway": "The robot's search grows random branches into open space until one reaches the goal, and that branch is the path around the obstacles."
     },
@@ -484,7 +485,8 @@
       "audit": "A41",
       "sources": [
         "components/interactive/pendulum-controller.tsx",
-        "lib/pendulum.ts"
+        "lib/pendulum.ts",
+        "components/iso/figures/pendulum-stand.ts"
       ],
       "takeaway": "To hold the pole upright the motor must push back harder than gravity pulls; push too gently and the pole sags over."
     },
@@ -619,7 +621,8 @@
       "audit": "A52",
       "sources": [
         "components/interactive/appearance-physics-push.tsx",
-        "lib/appearance-physics-push.ts"
+        "lib/appearance-physics-push.ts",
+        "components/iso/figures/push-bench.ts"
       ],
       "takeaway": "A realistic picture of a mug cannot be pushed, because it has no weight or friction until someone adds physics."
     },
@@ -700,7 +703,8 @@
       "audit": "A59",
       "sources": [
         "components/interactive/planar-fk-arm.tsx",
-        "lib/planar-fk.ts"
+        "lib/planar-fk.ts",
+        "components/iso/figures/arm-plotting-table.ts"
       ],
       "takeaway": "Turning the shoulder swings the whole rest of the arm, hand included, along with it."
     },

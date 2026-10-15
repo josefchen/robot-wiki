@@ -1,6 +1,7 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import { waitForHydration } from './interaction-ready';
 import { openAdjustMore } from './helpers/figure-fold';
+import { mugOffset, mugTransform } from '@/components/iso/figures/push-bench';
 
 /**
  * Each world-models page used to pair a motion scene with a lab that showed
@@ -236,7 +237,7 @@ const figures: Array<{ id: string; route: string; lab: string; beats: Beat[]; af
         reach: (figure) => press(figure.getByRole('button', { name: /push the mug/i }), 'Enter'),
         expectState: async (figure) => {
           await expect(figure.getByTestId('displacement-readout')).toHaveText('0 centimetres');
-          await expect(figure.getByTestId('mug')).toHaveAttribute('transform', 'translate(80 0)');
+          await expect(figure.getByTestId('mug')).toHaveAttribute('transform', mugTransform(mugOffset(0, 0, 1)));
         },
         describes: /leaves the mug at 0 centimetres/,
       },
@@ -245,7 +246,7 @@ const figures: Array<{ id: string; route: string; lab: string; beats: Beat[]; af
         reach: (figure) => press(figure.getByRole('button', { name: 'Picture plus physics', exact: true }), 'Enter'),
         expectState: async (figure) => {
           await expect(figure.getByTestId('displacement-readout')).toHaveText('18.1 centimetres');
-          await expect(figure.getByTestId('collision-hull')).toBeVisible();
+          await expect(figure.getByTestId('mug')).toHaveAttribute('data-on-plate', '');
         },
         describes: /the mug has moved 18\.1 centimetres after 1 push\b/,
       },

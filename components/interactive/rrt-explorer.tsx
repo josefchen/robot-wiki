@@ -8,24 +8,28 @@ import {
   INSTRUMENT_SECONDARY_CONTROL_CLASS,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
-  InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
-  LegendItem,
-  PlotStage,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageNumber, StageStatus } from '@/components/motion/figure-frame';
+import { StageNumber } from '@/components/motion/figure-frame';
+import { roleColour } from '@/components/motion/chart';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { PartView } from '@/components/iso/part-view';
+import { Dots, Line } from '@/components/iso/react/draw';
+import { Stage } from '@/components/iso/react/live';
 import {
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_TYPE,
-  CHART_UNCERTAINTY,
-  CHART_VIEW_WIDTH,
-  LegendSwatch,
-  StageAnnotation,
-  roleColour,
-} from '@/components/motion/chart';
+  PARK,
+  PARTS,
+  VIEW_BOX,
+  WIDTH,
+  branchInk,
+  gantryParts,
+  inkPoint,
+  pathInk,
+  standingParts,
+  type Part,
+} from '@/components/iso/figures/rrt-plotter';
 import {
   RRT_SCENE,
   buildRrt,
@@ -35,13 +39,18 @@ import {
   pathIfReached,
   playbackCadence,
   type RrtResult,
+  type Vec2,
 } from '@/lib/rrt';
 
 /**
- * RrtExplorer: a rapidly-exploring random tree grown toward a goal.
+ * RrtExplorer: a rapidly-exploring random tree grown toward a goal, drawn
+ * as a gantry plotter over the planning map (components/iso/figures/rrt-plotter.ts).
  *
  * The scene is a 100x64 planning world with a partial wall and four
- * circular obstacles between the start (left) and the goal (right). The
+ * circular obstacles between the start (left) and the goal (right), each a
+ * block standing on the plotter's board. The pen inks every accepted
+ * branch and dots its node, and when a branch reaches the goal ring the
+ * path back to the start peg is inked in the lit pen. The
  * full tree is precomputed from a fixed seed, so the growth is identical
  * on every load; the controls only reveal it. The figure opens on the
  * finished tree with the found path lit, because that frame is the point.
@@ -54,24 +63,6 @@ import {
  * SVG viewport (no layout shift). Playback runs on an interval (not rAF)
  * and degrades to coarse discrete jumps under prefers-reduced-motion.
  */
-
-const WIDTH = CHART_VIEW_WIDTH;
-/** Stage units per world unit: the 100x64 world maps to 320x204.8. */
-const SCALE = 3.2;
-const INSET_X = 10;
-/** The world sits under a band that holds the stage note. */
-const INSET_Y = 44;
-const HEIGHT = Number((INSET_Y + RRT_SCENE.height * SCALE + 8).toFixed(1));
-/** Baseline of the note's last line, and where its leader leaves the band. */
-const NOTE_LAST_Y = 34;
-const NOTE_LEADER_Y = 39;
-const NOTE_X = 12;
-const LINE_STEP = CHART_TYPE.labelPx * 1.25;
-const STAGE_GROUND = 'var(--motion-stage)';
-
-const px = (v: number) => Number((INSET_X + v * SCALE).toFixed(2));
-const py = (v: number) => Number((INSET_Y + v * SCALE).toFixed(2));
-const len = (v: number) => Number((v * SCALE).toFixed(2));
 
 function prefersReducedMotion(): boolean {
   return (
@@ -90,109 +81,60 @@ function statusText(iteration: number, goalIteration: number | null): string {
 }
 
 /**
- * The one stage note and the point it names: the found path once a branch
- * reaches the goal, otherwise the newest branch tip, or the start before
- * the tree has grown.
+ * The one stage hint and where the pen stands: once a branch reaches the
+ * goal the path is inked and the gantry parks clear of the map, otherwise
+ * the pen stands on the newest branch tip, or on the start before the tree
+ * has grown.
  */
-function stageNote(result: RrtResult, iteration: number, goalReached: boolean) {
-  if (goalReached) {
-    // The path's highest point is where it slips over the wall.
-    const over = result.path.reduce((top, p) => (p.y < top.y ? p : top));
-    return { lines: ['The first branch to reach the goal', 'becomes the path'], at: over };
-  }
-  if (iteration <= 0) return { lines: ['The tree grows from the start'], at: RRT_SCENE.start };
+export function stageNote(result: RrtResult, iteration: number, goalReached: boolean): { text: string; at: Vec2 } {
+  if (goalReached) return { text: 'The first branch to reach the goal becomes the path', at: PARK };
+  if (iteration <= 0) return { text: 'The tree grows from the start', at: RRT_SCENE.start };
   return {
-    lines: ['New branches reach toward random spots,', 'so they fill open space first'],
+    text: 'New branches reach toward random spots, so they fill open space first',
     at: result.nodes[Math.min(iteration, result.nodes.length - 1)],
   };
 }
 
-/** A word on the stage, haloed so it reads over the branches. */
-function StageWord({ x, y, children }: { x: number; y: number; children: string }) {
-  return (
-    <text
-      x={x}
-      y={y}
-      textAnchor="middle"
-      fontSize={CHART_TYPE.labelPx}
-      fontWeight={600}
-      fill={CHART_STRUCTURE.label}
-      stroke={STAGE_GROUND}
-      strokeWidth={3}
-      strokeLinejoin="round"
-      paintOrder="stroke"
-    >
-      {children}
-    </text>
-  );
+/** The stage readout in plain words; the exact counts and the path's length sit in the fold. */
+export function readoutFor(iteration: number, goalReached: boolean): string {
+  if (iteration <= 0) return 'No branches yet';
+  const grown = `${iteration} ${iteration === 1 ? 'branch' : 'branches'}`;
+  return goalReached ? `${grown} · the path is found` : `${grown} · still exploring`;
 }
 
-/** The fixed world: its boundary, the soft obstacles and the flagged goal. */
-function PlanningWorld() {
-  const constraint = roleColour('constraint');
-  const reference = roleColour('reference');
-  const softObstacle = {
-    fill: constraint,
-    fillOpacity: CHART_UNCERTAINTY.fillAlpha,
-    stroke: constraint,
-    strokeWidth: CHART_STROKE.structure,
-    strokeOpacity: 0.6,
-  };
-  const gx = px(RRT_SCENE.goal.x);
-  const gy = py(RRT_SCENE.goal.y);
-  return (
-    <>
-      <g data-scene-structure="planning-world">
-        <rect
-          x={px(0)}
-          y={py(0)}
-          width={len(RRT_SCENE.width)}
-          height={len(RRT_SCENE.height)}
-          fill="none"
-          stroke={CHART_STRUCTURE.axes}
-          strokeWidth={CHART_STROKE.structure}
-          opacity={CHART_STRUCTURE.axesOpacity}
-        />
-      </g>
-      <g data-series="rrt-obstacles" data-chart-role="constraint">
-        {RRT_SCENE.obstacles.map((obstacle, i) =>
-          obstacle.kind === 'circle' ? (
-            <circle
-              key={i}
-              data-testid={`rrt-obstacle-${i}`}
-              cx={px(obstacle.x)}
-              cy={py(obstacle.y)}
-              r={len(obstacle.r)}
-              {...softObstacle}
-            />
-          ) : (
-            <rect
-              key={i}
-              data-testid={`rrt-obstacle-${i}`}
-              x={px(obstacle.x)}
-              y={py(obstacle.y)}
-              width={len(obstacle.w)}
-              height={len(obstacle.h)}
-              {...softObstacle}
-            />
-          ),
-        )}
-      </g>
-      <g data-testid="rrt-goal" data-series="rrt-goal" data-chart-role="reference">
-        <circle
-          cx={gx}
-          cy={gy}
-          r={len(RRT_SCENE.goalRadius)}
-          fill="none"
-          stroke={reference}
-          strokeWidth={CHART_STROKE.reference}
-        />
-        <line x1={gx} y1={gy} x2={gx} y2={gy - 17} stroke={reference} strokeWidth={CHART_STROKE.reference} strokeLinecap="round" />
-        <path d={`M${gx} ${gy - 17} L${gx + 10} ${gy - 13.5} L${gx} ${gy - 10} Z`} fill={reference} />
-      </g>
-    </>
-  );
+/** How quickly the gantry glides to the pen's next place, in seconds. */
+const GLIDE_S = 0.07;
+
+/**
+ * The pen's drawn place, gliding toward `target` so the gantry follows the
+ * growing tree calmly instead of jumping from tick to tick; reduced motion
+ * jumps. The target is the model's; only the drawing lags it.
+ */
+function useEasedPen(target: Vec2, still: boolean): Vec2 {
+  const [shown, setShown] = useState<Vec2>(target);
+  const drawn = useRef<Vec2>(target);
+  useEffect(() => {
+    let frame = 0;
+    let last = 0;
+    const tick = (now: number) => {
+      const dt = last ? Math.min((now - last) / 1000, 1 / 30) : 1 / 60;
+      last = now;
+      const k = still || prefersReducedMotion() ? 1 : 1 - Math.exp(-dt / GLIDE_S);
+      const { x, y } = drawn.current;
+      let next = { x: x + (target.x - x) * k, y: y + (target.y - y) * k };
+      const done = Math.hypot(target.x - next.x, target.y - next.y) < 0.02;
+      if (done) next = target;
+      drawn.current = next;
+      setShown(next);
+      if (!done) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [target, still]);
+  return shown;
 }
+
+const sameParts = (parts: Part[]) => parts.map((part, n) => (part.kind === 'slot' || part.kind === 'wire' ? null : <PartView key={n} part={part} />));
 
 export function RrtExplorer({ className }: { className?: string }) {
   const descriptionId = `${useId()}-description`;
@@ -308,10 +250,9 @@ export function RrtExplorer({ className }: { className?: string }) {
     goalReached && goalIteration !== null
       ? `the highlighted start-to-goal path measures ${formatLength(result.pathLength)} units after a branch first reached the goal at iteration ${goalIteration}`
       : 'path length is n/a until a branch first reaches the goal';
-  const state = roleColour('state');
   const highlight = roleColour('highlight');
   const note = stageNote(result, iteration, goalReached);
-  const target: [number, number] = [px(note.at.x), py(note.at.y)];
+  const pen = useEasedPen(note.at, reducedMotion);
   const pathLengthText = goalReached ? `${formatLength(result.pathLength)} units` : 'n/a';
 
   return (
@@ -387,81 +328,74 @@ export function RrtExplorer({ className }: { className?: string }) {
         </>
       }
       stage={
-        <FigureStage
-          footer={
-            <>
-              <InstrumentLegend>
-                <LegendItem series="rrt-tree" swatch={<LegendSwatch role="state" mark="line" />}>
-                  tree branches
-                </LegendItem>
-                <LegendItem series="rrt-obstacles" swatch={<LegendSwatch role="constraint" mark="band" />}>
-                  obstacle
-                </LegendItem>
-                <LegendItem swatch={<LegendSwatch role="highlight" mark="line" />}>path found</LegendItem>
-              </InstrumentLegend>
-              <StageStatus>Illustrative: one run on a made-up map</StageStatus>
-            </>
-          }
+        <AnatomyStage
+          viewWidth={WIDTH}
+          hint={note.text}
+          readout={readoutFor(iteration, goalReached)}
+          status="Illustrative: one run on a made-up map"
+          data-testid="rrt-stage-frame"
         >
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`RRT exploration of a 2D planning scene with ${RRT_SCENE.obstacles.length} obstacles between a start on the left and a goal on the right. Iteration ${iteration} of ${total}, ${nodes.length} nodes. Status: ${status}.`}
-            aria-describedby={descriptionId}
-            data-testid="rrt-scene"
-          >
-            <PlanningWorld />
-            <g data-testid="rrt-tree" data-series="rrt-tree" data-chart-role="state" strokeOpacity={0.5}>
-              {edges.map((edge) => (
-                <line
-                  key={edge.to.id}
-                  x1={px(edge.from.x)}
-                  y1={py(edge.from.y)}
-                  x2={px(edge.to.x)}
-                  y2={py(edge.to.y)}
-                  stroke={state}
-                  strokeWidth={CHART_STROKE.structure}
-                  strokeLinecap="round"
-                />
-              ))}
-            </g>
-            {goalReached ? (
-              <polyline
-                data-testid="rrt-path"
-                data-chart-role="highlight"
-                data-selection="start-to-goal path"
-                points={path.map((p) => `${px(p.x)},${py(p.y)}`).join(' ')}
-                fill="none"
-                stroke={highlight}
-                strokeWidth={CHART_STROKE.trace * 1.25}
-                strokeLinejoin="round"
-                strokeLinecap="round"
-              />
-            ) : null}
-            {/* The start is the tree's root, so it joins the tree series; it
-                is drawn after the tree so neither the tree nor the path covers it. */}
-            <g data-testid="rrt-start" data-series="rrt-tree" data-chart-role="state">
-              <circle
-                cx={px(RRT_SCENE.start.x)}
-                cy={py(RRT_SCENE.start.y)}
-                r={CHART_STROKE.markerRadius + 1}
-                fill={state}
-              />
-            </g>
-            <StageWord x={px(RRT_SCENE.start.x)} y={py(RRT_SCENE.start.y) + 22}>Start</StageWord>
-            {/* Nudged left so the two words stay inside the stage at 375 px. */}
-            <StageWord x={px(RRT_SCENE.goal.x) - 12} y={py(RRT_SCENE.goal.y) + len(RRT_SCENE.goalRadius) + 18}>
-              Goal area
-            </StageWord>
-            <StageAnnotation
-              x={NOTE_X}
-              y={NOTE_LAST_Y - LINE_STEP * (note.lines.length - 1)}
-              lines={note.lines}
-              target={target}
-              from={[Math.min(Math.max(target[0], NOTE_X + 8), 140), NOTE_LEADER_Y]}
-              pointer="arrow"
-            />
-          </PlotStage>
-        </FigureStage>
+          <Stage className="iso-stage">
+            <svg
+              className="iso-svg"
+              viewBox={VIEW_BOX}
+              role="img"
+              focusable="false"
+              aria-label={`RRT exploration of a 2D planning scene with ${RRT_SCENE.obstacles.length} obstacles between a start on the left and a goal on the right. Iteration ${iteration} of ${total}, ${nodes.length} nodes. Status: ${status}.`}
+              aria-describedby={descriptionId}
+              data-testid="rrt-scene"
+            >
+              {PARTS.map((part, index) => {
+                if (part.kind !== 'slot') return part.kind === 'wire' ? null : <PartView key={index} part={part} />;
+                if (part.slot === 'ink') {
+                  return (
+                    <g key="ink" data-part="ink">
+                      <g data-testid="rrt-tree" data-series="rrt-tree">
+                        {edges.map((edge) => {
+                          const [a, b] = branchInk(edge.from, edge.to);
+                          return (
+                            <line
+                              key={edge.to.id}
+                              className="iso-line"
+                              data-tone="lo"
+                              x1={a[0].toFixed(1)}
+                              y1={a[1].toFixed(1)}
+                              x2={b[0].toFixed(1)}
+                              y2={b[1].toFixed(1)}
+                            />
+                          );
+                        })}
+                        <Dots points={nodes.map(inkPoint)} size={0.55} tone="mid" />
+                      </g>
+                      {goalReached ? (
+                        <g data-testid="rrt-path" data-selection="start-to-goal path" data-length={formatLength(result.pathLength)}>
+                          <Line d={pathInk(path)} tone="lit" />
+                          <Dots points={path.map(inkPoint)} size={0.8} tone="hi" />
+                        </g>
+                      ) : null}
+                    </g>
+                  );
+                }
+                if (part.slot === 'standing') {
+                  return (
+                    <g key="standing" data-part="standing">
+                      {standingParts(pen, goalReached).map(({ id, parts }) => (
+                        <g key={id} data-testid={id === 'pen-nib' ? 'rrt-pen' : `rrt-${id}`} data-at={id === 'pen-nib' ? `${note.at.x.toFixed(2)} ${note.at.y.toFixed(2)}` : undefined}>
+                          {sameParts(parts)}
+                        </g>
+                      ))}
+                    </g>
+                  );
+                }
+                return (
+                  <g key="gantry" data-part="gantry">
+                    {sameParts(gantryParts(pen))}
+                  </g>
+                );
+              })}
+            </svg>
+          </Stage>
+        </AnatomyStage>
       }
       caption="Rather than check every route, the robot's search grows random branches into open space until one reaches the goal."
       method={

@@ -3,8 +3,9 @@ import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { RrtExplorer } from '@/components/interactive/rrt-explorer';
-import { ANNOTATION_ARROW } from '@/components/motion/chart';
+import { RrtExplorer, readoutFor } from '@/components/interactive/rrt-explorer';
+import { CELL, P, PARK, BOARD_Z, inkPoint, standingParts, gantryParts } from '@/components/iso/figures/rrt-plotter';
+import { depthOf, iso } from '@/components/iso/iso-kit';
 import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
 import { mainViewSymbolHits, mainViewText } from '@/lib/figure-main-view';
 import { RRT_SCENE, buildRrt } from '@/lib/rrt';
@@ -263,8 +264,13 @@ describe('RrtExplorer', () => {
     );
     const path = screen.getByTestId('rrt-path');
     expect(path).toBeInTheDocument();
-    // The path is a visible signal-blue polyline through start and goal.
-    expect(path.tagName.toLowerCase()).toBe('polyline');
+    // The path is inked in the lit pen, one line from the start peg to the goal.
+    const ink = path.querySelector('path.iso-line[data-tone="lit"]')!;
+    const points = [...ink.getAttribute('d')!.matchAll(/[ML](-?[\d.]+) (-?[\d.]+)/g)].map((m) => [Number(m[1]), Number(m[2])]);
+    const near = (a: number[], b: number[]) => Math.hypot(a[0] - b[0], a[1] - b[1]) < 0.15;
+    expect(near(points[0], inkPoint(RRT_SCENE.start))).toBe(true);
+    expect(near(points[points.length - 1], inkPoint(RESULT.path[RESULT.path.length - 1]))).toBe(true);
+    expect(points).toHaveLength(RESULT.path.length);
     expect(screen.getByTestId('rrt-path-readout')).toHaveTextContent(
       /^\d+\.\d units$/,
     );
@@ -314,27 +320,29 @@ describe('RrtExplorer', () => {
     expect(screen.getByRole('button', { name: /grow the tree/i })).toBeEnabled();
   });
 
-  it('points its one stage note at the path, the newest branch, or the start', () => {
+  it('points its one stage note at the path, the newest branch, or the start, where the pen stands', () => {
     const { container } = render(<RrtExplorer />);
-    const notes = () => container.querySelectorAll('[data-figure-annotation]');
-    const note = () => [...notes()[0].querySelectorAll('tspan')].map((t) => t.textContent).join(' ');
-    // The arrowhead's tip stops ANNOTATION_ARROW.gap short of the point the note names.
-    const gapTo = (target: number[]) => {
-      const points = notes()[0].querySelector('[data-annotation-pointer="arrow"] polygon')!.getAttribute('points')!;
-      const [tx, ty] = points.split(' ')[0].split(',').map(Number);
-      return Math.hypot(tx - target[0], ty - target[1]);
-    };
-    const stage = (p: { x: number; y: number }) => [Number((10 + p.x * 3.2).toFixed(2)), Number((44 + p.y * 3.2).toFixed(2))];
-    expect(notes()).toHaveLength(1);
-    expect(note()).toBe('The first branch to reach the goal becomes the path');
-    const top = RESULT.path.reduce((a, p) => (p.y < a.y ? p : a));
-    expect(gapTo(stage(top))).toBeCloseTo(ANNOTATION_ARROW.gap, 5);
+    const hint = () => container.querySelector('[data-anatomy-hint]')?.textContent;
+    const pen = () => screen.getByTestId('rrt-pen').getAttribute('data-at')!.split(' ').map(Number);
+    const at = (p: { x: number; y: number }) => [Number(p.x.toFixed(2)), Number(p.y.toFixed(2))];
+    expect(hint()).toBe('The first branch to reach the goal becomes the path');
+    // With the path inked, the gantry parks past the map's right edge so the whole path shows.
+    expect(pen()).toEqual(at(PARK));
+    expect(PARK.x).toBeGreaterThan(RRT_SCENE.width);
     fireEvent.change(screen.getByRole('slider', { name: /exploration iteration/i }), { target: { value: '40' } });
-    expect(note()).toBe('New branches reach toward random spots, so they fill open space first');
-    expect(gapTo(stage(RESULT.nodes[40]))).toBeCloseTo(ANNOTATION_ARROW.gap, 5);
+    expect(hint()).toBe('New branches reach toward random spots, so they fill open space first');
+    expect(pen()).toEqual(at(RESULT.nodes[40]));
     toStart();
-    expect(note()).toBe('The tree grows from the start');
-    expect(gapTo(stage(RRT_SCENE.start))).toBeCloseTo(ANNOTATION_ARROW.gap, 5);
+    expect(hint()).toBe('The tree grows from the start');
+    expect(pen()).toEqual(at(RRT_SCENE.start));
+  });
+
+  it('reads the growth in plain words on the stage', () => {
+    const { container } = render(<RrtExplorer />);
+    expect(container.querySelector('[data-readout]')?.textContent).toBe(`${TOTAL} branches · the path is found`);
+    fireEvent.change(screen.getByRole('slider', { name: /exploration iteration/i }), { target: { value: '1' } });
+    expect(container.querySelector('[data-readout]')?.textContent).toBe('1 branch · still exploring');
+    expect(readoutFor(0, false)).toBe('No branches yet');
   });
 
   it('clamps stepping at the final iteration', async () => {
@@ -412,6 +420,43 @@ describe('RrtExplorer main view', () => {
   });
 });
 
+describe('planning plotter model', () => {
+  it('stands every block where the scene puts its obstacle, one board cell per planning unit', () => {
+    const pieces = standingParts(RRT_SCENE.start);
+    expect(pieces.filter(({ id }) => id.startsWith('obstacle-'))).toHaveLength(RRT_SCENE.obstacles.length);
+    expect(pieces.map(({ id }) => id)).toEqual(expect.arrayContaining(['start', 'goal', 'pen-nib']));
+    // A branch's ink runs on the board's face between its two nodes.
+    const edge = RESULT.nodes[10];
+    const parent = RESULT.nodes[edge.parent];
+    expect(inkPoint(edge)).toEqual(iso([edge.x * CELL, edge.y * CELL, BOARD_Z], P));
+    expect(inkPoint(parent)).toEqual(iso([parent.x * CELL, parent.y * CELL, BOARD_Z], P));
+  });
+
+  it("paints the pen's nib after every block in front of which it stands, and before the rest", () => {
+    for (const node of [RESULT.nodes[40], RESULT.nodes[200], RRT_SCENE.start, RESULT.path[RESULT.path.length - 1]]) {
+      const pieces = standingParts(node);
+      const nib = pieces.findIndex(({ id }) => id === 'pen-nib');
+      const depth = depthOf([node.x * CELL, node.y * CELL, 0], P);
+      for (const [k, piece] of pieces.entries()) {
+        if (!piece.id.startsWith('obstacle-')) continue;
+        const o = RRT_SCENE.obstacles[Number(piece.id.slice(9))];
+        const centre = o.kind === 'circle' ? [o.x, o.y] : [o.x + o.w / 2, o.y + o.h / 2];
+        const blockDepth = depthOf([centre[0] * CELL, centre[1] * CELL, 0], P);
+        // A block whose centre is well in front of the nib paints after it, one well behind before it.
+        if (blockDepth > depth + 60) expect(k).toBeGreaterThan(nib);
+        if (blockDepth < depth - 60) expect(k).toBeLessThan(nib);
+      }
+    }
+  });
+
+  it('carries the pen head over the nib on the gantry', () => {
+    const node = RESULT.nodes[120];
+    const parts = gantryParts(node);
+    expect(parts.length).toBeGreaterThan(8);
+    expect(parts.some((part) => part.kind === 'solid' && part.lit)).toBe(false);
+  });
+});
+
 describe('RrtExplorer served HTML', () => {
   const html = `<!doctype html><html><body><main>${renderToStaticMarkup(<RrtExplorer />)}</main></body></html>`;
 
@@ -426,8 +471,11 @@ describe('RrtExplorer served HTML', () => {
     const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
     expect(mainViewSymbolHits(frame)).toEqual([]);
     const { lines } = mainViewText(frame);
-    expect(lines).toContain('Start');
-    expect(lines).toContain('Goal area');
+    // The start peg and the goal ring are named in words by the stage's hint and readout, never by text in the drawing.
+    expect(lines.some((line) => line.includes('The first branch to reach the goal becomes the path'))).toBe(true);
+    expect(lines.some((line) => line.includes(`${TOTAL} branches · the path is found`))).toBe(true);
     expect(lines.some((line) => /units|iteration|nodes/.test(line))).toBe(false);
+    const svg = frame.querySelector('svg.iso-svg')!;
+    expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
   });
 });

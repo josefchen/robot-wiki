@@ -49,6 +49,8 @@ import { EgoScaleScaling } from '@/components/interactive/egoscale-scaling';
 
 Generalization is a robot policy's ability to work in settings it was not trained in, closing the <Term id="distribution-shift">distribution shift</Term> of new geometry, objects and clutter without per-site data. Even the most general policies are "mostly trained on data collected in a small number of environments" <Cite id="droid-2024" />, and in a new home a one-centimeter grasp error drops the object.
 
+<Image id="droid-cook-lentils-rollouts-2024" />
+
 EgoScale's scaling law is the strongest argument that the gap closes with data <Cite id="egoscale-2026" />. Try a larger amount under "How much video?" and the dashed line continues past the measurements.
 
 <PredictThenReveal
@@ -113,6 +115,8 @@ Benchmark scores hide brittleness: modest perturbations cut LIBERO-Plus success 
 Third, the evaluations lean semantic, while new object physics bring in touch and contact ([Dexterity](/frontier/dexterity/)). DreamZero's authors write that VLAs "struggle to generalize to unseen physical motions in novel environments", and report over 2x better generalization from a video world action model <Cite id="dreamzero-2026" />. In March 2026 NVIDIA previewed GR00T N2, built on DreamZero research, and says it succeeds at new tasks more than twice as often as leading VLAs <Cite id="nvidia-gtc-gr00t-n2-2026" />.
 
 Fourth, transfer works best when source and target share task structure. In π0.7's ablations, performance degrades as the embodiment gap widens before the latest model recovers it <Cite id="pi07-2026" />. Across morphologies, the closest evidence is EgoScale's transfer from a 22-DoF hand to lower-DoF hands <Cite id="egoscale-2026" />.
+
+<Image id="egoscale-robot-platforms-2026" />
 
 <span id="the-scaling-evidence-and-what-it-measures" />
 ## EgoScale's law holds from 1k to 20k hours of human video

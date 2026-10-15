@@ -14,8 +14,8 @@ import {
 /**
  * Domain landing view: the entry point every home card and sidebar overview
  * link resolves to. Lists the domain's published modules in registry order,
- * each with its own summary. Drafts never appear in any form, and the page carries no progress counters: a reader sees
- * what exists to read, not the state of the authoring pipeline
+ * each with its own summary. Drafts never appear in any form, and the page
+ * carries no progress counters.
  */
 export const dynamicParams = false;
 
@@ -103,8 +103,7 @@ export default async function DomainLandingPage({
           </h1>
           <p className="page-lead mt-[30px]">{meta.description}</p>
           <p className="meta-line mt-6 max-w-[960px]">
-            This domain overview lists {published.length} articles, ordered as{' '}
-            {meta.readingOrder}
+            {published.length} articles. {meta.readingOrder}
           </p>
         </header>
         <ol className="border-t border-border">

@@ -206,6 +206,36 @@ function throughSeoPass(path: string) {
     expect(continues(cut, end)).toBe(true);
     end = cut.newHash;
   }
+  // The frontier images of 2026-10-15 landed after the data-hardware cut; its
+  // one edge on a frontier article that gained image mounts continues the
+  // previous endpoint the same way.
+  const frontierImageEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('images-frontier-20261015-'));
+  expect(frontierImageEdges.length).toBeLessThanOrEqual(1);
+  for (const images of frontierImageEdges) {
+    expect(continues(images, end)).toBe(true);
+    end = images.newHash;
+  }
+  // The adjacent domain pass and length cut of 2026-10-14 landed after
+  // the frontier images; its one edge on an adjacent article continues the
+  // previous endpoint the same way.
+  const adjacentEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('length-cut-20261014-adjacent-'));
+  expect(adjacentEdges.length).toBeLessThanOrEqual(1);
+  for (const cut of adjacentEdges) {
+    expect(continues(cut, end)).toBe(true);
+    end = cut.newHash;
+  }
+  // The adjacent images of bundle B landed on 2026-10-15 after the adjacent
+  // pass; their one edge on an adjacent article that gained image mounts
+  // continues the previous endpoint the same way.
+  const imageBEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('images-b-adjacent-20261015-'));
+  expect(imageBEdges.length).toBeLessThanOrEqual(1);
+  for (const images of imageBEdges) {
+    expect(continues(images, end)).toBe(true);
+    end = images.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 

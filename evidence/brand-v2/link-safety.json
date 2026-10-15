@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "3f58813bea5efb2b790c680976e0426ccd261d397a2911da2a814a8fd325b817",
+  "fingerprint": "3ca03ed7922acdcafc3e5d7c7e46b7db17cece355c49a9bd08d3f3ce622c7649",
   "source": "out/ static export",
   "routes": [
     {
@@ -47,10 +47,11 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "outboundAnchors": 66,
-      "distinctHrefs": 24,
+      "outboundAnchors": 162,
+      "distinctHrefs": 63,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -58,10 +59,11 @@
     },
     {
       "route": "/adjacent/drones/",
-      "outboundAnchors": 37,
-      "distinctHrefs": 11,
+      "outboundAnchors": 101,
+      "distinctHrefs": 42,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -69,10 +71,11 @@
     },
     {
       "route": "/adjacent/space/",
-      "outboundAnchors": 44,
-      "distinctHrefs": 18,
+      "outboundAnchors": 122,
+      "distinctHrefs": 50,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -80,10 +83,11 @@
     },
     {
       "route": "/adjacent/surgical/",
-      "outboundAnchors": 34,
-      "distinctHrefs": 13,
+      "outboundAnchors": 95,
+      "distinctHrefs": 38,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -207,8 +211,8 @@
     },
     {
       "route": "/credits/",
-      "outboundAnchors": 406,
-      "distinctHrefs": 200,
+      "outboundAnchors": 458,
+      "distinctHrefs": 224,
       "shapes": [
         "figure-credit",
         "footer",
@@ -321,8 +325,8 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "outboundAnchors": 93,
-      "distinctHrefs": 36,
+      "outboundAnchors": 97,
+      "distinctHrefs": 39,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -333,10 +337,11 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "outboundAnchors": 86,
-      "distinctHrefs": 36,
+      "outboundAnchors": 90,
+      "distinctHrefs": 40,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -344,8 +349,8 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundAnchors": 93,
-      "distinctHrefs": 36,
+      "outboundAnchors": 99,
+      "distinctHrefs": 39,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -356,10 +361,11 @@
     },
     {
       "route": "/frontier/generalization/",
-      "outboundAnchors": 80,
-      "distinctHrefs": 35,
+      "outboundAnchors": 84,
+      "distinctHrefs": 36,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -367,8 +373,8 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "outboundAnchors": 70,
-      "distinctHrefs": 34,
+      "outboundAnchors": 74,
+      "distinctHrefs": 38,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -379,10 +385,11 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "outboundAnchors": 104,
-      "distinctHrefs": 46,
+      "outboundAnchors": 112,
+      "distinctHrefs": 51,
       "shapes": [
         "citation-chip",
+        "figure-credit",
         "footer",
         "other",
         "reference-entry"
@@ -837,17 +844,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 5834,
-  "distinctOutboundHrefs": 1713,
+  "outboundAnchors": 6215,
+  "distinctOutboundHrefs": 1841,
   "anchorsByShape": {
-    "citation-chip": 2336,
+    "citation-chip": 2502,
     "footer": 152,
-    "reference-entry": 2063,
-    "other": 564,
-    "figure-credit": 719
+    "figure-credit": 823,
+    "reference-entry": 2174,
+    "other": 564
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 5248,
+  "anchorsWithNoreferrer": 5629,
   "keyboard": [
     {
       "route": "/",
@@ -891,35 +898,35 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "outboundInDom": 66,
-      "reachedByTab": 66,
+      "outboundInDom": 162,
+      "reachedByTab": 162,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 192
+      "tabStops": 361
     },
     {
       "route": "/adjacent/drones/",
-      "outboundInDom": 37,
-      "reachedByTab": 37,
+      "outboundInDom": 101,
+      "reachedByTab": 101,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 127
+      "tabStops": 230
     },
     {
       "route": "/adjacent/space/",
-      "outboundInDom": 44,
-      "reachedByTab": 44,
+      "outboundInDom": 122,
+      "reachedByTab": 122,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 114
+      "tabStops": 246
     },
     {
       "route": "/adjacent/surgical/",
-      "outboundInDom": 34,
-      "reachedByTab": 34,
+      "outboundInDom": 95,
+      "reachedByTab": 95,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 101
+      "tabStops": 209
     },
     {
       "route": "/classical/",
@@ -943,7 +950,7 @@
       "reachedByTab": 96,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 238
+      "tabStops": 239
     },
     {
       "route": "/classical/grasp-planning/",
@@ -967,7 +974,7 @@
       "reachedByTab": 112,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 254
+      "tabStops": 255
     },
     {
       "route": "/classical/perception/",
@@ -1003,11 +1010,11 @@
     },
     {
       "route": "/credits/",
-      "outboundInDom": 406,
-      "reachedByTab": 406,
+      "outboundInDom": 458,
+      "reachedByTab": 458,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 636
+      "tabStops": 714
     },
     {
       "route": "/data-hardware/",
@@ -1023,7 +1030,7 @@
       "reachedByTab": 84,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 211
+      "tabStops": 212
     },
     {
       "route": "/data-hardware/datasets/",
@@ -1039,7 +1046,7 @@
       "reachedByTab": 78,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 206
+      "tabStops": 207
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
@@ -1091,51 +1098,51 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "outboundInDom": 93,
-      "reachedByTab": 93,
+      "outboundInDom": 97,
+      "reachedByTab": 97,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 233
+      "tabStops": 237
     },
     {
       "route": "/frontier/competing-theses/",
-      "outboundInDom": 86,
-      "reachedByTab": 86,
+      "outboundInDom": 90,
+      "reachedByTab": 90,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 230
+      "tabStops": 234
     },
     {
       "route": "/frontier/dexterity/",
-      "outboundInDom": 93,
-      "reachedByTab": 93,
+      "outboundInDom": 99,
+      "reachedByTab": 99,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 221
+      "tabStops": 227
     },
     {
       "route": "/frontier/generalization/",
-      "outboundInDom": 80,
-      "reachedByTab": 80,
+      "outboundInDom": 84,
+      "reachedByTab": 84,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 202
+      "tabStops": 206
     },
     {
       "route": "/frontier/reliability-gap/",
-      "outboundInDom": 70,
-      "reachedByTab": 70,
+      "outboundInDom": 74,
+      "reachedByTab": 74,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 181
+      "tabStops": 188
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "outboundInDom": 104,
-      "reachedByTab": 104,
+      "outboundInDom": 112,
+      "reachedByTab": 112,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 252
+      "tabStops": 258
     },
     {
       "route": "/glossary/",
@@ -1183,7 +1190,7 @@
       "reachedByTab": 82,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 202
+      "tabStops": 203
     },
     {
       "route": "/manipulation/comparison-matrix/",
@@ -1239,7 +1246,7 @@
       "reachedByTab": 83,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 197
+      "tabStops": 198
     },
     {
       "route": "/manipulation/pi-line/",
@@ -1319,7 +1326,7 @@
       "reachedByTab": 92,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 216
+      "tabStops": 215
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
@@ -1327,7 +1334,7 @@
       "reachedByTab": 84,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 193
+      "tabStops": 192
     },
     {
       "route": "/rl-sim2real/offline-rl/",
@@ -1343,7 +1350,7 @@
       "reachedByTab": 89,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 204
+      "tabStops": 205
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
@@ -1375,7 +1382,7 @@
       "reachedByTab": 78,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 188
+      "tabStops": 189
     },
     {
       "route": "/search/",
@@ -1415,7 +1422,7 @@
       "reachedByTab": 83,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 216
+      "tabStops": 217
     },
     {
       "route": "/world-models/jepa/",

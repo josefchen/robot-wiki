@@ -15,7 +15,7 @@ const DEFINITIONS = [
     id: 'robot-learning-vla',
     title: 'Robot learning and VLA',
     description:
-      'From embodied data and imitation learning to action models, evaluation, and deployment.',
+      'From robot data and imitation learning to action models, evaluation and deployment.',
     hub: '/manipulation/',
     keys: [
       'manipulation/robot-learning-roadmap',
@@ -32,7 +32,7 @@ const DEFINITIONS = [
     id: 'classical-robotics',
     title: 'Classical robotics foundations',
     description:
-      'The dependency chain underneath learned policies: geometry, sensing, estimation, planning, and control.',
+      'The chain underneath learned policies: geometry, sensing, estimation, planning and control.',
     hub: '/classical/',
     keys: [
       'classical/kinematics',
@@ -48,7 +48,7 @@ const DEFINITIONS = [
     id: 'world-models',
     title: 'World models for robotics',
     description:
-      'Start with the overloaded term, then compare latent, representation-space, video, and simulation approaches.',
+      'Start with what counts as a world model, then compare latent, representation-space, video and simulation approaches.',
     hub: '/world-models/',
     keys: [
       'world-models/taxonomy',

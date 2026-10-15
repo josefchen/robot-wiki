@@ -1,11 +1,134 @@
 {
   "schemaVersion": "image-mount-continuity-v1",
   "name": "image-mounts-20261013",
-  "reviewedBy": "integration worker for images bundle A of 2026-10-13 (not independent acceptance)",
+  "reviewedBy": "integration workers for images bundle A (2026-10-13), the frontier images (2026-10-15) and the adjacent images of bundle B (2026-10-15) (not independent acceptance)",
   "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, under the licence gate of data/schemas/image.ts. Not release approval.",
-  "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-13T20:04:39Z",
+  "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13, the six frontier articles on 2026-10-15, and the adjacent articles on 2026-10-15 after their length cut: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
+  "observedAt": "2026-10-15T12:40:31Z",
   "sources": [
+    {
+      "archivedFrom": "488f773433ed5556396cb5012639f6b0fd11e7c4",
+      "before": {
+        "path": "content/adjacent/autonomous-vehicles.mdx",
+        "bytes": 20313,
+        "sha256": "f8b6738fe834f5ab6d15e6d142750c4a49bee26d8ddbde20e3ad665cd9b3f19b"
+      },
+      "after": {
+        "path": "content/adjacent/autonomous-vehicles.mdx",
+        "bytes": 20460,
+        "sha256": "49118a4634c77b3a64dbef740232adb56675a62b5d3527649c327268fe20816b"
+      },
+      "mounts": [
+        "waymo-jaguar-ipace-san-francisco-2023",
+        "waymo-roof-sensor-suite-2025",
+        "cmu-boss-urban-challenge-winner"
+      ],
+      "edits": [
+        {
+          "before": "Autonomous vehicles are cars and trucks that drive themselves, with sensors and software for perception, prediction, planning and control. The field runs from ALVINN, a 1988 neural network that steered a van from camera and laser range-finder images <Cite id=\"alvinn-1988\" />, to Waymo robotaxis that gave more than 500,000 fully autonomous rides a week in April 2026 <Cite id=\"alphabet-q1-2026\" />.\n\n",
+          "after": "Autonomous vehicles are cars and trucks that drive themselves, with sensors and software for perception, prediction, planning and control. The field runs from ALVINN, a 1988 neural network that steered a van from camera and laser range-finder images <Cite id=\"alvinn-1988\" />, to Waymo robotaxis that gave more than 500,000 fully autonomous rides a week in April 2026 <Cite id=\"alphabet-q1-2026\" />.\n\n<Image id=\"waymo-jaguar-ipace-san-francisco-2023\" />\n\n"
+        },
+        {
+          "before": "Perception turns sensor streams into a model of the scene: which objects exist, where they are, how they move and what the road permits. Waymo's encoder fuses camera, lidar and radar inputs over time <Cite id=\"waymo-foundation-model-2025\" />, and Waymo argues that no single sensor can replicate that redundant view <Cite id=\"waymo-ai-lessons-2026\" />. BEVFormer, a camera-only bird's-eye-view detector, matched lidar-based baselines on the nuScenes test set <Cite id=\"bevformer-2022\" />.\n\n",
+          "after": "Perception turns sensor streams into a model of the scene: which objects exist, where they are, how they move and what the road permits. Waymo's encoder fuses camera, lidar and radar inputs over time <Cite id=\"waymo-foundation-model-2025\" />, and Waymo argues that no single sensor can replicate that redundant view <Cite id=\"waymo-ai-lessons-2026\" />. BEVFormer, a camera-only bird's-eye-view detector, matched lidar-based baselines on the nuScenes test set <Cite id=\"bevformer-2022\" />.\n\n<Image id=\"waymo-roof-sensor-suite-2025\" />\n\n"
+        },
+        {
+          "before": "Planning decides the route, lane, speed profile and trajectory for the next few seconds. CMU's Boss won the 2007 DARPA Urban Challenge with a three-layer planner for mission, behavior and motion <Cite id=\"boss-urban-challenge-2008\" />. Paden's survey splits urban planning the same way, with feedback control below <Cite id=\"paden-2016\" />, the families covered under [motion planning](/classical/motion-planning/).\n",
+          "after": "Planning decides the route, lane, speed profile and trajectory for the next few seconds. CMU's Boss won the 2007 DARPA Urban Challenge with a three-layer planner for mission, behavior and motion <Cite id=\"boss-urban-challenge-2008\" />. Paden's survey splits urban planning the same way, with feedback control below <Cite id=\"paden-2016\" />, the families covered under [motion planning](/classical/motion-planning/).\n\n<Image id=\"cmu-boss-urban-challenge-winner\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "488f773433ed5556396cb5012639f6b0fd11e7c4",
+      "before": {
+        "path": "content/adjacent/drones.mdx",
+        "bytes": 12877,
+        "sha256": "8d9694bad0c1f600929f42918e63019e0e75f06bdea20d38daf733bf6da82e64"
+      },
+      "after": {
+        "path": "content/adjacent/drones.mdx",
+        "bytes": 12966,
+        "sha256": "b309b1b0f36bf01cb57a68935a3662787cfb1828d61bd98384cf31ff82ea6065"
+      },
+      "mounts": [
+        "racing-quadrotor-minion-220-2016",
+        "dji-mavic-pro-in-flight"
+      ],
+      "edits": [
+        {
+          "before": "Aerial robotics is the design and control of robots that fly, from delivery drones and racing quadrotors to <Term id=\"swarm-robotics\">swarms</Term>. Flight was an early learning success because its dynamics simulate well: a reinforcement-learning system beat human world champions in its own lab in 2023 <Cite id=\"swift-drone-racing-2023\" />, and a one-camera drone won an organiser-run race in 2025 <Cite id=\"monorace-2026\" />.\n\n",
+          "after": "Aerial robotics is the design and control of robots that fly, from delivery drones and racing quadrotors to <Term id=\"swarm-robotics\">swarms</Term>. Flight was an early learning success because its dynamics simulate well: a reinforcement-learning system beat human world champions in its own lab in 2023 <Cite id=\"swift-drone-racing-2023\" />, and a one-camera drone won an organiser-run race in 2025 <Cite id=\"monorace-2026\" />.\n\n<Image id=\"racing-quadrotor-minion-220-2016\" />\n\n"
+        },
+        {
+          "before": "One camera and one low-cost IMU are the minimum sensor suite for metric six-DoF state estimation <Cite id=\"vins-mono-2018\" />. <Term id=\"visual-inertial-odometry\">Visual-inertial odometry</Term> fuses image features with IMU measurements into the pose and velocity the controller needs, without GPS or motion capture <Cite id=\"swift-drone-racing-2023\" />. The fast inner loop often runs on a microcontroller stack such as PX4, which has substantially lower latency than a typical robotics Linux system <Cite id=\"px4-2015\" />.\n",
+          "after": "One camera and one low-cost IMU are the minimum sensor suite for metric six-DoF state estimation <Cite id=\"vins-mono-2018\" />. <Term id=\"visual-inertial-odometry\">Visual-inertial odometry</Term> fuses image features with IMU measurements into the pose and velocity the controller needs, without GPS or motion capture <Cite id=\"swift-drone-racing-2023\" />. The fast inner loop often runs on a microcontroller stack such as PX4, which has substantially lower latency than a typical robotics Linux system <Cite id=\"px4-2015\" />.\n\n<Image id=\"dji-mavic-pro-in-flight\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "488f773433ed5556396cb5012639f6b0fd11e7c4",
+      "before": {
+        "path": "content/adjacent/space.mdx",
+        "bytes": 13534,
+        "sha256": "0c12367881b2f5da94dc51c56a7441bf5dced4e2e951922ff128d62b13a17d0e"
+      },
+      "after": {
+        "path": "content/adjacent/space.mdx",
+        "bytes": 13728,
+        "sha256": "5f341f0de96549d5e1495018af34c9560062af76b290f463775759f338760619"
+      },
+      "mounts": [
+        "perseverance-selfie-rochette-2021",
+        "ingenuity-mastcam-z-closeup-2021",
+        "moxie-installation-perseverance-2020",
+        "dextre-canadarm2-iss-2017"
+      ],
+      "edits": [
+        {
+          "before": "Space robotics is the design and operation of robots beyond Earth, from planetary rovers to station arms and satellite servicers. A signal needs 4 to 20 minutes to reach Mars <Cite id=\"jpl-ipn-pnt-2024\" />, so rovers drive mostly on their own <Cite id=\"enav-perseverance-2026\" />, and commercial servicers have docked with satellites in orbit since 2020 <Cite id=\"mev1-servicing-2025\" />.\n\n",
+          "after": "Space robotics is the design and operation of robots beyond Earth, from planetary rovers to station arms and satellite servicers. A signal needs 4 to 20 minutes to reach Mars <Cite id=\"jpl-ipn-pnt-2024\" />, so rovers drive mostly on their own <Cite id=\"enav-perseverance-2026\" />, and commercial servicers have docked with satellites in orbit since 2020 <Cite id=\"mev1-servicing-2025\" />.\n\n<Image id=\"perseverance-selfie-rochette-2021\" />\n\n"
+        },
+        {
+          "before": "On April 19, 2021, Ingenuity made the first powered, controlled flight on another planet, in an atmosphere with about one percent of Earth's surface pressure <Cite id=\"ingenuity-first-flight-2021\" />. Designed for five flights over thirty days, it flew 72 times in almost three years before NASA ended the mission in January 2024 <Cite id=\"ingenuity-mission-end-2024\" />. NASA's accident investigation named the most likely cause: a lack of surface texture gave the navigation system too little information <Cite id=\"ingenuity-investigation-2024\" />.\n\n",
+          "after": "On April 19, 2021, Ingenuity made the first powered, controlled flight on another planet, in an atmosphere with about one percent of Earth's surface pressure <Cite id=\"ingenuity-first-flight-2021\" />. Designed for five flights over thirty days, it flew 72 times in almost three years before NASA ended the mission in January 2024 <Cite id=\"ingenuity-mission-end-2024\" />. NASA's accident investigation named the most likely cause: a lack of surface texture gave the navigation system too little information <Cite id=\"ingenuity-investigation-2024\" />.\n\n<Image id=\"ingenuity-mastcam-z-closeup-2021\" />\n\n"
+        },
+        {
+          "before": "MOXIE, on Perseverance, was the first demonstration of <Term id=\"in-situ-resource-utilization\">in-situ resource utilization</Term> (ISRU) on another planet, making oxygen by solid-oxide electrolysis of atmospheric carbon dioxide <Cite id=\"moxie-sciadv-2022\" />. A scaled-up version would make the tens of tons of oxygen an ascent rocket needs on Mars, instead of launching hundreds of tons from Earth <Cite id=\"moxie-sciadv-2022\" />. Across sixteen runs MOXIE produced 122 grams of oxygen, peaking at 12 grams per hour at 98 percent purity or better, about twice NASA's original goals <Cite id=\"moxie-completion-2023\" />. It concluded operations in September 2023 <Cite id=\"moxie-completion-2023\" />.\n\n",
+          "after": "MOXIE, on Perseverance, was the first demonstration of <Term id=\"in-situ-resource-utilization\">in-situ resource utilization</Term> (ISRU) on another planet, making oxygen by solid-oxide electrolysis of atmospheric carbon dioxide <Cite id=\"moxie-sciadv-2022\" />. A scaled-up version would make the tens of tons of oxygen an ascent rocket needs on Mars, instead of launching hundreds of tons from Earth <Cite id=\"moxie-sciadv-2022\" />. Across sixteen runs MOXIE produced 122 grams of oxygen, peaking at 12 grams per hour at 98 percent purity or better, about twice NASA's original goals <Cite id=\"moxie-completion-2023\" />. It concluded operations in September 2023 <Cite id=\"moxie-completion-2023\" />.\n\n<Image id=\"moxie-installation-perseverance-2020\" />\n\n"
+        },
+        {
+          "before": "On the International Space Station, Canadarm2, a 17 m arm, assembled the station and still grapples and berths arriving cargo vehicles <Cite id=\"canadarm2-csa-2024\" />. Dextre, a two-armed robot that rides it, replaces exterior equipment including 100 kg batteries by <Term id=\"teleoperation\">teleoperation</Term> from the ground <Cite id=\"dextre-csa-2024\" />.\n",
+          "after": "On the International Space Station, Canadarm2, a 17 m arm, assembled the station and still grapples and berths arriving cargo vehicles <Cite id=\"canadarm2-csa-2024\" />. Dextre, a two-armed robot that rides it, replaces exterior equipment including 100 kg batteries by <Term id=\"teleoperation\">teleoperation</Term> from the ground <Cite id=\"dextre-csa-2024\" />.\n\n<Image id=\"dextre-canadarm2-iss-2017\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "488f773433ed5556396cb5012639f6b0fd11e7c4",
+      "before": {
+        "path": "content/adjacent/surgical.mdx",
+        "bytes": 12329,
+        "sha256": "b1237858576ffe8b3bb4ca94d522929e716e71165471b1c491cbb7304f8a49cd"
+      },
+      "after": {
+        "path": "content/adjacent/surgical.mdx",
+        "bytes": 12431,
+        "sha256": "af0187f6b73b19cf8f85c772672725687f36788afaf090ea1ba3893ada5cf7e3"
+      },
+      "mounts": [
+        "da-vinci-xi-patient-cart-2018",
+        "da-vinci-xi-surgeon-console-vesoul-2023"
+      ],
+      "edits": [
+        {
+          "before": "Surgical robotics is the use of robots to position or move surgical instruments, today mostly teleoperated systems for <Term id=\"minimally-invasive-surgery\">minimally invasive surgery</Term> that scale and filter a surgeon's hand motion. Intuitive had 11,710 da Vinci systems installed by June 30, 2026 <Cite id=\"intuitive-q2-2026\" />, and most commercial platforms sit at level 0, with no decision autonomy <Cite id=\"attanasio-autonomy-2021\" />.\n\n",
+          "after": "Surgical robotics is the use of robots to position or move surgical instruments, today mostly teleoperated systems for <Term id=\"minimally-invasive-surgery\">minimally invasive surgery</Term> that scale and filter a surgeon's hand motion. Intuitive had 11,710 da Vinci systems installed by June 30, 2026 <Cite id=\"intuitive-q2-2026\" />, and most commercial platforms sit at level 0, with no decision autonomy <Cite id=\"attanasio-autonomy-2021\" />.\n\n<Image id=\"da-vinci-xi-patient-cart-2018\" />\n\n"
+        },
+        {
+          "before": "A da Vinci surgeon sits at a console away from the table and moves hand controllers, while patient-side arms carry wristed instruments and an endoscope. The robot adds motion scaling, tremor filtering and wrists that articulate inside the body. Yang and colleagues place such a system at Level 0, no autonomy, because even with motion scaling its output represents the surgeon's desired motion <Cite id=\"yang-autonomy-2017\" />. At level 1 a robot gives cognitive and physical assistance, and at level 2 it performs a surgical task autonomously <Cite id=\"attanasio-autonomy-2021\" />.\n",
+          "after": "A da Vinci surgeon sits at a console away from the table and moves hand controllers, while patient-side arms carry wristed instruments and an endoscope. The robot adds motion scaling, tremor filtering and wrists that articulate inside the body. Yang and colleagues place such a system at Level 0, no autonomy, because even with motion scaling its output represents the surgeon's desired motion <Cite id=\"yang-autonomy-2017\" />. At level 1 a robot gives cognitive and physical assistance, and at level 2 it performs a surgical task autonomously <Cite id=\"attanasio-autonomy-2021\" />.\n\n<Image id=\"da-vinci-xi-surgeon-console-vesoul-2023\" />\n"
+        }
+      ]
+    },
     {
       "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
       "before": {
@@ -251,6 +374,183 @@
         {
           "before": "McGee and Schmidt's 1985 NASA history credits Schmidt's Ames group with adapting the filter to nonlinear circumlunar navigation in the early 1960s. By early 1961 simulations supported the approach, though operation on available flight computers was unverified. The report separates this work from Battin's Apollo studies at MIT and Potter's square-root implementation used in Apollo. Primary Apollo navigation used ground radar, with an onboard backup <Cite id=\"mcgee-schmidt-1985\" />.\n",
           "after": "McGee and Schmidt's 1985 NASA history credits Schmidt's Ames group with adapting the filter to nonlinear circumlunar navigation in the early 1960s. By early 1961 simulations supported the approach, though operation on available flight computers was unverified. The report separates this work from Battin's Apollo studies at MIT and Potter's square-root implementation used in Apollo. Primary Apollo navigation used ground radar, with an onboard backup <Cite id=\"mcgee-schmidt-1985\" />.\n\n<Image id=\"apollo-guidance-computer-dsky\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b9525d9d4fa2a125936ed23e2d22257d18e929db",
+      "before": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 10051,
+        "sha256": "6d04e10afeba9b203f1da2393329d0ec98ac250a93f3bf4347d953666e338938"
+      },
+      "after": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 10119,
+        "sha256": "bfac4a48de3b0c71bd41e20e1eb1b7508898fd31d60e904729b50714b073e2a8"
+      },
+      "mounts": [
+        "asimo-miraikan-2016",
+        "roomba-870-2014"
+      ],
+      "edits": [
+        {
+          "before": "The bear case is the argument that robotics is repeating earlier AI winters: capital arrives on demonstrations, deployment evidence arrives late, and funding runs out before the reliability gap closes. Robotics startups raised \\$18.8B by late June 2026 by Crunchbase's count, past 2025's record \\$15B <Cite id=\"crunchbase-robotics-funding-2026\" />.\n\n",
+          "after": "The bear case is the argument that robotics is repeating earlier AI winters: capital arrives on demonstrations, deployment evidence arrives late, and funding runs out before the reliability gap closes. Robotics startups raised \\$18.8B by late June 2026 by Crunchbase's count, past 2025's record \\$15B <Cite id=\"crunchbase-robotics-funding-2026\" />.\n\n<Image id=\"asimo-miraikan-2016\" />\n\n"
+        },
+        {
+          "before": "Evidence: Rodney Brooks, co-founder of iRobot and Rethink Robotics, calls the belief that current methods will yield practical humanoid dexterity within decades \"pure fantasy thinking\", since vision-only training gives no force channel ([dexterity](/frontier/dexterity/)) <Cite id=\"brooks-dexterity-2025\" />. His January 2026 scorecard predicts deployable dexterity \"will remain pathetic compared to human hands\" beyond 2036, and walking humanoids too unsafe near people without new mechanical systems <Cite id=\"brooks-scorecard-2026\" />. Rethink raised \\$150 million and shut down in 2018 when sales fell short <Cite id=\"rethink-shutdown-2018\" />.\n",
+          "after": "Evidence: Rodney Brooks, co-founder of iRobot and Rethink Robotics, calls the belief that current methods will yield practical humanoid dexterity within decades \"pure fantasy thinking\", since vision-only training gives no force channel ([dexterity](/frontier/dexterity/)) <Cite id=\"brooks-dexterity-2025\" />. His January 2026 scorecard predicts deployable dexterity \"will remain pathetic compared to human hands\" beyond 2036, and walking humanoids too unsafe near people without new mechanical systems <Cite id=\"brooks-scorecard-2026\" />. Rethink raised \\$150 million and shut down in 2018 when sales fell short <Cite id=\"rethink-shutdown-2018\" />.\n\n<Image id=\"roomba-870-2014\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b9525d9d4fa2a125936ed23e2d22257d18e929db",
+      "before": {
+        "path": "content/frontier/competing-theses.mdx",
+        "bytes": 14273,
+        "sha256": "67f5cef40b7496b71f03449c495e470620b63a77b79fc5cea3b32823e38a0704"
+      },
+      "after": {
+        "path": "content/frontier/competing-theses.mdx",
+        "bytes": 14365,
+        "sha256": "86e4399da86ea923b7ea52759b903c61deba9df47b5167a6d021429da1d3bec7"
+      },
+      "mounts": [
+        "unitree-g1-stage-japan-mobility-2025",
+        "amazon-drive-unit-2023"
+      ],
+      "edits": [
+        {
+          "before": "The competing theses are the rival bets on how robot intelligence gets built: end-to-end VLA scaling, hierarchy, world models, RL fine-tuning, teleoperation as a bridge, and the humanoid form factor. The bets are expensive: Figure has committed \\$3.5B of compute to training Helix <Cite id=\"helix-2-5-2026\" />, and Physical Intelligence has staked its program, from π0 to π0.7, on scaling <Cite id=\"pi07-2026\" />.\n\n",
+          "after": "The competing theses are the rival bets on how robot intelligence gets built: end-to-end VLA scaling, hierarchy, world models, RL fine-tuning, teleoperation as a bridge, and the humanoid form factor. The bets are expensive: Figure has committed \\$3.5B of compute to training Helix <Cite id=\"helix-2-5-2026\" />, and Physical Intelligence has staked its program, from π0 to π0.7, on scaling <Cite id=\"pi07-2026\" />.\n\n<Image id=\"unitree-g1-stage-japan-mobility-2025\" />\n\n"
+        },
+        {
+          "before": "The humanoid side, backed by Figure, Tesla, 1X, Apptronik, and Unitree, bets that a human body is the right interface to a world built for humans. The task-specific side, argued by Rodney Brooks, who describes his company's warehouse robots and his work at Robust.AI <Cite id=\"brooks-dexterity-2025\" />, bets that purpose-built systems win on cost and reliability for any task named in advance. Amazon has deployed its millionth robot <Cite id=\"amazon-million-robots-2025\" />, and Agility sits between the sides, deploying its Digit humanoid in narrow logistics work <Cite id=\"agility-digit-production\" />.\n",
+          "after": "The humanoid side, backed by Figure, Tesla, 1X, Apptronik, and Unitree, bets that a human body is the right interface to a world built for humans. The task-specific side, argued by Rodney Brooks, who describes his company's warehouse robots and his work at Robust.AI <Cite id=\"brooks-dexterity-2025\" />, bets that purpose-built systems win on cost and reliability for any task named in advance. Amazon has deployed its millionth robot <Cite id=\"amazon-million-robots-2025\" />, and Agility sits between the sides, deploying its Digit humanoid in narrow logistics work <Cite id=\"agility-digit-production\" />.\n\n<Image id=\"amazon-drive-unit-2023\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b9525d9d4fa2a125936ed23e2d22257d18e929db",
+      "before": {
+        "path": "content/frontier/dexterity.mdx",
+        "bytes": 17633,
+        "sha256": "d4d2943d584dd841377d54fa28976665f99f558898f6381f790c8c096ec76ab9"
+      },
+      "after": {
+        "path": "content/frontier/dexterity.mdx",
+        "bytes": 17774,
+        "sha256": "62e378f98f9ae2edaacb5e154f17ab248d5c2afd7e0909174841a6fd3858beeb"
+      },
+      "mounts": [
+        "uskin-tactile-allegro-hand-2021",
+        "t-rex-bimanual-tactile-setup-2026",
+        "fingr-cube-layer-turn-2026"
+      ],
+      "edits": [
+        {
+          "before": "Dexterity is skilled <Term id=\"contact-rich-manipulation\">contact-rich manipulation</Term>, such as reorienting an object in the hand or folding cloth. It remains unsolved: a model Physical Intelligence fine-tuned on Benjie Holson's Humanoid Olympics tasks averaged 52% success on them <Cite id=\"pi-olympics-2025\" />.\n\n",
+          "after": "Dexterity is skilled <Term id=\"contact-rich-manipulation\">contact-rich manipulation</Term>, such as reorienting an object in the hand or folding cloth. It remains unsolved: a model Physical Intelligence fine-tuned on Benjie Holson's Humanoid Olympics tasks averaged 52% success on them <Cite id=\"pi-olympics-2025\" />.\n\n<Image id=\"uskin-tactile-allegro-hand-2021\" />\n\n"
+        },
+        {
+          "before": "In June 2026, Dantong Niu, Yuke Zhu, Trevor Darrell and colleagues described T-Rex. It pairs a 100-hour tactile-rich dataset with a vision-language-action model that reads high-frequency touch through a variable-rate mixture-of-transformers and a temporal tactile encoder. On 12 tasks requiring delicate force control and deformable-object manipulation, its average success rate was more than 30% higher than the strongest baseline's <Cite id=\"t-rex-2026\" />.\n\n",
+          "after": "In June 2026, Dantong Niu, Yuke Zhu, Trevor Darrell and colleagues described T-Rex. It pairs a 100-hour tactile-rich dataset with a vision-language-action model that reads high-frequency touch through a variable-rate mixture-of-transformers and a temporal tactile encoder. On 12 tasks requiring delicate force control and deformable-object manipulation, its average success rate was more than 30% higher than the strongest baseline's <Cite id=\"t-rex-2026\" />.\n\n<Image id=\"t-rex-bimanual-tactile-setup-2026\" />\n\n"
+        },
+        {
+          "before": "In September 2026, Yutong Liang, Quanquan Peng, Matthew Kim and Xiaolong Wang reported FINGR, a flow policy that turns Rubik's Cube layers with a single real dexterous hand. It succeeded on 99.0% of 300 turn attempts, against 79.7% for the base flow policy. With grasping and table-assisted regrasping added, it solved all ten scrambled 2×2×2 cubes in about 137 seconds on average <Cite id=\"fingr-2026\" />.\n",
+          "after": "In September 2026, Yutong Liang, Quanquan Peng, Matthew Kim and Xiaolong Wang reported FINGR, a flow policy that turns Rubik's Cube layers with a single real dexterous hand. It succeeded on 99.0% of 300 turn attempts, against 79.7% for the base flow policy. With grasping and table-assisted regrasping added, it solved all ten scrambled 2×2×2 cubes in about 137 seconds on average <Cite id=\"fingr-2026\" />.\n\n<Image id=\"fingr-cube-layer-turn-2026\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b9525d9d4fa2a125936ed23e2d22257d18e929db",
+      "before": {
+        "path": "content/frontier/generalization.mdx",
+        "bytes": 13782,
+        "sha256": "013a705bcc0bb5568020a1fe29c8fe87d85763e39ed2a19dd623a612ac9f8f69"
+      },
+      "after": {
+        "path": "content/frontier/generalization.mdx",
+        "bytes": 13877,
+        "sha256": "366bd6912eba30acfc126a77745868bfcba8a0cb5adc8ae0717c5b073ebb311e"
+      },
+      "mounts": [
+        "droid-cook-lentils-rollouts-2024",
+        "egoscale-robot-platforms-2026"
+      ],
+      "edits": [
+        {
+          "before": "Generalization is a robot policy's ability to work in settings it was not trained in, closing the <Term id=\"distribution-shift\">distribution shift</Term> of new geometry, objects and clutter without per-site data. Even the most general policies are \"mostly trained on data collected in a small number of environments\" <Cite id=\"droid-2024\" />, and in a new home a one-centimeter grasp error drops the object.\n\n",
+          "after": "Generalization is a robot policy's ability to work in settings it was not trained in, closing the <Term id=\"distribution-shift\">distribution shift</Term> of new geometry, objects and clutter without per-site data. Even the most general policies are \"mostly trained on data collected in a small number of environments\" <Cite id=\"droid-2024\" />, and in a new home a one-centimeter grasp error drops the object.\n\n<Image id=\"droid-cook-lentils-rollouts-2024\" />\n\n"
+        },
+        {
+          "before": "Fourth, transfer works best when source and target share task structure. In π0.7's ablations, performance degrades as the embodiment gap widens before the latest model recovers it <Cite id=\"pi07-2026\" />. Across morphologies, the closest evidence is EgoScale's transfer from a 22-DoF hand to lower-DoF hands <Cite id=\"egoscale-2026\" />.\n",
+          "after": "Fourth, transfer works best when source and target share task structure. In π0.7's ablations, performance degrades as the embodiment gap widens before the latest model recovers it <Cite id=\"pi07-2026\" />. Across morphologies, the closest evidence is EgoScale's transfer from a 22-DoF hand to lower-DoF hands <Cite id=\"egoscale-2026\" />.\n\n<Image id=\"egoscale-robot-platforms-2026\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b9525d9d4fa2a125936ed23e2d22257d18e929db",
+      "before": {
+        "path": "content/frontier/reliability-gap.mdx",
+        "bytes": 10756,
+        "sha256": "78330757c0d25fae42486ad39b2fae0190968ea489b821ac76431087368aabd9"
+      },
+      "after": {
+        "path": "content/frontier/reliability-gap.mdx",
+        "bytes": 10847,
+        "sha256": "55c19e0c4f96b2c286b480f128c19c51f60f47d73960cd77a114c7a88c17d7da"
+      },
+      "mounts": [
+        "amazon-swindon-slam-line-2025",
+        "tesla-optimus-stockholm-2024"
+      ],
+      "edits": [
+        {
+          "before": "The reliability gap is the difference between the <Term id=\"success-rate\">success rates</Term> a robot shows in controlled settings and the rates deployment requires. A robot that finishes a task 80% of the time is a demo, one that finishes it 99.9% of the time is a product, and Bessemer calls closing the gap \"not a linear problem\" <Cite id=\"bessemer-robotics-2026\" />.\n\n",
+          "after": "The reliability gap is the difference between the <Term id=\"success-rate\">success rates</Term> a robot shows in controlled settings and the rates deployment requires. A robot that finishes a task 80% of the time is a demo, one that finishes it 99.9% of the time is a product, and Bessemer calls closing the gap \"not a linear problem\" <Cite id=\"bessemer-robotics-2026\" />.\n\n<Image id=\"amazon-swindon-slam-line-2025\" />\n\n"
+        },
+        {
+          "before": "Agility reports 65,000 hours of Digit production experience <Cite id=\"agility-digit-production\" /> ([industrial deployment](/data-hardware/industrial-deployment/)), and in September 2026 about 98% on-task accuracy across 100,000 totes at GXO's Flowery Branch site <Cite id=\"agility-digit-5-2026\" />. Figure's November 2025 report says its BMW Spartanburg deployment logged 1,250+ runtime hours and loaded 90,000+ parts in eleven months, while its 84-second cycle and >99% placement accuracy were targets it did not report as achieved <Cite id=\"figure-bmw-production-2025\" />. Tesla's Q1 and Q2 2026 updates list both Optimus lines as under construction, with first builds going to an \"Optimus Academy for training data collection\" <Cite id=\"tesla-q1-2026-update\" /> <Cite id=\"tesla-q2-2026-update\" />.\n",
+          "after": "Agility reports 65,000 hours of Digit production experience <Cite id=\"agility-digit-production\" /> ([industrial deployment](/data-hardware/industrial-deployment/)), and in September 2026 about 98% on-task accuracy across 100,000 totes at GXO's Flowery Branch site <Cite id=\"agility-digit-5-2026\" />. Figure's November 2025 report says its BMW Spartanburg deployment logged 1,250+ runtime hours and loaded 90,000+ parts in eleven months, while its 84-second cycle and >99% placement accuracy were targets it did not report as achieved <Cite id=\"figure-bmw-production-2025\" />. Tesla's Q1 and Q2 2026 updates list both Optimus lines as under construction, with first builds going to an \"Optimus Academy for training data collection\" <Cite id=\"tesla-q1-2026-update\" /> <Cite id=\"tesla-q2-2026-update\" />.\n\n<Image id=\"tesla-optimus-stockholm-2024\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "b9525d9d4fa2a125936ed23e2d22257d18e929db",
+      "before": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 18159,
+        "sha256": "2be7ebef52a06c85830867d9249b1d566183a11f9f7ec353d9b8903340a390e4"
+      },
+      "after": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 18343,
+        "sha256": "4c763d7b789d26e9bccdb0aad7b2c66a241d72fef111583e02429723f1ab760c"
+      },
+      "mounts": [
+        "robotic-welding-cell-guarding-2014",
+        "emergency-stop-siemens-2006",
+        "wcbf-hyper-redundant-robot-2026",
+        "knowno-ask-for-help-2023"
+      ],
+      "edits": [
+        {
+          "before": "Safety assurance is the procedure for showing that a robot system is safe enough to run. Industrial robots have a settled, numerical standards stack, but none certifies a learned policy, so what ships is a verifiable safety layer around it <Cite id=\"iso-iec-tr-5469-2024\" />.\n\n",
+          "after": "Safety assurance is the procedure for showing that a robot system is safe enough to run. Industrial robots have a settled, numerical standards stack, but none certifies a learned policy, so what ships is a verifiable safety layer around it <Cite id=\"iso-iec-tr-5469-2024\" />.\n\n<Image id=\"robotic-welding-cell-guarding-2014\" />\n\n"
+        },
+        {
+          "before": "ISO 13850, at edition 3 from 2015, specifies the <Term id=\"emergency-stop\">emergency stop</Term> independently of the energy source and names IEC 60204-1, at its 2016 edition, for the electrical realisation <Cite id=\"iso-13850-2015\" /> <Cite id=\"iec-60204-1-2016\" />. The button cannot detect a hazard; it waits for a person to see one and press. In stop category 0 the actuators lose power and the brakes engage, while in category 1 power is maintained through a controlled stop <Cite id=\"marvel-norcross-2017\" />.\n\n",
+          "after": "ISO 13850, at edition 3 from 2015, specifies the <Term id=\"emergency-stop\">emergency stop</Term> independently of the energy source and names IEC 60204-1, at its 2016 edition, for the electrical realisation <Cite id=\"iso-13850-2015\" /> <Cite id=\"iec-60204-1-2016\" />. The button cannot detect a hazard; it waits for a person to see one and press. In stop category 0 the actuators lose power and the brakes engage, while in category 1 power is maintained through a controlled stop <Cite id=\"marvel-norcross-2017\" />.\n\n<Image id=\"emergency-stop-siemens-2006\" />\n\n"
+        },
+        {
+          "before": "Barrier functions are also being adapted to bodies that rigid-arm controllers handle poorly. In September 2026, Zijian Cai, Daniela Rus, Cecilia Laschi and colleagues weighted the control barrier functions along a slender hyper-redundant robot to enforce obstacle constraints while correcting tracking errors from uneven loading. On a circular path-following task with obstacles, fixed weights cut the root-mean-square tracking error of the unweighted method by up to 59.6% in simulation and 87.7% in physical experiments <Cite id=\"wcbf-hyper-redundant-2026\" />.\n\n",
+          "after": "Barrier functions are also being adapted to bodies that rigid-arm controllers handle poorly. In September 2026, Zijian Cai, Daniela Rus, Cecilia Laschi and colleagues weighted the control barrier functions along a slender hyper-redundant robot to enforce obstacle constraints while correcting tracking errors from uneven loading. On a circular path-following task with obstacles, fixed weights cut the root-mean-square tracking error of the unweighted method by up to 59.6% in simulation and 87.7% in physical experiments <Cite id=\"wcbf-hyper-redundant-2026\" />.\n\n<Image id=\"wcbf-hyper-redundant-robot-2026\" />\n\n"
+        },
+        {
+          "before": "<Term id=\"conformal-prediction\">Conformal prediction</Term> turns any model's raw output into a prediction set with a guaranteed coverage rate under exchangeability. Vovk, Gammerman and Shafer built the framework <Cite id=\"vovk-conformal-2022\" />, and Angelopoulos and Bates's tutorial carried it into general machine-learning practice <Cite id=\"angelopoulos-conformal-2021\" />. In KnowNo, Ren and colleagues calibrate a language-model planner conformally so that the robot asks a human for help when its prediction set is ambiguous, with a statistical guarantee on task completion <Cite id=\"knowno-2023\" />.\n",
+          "after": "<Term id=\"conformal-prediction\">Conformal prediction</Term> turns any model's raw output into a prediction set with a guaranteed coverage rate under exchangeability. Vovk, Gammerman and Shafer built the framework <Cite id=\"vovk-conformal-2022\" />, and Angelopoulos and Bates's tutorial carried it into general machine-learning practice <Cite id=\"angelopoulos-conformal-2021\" />. In KnowNo, Ren and colleagues calibrate a language-model planner conformally so that the robot asks a human for help when its prediction set is ambiguous, with a statistical guarantee on task completion <Cite id=\"knowno-2023\" />.\n\n<Image id=\"knowno-ask-for-help-2023\" />\n"
         }
       ]
     },

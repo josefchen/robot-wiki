@@ -4,7 +4,11 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { getImage } from '../../data/images';
+import { adjacentCutPredecessor, adjacentCutSuccessorPaths } from '../../lib/audit-length-cut-adjacent-continuity';
 import { lengthCutPredecessor, lengthCutSuccessorPaths } from '../../lib/audit-length-cut-continuity';
+import {
+  frontierLengthCutPredecessor, frontierLengthCutSuccessorPaths,
+} from '../../lib/audit-length-cut-frontier-continuity';
 import {
   worldModelsLengthCutPredecessor, worldModelsLengthCutSuccessorPaths,
 } from '../../lib/audit-length-cut-world-models-continuity';
@@ -30,8 +34,12 @@ afterEach(() => {
 describe('image mounts 2026-10-13 article successors', () => {
   const review = loadImageMountReview(root);
 
-  it('reviews exactly the articles of images bundle A', () => {
+  it('reviews exactly the articles of images bundle A, the frontier images and adjacent bundle B', () => {
     expect(imageMountSuccessorPaths()).toEqual([
+      'content/adjacent/autonomous-vehicles.mdx',
+      'content/adjacent/drones.mdx',
+      'content/adjacent/space.mdx',
+      'content/adjacent/surgical.mdx',
       'content/classical/calibration.mdx',
       'content/classical/control.mdx',
       'content/classical/grasp-planning.mdx',
@@ -41,6 +49,12 @@ describe('image mounts 2026-10-13 article successors', () => {
       'content/classical/ros2-for-ml-engineers.mdx',
       'content/classical/scene-representation.mdx',
       'content/classical/state-estimation.mdx',
+      'content/frontier/bear-case.mdx',
+      'content/frontier/competing-theses.mdx',
+      'content/frontier/dexterity.mdx',
+      'content/frontier/generalization.mdx',
+      'content/frontier/reliability-gap.mdx',
+      'content/frontier/safety-and-assurance.mdx',
       'content/manipulation/action-chunking.mdx',
       'content/manipulation/action-spaces.mdx',
       'content/manipulation/bc-foundations.mdx',
@@ -111,11 +125,17 @@ describe('image mounts 2026-10-13 article successors', () => {
       expect(imageMountsIn(live.toString())).toEqual(source.mounts);
       expect(imageMountPredecessor(root, source.after, live)).toBe(live);
       // The rebuilt bytes are the successor of the length cut that last changed the article, which that layer
-      // still decides: the world-models cut for world-models, the 2026-10-12 cut for the other three domains.
-      const worldModels = source.after.path.startsWith('content/world-models/');
-      const [olderPaths, olderPredecessor] = worldModels
+      // still decides: the world-models cut for world-models, the 2026-10-13 frontier cut (dexterity's later cut
+      // included) for frontier, the adjacent cut for the adjacent articles of bundle B, and the 2026-10-12 cut for
+      // the other three domains.
+      const domain = source.after.path.split('/')[1];
+      const [olderPaths, olderPredecessor] = domain === 'world-models'
         ? [worldModelsLengthCutSuccessorPaths(), worldModelsLengthCutPredecessor]
-        : [lengthCutSuccessorPaths(), lengthCutPredecessor];
+        : domain === 'frontier'
+          ? [frontierLengthCutSuccessorPaths(), frontierLengthCutPredecessor]
+          : domain === 'adjacent'
+            ? [adjacentCutSuccessorPaths(), adjacentCutPredecessor]
+            : [lengthCutSuccessorPaths(), lengthCutPredecessor];
       expect(olderPaths).toContain(source.after.path);
       expect(olderPredecessor(root, { path: source.after.path, ...blank }, prior)).not.toEqual(prior);
       expect(olderPredecessor(root, { path: source.after.path, ...blank }, live)).toBe(live);
@@ -126,7 +146,7 @@ describe('image mounts 2026-10-13 article successors', () => {
     const [source] = review.sources;
     const drifted = Buffer.concat([read(source.after.path), Buffer.from('\n')]);
     expect(imageMountPredecessor(root, source.before, drifted)).toBe(drifted);
-    expect(imageMountPredecessor(root, { path: 'content/frontier/bear-case.mdx', ...blank }, drifted)).toBe(drifted);
+    expect(imageMountPredecessor(root, { path: 'content/frontier/index.mdx', ...blank }, drifted)).toBe(drifted);
     expect(() => verifyImageMountSource(source, drifted)).toThrow(drift);
     const replaced = { ...source, edits: [{ before: '---\n\n', after: '---\n\nimport { X } from \'x\';\n\n' }] };
     expect(() => verifyImageMountSource(replaced, read(source.after.path))).toThrow(drift);

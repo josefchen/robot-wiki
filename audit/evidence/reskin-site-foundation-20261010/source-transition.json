@@ -3,7 +3,7 @@
   "name": "reskin-site-foundation-20261010",
   "reviewedBy": "implementation worker for the site-foundation re-skin of 2026-10-10 (not independent acceptance)",
   "rationale": "On 2026-10-10 the owner replaced the brand-v2 visual identity with the Pantheon research-page standard (PANTHEON-SPEC.md): paper and ink tokens, DM Sans, Geist and Geist Mono, a single top bar, and an article template with an eyebrow, a display title, a sticky contents rail, margin sidenotes, numbered findings and booktabs tables, carried to the home, hub, glossary, A-Z and search pages. The change is presentation only. Each presentation source it touched is recorded here as exact edits over the bytes it had before, and the earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-13T07:05:19Z",
+  "observedAt": "2026-10-14T03:03:23Z",
   "sources": [
     {
       "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
@@ -61,10 +61,14 @@
       },
       "after": {
         "path": "app/(content)/[domain]/page.tsx",
-        "bytes": 6080,
-        "sha256": "23df1b3dedcc24f5437de548b27b529911eea340e67351f5ae5f225254b63bb2"
+        "bytes": 5950,
+        "sha256": "81ec66a436ff7ed3495c6cd5dfa11d51d8dd3aa5b2ecf4aba0b43285bc97e8cd"
       },
       "edits": [
+        {
+          "before": " * each with its own summary. Drafts never appear in any form, and the page carries no progress counters: a reader sees\n * what exists to read, not the state of the authoring pipeline\n",
+          "after": " * each with its own summary. Drafts never appear in any form, and the page\n * carries no progress counters.\n"
+        },
         {
           "before": "    <div className=\"mx-auto w-full max-w-3xl px-6 py-12\">\n",
           "after": "    <div className=\"sheet sheet-masthead pb-8\">\n"
@@ -78,8 +82,8 @@
           "after": "        <header className=\"mb-16\">\n          <h1 data-tektur-role=\"page-h1\" className=\"display-h1\">\n"
         },
         {
-          "before": "          <p className=\"mt-3 leading-relaxed text-text-dim\">{meta.description}</p>\n          <p className=\"mt-3 max-w-[65ch] leading-relaxed text-text-dim\">\n",
-          "after": "          <p className=\"page-lead mt-[30px]\">{meta.description}</p>\n          <p className=\"meta-line mt-6 max-w-[960px]\">\n"
+          "before": "          <p className=\"mt-3 leading-relaxed text-text-dim\">{meta.description}</p>\n          <p className=\"mt-3 max-w-[65ch] leading-relaxed text-text-dim\">\n            This domain overview lists {published.length} articles, ordered as{' '}\n            {meta.readingOrder}\n",
+          "after": "          <p className=\"page-lead mt-[30px]\">{meta.description}</p>\n          <p className=\"meta-line mt-6 max-w-[960px]\">\n            {published.length} articles. {meta.readingOrder}\n"
         },
         {
           "before": "        <ol>\n",
@@ -108,8 +112,8 @@
       },
       "after": {
         "path": "app/a-z/page.tsx",
-        "bytes": 6643,
-        "sha256": "d8c4a0db86fd9959d6b23e8b4a4fb2e5a49380f0b18cc8584b65a339b3af8f3a"
+        "bytes": 6598,
+        "sha256": "dd60759f8c28eb705cfe32974050ddac1648b53c82f5f6445fe8e7254c331114"
       },
       "edits": [
         {
@@ -125,12 +129,8 @@
           "after": "        <h1 data-tektur-role=\"page-h1\" className=\"display-h1 mt-6\">\n"
         },
         {
-          "before": "        <p className=\"mt-2 font-mono text-xs text-text-dim\">\n          {articleCount} articles and {termCount} glossary terms\n        </p>\n        <p className=\"mt-5 font-serif text-[1.0625rem] leading-relaxed text-text\">\n",
-          "after": "        <p className=\"page-lead mt-[30px]\">\n"
-        },
-        {
-          "before": "          to their entry in the glossary.\n        </p>\n",
-          "after": "          to their entry in the glossary.\n        </p>\n        <p className=\"meta-line mt-6\">\n          {articleCount} articles and {termCount} glossary terms\n        </p>\n"
+          "before": "        <p className=\"mt-2 font-mono text-xs text-text-dim\">\n          {articleCount} articles and {termCount} glossary terms\n        </p>\n        <p className=\"mt-5 font-serif text-[1.0625rem] leading-relaxed text-text\">\n          Every article in the wiki and every glossary term, filed\n          alphabetically. Articles are labelled with their domain; terms link\n          to their entry in the glossary.\n        </p>\n",
+          "after": "        <p className=\"page-lead mt-[30px]\">\n          Every article and every glossary term, filed alphabetically.\n          Articles carry their domain, and terms link to the glossary.\n        </p>\n        <p className=\"meta-line mt-6\">\n          {articleCount} articles and {termCount} glossary terms\n        </p>\n"
         },
         {
           "before": "      <nav aria-label=\"Jump to letter\" className=\"mt-10\">\n        <ul className=\"flex flex-wrap gap-x-3 gap-y-1.5 font-mono text-sm\">\n",
@@ -175,13 +175,21 @@
       },
       "after": {
         "path": "app/about/page.tsx",
-        "bytes": 6322,
-        "sha256": "f414d1966320ae764e1f122370a0153bd06052f54edd41af89cfb9a74f22fd3b"
+        "bytes": 6192,
+        "sha256": "d17ce0a83794151f66e7c77c56e79d5f43eea1622d7e137e61d9399bbb55e0b9"
       },
       "edits": [
         {
           "before": "  'text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent';\n",
           "after": "  'ink-link';\n"
+        },
+        {
+          "before": "          The one prerequisite is fluency in machine learning; no robotics\n          background is assumed. When an article needs a classical result, it\n          links to the article that derives it, so you can read forward and\n          fill gaps as you go. Terms are defined where they first appear and\n          collected in the{' '}\n",
+          "after": "          The one prerequisite is machine learning; no robotics background\n          is assumed. When an article needs a classical result, it links to\n          the article that derives it. Terms are defined where they first\n          appear and collected in the{' '}\n"
+        },
+        {
+          "before": "          first-party documentation and labelled community estimates, so a\n          citation tells you where a claim comes from, and the kind of source\n          tells you how far to trust it. Where researchers disagree, the text\n          names who holds which position.\n",
+          "after": "          first-party documentation and labelled community estimates, and\n          the kind of source tells you how far to trust it. Where researchers\n          disagree, the text names who holds which position.\n"
         },
         {
           "before": "                className=\"transition-colors hover:text-accent\"\n",
@@ -267,8 +275,8 @@
       },
       "after": {
         "path": "app/glossary/page.tsx",
-        "bytes": 4689,
-        "sha256": "a4701f1f96717f1c9374c453daf8585f31f153fd101aa7a5ca4f625d85347c61"
+        "bytes": 4698,
+        "sha256": "a76d5c7d30740c6c7611196baefd2687dd8e7dc02a2e24d2cf96d6a5245df2e2"
       },
       "edits": [
         {
@@ -280,12 +288,12 @@
           "after": "        <h1 data-tektur-role=\"page-h1\" className=\"display-h1\">\n"
         },
         {
-          "before": "        <p className=\"mt-2 font-mono text-xs text-text-dim\">\n          {terms.length} terms, every definition written from a cited primary\n          source\n        </p>\n        <p className=\"mt-5 font-serif text-[1.0625rem] leading-relaxed text-text\">\n",
-          "after": "        <p className=\"page-lead mt-[30px]\">\n"
+          "before": "        <p className=\"mt-2 font-mono text-xs text-text-dim\">\n          {terms.length} terms, every definition written from a cited primary\n          source\n",
+          "after": "        <p className=\"page-lead mt-[30px]\">\n          Definitions of the terms the articles use, each written from a\n          cited primary source. In an article, hover over or focus a marked\n          term to see the same definition.\n"
         },
         {
-          "before": "          same definition listed here.\n        </p>\n",
-          "after": "          same definition listed here.\n        </p>\n        <p className=\"meta-line mt-6\">\n          <span className=\"font-mono tabular-nums\">{terms.length}</span> terms,\n          every definition written from a cited primary source\n        </p>\n"
+          "before": "        <p className=\"mt-5 font-serif text-[1.0625rem] leading-relaxed text-text\">\n          Reference definitions for the jargon of modern robotics, each one\n          written from a cited primary source. The articles mark these terms\n          up inline; hovering or keyboard-focusing a marked term shows the\n          same definition listed here.\n",
+          "after": "        <p className=\"meta-line mt-6\">\n          <span className=\"font-mono tabular-nums\">{terms.length}</span> terms\n"
         },
         {
           "before": "      <ol className=\"mt-10 list-none border-t border-border\">\n",
@@ -309,7 +317,7 @@
         },
         {
           "before": "                    <span className=\"shrink-0 font-mono text-[11px] text-text-dim\">\n",
-          "after": "                    <span className=\"shrink-0 font-sans text-[12px] text-text-dim\">\n"
+          "after": "                    {/* The byline wraps: a long author list held on one\n                        line overflowed the page at 320 px. */}\n                    <span className=\"min-w-0 break-words font-sans text-[12px] text-text-dim\">\n"
         },
         {
           "before": "              </ul>\n",
@@ -550,8 +558,8 @@
       },
       "after": {
         "path": "app/search/page.tsx",
-        "bytes": 2438,
-        "sha256": "dfdb08e3bcac12514c538ee9a35bd67c1746bd939b32ce8e41ec7c24b46ed74b"
+        "bytes": 2415,
+        "sha256": "11e18bf84f587bcbebe45d8fc2a575302483fd3bf24d2e8b13376f0e4db165b6"
       },
       "edits": [
         {
@@ -563,8 +571,8 @@
           "after": "      <h1 data-tektur-role=\"page-h1\" className=\"display-h1\">\n"
         },
         {
-          "before": "      <p className=\"mt-5 font-serif text-[1.0625rem] leading-relaxed text-text\">\n",
-          "after": "      <p className=\"page-lead mt-[30px]\">\n"
+          "before": "      <p className=\"mt-5 font-serif text-[1.0625rem] leading-relaxed text-text\">\n        Search article prose together with the structured data layer of\n        methods, companies, and datasets. Queries run locally in your browser.\n",
+          "after": "      <p className=\"page-lead mt-[30px]\">\n        Search the articles together with the methods, companies and\n        datasets in the wiki. Queries run in your browser.\n"
         }
       ]
     },
@@ -1204,8 +1212,8 @@
       },
       "after": {
         "path": "components/search/search-interface.tsx",
-        "bytes": 22546,
-        "sha256": "ff0e3a4fef398349a37d57a43fd574cdab97adbea714630fc0a8ab49f62aa1bc"
+        "bytes": 22509,
+        "sha256": "a1069881595ea3f04c8dd7001d699653f9633a553007d93f352ad9fc75e5da00"
       },
       "edits": [
         {
@@ -1219,6 +1227,10 @@
         {
           "before": "              className=\"flex cursor-pointer items-center rounded-sm border border-border bg-surface-2 px-2 text-text-dim transition-colors hover:border-border-strong hover:text-text\"\n",
           "after": "              className=\"flex cursor-pointer items-center px-2 text-text-dim transition-colors hover:text-text\"\n"
+        },
+        {
+          "before": "            Type a query to search the prose of every published module, and\n            the methods, companies, and datasets in the wiki data layer.\n",
+          "after": "            Type a query to search every published article and the\n            methods, companies and datasets.\n"
         },
         {
           "before": "          <p className=\"max-w-[65ch] border-l-2 border-err pl-3 text-sm leading-relaxed text-err\">\n",

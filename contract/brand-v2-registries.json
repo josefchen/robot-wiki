@@ -589,7 +589,7 @@
       "routeId": "route:/a-z/",
       "owner": "route:/a-z/",
       "ownerPath": "app/a-z/page.tsx",
-      "ownerSourceFingerprint": "a7630ec5803a8deafcc75d20919bc7c448ef418fd565bb5d6b6d90c33eeef7b8",
+      "ownerSourceFingerprint": "8c778ac12011b65e6f5b2ac466454b97fbed341c1da72e8b784a81d42cf7b82d",
       "canonical": "https://robot-wiki.com/a-z/",
       "title": "A-Z Index",
       "description": "Every published Robot Wiki article and glossary term in one alphabetical list.",
@@ -630,14 +630,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "eacf438abb33553845cd8f64cea2b2d80e3e60942258e257a8201c75ea1d313c"
+      "fingerprint": "3dff9a5bdcae044c298d4483af1f65fd0ed6136031728aac1a1131bef01a69ce"
     },
     {
       "id": "metadata:/about/",
       "routeId": "route:/about/",
       "owner": "route:/about/",
       "ownerPath": "app/about/page.tsx",
-      "ownerSourceFingerprint": "e56b7a5d4133b9e1520581a51bc8f3e048a65516ed7cf867ac5d2049c5dc2e4b",
+      "ownerSourceFingerprint": "e91745317b082ea358609303dd28f5c2b0bcd536aca1f976a94c175c41f9a127",
       "canonical": "https://robot-wiki.com/about/",
       "title": "About Robot Wiki: Scope and Reading Order",
       "description": "About Robot Wiki: what it covers and excludes, the order to read its articles in, what they assume you know and how its citations work.",
@@ -676,14 +676,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "86cd281eaadee8fc10805679f4063a08d27f4d5f523248add3e5525f62bf1d7e"
+      "fingerprint": "98242307aa89da43d460d88c8e3ff03aee5d9ccc88e2a8e21f311e26359d955e"
     },
     {
       "id": "metadata:/adjacent/",
       "routeId": "route:/adjacent/",
       "owner": "route:/adjacent/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f72c55320994b533055efe7d626f821fd5e1612161a6c7e707aefb57dd24ed6f",
+      "ownerSourceFingerprint": "c22e8c364b3a22a2be161497f1222630769df95a3fb2ea2151f423f09526c4e5",
       "canonical": "https://robot-wiki.com/adjacent/",
       "title": "Adjacent Domains",
       "description": "Autonomous vehicles, drones and surgical and space robotics, each in brief.",
@@ -724,7 +724,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ed165ef4b6b2083bb89a0c2f9ec15e162f288a087f29055d3f76e4308838634d"
+      "fingerprint": "a2e70598cbe14d477ff6fba8374b75d9c99a1b311fd6dc40201013607001ff29"
     },
     {
       "id": "metadata:/adjacent/autonomous-vehicles/",
@@ -782,7 +782,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/adjacent/drones/",
       "title": "Drones and Aerial Robotics",
-      "description": "Autonomous flight, aggressive maneuvers, and swarm coordination.",
+      "description": "Autonomous flight from state estimation to champion-level racing, swarm coordination, and delivery under regulation.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/adjacent/drones/",
@@ -820,7 +820,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "53b1ceac9369fe3304a8aca12b85730b5fbf8392fab13ffc5e1bcb1987c66b97"
+      "fingerprint": "b159c1d931000fe2fa4aa7889167ea6160d6f3c45e1f9f06c7578a3513ac9e45"
     },
     {
       "id": "metadata:/adjacent/space/",
@@ -923,7 +923,7 @@
       "routeId": "route:/classical/",
       "owner": "route:/classical/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f72c55320994b533055efe7d626f821fd5e1612161a6c7e707aefb57dd24ed6f",
+      "ownerSourceFingerprint": "c22e8c364b3a22a2be161497f1222630769df95a3fb2ea2151f423f09526c4e5",
       "canonical": "https://robot-wiki.com/classical/",
       "title": "Classical Foundations",
       "description": "The kinematics, planning, control and estimation stack that sits under every learned policy.",
@@ -964,7 +964,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "f4bcf18a405cad7b820cdc7fee2436650674c89ab014f733698f3db2c44b7d91"
+      "fingerprint": "8ffea809b9e74162d300e7371df099005c5098eef8fbcd321a212f45632d934d"
     },
     {
       "id": "metadata:/classical/calibration/",
@@ -1166,7 +1166,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/classical/motion-planning/",
       "title": "Motion Planning",
-      "description": "RRT and its optimal variants, trajectory optimization, and CHOMP/TrajOpt.",
+      "description": "Configuration space, RRT and its optimal variants, and trajectory optimization with CHOMP and TrajOpt.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/classical/motion-planning/",
@@ -1204,7 +1204,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3c292bd76180099da3b4b1585c666677f04b0e6ffb5f808732eefda28d7b4d63"
+      "fingerprint": "7a00d2538d92177995373e8ee3a941a02f0e08d6df7574b3ef4ff5535dce6c33"
     },
     {
       "id": "metadata:/classical/perception/",
@@ -1310,7 +1310,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/classical/scene-representation/",
       "title": "Scene Representation and Mapping",
-      "description": "What a robot remembers about the space around it, and why the map that renders best is not the map a planner can use.",
+      "description": "What a robot keeps in memory about the space around it, from point clouds and occupancy grids to Gaussian splats, and which of them a planner can use.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/classical/scene-representation/",
@@ -1348,7 +1348,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "97779cf5e940871c1b350ae581b20275ce0fb02a8666bcb9eb6ae4a6d96a5b6a"
+      "fingerprint": "1bbe0ce3e4917efb542101ea8f01c11d89389ff59732357a9397950feae0be0d"
     },
     {
       "id": "metadata:/classical/state-estimation/",
@@ -1449,10 +1449,10 @@
       "routeId": "route:/data-hardware/",
       "owner": "route:/data-hardware/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f72c55320994b533055efe7d626f821fd5e1612161a6c7e707aefb57dd24ed6f",
+      "ownerSourceFingerprint": "c22e8c364b3a22a2be161497f1222630769df95a3fb2ea2151f423f09526c4e5",
       "canonical": "https://robot-wiki.com/data-hardware/",
       "title": "Data, Hardware & Evaluation",
-      "description": "The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.",
+      "description": "Robot training data, the hardware that collects it and runs the models, plus how results are measured.",
       "openGraph": {
         "type": "website",
         "url": "https://robot-wiki.com/data-hardware/",
@@ -1490,7 +1490,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "1f40ec9d060b52737bd3d3b0408956528d50626edc19ef5fe41bd608de740b2a"
+      "fingerprint": "25bd5c2002761e65446d3a58a0f8992ec17c52e138cb8509ce52765058a3a813"
     },
     {
       "id": "metadata:/data-hardware/data-bottleneck/",
@@ -1500,7 +1500,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/data-hardware/data-bottleneck/",
       "title": "The Data Bottleneck",
-      "description": "Robot-hours versus LLM tokens: the log-log reality of embodied data and teleop-farm economics.",
+      "description": "Robot data is counted in hours and language data in trillions of tokens: the gap, the teleop-farm arithmetic and the data that needs no robot.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/data-hardware/data-bottleneck/",
@@ -1538,7 +1538,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "db96c8aadbbe5372f80d15023ebea172903efd5198a851b2033739297704928b"
+      "fingerprint": "aa6205d6e8e58f42118305a0b23e0aa729e6e314ce5ce505b00e843ded77a79a"
     },
     {
       "id": "metadata:/data-hardware/datasets/",
@@ -1548,7 +1548,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/data-hardware/datasets/",
       "title": "Major Datasets",
-      "description": "Open X-Embodiment, DROID, BridgeData V2, AgiBot World, RoboMIND: five datasets compared.",
+      "description": "Open X-Embodiment, DROID, BridgeData V2, AgiBot World and RoboMIND compared by what each collected, on which robots and under which license.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/data-hardware/datasets/",
@@ -1586,7 +1586,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "23ee7e2d001f70bb59c6862c8f25c0e21fc2fb1d3539a4a6ac495d1cf8712075"
+      "fingerprint": "ab8817f30d1581084b69f5cffdb87b3fbe162e7d34ce0afd80969ab51dde0e10"
     },
     {
       "id": "metadata:/data-hardware/evaluation-crisis/",
@@ -1596,7 +1596,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/data-hardware/evaluation-crisis/",
       "title": "The Evaluation Crisis",
-      "description": "Why N-of-10 trials and unreported variance mislead: 95% per-step success is unusable at 30 steps.",
+      "description": "What a success rate hides: trial count, task length, setup and scorer. At 95% per step, a 30-step task succeeds about one time in five.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/data-hardware/evaluation-crisis/",
@@ -1634,7 +1634,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "4d89a520c3e2f512224b54bf0a8bbd1d182e99b57d997775725b603a149e1d20"
+      "fingerprint": "562508fa52e5d98a84c78d4642107436196b3c8b414d36ac5b75394eb981cf7b"
     },
     {
       "id": "metadata:/data-hardware/hardware-taxonomy/",
@@ -1740,7 +1740,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/data-hardware/robot-learning-stack/",
       "title": "The Robot Learning Stack",
-      "description": "Data capture, schemas, training, simulation, evaluation, serving and robot integration as one reproducible system rather than a model checkpoint.",
+      "description": "Data capture, schemas, training, simulation, evaluation, serving and robot integration as one reproducible system, with the checkpoint as one part.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/data-hardware/robot-learning-stack/",
@@ -1778,7 +1778,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "dfbc244b1e50859bae29a8aa72f37c64f4195209e159cf098def39ebdbb0f7f6"
+      "fingerprint": "d837f2b15683be47230d2edfbd33f4ceb600867e7af413a2511a1918b05f48dc"
     },
     {
       "id": "metadata:/data-hardware/teleop-rigs/",
@@ -1879,7 +1879,7 @@
       "routeId": "route:/frontier/",
       "owner": "route:/frontier/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f72c55320994b533055efe7d626f821fd5e1612161a6c7e707aefb57dd24ed6f",
+      "ownerSourceFingerprint": "c22e8c364b3a22a2be161497f1222630769df95a3fb2ea2151f423f09526c4e5",
       "canonical": "https://robot-wiki.com/frontier/",
       "title": "Frontier & Open Problems",
       "description": "The reliability gap that keeps demos out of production, and the competing theses about closing it.",
@@ -1920,7 +1920,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "06dea7793c34dfc6c571284894cded5b28d1cd10baa2bcb8809ddddac07d9034"
+      "fingerprint": "9224fb324896dbd7bc0620a5870bccc6dabcb153d540073be06a72da570f2547"
     },
     {
       "id": "metadata:/frontier/bear-case/",
@@ -1978,7 +1978,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/frontier/competing-theses/",
       "title": "Competing Theses",
-      "description": "End-to-end scaling versus hierarchy versus world models versus RL fine-tuning, with falsification criteria.",
+      "description": "Six bets on how robot intelligence gets built, from end-to-end scaling to the humanoid form, each with the result that would prove it wrong.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/frontier/competing-theses/",
@@ -2016,7 +2016,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "2ba0ef7aebdf48b8119ea6d8d30a2c159da8af7926ed14029aa7f54779f02423"
+      "fingerprint": "5030e765ffb8051822eac1fbb76a4f41c5356b2a540c19472df9175e90372feb"
     },
     {
       "id": "metadata:/frontier/dexterity/",
@@ -2074,7 +2074,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/frontier/generalization/",
       "title": "Generalization",
-      "description": "What the pi0.5 and pi0.7 results demonstrate, and what they do not: the open-world gap.",
+      "description": "What pi0.5 and pi0.7 show about working in unseen homes, the EgoScale scaling law and the bar no system meets yet.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/frontier/generalization/",
@@ -2112,7 +2112,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6bc0cc9204ecb76dd66dac567f63516af168e31243d1ba70ba3dbbf711bf527b"
+      "fingerprint": "251264bf42b312782b4597de0de6b4a48f8c23473bd5b9dc49a65055c6b62e2c"
     },
     {
       "id": "metadata:/frontier/reliability-gap/",
@@ -2122,7 +2122,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/frontier/reliability-gap/",
       "title": "The Reliability Gap",
-      "description": "80% is a demo, 99.9% is a product: what deployment numbers actually show.",
+      "description": "80% task success is a demo and 99.9% is a product: the per-step arithmetic, the methods closing the gap and the deployment records.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/frontier/reliability-gap/",
@@ -2160,7 +2160,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "663d80716d370cd367d880f0c18069e7dc27f22b436623c0a8836877c2e80997"
+      "fingerprint": "f2495c231379aa0c8142f33bbace26726ce7f59b0093616f1b07a6c88999ed6a"
     },
     {
       "id": "metadata:/frontier/safety-and-assurance/",
@@ -2170,7 +2170,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/frontier/safety-and-assurance/",
       "title": "Safety and Assurance",
-      "description": "Industrial robotics can certify a control system but not a learned policy, so what ships is a verifiable safety layer wrapped around an unverifiable one.",
+      "description": "No industrial safety standard certifies a learned policy, so what ships is a verifiable safety layer around it.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/frontier/safety-and-assurance/",
@@ -2208,14 +2208,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c5addff62585569ac57ac044518c533b5f708aea279a88be35827a404a1b3f00"
+      "fingerprint": "458e35c83b22fab3be4e1dcf09d8803efa84d72d424b6586466fd92cc6b62e0c"
     },
     {
       "id": "metadata:/glossary/",
       "routeId": "route:/glossary/",
       "owner": "route:/glossary/",
       "ownerPath": "app/glossary/page.tsx",
-      "ownerSourceFingerprint": "324f99156fdb6fb60ddf789b70f9f71b651207788f530fa0bc962b578bd7137d",
+      "ownerSourceFingerprint": "9321989d2567eeac3c7ca08c90ff994046e805ecc268ca08a397edc81e4b278e",
       "canonical": "https://robot-wiki.com/glossary/",
       "title": "Glossary",
       "description": "Cited definitions of the robotics and machine-learning terms used across Robot Wiki.",
@@ -2254,7 +2254,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "1824194fb7df0186bb596d514ad8a4397f495a1caea363bb238b01a92ebcaec4"
+      "fingerprint": "c31d15facf9ede35ad6a2e80dcbce232b8bd1fce6d7ebb2fdf14d728ef4ef150"
     },
     {
       "id": "metadata:/how-robots-work/",
@@ -2307,7 +2307,7 @@
       "routeId": "route:/manipulation/",
       "owner": "route:/manipulation/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f72c55320994b533055efe7d626f821fd5e1612161a6c7e707aefb57dd24ed6f",
+      "ownerSourceFingerprint": "c22e8c364b3a22a2be161497f1222630769df95a3fb2ea2151f423f09526c4e5",
       "canonical": "https://robot-wiki.com/manipulation/",
       "title": "Manipulation & Learned Policies",
       "description": "From behavior cloning to vision-language-action models: how modern robots learn to act.",
@@ -2348,7 +2348,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "01ebde72615132b82bc37fec6e9b43c76b36ebcde2f035ff010d076f9668cb07"
+      "fingerprint": "f4602f2e4ae2ac23e2668ecc87537a5dbac68cb930f4f76252e2cfae38d53a2f"
     },
     {
       "id": "metadata:/manipulation/action-chunking/",
@@ -2550,7 +2550,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/manipulation/cross-embodiment/",
       "title": "Cross-Embodiment Transfer",
-      "description": "Padded action vectors, shared relative end-effector frames, soft prompts and human-to-robot transfer: how one policy learns from many bodies.",
+      "description": "Padded action vectors, relative end-effector actions, latent actions and human-to-robot transfer: how one policy learns from many bodies.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/manipulation/cross-embodiment/",
@@ -2588,7 +2588,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "2cfeb6063130c9a3509feb74716522fdc80689ed8e17140e80589e1bacac4a80"
+      "fingerprint": "01911ab7aff378fa7b5c97153cd532ee96c326d366c16a04f4100d0a025b6aab"
     },
     {
       "id": "metadata:/manipulation/diffusion-policy/",
@@ -2838,7 +2838,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/manipulation/pi-line/",
       "title": "The Pi Line",
-      "description": "pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and source-scoped checkpoint availability.",
+      "description": "pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization and which checkpoints are released.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/manipulation/pi-line/",
@@ -2876,7 +2876,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e03550744a9655ed61e480aeba6d5547da995f00186323d3c00197a14c31e659"
+      "fingerprint": "72408cd4d3cfb521d12d01c4888e62bfb0684bc0023d3aeea70d9f5b8c496faa"
     },
     {
       "id": "metadata:/manipulation/realtime-execution/",
@@ -2934,7 +2934,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/manipulation/rl-finetuning/",
       "title": "RL Fine-Tuning of Policies",
-      "description": "DPPO, ConRFT, Recap, pi_RL, residual RL, and HIL-SERL: closing the reliability gap with on-policy experience.",
+      "description": "DPPO, ConRFT, Recap, pi_RL, residual RL and HIL-SERL: improving a pretrained policy from its own online experience.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/manipulation/rl-finetuning/",
@@ -2972,7 +2972,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "00c8699f98f1c71a3c2033d448a8711f631ae45a3ee8fa45238f8045abcf035a"
+      "fingerprint": "e7eda5b0c3c2005856a7be6b3adbb7479e165ccf9f182730c5cc63001aafe667"
     },
     {
       "id": "metadata:/manipulation/robot-learning-roadmap/",
@@ -3213,7 +3213,7 @@
       "routeId": "route:/rl-sim2real/",
       "owner": "route:/rl-sim2real/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f72c55320994b533055efe7d626f821fd5e1612161a6c7e707aefb57dd24ed6f",
+      "ownerSourceFingerprint": "c22e8c364b3a22a2be161497f1222630769df95a3fb2ea2151f423f09526c4e5",
       "canonical": "https://robot-wiki.com/rl-sim2real/",
       "title": "RL, Sim-to-Real & Locomotion",
       "description": "Reinforcement learning at scale, from massively parallel simulation to the transfer problem.",
@@ -3254,7 +3254,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "75110b4e96835a6b129e5df91e9305e16bef098095a7bf78957db680122fa154"
+      "fingerprint": "59df3f0b84b003c9a39ef6d8e647cdfc64492d114221a0b8b5165269cb30ff1f"
     },
     {
       "id": "metadata:/rl-sim2real/humanoid-wbc/",
@@ -3264,7 +3264,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/rl-sim2real/humanoid-wbc/",
       "title": "Humanoid Whole-Body Control",
-      "description": "Motion tracking from PHC to ASAP and GMT, and the three decompositions of 2026.",
+      "description": "Tracking retargeted human motion, from PHC to ASAP and GMT, and the three decompositions Figure, NVIDIA and Google DeepMind shipped in 2026.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/rl-sim2real/humanoid-wbc/",
@@ -3302,7 +3302,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6c0af9259b49f5de5928c91d8b9401f3cb418fee4c716dec9e8ff86355df4669"
+      "fingerprint": "b55ec8c9643489518d4933b62d8d3c6a512dbe4349adbdb78ec71b90f738bf10"
     },
     {
       "id": "metadata:/rl-sim2real/legged-locomotion/",
@@ -3312,7 +3312,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/rl-sim2real/legged-locomotion/",
       "title": "Legged Locomotion Lineage",
-      "description": "From ANYmal to Unitree and the MIT humanoid line: how learned gaits became the default.",
+      "description": "From ANYmal's actuator networks to Unitree humanoids and Boston Dynamics: how learned gaits became the default.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/rl-sim2real/legged-locomotion/",
@@ -3350,7 +3350,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "01c0876f61d570c072bd1cf76d4bed262b5bf29543854eb50095def76d93bed2"
+      "fingerprint": "8c918e3959af25e24979caee21202214619bdc74452f7e4573358f19e1b62853"
     },
     {
       "id": "metadata:/rl-sim2real/offline-rl/",
@@ -3456,7 +3456,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/rl-sim2real/reward-design-mpc/",
       "title": "Reward Design and the MPC Debate",
-      "description": "LLM-written rewards and curricula; where classical trajectory optimization still wins.",
+      "description": "Hand-tuned reward weights, reward code written by language models, curricula and the comparison with model-predictive control.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/rl-sim2real/reward-design-mpc/",
@@ -3494,7 +3494,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e263807078f19ebe2d8c022f4122d8136ccba07b3e87b6eb451f9ac82de3bd6a"
+      "fingerprint": "c3e21ab1c9b72e83dbf92c74fa97fc917a1685ff2b50b540a0d762ccb6ab010b"
     },
     {
       "id": "metadata:/rl-sim2real/rl-for-robotics/",
@@ -3504,7 +3504,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/rl-sim2real/rl-for-robotics/",
       "title": "RL for Robotics",
-      "description": "Sample efficiency decides which reinforcement learning algorithms a robot can actually be trained with, from PPO in simulation to offline learning on a fixed dataset.",
+      "description": "Sample efficiency decides which reinforcement learning algorithms a robot can be trained with, from PPO in simulation to offline learning on a fixed dataset.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/rl-sim2real/rl-for-robotics/",
@@ -3542,7 +3542,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "37471fa5372e1ad25918233ab863dc7745a39a0ace3fc4814d39e2a27dba18ca"
+      "fingerprint": "896c794b767e96a7c85c648ddcf28f6401bdba5169aa75aacb7426e7454b3f1c"
     },
     {
       "id": "metadata:/rl-sim2real/sim2real-transfer/",
@@ -3552,7 +3552,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/rl-sim2real/sim2real-transfer/",
       "title": "Sim-to-Real Transfer",
-      "description": "Domain randomization, teacher-student distillation, system identification, and real-to-sim correction.",
+      "description": "Domain randomization, teacher-student distillation, system identification and real-to-sim reconstruction.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/rl-sim2real/sim2real-transfer/",
@@ -3590,7 +3590,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "f4fe41d1fb795af66610d79353ba141b3092d07abd32d8f5f1c2087f58540e6d"
+      "fingerprint": "3d686d6f345b70862c62a9054bc64c1f8f07375f2a4220e4a6276c3fb5e6ffe2"
     },
     {
       "id": "metadata:/rl-sim2real/why-rl-locomotion/",
@@ -3645,7 +3645,7 @@
       "routeId": "route:/search/",
       "owner": "route:/search/",
       "ownerPath": "app/search/page.tsx",
-      "ownerSourceFingerprint": "3fcf19834e142b5ad37d93e169e65ea0854b50a4fd3b6bb251b427635f5da8f9",
+      "ownerSourceFingerprint": "c2cf3fd143ec3f7d414e79d56b54ec180f11891d3373f55a40dbf095bf7141db",
       "canonical": "https://robot-wiki.com/search/",
       "title": "Search",
       "description": "Search Robot Wiki: full-text over article prose plus the structured data layer (methods, companies, datasets).",
@@ -3684,14 +3684,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c613435550437b28002cc74227bd9df91ed98d81a66d3d88a1c007014bc26146"
+      "fingerprint": "d84dcba751566425ce387e04cfd1cb6c5f7474946c12bc4b968c7b8c802c00e5"
     },
     {
       "id": "metadata:/world-models/",
       "routeId": "route:/world-models/",
       "owner": "route:/world-models/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f72c55320994b533055efe7d626f821fd5e1612161a6c7e707aefb57dd24ed6f",
+      "ownerSourceFingerprint": "c22e8c364b3a22a2be161497f1222630769df95a3fb2ea2151f423f09526c4e5",
       "canonical": "https://robot-wiki.com/world-models/",
       "title": "World Models",
       "description": "Learned simulators and action-conditioned video prediction, with the JEPA counterargument.",
@@ -3732,7 +3732,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "07de3be0e37944c5ea4034ac1f87db72d3f4c289143bd86f2dc952f1327c5216"
+      "fingerprint": "2e1fd6a3094f92b60fe6ccee1067087e9ac73f16a565537f3b5f1577a4c54dc8"
     },
     {
       "id": "metadata:/world-models/evaluation/",
@@ -3742,7 +3742,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/world-models/evaluation/",
       "title": "World Model Evaluation for Robotics",
-      "description": "Visual fidelity is not enough: evaluate action sensitivity, rollout consistency, task progress, policy ranking and real-world agreement.",
+      "description": "Testing a world model on what a robot needs from it: action sensitivity, temporal consistency, task progress, policy ranking and agreement with real trials.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/world-models/evaluation/",
@@ -3780,7 +3780,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "30505238dfd53c00fad0a69735348808fef108dc5c962f0ad6b6dfc2efc59ccc"
+      "fingerprint": "b29a03f02eaa88702c995099b1d76033dbd94a6252d5b09af2a977d6e4b08640"
     },
     {
       "id": "metadata:/world-models/generative-sim/",
@@ -3790,7 +3790,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/world-models/generative-sim/",
       "title": "Generative Simulation",
-      "description": "Generated content inside real physics engines beats generated dynamics: RoboGen, Holodeck, RoboCasa.",
+      "description": "RoboGen, Holodeck and RoboCasa: generated tasks, scenes and assets inside a physics engine that keeps the dynamics.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/world-models/generative-sim/",
@@ -3828,7 +3828,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "628c84589bb409f7032a0c7e81c288459995ea4bc8437a2daf9fbac79950c2a7"
+      "fingerprint": "8ce58c067093567798ee26559eb78fe62891d4dff46b462a160243dd030d689a"
     },
     {
       "id": "metadata:/world-models/generative-video/",
@@ -3838,7 +3838,7 @@
       "ownerSourceFingerprint": "2733c7bee6e6405c6493aa4ed168cb200ac9244dad288bc4ea5a74619ef9e0fb",
       "canonical": "https://robot-wiki.com/world-models/generative-video/",
       "title": "Generative Video World Models",
-      "description": "Cosmos, Genie, and GR-2: action-conditioned video prediction and the conditioning-strength problem.",
+      "description": "Cosmos, Genie and GR-2: action-conditioned video prediction as a simulator, and the weak action conditioning that limits it.",
       "openGraph": {
         "type": "article",
         "url": "https://robot-wiki.com/world-models/generative-video/",
@@ -3876,7 +3876,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "a4c334a0169f974b7cb833bcec901f3345857a776a22a9b45cdcc8946586176b"
+      "fingerprint": "8de115d1fd6a5766805980ca8b6d013747114c689b610269a728746c3d717ceb"
     },
     {
       "id": "metadata:/world-models/jepa/",
@@ -4360,6 +4360,26 @@
       "fingerprint": "9fba43421f86877c6cdb28dd5fefdcd3498dc12280de3bdc605db33ce14c9918"
     },
     {
+      "id": "asset:images/amazon-drive-unit-2023.jpg",
+      "path": "images/amazon-drive-unit-2023.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:amazon-drive-unit-2023",
+      "sourceRegistryId": "amazon-drive-unit-2023",
+      "byteHash": "f14242b633acd893152919ad1644167e483b5aad6491a2e46e6d6abaa64249f0",
+      "semanticHash": null,
+      "fingerprint": "0b497635268529a12f03530b3b78cc9ab5d85100ff8c653f425f013cb8c39fab"
+    },
+    {
+      "id": "asset:images/amazon-swindon-slam-line-2025.jpg",
+      "path": "images/amazon-swindon-slam-line-2025.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:amazon-swindon-slam-line-2025",
+      "sourceRegistryId": "amazon-swindon-slam-line-2025",
+      "byteHash": "9805d7f193e5ee181f6baae0a18619ae0e52e203507bc2e4646012d4ede06903",
+      "semanticHash": null,
+      "fingerprint": "ac3a74e6818d13f8cfb5c761226c9f06370a5bebab2f838f6a3d7ecc67e51c6f"
+    },
+    {
       "id": "asset:images/anymal-anybotics-2022.jpg",
       "path": "images/anymal-anybotics-2022.jpg",
       "category": "editorial-image",
@@ -4398,6 +4418,16 @@
       "byteHash": "8783941ab91a8c016effa3496517134fb8ef215ccd5e8fee2fe8959e7a8ac089",
       "semanticHash": null,
       "fingerprint": "7a60eb8c626ae4dc0f4e6afab90bcf7b6a4e56de177e41554bf5d9f67b1603af"
+    },
+    {
+      "id": "asset:images/asimo-miraikan-2016.jpg",
+      "path": "images/asimo-miraikan-2016.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:asimo-miraikan-2016",
+      "sourceRegistryId": "asimo-miraikan-2016",
+      "byteHash": "09ffa03d3757f365b478afc1c18404cc354569e75bc1e2bb80e416cb11e773df",
+      "semanticHash": null,
+      "fingerprint": "05a73e7b64392803fddfc5a0b5b7ecb9c17e37479fb16c8abe8504376fa7e98d"
     },
     {
       "id": "asset:images/atlas-darpa-frontview-2013.jpg",
@@ -4500,6 +4530,16 @@
       "fingerprint": "50b3046ae4894017870cd9e6e5cb81d182363c47053e45877a6bc560490cd2a7"
     },
     {
+      "id": "asset:images/cmu-boss-urban-challenge-winner.jpg",
+      "path": "images/cmu-boss-urban-challenge-winner.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:cmu-boss-urban-challenge-winner",
+      "sourceRegistryId": "cmu-boss-urban-challenge-winner",
+      "byteHash": "86102eb919e0cbf1ee127ea0f1c5a78fff9a71f0dc59bed66974cf09530cd50a",
+      "semanticHash": null,
+      "fingerprint": "e32df9cc1afa8529c1c1c16e843da2151f4a577f1c5260c217e9632ff73ed404"
+    },
+    {
       "id": "asset:images/conrft-real-world-tasks-2025.jpg",
       "path": "images/conrft-real-world-tasks-2025.jpg",
       "category": "editorial-image",
@@ -4528,6 +4568,26 @@
       "byteHash": "ade5687e7b5f6b0ddce3bda3584e3811a0b3f89bac7a85648b16560f5a5608e8",
       "semanticHash": "c97c004f3f20f29875c097f231da27a87219129e7dd5477c0dcd657f659321ef",
       "fingerprint": "4710782ee74cff7b77828f81da16d54b8646f602792d4fde4511e5d32e4fed23"
+    },
+    {
+      "id": "asset:images/da-vinci-xi-patient-cart-2018.jpg",
+      "path": "images/da-vinci-xi-patient-cart-2018.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:da-vinci-xi-patient-cart-2018",
+      "sourceRegistryId": "da-vinci-xi-patient-cart-2018",
+      "byteHash": "a7fd76f12f5bb5ec900a1034c374c38e3889004ffce1a2655298ad66b53d7921",
+      "semanticHash": null,
+      "fingerprint": "57b6ace33ffaf5374c36ca55b2ab9b505013985ffd0740e5d3fab4ac96a6aac9"
+    },
+    {
+      "id": "asset:images/da-vinci-xi-surgeon-console-vesoul-2023.jpg",
+      "path": "images/da-vinci-xi-surgeon-console-vesoul-2023.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:da-vinci-xi-surgeon-console-vesoul-2023",
+      "sourceRegistryId": "da-vinci-xi-surgeon-console-vesoul-2023",
+      "byteHash": "1437667d524352b4b89a00454c77d7688b3e1243e2db3ec472ac36d43b568dd9",
+      "semanticHash": null,
+      "fingerprint": "d7fe75df7b863e59a04ba71aede56dce3fd2c88c7c4139878f6217d1a6cbe63c"
     },
     {
       "id": "asset:images/daydreamer-a1-push-recovery-2022.jpg",
@@ -4560,6 +4620,26 @@
       "fingerprint": "bd2a43412bbc6ee3e431a1b1683e25234f55e8a7decd7ce62f1cf96b1598421a"
     },
     {
+      "id": "asset:images/dextre-canadarm2-iss-2017.jpg",
+      "path": "images/dextre-canadarm2-iss-2017.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:dextre-canadarm2-iss-2017",
+      "sourceRegistryId": "dextre-canadarm2-iss-2017",
+      "byteHash": "352acd8f71b7306880e82dc6777717d6cc5a8cf5d3b5ed88817cc0034118820a",
+      "semanticHash": null,
+      "fingerprint": "6dab45b9373192cec297c041d6a73ec0fbd3b49f79d32fcf1037a2e8a06718d3"
+    },
+    {
+      "id": "asset:images/dji-mavic-pro-in-flight.jpg",
+      "path": "images/dji-mavic-pro-in-flight.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:dji-mavic-pro-in-flight",
+      "sourceRegistryId": "dji-mavic-pro-in-flight",
+      "byteHash": "8376cd484fcb0cb21c86d03d84b53e6c5f8a2c5620e93270cfd805f1da33a215",
+      "semanticHash": null,
+      "fingerprint": "7430e5acbe6ea7a1949f07fcdb8ce60f33deccf5928e11db36fbf813753b40ff"
+    },
+    {
       "id": "asset:images/dp3-real-robot-setup-2024.jpg",
       "path": "images/dp3-real-robot-setup-2024.jpg",
       "category": "editorial-image",
@@ -4578,6 +4658,16 @@
       "byteHash": "258420ec194e719106931a7ad4788fe2a1a8bd22a6ffd18fd942459815bb2052",
       "semanticHash": null,
       "fingerprint": "11b92462e9999f255b234aa8ebebddb7142886574b3ec54603d4e1980c3d8e56"
+    },
+    {
+      "id": "asset:images/droid-cook-lentils-rollouts-2024.jpg",
+      "path": "images/droid-cook-lentils-rollouts-2024.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:droid-cook-lentils-rollouts-2024",
+      "sourceRegistryId": "droid-cook-lentils-rollouts-2024",
+      "byteHash": "fa4f6b8100692909541316ee879d37f83874b2bf466bf841b7744758d2ff358a",
+      "semanticHash": null,
+      "fingerprint": "81a86c19ed61727eb10a6ce8cf3b177a1346696e853151a839528205600ddc4c"
     },
     {
       "id": "asset:images/droid-in-the-wild-scenes-2024.jpg",
@@ -4608,6 +4698,36 @@
       "byteHash": "efb122bfa9bd87ff03ec04d88586890b394748b197cdf95c60cdc20ed00800fd",
       "semanticHash": null,
       "fingerprint": "9ed1b6f44d5753d6c86dc801d751e8ef7a42fc86cb0dcf1926dc6aadd823676c"
+    },
+    {
+      "id": "asset:images/egoscale-robot-platforms-2026.jpg",
+      "path": "images/egoscale-robot-platforms-2026.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:egoscale-robot-platforms-2026",
+      "sourceRegistryId": "egoscale-robot-platforms-2026",
+      "byteHash": "91b4ac21cc7acb19337b611270e7c02bda5f0a174ec4957258e35bf2a120ebba",
+      "semanticHash": null,
+      "fingerprint": "537ca62b0f11835eec030a55231f5dd5b67075503e2870daa28d79b7c28c5d9b"
+    },
+    {
+      "id": "asset:images/emergency-stop-siemens-2006.jpg",
+      "path": "images/emergency-stop-siemens-2006.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:emergency-stop-siemens-2006",
+      "sourceRegistryId": "emergency-stop-siemens-2006",
+      "byteHash": "5c1fe860a39431bf6cd8433d0ac09a7feabe470e68faad84592d1a7d7a4e3f76",
+      "semanticHash": null,
+      "fingerprint": "987fc45b5113293b27bab804eb84967763b15189ca0aa2a086ef7343f18ed24a"
+    },
+    {
+      "id": "asset:images/fingr-cube-layer-turn-2026.jpg",
+      "path": "images/fingr-cube-layer-turn-2026.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:fingr-cube-layer-turn-2026",
+      "sourceRegistryId": "fingr-cube-layer-turn-2026",
+      "byteHash": "38fb9b7c5e7b9faa77af693f8cd49e513e827e2c29c0936034ca7e94ededbee3",
+      "semanticHash": null,
+      "fingerprint": "913f955af6e23da5182eb92d149d1f13ea20b54c5ea99f5d0bc41eb539dee9eb"
     },
     {
       "id": "asset:images/franka-emika-panda-cebit-2017.jpg",
@@ -4710,6 +4830,16 @@
       "fingerprint": "286c63b835ee646fadf1baa3497fdf8b360994f93ebfc01d91cb47a11163576e"
     },
     {
+      "id": "asset:images/ingenuity-mastcam-z-closeup-2021.jpg",
+      "path": "images/ingenuity-mastcam-z-closeup-2021.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:ingenuity-mastcam-z-closeup-2021",
+      "sourceRegistryId": "ingenuity-mastcam-z-closeup-2021",
+      "byteHash": "b9043c1effd10826a8761a9ac4c293aaa3d203250354fed127e89017842aba3a",
+      "semanticHash": null,
+      "fingerprint": "5cebfaa75347535cab318ec2d738b94e97aae864c0f1f84fd3992909fc0dc5a7"
+    },
+    {
       "id": "asset:images/isaac-gym-allegro-envs-2021.jpg",
       "path": "images/isaac-gym-allegro-envs-2021.jpg",
       "category": "editorial-image",
@@ -4808,6 +4938,16 @@
       "byteHash": "e074b82d2237d881f1f9902112e4fba31b7231d6ef10a5680113e26d9a6d4ecd",
       "semanticHash": null,
       "fingerprint": "35740da81ab274b3336ec9c759adffd617803b99f7c1d23a27163d2231b1c963"
+    },
+    {
+      "id": "asset:images/knowno-ask-for-help-2023.jpg",
+      "path": "images/knowno-ask-for-help-2023.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:knowno-ask-for-help-2023",
+      "sourceRegistryId": "knowno-ask-for-help-2023",
+      "byteHash": "635ae3c4637d6092e8f2758777ed55e71c580aae949f2ee871103c5788e94480",
+      "semanticHash": null,
+      "fingerprint": "469fbd6492571c1a64ae813ce07bc0db2c21cb928f79f575e354d14f48b7f1b2"
     },
     {
       "id": "asset:images/leica-laser-tracker-ats600.jpg",
@@ -5950,6 +6090,16 @@
       "fingerprint": "ade8bd8f7958f899b6554d6fa391eeee6f593d38483e76f5df1d750c614f6521"
     },
     {
+      "id": "asset:images/moxie-installation-perseverance-2020.jpg",
+      "path": "images/moxie-installation-perseverance-2020.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:moxie-installation-perseverance-2020",
+      "sourceRegistryId": "moxie-installation-perseverance-2020",
+      "byteHash": "8e176366fb98b853725e080e3d900ca0b3aee952a42c870dad730558ea1fb1f1",
+      "semanticHash": null,
+      "fingerprint": "0a21aaf98a143a19fd2bfbf6348275f99aa50783685a7ad3fa9124b4b7f8662c"
+    },
+    {
       "id": "asset:images/mujoco-playground-environments-2025.jpg",
       "path": "images/mujoco-playground-environments-2025.jpg",
       "category": "editorial-image",
@@ -6008,6 +6158,16 @@
       "byteHash": "4685badd85b44a1c2c3e4092f8cbbb32856817fe74842054365a93f91e4d77e1",
       "semanticHash": null,
       "fingerprint": "a1778937b71a067c0a192668fd34c4708d1b3abaa439dab9d5d5c1cacdb38bba"
+    },
+    {
+      "id": "asset:images/perseverance-selfie-rochette-2021.jpg",
+      "path": "images/perseverance-selfie-rochette-2021.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:perseverance-selfie-rochette-2021",
+      "sourceRegistryId": "perseverance-selfie-rochette-2021",
+      "byteHash": "f8bdb57c5ed72bcaaee2c9d999a8e84538327fc8fe8ec68096867df8f77dcd7a",
+      "semanticHash": null,
+      "fingerprint": "72f0b29ee549211c00785f4f7d2bf38a3ea20d5ab42b69bec07560a9c9c8dc62"
     },
     {
       "id": "asset:images/phantom-human-video-robot-2025.jpg",
@@ -6110,6 +6270,16 @@
       "fingerprint": "0f1c8f42c8a018e833abb8dbb2f9bc3f0a8ac54f18fed22d89826ab6a5624760"
     },
     {
+      "id": "asset:images/racing-quadrotor-minion-220-2016.jpg",
+      "path": "images/racing-quadrotor-minion-220-2016.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:racing-quadrotor-minion-220-2016",
+      "sourceRegistryId": "racing-quadrotor-minion-220-2016",
+      "byteHash": "126fa0a5425aa1b4530f00a9e80b6a78de7845dc73ba3cde7b80e363315daf58",
+      "semanticHash": null,
+      "fingerprint": "6fe85d11a5157f119319aedf7b00c073912f40a32b43abb6b60dc395acfd9319"
+    },
+    {
       "id": "asset:images/realsense-d435-depth-camera.jpg",
       "path": "images/realsense-d435-depth-camera.jpg",
       "category": "editorial-image",
@@ -6160,6 +6330,16 @@
       "fingerprint": "860a8b3153b7ca5e7c03be0f988a4de6cb49f73a0ca503fc9c155654e66ae5fa"
     },
     {
+      "id": "asset:images/robotic-welding-cell-guarding-2014.jpg",
+      "path": "images/robotic-welding-cell-guarding-2014.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:robotic-welding-cell-guarding-2014",
+      "sourceRegistryId": "robotic-welding-cell-guarding-2014",
+      "byteHash": "6b443b814f4ddc3a8fc47351deb0f577ee0b3c0778db1a5189508dd5be714dbc",
+      "semanticHash": null,
+      "fingerprint": "02e42193c13f1c52477023aa780fe85f6a2202d38be722d183f901d11bb78856"
+    },
+    {
       "id": "asset:images/roboworld-bair-forcing-2026.jpg",
       "path": "images/roboworld-bair-forcing-2026.jpg",
       "category": "editorial-image",
@@ -6188,6 +6368,16 @@
       "byteHash": "d266a8e2d7a9bab3aa482abf952882cc4d0f5515be97b4abe2f6225247265c96",
       "semanticHash": null,
       "fingerprint": "fafa5e5e1da1611272a93040e36eaf1e7e8d15578a5962adb1c332eeb4022a7d"
+    },
+    {
+      "id": "asset:images/roomba-870-2014.jpg",
+      "path": "images/roomba-870-2014.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:roomba-870-2014",
+      "sourceRegistryId": "roomba-870-2014",
+      "byteHash": "01f9f9a455d5dc1d1dc0859a84968114415c48ce262603beb01781a6f36cc722",
+      "semanticHash": null,
+      "fingerprint": "0e07c5fcfe230922ff292aed817376858c430e031aa5a7c5a6fe065f39b42d0d"
     },
     {
       "id": "asset:images/rt-h-language-corrections-2024.jpg",
@@ -6260,6 +6450,16 @@
       "fingerprint": "943c9baa38e20abf21c76d030f9ce5ac121143dd156430daf7e7720984dadfeb"
     },
     {
+      "id": "asset:images/t-rex-bimanual-tactile-setup-2026.jpg",
+      "path": "images/t-rex-bimanual-tactile-setup-2026.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:t-rex-bimanual-tactile-setup-2026",
+      "sourceRegistryId": "t-rex-bimanual-tactile-setup-2026",
+      "byteHash": "6b2b1f472cce6f49d763f53cd5de78671cddb704af696e96ac797b0b3120f229",
+      "semanticHash": null,
+      "fingerprint": "6d4c1b89d71df58911c4bdd09ba4dcb452783bf5dbe3a7effb1c2f189ff320cd"
+    },
+    {
       "id": "asset:images/tdmpc2-task-grid-2023.jpg",
       "path": "images/tdmpc2-task-grid-2023.jpg",
       "category": "editorial-image",
@@ -6280,6 +6480,26 @@
       "fingerprint": "5d54dfdafa4602f7510854a9d61851d7a2a4f1677dc114f940861748a3c09845"
     },
     {
+      "id": "asset:images/tesla-optimus-stockholm-2024.jpg",
+      "path": "images/tesla-optimus-stockholm-2024.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:tesla-optimus-stockholm-2024",
+      "sourceRegistryId": "tesla-optimus-stockholm-2024",
+      "byteHash": "11bcb437828e62fc355f097a3b356684083a6f9a4a79a0730f0500f552bb97ca",
+      "semanticHash": null,
+      "fingerprint": "0e59de048029f88fd21295041238467f62f4c9815a04259ab47e1306bd0b92d1"
+    },
+    {
+      "id": "asset:images/unitree-g1-stage-japan-mobility-2025.jpg",
+      "path": "images/unitree-g1-stage-japan-mobility-2025.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:unitree-g1-stage-japan-mobility-2025",
+      "sourceRegistryId": "unitree-g1-stage-japan-mobility-2025",
+      "byteHash": "5fea99e726d4f9f75b27800e5ae7a4762b0fbe5d3eca4f7e71184606078a0984",
+      "semanticHash": null,
+      "fingerprint": "98609fbcad1265480170d3e3e4e59c594149fbb1652a99ca88a48ac077b6c4fa"
+    },
+    {
       "id": "asset:images/unitree-robots-japan-mobility-show-2025.jpg",
       "path": "images/unitree-robots-japan-mobility-show-2025.jpg",
       "category": "editorial-image",
@@ -6298,6 +6518,16 @@
       "byteHash": "d17b45ec59977731f23671ac4ab58c0aaf42507b9e5d1713fbfd81910d6cc8fe",
       "semanticHash": null,
       "fingerprint": "9abb4d96a0f0e73ae7dca60475d32c53b8289ac61fe63adbd0b617245df8d368"
+    },
+    {
+      "id": "asset:images/uskin-tactile-allegro-hand-2021.jpg",
+      "path": "images/uskin-tactile-allegro-hand-2021.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:uskin-tactile-allegro-hand-2021",
+      "sourceRegistryId": "uskin-tactile-allegro-hand-2021",
+      "byteHash": "4d7537fb3a710be6bc9c1919e186ad77a58813f68e1c8bc56fad0f4a745e34c9",
+      "semanticHash": null,
+      "fingerprint": "89f28311aff276b5a505554a21e4c52de22925792f9c4eb76e1a3df95bf5f0d4"
     },
     {
       "id": "asset:images/velodyne-hdl64-lidar-2009.jpg",
@@ -6328,6 +6558,36 @@
       "byteHash": "8bbafe6e95eb2be9b6d459993a3453866b47798add4b736165b7e0914c7f52b6",
       "semanticHash": null,
       "fingerprint": "345e1f67e5da28ac59c9705f8d8e35e300b177d5c03cec226f16a0d3572229a2"
+    },
+    {
+      "id": "asset:images/waymo-jaguar-ipace-san-francisco-2023.jpg",
+      "path": "images/waymo-jaguar-ipace-san-francisco-2023.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:waymo-jaguar-ipace-san-francisco-2023",
+      "sourceRegistryId": "waymo-jaguar-ipace-san-francisco-2023",
+      "byteHash": "cae8c8f5aeb7cb2448fd9ffef585dad6e75ad84dcfc3f1afec189f4851199489",
+      "semanticHash": null,
+      "fingerprint": "1d7de3afbcf630acfe792f61325dadf086cbb8a1464ff3a0d31492f736049b3f"
+    },
+    {
+      "id": "asset:images/waymo-roof-sensor-suite-2025.jpg",
+      "path": "images/waymo-roof-sensor-suite-2025.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:waymo-roof-sensor-suite-2025",
+      "sourceRegistryId": "waymo-roof-sensor-suite-2025",
+      "byteHash": "9a790178f2337cb9b33b9796496a128bff4a826712babfbd831ce720e21073ef",
+      "semanticHash": null,
+      "fingerprint": "550d8aaf8feafded904db6b10767b51b0ae038b070a8f5328e4404ef4905f5cb"
+    },
+    {
+      "id": "asset:images/wcbf-hyper-redundant-robot-2026.jpg",
+      "path": "images/wcbf-hyper-redundant-robot-2026.jpg",
+      "category": "editorial-image",
+      "ownershipId": "image:wcbf-hyper-redundant-robot-2026",
+      "sourceRegistryId": "wcbf-hyper-redundant-robot-2026",
+      "byteHash": "ade050d83bd094d754494937365746a27d87a272e5c35c2a8324751abdcf99f4",
+      "semanticHash": null,
+      "fingerprint": "f5a49c8734e5cc24d47e18e5b47c0d9349bf0de6edad4f4048d9dd8284ccf983"
     },
     {
       "id": "asset:models/so101/assets/base_motor_holder_so101_v1.glb",
@@ -6491,10 +6751,13 @@
     "asset:images/aloha-2-workcell-2024.jpg",
     "asset:images/aloha-unleashed-shirt-rollout-2024.jpg",
     "asset:images/aloha-unleashed-tasks-2024.jpg",
+    "asset:images/amazon-drive-unit-2023.jpg",
+    "asset:images/amazon-swindon-slam-line-2025.jpg",
     "asset:images/anymal-anybotics-2022.jpg",
     "asset:images/anymal-x-offshore-stairs-2022.jpg",
     "asset:images/apollo-guidance-computer-dsky.jpg",
     "asset:images/apollo-imu-draper-2019.jpg",
+    "asset:images/asimo-miraikan-2016.jpg",
     "asset:images/atlas-darpa-frontview-2013.jpg",
     "asset:images/atlas-darpa-testing-2013.jpg",
     "asset:images/atlas-electric-hyundai-goyang-2026.jpg",
@@ -6505,17 +6768,26 @@
     "asset:images/cassie-oregon-state-2017.jpg",
     "asset:images/centrifugal-governor-queen-street-mill.jpg",
     "asset:images/clearpath-jackal-ugv-2020.jpg",
+    "asset:images/cmu-boss-urban-challenge-winner.jpg",
     "asset:images/conrft-real-world-tasks-2025.jpg",
     "asset:images/cosmos-policy-aloha-2026.jpg",
     "asset:images/covariate-shift.svg",
+    "asset:images/da-vinci-xi-patient-cart-2018.jpg",
+    "asset:images/da-vinci-xi-surgeon-console-vesoul-2023.jpg",
     "asset:images/daydreamer-a1-push-recovery-2022.jpg",
     "asset:images/daydreamer-a1-rollover-2022.jpg",
     "asset:images/daydreamer-ur5-pick-place-2022.jpg",
+    "asset:images/dextre-canadarm2-iss-2017.jpg",
+    "asset:images/dji-mavic-pro-in-flight.jpg",
     "asset:images/dp3-real-robot-setup-2024.jpg",
     "asset:images/dreamerv3-open-loop-quadruped-2023.jpg",
+    "asset:images/droid-cook-lentils-rollouts-2024.jpg",
     "asset:images/droid-in-the-wild-scenes-2024.jpg",
     "asset:images/droid-robot-platform-2024.jpg",
     "asset:images/egoscale-human-to-robot-2026.jpg",
+    "asset:images/egoscale-robot-platforms-2026.jpg",
+    "asset:images/emergency-stop-siemens-2006.jpg",
+    "asset:images/fingr-cube-layer-turn-2026.jpg",
     "asset:images/franka-emika-panda-cebit-2017.jpg",
     "asset:images/gaussian-splatting-garden-2023.jpg",
     "asset:images/gemini-robotics-aloha-dexterous-2025.jpg",
@@ -6526,6 +6798,7 @@
     "asset:images/hamster-2d-paths-2025.jpg",
     "asset:images/hil-serl-tasks-2024.jpg",
     "asset:images/horse-in-motion-muybridge-1878.jpg",
+    "asset:images/ingenuity-mastcam-z-closeup-2021.jpg",
     "asset:images/isaac-gym-allegro-envs-2021.jpg",
     "asset:images/isaac-gym-anymal-real-stairs-2021.jpg",
     "asset:images/isaac-gym-anymal-terrain-2021.jpg",
@@ -6536,6 +6809,7 @@
     "asset:images/jetson-agx-orin-auledas-2024.jpg",
     "asset:images/kinect-xbox-360-sensor.jpg",
     "asset:images/kinect-xbox-one-sensor.jpg",
+    "asset:images/knowno-ask-for-help-2023.jpg",
     "asset:images/leica-laser-tracker-ats600.jpg",
     "asset:images/logos/1x-technologies.svg",
     "asset:images/logos/abb.svg",
@@ -6650,12 +6924,14 @@
     "asset:images/logos/zebra-robotics-automation.svg",
     "asset:images/mini-cheetah-spin-rapid-locomotion-2022.jpg",
     "asset:images/motion-capture-session-hyderabad-2026.jpg",
+    "asset:images/moxie-installation-perseverance-2020.jpg",
     "asset:images/mujoco-playground-environments-2025.jpg",
     "asset:images/mujoco-playground-franka-block-2025.jpg",
     "asset:images/navlab-1-5-cmu-2017.jpg",
     "asset:images/octo-evaluation-setups-2024.jpg",
     "asset:images/open-x-embodiment-overview-2023.jpg",
     "asset:images/ouster-lidar-point-cloud-sf.jpg",
+    "asset:images/perseverance-selfie-rochette-2021.jpg",
     "asset:images/phantom-human-video-robot-2025.jpg",
     "asset:images/pi0-fast-laundry-folding-2025.jpg",
     "asset:images/pi0-fast-table-bussing-2025.jpg",
@@ -6666,14 +6942,17 @@
     "asset:images/pr2-willow-garage-2010.jpg",
     "asset:images/puma-500-deutsches-museum.jpg",
     "asset:images/puma-560-nasa-ames.jpg",
+    "asset:images/racing-quadrotor-minion-220-2016.jpg",
     "asset:images/realsense-d435-depth-camera.jpg",
     "asset:images/roboarena-evaluation-2025.jpg",
     "asset:images/robocasa-kitchens-2024.jpg",
     "asset:images/robocasa-object-library-2024.jpg",
     "asset:images/robocat-embodiments-2023.jpg",
+    "asset:images/robotic-welding-cell-guarding-2014.jpg",
     "asset:images/roboworld-bair-forcing-2026.jpg",
     "asset:images/roboworld-contact-failures-2026.jpg",
     "asset:images/roboworld-synthetic-scenes-2026.jpg",
+    "asset:images/roomba-870-2014.jpg",
     "asset:images/rt-h-language-corrections-2024.jpg",
     "asset:images/rtc-candle-lighting-2025.jpg",
     "asset:images/schunk-svh-five-finger-hand.jpg",
@@ -6681,13 +6960,20 @@
     "asset:images/simpler-real-vs-sim-2024.jpg",
     "asset:images/simpler-visual-matching-2024.jpg",
     "asset:images/spot-boston-dynamics-2023.jpg",
+    "asset:images/t-rex-bimanual-tactile-setup-2026.jpg",
     "asset:images/tdmpc2-task-grid-2023.jpg",
     "asset:images/temporal-ensembling.svg",
+    "asset:images/tesla-optimus-stockholm-2024.jpg",
+    "asset:images/unitree-g1-stage-japan-mobility-2025.jpg",
     "asset:images/unitree-robots-japan-mobility-show-2025.jpg",
     "asset:images/ur16e-cobot-arm-2020.jpg",
+    "asset:images/uskin-tactile-allegro-hand-2021.jpg",
     "asset:images/velodyne-hdl64-lidar-2009.jpg",
     "asset:images/vjepa2-overview-2025.jpg",
     "asset:images/vjepa2-pick-place-goals-2025.jpg",
+    "asset:images/waymo-jaguar-ipace-san-francisco-2023.jpg",
+    "asset:images/waymo-roof-sensor-suite-2025.jpg",
+    "asset:images/wcbf-hyper-redundant-robot-2026.jpg",
     "asset:models/so101/assets/base_motor_holder_so101_v1.glb",
     "asset:models/so101/assets/base_so101_v2.glb",
     "asset:models/so101/assets/motor_holder_so101_base_v1.glb",
@@ -16789,5 +17075,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "be1542f324d5de4a8a40d323cf61563822c7cca9d3cabd6c6cc6491944209cf8"
+  "rootFingerprint": "08ff458fecc84f9220483002ccd26585d93577a0ae527167571f28ab20b96769"
 }

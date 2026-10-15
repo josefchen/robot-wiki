@@ -7410,16 +7410,15 @@ export const CITATIONS: Citation[] = [
     // "the 1987 model" and "the SIGGRAPH '87 boids paper". The printed
     // bibliographic line comes from the fetched Soria Nature MI reference
     // list: "Reynolds, C. W. Flocks, herds and schools: a distributed
-    // behavioral model. Comput. Graph. 21, 25-43 (1987)." The ACM DL record
-    // (doi 10.1145/37402.37406) is Cloudflare-walled to machines (HTTP 403
-    // in the preparing session), so the ACM-canonical page range is not
-    // confirmed; the venue records the Soria-printed range with that caveat.
+    // behavioral model. Comput. Graph. 21, 25-43 (1987)." Crossref (doi
+    // 10.1145/37402.37406, read 2026-10-14) gives the canonical record: ACM
+    // SIGGRAPH Computer Graphics 21(4):25-34, August 1987, so the venue
+    // carries Crossref's page range, not the Soria-printed one.
     id: 'reynolds-boids-1987',
     title: 'Flocks, Herds and Schools: A Distributed Behavioral Model',
     authors: ['Craig W. Reynolds'],
     year: 1987,
-    venue:
-      "Computer Graphics (SIGGRAPH '87) 21, pages 25-43 as printed by the fetched Soria reference list; ACM DL machine-walled so canonical pages unconfirmed",
+    venue: "Computer Graphics 21(4):25-34 (SIGGRAPH '87)",
     url: 'https://www.red3d.com/cwr/boids/',
     type: 'paper',
   },
@@ -19505,6 +19504,1501 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.11753',
     type: 'paper',
   },
+  // Adjacent domain pass and length cut, 2026-10-14 (opus-pass-adjacent): the registry entries the four
+  // adjacent articles cite for the first time. Each source was re-fetched on 2026-10-14 and the passages quoted
+  // in its comment re-read (DOI records through Crossref, OpenAlex or Semantic Scholar where the publisher page
+  // refuses fetches). The earlier evidence came from the drafting and verification lanes of 2026-10-04 and 05.
+  // alphabet-q1-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated Apr 29, 2026, byline Sundar Pichai (read 2026-10-04): "That makes six new cities so far in
+  // 2026, and operations in 11 major U.S. cities in total. Waymo also surpassed 500,000 fully
+  // autonomous rides per week, doubling in less than a year."
+  {
+    id: 'alphabet-q1-2026',
+    title: 'Alphabet earnings call, Q1 2026: Sundar Pichai\'s remarks',
+    authors: ['Sundar Pichai'],
+    year: 2026,
+    venue: 'Google blog (The Keyword), 29 April 2026',
+    url: 'https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q1-2026/',
+    type: 'blog',
+  },
+  // stanley-2006: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata and abstract (read 2026-10-04): "This article describes the robot Stanley,
+  // which won the 2005 DARPA Grand Challenge."; "The robot's software system relied predominately on
+  // state-of-the-art artificial intelligence technologies, such as machine learning and
+  // probabilistic reasoning."
+  {
+    id: 'stanley-2006',
+    title: 'Stanley: The robot that won the DARPA Grand Challenge',
+    authors: ['Sebastian Thrun', 'Mike Montemerlo', 'Hendrik Dahlkamp', 'David Stavens', 'Andrei Aron', 'James Diebel', 'Philip Fong', 'John Gale', 'Morgan Halpenny', 'Gabriel Hoffmann', 'Kenny Lau', 'Celia Oakley', 'Mark Palatucci', 'Vaughan Pratt', 'Pascal Stang', 'Sven Strohband', 'Cedric Dupont', 'Lars-Erik Jendrossek', 'Christian Koelen', 'Charles Markey', 'Carlo Rummel', 'Joe van Niekerk', 'Eric Jensen', 'Philippe Alessandrini', 'Gary Bradski', 'Bob Davies', 'Scott Ettinger', 'Adrian Kaehler', 'Ara Nefian', 'Pamela Mahoney'],
+    year: 2006,
+    venue: 'Journal of Field Robotics 23(9):661-692',
+    url: 'https://doi.org/10.1002/rob.20147',
+    type: 'paper',
+  },
+  // waymo-foundation-model-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated December 9, 2025, byline Waymo AI Team (read 2026-10-04): "Its innovative architecture
+  // provides significant benefits over the pure end-to-end or modular approaches."; "The Waymo
+  // Foundation Model employs a Think Fast and Think Slow (also known as System 1 and System 2)
+  // architecture"; the Sensor Fusion Encoder "fuses camera, lidar, and radar inputs over time"; the
+  // Driving VLM is "Trained using Gemini". Needs ORGANIZATION_CHIP_NAMES entry ['Waymo AI Team',
+  // 'Waymo'] (see drafts/ORG-CHIP-NAMES-d.md).
+  {
+    id: 'waymo-foundation-model-2025',
+    title: 'Demonstrably Safe AI For Autonomous Driving',
+    authors: ['Waymo AI Team'],
+    year: 2025,
+    venue: 'Waymo blog, 9 December 2025',
+    url: 'https://waymo.com/blog/2025/12/demonstrably-safe-ai-for-autonomous-driving',
+    type: 'blog',
+  },
+  // waymo-ai-lessons-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated August 26, 2026, byline Srikanth Thirumalai (read 2026-10-04): "By combining inputs from
+  // cameras, lidar, and radar, the Waymo Driver creates a rich, redundant world view that no single
+  // sensor can replicate."; "simply replaying recorded data, known as open-loop simulation, is
+  // insufficient"; "Simply improving a driver-assist system (L2) for full autonomy is a false
+  // summit."
+  {
+    id: 'waymo-ai-lessons-2026',
+    title: '10 AI Lessons from Driving 200+ Million Fully Autonomous Miles',
+    authors: ['Srikanth Thirumalai'],
+    year: 2026,
+    venue: 'Waymo blog, 26 August 2026',
+    url: 'https://waymo.com/blog/2026/08/10ailessons',
+    type: 'blog',
+  },
+  // bevformer-2022: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv comment "Accepted to ECCV 2022". Abstract (read 2026-10-04): "achieves the new
+  // state-of-the-art 56.9% in terms of NDS metric on the nuScenes test set, which is 9.0 points
+  // higher than previous best arts and on par with the performance of LiDAR-based baselines".
+  {
+    id: 'bevformer-2022',
+    title: 'BEVFormer: Learning Bird\'s-Eye-View Representation from Multi-Camera Images via Spatiotemporal Transformers',
+    authors: ['Zhiqi Li', 'Wenhai Wang', 'Hongyang Li', 'Enze Xie', 'Chonghao Sima', 'Tong Lu', 'Qiao Yu', 'Jifeng Dai'],
+    year: 2022,
+    venue: 'ECCV 2022',
+    arxiv: '2203.17270',
+    url: 'https://arxiv.org/abs/2203.17270',
+    type: 'paper',
+  },
+  // nuscenes-2020: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv v1 2019; comment "CVPR 2020 camera ready". Abstract (read 2026-10-04): "the first dataset
+  // to carry the full autonomous vehicle sensor suite: 6 cameras, 5 radars and 1 lidar, all with
+  // full 360 degree field of view. nuScenes comprises 1000 scenes, each 20s long".
+  {
+    id: 'nuscenes-2020',
+    title: 'nuScenes: A multimodal dataset for autonomous driving',
+    authors: ['Holger Caesar', 'Varun Bankiti', 'Alex H. Lang', 'Sourabh Vora', 'Venice Erin Liong', 'Qiang Xu', 'Anush Krishnan', 'Yu Pan', 'Giancarlo Baldan', 'Oscar Beijbom'],
+    year: 2020,
+    venue: 'CVPR 2020',
+    arxiv: '1903.11027',
+    url: 'https://arxiv.org/abs/1903.11027',
+    type: 'paper',
+  },
+  // occ3d-2023: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv comment "Accepted to NeurIPS 2023". Abstract (read 2026-10-04): "Existing methods
+  // typically focus on estimating 3D bounding boxes, neglecting finer geometric details and
+  // struggling to handle general, out-of-vocabulary objects."
+  {
+    id: 'occ3d-2023',
+    title: 'Occ3D: A Large-Scale 3D Occupancy Prediction Benchmark for Autonomous Driving',
+    authors: ['Xiaoyu Tian', 'Tao Jiang', 'Longfei Yun', 'Yucheng Mao', 'Huitong Yang', 'Yue Wang', 'Yilun Wang', 'Hang Zhao'],
+    year: 2023,
+    venue: 'NeurIPS 2023',
+    arxiv: '2304.14365',
+    url: 'https://arxiv.org/abs/2304.14365',
+    type: 'paper',
+  },
+  // waymo-open-motion-2021: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv record with no venue, full author list. Abstract (read 2026-10-04): "With over 100,000
+  // scenes, each 20 seconds long at 10 Hz, our new dataset contains more than 570 hours of unique
+  // data over 1750 km of roadways."
+  {
+    id: 'waymo-open-motion-2021',
+    title: 'Large Scale Interactive Motion Forecasting for Autonomous Driving : The Waymo Open Motion Dataset',
+    authors: ['Scott Ettinger', 'Shuyang Cheng', 'Benjamin Caine', 'Chenxi Liu', 'Hang Zhao', 'Sabeek Pradhan', 'Yuning Chai', 'Ben Sapp', 'Charles Qi', 'Yin Zhou', 'Zoey Yang', 'Aurelien Chouard', 'Pei Sun', 'Jiquan Ngiam', 'Vijay Vasudevan', 'Alexander McCauley', 'Jonathon Shlens', 'Dragomir Anguelov'],
+    year: 2021,
+    arxiv: '2104.10133',
+    url: 'https://arxiv.org/abs/2104.10133',
+    type: 'paper',
+  },
+  // motionlm-2023: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv comment "To appear at ... ICCV 2023". Abstract (read 2026-10-04): "we represent continuous
+  // trajectories as sequences of discrete motion tokens and cast multi-agent motion prediction as a
+  // language modeling task over this domain".
+  {
+    id: 'motionlm-2023',
+    title: 'MotionLM: Multi-Agent Motion Forecasting as Language Modeling',
+    authors: ['Ari Seff', 'Brian Cera', 'Dian Chen', 'Mason Ng', 'Aurick Zhou', 'Nigamaa Nayakanti', 'Khaled S. Refaat', 'Rami Al-Rfou', 'Benjamin Sapp'],
+    year: 2023,
+    venue: 'ICCV 2023',
+    arxiv: '2309.16534',
+    url: 'https://arxiv.org/abs/2309.16534',
+    type: 'paper',
+  },
+  // boss-urban-challenge-2008: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata and abstract (read 2026-10-04): "A three-layer planning system combines
+  // mission, behavioral, and motion planning to drive in urban environments."; in "the 85-km Urban
+  // Challenge Final Event, Boss demonstrated some of its capabilities, qualifying first and winning
+  // the challenge".
+  {
+    id: 'boss-urban-challenge-2008',
+    title: 'Autonomous driving in urban environments: Boss and the Urban Challenge',
+    authors: ['Chris Urmson', 'Joshua Anhalt', 'Drew Bagnell', 'Christopher Baker', 'Robert Bittner', 'M. N. Clark', 'John Dolan', 'Dave Duggins', 'Tugrul Galatali', 'Chris Geyer', 'Michele Gittleman', 'Sam Harbaugh', 'Martial Hebert', 'Thomas M. Howard', 'Sascha Kolski', 'Alonzo Kelly', 'Maxim Likhachev', 'Matt McNaughton', 'Nick Miller', 'Kevin Peterson', 'Brian Pilnick', 'Raj Rajkumar', 'Paul Rybski', 'Bryan Salesky', 'Young-Woo Seo', 'Sanjiv Singh', 'Jarrod Snider', 'Anthony Stentz', 'William “Red” Whittaker', 'Ziv Wolkowicki', 'Jason Ziglar', 'Hong Bae', 'Thomas Brown', 'Daniel Demitrish', 'Bakhtiar Litkouhi', 'Jim Nickolaou', 'Varsha Sadekar', 'Wende Zhang', 'Joshua Struble', 'Michael Taylor', 'Michael Darms', 'Dave Ferguson'],
+    year: 2008,
+    venue: 'Journal of Field Robotics 25(8):425-466',
+    url: 'https://doi.org/10.1002/rob.20255',
+    type: 'paper',
+  },
+  // nuplan-2021: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv record with no venue, full author list. Abstract (read 2026-10-04): "we propose the
+  // world's first closed-loop ML-based planning benchmark for autonomous driving"; "This has led
+  // previous works to use open-loop evaluation with L2-based metrics, which are not suitable for
+  // fairly evaluating long-term planning."
+  {
+    id: 'nuplan-2021',
+    title: 'NuPlan: A closed-loop ML-based planning benchmark for autonomous vehicles',
+    authors: ['Holger Caesar', 'Juraj Kabzan', 'Kok Seang Tan', 'Whye Kit Fong', 'Eric Wolff', 'Alex Lang', 'Luke Fletcher', 'Oscar Beijbom', 'Sammy Omari'],
+    year: 2021,
+    arxiv: '2106.11810',
+    url: 'https://arxiv.org/abs/2106.11810',
+    type: 'paper',
+  },
+  // dauner-misconceptions-2023: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv comment "CoRL 2023". Abstract (read 2026-10-04): "revealing the limitations of
+  // learning-based methods in complex real-world scenarios and the value of simple rule-based priors
+  // such as centerline selection through lane graph search algorithms"; "we propose an extremely
+  // simple and efficient planner which outperforms an extensive set of competitors, winning the
+  // nuPlan planning challenge 2023."
+  {
+    id: 'dauner-misconceptions-2023',
+    title: 'Parting with Misconceptions about Learning-based Vehicle Motion Planning',
+    authors: ['Daniel Dauner', 'Marcel Hallgarten', 'Andreas Geiger', 'Kashyap Chitta'],
+    year: 2023,
+    venue: 'CoRL 2023',
+    arxiv: '2306.07962',
+    url: 'https://arxiv.org/abs/2306.07962',
+    type: 'paper',
+  },
+  // navsim-2024: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv comment "NeurIPS 2024 Datasets and Benchmarks". Abstract (read 2026-10-04): "open-loop
+  // evaluation with real data is easy, but these results do not reflect closed-loop performance";
+  // "simple methods with moderate compute requirements such as TransFuser can match recent
+  // large-scale end-to-end driving architectures such as UniAD".
+  {
+    id: 'navsim-2024',
+    title: 'NAVSIM: Data-Driven Non-Reactive Autonomous Vehicle Simulation and Benchmarking',
+    authors: ['Daniel Dauner', 'Marcel Hallgarten', 'Tianyu Li', 'Xinshuo Weng', 'Zhiyu Huang', 'Zetong Yang', 'Hongyang Li', 'Igor Gilitschenski', 'Boris Ivanovic', 'Marco Pavone', 'Andreas Geiger', 'Kashyap Chitta'],
+    year: 2024,
+    venue: 'NeurIPS 2024 Datasets and Benchmarks',
+    arxiv: '2406.15349',
+    url: 'https://arxiv.org/abs/2406.15349',
+    type: 'paper',
+  },
+  // waymo-year-in-review-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated December 10, 2025, byline The Waymo Team (read 2026-10-04): "By the end of 2025, we more
+  // than tripled our annual volume to 15 million rides, surpassing 20 million lifetime rides to
+  // date." Needs ORGANIZATION_CHIP_NAMES entry ['The Waymo Team', 'Waymo'].
+  {
+    id: 'waymo-year-in-review-2025',
+    title: 'Delivering more for our riders in a year of incredible growth',
+    authors: ['The Waymo Team'],
+    year: 2025,
+    venue: 'Waymo blog, 10 December 2025',
+    url: 'https://waymo.com/blog/2025/12/2025-year-in-review',
+    type: 'blog',
+  },
+  // un-ads-regulation-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated 24 June 2026, no byline (read 2026-10-04): "A UN vehicle standards forum has approved the
+  // first global regulations for fully autonomous driving systems (ADS)"; "adopted on Wednesday by
+  // the UN Economic Commission for Europe's (UNECE) World Forum for Harmonization of Vehicle
+  // Regulations"; "manufacturers must ensure test environments, including virtual testing tools,
+  // meet strict credibility criteria and demonstrate that their ADS poses no unreasonable risk".
+  // Needs ORGANIZATION_CHIP_NAMES entry ['UN News', 'UN News'].
+  {
+    id: 'un-ads-regulation-2026',
+    title: 'New global rules clear the road for driverless vehicles',
+    authors: ['UN News'],
+    year: 2026,
+    venue: 'UN News, 24 June 2026',
+    url: 'https://news.un.org/en/story/2026/06/1167797',
+    type: 'press',
+  },
+  // nhtsa-av-framework-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Full text via the Federal Register API (read 2026-10-04): "On April 24, 2025, DOT and NHTSA
+  // announced a new automated vehicle (AV) framework"; NHTSA has "streamlined its Standing General
+  // Order on crash reporting"; "On March 16, 2026, NHTSA published two NPRMs proposing to amend the
+  // FMVSS to address the applicability of the standards to ADS-equipped vehicles without manual
+  // controls."
+  {
+    id: 'nhtsa-av-framework-2026',
+    title: 'AV Framework Updates and Request for Comments on Interim Guidance',
+    authors: ['NHTSA'],
+    year: 2026,
+    venue: 'Federal Register 91(146), document 2026-15483, 31 July 2026',
+    url: 'https://www.federalregister.gov/documents/2026/07/31/2026-15483/av-framework-updates-and-request-for-comments-on-interim-guidance',
+    type: 'docs',
+  },
+  // nhtsa-zoox-exemption-2026: domain pass 2026-10-06, owner sweep item "No purpose-built vehicle or regulatory
+  // path" (adjacent/autonomous-vehicles, added 2026-10-14). Federal Register document 2026-15485, published 31 July
+  // 2026, full text read 2026-10-14 (HTTP 200): "NHTSA is granting an exemption to Zoox, Inc. (Zoox) to allow it
+  // to manufacture and deploy commercially a passenger car, which is equipped with an Automated Driving System
+  // (ADS)"; it covers "certain requirements in eight FMVSS"; "Zoox is permitted to manufacture vehicles pursuant
+  // to this exemption for two years, provided that not more than 2,500 exempted vehicles are introduced into
+  // interstate commerce for commercial deployment in any 12-month period."
+  {
+    id: 'nhtsa-zoox-exemption-2026',
+    title:
+      'Zoox: Grant of Temporary Exemption From Portions of Various Requirements of the Federal Motor Vehicle Safety Standards for an Automated Driving System-Equipped Vehicle',
+    authors: ['National Highway Traffic Safety Administration'],
+    year: 2026,
+    venue: 'Federal Register, 31 July 2026 (document 2026-15485)',
+    url: 'https://www.federalregister.gov/documents/2026/07/31/2026-15485/zoox-grant-of-temporary-exemption-from-portions-of-various-requirements-of-the-federal-motor-vehicle',
+    type: 'docs',
+  },
+  // wod-e2e-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv record with no venue, full author list. Abstract (read 2026-10-04): "WOD-E2E contains
+  // 4,021 driving segments (approximately 12 hours), specifically curated for challenging long-tail
+  // scenarios that that are rare in daily life with an occurring frequency of less than 0.03%."
+  {
+    id: 'wod-e2e-2025',
+    title: 'WOD-E2E: Waymo Open Dataset for End-to-End Driving in Challenging Long-tail Scenarios',
+    authors: ['Runsheng Xu', 'Hubert Lin', 'Wonseok Jeon', 'Hao Feng', 'Yuliang Zou', 'Liting Sun', 'John Gorman', 'Ekaterina Tolstaya', 'Sarah Tang', 'Brandyn White', 'Ben Sapp', 'Mingxing Tan', 'Jyh-Jing Hwang', 'Dragomir Anguelov'],
+    year: 2025,
+    arxiv: '2510.26125',
+    url: 'https://arxiv.org/abs/2510.26125',
+    type: 'paper',
+  },
+  // gaia-2-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv comment "Technical Report", full author list. Abstract (read 2026-10-04): "It generates
+  // high-resolution, spatiotemporally consistent multi-camera videos"; "GAIA-2 enables scalable
+  // simulation of both common and rare driving scenarios".
+  {
+    id: 'gaia-2-2025',
+    title: 'GAIA-2: A Controllable Multi-View Generative World Model for Autonomous Driving',
+    authors: ['Lloyd Russell', 'Anthony Hu', 'Lorenzo Bertoni', 'George Fedoseev', 'Jamie Shotton', 'Elahe Arani', 'Gianluca Corrado'],
+    year: 2025,
+    venue: 'Wayve technical report',
+    arxiv: '2503.20523',
+    url: 'https://arxiv.org/abs/2503.20523',
+    type: 'paper',
+  },
+  // waymo-recall-25e084-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Recall report PDF, submission date Dec 10, 2025 (read 2026-10-04): "Total number of potentially
+  // involved: 3,067"; "Waymo vehicles that were stopped or stopping for a school bus with its red
+  // lights flashing and/or the stop arm extended would proceed again before the school bus had
+  // deactivated its flashing lights and/or retracted its stop arm". Filed by Waymo LLC (author
+  // written as "Waymo").
+  {
+    id: 'waymo-recall-25e084-2025',
+    title: 'Part 573 Safety Recall Report 25E084',
+    authors: ['Waymo'],
+    year: 2025,
+    venue: 'NHTSA recall filing, submitted 10 December 2025',
+    url: 'https://static.nhtsa.gov/odi/rcl/2025/RCLRPT-25E084-7732.pdf',
+    type: 'docs',
+  },
+  // waymo-recall-26e026-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Recall report PDF, submission date May 06, 2026 (read 2026-10-04): "Total number of potentially
+  // involved: 3,791"; "the Waymo AV may slow but not stop in response to detecting a potentially
+  // untraversable flooded lane"; mitigation targets "a flooded, higher-speed roadway". Filed by
+  // Waymo LLC (author written as "Waymo").
+  {
+    id: 'waymo-recall-26e026-2026',
+    title: 'Part 573 Safety Recall Report 26E026',
+    authors: ['Waymo'],
+    year: 2026,
+    venue: 'NHTSA recall filing, submitted 6 May 2026',
+    url: 'https://static.nhtsa.gov/odi/rcl/2026/RCLRPT-26E026-6527.pdf',
+    type: 'docs',
+  },
+  // iihs-waymo-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated July 23, 2026, no byline (read 2026-10-04): "Per vehicle mile traveled (VMT), Waymo's
+  // driverless vehicles deployed in San Francisco, Phoenix, Los Angeles and Austin were involved in
+  // 68% fewer crashes than human drivers"; "The sample was restricted to crashes that a person would
+  // typically report to the police."; "While companies are required to report crashes, they are not
+  // obligated to report the miles they log or whether such miles involved a human driver."
+  {
+    id: 'iihs-waymo-2026',
+    title: 'Waymo\'s driverless cars crash less often than people',
+    authors: ['IIHS'],
+    year: 2026,
+    venue: 'IIHS news, 23 July 2026',
+    url: 'https://www.iihs.org/news/detail/waymos-driverless-cars-crash-less-often-than-people',
+    type: 'press',
+  },
+  // ca-dmv-av-miles-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Release dated February 20, 2026 (read 2026-10-04): "They are intended to provide insight into
+  // the operational activities of each permit holder and are not designed for comparative analysis
+  // across companies."; "Disengagement reporting is not required for AV operations conducted under
+  // deployment permits." Needs ORGANIZATION_CHIP_NAMES entry ['California DMV', 'California DMV'].
+  {
+    id: 'ca-dmv-av-miles-2026',
+    title: 'Autonomous Vehicle Permit Holders in California Logged More Than 9 Million Test Miles Between December 1, 2024 and November 30, 2025',
+    authors: ['California DMV'],
+    year: 2026,
+    venue: 'California DMV news release, 20 February 2026',
+    url: 'https://www.dmv.ca.gov/portal/news-and-media/autonomous-vehicle-permit-holders-in-california-logged-more-than-9-million-test-miles-between-december-1-2024-and-november-30-2025/',
+    type: 'press',
+  },
+  // waymo-safety-hub-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Live hub (read 2026-10-04): "Through June 2026, Waymo has driven 271.3M rider-only miles without
+  // a human driver"; compared with "the average human driver over the same distance in our operating
+  // cities": "95% Fewer serious injury or worse crashes (55 fewer)"; "82% Fewer injury-causing
+  // crashes (841 fewer)". Company-published figures.
+  {
+    id: 'waymo-safety-hub-2026',
+    title: 'Safety Impact',
+    authors: ['Waymo'],
+    year: 2026,
+    accessedOn: '2026-10-04',
+    venue: 'Waymo Safety Impact hub, data through June 2026',
+    url: 'https://waymo.com/safety/impact/',
+    type: 'docs',
+  },
+  // baidu-q2-2026: domain pass 2026-10-06, owner sweep item "No non-US operator" (adjacent/autonomous-vehicles,
+  // added 2026-10-14). Baidu's Q2 2026 results release as filed with the SEC (Form 6-K, exhibit 99.1; the IR page
+  // returns HTTP 403 to fetches), read 2026-10-14: dateline "BEIJING, China, August 18, 2026"; "To date, Apollo
+  // Go's global footprint has reached 28 cities"; its fleets "have accumulated over 350 million autonomous
+  // kilometers", including "over 240 million fully driverless autonomous kilometers". Company-reported.
+  {
+    id: 'baidu-q2-2026',
+    title: 'Baidu Announces Second Quarter 2026 Results',
+    authors: ['Baidu, Inc.'],
+    year: 2026,
+    venue: 'Form 6-K, exhibit 99.1, 18 August 2026',
+    url: 'https://www.sec.gov/Archives/edgar/data/0001329099/000119312526355431/d112854dex991.htm',
+    type: 'docs',
+  },
+  // aurora-driverless-launch-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated May 01, 2025 (read 2026-10-04): "Following the closure of its safety case, Aurora began
+  // regular driverless customer deliveries between Dallas and Houston this week. To date, the Aurora
+  // Driver has completed over 1,200 miles without a driver." Author written as "Aurora" so the chip
+  // does not print "Innovation".
+  {
+    id: 'aurora-driverless-launch-2025',
+    title: 'Aurora Begins Commercial Driverless Trucking in Texas, Ushering in a New Era of Freight',
+    authors: ['Aurora'],
+    year: 2025,
+    venue: 'Aurora Innovation press release, 1 May 2025',
+    url: 'https://ir.aurora.tech/news-events/press-releases/detail/119/aurora-begins-commercial-driverless-trucking-in-texas-ushering-in-a-new-era-of-freight',
+    type: 'press',
+  },
+  // aurora-q2-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // PDF created 29 July 2026 (read 2026-10-04): "the Aurora Driver completed nearly 440,000
+  // driverless miles since launch through the end of June, maintaining a 100% on-time performance
+  // record and zero Aurora Driver-attributed collisions"; "we are already fully allocated to exit
+  // the year with 200 driverless trucks in operation".
+  {
+    id: 'aurora-q2-2026',
+    title: 'Q2 2026 Shareholder Letter',
+    authors: ['Aurora'],
+    year: 2026,
+    venue: 'Aurora Innovation shareholder letter, 29 July 2026',
+    url: 'https://ir.aurora.tech/_assets/_96c9b7d74f0ede7f00e7204fc7db7913/aurora/db/956/10045/shareholder_letter/26Q2+Shareholder+Letter.pdf',
+    type: 'press',
+  },
+  // nhtsa-cruise-consent-2024: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // The live nhtsa.gov page returns 403; read from the dated capture (read 2026-10-04): "September
+  // 30, 2024 | Washington, DC"; "Two of these reports failed to disclose the post-crash details of
+  // an Oct. 2, 2023, crash in which a Cruise vehicle equipped with an ADS and operating without a
+  // driver dragged a pedestrian approximately 20 feet before coming to a complete stop."; "Cruise
+  // will pay a total monetary penalty of $1.5 million".
+  {
+    id: 'nhtsa-cruise-consent-2024',
+    title: 'GM\'s Cruise Failed to Fully Report Pedestrian Crash',
+    authors: ['NHTSA'],
+    year: 2024,
+    venue: 'NHTSA press release, 30 September 2024 (Wayback capture 2024-12-29)',
+    url: 'https://web.archive.org/web/20241229044938/https://www.nhtsa.gov/press-releases/consent-order-cruise-crash-reporting',
+    type: 'press',
+  },
+  // gm-cruise-refocus-2024: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // The live news.gm.com page returns 403; read from the dated capture (read 2026-10-04): "GM will
+  // no longer fund Cruise's robotaxi development work given the considerable time and resources that
+  // would be needed to scale the business, along with an increasingly competitive robotaxi market."
+  // Author written as "GM", the company's own short name.
+  {
+    id: 'gm-cruise-refocus-2024',
+    title: 'GM to refocus autonomous driving development on personal vehicles',
+    authors: ['GM'],
+    year: 2024,
+    venue: 'GM news release, 10 December 2024 (Wayback capture 2024-12-10)',
+    url: 'https://web.archive.org/web/20241210215436/https://news.gm.com/home.detail.html/Pages/news/us/en/2024/dec/1210-gm.html',
+    type: 'press',
+  },
+  // waymo-scaling-laws-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv technical report with no venue, full author list. Abstract (read 2026-10-04): "Using a 500
+  // thousand hours driving dataset, we demonstrate that, similar to language modeling, model
+  // performance improves as a power-law function of the total compute budget"; "Most interestingly,
+  // closed-loop metrics also improve with scaling".
+  {
+    id: 'waymo-scaling-laws-2025',
+    title: 'Scaling Laws of Motion Forecasting and Planning -- Technical Report',
+    authors: ['Mustafa Baniodeh', 'Kratarth Goel', 'Scott Ettinger', 'Carlos Fuertes', 'Ari Seff', 'Tim Shen', 'Cole Gulino', 'Chenjie Yang', 'Ghassen Jerfel', 'Dokook Choe', 'Rui Wang', 'Benjamin Charrow', 'Vinutha Kallem', 'Sergio Casas', 'Rami Al-Rfou', 'Benjamin Sapp', 'Dragomir Anguelov'],
+    year: 2025,
+    arxiv: '2506.08228',
+    url: 'https://arxiv.org/abs/2506.08228',
+    type: 'paper',
+  },
+  // rad-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv record with no venue, full author list. Abstract (read 2026-10-04): "Existing end-to-end
+  // autonomous driving (AD) algorithms typically follow the Imitation Learning (IL) paradigm, which
+  // faces challenges such as causal confusion and an open-loop gap."; "we construct a photorealistic
+  // digital replica of the real physical world"; "RAD achieves stronger performance in most
+  // closed-loop metrics, particularly exhibiting a 3x lower collision rate".
+  {
+    id: 'rad-2025',
+    title: 'RAD: Training an End-to-End Driving Policy via Large-Scale 3DGS-based Reinforcement Learning',
+    authors: ['Hao Gao', 'Shaoyu Chen', 'Bo Jiang', 'Bencheng Liao', 'Yiang Shi', 'Xiaoyang Guo', 'Yuechuan Pu', 'Haoran Yin', 'Xiangyu Li', 'Xinbang Zhang', 'Ying Zhang', 'Wenyu Liu', 'Qian Zhang', 'Xinggang Wang'],
+    year: 2025,
+    arxiv: '2502.13144',
+    url: 'https://arxiv.org/abs/2502.13144',
+    type: 'paper',
+  },
+  // alpamayo-r1-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv record with no venue, full author list (43 names; the abs page lists a stray ":" after
+  // "NVIDIA", dropped here). Abstract (read 2026-10-04): "performance remains brittle in
+  // safety-critical long-tail scenarios where supervision is sparse"; "On-vehicle road tests confirm
+  // real-time performance (99 ms latency) and successful urban deployment."
+  {
+    id: 'alpamayo-r1-2025',
+    title: 'Alpamayo-R1: Bridging Reasoning and Action Prediction for Generalizable Autonomous Driving in the Long Tail',
+    authors: ['NVIDIA', 'Yan Wang', 'Wenjie Luo', 'Junjie Bai', 'Yulong Cao', 'Tong Che', 'Ke Chen', 'Yuxiao Chen', 'Jenna Diamond', 'Yifan Ding', 'Wenhao Ding', 'Liang Feng', 'Greg Heinrich', 'Jack Huang', 'Peter Karkus', 'Boyi Li', 'Pinyi Li', 'Tsung-Yi Lin', 'Dongran Liu', 'Ming-Yu Liu', 'Langechuan Liu', 'Zhijian Liu', 'Jason Lu', 'Yunxiang Mao', 'Pavlo Molchanov', 'Lindsey Pavao', 'Zhenghao Peng', 'Mike Ranzinger', 'Ed Schmerling', 'Shida Shen', 'Yunfei Shi', 'Sarah Tariq', 'Ran Tian', 'Tilman Wekel', 'Xinshuo Weng', 'Tianjun Xiao', 'Eric Yang', 'Xiaodong Yang', 'Yurong You', 'Xiaohui Zeng', 'Wenyuan Zhang', 'Boris Ivanovic', 'Marco Pavone'],
+    year: 2025,
+    arxiv: '2511.00088',
+    url: 'https://arxiv.org/abs/2511.00088',
+    type: 'paper',
+  },
+  // monorace-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract: "uses a monocular, rolling-shutter camera and IMU"; "won the 2025 Abu Dhabi Autonomous
+  // Drone Racing Competition (A2RL), outperforming all competing AI teams and three human world
+  // champion pilots in a direct knockout tournament"; "foregoes inner loop controllers by directly
+  // sending motor commands. This small network runs on the flight controller at 500Hz."
+  {
+    id: 'monorace-2026',
+    title: 'MonoRace: Winning Champion-Level Drone Racing with Robust Monocular AI',
+    authors: ['Stavrow A. Bahnam', 'Robin Ferede', 'Till M. Blaha', 'Anton E. Lang', 'Erin Lucassen', 'Quentin Missinne', 'Aderik E. C. Verraest', 'Christophe De Wagter', 'Guido C. H. E. de Croon'],
+    year: 2026,
+    arxiv: '2601.15222',
+    url: 'https://arxiv.org/abs/2601.15222',
+    type: 'paper',
+  },
+  // faessler-flatness-2018: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata; abstract (arXiv 1712.02402 via Semantic Scholar, read 2026-10-04): "we prove
+  // that the dynamical model of a quadrotor subject to linear rotor drag effects is differentially
+  // flat in its position and heading".
+  {
+    id: 'faessler-flatness-2018',
+    title: 'Differential Flatness of Quadrotor Dynamics Subject to Rotor Drag for Accurate Tracking of High-Speed Trajectories',
+    authors: ['Matthias Faessler', 'Antonio Franchi', 'Davide Scaramuzza'],
+    year: 2018,
+    venue: 'IEEE Robotics and Automation Letters 3(2):620-626',
+    url: 'https://doi.org/10.1109/LRA.2017.2776353',
+    type: 'paper',
+  },
+  // mahony-multirotor-2012: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata (read 2026-10-04). Abstract not open; the article sentence rests on the title.
+  {
+    id: 'mahony-multirotor-2012',
+    title: 'Multirotor Aerial Vehicles: Modeling, Estimation, and Control of Quadrotor',
+    authors: ['Robert Mahony', 'Vijay Kumar', 'Peter Corke'],
+    year: 2012,
+    venue: 'IEEE Robotics & Automation Magazine 19(3):20-32',
+    url: 'https://doi.org/10.1109/MRA.2012.2206474',
+    type: 'paper',
+  },
+  // mellinger-minimum-snap-2011: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata (read 2026-10-04). Abstract not open; the article sentence rests on the title.
+  {
+    id: 'mellinger-minimum-snap-2011',
+    title: 'Minimum snap trajectory generation and control for quadrotors',
+    authors: ['Daniel Mellinger', 'Vijay Kumar'],
+    year: 2011,
+    venue: 'IEEE ICRA 2011, 2520-2525',
+    url: 'https://doi.org/10.1109/ICRA.2011.5980409',
+    type: 'paper',
+  },
+  // lee-se3-control-2010: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata (read 2026-10-04). Abstract not open; the article sentence rests on the title.
+  {
+    id: 'lee-se3-control-2010',
+    title: 'Geometric tracking control of a quadrotor UAV on SE(3)',
+    authors: ['Taeyoung Lee', 'Melvin Leok', 'N. Harris McClamroch'],
+    year: 2010,
+    venue: '49th IEEE Conference on Decision and Control (CDC), 5420-5425',
+    url: 'https://doi.org/10.1109/CDC.2010.5717652',
+    type: 'paper',
+  },
+  // foehn-time-optimal-2021: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref summary (read 2026-10-04): "A solution for time-optimal quadrotor trajectory planning
+  // through optimization outperforms professional human pilots in racing."
+  {
+    id: 'foehn-time-optimal-2021',
+    title: 'Time-optimal planning for quadrotor waypoint flight',
+    authors: ['Philipp Foehn', 'Angel Romero', 'Davide Scaramuzza'],
+    year: 2021,
+    venue: 'Science Robotics 6(56):eabh1221',
+    url: 'https://doi.org/10.1126/scirobotics.abh1221',
+    type: 'paper',
+  },
+  // ac-mpc-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata (title prints an en dash in Actor[dash]Critic); abstract (arXiv 2306.09852 via
+  // Semantic Scholar, read 2026-10-04): "The key idea is to embed a differentiable MPC within an
+  // actor[dash]critic RL framework"; "achieves the same superhuman performance as state-of-the-art
+  // model-free RL, showcasing speeds of up to 21 m/s".
+  {
+    id: 'ac-mpc-2026',
+    title: 'Actor-Critic Model Predictive Control: Differentiable Optimization Meets Reinforcement Learning for Agile Flight',
+    authors: ['Angel Romero', 'Elie Aljalbout', 'Yunlong Song', 'Davide Scaramuzza'],
+    year: 2026,
+    venue: 'IEEE Transactions on Robotics 42:673-692',
+    url: 'https://doi.org/10.1109/TRO.2025.3644945',
+    type: 'paper',
+  },
+  // tudelft-a2rl-2025: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated 15 April 2025, no individual byline (read 2026-10-04): "beating three former DCL world
+  // champions and reaching flight speeds up to 95.8 km/h"; Swift's win "occurred in a flight lab
+  // environment, where conditions, hardware, and the track were still controlled by the
+  // researchers"; at A2RL "the hardware and track were fully designed and managed by the competition
+  // organisers".
+  {
+    id: 'tudelft-a2rl-2025',
+    title: 'Autonomous drone from TU Delft defeats human champions in historic racing first',
+    authors: ['TU Delft'],
+    year: 2025,
+    venue: 'TU Delft news, 2025-04-15',
+    url: 'https://www.tudelft.nl/en/2025/lr/autonomous-drone-from-tu-delft-defeats-human-champions-in-historic-racing-first',
+    type: 'press',
+  },
+  // a2rl-2026-final: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated Jan 23 2026, no individual byline (read 2026-10-04): "Minchan Kim [dash] World FPV
+  // Champion, narrowly claimed victory in the Human vs AI finale"; a showdown "that remained tied at
+  // four wins apiece. In the final run, Kim maintained his lead as the autonomous drone struck a
+  // gate and was unable to recover".
+  {
+    id: 'a2rl-2026-final',
+    title: 'A2RL Drone Championship Sets the Pace for AI in Autonomous Flight',
+    authors: ['A2RL'],
+    year: 2026,
+    venue: 'A2RL news, 2026-01-23',
+    url: 'https://a2rl.io/news/45/A2RL-Drone-Championship-Sets-the-Pace-for-AI-in-Autonomous-Flight',
+    type: 'press',
+  },
+  // green-generalization-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract: "current methods fail to generalize; policies trained on specific environments often
+  // crash immediately in unseen configurations"; "a 7.4x improvement in generalization over the
+  // state-of-the-art approaches".
+  {
+    id: 'green-generalization-2026',
+    title: 'Bridging Performance and Generalization in Reinforcement Learning for Agile Flight',
+    authors: ['Jonathan Green', 'Jiaxu Xing', 'Nico Messikommer', 'Angel Romero', 'Davide Scaramuzza'],
+    year: 2026,
+    arxiv: '2606.27348',
+    url: 'https://arxiv.org/abs/2606.27348',
+    type: 'paper',
+  },
+  // vins-mono-2018: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract (arXiv 1708.03852 via Semantic Scholar, read 2026-10-04): "One camera and one low-cost
+  // inertial measurement unit (IMU) form a monocular visual-inertial system (VINS), which is the
+  // minimum sensor suite (in size, weight, and power) for the metric six degrees-of-freedom (DOF)
+  // state estimation."
+  {
+    id: 'vins-mono-2018',
+    title: 'VINS-Mono: A Robust and Versatile Monocular Visual-Inertial State Estimator',
+    authors: ['Tong Qin', 'Peiliang Li', 'Shaojie Shen'],
+    year: 2018,
+    venue: 'IEEE Transactions on Robotics 34(4):1004-1020',
+    url: 'https://doi.org/10.1109/TRO.2018.2853729',
+    type: 'paper',
+  },
+  // px4-2015: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract via Semantic Scholar (read 2026-10-04): "Our microcontroller-based execution
+  // environment has substantially lower latency and better hardware connectivity than a typical
+  // Robotics Linux system and is therefore well suited for fast, high rate control tasks."
+  {
+    id: 'px4-2015',
+    title: 'PX4: A node-based multithreaded open source robotics framework for deeply embedded platforms',
+    authors: ['Lorenz Meier', 'Dominik Honegger', 'Marc Pollefeys'],
+    year: 2015,
+    venue: 'IEEE ICRA 2015, 6235-6240',
+    url: 'https://doi.org/10.1109/ICRA.2015.7140074',
+    type: 'paper',
+  },
+  // falanga-event-avoidance-2020: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref summary (read 2026-10-04): "Micro-aerial vehicles dodge fast-moving objects using only
+  // onboard sensing and computation."
+  {
+    id: 'falanga-event-avoidance-2020',
+    title: 'Dynamic obstacle avoidance for quadrotors with event cameras',
+    authors: ['Davide Falanga', 'Kevin Kleber', 'Davide Scaramuzza'],
+    year: 2020,
+    venue: 'Science Robotics 5(40):eaaz9712',
+    url: 'https://doi.org/10.1126/scirobotics.aaz9712',
+    type: 'paper',
+  },
+  // racevla-2025: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract: "Experiments revealed an average velocity of 1.04 m/s, with a maximum speed of 2.02
+  // m/s".
+  {
+    id: 'racevla-2025',
+    title: 'RaceVLA: VLA-based Racing Drone Navigation with Human-like Behaviour',
+    authors: ['Valerii Serpiva', 'Artem Lykov', 'Artyom Myshlyaev', 'Muhammad Haris Khan', 'Ali Alridha Abdulkarim', 'Oleg Sautenkov', 'Dzmitry Tsetserukou'],
+    year: 2025,
+    arxiv: '2503.02572',
+    url: 'https://arxiv.org/abs/2503.02572',
+    type: 'paper',
+  },
+  // cognitivedrone-2025: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract: "a racing-oriented model (RaceVLA) achieves an overall success rate of 31.3%, the base
+  // CognitiveDrone model reaches 59.6%, and CognitiveDrone-R1 attains a success rate of 77.2%".
+  {
+    id: 'cognitivedrone-2025',
+    title: 'CognitiveDrone: A VLA Model and Evaluation Benchmark for Real-Time Cognitive Task Solving and Reasoning in UAVs',
+    authors: ['Artem Lykov', 'Valerii Serpiva', 'Muhammad Haris Khan', 'Oleg Sautenkov', 'Artyom Myshlyaev', 'Grik Tadevosyan', 'Yasheerah Yaqoot', 'Dzmitry Tsetserukou'],
+    year: 2025,
+    arxiv: '2503.01378',
+    url: 'https://arxiv.org/abs/2503.01378',
+    type: 'paper',
+  },
+  // deep-drone-acrobatics-2020: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv journal reference: RSS 2020. Abstract: "We train the policy entirely in simulation by
+  // leveraging demonstrations from an optimal controller that has access to privileged information";
+  // "accelerations of up to 3g".
+  {
+    id: 'deep-drone-acrobatics-2020',
+    title: 'Deep Drone Acrobatics',
+    authors: ['Elia Kaufmann', 'Antonio Loquercio', 'René Ranftl', 'Matthias Müller', 'Vladlen Koltun', 'Davide Scaramuzza'],
+    year: 2020,
+    venue: 'RSS 2020',
+    arxiv: '2006.05768',
+    url: 'https://arxiv.org/abs/2006.05768',
+    type: 'paper',
+  },
+  // geles-pixels-2024: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata; abstract on the RSS proceedings page (read 2026-10-04): "Like professional
+  // drone-racing pilots, our system does not use explicit state estimation and leverages the same
+  // control commands humans use (collective thrust and body rates)."
+  {
+    id: 'geles-pixels-2024',
+    title: 'Demonstrating Agile Flight from Pixels without State Estimation',
+    authors: ['Ismail Geles', 'Leonard Bauersfeld', 'Angel Romero', 'Jiaxu Xing', 'Davide Scaramuzza'],
+    year: 2024,
+    venue: 'Robotics: Science and Systems XX',
+    url: 'https://doi.org/10.15607/RSS.2024.XX.082',
+    type: 'paper',
+  },
+  // dream-to-fly-2025: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv comment field: accepted to IEEE ICRA 2026. Abstract: "In contrast to model-free methods
+  // like PPO or SAC, which are sample-inefficient and struggle in this setting, our approach
+  // acquires drone racing skills from pixels."
+  {
+    id: 'dream-to-fly-2025',
+    title: 'Dream to Fly: Model-Based Reinforcement Learning for Vision-Based Drone Flight',
+    authors: ['Angel Romero', 'Ashwin Shenai', 'Ismail Geles', 'Elie Aljalbout', 'Davide Scaramuzza'],
+    year: 2025,
+    venue: 'ICRA 2026',
+    arxiv: '2501.14377',
+    url: 'https://arxiv.org/abs/2501.14377',
+    type: 'paper',
+  },
+  // zhang-diff-physics-2025: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata; preprint arXiv 2407.10648 ("Back to Newton's Laws ..."), whose abstract
+  // reads: "navigates at speeds up to 20 m/s"; "deployed on a budget-friendly $21 computer";
+  // "autonomous coordination without communication or centralized planning".
+  {
+    id: 'zhang-diff-physics-2025',
+    title: 'Learning vision-based agile flight via differentiable physics',
+    authors: ['Yuang Zhang', 'Yu Hu', 'Yunlong Song', 'Danping Zou', 'Weiyao Lin'],
+    year: 2025,
+    venue: 'Nature Machine Intelligence 7(6):954-966',
+    url: 'https://doi.org/10.1038/s42256-025-01048-0',
+    type: 'paper',
+  },
+  // ego-swarm-2021: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv comment field: accepted by ICRA 2021. Abstract: "agents generate safe, smooth, and
+  // dynamically feasible trajectories in only several milliseconds using an unreliable trajectory
+  // sharing network".
+  {
+    id: 'ego-swarm-2021',
+    title: 'EGO-Swarm: A Fully Autonomous and Decentralized Quadrotor Swarm System in Cluttered Environments',
+    authors: ['Xin Zhou', 'Jiangchao Zhu', 'Hongyu Zhou', 'Chao Xu', 'Fei Gao'],
+    year: 2020,
+    venue: 'ICRA 2021',
+    arxiv: '2011.04183',
+    url: 'https://arxiv.org/abs/2011.04183',
+    type: 'paper',
+  },
+  // geles-marl-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract: "Through league-based self-play"; "Our agents outperform a champion-level human pilot
+  // in multi-player races at speeds exceeding 22 m/s, while simultaneously reducing collision rates
+  // by 50 % compared to state-of-the-art single-agent baselines."
+  {
+    id: 'geles-marl-2026',
+    title: 'Superhuman Safe and Agile Racing through Multi-Agent Reinforcement Learning',
+    authors: ['Ismail Geles', 'Leonard Bauersfeld', 'Markus Wulfmeier', 'Davide Scaramuzza'],
+    year: 2026,
+    arxiv: '2605.22748',
+    url: 'https://arxiv.org/abs/2605.22748',
+    type: 'paper',
+  },
+  // spectrum-ukraine-autonomy-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Published 2026-03-24 (read 2026-10-04): development "is careening toward AI-based systems that
+  // enable drones to navigate by recognizing features in the terrain, lock on to and chase targets
+  // without an operator's guidance, and eventually exchange information with each other through mesh
+  // networks".
+  {
+    id: 'spectrum-ukraine-autonomy-2026',
+    title: 'How Autonomous Drone Warfare Is Emerging in Ukraine',
+    authors: ['Tereza Pultarova'],
+    year: 2026,
+    venue: 'IEEE Spectrum, 2026-03-24',
+    url: 'https://spectrum.ieee.org/autonomous-drone-warfare',
+    type: 'press',
+  },
+  // zipline-safety-facts: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Undated fact sheet (read 2026-10-14): "Since our first commercial delivery in 2016"; "Flown more than 140
+  // million commercial autonomous miles since we started"; "Made more than 3 million deliveries." The figures
+  // rose from 135 million and 2.5 million after the drafting lane read the page on 2026-10-04. Company-reported.
+  {
+    id: 'zipline-safety-facts',
+    title: 'Safety Facts',
+    authors: ['Zipline'],
+    year: 'n.d.',
+    accessedOn: '2026-10-14',
+    venue: 'Zipline',
+    url: 'https://www.zipline.com/about/zipline-safety-fact-sheet',
+    type: 'docs',
+  },
+  // zipline-2m-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // "Written by Team Zipline Published on January 21, 2026" (read 2026-10-04): "surpassed two
+  // million commercial deliveries"; "U.S. deliveries have grown by approximately 15% week over week
+  // for the last seven months". Company-reported.
+  {
+    id: 'zipline-2m-2026',
+    title: 'Zipline Surpasses 2 Million Deliveries, Raises More than $600M to Power Next Phase of Growth, and Expands Operations to Houston and Phoenix',
+    authors: ['Team Zipline'],
+    year: 2026,
+    venue: 'Zipline newsroom, 2026-01-21',
+    url: 'https://www.zipline.com/newsroom/zipline-surpasses-2-million-deliveries-raises-more-than-600m-to-power-next-phase-of-growth-and-expands-operations-to-houston-and-phoenix',
+    type: 'press',
+  },
+  // wing-walmart-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // "Written by Wing Team Published Jun 8, 2026" (read 2026-10-04): "With well over one million
+  // commercial deliveries completed"; "a network of over 270 locations to reach more than 40 million
+  // Americans by 2027". Company-reported.
+  {
+    id: 'wing-walmart-2026',
+    title: 'Wing and Walmart name seven new markets for drone delivery service',
+    authors: ['Wing Team'],
+    year: 2026,
+    venue: 'Wing news, 2026-06-08',
+    url: 'https://wing.com/news/wing-and-walmart-seven-new-markets-drone-delivery',
+    type: 'press',
+  },
+  // walmart-drone-1m-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated May 29, 2026, no byline (read 2026-10-04): drone capabilities "across 66 stores in four
+  // states serving five metro markets". Company-reported.
+  {
+    id: 'walmart-drone-1m-2026',
+    title: 'Walmart Celebrates 1 Million Drone Deliveries, Marking a Major Milestone in Customer Convenience',
+    authors: ['Walmart'],
+    year: 2026,
+    venue: 'Walmart corporate news, 2026-05-29',
+    url: 'https://corporate.walmart.com/news/2026/05/29/walmart-celebrates-1-million-drone-deliveries-marking-a-major-milestone-in-customer-convenience',
+    type: 'press',
+  },
+  // faa-part-108-nprm-2025: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Read via the Federal Register API 2026-10-04 (the HTML page asks for a browser check): "This
+  // action proposes performance-based regulations to enable the design and operation of unmanned
+  // aircraft systems (UAS) at low altitudes beyond visual line of sight (BVLOS)"; "a predictable and
+  // clear pathway for safe, routine, and scalable UAS operations".
+  {
+    id: 'faa-part-108-nprm-2025',
+    title: 'Normalizing Unmanned Aircraft Systems Beyond Visual Line of Sight Operations',
+    authors: ['Federal Aviation Administration', 'Transportation Security Administration'],
+    year: 2025,
+    venue: 'Federal Register 2025-14992 (NPRM), 2025-08-07',
+    url: 'https://www.federalregister.gov/documents/2025/08/07/2025-14992/normalizing-unmanned-aircraft-systems-beyond-visual-line-of-sight-operations',
+    type: 'docs',
+  },
+  // faa-part-108-reopen-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Read via the Federal Register API 2026-10-04: comments close 2026-02-11; "FAA seeks additional
+  // comments on the electronic conspicuity and right-of-way topics identified in this notice."
+  {
+    id: 'faa-part-108-reopen-2026',
+    title: 'Normalizing Unmanned Aircraft Systems Beyond Visual Line of Sight Operations; Reopening of Comment Period',
+    authors: ['Federal Aviation Administration'],
+    year: 2026,
+    venue: 'Federal Register 2026-01644, 2026-01-28',
+    url: 'https://www.federalregister.gov/documents/2026/01/28/2026-01644/normalizing-unmanned-aircraft-systems-beyond-visual-line-of-sight-operations-reopening-of-comment',
+    type: 'docs',
+  },
+  // jpl-ipn-pnt-2024: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Byline and date from the report PDF (read 2026-10-04): "The one-way-light-time delay with Mars
+  // is between 4 minutes to 20 minutes and thus real-time communications with Earth is not possible.
+  // Mars spacecraft cannot rely on Earth for real-time commanding and must be more autonomous in
+  // responding to unexpected and off-nominal situations."
+  {
+    id: 'jpl-ipn-pnt-2024',
+    title: 'Architectures and Technology Investment Priorities for Positioning, Navigation, and Timing at the Moon and Mars',
+    authors: ['Yoaz Bar-Sever', 'Eric Burt', 'Kar-Ming Cheung', 'Todd Ely', 'Jon Hamkins', 'Stephen M. Lichten', 'Marc Sanchez Net', 'Dennis Ogbe', 'Robert Tjoelker', 'Zaid Towfic', 'Nan Yu'],
+    year: 2024,
+    venue: 'IPN Progress Report 42-237, 15 May 2024',
+    url: 'https://ipnpr.jpl.nasa.gov/progress_report/42-237/42-237A.pdf',
+    type: 'paper',
+  },
+  // enav-perseverance-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata; abstract via Semantic Scholar (read 2026-10-04): "with only a single-core CPU
+  // with extremely limited computing resources"; "increased the average daily driving distance by an
+  // order of magnitude compared to its predecessors"; "As of the 1312th Martian day since landing,
+  // or October 28, 2024 on the Earth calendar, ~90% of the 32.1 km of driving has used ENav to
+  // evaluate the terrain."
+  {
+    id: 'enav-perseverance-2026',
+    title: 'Enhanced Autonomous Navigation on the Perseverance Mars Rover',
+    authors: ['Olivier Toupet', 'Masahiro Ono', 'Tyler del Sesto', 'Mark Maimone', 'Michael McHenry'],
+    year: 2026,
+    venue: 'IEEE Transactions on Field Robotics 3:83-124',
+    url: 'https://doi.org/10.1109/TFR.2025.3636366',
+    type: 'paper',
+  },
+  // mer-mobility-software-2006: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata (no issued date; conference year 2006); abstract via OpenAlex (read
+  // 2026-10-04): "given autonomous control over multiple aspects of mobility"; "goal-based driving
+  // (goto waypoint)"; "reactive checks" and "predictive checks"; "From January 2004 through October
+  // 2005, Spirit accumulated over 5000 meters and Opportunity 6000 meters of odometry"; "driven
+  // these rovers more than a combined 11,000 meters over the Martian surface".
+  {
+    id: 'mer-mobility-software-2006',
+    title: 'The Mars Exploration Rover Surface Mobility Flight Software: Driving Ambition',
+    authors: ['J. J. Biesiadecki', 'M. W. Maimone'],
+    year: 2006,
+    venue: '2006 IEEE Aerospace Conference, 1-15',
+    url: 'https://doi.org/10.1109/AERO.2006.1655723',
+    type: 'paper',
+  },
+  // sheridan-time-delay-1993: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata; abstract via OpenAlex (read 2026-10-04): "Space teleoperations have tended to
+  // deal with the problem of time delay by avoiding it and not attempting to teleoperate from the
+  // ground."
+  {
+    id: 'sheridan-time-delay-1993',
+    title: 'Space teleoperation through time delay: review and prognosis',
+    authors: ['T. B. Sheridan'],
+    year: 1993,
+    venue: 'IEEE Transactions on Robotics and Automation 9(5):592-606',
+    url: 'https://doi.org/10.1109/70.258052',
+    type: 'paper',
+  },
+  // mer-visual-odometry-2007: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata and abstract (read 2026-10-04): "successfully demonstrated a robotic Visual
+  // Odometry capability on another world for the first time"; "During the first 2 years of
+  // operations, Visual Odometry evolved from an \"extra credit\" capability into a critical vehicle
+  // safety system."
+  {
+    id: 'mer-visual-odometry-2007',
+    title: 'Two years of Visual Odometry on the Mars Exploration Rovers',
+    authors: ['Mark Maimone', 'Yang Cheng', 'Larry Matthies'],
+    year: 2007,
+    venue: 'Journal of Field Robotics 24(3):169-186',
+    url: 'https://doi.org/10.1002/rob.20184',
+    type: 'paper',
+  },
+  // mars-global-localization-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Credit NASA/JPL-Caltech, image addition date 02/18/2026, no byline (read 2026-10-04): "enabling
+  // the rover to pinpoint its location on Mars on Feb. 2, 2026"; "compares panoramic navcam shots to
+  // MRO orbital imagery"; "the algorithm takes about two minutes to pinpoint the rover's location to
+  // within some 10 inches (25 centimeters)".
+  {
+    id: 'mars-global-localization-2026',
+    title: 'Mars Global Localization Pinpoints Perseverance\'s Location',
+    authors: ['NASA Jet Propulsion Laboratory'],
+    year: 2026,
+    venue: 'NASA Photojournal PIA26705, 18 February 2026',
+    url: 'https://science.nasa.gov/photojournal/mars-global-localization-pinpoints-perseverances-location/',
+    type: 'press',
+  },
+  // perseverance-ai-drive-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated Jan 30, 2026, no byline (read 2026-10-04): "the team leveraged a type of generative AI
+  // called vision-language models"; the AI analysed "the high-resolution orbital imagery from the
+  // HiRISE" camera "and terrain-slope data from digital elevation models"; "verifying over 500,000
+  // telemetry variables before sending commands to Mars. On Dec. 8, with generative AI waypoints in
+  // its memory, Perseverance drove 689 feet (210 meters). Two days later, it drove 807 feet (246
+  // meters)." The page names the model vendor; the article does not.
+  {
+    id: 'perseverance-ai-drive-2026',
+    title: 'NASA\'s Perseverance Rover Completes First AI-Planned Drive on Mars',
+    authors: ['NASA Jet Propulsion Laboratory'],
+    year: 2026,
+    venue: 'NASA/JPL news, 30 January 2026',
+    url: 'https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/nasas-perseverance-rover-completes-first-ai-planned-drive-on-mars/',
+    type: 'press',
+  },
+  // pixl-adaptive-sampling-2024: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated Jul 16, 2024, source line Jet Propulsion Laboratory, no byline (read 2026-10-04; the
+  // jpl.nasa.gov copy returns 403): "This marks the first time AI has been used on Mars to make
+  // autonomous decisions based on real-time analysis of rock composition."; "Called \"adaptive
+  // sampling,\" the software autonomously positions the instrument close to a rock target".
+  {
+    id: 'pixl-adaptive-sampling-2024',
+    title: 'Here\'s How AI Is Changing NASA\'s Mars Rover Science',
+    authors: ['NASA Jet Propulsion Laboratory'],
+    year: 2024,
+    venue: 'NASA/JPL news, 16 July 2024',
+    url: 'https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/heres-how-ai-is-changing-nasas-mars-rover-science/',
+    type: 'press',
+  },
+  // ingenuity-investigation-2024: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated Dec 11, 2024, no byline (read 2026-10-04): "we have one we believe is most likely: Lack of
+  // surface texture gave the navigation system too little information to work with."
+  {
+    id: 'ingenuity-investigation-2024',
+    title: 'NASA Performs First Aircraft Accident Investigation on Another World',
+    authors: ['NASA Jet Propulsion Laboratory'],
+    year: 2024,
+    venue: 'NASA/JPL news, 11 December 2024',
+    url: 'https://www.nasa.gov/missions/mars-2020-perseverance/ingenuity-helicopter/nasa-performs-first-aircraft-accident-investigation-on-another-world/',
+    type: 'press',
+  },
+  // moxie-sciadv-2022: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata and abstract (read 2026-10-04); the title prints a dash after "(MOXIE)"
+  // (written here as a colon). "is the first demonstration of ISRU on another planet, producing
+  // oxygen by solid oxide electrolysis of carbon dioxide in the martian atmosphere"; "producing
+  // on-site the tens of tons of oxygen required for a rocket to transport astronauts off the surface
+  // of Mars, instead of having to launch hundreds of tons of material from Earth's surface".
+  {
+    id: 'moxie-sciadv-2022',
+    title: 'Mars Oxygen ISRU Experiment (MOXIE): Preparing for human Mars exploration',
+    authors: ['Jeffrey A. Hoffman', 'Michael H. Hecht', 'Donald Rapp', 'Joseph J. Hartvigsen', 'Jason G. SooHoo', 'Asad M. Aboobaker', 'John B. McClean', 'Andrew M. Liu', 'Eric D. Hinterman', 'Maya Nasr', 'Shravan Hariharan', 'Kyle J. Horn', 'Forrest E. Meyen', 'Harald Okkels', 'Parker Steen', 'Singaravelu Elangovan', 'Christopher R. Graves', 'Piyush Khopkar', 'Morten B. Madsen', 'Gerald E. Voecks', 'Peter H. Smith', 'Theis L. Skafte', 'Koorosh R. Araghi', 'David J. Eisenman'],
+    year: 2022,
+    venue: 'Science Advances 8(35):eabp8636',
+    url: 'https://doi.org/10.1126/sciadv.abp8636',
+    type: 'paper',
+  },
+  // hancock-prime1-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata (30 authors, issued 2026-07-01); gold open access. Abstract via OpenAlex (read
+  // 2026-10-04): "the lander came to rest on its side within a small crater approximately 500 m away
+  // from the intended landing site"; "the mission ended approximately 12 hr after touchdown";
+  // "TRIDENT could not interact with the lunar surface to perform proper excavation operations due
+  // to the lander orientation". The publisher page is behind a bot check for this host.
+  {
+    id: 'hancock-prime1-2026',
+    title: 'The Polar Resources Ice Mining Experiment-1 (PRIME-1) Payload Operations Summary from the IM-2 Mission',
+    authors: ['Matthew Hancock', 'Roberto Aguilar Ayala', 'Julie Kleinhenz', 'James Smith', 'Prital Johnson', 'Rolando Nieves', 'John Ryan O’Farrell', 'Amy Eichenbaum', 'Rodolphe Carro', 'Stefan Tomovic', 'Christopher Johnson', 'Alexander Jarnot', 'Aleksandra Gawronska', 'P. Douglas Archer', 'Amy McAdam', 'Nilab Azim', 'Ryan Gott', 'Morgan Crabtree', 'Philip Chu', 'Nicholas Bottomley', 'Paul Creekmore', 'Carter Fortuin', 'Samuel Goldman', 'Isabel King', 'Gale Paulsen', 'Jaqueline Stamboltsian', 'Vincent Vendiola', 'Kris Zacny', 'Janine Captain', 'Jacqueline Quinn'],
+    year: 2026,
+    venue: 'The Planetary Science Journal 7(7):159',
+    url: 'https://doi.org/10.3847/PSJ/ae732f',
+    type: 'paper',
+  },
+  // blue-ghost-lister-2025: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated March 14, 2025, no byline (read 2026-10-04): "Following a successful landing on March 2";
+  // "All NASA payloads have successfully powered on, collected science data, and operated on the
+  // surface of the Moon."; LISTER "is now the deepest robotic planetary subsurface thermal probe,
+  // reaching up to 3 feet (1 meter)"; "LISTER uses gas as the primary means of excavating".
+  {
+    id: 'blue-ghost-lister-2025',
+    title: 'NASA Science Data Received, Blue Ghost Captures Eclipse From Moon',
+    authors: ['NASA'],
+    year: 2025,
+    venue: 'NASA missions blog, 14 March 2025',
+    url: 'https://www.nasa.gov/blogs/missions/2025/03/14/nasa-science-data-received-blue-ghost-captures-eclipse-from-moon/',
+    type: 'blog',
+  },
+  // space-manipulator-review-2025: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata and abstract (read 2026-10-04): "on-orbit servicing (OOS) tasks, such as
+  // satellite repair, space debris removal, refueling, and upgrades"; "with a focus on their
+  // implementation in 2 operational modes: free-floating and free-flying"; "the pre-capture phase,
+  // covering both motion planning and vision-based estimation. For the post-capture phase, the paper
+  // explores control methods designed to stabilize captured targets."
+  {
+    id: 'space-manipulator-review-2025',
+    title: 'Review of Autonomous Space Robotic Manipulators for On-Orbit Servicing and Active Debris Removal',
+    authors: ['Nasim Fallahiarezoodar', 'Zheng H. Zhu'],
+    year: 2025,
+    venue: 'Space: Science & Technology 5:0291',
+    url: 'https://doi.org/10.34133/space.0291',
+    type: 'paper',
+  },
+  // umetani-yoshida-1989: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata; abstract via OpenAlex (read 2026-10-04): "taking dynamical interaction
+  // between the manipulator arm and the base satellite into account"; "introducing the momentum
+  // conservation law into the formulation and a novel Jacobian matrix in generalized form for space
+  // robotic arms is derived."
+  {
+    id: 'umetani-yoshida-1989',
+    title: 'Resolved motion rate control of space manipulators with generalized Jacobian matrix',
+    authors: ['Y. Umetani', 'K. Yoshida'],
+    year: 1989,
+    venue: 'IEEE Transactions on Robotics and Automation 5(3):303-314',
+    url: 'https://doi.org/10.1109/70.34766',
+    type: 'paper',
+  },
+  // rotex-1993: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata (title as Crossref prints it); abstract via OpenAlex (read 2026-10-04): "In
+  // early 1993 the space robot technology experiment ROTEX was flown with space-shuttle Columbia. A
+  // multisensory robot onboard the spacecraft successfully worked in autonomous modes, teleoperated
+  // by astronauts, as well as in different telerobotic ground control modes."; tasks included
+  // "grasping free-floating objects".
+  {
+    id: 'rotex-1993',
+    title: 'Sensor-based space robotics-ROTEX and its telerobotic features',
+    authors: ['G. Hirzinger', 'B. Brunner', 'J. Dietrich', 'J. Heindl'],
+    year: 1993,
+    venue: 'IEEE Transactions on Robotics and Automation 9(5):649-663',
+    url: 'https://doi.org/10.1109/70.258056',
+    type: 'paper',
+  },
+  // boeing-orbital-express-2007: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated Apr 17, 2007 (read 2026-10-04): "Using its robotic manipulator arm, ASTRO placed a battery
+  // on NextSat. The battery was successfully integrated into NextSat's power system following the
+  // transfer."; "a Defense Advanced Research Projects Agency-led effort consisting of the Boeing
+  // ASTRO servicing spacecraft and the NextSat serviceable client spacecraft".
+  {
+    id: 'boeing-orbital-express-2007',
+    title: 'Boeing Orbital Express Conducts First Autonomous Spacecraft-to-Spacecraft Fluid and Component Transfer',
+    authors: ['Boeing'],
+    year: 2007,
+    venue: 'Boeing news release, 17 April 2007',
+    url: 'https://boeing.mediaroom.com/2007-04-17-Boeing-Orbital-Express-Conducts-First-Autonomous-Spacecraft-to-Spacecraft-Fluid-and-Component-Transfer',
+    type: 'press',
+  },
+  // rsgs-mrv-launch-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated Jul 22, 2026, byline Colleen Wouters (read 2026-10-04; Northrop Grumman's own release
+  // returns 403): "Northrop Grumman's Mission Robotic Vehicle hosting the NASA-supported Robotic
+  // Servicing of Geosynchronous Satellites (RSGS) payload launched aboard a SpaceX Falcon 9 rocket
+  // on July 21. The RSGS program is funded by the Defense Advanced Research Projects Agency (DARPA)
+  // and uses twin robotic arms developed by the U.S. Naval Research Laboratory."; "installing small
+  // propulsion modules [dash] called mission extension pods [dash] extending the operational life of
+  // existing spacecraft for years".
+  {
+    id: 'rsgs-mrv-launch-2026',
+    title: 'Robotic Servicing Mission Launches with NASA Support',
+    authors: ['Colleen Wouters'],
+    year: 2026,
+    venue: 'NASA Goddard Space Flight Center, 22 July 2026',
+    url: 'https://www.nasa.gov/technology/robotic-servicing-mission-launches-with-nasa-support/',
+    type: 'press',
+  },
+  // esa-space-environment-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // No byline or page date; the 2026 edition of the annual report (read 2026-10-04): "Active debris
+  // removal is required to stop the growth of the number of objects over time that is caused by
+  // space debris causing new debris on their own through collisions (Kessler syndrome)." Author
+  // written as "ESA" so the chip prints the agency's own short name.
+  {
+    id: 'esa-space-environment-2026',
+    title: 'ESA Space Environment Report 2026',
+    authors: ['ESA'],
+    year: 2026,
+    venue: 'European Space Agency, Space Safety',
+    url: 'https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2026',
+    type: 'docs',
+  },
+  // adras-j-deorbit-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Posted March 25, 2026 (read 2026-10-04): "After 293 days of mission life in orbit, the world's
+  // first commercial debris inspection satellite begins controlled deorbit."
+  {
+    id: 'adras-j-deorbit-2026',
+    title: 'Astroscale\'s ADRAS-J Mission Completes Operations, Begins Deorbit',
+    authors: ['Astroscale Japan'],
+    year: 2026,
+    venue: 'Astroscale mission update, 25 March 2026',
+    url: 'https://www.astroscale.com/en/news/astroscales-adras-j-mission-completes-operations-begins-deorbit',
+    type: 'press',
+  },
+  // adras-j2-isar-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Posted September 1, 2026 (read 2026-10-04): "ADRAS-J2 aims to become the world's first mission
+  // to capture and remove an existing piece of large orbital debris."; "The mission is targeted for
+  // launch in Japan's fiscal year 2027 (April 2027 to March 2028)"; target "an upper-stage rocket
+  // body measuring about 11 meters long, 4 meters in diameter, and weighing about 3 tons".
+  {
+    id: 'adras-j2-isar-2026',
+    title: 'Astroscale Japan Selects Isar Aerospace to Launch ADRAS-J2',
+    authors: ['Astroscale Japan'],
+    year: 2026,
+    venue: 'Astroscale mission update, 1 September 2026',
+    url: 'https://www.astroscale.com/en/news/astroscale-japan-selects-isar-aerospace-to-launch-adras-j2',
+    type: 'press',
+  },
+  // swift-boost-update-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Release 26-067, Aug 19, 2026 (read 2026-10-04): "Due to an ongoing commercial spacecraft
+  // attitude control issue, NASA and Katalyst Space announced Wednesday the LINK spacecraft will not
+  // capture or boost an agency satellite"; "LINK still will attempt to conduct rendezvous and
+  // proximity operations"; "Swift was launched in 2004"; "NASA anticipates Swift is likely to
+  // re-enter Earth's atmosphere later this year."
+  {
+    id: 'swift-boost-update-2026',
+    title: 'NASA Updates Next Steps for Commercial Swift Boost Mission',
+    authors: ['NASA'],
+    year: 2026,
+    venue: 'NASA news release 26-067, 19 August 2026',
+    url: 'https://www.nasa.gov/news-release/nasa-updates-next-steps-for-commercial-swift-boost-mission/',
+    type: 'press',
+  },
+  // banerjee-warm-starts-2025: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv comment: "Accepted to 2025 International Conference on Space Robotics (iSpaRo)". Abstract
+  // (read 2026-10-04): "the first in-space demonstration of using machine learning-based warm starts
+  // for accelerating trajectory optimization for the Astrobee free-flying robot onboard the
+  // International Space Station"; "relies on using the SCP solver to enforce safety constraints";
+  // "reduces the number of solver iterations required for convergence in cases including rotational
+  // dynamics by 60% and in cases with obstacles drawn from the training distribution of the warm
+  // start model by 50%."
+  {
+    id: 'banerjee-warm-starts-2025',
+    title: 'Deep Learning Warm Starts for Trajectory Optimization on the International Space Station',
+    authors: ['Somrita Banerjee', 'Abhishek Cauligi', 'Marco Pavone'],
+    year: 2025,
+    venue: '2025 International Conference on Space Robotics (iSpaRo)',
+    arxiv: '2505.05588',
+    url: 'https://arxiv.org/abs/2505.05588',
+    type: 'paper',
+  },
+  // apiary-astrobee-2025: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv journal reference iSpaRo 2025. Abstract (read 2026-10-04): "On Tuesday, May 27th 2025 the
+  // APIARY team conducted the first ever, to our knowledge, RL control of a free-flyer in space
+  // using the NASA Astrobee robot on-board the International Space Station (ISS)."; the policy was
+  // trained "within the NVIDIA Isaac Lab simulation environment, randomizing over goal poses and
+  // mass distributions".
+  {
+    id: 'apiary-astrobee-2025',
+    title: 'Autonomous Planning In-space Assembly Reinforcement-learning free-flYer (APIARY) International Space Station Astrobee Testing',
+    authors: ['Samantha Chapin', 'Kenneth Stewart', 'Roxana Leontie', 'Carl Glen Henshaw'],
+    year: 2025,
+    venue: '2025 International Conference on Space Robotics (iSpaRo)',
+    arxiv: '2512.03729',
+    url: 'https://arxiv.org/abs/2512.03729',
+    type: 'paper',
+  },
+  // space-robotics-bench-2025: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Preprint, full author list. Abstract (read 2026-10-04): "The adoption of robot learning in this
+  // domain is severely hindered by the prohibitive cost of technology demonstrations and the limited
+  // availability of data."
+  {
+    id: 'space-robotics-bench-2025',
+    title: 'Space Robotics Bench: Robot Learning Beyond Earth',
+    authors: ['Andrej Orsula', 'Matthieu Geist', 'Miguel Olivares-Mendez', 'Carol Martinez'],
+    year: 2025,
+    arxiv: '2509.23328',
+    url: 'https://arxiv.org/abs/2509.23328',
+    type: 'paper',
+  },
+  // ai-space-robot-ops-review-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Preprint (15 September 2026), full author list. Abstract (read 2026-10-04): "their transfer to
+  // space is constrained by scarce mission data, space-specific dynamics and sensing conditions,
+  // limited onboard resources, and stringent safety requirements".
+  {
+    id: 'ai-space-robot-ops-review-2026',
+    title: 'Artificial Intelligence-Enabled Space Robot Operations: Technologies, Challenges and Prospects',
+    authors: ['Zeyuan Huang', 'Gang Chen', 'Zixuan Hao', 'Guoqin Tang', 'Junyi Zong', 'Guoyou Ban', 'Jiale Wang', 'Haoyang Lv', 'Chaoqian Ren', 'Sitong Liu'],
+    year: 2026,
+    arxiv: '2609.16880',
+    url: 'https://arxiv.org/abs/2609.16880',
+    type: 'paper',
+  },
+  // ai4mars-2021: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // CVF open-access record and abstract (read 2026-10-04): "consisting of 326K semantic segmentation
+  // full image labels on 35K images from Curiosity, Opportunity, and Spirit rovers, collected
+  // through crowdsourcing"; "We trained a DeepLabv3 model on the AI4Mars training dataset and
+  // achieved over 96% overall classification accuracy on the test set."
+  {
+    id: 'ai4mars-2021',
+    title: 'AI4MARS: A Dataset for Terrain-Aware Autonomous Driving on Mars',
+    authors: ['R. Michael Swan', 'Deegan Atha', 'Henry A. Leopold', 'Matthew Gildner', 'Stephanie Oij', 'Cindy Chiu', 'Masahiro Ono'],
+    year: 2021,
+    venue: 'CVPR Workshops 2021, 1982-1991',
+    url: 'https://openaccess.thecvf.com/content/CVPR2021W/AI4Space/html/Swan_AI4MARS_A_Dataset_for_Terrain-Aware_Autonomous_Driving_on_Mars_CVPRW_2021_paper.html',
+    type: 'paper',
+  },
+  // intuitive-q2-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Read 2026-10-04: "grew its da Vinci surgical system installed base to 11,710 systems as of June
+  // 30, 2026, an increase of 12% compared with 10,488"; "Da Vinci procedures grew approximately
+  // 15%"; "placed 468 da Vinci surgical systems"; "placements included 246 da Vinci 5 systems".
+  // Company-reported.
+  {
+    id: 'intuitive-q2-2026',
+    title: 'Intuitive Announces Second Quarter Earnings',
+    authors: ['Intuitive Surgical'],
+    year: 2026,
+    venue: 'GlobeNewswire, 2026-07-16',
+    url: 'https://www.globenewswire.com/news-release/2026/07/16/3328793/0/en/intuitive-announces-second-quarter-earnings.html',
+    type: 'press',
+  },
+  // attanasio-autonomy-2021: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata and abstract (read 2026-10-04): "At level 0, where the bulk of commercial
+  // platforms are, the robot has no decision autonomy. At level 1, the robot can provide cognitive
+  // and physical assistance to the surgeon, while at level 2, it can autonomously perform a surgical
+  // task."
+  {
+    id: 'attanasio-autonomy-2021',
+    title: 'Autonomy in Surgical Robotics',
+    authors: ['Aleks Attanasio', 'Bruno Scaglioni', 'Elena De Momi', 'Paolo Fiorini', 'Pietro Valdastri'],
+    year: 2021,
+    venue: 'Annual Review of Control, Robotics, and Autonomous Systems 4:651-679',
+    url: 'https://doi.org/10.1146/annurev-control-062420-090543',
+    type: 'paper',
+  },
+  // kwoh-ct-robot-1988: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata (read 2026-10-04). The abstract is not open; the article sentence rests on the
+  // title only.
+  {
+    id: 'kwoh-ct-robot-1988',
+    title: 'A robot with improved absolute positioning accuracy for CT guided stereotactic brain surgery',
+    authors: ['Y. S. Kwoh', 'J. Hou', 'E. A. Jonckheere', 'S. Hayati'],
+    year: 1988,
+    venue: 'IEEE Transactions on Biomedical Engineering 35(2):153-160',
+    url: 'https://doi.org/10.1109/10.1354',
+    type: 'paper',
+  },
+  // marescaux-telesurgery-2001: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata (read 2026-10-04), published 2001-09-27. The article sentence rests on the
+  // title only.
+  {
+    id: 'marescaux-telesurgery-2001',
+    title: 'Transatlantic robot-assisted telesurgery',
+    authors: ['Jacques Marescaux', 'Joel Leroy', 'Michel Gagner', 'Francesco Rubino', 'Didier Mutter', 'Michel Vix', 'Steven E. Butner', 'Michelle K. Smith'],
+    year: 2001,
+    venue: 'Nature 413(6854):379-380',
+    url: 'https://doi.org/10.1038/35096636',
+    type: 'paper',
+  },
+  // davinci5-cardiac-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Read 2026-10-04 (the isrg.intuitive.com copy was unreachable here): "has cleared the da Vinci 5
+  // system for certain cardiac procedures"; "selected thoracoscopically-assisted cardiac surgical
+  // procedures using non-force feedback instruments"; "Cardiac surgery was the first specialty
+  // cleared on the original da Vinci System in 2002."
+  {
+    id: 'davinci5-cardiac-2026',
+    title: 'Da Vinci 5 Cleared for Cardiac Procedures',
+    authors: ['Intuitive Surgical'],
+    year: 2026,
+    venue: 'GlobeNewswire, 2026-01-26',
+    url: 'https://www.globenewswire.com/news-release/2026/01/26/3225716/7637/en/Da-Vinci-5-Cleared-for-Cardiac-Procedures.html',
+    type: 'press',
+  },
+  // awad-force-feedback-2024: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract via Europe PMC (PMC11458697, read 2026-10-04): "Twenty-eight surgeons"; retraction,
+  // dissection and suturing "on inanimate or ex-vivo models"; "The maximal force exerted ... was
+  // decreased by 36%, 41%, and 55% with the use of FFB at the "High" sensitivity setting".
+  {
+    id: 'awad-force-feedback-2024',
+    title: 'Evaluation of forces applied to tissues during robotic-assisted surgical tasks using a novel force feedback technology',
+    authors: ['Michael M. Awad', 'Mathew C. Raynor', 'Mika Padmanabhan-Kabana', 'Lana Y. Schumacher', 'Jeffrey A. Blatnik'],
+    year: 2024,
+    venue: 'Surgical Endoscopy 38(10):6193-6202',
+    url: 'https://doi.org/10.1007/s00464-024-11131-z',
+    type: 'paper',
+  },
+  // kneuertz-dv5-force-2025: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref title has a dash after "surgery" (written here as a colon). Abstract (read 2026-10-04):
+  // "Data from 444 procedures by 73 unique surgeons were analyzed."; "Median forces decreased
+  // progressively with higher FFB settings (off, 1.79 N vs. low, 1.67 N vs. medium, 1.45 N vs. high,
+  // 1.32 N, p < 0.001)." The pack notes several authors work for or consult for Intuitive.
+  {
+    id: 'kneuertz-dv5-force-2025',
+    title: 'Force in robotic thoracic surgery: a one year analysis of DaVinci 5 force feedback',
+    authors: ['Peter J. Kneuertz', 'Robert Mostellar', 'Robert E. Merritt', 'Elliot L. Servais', 'Brian Mitzman', 'Nestor R. Villamizar', 'Luis F. Tapias', 'John F. Lazar', 'Desmond M. D’Souza', 'Daniel S. Oh', 'Gretchen P. Jackson'],
+    year: 2025,
+    venue: 'Journal of Robotic Surgery 19:632',
+    url: 'https://doi.org/10.1007/s11701-025-02781-9',
+    type: 'paper',
+  },
+  // chang-dv5-colorectal-2025: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract via Europe PMC (read 2026-10-04): "Among 68 surgeries"; "FFB does decrease the total
+  // amount of force applied without significantly affecting primary outcomes like bowel function and
+  // LOS."
+  {
+    id: 'chang-dv5-colorectal-2025',
+    title: 'A pilot study on the impact of da Vinci 5\'s force feedback on clinical outcomes: Does it lead to less tissue trauma in colorectal surgery?',
+    authors: ['Grace C. Chang', 'Upinder Sidhu', 'Debra Lai', 'Gabriela Vargas', 'Sai Shah', 'Laila Rashidi'],
+    year: 2025,
+    venue: 'The American Journal of Surgery 248:116518',
+    url: 'https://doi.org/10.1016/j.amjsurg.2025.116518',
+    type: 'paper',
+  },
+  // cmr-45000-patients-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Read 2026-10-04: "more than 45,000 patients worldwide have now been treated using the Versius";
+  // "positioning CMR as the second most widely used robotic surgery platform globally"; "hospitals
+  // across more than 30 countries". Company-reported.
+  {
+    id: 'cmr-45000-patients-2026',
+    title: 'CMR Surgical Announces 45,000 Patients Treated Globally as Robotic-Assisted Surgery Company Makes Its U.S. Debut',
+    authors: ['CMR Surgical'],
+    year: 2026,
+    venue: 'GlobeNewswire, 2026-03-26',
+    url: 'https://www.globenewswire.com/news-release/2026/03/26/3262907/0/en/cmr-surgical-announces-45-000-patients-treated-globally-as-robotic-assisted-surgery-company-makes-its-u-s-debut.html',
+    type: 'press',
+  },
+  // medtronic-hugo-clearance-2025: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Read 2026-10-04: "indicated for use in minimally invasive urologic surgical procedures including
+  // prostatectomy, nephrectomy, and cystectomy"; used "in more than 30 countries across 5
+  // continents".
+  {
+    id: 'medtronic-hugo-clearance-2025',
+    title: 'Medtronic announces FDA clearance of Hugo robotic-assisted surgery system for urologic surgical procedures',
+    authors: ['Medtronic'],
+    year: 2025,
+    venue: 'Medtronic Newsroom, 2025-12-03',
+    url: 'https://news.medtronic.com/2025-12-03-Medtronic-announces-FDA-clearance-of-Hugo-TM-robotic-assisted-surgery-system-for-urologic-surgical-procedures',
+    type: 'press',
+  },
+  // medtronic-hugo-first-us-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Read 2026-10-04: "Urology has led the way in adoption of robotic technology, with about 80% of
+  // urologic abdominal surgeries in the U.S. today conducted with the assistance of a robotic
+  // system."
+  {
+    id: 'medtronic-hugo-first-us-2026',
+    title: 'Medtronic announces first surgery with Hugo robotic-assisted surgery system in the U.S. performed at Cleveland Clinic',
+    authors: ['Medtronic'],
+    year: 2026,
+    venue: 'Medtronic Newsroom, 2026-02-17',
+    url: 'https://news.medtronic.com/2026-02-17-Medtronic-announces-first-surgery-with-Hugo-TM-robotic-assisted-surgery-system-in-the-U-S-performed-at-Cleveland-Clinic',
+    type: 'press',
+  },
+  // medtronic-hugo-510k-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Dated Jun 3, 2026 (read 2026-10-04); the title states the filings.
+  {
+    id: 'medtronic-hugo-510k-2026',
+    title: 'Medtronic submits 510(k) filings to expand Hugo robotic-assisted surgery system into general and gynecologic specialties in the United States',
+    authors: ['Medtronic'],
+    year: 2026,
+    venue: 'Medtronic Newsroom, 2026-06-03',
+    url: 'https://news.medtronic.com/2026-06-03-Medtronic-submits-510-k-filings-to-expand-Hugo-TM-robotic-assisted-surgery-system-into-general-and-gynecologic-specialties-in-the-United-States',
+    type: 'press',
+  },
+  // jnj-ottava-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Read 2026-10-04: "has granted De Novo authorization for the OTTAVA Robotic Surgical System, the
+  // world's first table-integrated soft tissue robotic system"; ten listed general-surgery
+  // procedures; "occupies 30[dash]50% less space than traditional boom- and cart-mounted systems".
+  // Company-reported footprint.
+  {
+    id: 'jnj-ottava-2026',
+    title: 'Johnson & Johnson Receives FDA Market Authorization in the U.S. for its OTTAVA Robotic Surgical System',
+    authors: ['Johnson & Johnson'],
+    year: 2026,
+    venue: 'Johnson & Johnson press release, 2026-07-22',
+    url: 'https://www.jnj.com/media-center/press-releases/johnson-johnson-receives-fda-market-authorization-in-the-u-s-for-its-ottava-robotic-surgical-system',
+    type: 'press',
+  },
+  // sheetz-adoption-2020: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract via Europe PMC (read 2026-10-04): "169 404 patients"; "The use of robotic surgery
+  // increased from 1.8% in 2012 to 15.1% in 2018".
+  {
+    id: 'sheetz-adoption-2020',
+    title: 'Trends in the Adoption of Robotic Surgery for Common Surgical Procedures',
+    authors: ['Kyle H. Sheetz', 'Jake Claflin', 'Justin B. Dimick'],
+    year: 2020,
+    venue: 'JAMA Network Open 3(1):e1918911',
+    url: 'https://doi.org/10.1001/jamanetworkopen.2019.18911',
+    type: 'paper',
+  },
+  // alemzadeh-adverse-events-2016: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract via Europe PMC (read 2026-10-04): MAUDE "from 2000 to 2013"; "144 deaths (1.4% of the
+  // 10,624 reports), 1,391 patient injuries (13.1%), and 8,061 device malfunctions (75.9%) were
+  // reported."
+  {
+    id: 'alemzadeh-adverse-events-2016',
+    title: 'Adverse Events in Robotic Surgery: A Retrospective Study of 14 Years of FDA Data',
+    authors: ['Homa Alemzadeh', 'Jaishankar Raman', 'Nancy Leveson', 'Zbigniew Kalbarczyk', 'Ravishankar K. Iyer'],
+    year: 2016,
+    venue: 'PLOS ONE 11(4):e0151470',
+    url: 'https://doi.org/10.1371/journal.pone.0151470',
+    type: 'paper',
+  },
+  // rolarr-2017: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract via Europe PMC (read 2026-10-04): "among 471 patients with rectal adenocarcinoma"; "19
+  // of 236 patients (8.1%) in the robotic-assisted laparoscopic group and 28 of 230 patients (12.2%)
+  // in the conventional laparoscopic group"; "P = .16".
+  {
+    id: 'rolarr-2017',
+    title: 'Effect of Robotic-Assisted vs Conventional Laparoscopic Surgery on Risk of Conversion to Open Laparotomy Among Patients Undergoing Resection for Rectal Cancer: The ROLARR Randomized Clinical Trial',
+    authors: ['David Jayne', 'Alessio Pigazzi', 'Helen Marshall', 'Julie Croft', 'Neil Corrigan', 'Joanne Copeland', 'Phil Quirke', 'Nick West', 'Tero Rautio', 'Niels Thomassen', 'Henry Tilney', 'Mark Gudgeon', 'Paolo Pietro Bianchi', 'Richard Edlin', 'Claire Hulme', 'Julia Brown'],
+    year: 2017,
+    venue: 'JAMA 318(16):1569-1580',
+    url: 'https://doi.org/10.1001/jama.2017.7219',
+    type: 'paper',
+  },
+  // saeidi-laparoscopic-2022: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref abstract (read 2026-10-04): "allows the operator to select among autonomously generated
+  // surgical plans"; "in vivo autonomous robotic laparoscopic surgery for intestinal anastomosis on
+  // porcine models over a 1-week survival period"; "outperforms expert surgeons' manual technique
+  // and RAS technique in terms of consistency and accuracy".
+  {
+    id: 'saeidi-laparoscopic-2022',
+    title: 'Autonomous robotic laparoscopic surgery for intestinal anastomosis',
+    authors: ['H. Saeidi', 'J. D. Opfermann', 'M. Kam', 'S. Wei', 'S. Leonard', 'M. H. Hsieh', 'J. U. Kang', 'A. Krieger'],
+    year: 2022,
+    venue: 'Science Robotics 7(62):eabj2908',
+    url: 'https://doi.org/10.1126/scirobotics.abj2908',
+    type: 'paper',
+  },
+  // srt-h-2025: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata; first author printed "Ji Woong (Brian) Kim". Preprint arXiv 2505.10251, whose
+  // abstract reads: "The high-level planner plans in language space, generating task-level or
+  // corrective instructions"; "a 100% success rate across eight unseen ex vivo gallbladders,
+  // operating fully autonomously without human intervention".
+  {
+    id: 'srt-h-2025',
+    title: 'SRT-H: A hierarchical framework for autonomous surgery via language-conditioned imitation learning',
+    authors: ['Ji Woong Kim', 'Juo-Tung Chen', 'Pascal Hansen', 'Lucy Xiaoyang Shi', 'Antony Goldenberg', 'Samuel Schmidgall', 'Paul Maria Scheikl', 'Anton Deguet', 'Brandon M. White', 'De Ru Tsai', 'Richard Jaepyeong Cha', 'Jeffrey Jopling', 'Chelsea Finn', 'Axel Krieger'],
+    year: 2025,
+    venue: 'Science Robotics 10(104):eadt5254',
+    url: 'https://doi.org/10.1126/scirobotics.adt5254',
+    type: 'paper',
+  },
+  // haidegger-autonomy-2019: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref metadata; abstract via Semantic Scholar (read 2026-10-04): "investigates the major
+  // barriers of development presented by the lack of autonomy benchmarks and standards. The emerging
+  // safety standard environment is presented, as a key enabling factor to the commercialization of
+  // autonomous surgical robots."
+  {
+    id: 'haidegger-autonomy-2019',
+    title: 'Autonomy for Surgical Robots: Concepts and Paradigms',
+    authors: ['Tamás Haidegger'],
+    year: 2019,
+    venue: 'IEEE Transactions on Medical Robotics and Bionics 1(2):65-76',
+    url: 'https://doi.org/10.1109/TMRB.2019.2913282',
+    type: 'paper',
+  },
+  // srt-2024: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Abstract: "we introduce a relative action formulation which enables successful policy training
+  // and deployment using its approximate kinematics data"; "the large repository of clinical data
+  // ... may be directly utilized for robot learning without further corrections".
+  {
+    id: 'srt-2024',
+    title: 'Surgical Robot Transformer (SRT): Imitation Learning for Surgical Tasks',
+    authors: ['Ji Woong Kim', 'Tony Z. Zhao', 'Samuel Schmidgall', 'Anton Deguet', 'Marin Kobilarov', 'Chelsea Finn', 'Axel Krieger'],
+    year: 2024,
+    arxiv: '2407.12998',
+    url: 'https://arxiv.org/abs/2407.12998',
+    type: 'paper',
+  },
+  // open-h-embodiment-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // arXiv lists "Open-H-Embodiment Consortium", a stray ":" entry, then 214 named authors; the ":"
+  // entry is dropped. Abstract: "spanning more than 50 institutions"; platforms incl. "CMR Versius",
+  // "da Vinci", "dVRK", "Moon Surgical Maestro"; GR00T-H "(25% of trials vs. 0% for all others)" and
+  // "64% average success across a 29-step ex vivo suturing sequence".
+  {
+    id: 'open-h-embodiment-2026',
+    title: 'Open-H-Embodiment: A Large-Scale Dataset for Enabling Foundation Models in Medical Robotics',
+    authors: ['Open-H-Embodiment Consortium', 'Nigel Nelson', 'Juo-Tung Chen', 'Jesse Haworth', 'Xinhao Chen', 'Lukas Zbinden', 'Dianye Huang', 'Alaa Eldin Abdelaal', 'Alberto Arezzo', 'Ayberk Acar', 'Farshid Alambeigi', 'Carlo Alberto Ammirati', 'Yunke Ao', 'Pablo David Aranda Rodriguez', 'Soofiyan Atar', 'Mattia Ballo', 'Noah Barnes', 'Federica Barontini', 'Filip Binkiewicz', 'Peter Black', 'Sebastian Bodenstedt', 'Leonardo Borgioli', 'Nikola Budjak', 'Benjamin Calmé', 'Fabio Carrillo', 'Nicola Cavalcanti', 'Changwei Chen', 'Haoxin Chen', 'Sihang Chen', 'Qihan Chen', 'Zhongyu Chen', 'Ziyang Chen', 'Shing Shin Cheng', 'Meiqing Cheng', 'Min Cheng', 'Zih-Yun Sarah Chiu', 'Xiangyu Chu', 'Camilo Correa-Gallego', 'Giulio Dagnino', 'Anton Deguet', 'Jacob Delgado', 'Jonathan C. DeLong', 'Kaizhong Deng', 'Alexander Dimitrakakis', 'Qingpeng Ding', 'Hao Ding', 'Giovanni Distefano', 'Daniel Donoho', 'Anqing Duan', 'Marco Esposito', 'Shane Farritor', 'Jad Fayad', 'Zahi Fayad', 'Mario Ferradosa', 'Filippo Filicori', 'Chelsea Finn', 'Philipp Fürnstahl', 'Jiawei Ge', 'Stamatia Giannarou', 'Xavier Giralt Ludevid', 'Frederic Giraud', 'Aditya Amit Godbole', 'Ken Goldberg', 'Antony Goldenberg', 'Diego Granero Marana', 'Xiaoqing Guo', 'Tamás Haidegger', 'Evan Hailey', 'Pascal Hansen', 'Ziyi Hao', 'Kush Hari', 'Kengo Hayashi', 'Jonathon Hawkins', 'Shelby Haworth', 'Ortrun Hellig', 'S. Duke Herrell', 'Zhouyang Hong', 'Andrew Howe', 'Junlei Hu', 'Zhaoyang Jacopo Hu', 'Ria Jain', 'Mohammad Rafiee Javazm', 'Howard Ji', 'Rui Ji', 'Jianmin Ji', 'Zhongliang Jiang', 'Dominic Jones', 'Jeffrey Jopling', 'Britton Jordan', 'Ran Ju', 'Michael Kam', 'Luoyao Kang', 'Fausto Kang', 'Siddhartha Kapuria', 'Peter Kazanzides', 'Sonika Kiehler', 'Ethan Kilmer', 'Ji Woong Kim', 'Przemysław Korzeniowski', 'Chandra Kuchi', 'Nithesh Kumar', 'Alan Kuntz', 'Federico Lavagno', 'Yu Chung Lee', 'Hao-Chih Lee', 'Hang Li', 'Zhen Li', 'Xiao Liang', 'Xinxin Lin', 'Jinsong Lin', 'Chang Liu', 'Fei Liu', 'Pei Liu', 'Yun-hui Liu', 'Wanli Liuchen', 'Eszter Lukács', 'Sareena Mann', 'Miles Mannas', 'Brett Marinelli', 'Sabina Martyniak', 'Francesco Marzola', 'Lorenzo Mazza', 'Xueyan Mei', 'Maria Clara Morais', 'Luigi Muratore', 'Chetan Reddy Narayanaswamy', 'Michał Naskręt', 'David Navarro-Alarcon', 'Cyrus Neary', 'Chi Kit Ng', 'Christopher Nguan', 'David Noonan', 'Ki Hwan Oh', 'Tom Christian Olesch', 'Allison M. Okamura', 'Justin Opfermann', 'Matteo Pescio', 'Doan Xuan Viet Pham', 'Tito Porras', 'Hongliang Ren', 'Ariel Rodriguez Jimenez', 'Ferdinando Rodriguez y Baena', 'Septimiu E. Salcudean', 'Asmitha Sathya', 'Preethi Satish', 'Lalithkumar Seenivasan', 'Jiaqi Shao', 'Yiqing Shen', 'Yu Sheng', 'Lucy XiaoYang Shi', 'Zoe Soulé', 'Stefanie Speidel', 'Mingwu Su', 'Jianhao Su', 'Idris Sunmola', 'Kristóf Takács', 'Yunxi Tang', 'Patrick Thornycroft', 'Yu Tian', 'Jordan Thompson', 'Mehmet K. Turkcan', 'Mathias Unberath', 'Pietro Valdastri', 'Carlos Vives', 'Quan Vuong', 'Martin Wagner', 'Farong Wang', 'Wei Wang', 'Lidian Wang', 'Chung-Pang Wang', 'Guankun Wang', 'Junyi Wang', 'Erqi Wang', 'Ziyi Wang', 'Tanner Watts', 'Wolfgang Wein', 'Yimeng Wu', 'Zijian Wu', 'Hongjun Wu', 'Luohong Wu', 'Jie Ying Wu', 'Junlin Wu', 'Victoria Wu', 'Kaixuan Wu', 'Mateusz Wójcikowski', 'Yunye Xiao', 'Nan Xiao', 'Wenxuan Xie', 'Hao Yang', 'Tianqi Yang', 'Yinuo Yang', 'Menglong Ye', 'Ryan S. Yeung', 'Nural Yilmaz', 'Chim Ho Yin', 'Michael Yip', 'Rayan Younis', 'Chenhao Yu', 'Sayem Nazmuz Zaman', 'Milos Zefran', 'Han Zhang', 'Yuelin Zhang', 'Yidong Zhang', 'Yanyong Zhang', 'Xuyang Zhang', 'Yameng Zhang', 'Joyce Zhang', 'Ning Zhong', 'Peng Zhou', 'Haoying Zhou', 'Xiuli Zuo', 'Nassir Navab', 'Mahdi Azizian', 'Sean D. Huver', 'Axel Krieger'],
+    year: 2026,
+    arxiv: '2604.21017',
+    url: 'https://arxiv.org/abs/2604.21017',
+    type: 'paper',
+  },
+  // maier-hein-sds-2022: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Crossref title has a dash after "science" (written here as a colon). Abstract via Europe PMC
+  // (read 2026-10-04): "translational success stories are still lacking in surgery"; topics "(1)
+  // infrastructure for data acquisition, storage and access in the presence of regulatory
+  // constraints, (2) data annotation and sharing and (3) data analytics".
+  {
+    id: 'maier-hein-sds-2022',
+    title: 'Surgical data science: from concepts toward clinical translation',
+    authors: ['Lena Maier-Hein', 'Matthias Eisenmann', 'Duygu Sarikaya', 'Keno März', 'Toby Collins', 'Anand Malpani', 'Johannes Fallert', 'Hubertus Feussner', 'Stamatia Giannarou', 'Pietro Mascagni', 'Hirenkumar Nakawala', 'Adrian Park', 'Carla Pugh', 'Danail Stoyanov', 'Swaroop S. Vedula', 'Kevin Cleary', 'Gabor Fichtinger', 'Germain Forestier', 'Bernard Gibaud', 'Teodor Grantcharov', 'Makoto Hashizume', 'Doreen Heckmann-Nötzel', 'Hannes G. Kenngott', 'Ron Kikinis', 'Lars Mündermann', 'Nassir Navab', 'Sinan Onogur', 'Tobias Roß', 'Raphael Sznitman', 'Russell H. Taylor', 'Minu D. Tizabi', 'Martin Wagner', 'Gregory D. Hager', 'Thomas Neumuth', 'Nicolas Padoy', 'Justin Collins', 'Ines Gockel', 'Jan Goedeke', 'Daniel A. Hashimoto', 'Luc Joyeux', 'Kyle Lam', 'Daniel R. Leff', 'Amin Madani', 'Hani J. Marcus', 'Ozanan Meireles', 'Alexander Seitel', 'Dogu Teber', 'Frank Ückert', 'Beat P. Müller-Stich', 'Pierre Jannin', 'Stefanie Speidel'],
+    year: 2022,
+    venue: 'Medical Image Analysis 76:102306',
+    url: 'https://doi.org/10.1016/j.media.2021.102306',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -19530,6 +21024,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['ALOHA 2 Team', 'ALOHA 2 Team'],
   ['Association for Advancing Automation', 'A3'],
   ['Astroscale Japan', 'Astroscale'],
+  ['Baidu, Inc.', 'Baidu'],
   ['Boston Dynamics', 'Boston Dynamics'],
   ['Build AI', 'Build AI'],
   ['Canadian Space Agency', 'Canadian Space Agency'],
@@ -19537,6 +21032,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Creative Commons', 'Creative Commons'],
   ['DROID Dataset Team', 'DROID Dataset Team'],
   ['EVST Engineering Team', 'EVST Engineering Team'],
+  ['Federal Aviation Administration', 'FAA'],
   ['Figure AI', 'Figure AI'],
   ['Franka Robotics', 'Franka Robotics'],
   ['GEAR Team', 'GEAR Team'],
@@ -19554,6 +21050,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Moon Surgical', 'Moon Surgical'],
   ['MoveIt Maintainers', 'MoveIt Maintainers'],
   ['NASA Jet Propulsion Laboratory', 'NASA Jet Propulsion Laboratory'],
+  ['National Highway Traffic Safety Administration', 'NHTSA'],
   ['Nav2 Project', 'Nav2 Project'],
   ['Northrop Grumman', 'Northrop Grumman'],
   ['Ocado Group plc', 'Ocado Group'],
@@ -19561,6 +21058,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Ocado Group', 'Ocado Group'],
   ['Octo Model Team', 'Octo Model Team'],
   ['Open X-Embodiment Collaboration', 'Open X-Embodiment Collaboration'],
+  ['Open-H-Embodiment Consortium', 'Open-H-Embodiment Consortium'],
   ['Physical Intelligence', 'Physical Intelligence'],
   ['PickNik Robotics', 'PickNik Robotics'],
   ['Robotics and AI Institute', 'RAI Institute'],
@@ -19576,16 +21074,20 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Skild Team', 'Skild Team'],
   ['Sunday Team', 'Sunday Team'],
   ['Symbotic Inc.', 'Symbotic'],
+  ['Team Zipline', 'Zipline'],
   ['Tesla, Inc.', 'Tesla'],
   ['The Linux Foundation', 'The Linux Foundation'],
   ['The Robot Report', 'The Robot Report'],
   ['The Robot Report Staff', 'The Robot Report'],
+  ['The Waymo Team', 'Waymo'],
   ['TRI LBM Team', 'TRI LBM Team'],
   ['Trossen Robotics', 'Trossen Robotics'],
   ['U.S. Food and Drug Administration', 'FDA'],
   ['UL Standards & Engagement', 'UL Standards & Engagement'],
   ['Unitree Robotics', 'Unitree Robotics'],
   ['Universal Robots', 'Universal Robots'],
+  ['Waymo AI Team', 'Waymo'],
+  ['Wing Team', 'Wing'],
   ['World Labs', 'World Labs'],
   ['Xiaomi Robotics Team', 'Xiaomi Robotics Team'],
 ]);

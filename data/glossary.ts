@@ -51,7 +51,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'cross-embodiment',
     term: 'cross-embodiment',
     definition:
-      'Learning from, or transferring to, robots with different morphologies: different joint counts, action dimensions, and sensor suites. The Open X-Embodiment project pooled data from 22 robot embodiments into a single training mixture and showed that the resulting RT-X policies carry skills across platforms. The gain is not free, because each body defines its actions differently, and the field answers that mismatch with several incompatible conventions.',
+      'Learning from, or transferring to, robots with different morphologies: different joint counts, action dimensions, and sensor suites. The Open X-Embodiment project pooled data from 22 robot embodiments into a single training mixture and showed that the resulting RT-X policies carry skills across platforms. Each body defines its actions differently, and the field aligns them with several incompatible conventions.',
     citations: ['open-x-embodiment-2023'],
   },
   {
@@ -65,7 +65,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'covariate-shift',
     term: 'covariate shift',
     definition:
-      'In imitation learning, the mismatch between the state distribution in the training demonstrations and the distribution the learned policy visits at deployment. The policy\'s own errors carry it into states the demonstrations never covered, where it is likelier to err again, so mistakes compound: Ross, Gordon, and Bagnell showed that a behavior-cloned policy with per-step error ε can incur total cost growing quadratically in episode length, and that no i.i.d.-trained policy can guarantee better.',
+      'The mismatch between the state distribution of an imitation learner\'s training demonstrations and the distribution its learned policy visits at deployment. The policy\'s own errors carry it into states the demonstrations never covered, where it is likelier to err again, so mistakes compound: Ross, Gordon, and Bagnell showed that a behavior-cloned policy with per-step error ε can incur total cost growing quadratically in episode length, and that no i.i.d.-trained policy can guarantee better.',
     citations: ['dagger-2011'],
   },
   {
@@ -100,7 +100,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'inverse-kinematics',
     term: 'inverse kinematics',
     definition:
-      'The reverse of the forward map: given a target pose for the end effector, find joint angles that reach it. The problem is nonlinear and can have no solution, one solution, or many. Numerical methods can search iteratively for a solution.',
+      'Finding the joint angles that place the end effector at a target pose, the reverse of forward kinematics. The problem is nonlinear and can have no solution, one solution, or many, and numerical methods search for one iteratively.',
     citations: ['modern-robotics-2017'],
   },
   {
@@ -156,7 +156,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'success-rate',
     term: 'success rate',
     definition:
-      'The standard headline metric of robot learning evaluation: the fraction of attempted episodes in which the policy completes the task. Trial count, time limit and scene distribution belong with the reported rate. Toyota Research Institute\'s Large Behavior Model study analyzed 1,800 real-world rollouts and warned of a significant risk of statistical noise from insufficient power, not a measured prevalence of incorrect papers. An inconclusive comparison does not establish policy equivalence.',
+      'The standard headline metric of robot learning evaluation: the fraction of attempted episodes in which the policy completes the task. Trial count, time limit and scene distribution belong with the reported rate. Toyota Research Institute\'s Large Behavior Model study analyzed 1,800 real-world rollouts and warned of a significant risk of statistical noise from insufficient power. An inconclusive comparison does not establish policy equivalence.',
     citations: ['tri-lbm-2025', 'optimal-stopping-2025'],
   },
   {
@@ -191,7 +191,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'legged-locomotion',
     term: 'legged locomotion',
     definition:
-      'Locomotion through legs rather than wheels or tracks: support comes from discrete, intermittent footholds, so balance is re-established at every step instead of resting on a continuous contact patch. It is the problem that made sim-to-real reinforcement learning a shipping technology instead of a demo. Conventional controllers built it from elaborate state machines that explicitly trigger motion primitives and reflexes, a design that grew more complex without approaching the generality of animal locomotion. The ETH Zurich line replaced that stack outright: Lee and colleagues trained an ANYmal controller by reinforcement learning in simulation and generalized it zero-shot to alpine terrain on proprioception alone, and Miki and colleagues extended the same recipe to perceptive locomotion in the wild, the template humanoid programs have since been rerunning on two legs.',
+      'Locomotion on legs rather than wheels or tracks: support comes from discrete, intermittent footholds, so balance is re-established at every step instead of resting on a continuous contact patch. Conventional controllers built it from elaborate state machines that explicitly trigger motion primitives and reflexes, a design that grew more complex without approaching the generality of animal locomotion. The ETH Zurich line replaced that stack: Lee and colleagues trained an ANYmal controller by reinforcement learning in simulation and generalized it zero-shot to alpine terrain on proprioception alone, and Miki and colleagues extended the same recipe to perceptive locomotion in the wild.',
     citations: ['lee-2020', 'miki-2022'],
   },
   {
@@ -233,7 +233,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'proprioception',
     term: 'proprioception',
     definition:
-      'Sensing of the body\'s own state: joint positions and velocities, orientation, and contact, as opposed to exteroception, which senses the outside world through cameras or lidar. Proprioception is fast, cheap, and never occluded, and the ETH Zurich line showed how far it goes: Lee and colleagues trained an ANYmal controller that hiked mud, snow, rubble, and vegetation on proprioception alone, and Miki and colleagues kept it as the trusted channel the policy falls back on when its terrain map disagrees with its body.',
+      'Sensing of the body\'s own state: joint positions and velocities, orientation, and contact, as opposed to exteroception, which senses the outside world through cameras or lidar. Proprioception is fast, cheap, and never occluded. Lee and colleagues trained an ANYmal controller that hiked mud, snow, rubble, and vegetation on proprioception alone, and Miki and colleagues kept it as the trusted channel the policy falls back on when its terrain map disagrees with its body.',
     citations: ['lee-2020', 'miki-2022'],
   },
   {
@@ -254,7 +254,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'imitation-learning',
     term: 'imitation learning',
     definition:
-      'Learning a policy from expert demonstrations rather than from a reward signal: the expert\'s recorded state-action pairs become a supervised training set, and the fitted mapping from observed state to action is the policy. Pomerleau\'s ALVINN (1988) instead trained on simulated road images before steering NAVLAB, and the recipe still underlies most learned manipulation. Its structural weakness is that the training distribution comes from the expert while deployment visits the states the learner itself induces, the mismatch DAgger was designed to repair.',
+      'Learning a policy from expert demonstrations rather than from a reward signal: the expert\'s recorded state-action pairs become a supervised training set, and the fitted mapping from observed state to action is the policy. Pomerleau\'s ALVINN (1988) trained on simulated road images before steering NAVLAB, and the recipe still underlies most learned manipulation. Its structural weakness is that the training distribution comes from the expert while deployment visits the states the learner itself induces, the mismatch DAgger was designed to repair.',
     citations: ['dagger-2011', 'alvinn-1988'],
   },
   {
@@ -317,7 +317,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'denavit-hartenberg-parameters',
     term: 'Denavit-Hartenberg parameters',
     definition:
-      'A four-parameter representation of a kinematic chain. LaValle describes revolute chains using an axial offset, an angle about the joint axis, the distance between successive axes, and the angle between those axes. Frame assignment, indexing and transform order must be specified; do not mix conventions. Near-parallel joint axes can make the parameters ill-conditioned; the product-of-exponentials formulation avoids that parameterization problem.',
+      'A four-parameter representation of a kinematic chain. LaValle describes revolute chains using an axial offset, an angle about the joint axis, the distance between successive axes, and the angle between those axes. Conventions differ in frame assignment, indexing and transform order, so a parameter table must say which one it uses. Near-parallel joint axes can make the parameters ill-conditioned; the product-of-exponentials formulation avoids that parameterization problem.',
     citations: ['lavalle-2006', 'modern-robotics-2017'],
   },
   {
@@ -408,21 +408,21 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'in-hand-manipulation',
     term: 'in-hand manipulation',
     definition:
-      'Repositioning or reorienting a grasped object within the hand without setting it down: rolling a pen between the fingers, or walking a key around until it faces the lock. It is the skill that separates a hand from a gripper, and the one vision handles worst, because the fingers occlude exactly the contact that matters. Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in 2024, and Holson\'s Robot Olympics makes it the gold-medal bar for tool use with the key-in-lock task.',
+      'Repositioning or reorienting a grasped object within the hand without setting it down: rolling a pen between the fingers, or walking a key around until it faces the lock. Vision handles it poorly because the fingers occlude the contact that matters. Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in 2024, and Holson\'s Robot Olympics makes it the gold-medal bar for tool use with the key-in-lock task.',
     citations: ['sanctuary-inhand-2024', 'holson-olympics-2025'],
   },
   {
     id: 'contact-rich-manipulation',
     term: 'contact-rich manipulation',
     definition:
-      'Manipulation governed by making, holding, and breaking contact rather than by free-space motion: insertion, screwing, wiping, folding. Contact dynamics are discontinuous, since stick flips to slip across a friction boundary, so small sensing errors produce large outcome errors. That discontinuity is why these tasks are the stress test for touch-driven policies, and why TouchWorld\'s six-task tactile benchmark is built entirely from them.',
+      'Manipulation governed by making, holding, and breaking contact rather than by free-space motion: insertion, screwing, wiping, folding. Contact dynamics are discontinuous, since stick flips to slip across a friction boundary, so small sensing errors produce large outcome errors. These tasks test touch-driven policies, and TouchWorld\'s six-task tactile benchmark is built entirely from them.',
     citations: ['touchworld-2026', 'tactile-outlook-2025'],
   },
   {
     id: 'long-tail',
     term: 'long tail',
     definition:
-      "The part of the scenario distribution that is individually rare and collectively decisive: a couch fallen off a truck, a pedestrian in dark clothing outside a crosswalk, a traffic cop waving cars through a red light. None of these appear often enough in any natural driving log to learn from directly, yet each can decide whether a system is deployable. Autonomous-driving teams attack the tail with simulation, and Waymo's Genie-3-based World Model exists for exactly this: events 'from a tornado to a casual encounter with an elephant' are 'almost impossible to capture at scale in reality'.",
+      "The part of the scenario distribution that is individually rare and collectively decisive: a couch fallen off a truck, a pedestrian in dark clothing outside a crosswalk, a traffic cop waving cars through a red light. None of these appear often enough in any natural driving log to learn from directly, yet each can decide whether a system is deployable. Autonomous-driving teams attack the tail with simulation, and Waymo's Genie-3-based World Model targets it: events 'from a tornado to a casual encounter with an elephant' are 'almost impossible to capture at scale in reality'.",
     citations: ['waymo-world-model-2026', 'koopman-safe-enough-2026'],
   },
   {
@@ -443,7 +443,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'visual-inertial-odometry',
     term: 'visual-inertial odometry (VIO)',
     definition:
-      "State estimation for a flying robot from camera images fused with inertial measurement unit data: the camera fixes long-term drift, the IMU provides high-rate accelerations between frames, and a filter or optimization over both yields the metric pose and velocity a flight controller needs. It is the standard onboard localization for small drones because it needs no external infrastructure and no GPS, and it is what lets a racing drone estimate its state from its own sensors alone. Swift's perception module pairs a visual-inertial estimator with a convolutional gate detector, fusing both in a Kalman filter to supply the control policy.",
+      "State estimation for a flying robot from camera images fused with inertial measurement unit data: the camera fixes long-term drift, the IMU provides high-rate accelerations between frames, and a filter or optimization over both yields the metric pose and velocity a flight controller needs. It is the standard onboard localization for small drones because it needs no external infrastructure and no GPS. Swift's perception module pairs a visual-inertial estimator with a convolutional gate detector, fusing both in a Kalman filter to supply the control policy.",
     citations: ['swift-drone-racing-2023'],
   },
   {
@@ -457,7 +457,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'minimally-invasive-surgery',
     term: 'minimally invasive surgery',
     definition:
-      "Surgery performed through small incisions with elongated instruments and a camera, instead of a large open incision. In the abdominal variant, laparoscopy, the workspace is insufflated with gas and the surgeon watches a 2D or 3D video feed while working through trocar ports, which trades patient recovery time for a loss of direct touch, natural hand-eye alignment, and fine dexterity. Surgical robots exist to give that trade-off back: wristed instruments restore dexterity at depth, the console restores a stable magnified stereo view, and motion scaling and tremor filtering restore precision. da Vinci systems are cleared for use in these procedures and have been used in millions of them.",
+      "Surgery performed through small incisions with elongated instruments and a camera, instead of a large open incision. In the abdominal variant, laparoscopy, the workspace is insufflated with gas and the surgeon watches a 2D or 3D video feed while working through trocar ports, which trades patient recovery time for a loss of direct touch, natural hand-eye alignment, and fine dexterity. Surgical robots recover those losses: wristed instruments restore dexterity at depth, the console restores a stable magnified stereo view, and motion scaling and tremor filtering restore precision. da Vinci systems are cleared for use in these procedures and have been used in millions of them.",
     citations: ['davinci5-clearance-2024', 'intuitive-q4-2025'],
   },
   {
@@ -471,14 +471,14 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'force-feedback',
     term: 'force feedback',
     definition:
-      'Sensing of interaction forces at the instrument tip, rendered back to the operator as resistance at the controls. In teleoperation it closes the haptic loop that pure video control leaves open: without it a surgeon infers tissue contact through visual cues alone and can exert more force than intended. da Vinci 5 introduced Force Feedback instruments that measure and display subtle forces on tissue, the first offering of that capability on a surgical system in any modality, and Intuitive reported up to 43 percent less force exerted on tissue in preclinical trials with it. The capability also matters beyond the operator: a measured force signal is a data stream, and data streams are what later automation trains on.',
+      'Sensing of interaction forces at the instrument tip, rendered back to the operator as resistance at the controls. In teleoperation it closes the haptic loop that pure video control leaves open: without it a surgeon infers tissue contact through visual cues alone and can exert more force than intended. da Vinci 5 introduced Force Feedback instruments that measure and display subtle forces on tissue, the first offering of that capability on a surgical system in any modality, and Intuitive reported up to 43 percent less force exerted on tissue in preclinical trials with it.',
     citations: ['davinci5-clearance-2024'],
   },
   {
     id: 'in-situ-resource-utilization',
     term: 'in-situ resource utilization (ISRU)',
     definition:
-      "Producing mission consumables at the destination from local materials instead of launching them from Earth: oxygen from the Martian atmosphere, water or metals from lunar regolith, propellant from both. NASA frames it as astronauts living off the land, because every kilogram made on site is a kilogram that does not ride a launch vehicle, and for a Mars return the arithmetic is stark, since the propellant for the trip home would dominate an all-Earth-supplied mass budget. The first demonstration on another planet was MOXIE, which electrolyzed atmospheric carbon dioxide into oxygen on the Perseverance rover. The robotics side of ISRU is excavation, drilling, and material handling in vacuum and regolith, the same contact-rich manipulation problems as terrestrial robotics under harsher constraints.",
+      "Producing mission consumables at the destination from local materials instead of launching them from Earth: oxygen from the Martian atmosphere, water or metals from lunar regolith, propellant from both. NASA frames it as astronauts living off the land, because every kilogram made on site is a kilogram that does not ride a launch vehicle, and for a Mars return the propellant for the trip home would dominate an all-Earth-supplied mass budget. The first demonstration on another planet was MOXIE, which electrolyzed atmospheric carbon dioxide into oxygen on the Perseverance rover. The robotics side of ISRU is excavation, drilling, and material handling in vacuum and regolith, the same contact-rich manipulation problems as terrestrial robotics under harsher constraints.",
     citations: ['moxie-completion-2023', 'prime-1-lunar-2025'],
   },
   {
@@ -504,14 +504,14 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'admittance-control',
     term: 'admittance control',
     definition:
-      'The dual of impedance control: force is measured and motion is commanded. A wrist force-torque sensor reads the contact force, the admittance law converts it into a position or velocity correction, and the underlying motion controller executes it. It is the natural choice on a stiff, geared, non-backdrivable arm, where the position loop is excellent but no torque command channel exists: admittance control synthesizes compliance in software on top of a position-controlled machine, at the cost of the measurement and the loop delay. Ott, Mukherjee and Nakamura\'s unified formulation shows the two schemes as the two causal assignments of the same interaction port.',
+      'Compliant control that measures the contact force and commands motion in response, the dual of impedance control. A wrist force-torque sensor reads the contact force, the admittance law converts it into a position or velocity correction, and the underlying motion controller executes it. It suits a stiff, geared, non-backdrivable arm, where the position loop is excellent but no torque command channel exists: admittance control synthesizes compliance in software on top of a position-controlled machine, at the cost of the measurement and the loop delay. Ott, Mukherjee and Nakamura\'s unified formulation shows the two schemes as the two causal assignments of the same interaction port.',
     citations: ['ott-2010'],
   },
   {
     id: 'hybrid-force-position-control',
     term: 'hybrid force/position control',
     definition:
-      'Raibert and Craig\'s decomposition of a contact task into orthogonal subspaces: in a task frame chosen from the geometry of the contact, force is controlled along the axes constrained by the environment and position is controlled along the free axes, never both on the same axis. Polishing a surface controls force normal to it and tracks a path tangent to it; sliding a block in a slot controls force pressing into the slot walls and position along the slot. Mason\'s predecessor analysis established how to pick the constrained and free directions from contact geometry, which is what makes the decomposition a property of the task rather than a tuning choice.',
+      'Raibert and Craig\'s decomposition of a contact task into orthogonal subspaces: in a task frame chosen from the geometry of the contact, force is controlled along the axes constrained by the environment and position is controlled along the free axes, never both on the same axis. Polishing a surface controls force normal to it and tracks a path tangent to it; sliding a block in a slot controls force pressing into the slot walls and position along the slot. Mason\'s predecessor analysis established how to pick the constrained and free directions from contact geometry.',
     citations: ['raibert-craig-1981', 'mason-1981'],
   },
   {
@@ -588,7 +588,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'occupancy-grid',
     term: 'occupancy grid',
     definition:
-      'A map that divides space into cells and stores, per cell, the probability that it is occupied. Moravec and Elfes introduced it for wide-angle sonar: each range reading constrains both the volume the beam passed through and the volume where something reflected it, and many readings accumulate into a map of empty and occupied regions. Its defining property for a planner is the third state. A cell that no sensor has yet observed is held as unknown rather than assumed free, which is exactly the distinction a representation optimised for rendering cannot make.',
+      'A map that divides space into cells and stores, per cell, the probability that it is occupied. Moravec and Elfes introduced it for wide-angle sonar: each range reading constrains both the volume the beam passed through and the volume where something reflected it, and many readings accumulate into a map of empty and occupied regions. Its defining property for a planner is the third state. A cell that no sensor has yet observed is held as unknown rather than assumed free, a distinction a representation optimised for rendering cannot make.',
     citations: ['moravec-elfes-1985', 'nav2-2020'],
   },
   {
@@ -637,7 +637,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'q-learning',
     term: 'Q-learning',
     definition:
-      'Learning the value of taking an action in a state, rather than learning a policy directly: the agent fits a function that predicts the return available from a state-action pair, and acts by picking the action its own estimate rates highest. Sutton and Barto set it out as the archetypal off-policy temporal-difference control method, where the update uses the best available next action instead of the action the behaviour policy actually took, which is exactly what lets the method learn from experience it did not generate. Every off-policy and offline algorithm the robotics literature uses is a descendant of that update, with machinery added to keep the value estimate from running away on data it cannot verify.',
+      'Learning the value of taking an action in a state, rather than learning a policy directly: the agent fits a function that predicts the return available from a state-action pair, and acts by picking the action its own estimate rates highest. Sutton and Barto set it out as the archetypal off-policy temporal-difference control method, where the update uses the best available next action instead of the action the behaviour policy took, which lets the method learn from experience it did not generate. Many off-policy and offline algorithms in robotics build on that update, adding machinery that keeps the value estimate from running away on data it cannot verify.',
     citations: ['sutton-barto-2018', 'cql-2020'],
   },
   {
@@ -651,14 +651,14 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'off-policy',
     term: 'off-policy',
     definition:
-      'A learning method that can improve one policy from data generated by another, which means old experience stays usable after the policy has moved on. Soft actor-critic is the robotics reference point: Haarnoja and colleagues combined off-policy updates with a maximum-entropy objective specifically to attack the sample complexity that keeps model-free deep RL off real hardware, and reported substantially better sample efficiency than on-policy methods on the same tasks. The distinction is about data reuse rather than taxonomy, and on a real robot it is the difference between a feasible experiment and an impossible one.',
+      'A learning method that can improve one policy from data generated by another, so old experience stays usable after the policy has moved on. Soft actor-critic is the robotics reference point: Haarnoja and colleagues combined off-policy updates with a maximum-entropy objective to attack the sample complexity that keeps model-free deep RL off real hardware, and reported substantially better sample efficiency than on-policy methods on the same tasks.',
     citations: ['sac-2018', 'sutton-barto-2018'],
   },
   {
     id: 'replay-buffer',
     term: 'replay buffer',
     definition:
-      'The store of past transitions an off-policy learner samples its gradient batches from, which is the mechanism that makes data reuse concrete. Its contents need not come from the current policy or even from the learner at all: RLPD trains from a buffer holding prior offline data alongside fresh online experience, and HIL-SERL seeds one with human demonstrations before any autonomous collection starts. The buffer is also where the distinction between online and offline learning collapses to a question of whether anything new is still being added.',
+      'The store of past transitions an off-policy learner samples its gradient batches from. Its contents need not come from the current policy or even from the learner at all: RLPD trains from a buffer holding prior offline data alongside fresh online experience, and HIL-SERL seeds one with human demonstrations before any autonomous collection starts.',
     citations: ['rlpd-2023', 'sac-2018'],
   },
   {
@@ -686,14 +686,14 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'reset-free-learning',
     term: 'reset-free learning',
     definition:
-      'Training on real hardware without a human returning the scene to a start state between attempts, which is what stands between a working algorithm and an unattended experiment. Sharma and colleagues distinguish deployed-policy regret over training from continuing average reward. Their base setting has no episodic resets; a separate extension for non-ergodic settings adds a bounded, cost-decremented intervention budget. EARL’s experiments instead schedule occasional resets and report both learning curves and final deployed-policy performance. Gupta and colleagues sequence task-specific policies with a designer-provided task graph, so learned re-centering, pickup and flip-up can restore conditions for in-hand reorientation after a dropped object. Their D’Hand/Sawyer experiments also covered pipe insertion; the reported reset-free training still used supplied rewards and task graphs, motion capture for in-hand manipulation and scripted pickup-arm motion.',
+      'Training on real hardware without a human returning the scene to a start state between attempts. Sharma and colleagues distinguish deployed-policy regret over training from continuing average reward. Their base setting has no episodic resets; a separate extension for non-ergodic settings adds a bounded, cost-decremented intervention budget. EARL’s experiments instead schedule occasional resets and report both learning curves and final deployed-policy performance. Gupta and colleagues sequence task-specific policies with a designer-provided task graph, so learned re-centering, pickup and flip-up can restore conditions for in-hand reorientation after a dropped object. Their D’Hand/Sawyer experiments also covered pipe insertion; the reported reset-free training still used supplied rewards and task graphs, motion capture for in-hand manipulation and scripted pickup-arm motion.',
     citations: ['autonomous-rl-2022', 'reset-free-rl-2021'],
   },
   {
     id: 'risk-assessment',
     term: 'risk assessment',
     definition:
-      'The machinery-safety procedure that turns an informal worry about a machine into a documented engineering obligation. ISO 12100:2010 is the general-principles standard behind it: its public abstract describes procedures for identifying hazards and for estimating and evaluating the risks associated with them across the phases of a machine life cycle, together with guidance on documenting and verifying what the assessment concluded. Its output is a record of which hazards were found, what was done about each, and why the residual risk was judged acceptable, which is what makes safety auditable rather than asserted.',
+      'The documented machinery-safety procedure for finding a machine\'s hazards and judging their risks. ISO 12100:2010 is the general-principles standard behind it: its public abstract describes procedures for identifying hazards and for estimating and evaluating the risks associated with them across the phases of a machine life cycle, together with guidance on documenting and verifying what the assessment concluded. Its output is a record of which hazards were found, what was done about each, and why the residual risk was judged acceptable, so the safety argument can be audited.',
     citations: ['iso-12100'],
   },
   {
@@ -707,7 +707,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'power-and-force-limiting',
     term: 'power and force limiting',
     definition:
-      'The collaborative operating mode that permits contact between a robot and a person and makes it safe by bounding what the contact can do, rather than by preventing it. The threshold is biomechanical and stated per body region, which is what turns a marketing word into a claim with numbers behind it: Haddadin, Albu-Schaeffer and Hirzinger established the measurement tradition with impact experiments on the human-robot collision itself, and later force-threshold studies report limits by body region and contact geometry. A cobot certified under this mode has been measured, not merely described.',
+      'The collaborative operating mode that permits contact between a robot and a person and makes it safe by bounding what the contact can do. The threshold is biomechanical and stated per body region: Haddadin, Albu-Schaeffer and Hirzinger established the measurement tradition with impact experiments on the human-robot collision itself, and later force-threshold studies report limits by body region and contact geometry.',
     citations: ['haddadin-2009', 'han-force-pain-2024'],
   },
   {
@@ -728,14 +728,14 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'performance-level',
     term: 'performance level',
     definition:
-      'The ISO 13849-1:2023 counterpart of a safety integrity level, and the rating a machinery integrator in Europe most often has to satisfy. It grades a safety-related control function on a discrete scale, and the standard supplies the design methodology by which a claimed level is justified rather than asserted. Like the IEC 61508 levels, it presumes a specification of the function that can be checked against an implementation, which is exactly what a learned policy does not provide.',
+      'The ISO 13849-1:2023 counterpart of a safety integrity level, and the rating a machinery integrator in Europe most often has to satisfy. It grades a safety-related control function on a discrete scale, and the standard supplies the design methodology by which a claimed level is justified. Like the IEC 61508 levels, it presumes a specification of the function that can be checked against an implementation, which a learned policy does not provide.',
     citations: ['iso-13849-1-2023'],
   },
   {
     id: 'safety-case',
     term: 'safety case',
     definition:
-      'A structured, documented argument that a system is acceptably safe for a given application in a given environment, with the evidence for each step of the argument attached to it. The tradition exists because testing alone cannot reach the confidence an autonomous system needs, so the artifact is an argument rather than a test report. UL 4600 applies the approach to autonomous products, and the Goal Structuring Notation community standard gives the graphical notation the argument is usually written in, with goals decomposed into subgoals until each rests on cited evidence.',
+      'A structured, documented argument that a system is acceptably safe for a given application in a given environment, with the evidence for each step of the argument attached to it. The tradition exists because testing alone cannot reach the confidence an autonomous system needs. UL 4600 applies the approach to autonomous products, and the Goal Structuring Notation community standard gives the graphical notation the argument is usually written in, with goals decomposed into subgoals until each rests on cited evidence.',
     citations: ['ul-4600-2023', 'gsn-standard-v3'],
   },
   {
@@ -749,21 +749,21 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'out-of-distribution-detection',
     term: 'out-of-distribution detection',
     definition:
-      'Deciding, at run time, whether the input a model is being asked about resembles the data it was trained on, so that a policy can decline rather than extrapolate. In robotics the detector runs on the live observation stream and its output gates the policy: Sinha and colleagues use a fast anomaly detector on the observation to trigger a reactive fallback plan while the slower reasoning runs, which is the practical shape of the technique. It answers a different question from uncertainty in the output, and a policy can be confidently wrong on an input it has never seen.',
+      'Deciding, at run time, whether the input a model is being asked about resembles the data it was trained on, so that a policy can decline rather than extrapolate. In robotics the detector runs on the live observation stream and its output gates the policy: Sinha and colleagues use a fast anomaly detector on the observation to trigger a reactive fallback plan while the slower reasoning runs. It answers a different question from uncertainty in the output, and a policy can be confidently wrong on an input it has never seen.',
     citations: ['sinha-anomaly-2024'],
   },
   {
     id: 'control-barrier-function',
     term: 'control barrier function',
     definition:
-      'A scalar function of the state, positive on a set you want the system to stay inside, whose derivative condition can be enforced as a constraint on the commanded input, so forward invariance of the safe set becomes a linear constraint in an optimisation the controller solves each step. Ames and colleagues survey the theory and its applications. Its practical importance is architectural: because the constraint filters whatever input arrives, an arbitrary and unverified controller can be wrapped by a verified one, and the guarantee belongs to the wrapper.',
+      'A scalar function of the state, positive on a set you want the system to stay inside, whose derivative condition can be enforced as a constraint on the commanded input, so forward invariance of the safe set becomes a linear constraint in an optimisation the controller solves each step. Ames and colleagues survey the theory and its applications. Because the constraint filters whatever input arrives, an arbitrary and unverified controller can be wrapped by a verified one, and the guarantee belongs to the wrapper.',
     citations: ['ames-cbf-2019'],
   },
   {
     id: 'emergency-stop',
     term: 'emergency stop',
     definition:
-      'A machine function, initiated by a single human action, that brings a hazardous motion to a halt. ISO 13850:2015 specifies the functional requirements and design principles for it independently of the energy the machine uses, and names IEC 60204-1:2016 for the electrical realisation. Two properties are commonly misunderstood: it is a complement to guarding rather than a substitute for it, since it depends on a person noticing the hazard in time, and stopping is not the same as removing power, which is why the electrical standard distinguishes stop categories.',
+      'A machine function, initiated by a single human action, that brings a hazardous motion to a halt. ISO 13850:2015 specifies the functional requirements and design principles for it independently of the energy the machine uses, and names IEC 60204-1:2016 for the electrical realisation. It complements guarding and cannot replace it, since it depends on a person noticing the hazard in time, and stopping differs from removing power, which is why the electrical standard distinguishes stop categories.',
     citations: ['iso-13850-2015', 'iec-60204-1-2016'],
   },
   {
@@ -805,42 +805,42 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'automated-storage-and-retrieval',
     term: 'automated storage and retrieval system',
     definition:
-      'A warehouse subsystem of fixed racking, cranes or shuttles, and control software that stores and retrieves unit loads without a human walking an aisle. Symbotic\'s systems and Ocado\'s customer fulfilment centres are large-scale descendants: high-bay storage, bots that fetch, and pick stations arranged around the software. An AS/RS buys density and precision at the price of being the building\'s skeletal structure, which is why it appears mostly in new builds.',
+      'A warehouse subsystem of fixed racking, cranes or shuttles, and control software that stores and retrieves unit loads without a human walking an aisle. Symbotic\'s systems and Ocado\'s customer fulfilment centres are large-scale descendants: high-bay storage, bots that fetch, and pick stations arranged around the software. An AS/RS gives density and precision but becomes part of the building\'s structure, which is why it appears mostly in new builds.',
     citations: ['symbotic-10k-2025'],
   },
   {
     id: 'autonomous-mobile-robot',
     term: 'autonomous mobile robot',
     definition:
-      'A self-navigating transport vehicle that plans its own paths through a facility using onboard sensors, as distinct from an automated guided vehicle that follows fixed infrastructure like tape or wire. Amazon\'s Proteus and the case-handling robots inside Symbotic\'s systems are AMRs at fleet scale, and the fleet manager\'s traffic control, not any single robot\'s navigation, is the hard engineering.',
+      'A self-navigating transport vehicle that plans its own paths through a facility using onboard sensors, as distinct from an automated guided vehicle that follows fixed infrastructure like tape or wire. Amazon\'s Proteus and the case-handling robots inside Symbotic\'s systems are AMRs at fleet scale, where the fleet manager\'s traffic control is the hard engineering.',
     citations: ['amazon-robot-fleet-2026'],
   },
   {
     id: 'goods-to-person',
     term: 'goods-to-person',
     definition:
-      'The warehouse principle of moving stored items to a stationary human at a pick station, instead of sending the human to walk the shelves. It inverts the economics of order picking: the picker stops being paid to travel and spends nearly the whole shift handling items, which raises throughput per person and simultaneously defines the ceiling an automated picker must beat. Sequoia and Ocado\'s pick walls are both goods-to-person systems.',
+      'The warehouse principle of moving stored items to a stationary human at a pick station, instead of sending the human to walk the shelves. The picker spends nearly the whole shift handling items instead of travelling, which raises throughput per person and sets the rate an automated picker must beat. Sequoia and Ocado\'s pick walls are both goods-to-person systems.',
     citations: ['amazon-sequoia-digit-2023'],
   },
   {
     id: 'payback-period',
     term: 'payback period',
     definition:
-      'The time an automation investment takes to return its cost: total cell capital divided by the monthly value it produces, most often displaced labour. Operations buyers screen against a horizon rather than optimizing the number, and vendor guidance for robot cells quotes 12 to 24 month paybacks in multi-shift operation, stretching toward 36 in single shift. A robot whose payback misses the horizon is not a bad robot; it is a bad fit for that facility\'s wage and throughput.',
+      'The time an automation investment takes to return its cost: total cell capital divided by the monthly value it produces, most often displaced labour. Operations buyers screen it against a horizon, and vendor guidance for robot cells quotes 12 to 24 month paybacks in multi-shift operation, stretching toward 36 in single shift.',
     citations: ['evst-cell-cost-2026'],
   },
   {
     id: 'intervention-rate',
     term: 'intervention rate',
     definition:
-      'How often an automated system needs a human to touch it: the fraction of cycles that end in a jam, mispick, or fault requiring attention, or equivalently one minus the per-cycle success rate. The economics of the rate are set by the intervention time, not the rate alone: a 1 percent intervention rate cleared in seconds is cheaper per pick than a 0.1 percent rate that stops the line for an hour, which is why deployed systems are engineered around cheap recovery rather than perfect autonomy.',
+      'How often an automated system needs a human to touch it: the fraction of cycles that end in a jam, mispick, or fault requiring attention, or equivalently one minus the per-cycle success rate. The economics of the rate are set by the intervention time, not the rate alone: a 1 percent intervention rate cleared in seconds is cheaper per pick than a 0.1 percent rate that stops the line for an hour, which is why deployed systems are engineered around cheap recovery.',
     citations: ['goldberg-data-gap-2025'],
   },
   {
     id: 'predicted-horizon',
     term: 'predicted horizon',
     definition:
-      'The number of future actions a chunked policy emits in one inference, the chunk length H. The policy predicts that many actions in a single forward pass whether or not it will execute them all: π0 predicts 50 actions, one second at 50 Hz, and Diffusion Policy predicts 16. What a reader of a results table needs alongside that number is how many of the predicted actions the system actually runs, which is the committed horizon.',
+      'The number of future actions a chunked policy emits in one inference, the chunk length H. The policy predicts that many actions in a single forward pass whether or not it will execute them all: π0 predicts 50 actions, one second at 50 Hz, and Diffusion Policy predicts 16. How many of them the system runs is the committed horizon.',
     citations: ['pi0-2024', 'diffusion-policy-2023'],
   },
   {

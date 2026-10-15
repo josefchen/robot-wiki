@@ -19,6 +19,7 @@ const TOP_CROPPED = new Set([
   'realsense-d435-depth-camera',
   'atlas-electric-hyundai-goyang-2026',
   'shadow-hand-lightbulb-2007',
+  'uskin-tactile-allegro-hand-2021',
 ]);
 
 /**

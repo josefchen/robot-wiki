@@ -3,10 +3,23 @@ import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { PendulumController } from '@/components/interactive/pendulum-controller';
+import { PendulumController, gravityPull } from '@/components/interactive/pendulum-controller';
+import {
+  BALANCED_DEG,
+  DEG_PER_NM,
+  FALLEN_DEG,
+  PIVOT_Z,
+  POLE_Y,
+  ROD,
+  SCALE_NM,
+  gaugeNeedles,
+  poleParts,
+  tipOf,
+  trailFor,
+} from '@/components/iso/figures/pendulum-stand';
 import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
 import { mainViewSymbolHits } from '@/lib/figure-main-view';
-import { DEFAULT_GAINS, PENDULUM_PARAMS } from '@/lib/pendulum';
+import { DEFAULT_GAINS, INITIAL_STATE, PENDULUM_PARAMS, classifyStability, controlTorque } from '@/lib/pendulum';
 
 /** Escape a literal string for embedding in a RegExp. */
 function esc(s: string): string {
@@ -354,14 +367,26 @@ describe('PendulumController', () => {
   it('opens on the motor pushing back against gravity, with no outcome shown yet', () => {
     const { container } = render(<PendulumController defaultKp={9.5} />);
     expect(screen.getByTestId('pendulum-motor')).toBeInTheDocument();
-    expect(screen.getByTestId('pendulum-push-arrow')).toBeInTheDocument();
-    // The small arc names itself, so it never reads as a stray mark.
-    expect(screen.getByTestId('pendulum-push-word')).toHaveTextContent('push');
-    expect(screen.getByTestId('pendulum-gravity-arrow')).toHaveTextContent('gravity');
-    expect(container.querySelector('[data-figure-annotation]')?.textContent).toBe(
-      'Gravity tips it over;the motor at the basepushes back',
+    // The gauge's two needles stand for the push and the pull, and the hint names each, so neither reads as a stray mark.
+    const push = Number(screen.getByTestId('pendulum-push-arrow').getAttribute('data-push-sweep-deg'));
+    const pull = Number(screen.getByTestId('pendulum-gravity-arrow').getAttribute('data-pull-sweep-deg'));
+    const torque = controlTorque(INITIAL_STATE, { ...DEFAULT_GAINS, kp: 9.5 }, PENDULUM_PARAMS);
+    expect(push).toBeCloseTo(Math.abs(torque) * DEG_PER_NM, 1);
+    expect(pull).toBeCloseTo(gravityPull(INITIAL_STATE.theta) * DEG_PER_NM, 1);
+    // Too gentle: at release the push is short of the pull.
+    expect(push).toBeLessThan(pull);
+    expect(container.querySelector('[data-anatomy-hint]')?.textContent).toBe(
+      "Long needle: the motor's push. Short needle: gravity's pull.",
     );
-    expect(container.querySelector('[data-annotation-pointer="arrow"]')).not.toBeNull();
+    expect(container.querySelector('[data-readout]')?.textContent).toBe('Released 12 degrees off upright');
+    // The one lit part is the push needle.
+    const lit = screen.getByTestId('pendulum-scene').querySelectorAll('.iso-solid[data-lit]');
+    expect(lit).toHaveLength(1);
+    expect(screen.getByTestId('pendulum-push-arrow').contains(lit[0])).toBe(true);
+    // No words in the drawing.
+    const svg = screen.getByTestId('pendulum-scene');
+    expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
+    expect(svg.textContent).toBe('');
     expect(screen.getByRole('group', { name: 'How hard the motor pushes back' })).toBeInTheDocument();
     expect(screen.queryByTestId('pendulum-stage-status')).toBeNull();
     expect(screen.queryByTestId('pendulum-trail')).toBeNull();
@@ -369,7 +394,7 @@ describe('PendulumController', () => {
     expect(screen.getByRole('button', { name: 'Strong enough' })).toHaveAttribute('aria-pressed', 'false');
   });
 
-  it('sizes the push-back arc by the motor torque', () => {
+  it('sizes the push-back needle by the motor torque', () => {
     const sweep = (kp: number) => {
       const { unmount } = render(<PendulumController defaultKp={kp} />);
       const value = Number(screen.getByTestId('pendulum-push-arrow').getAttribute('data-push-sweep-deg'));
@@ -454,6 +479,51 @@ describe('PendulumController', () => {
     expect(read()).toMatch(/frozen until Run or Give it a push\./);
     expect(screen.getByRole('button', { name: 'Give it a push' })).toBeInTheDocument();
   });
+
+describe('balance stand model', () => {
+  it('puts the weight one pole length from the pivot at the lean the sim reports, right of upright for a positive lean', () => {
+    for (const deg of [0, 12, -30, 60, 180]) {
+      const theta = (deg * Math.PI) / 180;
+      const [x, y, z] = tipOf(theta);
+      expect(Math.hypot(x, z - PIVOT_Z)).toBeCloseTo(ROD, 9);
+      expect(y).toBe(POLE_Y);
+      expect(Math.sign(Math.round(x * 1e6))).toBe(Math.sign(Math.round(Math.sin(theta) * 1e6)));
+    }
+    const pole = poleParts(0.3);
+    // The one lit part is the motor's push needle on the gauge; nothing on the pole is lit.
+    expect([...pole.rod, ...pole.weight, ...pole.hub].filter((part) => part.kind === 'solid' && part.lit)).toHaveLength(0);
+  });
+
+  it('sweeps both needles from one zero by the same degrees per newton-metre, up to the scale top', () => {
+    const needles = gaugeNeedles(5.24, 2.84);
+    expect(needles.push.sweepDeg).toBeCloseTo(5.24 * DEG_PER_NM, 9);
+    expect(needles.pull.sweepDeg).toBeCloseTo(2.84 * DEG_PER_NM, 9);
+    expect(gaugeNeedles(-40, 99).push.sweepDeg).toBe(SCALE_NM * DEG_PER_NM);
+    expect(gaugeNeedles(-40, 99).pull.sweepDeg).toBe(SCALE_NM * DEG_PER_NM);
+    // Gravity's pull: m g l sin(lean) plus the side load's 0.8.
+    expect(gravityPull(0)).toBeCloseTo(PENDULUM_PARAMS.biasTorque, 9);
+    expect(gravityPull(Math.PI / 2)).toBeCloseTo(PENDULUM_PARAMS.gravity + PENDULUM_PARAMS.biasTorque, 9);
+    // Strong enough beats the pull at release; too gentle does not.
+    const pull = gravityPull(INITIAL_STATE.theta);
+    expect(Math.abs(controlTorque(INITIAL_STATE, DEFAULT_GAINS, PENDULUM_PARAMS))).toBeGreaterThan(pull);
+    expect(Math.abs(controlTorque(INITIAL_STATE, { ...DEFAULT_GAINS, kp: 9.5 }, PENDULUM_PARAMS))).toBeLessThan(pull);
+  });
+
+  it('prints the fallen zone on the plate where the lab calls the pole fallen', () => {
+    const at = (deg: number) => [{ theta: (deg * Math.PI) / 180, thetaDot: 0, integral: 0, t: 0 }];
+    expect(classifyStability(at(FALLEN_DEG + 0.5))).toBe('fallen');
+    expect(classifyStability(at(FALLEN_DEG - 0.5))).not.toBe('fallen');
+    // The upright band is the lean the stage still calls balanced.
+    expect(BALANCED_DEG).toBe(10);
+  });
+
+  it("inks the weight's recent path on the plate, from a dot where it starts", () => {
+    expect(trailFor([0.2])).toBeNull();
+    const ink = trailFor([0.2, 0.1, 0]);
+    expect(ink).not.toBeNull();
+    expect(ink!.d.split('L')).toHaveLength(3);
+  });
+});
 
 describe('PendulumController served HTML', () => {
   const html = `<!doctype html><html><body><main>${renderToStaticMarkup(

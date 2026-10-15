@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "4b7fb59fd71e304584e12b41e660bc8c9239e33d6ed9e73124b8d6d64943bd51",
+  "fingerprint": "3c926920cb947afe4764c0ef424d650007c2684917c8f73f3cedd12c30df0968",
   "desktopViewport": "1440x900",
   "mobileViewport": "375x812",
   "states": [
@@ -125,7 +125,7 @@
     {
       "stateId": "state:results-both-groups",
       "viewport": "1440x900",
-      "statusText": "18 modules, 6 entities match \"action chunking\"",
+      "statusText": "16 modules, 6 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": true,
@@ -148,13 +148,11 @@
         "Robot Wiki",
         "Kinematics",
         "Teleoperation Rigs",
-        "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
         "Knowledge Insulation",
-        "The Robot Learning Stack",
-        "Drones and Aerial Robotics"
+        "The Robot Learning Stack"
       ],
       "structuredRowTypes": [
         "method",
@@ -167,8 +165,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 18,
-          "countText": "18 results",
+          "rowCount": 16,
+          "countText": "16 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -206,7 +204,7 @@
     {
       "stateId": "state:facet-method",
       "viewport": "1440x900",
-      "statusText": "18 modules, 4 entities match \"action chunking\"",
+      "statusText": "16 modules, 4 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -229,13 +227,11 @@
         "Robot Wiki",
         "Kinematics",
         "Teleoperation Rigs",
-        "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
         "Knowledge Insulation",
-        "The Robot Learning Stack",
-        "Drones and Aerial Robotics"
+        "The Robot Learning Stack"
       ],
       "structuredRowTypes": [
         "method",
@@ -246,8 +242,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 18,
-          "countText": "18 results",
+          "rowCount": 16,
+          "countText": "16 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -283,7 +279,7 @@
     {
       "stateId": "state:facet-company",
       "viewport": "1440x900",
-      "statusText": "18 modules, 2 entities match \"action chunking\"",
+      "statusText": "16 modules, 2 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -306,13 +302,11 @@
         "Robot Wiki",
         "Kinematics",
         "Teleoperation Rigs",
-        "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
         "Knowledge Insulation",
-        "The Robot Learning Stack",
-        "Drones and Aerial Robotics"
+        "The Robot Learning Stack"
       ],
       "structuredRowTypes": [
         "company",
@@ -321,8 +315,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 18,
-          "countText": "18 results",
+          "rowCount": 16,
+          "countText": "16 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -356,7 +350,7 @@
     {
       "stateId": "state:facet-dataset",
       "viewport": "1440x900",
-      "statusText": "18 modules match \"action chunking\"",
+      "statusText": "16 modules match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -379,20 +373,18 @@
         "Robot Wiki",
         "Kinematics",
         "Teleoperation Rigs",
-        "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
         "Knowledge Insulation",
-        "The Robot Learning Stack",
-        "Drones and Aerial Robotics"
+        "The Robot Learning Stack"
       ],
       "structuredRowTypes": [],
       "groups": [
         {
           "id": "prose",
-          "rowCount": 18,
-          "countText": "18 results",
+          "rowCount": 16,
+          "countText": "16 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -601,7 +593,7 @@
     {
       "stateId": "state:results-both-groups",
       "viewport": "375x812",
-      "statusText": "18 modules, 6 entities match \"action chunking\"",
+      "statusText": "16 modules, 6 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": true,
@@ -624,13 +616,11 @@
         "Robot Wiki",
         "Kinematics",
         "Teleoperation Rigs",
-        "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
         "Knowledge Insulation",
-        "The Robot Learning Stack",
-        "Drones and Aerial Robotics"
+        "The Robot Learning Stack"
       ],
       "structuredRowTypes": [
         "method",
@@ -643,8 +633,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 18,
-          "countText": "18 results",
+          "rowCount": 16,
+          "countText": "16 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -682,7 +672,7 @@
     {
       "stateId": "state:facet-method",
       "viewport": "375x812",
-      "statusText": "18 modules, 4 entities match \"action chunking\"",
+      "statusText": "16 modules, 4 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -705,13 +695,11 @@
         "Robot Wiki",
         "Kinematics",
         "Teleoperation Rigs",
-        "Autonomous Vehicles",
         "Real-Time Execution",
         "Diffusion Policy",
         "The Pi Line",
         "Knowledge Insulation",
-        "The Robot Learning Stack",
-        "Drones and Aerial Robotics"
+        "The Robot Learning Stack"
       ],
       "structuredRowTypes": [
         "method",
@@ -722,8 +710,8 @@
       "groups": [
         {
           "id": "prose",
-          "rowCount": 18,
-          "countText": "18 results",
+          "rowCount": 16,
+          "countText": "16 results",
           "errorNote": false,
           "emptyNote": false
         },
@@ -744,8 +732,8 @@
           "dataset": false
         },
         "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
-        "selectedColourRgb": "rgb(94, 93, 89)",
-        "selectedRuleRgb": "rgba(28, 28, 26, 0.176)",
+        "selectedColourRgb": "rgb(108, 107, 102)",
+        "selectedRuleRgb": "rgba(0, 0, 0, 0)",
         "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [
