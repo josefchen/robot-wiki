@@ -61,17 +61,17 @@ export type DataHardwareCutReview = {
 
 // BEGIN data-hardware cut pins (written by scripts/record-length-cut-data-hardware-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 422835, sha256: '2756576269a021bc3d02fc128ce7c2b2ab330edc19a86629cfacaf0f64a44f6a' };
+const reviewPin = { bytes: 420782, sha256: '22712eaaff1331765a6e130a8c4922131bef0987c56d73c1312343e1ca0bfd1c' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
-  ['content/data-hardware/data-bottleneck.mdx', [13224, 'a76c010f9d5479a1f7ae275414dc877a650aed1c22c2c05a4c43165fb033a75d']],
+  ['content/data-hardware/data-bottleneck.mdx', [13037, 'd2761b2d266aa54549b32f19e6d0f554f9c210b7376bb53a250320e0c2b6bcd3']],
   ['content/data-hardware/datasets.mdx', [11805, '2dccab39d50cbd766352dcff2cd41647635616cf994d4b04a7ed457dd53e4ab3']],
-  ['content/data-hardware/evaluation-crisis.mdx', [15075, 'd0b1514822df8653cc460e0d7b1d43fbe9b282e509b090fea679a860ac85e80d']],
-  ['content/data-hardware/hardware-taxonomy.mdx', [11024, '5c0ef00ab6a4d0e748ec250119034c69ad9a8062e612d128b69feb2da5e87bbd']],
+  ['content/data-hardware/evaluation-crisis.mdx', [14951, 'f41c1e1afe5129723f2d99591330940e5fed683fa16bb9b7887c9ce82a365e6d']],
+  ['content/data-hardware/hardware-taxonomy.mdx', [10626, '763582d82bb323cee374f60d4ab658c11bd0c198e13caf1c52273cc780c59eb4']],
   ['content/data-hardware/industrial-deployment.mdx', [16650, '2b25e765a66095b18c8827c834c003a285a53585ae45c8afa4fd47d38be56e61']],
-  ['content/data-hardware/robot-learning-stack.mdx', [10598, 'cb96ce65fb706a44069aa0d57fa300c8db5a4cae5d6f333c547c4ca214c1dd4c']],
-  ['content/data-hardware/teleop-rigs.mdx', [8894, 'b7c672023266bb5376d1ca1dd8ca7986158acba48438e32e2a2b92b041d723f4']],
+  ['content/data-hardware/robot-learning-stack.mdx', [10316, '9a9a8b44561dba0fc5df4759328928ad7b8efe3927a1cff6b6867d3e3b2430ee']],
+  ['content/data-hardware/teleop-rigs.mdx', [8784, 'cea19803af57601809d29f0e26061bda4ff1226257286b90abcf8470c889e0bc']],
 ]);
 // END data-hardware cut pins
 

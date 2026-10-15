@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3b80efdb8148975c55808db12407a1fa0c817ce71b50ae4ee2f90ec97f9b0ea9",
+  "fingerprint": "cb491a330b6eb40aa99cdec5a1238f4b26ef69de89659699b113f66ed89de41e",
   "viewports": [
     "375x812",
     "1440x900"
@@ -9459,7 +9459,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 27142,
+      "visibleTextLength": 26744,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",
@@ -22547,7 +22547,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 33917,
+      "visibleTextLength": 33519,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",

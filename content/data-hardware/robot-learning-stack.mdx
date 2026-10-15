@@ -53,9 +53,9 @@ seeAlso:
 
 import { SceneSplit } from '@/components/interactive/scene-split';
 
-A robot-learning system is a pipeline from physical events to decisions and back again, in which the checkpoint is one component among capture, schemas, training, evaluation, serving and recovery. The open-source LeRobot library spans that stack, from motor middleware to dataset storage, streaming and asynchronous inference <Cite id="lerobot-paper-2026" />.
+A robot-learning system is a pipeline from physical events to decisions and back again; the checkpoint is one component among capture, schemas, training, evaluation, serving and recovery. The open-source LeRobot library spans that stack, from motor middleware to dataset storage, streaming and asynchronous inference <Cite id="lerobot-paper-2026" />.
 
-Machine learning systems tend to incur massive ongoing maintenance costs from data dependencies, configuration issues and hidden feedback loops <Cite id="hidden-technical-debt-2015" />. Splitting the stack into seven contracts, each with an artifact and a test, lets a failure be traced to one boundary. Try the check below; video alone only lets you watch an episode again.
+Machine learning systems often incur massive ongoing maintenance costs from data dependencies, configuration issues and hidden feedback loops <Cite id="hidden-technical-debt-2015" />. Splitting the stack into seven contracts, each with an artifact and a test, lets a failure be traced to one boundary. Try the check below; video alone only replays an episode.
 
 <SelfCheck
   prompt="Which dataset record is sufficient to reconstruct one policy transition after the camera mount and training code have changed?"
@@ -82,13 +82,13 @@ Machine learning systems tend to incur massive ongoing maintenance costs from da
 
 ## Contract 1: hardware and calibration
 
-Record firmware, control mode and calibrated transforms for every camera, encoder, gripper and sensor, because a dataset split cannot correct a camera that moved during collection unless the move is recorded. Time offsets between sensors are calibration parameters too, estimable together with the spatial ones <Cite id="kalibr-2013" />, and [calibration](/classical/calibration) covers the residuals.
+Record firmware, control mode and calibrated transforms for every camera, encoder, gripper and sensor: a dataset split cannot correct an unrecorded camera move. Time offsets between sensors are calibration parameters too, estimable together with the spatial ones <Cite id="kalibr-2013" />, and [calibration](/classical/calibration) covers the residuals.
 
 ## Contract 2: episode capture
 
-An episode holds raw observations, robot state, commanded action, measured response, outcome, interventions and timestamps. ROS 2 made MCAP its default bag format in the Iron release, after testing found SQLite3 storage often not performant enough <Cite id="ros2-iron-mcap-2023" />. RLDS is a standard, lossless format for sharing episodes <Cite id="rlds-2021" />. Keep resets and failures: RoboMIND releases 5,000 real-world failure demonstrations with annotated causes <Cite id="robomind-2024" />.
+An episode holds raw observations, robot state, commanded action, measured response, outcome, interventions and timestamps. ROS 2 Iron made MCAP its default bag format after testing found SQLite3 storage often not performant enough <Cite id="ros2-iron-mcap-2023" />. RLDS is a standard, lossless format for sharing episodes <Cite id="rlds-2021" />. Keep resets and failures: RoboMIND releases 5,000 real-world failure demonstrations with annotated causes <Cite id="robomind-2024" />.
 
-DROID standardized [collection hardware](/data-hardware/teleop-rigs) and protocols across institutions to gather 76k in-the-wild trajectories <Cite id="droid-2024" />, while <Term id="open-x-embodiment">Open X-Embodiment</Term> chose breadth, normalizing more than one million trajectories across 22 embodiments <Cite id="open-x-embodiment-2023" />.
+DROID standardized [collection hardware](/data-hardware/teleop-rigs) and protocols across institutions to gather 76k in-the-wild trajectories <Cite id="droid-2024" />; <Term id="open-x-embodiment">Open X-Embodiment</Term> chose breadth, normalizing over one million trajectories across 22 embodiments <Cite id="open-x-embodiment-2023" />.
 
 ## Contract 3: a versioned training schema
 
@@ -102,19 +102,19 @@ Split by the factor a claim generalizes across: random episode splits leak near-
 
 ## Contract 4: reproducible training
 
-A training run saves configuration, code revision, dataset hash, seeds and normalization statistics with its weights. In robomimic's study of offline human demonstrations, recurrent behavior cloning was strong, and the batch RL algorithms it studied struggled to learn from the same data <Cite id="robomimic-2021" />.
+A training run saves configuration, code revision, dataset hash, seeds and normalization statistics with its weights. In robomimic's study of offline human demonstrations, recurrent behavior cloning was strong and the batch RL algorithms struggled to learn from the same data <Cite id="robomimic-2021" />.
 
-OpenVLA is a public seven-billion-parameter VLA adapted on standardized robot trajectories <Cite id="openvla-2024" />, and the OpenVLA-OFT recipe raised its average LIBERO success from 76.5% to 97.1% and its action throughput 26-fold <Cite id="openvla-oft-2025" />. Physical Intelligence reports that RECAP, which learns from deployment experience, more than doubles throughput on some of its hardest tasks <Cite id="pistar06-2025" />.
+OpenVLA is a public seven-billion-parameter VLA adapted on standardized robot trajectories <Cite id="openvla-2024" />, and the OpenVLA-OFT recipe raised its average LIBERO success from 76.5% to 97.1% and its action throughput 26-fold <Cite id="openvla-oft-2025" />. Physical Intelligence reports RECAP, which learns from deployment experience, more than doubles throughput on some of its hardest tasks <Cite id="pistar06-2025" />.
 
 ## Contract 5: simulation and offline evaluation
 
-Isaac Lab supports large batches of robot-learning environments and sensor modalities <Cite id="isaac-lab-2025" />. Simulated scores help only when they rank policies as hardware does, which SIMPLER measures on matched tasks <Cite id="simpler-2024" />. PolaRiS rebuilds real scenes from short video scans and reports a much stronger correlation with real performance than existing simulated benchmarks <Cite id="polaris-2025" />. SimFoundry reports a mean Pearson correlation of 0.911 across 7 tasks <Cite id="simfoundry-2026" />.
+Isaac Lab supports large batches of robot-learning environments and sensor modalities <Cite id="isaac-lab-2025" />. Simulated scores help only when they rank policies as hardware does, which SIMPLER measures on matched tasks <Cite id="simpler-2024" />. PolaRiS rebuilds real scenes from short video scans and reports much stronger correlation with real performance than existing simulated benchmarks <Cite id="polaris-2025" />. SimFoundry reports a mean Pearson correlation of 0.911 across 7 tasks <Cite id="simfoundry-2026" />.
 
 Co-training on simulated and real data raised real-world task performance by 38% on average <Cite id="sim-real-cotraining-2025" />.
 
 ## Contract 6: real-world evaluation
 
-Papers often report success rates with little or no information on the number of runs, initial conditions or success criteria <Cite id="kress-gazit-evaluation-2024" />. LIBERO-Plus showed that controlled perturbations across seven dimensions reveal robustness gaps that impressive benchmark success rates can mask <Cite id="libero-plus-2025" />; the [evaluation crisis](/data-hardware/evaluation-crisis) covers the statistics.
+Papers often report success rates with little or no information on the number of runs, initial conditions or success criteria <Cite id="kress-gazit-evaluation-2024" />. LIBERO-Plus showed controlled perturbations across seven dimensions reveal robustness gaps that impressive benchmark success rates can mask <Cite id="libero-plus-2025" />; the [evaluation crisis](/data-hardware/evaluation-crisis) covers the statistics.
 
 RoboArena ranks generalist policies through double-blind pairwise episodes run at several universities <Cite id="roboarena-2025" />. AutoEval runs evaluations around the clock <Cite id="autoeval-2025" />, and RoboDojo pairs 42 simulated and 18 real-world tasks <Cite id="robodojo-2026" />. A sequential test that can stop early cut evaluation burden by up to 70% against batch methods <Cite id="beyond-binary-success-2026" />.
 
@@ -126,10 +126,10 @@ Real-time chunking generates the next action chunk during execution, avoiding pa
 
 ## The data loop after deployment
 
-In imitation learning, future observations depend on the policy's own actions, which breaks the i.i.d. assumption of statistical learning <Cite id="dagger-2011" />. Failures should therefore return to the dataset tagged with their cause. Sirius re-weights samples by approximated human trust and reports 27% higher real-hardware success than prior methods <Cite id="sirius-2022" />. CUPID shows that less than 33% of curated data can yield state-of-the-art diffusion policies on RoboMimic <Cite id="cupid-2025" />.
+In imitation learning, future observations depend on the policy's own actions, breaking the i.i.d. assumption of statistical learning <Cite id="dagger-2011" />. Failures should return to the dataset tagged with their cause. Sirius re-weights samples by approximated human trust and reports 27% higher real-hardware success than prior methods <Cite id="sirius-2022" />. CUPID shows under 33% of curated data can yield state-of-the-art diffusion policies on RoboMimic <Cite id="cupid-2025" />.
 
 Mulligan, from Shuran Song, Chelsea Finn and colleagues at Stanford (October 2026), starts each round of supervised episodes at observed failures and untried object placements. With value-based action selection it raised final success on three real tasks by 10 to 34 percentage points, scored on 2,550 held-out, blinded episodes <Cite id="mulligan-2026" />.
 
 ## A minimal stack for a small team
 
-Start with append-only episode files, one versioned conversion command, a checkpoint registry, a deterministic offline test batch, an evaluation sheet linked to episode IDs, and a policy process kept apart from command gating. The LeRobot library already integrates much of this, from dataset collection and storage to streaming <Cite id="lerobot-paper-2026" />.
+Start with append-only episode files, one versioned conversion command, a checkpoint registry, a deterministic offline test batch, an evaluation sheet linked to episode IDs, and a policy process kept apart from command gating.

@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3021,
+      "visibleTextLength": 3028,
       "header": {
         "present": true,
         "display": "flex",
@@ -3314,7 +3314,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 20176,
+      "visibleTextLength": 19989,
       "header": {
         "present": true,
         "display": "flex",
@@ -3638,7 +3638,7 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "visibleTextLength": 20811,
+      "visibleTextLength": 20687,
       "header": {
         "present": true,
         "display": "flex",
@@ -3800,7 +3800,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 27142,
+      "visibleTextLength": 26744,
       "header": {
         "present": true,
         "display": "flex",
@@ -4124,7 +4124,7 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "visibleTextLength": 17844,
+      "visibleTextLength": 17585,
       "header": {
         "present": true,
         "display": "flex",
@@ -4286,7 +4286,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 17991,
+      "visibleTextLength": 17865,
       "header": {
         "present": true,
         "display": "flex",

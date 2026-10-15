@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "a2fe7f1faf798cf8686afbd80b5e22aa3caf862630145d25c4d387ed2e6ff39d",
+  "fingerprint": "1eabf04f3a6e0cae2a31cdc0ff15770adbf22a9e3929b6e3876fc2d9ff614ce1",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3021,
+      "visibleTextLength": 3028,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12243,7 +12243,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 20176,
+      "visibleTextLength": 19989,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12295,11 +12295,11 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 8,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "gpt3-2020",
@@ -12479,7 +12479,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Toyota Research Institute's Large Behavior Model program tra"
+          "text": "Toyota Research Institute's Large Behavior Models trained on"
         },
         {
           "familyHead": "geist",
@@ -12497,7 +12497,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Lin et al. collected over 40,000 demonstrations and ran more"
+          "text": "Lin et al. collected over 40,000 demonstrations and ran over"
         },
         {
           "familyHead": "geist",
@@ -12506,7 +12506,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Shi et al., working on the AgiBot World stack, split diversi"
+          "text": "On the AgiBot World stack, Shi et al. split diversity into t"
         },
         {
           "familyHead": "geist",
@@ -12551,7 +12551,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Sunday trains ACT-1 on glove recordings that it converts to "
+          "text": "Sunday trains ACT-1 on glove recordings, converted to robot "
         },
         {
           "familyHead": "geist",
@@ -12587,7 +12587,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Simulation compresses months of interaction into hours, at t"
+          "text": "Simulation compresses months of interaction into hours but b"
         },
         {
           "familyHead": "geist",
@@ -14118,7 +14118,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20811,
+      "visibleTextLength": 20687,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14332,7 +14332,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Toyota Research Institute's Large Behavior Model program ext"
+          "text": "Toyota Research Institute's Large Behavior Models extend the"
         },
         {
           "familyHead": "geist",
@@ -14440,7 +14440,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Real evaluation costs labour. OpenVLA's evaluation needed mo"
+          "text": "Real evaluation costs labour. OpenVLA's evaluation needed ov"
         },
         {
           "familyHead": "geist",
@@ -14957,7 +14957,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27142,
+      "visibleTextLength": 26744,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15097,7 +15097,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Filters compose, so preorder humanoids in the $1k-$10k band "
+          "text": "Try Preorder, Humanoids and $1k-$10k together and one row re"
         },
         {
           "familyHead": "geist",
@@ -15187,7 +15187,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Standalone hands exist too. The open LEAP Hand has 16 DoF an"
+          "text": "The open LEAP Hand has 16 DoF and costs about $2,000 in cata"
         },
         {
           "familyHead": "geist",
@@ -15241,7 +15241,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Every price carries an as-of date, and yuan figures keep the"
+          "text": "On July 28, 2026 the FCC added foreign-produced mobile robot"
         }
       ],
       "sectionLinks": [
@@ -16781,7 +16781,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17844,
+      "visibleTextLength": 17585,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16910,7 +16910,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Machine learning systems tend to incur massive ongoing maint"
+          "text": "Machine learning systems often incur massive ongoing mainten"
         },
         {
           "familyHead": "geist",
@@ -17331,7 +17331,7 @@
         },
         {
           "kind": "citation",
-          "count": 76,
+          "count": 74,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -17341,7 +17341,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 38,
+              "count": 37,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -17351,7 +17351,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 38,
+              "count": 37,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -17658,7 +17658,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17991,
+      "visibleTextLength": 17865,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17784,7 +17784,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "VR system totals are unpublished, but Meta lists the Quest 3"
+          "text": "VR system totals are unpublished; Meta lists the Quest 3S fr"
         },
         {
           "familyHead": "geist",
@@ -17883,7 +17883,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Human and robot arms share no kinematics, so every action pa"
+          "text": "Human and robot arms share no kinematics; every action passe"
         },
         {
           "familyHead": "geist",
@@ -18088,7 +18088,7 @@
         },
         {
           "kind": "citation",
-          "count": 70,
+          "count": 72,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -18098,7 +18098,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 35,
+              "count": 36,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -18108,7 +18108,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 35,
+              "count": 36,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -54409,7 +54409,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3021,
+      "visibleTextLength": 3028,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66366,7 +66366,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 26819,
+      "visibleTextLength": 26632,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66418,11 +66418,11 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 8,
         "citationCount": 36,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "36 sources",
         "bibliographyIds": [
           "gpt3-2020",
@@ -66602,7 +66602,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Toyota Research Institute's Large Behavior Model program tra"
+          "text": "Toyota Research Institute's Large Behavior Models trained on"
         },
         {
           "familyHead": "geist",
@@ -66620,7 +66620,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Lin et al. collected over 40,000 demonstrations and ran more"
+          "text": "Lin et al. collected over 40,000 demonstrations and ran over"
         },
         {
           "familyHead": "geist",
@@ -66629,7 +66629,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Shi et al., working on the AgiBot World stack, split diversi"
+          "text": "On the AgiBot World stack, Shi et al. split diversity into t"
         },
         {
           "familyHead": "geist",
@@ -66674,7 +66674,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Sunday trains ACT-1 on glove recordings that it converts to "
+          "text": "Sunday trains ACT-1 on glove recordings, converted to robot "
         },
         {
           "familyHead": "geist",
@@ -66710,7 +66710,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Simulation compresses months of interaction into hours, at t"
+          "text": "Simulation compresses months of interaction into hours but b"
         },
         {
           "familyHead": "geist",
@@ -68219,7 +68219,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28060,
+      "visibleTextLength": 27936,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68433,7 +68433,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Toyota Research Institute's Large Behavior Model program ext"
+          "text": "Toyota Research Institute's Large Behavior Models extend the"
         },
         {
           "familyHead": "geist",
@@ -68541,7 +68541,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Real evaluation costs labour. OpenVLA's evaluation needed mo"
+          "text": "Real evaluation costs labour. OpenVLA's evaluation needed ov"
         },
         {
           "familyHead": "geist",
@@ -69047,7 +69047,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33917,
+      "visibleTextLength": 33519,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69187,7 +69187,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Filters compose, so preorder humanoids in the $1k-$10k band "
+          "text": "Try Preorder, Humanoids and $1k-$10k together and one row re"
         },
         {
           "familyHead": "geist",
@@ -69277,7 +69277,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Standalone hands exist too. The open LEAP Hand has 16 DoF an"
+          "text": "The open LEAP Hand has 16 DoF and costs about $2,000 in cata"
         },
         {
           "familyHead": "geist",
@@ -69331,7 +69331,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Every price carries an as-of date, and yuan figures keep the"
+          "text": "On July 28, 2026 the FCC added foreign-produced mobile robot"
         }
       ],
       "sectionLinks": [
@@ -70849,7 +70849,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24097,
+      "visibleTextLength": 23689,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -70978,7 +70978,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Machine learning systems tend to incur massive ongoing maint"
+          "text": "Machine learning systems often incur massive ongoing mainten"
         },
         {
           "familyHead": "geist",
@@ -71399,7 +71399,7 @@
         },
         {
           "kind": "citation",
-          "count": 76,
+          "count": 74,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -71409,7 +71409,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 38,
+              "count": 37,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -71419,7 +71419,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 38,
+              "count": 37,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -71715,7 +71715,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23250,
+      "visibleTextLength": 23265,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71841,7 +71841,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "VR system totals are unpublished, but Meta lists the Quest 3"
+          "text": "VR system totals are unpublished; Meta lists the Quest 3S fr"
         },
         {
           "familyHead": "geist",
@@ -71940,7 +71940,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Human and robot arms share no kinematics, so every action pa"
+          "text": "Human and robot arms share no kinematics; every action passe"
         },
         {
           "familyHead": "geist",
@@ -72145,7 +72145,7 @@
         },
         {
           "kind": "citation",
-          "count": 70,
+          "count": 72,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -72155,7 +72155,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 35,
+              "count": 36,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -72165,7 +72165,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 35,
+              "count": 36,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
