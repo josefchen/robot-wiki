@@ -41,9 +41,9 @@ test.describe('data-hardware industrial-deployment module', () => {
       .locator('[data-cite-id="ifr-world-robotics-2025"] a[target="_blank"]')
       .first();
     await expect(chip).toBeVisible();
-    // The vendor-reported humanoid baseline in the same opening flow.
+    // The vendor-reported humanoid baseline.
     await expect(
-      main.getByText(/65,000 hours/).filter({ visible: true }).first(),
+      main.getByText(/65,000 operational hours/).filter({ visible: true }).first(),
     ).toBeVisible();
     await expect(
       main.getByText(/humanoid/i).filter({ visible: true }).first(),
@@ -116,7 +116,7 @@ test.describe('data-hardware industrial-deployment module', () => {
     // Component words asserted against the paragraph's text content
     // rather than getByText regex nodes (which fragment inside the
     // citation-chip spans).
-    const sectionText = await main.locator('p', { hasText: "EVST's July 15, 2026" }).first().innerText();
+    const sectionText = await main.locator('p', { hasText: 'Its July 15, 2026 commercial palletising-cell guide' }).first().innerText();
     for (const comp of [
       'end-of-arm tool',
       'light curtains',
@@ -394,7 +394,7 @@ test('industrial closure paired cases and complete reader surfaces', async ({ pa
       await expect(reference.locator('a[href^="https://www.lean.org/"]').first()).toHaveAttribute('href', canonical.url);
       checkedText.push(canonical.title, 'n.d.; accessed 2026-09-22');
     }
-    for (const value of ['4,663,698', '542,076', '54%']) {
+    for (const value of ['4,663,698', '542,076', '54 percent']) {
       await expect(page.locator('#main-content')).toContainText(value); checkedText.push(value);
     }
     const sliders = mount.getByRole('slider'); expect(await sliders.count()).toBe(7);

@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openArticlesPanel } from './helpers/articles-panel';
 import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/data-hardware/data-bottleneck/';
@@ -30,7 +31,7 @@ test.describe('data-hardware data-bottleneck module', () => {
     const main = page.locator('#main-content');
     // Strand 1: robot-hours versus LLM tokens.
     for (const name of [
-      /GPT-3 consumed 300 billion tokens/,
+      /GPT-3 trained on 300 billion tokens/,
       /reports 76,000 successful trajectories totaling 350 interaction hours/,
       /two data universes, nine orders of magnitude apart/i,
     ]) {
@@ -42,7 +43,7 @@ test.describe('data-hardware data-bottleneck module', () => {
     for (const name of [
       /diversity beats density/i,
       /32 environments with 50 demonstrations each/,
-      /GO-1-Pro, a 15% performance gain/,
+      /GO-1-Pro a 15% gain/,
     ]) {
       await expect(
         main.getByText(name).filter({ visible: true }).first(),
@@ -53,14 +54,15 @@ test.describe('data-hardware data-bottleneck module', () => {
     // the sentence across element boundaries, so assert text runs that
     // stay inside a single text node (library/user-testing.md quirk 8).
     for (const name of [
-      /829 hours of dexterous human manipulation/,
-      /20,854 hours of action-labeled egocentric human video/,
+      /829 hours of dexterous manipulation/,
+      /20,854 hours of action-labelled egocentric human video/,
       /by 54% over a no-pretraining baseline/,
     ]) {
       await expect(
         main.getByText(name).filter({ visible: true }).first(),
       ).toBeVisible();
     }
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'The Data Bottleneck' }),

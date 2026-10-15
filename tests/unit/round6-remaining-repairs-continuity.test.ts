@@ -8,6 +8,7 @@ import {
   currentDataHardwareMotionArtifact, loadDataHardwareMotionReview,
 } from '../../lib/audit-data-hardware-motion-continuity.ts';
 import { createLocalArtifactReader } from '../../lib/audit-local-basis.ts';
+import { loadDataHardwareCutReview } from '../../lib/audit-length-cut-data-hardware-continuity.ts';
 import { round6ProseRestoresCheckerPredecessor } from '../../lib/audit-round6-prose-restores-continuity.ts';
 import {
   round6RemainingRepairPredecessor, round6RemainingRepairsCheckerPredecessor,
@@ -32,6 +33,11 @@ const read = (path: string) => readFileSync(resolve(root, path));
 const digest = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const assertions = (text: string) => text.split('\n').filter((line) => line.includes('expect(')).length;
 const testHashLine = (sha256: string) => `    currentTestHash: '${sha256}',\n`;
+// A line whose pinned wording the 2026-10-13 data-hardware cut moved: the cut
+// review records the move for this spec, and the live line carries the rest verbatim.
+const carriesThroughDataHardwareCut = (path: string, line: string, live: string) =>
+  loadDataHardwareCutReview(root).sources.flatMap(({ pins }) => pins).some(({ test, phrase, disposition, to }) =>
+    test === path && disposition === 'moved' && !!to && line.includes(phrase) && live.includes(line.split(phrase).join(to)));
 
 type Artifact = { path: string; bytes: number; sha256: string };
 type Source = { name: string; before: Artifact; after: Artifact };
@@ -212,7 +218,9 @@ it('keeps the recorded industrial and economics checks and matches the live arti
   ]) {
     expect(refreshBefore.split(line)).toHaveLength(2);
     expect(refresh.split(line)).toHaveLength(2);
-    expect(carriesThroughFigureMigration(refreshPath, line, read(refreshPath).toString())).toBe(true);
+    const live = read(refreshPath).toString();
+    expect(carriesThroughFigureMigration(refreshPath, line, live) ||
+      carriesThroughDataHardwareCut(refreshPath, line, live)).toBe(true);
   }
   for (const line of [
     "    await expect(slider.locator('xpath=following-sibling::p')).toContainText('not a sourced arm-price quote');",

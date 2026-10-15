@@ -105,7 +105,9 @@ Toyota Research Institute's Large Behavior Models trained on about 1,700 hours o
 
 Lin et al. collected over 40,000 demonstrations and ran over 15,000 real-world rollouts on <Term id="imitation-learning">imitation learning</Term> <Cite id="lin-data-scaling-laws-2024" />. Success with new environments and objects follows a rough power law in the number of training environments and objects; demonstrations per environment saturate past about 50. Their recipe, 32 environments with 50 demonstrations each, reached about 90% success with unseen objects; four operators collected it in one afternoon.
 
-On the AgiBot World stack, Shi et al. split diversity into task, embodiment and expert <Cite id="diversity-scaling-2025" />. Task diversity mattered more than demonstrations per task. Models pretrained on high-quality single-embodiment data transferred to other robots and scaled better in fine-tuning than [multi-embodiment](/manipulation/cross-embodiment) models. Expert diversity hurt: different operator styles make velocities multimodal. Debiasing them gave GO-1-Pro a 15% gain, which the authors equate to 2.5 times more pretraining data.
+On the AgiBot World stack, Shi et al. split diversity into task, embodiment and expert <Cite id="diversity-scaling-2025" />. Task diversity mattered more than demonstrations per task. Models pretrained on high-quality single-embodiment data transferred to other robots and scaled better in fine-tuning than [multi-embodiment](/manipulation/cross-embodiment) models.
+
+Expert diversity hurt: different operator styles make velocities multimodal. Debiasing them gave GO-1-Pro a 15% gain, which the authors equate to 2.5 times more pretraining data <Cite id="diversity-scaling-2025" />.
 
 <ScalingLawsTable className="my-6" />
 

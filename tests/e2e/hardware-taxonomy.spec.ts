@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 const ROUTE = '/data-hardware/hardware-taxonomy/';
 
@@ -18,6 +19,7 @@ test.describe('data-hardware hardware-taxonomy module', () => {
         main.getByText(label).filter({ visible: true }).first(),
       ).toBeVisible();
     }
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Hardware Taxonomy' }),

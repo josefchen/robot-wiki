@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "8f3d9f6db691adf253a4143366be63d9f8de1dbc7cc40bd9ed596dd1f6287053",
+  "fingerprint": "3bdc61e498bd072252799bf2347895ae23db1995f0f480fa748b101c8b2959fc",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3003,
+      "visibleTextLength": 2999,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -2605,7 +2605,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26632,
+      "visibleTextLength": 26767,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "1440x900"
     },
@@ -2723,7 +2723,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27840,
+      "visibleTextLength": 28552,
       "route": "/data-hardware/datasets/",
       "viewport": "1440x900"
     },
@@ -2841,7 +2841,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27936,
+      "visibleTextLength": 27917,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3028,
+      "visibleTextLength": 3024,
       "route": "/",
       "viewport": "375x812"
     },
@@ -11501,7 +11501,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19989,
+      "visibleTextLength": 19999,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "375x812"
     },
@@ -11619,7 +11619,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20488,
+      "visibleTextLength": 20993,
       "route": "/data-hardware/datasets/",
       "viewport": "375x812"
     },
@@ -11737,7 +11737,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20687,
+      "visibleTextLength": 20668,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "375x812"
     },

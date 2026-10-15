@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openArticlesPanel } from './helpers/articles-panel';
 import { openAdjustMore } from './helpers/figure-fold';
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 
@@ -89,6 +90,7 @@ test.describe('data-hardware evaluation-crisis module', () => {
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
 
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'The Evaluation Crisis' }),

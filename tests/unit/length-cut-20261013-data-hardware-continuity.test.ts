@@ -23,6 +23,17 @@ const paths = slugs.map((slug) => `content/data-hardware/${slug}.mdx`);
 const body = (bytes: Buffer) => bytes.toString().replace(/^---\n[\s\S]*?\n---\n/, '');
 const words = (bytes: Buffer) => body(bytes).split(/\s+/).filter(Boolean).length;
 const sources = (bytes: Buffer) => new Set([...body(bytes).matchAll(/<Cite id="([^"]+)"/g)].map((m) => m[1]));
+/** An article's pins, as [test under tests/, how many, disposition], in review order. */
+const pinsOf = (slug: string, counts: ReadonlyArray<readonly [string, number, string?]>) =>
+  counts.flatMap(([test, n, disposition = 'moved']) =>
+    Array.from({ length: n }, () => [`content/data-hardware/${slug}.mdx`, `tests/${test}`, disposition]));
+// A reader spec selects rendered text: MDX's escaped dollar renders bare, and a
+// spec literal escapes its own quote character or is a regular expression.
+const selects = (spec: string, text: string) => {
+  const rendered = text.replaceAll('\\$', '$');
+  return [rendered, rendered.replaceAll("'", "\\'"), rendered.replaceAll('"', '\\"')].some((form) =>
+    [`'${form}'`, `"${form}"`, `/${form}/`, `/^${form}/`].some((literal) => spec.includes(literal)));
+};
 
 const scratchRoots: string[] = [];
 afterEach(() => {
@@ -80,7 +91,32 @@ describe('data-hardware domain pass and length cut 2026-10-13 article successors
 
   it('lists the pins the pass moved or retired, and the tests follow them', () => {
     const pinned = review.sources.flatMap(({ after, pins }) => pins.map((pin) => ({ ...pin, path: after.path })));
-    expect(pinned.length).toBeGreaterThan(0);
+    const amazon = 'e2e/amazon-industrial-originals.spec.ts';
+    const symbotic = 'e2e/symbotic-a3-originals.spec.ts';
+    const ifr = 'e2e/ifr-industrial-originals.spec.ts';
+    expect(pinned.map(({ path, test, disposition }) => [path, test, disposition])).toEqual([
+      ...pinsOf('data-bottleneck', [['unit/robomind-hours-evidence.test.ts', 1, 'retired'], ['e2e/data-bottleneck.spec.ts', 4]]),
+      ...pinsOf('datasets', [['unit/robomind-disclosure-evidence.test.ts', 7, 'retired'],
+        ['unit/robomind-hours-evidence.test.ts', 4, 'retired']]),
+      ...pinsOf('evaluation-crisis', [['unit/evaluation-benchmark-originals.test.ts', 2, 'retired'],
+        ['unit/evaluation-statistics-originals.test.ts', 3, 'retired'], ['unit/final-seven-closure-evidence.test.ts', 1, 'retired'],
+        ['unit/motion-data-hardware.test.ts', 1, 'retired']]),
+      ...pinsOf('hardware-taxonomy', [['unit/hardware-taxonomy-source.test.ts', 4, 'retired'],
+        ['unit/vla-performance-source-context.test.ts', 7, 'retired']]),
+      ...pinsOf('industrial-deployment', [['unit/ifr-industrial-originals.test.ts', 17, 'retired'],
+        ['unit/industrial-perception-truth-repair.test.ts', 3, 'retired'], ['unit/motion-data-hardware.test.ts', 1, 'retired'],
+        ['unit/retained-cross-article.test.ts', 1, 'retired'], ['unit/round6-remaining-repairs-continuity.test.ts', 1, 'retired'],
+        ['e2e/industrial-deployment.spec.ts', 3], ['e2e/industrial-citation-refresh.spec.ts', 1],
+        ['e2e/industrial-release-evidence.spec.ts', 1], ['e2e/residual-release-industrial.spec.ts', 1],
+        ['e2e/economics-local-evidence.spec.ts', 1], ['e2e/economics-release-evidence.spec.ts', 1],
+        ['e2e/industrial-cost-reader.spec.ts', 1],
+        [amazon, 4], [amazon, 2, 'retired'], [amazon, 1], [amazon, 2, 'retired'], [amazon, 1], [amazon, 1, 'retired'],
+        [symbotic, 2], [symbotic, 4, 'retired'], [symbotic, 1], [symbotic, 1, 'retired'],
+        [ifr, 1], [ifr, 8, 'retired'], [ifr, 1]]),
+      ...pinsOf('teleop-rigs', [['unit/did-you-know.test.ts', 1], ['unit/pricing-provenance.test.ts', 1, 'retired'],
+        ['unit/pricing-provenance.test.ts', 1], ['unit/pricing-provenance.test.ts', 3, 'retired'],
+        ['unit/teleop-rigs-originals.test.ts', 1, 'retired'], ['e2e/teleop-rigs.spec.ts', 1]]),
+    ]);
     for (const { path, test, phrase, disposition, to, reason } of pinned) {
       const live = read(path).toString();
       const prior = preDataHardwareCut(path).toString();
@@ -88,7 +124,17 @@ describe('data-hardware domain pass and length cut 2026-10-13 article successors
       expect(reason?.length ?? 0).toBeGreaterThan(40);
       expect(prior).toContain(phrase);
       expect(live).not.toContain(phrase);
-      if (disposition === 'retired') {
+      if (test.startsWith('tests/e2e/')) {
+        // A reader spec checks the rendered page: it no longer selects the cut
+        // wording, and a moved pin selects the live wording in its place.
+        expect(selects(spec, phrase), `${test} still selects: ${phrase}`).toBe(false);
+        if (disposition === 'moved') {
+          expect(live).toContain(to);
+          expect(selects(spec, to!), `${test} selects: ${to}`).toBe(true);
+        } else {
+          expect(disposition).toBe('retired');
+        }
+      } else if (disposition === 'retired') {
         // The test keeps its assertion and reads the pre-pass article.
         expect(spec).toContain('preDataHardwareCut(');
       } else {
@@ -98,7 +144,7 @@ describe('data-hardware domain pass and length cut 2026-10-13 article successors
     }
     // The home-page fact follows the corrected ACT sentence, and the pricing
     // test holds the live article to the paper's build cost.
-    const moved = pinned.filter(({ disposition }) => disposition === 'moved');
+    const moved = pinned.filter(({ disposition, test }) => disposition === 'moved' && test.startsWith('tests/unit/'));
     expect(moved.map(({ test }) => test)).toEqual(['tests/unit/did-you-know.test.ts', 'tests/unit/pricing-provenance.test.ts']);
     expect(DID_YOU_KNOW.find(({ id }) => id === 'act-ten-minutes')?.passage).toBe(moved[0].to);
     expect(read('tests/unit/pricing-provenance.test.ts').toString()).toContain('preDataHardwareCut(');

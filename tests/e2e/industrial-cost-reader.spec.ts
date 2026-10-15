@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { CITATIONS } from '../../data/citations';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeNoteInMargin, citeParts, clickCiteMark, closeCiteNote } from './helpers/citation-note';
 
 const sha256 = (value: string | Buffer) => createHash('sha256').update(value).digest('hex');
 const route = '/data-hardware/industrial-deployment/';
@@ -41,24 +42,30 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await cdp.send('CSS.enable');
     const documentNode = await cdp.send('DOM.getDocument');
     const fonts = [];
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+    // DM Sans, Geist and Geist Mono replace Tektur, Newsreader and the IBM Plex
+    // faces. The citation number is set in its paragraph's Geist, so the mono
+    // face is read off the calculator's payback readout. Families match
+    // exactly, so Geist Mono cannot pass for Geist.
     for (const [selector, family] of [
-      ['h1', 'Tektur'],
-      ['div.prose[data-pagefind-body] > p', 'Newsreader'],
-      ['nav[aria-label="Breadcrumb"] a', 'IBM Plex Sans'],
-      ['[data-cite-id="evst-cell-cost-2026"] a', 'IBM Plex Mono'],
-    ]) {
+      ['h1', /^DM Sans\b/],
+      ['div.prose[data-pagefind-body] > p', /^Geist$/],
+      ['nav[aria-label="Breadcrumb"] a', /^Geist$/],
+      ['[data-cite-id="evst-cell-cost-2026"] a', /^Geist$/],
+      ['[data-testid="payback-months"]', /^Geist Mono$/],
+    ] as const) {
       const { nodeId } = await cdp.send('DOM.querySelector', { nodeId: documentNode.root.nodeId, selector });
       expect(nodeId, selector).toBeGreaterThan(0);
       const used = (await cdp.send('CSS.getPlatformFontsForNode', { nodeId })).fonts.filter(f => f.glyphCount > 0);
-      expect(used.some(f => f.familyName.includes(family)), `${selector}: ${family}`).toBe(true);
+      expect(used.some(f => family.test(f.familyName)), `${selector}: ${family.source}`).toBe(true);
       expect(used.every(f => f.isCustomFont), `${selector}: no platform fallback`).toBe(true);
-      fonts.push({ selector, family, used });
+      fonts.push({ selector, family: family.source, used });
     }
     await cdp.detach();
     // The glossary now also names this dated source. Select the article's
     // full lead, not a substring repeated inside a dormant Term tooltip.
     const paragraph = prose.locator('p').filter({
-      hasText: "EVST's July 15, 2026 commercial palletising-cell guide",
+      hasText: 'Its July 15, 2026 commercial palletising-cell guide',
     });
     await expect(paragraph).toHaveCount(1);
     await expect(paragraph).toContainText('commercial palletising-cell guide', { useInnerText: true });
@@ -80,43 +87,64 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         await capture(`${name}-${i}`, { offset, text: await element.innerText() });
       }
     }
-    for (const [id, parent] of [
-      ['evst-cell-cost-2026', paragraph],
-      ['osha-otm-robots', responsibility],
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+    // the chip's hover and focus tooltip became the citation's numbered
+    // sidenote. From 1200 px the note stands in the margin at rest and the
+    // number jumps to the References entry; narrower, the number opens the
+    // note inline, by pointer (the hover state) or by Enter (the focus
+    // state). Title, byline, bounds, source link and focus ring are read off
+    // the note and the number, the keyboard stop that replaced the chip link.
+    const wide = viewport.width >= 1200;
+    // The 2026-10-13 length cut joined the arm-share sentence and the guide's
+    // list into one paragraph, so it carries two EVST citations; the guide's
+    // own, the last, is the one read here.
+    for (const [id, parent, count] of [
+      ['evst-cell-cost-2026', paragraph, 2],
+      ['osha-otm-robots', responsibility, 1],
     ] as const) {
       const citation = CITATIONS.find(c => c.id === id)!;
       const byline = citation.authors.join(', ');
       const cites = parent.locator(`[data-cite-id="${id}"]`);
-      await expect(cites).toHaveCount(1);
-      const cite = cites.first();
-      const link = cite.locator('a').first();
+      await expect(cites).toHaveCount(count);
+      const cite = cites.last();
+      const { mark, note, source: link } = citeParts(cite);
       await expect(link).toHaveAttribute('href', citation.url);
       await expect(link).toHaveAttribute('target', '_blank');
       await expect(link).toHaveAttribute('rel', /noopener/);
       await expect(link).toHaveAttribute('rel', /noreferrer/);
+      expect(await citeNoteInMargin(cite)).toBe(wide);
+      // Reaching the number by keyboard is what shows the keyboard-only ring.
+      const tabToMark = async () => {
+        await mark.focus(); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Tab');
+        await expect(mark).toBeFocused();
+      };
       for (const placement of ['reading', 'lower-edge'] as const) {
         await cite.scrollIntoViewIfNeeded();
         await cite.evaluate((e, p) => window.scrollBy(0,
           e.getBoundingClientRect().top - (p === 'reading' ? innerHeight / 2 : innerHeight - 120)), placement);
-        const tip = cite.getByRole('tooltip');
         await page.mouse.move(0, 0);
-        await link.evaluate(e => e.blur());
+        await mark.evaluate(e => e.blur());
         for (const mode of ['hover', 'focus'] as const) {
-          if (mode === 'hover') await link.hover();
-          else {
+          if (mode === 'hover') {
+            // Aimed at the number's own box, as clickCiteMark aims its click.
+            const target = (await mark.boundingBox())!;
+            await mark.hover({ position: { x: target.width / 2, y: target.height / 2 } });
+            if (!wide) await clickCiteMark(mark);
+          } else {
             await page.mouse.move(0, 0);
-            await link.focus();
-            await expect(link).toBeFocused();
+            await tabToMark();
+            if (!wide) await page.keyboard.press('Enter');
           }
-          await expect(tip).toBeVisible();
-          await expect(tip).toContainText(citation.title);
-          await expect(tip).toContainText(byline);
-          const bounds = (await tip.boundingBox())!;
-          const focusStyle = await link.evaluate(e => {
+          await expect(note).toBeVisible();
+          await expect(note).toContainText(citation.title);
+          await expect(note).toContainText(byline);
+          const bounds = (await note.boundingBox())!;
+          const focusStyle = await mark.evaluate(e => {
             const s = getComputedStyle(e);
-            return { outlineStyle: s.outlineStyle, outlineWidth: s.outlineWidth, outlineColor: s.outlineColor };
+            return { visible: e.matches(':focus-visible'), outlineStyle: s.outlineStyle,
+              outlineWidth: s.outlineWidth, outlineOffset: s.outlineOffset, outlineColor: s.outlineColor };
           });
-          const state = { id, placement, mode, bounds, byline, url: citation.url, focusStyle };
+          const state = { id, placement, mode, bounds, byline, url: citation.url, focusStyle, inMargin: wide };
           placements.push(state);
           await capture(`${id}-${placement}-${mode}`, state);
           expect(bounds.x).toBeGreaterThanOrEqual(0);
@@ -124,12 +152,21 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
           expect(bounds.y).toBeGreaterThanOrEqual(0);
           expect(bounds.y + bounds.height).toBeLessThanOrEqual(viewport.height);
           if (mode === 'focus') {
+            // The locked ring: a 1 px ink outline offset 2 px, keyboard only,
+            // in place of the 2 px brand-v2 ring.
+            expect(focusStyle.visible).toBe(true);
             expect(focusStyle.outlineStyle).not.toBe('none');
-            expect(Number.parseFloat(focusStyle.outlineWidth)).toBeGreaterThanOrEqual(2);
+            expect(Number.parseFloat(focusStyle.outlineWidth)).toBe(1);
+            expect(Number.parseFloat(focusStyle.outlineOffset)).toBe(2);
+            expect(focusStyle.outlineColor).toBe('rgb(28, 28, 26)');
           }
+          await closeCiteNote(cite);
         }
       }
-      await page.keyboard.press('Tab');
+      // Below 1200 px the number opens the note instead of jumping, so the
+      // jump to the References entry is taken at the desktop width there.
+      if (!wide) await page.setViewportSize({ width: 1280, height: viewport.height });
+      await tabToMark();
       const jump = cite.locator(`a[href="#ref-${id}"]`);
       await expect(jump).toBeFocused();
       await page.keyboard.press('Enter');
@@ -141,6 +178,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       await jump.evaluate(e => e.blur());
       await reference.scrollIntoViewIfNeeded();
       await capture(`${id}-reference`, { text: await reference.innerText(), byline, url: citation.url });
+      if (!wide) await page.setViewportSize(viewport);
     }
     const economics = prose.locator('[data-brand-module-signature="instrument-frame"]:has([data-testid="payback-months"])');
     await openAdjustMore(economics);
@@ -156,14 +194,18 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(slider).toHaveValue(initial);
     await capture('slider-reset', { initial, restored: await slider.inputValue() });
     if (viewport.width === 375) {
-      const open = page.getByRole('button', { name: /open navigation/i });
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the phone menu button became the top bar's "Articles"
+      // button, which opens the site navigation panel; the drawer's focus
+      // cycle, inert page and current-route mark are checked on that panel.
+      const open = page.getByRole('button', { name: 'Articles' });
       await open.focus(); await page.keyboard.press('Enter');
       const close = page.getByRole('button', { name: /close navigation/i });
       await expect(close).toBeFocused();
       expect(await page.locator('[inert]').count()).toBeGreaterThan(0);
       await page.keyboard.press('Shift+Tab');
       const last = await page.evaluate(() => document.activeElement?.outerHTML);
-      const drawer = page.getByRole('dialog');
+      const drawer = page.getByRole('dialog', { name: 'Site navigation' });
       await expect(drawer.locator(':focus')).toHaveCount(1);
       await page.keyboard.press('Tab'); await expect(close).toBeFocused();
       await page.keyboard.press('Tab');
@@ -189,7 +231,9 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     for (const mode of ['hover', 'focus'] as const) {
       if (mode === 'hover') await termLink.hover();
       else {
+        // Reaching the link by keyboard is what shows the keyboard-only ring.
         await page.mouse.move(0, 0); await termLink.focus();
+        await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Tab');
         await expect(termLink).toBeFocused();
       }
       const tip = term.getByRole('tooltip');
@@ -198,7 +242,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       const bounds = (await tip.boundingBox())!;
       const focusStyle = await termLink.evaluate(e => {
         const s = getComputedStyle(e);
-        return { outlineStyle: s.outlineStyle, outlineWidth: s.outlineWidth, outlineColor: s.outlineColor };
+        return { visible: e.matches(':focus-visible'), outlineStyle: s.outlineStyle,
+          outlineWidth: s.outlineWidth, outlineOffset: s.outlineOffset, outlineColor: s.outlineColor };
       });
       await capture(`systems-integrator-${mode}`, { mode, text, bounds, focusStyle });
       expect.soft(text, `revealed ${mode} definition must not contradict the corrected responsibility paragraph`)
@@ -221,8 +266,14 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       expect(bounds.y).toBeGreaterThanOrEqual(0);
       expect(bounds.y + bounds.height).toBeLessThanOrEqual(viewport.height);
       if (mode === 'focus') {
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the 1 px ink ring offset 2 px, keyboard only, in place
+        // of the 2 px brand-v2 ring.
+        expect(focusStyle.visible).toBe(true);
         expect(focusStyle.outlineStyle).not.toBe('none');
-        expect(Number.parseFloat(focusStyle.outlineWidth)).toBeGreaterThanOrEqual(2);
+        expect(Number.parseFloat(focusStyle.outlineWidth)).toBe(1);
+        expect(Number.parseFloat(focusStyle.outlineOffset)).toBe(2);
+        expect(focusStyle.outlineColor).toBe('rgb(28, 28, 26)');
       }
     }
     await capture('reader-result', { assertionErrors: testInfo.errors.map(e => e.message), errors });

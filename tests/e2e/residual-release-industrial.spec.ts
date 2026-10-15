@@ -94,7 +94,7 @@ test('industrial closure paired cases and complete reader surfaces', async ({ pa
       await expect(reference.locator('a[href^="https://www.lean.org/"]').first()).toHaveAttribute('href', canonical.url);
       checkedText.push(canonical.title, 'n.d.; accessed 2026-09-22');
     }
-    for (const value of ['4,663,698', '542,076', '54%']) {
+    for (const value of ['4,663,698', '542,076', '54 percent']) {
       await expect(page.locator('#main-content')).toContainText(value); checkedText.push(value);
     }
     const sliders = mount.getByRole('slider'); expect(await sliders.count()).toBe(7);

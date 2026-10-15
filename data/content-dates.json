@@ -54,15 +54,15 @@
     },
     "data-hardware/data-bottleneck": {
       "published": "2026-08-08T23:06:19+01:00",
-      "modified": "2026-10-15T04:42:54+02:00"
+      "modified": "2026-10-15T10:14:26+02:00"
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T16:59:07+01:00",
-      "modified": "2026-10-14T23:27:16+02:00"
+      "modified": "2026-10-15T10:14:26+02:00"
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T20:01:27+01:00",
-      "modified": "2026-10-15T04:42:54+02:00"
+      "modified": "2026-10-15T10:14:26+02:00"
     },
     "data-hardware/hardware-taxonomy": {
       "published": "2026-08-09T18:27:43+01:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-10-15T04:42:54+02:00"
+      "modified": "2026-10-15T10:14:26+02:00"
     },
     "/manipulation/": {
       "modified": "2026-10-11T23:46:59+02:00"
@@ -264,7 +264,7 @@
       "modified": "2026-10-13T09:06:06+02:00"
     },
     "/glossary/": {
-      "modified": "2026-10-14T23:27:16+02:00"
+      "modified": "2026-10-15T10:14:26+02:00"
     },
     "/credits/": {
       "modified": "2026-10-14T00:20:13+02:00"
