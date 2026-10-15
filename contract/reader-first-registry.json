@@ -46,6 +46,8 @@
       "audit": "A4",
       "sources": [
         "components/motion/scenes/diffusion-denoising.tsx",
+        "components/iso/figures/denoising-gauge.ts",
+        "lib/denoising-gauge.ts",
         "lib/denoising.ts"
       ],
       "takeaway": "Starting from random guesses and cleaning them up, the robot ends with two separate good moves instead of one blurred average."
@@ -70,6 +72,7 @@
       "audit": "A6",
       "sources": [
         "components/interactive/flow-matching-trajectory.tsx",
+        "components/iso/figures/field-table.ts",
         "lib/flow-matching.ts"
       ],
       "takeaway": "Several small refining steps land on the right move where one big jump misses, and each step costs time."
@@ -145,6 +148,7 @@
       "audit": "A12",
       "sources": [
         "components/interactive/mot-insulation.tsx",
+        "components/iso/figures/tray-columns.ts",
         "lib/knowledge-insulation.ts"
       ],
       "takeaway": "Walling off the language part of the model while the robot learns to move protects what it knows about language and trains faster."
@@ -500,6 +504,7 @@
       "audit": "A42",
       "sources": [
         "components/interactive/impedance-contact-lab.tsx",
+        "components/iso/figures/press-test-stand.ts",
         "lib/force-limits.ts",
         "lib/impedance.ts"
       ],
@@ -513,6 +518,7 @@
       "audit": "A43",
       "sources": [
         "components/interactive/perception-error-budget.tsx",
+        "components/iso/figures/tilt-miss-bench.ts",
         "lib/perception-error.ts"
       ],
       "takeaway": "A camera tilted a fraction of a degree off makes the robot miss, and the miss grows the farther away the object is."
@@ -765,7 +771,8 @@
       "figure": "hand-eye-poses",
       "audit": null,
       "sources": [
-        "components/interactive/hand-eye-poses.tsx"
+        "components/interactive/hand-eye-poses.tsx",
+        "components/iso/figures/hand-eye-bench.ts"
       ],
       "takeaway": "Hand-eye calibration needs at least three poses, and after about a dozen more poses barely help."
     },

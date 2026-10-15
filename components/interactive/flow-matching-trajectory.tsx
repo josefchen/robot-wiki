@@ -1,31 +1,64 @@
 'use client';
 
-import { useId, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ControlField,
   ControlLabel,
+  INSTRUMENT_SECONDARY_CONTROL_CLASS,
   INSTRUMENT_SLIDER_CLASS,
   INSTRUMENT_TOGGLE_CLASS,
   InstrumentFigure,
   InstrumentReset,
-  PlotStage,
   PresetGroup,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageNumber, StageReadout, StageStatus } from '@/components/motion/figure-frame';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, IsoFigure, Line, Solid } from '@/components/iso/react/draw';
+import { asksForStillness, useInView } from '@/components/iso/react/live';
+import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
+import { PartView } from '@/components/iso/part-view';
 import {
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_TYPE,
-  CHART_VIEW_WIDTH,
-  DirectLabel,
-  StageAnnotation,
-  linearScale,
-  roleColour,
-} from '@/components/motion/chart';
+  BEADS,
+  BENCH_PARTS,
+  CARRIAGE_PARTS,
+  DRAW_EVERY,
+  FAR_TRUCK_PARTS,
+  FIELD_TAU,
+  FOCUS,
+  FOCUS_SAMPLE,
+  FRONT_PARTS,
+  HEIGHT,
+  JUMP_END,
+  NEAR_TRUCK_PARTS,
+  NEEDLES,
+  PER_ROD,
+  POCKETS,
+  RODS,
+  ROD_PATHS,
+  U,
+  WIDTH,
+  beadAt,
+  bladeAt,
+  bridgeAt,
+  carriageAt,
+  engravedLine,
+  guidesAt,
+  hopsOf,
+  inPocket,
+  inkPath,
+  knobPointer,
+  landedMark,
+  leverAt,
+  missMark,
+  onPlate,
+  plateLine,
+  readingsOf,
+  startRing,
+  stylusPoint,
+  type Part,
+} from '@/components/iso/figures/field-table';
 import {
-  FLOW_MODES,
   MAX_STEPS,
   MIN_STEPS,
   PI06_STEPS,
@@ -33,20 +66,28 @@ import {
   endpointDispersion,
   generateFlowField,
   integrateFlow,
-  vectorFieldAt,
+  type Vec2,
 } from '@/lib/flow-matching';
 
 /**
  * FlowMatchingTrajectory: why the π0 action expert refines a move in a few
- * small steps instead of one jump. Each drawn path starts at a random guess
- * and is carried toward one of two good moves; the reader picks how many
- * steps the trip is split into. One step cuts the corner and falls short;
- * five or ten land on the good moves. The first frame shows the ten-step
- * paths with the one-step jumps beside them as grey ghosts, so the contrast
- * is visible before any input.
+ * small steps instead of one jump.
+ *
+ * The stage is a field table (components/iso/figures/field-table.ts): a
+ * plate is the action space, two pockets on it are the two good moves, and
+ * a groove is the slightly bent path the learned field carries one random
+ * start along. A pen plotter's stylus starts on that start's pad and takes
+ * as many straight hops as the reader picks; before each hop a vane beside
+ * it turns to the field where it stands and stays standing. Its ink (the
+ * lit part) is the Euler path: one hop follows its one vane straight past
+ * the bend and lands outside the pocket, five or ten follow the turning
+ * vanes into it. The one-hop path stays engraved as a ghost beside
+ * them, the other drawn samples' paths are engraved faintly, and a bead
+ * counter slides one bead per hop, one pass of the model each. The still
+ * pose is the end of the run; "Run the stylus" plays the hops one by one.
  *
  * Main view: the step presets the shipped models use. "Adjust more" holds
- * the free slider, the 50-step setting, the learned-field arrows and Reset.
+ * the free slider, the 50-step setting, the learned-field needles and Reset.
  * "How this was made" holds the flow-matching and Euler-integration method,
  * the endpoint error and the sources. The model is illustrative: 48 seeded
  * samples in two of a chunk's dimensions, with a small deterministic bend
@@ -58,42 +99,11 @@ type FlowMatchingTrajectoryProps = {
   className?: string;
 };
 
-const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 222;
-/** Six by 3.6 action units at 50 px each, so both axes share one scale. */
-const PLOT = { left: 20, right: 320, top: 36, bottom: 216 };
-
-/** Action-space view window. */
-const X_RANGE = { min: -3, max: 3 };
-const Y_RANGE = { min: -1.8, max: 1.8 };
-const UNIT_PX = (PLOT.right - PLOT.left) / (X_RANGE.max - X_RANGE.min);
-
-const FIELD_COLS = 13;
-const FIELD_ROWS = 8;
-/** Tau at which the learned vector field is displayed (mid-transport). */
-const FIELD_TAU = 0.5;
-/** Every fourth seeded sample is drawn: 12 of the 48, so each path reads. */
-const DRAW_EVERY = 4;
-/**
- * The one drawn path at full emphasis, with its one-jump ghost: seeded
- * sample 0, whose one-jump miss (1.08) is about twice the 48-sample mean.
- */
-const FOCUS = 0;
-
 type StepPreset = 'one' | 'five' | 'ten';
 const STEP_PRESETS: ReadonlyArray<{ id: StepPreset; steps: number; label: string }> = [
   { id: 'one', steps: 1, label: '1 step' },
   { id: 'five', steps: PI06_STEPS, label: `${PI06_STEPS} steps (π0.6, π0.7)` },
   { id: 'ten', steps: PI0_STEPS, label: `${PI0_STEPS} steps (π0)` },
-];
-
-/**
- * Where each good move's name sits. The offsets keep the label clear of every
- * drawn path, ghost and endpoint at any step count from 1 to 50.
- */
-const MODE_LABELS = [
-  { name: 'a good move', dx: -12, dy: 4, anchor: 'end' as const },
-  { name: 'another good move', dx: 0, dy: -22, anchor: 'middle' as const },
 ];
 
 function regimeFor(steps: number): string {
@@ -115,12 +125,39 @@ function stepWords(steps: number): string {
   return `${steps} ${steps === 1 ? 'step' : 'steps'}`;
 }
 
-/** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
-const f = (v: number) => Number(v.toFixed(2));
-const scaleX = linearScale([X_RANGE.min, X_RANGE.max], [PLOT.left, PLOT.right]);
-const scaleY = linearScale([Y_RANGE.min, Y_RANGE.max], [PLOT.bottom, PLOT.top]);
-const x = (u: number) => f(scaleX(u));
-const y = (v: number) => f(scaleY(v));
+/** A geometry module's part list, with its slots filled by the live component. */
+function partsOf(parts: readonly Part[], slot: (name: string) => ReactNode): ReactNode[] {
+  return parts.map((part, index) => (part.kind === 'slot' ? slot(part.name) : <PartView key={index} part={part} />));
+}
+
+/** The ink's hop marks paint in the lit accent, as the ink does. */
+const HOP_MARKS: CSSProperties = { ['--anatomy-dot' as string]: 'var(--anatomy-lit)' };
+const INK_STYLE: CSSProperties = { strokeWidth: 1.15 };
+
+/** How long the finished run holds before the figure settles back to rest. */
+const HOLD_S = 0.6;
+
+/** A critically damped settle toward `target`, `seconds` its time constant; true while still moving. */
+type Settle = { x: number; v: number };
+function settle(state: Settle, target: number, dt: number, seconds: number): boolean {
+  const w = 1 / seconds;
+  const slice = dt / 4;
+  for (let step = 0; step < 4; step++) {
+    state.v += (w * w * (target - state.x) - 2 * w * state.v) * slice;
+    state.x += state.v * slice;
+  }
+  if (Math.abs(target - state.x) < 1e-3 && Math.abs(state.v) < 0.02) {
+    state.x = target;
+    state.v = 0;
+    return false;
+  }
+  return true;
+}
+
+/** The angle nearest `from` that points the same way as `to`. */
+const nearestTurn = (from: number, to: number) => from + Math.atan2(Math.sin(to - from), Math.cos(to - from));
+
+type Run = { hop: number; phase: 'read' | 'move' | 'hold'; angle: Settle; along: Settle; press: Settle; held: number };
 
 export function FlowMatchingTrajectory({
   defaultSteps = PI0_STEPS,
@@ -136,30 +173,296 @@ export function FlowMatchingTrajectory({
     () => field.samples.filter((_, i) => i % DRAW_EVERY === 0),
     [field],
   );
-  const arrows = useMemo(
-    () => vectorFieldAt(field, FIELD_TAU, FIELD_COLS, FIELD_ROWS),
-    [field],
-  );
   const paths = useMemo(() => drawn.map((s) => integrateFlow(s, steps)), [drawn, steps]);
   const dispersion = endpointDispersion(field, steps);
   const oneJump = endpointDispersion(field, 1);
   const preset = STEP_PRESETS.find((p) => p.steps === steps)?.id ?? null;
 
-  const maxMagnitude = Math.max(...arrows.map((a) => Math.hypot(a.vx, a.vy)), 1e-6);
-  const action = roleColour('action');
-  const reference = roleColour('reference');
-  const ghost = CHART_STRUCTURE.labelSecondary;
+  // The stylus's hops are the Euler polyline of the followed sample, the same function the paths above come from.
+  const hops = useMemo(() => hopsOf(steps), [steps]);
+  const hopCount = hops.length - 1;
+  const landing = hops[hopCount]!;
+  const landed = inPocket(landing);
+  const readings = useMemo(() => readingsOf(steps), [steps]);
+  const [running, setRunning] = useState(false);
+  // While the stylus runs React draws the start; the loop writes every frame after it.
+  const shownHops = running ? 0 : hopCount;
+  const shownPoint = running ? hops[0]! : landing;
 
-  const focusSample = field.samples[FOCUS];
-  const focusPath = integrateFlow(focusSample, steps);
-  const focusEnd = focusPath[focusPath.length - 1];
-  const jumpEnd = integrateFlow(focusSample, 1)[1];
-  const target: [number, number] = [x(focusEnd.x), y(focusEnd.y)];
+  const stageRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(stageRef);
+  const bridgeRef = useRef<SVGGElement>(null);
+  const carriageRef = useRef<SVGGElement>(null);
+  const farGuideRefs = useRef<Array<SVGGElement | null>>([]);
+  const nearGuideRefs = useRef<Array<SVGGElement | null>>([]);
+  const readingRefs = useRef<Array<SVGGElement | null>>([]);
+  const bladeRefs = useRef<Array<SVGGElement | null>>([]);
+  const inkRef = useRef<SVGPathElement>(null);
+  const marksRef = useRef<SVGGElement>(null);
+  const outcomeRef = useRef<SVGGElement>(null);
+  const beadRefs = useRef<Array<SVGGElement | null>>([]);
+  const leverBarRef = useRef<SVGGElement>(null);
+  const leverBallRef = useRef<SVGGElement>(null);
+  const phaseRef = useRef<HTMLSpanElement>(null);
+  const runRef = useRef<Run | null>(null);
+
+  useEffect(() => {
+    if (!running || !inView || typeof requestAnimationFrame !== 'function') return;
+    const run = runRef.current;
+    if (!run) return;
+    // Fewer, longer hops play at the same pace; many hops play a little quicker, so fifty stay watchable.
+    const pace = Math.min(1, Math.sqrt(PI0_STEPS / hopCount));
+    const place = (point: Vec2) => {
+      bridgeRef.current?.setAttribute('transform', bridgeAt(point));
+      carriageRef.current?.setAttribute('transform', carriageAt(point));
+      const guides = guidesAt(point.y * U);
+      guides.far.forEach((paths, index) => writeSolid(farGuideRefs.current[index] ?? null, paths));
+      guides.near.forEach((paths, index) => writeSolid(nearGuideRefs.current[index] ?? null, paths));
+    };
+    const draw = () => {
+      const progress = run.hop + (run.phase === 'move' ? run.along.x : 0);
+      place(stylusPoint(hops, progress));
+      const reading = readings[run.hop];
+      if (reading && run.phase !== 'hold') {
+        readingRefs.current[run.hop]?.setAttribute('display', 'inline');
+        writeSolid(bladeRefs.current[run.hop] ?? null, bladeAt(reading, run.angle.x));
+      }
+      inkRef.current?.setAttribute('d', inkPath(hops, progress));
+      marksRef.current?.querySelectorAll<SVGCircleElement>('[data-hop]').forEach((mark) => {
+        mark.setAttribute('display', Number(mark.dataset.hop) <= run.hop ? 'inline' : 'none');
+      });
+      const bead = beadRefs.current[run.hop];
+      if (bead && run.phase === 'move') bead.setAttribute('transform', beadAt(run.along.x));
+      const lever = leverAt(run.press.x);
+      writeSolid(leverBarRef.current, lever.bar);
+      writeSolid(leverBallRef.current, lever.ball);
+      outcomeRef.current?.setAttribute('display', run.phase === 'hold' ? 'inline' : 'none');
+      if (phaseRef.current) {
+        phaseRef.current.textContent =
+          run.phase === 'hold' ? `landed after ${stepWords(hopCount)} · ` : `hop ${run.hop + 1} of ${hopCount} · `;
+      }
+    };
+    let frame = 0;
+    let last = performance.now();
+    const loop = (now: number) => {
+      const dt = Math.max(0, Math.min(now - last, 64)) / 1000;
+      last = now;
+      if (run.phase === 'read') {
+        // Read the field where the stylus stands: the needle turns, the lever counts the pass.
+        const turning = settle(run.angle, nearestTurn(run.angle.x, readings[run.hop]!.angle), dt, 0.04 * pace);
+        settle(run.press, 1, dt, 0.03 * pace);
+        if (!turning) run.phase = 'move';
+      } else if (run.phase === 'move') {
+        // Go straight along the reading for one step's share of the trip; the pass's bead slides over.
+        const moving = settle(run.along, 1, dt, 0.05 * pace);
+        settle(run.press, 0, dt, 0.04 * pace);
+        if (!moving) {
+          beadRefs.current[run.hop]?.setAttribute('data-spent', '');
+          run.hop += 1;
+          run.along = { x: 0, v: 0 };
+          // The next vane rises turned the way the last one read, then swings to the field where it stands.
+          if (run.hop >= hopCount) run.phase = 'hold';
+          else run.phase = 'read';
+        }
+      } else {
+        settle(run.press, 0, dt, 0.04);
+        run.held += dt;
+      }
+      draw();
+      if (run.phase === 'hold' && run.held >= HOLD_S) {
+        setRunning(false);
+        return;
+      }
+      frame = requestAnimationFrame(loop);
+    };
+    draw();
+    frame = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(frame);
+  }, [running, inView, hops, hopCount, readings]);
+
+  // At rest the readout carries no phase; a run that stops early leaves none behind.
+  useEffect(() => {
+    if (!running && phaseRef.current) phaseRef.current.textContent = '';
+  }, [running]);
+
+  // The stylus runs from the reader's control; under reduced motion it stays at the end of the run.
+  const toggleRun = () => {
+    if (running) {
+      setRunning(false);
+      return;
+    }
+    if (asksForStillness()) return;
+    // The first vane rises turned a little off its reading, so the reader sees it find the field.
+    runRef.current = { hop: 0, phase: 'read', angle: { x: readings[0]!.angle + 0.9, v: 0 }, along: { x: 0, v: 0 }, press: { x: 0, v: 0 }, held: 0 };
+    setRunning(true);
+  };
+
+  function chooseSteps(next: number) {
+    setRunning(false);
+    setSteps(next);
+  }
 
   function reset() {
-    setSteps(defaultSteps);
+    chooseSteps(defaultSteps);
     setShowField(false);
   }
+
+  const restLever = leverAt(0);
+  const restGuides = guidesAt(shownPoint.y * U);
+
+  const slotOf = (name: string): ReactNode => {
+    if (name === 'pockets') {
+      // The two good moves: turned pockets in the plate, both in the plain structure ink.
+      return (
+        <g key="pockets" data-part="fm-pockets">
+          {POCKETS.map((pocket, mode) => (
+            <g key={mode} data-flow-mode={mode}>
+              <path className="iso-shade" data-shade="1" d={pocket.wall} />
+              <Line d={pocket.rim} tone="mid" />
+              <Line d={pocket.floor} tone="faint" />
+            </g>
+          ))}
+        </g>
+      );
+    }
+    if (name === 'engraved') {
+      return (
+        <g key="engraved" data-part="fm-engraved">
+          {paths.map((points, i) => {
+            if (i === FOCUS / DRAW_EVERY) return null;
+            return (
+              <g key={i} data-flow-sample={i * DRAW_EVERY}>
+                <Line d={engravedLine(points)} tone="lo" />
+                <Line d={startRing(drawn[i]!.noise)} tone="lo" />
+                <Dots points={[onPlate(points[points.length - 1]!)]} size={0.8} tone="mid" />
+              </g>
+            );
+          })}
+        </g>
+      );
+    }
+    if (name === 'ghost') {
+      // The followed sample's one big jump, engraved beside the ink, with a miss mark where it lands.
+      return steps === 1 ? null : (
+        <g key="ghost" data-flow-ghost="">
+          <Line d={plateLine([FOCUS_SAMPLE.noise, JUMP_END])} tone="mid" />
+          <Line d={missMark(JUMP_END)} tone="red" />
+        </g>
+      );
+    }
+    if (name === 'ink') {
+      return (
+        <g key="ink" data-flow-focus="" data-hops={hopCount} data-testid="fm-ink">
+          <path ref={inkRef} className="iso-line" data-tone="lit" style={INK_STYLE} d={inkPath(hops, shownHops)} />
+          <g ref={marksRef} className="iso-dots" data-tone="hi" style={HOP_MARKS}>
+            {hops.map((point, hop) => {
+              const [cx, cy] = onPlate(point);
+              return (
+                <circle
+                  key={hop}
+                  data-hop={hop}
+                  cx={Math.round(cx * 10) / 10}
+                  cy={Math.round(cy * 10) / 10}
+                  r={hop === 0 || hop === hopCount ? 1.1 : 0.85}
+                  display={hop <= shownHops ? undefined : 'none'}
+                />
+              );
+            })}
+          </g>
+        </g>
+      );
+    }
+    if (name === 'outcome') {
+      // A green ring where the stylus lands in its pocket, a red miss mark where it lands outside.
+      return (
+        <g key="outcome" ref={outcomeRef} data-flow-outcome={landed ? 'in-pocket' : 'missed'} display={running ? 'none' : undefined}>
+          {landed ? <Line d={landedMark(landing)} tone="green" /> : <Line d={missMark(landing)} tone="red" />}
+        </g>
+      );
+    }
+    if (name === 'readings') {
+      // The vanes the stylus read, one beside the start of every hop, each turned to the field it found there.
+      return (
+        <g key="readings" data-part="fm-readings">
+          {readings.map((reading, hop) => (
+            <g
+              key={hop}
+              ref={(el) => void (readingRefs.current[hop] = el)}
+              data-flow-reading={hop}
+              data-angle={reading.angle.toFixed(4)}
+              display={running ? 'none' : undefined}
+            >
+              <Solid paths={reading.post} tone="mid" />
+              <LiveSolid ref={(el) => void (bladeRefs.current[hop] = el)} paths={bladeAt(reading, reading.angle)} tone="hi" />
+              <Dots points={[reading.pivot]} size={0.45} tone="mid" />
+            </g>
+          ))}
+        </g>
+      );
+    }
+    if (name === 'needles') {
+      return showField ? (
+        <g key="needles" data-part="fm-field">
+          {NEEDLES.map((needle, i) => (
+            <g key={i} data-flow-field="">
+              <Solid paths={needle.pin} tone="lo" />
+              <Solid paths={needle.needle} tone="mid" />
+              <Dots points={[needle.pivot]} size={0.4} tone="mid" />
+            </g>
+          ))}
+        </g>
+      ) : null;
+    }
+    if (name === 'gantry') {
+      return (
+        <g key="gantry" ref={bridgeRef} transform={bridgeAt(shownPoint)} data-testid="fm-gantry">
+          {partsOf(FAR_TRUCK_PARTS, slotOf)}
+          {restGuides.far.map((paths, index) => (
+            <LiveSolid key={`far-${index}`} ref={(el) => void (farGuideRefs.current[index] = el)} paths={paths} tone="mid" />
+          ))}
+          <g ref={carriageRef} transform={carriageAt(shownPoint)} data-testid="fm-stylus">
+            {partsOf(CARRIAGE_PARTS, slotOf)}
+          </g>
+          {restGuides.near.map((paths, index) => (
+            <LiveSolid key={`near-${index}`} ref={(el) => void (nearGuideRefs.current[index] = el)} paths={paths} tone="mid" />
+          ))}
+          {partsOf(NEAR_TRUCK_PARTS, slotOf)}
+        </g>
+      );
+    }
+    if (name === 'beads') {
+      return (
+        <g key="beads" data-part="fm-counter" data-spent={shownHops}>
+          {Array.from({ length: RODS }, (_, rod) => (
+            <g key={rod}>
+              <Solid paths={ROD_PATHS[rod]!} tone="mid" crease="none" />
+              {BEADS.slice(rod * PER_ROD, (rod + 1) * PER_ROD).map((bead) => (
+                <g
+                  key={bead.index}
+                  ref={(el) => void (beadRefs.current[bead.index] = el)}
+                  data-bead={bead.index}
+                  data-spent={bead.index < shownHops ? '' : undefined}
+                  transform={bead.index < shownHops ? beadAt(1) : undefined}
+                >
+                  <Solid paths={bead.paths} tone="hi" crease="none" />
+                </g>
+              ))}
+            </g>
+          ))}
+        </g>
+      );
+    }
+    if (name === 'lever') {
+      return (
+        <g key="lever">
+          <LiveSolid ref={leverBarRef} paths={restLever.bar} tone="mid" />
+          <LiveSolid ref={leverBallRef} paths={restLever.ball} tone="hi" />
+        </g>
+      );
+    }
+    if (name === 'pointer') return <Line key="pointer" d={knobPointer(steps)} tone="hi" free="end" />;
+    return null;
+  };
 
   return (
     <InstrumentFigure
@@ -168,13 +471,24 @@ export function FlowMatchingTrajectory({
       kicker="Flow matching: refining steps"
       heading="Five small steps land where one big jump misses"
       controls={
-        <PresetGroup<StepPreset>
-          label="Refining steps per move"
-          presets={STEP_PRESETS.map(({ id, label }) => ({ id, label }))}
-          value={preset}
-          onChange={(id) => setSteps(STEP_PRESETS.find((p) => p.id === id)?.steps ?? defaultSteps)}
-          testId="fm-preset"
-        />
+        <>
+          <PresetGroup<StepPreset>
+            label="Refining steps per move"
+            presets={STEP_PRESETS.map(({ id, label }) => ({ id, label }))}
+            value={preset}
+            onChange={(id) => chooseSteps(STEP_PRESETS.find((p) => p.id === id)?.steps ?? defaultSteps)}
+            testId="fm-preset"
+          />
+          <button
+            type="button"
+            data-brand-control-id="control:secondary-action"
+            onClick={toggleRun}
+            data-testid="fm-run"
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+          >
+            {running ? 'Stop the stylus' : 'Run the stylus'}
+          </button>
+        </>
       }
       adjust={
         <>
@@ -190,7 +504,7 @@ export function FlowMatchingTrajectory({
               max={MAX_STEPS}
               step={1}
               value={steps}
-              onChange={(e) => setSteps(Number(e.target.value))}
+              onChange={(e) => chooseSteps(Number(e.target.value))}
               aria-label={`Integration steps, currently ${steps} of ${MAX_STEPS}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
@@ -200,7 +514,7 @@ export function FlowMatchingTrajectory({
             type="button"
             data-brand-control-id="control:selection"
             aria-pressed={steps === MAX_STEPS}
-            onClick={() => setSteps(MAX_STEPS)}
+            onClick={() => chooseSteps(MAX_STEPS)}
             className={INSTRUMENT_TOGGLE_CLASS}
           >
             {MAX_STEPS} steps
@@ -218,136 +532,41 @@ export function FlowMatchingTrajectory({
         </>
       }
       stage={
-        <FigureStage
-          footer={
+        <AnatomyStage
+          viewWidth={WIDTH}
+          hint={
+            running ? (
+              'Each hop reads the field, then goes straight'
+            ) : (
+              <>
+                <span data-figure-annotation="">{landingNote(steps).join(' ')}</span>. Run the stylus.
+              </>
+            )
+          }
+          readout={
             <>
-              <StageReadout>
-                Average distance from the good move with{' '}
-                <span data-testid="fm-step-readout" style={{ color: action }}>
-                  {stepWords(steps)}
-                </span>
-                :{' '}
-                <StageNumber data-testid="fm-dispersion-readout" style={{ color: action }}>
-                  {dispersion.toFixed(2)}
-                </StageNumber>
-                {steps === 1 ? null : <>; with one jump: {oneJump.toFixed(2)}</>}.
-              </StageReadout>
-              <StageStatus>Illustrative model, not measured.</StageStatus>
+              <span ref={phaseRef} data-fm-phase="" />
+              <span data-testid="fm-step-readout">{stepWords(steps)}</span> · on average lands{' '}
+              <span data-testid="fm-dispersion-readout">{dispersion.toFixed(2)}</span> from a good move
+              {steps === 1 ? null : <> · one big jump misses by {oneJump.toFixed(2)}</>}
             </>
           }
+          status="Illustrative model, not measured."
         >
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`2D action-space view: ${drawn.length} of ${field.samples.length} samples start as random noise and are carried toward two good moves along near-straight paths. With ${stepWords(steps)} the mean endpoint error is ${dispersion.toFixed(2)}${steps === 1 ? '' : `; one big jump would leave it at ${oneJump.toFixed(2)}`}. The learned vector field at mid-transport is ${showField ? 'shown' : 'hidden'}.`}
-            aria-describedby={descriptionId}
-          >
-            <StageAnnotation
-              x={8}
-              y={16}
-              lines={landingNote(steps)}
-              target={target}
-              from={[f(target[0] - 30), 42]}
-            />
-
-            {showField
-              ? arrows.map((a, i) => {
-                  const magnitude = Math.hypot(a.vx, a.vy);
-                  const length = (2 + (magnitude / maxMagnitude) * 7) / UNIT_PX;
-                  const ux = a.vx / (magnitude || 1);
-                  const uy = a.vy / (magnitude || 1);
-                  const tipX = x(a.x + ux * length);
-                  const tipY = y(a.y + uy * length);
-                  return (
-                    <g key={i} data-flow-field="" opacity={f(0.3 + 0.4 * (magnitude / maxMagnitude))}>
-                      <line x1={x(a.x)} y1={y(a.y)} x2={tipX} y2={tipY} stroke={CHART_STRUCTURE.axes} strokeWidth={CHART_STROKE.structure} />
-                      <circle cx={tipX} cy={tipY} r={1.2} fill={CHART_STRUCTURE.axes} />
-                    </g>
-                  );
-                })
-              : null}
-
-            {/* The other drawn paths, at lower emphasis than the focus path. */}
-            {paths.map((points, i) => {
-              if (i === FOCUS / DRAW_EVERY) return null;
-              const sample = drawn[i];
-              const end = points[points.length - 1];
-              return (
-                <g key={i} opacity={0.32}>
-                  <polyline
-                    points={points.map((p) => `${x(p.x)},${y(p.y)}`).join(' ')}
-                    fill="none"
-                    stroke={action}
-                    strokeWidth={CHART_STROKE.structure}
-                    strokeLinejoin="round"
-                  />
-                  <circle cx={x(sample.noise.x)} cy={y(sample.noise.y)} r={1.8} fill="none" stroke={action} strokeWidth={1} />
-                  <circle cx={x(end.x)} cy={y(end.y)} r={2.2} fill={action} />
-                </g>
-              );
-            })}
-
-            {/* The focus path's one big jump: a grey dashed ghost. */}
-            {steps === 1 ? null : (
-              <g data-flow-ghost="">
-                <line
-                  x1={x(focusSample.noise.x)}
-                  y1={y(focusSample.noise.y)}
-                  x2={x(jumpEnd.x)}
-                  y2={y(jumpEnd.y)}
-                  stroke={ghost}
-                  strokeWidth={CHART_STROKE.reference}
-                  strokeDasharray="4 3"
-                />
-                <circle cx={x(jumpEnd.x)} cy={y(jumpEnd.y)} r={3} fill="none" stroke={ghost} strokeWidth={1.5} />
-                <DirectLabel x={f(x(jumpEnd.x) + 10)} y={f(y(jumpEnd.y) + 5)}>
-                  one big jump misses
-                </DirectLabel>
+          <div ref={stageRef}>
+            <IsoFigure
+              width={WIDTH}
+              height={HEIGHT}
+              label={`2D action-space view: ${drawn.length} of ${field.samples.length} samples start as random noise and are carried toward two good moves along near-straight paths. With ${stepWords(steps)} the mean endpoint error is ${dispersion.toFixed(2)}${steps === 1 ? '' : `; one big jump would leave it at ${oneJump.toFixed(2)}`}. The learned vector field at mid-transport is ${showField ? 'shown' : 'hidden'}.`}
+              describedBy={descriptionId}
+            >
+              <g key={running ? 'running' : 'rest'}>
+                <g key="bench">{partsOf(BENCH_PARTS, slotOf)}</g>
+                <g key="front">{partsOf(FRONT_PARTS, slotOf)}</g>
               </g>
-            )}
-
-            {/* The focus path at full emphasis; its endpoint is the last
-                circle drawn, so it stays on top of every path. */}
-            <g data-flow-focus="">
-              <polyline
-                points={focusPath.map((p) => `${x(p.x)},${y(p.y)}`).join(' ')}
-                fill="none"
-                stroke={action}
-                strokeWidth={CHART_STROKE.trace}
-                strokeLinejoin="round"
-              />
-              <circle cx={x(focusSample.noise.x)} cy={y(focusSample.noise.y)} r={3} fill="none" stroke={action} strokeWidth={1.5} />
-              <DirectLabel x={x(focusSample.noise.x)} y={f(y(focusSample.noise.y) - 10)} role="action" anchor="middle">
-                random start
-              </DirectLabel>
-              <circle cx={target[0]} cy={target[1]} r={3.5} fill={action} />
-            </g>
-
-            {/* The two good moves, drawn over the paths so they stay visible */}
-            {FLOW_MODES.map((m, i) => {
-              const label = MODE_LABELS[i];
-              return (
-                <g key={i}>
-                  <path
-                    d={`M${x(m.x) - 7},${y(m.y)} L${x(m.x) + 7},${y(m.y)} M${x(m.x)},${y(m.y) - 7} L${x(m.x)},${y(m.y) + 7}`}
-                    fill="none"
-                    stroke={reference}
-                    strokeWidth={CHART_STROKE.reference}
-                    strokeDasharray="3 2"
-                  />
-                  <text
-                    x={x(m.x) + label.dx}
-                    y={y(m.y) + label.dy}
-                    textAnchor={label.anchor}
-                    fontSize={CHART_TYPE.labelPx}
-                    fill={reference}
-                  >
-                    {label.name}
-                  </text>
-                </g>
-              );
-            })}
-          </PlotStage>
-        </FigureStage>
+            </IsoFigure>
+          </div>
+        </AnatomyStage>
       }
       caption="Getting a precise move takes several small refining steps, each costing time; π0 used ten, π0.6 and π0.7 use five."
       method={
@@ -356,10 +575,13 @@ export function FlowMatchingTrajectory({
             Flow matching turns a random guess into a move by following a learned field for a set
             number of Euler integration steps. Each step samples the field once and goes straight,
             so with one or two steps the path cuts the corner and lands short of the good move;
-            with five to ten it lands on it. The grey arrows in &ldquo;Adjust more&rdquo; show the
-            learned field at τ = {FIELD_TAU}, halfway through the trip. Every step costs one forward
-            pass through the action expert, which is why more steps are not free at a 50 Hz control
-            rate.
+            with five to ten it lands on it. On the field table a vane beside the stylus turns to
+            the field before every hop and the hop runs straight along it; the groove is the path
+            the field itself would trace, and each pocket is two spreads of the good moves wide.
+            The vanes in &ldquo;Adjust more&rdquo; show the learned field at τ = {FIELD_TAU},
+            halfway through the trip. Every
+            step costs one forward pass through the action expert, one bead on the counter, which
+            is why more steps are not free at a 50 Hz control rate.
           </p>
           <p>
             Illustrative model, not a reimplementation: {field.samples.length} seeded noise samples

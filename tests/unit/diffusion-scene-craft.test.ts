@@ -1,136 +1,151 @@
 import { describe, expect, it } from 'vitest';
 import {
-  CAMERA_WINDOW,
+  DIFFUSION_LANDINGS,
   DIFFUSION_SCENE,
-  FOCUS_ZOOM,
+  FOLLOWED,
+  GUESS_DISTANCES,
   WORKED_DISTANCES,
-  WORKED_GUESS,
-  diffusionCameraAt,
-  diffusionCameraTransform,
-  diffusionGlyphsAt,
-  diffusionSamplePointAt,
+  diffusionCleanAt,
+  diffusionLitAt,
+  diffusionPinsAt,
+  diffusionReadoutAt,
+  diffusionStepAt,
 } from '@/components/motion/scenes/diffusion-denoising';
 import { beatSpans } from '@/components/motion/timeline';
-import { MOTION_CAMERA, MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
+import {
+  BALL_PX,
+  BALL_RANGE,
+  BAR_R,
+  BAR_Z,
+  HEIGHT,
+  PAD_VB,
+  WIDTH,
+  ballAt,
+  ballZ,
+  dialAngle,
+  type Lane,
+} from '@/components/iso/figures/denoising-gauge';
+import {
+  DENOISING_STEPS,
+  GUESSES,
+  PIN_COUNT,
+  cleanUp,
+  distance,
+  noiseOf,
+  profileOf,
+} from '@/lib/denoising-gauge';
+import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
+import { symbolHits } from '@/lib/figure-main-view';
 
 const SPANS = beatSpans(DIFFUSION_SCENE.beats);
 const END = SPANS[SPANS.length - 1].end;
 const at = (beat: number, k: number) => SPANS[beat].start + SPANS[beat].duration * k;
-const parse = (transform: string) => {
-  const [tx, ty, scale] = transform.match(/-?[\d.]+/g)!.map(Number);
-  return { tx, ty, scale };
-};
+const LANES: Lane[] = [0, 1];
+const STATES = GUESSES.map(({ seed }) => cleanUp(noiseOf(seed)));
 
-describe('diffusion flagship scene craft', () => {
+describe('diffusion flagship scene craft (the denoising gauge)', () => {
   it('keeps the five beats in teaching order', () => {
     expect(DIFFUSION_SCENE.beats.map((beat) => beat.id)).toEqual([
       'demos', 'forward-noise', 'reverse-steps', 'in-symbols', 'recap',
     ]);
   });
 
-  it('keeps the camera home at every beat end and outside the clean-up beat', () => {
-    for (const span of SPANS) {
-      expect(diffusionCameraAt(span.end), span.beat.id).toBe(0);
-      expect(diffusionCameraTransform(span.end)).toBe('translate(0 0) scale(1)');
+  it('ends every beat, and every clean-up step, on one of the model\'s own states', () => {
+    for (const lane of LANES) {
+      const { demo, seed } = GUESSES[lane];
+      expect(diffusionPinsAt(lane, SPANS[0].end), `demonstration ${lane}`).toEqual(profileOf(demo));
+      expect(diffusionPinsAt(lane, SPANS[1].end - 1e-6).map((h) => Number(h.toFixed(4))), `noise ${lane}`)
+        .toEqual(noiseOf(seed).map((h) => Number(h.toFixed(4))));
+      for (let done = 0; done <= DENOISING_STEPS; done += 1) {
+        const t = at(2, done / DENOISING_STEPS);
+        expect(diffusionPinsAt(lane, t), `step ${done} of gauge ${lane}`).toEqual(STATES[lane][done]);
+        expect(diffusionStepAt(t)).toBe(done);
+      }
+      for (const t of [SPANS[2].end, SPANS[3].end, END]) {
+        expect(diffusionPinsAt(lane, t)).toEqual(STATES[lane][DENOISING_STEPS]);
+      }
     }
-    expect(diffusionCameraAt(at(1, 0.5))).toBe(0);
-    expect(diffusionCameraAt(at(3, 0.5))).toBe(0);
+    expect(diffusionStepAt(at(2, 0.5))).toBe(DENOISING_STEPS / 2);
   });
 
-  it('keeps every guess inside the camera window, with the stage margin, while the camera is home', () => {
-    const dotR = 2.8;
-    // The inset still paints the 4 px stage margin on the narrowest stage the
-    // type scale is drawn full size on.
-    const narrowest = MOTION_STAGE_TYPE.fullSizeMinStagePx / 340;
-    for (const inset of [CAMERA_WINDOW.x, 340 - CAMERA_WINDOW.x - CAMERA_WINDOW.width, 240 - CAMERA_WINDOW.y - CAMERA_WINDOW.height]) {
-      expect(inset * narrowest).toBeGreaterThanOrEqual(4);
-    }
-    // The noise end-state spreads the guesses widest; the clean end-state gathers them.
-    for (const t of [SPANS[0].end, SPANS[1].end, SPANS[2].end, END]) {
-      for (let index = 0; index < 60; index += 1) {
-        const [x, y] = diffusionSamplePointAt(index, t);
-        expect(x - dotR, `guess ${index} at ${t}`).toBeGreaterThanOrEqual(CAMERA_WINDOW.x);
-        expect(x + dotR, `guess ${index} at ${t}`).toBeLessThanOrEqual(CAMERA_WINDOW.x + CAMERA_WINDOW.width);
-        expect(y - dotR, `guess ${index} at ${t}`).toBeGreaterThanOrEqual(CAMERA_WINDOW.y);
-        expect(y + dotR, `guess ${index} at ${t}`).toBeLessThanOrEqual(CAMERA_WINDOW.y + CAMERA_WINDOW.height);
+  it('keeps every ball inside the stage, with the 4 px margin on the narrowest full-size stage, at every 25 ms', () => {
+    const marginVb = 4 / (MOTION_STAGE_TYPE.fullSizeMinStagePx / WIDTH);
+    expect(PAD_VB).toBeGreaterThanOrEqual(marginVb);
+    for (let t = 0; t <= END; t += 25) {
+      for (const lane of LANES) {
+        diffusionPinsAt(lane, t).forEach((height, i) => {
+          const [x, y] = ballAt(lane, i, height);
+          expect(x - BALL_PX, `gauge ${lane} pin ${i} at ${t}`).toBeGreaterThanOrEqual(marginVb);
+          expect(x + BALL_PX).toBeLessThanOrEqual(WIDTH - marginVb);
+          expect(y - BALL_PX).toBeGreaterThanOrEqual(marginVb);
+          expect(y + BALL_PX).toBeLessThanOrEqual(HEIGHT - marginVb);
+          // And on the gauge: no pin falls into its guide or rises out of reach.
+          expect(ballZ(height)).toBeGreaterThanOrEqual(BALL_RANGE.low - 1e-9);
+          expect(ballZ(height)).toBeLessThanOrEqual(BALL_RANGE.high + 1e-9);
+        });
       }
     }
   });
 
-  it('closes in on the worked guess, within the zoom token, with its whole path in view', () => {
-    expect(FOCUS_ZOOM).toBeGreaterThan(1.5);
-    expect(FOCUS_ZOOM).toBeLessThanOrEqual(MOTION_CAMERA.focusMaxZoom);
-    expect(diffusionCameraAt(at(2, 0.4))).toBe(1);
-    const hold = parse(diffusionCameraTransform(at(2, 0.4)));
-    expect(hold.scale).toBeCloseTo(FOCUS_ZOOM, 2);
-    for (const k of [0, 0.25, 0.4, 0.6, 1]) {
-      const [x, y] = diffusionSamplePointAt(WORKED_GUESS, at(2, k));
-      const screenX = hold.tx + x * hold.scale;
-      const screenY = hold.ty + y * hold.scale;
-      expect(screenX, `x at ${k}`).toBeGreaterThan(4);
-      expect(screenX, `x at ${k}`).toBeLessThan(340 - 4);
-      expect(screenY, `y at ${k}`).toBeGreaterThan(30);
-      expect(screenY, `y at ${k}`).toBeLessThan(240 - 4);
+  it('turns the pins to random and back: grey while random, ink once set, never brighter while noise is added', () => {
+    expect(diffusionCleanAt(SPANS[0].end)).toBe(1);
+    expect(diffusionCleanAt(SPANS[1].end - 1e-6)).toBeLessThan(0.001);
+    let previous = 1;
+    for (let k = 0; k <= 100; k += 1) {
+      const clean = diffusionCleanAt(at(1, k / 100));
+      expect(clean).toBeLessThanOrEqual(previous);
+      previous = clean;
     }
-    // In and back out with smooth easing: halfway in is not halfway zoomed.
-    const halfIn = parse(diffusionCameraTransform(at(2, 0.125)));
-    expect(halfIn.scale).toBeGreaterThan(1);
-    expect(halfIn.scale).toBeLessThan(FOCUS_ZOOM);
+    for (let k = 0; k <= 100; k += 1) {
+      const clean = diffusionCleanAt(at(2, k / 100));
+      expect(clean).toBeGreaterThanOrEqual(previous);
+      previous = clean;
+    }
+    expect(diffusionCleanAt(END)).toBe(1);
   });
 
-  it('turns a ~ p(a) into a ~ p(a | o) by moving the shared glyphs and fading in only | o', () => {
-    const start = diffusionGlyphsAt(at(3, 0.3));
-    const sliding = diffusionGlyphsAt(at(3, 0.45));
-    const writing = diffusionGlyphsAt(at(3, 0.7));
-    const done = diffusionGlyphsAt(at(3, 1));
-    expect(start.filter((glyph) => glyph.matched).map((glyph) => glyph.id))
-      .toEqual(['a', 'sim', 'p', 'open', 'arg', 'close']);
-    expect(start.filter((glyph) => !glyph.matched).map((glyph) => glyph.id)).toEqual(['given', 'seen']);
-    for (const glyph of start) {
-      expect(glyph.opacity, glyph.id).toBe(glyph.matched ? 1 : 0);
-    }
-    // The shared glyphs slide first, keeping full ink; "| o" waits for room.
-    for (const [index, glyph] of sliding.entries()) {
-      if (glyph.matched) {
-        const [from, to] = [start[index].x, done[index].x];
-        if (from !== to) expect(Math.min(from, to) < glyph.x && glyph.x < Math.max(from, to), glyph.id).toBe(true);
-        expect(glyph.opacity).toBe(1);
-      } else {
-        expect(glyph.opacity, glyph.id).toBe(0);
-      }
-    }
-    for (const [index, glyph] of writing.entries()) {
-      if (glyph.matched) expect(glyph.x, glyph.id).toBe(done[index].x);
-      else expect(glyph.opacity > 0 && glyph.opacity < 1, glyph.id).toBe(true);
-    }
-    const order = ['a', 'sim', 'p', 'open', 'arg', 'given', 'seen', 'close'];
-    const xs = order.map((id) => done.find((glyph) => glyph.id === id)!.x);
-    expect(xs).toEqual([...xs].sort((a, b) => a - b));
-    expect(done.every((glyph) => glyph.opacity === 1)).toBe(true);
+  it('lights one part per beat: none for the demonstrations, the shaker, the followed guess, the camera, then both moves', () => {
+    expect(SPANS.map((span) => diffusionLitAt(span.start + span.duration / 2))).toEqual([
+      'none', 'shaker', 'followed', 'camera', 'moves',
+    ]);
   });
 
-  it('never paints two glyphs over each other while the relation changes', () => {
-    for (let step = 0; step <= 200; step += 1) {
-      const t = at(3, step / 200);
-      const shown = diffusionGlyphsAt(t).filter((glyph) => glyph.opacity > 0);
-      for (const [index, first] of shown.entries()) {
-        for (const second of shown.slice(index + 1)) {
-          const overlap = Math.min(first.x + first.width, second.x + second.width) - Math.max(first.x, second.x);
-          expect(overlap, `${first.id}/${second.id} at ${step / 200}`).toBeLessThanOrEqual(0.5);
-        }
-      }
+  it('reads the followed guess from the model: its readout is its distance from the move it lands on', () => {
+    const landing = profileOf(DIFFUSION_LANDINGS[FOLLOWED]);
+    for (let done = 0; done <= DENOISING_STEPS; done += 1) {
+      // Inside the beat: a hair after its start for step 0, a hair before its end for step 10.
+      const t = done === 0 ? at(2, 0) + 1 : at(2, done / DENOISING_STEPS - (done === DENOISING_STEPS ? 1e-6 : 0));
+      const gap = distance(diffusionPinsAt(FOLLOWED, t), landing);
+      expect(diffusionReadoutAt(t)).toBe(`Step ${diffusionStepAt(t)} of ${DENOISING_STEPS} · the lit guess is ${gap.toFixed(2)} from a good move`);
+    }
+    expect(WORKED_DISTANCES.start.toFixed(2)).toBe('0.82');
+    expect(WORKED_DISTANCES.end.toFixed(2)).toBe('0.00');
+    expect(GUESS_DISTANCES.start).toBeGreaterThan(0.5);
+    expect(GUESS_DISTANCES.end).toBeLessThan(1e-6);
+  });
+
+  it('writes every readout in plain words, with no symbol, at every 50 ms', () => {
+    const seen = new Set<string>();
+    for (let t = 0; t <= END; t += 50) seen.add(diffusionReadoutAt(t));
+    for (const line of seen) expect(symbolHits(line), line).toEqual([]);
+    expect(diffusionReadoutAt(END)).toBe('Two random guesses, two good moves · neither hits the bar');
+  });
+
+  it('lands the two guesses on different good moves, each thread clear of the bar where it crosses', () => {
+    expect([...DIFFUSION_LANDINGS].sort()).toEqual(['over', 'under']);
+    for (const lane of LANES) {
+      const heights = diffusionPinsAt(lane, END);
+      // Pins 8 and 9 stand either side of the bar; the thread between them passes over or under it.
+      const z = [ballZ(heights[PIN_COUNT / 2 - 1]), ballZ(heights[PIN_COUNT / 2])];
+      if (DIFFUSION_LANDINGS[lane] === 'over') for (const zi of z) expect(zi).toBeGreaterThan(BAR_Z + BAR_R + 10);
+      else for (const zi of z) expect(zi).toBeLessThan(BAR_Z - BAR_R - 10);
     }
   });
 
-  it('shows no symbol before the symbols beat or on the finished frame', () => {
-    for (const t of [0, SPANS[2].end, at(4, 0.5), END]) {
-      const shown = diffusionGlyphsAt(t).filter((glyph) => glyph.opacity > 0).map((glyph) => glyph.id);
-      expect(shown, `t=${t}`).toEqual([]);
+  it('counts the steps on the dial, one tick a step over 270 degrees', () => {
+    expect(dialAngle(DENOISING_STEPS) - dialAngle(0)).toBeCloseTo(Math.PI * 1.5, 12);
+    for (let done = 0; done < DENOISING_STEPS; done += 1) {
+      expect(dialAngle(done + 1) - dialAngle(done)).toBeCloseTo((Math.PI * 1.5) / DENOISING_STEPS, 12);
     }
-  });
-
-  it('reads the worked guess from the model: far from its move at the start, on it at the end', () => {
-    expect(WORKED_DISTANCES.start.toFixed(2)).toBe('3.17');
-    expect(WORKED_DISTANCES.end.toFixed(2)).toBe('0.08');
   });
 });

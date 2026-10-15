@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
@@ -11,19 +11,44 @@ import {
   InstrumentFigure,
   InstrumentReadout,
   InstrumentReset,
-  PlotStage,
 } from '@/components/ui/instrument';
-import { FigureStage } from '@/components/motion/figure-frame';
+import { FigureStage, StageLegend } from '@/components/motion/figure-frame';
+import { roleColour } from '@/components/motion/chart';
+import { Dots, Solid } from '@/components/iso/react/draw';
+import { Stage, asksForStillness, useInView } from '@/components/iso/react/live';
+import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
+import { PartView } from '@/components/iso/part-view';
 import {
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_TYPE,
-  CHART_VIEW_WIDTH,
-  ConstraintHatch,
-  StageAnnotation,
-  roleColour,
-  type ChartRole,
-} from '@/components/motion/chart';
+  BACKBONE_HEAD,
+  BACKBONE_PLINTH,
+  BACKBONE_TRAYS,
+  BASE_PARTS,
+  EXPERT_HEAD,
+  EXPERT_PLINTH,
+  EXPERT_TRAYS,
+  FAST_HUB,
+  FAST_PARTS,
+  GAUGE_PARTS,
+  HEIGHT,
+  LEVELS,
+  RIDER_PARTS,
+  SCALE_PARTS,
+  WIDTH,
+  fluidPath,
+  leverPaths,
+  levelPath,
+  motionAt,
+  needlePath,
+  restPose,
+  riderAt,
+  sightFluid,
+  stepMotion,
+  trayFill,
+  valveBody,
+  type Column,
+  type Motion,
+  type Part,
+} from '@/components/iso/figures/tray-columns';
 import {
   KNOWLEDGE_INSULATION_CITATION_ID,
   LAYER_COUNT,
@@ -37,20 +62,23 @@ import {
 
 /**
  * MotInsulation: why Knowledge Insulation walls the language model off
- * from the movement lessons. Two weight stacks side by side: the
- * language-model backbone ("understands words and pictures") and the
- * flow-matching action expert ("moves the arm"). The figure opens on the
- * backward pass with the stop-gradient on, so the wall and the one note at
- * it are the first thing a reader sees. The one visible control turns the
- * protection off: the expert's gradients then cross into the backbone
- * (dash-dot) and the illustrative "follows instructions" score drops,
- * matching the paper's spoon/trash symptom.
+ * from the movement lessons. The stage is a pair of tray columns on one
+ * base (components/iso/figures/tray-columns.ts): the wide language-model
+ * backbone ("understands words and pictures") and the slim flow-matching
+ * action expert ("moves the arm"), joined at every tray by a cross pipe
+ * through a one-way check valve. The figure opens on the backward pass
+ * with the protection on, so the expert's gradient stands in its own
+ * column behind shut valves. The one visible control turns the protection
+ * off: the valves pass the gradient into the backbone's trays and the
+ * language gauge on its head falls, matching the paper's spoon/trash
+ * symptom.
  *
  * "Adjust more" holds the pass-depth slider, the forward/backward buttons,
- * the supervision readout and Reset; nothing auto-plays. "How this was
- * made" holds the stop-gradient and mixture-of-transformers method, FAST
- * tokens, the 2B/300M sizes, the schematic layer count and the sourced 7.5x
- * training-step figure.
+ * the supervision readout and Reset; nothing auto-plays, and a change of
+ * pass, protection or depth runs the fluid tray by tray to the new rest
+ * pose. "How this was made" holds the stop-gradient and
+ * mixture-of-transformers method, FAST tokens, the 2B/300M sizes, the
+ * schematic layer count and the sourced 7.5x training-step figure.
  */
 type MotInsulationProps = {
   /** Initial pass depth. Default shows the full stack. */
@@ -58,37 +86,8 @@ type MotInsulationProps = {
   className?: string;
 };
 
-const WIDTH = CHART_VIEW_WIDTH;
-const STACK_TOP = 60;
-const LAYER_H = 14;
-const LAYER_GAP = 5;
-const STACK_H = LAYER_COUNT * LAYER_H + (LAYER_COUNT - 1) * LAYER_GAP;
-const STACK_BOTTOM = STACK_TOP + STACK_H;
-const INPUT_Y = STACK_BOTTOM + 23;
-/** The note sits under the stacks, its leader rising to the wall. */
-const NOTE_Y = INPUT_Y + 26;
-const HEIGHT = Math.ceil(NOTE_Y + CHART_TYPE.labelPx * 1.25 * 2 + 10);
-
-const BACKBONE = { x: 14, w: 134 };
-const EXPERT = { x: 194, w: 130 };
-const BARRIER = { x: 165, w: 12 };
-const HEADER_Y = 15;
-const SUBHEADER_Y = 47;
-
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
-
-/**
- * A gradient that crosses the insulation boundary is drawn dash-dot, so the
- * corruption the diagram is about is legible without hue.
- */
-const CORRUPT_DASH = '9 3 2 3';
-
-const layerY = (index: number) =>
-  f(STACK_TOP + (LAYER_COUNT - 1 - index) * (LAYER_H + LAYER_GAP));
-
-const backboneMid = f(BACKBONE.x + BACKBONE.w / 2);
-const expertMid = f(EXPERT.x + EXPERT.w / 2);
 
 const SUPERVISION_LABEL: Record<string, string> = {
   none: 'no gradients (inference)',
@@ -96,38 +95,76 @@ const SUPERVISION_LABEL: Record<string, string> = {
   'expert-gradient': 'expert flow-matching gradient (uninsulated)',
 };
 
-/** One arrowhead per role, sized in user units so it fits a layer box. */
-function ArrowMarker({ id, role }: { id: string; role: ChartRole }) {
-  return (
-    <marker
-      id={id}
-      markerUnits="userSpaceOnUse"
-      markerWidth={7}
-      markerHeight={7}
-      refX={5}
-      refY={3.5}
-      orient="auto"
-    >
-      <path
-        d="M0.75,0.75 L5.5,3.5 L0.75,6.25"
-        fill="none"
-        stroke={roleColour(role)}
-        strokeWidth={CHART_STROKE.reference}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </marker>
-  );
+const STAGE_LINK = 'underline-offset-2';
+
+/** The gradient is the one lit fluid; activation reads in the side shade. */
+const GRADIENT_FILL = { fill: 'var(--anatomy-lit)', fillOpacity: 0.3 } as const;
+const LONGEST_FRAME = 1 / 30;
+
+const still = () => typeof window !== 'undefined' && typeof window.matchMedia === 'function' && asksForStillness();
+
+/** A part list's static art as elements built once (so a render skips them), and each slot by its name. */
+type Art = ReactNode | string;
+function artOf(parts: readonly Part[]): Art[] {
+  return parts.map((part, index) => {
+    if (part.kind === 'slot') return part.name;
+    if (part.kind === 'face') return <path key={index} className="iso-shade" data-shade={part.shade} d={part.d} />;
+    return <PartView key={index} part={part} />;
+  });
+}
+const BASE_ART = artOf(BASE_PARTS);
+const BACKBONE_PLINTH_ART = artOf(BACKBONE_PLINTH);
+const BACKBONE_TRAY_ART = BACKBONE_TRAYS.map(artOf);
+const BACKBONE_HEAD_ART = artOf(BACKBONE_HEAD);
+const GAUGE_ART = artOf(GAUGE_PARTS);
+const FAST_ART = artOf(FAST_PARTS);
+const LEVEL_ART = LEVELS.map((level) => artOf(level.parts));
+const EXPERT_PLINTH_ART = artOf(EXPERT_PLINTH);
+const EXPERT_TRAY_ART = EXPERT_TRAYS.map(artOf);
+const EXPERT_HEAD_ART = artOf(EXPERT_HEAD);
+const SCALE_ART = artOf(SCALE_PARTS);
+const RIDER_ART = artOf(RIDER_PARTS);
+
+/** Every live element of the drawing, found once per run by its name. */
+function liveParts(svg: SVGSVGElement): Map<string, Element> {
+  const parts = new Map<string, Element>();
+  svg.querySelectorAll('[data-live]').forEach((el) => {
+    const { live, column, index, fluid } = (el as SVGElement).dataset;
+    parts.set([live, column, index, fluid].filter((value) => value !== undefined).join(':'), el);
+  });
+  return parts;
 }
 
-const STAGE_LINK = 'underline-offset-2';
+/** The live parts of one pose, written straight to the drawing without a React render. */
+function drawPose(parts: Map<string, Element>, motion: Motion) {
+  const { pose } = motion;
+  const set = (key: string, name: string, value: string) => parts.get(key)?.setAttribute(name, value);
+  for (const column of ['backbone', 'expert'] as const) {
+    for (let index = 0; index < LAYER_COUNT; index++) {
+      const fill = trayFill(pose, column, index);
+      for (const kind of ['activation', 'gradient'] as const) {
+        set(`fluid:${column}:${index}:${kind}`, 'd', fluidPath(column, index, fill[kind]));
+        set(`level:${column}:${index}:${kind}`, 'd', levelPath(column, index, fill[kind]));
+      }
+    }
+  }
+  for (let index = -1; index < LAYER_COUNT; index++) {
+    const lever = parts.get(`lever:${index}`);
+    if (!lever) continue;
+    const paths = index < 0 ? leverPaths(FAST_HUB, pose.fast) : leverPaths(LEVELS[index]!.hub, pose.valves[index]!);
+    writeSolid(lever.querySelector<SVGGElement>('[data-live-part-of="arm"] > g'), paths.arm);
+    writeSolid(lever.querySelector<SVGGElement>('[data-live-part-of="weight"] > g'), paths.weight);
+  }
+  set('needle', 'd', needlePath(pose.score));
+  set('rider', 'transform', riderAt(motion.rider));
+  const sight = sightFluid(pose.fast);
+  set('fast-fluid', 'd', sight.fill);
+  set('fast-surface', 'd', sight.surface);
+}
 
 export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsulationProps) {
   const uid = useId();
   const descriptionId = `${uid}-description`;
-  const stateArrowId = `${uid}-arrow-state`;
-  const actionArrowId = `${uid}-arrow-action`;
-  const barrierHatchId = `${uid}-barrier-hatch`;
   const [pass, setPass] = useState<Pass>('backward');
   const [stopGradient, setStopGradient] = useState(true);
   const [step, setStep] = useState(defaultStep);
@@ -140,8 +177,41 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
   const citation = citationFor(KNOWLEDGE_INSULATION_CITATION_ID);
 
   const corrupted = pass === 'backward' && !stopGradient;
-  const stateColour = roleColour('state');
   const actionColour = roleColour('action');
+
+  // The drawing renders the rest pose; the loop eases from what is on screen to it.
+  const rest = restPose(pass, stopGradient, step);
+  const restMotion = motionAt(pass, rest);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const shown = useRef<Motion | null>(null);
+  const visible = useInView(stageRef);
+
+  useLayoutEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const target = restPose(pass, stopGradient, step);
+    const from = shown.current;
+    const parts = liveParts(svg);
+    if (!from || !visible || still()) {
+      shown.current = motionAt(pass, target);
+      drawPose(parts, shown.current);
+      return;
+    }
+    // Paint what was on screen before the browser shows React's rest pose, then run to it.
+    drawPose(parts, from);
+    let frame = 0;
+    let last = 0;
+    const loop = (now: number) => {
+      const dt = last ? Math.min((now - last) / 1000, LONGEST_FRAME) : 1 / 60;
+      last = now;
+      const moving = stepMotion(from, target, pass, dt);
+      drawPose(parts, from);
+      frame = moving ? requestAnimationFrame(loop) : 0;
+    };
+    frame = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(frame);
+  }, [pass, stopGradient, step, visible]);
 
   function toggleStopGradient() {
     // The toggle only has meaning in the backward view, so switching it
@@ -163,53 +233,87 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
         ? `Backward pass at depth ${step} of ${LAYER_COUNT} with the stop-gradient on. Gradients stay inside the expert; the backbone is supervised by FAST-token cross-entropy.`
         : `Backward pass at depth ${step} of ${LAYER_COUNT} with the stop-gradient off. Expert gradients cross into the backbone at every reached layer and the language-following score drops to ${score}.`;
 
-  // Plain-words subheaders; the technical names (FAST token logits, FAST
-  // cross-entropy, flow-matching loss) are in the method fold.
-  const backboneSubheader =
-    pass === 'forward'
-      ? 'reads the scene'
-      : stopGradient
-        ? 'keeps its own lesson'
-        : 'taking movement lessons';
-  const expertSubheader = pass === 'forward' ? 'proposes the moves' : 'learns to move';
-  const wallX = f(BARRIER.x + BARRIER.w / 2);
+  // The note that used to sit at the wall now leads the hint under the drawing.
   const note = barrier
-    ? ['Movement lessons stop here, so they', "can't overwrite what the model knows"]
+    ? "Shut valves stop movement lessons, so they can't overwrite what the model knows"
     : corrupted
-      ? ['With no wall, movement lessons', 'reach the language side']
-      : ['Going forward, the arm side', 'reads what the language side sees'];
-  const noteTarget: [number, number] = barrier
-    ? [wallX, STACK_BOTTOM + 4]
-    : [wallX, f(layerY(0) + LAYER_H / 2)];
+      ? 'With the valves open, movement lessons seep into the language side'
+      : 'Going forward, the arm side reads what the language side sees';
+  const passed = states.filter((s) => s.sidewaysAttention || s.gradientCrosses).length;
+  const readout = `${pass} · ${step} of ${LAYER_COUNT} trays · ${barrier ? 'valves shut' : `${passed} valves open`}`;
 
-  /** A vertical arrow inside one layer box: up on the forward pass, down on the backward. */
-  const flowArrow = (x: number, y: number, role: ChartRole, dash?: string) => (
-    <line
-      x1={x}
-      y1={pass === 'forward' ? f(y + LAYER_H - 2.5) : f(y + 2.5)}
-      x2={x}
-      y2={pass === 'forward' ? f(y + 3) : f(y + LAYER_H - 3)}
-      stroke={roleColour(role)}
-      strokeWidth={CHART_STROKE.trace}
-      strokeDasharray={dash}
-      markerEnd={`url(#${role === 'state' ? stateArrowId : actionArrowId})`}
-    />
-  );
+  /** A geometry module's part list: its static art, built once, with the slots filled from the rest pose. */
+  const partsOf = (art: readonly Art[]): ReactNode[] => art.map((node, index) => (typeof node === 'string' ? slotNode(node, index) : node));
 
-  const box = (testId: string, x: number, w: number, y: number, active: boolean) => (
-    <rect
-      data-testid={testId}
-      data-active={active ? 'true' : 'false'}
-      x={x}
-      y={y}
-      width={w}
-      height={LAYER_H}
-      fill="none"
-      stroke={CHART_STRUCTURE.axes}
-      strokeWidth={CHART_STROKE.structure}
-      opacity={active ? 0.9 : CHART_STRUCTURE.axesOpacity}
-    />
-  );
+  function slotNode(name: string, index: number): ReactNode {
+    const fluid = name.match(/^fluid-(backbone|expert)-(\d)$/);
+    if (fluid) {
+      const column = fluid[1] as Column;
+      const tray = Number(fluid[2]);
+      const fill = trayFill(rest, column, tray);
+      const at = { 'data-column': column, 'data-index': tray };
+      return (
+        <g key={index}>
+          <path {...at} data-live="fluid" data-fluid="activation" className="iso-shade" data-shade={0} d={fluidPath(column, tray, fill.activation)} />
+          <path {...at} data-live="level" data-fluid="activation" className="iso-line" data-tone="mid" d={levelPath(column, tray, fill.activation)} />
+          <path {...at} data-live="fluid" data-fluid="gradient" data-lit-part="gradient" style={GRADIENT_FILL} d={fluidPath(column, tray, fill.gradient)} />
+          <path {...at} data-live="level" data-fluid="gradient" data-lit-part="gradient" className="iso-line" data-tone="lit" d={levelPath(column, tray, fill.gradient)} />
+        </g>
+      );
+    }
+    const body = name.match(/^body-(\d)$/);
+    if (body) {
+      const level = Number(body[1]);
+      const lit = pass === 'forward' && rest.valves[level]! > 0;
+      return (
+        <g key={index} data-lit-part={lit ? 'open-valves' : undefined}>
+          <Solid paths={valveBody(level)} tone="hi" lit={lit} />
+        </g>
+      );
+    }
+    if (name === 'needle') {
+      return <path key={index} data-live="needle" data-testid="language-needle" data-score={score} className="iso-line" data-tone="hi" data-free="" style={{ strokeWidth: 1.1 }} d={needlePath(rest.score)} />;
+    }
+    if (name === 'fast-lever') return lever(-1, rest.fast, false, index);
+    if (name === 'fast-fluid') {
+      // The FAST feed carries action tokens, so it shows in the action role's ink.
+      const sight = sightFluid(rest.fast);
+      return (
+        <g key={index}>
+          <path data-live="fast-fluid" style={{ fill: actionColour, fillOpacity: 0.16 }} d={sight.fill} />
+          <path data-live="fast-surface" className="iso-line" style={{ stroke: actionColour }} d={sight.surface} />
+        </g>
+      );
+    }
+    return null;
+  }
+
+  /** A check valve's lever and counterweight (index -1 is the FAST feed's), drawn at the rest pose. */
+  function lever(level: number, open: number, lit: boolean, key: number | string): ReactNode {
+    const hub = level < 0 ? FAST_HUB : LEVELS[level]!.hub;
+    const paths = leverPaths(hub, open);
+    return (
+      <g key={key} data-live="lever" data-index={level} data-lit-part={lit ? 'open-valves' : undefined}>
+        <g data-live-part-of="arm">
+          <LiveSolid paths={paths.arm} tone="hi" lit={lit} />
+        </g>
+        <g data-live-part-of="weight">
+          <LiveSolid paths={paths.weight} tone="hi" lit={lit} />
+        </g>
+        <Solid paths={paths.cap} tone="hi" lit={lit} />
+        <Dots points={[paths.pin]} size={0.5} tone="hi" />
+      </g>
+    );
+  }
+
+  const tray = (column: Column, index: number, art: readonly Art[]) => {
+    const active = column === 'backbone' ? states[index]!.backboneActive : states[index]!.expertActive;
+    return (
+      <g key={`${column}-${index}`} data-testid={`${column}-layer-${index}`} data-active={active ? 'true' : 'false'}>
+        {partsOf(art)}
+      </g>
+    );
+  };
 
   return (
     <InstrumentFigure
@@ -278,112 +382,79 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
       }
       stage={
         <FigureStage
-          footer={<LanguageMeter score={score} />}
+          data-anatomy-stage=""
+          style={{ ['--anatomy-view-width' as string]: `${WIDTH}px` }}
+          footer={
+            <>
+              <span data-anatomy-hint="" className="font-sans text-[12px] leading-normal text-text-dim">
+                <span data-figure-annotation="">{note}</span>
+              </span>
+              <span
+                data-figure-readout=""
+                data-readout=""
+                className="ml-auto text-right font-mono text-[12px] leading-normal tabular-nums text-text"
+              >
+                {readout}
+              </span>
+              <StageLegend className="basis-full text-text-dim" data-testid="mot-legend">
+                <span>Wide column: understands words and pictures</span>
+                <span>Slim column: moves the arm</span>
+              </StageLegend>
+              <LanguageMeter score={score} />
+            </>
+          }
         >
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`Mixture-of-Transformers diagram. ${passDescription}`}
-            aria-describedby={descriptionId}
-            data-testid="mot-diagram"
-          >
-            <defs>
-              <ArrowMarker id={stateArrowId} role="state" />
-              <ArrowMarker id={actionArrowId} role="action" />
-            </defs>
-
-            {/* Column headers, then what leaves or supervises each stack. */}
-            <text data-scene-axis="" x={backboneMid} y={HEADER_Y} textAnchor="middle" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.label}>
-              <tspan x={backboneMid}>Understands words</tspan>
-              <tspan x={backboneMid} dy="1.2em">and pictures</tspan>
-            </text>
-            <text data-scene-axis="" x={expertMid} y={HEADER_Y} textAnchor="middle" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.label}>
-              Moves the arm
-            </text>
-            <text
-              data-scene-axis=""
-              data-testid={barrier ? 'fast-loss-label' : undefined}
-              x={backboneMid}
-              y={SUBHEADER_Y}
-              textAnchor="middle"
-              fontSize={CHART_TYPE.axisPx}
-              fill={CHART_STRUCTURE.labelSecondary}
-            >
-              {backboneSubheader}
-            </text>
-            <text data-scene-axis="" x={expertMid} y={SUBHEADER_Y} textAnchor="middle" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
-              {expertSubheader}
-            </text>
-
-            {/* Stop-gradient barrier: a blocked path, in the constraint hatch. */}
-            {barrier && (
-              <g data-testid="gradient-barrier">
-                <ConstraintHatch
-                  id={barrierHatchId}
-                  x={BARRIER.x}
-                  y={STACK_TOP - 4}
-                  width={BARRIER.w}
-                  height={STACK_H + 8}
-                />
-              </g>
-            )}
-
-            {states.map((s) => {
-              const y = layerY(s.index);
-              const cy = f(y + LAYER_H / 2);
-              return (
-                <g key={s.index}>
-                  {box(`backbone-layer-${s.index}`, BACKBONE.x, BACKBONE.w, y, s.backboneActive)}
-                  {box(`expert-layer-${s.index}`, EXPERT.x, EXPERT.w, y, s.expertActive)}
-                  {/* Uninsulated, the backbone carries the expert's gradient. */}
-                  {s.backboneActive &&
-                    flowArrow(backboneMid, y, corrupted ? 'action' : 'state', corrupted ? CORRUPT_DASH : undefined)}
-                  {s.expertActive && flowArrow(expertMid, y, 'action')}
-                  {s.sidewaysAttention && (
-                    <line
-                      data-testid={`attention-${s.index}`}
-                      x1={f(BACKBONE.x + BACKBONE.w + 3)}
-                      y1={cy}
-                      x2={f(EXPERT.x - 3)}
-                      y2={cy}
-                      stroke={stateColour}
-                      strokeWidth={CHART_STROKE.reference}
-                      strokeDasharray={CHART_STROKE.dash}
-                      markerEnd={`url(#${stateArrowId})`}
-                    />
-                  )}
-                  {s.gradientCrosses && (
-                    <line
-                      data-testid={`gradient-cross-${s.index}`}
-                      x1={f(EXPERT.x - 3)}
-                      y1={cy}
-                      x2={f(BACKBONE.x + BACKBONE.w + 3)}
-                      y2={cy}
-                      stroke={actionColour}
-                      strokeWidth={CHART_STROKE.reference}
-                      strokeDasharray={CORRUPT_DASH}
-                      markerEnd={`url(#${actionArrowId})`}
-                    />
-                  )}
+          <div ref={stageRef} className="iso" data-anatomy-drawing="">
+            <Stage className="iso-stage">
+              <svg
+                ref={svgRef}
+                className="iso-svg"
+                viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+                role="img"
+                aria-label={`Mixture-of-Transformers diagram. ${passDescription}`}
+                aria-describedby={descriptionId}
+                focusable="false"
+                data-testid="mot-diagram"
+              >
+                <g key="base">{partsOf(BASE_ART)}</g>
+                <g key="backbone" data-part="backbone">
+                  {partsOf(BACKBONE_PLINTH_ART)}
+                  {BACKBONE_TRAY_ART.map((art, index) => tray('backbone', index, art))}
+                  {partsOf(BACKBONE_HEAD_ART)}
                 </g>
-              );
-            })}
-
-            {/* What enters each stack at the bottom. */}
-            <text data-scene-axis="" x={backboneMid} y={INPUT_Y} textAnchor="middle" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
-              camera and words
-            </text>
-            <text data-scene-axis="" x={expertMid} y={INPUT_Y} textAnchor="middle" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
-              a rough first guess
-            </text>
-            <StageAnnotation
-              x={wallX}
-              y={NOTE_Y}
-              anchor="middle"
-              lines={note}
-              target={noteTarget}
-              from={[wallX, NOTE_Y - CHART_TYPE.labelPx]}
-            />
-          </PlotStage>
+                <g key="gauge" data-part="language-gauge">
+                  {partsOf(GAUGE_ART)}
+                </g>
+                <g key="fast" data-part="fast-feed" data-testid={barrier ? 'fast-loss-label' : undefined} data-open={rest.fast > 0 ? 'true' : 'false'}>
+                  {partsOf(FAST_ART)}
+                </g>
+                <g key="valves" data-part="check-valves" data-testid={barrier ? 'gradient-barrier' : undefined}>
+                  {LEVEL_ART.map((art, index) => {
+                    const s = states[index]!;
+                    const testId = s.sidewaysAttention ? `attention-${index}` : s.gradientCrosses ? `gradient-cross-${index}` : undefined;
+                    const valve = barrier ? 'shut' : rest.valves[index]! > 0 ? 'open' : 'idle';
+                    return (
+                      <g key={index} data-testid={testId} data-valve={valve} data-level={index}>
+                        {partsOf(art)}
+                      </g>
+                    );
+                  })}
+                  {LEVELS.map((_, index) => lever(index, rest.valves[index]!, pass === 'forward' && rest.valves[index]! > 0, `lever-${index}`))}
+                </g>
+                <g key="expert" data-part="expert">
+                  {partsOf(EXPERT_PLINTH_ART)}
+                  {EXPERT_TRAY_ART.map((art, index) => tray('expert', index, art))}
+                  {partsOf(EXPERT_HEAD_ART)}
+                </g>
+                <g key="scale" data-part="depth-scale">
+                  {partsOf(SCALE_ART)}
+                  <g data-live="rider" transform={riderAt(restMotion.rider)}>
+                    {partsOf(RIDER_ART)}
+                  </g>
+                </g>
+              </svg>
+            </Stage>
+          </div>
         </FigureStage>
       }
       caption="Teaching movement can wear away an AI's grasp of language; walling it off keeps that grasp, and training needed 7.5 times fewer steps than π0."
@@ -391,14 +462,17 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
         <>
           <p>
             The model is a pi0-style vision-language-action model laid out as a mixture of
-            transformers: a 2B language-model backbone and a 300M flow-matching action expert,
-            drawn here with {LAYER_COUNT} layers per stack as a schematic. On the forward pass the
-            expert attends sideways into the backbone&apos;s activations at every layer. On the
-            backward pass the expert&apos;s flow-matching loss sends gradients back down its own
-            stack. Knowledge Insulation puts a stop-gradient at the interface (the hatched wall),
-            so those gradients never reach the backbone; the backbone instead learns actions from
-            the cross-entropy loss on discrete FAST action tokens. Turn the protection off and the
-            expert&apos;s gradients cross into the backbone at every layer they reach.
+            transformers: a 2B language-model backbone and a 300M flow-matching action expert.
+            The drawing makes each a column of {LAYER_COUNT} trays, a schematic layer count, with
+            cross-sections in the ratio of their sizes, and joins them at every tray through a
+            one-way check valve. On the forward pass the expert attends sideways into the
+            backbone&apos;s activations at every layer, so the valves open. On the backward pass
+            the expert&apos;s flow-matching loss sends gradients back down its own stack.
+            Knowledge Insulation puts a stop-gradient at the interface (every valve shut), so
+            those gradients never reach the backbone; the backbone instead learns actions from
+            the cross-entropy loss on discrete FAST action tokens, the feed into its head. Turn
+            the protection off and the expert&apos;s gradients cross into the backbone at every
+            layer they reach.
           </p>
           <p>
             The 0 to 100 &ldquo;follows instructions&rdquo; score is illustrative: it stands in

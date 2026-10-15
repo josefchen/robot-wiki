@@ -1,0 +1,486 @@
+{
+ "375": {
+  "counts": {
+   "start": {
+    "/adjacent/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/adjacent/autonomous-vehicles/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/adjacent/drones/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/adjacent/space/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/adjacent/surgical/": {
+     "dom": 1,
+     "manifest": 1
+    }
+   },
+   "end": {
+    "/adjacent/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/adjacent/autonomous-vehicles/": {
+     "dom": 3,
+     "manifest": 3
+    },
+    "/adjacent/drones/": {
+     "dom": 4,
+     "manifest": 4
+    },
+    "/adjacent/space/": {
+     "dom": 4,
+     "manifest": 4
+    },
+    "/adjacent/surgical/": {
+     "dom": 3,
+     "manifest": 3
+    }
+   }
+  },
+  "failures": {
+   "start": [],
+   "end": []
+  },
+  "paletteEqual": true,
+  "palette": [
+   "#1A6F45",
+   "#1C1C1A",
+   "#3B6EA8",
+   "#3F3F3B",
+   "#6B1839",
+   "#6C6B66",
+   "#7D7A73",
+   "#8A5A00",
+   "#A3A39E",
+   "#A52A1E",
+   "#DEDEDB",
+   "#F0F3F6",
+   "#FAFAF8",
+   "#FFFFFF"
+  ],
+  "visuals": [
+   {
+    "route": "/adjacent/drones/",
+    "idx": 0,
+    "kind": "scene",
+    "label": "Motion scene: Perception delay lowers the safe speed",
+    "size": {
+     "before": "327x1466",
+     "after": "327x1466"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": null,
+    "pixelShareAfterAlignment": 0.28,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/adjacent/drones/",
+    "idx": 1,
+    "kind": "figure/instrument",
+    "label": "A drone only sees so far ahead; every split-second its vision takes is distance flown blin",
+    "size": {
+     "before": "327x1950",
+     "after": "327x1950"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": null,
+    "pixelShareAfterAlignment": 4.06,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/adjacent/surgical/",
+    "idx": 0,
+    "kind": "figure/instrument",
+    "label": "A surgical robot divides the surgeon's hand movement, tremor included, so the instrument m",
+    "size": {
+     "before": "327x1152",
+     "after": "327x1152"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": 0.79,
+    "pixelShareAfterAlignment": 0.79,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/adjacent/autonomous-vehicles/",
+    "idx": 0,
+    "added": true,
+    "kind": "image",
+    "size": "320x416",
+    "label": "A Waymo Jaguar I-Pace driving itself through San Francisco in 2023. Waymo's 2025 study of "
+   },
+   {
+    "route": "/adjacent/autonomous-vehicles/",
+    "idx": 1,
+    "added": true,
+    "kind": "image",
+    "size": "320x396",
+    "label": "The roof sensor package of a Waymo I-Pace in San Francisco, 2025. Waymo fuses lidar, camer"
+   },
+   {
+    "route": "/adjacent/autonomous-vehicles/",
+    "idx": 2,
+    "added": true,
+    "kind": "image",
+    "size": "320x396",
+    "label": "Carnegie Mellon's Boss, winner of the 2007 DARPA Urban Challenge, on display in 2008. Rout"
+   },
+   {
+    "route": "/adjacent/drones/",
+    "idx": 1,
+    "added": true,
+    "kind": "image",
+    "size": "320x396",
+    "label": "A Minion 220 racing quadrotor with its forward camera, 2016. Machines of this class exceed"
+   },
+   {
+    "route": "/adjacent/drones/",
+    "idx": 3,
+    "added": true,
+    "kind": "image",
+    "size": "320x416",
+    "label": "A DJI Mavic Pro in flight, 2017. On an autonomous drone, visual-inertial odometry fuses ca"
+   },
+   {
+    "route": "/adjacent/space/",
+    "idx": 0,
+    "added": true,
+    "kind": "image",
+    "size": "320x396",
+    "label": "Perseverance beside the rock Rochette on sol 198, September 2021, with two drill holes whe"
+   },
+   {
+    "route": "/adjacent/space/",
+    "idx": 1,
+    "added": true,
+    "kind": "image",
+    "size": "320x377",
+    "label": "Ingenuity on Mars, photographed by Perseverance on 5 April 2021, two weeks before its firs"
+   },
+   {
+    "route": "/adjacent/space/",
+    "idx": 2,
+    "added": true,
+    "kind": "image",
+    "size": "320x396",
+    "label": "Mars 2020 team members install MOXIE in Perseverance's chassis. On Mars it made 122 grams "
+   },
+   {
+    "route": "/adjacent/space/",
+    "idx": 3,
+    "added": true,
+    "kind": "image",
+    "size": "320x377",
+    "label": "Dextre on the end of Canadarm2 in January 2017, during weeks spent swapping the station's "
+   },
+   {
+    "route": "/adjacent/surgical/",
+    "idx": 0,
+    "added": true,
+    "kind": "image",
+    "size": "320x357",
+    "label": "A da Vinci Xi patient-side cart with its four instrument arms, 2018. Every motion its arms"
+   },
+   {
+    "route": "/adjacent/surgical/",
+    "idx": 1,
+    "added": true,
+    "kind": "image",
+    "size": "320x416",
+    "label": "The stereo viewer and hand controllers of a da Vinci Xi surgeon console. Motion scaling an"
+   }
+  ]
+ },
+ "1440": {
+  "counts": {
+   "start": {
+    "/adjacent/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/adjacent/autonomous-vehicles/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/adjacent/drones/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/adjacent/space/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/adjacent/surgical/": {
+     "dom": 1,
+     "manifest": 1
+    }
+   },
+   "end": {
+    "/adjacent/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/adjacent/autonomous-vehicles/": {
+     "dom": 3,
+     "manifest": 3
+    },
+    "/adjacent/drones/": {
+     "dom": 4,
+     "manifest": 4
+    },
+    "/adjacent/space/": {
+     "dom": 4,
+     "manifest": 4
+    },
+    "/adjacent/surgical/": {
+     "dom": 3,
+     "manifest": 3
+    }
+   }
+  },
+  "failures": {
+   "start": [],
+   "end": []
+  },
+  "paletteEqual": true,
+  "palette": [
+   "#1A6F45",
+   "#1C1C1A",
+   "#3B6EA8",
+   "#3F3F3B",
+   "#6B1839",
+   "#6C6B66",
+   "#7D7A73",
+   "#8A5A00",
+   "#A3A39E",
+   "#A52A1E",
+   "#DEDEDB",
+   "#F0F3F6",
+   "#FAFAF8",
+   "#FFFFFF"
+  ],
+  "visuals": [
+   {
+    "route": "/adjacent/drones/",
+    "idx": 0,
+    "kind": "scene",
+    "label": "Motion scene: Perception delay lowers the safe speed",
+    "size": {
+     "before": "930x1357",
+     "after": "930x1357"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": null,
+    "pixelShareAfterAlignment": 1.62,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/adjacent/drones/",
+    "idx": 1,
+    "kind": "figure/instrument",
+    "label": "A drone only sees so far ahead; every split-second its vision takes is distance flown blin",
+    "size": {
+     "before": "930x1505",
+     "after": "930x1505"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": 1.46,
+    "pixelShareAfterAlignment": 1.46,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/adjacent/surgical/",
+    "idx": 0,
+    "kind": "figure/instrument",
+    "label": "A surgical robot divides the surgeon's hand movement, tremor included, so the instrument m",
+    "size": {
+     "before": "930x1041",
+     "after": "930x1041"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": 0.29,
+    "pixelShareAfterAlignment": 0.29,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/adjacent/autonomous-vehicles/",
+    "idx": 0,
+    "added": true,
+    "kind": "image",
+    "size": "512x484",
+    "label": "A Waymo Jaguar I-Pace driving itself through San Francisco in 2023. Waymo's 2025 study of "
+   },
+   {
+    "route": "/adjacent/autonomous-vehicles/",
+    "idx": 1,
+    "added": true,
+    "kind": "image",
+    "size": "512x464",
+    "label": "The roof sensor package of a Waymo I-Pace in San Francisco, 2025. Waymo fuses lidar, camer"
+   },
+   {
+    "route": "/adjacent/autonomous-vehicles/",
+    "idx": 2,
+    "added": true,
+    "kind": "image",
+    "size": "512x484",
+    "label": "Carnegie Mellon's Boss, winner of the 2007 DARPA Urban Challenge, on display in 2008. Rout"
+   },
+   {
+    "route": "/adjacent/drones/",
+    "idx": 1,
+    "added": true,
+    "kind": "image",
+    "size": "512x464",
+    "label": "A Minion 220 racing quadrotor with its forward camera, 2016. Machines of this class exceed"
+   },
+   {
+    "route": "/adjacent/drones/",
+    "idx": 3,
+    "added": true,
+    "kind": "image",
+    "size": "512x464",
+    "label": "A DJI Mavic Pro in flight, 2017. On an autonomous drone, visual-inertial odometry fuses ca"
+   },
+   {
+    "route": "/adjacent/space/",
+    "idx": 0,
+    "added": true,
+    "kind": "image",
+    "size": "512x464",
+    "label": "Perseverance beside the rock Rochette on sol 198, September 2021, with two drill holes whe"
+   },
+   {
+    "route": "/adjacent/space/",
+    "idx": 1,
+    "added": true,
+    "kind": "image",
+    "size": "512x484",
+    "label": "Ingenuity on Mars, photographed by Perseverance on 5 April 2021, two weeks before its firs"
+   },
+   {
+    "route": "/adjacent/space/",
+    "idx": 2,
+    "added": true,
+    "kind": "image",
+    "size": "512x464",
+    "label": "Mars 2020 team members install MOXIE in Perseverance's chassis. On Mars it made 122 grams "
+   },
+   {
+    "route": "/adjacent/space/",
+    "idx": 3,
+    "added": true,
+    "kind": "image",
+    "size": "512x464",
+    "label": "Dextre on the end of Canadarm2 in January 2017, during weeks spent swapping the station's "
+   },
+   {
+    "route": "/adjacent/surgical/",
+    "idx": 0,
+    "added": true,
+    "kind": "image",
+    "size": "512x445",
+    "label": "A da Vinci Xi patient-side cart with its four instrument arms, 2018. Every motion its arms"
+   },
+   {
+    "route": "/adjacent/surgical/",
+    "idx": 1,
+    "added": true,
+    "kind": "image",
+    "size": "512x484",
+    "label": "The stereo viewer and hand controllers of a da Vinci Xi surgeon console. Motion scaling an"
+   }
+  ]
+ },
+ "start": "40c0947c (export built from the Start tree)",
+ "end": "c625bbd2 (export of the End tree; adjacent pages as at 4f80f73a)",
+ "matching": "Start and End visuals are paired by route, kind and label, because the photographs added before the figures shift the per-route index",
+ "pixelRule": "a pixel differs when any RGB channel differs by more than a quarter of the range (64/255); null when the sizes differ; the aligned share is the minimum over vertical shifts of -2 to 2 px"
+}

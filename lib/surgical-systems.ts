@@ -2,7 +2,8 @@
  * Data for the adjacent/surgical module's comparison table, next to the
  * prose that cites the same sources. Row content mirrors the primary
  * sources: Intuitive's da Vinci 5 clearance release, CMR's Versius De
- * Novo authorization, Moon Surgical's Maestro clearances, and the Yang
+ * Novo authorization and the FDA's Versius Plus 510(k) summary (K252111),
+ * Moon Surgical's Maestro clearances, and the Yang
  * et al. six-level autonomy framework.
  */
 
@@ -31,7 +32,7 @@ export const SURGICAL_SYSTEM_ROWS: readonly SurgicalSystemRow[] = [
       'Multiport and single-port teleoperated soft-tissue surgery; the incumbent platform',
     edge: 'da Vinci 5 ships 150+ enhancements over Xi, including Force Feedback instruments and 10,000x the computing power',
     regulatory:
-      'Cleared since 2000; da Vinci 5 via 510(k) in March 2024, 11,106 systems installed as of end-2025',
+      'da Vinci 5 via 510(k) in March 2024, 11,106 systems installed as of end-2025',
     autonomyLevel: 0,
     autonomyNote:
       'Level 0: every motion is the surgeon\u2019s command, scaled and tremor-filtered',
@@ -41,7 +42,7 @@ export const SURGICAL_SYSTEM_ROWS: readonly SurgicalSystemRow[] = [
     system: 'CMR Versius',
     focus:
       'Compact, modular multiport system that moves between operating rooms and care settings',
-    edge: 'Biomimetic arm design with small fully wristed instruments and an open console; Versius Plus adds a boom and integrated insufflation',
+    edge: 'Biomimetic arm design with small fully wristed instruments and an open console; Versius Plus adds near-infrared imaging, new instruments and updated software',
     regulatory:
       'US entry via FDA De Novo (October 2024) for adult cholecystectomy; Versius Plus 510(k) December 2025',
     autonomyLevel: 0,

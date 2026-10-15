@@ -8795,12 +8795,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#17",
+          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#12",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#20",
+          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#9",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -8825,11 +8825,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#12",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#13",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
@@ -8850,42 +8845,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#18",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#19",
+          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#17",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#2",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#21",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#22",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#23",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#24",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#25",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -8920,17 +8885,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#9",
+          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#12",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#17",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#20",
+          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#9",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -8955,11 +8915,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#12",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#13",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
@@ -8980,42 +8935,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#18",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#19",
+          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#17",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#2",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#21",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#22",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#23",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#24",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#25",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -9046,11 +8971,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#8",
-          "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#9",
           "mechanism": "VAL-B2-ART-007 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#equations"
         },
         {
@@ -9221,7 +9141,7 @@
         "statement": "Equations expose accessible text or an equivalent explanation.",
         "expected": "Equations expose accessible text or an equivalent explanation.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 540,
+        "populationSize": 524,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -9688,58 +9608,42 @@
           "result:VAL-B2-ART-007:/manipulation/bc-foundations/|375x812|inline#9",
           "result:VAL-B2-ART-007:/manipulation/comparison-matrix/|1440x900|inline#0",
           "result:VAL-B2-ART-007:/manipulation/comparison-matrix/|375x812|inline#0",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#17",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#20",
+          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#12",
+          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|display#9",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#0",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#1",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#10",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#11",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#12",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#13",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#14",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#15",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#16",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#18",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#19",
+          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#17",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#2",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#21",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#22",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#23",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#24",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#25",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#3",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#4",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#5",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#6",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#7",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#8",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|1440x900|inline#9",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#17",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#20",
+          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#12",
+          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|display#9",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#0",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#1",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#10",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#11",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#12",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#13",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#14",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#15",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#16",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#18",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#19",
+          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#17",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#2",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#21",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#22",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#23",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#24",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#25",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#3",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#4",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#5",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#6",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#7",
           "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#8",
-          "result:VAL-B2-ART-007:/manipulation/diffusion-policy/|375x812|inline#9",
           "result:VAL-B2-ART-007:/manipulation/pi-line/|1440x900|inline#0",
           "result:VAL-B2-ART-007:/manipulation/pi-line/|1440x900|inline#1",
           "result:VAL-B2-ART-007:/manipulation/pi-line/|1440x900|inline#2",
@@ -11604,11 +11508,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/flow-matching-trajectory.tsx:aria-label:2",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -21208,7 +21107,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1959,
+        "populationSize": 1958,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21258,7 +21157,6 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/eureka-loop.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/execution-modes.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/flow-matching-trajectory.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/friction-transfer.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/friction-transfer.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/friction-transfer.tsx:aria-label:3",

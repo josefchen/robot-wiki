@@ -1,0 +1,154 @@
+[
+ {
+  "route": "/adjacent/autonomous-vehicles/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 0,
+   "label": "A Waymo Jaguar I-Pace driving itself through San Francisco in 2023. Waymo's 2025 study of 56.7 million rider-only miles ",
+   "file": "adjacent__autonomous-vehicles__00.png"
+  }
+ },
+ {
+  "route": "/adjacent/autonomous-vehicles/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 1,
+   "label": "The roof sensor package of a Waymo I-Pace in San Francisco, 2025. Waymo fuses lidar, camera and radar, paying for active",
+   "file": "adjacent__autonomous-vehicles__01.png"
+  }
+ },
+ {
+  "route": "/adjacent/autonomous-vehicles/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 2,
+   "label": "Carnegie Mellon's Boss, winner of the 2007 DARPA Urban Challenge, on display in 2008. Route planning, behaviour decision",
+   "file": "adjacent__autonomous-vehicles__02.png"
+  }
+ },
+ {
+  "route": "/adjacent/drones/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Perception delay lowers the safe speed",
+   "file": "adjacent__drones__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Perception delay lowers the safe speed",
+   "file": "adjacent__drones__00.png"
+  }
+ },
+ {
+  "route": "/adjacent/drones/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 1,
+   "label": "A Minion 220 racing quadrotor with its forward camera, 2016. Machines of this class exceed 100 km/h, and in 2023 a reinf",
+   "file": "adjacent__drones__01.png"
+  }
+ },
+ {
+  "route": "/adjacent/drones/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "A drone only sees so far ahead; every split-second its vision takes is distance flown blind, which caps how fast it can ",
+   "file": "adjacent__drones__01.png"
+  },
+  "after": {
+   "idx": 2,
+   "label": "A drone only sees so far ahead; every split-second its vision takes is distance flown blind, which caps how fast it can ",
+   "file": "adjacent__drones__02.png"
+  }
+ },
+ {
+  "route": "/adjacent/drones/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 3,
+   "label": "A DJI Mavic Pro in flight, 2017. On an autonomous drone, visual-inertial odometry fuses camera features with inertial me",
+   "file": "adjacent__drones__03.png"
+  }
+ },
+ {
+  "route": "/adjacent/space/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 0,
+   "label": "Perseverance beside the rock Rochette on sol 198, September 2021, with two drill holes where its arm took cores. In its ",
+   "file": "adjacent__space__00.png"
+  }
+ },
+ {
+  "route": "/adjacent/space/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 1,
+   "label": "Ingenuity on Mars, photographed by Perseverance on 5 April 2021, two weeks before its first flight. Qualified for five f",
+   "file": "adjacent__space__01.png"
+  }
+ },
+ {
+  "route": "/adjacent/space/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 2,
+   "label": "Mars 2020 team members install MOXIE in Perseverance's chassis. On Mars it made 122 grams of oxygen from atmospheric car",
+   "file": "adjacent__space__02.png"
+  }
+ },
+ {
+  "route": "/adjacent/space/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 3,
+   "label": "Dextre on the end of Canadarm2 in January 2017, during weeks spent swapping the station's batteries. Ground crews plan a",
+   "file": "adjacent__space__03.png"
+  }
+ },
+ {
+  "route": "/adjacent/surgical/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 0,
+   "label": "A da Vinci Xi patient-side cart with its four instrument arms, 2018. Every motion its arms make is a surgeon’s command.",
+   "file": "adjacent__surgical__00.png"
+  }
+ },
+ {
+  "route": "/adjacent/surgical/",
+  "changed": true,
+  "before": null,
+  "after": {
+   "idx": 1,
+   "label": "The stereo viewer and hand controllers of a da Vinci Xi surgeon console. Motion scaling and tremor filtering sit between",
+   "file": "adjacent__surgical__01.png"
+  }
+ },
+ {
+  "route": "/adjacent/surgical/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "A surgical robot divides the surgeon's hand movement, tremor included, so the instrument moves less than the hand.",
+   "file": "adjacent__surgical__00.png"
+  },
+  "after": {
+   "idx": 2,
+   "label": "A surgical robot divides the surgeon's hand movement, tremor included, so the instrument moves less than the hand.",
+   "file": "adjacent__surgical__02.png"
+  }
+ }
+]

@@ -2,8 +2,8 @@ import { cx } from '@/lib/utils';
 
 /**
  * OrbitalServicingTable: five on-orbit robotics milestones for the
- * adjacent/space module, from the first autonomous rendezvous and
- * docking to commercial debris inspection. Static, server-renderable,
+ * adjacent/space module, from autonomous rendezvous and docking in 1998
+ * to commercial debris inspection. Static, server-renderable,
  * no client state. Every row is cited in the module prose.
  */
 
@@ -13,14 +13,14 @@ const ROWS = [
     year: '1998',
     operator: 'NASDA (Japan)',
     demonstrated:
-      'First autonomous rendezvous and docking between two satellites, plus a 2-metre, 6-DoF robot arm operated from the ground and in orbit'
+      'Autonomous rendezvous and docking between two satellites, plus a 2-metre, 6-DoF robot arm operated from the ground and in orbit'
   },
   {
     mission: 'Orbital Express',
     year: '2007',
     operator: 'DARPA / Boeing / Ball',
     demonstrated:
-      'Servicer ASTRO autonomously captured, refueled, and swapped a battery with the NextSat client across a four-month flight demonstration'
+      'Servicer ASTRO autonomously captured the NextSat client and transferred propellant and a battery to it across a four-month flight demonstration'
   },
   {
     mission: 'Canadarm2 + Dextre',

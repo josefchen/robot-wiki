@@ -3,7 +3,6 @@ import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { auditSceneElement } from '@/lib/motion-scene-audit';
-import { MOTION_CAMERA } from '@/lib/motion-tokens';
 import { waitForHydration } from './interaction-ready';
 
 const descriptions = [
@@ -91,7 +90,7 @@ for (const reference of descriptions) {
   });
 }
 
-test('diffusion sample 60 approaches noise before the forward beat boundary', async ({ page }) => {
+test('diffusion pin 32 approaches its noise before the forward beat boundary', async ({ page }) => {
   const directory = join(process.cwd(), 'evidence/motion/scenes/diffusion-denoising');
   mkdirSync(directory, { recursive: true });
   for (const width of [375, 1440]) {
@@ -105,8 +104,9 @@ test('diffusion sample 60 approaches noise before the forward beat boundary', as
     const scrubber = group.getByTestId('motion-scrubber');
     await expect(scrubber).toBeVisible();
     await page.keyboard.press('k');
-    const dot = group.locator('[data-scene-mark="noise-59"]');
-    const position = async () => dot.evaluate((node) => [
+    // The back gauge's last pin's ball, while it is random.
+    const ball = group.locator('[data-scene-mark="noise-31"]');
+    const position = async () => ball.evaluate((node) => [
       Number(node.getAttribute('cx')),
       Number(node.getAttribute('cy')),
     ]);
@@ -123,7 +123,7 @@ test('diffusion sample 60 approaches noise before the forward beat boundary', as
   }
 });
 
-test('diffusion camera closes on one guess and the relation is rewritten glyph by glyph', async ({ page }) => {
+test('diffusion clean-up follows one guess on the step dial and the camera\'s sight line lights, with no word in the drawing', async ({ page }) => {
   const directory = join(process.cwd(), 'evidence/motion/scenes/diffusion-denoising');
   mkdirSync(directory, { recursive: true });
   for (const width of [375, 1440]) {
@@ -144,42 +144,39 @@ test('diffusion camera closes on one guess and the relation is rewritten glyph b
       }
       return alpha;
     });
-    const zoom = async () => Number(
-      (await group.locator('[data-scene-camera]').getAttribute('transform'))?.match(/scale\(([\d.]+)\)/)?.[1],
-    );
     const clean = async (moment: string) => {
       const audit = await group.evaluate(auditSceneElement);
+      expect(audit.textCount, `${width} ${moment} words in the drawing`).toBe(0);
       expect(audit.intersections, `${width} ${moment}`).toEqual([]);
       expect(audit.overflow, `${width} ${moment}`).toEqual([]);
     };
 
-    // 40% into the clean-up beat the camera holds on the worked guess,
-    // inside the zoom token, with the ring on it and the labels stepped aside.
+    // 40% into the clean-up the followed guess is highlighted and the dial
+    // has counted four of the ten steps, which the readout says in words.
     await scrubber.fill('3800');
-    expect(await zoom()).toBeGreaterThan(1.5);
-    expect(await zoom()).toBeLessThanOrEqual(MOTION_CAMERA.focusMaxZoom);
     expect(await opacity('[data-scene-mark="worked-guess"]')).toBeGreaterThan(0.9);
-    expect(await opacity('text:text("move one")')).toBeLessThan(0.01);
-    await clean('camera hold');
-    await group.screenshot({ path: join(directory, `${width}-camera-hold.png`) });
+    await expect(group.getByTestId('motion-readout')).toContainText('Step 4 of 10');
+    await clean('clean-up');
+    await group.screenshot({ path: join(directory, `${width}-cleanup-hold.png`) });
 
-    // The shared glyphs slide while "| o" waits for room, then "| o" writes in.
-    await scrubber.fill('5900');
-    expect(await opacity('[data-scene-glyph="arg"]')).toBe(1);
-    expect(await opacity('[data-scene-glyph="given"]')).toBe(0);
-    await clean('glyphs sliding');
-    await group.screenshot({ path: join(directory, `${width}-symbols-slide.png`) });
-    await scrubber.fill('6400');
-    const writing = await opacity('[data-scene-glyph="seen"]');
-    expect(writing).toBeGreaterThan(0);
-    expect(writing).toBeLessThan(1);
-    await clean('glyphs writing in');
+    // While the scene says what the move is drawn for, the camera's sight
+    // line to the bar is lit, and the followed guess steps back.
+    await scrubber.fill('6000');
+    expect(await opacity('[data-scene-part="sight-line"]')).toBeGreaterThan(0.9);
+    expect(await opacity('[data-scene-mark="worked-guess"]')).toBe(0);
+    await clean('sight line');
+    await group.screenshot({ path: join(directory, `${width}-sight-line.png`) });
 
-    // The camera is home and every symbol gone on the finished frame.
+    // The finished frame: every pin set, the sight line out.
     await scrubber.fill('9000');
-    expect(await zoom()).toBe(1);
-    for (const id of ['a', 'sim', 'p', 'open', 'arg', 'close', 'given', 'seen']) {
-      expect(await opacity(`[data-scene-glyph="${id}"]`), id).toBe(0);
+    expect(await opacity('[data-scene-mark="noise-0"]')).toBe(0);
+    expect(await opacity('[data-scene-mark="action-0"]')).toBe(1);
+    expect(await opacity('[data-scene-part="sight-line"]')).toBe(0);
+
+    // Between the beat ends too: no word, no overlap and no overflow mid-move.
+    for (let t = 0; t <= 9000; t += 100) {
+      await scrubber.fill(String(t));
+      await clean(`t=${t}`);
     }
   }
 });
@@ -275,35 +272,61 @@ test('a camera window that reaches the stage edge fails the 4px margin', async (
   await expect(scrubber).toBeVisible();
   await page.keyboard.press('k');
   await scrubber.fill('3800');
-  // A mark the camera window cuts paints only inside the window, which keeps
-  // the margin; widened to the stage edge, the same mark touches that edge.
-  await group.locator('[clip-path]').evaluate((holder) => {
-    const mark = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  // A camera window inset 6 units from the stage edge, as scenes with a
+  // camera draw one, holding a mark that reaches past the stage edge: the
+  // mark paints only inside the window, which keeps the margin; widened to
+  // the stage edge, the same mark touches that edge.
+  await group.locator('[data-motion-stage] svg').evaluate((svg) => {
+    const ns = 'http://www.w3.org/2000/svg';
+    const [, , width, height] = (svg.getAttribute('viewBox') ?? '').split(/\s+/).map(Number);
+    const defs = document.createElementNS(ns, 'defs');
+    const clip = document.createElementNS(ns, 'clipPath');
+    clip.setAttribute('id', 'planted-camera-window');
+    const rect = document.createElementNS(ns, 'rect');
+    for (const [key, value] of Object.entries({ x: 6, y: 30, width: width - 12, height: height - 36 })) {
+      rect.setAttribute(key, String(value));
+    }
+    clip.append(rect);
+    defs.append(clip);
+    svg.append(defs);
+    const holder = document.createElementNS(ns, 'g');
+    holder.setAttribute('clip-path', 'url(#planted-camera-window)');
+    const mark = document.createElementNS(ns, 'circle');
     for (const [key, value] of Object.entries({ cx: '2', cy: '120', r: '8', 'data-scene-mark': 'planted-window-edge' })) {
       mark.setAttribute(key, value);
     }
     holder.append(mark);
+    svg.append(holder);
   });
   const inWindow = await group.evaluate(auditSceneElement);
   expect(inWindow.overflow).toEqual([]);
   expect(inWindow.markCount).toBeGreaterThan(0);
-  await group.locator('clipPath rect').evaluate((rect) => {
+  await group.locator('#planted-camera-window rect').evaluate((rect) => {
+    const svg = rect.closest('svg')!;
     rect.setAttribute('x', '0');
-    rect.setAttribute('width', '340');
+    rect.setAttribute('width', String(Number((svg.getAttribute('viewBox') ?? '').split(/\s+/)[2])));
   });
   const widened = await group.evaluate(auditSceneElement);
   expect(widened.overflow.some((row) => row.includes('planted-window-edge'))).toBe(true);
 });
 
 test('painted horizontal, vertical, and thick strokes fail overlap and 4px margins', async ({ page }) => {
-  // The diffusion scene keeps stage labels to plant strokes across; the
-  // Kalman rail has no words in its drawing.
+  // Neither the Kalman rail nor the denoising gauge has words in its
+  // drawing, so the strokes cross a label planted for the purpose, as the
+  // scene spec's overlap check plants one.
   await page.goto('/manipulation/diffusion-policy/', { waitUntil: 'networkidle' });
   const group = page.locator('[data-motion-scene="diffusion-denoising"]');
   const svg = group.locator('[data-motion-stage] svg');
   await svg.evaluate((node) => {
-    const label = node.querySelector('text');
-    if (!label) throw new Error('expected a stage label');
+    let label = node.querySelector('text');
+    if (!label) {
+      label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('data-scene-label', 'planted-label');
+      label.setAttribute('x', '40');
+      label.setAttribute('y', '40');
+      label.textContent = 'planted label';
+      node.append(label);
+    }
     const text = label.getBoundingClientRect();
     const stage = node.getBoundingClientRect();
     const inverse = (node as SVGSVGElement).getScreenCTM()!.inverse();

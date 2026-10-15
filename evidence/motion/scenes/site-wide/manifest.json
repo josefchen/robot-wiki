@@ -6,57 +6,57 @@
     {
       "id": "kalman-predict-update",
       "chunks": [
-        "3rkh5y5wnrx19.js"
+        "11-iz69vk7d6h.js"
       ],
-      "gzipBytes": 10001,
+      "gzipBytes": 8493,
       "withinBudget": true
     },
     {
       "id": "diffusion-denoising",
       "chunks": [
-        "1rudv3v8im1j3.js"
+        "0dtzkfm6f3-62.js"
       ],
-      "gzipBytes": 6835,
+      "gzipBytes": 8439,
       "withinBudget": true
     },
     {
       "id": "batch-scale",
       "chunks": [
-        "0pwne61ikbs35.js"
+        "247gd2rbkvd4_.js"
       ],
-      "gzipBytes": 3625,
+      "gzipBytes": 3622,
       "withinBudget": true
     },
     {
       "id": "gait-support",
       "chunks": [
-        "39a6w-i-rzpwi.js"
+        "2--of-pfbge1w.js"
       ],
-      "gzipBytes": 13908,
+      "gzipBytes": 13900,
       "withinBudget": true
     },
     {
       "id": "jam-overhead",
       "chunks": [
-        "0p3-_-5-xf42b.js"
+        "349qq6if3b63q.js"
       ],
-      "gzipBytes": 13372,
+      "gzipBytes": 13365,
       "withinBudget": true
     },
     {
       "id": "tactile-slip",
       "chunks": [
-        "0oippa7g7huf2.js"
+        "1_i89x7ckd34s.js"
       ],
-      "gzipBytes": 12934,
+      "gzipBytes": 12929,
       "withinBudget": true
     },
     {
       "id": "sense-avoid",
       "chunks": [
-        "20zza768k-j8c.js"
+        "3-f5x3x1zkaqt.js"
       ],
-      "gzipBytes": 14714,
+      "gzipBytes": 14708,
       "withinBudget": true
     }
   ],
@@ -97,23 +97,23 @@
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-1.png",
-      "sha256": "f2acb1afefc94bb5d861276d4ffe0c3f21fd9334ffeb701fef6c349ed9d64377"
+      "sha256": "a319c331ba693eae6495e9d78501d29b9c61c58dce27ed392adf742dd2e85235"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-2.png",
-      "sha256": "1ab95f431f915cd002e71f4c6a6e1676b22c04df53eaaa3135b39ceadd5542ae"
+      "sha256": "be3612cf3b9dba8c909038801ba8791cc22c08269f2bc137a17102885828c28f"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-3.png",
-      "sha256": "18379a85154405a574b7d0f89b708da1b6185db4d2746f8286fc70c3ecc797b0"
+      "sha256": "f1a1d477babf6ce5818d8e8667a586fc53959800d36d55277c501f611e51249a"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-4.png",
-      "sha256": "620cd3715f802d3b9a03c34e243609756b0b1479822e73aba49648854bdfdaef"
+      "sha256": "7c302e9ddef8e8aeefe4d10a11f66a37b5bcc067bcf2eca57ded1b2b9fb42e80"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/375-beat-5.png",
-      "sha256": "783e3115b99b22273193a9bb185be800c463883de2c8403d657216bab719ebc5"
+      "sha256": "e3a733592f2c8737473cbe2dd4feb04213543a842dbba13d2ae9d38c11bad51c"
     },
     {
       "path": "evidence/motion/scenes/batch-scale/375-beat-1.png",
@@ -217,23 +217,23 @@
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-1.png",
-      "sha256": "526ec5291c4b382c0377c4a2e3c93d3ace8e821f46bc7e1512171afe41c9499c"
+      "sha256": "b0da67414e8271e539dd25fb87444ba304359620d8ee4966bba0511e5c495ee3"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-2.png",
-      "sha256": "a8cd1278d733be3c42758d5ebf3c52ccf57fa4b13cdbfc3e41b7027771714cdf"
+      "sha256": "7270462818bcbd70d20ab44b5489a19c520b124baad24b9b79dcc59814cc083f"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-3.png",
-      "sha256": "521375fbfc7ffb89df2d98ebbdf4cec69e7b4fd14be8976abf0468fc5d908493"
+      "sha256": "08f377ca3a776a4e3ce9c54b78ae32374b70490d331c76671d2c9719d31dd203"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-4.png",
-      "sha256": "2475a0ba9cf0f57b7723f5f1b1fa48a5fc1c70ebb1e6d5f41d029b2875174faa"
+      "sha256": "e3089e7bec5d16a0ddbd5fc96c89186c0c575889896d4e96b3e7dfbffce2218b"
     },
     {
       "path": "evidence/motion/scenes/diffusion-denoising/1440-beat-5.png",
-      "sha256": "158a43147bbc04956d8afb15a480c8e39b6f44e455425ffa4ec53331011fc9f2"
+      "sha256": "5c5564a473548fa1528aaa7848ed4047b71e5503fa0c3ffefbac397dc040b33b"
     },
     {
       "path": "evidence/motion/scenes/batch-scale/1440-beat-1.png",

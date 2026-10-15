@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6afa3774e0b8e73cf464dfebf9a3b4ec2676287304d885959767ccbdab5e959e",
+  "fingerprint": "a586849174855078d61786bde546e13a377610fc8598c9d32cfe094d81457404",
   "viewports": [
     "375x812",
     "1440x900"
@@ -204,7 +204,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22143,
+      "visibleTextLength": 22168,
       "figures": [
         {
           "imageId": "racing-quadrotor-minion-220-2016",
@@ -297,7 +297,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22931,
+      "visibleTextLength": 22957,
       "figures": [
         {
           "imageId": "perseverance-selfie-rochette-2021",
@@ -474,7 +474,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21779,
+      "visibleTextLength": 21784,
       "figures": [
         {
           "imageId": "da-vinci-xi-patient-cart-2018",
@@ -567,7 +567,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16119,
+      "visibleTextLength": 16116,
       "figures": [
         {
           "imageId": "leica-laser-tracker-ats600",
@@ -660,7 +660,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24275,
+      "visibleTextLength": 24194,
       "figures": [
         {
           "imageId": "centrifugal-governor-queen-street-mill",
@@ -1074,7 +1074,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 33753,
+      "visibleTextLength": 33690,
       "figures": [
         {
           "imageId": "realsense-d435-depth-camera",
@@ -13613,7 +13613,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17019,
+      "visibleTextLength": 16617,
       "figures": [
         {
           "imageId": "aloha-unleashed-shirt-rollout-2024",
@@ -14204,7 +14204,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20747,
+      "visibleTextLength": 20718,
       "figures": [
         {
           "imageId": "pi06-espresso-2025",
@@ -16712,7 +16712,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 32436,
+      "visibleTextLength": 32461,
       "figures": [
         {
           "imageId": "racing-quadrotor-minion-220-2016",
@@ -16805,7 +16805,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 34662,
+      "visibleTextLength": 34688,
       "figures": [
         {
           "imageId": "perseverance-selfie-rochette-2021",
@@ -16982,7 +16982,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 32245,
+      "visibleTextLength": 32250,
       "figures": [
         {
           "imageId": "da-vinci-xi-patient-cart-2018",
@@ -17075,7 +17075,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21199,
+      "visibleTextLength": 21196,
       "figures": [
         {
           "imageId": "leica-laser-tracker-ats600",
@@ -17168,7 +17168,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 30840,
+      "visibleTextLength": 30759,
       "figures": [
         {
           "imageId": "centrifugal-governor-queen-street-mill",
@@ -17582,7 +17582,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 43591,
+      "visibleTextLength": 43528,
       "figures": [
         {
           "imageId": "realsense-d435-depth-camera",
@@ -30121,7 +30121,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 22383,
+      "visibleTextLength": 21981,
       "figures": [
         {
           "imageId": "aloha-unleashed-shirt-rollout-2024",
@@ -30712,7 +30712,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27518,
+      "visibleTextLength": 27489,
       "figures": [
         {
           "imageId": "pi06-espresso-2025",

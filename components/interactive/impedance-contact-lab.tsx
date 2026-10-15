@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useState, type ChangeEvent } from 'react';
+import { useId, useLayoutEffect, useMemo, useRef, useState, type ChangeEvent } from 'react';
 import {
   CRUSH_LIMIT_N,
   DEFAULT_PARAMS,
@@ -10,6 +10,7 @@ import {
   SLIDER_SPECS,
   classifyOutcome,
   simulateContact,
+  type ContactRun,
   type HardwareMode,
   type LabParams,
   type TaskOutcome,
@@ -20,7 +21,6 @@ import {
   TRANSIENT_CONTACT_LIMIT_N,
 } from '@/lib/force-limits';
 import { cx } from '@/lib/utils';
-import { MOTION_STAGE } from '@/lib/motion-tokens';
 import { ChartDescription } from '@/components/ui';
 import {
   ControlField,
@@ -30,61 +30,66 @@ import {
   InstrumentFigure,
   InstrumentReadout,
   InstrumentReset,
-  PlotStage,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
-import {
-  ANNOTATION_ARROW,
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_TYPE,
-  CHART_VIEW_WIDTH,
-  ChartAxes,
-  DirectLabel,
-  StageAnnotation,
-  roleColour,
-  type PlotRect,
-} from '@/components/motion/chart';
+import { roleColour } from '@/components/motion/chart';
 import { CiteRef } from '@/components/article/citation-records';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, Line, Solid, Wire } from '@/components/iso/react/draw';
+import { Stage, asksForStillness } from '@/components/iso/react/live';
+import {
+  CRACK,
+  CRUSH_N,
+  HEIGHT,
+  PARK_LIFT,
+  PARTS,
+  SCALE_N,
+  SQUEEZE_PER_MM,
+  STOP_N,
+  WIDTH,
+  knobAt,
+  liftOf,
+  needleAt,
+  peakAt,
+  springAt,
+  type LiveId,
+  type Part,
+} from '@/components/iso/figures/press-test-stand';
 
 /**
- * ImpedanceContactLab: a one-dimensional compliant-contact lab. A
- * fingertip presses a fragile object, and the chart shows the push on the
- * object over the first 0.6 s against the force that crushes it. "Which
- * arm?" picks the hardware: a stiff arm (geared, position-controlled) that
- * only follows a position, an arm that controls its own push (torque control) or an arm
- * with a built-in spring (series-elastic joint). "Softness" sets the
- * commanded stiffness K. Press depth, damping D, the exact readouts and
- * Reset sit in "Adjust more".
+ * ImpedanceContactLab: a one-dimensional compliant-contact lab, drawn as a
+ * press test stand (components/iso/figures/press-test-stand.ts). A head
+ * slides down a column and presses a fingertip onto a glass vial on a load
+ * cell; a force gauge wired to the load cell shows the push, its lit needle
+ * the push now and a drag pointer the first bump, the hardest push, against
+ * a shaded arc where the glass cracks. "Which arm?" swaps the head: a stiff
+ * geared drive that only follows a position (it has no softness knob), an
+ * arm that controls its own push (a knob on its motor sets the commanded
+ * stiffness K) or the same arm with a coil spring built in. "Softness" turns
+ * the knob. Press depth, damping D, the exact readouts and Reset sit in
+ * "Adjust more".
  *
  * The teaching move: the stiff arm greys out softness and damping
  * with the NATIVE disabled attribute (a disabled control is honestly
- * unavailable rather than focusable-and-inert) and reads unbounded,
- * because a position loop has no force channel at all.
+ * unavailable rather than focusable-and-inert) and its push runs off the
+ * gauge, because a position loop has no force channel at all.
  *
- * The chart's only reference is the crush line. The transient
+ * Every change of arm or setting presses again: the head lifts, comes down
+ * and the contact plays out from the deterministic simulation, slowed for
+ * the eye, then rests on the still pose (fingertip on the glass, needle at
+ * the settled push, pointer at the first bump, the glass cracked or not).
+ * The page opens on that still pose; reduced motion jumps to it.
+ *
+ * The gauge's only reference is the crush force. The transient
  * contact-force limit from the shared lib/force-limits module sits about
- * ten times higher, off the chart; the method fold states it, with its
+ * ten times higher, off the gauge; the method fold states it, with its
  * citation, in the string the frontier safety instrument also renders.
  *
  * Interactive contract: deterministic simulation recomputed from pure
- * functions on every input change (no interval: the trace is a
- * fixed-horizon response), native range inputs and a native radio group
- * (keyboard-accessible), readouts, Reset restoring the defaults, fixed SVG
- * viewport (no layout shift).
+ * functions on every input change, native range inputs and a native radio
+ * group (keyboard-accessible), readouts, Reset restoring the opening
+ * settings, fixed SVG viewport (no layout shift).
  */
-
-const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 280;
-const PLOT: PlotRect = { left: 36, right: 322, top: 96, bottom: 232 };
-/** Force axis ceiling, N: the default first bump fills about half of it. */
-const AXIS_MAX_N = 50;
-/** The simulated approach, s: simulateContact runs a fixed 0.6 s horizon. */
-const HORIZON_S = 0.6;
-/** The table under the object, in the band above the chart. */
-const TABLE_Y = 66;
-const OBJECT = { x: 70, y: 52, rx: 11, ry: 13 };
 
 const HARDWARE_OPTIONS: ReadonlyArray<{ value: HardwareMode; label: string }> = [
   { value: 'position', label: 'Stiff arm' },
@@ -113,146 +118,187 @@ const HARDWARE_OPTION_CLASS = cx(
 
 const DISABLED_SLIDER_CLASS = 'disabled:cursor-not-allowed disabled:opacity-40';
 
-/** Round every rendered geometry value: SSR HTML and hydration agree. */
-const f = (v: number) => Number(v.toFixed(2));
+/** The gauge reads to 50 N; a bigger push rests on the stop pin past the scale. */
+const AXIS_MAX_N = SCALE_N;
+/** The simulated approach, s: simulateContact runs a fixed 0.6 s horizon, one trace sample a millisecond. */
+const HORIZON_S = 0.6;
+/** World units the fingertip rises per millimetre it is off the glass during the contact (drawn larger). */
+const APPROACH_PER_MM = 8;
+/** A press, in page seconds: the head lifts, comes down, the contact plays slowed, then settles. */
+export const PRESS = { lift: 0.45, descend: 0.8, slow: 6, settle: 0.6 } as const;
+export const PRESS_SECONDS = PRESS.lift + PRESS.descend + HORIZON_S * PRESS.slow + PRESS.settle;
 
-function xFor(seconds: number): number {
-  return PLOT.left + (seconds / HORIZON_S) * (PLOT.right - PLOT.left);
+/** What the stand shows at one instant: head and fingertip heights, spring squeeze, gauge and glass. */
+export type PressPose = { lift: number; squeeze: number; newtons: number; peak: number; crack: number; pressing: boolean };
+
+const smooth = (t: number) => {
+  const u = Math.min(Math.max(t, 0), 1);
+  return u * u * (3 - 2 * u);
+};
+/** The spring arm's squeeze, in world units, for a push in newtons. */
+const squeezeOf = (newtons: number) => (newtons / SEA_SPRING_STIFFNESS_N_PER_M) * 1000 * SQUEEZE_PER_MM;
+
+/** The still pose: the fingertip resting on the glass after the contact has settled. */
+export function stillPose(hardware: HardwareMode, run: ContactRun, outcome: TaskOutcome): PressPose {
+  const stiff = hardware === 'position';
+  const newtons = stiff ? STOP_N : run.steadyForceN;
+  return {
+    lift: 0,
+    squeeze: hardware === 'sea' ? squeezeOf(newtons) : 0,
+    newtons,
+    peak: stiff ? STOP_N : Math.min(run.peakForceN, STOP_N),
+    crack: outcome === 'success' ? 0 : 1,
+    pressing: false,
+  };
 }
 
-function yFor(forceN: number): number {
-  const clamped = Math.min(forceN, AXIS_MAX_N);
-  return PLOT.bottom - (clamped / AXIS_MAX_N) * (PLOT.bottom - PLOT.top);
+/** The pose `t` page seconds into a press that started from `from`. */
+export function pressAt(t: number, hardware: HardwareMode, run: ContactRun, outcome: TaskOutcome, from: PressPose): PressPose {
+  const end = stillPose(hardware, run, outcome);
+  const approach = 0.5 * APPROACH_PER_MM;
+  if (t <= PRESS.lift) {
+    const s = smooth(t / PRESS.lift);
+    const k = 1 - s;
+    return { lift: from.lift + (PARK_LIFT - from.lift) * s, squeeze: from.squeeze * k, newtons: from.newtons * k, peak: from.peak * k, crack: from.crack * k, pressing: true };
+  }
+  if (t <= PRESS.lift + PRESS.descend) {
+    const s = smooth((t - PRESS.lift) / PRESS.descend);
+    return { lift: PARK_LIFT + (approach - PARK_LIFT) * s, squeeze: 0, newtons: 0, peak: 0, crack: 0, pressing: true };
+  }
+  const runStart = PRESS.lift + PRESS.descend;
+  const runEnd = runStart + HORIZON_S * PRESS.slow;
+  const sampleAt = (seconds: number) => Math.min(run.steps.length - 1, Math.max(0, Math.floor(seconds * 1000 + 1e-9)));
+  const stiff = hardware === 'position';
+  const contactIndex = run.steps.findIndex((step) => step.forceN > 0);
+  const poseAt = (index: number): PressPose => {
+    const { state, forceN } = run.steps[index]!;
+    const off = Math.max(0, -state.x) * 1000 * APPROACH_PER_MM;
+    let peak = 0;
+    for (let k = 0; k <= index; k += 1) peak = Math.max(peak, run.steps[k]!.forceN);
+    if (stiff) {
+      const touched = contactIndex >= 0 && index >= contactIndex;
+      return { lift: touched ? 0 : off, squeeze: 0, newtons: touched ? STOP_N : 0, peak: touched ? STOP_N : 0, crack: touched ? 1 : 0, pressing: true };
+    }
+    const newtons = Math.min(forceN, STOP_N);
+    return {
+      lift: forceN > 0 ? 0 : off,
+      squeeze: hardware === 'sea' && forceN > 0 ? squeezeOf(forceN) : 0,
+      newtons,
+      peak: Math.min(peak, STOP_N),
+      crack: peak > CRUSH_N ? 1 : 0,
+      pressing: true,
+    };
+  };
+  if (t <= runEnd) return poseAt(sampleAt((t - runStart) / PRESS.slow));
+  const last = poseAt(run.steps.length - 1);
+  if (t >= runEnd + PRESS.settle) return end;
+  const s = smooth((t - runEnd) / PRESS.settle);
+  const mix = (a: number, b: number) => a + (b - a) * s;
+  return {
+    lift: mix(last.lift, end.lift),
+    squeeze: mix(last.squeeze, end.squeeze),
+    newtons: mix(last.newtons, end.newtons),
+    peak: mix(last.peak, end.peak),
+    crack: Math.max(last.crack, end.crack),
+    pressing: true,
+  };
 }
-
-/** Tick labels in seconds, the zero bare. */
-const formatSeconds = (s: number) => (s === 0 ? '0' : s.toFixed(1));
 
 /** The first bump against the crush force, in the reader's words. */
-function bumpWords(peakN: number): readonly string[] {
-  if (peakN > AXIS_MAX_N) return ['First bump: off the chart,', 'far past the crushing force'];
-  if (peakN > CRUSH_LIMIT_N) return ['First bump: past', 'the crushing force'];
-  if (peakN >= 0.8 * CRUSH_LIMIT_N) return ['First bump: just under', 'the crushing force'];
-  return ['First bump: well under', 'the crushing force'];
+function bumpWords(peakN: number): string {
+  if (peakN > AXIS_MAX_N) return 'off the scale, far past the crushing force';
+  if (peakN > CRUSH_LIMIT_N) return 'past the crushing force';
+  if (peakN >= 0.8 * CRUSH_LIMIT_N) return 'just under the crushing force';
+  return 'well under the crushing force';
 }
 
-/**
- * The band above the chart: the fingertip pressing the object on its
- * table, drawn in the trace's colour so the line below reads as this
- * push. The spring arm shows its spring; a broken object shows a crack.
- */
-function ContactSketch({ hardware, outcome }: { hardware: HardwareMode; outcome: TaskOutcome }) {
-  const push = roleColour('state');
-  const top = OBJECT.y - OBJECT.ry;
-  const left = OBJECT.x - 7;
-  const cracked = outcome === 'crushed' || outcome === 'over-limit';
-  // The pushing rod as a line drawing: an ink outline on the paper.
-  const pusher = { fill: MOTION_STAGE.background, stroke: push, strokeWidth: CHART_STROKE.trace } as const;
-  const spring = Array.from({ length: 7 }, (_, i) => `${OBJECT.x + (i % 2 === 0 ? 0 : i % 4 === 1 ? 6 : -6)},${8 + i * (16 / 6)}`);
-  return (
-    <g data-testid="impedance-contact-sketch" data-hardware={hardware}>
-      {/* A plain table top: first-time readers took hatch ticks under a line for marks. */}
-      <rect
-        data-testid="impedance-table"
-        x={30}
-        y={TABLE_Y}
-        width={94}
-        height={4}
-        fill="none"
-        stroke={CHART_STRUCTURE.axes}
-        strokeWidth={CHART_STROKE.structure}
+/** The resting readout: the first bump and where it falls. */
+export function stillReadout(hardware: HardwareMode, run: ContactRun): string {
+  if (hardware === 'position') return 'No force control: the push runs off the scale';
+  return `First bump ${run.peakForceN.toFixed(1)} newtons · ${bumpWords(run.peakForceN)}`;
+}
+
+/** The readout while it presses, from the same instant as the gauge. */
+export const pressingReadout = (pose: PressPose) =>
+  pose.newtons >= STOP_N ? 'Pressing · past the scale' : `Pressing · ${pose.newtons.toFixed(1)} newtons on the glass`;
+
+/** The stand's parts in painter's order, cut into runs of one group: static art, the head, the fingertip. */
+function runsOf(parts: readonly Part[]) {
+  const runs: Array<{ group: Part['group']; parts: Part[] }> = [];
+  for (const part of parts) {
+    const last = runs[runs.length - 1];
+    if (last && last.group === part.group) last.parts.push(part);
+    else runs.push({ group: part.group, parts: [part] });
+  }
+  return runs;
+}
+const RUNS = { position: runsOf(PARTS.position), torque: runsOf(PARTS.torque), sea: runsOf(PARTS.sea) };
+
+function StandPart({ part }: { part: Part }) {
+  if (part.kind === 'solid') {
+    return (
+      <Solid
+        paths={part.paths}
+        tone={part.tone}
+        lit={part.lit}
+        crease={part.crease}
+        inner={part.inner ? <Line d={part.inner} tone={part.innerTone ?? 'faint'} /> : undefined}
       />
-      <ellipse
-        data-testid="impedance-object"
-        cx={OBJECT.x}
-        cy={OBJECT.y}
-        rx={OBJECT.rx}
-        ry={OBJECT.ry}
-        fill={MOTION_STAGE.background}
-        stroke={CHART_STRUCTURE.label}
-        strokeWidth={CHART_STROKE.trace}
-      />
-      {cracked ? (
-        <polyline
-          data-testid="impedance-object-crack"
-          points={`${OBJECT.x - 10},${OBJECT.y - 1} ${OBJECT.x - 5},${OBJECT.y + 4} ${OBJECT.x},${OBJECT.y - 3} ${OBJECT.x + 5},${OBJECT.y + 4} ${OBJECT.x + 10},${OBJECT.y - 1}`}
-          fill="none"
-          stroke={roleColour('constraint')}
-          strokeWidth={CHART_STROKE.trace}
-        />
-      ) : null}
-      {hardware === 'sea' ? (
-        <>
-          <rect x={left} y={-8} width={14} height={16} {...pusher} />
-          <polyline points={spring.join(' ')} fill="none" stroke={push} strokeWidth={CHART_STROKE.trace} />
-          <rect x={left} y={24} width={14} height={top - 24} {...pusher} />
-        </>
-      ) : (
-        <rect x={left} y={-8} width={14} height={top + 8} rx={hardware === 'position' ? 0 : 3} {...pusher} />
-      )}
-      <LabelLines
-        x={96}
-        y={42}
-        lines={[`Crushes at ${CRUSH_LIMIT_N} newtons,`, `the weight of a ${(CRUSH_LIMIT_N / 9.81).toFixed(1)} kg bag`]}
-      />
-    </g>
-  );
+    );
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  if (part.kind === 'dots') return <Dots points={part.points} size={part.size} tone={part.tone} />;
+  if (part.kind === 'wire') return <Wire from={part.from} to={part.to} via={part.via} tone={part.tone} />;
+  if (part.kind === 'fill') return <path className="iso-shade" data-shade={part.shade} d={part.d} />;
+  return null;
 }
 
-/**
- * A direct label over several lines. The stage holds its type at one CSS
- * size while the viewBox stretches, so the lines step in ems.
- */
-function LabelLines({
-  x,
-  y,
-  lines,
-  anchor = 'start',
-  role,
-}: {
-  x: number;
-  y: number;
-  lines: readonly string[];
-  anchor?: 'start' | 'end' | 'middle';
-  role?: 'constraint';
-}) {
-  return (
-    <text
-      data-chart-label=""
-      data-chart-role={role}
-      x={x}
-      y={y}
-      textAnchor={anchor}
-      fontSize={CHART_TYPE.labelPx}
-      fill={role ? roleColour(role) : CHART_STRUCTURE.label}
-    >
-      {lines.map((line, i) => (
-        <tspan key={line} x={x} dy={i === 0 ? 0 : '1.25em'}>
-          {line}
-        </tspan>
-      ))}
-    </text>
-  );
+type StandRefs = {
+  /** The head and the fingertip are each drawn in several runs (the spring sits between them), all moved together. */
+  head: Map<number, SVGGElement | null>;
+  tip: Map<number, SVGGElement | null>;
+  needle: SVGPathElement | null;
+  peak: SVGPathElement | null;
+  peakTip: SVGCircleElement | null;
+  crack: SVGPathElement | null;
+  springBack: SVGPathElement | null;
+  springBackCore: SVGPathElement | null;
+  springFront: SVGPathElement | null;
+  springFrontCore: SVGPathElement | null;
+  springEnds: SVGGElement | null;
+};
+
+/** Write one pose into the drawing. */
+function drawStand(refs: StandRefs, pose: PressPose) {
+  refs.head.forEach((group) => group?.setAttribute('transform', liftOf(pose.lift - pose.squeeze)));
+  refs.tip.forEach((group) => group?.setAttribute('transform', liftOf(pose.lift)));
+  refs.needle?.setAttribute('d', needleAt(pose.newtons));
+  const peak = peakAt(pose.peak);
+  refs.peak?.setAttribute('d', peak.d);
+  refs.peakTip?.setAttribute('cx', String(Math.round(peak.tip[0] * 10) / 10));
+  refs.peakTip?.setAttribute('cy', String(Math.round(peak.tip[1] * 10) / 10));
+  if (refs.crack) refs.crack.style.opacity = String(Math.round(pose.crack * 100) / 100);
+  if (refs.springBack) {
+    const spring = springAt(pose.lift, pose.squeeze);
+    refs.springBack.setAttribute('d', spring.back);
+    refs.springBackCore?.setAttribute('d', spring.back);
+    refs.springFront?.setAttribute('d', spring.front);
+    refs.springFrontCore?.setAttribute('d', spring.front);
+    refs.springEnds?.querySelectorAll('circle').forEach((dot, index) => {
+      const point = spring.ends[index];
+      if (!point) return;
+      dot.setAttribute('cx', String(Math.round(point[0] * 10) / 10));
+      dot.setAttribute('cy', String(Math.round(point[1] * 10) / 10));
+    });
+  }
 }
 
-/**
- * Where the first-bump note sits: above and right of a small bump, at the
- * top left above a bump that nears the crush line, and to the right of a
- * bump that crosses it, always far enough off for its arrow to show.
- */
-function notePlacement(peakN: number, bump: readonly [number, number]): { x: number; y: number } {
-  if (peakN < 0.5 * CRUSH_LIMIT_N) return { x: bump[0] + 12, y: f(bump[1] - 48) };
-  if (peakN <= CRUSH_LIMIT_N) return { x: PLOT.left + 8, y: PLOT.top + 14 };
-  if (peakN <= AXIS_MAX_N) return { x: bump[0] + 18, y: Math.max(f(bump[1] - 40), PLOT.top + 14) };
-  return { x: bump[0] + 12, y: PLOT.top + 34 };
-}
+/** The stand is taller than it is wide, so its stage grows no wider than this viewBox width allows. */
+const STAGE_WIDTH = 400;
 
-/** The index where the first bump ends: the force back at zero or at its first low. */
-function firstBumpEnd(forces: readonly number[], peakIndex: number): number {
-  let end = peakIndex;
-  while (end < forces.length - 1 && forces[end + 1] > 0 && forces[end + 1] <= forces[end]) end += 1;
-  return Math.min(end + 1, forces.length - 1);
-}
+/** The spring wire: a broad stroke with a pale core, so it reads as round wire. */
+const WIRE_STYLE = { strokeWidth: 2.2 } as const;
+const CORE_STYLE = { strokeWidth: 0.9 } as const;
 
 export function ImpedanceContactLab({ className }: { className?: string }) {
   const uid = useId();
@@ -260,7 +306,8 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
   const [params, setParams] = useState<LabParams>(DEFAULT_PARAMS);
 
   const positionMode = params.hardware === 'position';
-  const run = simulateContact(params);
+  // One run per setting: the press replays it and the still pose ends on it.
+  const run = useMemo(() => simulateContact(params), [params]);
   const outcome = classifyOutcome(params, run);
   const armLabel = HARDWARE_OPTIONS.find((o) => o.value === params.hardware)?.label ?? '';
 
@@ -269,34 +316,65 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
 
   const reset = () => setParams(DEFAULT_PARAMS);
 
-  // The push over the run's simulated time, clamped to the axis. The first
-  // bump, the one the note names, is the run's largest: every later bounce
-  // is smaller, and is drawn fainter.
-  const last = run.steps.length - 1;
-  const forces = run.steps.map((s) => s.forceN);
-  const pointAt = (i: number) => `${f(xFor((i / last) * HORIZON_S))} ${f(yFor(forces[i]))}`;
-  const peakIndex = forces.reduce((best, v, i) => (v > forces[best] ? i : best), 0);
-  const split = firstBumpEnd(forces, peakIndex);
-  const pathOver = (from: number, to: number) =>
-    forces
-      .slice(from, to + 1)
-      .map((_, k) => `${k === 0 ? 'M' : 'L'} ${pointAt(from + k)}`)
-      .join(' ');
-  const bump: [number, number] = [f(xFor((peakIndex / last) * HORIZON_S)), f(yFor(run.peakForceN))];
-  const note = notePlacement(run.peakForceN, bump);
-  // First-time readers asked what the fainter bumps were, so the tallest
-  // of them is named while the first bump stays under the crush line.
-  let second = split;
-  for (let i = split; i <= last; i += 1) if (forces[i] > forces[second]) second = i;
-  const bounceLabel =
-    !positionMode && run.peakForceN <= CRUSH_LIMIT_N && second < last && forces[second] - run.steadyForceN >= 1
-      ? { x: f(xFor((second / last) * HORIZON_S) + 6), y: f(yFor(forces[second]) - 6) }
-      : null;
+  // Every change of arm or setting presses again, a moment after the reader stops moving the control; the
+  // first render is the still pose, and reduced motion jumps to the still pose.
+  const hardware = params.hardware;
+  const still = stillPose(hardware, run, outcome);
+  const refs = useRef<StandRefs>({
+    head: new Map(), tip: new Map(), needle: null, peak: null, peakTip: null, crack: null, springBack: null,
+    springBackCore: null, springFront: null, springFrontCore: null, springEnds: null,
+  });
+  const stageRef = useRef<HTMLDivElement>(null);
+  const shown = useRef<PressPose>(still);
+  /** The run the stand last came to rest on: a re-run of the effect for the same run (React's dev double run) never presses. */
+  const pressed = useRef<ContactRun | null>(null);
+  const [pressing, setPressing] = useState(false);
+  // A layout effect, so the stand is redrawn where it was before the browser paints the new setting's props.
+  useLayoutEffect(() => {
+    const readout = stageRef.current?.closest('[data-anatomy-stage]')?.querySelector<HTMLElement>('[data-readout]');
+    const rest = stillPose(hardware, run, outcome);
+    const settle = () => {
+      shown.current = rest;
+      drawStand(refs.current, rest);
+      if (readout) readout.textContent = stillReadout(hardware, run);
+    };
+    const first = pressed.current === null || pressed.current === run;
+    pressed.current = run;
+    if (first || asksForStillness()) {
+      settle();
+      return;
+    }
+    let frame = 0;
+    let start = 0;
+    const from = shown.current;
+    drawStand(refs.current, from);
+    if (readout) readout.textContent = pressingReadout(from);
+    const tick = (now: number) => {
+      if (!start) start = now;
+      const t = (now - start) / 1000;
+      const pose = pressAt(t, hardware, run, outcome, from);
+      shown.current = pose;
+      drawStand(refs.current, pose);
+      if (t >= PRESS_SECONDS) {
+        settle();
+        setPressing(false);
+        return;
+      }
+      if (readout) readout.textContent = pressingReadout(pose);
+      frame = requestAnimationFrame(tick);
+    };
+    const wait = window.setTimeout(() => {
+      setPressing(true);
+      frame = requestAnimationFrame(tick);
+    }, 220);
+    return () => {
+      window.clearTimeout(wait);
+      cancelAnimationFrame(frame);
+    };
+  }, [hardware, run, outcome]);
 
   const constraint = roleColour('constraint');
   const failedTone = outcome === 'success' ? undefined : { color: constraint };
-  const crushY = f(yFor(CRUSH_LIMIT_N));
-  const noteX = (PLOT.left + PLOT.right) / 2;
   const depthMm = (params.depthM * 1000).toFixed(1);
   const peakText = positionMode ? 'unbounded' : `${run.peakForceN.toFixed(1)} N`;
 
@@ -404,6 +482,69 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
     </>
   );
 
+  const r = refs.current;
+  const knob = knobAt(params.stiffnessKNPerM);
+  const restSpring = springAt(still.lift, still.squeeze);
+  const restPeak = peakAt(still.peak);
+  const liveView = (id: LiveId) => {
+    if (id === 'crack') {
+      return <path key={id} ref={(el) => void (r.crack = el)} className="iso-line" data-tone="hi" data-testid="impedance-crack" style={{ opacity: still.crack }} d={CRACK} />;
+    }
+    if (id === 'knob') {
+      return (
+        <g key={id} data-testid="impedance-knob" data-stiffness={params.stiffnessKNPerM}>
+          <Solid paths={knob.paths} tone="hi" inner={<Line d={knob.knurl} tone="lo" />} />
+          <Line d={knob.pointer} tone="hi" free="end" />
+          <Dots points={[knob.hub]} size={0.8} tone="hi" />
+        </g>
+      );
+    }
+    if (id === 'spring-back') {
+      return (
+        <g key={id}>
+          <path ref={(el) => void (r.springBack = el)} className="iso-line" data-tone="mid" style={WIRE_STYLE} d={restSpring.back} />
+          <path ref={(el) => void (r.springBackCore = el)} className="iso-line" style={{ ...CORE_STYLE, stroke: 'var(--anatomy-shade-1)' }} d={restSpring.back} />
+        </g>
+      );
+    }
+    if (id === 'spring-front') {
+      return (
+        <g key={id} data-testid="impedance-spring">
+          <path ref={(el) => void (r.springFront = el)} className="iso-line" data-tone="hi" style={WIRE_STYLE} d={restSpring.front} />
+          <path ref={(el) => void (r.springFrontCore = el)} className="iso-line" style={{ ...CORE_STYLE, stroke: 'var(--anatomy-top)' }} d={restSpring.front} />
+          <g ref={(el) => void (r.springEnds = el)} className="iso-dots" data-tone="hi">
+            {restSpring.ends.map(([x, y], index) => (
+              <circle key={index} cx={Math.round(x * 10) / 10} cy={Math.round(y * 10) / 10} r={1.1} />
+            ))}
+          </g>
+        </g>
+      );
+    }
+    if (id === 'peak') {
+      return (
+        <g key={id} data-testid="impedance-peak-pointer" data-newtons={still.peak.toFixed(1)}>
+          <path ref={(el) => void (r.peak = el)} className="iso-line" data-tone="mid" d={restPeak.d} />
+          <g className="iso-dots" data-tone="hi">
+            <circle ref={(el) => void (r.peakTip = el)} cx={Math.round(restPeak.tip[0] * 10) / 10} cy={Math.round(restPeak.tip[1] * 10) / 10} r={0.9} />
+          </g>
+        </g>
+      );
+    }
+    return (
+      <path
+        key={id}
+        ref={(el) => void (r.needle = el)}
+        className="iso-line"
+        data-tone="lit"
+        data-free="start"
+        data-testid="impedance-needle"
+        data-newtons={still.newtons.toFixed(1)}
+        style={{ strokeWidth: 1.2 }}
+        d={needleAt(still.newtons)}
+      />
+    );
+  };
+
   return (
     <InstrumentFigure
       figureId="impedance-contact-lab"
@@ -414,92 +555,46 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
       controls={controls}
       adjust={adjust}
       stage={
-        <FigureStage footer={<StageStatus>Illustrative model, not measured</StageStatus>}>
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`A fingertip pressing a fragile object: the push over time peaks at ${
+        <AnatomyStage
+          viewWidth={STAGE_WIDTH}
+          hint={pressing ? 'Pressing, slowed for the eye' : 'The pointer stays at the first bump; past the shaded arc the glass cracks'}
+          readout={stillReadout(hardware, run)}
+          status="Illustrative model, not measured"
+          data-testid="impedance-press"
+          data-arm={hardware}
+        >
+          <div ref={stageRef}>
+            <Stage className="iso-stage">
+              <svg
+                className="iso-svg"
+                viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+                role="img"
+                focusable="false"
+                aria-label={`A fingertip pressing a fragile object: the push over time peaks at ${
               positionMode ? 'an unbounded force' : `${run.peakForceN.toFixed(1)} newtons`
             }, ${OUTCOME_TEXT[outcome]}.`}
-            aria-describedby={descriptionId}
-            data-testid="impedance-chart"
-          >
-            <ContactSketch hardware={params.hardware} outcome={outcome} />
-            <ChartAxes
-              plot={PLOT}
-              x={xFor}
-              y={yFor}
-              xTicks={[0, 0.2, 0.4, 0.6]}
-              yTicks={[0, 10, 20, 30, 40, 50]}
-              formatX={formatSeconds}
-              xLabel="time (seconds)"
-              yLabel="push on the object (newtons)"
-            />
-            {positionMode ? null : (
-              <g data-series="impedance-force" data-chart-role="state" stroke={roleColour('state')}>
-                <path
-                  data-testid="impedance-force-trace"
-                  d={pathOver(0, split)}
-                  fill="none"
-                  strokeWidth={CHART_STROKE.trace}
-                  strokeLinejoin="round"
-                  strokeLinecap="round"
-                />
-                {split < last ? (
-                  <path
-                    d={pathOver(split, last)}
-                    fill="none"
-                    strokeWidth={CHART_STROKE.trace}
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                    opacity={0.4}
-                  />
-                ) : null}
-              </g>
-            )}
-            {bounceLabel ? (
-              <DirectLabel x={bounceLabel.x} y={bounceLabel.y} role="state">
-                <tspan data-testid="impedance-bounce-label">later bounces, all smaller</tspan>
-              </DirectLabel>
-            ) : null}
-            <g data-series="impedance-crush" data-chart-role="constraint">
-              <line
-                x1={PLOT.left}
-                y1={crushY}
-                x2={PLOT.right}
-                y2={crushY}
-                stroke={constraint}
-                strokeWidth={CHART_STROKE.reference}
-                strokeDasharray={CHART_STROKE.dash}
-              />
-              <DirectLabel x={PLOT.right - 2} y={crushY - 5} anchor="end" role="constraint">
-                <tspan data-testid="impedance-crush-label">crushes the object</tspan>
-              </DirectLabel>
-            </g>
-            {positionMode ? (
-              <text
-                data-scene-note=""
-                x={noteX}
-                y={f(yFor(12))}
-                textAnchor="middle"
-                fontSize={CHART_TYPE.labelPx}
-                fill={CHART_STRUCTURE.label}
+                aria-describedby={descriptionId}
+                data-testid="impedance-chart"
               >
-                <tspan x={noteX}>This arm only follows a position:</tspan>
-                <tspan x={noteX} dy="1.25em">
-                  nothing sets how hard it pushes
-                </tspan>
-              </text>
-            ) : (
-              <StageAnnotation
-                x={note.x}
-                y={note.y}
-                lines={bumpWords(run.peakForceN)}
-                target={[bump[0], f(bump[1] + ANNOTATION_ARROW.gap)]}
-                pointer="arrow"
-              />
-            )}
-          </PlotStage>
-        </FigureStage>
+                {RUNS[hardware].map((group, index) => {
+                  const body = group.parts.map((part, k) => (part.kind === 'live' ? liveView(part.id) : <StandPart key={k} part={part} />));
+                  if (group.group === 'static') return <g key={index}>{body}</g>;
+                  const lift = group.group === 'tip' ? still.lift : still.lift - still.squeeze;
+                  return (
+                    <g
+                      key={index}
+                      ref={(el) => void (group.group === 'tip' ? r.tip : r.head).set(index, el)}
+                      transform={liftOf(lift)}
+                      data-testid={group.group === 'tip' ? 'impedance-fingertip' : 'impedance-head'}
+                    >
+                      {body}
+                    </g>
+                  );
+                })}
+              </svg>
+            </Stage>
+          </div>
+        </AnatomyStage>
       }
       caption="An arm that controls how hard it pushes can be tuned to touch gently; a position-only arm has no such dial."
       method={
@@ -513,7 +608,9 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
             {params.dampingNPerM.toFixed(0)} N·s/m). The arm with a built-in spring adds an{' '}
             {SEA_SPRING_STIFFNESS_N_PER_M} N/m spring in series with the contact. The stiff arm, a geared arm
             under position control, only follows its commanded position, so the force is whatever the position
-            error makes it. The chart stops at {AXIS_MAX_N} N and clips any bump above it. For scale, the human
+            error makes it. The press is drawn as a test stand: the gauge reads to {AXIS_MAX_N} N and a bigger push
+            rests on its stop pin; the head&apos;s travel and the spring&apos;s squeeze are drawn larger than they are,
+            and each press plays the 0.6 s contact slowed {PRESS.slow} times. For scale, the human
             pain limit is about {Math.round(TRANSIENT_CONTACT_LIMIT_N / CRUSH_LIMIT_N)} times the crush force:{' '}
             <span data-testid="impedance-limit-label">{TRANSIENT_CONTACT_LIMIT_LABEL}</span>, measured with a
             wedge-shaped impactor <CiteRef id={TRANSIENT_CONTACT_LIMIT_CITATION} />, used in place of the

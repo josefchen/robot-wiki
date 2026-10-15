@@ -159,7 +159,7 @@
     "decision": "keep",
     "sceneId": "diffusion-denoising",
     "teachingGoal": "Distinguish demonstration modes, forward noising, and conditional reverse denoising over model time.",
-    "reason": "This is the already-approved scene-kit manipulation reference: poster, four captions, one scrubbed timeline and reduced-motion step states."
+    "reason": "This is the already-approved scene-kit manipulation reference, drawn as a denoising gauge: sixteen pins per move, a thread through them, a bar the camera sees, one scrubbed timeline and reduced-motion step states."
   },
   {
     "article": "diffusion-policy",
