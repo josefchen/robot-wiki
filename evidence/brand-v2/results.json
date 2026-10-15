@@ -158961,7 +158961,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to 29e669261bfec20407eb44f4d7c1486007a04a96aa13670e7e0d4347114b3a2d exactly as approved delta length-cut-20261013-data-hardware-prose-evaluation-crisis permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/evaluation-crisis, as one plain edge from the member's last approved endpoint (reader-first-20261003-predict-prose-data-hardware-evaluation-crisis). It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. The body cites 23 sources it did not cite before and drops 8 citation occurrences and 7 number occurrences. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence, and the 7 test pins the pass moved or retired.",
+      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to 8aa967a0bffe48238f0e13232c99ab522149451e29c65ee878df98ac7bc51e54 exactly as approved delta length-cut-20261013-data-hardware-prose-evaluation-crisis permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/evaluation-crisis, as one plain edge from the member's last approved endpoint (reader-first-20261003-predict-prose-data-hardware-evaluation-crisis). It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. The body cites 23 sources it did not cite before and drops 8 citation occurrences and 7 number occurrences. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. The five questions under \"Reading a result table\" are a list, one cited question per item, so each margin note sits beside its question. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence, and the 7 test pins the pass moved or retired.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -158973,7 +158973,7 @@
           "manifest": "prose",
           "member": "article:data-hardware/evaluation-crisis",
           "baselineHash": "a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e",
-          "currentHash": "29e669261bfec20407eb44f4d7c1486007a04a96aa13670e7e0d4347114b3a2d",
+          "currentHash": "8aa967a0bffe48238f0e13232c99ab522149451e29c65ee878df98ac7bc51e54",
           "status": "approved-delta",
           "approvedDelta": "length-cut-20261013-data-hardware-prose-evaluation-crisis"
         },
@@ -158989,7 +158989,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/hardware-taxonomy moved from c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0 to fc15dd2dc6919b3a4695b40f972ae175352c9a659c9c7fda881d1a50d0982f18 exactly as approved delta length-cut-20261013-data-hardware-prose-hardware-taxonomy permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/hardware-taxonomy, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 29 earlier approved edges exactly, ending with seo-pass-20261002-prose-data-hardware-hardware-taxonomy. It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. The body cites 25 sources it did not cite before and drops 19 citation occurrences and 57 number occurrences; 3 sources leave the body and stay in the front matter as further reading. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence, and the 11 test pins the pass moved or retired.",
+      "actual": "prose member article:data-hardware/hardware-taxonomy moved from c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0 to df76d0fb7992a19bed98944b84599efd78eed419c327653146401a3e33357cad exactly as approved delta length-cut-20261013-data-hardware-prose-hardware-taxonomy permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/hardware-taxonomy, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 29 earlier approved edges exactly, ending with seo-pass-20261002-prose-data-hardware-hardware-taxonomy. It rewrites the body to the humanizer standard: a two-sentence lead, paragraphs of at most four sentences and about a quarter less prose, and it applies the owner sweep's corrections and new dated primary sources. The body cites 25 sources it did not cite before and drops 19 citation occurrences and 57 number occurrences; 3 sources leave the body and stay in the front matter as further reading. Every caveat whose removal would overstate a result stays, the body cites at least 30 distinct sources, and imports, mounts, heading anchors, link targets and glossary ids stay. The H2's \"31 DoF\" links to the Inside a humanoid explainer (/how-robots-work/#humanoid), the curriculum link from that explainer's second home article. audit/evidence/length-cut-20261013-data-hardware/source-transition.json rebuilds the article's earlier bytes from the live file and lists every dropped or added occurrence with its sentence, and the 11 test pins the pass moved or retired.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -159001,7 +159001,7 @@
           "manifest": "prose",
           "member": "article:data-hardware/hardware-taxonomy",
           "baselineHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
-          "currentHash": "fc15dd2dc6919b3a4695b40f972ae175352c9a659c9c7fda881d1a50d0982f18",
+          "currentHash": "df76d0fb7992a19bed98944b84599efd78eed419c327653146401a3e33357cad",
           "status": "approved-delta",
           "approvedDelta": "length-cut-20261013-data-hardware-prose-hardware-taxonomy"
         },
@@ -160585,7 +160585,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:data-hardware/hardware-taxonomy moved from 1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9 to 3058bbfa8c225da49b5f8fea5dfd492dc858c58250cfec165b41d39d10cbf646 exactly as approved delta length-cut-20261013-data-hardware-relationships-hardware-taxonomy permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/hardware-taxonomy, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 5 earlier approved edges exactly, ending with seo-pass-20261002-relationships-data-hardware-hardware-taxonomy. The relationships record follows the inline citations the rewrite changed: 25 sources are newly cited in the body, and no longer cited in the body: 1x-world-model-lab-2026, lerobot-pricing-2026, robozaps-humanoids-2026; seeAlso entries, glossary ids and internal link targets are unchanged. audit/evidence/length-cut-20261013-data-hardware/source-transition.json lists every citation occurrence that left or entered the body with its sentence.",
+      "actual": "relationships member article:data-hardware/hardware-taxonomy moved from 1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9 to ad80d48553372e3268b3c39143014e578afb816e40de29361ae282bb826a9aed exactly as approved delta length-cut-20261013-data-hardware-relationships-hardware-taxonomy permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/hardware-taxonomy, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 5 earlier approved edges exactly, ending with seo-pass-20261002-relationships-data-hardware-hardware-taxonomy. The relationships record follows the inline citations the rewrite changed: 25 sources are newly cited in the body, and no longer cited in the body: 1x-world-model-lab-2026, lerobot-pricing-2026, robozaps-humanoids-2026; seeAlso entries and glossary ids are unchanged, and the internal link targets gain /how-robots-work/: the H2's \"31 DoF\" links to its #humanoid anchor, the Inside a humanoid explainer, as the curriculum link from that explainer's second home article. audit/evidence/length-cut-20261013-data-hardware/source-transition.json lists every citation occurrence that left or entered the body with its sentence.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -160597,7 +160597,7 @@
           "manifest": "relationships",
           "member": "article:data-hardware/hardware-taxonomy",
           "baselineHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
-          "currentHash": "3058bbfa8c225da49b5f8fea5dfd492dc858c58250cfec165b41d39d10cbf646",
+          "currentHash": "ad80d48553372e3268b3c39143014e578afb816e40de29361ae282bb826a9aed",
           "status": "approved-delta",
           "approvedDelta": "length-cut-20261013-data-hardware-relationships-hardware-taxonomy"
         },
@@ -162734,7 +162734,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/hardware-taxonomy/ ships 148 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 148 outbound anchor occurrences on it with a visible focus ring in 286 stops",
+      "actual": "/data-hardware/hardware-taxonomy/ ships 148 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 148 outbound anchor occurrences on it with a visible focus ring in 287 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -162754,7 +162754,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 104,
           "reachedByTab": 148,
-          "tabStops": 286,
+          "tabStops": 287,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -187620,7 +187620,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 48585 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 48519 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -294199,7 +294199,7 @@
             {
               "id": "/data-hardware/evaluation-crisis/",
               "observed": {
-                "paragraphCount": 19,
+                "paragraphCount": 18,
                 "familyHeads": [
                   "geist"
                 ],
@@ -301530,7 +301530,7 @@
             {
               "id": "/data-hardware/evaluation-crisis/",
               "observed": {
-                "paragraphCount": 38,
+                "paragraphCount": 36,
                 "registeredFrameParagraphCount": 18,
                 "offendingFamilies": []
               }

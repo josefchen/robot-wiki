@@ -1,0 +1,557 @@
+{
+ "375": {
+  "counts": {
+   "start": {
+    "/data-hardware/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/data-hardware/data-bottleneck/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/data-hardware/datasets/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/data-hardware/evaluation-crisis/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/data-hardware/hardware-taxonomy/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/data-hardware/industrial-deployment/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/data-hardware/robot-learning-stack/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/data-hardware/teleop-rigs/": {
+     "dom": 0,
+     "manifest": 0
+    }
+   },
+   "end": {
+    "/data-hardware/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/data-hardware/data-bottleneck/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/data-hardware/datasets/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/data-hardware/evaluation-crisis/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/data-hardware/hardware-taxonomy/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/data-hardware/industrial-deployment/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/data-hardware/robot-learning-stack/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/data-hardware/teleop-rigs/": {
+     "dom": 0,
+     "manifest": 0
+    }
+   }
+  },
+  "failures": {
+   "start": [],
+   "end": []
+  },
+  "paletteEqual": true,
+  "palette": [
+   "#1A6F45",
+   "#1C1C1A",
+   "#3B6EA8",
+   "#3F3F3B",
+   "#6B1839",
+   "#6C6B66",
+   "#7D7A73",
+   "#8A5A00",
+   "#A3A39E",
+   "#A52A1E",
+   "#DEDEDB",
+   "#F0F3F6",
+   "#FAFAF8",
+   "#FFFFFF"
+  ],
+  "visuals": [
+   {
+    "route": "/data-hardware/data-bottleneck/",
+    "idx": 0,
+    "kind": "figure/instrument",
+    "label": "Text piles up online for free; every hour of robot data needs a real machine, usually driv",
+    "size": {
+     "before": "327x2394",
+     "after": "327x2394"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": 0,
+    "pixelShareAfterAlignment": 0,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/data-hardware/evaluation-crisis/",
+    "idx": 0,
+    "kind": "figure/instrument",
+    "label": "A long job only works if every step works, so a robot that rarely slips still fails long t",
+    "size": {
+     "before": "327x1374",
+     "after": "327x1374"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": 0.29,
+    "pixelShareAfterAlignment": 0.29,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/data-hardware/hardware-taxonomy/",
+    "idx": 0,
+    "kind": "image",
+    "label": "The Franka Emika Panda, the seven-DoF research arm, demonstrated at CeBIT 2017 with a huma",
+    "size": {
+     "before": "320x357",
+     "after": "320x357"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": 0,
+    "pixelShareAfterAlignment": 0,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [],
+     "after": []
+    }
+   },
+   {
+    "route": "/data-hardware/hardware-taxonomy/",
+    "idx": 1,
+    "kind": "image",
+    "label": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically ac",
+    "size": {
+     "before": "320x396",
+     "after": "320x396"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": null,
+    "pixelShareAfterAlignment": 2.5,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [],
+     "after": []
+    }
+   },
+   {
+    "route": "/data-hardware/industrial-deployment/",
+    "idx": 0,
+    "kind": "scene",
+    "label": "Motion scene: Clearing time takes capacity from an authored picking cell",
+    "size": {
+     "before": "327x1298",
+     "after": "327x1298"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": null,
+    "pixelShareAfterAlignment": 3.45,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/data-hardware/industrial-deployment/",
+    "idx": 1,
+    "kind": "figure/instrument",
+    "label": "Every failed pick pulls a person over, and how long that takes decides when the robot earn",
+    "size": {
+     "before": "327x3045",
+     "after": "327x3103"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": null,
+    "pixelShareAfterAlignment": 7.75,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/data-hardware/robot-learning-stack/",
+    "idx": 0,
+    "kind": "figure/instrument",
+    "label": "Split by the factor you claim to generalize across: a random split lets every test scene i",
+    "size": {
+     "before": "327x937",
+     "after": "327x1017"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": null,
+    "pixelShareAfterAlignment": 17.19,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   }
+  ]
+ },
+ "1440": {
+  "counts": {
+   "start": {
+    "/data-hardware/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/data-hardware/data-bottleneck/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/data-hardware/datasets/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/data-hardware/evaluation-crisis/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/data-hardware/hardware-taxonomy/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/data-hardware/industrial-deployment/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/data-hardware/robot-learning-stack/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/data-hardware/teleop-rigs/": {
+     "dom": 0,
+     "manifest": 0
+    }
+   },
+   "end": {
+    "/data-hardware/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/data-hardware/data-bottleneck/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/data-hardware/datasets/": {
+     "dom": 0,
+     "manifest": 0
+    },
+    "/data-hardware/evaluation-crisis/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/data-hardware/hardware-taxonomy/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/data-hardware/industrial-deployment/": {
+     "dom": 2,
+     "manifest": 2
+    },
+    "/data-hardware/robot-learning-stack/": {
+     "dom": 1,
+     "manifest": 1
+    },
+    "/data-hardware/teleop-rigs/": {
+     "dom": 0,
+     "manifest": 0
+    }
+   }
+  },
+  "failures": {
+   "start": [],
+   "end": []
+  },
+  "paletteEqual": true,
+  "palette": [
+   "#1A6F45",
+   "#1C1C1A",
+   "#3B6EA8",
+   "#3F3F3B",
+   "#6B1839",
+   "#6C6B66",
+   "#7D7A73",
+   "#8A5A00",
+   "#A3A39E",
+   "#A52A1E",
+   "#DEDEDB",
+   "#F0F3F6",
+   "#FAFAF8",
+   "#FFFFFF"
+  ],
+  "visuals": [
+   {
+    "route": "/data-hardware/data-bottleneck/",
+    "idx": 0,
+    "kind": "figure/instrument",
+    "label": "Text piles up online for free; every hour of robot data needs a real machine, usually driv",
+    "size": {
+     "before": "930x1904",
+     "after": "930x1904"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": 0.72,
+    "pixelShareAfterAlignment": 0.72,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/data-hardware/evaluation-crisis/",
+    "idx": 0,
+    "kind": "figure/instrument",
+    "label": "A long job only works if every step works, so a robot that rarely slips still fails long t",
+    "size": {
+     "before": "930x1309",
+     "after": "930x1309"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": null,
+    "pixelShareAfterAlignment": 1.08,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/data-hardware/hardware-taxonomy/",
+    "idx": 0,
+    "kind": "image",
+    "label": "The Franka Emika Panda, the seven-DoF research arm, demonstrated at CeBIT 2017 with a huma",
+    "size": {
+     "before": "512x445",
+     "after": "512x445"
+    },
+    "bytesEqual": true,
+    "pixelShareDiffering": 0,
+    "pixelShareAfterAlignment": 0,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [],
+     "after": []
+    }
+   },
+   {
+    "route": "/data-hardware/hardware-taxonomy/",
+    "idx": 1,
+    "kind": "image",
+    "label": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically ac",
+    "size": {
+     "before": "512x464",
+     "after": "512x464"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": 1.28,
+    "pixelShareAfterAlignment": 1.28,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [],
+     "after": []
+    }
+   },
+   {
+    "route": "/data-hardware/industrial-deployment/",
+    "idx": 0,
+    "kind": "scene",
+    "label": "Motion scene: Clearing time takes capacity from an authored picking cell",
+    "size": {
+     "before": "930x1240",
+     "after": "930x1240"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": 0,
+    "pixelShareAfterAlignment": 0,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/data-hardware/industrial-deployment/",
+    "idx": 1,
+    "kind": "figure/instrument",
+    "label": "Every failed pick pulls a person over, and how long that takes decides when the robot earn",
+    "size": {
+     "before": "930x2067",
+     "after": "930x2087"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": null,
+    "pixelShareAfterAlignment": 5.09,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   },
+   {
+    "route": "/data-hardware/robot-learning-stack/",
+    "idx": 0,
+    "kind": "figure/instrument",
+    "label": "Split by the factor you claim to generalize across: a random split lets every test scene i",
+    "size": {
+     "before": "930x742",
+     "after": "930x822"
+    },
+    "bytesEqual": false,
+    "pixelShareDiffering": null,
+    "pixelShareAfterAlignment": 8.44,
+    "kindChanged": false,
+    "sceneChanged": false,
+    "surfaceChanged": false,
+    "labelChanged": false,
+    "coloursAdded": [],
+    "coloursRemoved": [],
+    "offPalette": {
+     "before": [
+      "#000000"
+     ],
+     "after": [
+      "#000000"
+     ]
+    }
+   }
+  ]
+ },
+ "start": "7fba5f64 (export built from the archived Start tree)",
+ "end": "b9525d9d (export of the End tree; page content as at 7b69fcb7/4eb33e6c)",
+ "pixelRule": "a pixel differs when any RGB channel differs by more than a quarter of the range (64/255); null when the sizes differ; the aligned share is the minimum over vertical shifts of -2 to 2 px"
+}

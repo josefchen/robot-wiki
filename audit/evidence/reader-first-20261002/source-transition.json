@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-15T07:56:35Z",
+  "observedAt": "2026-10-15T13:07:14Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -11131,8 +11131,8 @@
       },
       "after": {
         "path": "tests/e2e/motion-data-hardware.spec.ts",
-        "bytes": 9234,
-        "sha256": "843c3d0146ed5a34b0f97d7b0889884afeac43d10045ec46fb5627d0af19d453"
+        "bytes": 9419,
+        "sha256": "3d23580ec36a45c5d6fa6aa8316ee0bd7de0a9f073401efe8d56e96d6e465923"
       },
       "edits": [
         {
@@ -11158,6 +11158,10 @@
         {
           "before": "        // The page's one calculator is the reveal of its prediction step.\n        await page.locator('[data-predict]:has([data-testid=\"episode-success-readout\"]) details[data-reveal] > summary').click();\n",
           "after": "        // The page's one calculator is its prediction step's figure, painted\n        // at settle with the reasoning still closed.\n        const evaluationStep = page.locator('[data-predict]:has([data-testid=\"episode-success-readout\"])');\n        await expect(evaluationStep.locator('details[data-reveal]')).not.toHaveAttribute('open');\n        await expect(evaluationStep.locator(':scope > [data-predict-figure] [data-testid=\"episode-success-readout\"]')).toBeVisible();\n"
+        },
+        {
+          "before": "          .toBe(await stageRole('value-text', trace));\n",
+          "after": "          .toBe(await stageRole('value-text', trace));\n        // The full per-step slider sits in the frame's \"Adjust more\" fold\n        // behind the three presets, so it is opened as a reader opens it.\n        await openAdjustMore(lab);\n"
         }
       ]
     },

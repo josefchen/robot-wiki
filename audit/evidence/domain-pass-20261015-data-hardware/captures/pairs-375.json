@@ -1,0 +1,100 @@
+[
+ {
+  "route": "/data-hardware/data-bottleneck/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Text piles up online for free; every hour of robot data needs a real machine, usually driven by a paid person.",
+   "file": "data-hardware__data-bottleneck__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Text piles up online for free; every hour of robot data needs a real machine, usually driven by a paid person.",
+   "file": "data-hardware__data-bottleneck__00.png"
+  }
+ },
+ {
+  "route": "/data-hardware/evaluation-crisis/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "A long job only works if every step works, so a robot that rarely slips still fails long tasks.",
+   "file": "data-hardware__evaluation-crisis__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "A long job only works if every step works, so a robot that rarely slips still fails long tasks.",
+   "file": "data-hardware__evaluation-crisis__00.png"
+  }
+ },
+ {
+  "route": "/data-hardware/hardware-taxonomy/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "The Franka Emika Panda, the seven-DoF research arm, demonstrated at CeBIT 2017 with a human guiding it by hand.",
+   "file": "data-hardware__hardware-taxonomy__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "The Franka Emika Panda, the seven-DoF research arm, demonstrated at CeBIT 2017 with a human guiding it by hand.",
+   "file": "data-hardware__hardware-taxonomy__00.png"
+  }
+ },
+ {
+  "route": "/data-hardware/hardware-taxonomy/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its fra",
+   "file": "data-hardware__hardware-taxonomy__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its fra",
+   "file": "data-hardware__hardware-taxonomy__01.png"
+  }
+ },
+ {
+  "route": "/data-hardware/industrial-deployment/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Motion scene: Clearing time takes capacity from an authored picking cell",
+   "file": "data-hardware__industrial-deployment__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Motion scene: Clearing time takes capacity from an authored picking cell",
+   "file": "data-hardware__industrial-deployment__00.png"
+  }
+ },
+ {
+  "route": "/data-hardware/industrial-deployment/",
+  "changed": true,
+  "before": {
+   "idx": 1,
+   "label": "Every failed pick pulls a person over, and how long that takes decides when the robot earns back its price.",
+   "file": "data-hardware__industrial-deployment__01.png"
+  },
+  "after": {
+   "idx": 1,
+   "label": "Every failed pick pulls a person over, and how long that takes decides when the robot earns back its price.",
+   "file": "data-hardware__industrial-deployment__01.png"
+  }
+ },
+ {
+  "route": "/data-hardware/robot-learning-stack/",
+  "changed": true,
+  "before": {
+   "idx": 0,
+   "label": "Split by the factor you claim to generalize across: a random split lets every test scene into training.",
+   "file": "data-hardware__robot-learning-stack__00.png"
+  },
+  "after": {
+   "idx": 0,
+   "label": "Split by the factor you claim to generalize across: a random split lets every test scene into training.",
+   "file": "data-hardware__robot-learning-stack__00.png"
+  }
+ }
+]
