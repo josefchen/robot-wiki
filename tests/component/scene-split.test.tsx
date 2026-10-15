@@ -90,6 +90,25 @@ describe('SceneSplit', () => {
     expect(screen.getByTestId('split-summary')).toHaveTextContent('also in training: none');
     expect(screen.getByRole('img', { name: /Holding out scene 4 raises all 5/ })).toBeInTheDocument();
   });
+
+  it('resets from "Adjust more" to the random split it opens on, cards at rest', () => {
+    const { container } = render(<SceneSplit />);
+    fireEvent.click(screen.getByTestId('split-mode-holdout'));
+    fireEvent.click(screen.getByTestId('split-run'));
+    const fold = container.querySelector('details[data-figure-fold="adjust"]')!;
+    expect(fold.querySelector('summary')).toHaveTextContent('Adjust more');
+    const reset = [...fold.querySelectorAll('button')].filter((button) => button.textContent === 'Reset');
+    expect(reset).toHaveLength(1);
+    fireEvent.click(reset[0]);
+    expect(screen.getByTestId('split-mode-random')).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByTestId('split-mode-holdout')).toHaveAttribute('aria-pressed', 'false');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent(readoutFor('random'));
+    expect(screen.getByTestId('split-knob')).toHaveAttribute('data-mode', 'random');
+    for (let k = 0; k < EPISODES; k++) {
+      const share = RANDOM_TEST.includes(k) ? 1 : 0;
+      expect(container.querySelector(`[data-episode="${k}"] > g:last-child`)!.getAttribute('transform')).toBe(liftShift(share));
+    }
+  });
 });
 
 describe('SceneSplit served HTML', () => {

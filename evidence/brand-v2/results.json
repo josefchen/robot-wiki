@@ -162776,7 +162776,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/robot-learning-stack/ ships 78 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 78 outbound anchor occurrences on it with a visible focus ring in 201 stops",
+      "actual": "/data-hardware/robot-learning-stack/ ships 78 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 78 outbound anchor occurrences on it with a visible focus ring in 202 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -162795,7 +162795,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 75,
           "reachedByTab": 78,
-          "tabStops": 201,
+          "tabStops": 202,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -187728,7 +187728,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/robot-learning-stack/ rendered no v1 identity spelling and no v1 descriptor in 41917 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/robot-learning-stack/ rendered no v1 identity spelling and no v1 descriptor in 41941 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -296839,8 +296839,8 @@
               "id": "/data-hardware/robot-learning-stack/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 24,
-                "controlsInProse": 5,
+                "interfaceControlCount": 26,
+                "controlsInProse": 7,
                 "registrationLabelCount": 0
               }
             }

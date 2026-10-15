@@ -20,6 +20,16 @@ const INTERACTIVE_IMPORT =
   /import\s+\{\s*([A-Z][A-Za-z0-9]*)\s*\}\s+from\s+['"]@\/components\/interactive\/[^'"]+['"]/g;
 const RESET_BUTTONS =
   'main [data-brand-module-signature="instrument-frame"]:not([data-motion-scene]):not([data-motion-clip]) button';
+// A plain prose table is not a figure, so its mount has no frame (the
+// interactive-data spec roots it the same way): its root is the block around
+// the shared table region that no frame contains, and its Reset sits there.
+const PLAIN_TABLE_SOURCES = new Set([
+  'interactive:DatasetTable',
+  'interactive:HardwareGuide',
+  'interactive:TeleopRigMatrix',
+]);
+const UNFRAMED_TABLE_REGION =
+  'main [data-brand-frame-interior-registered="table"]:not([data-brand-module-signature="instrument-frame"] *)';
 
 function filesUnder(path: string): string[] {
   return readdirSync(path, { withFileTypes: true }).flatMap((entry) => {
@@ -124,11 +134,19 @@ async function activateDiscrete(discrete: Locator) {
   }
 }
 
-async function exerciseReset(page: Page, resetIndex: number) {
-  const reset = page
-    .locator(RESET_BUTTONS)
-    .filter({ hasText: /^\s*Reset\s*$/ })
-    .nth(resetIndex);
+async function exerciseReset(
+  page: Page,
+  resetIndex: number,
+  plainTableRoot: Locator | null,
+) {
+  // A plain-table root must hold exactly one Reset; a frame's Reset is the
+  // next one among the route's frames.
+  const reset = plainTableRoot
+    ? plainTableRoot.locator('button').filter({ hasText: /^\s*Reset\s*$/ })
+    : page
+        .locator(RESET_BUTTONS)
+        .filter({ hasText: /^\s*Reset\s*$/ })
+        .nth(resetIndex);
   expect(
     await reset.count(),
     'a mounted reset case exposes its own Reset action in the DOM',
@@ -196,6 +214,7 @@ async function exerciseNonSelectorCase(
   sourcePath: string,
   stateCase: InteractiveStateCase,
   kindIndex: number,
+  plainTableRoot: Locator | null,
 ) {
   switch (stateCase.kind) {
     case 'default':
@@ -206,7 +225,7 @@ async function exerciseNonSelectorCase(
       ).toBe(true);
       return true;
     case 'reset':
-      await exerciseReset(page, kindIndex);
+      await exerciseReset(page, kindIndex, plainTableRoot);
       return true;
     case 'discrete-options': {
       const witness = stateCase.id.match(/^(loading|error|empty|unavailable)-witness$/)?.[1];
@@ -267,7 +286,21 @@ test.describe('brand-v2 interactive-state runner', () => {
         );
         let resetIndex = 0;
         let pairwiseIndex = 0;
+        const plainCount = mounts.filter((mount) =>
+          PLAIN_TABLE_SOURCES.has(mount.sourceId),
+        ).length;
+        const plainRegions = page.locator(UNFRAMED_TABLE_REGION);
+        if (plainCount > 0) {
+          expect(
+            await plainRegions.count(),
+            `${route} renders one unframed table per plain-table mount (${plainCount})`,
+          ).toBe(plainCount);
+        }
+        let plainIndex = 0;
         for (const mount of mounts) {
+          const plainTableRoot = PLAIN_TABLE_SOURCES.has(mount.sourceId)
+            ? plainRegions.nth(plainIndex++).locator('xpath=..')
+            : null;
           const source = sourceById.get(mount.sourceId);
           expect(source, `${mount.id} resolves to a source`).toBeTruthy();
           expect(
@@ -299,10 +332,11 @@ test.describe('brand-v2 interactive-state runner', () => {
                 source?.sourcePath ?? '',
                 stateCase,
                 stateCase.kind === 'reset' ? resetIndex : pairwiseIndex,
+                plainTableRoot,
               )
             ) {
               reconciledCaseIds.add(caseId);
-              if (stateCase.kind === 'reset') resetIndex += 1;
+              if (stateCase.kind === 'reset' && !plainTableRoot) resetIndex += 1;
               if (stateCase.kind === 'pairwise') pairwiseIndex += 1;
             }
           }

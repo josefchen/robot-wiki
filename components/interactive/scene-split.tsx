@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import {
   INSTRUMENT_SECONDARY_CONTROL_CLASS,
   InstrumentFigure,
+  InstrumentReset,
   PresetGroup,
   type Preset,
 } from '@/components/ui/instrument';
@@ -45,6 +46,8 @@ import {
  * Holding out scene 4 raises its whole group and leaves no card of its
  * shape in training. Picking a split, or "Run the split", drops the cards
  * and raises the new test set one card at a time; reduced motion jumps.
+ * Reset, in "Adjust more", stops a run and puts the rack back as served:
+ * the random split, its test cards raised.
  *
  * Schematic: twenty illustrative episodes and one seeded random draw. The
  * rule is the article's: split by the factor you claim to generalize across.
@@ -155,6 +158,14 @@ export function SceneSplit({ className }: { className?: string }) {
     start(next);
   };
 
+  const reset = () => {
+    cancelAnimationFrame(frame.current);
+    frame.current = 0;
+    setMode('random');
+    lifts.current = restLifts('random');
+    place(lifts.current);
+  };
+
   return (
     <InstrumentFigure
       figureId="scene-split"
@@ -176,6 +187,7 @@ export function SceneSplit({ className }: { className?: string }) {
           </button>
         </div>
       }
+      adjust={<InstrumentReset onClick={reset} />}
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
