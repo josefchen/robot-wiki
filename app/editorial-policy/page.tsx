@@ -43,11 +43,9 @@ export default function EditorialPolicyPage() {
           Editorial policy
         </h1>
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
-          Robot Wiki exists to make modern robotics legible without hiding
-          uncertainty, deployment constraints, or disagreement. It is an
-          independently maintained technical reference, not a product ranking
-          service. Sources should let a reader verify a claim rather than ask
-          them to trust the author.
+          Robot Wiki is an independent reference on modern robotics. It ranks
+          no products and states uncertainty, deployment constraints and
+          disagreement.
         </p>
       </header>
 
@@ -56,12 +54,11 @@ export default function EditorialPolicyPage() {
           Sources and evidence
         </h2>
         <p className={prose}>
-          Non-obvious factual claims require a citation. Papers, official
-          documentation, dataset cards, standards, and first-party technical
-          reports are preferred. A secondary source is used when it is the
-          clearest available record or when a primary source cannot be
-          retrieved, and that limitation should remain visible. Unknown values
-          are reported as unknown, not estimated.
+          Every non-obvious claim is cited. Papers, official documentation,
+          dataset cards, standards and first-party technical reports come
+          first. A secondary source is used when it is the clearest record or
+          the primary cannot be retrieved, and the text says so. Unknown
+          values are reported as unknown.
         </p>
       </section>
 
@@ -70,12 +67,12 @@ export default function EditorialPolicyPage() {
           Review and updates
         </h2>
         <p className={prose}>
-          Every published article passes the content schema, citation
-          resolution, internal-link, accessibility, and production-build
-          checks. The visible review date changes only after a material factual
-          or explanatory review. Fast-moving model, dataset, evaluation, and
-          deployment pages are checked more often than evergreen mathematical
-          foundations.
+          Every published article passes the content-schema,
+          citation-resolution, internal-link, accessibility and
+          production-build checks. Its review date changes only after a
+          material factual or explanatory review. Fast-moving model, dataset,
+          evaluation and deployment pages are checked more often than
+          mathematical foundations.
         </p>
       </section>
 
@@ -84,11 +81,10 @@ export default function EditorialPolicyPage() {
           Expert criticism
         </h2>
         <p className={prose}>
-          Researchers, maintainers, engineers, and educators may be asked to
-          inspect a specific article for errors or missing context. Reviewing a
-          page does not mean endorsing Robot Wiki or every claim on that page.
-          A reviewer is named only with permission, and conflicts are disclosed
-          when someone reviews coverage of their own work.
+          Researchers, maintainers, engineers and educators may review an
+          article for errors or missing context. A reviewer is named only with
+          permission, and a conflict is disclosed when someone reviews coverage
+          of their own work.
         </p>
       </section>
 
@@ -97,11 +93,10 @@ export default function EditorialPolicyPage() {
           Corrections
         </h2>
         <p className={prose}>
-          A correction should identify the page, the disputed claim, and a
-          source that supports the proposed change. Confirmed errors are fixed
-          in the article and its structured data or interactive where relevant.
-          Material corrections receive a new review date; silent date bumps are
-          not permitted.
+          Correction requests name the page, the disputed claim and a
+          supporting source. A confirmed error is fixed in the article and,
+          where relevant, its structured data or interactive; a material
+          correction gets a new review date.
         </p>
         <p className="mt-4 font-sans text-sm leading-relaxed text-text-dim">
           <a

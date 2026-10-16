@@ -11,7 +11,9 @@ describe('perception geometric-learning source boundaries', () => {
     expect(article).toContain('PointNet uses a shared per-point encoder and a symmetric pooling function');
     expect(article).toContain('building local features at growing scales');
     expect(article).toContain('small neighbourhoods hold too few samples');
-    expect(glossary).toContain('not a guarantee that all geometry survives pooling');
+    // Successor of 'not a guarantee that all geometry survives pooling' (2026-10-16): the
+    // caveat is stated without the not-X construction the discovery sweep bans.
+    expect(glossary).toContain('Pooling summarizes, so some geometry can be lost');
     expect(article).not.toContain('so local geometry survives the pooling');
   });
 

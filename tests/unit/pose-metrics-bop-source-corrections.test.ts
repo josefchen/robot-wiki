@@ -63,7 +63,9 @@ describe('source-scoped pose metrics and BOP corrections', () => {
   it('composes the source-scoped glossary without calling BOP an ADD-S leaderboard', () => {
     const term = GLOSSARY.find((entry) => entry.id === 'add-s-metric')!;
     expect(term.citations).toEqual(['hinterstoisser-2012']);
-    for (const text of ['ground-truth-transformed', 'nearest estimated-pose-transformed', 'inclusive', 'Table 1 uses 0.1']) {
+    // 'their LINEMOD evaluation uses 0.1' succeeds 'Table 1 uses 0.1' (2026-10-16): the
+    // glossary states the finding without the paper's table locator, as the article does.
+    for (const text of ['ground-truth-transformed', 'nearest estimated-pose-transformed', 'inclusive', 'their LINEMOD evaluation uses 0.1']) {
       expect(term.definition.includes(text), text).toBe(true);
     }
     expect(/standard accuracy|BOP challenge|physically indistinguishable/.test(term.definition)).toBe(false);

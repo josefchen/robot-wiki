@@ -55,8 +55,8 @@ export default function SearchPage() {
         Search
       </h1>
       <p className="page-lead mt-[30px]">
-        Search the articles together with the methods, companies and
-        datasets in the wiki. Queries run in your browser.
+        Search the articles, methods, companies and datasets. Queries run in
+        your browser.
       </p>
       <Suspense fallback={null}>
         <SearchInterface />

@@ -1,0 +1,156 @@
+## /manipulation/ (lexical 2, shape 10)
+- meta [This domain overview]: This domain overview lists 15 articles, ordered as behavior cloning first, then the architectures that scaled it, with the cross-embodiment and real-time constraints those architectures ran into at the end.
+- §1 not-X-but-Y [instead of]: Predicting action sequences instead of single steps: the CVAE structure, the chunk-size tradeoff, and temporal ensembling.
+- shape: one-line block: From behavior cloning to vision-language-action models: how modern robots learn to act.
+- shape: one-line block: Predicting action sequences instead of single steps: the CVAE structure, the chunk-size tradeoff, and temporal ensembling.
+- shape: one-line block: Visuomotor control as conditional denoising over action sequences, with receding-horizon execution.
+- shape: one-line block: pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and source-scoped checkpoint availability.
+- shape: one-line block: Gemini Robotics, GR00T, Helix, Skild, and GO-2: how to read closed-model vendor claims.
+- shape: one-line block: Every major policy across eight architectural axes: action representation, horizon, frequency, backbone, conditioning, cross-embodiment, hierarchy, openness.
+- shape: one-line block: DPPO, ConRFT, Recap, pi_RL, residual RL, and HIL-SERL: closing the reliability gap with on-policy experience.
+- shape: one-line block: Temporal ensembling and real-time chunking: the latency budgets that decide whether the control loop closes.
+- shape: one-line block: Training the VLM backbone on discrete tokens while a flow-matching expert learns actions behind a stop-gradient.
+- shape: one-line block: What foundation means in robotics, how VLA, world-model and multimodal pretraining differ, and what adaptation still costs.
+## /rl-sim2real/ (lexical 2, shape 7)
+- meta [This domain overview]: This domain overview lists 8 articles, ordered as why reinforcement learning took locomotion before manipulation, then the parallel-simulation machinery behind that result, then the transfer gap it left over.
+- §12 AI word [actually]: Sample efficiency decides which reinforcement learning algorithms a robot can actually be trained with, from PPO in simulation to offline learning on a fixed dataset.
+- shape: one-line block: Reinforcement learning at scale, from massively parallel simulation to the transfer problem.
+- shape: one-line block: The MDP simulability gap: contact-rich manipulation resists the simulation that made walking routine.
+- shape: one-line block: Isaac Lab, Newton, MJX, and Brax: GPU-parallel environments and the wall-clock economics of training.
+- shape: one-line block: Domain randomization, teacher-student distillation, system identification, and real-to-sim correction.
+- shape: one-line block: From ANYmal to Unitree and the MIT humanoid line: how learned gaits became the default.
+- shape: one-line block: Motion tracking from PHC to ASAP and GMT, and the three decompositions of 2026.
+- shape: one-line block: LLM-written rewards and curricula; where classical trajectory optimization still wins.
+## /world-models/ (lexical 1, shape 7)
+- meta [This domain overview]: This domain overview lists 8 articles, ordered as what the term denotes, then the latent-dynamics and generative-video families that each claim it, then the argument that generation is the wrong objective entirely.
+- shape: one-line block: Learned simulators and action-conditioned video prediction, with the JEPA counterargument.
+- shape: one-line block: Dreamer, TD-MPC2, and DayDreamer: compact learned dynamics for imagination-based control.
+- shape: one-line block: Cosmos, Genie, and GR-2: action-conditioned video prediction and the conditioning-strength problem.
+- shape: one-line block: V-JEPA 2 and LeCun's case that prediction in representation space beats pixel generation.
+- shape: one-line block: Generated content inside real physics engines beats generated dynamics: RoboGen, Holodeck, RoboCasa.
+- shape: one-line block: Visual fidelity is not enough: evaluate action sensitivity, rollout consistency, task progress, policy ranking and real-world agreement.
+- shape: one-line block: Learned dynamics, explicit physics and hybrid simulation compared by controllability, coverage, speed, debugging and downstream policy value.
+## /data-hardware/ (lexical 2, shape 6)
+- meta [This domain overview]: This domain overview lists 7 articles, ordered as where embodied training data comes from, then the rigs that produce it, then why two reported benchmark numbers are usually not comparable at all.
+- §1 not-X-but-Y [rather than]: Data capture, schemas, training, simulation, evaluation, serving and robot integration as one reproducible system rather than a model checkpoint.
+- shape: one-line block: The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.
+- shape: one-line block: Robot-hours versus LLM tokens: the log-log reality of embodied data and teleop-farm economics.
+- shape: one-line block: Open X-Embodiment, DROID, BridgeData V2, AgiBot World, RoboMIND: five datasets compared.
+- shape: one-line block: Arms, humanoids, hands, sensors, and compute: a buyer's guide from SO-101 to Jetson Thor.
+- shape: one-line block: ALOHA, GELLO, UMI, and VR teleop: cost, data quality, throughput, and the embodiment gap.
+- shape: one-line block: Why N-of-10 trials and unreported variance mislead: 95% per-step success is unusable at 30 steps.
+## /classical/ (lexical 2, shape 6)
+- §1 not-X-but-Y [rather than]: This domain overview lists 9 articles, ordered as a dependency chain rather than a survey.
+- meta [This domain overview]: This domain overview lists 9 articles, ordered as a dependency chain rather than a survey.
+- shape: one-line block: The kinematics, planning, control and estimation stack that sits under every learned policy.
+- shape: one-line block: RRT and its optimal variants, trajectory optimization, and CHOMP/TrajOpt.
+- shape: one-line block: PID, LQR, MPC, and whole-body QP: the classical stack under every learned policy.
+- shape: one-line block: Kalman filters, factor graphs, and pose estimation from noisy sensors.
+- shape: one-line block: Contact mechanics, grasp quality metrics, and force closure.
+- shape: one-line block: Topics, services, actions, QoS, tf2, rosbag2 and MoveIt explained as the production boundary around a learned policy.
+## /frontier/ (lexical 2, shape 6)
+- meta [This domain overview]: This domain overview lists 6 articles, ordered as the reliability gap first, because the entries after it are competing arguments about how to close that gap.
+- §12 AI word [actually]: 80% is a demo, 99.9% is a product: what deployment numbers actually show.
+- shape: one-line block: The reliability gap that keeps demos out of production, and the competing theses about closing it.
+- shape: one-line block: 80% is a demo, 99.9% is a product: what deployment numbers actually show.
+- shape: one-line block: Contact-rich manipulation, the tactile sensing gap, in-hand reorientation, and deformables.
+- shape: one-line block: What the pi0.5 and pi0.7 results demonstrate, and what they do not: the open-world gap.
+- shape: one-line block: End-to-end scaling versus hierarchy versus world models versus RL fine-tuning, with falsification criteria.
+- shape: one-line block: Why this could be another robotics winter, and the milestones that would prove it wrong.
+## /adjacent/ (lexical 2, shape 5)
+- §1 not-X-but-Y [rather than]: This domain overview lists 4 articles, ordered as a survey rather than a sequence, so any entry stands on its own: each field met the same underlying problems under a different safety and certification regime.
+- meta [This domain overview]: This domain overview lists 4 articles, ordered as a survey rather than a sequence, so any entry stands on its own: each field met the same underlying problems under a different safety and certification regime.
+- shape: one-line block: Autonomous vehicles, drones and surgical and space robotics, each in brief.
+- shape: one-line block: The AV stack as a robotics problem: perception, prediction, planning, and the long tail.
+- shape: one-line block: Autonomous flight, aggressive maneuvers, and swarm coordination.
+- shape: one-line block: Intuitive, CMR, and Moon Surgical: the precision and reliability bar for certified robots.
+- shape: one-line block: NASA/JPL systems, orbital servicing, and ISRU: robotics where repair is impossible.
+## /glossary/ (lexical 69, shape 5)
+- §1 not-X-but-Y [rather than]: A scene stored as a cloud of anisotropic 3D Gaussians, each carrying a position, a covariance, an opacity and a view-dependent colour, rendered by projecting them to the image plane and rasterising rather than by marchin...
+- §1 not-X-but-Y [instead of]: Predicting a sequence of future actions in one inference instead of a single action per timestep.
+- §1 not-X-but-Y [, not a]: Amazon's Proteus and the case-handling robots inside Symbotic's systems are AMRs at fleet scale, and the fleet manager's traffic control, not any single robot's navigation, is the hard engineering.
+- §1 not-X-but-Y [rather than]: The parameters that describe the camera itself rather than where it sits: focal length in pixels along each axis, the principal point where the optical axis meets the sensor, and the lens distortion coefficients.
+- §1 not-X-but-Y [rather than]: Zhang's method recovers them from a handful of views of a planar target held at arbitrary unknown orientations, which is why calibration on a robot is a printed checkerboard rather than a metrology rig.
+- §12 AI word [actually]: The number of predicted actions a system actually executes before a fresh inference replaces them.
+- §1 not-X-but-Y [rather than]: Manipulation governed by making, holding, and breaking contact rather than by free-space motion: insertion, screwing, wiping, folding.
+- §1 not-X-but-Y [instead of]: Training on a scheduled sequence of tasks that grow harder as the agent improves, instead of sampling the full difficulty range from the start.
+- §1 not-X-but-Y [instead of]: Conditional variational autoencoder: a generative model that learns a distribution over a latent variable instead of a single deterministic output.
+- §12 AI word [actually]: Dataset Aggregation, the iterative fix for behavior cloning's distribution mismatch: roll out the current policy, have the expert label the states the policy actually visits, add those labeled states to the training set,...
+- §1 not-X-but-Y [instead of]: A policy that produces actions through a conditional denoising diffusion process over a whole action sequence instead of regressing a single action directly.
+- §1 not-X-but-Y [rather than]: Introduced by Chi et al. in 2023, it represents multimodal demonstrations faithfully rather than averaging their modes, and it executes only the first few steps of each predicted sequence before observing again and repla...
+- §1 not-X-but-Y [rather than]: Open-world evaluations measure performance under exactly this gap: pi0.5 was evaluated in three real homes absent from its training set, and Lin and colleagues measured how generalization to new environments and objects ...
+- §1 not-X-but-Y [rather than]: Two properties are commonly misunderstood: it is a complement to guarding rather than a substitute for it, since it depends on a person noticing the hazard in time, and stopping is not the same as removing power, which i...
+- §1 not-X-but-Y [instead of]: A driving policy that maps raw sensor input directly to a motion plan or vehicle commands, instead of composing separate perception, prediction, and planning modules.
+- §1 not-X-but-Y [rather than]: A generative modeling recipe that learns a time-dependent vector field carrying samples from a noise distribution to the data distribution, trained by regressing the model's field against the conditional flow rather than...
+- §1 not-X-but-Y [instead of]: The warehouse principle of moving stored items to a stationary human at a pick station, instead of sending the human to walk the shelves.
+- §1 not-X-but-Y [rather than]: Mason's predecessor analysis established how to pick the constrained and free directions from contact geometry, which is what makes the decomposition a property of the task rather than a tuning choice.
+- §1 not-X-but-Y [rather than]: Learning a policy from expert demonstrations rather than from a reward signal: the expert's recorded state-action pairs become a supervised training set, and the fitted mapping from observed state to action is the policy...
+- §1 not-X-but-Y [instead of]: Hogan's 1985 formulation of compliant contact control: instead of commanding a position or a force, the controller programs the relationship between them, making the manipulator behave at the contact like a mass-spring-d...
+- §12 AI word [key]: Repositioning or reorienting a grasped object within the hand without setting it down: rolling a pen between the fingers, or walking a key around until it faces the lock.
+- §12 AI word [key]: Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in 2024, and Holson's Robot Olympics makes it the gold-medal bar for tool use with the key-in-lock task.
+- §1 not-X-but-Y [instead of]: Producing mission consumables at the destination from local materials instead of launching them from Earth: oxygen from the Martian atmosphere, water or metals from lunar regolith, propellant from both.
+- §1 not-X-but-Y [, not t]: The economics of the rate are set by the intervention time, not the rate alone: a 1 percent intervention rate cleared in seconds is cheaper per pick than a 0.1 percent rate that stops the line for an hour, which is why d...
+- §1 not-X-but-Y [instead of]: A world-model paradigm that predicts in a compact learned latent space instead of in pixels: the model carries a recurrent latent state, forecasts how that state and the reward evolve under candidate actions, and the age...
+- §1 not-X-but-Y [instead of]: Dreamer established the recipe of training an actor-critic purely on imagined trajectories, and TD-MPC2 showed the image decoder can be dropped altogether, scoring candidate action sequences under the latent model with a...
+- §1 not-X-but-Y [rather than]: Locomotion through legs rather than wheels or tracks: support comes from discrete, intermittent footholds, so balance is re-established at every step instead of resting on a continuous contact patch.
+- §1 not-X-but-Y [instead of]: It is the problem that made sim-to-real reinforcement learning a shipping technology instead of a demo.
+- §3 saying [in reality]: Autonomous-driving teams attack the tail with simulation, and Waymo's Genie-3-based World Model exists for exactly this: events 'from a tornado to a casual encounter with an elephant' are 'almost impossible to capture at...
+- §1 not-X-but-Y [instead of]: Surgery performed through small incisions with elongated instruments and a camera, instead of a large open incision.
+- §1 not-X-but-Y [instead of]: Because the plan is recomputed online, model error is rejected by feedback at every step instead of being frozen into a policy's weights, so a model-predictive controller shows less of the frozen-policy sim-to-real failu...
+- §1 not-X-but-Y [rather than]: The objective is view synthesis, so the geometry it recovers is whatever explains the images rather than whatever a contact solver would want.
+- §1 not-X-but-Y [rather than]: A cell that no sensor has yet observed is held as unknown rather than assumed free, which is exactly the distinction a representation optimised for rendering cannot make.
+- §1 not-X-but-Y [rather than]: The distinction is about data reuse rather than taxonomy, and on a real robot it is the difference between a feasible experiment and an impossible one.
+- §1 not-X-but-Y [rather than]: PPO is the robotics default of this kind: it alternates between sampling interaction data and optimizing a surrogate objective, and the surrogate is what allows several minibatch epochs per batch rather than the single g...
+- §1 not-X-but-Y [rather than]: Deciding, at run time, whether the input a model is being asked about resembles the data it was trained on, so that a policy can decline rather than extrapolate.
+- §1 not-X-but-Y [rather than]: Operations buyers screen against a horizon rather than optimizing the number, and vendor guidance for robot cells quotes 12 to 24 month paybacks in multi-shift operation, stretching toward 36 in single shift.
+- §1 not-X-but-Y [rather than]: It grades a safety-related control function on a discrete scale, and the standard supplies the design methodology by which a claimed level is justified rather than asserted.
+- §12 AI word [robustness]: In Cadena and colleagues' robustness argument, false-positive data associations can lead to wrong back-end estimates; false negatives discard useful measurements and reduce estimation accuracy.
+- §12 AI word [robust]: Geometric verification and robust estimation can mitigate outliers, but do not establish a universal ranking of every false match against every missed match.
+- §1 not-X-but-Y [, not a]: These are summaries, not a guarantee that all geometry survives pooling; density-adaptive grouping addresses sparsely sampled neighbourhoods.
+- §1 not-X-but-Y [rather than]: Recovering an object's full rigid position and orientation, six degrees of freedom, from sensor data, rather than only where it is in the image.
+- §1 not-X-but-Y [rather than]: The collaborative operating mode that permits contact between a robot and a person and makes it safe by bounding what the contact can do, rather than by preventing it.
+- §1 not-X-but-Y [, not m]: A cobot certified under this mode has been measured, not merely described.
+- §1 not-X-but-Y [instead of]: Schulman and colleagues introduced it as a policy gradient method that alternates between sampling data through interaction with the environment and optimizing a surrogate objective with stochastic gradient ascent, where...
+- §12 AI word [actually]: What a reader of a results table needs alongside that number is how many of the predicted actions the system actually runs, which is the committed horizon.
+- §1 not-X-but-Y [rather than]: Learning the value of taking an action in a state, rather than learning a policy directly: the agent fits a function that predicts the return available from a state-action pair, and acts by picking the action its own est...
+- §1 not-X-but-Y [instead of]: Sutton and Barto set it out as the archetypal off-policy temporal-difference control method, where the update uses the best available next action instead of the action the behaviour policy actually took, which is exactly...
+- §12 AI word [actually]: Sutton and Barto set it out as the archetypal off-policy temporal-difference control method, where the update uses the best available next action instead of the action the behaviour policy actually took, which is exactly...
+- §1 not-X-but-Y [instead of]: The theorem explains the classic shaping bugs, where the agent learns to harvest the bonus instead of doing the task: those bugs come from non-potential-based rewards, the kind the theorem rules out.
+- §14 vague link [associated with]: ISO 12100:2010 is the general-principles standard behind it: its public abstract describes procedures for identifying hazards and for estimating and evaluating the risks associated with them across the phases of a machin...
+- §1 not-X-but-Y [rather than]: Its output is a record of which hazards were found, what was done about each, and why the residual risk was judged acceptable, which is what makes safety auditable rather than asserted.
+- §1 not-X-but-Y [rather than]: A RASD is cleared or authorized on the basis that it assists a surgeon rather than practicing medicine itself: the Versius authorization, the first for a multiport soft-tissue general surgical system through the FDA's De...
+- §1 not-X-but-Y [rather than]: The tradition exists because testing alone cannot reach the confidence an autonomous system needs, so the artifact is an argument rather than a test report.
+- §1 not-X-but-Y [rather than]: The IEC 61508:2010 rating of how much confidence a safety function warrants, assigned to the function rather than to the component that implements it.
+- §1 not-X-but-Y [instead of]: The evidence a level needs is a verifiable specification of what the function must do, and a policy trained from demonstrations has behaviour instead of a specification.
+- §1 not-X-but-Y [rather than]: Lin and colleagues fit imitation-learning success to the training data and found that generalization to new objects and environments tracks data diversity rather than raw hours.
+- §1 not-X-but-Y [rather than]: For manipulation the per-pixel form is what matters, because a grasp is planned on a region of a surface rather than on a rectangle: a box around a mug also contains the table behind it, and a mask does not.
+- §1 not-X-but-Y [rather than]: The spring is a sensor as much as a compliance: its deflection measures the transmitted force cheaply and robustly, the force loop closes on the spring rather than on a fragile wrist sensor, and the spring mechanically l...
+- §12 AI word [robustly]: The spring is a sensor as much as a compliance: its deflection measures the transmitted force cheaply and robustly, the force loop closes on the spring rather than on a fragile wrist sensor, and the spring mechanically l...
+- §1 not-X-but-Y [rather than]: KinectFusion uses a projective truncated field rather than a true discrete signed-distance field; fusion approximates a pseudo-Euclidean distance metric.
+- §1 not-X-but-Y [, not b]: It predicts the surface by ray marching and approximate interpolation, not by treating every stored value as an exact collision margin.
+- §1 not-X-but-Y [, not a]: Toyota Research Institute's Large Behavior Model study analyzed 1,800 real-world rollouts and warned of a significant risk of statistical noise from insufficient power, not a measured prevalence of incorrect papers.
+- §1 not-X-but-Y [rather than]: Coordination of many relatively simple robots through local interaction rather than a central planner, aiming for collective behavior that no individual achieves: coverage, mapping, or search at fleet scale.
+- §1 not-X-but-Y [, not a]: This is a point-set score and a chosen evaluation threshold, not a guarantee that every visually indistinguishable rotation has zero error.
+- §1 not-X-but-Y [rather than]: Measuring a real robot's dynamics and correcting the simulator's parameters to match, so the sim-to-real gap shrinks by calibration rather than by randomization.
+- §1 not-X-but-Y [instead of]: This smooths the handoff between chunks at the cost of one inference per step instead of one per chunk.
+- §1 not-X-but-Y [instead of]: Treating all of a robot's actuated degrees of freedom, legs, torso, arms, and hands, as one coupled control problem instead of stacking an arm controller on top of a separate locomotion controller.
+- §1 not-X-but-Y [instead of]: A model of how an environment evolves that an agent can query to make decisions: given the current observation or state and a candidate action, it predicts what happens next, so a policy can be trained, evaluated, or pla...
+- shape: one-line block: 119 terms, every definition written from a cited primary source
+- shape: one-line block: The time required to produce a part or complete a process, as timed by actual measurement.
+- shape: one-line block: Cycle TimeLean Enterprise Institute n.d.
+- shape: three openings "The": The problem is nonlinear and can have no solution, one solution, or many.
+- shape: one-line block: Takt TimeLean Enterprise Institute n.d.
+## /a-z/ (lexical 0, shape 1)
+- shape: one-line block: 57 articles and 119 glossary terms
+## /search/ (lexical 0, shape 0)
+## /credits/ (lexical 0, shape 1)
+- shape: one-line block: Written and maintained by Josef Chen (@josefchen).
+## /editorial-policy/ (lexical 3, shape 0)
+- §1 not-X-but-Y [, not a]: It is an independently maintained technical reference, not a product ranking service.
+- §1 not-X-but-Y [rather than]: Sources should let a reader verify a claim rather than ask them to trust the author.
+- §1 not-X-but-Y [, not e]: Unknown values are reported as unknown, not estimated.
+## /about/ (lexical 0, shape 3)
+- shape: one-line block: From embodied data and imitation learning to action models, evaluation, and deployment.
+- shape: one-line block: The dependency chain underneath learned policies: geometry, sensing, estimation, planning, and control.
+- shape: one-line block: Start with the overloaded term, then compare latent, representation-space, video, and simulation approaches.
+{"/manipulation/":{"lexical":2,"shape":10},"/rl-sim2real/":{"lexical":2,"shape":7},"/world-models/":{"lexical":1,"shape":7},"/data-hardware/":{"lexical":2,"shape":6},"/classical/":{"lexical":2,"shape":6},"/frontier/":{"lexical":2,"shape":6},"/adjacent/":{"lexical":2,"shape":5},"/glossary/":{"lexical":69,"shape":5},"/a-z/":{"lexical":0,"shape":1},"/search/":{"lexical":0,"shape":0},"/credits/":{"lexical":0,"shape":1},"/editorial-policy/":{"lexical":3,"shape":0},"/about/":{"lexical":0,"shape":3}}

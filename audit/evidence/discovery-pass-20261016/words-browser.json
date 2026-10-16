@@ -1,0 +1,162 @@
+{
+ "start": [
+  {
+   "route": "/manipulation/",
+   "words": 288,
+   "firstParagraphWords": 12,
+   "averageSentence": 16.9
+  },
+  {
+   "route": "/rl-sim2real/",
+   "words": 162,
+   "firstParagraphWords": 12,
+   "averageSentence": 16.2
+  },
+  {
+   "route": "/world-models/",
+   "words": 167,
+   "firstParagraphWords": 10,
+   "averageSentence": 15.2
+  },
+  {
+   "route": "/data-hardware/",
+   "words": 155,
+   "firstParagraphWords": 16,
+   "averageSentence": 17.2
+  },
+  {
+   "route": "/classical/",
+   "words": 201,
+   "firstParagraphWords": 13,
+   "averageSentence": 15.5
+  },
+  {
+   "route": "/frontier/",
+   "words": 133,
+   "firstParagraphWords": 16,
+   "averageSentence": 16.6
+  },
+  {
+   "route": "/adjacent/",
+   "words": 91,
+   "firstParagraphWords": 11,
+   "averageSentence": 15.2
+  },
+  {
+   "route": "/glossary/",
+   "words": 9971,
+   "firstParagraphWords": 35,
+   "averageSentence": 26.5
+  },
+  {
+   "route": "/a-z/",
+   "words": 31,
+   "firstParagraphWords": 25,
+   "averageSentence": 10.3
+  },
+  {
+   "route": "/search/",
+   "words": 48,
+   "firstParagraphWords": 20,
+   "averageSentence": 12
+  },
+  {
+   "route": "/credits/",
+   "words": 185,
+   "firstParagraphWords": 81,
+   "averageSentence": 14.2
+  },
+  {
+   "route": "/editorial-policy/",
+   "words": 234,
+   "firstParagraphWords": 43,
+   "averageSentence": 14.6
+  },
+  {
+   "route": "/about/",
+   "words": 256,
+   "firstParagraphWords": 43,
+   "averageSentence": 15.1
+  }
+ ],
+ "end": [
+  {
+   "route": "/manipulation/",
+   "words": 207,
+   "firstParagraphWords": 24,
+   "averageSentence": 11.5
+  },
+  {
+   "route": "/rl-sim2real/",
+   "words": 120,
+   "firstParagraphWords": 39,
+   "averageSentence": 10
+  },
+  {
+   "route": "/world-models/",
+   "words": 125,
+   "firstParagraphWords": 34,
+   "averageSentence": 10.4
+  },
+  {
+   "route": "/data-hardware/",
+   "words": 116,
+   "firstParagraphWords": 37,
+   "averageSentence": 10.5
+  },
+  {
+   "route": "/classical/",
+   "words": 149,
+   "firstParagraphWords": 50,
+   "averageSentence": 11.5
+  },
+  {
+   "route": "/frontier/",
+   "words": 96,
+   "firstParagraphWords": 31,
+   "averageSentence": 9.6
+  },
+  {
+   "route": "/adjacent/",
+   "words": 68,
+   "firstParagraphWords": 22,
+   "averageSentence": 9.7
+  },
+  {
+   "route": "/glossary/",
+   "words": 8203,
+   "firstParagraphWords": 22,
+   "averageSentence": 18.8
+  },
+  {
+   "route": "/a-z/",
+   "words": 22,
+   "firstParagraphWords": 16,
+   "averageSentence": 7.3
+  },
+  {
+   "route": "/search/",
+   "words": 32,
+   "firstParagraphWords": 12,
+   "averageSentence": 8
+  },
+  {
+   "route": "/credits/",
+   "words": 128,
+   "firstParagraphWords": 38,
+   "averageSentence": 14.2
+  },
+  {
+   "route": "/editorial-policy/",
+   "words": 173,
+   "firstParagraphWords": 20,
+   "averageSentence": 13.3
+  },
+  {
+   "route": "/about/",
+   "words": 185,
+   "firstParagraphWords": 36,
+   "averageSentence": 15.4
+  }
+ ]
+}

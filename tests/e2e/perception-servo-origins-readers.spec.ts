@@ -198,7 +198,7 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
   await expect(page).toHaveURL(/\/glossary\/?#visual-servoing$/);
   await page.evaluate(() => document.fonts.ready);
   const entry = page.locator('[data-glossary-term="visual-servoing"]');
-  await expect(entry.locator('p')).toHaveText(definition);
+  await expect(entry.locator('[data-glossary-definition]')).toHaveText(definition);
   await expect(entry.locator('a')).toHaveCount(2);
   await expect(entry.locator('a').first()).toHaveAttribute('href', 'https://doi.org/10.1109/70.143350');
   await expect(entry.locator('a').nth(1)).toHaveAttribute('href', 'https://doi.org/10.1109/MRA.2006.250573');

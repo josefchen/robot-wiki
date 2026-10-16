@@ -363,7 +363,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       for (const id of termIds) {
         const entry = GLOSSARY.find(t => t.id === id)!;
         const reader = page.locator(`[data-glossary-term="${id}"]`);
-        await expect(reader.locator(':scope > p')).toHaveText(entry.definition);
+        await expect(reader.locator('[data-glossary-definition]')).toHaveText(entry.definition);
         const expected = entry.citations.map(cid => CITATIONS.find(c => c.id === cid)!.url);
         expect(await reader.locator('a').evaluateAll(links => links.map(a => a.getAttribute('href')))).toEqual(expected);
         for (const link of await reader.locator('a').all()) {

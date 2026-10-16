@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import { Fragment } from 'react';
 import { citationLabel, getCitation } from '@/data/citations';
 import { glossaryTermsAlphabetical } from '@/data/glossary';
+import { definitionParagraphs } from '@/lib/discovery-prose';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import { glossaryJsonLd } from '@/lib/structured-data';
 import {
@@ -46,9 +48,8 @@ export default function GlossaryPage() {
           Glossary
         </h1>
         <p className="page-lead mt-[30px]">
-          Definitions of the terms the articles use, each written from a
-          cited primary source. In an article, hover over or focus a marked
-          term to see the same definition.
+          Each definition is written from a cited primary source. In an
+          article, hover over or focus a marked term to see it.
         </p>
         <p className="meta-line mt-6">
           <span className="font-mono tabular-nums">{terms.length}</span> terms
@@ -78,9 +79,21 @@ export default function GlossaryPage() {
                 {term.term}
               </h2>
               <div className="min-w-0">
-              <p className="text-[16px] leading-[1.62] text-text">
-                {term.definition}
-              </p>
+              {/* The first paragraph is the definition itself, within 60
+                  words; the specifics follow. The space between the two
+                  keeps the entry's text equal to the registry definition. */}
+              <div data-glossary-definition>
+                {definitionParagraphs(term.definition).map((text, index) => (
+                  <Fragment key={index}>
+                    {index > 0 ? ' ' : null}
+                    <p
+                      className={`${index > 0 ? 'mt-3 ' : ''}text-[16px] leading-[1.62] text-text`}
+                    >
+                      {text}
+                    </p>
+                  </Fragment>
+                ))}
+              </div>
               <ul className="mt-3 flex flex-col gap-1.5">
                 {sources.map((source) => (
                   <li key={source.id} className="flex flex-wrap items-baseline gap-x-2">

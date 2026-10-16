@@ -40,23 +40,23 @@ export type ReskinReview = {
 
 // BEGIN reskin site-foundation pins (written by scripts/record-reskin-site-foundation-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 195378, sha256: '7c1b8e7f26052d388a2b161896b86adbf69724ee19b627d751d6d0b457c0e136' };
+const reviewPin = { bytes: 209370, sha256: '7152d89a938cab2695b73658b01ed2a1d2fbdbd65eadade7758ad8f005d9ed88' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['app/(content)/[domain]/[slug]/page.tsx', [13070, '7c97076edf344ea7b7540608801c57732054b5252477eab1ed8d9893c2c3a34c']],
-  ['app/(content)/[domain]/page.tsx', [5950, '81ec66a436ff7ed3495c6cd5dfa11d51d8dd3aa5b2ecf4aba0b43285bc97e8cd']],
-  ['app/a-z/page.tsx', [6598, 'dd60759f8c28eb705cfe32974050ddac1648b53c82f5f6445fe8e7254c331114']],
-  ['app/about/page.tsx', [6192, 'd17ce0a83794151f66e7c77c56e79d5f43eea1622d7e137e61d9399bbb55e0b9']],
-  ['app/credits/page.tsx', [8488, '66a9f71b1879de7fc50dcdaebf78fa6eb15f6cf8e376fd600c71ad0ac3e0040d']],
-  ['app/editorial-policy/page.tsx', [4963, 'b9deaf6ef5d58ec00e2fb400344d7cefdf4ebf32bc4d37aa48510398eaf12dd1']],
+  ['app/(content)/[domain]/page.tsx', [10073, '7a207fee460b3fcafb158fe227adca353a9e537e0a2de20c642d1ef0cd37ec95']],
+  ['app/a-z/page.tsx', [6588, 'ede8948c474300006eb05d1bcb608dcfff4a346733e540a4e3d1829d09eb17a5']],
+  ['app/about/page.tsx', [5993, '70cee064b2b312acab3de6d13c080440af5052776d5c4a3880b6098550dc2516']],
+  ['app/credits/page.tsx', [8310, '3a6551f0c4085b228f49679d08f094b8913656c0f019f4655ec29b69a6000010']],
+  ['app/editorial-policy/page.tsx', [4507, '5725a0790a4ee703a3af4908432ff8837edf7ec23d89d3cc33749534b66bef8a']],
   ['app/globals.css', [32316, '8de4e85609e2124f4ed939f07e4d1b6fffb1fa3cffe68d3278824d336657530c']],
-  ['app/glossary/page.tsx', [4698, 'a76d5c7d30740c6c7611196baefd2687dd8e7dc02a2e24d2cf96d6a5245df2e2']],
+  ['app/glossary/page.tsx', [5323, 'fd573583eef2c762e26081e85dda3c1f48b8461cce24a41116e19114b7fc3b21']],
   ['app/layout.tsx', [4426, '7fc799173cdc026fd133d868deac13eaacfe26a6ed7a87a7fde6a5aedfd5c6c5']],
   ['app/not-found.tsx', [2670, '61cefe72130fbe2ad4c18c1d9d3877e236e370f9e11be61b784599f843fe64a9']],
   ['app/page.tsx', [11945, 'ecd27da9b503740482930904478dec78a843bf338515b19489529c28c49c9973']],
   ['app/privacy/page.tsx', [3984, '87ba4321fb4de3469891cdb718d997608f8af7c4fa62c3941b702d5557464bd3']],
-  ['app/search/page.tsx', [2415, '11e18bf84f587bcbebe45d8fc2a575302483fd3bf24d2e8b13376f0e4db165b6']],
+  ['app/search/page.tsx', [2386, '812ecfe725d6dde3691e47dce6be31c0456e0312ee87c25f267e443ea7b63878']],
   ['components/article/article-header.tsx', [2737, '0e6de69a8588c6d716b7ef9969701dfe798b3b44608f305307a99f6a04c8af1c']],
   ['components/article/breadcrumbs.tsx', [4821, 'f339ceecb4b0d338067ab20ff3e18b22a07e3ea36575066b52a721748f1002de']],
   ['components/article/commit-to-reveal.tsx', [13685, '0f6725ec5f4f80a4897c32b69ded5979a3fc2271b1bef20d0fdfe008bc9ffb19']],

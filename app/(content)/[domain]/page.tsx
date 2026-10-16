@@ -1,9 +1,13 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
+import { Cite } from '@/components/ui/cite';
 import { IntentLink } from '@/components/ui/intent-link';
+import { citationLabel, citationMeta, getCitation } from '@/data/citations';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
-import type { Domain } from '@/data/modules';
+import type { DomainCitedText, DomainEvidenceRow, Domain } from '@/data/modules';
+import { relatedTitle } from '@/lib/domain-hub';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import {
   domainCollectionJsonLd,
@@ -30,6 +34,87 @@ function asDomain(value: string): Domain | null {
 }
 
 type Params = Promise<{ domain: string }>;
+
+/** A hub page has no References list, so the citation is its author-year label only. */
+function SourceCite({ id }: { id: string }) {
+  const citation = getCitation(id);
+  if (!citation) throw new Error(`a domain hub cites ${id}, which data/citations.ts does not hold`);
+  return (
+    <Cite
+      citeId={id}
+      href={citation.url}
+      label={citationLabel(citation)}
+      title={citation.title}
+      meta={citationMeta(citation)}
+    />
+  );
+}
+
+/**
+ * The cited sentence, with its last word kept on the line of the citation.
+ * A no-break space binds the word to the label; a nowrap span would also
+ * bind the whole label, and "International Federation of Robotics 2026"
+ * then runs out of a 375 px column.
+ */
+function CitedText({ cited, stop = '' }: { cited: DomainCitedText; stop?: string }) {
+  return (
+    <>
+      {cited.text}
+      {'\u00a0'}
+      <SourceCite id={cited.citationId} />
+      {stop}
+    </>
+  );
+}
+
+function EvidenceTable({ rows }: { rows: readonly DomainEvidenceRow[] }) {
+  return (
+    <section className="mt-10">
+      <h2 id="evidence-bar" className="section-h2">
+        How each field shows it is safe enough
+      </h2>
+      {/* The heading names the scroll region alone: naming the section too
+          would give the page two regions with the same name. */}
+      <div
+        role="region"
+        aria-labelledby="evidence-bar"
+        tabIndex={0}
+        className="mt-4 max-w-full overflow-x-auto"
+      >
+        <table className="booktabs min-w-[600px] text-left">
+          <thead>
+            <tr>
+              <th scope="col">Field</th>
+              <th scope="col">Scale</th>
+              <th scope="col">Evidence bar and record</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.slug} data-evidence-row={row.slug}>
+                <th scope="row" className="font-semibold">
+                  <Link
+                    data-brand-control-id="control:link-focus"
+                    href={`/adjacent/${row.slug}/`}
+                    className="ink-link"
+                  >
+                    {row.field}
+                  </Link>
+                </th>
+                <td>
+                  <CitedText cited={row.scale} />
+                </td>
+                <td>
+                  {row.bar}: <CitedText cited={row.record} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
 
 export async function generateMetadata({
   params,
@@ -69,6 +154,10 @@ export default async function DomainLandingPage({
   const published = (modulesByDomain()[domain] ?? []).filter(
     (m) => m.status === 'published',
   );
+  const furtherReading = meta.furtherReading ? getCitation(meta.furtherReading) : undefined;
+  if (meta.furtherReading && !furtherReading) {
+    throw new Error(`${domain} recommends ${meta.furtherReading}, which data/citations.ts does not hold`);
+  }
 
   return (
     <div className="sheet sheet-masthead pb-8">
@@ -101,10 +190,44 @@ export default async function DomainLandingPage({
           <h1 data-tektur-role="page-h1" className="display-h1">
             {meta.name}
           </h1>
-          <p className="page-lead mt-[30px]">{meta.description}</p>
+          <p className="page-lead mt-[30px]">
+            {meta.description}
+            {meta.fact ? (
+              <>
+                {' '}
+                <CitedText cited={meta.fact} stop="." />
+              </>
+            ) : null}
+          </p>
           <p className="meta-line mt-6 max-w-[960px]">
             {published.length} articles. {meta.readingOrder}
           </p>
+          <p data-hub-related className="meta-line mt-2 max-w-[960px]">
+            Related:{' '}
+            {meta.related.map((href, index) => (
+              <span key={href}>
+                {index > 0 ? ', ' : null}
+                <Link data-brand-control-id="control:link-focus" href={href}>
+                  {relatedTitle(href)}
+                </Link>
+              </span>
+            ))}
+            {furtherReading ? (
+              <>
+                . Further reading:{' '}
+                <a
+                  data-brand-control-id="control:link-focus"
+                  href={furtherReading.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {furtherReading.title}
+                </a>{' '}
+                ({citationLabel(furtherReading)})
+              </>
+            ) : null}
+          </p>
+          {meta.evidence ? <EvidenceTable rows={meta.evidence} /> : null}
         </header>
         <ol className="border-t border-border">
           {published.map((m, index) => (

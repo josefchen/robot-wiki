@@ -1,0 +1,108 @@
+[
+  {
+    "route": "/manipulation/",
+    "words": 288,
+    "firstParagraph": "From behavior cloning to vision-language-action models: how modern robots learn to act.",
+    "firstParagraphWords": 12,
+    "averageSentence": 16.9,
+    "sweep": []
+  },
+  {
+    "route": "/rl-sim2real/",
+    "words": 162,
+    "firstParagraph": "Reinforcement learning at scale, from massively parallel simulation to the transfer problem.",
+    "firstParagraphWords": 12,
+    "averageSentence": 16.2,
+    "sweep": []
+  },
+  {
+    "route": "/world-models/",
+    "words": 167,
+    "firstParagraph": "Learned simulators and action-conditioned video prediction, with the JEPA counterargument.",
+    "firstParagraphWords": 10,
+    "averageSentence": 15.2,
+    "sweep": []
+  },
+  {
+    "route": "/data-hardware/",
+    "words": 155,
+    "firstParagraph": "The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.",
+    "firstParagraphWords": 16,
+    "averageSentence": 17.2,
+    "sweep": []
+  },
+  {
+    "route": "/classical/",
+    "words": 201,
+    "firstParagraph": "The kinematics, planning, control and estimation stack that sits under every learned policy.",
+    "firstParagraphWords": 13,
+    "averageSentence": 15.5,
+    "sweep": []
+  },
+  {
+    "route": "/frontier/",
+    "words": 133,
+    "firstParagraph": "The reliability gap that keeps demos out of production, and the competing theses about closing it.",
+    "firstParagraphWords": 16,
+    "averageSentence": 16.6,
+    "sweep": []
+  },
+  {
+    "route": "/adjacent/",
+    "words": 91,
+    "firstParagraph": "Autonomous vehicles, drones and surgical and space robotics, each in brief.",
+    "firstParagraphWords": 11,
+    "averageSentence": 15.2,
+    "sweep": []
+  },
+  {
+    "route": "/glossary/",
+    "words": 9971,
+    "firstParagraph": "Reference definitions for the jargon of modern robotics, each one written from a cited primary source. The articles mark these terms up inline; hovering or keyboard-focusing a marked term shows the same definition listed here.",
+    "firstParagraphWords": 35,
+    "averageSentence": 26.5,
+    "sweep": []
+  },
+  {
+    "route": "/a-z/",
+    "words": 31,
+    "firstParagraph": "Every article in the wiki and every glossary term, filed alphabetically. Articles are labelled with their domain; terms link to their entry in the glossary.",
+    "firstParagraphWords": 25,
+    "averageSentence": 10.3,
+    "sweep": []
+  },
+  {
+    "route": "/search/",
+    "words": 20,
+    "firstParagraph": "Search article prose together with the structured data layer of methods, companies, and datasets. Queries run locally in your browser.",
+    "firstParagraphWords": 20,
+    "averageSentence": 10,
+    "sweep": []
+  },
+  {
+    "route": "/credits/",
+    "words": 185,
+    "firstParagraph": "Robot Wiki uses real photographs and diagrams, and every one of them is listed here with its creator, the page it came from, and the licence that permits its reuse. Article images stay under CC0, CC BY, CC BY-SA, public domain, or a documented reuse permission. Market-map logos also include official company marks recorded as unlicensed or unknown when no reuse grant is named. No image is AI-generated. The site's own text and original diagrams are available under CC BY 4.0.",
+    "firstParagraphWords": 81,
+    "averageSentence": 14.2,
+    "sweep": [
+      "meta-commentary"
+    ]
+  },
+  {
+    "route": "/editorial-policy/",
+    "words": 234,
+    "firstParagraph": "Robot Wiki exists to make modern robotics legible without hiding uncertainty, deployment constraints, or disagreement. It is an independently maintained technical reference, not a product ranking service. Sources should let a reader verify a claim rather than ask them to trust the author.",
+    "firstParagraphWords": 43,
+    "averageSentence": 14.6,
+    "sweep": []
+  },
+  {
+    "route": "/about/",
+    "words": 256,
+    "firstParagraph": "Robot Wiki covers modern robot learning for engineers who already know machine learning, from Manipulation & Learned Policies and World Models to the Classical Foundations underneath. The industry appears as data in the Market Map. Company news and investment advice are out of scope.",
+    "firstParagraphWords": 43,
+    "averageSentence": 15.1,
+    "sweep": []
+  }
+]

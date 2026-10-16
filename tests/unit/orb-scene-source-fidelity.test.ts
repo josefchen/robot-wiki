@@ -50,9 +50,13 @@ describe('ORB scene source fidelity', () => {
     const loop = GLOSSARY.find(t => t.id === 'loop-closure')!;
     const place = GLOSSARY.find(t => t.id === 'place-recognition')!;
     expect(loop.definition).toContain('Essential Graph optimization');
-    expect(loop.definition).toContain('not a guarantee that every revisit removes all error');
+    // Successor of 'not a guarantee that every revisit removes all error' (2026-10-16): the
+    // caveat now ends the ORB-SLAM sentence it qualifies instead of standing as a closer.
+    expect(loop.definition).toContain('so a revisit can leave residual error');
     expect(loop.citations).toEqual(['cadena-2016', 'orb-slam-2015']);
-    expect(place.definition).toContain('For visual navigation');
+    // The glossary now opens on the term itself (VAL-OPUS-110); the
+    // visual-navigation scope moved into that first sentence unchanged.
+    expect(place.definition).toContain('in visual navigation, whether the current image shows a mapped place');
     expect(place.definition).toContain('Motion information can also inform that belief');
     expect(place.definition).toContain('do not establish a universal ranking');
     expect(place.definition).not.toContain('sensor data alone');

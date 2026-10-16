@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "c12a96ec430cc43de728046f89d1e78cffef4efe615d68a628b3c2954355f158",
+  "fingerprint": "5181b0e385461f3c3f5c909dc432cece805736993696086828905da3bf718fbc",
   "viewport": "1440x900",
   "surfaces": [
     {
@@ -36,7 +36,7 @@
     },
     {
       "route": "/manipulation/",
-      "visibleTextLength": 8705,
+      "visibleTextLength": 7356,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Manipulation & Learned Policies",
@@ -67,7 +67,7 @@
     },
     {
       "route": "/rl-sim2real/",
-      "visibleTextLength": 5191,
+      "visibleTextLength": 4589,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "RL, Sim-to-Real & Locomotion",
@@ -98,7 +98,7 @@
     },
     {
       "route": "/world-models/",
-      "visibleTextLength": 5208,
+      "visibleTextLength": 4490,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "World Models",
@@ -129,7 +129,7 @@
     },
     {
       "route": "/data-hardware/",
-      "visibleTextLength": 4568,
+      "visibleTextLength": 3960,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Data, Hardware & Evaluation",
@@ -160,7 +160,7 @@
     },
     {
       "route": "/classical/",
-      "visibleTextLength": 5233,
+      "visibleTextLength": 4831,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Classical Foundations",
@@ -191,7 +191,7 @@
     },
     {
       "route": "/frontier/",
-      "visibleTextLength": 3727,
+      "visibleTextLength": 3419,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Frontier & Open Problems",
@@ -222,7 +222,7 @@
     },
     {
       "route": "/adjacent/",
-      "visibleTextLength": 2604,
+      "visibleTextLength": 4344,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Adjacent Domains",
@@ -253,7 +253,7 @@
     },
     {
       "route": "/a-z/",
-      "visibleTextLength": 6213,
+      "visibleTextLength": 6203,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "A-Z Index",
@@ -288,7 +288,7 @@
     },
     {
       "route": "/glossary/",
-      "visibleTextLength": 175700,
+      "visibleTextLength": 160376,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Glossary",
@@ -323,7 +323,7 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 57765,
+      "visibleTextLength": 57523,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Credits",

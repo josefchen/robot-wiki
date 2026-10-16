@@ -1,0 +1,22 @@
+/: pairs 2 -> 2, lost 0; ids 3 -> 3, lost 0; external links 3 -> 3, lost 0; numbers lost (uncited, for the read) 3
+   numbers: 1256 15 15
+/manipulation/: pairs 0 -> 0, lost 0; ids 0 -> 0, lost 0; external links 0 -> 0, lost 0; numbers lost (uncited, for the read) 1
+   numbers: 2
+/rl-sim2real/: pairs 0 -> 1, lost 0; ids 0 -> 1, lost 0; external links 0 -> 2, lost 0; numbers lost (uncited, for the read) 0
+/world-models/: pairs 0 -> 0, lost 0; ids 0 -> 0, lost 0; external links 0 -> 0, lost 0; numbers lost (uncited, for the read) 1
+   numbers: 2
+/data-hardware/: pairs 0 -> 2, lost 0; ids 0 -> 1, lost 0; external links 0 -> 1, lost 0; numbers lost (uncited, for the read) 4
+   numbers: 2 10 95 30
+/classical/: pairs 0 -> 2, lost 0; ids 0 -> 1, lost 0; external links 0 -> 1, lost 0; numbers lost (uncited, for the read) 0
+/frontier/: pairs 0 -> 2, lost 0; ids 0 -> 1, lost 0; external links 0 -> 1, lost 0; numbers lost (uncited, for the read) 1
+   numbers: 0.7
+/adjacent/: pairs 0 -> 14, lost 0; ids 0 -> 8, lost 0; external links 0 -> 8, lost 0; numbers lost (uncited, for the read) 0
+/glossary/: pairs 0 -> 0, lost 0; ids 0 -> 0, lost 0; external links 140 -> 140, lost 0; numbers lost (uncited, for the read) 3
+   numbers: 1 1 2
+/a-z/: pairs 0 -> 0, lost 0; ids 0 -> 0, lost 0; external links 0 -> 0, lost 0; numbers lost (uncited, for the read) 0
+/search/: pairs 0 -> 0, lost 0; ids 0 -> 0, lost 0; external links 0 -> 0, lost 0; numbers lost (uncited, for the read) 0
+/credits/: pairs 0 -> 0, lost 0; ids 0 -> 0, lost 0; external links 199 -> 234, lost 0; numbers lost (uncited, for the read) 2
+   numbers: 76 13
+/editorial-policy/: pairs 0 -> 0, lost 0; ids 0 -> 0, lost 0; external links 1 -> 1, lost 0; numbers lost (uncited, for the read) 0
+/about/: pairs 0 -> 0, lost 0; ids 0 -> 0, lost 0; external links 0 -> 0, lost 0; numbers lost (uncited, for the read) 0
+number and citation diff: PASS

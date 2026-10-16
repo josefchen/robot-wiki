@@ -3,7 +3,7 @@
   "name": "reskin-site-foundation-20261010",
   "reviewedBy": "implementation worker for the site-foundation re-skin of 2026-10-10 (not independent acceptance)",
   "rationale": "On 2026-10-10 the owner replaced the brand-v2 visual identity with the Pantheon research-page standard (PANTHEON-SPEC.md): paper and ink tokens, DM Sans, Geist and Geist Mono, a single top bar, and an article template with an eyebrow, a display title, a sticky contents rail, margin sidenotes, numbered findings and booktabs tables, carried to the home, hub, glossary, A-Z and search pages. The change is presentation only. Each presentation source it touched is recorded here as exact edits over the bytes it had before, and the earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-15T18:59:49Z",
+  "observedAt": "2026-10-16T07:36:51Z",
   "sources": [
     {
       "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
@@ -61,13 +61,33 @@
       },
       "after": {
         "path": "app/(content)/[domain]/page.tsx",
-        "bytes": 5950,
-        "sha256": "81ec66a436ff7ed3495c6cd5dfa11d51d8dd3aa5b2ecf4aba0b43285bc97e8cd"
+        "bytes": 10073,
+        "sha256": "7a207fee460b3fcafb158fe227adca353a9e537e0a2de20c642d1ef0cd37ec95"
       },
       "edits": [
         {
+          "before": "import type { Metadata } from 'next';\n",
+          "after": "import type { Metadata } from 'next';\nimport Link from 'next/link';\n"
+        },
+        {
+          "before": "import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';\nimport { IntentLink } from '@/components/ui/intent-link';\n",
+          "after": "import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';\nimport { Cite } from '@/components/ui/cite';\nimport { IntentLink } from '@/components/ui/intent-link';\nimport { citationLabel, citationMeta, getCitation } from '@/data/citations';\n"
+        },
+        {
+          "before": "import type { Domain } from '@/data/modules';\n",
+          "after": "import type { DomainCitedText, DomainEvidenceRow, Domain } from '@/data/modules';\nimport { relatedTitle } from '@/lib/domain-hub';\n"
+        },
+        {
           "before": " * each with its own summary. Drafts never appear in any form, and the page carries no progress counters: a reader sees\n * what exists to read, not the state of the authoring pipeline\n",
           "after": " * each with its own summary. Drafts never appear in any form, and the page\n * carries no progress counters.\n"
+        },
+        {
+          "before": "type Params = Promise<{ domain: string }>;\n\n",
+          "after": "type Params = Promise<{ domain: string }>;\n\n/** A hub page has no References list, so the citation is its author-year label only. */\nfunction SourceCite({ id }: { id: string }) {\n  const citation = getCitation(id);\n  if (!citation) throw new Error(`a domain hub cites ${id}, which data/citations.ts does not hold`);\n  return (\n    <Cite\n      citeId={id}\n      href={citation.url}\n      label={citationLabel(citation)}\n      title={citation.title}\n      meta={citationMeta(citation)}\n    />\n  );\n}\n\n/**\n * The cited sentence, with its last word kept on the line of the citation.\n * A no-break space binds the word to the label; a nowrap span would also\n * bind the whole label, and \"International Federation of Robotics 2026\"\n * then runs out of a 375 px column.\n */\nfunction CitedText({ cited, stop = '' }: { cited: DomainCitedText; stop?: string }) {\n  return (\n    <>\n      {cited.text}\n      {'\\u00a0'}\n      <SourceCite id={cited.citationId} />\n      {stop}\n    </>\n  );\n}\n\nfunction EvidenceTable({ rows }: { rows: readonly DomainEvidenceRow[] }) {\n  return (\n    <section className=\"mt-10\">\n      <h2 id=\"evidence-bar\" className=\"section-h2\">\n        How each field shows it is safe enough\n      </h2>\n      {/* The heading names the scroll region alone: naming the section too\n          would give the page two regions with the same name. */}\n      <div\n        role=\"region\"\n        aria-labelledby=\"evidence-bar\"\n        tabIndex={0}\n        className=\"mt-4 max-w-full overflow-x-auto\"\n      >\n        <table className=\"booktabs min-w-[600px] text-left\">\n          <thead>\n            <tr>\n              <th scope=\"col\">Field</th>\n              <th scope=\"col\">Scale</th>\n              <th scope=\"col\">Evidence bar and record</th>\n            </tr>\n          </thead>\n          <tbody>\n            {rows.map((row) => (\n              <tr key={row.slug} data-evidence-row={row.slug}>\n                <th scope=\"row\" className=\"font-semibold\">\n                  <Link\n                    data-brand-control-id=\"control:link-focus\"\n                    href={`/adjacent/${row.slug}/`}\n                    className=\"ink-link\"\n                  >\n                    {row.field}\n                  </Link>\n                </th>\n                <td>\n                  <CitedText cited={row.scale} />\n                </td>\n                <td>\n                  {row.bar}: <CitedText cited={row.record} />\n                </td>\n              </tr>\n            ))}\n          </tbody>\n        </table>\n      </div>\n    </section>\n  );\n}\n\n"
+        },
+        {
+          "before": "    (m) => m.status === 'published',\n  );\n",
+          "after": "    (m) => m.status === 'published',\n  );\n  const furtherReading = meta.furtherReading ? getCitation(meta.furtherReading) : undefined;\n  if (meta.furtherReading && !furtherReading) {\n    throw new Error(`${domain} recommends ${meta.furtherReading}, which data/citations.ts does not hold`);\n  }\n"
         },
         {
           "before": "    <div className=\"mx-auto w-full max-w-3xl px-6 py-12\">\n",
@@ -82,8 +102,8 @@
           "after": "        <header className=\"mb-16\">\n          <h1 data-tektur-role=\"page-h1\" className=\"display-h1\">\n"
         },
         {
-          "before": "          <p className=\"mt-3 leading-relaxed text-text-dim\">{meta.description}</p>\n          <p className=\"mt-3 max-w-[65ch] leading-relaxed text-text-dim\">\n            This domain overview lists {published.length} articles, ordered as{' '}\n            {meta.readingOrder}\n",
-          "after": "          <p className=\"page-lead mt-[30px]\">{meta.description}</p>\n          <p className=\"meta-line mt-6 max-w-[960px]\">\n            {published.length} articles. {meta.readingOrder}\n"
+          "before": "          <p className=\"mt-3 leading-relaxed text-text-dim\">{meta.description}</p>\n          <p className=\"mt-3 max-w-[65ch] leading-relaxed text-text-dim\">\n            This domain overview lists {published.length} articles, ordered as{' '}\n            {meta.readingOrder}\n          </p>\n",
+          "after": "          <p className=\"page-lead mt-[30px]\">\n            {meta.description}\n            {meta.fact ? (\n              <>\n                {' '}\n                <CitedText cited={meta.fact} stop=\".\" />\n              </>\n            ) : null}\n          </p>\n          <p className=\"meta-line mt-6 max-w-[960px]\">\n            {published.length} articles. {meta.readingOrder}\n          </p>\n          <p data-hub-related className=\"meta-line mt-2 max-w-[960px]\">\n            Related:{' '}\n            {meta.related.map((href, index) => (\n              <span key={href}>\n                {index > 0 ? ', ' : null}\n                <Link data-brand-control-id=\"control:link-focus\" href={href}>\n                  {relatedTitle(href)}\n                </Link>\n              </span>\n            ))}\n            {furtherReading ? (\n              <>\n                . Further reading:{' '}\n                <a\n                  data-brand-control-id=\"control:link-focus\"\n                  href={furtherReading.url}\n                  target=\"_blank\"\n                  rel=\"noopener noreferrer\"\n                >\n                  {furtherReading.title}\n                </a>{' '}\n                ({citationLabel(furtherReading)})\n              </>\n            ) : null}\n          </p>\n          {meta.evidence ? <EvidenceTable rows={meta.evidence} /> : null}\n"
         },
         {
           "before": "        <ol>\n",
@@ -112,8 +132,8 @@
       },
       "after": {
         "path": "app/a-z/page.tsx",
-        "bytes": 6598,
-        "sha256": "dd60759f8c28eb705cfe32974050ddac1648b53c82f5f6445fe8e7254c331114"
+        "bytes": 6588,
+        "sha256": "ede8948c474300006eb05d1bcb608dcfff4a346733e540a4e3d1829d09eb17a5"
       },
       "edits": [
         {
@@ -130,7 +150,7 @@
         },
         {
           "before": "        <p className=\"mt-2 font-mono text-xs text-text-dim\">\n          {articleCount} articles and {termCount} glossary terms\n        </p>\n        <p className=\"mt-5 font-serif text-[1.0625rem] leading-relaxed text-text\">\n          Every article in the wiki and every glossary term, filed\n          alphabetically. Articles are labelled with their domain; terms link\n          to their entry in the glossary.\n        </p>\n",
-          "after": "        <p className=\"page-lead mt-[30px]\">\n          Every article and every glossary term, filed alphabetically.\n          Articles carry their domain, and terms link to the glossary.\n        </p>\n        <p className=\"meta-line mt-6\">\n          {articleCount} articles and {termCount} glossary terms\n        </p>\n"
+          "after": "        <p className=\"page-lead mt-[30px]\">\n          Every article and glossary term, filed alphabetically. Articles\n          carry their domain; terms link to the glossary.\n        </p>\n        <p className=\"meta-line mt-6\">\n          {articleCount} articles and {termCount} glossary terms\n        </p>\n"
         },
         {
           "before": "      <nav aria-label=\"Jump to letter\" className=\"mt-10\">\n        <ul className=\"flex flex-wrap gap-x-3 gap-y-1.5 font-mono text-sm\">\n",
@@ -175,8 +195,8 @@
       },
       "after": {
         "path": "app/about/page.tsx",
-        "bytes": 6192,
-        "sha256": "d17ce0a83794151f66e7c77c56e79d5f43eea1622d7e137e61d9399bbb55e0b9"
+        "bytes": 5993,
+        "sha256": "70cee064b2b312acab3de6d13c080440af5052776d5c4a3880b6098550dc2516"
       },
       "edits": [
         {
@@ -184,16 +204,32 @@
           "after": "  'ink-link';\n"
         },
         {
-          "before": "          The one prerequisite is fluency in machine learning; no robotics\n          background is assumed. When an article needs a classical result, it\n          links to the article that derives it, so you can read forward and\n          fill gaps as you go. Terms are defined where they first appear and\n          collected in the{' '}\n",
-          "after": "          The one prerequisite is machine learning; no robotics background\n          is assumed. When an article needs a classical result, it links to\n          the article that derives it. Terms are defined where they first\n          appear and collected in the{' '}\n"
+          "before": "          Robot Wiki covers modern robot learning for engineers who already\n          know machine learning, from {DOMAIN_META.manipulation.name} and{' '}\n",
+          "after": "          Robot Wiki covers modern robot learning, from{' '}\n          {DOMAIN_META.manipulation.name} and{' '}\n"
         },
         {
-          "before": "          first-party documentation and labelled community estimates, so a\n          citation tells you where a claim comes from, and the kind of source\n          tells you how far to trust it. Where researchers disagree, the text\n          names who holds which position.\n",
-          "after": "          first-party documentation and labelled community estimates, and\n          the kind of source tells you how far to trust it. Where researchers\n          disagree, the text names who holds which position.\n"
+          "before": "          data in the Market Map. Company news and investment advice are out\n",
+          "after": "          data in the Market Map; company news and investment advice are out\n"
+        },
+        {
+          "before": "          contents order: later articles assume the earlier ones. If you come\n          to robotics from machine learning, start with{' '}\n",
+          "after": "          contents order: later articles assume the earlier ones. Start\n          with{' '}\n"
+        },
+        {
+          "before": "          The one prerequisite is fluency in machine learning; no robotics\n          background is assumed. When an article needs a classical result, it\n          links to the article that derives it, so you can read forward and\n          fill gaps as you go. Terms are defined where they first appear and\n          collected in the{' '}\n",
+          "after": "          The one prerequisite is fluency in machine learning. An article\n          that needs a classical result links to the article that derives it,\n          and terms are defined where they first appear and collected in\n          the{' '}\n"
+        },
+        {
+          "before": "          each claim to its named source, and every article ends with its\n          full bibliography. Sources range from research papers to\n          first-party documentation and labelled community estimates, so a\n          citation tells you where a claim comes from, and the kind of source\n          tells you how far to trust it. Where researchers disagree, the text\n          names who holds which position.\n",
+          "after": "          each claim to its source, and every article ends with its\n          bibliography. Sources range from research papers to first-party\n          documentation and labelled community estimates; a citation tells\n          you where a claim comes from, and the kind of source tells you how\n          far to trust it. Where researchers disagree, the text names who\n          holds which position.\n"
         },
         {
           "before": "                className=\"transition-colors hover:text-accent\"\n",
           "after": "                className=\"transition-colors hover:text-text-dim\"\n"
+        },
+        {
+          "before": "            </h3>\n            <p className=\"mt-1 font-sans text-sm leading-relaxed text-text-dim\">\n              {path.description}\n            </p>\n",
+          "after": "            </h3>\n"
         },
         {
           "before": "                    className=\"underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent\"\n",
@@ -210,13 +246,33 @@
       },
       "after": {
         "path": "app/credits/page.tsx",
-        "bytes": 8488,
-        "sha256": "66a9f71b1879de7fc50dcdaebf78fa6eb15f6cf8e376fd600c71ad0ac3e0040d"
+        "bytes": 8310,
+        "sha256": "3a6551f0c4085b228f49679d08f094b8913656c0f019f4655ec29b69a6000010"
       },
       "edits": [
         {
+          "before": "          {PUBLIC_IDENTITY} uses real photographs and diagrams, and every one of\n          them is listed here with its creator, the page it came from, and\n          the licence that permits its reuse. Article images stay under\n          CC0, CC BY, CC BY-SA, public domain, or a documented reuse\n          permission. Market-map logos also include official company marks\n          recorded as unlicensed or unknown when no reuse grant is named.\n          No image is AI-generated. The site&apos;s own text and original\n          diagrams are available under CC BY 4.0.\n",
+          "after": "          Every photograph and diagram on {PUBLIC_IDENTITY} is listed here\n          with its creator, source page and licence. Article images are CC0,\n          CC BY, CC BY-SA, public domain or used under a documented reuse\n          permission. No image is AI-generated.\n        </p>\n        <p className=\"mt-4 font-serif text-[1.0625rem] leading-relaxed text-text\">\n          Market-map logos include official company marks, recorded as\n          unlicensed or unknown where no reuse grant is named. The\n          site&apos;s own text and original diagrams are licensed CC BY 4.0.\n"
+        },
+        {
+          "before": "          Who is behind this wiki\n",
+          "after": "          Who is behind {PUBLIC_IDENTITY}\n"
+        },
+        {
+          "before": "          I am {AUTHOR_NAME}. {AUTHOR_BIO}. What I needed over those years\n          was scattered across papers that skip the deployment context and\n          demos that never quote a failure rate, so I kept rebuilding the\n          same mental map of the field from scratch. This wiki is that map,\n          written down for engineers arriving from machine learning. Every\n          claim links to the source it came from, so you can check it\n          yourself.\n",
+          "after": "          {AUTHOR_BIO}. What I needed over those years was scattered across\n          papers that skip the deployment context and demos that never quote\n          a failure rate. {PUBLIC_IDENTITY} collects it for engineers who come\n          from machine learning and cites the source of every claim.\n"
+        },
+        {
+          "before": "          Corrections and source disputes are welcome. Read the{' '}\n",
+          "after": "          Corrections follow the{' '}\n"
+        },
+        {
           "before": "            href=\"/editorial-policy/\"\n            className=\"text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent\"\n",
           "after": "            href=\"/editorial-policy/\"\n            className=\"ink-link\"\n"
+        },
+        {
+          "before": "          </Link>{' '}\n          or{' '}\n",
+          "after": "          </Link>\n          ;{' '}\n"
         },
         {
           "before": "            rel=\"noopener\"\n            className=\"text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent\"\n",
@@ -237,13 +293,33 @@
       },
       "after": {
         "path": "app/editorial-policy/page.tsx",
-        "bytes": 4963,
-        "sha256": "b9deaf6ef5d58ec00e2fb400344d7cefdf4ebf32bc4d37aa48510398eaf12dd1"
+        "bytes": 4507,
+        "sha256": "5725a0790a4ee703a3af4908432ff8837edf7ec23d89d3cc33749534b66bef8a"
       },
       "edits": [
         {
           "before": "  'text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent';\n",
           "after": "  'ink-link';\n"
+        },
+        {
+          "before": "          Robot Wiki exists to make modern robotics legible without hiding\n          uncertainty, deployment constraints, or disagreement. It is an\n          independently maintained technical reference, not a product ranking\n          service. Sources should let a reader verify a claim rather than ask\n          them to trust the author.\n",
+          "after": "          Robot Wiki is an independent reference on modern robotics. It ranks\n          no products and states uncertainty, deployment constraints and\n          disagreement.\n"
+        },
+        {
+          "before": "          Non-obvious factual claims require a citation. Papers, official\n          documentation, dataset cards, standards, and first-party technical\n          reports are preferred. A secondary source is used when it is the\n          clearest available record or when a primary source cannot be\n          retrieved, and that limitation should remain visible. Unknown values\n          are reported as unknown, not estimated.\n",
+          "after": "          Every non-obvious claim is cited. Papers, official documentation,\n          dataset cards, standards and first-party technical reports come\n          first. A secondary source is used when it is the clearest record or\n          the primary cannot be retrieved, and the text says so. Unknown\n          values are reported as unknown.\n"
+        },
+        {
+          "before": "          Every published article passes the content schema, citation\n          resolution, internal-link, accessibility, and production-build\n          checks. The visible review date changes only after a material factual\n          or explanatory review. Fast-moving model, dataset, evaluation, and\n          deployment pages are checked more often than evergreen mathematical\n          foundations.\n",
+          "after": "          Every published article passes the content-schema,\n          citation-resolution, internal-link, accessibility and\n          production-build checks. Its review date changes only after a\n          material factual or explanatory review. Fast-moving model, dataset,\n          evaluation and deployment pages are checked more often than\n          mathematical foundations.\n"
+        },
+        {
+          "before": "          Researchers, maintainers, engineers, and educators may be asked to\n          inspect a specific article for errors or missing context. Reviewing a\n          page does not mean endorsing Robot Wiki or every claim on that page.\n          A reviewer is named only with permission, and conflicts are disclosed\n          when someone reviews coverage of their own work.\n",
+          "after": "          Researchers, maintainers, engineers and educators may review an\n          article for errors or missing context. A reviewer is named only with\n          permission, and a conflict is disclosed when someone reviews coverage\n          of their own work.\n"
+        },
+        {
+          "before": "          A correction should identify the page, the disputed claim, and a\n          source that supports the proposed change. Confirmed errors are fixed\n          in the article and its structured data or interactive where relevant.\n          Material corrections receive a new review date; silent date bumps are\n          not permitted.\n",
+          "after": "          Correction requests name the page, the disputed claim and a\n          supporting source. A confirmed error is fixed in the article and,\n          where relevant, its structured data or interactive; a material\n          correction gets a new review date.\n"
         }
       ]
     },
@@ -275,10 +351,18 @@
       },
       "after": {
         "path": "app/glossary/page.tsx",
-        "bytes": 4698,
-        "sha256": "a76d5c7d30740c6c7611196baefd2687dd8e7dc02a2e24d2cf96d6a5245df2e2"
+        "bytes": 5323,
+        "sha256": "fd573583eef2c762e26081e85dda3c1f48b8461cce24a41116e19114b7fc3b21"
       },
       "edits": [
+        {
+          "before": "import type { Metadata } from 'next';\n",
+          "after": "import type { Metadata } from 'next';\nimport { Fragment } from 'react';\n"
+        },
+        {
+          "before": "import { glossaryTermsAlphabetical } from '@/data/glossary';\n",
+          "after": "import { glossaryTermsAlphabetical } from '@/data/glossary';\nimport { definitionParagraphs } from '@/lib/discovery-prose';\n"
+        },
         {
           "before": "    <div className=\"mx-auto w-full max-w-[65ch] px-6 py-12\">\n",
           "after": "    <div className=\"sheet sheet-masthead pb-8\">\n"
@@ -289,7 +373,7 @@
         },
         {
           "before": "        <p className=\"mt-2 font-mono text-xs text-text-dim\">\n          {terms.length} terms, every definition written from a cited primary\n          source\n",
-          "after": "        <p className=\"page-lead mt-[30px]\">\n          Definitions of the terms the articles use, each written from a\n          cited primary source. In an article, hover over or focus a marked\n          term to see the same definition.\n"
+          "after": "        <p className=\"page-lead mt-[30px]\">\n          Each definition is written from a cited primary source. In an\n          article, hover over or focus a marked term to see it.\n"
         },
         {
           "before": "        <p className=\"mt-5 font-serif text-[1.0625rem] leading-relaxed text-text\">\n          Reference definitions for the jargon of modern robotics, each one\n          written from a cited primary source. The articles mark these terms\n          up inline; hovering or keyboard-focusing a marked term shows the\n          same definition listed here.\n",
@@ -308,8 +392,8 @@
           "after": "              <h2 className=\"font-display text-[16px] font-semibold leading-snug text-text\">\n"
         },
         {
-          "before": "              <p className=\"mt-2 font-serif text-[1.0625rem] leading-relaxed text-text\">\n",
-          "after": "              <div className=\"min-w-0\">\n              <p className=\"text-[16px] leading-[1.62] text-text\">\n"
+          "before": "              <p className=\"mt-2 font-serif text-[1.0625rem] leading-relaxed text-text\">\n                {term.definition}\n              </p>\n",
+          "after": "              <div className=\"min-w-0\">\n              {/* The first paragraph is the definition itself, within 60\n                  words; the specifics follow. The space between the two\n                  keeps the entry's text equal to the registry definition. */}\n              <div data-glossary-definition>\n                {definitionParagraphs(term.definition).map((text, index) => (\n                  <Fragment key={index}>\n                    {index > 0 ? ' ' : null}\n                    <p\n                      className={`${index > 0 ? 'mt-3 ' : ''}text-[16px] leading-[1.62] text-text`}\n                    >\n                      {text}\n                    </p>\n                  </Fragment>\n                ))}\n              </div>\n"
         },
         {
           "before": "                      className=\"break-words font-sans text-[13px] font-medium leading-snug text-text underline decoration-border-strong underline-offset-[3px] transition-colors hover:text-accent hover:decoration-accent\"\n",
@@ -558,8 +642,8 @@
       },
       "after": {
         "path": "app/search/page.tsx",
-        "bytes": 2415,
-        "sha256": "11e18bf84f587bcbebe45d8fc2a575302483fd3bf24d2e8b13376f0e4db165b6"
+        "bytes": 2386,
+        "sha256": "812ecfe725d6dde3691e47dce6be31c0456e0312ee87c25f267e443ea7b63878"
       },
       "edits": [
         {
@@ -572,7 +656,7 @@
         },
         {
           "before": "      <p className=\"mt-5 font-serif text-[1.0625rem] leading-relaxed text-text\">\n        Search article prose together with the structured data layer of\n        methods, companies, and datasets. Queries run locally in your browser.\n",
-          "after": "      <p className=\"page-lead mt-[30px]\">\n        Search the articles together with the methods, companies and\n        datasets in the wiki. Queries run in your browser.\n"
+          "after": "      <p className=\"page-lead mt-[30px]\">\n        Search the articles, methods, companies and datasets. Queries run in\n        your browser.\n"
         }
       ]
     },

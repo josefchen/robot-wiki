@@ -82,8 +82,8 @@ export default function AzIndexPage() {
           A-Z Index
         </h1>
         <p className="page-lead mt-[30px]">
-          Every article and every glossary term, filed alphabetically.
-          Articles carry their domain, and terms link to the glossary.
+          Every article and glossary term, filed alphabetically. Articles
+          carry their domain; terms link to the glossary.
         </p>
         <p className="meta-line mt-6">
           {articleCount} articles and {termCount} glossary terms

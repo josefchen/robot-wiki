@@ -189,7 +189,7 @@ for (const consumer of slamConsumers) test(`SLAM final text and keyboard exit at
   await e.capture('slam-escape-observed');
   await e.clear(); await trigger.focus(); await page.keyboard.press('Enter'); await expect(page).toHaveURL(/\/glossary\/?#slam$/);
   await page.evaluate(() => document.fonts.ready); const entry = page.locator('[data-glossary-term="slam"]');
-  await expect(entry.locator(':scope > p')).toHaveText(DEFINITION);
+  await expect(entry.locator('[data-glossary-definition]')).toHaveText(DEFINITION);
   const sourceLinks = entry.locator('ul a'); await expect(sourceLinks).toHaveCount(2);
   expect(await sourceLinks.evaluateAll(els => els.map(el => el.getAttribute('href')))).toEqual([SOURCES[2].url, SOURCES[0].url]);
   for (let index = 0; index < 2; index++) { await sourceLinks.nth(index).focus(); await expect(sourceLinks.nth(index)).toBeFocused(); await expect(sourceLinks.nth(index)).toHaveAttribute('rel', 'noopener noreferrer'); await expect(sourceLinks.nth(index)).toHaveAttribute('target', '_blank'); }

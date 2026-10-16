@@ -53,11 +53,11 @@ export default function AboutPage() {
           data-about-scope
           className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text"
         >
-          Robot Wiki covers modern robot learning for engineers who already
-          know machine learning, from {DOMAIN_META.manipulation.name} and{' '}
+          Robot Wiki covers modern robot learning, from{' '}
+          {DOMAIN_META.manipulation.name} and{' '}
           {DOMAIN_META['world-models'].name} to the{' '}
           {DOMAIN_META.classical.name} underneath. The industry appears as
-          data in the Market Map. Company news and investment advice are out
+          data in the Market Map; company news and investment advice are out
           of scope.
         </p>
       </header>
@@ -68,8 +68,8 @@ export default function AboutPage() {
         </h2>
         <p className={prose}>
           Articles stand alone, but inside a domain the reading order is the
-          contents order: later articles assume the earlier ones. If you come
-          to robotics from machine learning, start with{' '}
+          contents order: later articles assume the earlier ones. Start
+          with{' '}
           <IntentLink
             data-brand-control-id="control:link-focus"
             href="/manipulation/action-chunking/"
@@ -80,10 +80,10 @@ export default function AboutPage() {
           , which shows the format every article follows.
         </p>
         <p className={prose}>
-          The one prerequisite is machine learning; no robotics background
-          is assumed. When an article needs a classical result, it links to
-          the article that derives it. Terms are defined where they first
-          appear and collected in the{' '}
+          The one prerequisite is fluency in machine learning. An article
+          that needs a classical result links to the article that derives it,
+          and terms are defined where they first appear and collected in
+          the{' '}
           <IntentLink
             data-brand-control-id="control:link-focus"
             href="/glossary/"
@@ -95,11 +95,12 @@ export default function AboutPage() {
         </p>
         <p className={prose}>
           Technical claims trace to cited evidence. A citation chip links
-          each claim to its named source, and every article ends with its
-          full bibliography. Sources range from research papers to
-          first-party documentation and labelled community estimates, and
-          the kind of source tells you how far to trust it. Where researchers
-          disagree, the text names who holds which position.
+          each claim to its source, and every article ends with its
+          bibliography. Sources range from research papers to first-party
+          documentation and labelled community estimates; a citation tells
+          you where a claim comes from, and the kind of source tells you how
+          far to trust it. Where researchers disagree, the text names who
+          holds which position.
         </p>
       </section>
 
@@ -125,9 +126,6 @@ export default function AboutPage() {
                 {path.title}
               </IntentLink>
             </h3>
-            <p className="mt-1 font-sans text-sm leading-relaxed text-text-dim">
-              {path.description}
-            </p>
             <ol className="mt-3 list-decimal space-y-1.5 pl-5 font-sans text-sm text-text marker:font-mono marker:text-[11px] marker:text-text-dim">
               {path.entries.map((entry) => (
                 <li key={`${entry.domain}/${entry.slug}`}>
