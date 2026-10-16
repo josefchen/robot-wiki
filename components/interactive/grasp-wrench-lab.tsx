@@ -596,8 +596,8 @@ export function GraspWrenchLab({ className }: { className?: string }) {
             data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
-            onClick={addContact}
-            disabled={contacts.length >= MAX_CONTACTS}
+            onClick={contacts.length >= MAX_CONTACTS ? undefined : addContact}
+            aria-disabled={contacts.length >= MAX_CONTACTS || undefined}
             aria-label="Add a contact at the emptiest perimeter location"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
@@ -607,8 +607,8 @@ export function GraspWrenchLab({ className }: { className?: string }) {
             data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
-            onClick={removeContact}
-            disabled={contacts.length <= MIN_CONTACTS}
+            onClick={contacts.length <= MIN_CONTACTS ? undefined : removeContact}
+            aria-disabled={contacts.length <= MIN_CONTACTS || undefined}
             aria-label="Remove the last contact"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >

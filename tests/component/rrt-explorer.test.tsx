@@ -287,6 +287,20 @@ describe('RrtExplorer', () => {
     expect(screen.getByTestId('rrt-path')).toBeInTheDocument();
   });
 
+  it('keeps its live readout quiet while the tree grows and polite once it stops', () => {
+    vi.useFakeTimers();
+    render(<RrtExplorer />);
+    const live = () => screen.getByTestId('rrt-node-readout').closest('[data-figure-readout]');
+    expect(live()).toHaveAttribute('aria-live', 'polite');
+    fireEvent.click(screen.getByRole('button', { name: /grow the tree/i }));
+    expect(live()).toHaveAttribute('aria-live', 'off');
+    act(() => {
+      vi.advanceTimersByTime(60_000);
+    });
+    expect(iterationText()).toBe(`${TOTAL} / ${TOTAL}`);
+    expect(live()).toHaveAttribute('aria-live', 'polite');
+  });
+
   it('reset returns the scene to its opening state, the finished tree', async () => {
     const user = userEvent.setup();
     render(<RrtExplorer />);
@@ -350,10 +364,15 @@ describe('RrtExplorer', () => {
     render(<RrtExplorer />);
     fireEvent.change(
       screen.getByRole('slider', { name: /exploration iteration/i }),
-      { target: { value: String(TOTAL) } },
+      { target: { value: String(TOTAL - 1) } },
     );
     const step = screen.getByRole('button', { name: /step forward/i });
-    expect(step).toBeDisabled();
+    expect(step).not.toHaveAttribute('aria-disabled');
+    await user.click(step);
+    expect(iterationText()).toBe(`${TOTAL} / ${TOTAL}`);
+    // Unavailable at the end but still focusable, so the last step keeps keyboard focus.
+    expect(step).toHaveAttribute('aria-disabled', 'true');
+    expect(step).toHaveFocus();
     await user.click(step);
     expect(iterationText()).toBe(`${TOTAL} / ${TOTAL}`);
   });

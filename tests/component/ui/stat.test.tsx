@@ -29,4 +29,20 @@ describe('Stat', () => {
     render(<Stat label="pi_RL revision" value="2026" />);
     expect(screen.getByText('pi_RL revision')).toBeInTheDocument();
   });
+
+  it('marks a value whose word is too long for a narrow strip column, and only that', () => {
+    // At 320px a phone strip column is about 128px and the 24px mono value
+    // sets about 14px a character: "embodiments" (11) spilled 26px past it.
+    const long = render(<Stat label="OXE v9 dataset" value="22 embodiments" />);
+    expect(long.container.firstElementChild).toHaveAttribute('data-stat-long-word');
+    long.unmount();
+    for (const value of ['10K hours', 'about 2×', '300M params', 'Rotational']) {
+      const { container, unmount } = render(<Stat label="probe" value={value} />);
+      expect(
+        container.firstElementChild?.hasAttribute('data-stat-long-word'),
+        value,
+      ).toBe(value === 'Rotational');
+      unmount();
+    }
+  });
 });

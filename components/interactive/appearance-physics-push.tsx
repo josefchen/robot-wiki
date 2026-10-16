@@ -521,8 +521,8 @@ export function AppearancePhysicsPush({
             data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
-            onClick={push}
-            disabled={atTrackEnd && solves}
+            onClick={atTrackEnd && solves ? undefined : push}
+            aria-disabled={(atTrackEnd && solves) || undefined}
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
             Push the mug

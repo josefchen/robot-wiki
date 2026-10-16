@@ -56,6 +56,22 @@ describe('TerrainCurriculum', () => {
     expect(screen.getByTestId('curriculum-live')).toHaveTextContent('every robot starts on the easiest ground');
   });
 
+  it('keeps focus on the round button once the last round has run', () => {
+    renderFigure();
+    const stage = screen.getByTestId('curriculum-stage');
+    const run = screen.getByRole('button', { name: 'Run a training round' });
+    run.focus();
+    for (let i = 0; i < ROUNDS.length && run.getAttribute('aria-disabled') !== 'true'; i += 1) {
+      fireEvent.click(run);
+    }
+    expect(stage).toHaveAttribute('data-round', String(ROUNDS.length - 1));
+    // Unavailable after the last round but still focusable, so the last press keeps keyboard focus.
+    expect(run).toHaveAttribute('aria-disabled', 'true');
+    expect(run).toHaveFocus();
+    fireEvent.click(run);
+    expect(stage).toHaveAttribute('data-round', String(ROUNDS.length - 1));
+  });
+
   it('describes the stage and links the paper', () => {
     renderFigure();
     const stage = screen.getByRole('img', { name: /simulated robots spread over 8 terrain levels/ });

@@ -938,6 +938,25 @@ article > hr {
 }
 
 /*
+ * A stat strip is authored two columns wide on a phone and four from 640px.
+ * A stat whose value holds a word longer than such a column can set
+ * (components/ui/stat.tsx marks it) makes its strip one column below 400px
+ * and two between 640px and 768px, so the word never runs past its column
+ * into the next stat or off the page.
+ */
+@media (width < 400px) {
+  :has(> [data-stat-long-word]) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (640px <= width < 768px) {
+  :has(> [data-stat-long-word]) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/*
  * Booktabs tables: a heavy top rule, a hairline under the header, a heavy
  * bottom rule, no vertical rules except a dotted group separator. Numerals
  * are tabular so right-aligned columns line up.

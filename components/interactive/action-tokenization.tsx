@@ -285,6 +285,7 @@ export function ActionTokenization({
 
   // Under reduced motion the next moment is written at once, without the setter's tour.
   const writeNext = () => {
+    if (writing) return;
     if (still()) {
       setStep((s) => (s + 1) % CHUNK_STEPS);
       return;
@@ -370,7 +371,7 @@ export function ActionTokenization({
           <button
             type="button"
             data-brand-control-id="control:secondary-action"
-            disabled={writing}
+            aria-disabled={writing || undefined}
             onClick={writeNext}
             data-testid="tok-write"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}

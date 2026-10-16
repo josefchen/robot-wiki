@@ -23,6 +23,7 @@ describe('JepaPlanning', () => {
     expect(slider()).toHaveValue('24');
     expect(slider()).toHaveAttribute('aria-valuetext', '24 options');
     expect(planButton()).toBeEnabled();
+    expect(planButton()).not.toHaveAttribute('aria-disabled');
     expect(screen.getByTestId('goal-pick')).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByTestId('goal-place')).toHaveAttribute('aria-pressed', 'false');
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
@@ -213,11 +214,16 @@ describe('JepaPlanning', () => {
     const { container } = render(<JepaPlanning />);
     expect(container.querySelector('[data-readout]')).toHaveTextContent('move 2 · 55% of the distance left · 24 tried');
     for (let i = 0; i < 12; i += 1) {
-      if ((planButton() as HTMLButtonElement).disabled) break;
+      if (planButton().getAttribute('aria-disabled') === 'true') break;
       await user.click(planButton());
     }
-    expect(planButton()).toBeDisabled();
+    // Unavailable once the goal is reached but still focusable, so the last move keeps keyboard focus.
+    expect(planButton()).toHaveAttribute('aria-disabled', 'true');
+    expect(planButton()).toHaveFocus();
     expect(screen.queryByTestId('candidate-fan')).toBeNull();
-    expect(container.querySelector('[data-readout]')).toHaveTextContent(/goal reached after \d+ moves/);
+    const reached = container.querySelector('[data-readout]')?.textContent;
+    expect(reached).toMatch(/goal reached after \d+ moves/);
+    await user.click(planButton());
+    expect(container.querySelector('[data-readout]')?.textContent).toBe(reached);
   });
 });

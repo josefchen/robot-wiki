@@ -451,7 +451,7 @@ export function RewardShaping({ className }: { className?: string }) {
             Step
           </button>
           <InstrumentReset onClick={reset} />
-          <div className="grid basis-full grid-cols-2 gap-x-3 gap-y-2 sm:grid-cols-3">
+          <div className="grid basis-full grid-cols-1 gap-x-3 gap-y-2 sm:grid-cols-3">
             {TERMS.map((term) => (
               <ControlField key={term.id}>
                 <ControlLabel

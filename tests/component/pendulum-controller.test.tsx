@@ -213,6 +213,20 @@ describe('PendulumController', () => {
     expect(angleText()).toBe(frozen);
   });
 
+  it('keeps its live readout quiet while the simulation runs and polite when paused', () => {
+    vi.useFakeTimers();
+    render(<PendulumController />);
+    const live = () => screen.getByTestId('pendulum-angle-readout').closest('p');
+    expect(live()).toHaveAttribute('aria-live', 'polite');
+    fireEvent.click(screen.getByRole('button', { name: /run the simulation/i }));
+    expect(live()).toHaveAttribute('aria-live', 'off');
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
+    fireEvent.click(screen.getByRole('button', { name: /pause the simulation/i }));
+    expect(live()).toHaveAttribute('aria-live', 'polite');
+  });
+
   it('reset restores the release state and default gains', async () => {
     const user = userEvent.setup();
     render(<PendulumController />);

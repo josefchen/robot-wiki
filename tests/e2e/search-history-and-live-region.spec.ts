@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 /**
  * Review-fix coverage for the history-focus helper and the search live
@@ -53,9 +54,19 @@ async function focusState(page: Page): Promise<string> {
   });
 }
 
-/** Submit a query through the persistent shell search box (a router push). */
+/**
+ * Submit a query through the shell search box (a router push).
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * the sidebar and its search are gone; the shell search sits at the top of
+ * the panel the top bar's "Articles" button opens, and the panel closes on
+ * submit.
+ */
 async function submitShellQuery(page: Page, query: string) {
-  const box = page.locator('#sidebar-search-input');
+  await openArticlesPanel(page);
+  const box = page
+    .getByRole('dialog', { name: 'Site navigation' })
+    .getByRole('search', { name: 'Site search' })
+    .getByRole('searchbox');
   await expect(box).toBeVisible();
   await box.fill(query);
   await box.press('Enter');

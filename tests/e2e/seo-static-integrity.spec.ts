@@ -10,6 +10,7 @@ import { APPROVED_TAB_ICONS } from '../../lib/brand-v2-census';
 import { articleStructuredImagePaths } from '../../lib/og-cards';
 import { articleSeoProfile } from '../../lib/seo';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 /**
  * Global SEO + static-export integrity (VAL-BUILD-003/005/006,
@@ -457,19 +458,21 @@ test.describe('static-export integrity (VAL-CROSS-023, VAL-CROSS-024)', () => {
   test('client-side navigation works from the statically served site (VAL-CROSS-024)', async ({ page }) => {
     await page.goto(`${BASE}/`);
     const target = publishedModules().find((m) => m.domain === 'manipulation')!;
-    // The sidebar carries every published module by title (the home body
-    // links domains, not articles). Expand any collapsed domain sections
-    // first (the accordion starts closed).
-    const buttons = page.locator('aside').getByRole('button');
+    // The site navigation carries every published module by title (the home
+    // body links domains, not articles). Owner-approved successor (Josef,
+    // 2026-10-10, the research-page standard): the sidebar is gone and the
+    // taxonomy opens from the top bar's "Articles" button. Expand any
+    // collapsed domain sections first (the accordion starts closed).
+    await openArticlesPanel(page);
+    const nav = page
+      .getByRole('dialog', { name: 'Site navigation' })
+      .getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+    const buttons = nav.getByRole('button');
     for (let i = 0; i < (await buttons.count()); i += 1) {
       const b = buttons.nth(i);
       if ((await b.getAttribute('aria-expanded')) === 'false') await b.click();
     }
-    await page
-      .locator('aside')
-      .getByRole('link', { name: target.title, exact: false })
-      .first()
-      .click();
+    await nav.getByRole('link', { name: target.title, exact: false }).first().click();
     await expect(page).toHaveURL(new RegExp(`${target.domain}/${target.slug}/$`));
     await expect(page.locator('h1').first()).toContainText(
       target.title.split('(')[0].trim().slice(0, 24),

@@ -40,7 +40,7 @@ export type ReskinReview = {
 
 // BEGIN reskin site-foundation pins (written by scripts/record-reskin-site-foundation-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 209666, sha256: '3ce64ab1eb21f5369e938694fcb7b9438584e8420dd939f71a462f6ccd0a19d8' };
+const reviewPin = { bytes: 210266, sha256: 'cbb3a37bb21f02e1adfe6b8ad5f7830cf62bbde8a60ae7026f2dcbf7b685a136' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -50,7 +50,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['app/about/page.tsx', [5993, '70cee064b2b312acab3de6d13c080440af5052776d5c4a3880b6098550dc2516']],
   ['app/credits/page.tsx', [8310, '3a6551f0c4085b228f49679d08f094b8913656c0f019f4655ec29b69a6000010']],
   ['app/editorial-policy/page.tsx', [4507, '5725a0790a4ee703a3af4908432ff8837edf7ec23d89d3cc33749534b66bef8a']],
-  ['app/globals.css', [32316, '8de4e85609e2124f4ed939f07e4d1b6fffb1fa3cffe68d3278824d336657530c']],
+  ['app/globals.css', [32897, '94326bf3b32618230a179caa4b89598bc2783c3e395b46760c7355866fb13dab']],
   ['app/glossary/page.tsx', [5323, 'fd573583eef2c762e26081e85dda3c1f48b8461cce24a41116e19114b7fc3b21']],
   ['app/layout.tsx', [4426, '7fc799173cdc026fd133d868deac13eaacfe26a6ed7a87a7fde6a5aedfd5c6c5']],
   ['app/not-found.tsx', [2670, '61cefe72130fbe2ad4c18c1d9d3877e236e370f9e11be61b784599f843fe64a9']],

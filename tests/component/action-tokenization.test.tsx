@@ -202,15 +202,24 @@ describe('ActionTokenization rack model', () => {
     expect(write).toHaveTextContent('Write the next moment');
     // A secondary action carries no pressed state: its label and disabled state show the write in progress.
     expect(write).not.toHaveAttribute('aria-pressed');
-    expect(write).toBeEnabled();
+    expect(write).not.toHaveAttribute('aria-disabled');
+    write.focus();
     fireEvent.click(write);
     expect(write).toHaveTextContent('Writing the seven words');
-    expect(write).toBeDisabled();
+    // Disabled for assistive technology but still focusable, so the press does not drop focus to the page.
+    expect(write).toHaveAttribute('aria-disabled', 'true');
+    expect(write).not.toBeDisabled();
+    expect(write).toHaveFocus();
     expect(write).not.toHaveAttribute('aria-pressed');
+    // A second press during the write changes nothing.
+    const during = slider().getAttribute('aria-label');
+    fireEvent.click(write);
+    expect(slider().getAttribute('aria-label')).toBe(during);
+    expect(write).toHaveTextContent('Writing the seven words');
     // Scrubbing takes over from a write in progress.
     fireEvent.change(slider(), { target: { value: '3' } });
     expect(write).toHaveTextContent('Write the next moment');
-    expect(write).toBeEnabled();
+    expect(write).not.toHaveAttribute('aria-disabled');
     expect(within(screen.getByTestId('token-stream')).getAllByRole('listitem')).toHaveLength(7);
   });
 });

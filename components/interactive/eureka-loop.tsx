@@ -401,8 +401,8 @@ export function EurekaLoop({ className }: { className?: string }) {
             data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
-            onClick={next}
-            disabled={isLast}
+            onClick={isLast ? undefined : next}
+            aria-disabled={isLast || undefined}
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
             Next round

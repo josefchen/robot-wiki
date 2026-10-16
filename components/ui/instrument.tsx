@@ -216,6 +216,14 @@ type ControlLabelProps = LabelHTMLAttributes<HTMLLabelElement> & {
  * A persistent control label in the registration style, with room for the
  * control's current value inline. The value is a node so callers keep
  * their own test ids and live regions on it.
+ *
+ * The label text wraps first, so the value keeps its place at the right
+ * edge. Only when the value does not fit beside the label's longest word
+ * does it move under the label, and a value wider than the whole field
+ * breaks between words: a long worded readout stays inside its field at
+ * 320px. The text sits in its own flex item with a zero basis, because a
+ * flex line breaks on an item's base size: the text's minimum width then
+ * decides the break, not its one-line width.
  */
 export function ControlLabel({
   value,
@@ -226,14 +234,14 @@ export function ControlLabel({
   return (
     <label
       className={cx(
-        'flex items-baseline justify-between gap-3 font-sans text-[13px] text-text-dim',
+        'flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 font-sans text-[13px] text-text-dim',
         className,
       )}
       {...props}
     >
-      {children}
+      <span className="flex-1">{children}</span>
       {value ? (
-        <span data-figure-control-value="" className="whitespace-nowrap font-mono text-[13px] tabular-nums text-text">
+        <span data-figure-control-value="" className="font-mono text-[13px] tabular-nums text-text">
           {value}
         </span>
       ) : null}
