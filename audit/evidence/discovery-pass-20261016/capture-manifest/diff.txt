@@ -1,0 +1,93 @@
+
+== 1440 px: Start 203 visuals, End 240
+/: Start [image 1] End [image 1]
+/credits/: Start [image 200, figure/instrument 2] End [image 237, figure/instrument 2]
+   - only at Start: /credits/ | image | Every stage of the curriculum meets real robot data like DROID's: 76k 
+   + only at End:   /credits/ | image | Frames from DROID grouped into its 9 scene types. The same Franka setu
+   + only at End:   /credits/ | image | A parcel labelling line at Amazon's Swindon fulfilment centre in 2025.
+   + only at End:   /credits/ | image | Two Tesla Optimus humanoids on display in Stockholm in 2024. Tesla's 2
+   + only at End:   /credits/ | image | Honda's ASIMO performing at Miraikan, Tokyo, in 2016. The bear case ho
+   + only at End:   /credits/ | image | An iRobot Roomba 870 in 2014. Rodney Brooks co-founded iRobot, which m
+   + only at End:   /credits/ | image | A Unitree G1 humanoid on stage at the Japan Mobility Show 2025. Unitre
+   + only at End:   /credits/ | image | An Amazon warehouse drive unit, photographed in 2023. Amazon has deplo
+   + only at End:   /credits/ | image | XELA Robotics' uSkin tactile sensors on every finger segment of an All
+   + only at End:   /credits/ | image | The T-Rex rig: a bimanual robot with two 22-DoF Sharpa Wave hands, a h
+   + only at End:   /credits/ | image | FINGR picks up a 2×2×2 cube, turns one layer at a time inside a single
+   + only at End:   /credits/ | image | One cooking task in a home kitchen with unseen distractors, under thre
+   + only at End:   /credits/ | image | EgoScale's two robots: a Galaxea R1 Pro with 22-DoF Sharpa hands and a
+   + only at End:   /credits/ | image | A robotic weld cell behind machine guarding and weld curtains. Fencing
+   + only at End:   /credits/ | image | A Siemens emergency-stop actuator on a machine control panel. It acts 
+   + only at End:   /credits/ | image | Cai and colleagues' hyper-redundant robot: five segments that extend a
+   + only at End:   /credits/ | image | Told to put the bowl in the microwave with a plastic and a metal bowl 
+   + only at End:   /credits/ | image | A Waymo Jaguar I-Pace driving itself through San Francisco in 2023. Wa
+   + only at End:   /credits/ | image | The roof sensor package of a Waymo I-Pace in San Francisco, 2025. Waym
+   + only at End:   /credits/ | image | Carnegie Mellon's Boss, winner of the 2007 DARPA Urban Challenge, on d
+   + only at End:   /credits/ | image | A Minion 220 racing quadrotor with its forward camera, 2016. Machines 
+   + only at End:   /credits/ | image | A DJI Mavic Pro in flight, 2017. On an autonomous drone, visual-inerti
+   + only at End:   /credits/ | image | Perseverance beside the rock Rochette on sol 198, September 2021, with
+   + only at End:   /credits/ | image | Ingenuity on Mars, photographed by Perseverance on 5 April 2021, two w
+   + only at End:   /credits/ | image | Mars 2020 team members install MOXIE in Perseverance's chassis. On Mar
+   + only at End:   /credits/ | image | Dextre on the end of Canadarm2 in January 2017, during weeks spent swa
+   + only at End:   /credits/ | image | A da Vinci Xi patient-side cart with its four instrument arms, 2018. E
+   + only at End:   /credits/ | image | The stereo viewer and hand controllers of a da Vinci Xi surgeon consol
+   + only at End:   /credits/ | image | The eight test environments in Lin and colleagues' data-scaling study,
+   + only at End:   /credits/ | image | Seven BridgeData V2 tasks in one toy-sink scene, such as putting a car
+   + only at End:   /credits/ | image | LIBERO's simulated task suites. LIBERO-Spatial changes only the layout
+   + only at End:   /credits/ | image | A seven-DoF arm and a three-fingered hand on NIST's Dexterous Manipula
+   + only at End:   /credits/ | image | KUKA robots spot-welding BMW 3 Series bodies at the Leipzig plant in 2
+   + only at End:   /credits/ | image | Bots on the storage grid of an Ocado warehouse in 2017. They run on to
+   + only at End:   /credits/ | image | KUKA robots palletising bread crates at a German bakery in 2005. The g
+   + only at End:   /credits/ | image | OpenVLA's overview traces one path through the stack: 970k robot episo
+   + only at End:   /credits/ | image | DROID frames with the robot's mesh rendered from the estimated camera-
+   + only at End:   /credits/ | image | A researcher at Idaho National Laboratory in 2006 works radioactive ma
+   + only at End:   /credits/ | image | The four UMI handheld grippers used in Lin and colleagues' data-scalin
+counts Start {"width":1440,"routes":14,"counts":{"/":{"dom":1,"manifest":1},"/manipulation/":{"dom":0,"manifest":0},"/rl-sim2real/":{"dom":0,"manifest":0},"/world-models/":{"dom":0,"manifest":0},"/data-hardware/":{"dom":0,"manifest":0},"/classical/":{"dom":0,"manifest":0},"/frontier/":{"dom":0,"manifest":0},"/adjacent/":{"dom":0,"manifest":0},"/glossary/":{"dom":0,"manifest":0},"/a-z/":{"dom":0,"manifest":0},"
+counts End   {"width":1440,"routes":14,"counts":{"/":{"dom":1,"manifest":1},"/manipulation/":{"dom":0,"manifest":0},"/rl-sim2real/":{"dom":0,"manifest":0},"/world-models/":{"dom":0,"manifest":0},"/data-hardware/":{"dom":0,"manifest":0},"/classical/":{"dom":0,"manifest":0},"/frontier/":{"dom":0,"manifest":0},"/adjacent/":{"dom":0,"manifest":0},"/glossary/":{"dom":0,"manifest":0},"/a-z/":{"dom":0,"manifest":0},"
+
+== 375 px: Start 203 visuals, End 240
+/: Start [image 1] End [image 1]
+/credits/: Start [image 200, figure/instrument 2] End [image 237, figure/instrument 2]
+   - only at Start: /credits/ | image | Every stage of the curriculum meets real robot data like DROID's: 76k 
+   + only at End:   /credits/ | image | Frames from DROID grouped into its 9 scene types. The same Franka setu
+   + only at End:   /credits/ | image | A parcel labelling line at Amazon's Swindon fulfilment centre in 2025.
+   + only at End:   /credits/ | image | Two Tesla Optimus humanoids on display in Stockholm in 2024. Tesla's 2
+   + only at End:   /credits/ | image | Honda's ASIMO performing at Miraikan, Tokyo, in 2016. The bear case ho
+   + only at End:   /credits/ | image | An iRobot Roomba 870 in 2014. Rodney Brooks co-founded iRobot, which m
+   + only at End:   /credits/ | image | A Unitree G1 humanoid on stage at the Japan Mobility Show 2025. Unitre
+   + only at End:   /credits/ | image | An Amazon warehouse drive unit, photographed in 2023. Amazon has deplo
+   + only at End:   /credits/ | image | XELA Robotics' uSkin tactile sensors on every finger segment of an All
+   + only at End:   /credits/ | image | The T-Rex rig: a bimanual robot with two 22-DoF Sharpa Wave hands, a h
+   + only at End:   /credits/ | image | FINGR picks up a 2×2×2 cube, turns one layer at a time inside a single
+   + only at End:   /credits/ | image | One cooking task in a home kitchen with unseen distractors, under thre
+   + only at End:   /credits/ | image | EgoScale's two robots: a Galaxea R1 Pro with 22-DoF Sharpa hands and a
+   + only at End:   /credits/ | image | A robotic weld cell behind machine guarding and weld curtains. Fencing
+   + only at End:   /credits/ | image | A Siemens emergency-stop actuator on a machine control panel. It acts 
+   + only at End:   /credits/ | image | Cai and colleagues' hyper-redundant robot: five segments that extend a
+   + only at End:   /credits/ | image | Told to put the bowl in the microwave with a plastic and a metal bowl 
+   + only at End:   /credits/ | image | A Waymo Jaguar I-Pace driving itself through San Francisco in 2023. Wa
+   + only at End:   /credits/ | image | The roof sensor package of a Waymo I-Pace in San Francisco, 2025. Waym
+   + only at End:   /credits/ | image | Carnegie Mellon's Boss, winner of the 2007 DARPA Urban Challenge, on d
+   + only at End:   /credits/ | image | A Minion 220 racing quadrotor with its forward camera, 2016. Machines 
+   + only at End:   /credits/ | image | A DJI Mavic Pro in flight, 2017. On an autonomous drone, visual-inerti
+   + only at End:   /credits/ | image | Perseverance beside the rock Rochette on sol 198, September 2021, with
+   + only at End:   /credits/ | image | Ingenuity on Mars, photographed by Perseverance on 5 April 2021, two w
+   + only at End:   /credits/ | image | Mars 2020 team members install MOXIE in Perseverance's chassis. On Mar
+   + only at End:   /credits/ | image | Dextre on the end of Canadarm2 in January 2017, during weeks spent swa
+   + only at End:   /credits/ | image | A da Vinci Xi patient-side cart with its four instrument arms, 2018. E
+   + only at End:   /credits/ | image | The stereo viewer and hand controllers of a da Vinci Xi surgeon consol
+   + only at End:   /credits/ | image | The eight test environments in Lin and colleagues' data-scaling study,
+   + only at End:   /credits/ | image | Seven BridgeData V2 tasks in one toy-sink scene, such as putting a car
+   + only at End:   /credits/ | image | LIBERO's simulated task suites. LIBERO-Spatial changes only the layout
+   + only at End:   /credits/ | image | A seven-DoF arm and a three-fingered hand on NIST's Dexterous Manipula
+   + only at End:   /credits/ | image | KUKA robots spot-welding BMW 3 Series bodies at the Leipzig plant in 2
+   + only at End:   /credits/ | image | Bots on the storage grid of an Ocado warehouse in 2017. They run on to
+   + only at End:   /credits/ | image | KUKA robots palletising bread crates at a German bakery in 2005. The g
+   + only at End:   /credits/ | image | OpenVLA's overview traces one path through the stack: 970k robot episo
+   + only at End:   /credits/ | image | DROID frames with the robot's mesh rendered from the estimated camera-
+   + only at End:   /credits/ | image | A researcher at Idaho National Laboratory in 2006 works radioactive ma
+   + only at End:   /credits/ | image | The four UMI handheld grippers used in Lin and colleagues' data-scalin
+   ~ changed:       /credits/ | image | Assured Robot Intelligence logo from the official website, used on the
+       Start {"tag":"figure","kind":"image","scene":null,"surface":"surface:flat","label":"Assured Robot Intelligence logo from the official website, used on the market map.","w":327,"h":263,"colours":{"#1C1C1A":5,"#1C1C1A@0.14":2,"#7D7A73":1,"#6C6B66":2},"fonts":{"Geist 13px":4},"route":"/credits/","offpal":[]}
+       End   {"tag":"figure","kind":"image","scene":null,"surface":"surface:flat","label":"Assured Robot Intelligence logo from the official website, used on the market map.","w":327,"h":282,"colours":{"#1C1C1A":5,"#1C1C1A@0.14":2,"#7D7A73":1,"#6C6B66":2},"fonts":{"Geist 13px":4},"route":"/credits/","offpal":[]}
+counts Start {"width":375,"routes":14,"counts":{"/":{"dom":1,"manifest":1},"/manipulation/":{"dom":0,"manifest":0},"/rl-sim2real/":{"dom":0,"manifest":0},"/world-models/":{"dom":0,"manifest":0},"/data-hardware/":{"dom":0,"manifest":0},"/classical/":{"dom":0,"manifest":0},"/frontier/":{"dom":0,"manifest":0},"/adjacent/":{"dom":0,"manifest":0},"/glossary/":{"dom":0,"manifest":0},"/a-z/":{"dom":0,"manifest":0},"/
+counts End   {"width":375,"routes":14,"counts":{"/":{"dom":1,"manifest":1},"/manipulation/":{"dom":0,"manifest":0},"/rl-sim2real/":{"dom":0,"manifest":0},"/world-models/":{"dom":0,"manifest":0},"/data-hardware/":{"dom":0,"manifest":0},"/classical/":{"dom":0,"manifest":0},"/frontier/":{"dom":0,"manifest":0},"/adjacent/":{"dom":0,"manifest":0},"/glossary/":{"dom":0,"manifest":0},"/a-z/":{"dom":0,"manifest":0},"/

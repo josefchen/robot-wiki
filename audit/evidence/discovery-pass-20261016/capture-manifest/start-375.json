@@ -1,0 +1,4432 @@
+[
+ {
+  "idx": 0,
+  "tag": "img",
+  "kind": "image",
+  "scene": null,
+  "surface": null,
+  "label": "after: Featured scene",
+  "w": 327,
+  "h": 407,
+  "colours": {
+   "#1C1C1A": 1
+  },
+  "fonts": {},
+  "file": "home__00.png",
+  "route": "/",
+  "offpal": []
+ },
+ {
+  "idx": 0,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its fra",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__00.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 1,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PU",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__01.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 2,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "ANYmal, the ANYbotics quadruped behind the ETH Zurich locomotion lineage, on an industrial inspection floor. The actuato",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__02.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 3,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "The Franka Emika Panda, the seven-DoF research arm, demonstrated at CeBIT 2017 with a human guiding it by hand.",
+  "w": 320,
+  "h": 357,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__03.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 4,
+  "tag": "figure",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Robots trained by copying only learn the situations they were shown; one slip lands them somewhere new, where slips grow",
+  "w": 327,
+  "h": 720,
+  "colours": {
+   "#1C1C1A": 11,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 11,
+   "#000000": 24,
+   "#A3A39E": 5,
+   "#3B6EA8": 5
+  },
+  "fonts": {
+   "Geist 12px": 2,
+   "Geist 13px": 7,
+   "Geist 13.6591px": 4
+  },
+  "file": "credits__04.png",
+  "route": "/credits/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 5,
+  "tag": "figure",
+  "kind": "figure/instrument",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Blending several overlapping plans smooths the robot’s motion, so one odd prediction jerks the arm less.",
+  "w": 327,
+  "h": 739,
+  "colours": {
+   "#1C1C1A": 18,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 14,
+   "#000000": 42,
+   "#3B6EA8": 4
+  },
+  "fonts": {
+   "Geist 12px": 2,
+   "Geist 13px": 7,
+   "Geist 13.6591px": 4,
+   "Geist Mono 12px": 3
+  },
+  "file": "credits__05.png",
+  "route": "/credits/",
+  "offpal": [
+   "#000000"
+  ]
+ },
+ {
+  "idx": 6,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "ACT was introduced with ALOHA, a low-cost bimanual rig on which a person demonstrates by moving leader arms. A render of",
+  "w": 320,
+  "h": 462,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__06.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 7,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Chunked policies now do dexterous bimanual work such as tying shoelaces and hanging shirts. ALOHA Unleashed collected ov",
+  "w": 327,
+  "h": 359,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__07.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 8,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "The two arm platforms of an action-space study with more than 13,000 real rollouts and 500+ models. Predicting delta act",
+  "w": 320,
+  "h": 379,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__08.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 9,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "An impedance action sets the robot's stiffness in each direction as well as its goal. Adaptive Compliance Policy flips a",
+  "w": 327,
+  "h": 286,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__09.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 10,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Behavior cloning starts from demonstrations recorded on rigs like this one, where a person teleoperates the arm through ",
+  "w": 320,
+  "h": 422,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__10.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 11,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Behavior cloning began on the road: ALVINN learned to steer the Navlab van by watching a human driver. Navlab 1 (back) t",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__11.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 12,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Octo, an open-weights policy, was evaluated out of the box on three robot setups and fine-tuned on six more, some with n",
+  "w": 327,
+  "h": 268,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__12.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 13,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "RoboArena ranks policies from double-blind pairwise trials that many evaluators run on their own scenes and tasks. More ",
+  "w": 327,
+  "h": 346,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__13.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 14,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "One Gemini Robotics model was fine-tuned to drive very different bodies, from the Apollo humanoid packing a lunch bag (t",
+  "w": 327,
+  "h": 339,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__14.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 15,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Open X-Embodiment pooled robot data into one training set: 1M episodes from 60 datasets, 22 embodiments and 527 skills, ",
+  "w": 327,
+  "h": 277,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__15.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 16,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "EgoScale pretrains on human video, mid-trains on aligned human and robot play, then post-trains on robot tasks. The pret",
+  "w": 327,
+  "h": 344,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__16.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 17,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Phantom trains a robot policy without robot data by erasing the human hand from demonstration videos and rendering a rob",
+  "w": 327,
+  "h": 339,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__17.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 18,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A diffusion policy hangs a shirt on its own, a long-horizon task with a deformable object and several bimanual stages. S",
+  "w": 320,
+  "h": 352,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__18.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 19,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "3D Diffusion Policy swaps images for sparse point clouds from a single depth camera. Left, the everyday objects in its r",
+  "w": 327,
+  "h": 296,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__19.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 20,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "An adaptation budget is part of a foundation claim: RoboCat learned Sawyer and Panda arms in training and met the KUKA a",
+  "w": 327,
+  "h": 310,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__20.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 21,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "GR00T N1 runs a vision-language model at 10 Hz over a 120 Hz action module on the GR-1 humanoid. Frames from real rollou",
+  "w": 320,
+  "h": 373,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__21.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 22,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Cosmos Policy fine-tunes a pretrained video model into a robot policy, so a predictive model becomes the controller. Rol",
+  "w": 327,
+  "h": 291,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__22.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 23,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A vision-language-action model performs dexterous bimanual work in clutter. Gemini Robotics on ALOHA, top to bottom: ope",
+  "w": 320,
+  "h": 449,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__23.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 24,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "RT-H first predicts a language motion such as \"rotate arm left\", then the action, so a person can correct the motion in ",
+  "w": 327,
+  "h": 346,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__24.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 25,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "HAMSTER's high level draws a coarse 2D path for the gripper, and a low-level policy turns the path into motion. Paths pr",
+  "w": 327,
+  "h": 310,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__25.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 26,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Table bussing is the task behind KI's training-cost result: a many-embodiment π0 generalist needed 7.5 times the trainin",
+  "w": 327,
+  "h": 317,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__26.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 27,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "π0.6, whose card lists a Gemma3 4B backbone with an insulated expert of about 860M parameters, building a box. Physical ",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__27.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 28,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A π0.6 policy making espresso on Physical Intelligence's bimanual rig. The pi line runs one vision-language backbone wit",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__28.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 29,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Laundry folding is the kind of high-frequency task FAST was built for: with naive per-step tokens, policies made no prog",
+  "w": 327,
+  "h": 317,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__29.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 30,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Real-time chunking lets a robot strike a match and light a candle despite inference delays above 300 ms, more than 30% o",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__30.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 31,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "On-robot compute such as the NVIDIA Jetson AGX Orin developer kit sets the hardware wall: a policy that fits a desktop G",
+  "w": 320,
+  "h": 377,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__31.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 32,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Reinforcement learning on the real robot reaches precise, dynamic skills that demonstrations alone struggle with. Four o",
+  "w": 320,
+  "h": 422,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__32.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 33,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "PLD trains a residual RL policy on top of a frozen VLA and distills the improved behavior back into it. On bimanual YAM ",
+  "w": 327,
+  "h": 332,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__33.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 34,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "ConRFT fine-tunes a VLA with real-world reinforcement learning across eight contact-rich tasks, from picking a banana to",
+  "w": 327,
+  "h": 337,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__34.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 35,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Every learned policy still runs through coordinate frames like those of this Unimate PUMA 500 (1983), an industrial arm ",
+  "w": 320,
+  "h": 416,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__35.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 36,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Every stage of the curriculum meets real robot data like DROID's: 76k trajectories from 13 institutions, recorded with o",
+  "w": 320,
+  "h": 501,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__36.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 37,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Simulation lets a team test policies across many environments before touching hardware. Rendered RoboCasa kitchens, each",
+  "w": 327,
+  "h": 331,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__37.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 38,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A world model predicts how an environment evolves under actions. From 5 context frames and the actions alone, DreamerV3 ",
+  "w": 327,
+  "h": 278,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__38.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 39,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A 3D Gaussian Splatting reconstruction is a learned renderer: it predicts a real scene from a new camera pose by rasteri",
+  "w": 320,
+  "h": 391,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__39.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 40,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Latent dynamics models learn a compact state and plan or train inside it. TD-MPC2 plans through such a model with no ima",
+  "w": 320,
+  "h": 397,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__40.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 41,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "DayDreamer's UR5 learned multi-object visual pick and place from third-person camera images and sparse rewards within a ",
+  "w": 320,
+  "h": 416,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__41.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 42,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "With a Dreamer-style world model, a Unitree A1 that started on its back learned to roll over, stand up and walk in about",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__42.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 43,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A neural simulator can stage scenes no lab has. RoboWorld turns real robot images into spacecraft interiors and disaster",
+  "w": 327,
+  "h": 279,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__43.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 44,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A video world model predicts future frames of a robot task from the current view and a language instruction. GR-1's pred",
+  "w": 320,
+  "h": 391,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__44.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 45,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "GR-2 pre-trains on web-scale video, then fine-tunes on robot data to generate video and predict actions, with 97.7% aver",
+  "w": 327,
+  "h": 327,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__45.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 46,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Video world models still fail at contact: after the robot touches it, the manipulated object disintegrates or morphs int",
+  "w": 320,
+  "h": 519,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__46.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 47,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "V-JEPA 2-AC plans in embedding space: on Franka arms in labs absent from its training data, it reaches image goals by co",
+  "w": 320,
+  "h": 587,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__47.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 48,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "V-JEPA 2 learns from video first and actions second: masked representation prediction on over 1 million hours of interne",
+  "w": 327,
+  "h": 363,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__48.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 49,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A cheaper evaluator is useful only if it agrees with reality. SIMPLER builds simulated scenes matched to real ones and c",
+  "w": 320,
+  "h": 416,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__49.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 50,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Autoregressive rollouts can drift in ways one frame hides. On BAIR robot pushing, the RoboWorld authors mark other forci",
+  "w": 320,
+  "h": 521,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__50.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 51,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Generative simulation authors content and leaves dynamics to the physics engine. RoboCasa's library holds 2,509 objects ",
+  "w": 320,
+  "h": 387,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__51.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 52,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A physics simulator integrates explicit geometry, dynamics and contact rules, and steps many copies at once. Assembly en",
+  "w": 320,
+  "h": 420,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__52.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 53,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Either kind of simulator earns trust only against the same real tasks. The Isaac Lab assembly tasks on a real arm, with ",
+  "w": 320,
+  "h": 399,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__53.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 54,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A Universal Robots UR16e, a six-joint serial arm. Forward kinematics composes one transform per joint, so its six joint ",
+  "w": 320,
+  "h": 377,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__54.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 55,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A Willow Garage PR2 in 2010. The TrajOpt benchmark below planned 198 arm problems and 96 full-body problems for this rob",
+  "w": 320,
+  "h": 377,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__55.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 56,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A 2013 Defense Department rendering of a simulated Atlas connecting a hose, a DARPA Robotics Challenge task. TrajOpt pla",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__56.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 57,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "The centrifugal governor of the mill engine at Queen Street Mill, Burnley. As the engine speeds up the balls swing outwa",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__57.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 58,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "The hydraulic Atlas during 2013 testing, before its hands were fitted. Kuindersma and colleagues built its controller fr",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__58.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 59,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Rethink Robotics' Baxter at Innorobo 2015. Its joints drive through series elastic actuators, so a measured spring defle",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__59.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 60,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "An Apollo inertial measurement unit at Draper's 2019 Hack the Moon exhibit. Its gyroscopes and accelerometers integrate ",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__60.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 61,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "The Apollo Guidance Computer and its display and keyboard. Apollo used Potter's square-root form of the Kalman filter, w",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__61.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 62,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A Care-O-bot service robot grasping a cylinder in 2010. A grasp planner chooses where its fingertips touch so the hold r",
+  "w": 320,
+  "h": 377,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__62.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 63,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "The Schunk SVH, a servo-electric five-finger hand. Every fingertip or phalanx that touches an object is one contact, and",
+  "w": 320,
+  "h": 377,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__63.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 64,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "An Intel RealSense D435, an active stereo camera common on manipulation rigs. Its projector adds texture so matching wor",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__64.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 65,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "The Kinect for Xbox One measured depth by time of flight, the principle its successor Azure Kinect kept. Multi-path ligh",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__65.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 66,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A Leica ATS600 laser tracker measuring a large steel part. Kinematic calibration relies on external instruments like thi",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__66.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 67,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Baxter's wrist carries a camera beside its gripper. Hand-eye calibration solves AX = XB for the fixed transform between ",
+  "w": 320,
+  "h": 377,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__67.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 68,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A Willow Garage PR2 under the ROS banner at Maker Faire 2011. Willow Garage developed ROS alongside this robot, and ROS ",
+  "w": 320,
+  "h": 377,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__68.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 69,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A Clearpath Jackal at the University of Texas robotics center in 2020. Wheeled research bases like it run Nav2, whose pl",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__69.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 70,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "About 23 million lidar points of a San Francisco intersection, captured in 18 seconds by an Ouster OS1 on a moving car a",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__70.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 71,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A first-generation Kinect for Xbox 360. KinectFusion fused this sensor's 640×480 depth frames at 30 Hz into a truncated ",
+  "w": 320,
+  "h": 377,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__71.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 72,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A Velodyne HDL-64E on Junior 2, Stanford's autonomous Volkswagen, in 2009. Its 64 spinning beams return over a million p",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__72.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 73,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "The electric Atlas on display at Hyundai Motorstudio Goyang in July 2026. ZEST trains motion-imitation policies on motio",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__73.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 74,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Optical motion capture records body movement from reflective suit markers seen by a ring of cameras. AMASS pooled 15 suc",
+  "w": 320,
+  "h": 416,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__74.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 75,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Unitree robots at Japan Mobility Show 2025, with a G1 behind the hoisted humanoid. GR00T N1.7 drives the G1 through GEAR",
+  "w": 320,
+  "h": 416,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__75.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 76,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Spot, the Boston Dynamics quadruped, outdoors in 2023. Boston Dynamics ships its learned locomotion policy to Spot by so",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__76.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 77,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Eadweard Muybridge's 1878 sequence of a galloping horse caught all four hooves off the ground. A gait is such a footfall",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__77.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 78,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Cassie, the bipedal robot built at Oregon State University, walking in a research forest in 2017. Learned controllers la",
+  "w": 320,
+  "h": 416,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__78.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 79,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "ANYmal X descending stairs on an offshore rig during an inspection round in 2022. The ANYmal line is where simulation-tr",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__79.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 80,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "The Shadow Dexterous Hand holding a light bulb in 2007. Each fingertip is a contact whose geometry and friction a simula",
+  "w": 320,
+  "h": 435,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__80.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 81,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Isaac Gym's Shadow Hand task, rendered with many copies of the same hand and cube stepped together on one GPU. Its autho",
+  "w": 320,
+  "h": 387,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__81.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 82,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "MuJoCo Playground environments that transferred to real hardware: the Berkeley Humanoid, Unitree Go1 and G1, the LEAP ha",
+  "w": 320,
+  "h": 421,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__82.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 83,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "The MIT Mini Cheetah spinning at 5.7 rad/s under a policy trained in simulation, 90% of the 6.28 rad/s yaw rate a model-",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__83.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 84,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "ANYmal robots training in parallel on Isaac Gym stairs and slopes, laid out as tiles of rising difficulty. The curriculu",
+  "w": 320,
+  "h": 375,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__84.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 85,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "DayDreamer's Unitree A1 learned to roll over, stand and walk in one hour on the real robot with no simulator. Within ten",
+  "w": 320,
+  "h": 396,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__85.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 86,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Isaac Gym's Allegro hand task, one hand and cube per environment, all stepped together on a GPU. When steps cost this li",
+  "w": 320,
+  "h": 387,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__86.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 87,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "TriFinger, three robot fingers over a round arena, rendered in Isaac Gym. The real benchmark pairs reproducible hardware",
+  "w": 320,
+  "h": 387,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__87.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 88,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "SIMPLER matches its simulated scenes to real camera views, from raw simulation to a green-screened real background with ",
+  "w": 320,
+  "h": 425,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 3,
+   "#FFFFFF": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__88.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 89,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A real ANYmal climbing indoor steps with a rough-terrain policy trained in Isaac Gym. The Isaac Gym paper shows the same",
+  "w": 320,
+  "h": 377,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__89.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 90,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "A Franka Panda pushes a yoga block to a goal with a MuJoCo Playground policy trained under domain randomization and tran",
+  "w": 320,
+  "h": 416,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__90.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 91,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Physical Intelligence logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__91.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 92,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Covariant logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__92.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 93,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "NVIDIA wordmark from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__93.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 94,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Hugging Face logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__94.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 95,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Figure AI logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__95.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 96,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Agility Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__96.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 97,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Tesla mark from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__97.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 98,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Unitree Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__98.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 99,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "UBTECH Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__99.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 100,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "NEURA Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__100.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 101,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Wandercraft logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__101.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 102,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Rainbow Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__102.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 103,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Berkshire Grey logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__103.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 104,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Amazon Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__104.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 105,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Bedrock Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__105.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 106,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Intuitive Surgical logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__106.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 107,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "CMR Surgical logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__107.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 108,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Nuro logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__108.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 109,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "iRobot logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__109.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 110,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Harmonic Drive logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__110.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 111,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Nabtesco logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__111.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 112,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Wonik logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__112.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 113,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "OpenAI wordmark from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__113.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 114,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Meta Platforms logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__114.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 115,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "SwitchBot logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__115.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 116,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Hanson Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__116.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 117,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Starship Technologies logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__117.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 118,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Pollen Robotics logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__118.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 119,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Anduril Industries logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__119.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 120,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "ABB logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__120.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 121,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Mitsubishi mark from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__121.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 122,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Monarch Tractor logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__122.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 123,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Skild AI logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__123.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 124,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Generalist AI logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__124.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 125,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Dyna Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__125.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 126,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Sunday Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__126.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 127,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Field AI logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__127.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 128,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Genesis AI logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__128.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 129,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Rhoda AI logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__129.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 130,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Mind Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__130.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 131,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Google DeepMind logo from Wikimedia Commons, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__131.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 132,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Applied Intuition logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__132.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 133,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "XDOF logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__133.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 134,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Encord logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__134.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 135,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Micro1 logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__135.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 136,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "1X Technologies logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__136.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 137,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Apptronik logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__137.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 138,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Boston Dynamics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__138.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 139,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Fourier logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__139.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 140,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Galbot logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__140.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 141,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "AgiBot logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__141.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 142,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Sanctuary AI logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__142.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 143,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Humanoid logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__143.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 144,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Spirit AI logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__144.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 145,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Galaxea logo from the official website header, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__145.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 146,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "EngineAI logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__146.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 147,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "RobotEra logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__147.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 148,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "TARS Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__148.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 149,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "X Square Robot logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__149.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 150,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Deep Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__150.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 151,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Kepler Robot logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__151.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 152,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "LimX Dynamics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__152.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 153,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Clone Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__153.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 154,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Mentee Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__154.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 155,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Persona AI logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__155.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 156,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Symbotic logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__156.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 157,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Dexterity logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__157.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 158,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Nimble logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__158.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 159,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Locus Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__159.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 160,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Mujin logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__160.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 161,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "RightHand Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__161.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 162,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Ambi Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__162.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 163,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Plus One Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__163.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 164,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Carbon Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__164.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 165,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Farm-ng logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__165.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 166,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Chef Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__166.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 167,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Simbe Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__167.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 168,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Moon Surgical logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__168.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 169,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Serve Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__169.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 170,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Gecko Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__170.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 171,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Standard Bots logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__171.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 172,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Collaborative Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__172.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 173,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "The Bot Company logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__173.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 174,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Weave Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__174.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 175,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "K-Scale Labs logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__175.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 176,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Automata logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__176.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 177,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Lila Sciences logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__177.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 178,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Avidbots logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__178.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 179,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Leaderdrive logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__179.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 180,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Sanhua logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__180.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 181,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Shadow Robot logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__181.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 182,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Sharpa logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__182.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 183,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "XELA Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__183.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 184,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Assured Robot Intelligence logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 263,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__184.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 185,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Saronic logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__185.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 186,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Eka Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__186.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 187,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Foundry Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__187.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 188,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Mytra logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__188.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 189,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Formic logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__189.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 190,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Astribot logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__190.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 191,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Booster Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__191.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 192,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Leju Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__192.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 193,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "PaXini logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__193.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 194,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Miso Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__194.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 195,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Coco logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__195.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 196,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Knightscope logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__196.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 197,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Brain Corp logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__197.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 198,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Diligent Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__198.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 199,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Fox Robotics logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__199.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 200,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Zebra Technologies (Robotics Automation) logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 282,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__200.png",
+  "route": "/credits/",
+  "offpal": []
+ },
+ {
+  "idx": 201,
+  "tag": "figure",
+  "kind": "image",
+  "scene": null,
+  "surface": "surface:flat",
+  "label": "Robotphoenix logo from the official website, used on the market map.",
+  "w": 327,
+  "h": 243,
+  "colours": {
+   "#1C1C1A": 5,
+   "#1C1C1A@0.14": 2,
+   "#7D7A73": 1,
+   "#6C6B66": 2
+  },
+  "fonts": {
+   "Geist 13px": 4
+  },
+  "file": "credits__201.png",
+  "route": "/credits/",
+  "offpal": []
+ }
+]
