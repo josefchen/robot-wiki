@@ -93,4 +93,30 @@
 /* The site's figure stage for an isometric drawing (components/iso/anatomy-stage.tsx). */
 [data-anatomy-stage] .iso-svg{max-width:calc(var(--anatomy-view-width,600px) * 1.6);margin-inline:auto}
 [data-anatomy-drawing]{touch-action:pan-y;-webkit-tap-highlight-color:transparent}
-@media (width < 40rem){[data-anatomy-stage] .iso-svg{width:116%;max-width:none;margin-inline:-8%}}
+/*
+ * On a phone the whole machine stays in view. The svg is exactly as wide as
+ * its stage and its viewBox meets it, so no part is ever cut at the edge.
+ * The width comes from the frame instead: a stage that holds a drawing
+ * spends most of the frame's side padding on it, while its bands (hint,
+ * readout, status, timeline) and any words beside the drawing keep the
+ * frame's text edge (each block in the drawing is inset by the bleed, and
+ * its svg takes the bleed back). The readout takes its own line under the hint,
+ * left-aligned like every other stage readout, so a long reading never
+ * strands its last word at the right margin. A machine narrower than its
+ * viewBox shows only its own window there (IsoFigure's `fit`, or
+ * `data-phone-fit` on a scene's drawing; components/iso/phone-fit.ts): the
+ * svg takes the window's proportions and one transform scales the drawing
+ * to fill them, in CSS alone, so the served HTML and the hydrated page agree
+ * at every width.
+ */
+@media (width < 40rem){
+  [data-figure-frame]>[data-figure-stage]:has([data-anatomy-drawing]){margin-inline:-12px}
+  [data-figure-frame]>[data-figure-stage]:has([data-anatomy-drawing])>[data-figure-stage-band],
+  [data-figure-frame] [data-anatomy-drawing]>:not(svg){padding-inline:12px}
+  [data-figure-frame] [data-anatomy-drawing]>:not(svg) .iso-svg{width:calc(100% + 24px);max-width:none;margin-inline:-12px}
+  [data-anatomy-stage] :is([data-anatomy-hint],[data-figure-readout]){text-wrap:pretty}
+  [data-anatomy-stage] [data-anatomy-hint]:empty{display:none}
+  [data-anatomy-stage] [data-figure-readout]{flex-basis:100%;margin-left:0;text-align:left}
+  :is(.iso-svg[data-phone-fit],[data-phone-fit]>.iso-svg){aspect-ratio:var(--iso-fit-aspect)}
+  :is(.iso-svg[data-phone-fit],[data-phone-fit]>.iso-svg)>.iso-fit{transform:var(--iso-fit-transform);transform-origin:0 0;transform-box:view-box}
+}

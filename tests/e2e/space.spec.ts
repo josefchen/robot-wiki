@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openArticlesPanel } from './helpers/articles-panel';
 import { collectConsole } from './helpers/console';
 
 const ROUTE = '/adjacent/space/';
@@ -46,6 +47,7 @@ test.describe('adjacent space module', () => {
     );
     expect(fontFamily.toLowerCase()).toContain('serif');
 
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Space Robotics' }),
@@ -185,17 +187,21 @@ test.describe('adjacent cross-cutting (VAL-ADJ-008 through 011)', () => {
   }) => {
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await page.goto(ROUTE);
+    await openArticlesPanel(page);
     for (const title of ADJACENT_TITLES) {
       await expect(nav.getByRole('link', { name: title })).toBeVisible();
     }
     // Click through two entries and confirm the route and the highlight.
+    // The panel closes on navigation, so it is reopened after each click.
     await nav.getByRole('link', { name: 'Surgical Robotics' }).click();
     await expect(page).toHaveURL('/adjacent/surgical/');
+    await openArticlesPanel(page);
     await expect(
       nav.getByRole('link', { name: 'Surgical Robotics' }),
     ).toHaveAttribute('aria-current', 'page');
     await nav.getByRole('link', { name: 'Space Robotics' }).click();
     await expect(page).toHaveURL(ROUTE);
+    await openArticlesPanel(page);
     await expect(
       nav.getByRole('link', { name: 'Space Robotics' }),
     ).toHaveAttribute('aria-current', 'page');

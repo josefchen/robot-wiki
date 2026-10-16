@@ -3,10 +3,11 @@
  * the kit's react/draw.tsx (MIT, see components/iso/LICENSE). Changes: the
  * kit's own card (Plate and its legend swatches) is removed, because an
  * isometric figure sits in the site's figure frame, and IsoFigure takes the
- * id of the words that describe the drawing.
+ * id of the words that describe the drawing and an optional phone fit.
  */
 import * as React from "react";
 import { pathOf, type Flat, type LineTone, type SolidPaths, type Tone } from "../iso-kit";
+import type { PhoneFit } from "../phone-fit";
 import { Stage } from "./live";
 
 interface SolidProps {
@@ -129,15 +130,29 @@ interface IsoFigureProps {
   label: string;
   /** Id of the element that describes the drawing in words (the figure's chart description). */
   describedBy?: string;
+  /**
+   * The machine's own window, shown on a phone in place of the full viewBox
+   * (components/iso/phone-fit.ts). Only for a drawing narrower than its viewBox.
+   */
+  fit?: PhoneFit;
   className?: string;
   children: React.ReactNode;
 }
 
-export function IsoFigure({ width, height, label, describedBy, className, children }: IsoFigureProps) {
+export function IsoFigure({ width, height, label, describedBy, fit, className, children }: IsoFigureProps) {
   return (
     <Stage className={className ? `iso-stage ${className}` : "iso-stage"}>
-      <svg className="iso-svg" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={label} aria-describedby={describedBy} focusable="false">
-        {children}
+      <svg
+        className="iso-svg"
+        viewBox={`0 0 ${width} ${height}`}
+        role="img"
+        aria-label={label}
+        aria-describedby={describedBy}
+        focusable="false"
+        data-phone-fit={fit ? "" : undefined}
+        style={fit ? ({ "--iso-fit-aspect": fit.aspect, "--iso-fit-transform": fit.transform } as React.CSSProperties) : undefined}
+      >
+        {fit ? <g className="iso-fit">{children}</g> : children}
       </svg>
     </Stage>
   );

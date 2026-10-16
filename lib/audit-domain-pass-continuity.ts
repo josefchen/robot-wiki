@@ -45,11 +45,11 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1365972, sha256: 'b17f705001a5ce191dd3d2b086f5badee08e43520bce6f3d8eb4946b04e9a0c9' };
+const reviewPin = { bytes: 1366015, sha256: 'e861910a334c56940c05815b530ed32e04daf0569a8577a1accd9d1722b3d22e' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
-  ['components/interactive/reliability-compounding.tsx', [24180, '6e906ad2c7a7e7d6674a51e7015b6bf90a1518da34064ab26c1edd82acdfe9a3']],
+  ['components/interactive/reliability-compounding.tsx', [24221, '35afd1c4d3638670166102dbc2a5c0d51c86bc609df6abf1b026db7ce40fea3f']],
   ['content/adjacent/space.mdx', [14882, '90c63559e4cb1ee20d3c5ad022d060b23344120aa0dfd7d636223d99755c477a']],
   ['content/classical/calibration.mdx', [9689, 'f05b9f74bfefac02ed215bb3f4110b0afd3ec2ef1ed5cc5679c9e51be0943500']],
   ['content/classical/control.mdx', [20015, '5deb9961e56c1c5f4cfa3847fe479cddf795e00f255874e4276841e8953b9ba3']],
@@ -1023,12 +1023,12 @@ function rebuiltPrior(root: string, path: string, live: Buffer): Buffer {
 export function preDomainPassCitations(root: string, path: string, citations: readonly string[]): readonly string[] {
   const pinned = successors.get(path);
   if (!pinned) return citations;
-  // The newer image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut, length-cut (manipulation, classical and rl-sim2real),
-  // world-models length-cut, word-budget trim and figure-mount layers hand back the domain-pass successor first.
+  // The newer figure-mount (its 2026-10-15 frontier mounts, after the image mounts), image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut,
+  // length-cut (manipulation, classical and rl-sim2real), world-models length-cut, word-budget trim and figure-mount layers hand back the domain-pass successor first.
   const ref = { path, bytes: 0, sha256: '' };
   const live = figureMountPredecessor(root, ref, wordBudgetTrimPredecessor(root, ref,
     worldModelsLengthCutPredecessor(root, ref, lengthCutPredecessor(root, ref,
-      frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref, readFileSync(join(root, path))))))))));
+      frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref, figureMountPredecessor(root, ref, readFileSync(join(root, path)))))))))));
   if (live.length !== pinned[0] || digest(live) !== pinned[1]) return citations;
   const prior = citationList(frontmatter(rebuiltPrior(root, path, live).toString()) ?? '');
   const current = citationList(frontmatter(live.toString()) ?? '');

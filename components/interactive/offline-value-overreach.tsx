@@ -11,6 +11,7 @@ import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
 import {
   HEIGHT,
   PARTS,
+  PHONE_FIT,
   WIDTH,
   armOf,
   engraved,
@@ -356,6 +357,7 @@ export function OfflineValueOverreach({ className }: { className?: string }) {
             <IsoFigure
               width={WIDTH}
               height={HEIGHT}
+              fit={PHONE_FIT}
               label={`A spline board: a learner's guess of how well each grip works, held by pins at the recorded tries, against the real results engraved behind it. ${tried ? 'With enough caution the free ends are pressed down and the rider sits over the best grip it tried.' : 'Past the last pin the guess springs up, and the rider sits over a hard grip nobody tried, which really works badly.'}`}
               describedBy={descriptionId}
             >

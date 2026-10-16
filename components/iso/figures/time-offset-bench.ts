@@ -35,6 +35,7 @@ import {
   type SolidPaths,
   type Tone,
 } from '../iso-kit.ts';
+import { phoneFitOf } from '../phone-fit.ts';
 
 export const WIDTH = 640;
 export const HEIGHT = 340;
@@ -84,6 +85,8 @@ for (const px of [BASE.x, BASE.x + BASE.w]) for (const py of [BASE.y, BASE.y + B
 }
 extremes.push([POST.x, POST.y, ARM_Z + 10], [ARM.x + ARM.w, ARM.y, ARM_Z + 10]);
 export const P = fitProjection(extremes, WIDTH, HEIGHT, { pad: 18, azimuth: AZIMUTH });
+/** The machine's own window, shown on a phone in place of the full viewBox (components/iso/phone-fit.ts). */
+export const PHONE_FIT = phoneFitOf(extremes, P, WIDTH, HEIGHT, { pad: 18 });
 
 const at = (point: Point3) => iso(point, P);
 const slab = (plan: Plan, z: number, h: number, steps = 6, bevel = 0) => slabOf(plan, z, h, P, steps, bevel);

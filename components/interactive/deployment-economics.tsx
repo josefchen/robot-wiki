@@ -26,6 +26,7 @@ import {
   HORIZON_MONTHS,
   P as PROJECTION,
   PARTS,
+  PHONE_FIT,
   SCALE_MONTHS,
   WIDTH as DRAWING_WIDTH,
   balanceOf,
@@ -405,6 +406,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
           <IsoFigure
             width={DRAWING_WIDTH}
             height={DRAWING_HEIGHT}
+            fit={PHONE_FIT}
             label={`A steelyard: the cell's cost, ${formatMoney(out.totalCellCost)}, hangs from the short arm as ${discs.length} slotted weights, and a poise for one month of labour value rests ${out.paybackMonths === null || out.paybackMonths > SCALE_MONTHS ? `on the end stop at ${SCALE_MONTHS} months, short of balance` : `${paybackText} out along the arm`}, against a collar at ${HORIZON_MONTHS} months.`}
             describedBy={`${captionId} ${descriptionId}`}
           >

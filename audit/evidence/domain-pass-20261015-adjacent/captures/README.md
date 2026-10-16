@@ -5,9 +5,14 @@ the adjacent hub and its four articles at two points:
 
 - Start: `40c0947c`, the commit before `1624fa98`, which landed the adjacent
   pass. It was exported outside the repository.
-- End: the export of `c625bbd2`. Its adjacent pages are those of `4f80f73a`,
+- End: the export of `de993183`, built by `npm run vercel-build`; the
+  commits after it change no page. Its adjacent prose is that of `4f80f73a`,
   which corrected six claims; the two corrected tables are not registered
-  visuals. The commits after it change no adjacent page.
+  visuals. `ce033381` (polish-1016) changed how figures fit a phone: below
+  40rem every anatomy stage shows its whole drawing. Both widths were
+  captured again: the 1440 px files and `pairs-375.json` come out byte for
+  byte as for the first End, the export of `c625bbd2`, while the 375 px End
+  sheet, the 375 px pair sheets and `manifest-diff.json` change.
 
 Each side was captured at 1440 px and at 375 px:
 
@@ -44,9 +49,9 @@ Per visual present on both sides:
 
 | Visual | Size, 1440 px | Size, 375 px | Pixels that differ, aligned | What changed |
 |---|---|---|---|---|
-| drones, the SenseAvoid scene | 930x1357, same | 327x1466, same | 1.62% and 0.28% | Nothing in the drawing. Its caption is now "Figure 3" (Start "Figure 2"), since a photograph comes first. Both sides carry the same stitching marks: a blank band near the top at 1440 px, and the site header and skip link over the drawing at 375 px |
-| drones, the PerceptionLatency instrument | 930x1505, same | 327x1950, same | 1.46% and 4.06% | Nothing in the instrument. Its caption is now "Figure 2", since a photograph comes first; at 375 px the Start capture has the site header painted over its middle |
-| surgical, the motion-scaling pantograph | 930x1041, same | 327x1152, same | 0.29% and 0.79% | Nothing in the drawing. Its caption is now "Figure 3"; at 1440 px the Start capture has the site header painted over the "Motion scale" slider row, which the End capture shows |
+| drones, the SenseAvoid scene | 930x1357, same | 327x1466 to 327x1483 | 1.62% and 15.28% | Its caption is now "Figure 3" (Start "Figure 2"), since a photograph comes first. At 375 px the drawing, whole on both sides, now spans the column (317 px wide against 293 in an element shot with the header hidden). Both sides carry the same stitching marks: a blank band near the top at 1440 px, and the site header and skip link over the drawing at 375 px |
+| drones, the PerceptionLatency instrument | 930x1505, same | 327x1950 to 327x1934 | 1.46% and 14.35% | Nothing in the instrument at 1440 px. Its caption is now "Figure 2", since a photograph comes first. At 375 px the whole rig shows, where Start cut its edges, and the readout line is set left; the Start capture has the site header painted over its middle |
+| surgical, the motion-scaling pantograph | 930x1041, same | 327x1152 to 327x1137 | 0.29% and 16.30% | Its caption is now "Figure 3". At 375 px the whole drawing and the "Trace the stroke" button show, where Start cut the hand plate and the bars, and the readout is set left. At 1440 px the Start capture has the site header painted over the "Motion scale" slider row, which the End capture shows |
 
 - Each pair was opened at full size and compared side by side. The
   drawings, controls, readouts and captions hold the same text and values
@@ -58,9 +63,12 @@ Per visual present on both sides:
 
 ## Figures the report proposed
 
-The owner sweep proposes three figures on the dark graphite stage: a "miles
-needed to prove safety" interactive for autonomous-vehicles (RAND's
-Eq. 2), an autonomy ladder for surgical (Yang and colleagues' levels 0 to
-5) and a latency ladder on a log axis for space. The pass did not add them.
-Each needs new sources and a reader-test round, and the light figure stage
-replaced the graphite stage on 2026-10-02.
+The owner sweep proposes one figure per article on the dark graphite
+stage: a "miles needed to prove safety" interactive for
+autonomous-vehicles (RAND's Eq. 2), a champions timeline for drones, an
+autonomy ladder for surgical (Yang and colleagues' levels 0 to 5) and a
+latency ladder on a log axis for space. It also proposes a delivery bar
+chart for drones and, as optional, an installed-base sparkline for
+surgical. The pass did not add them. Each needs new sources and a
+reader-test round, and the light figure stage replaced the graphite stage
+on 2026-10-02.

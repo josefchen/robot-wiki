@@ -137,10 +137,22 @@ export function preAdjacentCut(path: string): Buffer {
  * and by the data-hardware images after the data-hardware cut)
  * hands every check older than the
  * mounts: the rebuilt pre-mount article while the live article is the
- * reviewed successor, otherwise the live bytes.
+ * reviewed successor, otherwise the bytes the newer figure-mount read hands on.
  */
 export function preImageMounts(path: string): Buffer {
-  return imageMountPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return imageMountPredecessor(root, { path, bytes: 0, sha256: '' }, preLateFigureMounts(path));
+}
+
+/**
+ * The bytes the figure-mount layer hands every check older than the two
+ * frontier figures it admitted on 2026-10-15 after the image mounts
+ * (BearCaseLock in the bear case, SafetyFilterFence in safety and
+ * assurance): the rebuilt pre-mount article while the live article is the
+ * reviewed successor, otherwise the live bytes. The same layer is read again
+ * in its original place, under the word-budget trim (preFigureMounts).
+ */
+export function preLateFigureMounts(path: string): Buffer {
+  return figureMountPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
 }
 
 /**

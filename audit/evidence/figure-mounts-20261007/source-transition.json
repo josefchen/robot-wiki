@@ -3,7 +3,7 @@
   "name": "figure-mounts-20261007",
   "reviewedBy": "implementation worker for the classical figure mounts of 2026-10-07 (not independent acceptance)",
   "rationale": "The classical articles on calibration and on ROS 2 for ML engineers each gained their first interactive figure on 2026-10-07 (VAL-OPUS-057): one import line after the frontmatter and one mount on its own line between blank lines, beside the paragraph the figure illustrates. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted import and mount gives the earlier bytes exactly, so no prose, number, citation, frontmatter field or other mount moved and older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-12T19:07:28Z",
+  "observedAt": "2026-10-15T18:59:20Z",
   "sources": [
     {
       "archivedFrom": "3b75be4e086b4e9dfb4d5338595e6e896e6d630b",
@@ -114,6 +114,29 @@
       ]
     },
     {
+      "archivedFrom": "22834d4c52068fba27177a08ac04b95bfc0163c8",
+      "before": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 10119,
+        "sha256": "bfac4a48de3b0c71bd41e20e1eb1b7508898fd31d60e904729b50714b073e2a8"
+      },
+      "after": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 10227,
+        "sha256": "20caa5e4beb5395a272276347a9e9d6a370d7a88a7ec385df815d6e3521de8d4"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { BearCaseLock } from '@/components/interactive/bear-case-lock';\n\n"
+        },
+        {
+          "before": "## Four measurable results would falsify the bear case\n",
+          "after": "## Four measurable results would falsify the bear case\n\n<BearCaseLock className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "3b75be4e086b4e9dfb4d5338595e6e896e6d630b",
       "before": {
         "path": "content/frontier/competing-theses.mdx",
@@ -133,6 +156,29 @@
         {
           "before": "The bet here is division of labor: a vision-language model decomposes goals into subtasks, and learned skills or a low-level policy execute them. SayCan (2022) had a separate LLM dispatch a fixed skill library <Cite id=\"saycan-2022\" />; today the hierarchy sits inside the network or in a paired fast system ([hierarchical approaches](/manipulation/hierarchical/)). Google DeepMind builds Gemini Robotics ER 2 as a high-level brain that plans multi-step tasks and hands motor execution to a lower-level VLA <Cite id=\"gemini-robotics-er2-2026\" />. In Figure's Helix 02, S2 interprets scenes and language and sequences behaviors. S1 converts perception into full-body joint targets at 200 Hz, and S0 executes at 1 kHz as the <Term id=\"whole-body-control\">whole-body controller</Term> <Cite id=\"helix-02-2026\" />. NVIDIA's GR00T N1 is \"a Vision-Language-Action (VLA) model with a dual-system architecture\" <Cite id=\"gr00t-n1-2025\" />.\n",
           "after": "The bet here is division of labor: a vision-language model decomposes goals into subtasks, and learned skills or a low-level policy execute them. SayCan (2022) had a separate LLM dispatch a fixed skill library <Cite id=\"saycan-2022\" />; today the hierarchy sits inside the network or in a paired fast system ([hierarchical approaches](/manipulation/hierarchical/)). Google DeepMind builds Gemini Robotics ER 2 as a high-level brain that plans multi-step tasks and hands motor execution to a lower-level VLA <Cite id=\"gemini-robotics-er2-2026\" />. In Figure's Helix 02, S2 interprets scenes and language and sequences behaviors. S1 converts perception into full-body joint targets at 200 Hz, and S0 executes at 1 kHz as the <Term id=\"whole-body-control\">whole-body controller</Term> <Cite id=\"helix-02-2026\" />. NVIDIA's GR00T N1 is \"a Vision-Language-Action (VLA) model with a dual-system architecture\" <Cite id=\"gr00t-n1-2025\" />.\n\n<HelixClockwork className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "22834d4c52068fba27177a08ac04b95bfc0163c8",
+      "before": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 18343,
+        "sha256": "4c763d7b789d26e9bccdb0aad7b2c66a241d72fef111583e02429723f1ab760c"
+      },
+      "after": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 18466,
+        "sha256": "6bca2f2c739c1205b6aba50f63c357c8f2f4ee9c8501dd481e17a8aa8233cde5"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { SafetyFilterFence } from '@/components/interactive/safety-filter-fence';\n\n"
+        },
+        {
+          "before": "The formal instance is the safety filter. A <Term id=\"control-barrier-function\">control barrier function</Term> defines a set the system must stay inside and turns forward invariance of that set into a constraint on the commanded input, enforced each step <Cite id=\"ames-cbf-2019\" />. Wabersich and colleagues survey the family, including reachability and predictive variants, and describe a filter that takes a proposed input from any source and modifies it as little as necessary <Cite id=\"wabersich-safety-filters-2023\" />.\n",
+          "after": "The formal instance is the safety filter. A <Term id=\"control-barrier-function\">control barrier function</Term> defines a set the system must stay inside and turns forward invariance of that set into a constraint on the commanded input, enforced each step <Cite id=\"ames-cbf-2019\" />. Wabersich and colleagues survey the family, including reachability and predictive variants, and describe a filter that takes a proposed input from any source and modifies it as little as necessary <Cite id=\"wabersich-safety-filters-2023\" />.\n\n<SafetyFilterFence className=\"my-6\" />\n"
         }
       ]
     },

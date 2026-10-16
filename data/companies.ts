@@ -2235,8 +2235,8 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
       {
-        url: 'https://www.startuphub.ai/mentee-robotics-raised-17-million-for-their-humanoid-robot-menteebot/',
-        title: 'Mentee Robotics Raised $17 million for their Humanoid Robot, MenteeBot (Startup Hub AI)',
+        url: 'https://web.archive.org/web/20250724144907/https://www.startuphub.ai/mentee-robotics-raised-17-million-for-their-humanoid-robot-menteebot/',
+        title: 'Mentee Robotics Raised $17 million for their Humanoid Robot, MenteeBot (Startup Hub AI; archived capture of 2025-07-24, the live page is gone)',
         asOf: '2026-08-18',
       },
     ],

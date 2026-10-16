@@ -94,7 +94,9 @@ async function verify(): Promise<boolean> {
   for (const source of layer.loadFigureMountReview(root).sources) {
     try {
       // The newer image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut, length-cut (manipulation, classical and
-      // rl-sim2real), world-models length-cut and word-budget trim layers hand back the figure-mount successor first.
+      // rl-sim2real), world-models length-cut and word-budget trim layers hand back the figure-mount successor first. The
+      // 2026-10-15 frontier mounts came after the image mounts, so their live bytes pass every one of those layers
+      // unchanged and this same read lands on them too.
       const prior = layer.figureMountPredecessor(root, source.before, wordBudgetTrimPredecessor(root, source.before,
         worldModelsLengthCutPredecessor(root, source.before, lengthCutPredecessor(root, source.before,
           frontierLengthCutPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, readFileSync(join(root, source.after.path))))))))));

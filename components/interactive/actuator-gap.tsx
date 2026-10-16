@@ -13,6 +13,7 @@ import {
   HEIGHT,
   WINDOW_CLIP,
   PARTS,
+  PHONE_FIT,
   SWEEP,
   WIDTH,
   cartridgeAt,
@@ -355,6 +356,7 @@ export function ActuatorGap({ className }: { className?: string }) {
             <IsoFigure
               width={WIDTH}
               height={HEIGHT}
+              fit={PHONE_FIT}
               label={`A joint is told to move on a test bench: two drives get the same command. The real drive's crank, turned through a spring, arrives late and swings past the target stop; the simulated twin ${model === 'ideal' ? 'arrives at once' : 'follows the real curve'}, and a chart recorder draws both. A walking policy trained this way ${OUTCOME[model]} on the real robot.`}
               describedBy={descriptionId}
             >

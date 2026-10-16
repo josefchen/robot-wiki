@@ -29,6 +29,7 @@ import { Dots, IsoFigure, Line, Solid, Wire } from '@/components/iso/react/draw'
 import { asksForStillness } from '@/components/iso/react/live';
 import {
   HEIGHT as BENCH_HEIGHT,
+  PHONE_FIT,
   WIDTH as BENCH_WIDTH,
   benchParts,
   offsetOf,
@@ -254,6 +255,7 @@ export function LatentImagination({
       <IsoFigure
         width={BENCH_WIDTH}
         height={BENCH_HEIGHT}
+        fit={PHONE_FIT}
         label={`A round bench where a robot's imagined future is laid as track, one section per imagined step, each bolted to the end of the last. ${stepsWord(horizon)} ahead, at ${errorWords}, the head of the track sits ${formatUnits(deviationNow)} units of toy deviation inside the curved steel template that marks the real route.`}
         describedBy={rolloutDescriptionId}
       >

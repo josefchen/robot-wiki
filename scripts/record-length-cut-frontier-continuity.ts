@@ -182,9 +182,9 @@ async function verify(): Promise<boolean> {
   let ok = true;
   for (const source of layer.loadFrontierLengthCutReview(root).sources) {
     try {
-      // The newer image-mount layer (the frontier images of 2026-10-15) hands back the length-cut successor first.
+      // The newer figure-mount (its 2026-10-15 frontier mounts, after the images) and image-mount (the frontier images of 2026-10-15) layers hand back the length-cut successor first.
       const prior = layer.frontierLengthCutPredecessor(root, source.before,
-        imageMountPredecessor(root, source.before, readFileSync(join(root, source.after.path))));
+        imageMountPredecessor(root, source.before, figureMountPredecessor(root, source.before, readFileSync(join(root, source.after.path)))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
       // The rebuilt bytes are the older layers' successors, which those layers still decide.
       const ref = { path: source.after.path, bytes: 0, sha256: '' };

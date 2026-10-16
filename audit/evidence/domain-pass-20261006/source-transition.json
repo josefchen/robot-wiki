@@ -3,7 +3,7 @@
   "name": "domain-pass-20261006",
   "reviewedBy": "implementation worker for the opus-pass domain passes of 2026-10-06 (not independent acceptance)",
   "rationale": "The opus-pass domain passes rewrite each article from the owner's verified draft: shorter prose, at least 30 cited sources, no Callout or Aside boxes, every non-OK audit finding fixed. Each rewrite is recorded here as exact edits over the bytes the article had before the pass. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, its frontmatter differs only by appended citation ids, every citation it had is still cited and every figure and component mount is unchanged, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-15T15:43:20Z",
+  "observedAt": "2026-10-15T18:36:18Z",
   "sources": [
     {
       "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
@@ -14,8 +14,8 @@
       },
       "after": {
         "path": "components/interactive/reliability-compounding.tsx",
-        "bytes": 24180,
-        "sha256": "6e906ad2c7a7e7d6674a51e7015b6bf90a1518da34064ab26c1edd82acdfe9a3"
+        "bytes": 24221,
+        "sha256": "35afd1c4d3638670166102dbc2a5c0d51c86bc609df6abf1b026db7ce40fea3f"
       },
       "edits": [
         {
@@ -36,7 +36,7 @@
         },
         {
           "before": "  ChartAxes,\n  DirectLabel,\n  StageAnnotation,\n  roleColour,\n  CHART_STROKE,\n  CHART_STRUCTURE,\n  CHART_TYPE,\n  CHART_VIEW_WIDTH,\n} from '@/components/motion/chart';\nimport { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';\n",
-          "after": "  GATES,\n  GATES_PER_RAIL,\n  HEIGHT,\n  HOPPER_SPOTS,\n  MARBLE,\n  MARBLE_R,\n  MARBLES,\n  PARTS,\n  RAILS,\n  WIDTH,\n  finishCup,\n  flapPath,\n  gateHinge,\n  gateHole,\n  lockedGate,\n  marbleRun,\n  rejectCup,\n  restCounts,\n  screenOf,\n  type Part,\n  type Slot,\n} from '@/components/iso/figures/marble-run';\n"
+          "after": "  GATES,\n  GATES_PER_RAIL,\n  HEIGHT,\n  HOPPER_SPOTS,\n  MARBLE,\n  MARBLE_R,\n  MARBLES,\n  PARTS,\n  PHONE_FIT,\n  RAILS,\n  WIDTH,\n  finishCup,\n  flapPath,\n  gateHinge,\n  gateHole,\n  lockedGate,\n  marbleRun,\n  rejectCup,\n  restCounts,\n  screenOf,\n  type Part,\n  type Slot,\n} from '@/components/iso/figures/marble-run';\n"
         },
         {
           "before": " * ReliabilityCompounding: the compounding cost of per-step error.\n",
@@ -108,7 +108,7 @@
         },
         {
           "before": "          <PlotStage\n            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}\n            aria-label={`Line chart of episode success against episode length at ${perStepPercent.toFixed(1)} percent per-step success: a ${steps}-step job finishes ${successPct} of the time, ${finished} of 100 jobs`}\n            aria-describedby={descriptionId}\n",
-          "after": "          <IsoFigure\n            width={WIDTH}\n            height={HEIGHT}\n            label={`A marble run with ${GATES} trapdoor gates on ${RAILS} rails. ${armed} ${stepWord(armed)} armed, each passing ${perStepWords(perStepPercent)} of the marbles that reach it: ${rest.finished} of ${MARBLES} marbles reach the finish tray and ${rest.rejected} drop into the reject tray.`}\n            describedBy={descriptionId}\n"
+          "after": "          <IsoFigure\n            width={WIDTH}\n            height={HEIGHT}\n            fit={PHONE_FIT}\n            label={`A marble run with ${GATES} trapdoor gates on ${RAILS} rails. ${armed} ${stepWord(armed)} armed, each passing ${perStepWords(perStepPercent)} of the marbles that reach it: ${rest.finished} of ${MARBLES} marbles reach the finish tray and ${rest.rejected} drop into the reject tray.`}\n            describedBy={descriptionId}\n"
         },
         {
           "before": "            <ChartAxes\n              plot={PLOT}\n              x={(n) => scaleX(n, maxSteps)}\n              y={scaleY}\n              xTicks={xTicks}\n              yTicks={[0, 0.5, 1]}\n              formatY={(p) => `${Math.round(p * 100)}%`}\n              xLabel=\"steps in the job\"\n              yLabel=\"chance the whole job goes right\"\n            />\n            <path\n              data-series=\"episode-success\"\n              d={path}\n              fill=\"none\"\n              stroke={value}\n              strokeWidth={CHART_STROKE.trace}\n              strokeLinejoin=\"round\"\n            />\n            <circle\n              data-chart-mark=\"playhead\"\n              data-chart-role=\"highlight\"\n              data-selection=\"\"\n              cx={marker.cx}\n              cy={marker.cy}\n              r={PLAYHEAD_RADIUS}\n              fill=\"none\"\n              stroke={roleColour('highlight')}\n              strokeWidth={CHART_STROKE.trace}\n            />\n            <StageAnnotation\n              x={noteX}\n              y={noteY}\n              lines={annotationLines}\n              from={noteFrom}\n              target={[marker.cx, marker.cy]}\n            />\n            <g data-testid=\"job-tiles\" data-finished={finished}>\n              <DirectLabel x={TILE_LEFT} y={TILE_TITLE_Y}>\n                {`100 jobs like this: ${finished} finish`}\n              </DirectLabel>\n              {Array.from({ length: TILE_COLS * TILE_ROWS }, (_, i) => {\n                const done = i < finished;\n                return (\n                  <rect\n                    key={i}\n                    data-chart-mark=\"tile\"\n                    data-chart-role={done ? 'value' : 'reference'}\n                    x={Number((TILE_LEFT + (i % TILE_COLS) * TILE_PITCH).toFixed(2))}\n                    y={Number((TILE_TOP + Math.floor(i / TILE_COLS) * TILE_PITCH).toFixed(2))}\n                    width={Number(TILE_SIZE.toFixed(2))}\n                    height={Number(TILE_SIZE.toFixed(2))}\n                    rx={1.5}\n                    fill={done ? value : CHART_STRUCTURE.axes}\n                    fillOpacity={done ? 1 : 0.18}\n                  />\n                );\n              })}\n            </g>\n          </PlotStage>\n        </FigureStage>\n",

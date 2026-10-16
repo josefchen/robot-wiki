@@ -96,10 +96,13 @@ function main(paths: string[], from: string | undefined): void {
 /** Reads every recorded successor back through the written layer. */
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-image-mount-continuity.ts');
+  const { figureMountPredecessor } = await import('../lib/audit-figure-mount-continuity.ts');
   let ok = true;
   for (const source of layer.loadImageMountReview(root).sources) {
     try {
-      const prior = layer.imageMountPredecessor(root, source.before, readFileSync(join(root, source.after.path)));
+      // The newer figure-mount layer (its 2026-10-15 frontier mounts, after the image mounts) hands back the image-mount successor first.
+      const prior = layer.imageMountPredecessor(root, source.before,
+        figureMountPredecessor(root, source.before, readFileSync(join(root, source.after.path))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {
       ok = false;

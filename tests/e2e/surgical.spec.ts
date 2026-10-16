@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 const ROUTE = '/adjacent/surgical/';
 
@@ -31,6 +32,7 @@ test.describe('adjacent surgical module', () => {
     );
     expect(fontFamily.toLowerCase()).toContain('serif');
 
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Surgical Robotics' }),
@@ -83,12 +85,18 @@ test.describe('adjacent surgical module', () => {
       'href',
       'https://www.globenewswire.com/news-release/2024/03/14/2846718/7637/en/Intuitive-Announces-FDA-Clearance-of-Fifth-Generation-Robotic-System-da-Vinci-5.html',
     );
-    await expect(
-      prose.getByRole('link', { name: 'Intuitive Surgical 2026' }).first(),
-    ).toHaveAttribute(
-      'href',
+    // Three 2026 Intuitive releases share this chip name (fourth-quarter
+    // results, the cardiac clearance and the second-quarter results the lead
+    // cites), so each must resolve to its own release.
+    const intuitive2026 = await prose
+      .getByRole('link', { name: 'Intuitive Surgical 2026' })
+      .evaluateAll((links) =>
+        [...new Set(links.map((link) => link.getAttribute('href')))].sort());
+    expect(intuitive2026).toEqual([
       'https://www.globenewswire.com/news-release/2026/01/22/3224266/0/en/intuitive-announces-fourth-quarter-earnings.html',
-    );
+      'https://www.globenewswire.com/news-release/2026/01/26/3225716/7637/en/Da-Vinci-5-Cleared-for-Cardiac-Procedures.html',
+      'https://www.globenewswire.com/news-release/2026/07/16/3328793/0/en/intuitive-announces-second-quarter-earnings.html',
+    ]);
     await expect(
       prose.getByRole('link', { name: 'CMR Surgical 2024' }).first(),
     ).toHaveAttribute(

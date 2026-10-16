@@ -222,6 +222,8 @@
       "audit": "A18",
       "sources": [
         "components/interactive/reward-shaping.tsx",
+        "components/iso/figures/reward-mixing-desk.ts",
+        "components/iso/figures/quadruped-rig.ts",
         "lib/gait.ts",
         "lib/reward-shaping.ts"
       ],
@@ -416,7 +418,8 @@
       "sources": [
         "components/interactive/eureka-loop.tsx",
         "lib/eureka.ts",
-        "components/motion/robot-dog.tsx"
+        "components/iso/figures/reward-writing-loop.ts",
+        "components/iso/figures/quadruped-rig.ts"
       ],
       "takeaway": "An AI writes the scoring rules a robot learns from, reads how the robot did, and fixes rules that reward the wrong thing."
     },
@@ -991,6 +994,31 @@
         "lib/hierarchy-timescales.ts"
       ],
       "takeaway": "In Figure's Helix 02 the whole-body controller acts five times for every joint target the layer above it sets: 1,000 times a second against 200."
+    },
+    {
+      "id": "frontier--bear-case--bear-case-lock",
+      "route": "/frontier/bear-case/",
+      "mount": "mount:/frontier/bear-case/:BearCaseLock:1",
+      "figure": "bear-case-lock",
+      "audit": null,
+      "sources": [
+        "components/interactive/bear-case-lock.tsx",
+        "components/iso/figures/bear-lock.ts",
+        "lib/bear-case.ts"
+      ],
+      "takeaway": "The bear case rests on four premises, each broken by its own result, and it falls only when all four results are in; by August 2026 none was."
+    },
+    {
+      "id": "frontier--safety-and-assurance--safety-filter-fence",
+      "route": "/frontier/safety-and-assurance/",
+      "mount": "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1",
+      "figure": "safety-filter-fence",
+      "audit": null,
+      "sources": [
+        "components/interactive/safety-filter-fence.tsx",
+        "components/iso/figures/guide-fence.ts"
+      ],
+      "takeaway": "A safety filter leaves a learned policy's proposal alone wherever it is safe and, where it is not, changes it by the least amount that keeps the robot out, so the simple filter is what gets checked."
     }
   ]
 }

@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { IMAGES, figureKind, licenceLabel } from '../../data/images';
 import { CREDIT_NOUNS } from '../../data/schemas/image';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { openArticlesPanel } from './helpers/articles-panel';
 import { forEachInOwnContext } from './helpers/per-route-context';
 import { settleTransitions } from './settle';
 
@@ -194,9 +195,15 @@ test.describe('licensed imagery', () => {
   test('/credits is reachable by clicking from the chrome at 1440px and 375px (VAL-IMG-005)', async ({
     page,
   }) => {
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the sidebar is gone, and the taxonomy opens from the top
+    // bar's "Articles" button at every width, so both widths reach /credits
+    // through the taxonomy inside that panel.
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(`${BASE}/`);
-    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+    await openArticlesPanel(page);
+    const panel = page.getByRole('dialog', { name: 'Site navigation' });
+    const nav = panel.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     const link = nav.getByRole('link', { name: 'Credits' });
     await expect(link).toBeVisible();
     await link.click();
@@ -207,12 +214,17 @@ test.describe('licensed imagery', () => {
 
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto(`${BASE}/`);
-    await page.getByRole('button', { name: 'Open navigation menu' }).click();
+    await openArticlesPanel(page);
     const drawer = page.getByRole('dialog', { name: 'Site navigation' });
-    const drawerLink = drawer.getByRole('link', { name: 'Credits' });
+    const drawerLink = drawer
+      .getByRole('navigation', { name: 'Robot Wiki taxonomy' })
+      .getByRole('link', { name: 'Credits' });
     await expect(drawerLink).toBeVisible();
     await drawerLink.click();
     await expect(page).toHaveURL(/\/credits\/?$/);
+    await expect(
+      page.getByRole('heading', { level: 1, name: 'Credits' }),
+    ).toBeVisible();
   });
 
   test('the credits page renders exactly the registered set (VAL-IMG-006)', async ({
@@ -368,11 +380,18 @@ test.describe('licensed imagery', () => {
       const routes = [articleRoutes[image.id], '/credits/'].filter(Boolean);
       await forEachInOwnContext(browser, routes, async (page, route) => {
         await page.goto(`${BASE}${route}`);
-        const credit = page
-          .locator('main [data-image-credit]')
-          .filter({ hasText: image.creator })
-          .first();
+        // The image's own credit, joined by its registry id: one creator
+        // can hold images under different licences (Auledas's Jetson photo
+        // is CC BY 4.0, the UR16e photo CC BY-SA 4.0), so matching the
+        // creator's name would read another image's credit.
+        const credit = page.locator(
+          `main [data-image-id="${image.id}"] [data-image-credit]`,
+        );
+        await expect(credit, `${image.id} has one credit on ${route}`).toHaveCount(1);
         const text = (await credit.textContent()) ?? '';
+        expect(text, `${image.id} credit names its creator on ${route}`).toContain(
+          image.creator,
+        );
         expect(text, `${image.id} states CC BY-SA on ${route}`).toContain(
           'CC BY-SA 4.0',
         );

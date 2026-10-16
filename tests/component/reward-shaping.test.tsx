@@ -1,8 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { RewardShaping } from '@/components/interactive/reward-shaping';
-import { TERMS, defaultWeights, weightedTotal } from '@/lib/reward-shaping';
+import { RewardShaping, drawnPose } from '@/components/interactive/reward-shaping';
+import { beltSlats, bodyShift, capShift } from '@/components/iso/figures/reward-mixing-desk';
+import { TERMS, classifyBehavior, defaultWeights, weightedTotal } from '@/lib/reward-shaping';
 
 function slider(name: RegExp) {
   return screen.getByRole('slider', { name });
@@ -134,24 +135,34 @@ describe('RewardShaping', () => {
 
   it('each named scoring rule selects its walk, and Balanced score restores the trot', async () => {
     const user = userEvent.setup();
-    render(<RewardShaping />);
+    const { container } = render(<RewardShaping />);
+    const litFaders = () => [...container.querySelectorAll('[data-lit-fader="true"]')];
     const balanced = screen.getByRole('button', { name: 'Balanced score' });
     expect(balanced.getAttribute('aria-pressed')).toBe('true');
-    for (const [preset, status, walk] of [
-      ['Too strict on effort', /freez/i, 'Stands still'],
-      ['Loves high steps', /pranc/i, 'Bounces in place'],
-      ['Ignores jerky moves', /chatter/i, 'Legs jitter'],
+    for (const [preset, status, walk, term, weight] of [
+      ['Too strict on effort', /freez/i, 'Stands still', 'torque', '4.0'],
+      ['Loves high steps', /pranc/i, 'Bounces in place', 'airTime', '4.0'],
+      ['Ignores jerky moves', /chatter/i, 'Legs jitter', 'actionRate', '0.0'],
     ] as const) {
       await user.click(screen.getByRole('button', { name: preset }));
       expect(statusText()).toMatch(status);
       expect(screen.getByTestId('walk-readout').textContent).toBe(walk);
-      expect(screen.getByTestId('robot-dog-ghost')).toBeInTheDocument();
+      // The fader the rule moved is the one lit, at the end of its slot; every other fader stays at the balanced score.
+      expect(litFaders().map((fader) => fader.getAttribute('data-fader'))).toEqual([term]);
+      expect(litFaders()[0]!.getAttribute('data-weight')).toBe(weight);
+      for (const t of TERMS) {
+        if (t.id === term) continue;
+        expect(container.querySelector(`[data-fader="${t.id}"]`)?.getAttribute('data-weight')).toBe(t.defaultWeight.toFixed(1));
+      }
       expect(screen.getByRole('button', { name: preset }).getAttribute('aria-pressed')).toBe('true');
     }
     await user.click(balanced);
     expect(statusText()).toMatch(/balanced/i);
     expect(screen.getByTestId('walk-readout').textContent).toBe('Steady trot');
-    expect(screen.queryByTestId('robot-dog-ghost')).not.toBeInTheDocument();
+    expect(litFaders().map((fader) => fader.getAttribute('data-fader'))).toEqual(['velTrack']);
+    for (const t of TERMS) {
+      expect(container.querySelector(`[data-fader="${t.id}"]`)?.getAttribute('data-weight')).toBe(t.defaultWeight.toFixed(1));
+    }
     const expected = weightedTotal(defaultWeights()).toFixed(2);
     expect(screen.getByTestId('total-readout').textContent).toContain(expected);
   });
@@ -168,5 +179,41 @@ describe('RewardShaping', () => {
     expect(
       screen.getByRole('button', { name: /play/i }),
     ).toBeInTheDocument();
+  });
+
+  it('draws the desk and treadmill with no words, one lit fader, every cap at its weight and the robot at the model pose', async () => {
+    // Reduced motion: faders and the walk jump to the chosen state, so the drawing can be read straight after a click.
+    const matchMedia = window.matchMedia;
+    window.matchMedia = ((query: string) => ({
+      matches: query.includes('reduce'), media: query, onchange: null,
+      addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}, dispatchEvent: () => false,
+    })) as unknown as typeof window.matchMedia;
+    try {
+      const user = userEvent.setup();
+      const { container } = render(<RewardShaping />);
+      const stage = screen.getByTestId('quad-preview');
+      for (const preset of ['Balanced score', 'Too strict on effort', 'Loves high steps', 'Ignores jerky moves', 'Balanced score']) {
+        await user.click(screen.getByRole('button', { name: preset }));
+        expect(stage.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
+        expect(stage.textContent).toBe('');
+        const lit = stage.querySelectorAll('[data-lit]');
+        expect(lit).toHaveLength(1);
+        expect(lit[0]!.closest('[data-lit-fader="true"]')).not.toBeNull();
+        const weights = Object.fromEntries(
+          [...stage.querySelectorAll('[data-fader]')].map((fader) => [fader.getAttribute('data-fader'), Number(fader.getAttribute('data-weight'))]),
+        ) as Parameters<typeof classifyBehavior>[0];
+        for (const fader of stage.querySelectorAll('[data-fader]')) {
+          expect(fader.getAttribute('transform')).toBe(capShift(Number(fader.getAttribute('data-weight'))));
+        }
+        const pose = drawnPose(classifyBehavior(weights), 0);
+        expect(stage.querySelector('[data-part="robot-body"]')?.getAttribute('transform')).toBe(bodyShift(pose.rise));
+        expect(stage.querySelector('[data-part="belt"] path:last-child')?.getAttribute('d')).toBe(beltSlats(pose.travel));
+      }
+      // Step moves the stride on by its five percent, and the drawing follows the model.
+      await user.click(screen.getByRole('button', { name: 'Step the preview forward' }));
+      expect(container.querySelector('[data-part="belt"] path:last-child')?.getAttribute('d')).toBe(beltSlats(drawnPose('balanced', 0.05).travel));
+    } finally {
+      window.matchMedia = matchMedia;
+    }
   });
 });

@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "259faf73d9474851c885bd279bdc25249ea395716ba2928ec3be9d51adcf6f5d",
+  "fingerprint": "fd42ba202f0273f736d99bcd8d314bc60de551e80de467826543ca8fe62be87a",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2789,
+  "visibleTextLength": 2787,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -772,8 +772,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Drones and Aerial Robotics",
-      "href": "/adjacent/drones/",
+      "accessibleName": "The Bear Case",
+      "href": "/frontier/bear-case/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2179.89,
@@ -781,8 +781,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Space Robotics",
-      "href": "/adjacent/space/",
+      "accessibleName": "Safety and Assurance",
+      "href": "/frontier/safety-and-assurance/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2229.89,
@@ -790,8 +790,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Data Bottleneck",
-      "href": "/data-hardware/data-bottleneck/",
+      "accessibleName": "Drones and Aerial Robotics",
+      "href": "/adjacent/drones/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2279.89,
@@ -799,8 +799,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Major Datasets",
-      "href": "/data-hardware/datasets/",
+      "accessibleName": "Space Robotics",
+      "href": "/adjacent/space/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2329.89,
@@ -808,8 +808,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Evaluation Crisis",
-      "href": "/data-hardware/evaluation-crisis/",
+      "accessibleName": "The Data Bottleneck",
+      "href": "/data-hardware/data-bottleneck/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2379.89,
@@ -1045,7 +1045,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-15 Drones and Aerial Robotics 2026-10-15 Space Robotics 2026-10-15 The Data Bottleneck 2026-10-15 Major Datasets 2026-10-15 The Evaluation Crisis"
+      "text": "RECENTLY UPDATED 2026-10-16 The Bear Case 2026-10-16 Safety and Assurance 2026-10-15 Drones and Aerial Robotics 2026-10-15 Space Robotics 2026-10-15 The Data Bottleneck"
     },
     {
       "label": "Tools",

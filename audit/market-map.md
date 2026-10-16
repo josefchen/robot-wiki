@@ -1018,3 +1018,19 @@ Sequential, `NODE_DISABLE_COMPILE_CACHE=1`:
 | Lint | `npm run lint` | pass (exit 0) |
 | Content | `npm run validate:content` | pass — validate:content OK (57 registry modules, 57 published, 443 citations, 119 terms, 118 images, 111 companies); no-slop OK; chart-descriptions OK; audit-coverage OK (57/57, 1080 claim rows) |
 | Targeted e2e (port 3200 killed first) | `npx playwright test tests/e2e/market-map.spec.ts` | 12 passed / 1 failed. The failure is VAL-DESIGN-010 on `/manipulation/hierarchical/` (micro-label count 7 > 5), reproduced identically at clean HEAD 1d1bb1f with the edits stashed — pre-existing and unrelated to this change. The updated Unitree assertions passed: the "not verified from an inspected Unitree company body" disclosure renders on the card, and 5,500 / 30,000+ / 33% / "profitable since 2025" are absent. |
+
+## Dead source link replaced by its dated capture (2026-10-15, launch sweep)
+
+The launch sweep of the live site checked every external link once. One
+market-map source no longer answers: the Startup Hub AI piece on Mentee
+Robotics' $17M round redirects (308) to a 404. No figure rests on it any
+more (the $17M total was nulled on 2026-08-18, rows above), but it is still
+listed as a source, so it now points at the Wayback Machine capture of
+2025-07-24, whose page carries the same headline ("Mentee Robotics Raised
+$17 million for their Humanoid Robot, MenteeBot", published 2024-04-17).
+The title says it is an archived capture; `asOf` keeps the date the record
+was last read.
+
+| Record | Field | Old URL (live 2026-10-15: 308 then 404) | New URL | Note |
+|---|---|---|---|---|
+| mentee-robotics | sources[3] | https://www.startuphub.ai/mentee-robotics-raised-17-million-for-their-humanoid-robot-menteebot/ | https://web.archive.org/web/20250724144907/https://www.startuphub.ai/mentee-robotics-raised-17-million-for-their-humanoid-robot-menteebot/ | edited in research/04-market-map-companies.json, data/companies.ts regenerated with `npm run generate:companies`; no value, status or count moves |

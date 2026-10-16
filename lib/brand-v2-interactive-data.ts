@@ -511,6 +511,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
 
   // --- schematic: mechanism illustrations
+  'interactive:BearCaseLock': {
+    // The article's four falsifying results on an illustrative pin-tumbler lock, each pin set by the watchlist's August 2026 call; "illustrative" status line.
+    kind: 'schematic',
+  },
   'interactive:HelixClockwork': {
     // Figure's two Helix 02 rates (200 Hz and 1 kHz) on an illustrative clockwork; "Schematic" status line.
     kind: 'schematic',
@@ -593,6 +597,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:SceneRepresentationLadder': {
     // "One fixed synthetic scene, drawn five times".
+    kind: 'schematic',
+  },
+  'interactive:SafetyFilterFence': {
+    // A safety filter's least-change rule on an illustrative stroke and keep-out zone; "Schematic" status line.
     kind: 'schematic',
   },
   'interactive:SceneSplit': {
