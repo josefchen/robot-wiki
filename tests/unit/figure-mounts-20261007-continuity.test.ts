@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { domainPassPredecessor, domainPassSuccessorPaths } from '../../lib/audit-domain-pass-continuity';
+import { imageMountPredecessor, imageMountSuccessorPaths } from '../../lib/audit-image-mount-continuity';
 import { kolBacklogPredecessor, kolBacklogSuccessorPaths } from '../../lib/audit-kol-backlog-continuity';
 import {
   FIGURE_MOUNT_CONTINUITY_DIR, figureMountPredecessor, figureMountSuccessorPaths,
@@ -12,8 +13,11 @@ import {
 import { preWordBudgetTrim } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-// The newer word-budget trim layer hands back the figure-mount successor first.
-const read = (path: string) => preWordBudgetTrim(path);
+/** The two frontier mounts of 2026-10-15, which landed after the image mounts: the newest change to their articles. */
+const AFTER_IMAGES = ['content/frontier/bear-case.mdx', 'content/frontier/safety-and-assurance.mdx'];
+// The newer word-budget trim layer hands back the figure-mount successor first; for the two mounts that came after
+// the image mounts the live article is itself the successor.
+const read = (path: string) => (AFTER_IMAGES.includes(path) ? readFileSync(join(root, path)) : preWordBudgetTrim(path));
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /figure mount continuity drift/;
 const blank = { bytes: 0, sha256: '' };
@@ -33,13 +37,18 @@ describe('figure mounts 2026-10-07 article successors', () => {
   // robot-learning stack and competing theses each gained one new isometric
   // figure the same way (its own import line and one-line mount); the list
   // stays exact.
+  // Successor (frontier isometric figures, 2026-10-15): the bear case and
+  // safety and assurance each gained one new isometric figure the same way,
+  // after their image mounts; the list stays exact.
   it('reviews exactly the articles that gained admitted figure mounts', () => {
     expect(figureMountSuccessorPaths()).toEqual([
       'content/adjacent/surgical.mdx',
       'content/classical/calibration.mdx',
       'content/classical/ros2-for-ml-engineers.mdx',
       'content/data-hardware/robot-learning-stack.mdx',
+      'content/frontier/bear-case.mdx',
       'content/frontier/competing-theses.mdx',
+      'content/frontier/safety-and-assurance.mdx',
       'content/rl-sim2real/humanoid-wbc.mdx',
       'content/rl-sim2real/legged-locomotion.mdx',
       'content/rl-sim2real/offline-rl.mdx',
@@ -60,11 +69,16 @@ describe('figure mounts 2026-10-07 article successors', () => {
       expect(figureMountPredecessor(root, source.after, live)).toBe(live);
       // The rebuilt bytes are the successor of the next older layer that reviewed the article, which that layer
       // still decides: the domain pass for every article except surgical robotics, whose last reviewed change
-      // before its mount is the 2026-10-05 KOL backlog batch.
+      // before its mount is the 2026-10-05 KOL backlog batch, and the two 2026-10-15 frontier mounts, whose last
+      // reviewed change before them is the image-mount batch of the same day.
       const kolOnly = source.after.path === 'content/adjacent/surgical.mdx';
-      const [olderPaths, olderPredecessor] = kolOnly
-        ? [kolBacklogSuccessorPaths(), kolBacklogPredecessor]
-        : [domainPassSuccessorPaths(), domainPassPredecessor];
+      const afterImages = AFTER_IMAGES.includes(source.after.path);
+      if (afterImages) expect(source.archivedFrom).toMatch(/^[0-9a-f]{40}$/);
+      const [olderPaths, olderPredecessor] = afterImages
+        ? [imageMountSuccessorPaths(), imageMountPredecessor]
+        : kolOnly
+          ? [kolBacklogSuccessorPaths(), kolBacklogPredecessor]
+          : [domainPassSuccessorPaths(), domainPassPredecessor];
       expect(olderPaths).toContain(source.after.path);
       if (kolOnly) expect(domainPassSuccessorPaths()).not.toContain(source.after.path);
       expect(olderPredecessor(root, { path: source.after.path, ...blank }, prior)).not.toEqual(prior);

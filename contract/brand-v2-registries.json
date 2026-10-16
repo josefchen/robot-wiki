@@ -7421,6 +7421,61 @@
         "fingerprint": "707f670027e1dbdd9fded208e7abac80e5b9fdb4e7d21820ff663e0213d4d09c"
       },
       {
+        "id": "interactive:BearCaseLock",
+        "component": "BearCaseLock",
+        "sourcePath": "components/interactive/bear-case-lock.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "5e6818128ac1ed568020cc5049ef1b5e8d2c6e3d50eb3645e6835288104c2dce"
+      },
+      {
         "id": "interactive:CalibrationChain",
         "component": "CalibrationChain",
         "sourcePath": "components/interactive/calibration-chain.tsx",
@@ -10703,6 +10758,57 @@
         "fingerprint": "827e13f1f879928acdf13be5ba91eb5cb20d7a32120f603520252ae0e5851c8c"
       },
       {
+        "id": "interactive:SafetyFilterFence",
+        "component": "SafetyFilterFence",
+        "sourcePath": "components/interactive/safety-filter-fence.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "f26276184cba6ee390f3ae51f784468813f746637d8c5a8835fc02d22f2c8c88"
+      },
+      {
         "id": "interactive:SampleEfficiencyLedger",
         "component": "SampleEfficiencyLedger",
         "sourcePath": "components/interactive/sample-efficiency-ledger.tsx",
@@ -12829,6 +12935,65 @@
         "fingerprint": "a85fc3755a7c8041e279b12155e853ea9e5c3ace31f1cf5581c1435b6c3cf6dc"
       },
       {
+        "id": "mount:/frontier/bear-case/:BearCaseLock:1",
+        "sourceId": "interactive:BearCaseLock",
+        "route": "/frontier/bear-case/",
+        "ownerPath": "content/frontier/bear-case.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "16bb97d51f4b65fad53faa86857f39fcb0c8fe42bc4b67b1653723a729964795"
+      },
+      {
         "id": "mount:/frontier/bear-case/:MilestonesWatchlist:1",
         "sourceId": "interactive:MilestonesWatchlist",
         "route": "/frontier/bear-case/",
@@ -13336,6 +13501,61 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "0be2a808630c845de2b66af9cd41b4b5f90df08223d925f1adf04747a9481125"
+      },
+      {
+        "id": "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1",
+        "sourceId": "interactive:SafetyFilterFence",
+        "route": "/frontier/safety-and-assurance/",
+        "ownerPath": "content/frontier/safety-and-assurance.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "5761d7e0f04545933d3ef4de4f96ea868085036e49497f9727fdb05611a576fd"
       },
       {
         "id": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
@@ -16270,6 +16490,7 @@
         "components/home/featured-explainer.tsx",
         "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
+        "components/interactive/bear-case-lock.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/mot-insulation.tsx",
@@ -16316,6 +16537,7 @@
         "components/home/featured-explainer.tsx",
         "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
+        "components/interactive/bear-case-lock.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/mot-insulation.tsx",
@@ -16349,7 +16571,7 @@
         "mdx-components.tsx"
       ],
       "mountState": "production",
-      "fingerprint": "83cf97ae5b18a450d2cda5e01a9a15487f8cd4130786dd2e0dbf76906bb0bdf3"
+      "fingerprint": "d4dcfa37bca2e3d4b072583daa6fd416da447a425943a2cb0caffb4d34cb4bf3"
     },
     {
       "id": "surface:raised",
@@ -16639,6 +16861,7 @@
         "components/interactive/reward-shaping.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/rrt-explorer.tsx",
+        "components/interactive/safety-filter-fence.tsx",
         "components/interactive/scene-split.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
@@ -16695,6 +16918,7 @@
         "components/interactive/reward-shaping.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/rrt-explorer.tsx",
+        "components/interactive/safety-filter-fence.tsx",
         "components/interactive/scene-split.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
@@ -16729,7 +16953,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "7ca18195d25fed611354d10a89c278fca730ea575c16f57b87f9dc4f6201f157"
+      "fingerprint": "deb0c3a1f299a45c5a4c60da0ffce96909f7266eee53aee8fb7ff5208ec056fc"
     },
     {
       "id": "control:selection",
@@ -16753,6 +16977,7 @@
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/bear-case-lock.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/egoscale-scaling.tsx",
@@ -16785,6 +17010,7 @@
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/bear-case-lock.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/egoscale-scaling.tsx",
@@ -16822,7 +17048,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "7fec7e96ad03c1c7d1caffa325c9a5820b9e68029a867b8a649ce9475935b4ae"
+      "fingerprint": "f749c100cab99e4a6705db8f7d1d12c9a3c0577108b7a33057d105f79816aafb"
     },
     {
       "id": "control:link-focus",
@@ -17014,10 +17240,12 @@
       ],
       "definedIn": [
         "components/explainers/brand.ts",
+        "components/interactive/bear-case-lock.tsx",
         "components/ui/instrument.tsx",
         "components/ui/tabs.tsx"
       ],
       "ownerRouteOrMount": [
+        "components/interactive/bear-case-lock.tsx",
         "components/ui/instrument.tsx"
       ],
       "mountState": "production",
@@ -17028,7 +17256,7 @@
         "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "f9ff0614279cf5b8083d21220ea3d76254a20af6830875dcc640fabc31f70e51"
+      "fingerprint": "ef536239f60d33ef83b1eef912c3aafb36b0460664cdc626d78775fc8c59d54c"
     },
     {
       "id": "control:input",
@@ -17085,6 +17313,7 @@
         "components/interactive/retargeting-gap.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/rrt-explorer.tsx",
+        "components/interactive/safety-filter-fence.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teacher-student.tsx",
@@ -17136,6 +17365,7 @@
         "components/interactive/retargeting-gap.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/rrt-explorer.tsx",
+        "components/interactive/safety-filter-fence.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teacher-student.tsx",
@@ -17162,7 +17392,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "1633be29b5910f30fdee17745ff45e3d0f4e266dacac9b3c38c1b2cc31457406"
+      "fingerprint": "6dfd79014dda2f9c551b3a219d2f3bd45572d33ffedea2f2c9caf8c3078b7808"
     },
     {
       "id": "control:disabled",
@@ -17202,5 +17432,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "219ba37799fe29b9e29fc7ba8f145b6a19eea35274001322087125f3f740c927"
+  "rootFingerprint": "772a40d99dc2bfd5b457786a02de538989b7fc492cf0b0329309617838a51538"
 }

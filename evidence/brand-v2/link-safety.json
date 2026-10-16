@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "cefa9b0fdf75284334ee0d149c5a6a7a3f9206f6c2aa463a2961d9f802c2451f",
+  "fingerprint": "a060619ba028036c435fb1e4e769ceec0fa3c090553dbd7786cee6905b21b30f",
   "source": "out/ static export",
   "routes": [
     {
@@ -1107,7 +1107,7 @@
       "reachedByTab": 97,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 237
+      "tabStops": 242
     },
     {
       "route": "/frontier/competing-theses/",
@@ -1147,7 +1147,7 @@
       "reachedByTab": 112,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 259
+      "tabStops": 262
     },
     {
       "route": "/glossary/",

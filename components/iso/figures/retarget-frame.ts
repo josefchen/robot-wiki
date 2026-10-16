@@ -39,6 +39,7 @@ import {
   type SolidPaths,
   type Tone,
 } from '../iso-kit.ts';
+import { phoneFitOf } from '../phone-fit.ts';
 import { barBetween, discAlong, plateIn, roundedOutline } from '../prism.ts';
 
 export const WIDTH = 640;
@@ -113,6 +114,8 @@ const extremes: Point3[] = [];
 for (const px of [BENCH.x, BENCH.x + BENCH.w]) for (const py of [BENCH.y, BENCH.y + BENCH.d]) extremes.push([px, py, -BENCH_H - FOOT_H], [px, py, 0]);
 for (const px of [-POSTS_X, POSTS_X]) extremes.push([px, -6, HIP_Z + BEAM_ABOVE + 10], [px, 6, HIP_Z + BEAM_ABOVE + 10]);
 export const P = fitProjection(extremes, WIDTH, HEIGHT, { pad: 12, azimuth: AZIMUTH, elevation: ELEVATION });
+/** The machine's own window, shown on a phone in place of the full viewBox (components/iso/phone-fit.ts). */
+export const PHONE_FIT = phoneFitOf(extremes, P, WIDTH, HEIGHT, { pad: 12 });
 
 const at = (point: Point3) => iso(point, P);
 const slab = (plan: Plan, z: number, h: number, steps = 4, bevel = 0) => slabOf(plan, z, h, P, steps, bevel);

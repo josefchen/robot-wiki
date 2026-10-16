@@ -914,7 +914,7 @@
     {
       "id": "jam-overhead",
       "route": "/data-hardware/industrial-deployment/",
-      "sourceSha256": "5cefad7cf3983dcf420d9540dd048d8c7aaa927379761a769dee02306e55569d",
+      "sourceSha256": "7f94ab682a10e2571bf9d66ebf37d6bba7e6a3247775836ff3ca252dcaf0d239",
       "marks": [
         {
           "mark": "clearing-time",

@@ -141,7 +141,80 @@ describe('rehypeCitePunctuation', () => {
     const wraps = wrappers(tree);
     expect(wraps).toHaveLength(1);
     expect(wraps[0].children).toEqual([cite('b'), text('.')]);
-    expect(tree.children).toEqual([cite('a'), wraps[0]]);
+    // Successor (launch sweep, 2026-10-15, under the owner's "extremely
+    // premium" bar of 12 Oct): two chips written with nothing between them
+    // printed their numbers as one ("⁷⁸" on /world-models/jepa/), so the
+    // adjacent stack takes the space a written stack has.
+    expect(tree.children).toEqual([cite('a'), text(' '), wraps[0]]);
+  });
+
+  it('separates every chip of an adjacent stack and stays idempotent', () => {
+    const tree = p([text('steer '), cite('a'), cite('b'), cite('c'), text('. Next')]);
+    run(tree);
+    run(tree);
+    const wraps = wrappers(tree);
+    expect(wraps).toHaveLength(1);
+    expect(tree.children).toEqual([
+      text('steer'),
+      cite('a'),
+      text(' '),
+      cite('b'),
+      text(' '),
+      wraps[0],
+      text(' Next'),
+    ]);
+  });
+
+  it('treats an authored wrapper around one chip as the chip', () => {
+    // The placement wrappers (<span className="block" data-*-source-placement>
+    // and the max-sm tooltip offsets) left the authored space before the
+    // number ("invariance ¹⁰.") and the period free to start a line.
+    const wrapper: HastNode = {
+      type: 'mdxJsxTextElement',
+      name: 'span',
+      attributes: [{ type: 'mdxJsxAttribute', name: 'className', value: 'max-sm:-left-4' }],
+      children: [cite('a')],
+    };
+    const tree = p([text('policy invariance '), wrapper, text('. Next')]);
+    run(tree);
+    const wraps = wrappers(tree);
+    expect(wraps).toHaveLength(1);
+    expect(wraps[0].children).toEqual([wrapper, text('.')]);
+    expect(tree.children).toEqual([text('policy invariance'), wraps[0], text(' Next')]);
+  });
+
+  it('closes up a wrapper that carries its own punctuation, and joins it to an adjacent chip', () => {
+    const placed: HastNode = {
+      type: 'mdxJsxTextElement',
+      name: 'span',
+      attributes: [{ type: 'mdxJsxAttribute', name: 'className', value: 'block' }],
+      children: [cite('b'), text('.')],
+    };
+    const tree = p([text('at ten trials per setting '), cite('a'), placed, text(' Next')]);
+    run(tree);
+    run(tree);
+    expect(tree.children?.[0]).toEqual(text('at ten trials per setting'));
+    expect(tree.children?.[1]).toEqual(cite('a'));
+    expect(tree.children?.[2]).toEqual(text(' '));
+    expect(tree.children?.[3]).toBe(placed);
+    // The chip and its period are bound inside the wrapper.
+    const inner = wrappers(placed);
+    expect(inner).toHaveLength(1);
+    expect(inner[0].children).toEqual([cite('b'), text('.')]);
+    expect(tree.children?.[4]).toEqual(text(' Next'));
+  });
+
+  it('leaves a wrapper that holds more than one chip or any prose alone', () => {
+    const prose: HastNode = {
+      type: 'mdxJsxTextElement',
+      name: 'span',
+      attributes: [],
+      children: [text('see '), cite('a')],
+    };
+    const before = p([text('words '), prose, text('. tail')]);
+    const tree = run(structuredClone(before));
+    expect(tree.children?.[0]).toEqual(text('words '));
+    expect(tree.children?.[2]).toEqual(text('. tail'));
   });
 
   it('binds only the final chip of a triple-stacked cluster', () => {

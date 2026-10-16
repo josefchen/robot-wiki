@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { EurekaLoop } from '@/components/interactive/eureka-loop';
 import { EUREKA_GENERATIONS } from '@/lib/eureka';
+import { CARD_RULES } from '@/components/iso/figures/reward-writing-loop';
 
 const nextButton = () => screen.getByRole('button', { name: /next round/i });
 const outcome = (container: HTMLElement) =>
@@ -24,31 +25,41 @@ describe('EurekaLoop', () => {
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
   });
 
-  it('draws all three rounds at once, this round at full ink and the first robot fallen on its back', async () => {
-    const user = userEvent.setup();
-    const { container } = render(<EurekaLoop />);
-    const rounds = [...container.querySelectorAll('[data-round]')].map((round) => round.textContent);
-    expect(rounds).toEqual(['Round 1falls', 'Round 2never walks', 'Round 3walks']);
-    expect(screen.getByTestId('eureka-robot').getAttribute('transform')).toMatch(/scale\(1 -1\)/);
-    expect(container.querySelector('[data-figure-annotation]')?.textContent).toMatch(/runs too fast and falls/);
-    // The arrow drops straight down between the raised feet onto the fallen robot's belly,
-    // in the first column, above the ground line at 130.
-    const [tipX, tipY] = (container.querySelector('[data-annotation-pointer] polygon')?.getAttribute('points') ?? '')
-      .split(' ')[0]
-      .split(',')
-      .map(Number);
-    expect(Math.abs(tipX - 56)).toBeLessThan(3);
-    expect(tipY).toBeGreaterThan(84);
-    expect(tipY).toBeLessThan(110);
-    // No rings at the hips or knees: the bend in each leg shows the knee. The
-    // line drawing has no eye either (owner-approved figure standard, 10 Oct 2026),
-    // so the robot draws no circle at all.
-    expect(screen.getByTestId('eureka-robot').querySelectorAll('[data-dog-foot]')).toHaveLength(4);
-    expect(screen.getByTestId('eureka-robot').querySelectorAll('circle')).toHaveLength(0);
-    await user.click(nextButton());
-    expect(container.querySelector('[data-round="2"]')).toHaveAttribute('data-outcome', 'stands');
-    expect(container.querySelector('[data-round="1"]')).not.toHaveAttribute('data-outcome');
-    expect(container.querySelector('[data-figure-annotation]')?.textContent).toMatch(/stands still/);
+  it('draws the loop as a bench with no words: each round\'s card, its run on the ribbon and its robot', async () => {
+    // Reduced motion: each round is drawn at its end at once, so the drawing can be read straight after a click.
+    const matchMedia = window.matchMedia;
+    window.matchMedia = ((query: string) => ({
+      matches: query.includes('reduce'), media: query, onchange: null,
+      addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}, dispatchEvent: () => false,
+    })) as unknown as typeof window.matchMedia;
+    try {
+      const user = userEvent.setup();
+      const { container } = render(<EurekaLoop />);
+      const stage = screen.getByTestId('eureka-stage');
+      const notches = () => ((stage.querySelector('[data-part="card"] .iso-edge')?.getAttribute('d') ?? '').match(/L/g) ?? []).length + 1;
+      const strokes = () => ((stage.querySelector('[data-part="ink"]')?.getAttribute('d') ?? '').match(/M/g) ?? []).length;
+      const hatch = () => stage.querySelector('[data-part="robot-body"] > path')?.getAttribute('d') ?? '';
+      for (let round = 0; round < EUREKA_GENERATIONS.length; round++) {
+        if (round > 0) await user.click(nextButton());
+        // No words in the drawing, and one lit part: the card with the round's rules.
+        expect(stage.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
+        expect(stage.textContent).toBe('');
+        const lit = stage.querySelectorAll('[data-lit]');
+        expect(lit).toHaveLength(1);
+        expect(lit[0]!.closest('[data-part="card"]')).not.toBeNull();
+        // The card's outline: four corners, then four points for each notch, one notch for each rule in the code.
+        expect(notches()).toBe(4 + 4 * CARD_RULES[round]!.length);
+        // The ribbon holds one run of ink for each round so far.
+        expect(strokes()).toBe(round + 1);
+        expect(outcome(container)).toBe(['falls', 'stands', 'walks'][round]);
+        expect(stage.getAttribute('aria-label')).toContain(`Round ${round + 1} of 3`);
+        // On its back after the fall, its back turned away: no hatch; standing and trotting, the hatch shows.
+        if (round === 0) expect(hatch()).toBe('');
+        else expect(hatch()).not.toBe('');
+      }
+    } finally {
+      window.matchMedia = matchMedia;
+    }
   });
 
   it('the next round shows a code diff with added and removed lines', async () => {

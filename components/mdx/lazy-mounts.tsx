@@ -41,6 +41,9 @@ export const AdvantageScrubber = dynamic(() =>
 export const AppearancePhysicsPush = dynamic(() =>
   import('@/components/interactive/appearance-physics-push').then((m) => m.AppearancePhysicsPush),
 );
+export const BearCaseLock = dynamic(() =>
+  import('@/components/interactive/bear-case-lock').then((m) => m.BearCaseLock),
+);
 export const CalibrationChain = dynamic(() =>
   import('@/components/interactive/calibration-chain').then((m) => m.CalibrationChain),
 );
@@ -210,6 +213,9 @@ export const Ros2PolicyLayout = dynamic(() =>
 );
 export const SampleEfficiencyLedger = dynamic(() =>
   import('@/components/interactive/sample-efficiency-ledger').then((m) => m.SampleEfficiencyLedger),
+);
+export const SafetyFilterFence = dynamic(() =>
+  import('@/components/interactive/safety-filter-fence').then((m) => m.SafetyFilterFence),
 );
 export const ScannedTwinCheck = dynamic(() =>
   import('@/components/interactive/scanned-twin-check').then((m) => m.ScannedTwinCheck),

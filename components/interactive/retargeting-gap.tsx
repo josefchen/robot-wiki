@@ -14,6 +14,7 @@ import {
   HEIGHT,
   HIPS,
   PARTS,
+  PHONE_FIT,
   WIDTH,
   gaugeAt,
   gaugeOf,
@@ -254,6 +255,7 @@ export function RetargetingGap({ className }: { className?: string }) {
             <IsoFigure
               width={WIDTH}
               height={HEIGHT}
+              fit={PHONE_FIT}
               label={`A person walking, and a robot given the same joint angles and hip height with legs ${ratio}% as long, hung from one beam on a test frame. ${note}.`}
               describedBy={descriptionId}
             >

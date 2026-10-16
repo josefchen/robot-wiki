@@ -41,6 +41,7 @@ import {
   type Tone,
   translateAlong,
 } from '../iso-kit.ts';
+import { phoneFitOf } from '../phone-fit.ts';
 import { barBetween, discAlong, plateIn, roundedOutline } from '../prism.ts';
 
 export const WIDTH = 640;
@@ -97,6 +98,8 @@ for (const px of [BASE.x, BASE.x + BASE.w]) for (const py of [BASE.y, BASE.y + B
 }
 for (const px of [BOARD.x, BOARD.x + BOARD.w]) extremes.push([px, BOARD.y, BOARD_TOP], [px, FACE + 8, BOARD_TOP]);
 export const P = fitProjection(extremes, WIDTH, HEIGHT, { pad: 12, azimuth: AZIMUTH, elevation: ELEVATION });
+/** The machine's own window, shown on a phone in place of the full viewBox (components/iso/phone-fit.ts). */
+export const PHONE_FIT = phoneFitOf(extremes, P, WIDTH, HEIGHT, { pad: 12 });
 
 const at = (point: Point3) => iso(point, P);
 const slab = (plan: Plan, z: number, h: number, steps = 4, bevel = 0) => slabOf(plan, z, h, P, steps, bevel);

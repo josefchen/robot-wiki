@@ -207,7 +207,7 @@ async function verify(): Promise<boolean> {
   let ok = true;
   for (const source of layer.loadReaderFirstReview(root).sources) {
     try {
-      // The newer image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut, re-skin, parallel-local, length-cut (manipulation,
+      // The newer figure-mount (its 2026-10-15 frontier mounts, after the image mounts), image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut, re-skin, parallel-local, length-cut (manipulation,
       // classical and rl-sim2real), world-models length-cut, word-budget trim, figure-mount, domain-pass and KOL
       // backlog layers hand back the reader-first successor first.
       const live = kolBacklogPredecessor(root, source.before, domainPassPredecessor(root, source.before,
@@ -215,7 +215,7 @@ async function verify(): Promise<boolean> {
           worldModelsLengthCutPredecessor(root, source.before, lengthCutPredecessor(root, source.before,
           parallelLocalPredecessor(root, source.before,
             reskinPredecessor(root, source.before, frontierLengthCutPredecessor(root, source.before,
-              dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, readFileSync(join(root, source.after.path))))))))))))));
+              dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, figureMountPredecessor(root, source.before, readFileSync(join(root, source.after.path)))))))))))))));
       const prior = layer.readerFirstPredecessor(root, source.before, live);
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {

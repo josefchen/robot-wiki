@@ -56,6 +56,8 @@ seeAlso:
   - "adjacent/surgical"
 ---
 
+import { SafetyFilterFence } from '@/components/interactive/safety-filter-fence';
+
 import { CollaborativeOperationModes } from '@/components/interactive/collaborative-operation-modes';
 
 Safety assurance is the procedure for showing that a robot system is safe enough to run. Industrial robots have a settled, numerical standards stack, but none certifies a learned policy, so what ships is a verifiable safety layer around it <Cite id="iso-iec-tr-5469-2024" />.
@@ -124,6 +126,8 @@ A policy trained from demonstrations has neither: its weights encode behaviour w
 What ships instead puts something simple enough to verify between the black-box policy and the actuators, with authority to override. ISO/IEC TR 5469 (2024) names this use: non-AI safety related functions that ensure safety for AI-controlled equipment <Cite id="iso-iec-tr-5469-2024" />.
 
 The formal instance is the safety filter. A <Term id="control-barrier-function">control barrier function</Term> defines a set the system must stay inside and turns forward invariance of that set into a constraint on the commanded input, enforced each step <Cite id="ames-cbf-2019" />. Wabersich and colleagues survey the family, including reachability and predictive variants, and describe a filter that takes a proposed input from any source and modifies it as little as necessary <Cite id="wabersich-safety-filters-2023" />.
+
+<SafetyFilterFence className="my-6" />
 
 In 2026 the pattern reached vision-language-action policies. VLPSA wraps π0.5 in a full-body CBF-QP safety filter without retraining, and on SafeLIBERO it raised collision avoidance from 23.1% to 91.2% while surpassing the base policy's task success <Cite id="vlpsa-2026" />.
 

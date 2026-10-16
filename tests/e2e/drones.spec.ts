@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { waitForHydration } from './interaction-ready';
+import { openArticlesPanel } from './helpers/articles-panel';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const ROUTE = '/adjacent/drones/';
@@ -33,6 +34,7 @@ test.describe('adjacent drones module', () => {
     );
     expect(fontFamily.toLowerCase()).toContain('serif');
 
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Drones and Aerial Robotics' }),

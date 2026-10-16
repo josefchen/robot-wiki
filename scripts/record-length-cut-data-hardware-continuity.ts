@@ -188,9 +188,9 @@ async function verify(): Promise<boolean> {
   let ok = true;
   for (const source of layer.loadDataHardwareCutReview(root).sources) {
     try {
-      // The newer image-mount layer (the data-hardware images of 2026-10-15) hands back the cut's successor first.
+      // The newer figure-mount (its 2026-10-15 frontier mounts) and image-mount (the data-hardware images of 2026-10-15) layers hand back the cut's successor first.
       const prior = layer.dataHardwareCutPredecessor(root, source.before,
-        imageMountPredecessor(root, source.before, readFileSync(join(root, source.after.path))));
+        imageMountPredecessor(root, source.before, figureMountPredecessor(root, source.before, readFileSync(join(root, source.after.path)))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
       // The rebuilt bytes are the older layers' successors, which those layers still decide.
       const ref = { path: source.after.path, bytes: 0, sha256: '' };

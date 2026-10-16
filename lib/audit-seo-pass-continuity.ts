@@ -364,9 +364,12 @@ function revealPredecessor(root: string, ref: Artifact, live: Buffer): Buffer {
  * live bytes, a path with no reviewed successor, and any bytes other than the
  * reviewed successor come back unchanged, so those checks still decide them.
  * The reviewed successor is verified, and its rebuilt predecessor returned.
- * The newer layers see the live bytes first: the image-mount layer
+ * The newer layers see the live bytes first: the figure-mount layer, for the
+ * two frontier figures it admitted on 2026-10-15 after the image mounts
+ * (BearCaseLock in the bear case, SafetyFilterFence in safety and
+ * assurance), which landed last; then the image-mount layer
  * (images bundle A of 2026-10-13, extended on 2026-10-15 by the adjacent
- * images of bundle B and then the data-hardware images, which landed last),
+ * images of bundle B and then the data-hardware images),
  * then the 2026-10-14 adjacent cut layer, then the
  * 2026-10-13 data-hardware cut layer, then the 2026-10-13 frontier
  * length-cut layer, then the site-foundation re-skin layer, then the
@@ -382,7 +385,7 @@ export function seoPassPredecessor(root: string, ref: Artifact, liveBytes: Buffe
     kolBacklogPredecessor(root, ref, domainPassPredecessor(root, ref, figureMountPredecessor(root, ref,
       wordBudgetTrimPredecessor(root, ref, worldModelsLengthCutPredecessor(root, ref, lengthCutPredecessor(root, ref,
         parallelLocalPredecessor(root, ref, reskinPredecessor(root, ref,
-          frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref, liveBytes)))))))))))));
+          frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref, figureMountPredecessor(root, ref, liveBytes))))))))))))));
   if (ref.path === revealAfter.path) return revealPredecessor(root, ref, live);
   const spec = specSuccessors.get(ref.path);
   if (spec) {

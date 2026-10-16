@@ -20,6 +20,7 @@ import {
   FLAG_RISE,
   FROM_X,
   HEIGHT,
+  PHONE_FIT,
   SHUTTLE_AWAY,
   SHUTTLE_HOME,
   TO_X,
@@ -353,6 +354,7 @@ export function Ros2Interfaces({ className }: { className?: string }) {
           <IsoFigure
             width={WIDTH}
             height={HEIGHT}
+            fit={PHONE_FIT}
             label={`Two ROS 2 nodes, the ${channel.from} and the ${channel.to}, on one bench joined three ways, talking through a ${channel.label.toLowerCase()}: ${channel.messages.map((m) => m.label).join(', then ')}.`}
             describedBy={descriptionId}
           >

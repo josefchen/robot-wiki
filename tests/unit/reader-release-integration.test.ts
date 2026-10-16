@@ -247,6 +247,16 @@ function throughSeoPass(path: string) {
     expect(continues(images, end)).toBe(true);
     end = images.newHash;
   }
+  // The frontier isometric figures of 2026-10-15 (batch frontier-b02) landed
+  // after the data-hardware images; their one edge on a frontier article that
+  // gained a figure mount continues the previous endpoint the same way.
+  const frontierFigureEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('anatomy-frontier-b02-figures-20261015-'));
+  expect(frontierFigureEdges.length).toBeLessThanOrEqual(1);
+  for (const figures of frontierFigureEdges) {
+    expect(continues(figures, end)).toBe(true);
+    end = figures.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 

@@ -8,7 +8,8 @@ import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
  * and the live readout in its bottom corners. Here the frame owns the
  * number, the headline and the caption (Figure N. under the hairline rule),
  * so the stage keeps only the drawing and the band under it: the
- * interaction hint at the left and the live readout at the right, in the
+ * interaction hint at the left and the live readout at the right (on a
+ * phone, on its own line under the hint; components/iso/iso.css), in the
  * mono face at 12 px, then the status line that says how the figure was
  * made. The readout carries `data-readout`, which the kit's `useReadout`
  * writes each frame without a re-render; it is not a live region, so a
@@ -18,6 +19,8 @@ import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
  * site's paper, ink, chart tones and accent.
  */
 type AnatomyStageProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
+  /** Words the figure tells under its drawing before the hint (a step told in full), across the band. */
+  story?: ReactNode;
   /** The plain-words interaction hint, under the drawing at the left. */
   hint?: ReactNode;
   /** The resting readout text, written live by the figure afterwards. */
@@ -30,7 +33,7 @@ type AnatomyStageProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
   children: ReactNode;
 };
 
-export function AnatomyStage({ hint, readout, status, viewWidth, className, style, children, ...props }: AnatomyStageProps) {
+export function AnatomyStage({ story, hint, readout, status, viewWidth, className, style, children, ...props }: AnatomyStageProps) {
   return (
     <FigureStage
       data-anatomy-stage=""
@@ -38,6 +41,7 @@ export function AnatomyStage({ hint, readout, status, viewWidth, className, styl
       style={{ ['--anatomy-view-width' as string]: `${viewWidth}px`, ...style }}
       footer={
         <>
+          {story}
           <span data-anatomy-hint="" className="font-sans text-[12px] leading-normal text-text-dim">
             {hint}
           </span>

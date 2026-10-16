@@ -47,6 +47,7 @@ import {
   type SolidPaths,
   type Tone,
 } from '../iso-kit.ts';
+import { phoneFitOf } from '../phone-fit.ts';
 import { barBetween } from '../prism.ts';
 import { compoundedSuccessRate } from '../../../lib/reliability.ts';
 
@@ -137,6 +138,8 @@ export const HEIGHT = Math.ceil(((WIDTH - 2 * SIDE) * spanOf(1)) / spanOf(0) + 2
 export const VIEW_BOX = `0 0 ${WIDTH} ${HEIGHT}`;
 const fitted = fitProjection(extremes, WIDTH - 2 * SIDE, HEIGHT - 2 * PAD, { pad: 0, azimuth: AZIMUTH, elevation: ELEVATION });
 export const P: Projection = { ...fitted, origin: [fitted.origin[0] + SIDE, fitted.origin[1] + PAD] };
+/** The machine's own window, shown on a phone in place of the full viewBox (components/iso/phone-fit.ts). */
+export const PHONE_FIT = phoneFitOf(extremes, P, WIDTH, HEIGHT, { pad: PAD });
 
 // ----------------------------------------------------------------- the parts
 export type Part =

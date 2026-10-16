@@ -43,6 +43,7 @@ import {
   type SolidPaths,
   type Tone,
 } from '../iso-kit.ts';
+import { phoneFitOf } from '../phone-fit.ts';
 import { barBetween, discAlong, plateIn } from '../prism.ts';
 import {
   FLOW_MODES,
@@ -178,8 +179,8 @@ for (const xb of [reach.x0 - ARM, reach.x1 - ARM]) for (const y of [-RAIL_Y - 8,
 extremes.push([reach.x1, reach.y0, HOLDER_TOP + 1.2], [reach.x0, reach.y0, HOLDER_TOP + 1.2]);
 const FIT_PAD = 14;
 /**
- * The side pad. Under 40rem the stage draws the figure 116% wide with -8% margins, cropping 44 viewBox units a
- * side; 51 keeps every stroke 4 px inside the stage at 390 px.
+ * The side pad: room each side of the machine in the desktop viewBox. On a phone the stage shows only the
+ * machine's own window (PHONE_FIT), so the pad costs no width there.
  */
 const SIDE_PAD = 51;
 /** The drawing's height, fitted tightly to the machine at the full width. */
@@ -192,6 +193,8 @@ export const P = (() => {
   const fit = fitProjection(extremes, WIDTH - 2 * (SIDE_PAD - FIT_PAD), HEIGHT, { pad: FIT_PAD, azimuth: AZIMUTH, elevation: ELEVATION });
   return { ...fit, origin: [fit.origin[0] + SIDE_PAD - FIT_PAD, fit.origin[1]] as Flat };
 })();
+/** The machine's own window, shown on a phone in place of the full viewBox (components/iso/phone-fit.ts). */
+export const PHONE_FIT = phoneFitOf(extremes, P, WIDTH, HEIGHT, { pad: FIT_PAD });
 
 const at = (point: Point3) => iso(point, P);
 const slab = (plan: Plan, z: number, h: number, steps = 6, bevel = 0) => slabOf(plan, z, h, P, steps, bevel);

@@ -25,8 +25,9 @@ export const PUBLIC_DESCRIPTOR =
  */
 export const AUTHOR_NAME = 'Josef Chen';
 export const AUTHOR_HANDLE = '@josefchen';
+/** The bio's wording as the owner revised it on 2026-10-15 (a full sentence in the first person). */
 export const AUTHOR_BIO =
-  'Spent 3 years building and deploying robots at KAIKAKU (acquired by REEF)';
+  'I spent three years building and deploying robots at KAIKAKU (acquired by REEF)';
 /**
  * External author profile. Verified to resolve 200 on 2026-08-20 and used
  * as the anchor around the author name (VAL-DIST-009 clause c).

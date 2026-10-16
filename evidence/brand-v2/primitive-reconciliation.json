@@ -99,7 +99,7 @@
     },
     "control:input": {
       "kind": "controls",
-      "fingerprint": "1633be29b5910f30fdee17745ff45e3d0f4e266dacac9b3c38c1b2cc31457406",
+      "fingerprint": "6dfd79014dda2f9c551b3a219d2f3bd45572d33ffedea2f2c9caf8c3078b7808",
       "mountState": "production",
       "definedIn": [
         "components/explainers/brand.ts",
@@ -140,6 +140,7 @@
         "components/interactive/retargeting-gap.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/rrt-explorer.tsx",
+        "components/interactive/safety-filter-fence.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teacher-student.tsx",
@@ -191,6 +192,7 @@
         "components/interactive/retargeting-gap.tsx",
         "components/interactive/reward-shaping.tsx",
         "components/interactive/rrt-explorer.tsx",
+        "components/interactive/safety-filter-fence.tsx",
         "components/interactive/sample-efficiency-ledger.tsx",
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teacher-student.tsx",
@@ -491,7 +493,7 @@
     },
     "control:secondary-action": {
       "kind": "controls",
-      "fingerprint": "7ca18195d25fed611354d10a89c278fca730ea575c16f57b87f9dc4f6201f157",
+      "fingerprint": "deb0c3a1f299a45c5a4c60da0ffce96909f7266eee53aee8fb7ff5208ec056fc",
       "mountState": "production",
       "definedIn": [
         "components/article/author-list.tsx",
@@ -529,6 +531,7 @@
         "components/interactive/reward-shaping.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/rrt-explorer.tsx",
+        "components/interactive/safety-filter-fence.tsx",
         "components/interactive/scene-split.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
@@ -585,6 +588,7 @@
         "components/interactive/reward-shaping.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/rrt-explorer.tsx",
+        "components/interactive/safety-filter-fence.tsx",
         "components/interactive/scene-split.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
@@ -687,14 +691,16 @@
     },
     "control:segmented": {
       "kind": "controls",
-      "fingerprint": "f9ff0614279cf5b8083d21220ea3d76254a20af6830875dcc640fabc31f70e51",
+      "fingerprint": "ef536239f60d33ef83b1eef912c3aafb36b0460664cdc626d78775fc8c59d54c",
       "mountState": "production",
       "definedIn": [
         "components/explainers/brand.ts",
+        "components/interactive/bear-case-lock.tsx",
         "components/ui/instrument.tsx",
         "components/ui/tabs.tsx"
       ],
       "ownerRouteOrMount": [
+        "components/interactive/bear-case-lock.tsx",
         "components/ui/instrument.tsx"
       ],
       "renderedOn": [
@@ -734,7 +740,7 @@
     },
     "control:selection": {
       "kind": "controls",
-      "fingerprint": "7fec7e96ad03c1c7d1caffa325c9a5820b9e68029a867b8a649ce9475935b4ae",
+      "fingerprint": "f749c100cab99e4a6705db8f7d1d12c9a3c0577108b7a33057d105f79816aafb",
       "mountState": "production",
       "definedIn": [
         "components/article/commit-to-reveal.tsx",
@@ -742,6 +748,7 @@
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/bear-case-lock.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/egoscale-scaling.tsx",
@@ -774,6 +781,7 @@
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/bear-case-lock.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/egoscale-scaling.tsx",
@@ -994,7 +1002,7 @@
     },
     "surface:flat": {
       "kind": "surfaces",
-      "fingerprint": "83cf97ae5b18a450d2cda5e01a9a15487f8cd4130786dd2e0dbf76906bb0bdf3",
+      "fingerprint": "d4dcfa37bca2e3d4b072583daa6fd416da447a425943a2cb0caffb4d34cb4bf3",
       "mountState": "production",
       "definedIn": [
         "components/article/commit-to-reveal.tsx",
@@ -1003,6 +1011,7 @@
         "components/home/featured-explainer.tsx",
         "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
+        "components/interactive/bear-case-lock.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/mot-insulation.tsx",
@@ -1049,6 +1058,7 @@
         "components/home/featured-explainer.tsx",
         "components/home/home-search.tsx",
         "components/interactive/action-tokenization.tsx",
+        "components/interactive/bear-case-lock.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/impedance-contact-lab.tsx",
         "components/interactive/mot-insulation.tsx",

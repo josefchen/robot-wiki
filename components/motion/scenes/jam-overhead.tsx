@@ -17,7 +17,7 @@
  * how long each fix takes. The inked rings are the scene's marks, in their
  * semantic roles; the part to watch in each beat is the one lit part.
  */
-import { useId, type ReactNode } from 'react';
+import { useId, type CSSProperties, type ReactNode } from 'react';
 import { AnimatedElement, AnimatedGroup } from '@/components/motion/animated';
 import { clamp01, smooth } from '@/components/motion/easing';
 import { SceneMount } from '@/components/motion/scene-mount';
@@ -43,6 +43,7 @@ import {
   chartTurn,
   counterDigits,
   hourLayout,
+  PHONE_FIT,
   picksBy,
   stateAt,
   timerAngle,
@@ -299,7 +300,12 @@ function PartView({ part }: { part: Exclude<Part, { kind: 'slot' }> }): ReactNod
 function JamOverheadStage() {
   const uid = `jam-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
   return (
-    <div className="iso" data-anatomy-drawing="">
+    <div
+      className="iso"
+      data-anatomy-drawing=""
+      data-phone-fit=""
+      style={{ '--iso-fit-aspect': PHONE_FIT.aspect, '--iso-fit-transform': PHONE_FIT.transform } as CSSProperties}
+    >
       <StageSvg viewBox={VIEW_BOX} className="iso-svg">
         <defs>
           {CELLS.map((cell) => (
@@ -313,9 +319,11 @@ function JamOverheadStage() {
             </g>
           ))}
         </defs>
-        {PARTS.map((part, index) =>
-          part.kind === 'slot' ? <SlotView key={part.slot} slot={part.slot} uid={uid} /> : <PartView key={index} part={part} />,
-        )}
+        <g className="iso-fit">
+          {PARTS.map((part, index) =>
+            part.kind === 'slot' ? <SlotView key={part.slot} slot={part.slot} uid={uid} /> : <PartView key={index} part={part} />,
+          )}
+        </g>
       </StageSvg>
     </div>
   );

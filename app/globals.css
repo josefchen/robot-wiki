@@ -1266,6 +1266,33 @@ article > hr {
 }
 
 /*
+ * The search page draws its own labelled clear button beside the input, so
+ * the browser's built-in cancel glyph (a second, blue x inside the field in
+ * Chromium and Safari) is switched off there.
+ */
+#search-page-input::-webkit-search-cancel-button {
+  display: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/*
+ * Brand-v2 set a few long citation chips on a line of their own
+ * (`data-*-source-placement` wrappers in the world-model and frontier
+ * articles and the thesis explorer). A citation is a superscript
+ * numeral now, and a line-start wrapper split its paragraph around a lone
+ * number ("tokens / 1. / It supports"), so the wrappers run inline.
+ */
+span[data-cosmos-source-placement],
+span[data-jepa-source-placement],
+span[data-latent-source-placement],
+span[data-taxonomy-source-placement],
+span[data-generative-video-source-placement],
+span[data-thesis-source-placement] {
+  display: inline;
+}
+
+/*
  * Figures and dense surfaces may sit wider than the text, up to about
  * 1020px, centred on the column. In the three-column sheet the extra width
  * is taken from the column gaps only, so a wide surface never reaches the

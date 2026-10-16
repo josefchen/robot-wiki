@@ -33,6 +33,7 @@ import {
   NEAR_TRUCK_PARTS,
   NEEDLES,
   PER_ROD,
+  PHONE_FIT,
   POCKETS,
   RODS,
   ROD_PATHS,
@@ -557,6 +558,7 @@ export function FlowMatchingTrajectory({
             <IsoFigure
               width={WIDTH}
               height={HEIGHT}
+              fit={PHONE_FIT}
               label={`2D action-space view: ${drawn.length} of ${field.samples.length} samples start as random noise and are carried toward two good moves along near-straight paths. With ${stepWords(steps)} the mean endpoint error is ${dispersion.toFixed(2)}${steps === 1 ? '' : `; one big jump would leave it at ${oneJump.toFixed(2)}`}. The learned vector field at mid-transport is ${showField ? 'shown' : 'hidden'}.`}
               describedBy={descriptionId}
             >

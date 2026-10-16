@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 const ROUTE = '/adjacent/autonomous-vehicles/';
 
@@ -36,6 +37,7 @@ test.describe('adjacent autonomous-vehicles module', () => {
     expect(fontFamily.toLowerCase()).toContain('serif');
 
     // Standard shell intact: sidebar taxonomy with the active route marked.
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Autonomous Vehicles' }),

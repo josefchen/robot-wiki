@@ -27,6 +27,7 @@ import {
   MARBLE_R,
   MARBLES,
   PARTS,
+  PHONE_FIT,
   RAILS,
   WIDTH,
   finishCup,
@@ -529,6 +530,7 @@ export function ReliabilityCompounding({
           <IsoFigure
             width={WIDTH}
             height={HEIGHT}
+            fit={PHONE_FIT}
             label={`A marble run with ${GATES} trapdoor gates on ${RAILS} rails. ${armed} ${stepWord(armed)} armed, each passing ${perStepWords(perStepPercent)} of the marbles that reach it: ${rest.finished} of ${MARBLES} marbles reach the finish tray and ${rest.rejected} drop into the reject tray.`}
             describedBy={descriptionId}
           >

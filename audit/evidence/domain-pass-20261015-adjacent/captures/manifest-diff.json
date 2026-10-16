@@ -75,11 +75,11 @@
     "label": "Motion scene: Perception delay lowers the safe speed",
     "size": {
      "before": "327x1466",
-     "after": "327x1466"
+     "after": "327x1483"
     },
     "bytesEqual": false,
     "pixelShareDiffering": null,
-    "pixelShareAfterAlignment": 0.28,
+    "pixelShareAfterAlignment": 15.28,
     "kindChanged": false,
     "sceneChanged": false,
     "surfaceChanged": false,
@@ -102,11 +102,11 @@
     "label": "A drone only sees so far ahead; every split-second its vision takes is distance flown blin",
     "size": {
      "before": "327x1950",
-     "after": "327x1950"
+     "after": "327x1934"
     },
     "bytesEqual": false,
     "pixelShareDiffering": null,
-    "pixelShareAfterAlignment": 4.06,
+    "pixelShareAfterAlignment": 14.35,
     "kindChanged": false,
     "sceneChanged": false,
     "surfaceChanged": false,
@@ -129,11 +129,11 @@
     "label": "A surgical robot divides the surgeon's hand movement, tremor included, so the instrument m",
     "size": {
      "before": "327x1152",
-     "after": "327x1152"
+     "after": "327x1137"
     },
     "bytesEqual": false,
-    "pixelShareDiffering": 0.79,
-    "pixelShareAfterAlignment": 0.79,
+    "pixelShareDiffering": null,
+    "pixelShareAfterAlignment": 16.3,
     "kindChanged": false,
     "sceneChanged": false,
     "surfaceChanged": false,
@@ -480,7 +480,7 @@
   ]
  },
  "start": "40c0947c (export built from the Start tree)",
- "end": "c625bbd2 (export of the End tree; adjacent pages as at 4f80f73a)",
+ "end": "de993183 (export of the End tree, built by vercel-build; the commits after it change no page; adjacent prose as at 4f80f73a)",
  "matching": "Start and End visuals are paired by route, kind and label, because the photographs added before the figures shift the per-route index",
  "pixelRule": "a pixel differs when any RGB channel differs by more than a quarter of the range (64/255); null when the sizes differ; the aligned share is the minimum over vertical shifts of -2 to 2 px"
 }

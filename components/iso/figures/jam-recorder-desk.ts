@@ -40,6 +40,7 @@ import {
   type SolidPaths,
   type Tone,
 } from '../iso-kit.ts';
+import { phoneFitOf } from '../phone-fit.ts';
 
 export const WIDTH = 580;
 export const HEIGHT = 400;
@@ -194,6 +195,8 @@ for (const px of [LID.x, LID.x + LID.w]) for (const py of [LID.y, LID.y + LID.d]
 // The stack lights' caps, all round, so the fit keeps the whole cap inside the stage.
 for (const x of [-192, 192]) for (const [dx, dy] of [[-8, -8], [8, -8], [-8, 8], [8, 8]]) extremes.push([x + dx, -10 + dy, DESK_TOP + LID_H + 56]);
 export const P = fitProjection(extremes, WIDTH, HEIGHT, { pad: 8, azimuth: AZIMUTH });
+/** The machine's own window, shown on a phone in place of the full viewBox (components/iso/phone-fit.ts). */
+export const PHONE_FIT = phoneFitOf(extremes, P, WIDTH, HEIGHT, { pad: 8 });
 
 const at = (point: Point3) => iso(point, P);
 const slab = (plan: Plan, z: number, h: number, steps = 4, bevel = 0) => slabOf(plan, z, h, P, steps, bevel);

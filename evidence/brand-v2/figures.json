@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "a586849174855078d61786bde546e13a377610fc8598c9d32cfe094d81457404",
+  "fingerprint": "637341cede161b903ca53859d1bd654650c2af74c0d870b668cb1524bcf53047",
   "viewports": [
     "375x812",
     "1440x900"
@@ -69,7 +69,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 31830,
+      "visibleTextLength": 31831,
       "figures": [
         {
           "imageId": "waymo-jaguar-ipace-san-francisco-2023",
@@ -297,7 +297,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22957,
+      "visibleTextLength": 22962,
       "figures": [
         {
           "imageId": "perseverance-selfie-rochette-2021",
@@ -474,7 +474,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21784,
+      "visibleTextLength": 21785,
       "figures": [
         {
           "imageId": "da-vinci-xi-patient-cart-2018",
@@ -660,7 +660,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24194,
+      "visibleTextLength": 24196,
       "figures": [
         {
           "imageId": "centrifugal-governor-queen-street-mill",
@@ -981,7 +981,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 27210,
+      "visibleTextLength": 27214,
       "figures": [
         {
           "imageId": "pr2-willow-garage-2010",
@@ -1260,7 +1260,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 28219,
+      "visibleTextLength": 28220,
       "figures": [
         {
           "imageId": "ouster-lidar-point-cloud-sf",
@@ -1395,7 +1395,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22782,
+      "visibleTextLength": 22784,
       "figures": [
         {
           "imageId": "apollo-imu-draper-2019",
@@ -1488,7 +1488,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 57559,
+      "visibleTextLength": 57565,
       "figures": [
         {
           "imageId": "atlas-darpa-frontview-2013",
@@ -11983,7 +11983,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24635,
+      "visibleTextLength": 24630,
       "figures": [
         {
           "imageId": "bmw-leipzig-body-shop-spot-welding-2005",
@@ -12304,7 +12304,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16208,
+      "visibleTextLength": 16803,
       "figures": [
         {
           "imageId": "asimo-miraikan-2016",
@@ -12490,7 +12490,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24913,
+      "visibleTextLength": 24914,
       "figures": [
         {
           "imageId": "uskin-tactile-allegro-hand-2021",
@@ -12811,7 +12811,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 26806,
+      "visibleTextLength": 27279,
       "figures": [
         {
           "imageId": "robotic-welding-cell-guarding-2014",
@@ -13613,7 +13613,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16617,
+      "visibleTextLength": 16614,
       "figures": [
         {
           "imageId": "aloha-unleashed-shirt-rollout-2024",
@@ -14795,7 +14795,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22178,
+      "visibleTextLength": 22174,
       "figures": [
         {
           "imageId": "atlas-electric-hyundai-goyang-2026",
@@ -14930,7 +14930,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 19809,
+      "visibleTextLength": 19807,
       "figures": [
         {
           "imageId": "spot-boston-dynamics-2023",
@@ -15200,7 +15200,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17827,
+      "visibleTextLength": 17823,
       "figures": [
         {
           "imageId": "isaac-gym-shadow-hand-envs-2021",
@@ -15293,7 +15293,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 25290,
+      "visibleTextLength": 25239,
       "figures": [
         {
           "imageId": "mini-cheetah-spin-rapid-locomotion-2022",
@@ -15479,7 +15479,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24669,
+      "visibleTextLength": 24668,
       "figures": [
         {
           "imageId": "isaac-gym-anymal-real-stairs-2021",
@@ -15893,7 +15893,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21798,
+      "visibleTextLength": 21799,
       "figures": [
         {
           "imageId": "gr1-video-prediction-2023",
@@ -16028,7 +16028,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18979,
+      "visibleTextLength": 18982,
       "figures": [
         {
           "imageId": "vjepa2-pick-place-goals-2025",
@@ -16577,7 +16577,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 46669,
+      "visibleTextLength": 46671,
       "figures": [
         {
           "imageId": "waymo-jaguar-ipace-san-francisco-2023",
@@ -16805,7 +16805,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 34688,
+      "visibleTextLength": 34698,
       "figures": [
         {
           "imageId": "perseverance-selfie-rochette-2021",
@@ -16982,7 +16982,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 32250,
+      "visibleTextLength": 32252,
       "figures": [
         {
           "imageId": "da-vinci-xi-patient-cart-2018",
@@ -17168,7 +17168,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 30759,
+      "visibleTextLength": 30763,
       "figures": [
         {
           "imageId": "centrifugal-governor-queen-street-mill",
@@ -17489,7 +17489,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 36739,
+      "visibleTextLength": 36747,
       "figures": [
         {
           "imageId": "pr2-willow-garage-2010",
@@ -17768,7 +17768,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 36660,
+      "visibleTextLength": 36662,
       "figures": [
         {
           "imageId": "ouster-lidar-point-cloud-sf",
@@ -17903,7 +17903,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 30645,
+      "visibleTextLength": 30649,
       "figures": [
         {
           "imageId": "apollo-imu-draper-2019",
@@ -17996,7 +17996,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 57559,
+      "visibleTextLength": 57565,
       "figures": [
         {
           "imageId": "atlas-darpa-frontview-2013",
@@ -28491,7 +28491,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 32051,
+      "visibleTextLength": 32046,
       "figures": [
         {
           "imageId": "bmw-leipzig-body-shop-spot-welding-2005",
@@ -28812,7 +28812,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21885,
+      "visibleTextLength": 22480,
       "figures": [
         {
           "imageId": "asimo-miraikan-2016",
@@ -28998,7 +28998,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 30484,
+      "visibleTextLength": 30486,
       "figures": [
         {
           "imageId": "uskin-tactile-allegro-hand-2021",
@@ -29319,7 +29319,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 37820,
+      "visibleTextLength": 38293,
       "figures": [
         {
           "imageId": "robotic-welding-cell-guarding-2014",
@@ -30121,7 +30121,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21981,
+      "visibleTextLength": 21978,
       "figures": [
         {
           "imageId": "aloha-unleashed-shirt-rollout-2024",
@@ -31303,7 +31303,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27181,
+      "visibleTextLength": 27177,
       "figures": [
         {
           "imageId": "atlas-electric-hyundai-goyang-2026",
@@ -31438,7 +31438,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 25098,
+      "visibleTextLength": 25096,
       "figures": [
         {
           "imageId": "spot-boston-dynamics-2023",
@@ -31708,7 +31708,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24580,
+      "visibleTextLength": 24576,
       "figures": [
         {
           "imageId": "isaac-gym-shadow-hand-envs-2021",
@@ -31801,7 +31801,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 33030,
+      "visibleTextLength": 32979,
       "figures": [
         {
           "imageId": "mini-cheetah-spin-rapid-locomotion-2022",
@@ -31987,7 +31987,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 31545,
+      "visibleTextLength": 31544,
       "figures": [
         {
           "imageId": "isaac-gym-anymal-real-stairs-2021",
@@ -32401,7 +32401,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27360,
+      "visibleTextLength": 27362,
       "figures": [
         {
           "imageId": "gr1-video-prediction-2023",
@@ -32536,7 +32536,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 25149,
+      "visibleTextLength": 25155,
       "figures": [
         {
           "imageId": "vjepa2-pick-place-goals-2025",

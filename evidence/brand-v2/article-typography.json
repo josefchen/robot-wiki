@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "4025bed2ff384d49a7b9b6085c72750e2719014d5711c5c1135fd25ce8d4ac69",
+  "fingerprint": "899d4b73d56a046880eaf88ece9fadc8295d0408d51b1b57f3b6c5cbecde792b",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3023,
+      "visibleTextLength": 3021,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -923,7 +923,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 31830,
+      "visibleTextLength": 31831,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2936,7 +2936,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22957,
+      "visibleTextLength": 22962,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3576,7 +3576,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21784,
+      "visibleTextLength": 21785,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5159,7 +5159,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24194,
+      "visibleTextLength": 24196,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7732,7 +7732,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27210,
+      "visibleTextLength": 27214,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10686,7 +10686,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28219,
+      "visibleTextLength": 28220,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11693,7 +11693,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22782,
+      "visibleTextLength": 22784,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12518,7 +12518,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 57559,
+      "visibleTextLength": 57565,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16486,7 +16486,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24635,
+      "visibleTextLength": 24630,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16623,7 +16623,7 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 160,
+          "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Pays back inside 24 months"
@@ -19339,7 +19339,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16208,
+      "visibleTextLength": 16803,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19391,11 +19391,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 6,
+        "readingMinutes": 7,
         "citationCount": 33,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "6 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "brooks-dexterity-2025",
@@ -19618,6 +19618,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Figure's Helix 02 takes fingertip tactile inputSource 2929 F"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Pin status from the watchlist, August 2026; pin heights illu"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The bear case rests on four premises, and the article names "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a pin-tumbler lock cut open in front of its p"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: the statuses are the watchlist's calls, but ho"
         },
         {
           "familyHead": "geist",
@@ -20184,6 +20220,46 @@
         {
           "tag": "button",
           "text": "Partly there",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "10,000 at work",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "90% in unseen homes",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Cost-per-task parity",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Success scaling law",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -21369,7 +21445,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24913,
+      "visibleTextLength": 24914,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24090,7 +24166,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26806,
+      "visibleTextLength": 27279,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24142,11 +24218,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 12,
+        "readingMinutes": 13,
         "citationCount": 43,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "12 min read",
+        "readingTimeText": "13 min read",
         "citationCountText": "43 sources",
         "bibliographyIds": [
           "iso-12100",
@@ -24451,6 +24527,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The formal instance is the safety filter. A control barrier "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the filter's rule on an illustrative stroke"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "A learned policy has no written specification to certify, so"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is that rule as a bench. The sealed box, with no"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the stroke, the zone and the bench are illustrati"
         },
         {
           "familyHead": "geist",
@@ -25020,6 +25132,22 @@
           "text": "Current workcell settings",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Run the policy",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -29822,7 +29950,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16617,
+      "visibleTextLength": 16614,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -38826,7 +38954,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 50074,
+      "visibleTextLength": 50129,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40568,7 +40696,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22178,
+      "visibleTextLength": 22174,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41499,7 +41627,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19809,
+      "visibleTextLength": 19807,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -43476,7 +43604,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17827,
+      "visibleTextLength": 17823,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44300,7 +44428,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25290,
+      "visibleTextLength": 25239,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44432,15 +44560,6 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 66,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "Steady trot"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
@@ -44472,6 +44591,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Three rules pick a failure category, checked in this order. "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a mixing desk wired to a treadmill bay. Each "
         },
         {
           "familyHead": "geist",
@@ -44576,15 +44704,6 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 71,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "Round 1 of 3"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
@@ -44598,6 +44717,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Scripted replay of the Eureka loop (propose reward code, tra"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is that loop as a bench. Each round's rules are "
         },
         {
           "familyHead": "geist",
@@ -46337,7 +46465,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24669,
+      "visibleTextLength": 24668,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50079,7 +50207,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21798,
+      "visibleTextLength": 21799,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51084,7 +51212,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18979,
+      "visibleTextLength": 18982,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55130,7 +55258,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3023,
+      "visibleTextLength": 3021,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55910,7 +56038,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 46669,
+      "visibleTextLength": 46671,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57901,7 +58029,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 34688,
+      "visibleTextLength": 34698,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58530,7 +58658,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32250,
+      "visibleTextLength": 32252,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60091,7 +60219,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30759,
+      "visibleTextLength": 30763,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62631,7 +62759,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 36739,
+      "visibleTextLength": 36747,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65552,7 +65680,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 36660,
+      "visibleTextLength": 36662,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66548,7 +66676,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30645,
+      "visibleTextLength": 30649,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67362,7 +67490,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 57559,
+      "visibleTextLength": 57565,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71286,7 +71414,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32051,
+      "visibleTextLength": 32046,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74106,7 +74234,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21885,
+      "visibleTextLength": 22480,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74158,11 +74286,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 6,
+        "readingMinutes": 7,
         "citationCount": 33,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "6 min read",
+        "readingTimeText": "7 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "brooks-dexterity-2025",
@@ -74385,6 +74513,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Figure's Helix 02 takes fingertip tactile inputSource 2929 F"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Pin status from the watchlist, August 2026; pin heights illu"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The bear case rests on four premises, and the article names "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a pin-tumbler lock cut open in front of its p"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: the statuses are the watchlist's calls, but ho"
         },
         {
           "familyHead": "geist",
@@ -74951,6 +75115,46 @@
         {
           "tag": "button",
           "text": "Partly there",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "10,000 at work",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "90% in unseen homes",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Cost-per-task parity",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Success scaling law",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -76114,7 +76318,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30484,
+      "visibleTextLength": 30486,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78802,7 +79006,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 37820,
+      "visibleTextLength": 38293,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78854,11 +79058,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 12,
+        "readingMinutes": 13,
         "citationCount": 43,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "12 min read",
+        "readingTimeText": "13 min read",
         "citationCountText": "43 sources",
         "bibliographyIds": [
           "iso-12100",
@@ -79163,6 +79367,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The formal instance is the safety filter. A control barrier "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the filter's rule on an illustrative stroke"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "A learned policy has no written specification to certify, so"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is that rule as a bench. The sealed box, with no"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the stroke, the zone and the bench are illustrati"
         },
         {
           "familyHead": "geist",
@@ -79732,6 +79972,22 @@
           "text": "Current workcell settings",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Run the policy",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -84468,7 +84724,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21981,
+      "visibleTextLength": 21978,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -93362,7 +93618,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 54465,
+      "visibleTextLength": 54520,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95104,7 +95360,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 27181,
+      "visibleTextLength": 27177,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96024,7 +96280,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25098,
+      "visibleTextLength": 25096,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -97979,7 +98235,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24580,
+      "visibleTextLength": 24576,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98792,7 +99048,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33030,
+      "visibleTextLength": 32979,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98924,15 +99180,6 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 66,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "Steady trot"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
@@ -98964,6 +99211,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Three rules pick a failure category, checked in this order. "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a mixing desk wired to a treadmill bay. Each "
         },
         {
           "familyHead": "geist",
@@ -99068,15 +99324,6 @@
           "familyHead": "geist",
           "sizePx": 12,
           "lineHeightRatio": 1.5,
-          "widthPx": 71,
-          "zeroAdvancePx": 9,
-          "insideRegisteredFrame": true,
-          "text": "Round 1 of 3"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 12,
-          "lineHeightRatio": 1.5,
           "widthPx": 875.63,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
@@ -99090,6 +99337,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "Scripted replay of the Eureka loop (propose reward code, tra"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is that loop as a bench. Each round's rules are "
         },
         {
           "familyHead": "geist",
@@ -100807,7 +101063,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 31545,
+      "visibleTextLength": 31544,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104505,7 +104761,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27360,
+      "visibleTextLength": 27362,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -105499,7 +105755,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25149,
+      "visibleTextLength": 25155,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "304545c13a09f8231ceea045614861b4031931ad7d3670b094e162806b0b3d7f",
+  "fingerprint": "4c91c555795bc19c55959b89c11237ab1de4eb667f260cf6d59571f1afb39a9f",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3023,
+      "visibleTextLength": 3021,
       "header": {
         "present": true,
         "display": "flex",
@@ -722,7 +722,7 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "visibleTextLength": 31830,
+      "visibleTextLength": 31831,
       "header": {
         "present": true,
         "display": "flex",
@@ -1046,7 +1046,7 @@
     },
     {
       "route": "/adjacent/space/",
-      "visibleTextLength": 22957,
+      "visibleTextLength": 22962,
       "header": {
         "present": true,
         "display": "flex",
@@ -1208,7 +1208,7 @@
     },
     {
       "route": "/adjacent/surgical/",
-      "visibleTextLength": 21784,
+      "visibleTextLength": 21785,
       "header": {
         "present": true,
         "display": "flex",
@@ -1694,7 +1694,7 @@
     },
     {
       "route": "/classical/control/",
-      "visibleTextLength": 24194,
+      "visibleTextLength": 24196,
       "header": {
         "present": true,
         "display": "flex",
@@ -2180,7 +2180,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 27210,
+      "visibleTextLength": 27214,
       "header": {
         "present": true,
         "display": "flex",
@@ -2666,7 +2666,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "visibleTextLength": 28219,
+      "visibleTextLength": 28220,
       "header": {
         "present": true,
         "display": "flex",
@@ -2828,7 +2828,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 22782,
+      "visibleTextLength": 22784,
       "header": {
         "present": true,
         "display": "flex",
@@ -2990,7 +2990,7 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 57559,
+      "visibleTextLength": 57565,
       "header": {
         "present": true,
         "display": "flex",
@@ -3962,7 +3962,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 24635,
+      "visibleTextLength": 24630,
       "header": {
         "present": true,
         "display": "flex",
@@ -4764,7 +4764,7 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "visibleTextLength": 16208,
+      "visibleTextLength": 16803,
       "header": {
         "present": true,
         "display": "flex",
@@ -5088,7 +5088,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 24913,
+      "visibleTextLength": 24914,
       "header": {
         "present": true,
         "display": "flex",
@@ -5574,7 +5574,7 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "visibleTextLength": 26806,
+      "visibleTextLength": 27279,
       "header": {
         "present": true,
         "display": "flex",
@@ -7032,7 +7032,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 16617,
+      "visibleTextLength": 16614,
       "header": {
         "present": true,
         "display": "flex",
@@ -8652,7 +8652,7 @@
     },
     {
       "route": "/market-map/",
-      "visibleTextLength": 50074,
+      "visibleTextLength": 50129,
       "header": {
         "present": true,
         "display": "flex",
@@ -9292,7 +9292,7 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "visibleTextLength": 22178,
+      "visibleTextLength": 22174,
       "header": {
         "present": true,
         "display": "flex",
@@ -9454,7 +9454,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "visibleTextLength": 19809,
+      "visibleTextLength": 19807,
       "header": {
         "present": true,
         "display": "flex",
@@ -9778,7 +9778,7 @@
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "visibleTextLength": 17827,
+      "visibleTextLength": 17823,
       "header": {
         "present": true,
         "display": "flex",
@@ -9940,7 +9940,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "visibleTextLength": 25290,
+      "visibleTextLength": 25239,
       "header": {
         "present": true,
         "display": "flex",
@@ -10264,7 +10264,7 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "visibleTextLength": 24669,
+      "visibleTextLength": 24668,
       "header": {
         "present": true,
         "display": "flex",
@@ -11228,7 +11228,7 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "visibleTextLength": 21798,
+      "visibleTextLength": 21799,
       "header": {
         "present": true,
         "display": "flex",
@@ -11390,7 +11390,7 @@
     },
     {
       "route": "/world-models/jepa/",
-      "visibleTextLength": 18979,
+      "visibleTextLength": 18982,
       "header": {
         "present": true,
         "display": "flex",

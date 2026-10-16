@@ -13,7 +13,7 @@ import { AnatomyStage } from '@/components/iso/anatomy-stage';
 import { Dots, IsoFigure, Line, Solid, Wire } from '@/components/iso/react/draw';
 import { asksForStillness } from '@/components/iso/react/live';
 import { useEasedValue } from '@/components/motion/use-eased-value';
-import { HEIGHT, PARTS, TRAVEL, WIDTH, beamTo, slideTo, type Group, type Part } from '@/components/iso/figures/time-offset-bench';
+import { HEIGHT, PARTS, PHONE_FIT, TRAVEL, WIDTH, beamTo, slideTo, type Group, type Part } from '@/components/iso/figures/time-offset-bench';
 
 /**
  * TimeOffsetMiss: why time calibration matters, drawn as a tracking bench.
@@ -195,6 +195,7 @@ export function TimeOffsetMiss({ className }: { className?: string }) {
             <IsoFigure
               width={WIDTH}
               height={HEIGHT}
+              fit={PHONE_FIT}
               label={`A gripper on a rail over a ruler, moving at ${speed} centimetres a second. A camera above it aims a beam at where its latest photo shows the gripper; the beam lands ${formatMm(gap)} millimetres behind the gripper's pointer.`}
               describedBy={descriptionId}
             >

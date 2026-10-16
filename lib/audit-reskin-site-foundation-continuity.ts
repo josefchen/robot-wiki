@@ -40,7 +40,7 @@ export type ReskinReview = {
 
 // BEGIN reskin site-foundation pins (written by scripts/record-reskin-site-foundation-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 192801, sha256: '1cfcb7abbdb55bcd120434439ca0c9e56008a80fd0d9898563813263b558606f' };
+const reviewPin = { bytes: 195378, sha256: '7c1b8e7f26052d388a2b161896b86adbf69724ee19b627d751d6d0b457c0e136' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -50,7 +50,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['app/about/page.tsx', [6192, 'd17ce0a83794151f66e7c77c56e79d5f43eea1622d7e137e61d9399bbb55e0b9']],
   ['app/credits/page.tsx', [8488, '66a9f71b1879de7fc50dcdaebf78fa6eb15f6cf8e376fd600c71ad0ac3e0040d']],
   ['app/editorial-policy/page.tsx', [4963, 'b9deaf6ef5d58ec00e2fb400344d7cefdf4ebf32bc4d37aa48510398eaf12dd1']],
-  ['app/globals.css', [31388, '207598c3d33d6266add227fc00d138843076ec6d1258e48dbda747521c63b340']],
+  ['app/globals.css', [32316, '8de4e85609e2124f4ed939f07e4d1b6fffb1fa3cffe68d3278824d336657530c']],
   ['app/glossary/page.tsx', [4698, 'a76d5c7d30740c6c7611196baefd2687dd8e7dc02a2e24d2cf96d6a5245df2e2']],
   ['app/layout.tsx', [4426, '7fc799173cdc026fd133d868deac13eaacfe26a6ed7a87a7fde6a5aedfd5c6c5']],
   ['app/not-found.tsx', [2670, '61cefe72130fbe2ad4c18c1d9d3877e236e370f9e11be61b784599f843fe64a9']],
@@ -80,7 +80,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/ui/code-block.tsx', [1415, '8dad0fc0047e962a8d6e3d73bd95c697af6c190d4cf1d7e65cff926514c62524']],
   ['components/ui/table.tsx', [8316, '59f239fcde4498d01359bf0568a6e23e2188a891c17a524dc665eda132e422d9']],
   ['components/ui/tabs.tsx', [2844, '6b8cd205e909cfff2f5e783de2cc717cab0c864579f6e3fc557d646edf58f00d']],
-  ['lib/rehype-cite-punctuation.mjs', [5290, 'a66ea5c326b9b0a9b7b0c3f0cfdb7cf2b838a570d85714b1ebf1efbc7a33e6e1']],
+  ['lib/rehype-cite-punctuation.mjs', [6741, 'd801b6f103d9dc0d497d8f5569f4ec01354852878aee8638dced4e24a2e30631']],
   ['mdx-components.tsx', [5019, '0232bf20edd573c1c38c68c0c830442895b8f790b57c4655b2f0e13468c3b34f']],
 ]);
 // END reskin site-foundation pins

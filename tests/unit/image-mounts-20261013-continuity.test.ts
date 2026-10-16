@@ -19,9 +19,11 @@ import {
   IMAGE_MOUNT_CONTINUITY_DIR, imageMountIds, imageMountPredecessor, imageMountSuccessorPaths, imageMountsIn,
   keepsImageMountObligations, loadImageMountReview, verifyImageMountSource, withoutImageMounts,
 } from '../../lib/audit-image-mount-continuity';
+import { preLateFigureMounts } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-const read = (path: string) => readFileSync(join(root, path));
+// The newer figure-mount layer (the two frontier mounts of 2026-10-15) hands back the image-mount successor first.
+const read = (path: string) => preLateFigureMounts(path);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /image mount continuity drift/;
 const blank = { bytes: 0, sha256: '' };
