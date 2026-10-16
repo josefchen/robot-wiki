@@ -456,6 +456,16 @@ export const OG_TITLE_MEASURE_PX =
   1200 - 2 * (OG_FRAME_INSET_PX + 1) - 2 * OG_TEXT_INSET_PX;
 
 /**
+ * Balanced lines keep a two-line title from ending on one short word.
+ * Satori breaks after a hard hyphen, so balancing a hyphenated title can
+ * split its compound across the lines ("Humanoid Whole-" over "Body
+ * Control"); a hyphenated title keeps the greedy wrap instead.
+ */
+function titleWrap(title: string): 'balance' | undefined {
+  return title.includes('-') ? undefined : 'balance';
+}
+
+/**
  * The article card: domain and review year in the header band, the title
  * as the dominant element on the open paper between the bands, and the
  * compact wordmark and the article's real reference count in the footer
@@ -463,6 +473,7 @@ export const OG_TITLE_MEASURE_PX =
  */
 export function articleCardElement(input: CardArtworkInput): CardNode {
   const title = sanitizeCardText(input.entry.title);
+  const wrap = titleWrap(title);
   return frame(
     div({ display: 'flex', flexDirection: 'column', flexGrow: 1 }, [
       band('header', [
@@ -478,6 +489,7 @@ export function articleCardElement(input: CardArtworkInput): CardNode {
             lineHeight: 1.06,
             letterSpacing: '-0.5px',
             color: TEXT,
+            ...(wrap ? { textWrap: wrap } : {}),
           },
           title,
           { field: 'title' },
