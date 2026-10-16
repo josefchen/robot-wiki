@@ -134,10 +134,21 @@ async function classifySvgs(page: Page, route: string): Promise<SvgRow[]> {
       const ariaHidden = svg.getAttribute('aria-hidden');
       const ariaLabel = (svg.getAttribute('aria-label') ?? '').trim();
       const describedBy = svg.getAttribute('aria-describedby');
+      // aria-describedby is an ID reference list: every listed id must
+      // resolve, and the description is the text of all of them.
       let targetLength = 0;
       if (describedBy) {
-        const target = document.getElementById(describedBy);
-        targetLength = target ? (target.textContent ?? '').trim().length : -1;
+        const targets = describedBy
+          .split(/\s+/)
+          .filter(Boolean)
+          .map((id) => document.getElementById(id));
+        targetLength =
+          targets.length > 0 && targets.every((target) => target !== null)
+            ? targets.reduce(
+                (sum, target) => sum + (target!.textContent ?? '').trim().length,
+                0,
+              )
+            : -1;
       }
       const decorative =
         ariaHidden === 'true' ||

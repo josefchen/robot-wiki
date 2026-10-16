@@ -25,12 +25,16 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
 
 const OUT = join(process.cwd(), 'out');
 /**
- * The site's one page-ground token, #F5F6F7 (contract VAL-CROSS-020). Every
- * route resolves to exactly this: there is no second theme and no
+ * The site's one page-ground token (contract VAL-CROSS-020). Every route
+ * resolves to exactly this: there is no second theme and no
  * prefers-color-scheme branch, so a route reporting anything else is either
  * unthemed or has been given a ground of its own.
+ *
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * the paper #FAFAF8 replaces the brand-v2 ground #F5F6F7, at the same exact
+ * equality.
  */
-const PAGE_GROUND = 'rgb(245, 246, 247)';
+const PAGE_GROUND = 'rgb(250, 250, 248)';
 
 /**
  * Routes served as-is by the export server (each has its index.html).
@@ -146,36 +150,36 @@ test.describe('registry-driven axe + console sweep', () => {
   });
 
   test('the three typefaces resolve on home and a module page (VAL-A11Y-014)', async ({ page }) => {
-    // Serif long-form prose only exists on article routes; the home page
-    // carries the sans UI and mono readouts.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): DM Sans (the H1 display), Geist (interface and article
+    // prose) and Geist Mono (numerals and code) replace IBM Plex Sans,
+    // Newsreader and IBM Plex Mono. Each family must lead its stack, and
+    // names match whole, so Geist Mono cannot pass for Geist. Article prose
+    // only exists on article routes.
     for (const route of ['/', '/manipulation/action-chunking/']) {
       await page.goto(`${BASE}${route}`);
       await page.waitForLoadState('networkidle');
       const fonts = await page.evaluate(() => ({
+        display: getComputedStyle(document.querySelector('h1') ?? document.body).fontFamily,
         sans: getComputedStyle(document.body).fontFamily,
-        serif: getComputedStyle(
+        prose: getComputedStyle(
           document.querySelector('.prose[data-pagefind-body] p, .prose p') ?? document.body,
         ).fontFamily,
         mono: getComputedStyle(
           document.querySelector('pre, code, .font-mono') ?? document.body,
         ).fontFamily,
       }));
-      expect(fonts.sans, `${route} UI text uses IBM Plex Sans`).toMatch(
-        /IBM Plex Sans/i,
-      );
-      expect(fonts.mono, `${route} code uses IBM Plex Mono`).toMatch(
-        /IBM Plex Mono/i,
-      );
+      expect(fonts.display, `${route} H1 uses DM Sans`).toMatch(/^"?DM Sans"?,/);
+      expect(fonts.sans, `${route} UI text uses Geist`).toMatch(/^"?Geist"?,/);
+      expect(fonts.mono, `${route} code uses Geist Mono`).toMatch(/^"?Geist Mono"?,/);
       if (route !== '/') {
-        expect(fonts.serif, `${route} prose uses Newsreader`).toMatch(
-          /Newsreader/i,
-        );
+        expect(fonts.prose, `${route} prose uses Geist`).toMatch(/^"?Geist"?,/);
       }
-      // The outgoing faces must be gone, not merely outranked: shipping nine
-      // families would pass every assertion above.
+      // The outgoing faces must be gone, not merely outranked: shipping
+      // every family would pass every assertion above.
       for (const [slot, family] of Object.entries(fonts)) {
         expect(family, `${route} ${slot} still names a retired face`).not.toMatch(
-          /Geist|Source Serif|JetBrains/i,
+          /IBM Plex|Newsreader|Tektur|Source Serif|JetBrains/i,
         );
       }
     }

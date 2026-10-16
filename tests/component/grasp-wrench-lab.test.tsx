@@ -132,9 +132,28 @@ describe('GraspWrenchLab', () => {
     const remove = screen.getByRole('button', {
       name: /remove the last contact/i,
     });
+    remove.focus();
     fireEvent.click(remove);
     fireEvent.click(remove);
     expect(readout('grasp-contacts-readout')).toBe('2');
+    // Unavailable at two contacts but still focusable, so the last removal keeps keyboard focus.
+    expect(remove).toHaveAttribute('aria-disabled', 'true');
+    expect(remove).toHaveFocus();
+  });
+
+  it('keeps focus on Add contact once the grip holds its most contacts', () => {
+    render(<GraspWrenchLab />);
+    const add = screen.getByRole('button', { name: /add a contact/i });
+    expect(add).not.toHaveAttribute('aria-disabled');
+    add.focus();
+    for (let i = 0; i < 12 && add.getAttribute('aria-disabled') !== 'true'; i += 1) {
+      fireEvent.click(add);
+    }
+    expect(add).toHaveAttribute('aria-disabled', 'true');
+    expect(add).toHaveFocus();
+    const most = readout('grasp-contacts-readout');
+    fireEvent.click(add);
+    expect(readout('grasp-contacts-readout')).toBe(most);
   });
 
   it('reset restores the default grasp, friction, and readouts', () => {

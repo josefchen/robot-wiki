@@ -298,14 +298,15 @@ export function RrtExplorer({ className }: { className?: string }) {
             data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
-            onClick={() => scrub(iteration + 1)}
-            disabled={iteration >= total}
+            onClick={iteration >= total ? undefined : () => scrub(iteration + 1)}
+            aria-disabled={iteration >= total || undefined}
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
             Step forward
           </button>
           <InstrumentReset onClick={reset} />
-          <InstrumentReadout className="flex basis-full flex-wrap gap-x-3">
+          {/* Quiet while the tree grows, which rewrites it every tick; the stage speaks where it stops. */}
+          <InstrumentReadout aria-live={playing ? 'off' : 'polite'} className="flex basis-full flex-wrap gap-x-3">
             <span>
               iteration{' '}
               <span ref={cadenceSignalRef} data-testid="rrt-iteration-readout">

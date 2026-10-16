@@ -87,6 +87,23 @@ describe('AppearancePhysicsPush', () => {
     expect(screen.getAllByTestId('motion-ghost')).toHaveLength(2);
   });
 
+  it('keeps focus on the push once the mug rests at the end stop', async () => {
+    const user = userEvent.setup();
+    render(<AppearancePhysicsPush />);
+    await user.click(scene(/^picture plus physics$/i));
+    expect(push()).not.toHaveAttribute('aria-disabled');
+    for (let i = 0; i < 6 && push().getAttribute('aria-disabled') !== 'true'; i += 1) {
+      await user.click(push());
+    }
+    expect(screen.getByTestId('mug')).toHaveAttribute('data-position-mm', String(TRACK_MAX_M * 1000));
+    // Unavailable at the end stop but still focusable, so the last push keeps keyboard focus.
+    expect(push()).toHaveAttribute('aria-disabled', 'true');
+    expect(push()).toHaveFocus();
+    const ghosts = screen.getAllByTestId('motion-ghost').length;
+    await user.click(push());
+    expect(screen.getAllByTestId('motion-ghost')).toHaveLength(ghosts);
+  });
+
   it('a stronger push slides the mug further', async () => {
     const user = userEvent.setup();
     render(<AppearancePhysicsPush />);

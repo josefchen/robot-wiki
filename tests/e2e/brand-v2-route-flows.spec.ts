@@ -7,8 +7,6 @@ import {
 } from '../../lib/brand-v2-runners';
 import { validateRouteProfile } from '../../lib/brand-v2-route-profile';
 import {
-  archivedExpectedRed,
-  archivedExpectedRedRoutes,
   brandV2Registry,
   expect,
   test,
@@ -28,16 +26,7 @@ test.describe('brand-v2-route-flows', () => {
     const suite = BRAND_V2_FLOW_SUITES['brand-v2-route-flows'];
     expect(plan.members.length).toBeGreaterThan(5);
     expect(plan.notFound.publicContent).toBe(false);
-    const archivedReflowReason = archivedExpectedRed(
-      'brand-v2-reflow-320-200',
-      'VAL-B2-EVID-011',
-    );
-    const expectedArchivedReflowRoutes = archivedExpectedRedRoutes(
-      'brand-v2-reflow-320-200',
-      'VAL-B2-EVID-011',
-    );
-    const archivedReflowFailures: string[] = [];
-    const archivedReflowRoutes: string[] = [];
+    const reflowOverflow: Array<{ route: string; overflowPx: number }> = [];
     const { errors: resourceFailures } = collectConsole(page);
     page.on('response', (response) => {
       if (response.status() >= 400) {
@@ -186,22 +175,13 @@ test.describe('brand-v2-route-flows', () => {
                     backdropResidue: computed.backdropResidue,
                     reflowOverflowPx,
                   });
-                  const reflowFailures = profileFailures.filter(
-                    ({ check }) => check === 'reflow',
-                  );
-                  archivedReflowFailures.push(
-                    ...reflowFailures.map(
-                      ({ reason }) => `${member.path}:${reason}`,
-                    ),
-                  );
-                  if (reflowFailures.length > 0) {
-                    archivedReflowRoutes.push(member.path);
-                  }
+                  reflowOverflow.push({
+                    route: member.path,
+                    overflowPx: reflowOverflowPx,
+                  });
                   expect(
-                    profileFailures.filter(
-                      ({ check }) => check !== 'reflow',
-                    ),
-                    `${member.path} non-archived route-profile failures`,
+                    profileFailures,
+                    `${member.path} route-profile failures`,
                   ).toEqual([]);
                   executedChecks.add('resource-font');
                   executedChecks.add('residue');
@@ -245,18 +225,14 @@ test.describe('brand-v2-route-flows', () => {
       });
     }
 
-    expect([...new Set(archivedReflowRoutes)].sort()).toEqual(
-      [...expectedArchivedReflowRoutes].sort(),
+    expect(reflowOverflow.map(({ route }) => route)).toEqual(
+      plan.members.map(({ path }) => path),
     );
+    expect(reflowOverflow.filter(({ overflowPx }) => overflowPx > 0)).toEqual([]);
     const notFound = await page.goto(`${staticBase}/not-a-public-route/`);
     expect(notFound?.status()).toBe(404);
-    await testInfo.attach('archived-reflow-320.json', {
-      body: Buffer.from(
-        JSON.stringify({
-          reason: archivedReflowReason,
-          failures: archivedReflowFailures,
-        }),
-      ),
+    await testInfo.attach('reflow-320.json', {
+      body: Buffer.from(JSON.stringify({ routes: reflowOverflow })),
       contentType: 'application/json',
     });
   });

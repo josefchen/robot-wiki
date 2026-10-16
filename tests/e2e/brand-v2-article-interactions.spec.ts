@@ -1,5 +1,12 @@
 import { BRAND_V2_FLOW_SUITES, executeEvidencePlans } from '../../lib/brand-v2-runners';
 import { brandV2Registry, expect, test } from './brand-v2-static-fixture';
+import {
+  citeParts,
+  closeCiteNote,
+  cycleInlineCiteNote,
+  revealCiteNote,
+} from './helpers/citation-note';
+import { openClosedAncestorDetails } from './helpers/open-ancestor-details';
 
 test.describe('brand-v2-article-interactions', () => {
   test('executes the ordered article interaction flow over the derived article population', async ({
@@ -32,20 +39,26 @@ test.describe('brand-v2-article-interactions', () => {
               await button.click();
               await expect(button).toBeFocused();
             } else if (step.action === 'citation-and-term-parity') {
+              // Owner-approved successor (Josef, 2026-10-10, the research-page
+              // standard): the citation's hover tooltip became its numbered
+              // sidenote. The number is the focus stop and its note is shown
+              // (in the margin at rest from 1200px, opened by the number
+              // elsewhere); the tooltip's pointer and keyboard dismissal is
+              // checked as the inline open and close at 375px. Glossary terms
+              // keep their tooltip.
               const citation = page.locator('.prose [data-cite-id]').first();
-              await citation.hover();
-              const citationLink = citation.locator('a').first();
-              await citationLink.focus();
-              await expect(citation.getByRole('tooltip')).toBeVisible();
-              await citationLink.evaluate((node) =>
-                (node as HTMLElement).blur()
+              const { mark } = citeParts(citation);
+              await mark.focus();
+              await expect(mark).toBeFocused();
+              const note = await revealCiteNote(citation);
+              await expect(mark).toHaveAttribute(
+                'aria-describedby',
+                (await note.getAttribute('id')) ?? 'the note has no id',
               );
+              await closeCiteNote(citation);
+              await cycleInlineCiteNote(page, citation);
+              await mark.evaluate((node) => (node as HTMLElement).blur());
               await page.mouse.move(2, 2);
-              // The citation tooltip is a top-layer popover that lingers
-              // ~120ms after pointer-leave for gap traversal. While shown it
-              // can cover the term's hover point, so wait for it to hide —
-              // otherwise the term's :hover never engages.
-              await expect(citation.getByRole('tooltip')).toBeHidden();
               const term = page.locator('.prose [data-term-id]').first();
               if ((await term.count()) > 0) {
                 await term.hover();
@@ -53,19 +66,19 @@ test.describe('brand-v2-article-interactions', () => {
                 await expect(tooltip).toBeVisible();
                 await term.locator('a').focus();
                 await expect(tooltip).toBeVisible();
+                // An open term tooltip covers whatever sits above the term,
+                // such as the summary of the fold the next step opens, so the
+                // step ends with it dismissed by blur and pointer-leave.
+                await term
+                  .locator('a')
+                  .evaluate((node) => (node as HTMLElement).blur());
+                await page.mouse.move(2, 2);
+                await expect(tooltip).toBeHidden();
               }
             } else if (step.action === 'table-keyboard') {
               const table = page.locator('.prose table').first();
               if ((await table.count()) > 0) {
-                const details = table.locator('xpath=ancestor::details[1]');
-                if (
-                  (await details.count()) > 0 &&
-                  !(await details.evaluate((node) =>
-                    (node as HTMLDetailsElement).open
-                  ))
-                ) {
-                  await details.locator('summary').click();
-                }
+                await openClosedAncestorDetails(table);
                 const region = table.locator('xpath=ancestor::*[@tabindex="0"][1]');
                 if ((await region.count()) > 0) {
                   await region.focus();

@@ -443,7 +443,8 @@ export function PendulumController({
             onClick={reset}
             aria-label="Reset the simulation and restore default gains"
           />
-          <InstrumentReadout className="flex basis-full flex-wrap gap-x-3">
+          {/* Quiet while the simulation runs, which rewrites it every tick; the stage speaks where it settles. */}
+          <InstrumentReadout aria-live={playing ? 'off' : 'polite'} className="flex basis-full flex-wrap gap-x-3">
             <span>
               angle{' '}
               <span data-testid="pendulum-angle-readout" style={{ color: state }}>

@@ -392,8 +392,8 @@ export function JepaPlanning({
             data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
-            onClick={planNext}
-            disabled={reached || exhausted}
+            onClick={reached || exhausted ? undefined : planNext}
+            aria-disabled={reached || exhausted || undefined}
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
             Plan next move

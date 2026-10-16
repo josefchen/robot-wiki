@@ -39,9 +39,20 @@ function labelText(label: string): ReactNode {
   return parts;
 }
 
+/**
+ * The longest word a strip column sets at its narrowest. A stat strip is
+ * authored two columns wide on a phone and four from `sm`, so its column is
+ * about 128px at 320px and 132px at 640px, and the 24px mono value sets
+ * about 14px a character: nine characters fit, ten do not. A value with a
+ * longer word marks its stat, and globals.css reflows that strip at those
+ * widths instead of letting the word run past its column.
+ */
+const STRIP_COLUMN_CHARACTERS = 9;
+
 export function Stat({ label, value, note, accent, className }: StatProps) {
+  const longWord = value.split(/\s+/).some((word) => word.length > STRIP_COLUMN_CHARACTERS);
   return (
-    <div className={cx('min-w-0', className)}>
+    <div data-stat-long-word={longWord ? '' : undefined} className={cx('min-w-0', className)}>
       <div
         className={cx(
           'font-mono text-2xl leading-tight tabular-nums',

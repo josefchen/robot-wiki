@@ -89,7 +89,13 @@ describe('EurekaLoop', () => {
     // The time at the target speed sits with the statistics in "How this was made".
     expect(screen.getByTestId('eureka-results').textContent).not.toContain('target speed');
     expect(screen.getByTestId('eureka-stats').textContent).toContain('time at target speed81%');
-    expect(nextButton()).toBeDisabled();
+    // Unavailable at the last round but still focusable, so the last press keeps keyboard focus.
+    expect(nextButton()).toHaveAttribute('aria-disabled', 'true');
+    expect(nextButton()).toHaveFocus();
+    const last = screen.getByTestId('generation-readout').textContent;
+    await user.click(nextButton());
+    expect(screen.getByTestId('generation-readout').textContent).toBe(last);
+    expect(outcome(container)).toBe('walks');
   });
 
   it('fitness readout tracks the current generation', async () => {

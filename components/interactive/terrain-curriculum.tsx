@@ -160,8 +160,8 @@ export function TerrainCurriculum({ className }: { className?: string }) {
             data-brand-control-id="control:primary-action"
             data-testid="curriculum-next"
             className={INSTRUMENT_PRIMARY_CONTROL_CLASS}
-            onClick={advance}
-            disabled={round >= MAX_ROUND}
+            onClick={round >= MAX_ROUND ? undefined : advance}
+            aria-disabled={round >= MAX_ROUND || undefined}
           >
             Run a training round
           </button>

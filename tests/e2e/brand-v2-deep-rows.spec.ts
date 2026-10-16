@@ -15,6 +15,7 @@ import {
   letterAnchorId,
   type AzIndexSourceEntry,
 } from '../../lib/az-index';
+import { openClosedAncestorDetails } from './helpers/open-ancestor-details';
 import { setSlider } from './slider';
 
 test.use({ actionTimeout: 10_000, navigationTimeout: 30_000 });
@@ -105,7 +106,11 @@ test.describe('brand-v2 27-row deep executor', () => {
             if (step.action === 'settle' || step.action === 'capture') {
               await page.evaluate(() => document.fonts.ready);
             } else if (step.action === 'open-drawer') {
-              await page.getByRole('button', { name: /open navigation menu/i }).click();
+              // Owner-approved successor (Josef, 2026-10-10, the research-page
+              // standard): the hamburger is gone, and the top bar's
+              // "Articles" button opens the same #mobile-nav-drawer panel at
+              // every width (tests/e2e/helpers/articles-panel.ts).
+              await page.getByRole('button', { name: 'Articles' }).click();
             } else if (step.action === 'cycle-focus') {
               const drawer = page.locator('#mobile-nav-drawer');
               await page.keyboard.press('Tab');
@@ -119,9 +124,19 @@ test.describe('brand-v2 27-row deep executor', () => {
               await skip.click();
               await expect(page.locator('#main-content')).toBeFocused();
             } else if (step.action === 'search-entry') {
-              const search = page.locator('aside input[type="search"]');
+              // Owner-approved successor (Josef, 2026-10-10, the research-page
+              // standard): the sidebar and its search are gone; the site
+              // search sits at the top of the "Articles" panel. The panel is
+              // modal, so it closes again before the page's own actions run.
+              await page.getByRole('button', { name: 'Articles' }).click();
+              const panel = page.getByRole('dialog', { name: 'Site navigation' });
+              const search = panel
+                .getByRole('search', { name: 'Site search' })
+                .getByRole('searchbox');
               await search.focus();
               await expect(search).toBeFocused();
+              await page.keyboard.press('Escape');
+              await expect(panel).toHaveCount(0);
             } else if (step.action === 'hero-action') {
               // Home's black primary action is the search submit under the
               // identity line (VAL-OPUS-014), operated from the keyboard.
@@ -147,17 +162,15 @@ test.describe('brand-v2 27-row deep executor', () => {
               await button.focus();
               await expect(button).toBeFocused();
             } else if (step.action === 'focus-table') {
-              const region = page
-                .locator('table')
-                .first()
-                .locator('xpath=ancestor::*[@tabindex="0"][1]');
+              const table = page.locator('table').first();
+              await openClosedAncestorDetails(table);
+              const region = table.locator('xpath=ancestor::*[@tabindex="0"][1]');
               await region.focus();
               await expect(region).toBeFocused();
             } else if (step.action === 'scroll-table') {
-              const region = page
-                .locator('table')
-                .first()
-                .locator('xpath=ancestor::*[@tabindex="0"][1]');
+              const table = page.locator('table').first();
+              await openClosedAncestorDetails(table);
+              const region = table.locator('xpath=ancestor::*[@tabindex="0"][1]');
               await region.evaluate((node) => {
                 node.scrollLeft = Math.max(1, node.scrollWidth - node.clientWidth);
               });
@@ -188,7 +201,11 @@ test.describe('brand-v2 27-row deep executor', () => {
               await result.focus();
               await expect(result).toBeFocused();
             } else if (step.action === 'focus-recovery') {
-              const recovery = page.getByRole('link', { name: /A-Z index/i });
+              // The footer carries its own "A-Z index" link, so the recovery
+              // link is the one the no-results message offers.
+              const recovery = page
+                .locator('[data-search-empty]')
+                .getByRole('link', { name: /A-Z index/i });
               await recovery.focus();
               await expect(recovery).toBeFocused();
             } else if (step.action === 'focus-first-letter') {

@@ -165,6 +165,13 @@ test.describe('navigation shell', () => {
     await expect(
       page.getByRole('link', { name: 'Skip to content' }),
     ).toBeFocused();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the one top bar puts the wordmark left of "Articles", so
+    // the home link is the next stop and the trigger the one after it.
+    await page.keyboard.press('Tab');
+    await expect(
+      page.getByRole('banner').getByRole('link', { name: 'Robot Wiki', exact: true }),
+    ).toBeFocused();
     await page.keyboard.press('Tab');
     const trigger = page.getByRole('button', { name: 'Articles' });
     await expect(trigger).toBeFocused();

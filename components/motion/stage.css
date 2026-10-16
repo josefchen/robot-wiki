@@ -517,7 +517,9 @@ figure[data-figure-kind='official-mark'] > figcaption {
   color: var(--ink);
 }
 
-.figure-action:disabled {
+/* aria-disabled keeps a finished Step or Next focusable, so pressing it to
+   its end does not drop keyboard focus to the page. */
+.figure-action:is(:disabled, [aria-disabled='true']) {
   cursor: not-allowed;
   opacity: 0.45;
 }

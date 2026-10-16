@@ -73,8 +73,27 @@ describe('ControlLabel', () => {
         <input id="dial" type="range" readOnly />
       </>,
     );
-    expect(screen.getByText('Chunk size')).toHaveAttribute('for', 'dial');
+    expect(screen.getByText('Chunk size').closest('label')).toHaveAttribute('for', 'dial');
+    expect(screen.getByLabelText(/Chunk size/)).toHaveAttribute('id', 'dial');
     expect(screen.getByText('k = 100')).toBeInTheDocument();
+  });
+
+  it('wraps the label text first and lets the value move under it, never past its field', () => {
+    // jsdom has no layout: this pins the structure the 320px reflow sweep
+    // measures. The text is its own zero-basis flex item, so a flex line
+    // breaks on its narrowest width, and the value may wrap.
+    const { container } = render(
+      <ControlLabel htmlFor="speed" value="1 metre a second, a slow walk">
+        Robot speed
+      </ControlLabel>,
+    );
+    const label = container.querySelector('label');
+    expect(label).toHaveClass('flex', 'flex-wrap');
+    expect(label?.firstElementChild).toHaveTextContent(/^Robot speed$/);
+    expect(label?.firstElementChild).toHaveClass('flex-1');
+    const value = label?.querySelector(':scope > [data-figure-control-value]');
+    expect(value).toHaveTextContent('1 metre a second, a slow walk');
+    expect(value).not.toHaveClass('whitespace-nowrap');
   });
 
   it('renders a ReactNode value so callers keep test ids and live regions', () => {

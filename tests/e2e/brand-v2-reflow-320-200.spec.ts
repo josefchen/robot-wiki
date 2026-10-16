@@ -1,8 +1,8 @@
 import type { BrowserContext } from '@playwright/test';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { buildPublicRouteExecutionPlan } from '../../lib/brand-v2-runners';
 import {
-  archivedExpectedRed,
-  archivedExpectedRedRoutes,
   brandV2Registry,
   expect,
   test,
@@ -15,8 +15,7 @@ async function sweepContext(
   routes: string[],
   profileId: string,
   failures: string[],
-  checkOverflow = true,
-  failedRoutes?: string[],
+  swept: string[],
 ): Promise<void> {
   const page = await context.newPage();
   try {
@@ -24,13 +23,9 @@ async function sweepContext(
       await page.goto(`${staticBase}${route}`);
       await page.evaluate(() => document.fonts.ready);
       await expect(page.locator('main')).toBeVisible();
-      if (checkOverflow) {
-        const overflow = await documentOverflow(page);
-        if (overflow > 0) {
-          failures.push(`${profileId}:${route}:${overflow}px`);
-          failedRoutes?.push(route);
-        }
-      }
+      const overflow = await documentOverflow(page);
+      if (overflow > 0) failures.push(`${profileId}:${route}:${overflow}px`);
+      swept.push(`${profileId}:${route}`);
     }
   } finally {
     await page.close();
@@ -47,32 +42,14 @@ test.describe('brand-v2-reflow-320-200', () => {
     const plan = buildPublicRouteExecutionPlan(brandV2Registry, routes);
     expect(plan.members.length).toBeGreaterThan(5);
     const failures: string[] = [];
-    const archivedReflowFailures: string[] = [];
-    const archivedReflowRoutes: string[] = [];
+    const swept: string[] = [];
 
     const reflow = await browser.newContext({
       viewport: { width: 320, height: 800 },
       deviceScaleFactor: 1,
     });
-    await sweepContext(
-      reflow,
-      staticBase,
-      routes,
-      'reflow-320',
-      archivedReflowFailures,
-      true,
-      archivedReflowRoutes,
-    );
+    await sweepContext(reflow, staticBase, routes, 'reflow-320', failures, swept);
     await reflow.close();
-    expect([...new Set(archivedReflowRoutes)].sort()).toEqual(
-      [
-        ...archivedExpectedRedRoutes(
-          'brand-v2-reflow-320-200',
-          'VAL-B2-EVID-011',
-        ),
-      ].sort(),
-    );
-    expect(archivedReflowFailures).toHaveLength(archivedReflowRoutes.length);
 
     const zoomEquivalent = await browser.newContext({
       viewport: { width: 720, height: 450 },
@@ -84,8 +61,13 @@ test.describe('brand-v2-reflow-320-200', () => {
       routes,
       'zoom-equivalent-200',
       failures,
+      swept,
     );
     await zoomEquivalent.close();
+    expect(swept).toEqual([
+      ...routes.map((route) => `reflow-320:${route}`),
+      ...routes.map((route) => `zoom-equivalent-200:${route}`),
+    ]);
 
     const textOnly = await browser.newContext({
       viewport: { width: 1440, height: 900 },
@@ -150,15 +132,19 @@ test.describe('brand-v2-reflow-320-200', () => {
     expect(failures, failures.join('\n')).toEqual([]);
   });
 
+  // VAL-B2-EVID-011 no longer archives 320px drift: the sweep above enforces
+  // zero overflow on every route, and no expected-red entry may reopen it.
   test('all public routes reach zero 320px overflow', () => {
-    test.fail(
-      true,
-      archivedExpectedRed('brand-v2-reflow-320-200', 'VAL-B2-EVID-011'),
-    );
+    const archive = JSON.parse(
+      readFileSync(
+        join(process.cwd(), 'evidence', 'brand-v2', 'expected-red-v1.json'),
+        'utf8',
+      ),
+    ) as { failures: Array<{ suite: string; assertionId: string }> };
     expect(
-      archivedExpectedRedRoutes(
-        'brand-v2-reflow-320-200',
-        'VAL-B2-EVID-011',
+      archive.failures.filter(
+        ({ suite, assertionId }) =>
+          suite === 'brand-v2-reflow-320-200' || assertionId === 'VAL-B2-EVID-011',
       ),
     ).toEqual([]);
   });
