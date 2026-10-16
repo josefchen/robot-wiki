@@ -1,0 +1,106 @@
+[
+  {
+    "route": "/manipulation/",
+    "words": 207,
+    "firstParagraph": "Manipulation is a robot handling objects with its arms and hands, and a learned policy maps what the robot senses to its next action.",
+    "firstParagraphWords": 24,
+    "averageSentence": 11.5,
+    "sweep": []
+  },
+  {
+    "route": "/rl-sim2real/",
+    "words": 120,
+    "firstParagraph": "Reinforcement learning (RL) is trial-and-error training of a robot controller, usually in simulation before transfer to hardware. In 2021 an ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU Rudin et al. 2021.",
+    "firstParagraphWords": 39,
+    "averageSentence": 10,
+    "sweep": []
+  },
+  {
+    "route": "/world-models/",
+    "words": 125,
+    "firstParagraph": "World models are learned models that predict how an environment changes when a robot acts, so it can plan, train or be tested on predictions. World-action models also predict actions and run as policies.",
+    "firstParagraphWords": 34,
+    "averageSentence": 10.4,
+    "sweep": []
+  },
+  {
+    "route": "/data-hardware/",
+    "words": 116,
+    "firstParagraph": "Data, hardware and evaluation are what robot learning runs on: training data, the robots that collect it and the tests that score results. In 2025, 5 million industrial robots were in operation International Federation of Robotics 2026.",
+    "firstParagraphWords": 37,
+    "averageSentence": 10.5,
+    "sweep": []
+  },
+  {
+    "route": "/classical/",
+    "words": 149,
+    "firstParagraph": "Classical robotics is the model-based stack that learned policies still run on: kinematics, planning, control, estimation, grasping, perception, mapping, calibration and ROS 2. In Intrinsic's 2026 AI for Industry Challenge, 90% of the top teams in the real-workcell phase inserted the connector with rules-based routines and force-torque feedback Intrinsic 2026.",
+    "firstParagraphWords": 50,
+    "averageSentence": 11.5,
+    "sweep": []
+  },
+  {
+    "route": "/frontier/",
+    "words": 96,
+    "firstParagraph": "Frontier problems are the open questions that keep robot demos from becoming products: reliability, dexterity, generalization and safety. About 7,000 full-size humanoids were sold in 2025 International Federation of Robotics 2026.",
+    "firstParagraphWords": 31,
+    "averageSentence": 9.6,
+    "sweep": []
+  },
+  {
+    "route": "/adjacent/",
+    "words": 68,
+    "firstParagraph": "Adjacent domains are robotics fields that meet the same problems under their own safety and certification rules: driving, drones, surgery and space.",
+    "firstParagraphWords": 22,
+    "averageSentence": 9.7,
+    "sweep": []
+  },
+  {
+    "route": "/glossary/",
+    "words": 8203,
+    "firstParagraph": "Each definition is written from a cited primary source. In an article, hover over or focus a marked term to see it.",
+    "firstParagraphWords": 22,
+    "averageSentence": 18.8,
+    "sweep": []
+  },
+  {
+    "route": "/a-z/",
+    "words": 22,
+    "firstParagraph": "Every article and glossary term, filed alphabetically. Articles carry their domain; terms link to the glossary.",
+    "firstParagraphWords": 16,
+    "averageSentence": 7.3,
+    "sweep": []
+  },
+  {
+    "route": "/search/",
+    "words": 12,
+    "firstParagraph": "Search the articles, methods, companies and datasets. Queries run in your browser.",
+    "firstParagraphWords": 12,
+    "averageSentence": 6,
+    "sweep": []
+  },
+  {
+    "route": "/credits/",
+    "words": 128,
+    "firstParagraph": "Every photograph and diagram on Robot Wiki is listed here with its creator, source page and licence. Article images are CC0, CC BY, CC BY-SA, public domain or used under a documented reuse permission. No image is AI-generated.",
+    "firstParagraphWords": 38,
+    "averageSentence": 14.2,
+    "sweep": []
+  },
+  {
+    "route": "/editorial-policy/",
+    "words": 173,
+    "firstParagraph": "Robot Wiki is an independent reference on modern robotics. It ranks no products and states uncertainty, deployment constraints and disagreement.",
+    "firstParagraphWords": 20,
+    "averageSentence": 13.3,
+    "sweep": []
+  },
+  {
+    "route": "/about/",
+    "words": 185,
+    "firstParagraph": "Robot Wiki covers modern robot learning, from Manipulation & Learned Policies and World Models to the Classical Foundations underneath. The industry appears as data in the Market Map; company news and investment advice are out of scope.",
+    "firstParagraphWords": 36,
+    "averageSentence": 15.4,
+    "sweep": []
+  }
+]

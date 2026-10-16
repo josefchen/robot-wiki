@@ -101274,6 +101274,1271 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-accessible-names-domain-hub-expression-title-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:app/(content)/[domain]/page.tsx:title:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "72d6213d7ad6a4cc1dc537c171a5bc752c66da10855bbf7484ea0cacb24d70ac",
+      "reason": "Discovery pass of 2026-10-16 on the domain hub template, as one edge from an absent seal: the member is new. The hub lead now ends on a cited fact and the adjacent hub carries a four-row evidence table; this member is the title of each hub citation chip, the cited source's title from data/citations.ts, which the shared Cite chip carries as on article pages.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-accessible-names-domain-hub-literal-aria-labelledby-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/(content)/[domain]/page.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6bd123e4a1fd26ef158d03bf44fd1f3724db19c052d8a5d719f694491a11b74e",
+      "reason": "Discovery pass of 2026-10-16 on the domain hub template, as one edge from an absent seal: the member is new. The hub lead now ends on a cited fact and the adjacent hub carries a four-row evidence table; this member is the scroll region around the adjacent hub's evidence table, named by the table's visible heading (\"How each field shows it is safe enough\") so a keyboard user does not land on an anonymous scrollable box.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-source-glossary",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "380dcf6e942166f6bcf29ad7d6f61b5544fd989133ca8b30cdf3fdfbd7ab7a01",
+      "reason": "Discovery pass of 2026-10-16 on data/glossary.ts, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 33 earlier approved edges exactly, ending with opus-pass-home-hubs-20261014-source-glossary. Every definition now opens with a sentence that defines its term, its first paragraph is 60 words or fewer, and the rest is shortened. The success-rate gloss swaps its closing equivalence caveat, which evaluation-crisis still states on the same citation, for Snyder et al.'s trial-count result (frontier measures R-I1). No term, id or citation changes, every number and test-pinned phrase stays, and lib/audit-domain-pass-continuity.ts records each definition as an exact swap over the earlier bytes.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-106",
+        "VAL-OPUS-108",
+        "VAL-OPUS-110",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "content-audit-2026-09-06-reset-free-learning-definition",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "5249db7c6a0745fa1476476baa774f348b144c987a9c52a4e56ef58f97d09783"
+        },
+        {
+          "id": "act-convention-20260907-6",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "19d552e44dbc558f75aef732f7631a5e9f4b9d62ee2d11bb501538f8d20d1323"
+        },
+        {
+          "id": "bc-foundations-20260907-5",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "903c86c1741dff258d369946b200b87efc631e5c33982180829039349968e127"
+        },
+        {
+          "id": "rl-source-closeouts-20260908-7",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "31131fdea3f2edd57e6849c2076506510645724575b8112347c5f7a0fe0258f5"
+        },
+        {
+          "id": "rl-autonomy-three-originals-20260908-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "54b359bab5e47d0ffb5ffbb7931ca37f612bf71f9d7af322dab1f97eded1c850"
+        },
+        {
+          "id": "scene-pointmaps-simulation-costmaps-20260908-2",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "cd69e3ea47360f9d04dbd6d422a622579e6a84d6b039e441f88a59b619dfc261"
+        },
+        {
+          "id": "pose-metrics-bop-four-originals-20260908-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "24da92bbe13bbacda8f8f8b2dee8c196fb5c30761a5b01a1ebcf7750723d3811"
+        },
+        {
+          "id": "servo-apollo-integration-20260909-4",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "ac40375fa6c72ab6db017f5e8446e37c328f281c6b573cc020d6af69770370ab"
+        },
+        {
+          "id": "industrial-systems-integrator-glossary-source-alignment-20260909",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "644008c1d1ab70e06f038b17c1b249880f43af991670f596736573312b6c9380"
+        },
+        {
+          "id": "rma-asynchronous-latent-2-20260909",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "800c8e6054f44e9a9523bfbc264aab4b2d6feaff66c22aa9b3a22d6ca4b5dec5"
+        },
+        {
+          "id": "rudin-protocol-20260909-093964af7407f036f6",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "2fef924d2a039c249aa72ae639cdbbf13c6eb6799b3ca8859d4f00e87377c749"
+        },
+        {
+          "id": "evaluation-statistics-originals-20260913-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "b08ca7b4e3f52fe110bf2ca09f2ccc729ac15853cd5230c1ac2a97995b217992"
+        },
+        {
+          "id": "perception-foundations-20260913-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "1504fc5e7270074c24ef7c672036ab97ba1d856021722415e3b6e7eb99fb62e9"
+        },
+        {
+          "id": "perception-geometric-20260913-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "6ff6250556a17eacbaa2cd6f1cb926caaa16a98d2477437b7d4f5861ae0df310"
+        },
+        {
+          "id": "perception-servo-origins-20260913-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "e6cdb0e9a8441a988d76e02a50dcc71b4f51033fb75d3c44fb5e08055ebd3939"
+        },
+        {
+          "id": "trajectory-optimization-20260913-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "230bb678c5caa2fc31b7911a62735e5b81aa481fffcf3476117604c1b58b5abc"
+        },
+        {
+          "id": "state-smoothing-20260913-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "1e5690e276c8e2b2cc1d09bf85a5d9ccc4934504388b368d4d8e8e962fffaeb4"
+        },
+        {
+          "id": "rrt-hierarchy-20260914-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "03b171d31c22ab29248e1ee7e63f639a61b00fc1b3c8ad8b5d4b65e574aa147e"
+        },
+        {
+          "id": "saycan-cap-two-20260914-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "c6265b6fb157858cf2824eccb84a2a2ba05dbd5c635d5d20e505943c6c1c0e71"
+        },
+        {
+          "id": "orb-scene-four-20260914-3",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "b0edba9547f2d96bc4476c0a5ae7995321187b06e81e5fe73253061b55325c3c"
+        },
+        {
+          "id": "scene-tsdf-10-20260922-3",
+          "oldHash": "b0edba9547f2d96bc4476c0a5ae7995321187b06e81e5fe73253061b55325c3c",
+          "newHash": "9dc0e573a7878c7133d16e5596cc678a249141e6d0a6b60b89806e738f251fdc"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-7",
+          "oldHash": "9dc0e573a7878c7133d16e5596cc678a249141e6d0a6b60b89806e738f251fdc",
+          "newHash": "73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096"
+        },
+        {
+          "id": "industrial-closure-20260923-2",
+          "oldHash": "73e6d8d7948250205927cc4d28dabe010281f4f8e22b660933f620395342b096",
+          "newHash": "33ed8e2bf7f45a5c423254945ad75b5304772a0158e06245b548d78c8979b5e9"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "33ed8e2bf7f45a5c423254945ad75b5304772a0158e06245b548d78c8979b5e9"
+        },
+        {
+          "id": "classical-closure-20260923-3",
+          "oldHash": "33ed8e2bf7f45a5c423254945ad75b5304772a0158e06245b548d78c8979b5e9",
+          "newHash": "8c028d2510298aeaf36b459ffadd1297e1068b60af4ab174d9e7fade1b57e05c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "8c028d2510298aeaf36b459ffadd1297e1068b60af4ab174d9e7fade1b57e05c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "8c028d2510298aeaf36b459ffadd1297e1068b60af4ab174d9e7fade1b57e05c"
+        },
+        {
+          "id": "domain-pass-20261006-g8-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "e9c191b36ff9fed815adbad2006c17f04b6a93fd713f0d2b604f593b8d0bf7f9"
+        },
+        {
+          "id": "domain-pass-20261006-g9-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "f32bf52d883b3e4ad13a7e2f47722bda20ba8b2461153b15714ab3fe584e3f66"
+        },
+        {
+          "id": "domain-pass-20261008-qa-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "035a626523b15daecb92b29fbab328194a48bcc3092515568082f3d17ba04896"
+        },
+        {
+          "id": "frontier-pass-20261010-article-metadata-canonical-metadata-source-data-glossary-ts",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "b37f21106a70c08ddfa25eb2e90b1509cea652482bbf862fedadad3c48573719"
+        },
+        {
+          "id": "opus-pass-home-hubs-20261014-source-glossary",
+          "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+          "newHash": "48fc48003e69ee7265917e8f7ad15abe7a93dff27bbd69c39e8d451e029fd44d"
+        }
+      ]
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-source-modules",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/modules.ts",
+      "oldHash": "c98ea3057bd03269cb956e655d5ba8af69c83f163cd61ee3e0bcc1e22a9dcbba",
+      "newHash": "ec001ce2024aca03804c405bcdd4186be3c6251d5319a3a68b6d349f75a349d3",
+      "reason": "Discovery pass of 2026-10-16 on data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-source-modules). The source changes for the article summaries recorded in this block and for the hub metadata: each domain description now opens by defining its domain, and the hubs gain a cited lead fact, three related links, a further-reading source on the rl-sim2real hub and the adjacent evidence table, each fact stated in its article on the same citation; no module, slug, order or status changes.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-adjacent-autonomous-vehicles",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:adjacent/autonomous-vehicles",
+      "oldHash": "a3b6fc4ff0b8788615f36bcf2ec33dd531d6e6a99709da26bab4fc237c5ac523",
+      "newHash": "7807458603d591ca7a76d346143d927310fe607ea6b954784b8bc2d07e519b1c",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of adjacent/autonomous-vehicles in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Driving as a robotics problem, down to the long tail.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-adjacent-drones",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:adjacent/drones",
+      "oldHash": "260b176fd1c6ac7fcb89acb898fbb51d083854fcfce7846f86f6fed71be37ae9",
+      "newHash": "c39ecec160d0aa4ff2ea210c2d13cd4bd5abb638298fb50f719766a4e28031b8",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of adjacent/drones in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-adjacent-drones). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Autonomous flight, from state estimation to champion-level racing.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-adjacent-space",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:adjacent/space",
+      "oldHash": "c9708694c40ae2887ddb2973a376cc41c9103375ab36b7144d6a6dcf88c5e6b0",
+      "newHash": "ef5a1ec4336e3e450d7046f2e0afdeaeeb87b09b542d367f0304765a6fcf9e84",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of adjacent/space in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Robots where repair is impossible, from Mars to orbit.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-adjacent-surgical",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:adjacent/surgical",
+      "oldHash": "26fa917307f08d5b629b4bffe15c5ab346911d69c6e8a6fe3681e22bd2f74d08",
+      "newHash": "7bc88462bb9ec77ae8dabe7f2b3f1359c96227222c91a01573010c63cfaa8a77",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of adjacent/surgical in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"From da Vinci to Hugo and OTTAVA, authorized one indication at a time.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-classical-calibration",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:classical/calibration",
+      "oldHash": "efcd57accd9dc79d8882d2f67de37f492cb20491ca14fa212b9e37899e37e08e",
+      "newHash": "7229945560f11cdeb6264188976cd854074275f4a31433e87fddcf9df4764c7f",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of classical/calibration in data/modules.ts, as one plain edge from the member's last approved endpoint (seo-merge-20260916-article-metadata-129). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"The measurements that make sensor coordinates agree with motion.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-classical-control",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:classical/control",
+      "oldHash": "3ff0e1c80a1217ec530c928331e337525b6dbf253f0d8801711d69a662ee64b0",
+      "newHash": "2012c35d4f9166aedd7e47d7d51472f49c62d4d5a48df74f9961caf2040fced6",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of classical/control in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"PID, LQR, MPC and whole-body QP, the stack under every learned policy.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-classical-kinematics",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:classical/kinematics",
+      "oldHash": "5e5049c27a8feab5a41cbbe7901677cdffc9f633a903cd3b70c9ac7db4487b3e",
+      "newHash": "57c225be68c365eade7b3606166aaf4664b9ace3d44cae134ee260071c12b09e",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of classical/kinematics in data/modules.ts, as one plain edge from the member's last approved endpoint (domain-pass-20261008-metadata-kinematics). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"How joint angles place a robot's hand, and the reverse.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-classical-motion-planning",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:classical/motion-planning",
+      "oldHash": "e22d7dd1c508f81b788a342f4e6633ff2626bd88f30b99c3cb9d2fc6e39677f8",
+      "newHash": "1590fb15b6084c0ab3d30d0b9c60cc668bf3c541ea4413f4b3a0640d16a4af38",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of classical/motion-planning in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-classical-motion-planning). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Configuration space, RRT and its variants, and trajectory optimization.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-classical-perception",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:classical/perception",
+      "oldHash": "30b92bb59a4f9ee73bb26005716787ca965f4b88171b14bcdacf4ca4eef5f533",
+      "newHash": "22a78bea1e22dc3cbe0af7f544a500b797856d2649b4efb62eb72630a3b93375",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of classical/perception in data/modules.ts, as one plain edge from the member's last approved endpoint (domain-pass-20261008-metadata-perception). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"How camera images become an object's position and orientation.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-classical-ros2-for-ml-engineers",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:classical/ros2-for-ml-engineers",
+      "oldHash": "e6043b56944c4dc686bdc89b4da56fc0b953f7802f4c2d42946595d655954438",
+      "newHash": "aa52a4362930e6f174b31ef9b8a5f8dbe265382dcc3dc565bd77a14e5d468991",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of classical/ros2-for-ml-engineers in data/modules.ts, as one plain edge from the member's last approved endpoint (seo-merge-20260916-article-metadata-130). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"ROS 2 as the production boundary around a learned policy.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-classical-scene-representation",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:classical/scene-representation",
+      "oldHash": "eb3a835975735c8c89d762333425781d45a20742aae412658ef66c802c48752d",
+      "newHash": "82752c658e1f9c70f46d4e4a476eabbd1ca9d848208ae0fa515ec1f75e56dc98",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of classical/scene-representation in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-classical-scene-representation). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"From point clouds to Gaussian splats: what a robot remembers about space.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-data-hardware-data-bottleneck",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:data-hardware/data-bottleneck",
+      "oldHash": "3c2b977c432d608531e86070144ad2ae53ed821b60a8cc554b00befe5ba69f14",
+      "newHash": "c9c7e17f20e308d8e8148d271fa198d1ef4c5e9081eaebeb1a031c6685a481ff",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of data-hardware/data-bottleneck in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-data-hardware-data-bottleneck). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Robot data comes in hours; language data in trillions of tokens.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-data-hardware-datasets",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:data-hardware/datasets",
+      "oldHash": "d1fcbf085239f9a230a76e055832619dff6e51862f36befb186258ccbc522730",
+      "newHash": "1bfa7f7b891368e0b388aa32324d7f85e5cdedf7e1b561299c33e12b14d378cb",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of data-hardware/datasets in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-data-hardware-datasets). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"The major open robot datasets and what each collected.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-data-hardware-evaluation-crisis",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:data-hardware/evaluation-crisis",
+      "oldHash": "1482bddeb0fbb177049162731531f10a46314707be6571c0af1e39ca6e6529b7",
+      "newHash": "748262effa0091b79c14b92f45d5475a8afb96f6138a5dfac74512742015dfde",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of data-hardware/evaluation-crisis in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-data-hardware-evaluation-crisis). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"What a success rate hides, from trial count to scorer.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-data-hardware-hardware-taxonomy",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:data-hardware/hardware-taxonomy",
+      "oldHash": "cb0d232660b54e2df6f88a5000f9a82f5bc5893de3e7fd6f613fcaef57bbda74",
+      "newHash": "03288a82dc3047e5494d30519053e16acb85ecde62eb11c22d562fe14660eb22",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of data-hardware/hardware-taxonomy in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"A buyer's guide from SO-101 to Jetson Thor.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-data-hardware-industrial-deployment",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:data-hardware/industrial-deployment",
+      "oldHash": "a8b9f8bf07ee57f98855d5ecb24622ef4a4b18beac5c13eb2d4296e81bd5beea",
+      "newHash": "04ee31562f9c62274b3eb5446ec4c78b416b9e995d40f2e7caaa63771ef3d751",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of data-hardware/industrial-deployment in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"The jam-rate arithmetic that decides whether a 99 percent cell ships.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-data-hardware-robot-learning-stack",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:data-hardware/robot-learning-stack",
+      "oldHash": "95666ae56e8901878e3fc1f16f9c8a74eaa24ddeb4ad1bdded3a5c74a8a508e3",
+      "newHash": "389e17ee4a556c10708c4fa1f8426eb838f3a1b6482d412148d3fb193e680a0e",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of data-hardware/robot-learning-stack in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-data-hardware-robot-learning-stack). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"From data capture to robot integration as one reproducible system.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-data-hardware-teleop-rigs",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:data-hardware/teleop-rigs",
+      "oldHash": "50b649c11095b1b2a41dd15529a4a999302dd4d9cce70144fcbdd31f5c48253a",
+      "newHash": "b24a58cd7482cb096f037b30e13c733132459346a0e5fb233d852f9421c82763",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of data-hardware/teleop-rigs in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"ALOHA, GELLO, UMI and VR rigs compared on cost and quality.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-frontier-bear-case",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:frontier/bear-case",
+      "oldHash": "31f510e4a3b733781f264b67a728d5c3e2dbc6943c196f415061bf26284e6f99",
+      "newHash": "f02e427a2404e7990e58eefec482bc0f0d5de86988beb862673d4cdbe5ce0b31",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of frontier/bear-case in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Why this could be another robotics winter.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-frontier-competing-theses",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:frontier/competing-theses",
+      "oldHash": "8cd5da0199a91a6b23a0cbafe35b10c4ed886acff73b7ffb1fb562fcf57248ea",
+      "newHash": "23178f817abc16f216917ac5098737c8273ead2cab4bc72c3ee4a73d9f8c8932",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of frontier/competing-theses in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-frontier-competing-theses). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Six bets on how robot intelligence gets built.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-frontier-dexterity",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:frontier/dexterity",
+      "oldHash": "3d5cff98bf95df70fb69a362acc04ef93064f10a6f8b58bdbafb2ef1cc427303",
+      "newHash": "a9d279dc0fe3f0d7084405e480c1711f3fda723cc25d7fc1e56d39fe5e05ab0a",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of frontier/dexterity in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Contact-rich manipulation, touch sensing, in-hand reorientation and deformables.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-frontier-generalization",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:frontier/generalization",
+      "oldHash": "2024beb02b2dbc1fb83a7f031e0387b30362c628e4f1f5d0c4ab5a4629938c6f",
+      "newHash": "d78c22f6971ad6197f662801b00d3270810a27faca33d94699ee8dd88d686af4",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of frontier/generalization in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-frontier-generalization). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"From pi0.5's three unseen homes to Helix 2.5's 30.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-frontier-reliability-gap",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:frontier/reliability-gap",
+      "oldHash": "8da0d46907e29b25c53d9f7590972c9faafabdc0635679bc47b8e534dae7e794",
+      "newHash": "a58610aafe78ec36e24e80bd4fb5130d42602a03969968bb5a87e9af33e96317",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of frontier/reliability-gap in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-frontier-reliability-gap). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"80% task success is a demo; 99.9% is a product.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-frontier-safety-and-assurance",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:frontier/safety-and-assurance",
+      "oldHash": "84efa48611b5b9755d91871b12c9f2d6be690bdbfd7b9f001e13acf72a63dafd",
+      "newHash": "e14e88c7803da651f450b0bd7edae9fb15346b1cdf32f9fcd04d82436265f03f",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of frontier/safety-and-assurance in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-frontier-safety-and-assurance). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"What ships is a verifiable safety layer around the learned policy.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-action-chunking",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/action-chunking",
+      "oldHash": "f16440d2182b028735e3bcff38372dce12867a90569141c858ad2a22a1c0835e",
+      "newHash": "2dad2604beba09e8e72a6f227bf30ff20964c2987df8891ef4f693cc1c6e57f8",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/action-chunking in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"ACT predicts short action sequences and smooths them with temporal ensembling.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-action-spaces",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/action-spaces",
+      "oldHash": "acb29133daf3c7db8b8c83810329a6a68846343a6979c3cb7bc9ff9c66941ff1",
+      "newHash": "910e40d4618c94b244eddf7583207895eec5860d53f2768c77804e478cb83b31",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/action-spaces in data/modules.ts, as one plain edge from the member's last approved endpoint (seo-merge-20260916-article-metadata-132). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"What each action representation gives the learner and asks of the controller.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-bc-foundations",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/bc-foundations",
+      "oldHash": "7c8f09c227766c30b0e0562876f85262986d6ad79be9354829e43f9b53ae4c7e",
+      "newHash": "20522a10d720fa0425bd66d4e6dc59abb0b5ad679149b0bb25427e889fc96147",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/bc-foundations in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Covariate shift makes naive imitation drift, and DAgger is the standard fix.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-comparison-matrix",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/comparison-matrix",
+      "oldHash": "10b025855b8a2b3b9a0c94bd132c94481f5b0033c9e5c96a15030cfc941b11f1",
+      "newHash": "15a4a0af8e349a3ccb17c0229c34e6d9f3392b7bec8d09e0c32fd70daab3186b",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/comparison-matrix in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Every major policy compared on eight architectural axes.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-cross-embodiment",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/cross-embodiment",
+      "oldHash": "bc40ce47f18cdadf508ed1e79ee455da31cedb5b8a497b877d441c1086d32289",
+      "newHash": "17b00cfa751ddde83752ccbe964a196dd544cf532a633c324b268e1243e95320",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/cross-embodiment in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-manipulation-cross-embodiment). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"How one policy learns from many robot bodies and from humans.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-foundation-models",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/foundation-models",
+      "oldHash": "0c8b7e9f60305bbe6ad7b994a6b5113fe5653dbd53de9e9d5ae36179dc046aa7",
+      "newHash": "7dac0e61c3b776fe97131c38485f8b3ad075abf42dd8bd07d4e3d00443d89143",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/foundation-models in data/modules.ts, as one plain edge from the member's last approved endpoint (seo-merge-20260916-article-metadata-133). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"What foundation means in robotics, and what adaptation still costs.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-generalist-policies",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/generalist-policies",
+      "oldHash": "512c6f52c5205bc5f15bb3a35b44243f1d6fe82ba061e4ff8415a6429634a6cd",
+      "newHash": "b1b6cfdb22562256be1bb5ed65d227a91c08fc87020715d9575c44a746f2a19b",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/generalist-policies in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"How to read the claims for Gemini Robotics, GR00T, Helix and GO-2.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-hierarchical",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/hierarchical",
+      "oldHash": "b5a331f9ff58602dc7595af17bbd2c7eea317bcff234a0e7a477c46f80177645",
+      "newHash": "352d987a63e7bb24ebc1906bf0433028b222df12fcf3d3ea595e100f16626ee5",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/hierarchical in data/modules.ts, as one plain edge from the member's last approved endpoint (domain-pass-20261006-g5-article-metadata-article-metadata-manipulation-hierarchical). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"From SayCan and Code as Policies to the hierarchies in Helix and pi0.5.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-knowledge-insulation",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/knowledge-insulation",
+      "oldHash": "371d4e042dd402c98c88ffae7c97ea7be525bff723b98525748de47128b9a91d",
+      "newHash": "9cc7a38f04a3fb7777888e8cd629c02aeed6635bb68f814b41144fa95a202ff1",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/knowledge-insulation in data/modules.ts, as one plain edge from the member's last approved endpoint (insulation-fast-dreamer-20260907-10). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Discrete tokens train the backbone while the action expert trains behind a stop-gradient.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-pi-line",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/pi-line",
+      "oldHash": "231dcc8247a7ecd3c483c2279d35fc6cb3498a7bf026ff8ebdc3a8cf94fff9c0",
+      "newHash": "65b2179a7ce5c55a3513d0f95de4afef59474d00f17675e62f9fe8ad8ca123f9",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/pi-line in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-manipulation-pi-line). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"From pi0 to pi0.7, with flow-matching action experts and FAST tokenization.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-realtime-execution",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/realtime-execution",
+      "oldHash": "028458e71631d16b67c22d04345ecabcef3fe25d18b698036892742df0f5845d",
+      "newHash": "7065b1579fe3498171bc3422eb745cd2c9ccbfc333edc5e7e4a5c7a74b78f75d",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/realtime-execution in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"The latency budgets that decide whether the control loop closes.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-rl-finetuning",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/rl-finetuning",
+      "oldHash": "4642b92472f648d5ffea37439b51f645d3b0092f0144d39b0901ddc8f71517c2",
+      "newHash": "84c63c1469d9cbe1f8badbb41358276e49c61aff61544af0cc0efda424f552bf",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/rl-finetuning in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-manipulation-rl-finetuning). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Improving a pretrained policy from its own online experience.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-robot-learning-roadmap",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/robot-learning-roadmap",
+      "oldHash": "8e08bb341b80331702037246c394625c9ca5ffc04eeefd60b2019ee3da7f12f2",
+      "newHash": "dc6590ea862fd4bfa48ec1081a067e19494d3d47142ee264b21d442b07eceabe",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/robot-learning-roadmap in data/modules.ts, as one plain edge from the member's last approved endpoint (seo-merge-20260916-article-metadata-134). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"A dependency-ordered route from supervised learning to real robot policies.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-manipulation-vla-models",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/vla-models",
+      "oldHash": "2d393f8afc2de4293b4f2ad9e61dd37b8ff59ff137e1f644a633da1b4f07354c",
+      "newHash": "c35bffad6fa095280eb6b1aae8e17cdf82fb770945dd327d5a8ed57562eb268e",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of manipulation/vla-models in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"RT-1, RT-2, Octo and OpenVLA, and what web-scale pretraining adds to robot control.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-rl-sim2real-humanoid-wbc",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:rl-sim2real/humanoid-wbc",
+      "oldHash": "a827c1f52cd6f4f063a8b14d2741e2b2306958081d5082c4181a9de70e2782da",
+      "newHash": "949739140d86785e3faa1304fa4c030758e54b6cd3798e509570eeffee62193e",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of rl-sim2real/humanoid-wbc in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-rl-sim2real-humanoid-wbc). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"How humanoids track retargeted human motion.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-rl-sim2real-legged-locomotion",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:rl-sim2real/legged-locomotion",
+      "oldHash": "db69f476460bdaed273c591402da0333ccba7610e7ef9b5cbc7b6a1cfd4ccc52",
+      "newHash": "0d22a57e0f1c83cc5d2982465060be5e67c0ab220664e9edf787e3848f2a7f7e",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of rl-sim2real/legged-locomotion in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-rl-sim2real-legged-locomotion). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"How learned gaits became the default for legged robots.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-rl-sim2real-offline-rl",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:rl-sim2real/offline-rl",
+      "oldHash": "9d99052ae0150e3b4286303d874356dbcab59970e583aee13d9656701dc85593",
+      "newHash": "393caf9fb2e2d43272ec861f59d8e914cfebf6bf731cc94d09ff8afe64e0d9fd",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of rl-sim2real/offline-rl in data/modules.ts, as one plain edge from the member's last approved endpoint (seo-merge-20260916-article-metadata-135). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"CQL and TD3+BC, and when behavior cloning is the stronger baseline.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-rl-sim2real-parallel-sim-rl",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:rl-sim2real/parallel-sim-rl",
+      "oldHash": "483798afc133f64742292e113c5ad4034a76c30088e1d09eb3557fef9177dfcc",
+      "newHash": "8d1214e8f9858d140915e97a0ef41c52acce5516606c993e908dca8190a2c29b",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of rl-sim2real/parallel-sim-rl in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"GPU-parallel simulation with Isaac Lab, Newton, MJX and Brax.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-rl-sim2real-reward-design-mpc",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:rl-sim2real/reward-design-mpc",
+      "oldHash": "6391717298069c51dd25b022988afb0101340692b39e5ac434c1481c0cb5df26",
+      "newHash": "458ae0dd7cf0808fd40c67f0ab0b2504aaf9dcffe9da301847ddb66befc3b9ad",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of rl-sim2real/reward-design-mpc in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-rl-sim2real-reward-design-mpc). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Hand-tuned and language-model rewards, and the MPC debate.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-rl-sim2real-rl-for-robotics",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:rl-sim2real/rl-for-robotics",
+      "oldHash": "e03794aae364eb3e90220219987653d65ad5f61541921fb0babb07cbced8950d",
+      "newHash": "b7766390b86b6a320b254fda5f3ad8cb1fe441a4f3d9cb49824b9026abd59fea",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of rl-sim2real/rl-for-robotics in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-rl-sim2real-rl-for-robotics). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Sample efficiency decides which RL algorithm a robot can use.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-rl-sim2real-sim2real-transfer",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:rl-sim2real/sim2real-transfer",
+      "oldHash": "98f359a56ec20ecbeff208dc3496615b1a1e62000566d2c1cac13d629321c458",
+      "newHash": "4bac3028920b432f5e80b2a3f0552d9dc8be5893deee4d192070100429bbdd7e",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of rl-sim2real/sim2real-transfer in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-rl-sim2real-sim2real-transfer). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Domain randomization, distillation, system identification and real-to-sim reconstruction.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-rl-sim2real-why-rl-locomotion",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:rl-sim2real/why-rl-locomotion",
+      "oldHash": "465f510b253f9aaf8b90c01a0c2d83e6f11b03e794df859397a99d289953b1b3",
+      "newHash": "eacbdf41b1b6d5150dfd39afc0aa349a10be8640bc5a671326f2be98f1691dba",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of rl-sim2real/why-rl-locomotion in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Walking is cheap to simulate; contact-rich manipulation is not.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-world-models-evaluation",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:world-models/evaluation",
+      "oldHash": "f7ff819ba08fa052c3687f39ff86215015145fe18610f9a34c10fdb1b0653138",
+      "newHash": "1c2bf9acaa992aeb4214c8f50d447d3715a372cfd8ff2575c3ea4d66f6b9b6fd",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of world-models/evaluation in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-world-models-evaluation). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Testing a world model on what a robot needs.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-world-models-generative-sim",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:world-models/generative-sim",
+      "oldHash": "926ef45b83f15f47730afa041dae9bf3b930846ce98cc707cc67584ea04f3076",
+      "newHash": "431063ae5e6fc424b3b6943662e6dfe5a354038b85637506cd044bf2aafad504",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of world-models/generative-sim in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-world-models-generative-sim). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Generated tasks, scenes and assets inside a physics engine.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-world-models-generative-video",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:world-models/generative-video",
+      "oldHash": "ed1cf570a13a821fad8770a9ea303dd2f5523c3ab7d767aa85facdd024893c18",
+      "newHash": "404174c89b5c31187e5f6a31cad80f2a09031e12a41b76ea5be4bbb8073a6141",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of world-models/generative-video in data/modules.ts, as one plain edge from the member's last approved endpoint (opus-pass-home-hubs-20261014-summary-world-models-generative-video). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Cosmos, Genie and GR-2 use action-conditioned video prediction as a simulator.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-world-models-jepa",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:world-models/jepa",
+      "oldHash": "b16e5cf6520b988e7a54a4ae946837a449a6cf2b429e9b2d9f54edcf5521dbd5",
+      "newHash": "f5b2297219ec8ba265b69e1a7c8113675278ac05ec1aae924e5ca38936b9b7e3",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of world-models/jepa in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"V-JEPA 2 and 2.1 predict in representation space, with no pixel decoder.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-world-models-latent-dynamics",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:world-models/latent-dynamics",
+      "oldHash": "1e585ebc42ae01cda6a66e2ad5927c37df56525b44257589fcab44dd16fdcfab",
+      "newHash": "08a74d0437d50d7ad425cadba7143225def118bbe784dcfd843fa99ad4bc39f1",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of world-models/latent-dynamics in data/modules.ts, as one plain edge from the member's last approved endpoint (the sealed hash). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Dreamer 4, TD-MPC2 and Newt: compact learned dynamics for imagination-based control.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-world-models-model-based-robot-learning",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:world-models/model-based-robot-learning",
+      "oldHash": "18f25c42db5504e0eb67ee400d5858106fd5a6b77f126877c6bce00bfdce7678",
+      "newHash": "bff235b64c1e8634042b01b9a3c6a6eb49ae5e890547a923adc8d767585cb767",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of world-models/model-based-robot-learning in data/modules.ts, as one plain edge from the member's last approved endpoint (seo-merge-20260916-article-metadata-137). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Learn dynamics, plan through them, and improve from imagined rollouts.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-world-models-taxonomy",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:world-models/taxonomy",
+      "oldHash": "78576631a0b0df9778906ba498e6cd917eda3ca078bc3108dd804cf03d7462f8",
+      "newHash": "ba574f523d0abeb69d49f50f89c28ed71c6490ac59525cef19b9ce2b2237aec1",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of world-models/taxonomy in data/modules.ts, as one plain edge from the member's last approved endpoint (round6-remaining-repairs-20260929-article-metadata-taxonomy). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Six example groups compared, from DreamerV3 to V-JEPA 2.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "opus-pass-home-hubs-20261016-summary-world-models-world-models-vs-simulators",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:world-models/world-models-vs-simulators",
+      "oldHash": "158f74c6f19deba8fd31ceca8428d4aaa29f93df53af2040d169d22a74296e67",
+      "newHash": "1fa9e5e2c1403b01a66277e8d77160725ee9fe726d74c682b37d23ebc06027d2",
+      "reason": "Discovery pass of 2026-10-16 on the registry summary of world-models/world-models-vs-simulators in data/modules.ts, as one plain edge from the member's last approved endpoint (seo-merge-20260916-article-metadata-138). The summary is the article deck, hub card and feed line. It is cut to one sentence that names what the article covers, and every number and name in it is in the article: \"Learned dynamics, physics engines and hybrids compared as robot simulators.\". Title, slug, order, status and the article itself are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order) names opus-pass-home-hubs-and-discovery: the domain hubs, glossary, A-Z, search and about pages get the same read as the articles, with one-line article summaries on hubs and glossary definitions that open by defining the term, and the hub items the frontier, data-hardware and adjacent passes routed to it (a cited lead fact, related links and the adjacent evidence table). The owner directive of 2026-10-12 16:50 (\"ensure we remove AI slop etc and keep it extremely premium. not too long text.\") sets the humanizer standard for every prose edit. Together they are the owner approval for the wording and hub additions recorded here. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-105",
+        "VAL-OPUS-108",
+        "VAL-OPUS-114",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

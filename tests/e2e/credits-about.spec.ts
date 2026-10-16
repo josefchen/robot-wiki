@@ -225,7 +225,9 @@ test('the About prose carries no em-dash or en-dash', async ({ page }) => {
     join(process.cwd(), 'out/credits/index.html'),
     'utf8',
   );
-  const sentence = 'This wiki is that map';
+  // Successor of 'This wiki is that map' (2026-10-16 discovery pass): the
+  // page-level phrase sweep bans "this wiki", and the sentence was reworded.
+  const sentence = 'collects it for engineers who come from machine learning';
   expect(html, 'About prose is present without JavaScript').toContain(
     sentence,
   );

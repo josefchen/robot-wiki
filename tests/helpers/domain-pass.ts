@@ -270,6 +270,30 @@ export function homeHubs20261014Endpoint(
 }
 
 /**
+ * Edges the discovery pass of 2026-10-16 appended as one block after the
+ * launch sweep: one edge per rewritten article summary, the two accessible
+ * names the hub template adds, and one each for the modules and glossary
+ * sources.
+ */
+export const isHomeHubs20261016Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('opus-pass-home-hubs-20261016-');
+
+/** The hash the 2026-10-16 discovery pass leaves on a member whose chain ends at `from`. */
+export function homeHubs20261016Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isHomeHubs20261016Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-16 discovery edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
+/**
  * Edges the data-hardware images of 2026-10-15 appended as one block after
  * the isometric figure batch b06: one prose edge per data-hardware article that gained
  * image mounts, one edge from an absent seal per registered image they added,

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "899d4b73d56a046880eaf88ece9fadc8295d0408d51b1b57f3b6c5cbecde792b",
+  "fingerprint": "f8cfdabbbce23c84264eee0cee7013d5e03350b2f8d51e67fe5ca700ce73ce15",
   "viewports": [
     "375x812",
     "1440x900"
@@ -456,7 +456,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 6578,
+      "visibleTextLength": 6568,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -616,7 +616,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 2486,
+      "visibleTextLength": 2104,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -763,7 +763,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 918,
+      "visibleTextLength": 1810,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -923,7 +923,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 31831,
+      "visibleTextLength": 31386,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -970,7 +970,7 @@
         "h1Count": 1,
         "h1Text": "Autonomous Vehicles",
         "summaryCount": 1,
-        "summaryText": "The AV stack as a robotics problem: perception, prediction, planning, and the lo",
+        "summaryText": "Driving as a robotics problem, down to the long tail.",
         "breadcrumbLabels": [
           "Adjacent Domains"
         ],
@@ -1232,7 +1232,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The technical obstruction is the long taillong tailThe part "
+          "text": "The technical obstruction is the long taillong tailThe long "
         },
         {
           "familyHead": "geist",
@@ -2008,7 +2008,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22168,
+      "visibleTextLength": 21873,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2055,7 +2055,7 @@
         "h1Count": 1,
         "h1Text": "Drones and Aerial Robotics",
         "summaryCount": 1,
-        "summaryText": "Autonomous flight from state estimation to champion-level racing, swarm coordina",
+        "summaryText": "Autonomous flight, from state estimation to champion-level racing.",
         "breadcrumbLabels": [
           "Adjacent Domains"
         ],
@@ -2936,7 +2936,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22962,
+      "visibleTextLength": 22827,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2983,7 +2983,7 @@
         "h1Count": 1,
         "h1Text": "Space Robotics",
         "summaryCount": 1,
-        "summaryText": "NASA/JPL systems, orbital servicing, and ISRU: robotics where repair is impossib",
+        "summaryText": "Robots where repair is impossible, from Mars to orbit.",
         "breadcrumbLabels": [
           "Adjacent Domains"
         ],
@@ -3160,7 +3160,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "On-orbit servicingon-orbit servicingUsing one spacecraft to "
+          "text": "On-orbit servicingon-orbit servicingOn-orbit servicing is us"
         },
         {
           "familyHead": "geist",
@@ -3576,7 +3576,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21785,
+      "visibleTextLength": 21443,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3623,7 +3623,7 @@
         "h1Count": 1,
         "h1Text": "Surgical Robotics",
         "summaryCount": 1,
-        "summaryText": "Intuitive, CMR, and Moon Surgical: the precision and reliability bar for certifi",
+        "summaryText": "From da Vinci to Hugo and OTTAVA, authorized one indication at a time.",
         "breadcrumbLabels": [
           "Adjacent Domains"
         ],
@@ -3916,7 +3916,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Intuitive says da Vinci 5's Force Feedbackforce feedbackSens"
+          "text": "Intuitive says da Vinci 5's Force Feedbackforce feedbackForc"
         }
       ],
       "sectionLinks": [
@@ -4250,7 +4250,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 1707,
+      "visibleTextLength": 1577,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4410,7 +4410,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16116,
+      "visibleTextLength": 15479,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -4457,7 +4457,7 @@
         "h1Count": 1,
         "h1Text": "Robot Calibration",
         "summaryCount": 1,
-        "summaryText": "Camera intrinsics, hand-eye transforms, kinematic zeroes, timing and dynamics: t",
+        "summaryText": "The measurements that make sensor coordinates agree with motion.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -5159,7 +5159,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24196,
+      "visibleTextLength": 23739,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5206,7 +5206,7 @@
         "h1Count": 1,
         "h1Text": "Control",
         "summaryCount": 1,
-        "summaryText": "PID, LQR, MPC, and whole-body QP: the classical stack under every learned policy",
+        "summaryText": "PID, LQR, MPC and whole-body QP, the stack under every learned policy.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -5422,7 +5422,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Model-predictive controlmodel predictive controlControl by c"
+          "text": "Model-predictive controlmodel predictive controlModel predic"
         },
         {
           "familyHead": "geist",
@@ -5503,7 +5503,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Admittance controladmittance controlCompliant control that m"
+          "text": "Admittance controladmittance controlAdmittance control is co"
         },
         {
           "familyHead": "geist",
@@ -6153,7 +6153,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19162,
+      "visibleTextLength": 18855,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -6367,7 +6367,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The admissible forces form the friction conefriction coneThe"
+          "text": "The admissible forces form the friction conefriction coneA f"
         },
         {
           "familyHead": "geist",
@@ -6412,7 +6412,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A grasp has force closureforce closureThe property that a gr"
+          "text": "A grasp has force closureforce closureForce closure is the p"
         },
         {
           "familyHead": "geist",
@@ -6959,7 +6959,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17311,
+      "visibleTextLength": 16874,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7006,7 +7006,7 @@
         "h1Count": 1,
         "h1Text": "Kinematics",
         "summaryCount": 1,
-        "summaryText": "How joint angles place a robot's hand, and how to find the angles that reach a t",
+        "summaryText": "How joint angles place a robot's hand, and the reverse.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -7311,7 +7311,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "TeleoperationteleoperationDirect remote control of a robot b"
+          "text": "TeleoperationteleoperationTeleoperation is direct remote con"
         },
         {
           "familyHead": "geist",
@@ -7732,7 +7732,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27214,
+      "visibleTextLength": 26727,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7779,7 +7779,7 @@
         "h1Count": 1,
         "h1Text": "Motion Planning",
         "summaryCount": 1,
-        "summaryText": "Configuration space, RRT and its optimal variants, and trajectory optimization w",
+        "summaryText": "Configuration space, RRT and its variants, and trajectory optimization.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -8074,7 +8074,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Trajectory optimizationtrajectory optimizationMotion plannin"
+          "text": "Trajectory optimizationtrajectory optimizationTrajectory opt"
         },
         {
           "familyHead": "geist",
@@ -8696,7 +8696,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33690,
+      "visibleTextLength": 33358,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8743,7 +8743,7 @@
         "h1Count": 1,
         "h1Text": "Perception for Manipulation",
         "summaryCount": 1,
-        "summaryText": "How a robot turns camera images into an object's position and orientation: calib",
+        "summaryText": "How camera images become an object's position and orientation.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -9021,7 +9021,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Depth yields a point cloudpoint cloudA set of 3D points, usu"
+          "text": "Depth yields a point cloudpoint cloudA point cloud is a set "
         },
         {
           "familyHead": "geist",
@@ -9084,7 +9084,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Promptable segmentationpromptable segmentationSegmentation t"
+          "text": "Promptable segmentationpromptable segmentationPromptable seg"
         },
         {
           "familyHead": "geist",
@@ -9120,7 +9120,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Pose estimationpose estimationRecovering an object's full ri"
+          "text": "Pose estimationpose estimationPose estimation is recovering "
         },
         {
           "familyHead": "geist",
@@ -9201,7 +9201,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Visual servoingvisual servoingUsing computer vision data to "
+          "text": "Visual servoingvisual servoingVisual servoing is controlling"
         },
         {
           "familyHead": "geist",
@@ -9848,7 +9848,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14748,
+      "visibleTextLength": 14213,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -9895,7 +9895,7 @@
         "h1Count": 1,
         "h1Text": "ROS 2 for Machine Learning Engineers",
         "summaryCount": 1,
-        "summaryText": "Topics, services, actions, QoS, tf2, rosbag2 and MoveIt explained as the product",
+        "summaryText": "ROS 2 as the production boundary around a learned policy.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -10686,7 +10686,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28220,
+      "visibleTextLength": 27920,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10733,7 +10733,7 @@
         "h1Count": 1,
         "h1Text": "Scene Representation and Mapping",
         "summaryCount": 1,
-        "summaryText": "What a robot keeps in memory about the space around it, from point clouds and oc",
+        "summaryText": "From point clouds to Gaussian splats: what a robot remembers about space.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -10901,7 +10901,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A point cloudpoint cloudA set of 3D points, usually with no "
+          "text": "A point cloudpoint cloudA point cloud is a set of 3D points,"
         },
         {
           "familyHead": "geist",
@@ -10955,7 +10955,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "NeRF fits a neural radiance fieldneural radiance fieldA scen"
+          "text": "NeRF fits a neural radiance fieldneural radiance fieldA neur"
         },
         {
           "familyHead": "geist",
@@ -11081,7 +11081,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Place recognitionplace recognitionFor visual navigation, dec"
+          "text": "Place recognitionplace recognitionPlace recognition is decid"
         },
         {
           "familyHead": "geist",
@@ -11135,7 +11135,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A navigation stack plans over a costmapcostmapThe grid a mob"
+          "text": "A navigation stack plans over a costmapcostmapA costmap is t"
         },
         {
           "familyHead": "geist",
@@ -11693,7 +11693,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22784,
+      "visibleTextLength": 22510,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11905,7 +11905,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The 1960 Kalman filterKalman filterThe recursive state estim"
+          "text": "The 1960 Kalman filterKalman filterThe Kalman filter is the "
         },
         {
           "familyHead": "geist",
@@ -12518,7 +12518,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 57565,
+      "visibleTextLength": 57325,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12694,7 +12694,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1531,
+      "visibleTextLength": 1226,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12854,7 +12854,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 20775,
+      "visibleTextLength": 19979,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12901,7 +12901,7 @@
         "h1Count": 1,
         "h1Text": "The Data Bottleneck",
         "summaryCount": 1,
-        "summaryText": "Robot data is counted in hours and language data in trillions of tokens: the gap",
+        "summaryText": "Robot data comes in hours; language data in trillions of tokens.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -13081,7 +13081,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Open X-EmbodimentOpen X-EmbodimentA 2023 collaboration acros"
+          "text": "Open X-EmbodimentOpen X-EmbodimentOpen X-Embodiment is a 202"
         },
         {
           "familyHead": "geist",
@@ -13099,7 +13099,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Scaling lawsscaling lawAn empirical regularity between a sys"
+          "text": "Scaling lawsscaling lawA scaling law is an empirical relatio"
         },
         {
           "familyHead": "geist",
@@ -13765,7 +13765,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21498,
+      "visibleTextLength": 20862,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -13812,7 +13812,7 @@
         "h1Count": 1,
         "h1Text": "Major Datasets",
         "summaryCount": 1,
-        "summaryText": "Open X-Embodiment, DROID, BridgeData V2, AgiBot World and RoboMIND compared by w",
+        "summaryText": "The major open robot datasets and what each collected.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -13922,7 +13922,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Later cross-embodimentcross-embodimentLearning from, or tran"
+          "text": "Later cross-embodimentcross-embodimentCross-embodiment learn"
         },
         {
           "familyHead": "geist",
@@ -13958,7 +13958,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Diffusion policiesdiffusion policyA policy that produces act"
+          "text": "Diffusion policiesdiffusion policyA diffusion policy is a po"
         },
         {
           "familyHead": "geist",
@@ -14756,7 +14756,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21395,
+      "visibleTextLength": 20242,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14803,7 +14803,7 @@
         "h1Count": 1,
         "h1Text": "The Evaluation Crisis",
         "summaryCount": 1,
-        "summaryText": "What a success rate hides: trial count, task length, setup and scorer. At 95% pe",
+        "summaryText": "What a success rate hides, from trial count to scorer.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -15596,7 +15596,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27270,
+      "visibleTextLength": 26915,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15643,7 +15643,7 @@
         "h1Count": 1,
         "h1Text": "Hardware Taxonomy",
         "summaryCount": 1,
-        "summaryText": "Arms, humanoids, hands, sensors, and compute: a buyer's guide from SO-101 to Jet",
+        "summaryText": "A buyer's guide from SO-101 to Jetson Thor.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -16486,7 +16486,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24630,
+      "visibleTextLength": 24066,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16533,7 +16533,7 @@
         "h1Count": 1,
         "h1Text": "Industrial Deployment",
         "summaryCount": 1,
-        "summaryText": "The installed base robot learning is trying to enter, and the jam-rate arithmeti",
+        "summaryText": "The jam-rate arithmetic that decides whether a 99 percent cell ships.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -16887,7 +16887,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Cycle timecycle timeThe time required to produce a part or c"
+          "text": "Cycle timecycle timeCycle time is the measured time required"
         },
         {
           "familyHead": "geist",
@@ -16914,7 +16914,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The intervention rateintervention rateHow often an automated"
+          "text": "The intervention rateintervention rateIntervention rate is t"
         },
         {
           "familyHead": "geist",
@@ -17422,7 +17422,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18154,
+      "visibleTextLength": 17712,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17469,7 +17469,7 @@
         "h1Count": 1,
         "h1Text": "The Robot Learning Stack",
         "summaryCount": 1,
-        "summaryText": "Data capture, schemas, training, simulation, evaluation, serving and robot integ",
+        "summaryText": "From data capture to robot integration as one reproducible system.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -18310,7 +18310,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18613,
+      "visibleTextLength": 17736,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18357,7 +18357,7 @@
         "h1Count": 1,
         "h1Text": "Teleoperation Rigs",
         "summaryCount": 1,
-        "summaryText": "ALOHA, GELLO, UMI, and VR teleop: cost, data quality, throughput, and the embodi",
+        "summaryText": "ALOHA, GELLO, UMI and VR rigs compared on cost and quality.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -18427,7 +18427,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "TeleoperationteleoperationDirect remote control of a robot b"
+          "text": "TeleoperationteleoperationTeleoperation is direct remote con"
         },
         {
           "familyHead": "geist",
@@ -19032,7 +19032,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2041,
+      "visibleTextLength": 1635,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19179,7 +19179,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1249,
+      "visibleTextLength": 1087,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19339,7 +19339,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16803,
+      "visibleTextLength": 16511,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19386,7 +19386,7 @@
         "h1Count": 1,
         "h1Text": "The Bear Case",
         "summaryCount": 1,
-        "summaryText": "Why this could be another robotics winter, and the milestones that would prove i",
+        "summaryText": "Why this could be another robotics winter.",
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
@@ -20391,7 +20391,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20864,
+      "visibleTextLength": 20497,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -20438,7 +20438,7 @@
         "h1Count": 1,
         "h1Text": "Competing Theses",
         "summaryCount": 1,
-        "summaryText": "Six bets on how robot intelligence gets built, from end-to-end scaling to the hu",
+        "summaryText": "Six bets on how robot intelligence gets built.",
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
@@ -20552,7 +20552,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "EgoScale fit a log-linear scaling lawscaling lawAn empirical"
+          "text": "EgoScale fit a log-linear scaling lawscaling lawA scaling la"
         },
         {
           "familyHead": "geist",
@@ -20678,7 +20678,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The claim: deploy teleoperatedteleoperationDirect remote con"
+          "text": "The claim: deploy teleoperatedteleoperationTeleoperation is "
         },
         {
           "familyHead": "geist",
@@ -21445,7 +21445,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24914,
+      "visibleTextLength": 24295,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21492,7 +21492,7 @@
         "h1Count": 1,
         "h1Text": "Dexterity",
         "summaryCount": 1,
-        "summaryText": "Contact-rich manipulation, the tactile sensing gap, in-hand reorientation, and d",
+        "summaryText": "Contact-rich manipulation, touch sensing, in-hand reorientation and deformables.",
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
@@ -21849,7 +21849,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In-hand manipulationin-hand manipulationRepositioning or reo"
+          "text": "In-hand manipulationin-hand manipulationIn-hand manipulation"
         },
         {
           "familyHead": "geist",
@@ -22479,7 +22479,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19204,
+      "visibleTextLength": 18828,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22526,7 +22526,7 @@
         "h1Count": 1,
         "h1Text": "Generalization",
         "summaryCount": 1,
-        "summaryText": "What pi0.5 and pi0.7 show about working in unseen homes, the EgoScale scaling la",
+        "summaryText": "From pi0.5's three unseen homes to Helix 2.5's 30.",
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
@@ -23372,7 +23372,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16537,
+      "visibleTextLength": 15777,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -23419,7 +23419,7 @@
         "h1Count": 1,
         "h1Text": "The Reliability Gap",
         "summaryCount": 1,
-        "summaryText": "80% task success is a demo and 99.9% is a product: the per-step arithmetic, the ",
+        "summaryText": "80% task success is a demo; 99.9% is a product.",
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
@@ -24166,7 +24166,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27279,
+      "visibleTextLength": 26766,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24213,7 +24213,7 @@
         "h1Count": 1,
         "h1Text": "Safety and Assurance",
         "summaryCount": 1,
-        "summaryText": "No industrial safety standard certifies a learned policy, so what ships is a ver",
+        "summaryText": "What ships is a verifiable safety layer around the learned policy.",
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
@@ -24427,7 +24427,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Risk assessmentrisk assessmentThe documented machinery-safet"
+          "text": "Risk assessmentrisk assessmentRisk assessment is the documen"
         },
         {
           "familyHead": "geist",
@@ -24445,7 +24445,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Functional safetyfunctional safetyThe part of a system’s saf"
+          "text": "Functional safetyfunctional safetyFunctional safety is the p"
         },
         {
           "familyHead": "geist",
@@ -24616,7 +24616,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Conformal predictionconformal predictionA distribution-free "
+          "text": "Conformal predictionconformal predictionConformal prediction"
         },
         {
           "familyHead": "geist",
@@ -24625,7 +24625,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Out-of-distribution detectionout-of-distribution detectionDe"
+          "text": "Out-of-distribution detectionout-of-distribution detectionOu"
         },
         {
           "familyHead": "geist",
@@ -25197,7 +25197,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 82106,
+      "visibleTextLength": 74503,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25597,7 +25597,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 2788,
+      "visibleTextLength": 2119,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25757,7 +25757,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 20382,
+      "visibleTextLength": 19941,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25804,7 +25804,7 @@
         "h1Count": 1,
         "h1Text": "Action Chunking (ACT and ALOHA)",
         "summaryCount": 1,
-        "summaryText": "Predicting action sequences instead of single steps: the CVAE structure, the chu",
+        "summaryText": "ACT predicts short action sequences and smooths them with temporal ensembling.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -25935,7 +25935,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Behavior cloningbehavior cloningTraining a policy by supervi"
+          "text": "Behavior cloningbehavior cloningBehavior cloning is supervis"
         },
         {
           "familyHead": "geist",
@@ -25944,7 +25944,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Action chunkingaction chunkingPredicting a sequence of futur"
+          "text": "Action chunkingaction chunkingAction chunking is predicting "
         },
         {
           "familyHead": "geist",
@@ -26025,7 +26025,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Real-Time Chunkingreal-time chunkingAn inference-time scheme"
+          "text": "Real-Time Chunkingreal-time chunkingReal-time chunking is an"
         },
         {
           "familyHead": "geist",
@@ -26696,7 +26696,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16986,
+      "visibleTextLength": 16329,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26743,7 +26743,7 @@
         "h1Count": 1,
         "h1Text": "Action Spaces for Robot Learning",
         "summaryCount": 1,
-        "summaryText": "Joint, Cartesian, torque, impedance, chunked and tokenized actions: what each re",
+        "summaryText": "What each action representation gives the learner and asks of the controller.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -26915,7 +26915,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "An action chunkaction chunkingPredicting a sequence of futur"
+          "text": "An action chunkaction chunkingAction chunking is predicting "
         },
         {
           "familyHead": "geist",
@@ -27379,7 +27379,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18585,
+      "visibleTextLength": 17965,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -27426,7 +27426,7 @@
         "h1Count": 1,
         "h1Text": "Behavior Cloning Foundations",
         "summaryCount": 1,
-        "summaryText": "Covariate shift and compounding error: why naive imitation breaks in closed loop",
+        "summaryText": "Covariate shift makes naive imitation drift, and DAgger is the standard fix.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -27498,7 +27498,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Behavior cloningbehavior cloningTraining a policy by supervi"
+          "text": "Behavior cloningbehavior cloningBehavior cloning is supervis"
         },
         {
           "familyHead": "geist",
@@ -27660,7 +27660,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "DAggerDAggerDataset Aggregation, the iterative fix for behav"
+          "text": "DAggerDAggerDAgger (Dataset Aggregation) is an iterative fix"
         },
         {
           "familyHead": "geist",
@@ -28234,7 +28234,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18899,
+      "visibleTextLength": 18585,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28281,7 +28281,7 @@
         "h1Count": 1,
         "h1Text": "Comparison Matrix",
         "summaryCount": 1,
-        "summaryText": "Every major policy across eight architectural axes: action representation, horiz",
+        "summaryText": "Every major policy compared on eight architectural axes.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -29122,7 +29122,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18853,
+      "visibleTextLength": 18254,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29169,7 +29169,7 @@
         "h1Count": 1,
         "h1Text": "Cross-Embodiment Transfer",
         "summaryCount": 1,
-        "summaryText": "Padded action vectors, relative end-effector actions, latent actions and human-t",
+        "summaryText": "How one policy learns from many robot bodies and from humans.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -29243,7 +29243,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Cross-embodiment transfercross-embodimentLearning from, or t"
+          "text": "Cross-embodiment transfercross-embodimentCross-embodiment le"
         },
         {
           "familyHead": "geist",
@@ -29950,7 +29950,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16614,
+      "visibleTextLength": 16327,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -30067,7 +30067,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Diffusion Policydiffusion policyA policy that produces actio"
+          "text": "Diffusion Policydiffusion policyA diffusion policy is a poli"
         },
         {
           "familyHead": "geist",
@@ -30292,7 +30292,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Real-Time Chunkingreal-time chunkingAn inference-time scheme"
+          "text": "Real-Time Chunkingreal-time chunkingReal-time chunking is an"
         },
         {
           "familyHead": "geist",
@@ -30854,7 +30854,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17941,
+      "visibleTextLength": 17342,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -30901,7 +30901,7 @@
         "h1Count": 1,
         "h1Text": "Foundation Models for Robotics",
         "summaryCount": 1,
-        "summaryText": "What foundation means in robotics, how VLA, world-model and multimodal pretraini",
+        "summaryText": "What foundation means in robotics, and what adaptation still costs.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -31625,7 +31625,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19574,
+      "visibleTextLength": 18885,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -31672,7 +31672,7 @@
         "h1Count": 1,
         "h1Text": "Other Generalist Policies",
         "summaryCount": 1,
-        "summaryText": "Gemini Robotics, GR00T, Helix, Skild, and GO-2: how to read closed-model vendor ",
+        "summaryText": "How to read the claims for Gemini Robotics, GR00T, Helix and GO-2.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -31838,7 +31838,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "GR00T N1 (March 2025) couples a VLMvision-language modelA mo"
+          "text": "GR00T N1 (March 2025) couples a VLMvision-language modelA vi"
         },
         {
           "familyHead": "geist",
@@ -32567,7 +32567,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22237,
+      "visibleTextLength": 21690,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -32614,7 +32614,7 @@
         "h1Count": 1,
         "h1Text": "Hierarchical Approaches",
         "summaryCount": 1,
-        "summaryText": "SayCan, Code as Policies and keypoint affordances, then the learned and orchestr",
+        "summaryText": "From SayCan and Code as Policies to the hierarchies in Helix and pi0.5.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -32881,7 +32881,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "ECoT trains a VLAvision-language-action modelA robot policy "
+          "text": "ECoT trains a VLAvision-language-action modelA vision-langua"
         },
         {
           "familyHead": "geist",
@@ -33533,7 +33533,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16133,
+      "visibleTextLength": 15788,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -33580,7 +33580,7 @@
         "h1Count": 1,
         "h1Text": "Knowledge Insulation",
         "summaryCount": 1,
-        "summaryText": "Training the VLM backbone on discrete tokens while a flow-matching expert learns",
+        "summaryText": "Discrete tokens train the backbone while the action expert trains behind a stop-",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -33649,7 +33649,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Knowledge insulationknowledge insulationPhysical Intelligenc"
+          "text": "Knowledge insulationknowledge insulationKnowledge insulation"
         },
         {
           "familyHead": "geist",
@@ -34323,7 +34323,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20718,
+      "visibleTextLength": 20222,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -34370,7 +34370,7 @@
         "h1Count": 1,
         "h1Text": "The Pi Line",
         "summaryCount": 1,
-        "summaryText": "pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world genera",
+        "summaryText": "From pi0 to pi0.7, with flow-matching action experts and FAST tokenization.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -34515,7 +34515,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Cross-embodimentcross-embodimentLearning from, or transferri"
+          "text": "Cross-embodimentcross-embodimentCross-embodiment learning is"
         },
         {
           "familyHead": "geist",
@@ -35321,7 +35321,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18352,
+      "visibleTextLength": 17654,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -35368,7 +35368,7 @@
         "h1Count": 1,
         "h1Text": "Real-Time Execution",
         "summaryCount": 1,
-        "summaryText": "Temporal ensembling and real-time chunking: the latency budgets that decide whet",
+        "summaryText": "The latency budgets that decide whether the control loop closes.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -35527,7 +35527,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The Real-Time Chunkingreal-time chunkingAn inference-time sc"
+          "text": "The Real-Time Chunkingreal-time chunkingReal-time chunking i"
         },
         {
           "familyHead": "geist",
@@ -35581,7 +35581,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Chunkingaction chunkingPredicting a sequence of future actio"
+          "text": "Chunkingaction chunkingAction chunking is predicting a seque"
         },
         {
           "familyHead": "geist",
@@ -35608,7 +35608,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Temporal ensemblingtemporal ensemblingACT's execution scheme"
+          "text": "Temporal ensemblingtemporal ensemblingTemporal ensembling is"
         },
         {
           "familyHead": "geist",
@@ -36229,7 +36229,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32282,
+      "visibleTextLength": 31556,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -36276,7 +36276,7 @@
         "h1Count": 1,
         "h1Text": "RL Fine-Tuning of Policies",
         "summaryCount": 1,
-        "summaryText": "DPPO, ConRFT, Recap, pi_RL, residual RL and HIL-SERL: improving a pretrained pol",
+        "summaryText": "Improving a pretrained policy from its own online experience.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -36391,7 +36391,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "PPOPPOProximal policy optimization, the on-policy reinforcem"
+          "text": "PPOPPOPPO (proximal policy optimization) is the on-policy re"
         },
         {
           "familyHead": "geist",
@@ -36436,7 +36436,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "ConRFT reports 96.3% mean success ratesuccess rateThe standa"
+          "text": "ConRFT reports 96.3% mean success ratesuccess rateSuccess ra"
         },
         {
           "familyHead": "geist",
@@ -37261,7 +37261,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15002,
+      "visibleTextLength": 14673,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -37308,7 +37308,7 @@
         "h1Count": 1,
         "h1Text": "Robot Learning Curriculum for ML Engineers",
         "summaryCount": 1,
-        "summaryText": "A dependency-aware route from supervised learning to real robot policies, with t",
+        "summaryText": "A dependency-ordered route from supervised learning to real robot policies.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -37981,7 +37981,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22202,
+      "visibleTextLength": 21275,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -38028,7 +38028,7 @@
         "h1Count": 1,
         "h1Text": "Vision-Language-Action Models",
         "summaryCount": 1,
-        "summaryText": "RT-1, RT-2, RT-X, Octo, and OpenVLA: web-scale pretraining meets robot control, ",
+        "summaryText": "RT-1, RT-2, Octo and OpenVLA, and what web-scale pretraining adds to robot contr",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -38225,7 +38225,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Open X-EmbodimentOpen X-EmbodimentA 2023 collaboration acros"
+          "text": "Open X-EmbodimentOpen X-EmbodimentOpen X-Embodiment is a 202"
         },
         {
           "familyHead": "geist",
@@ -40536,7 +40536,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1789,
+      "visibleTextLength": 1489,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40696,7 +40696,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22174,
+      "visibleTextLength": 21681,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40743,7 +40743,7 @@
         "h1Count": 1,
         "h1Text": "Humanoid Whole-Body Control",
         "summaryCount": 1,
-        "summaryText": "Tracking retargeted human motion, from PHC to ASAP and GMT, and the three decomp",
+        "summaryText": "How humanoids track retargeted human motion.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -41627,7 +41627,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19807,
+      "visibleTextLength": 19541,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41674,7 +41674,7 @@
         "h1Count": 1,
         "h1Text": "Legged Locomotion Lineage",
         "summaryCount": 1,
-        "summaryText": "From ANYmal's actuator networks to Unitree humanoids and Boston Dynamics: how le",
+        "summaryText": "How learned gaits became the default for legged robots.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -41747,7 +41747,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Legged locomotionlegged locomotionLocomotion on legs rather "
+          "text": "Legged locomotionlegged locomotionLegged locomotion is movin"
         },
         {
           "familyHead": "geist",
@@ -42486,7 +42486,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18622,
+      "visibleTextLength": 18280,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -42533,7 +42533,7 @@
         "h1Count": 1,
         "h1Text": "Offline Reinforcement Learning for Robotics",
         "summaryCount": 1,
-        "summaryText": "CQL, IQL, TD3+BC and Q-Transformer under the support constraint, with a decision",
+        "summaryText": "CQL and TD3+BC, and when behavior cloning is the stronger baseline.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -42636,7 +42636,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Offline RLoffline reinforcement learningLearning a policy fr"
+          "text": "Offline RLoffline reinforcement learningOffline reinforcemen"
         },
         {
           "familyHead": "geist",
@@ -43604,7 +43604,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17823,
+      "visibleTextLength": 17093,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -43651,7 +43651,7 @@
         "h1Count": 1,
         "h1Text": "Massively Parallel Sim RL",
         "summaryCount": 1,
-        "summaryText": "Isaac Lab, Newton, MJX, and Brax: GPU-parallel environments and the wall-clock e",
+        "summaryText": "GPU-parallel simulation with Isaac Lab, Newton, MJX and Brax.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -43810,7 +43810,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Their game-inspired curriculumcurriculum learningTraining on"
+          "text": "Their game-inspired curriculumcurriculum learningCurriculum "
         },
         {
           "familyHead": "geist",
@@ -44428,7 +44428,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25239,
+      "visibleTextLength": 24765,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44475,7 +44475,7 @@
         "h1Count": 1,
         "h1Text": "Reward Design and the MPC Debate",
         "summaryCount": 1,
-        "summaryText": "Hand-tuned reward weights, reward code written by language models, curricula and",
+        "summaryText": "Hand-tuned and language-model rewards, and the MPC debate.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -44770,7 +44770,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Reward shapingreward shapingSupplying extra training rewards"
+          "text": "Reward shapingreward shapingReward shaping is adding rewards"
         },
         {
           "familyHead": "geist",
@@ -45493,7 +45493,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22628,
+      "visibleTextLength": 22204,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45540,7 +45540,7 @@
         "h1Count": 1,
         "h1Text": "RL for Robotics",
         "summaryCount": 1,
-        "summaryText": "Sample efficiency decides which reinforcement learning algorithms a robot can be",
+        "summaryText": "Sample efficiency decides which RL algorithm a robot can use.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -45713,7 +45713,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "An on-policyon-policyA learning method whose updates are onl"
+          "text": "An on-policyon-policyAn on-policy method is a learning metho"
         },
         {
           "familyHead": "geist",
@@ -45776,7 +45776,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Sample efficiencysample efficiencyHow much environment inter"
+          "text": "Sample efficiencysample efficiencySample efficiency is how m"
         },
         {
           "familyHead": "geist",
@@ -45875,7 +45875,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Reset-free learningreset-free learningTraining on real hardw"
+          "text": "Reset-free learningreset-free learningReset-free learning is"
         },
         {
           "familyHead": "geist",
@@ -46465,7 +46465,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24668,
+      "visibleTextLength": 23864,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -46512,7 +46512,7 @@
         "h1Count": 1,
         "h1Text": "Sim-to-Real Transfer",
         "summaryCount": 1,
-        "summaryText": "Domain randomization, teacher-student distillation, system identification and re",
+        "summaryText": "Domain randomization, distillation, system identification and real-to-sim recons",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -47448,7 +47448,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17596,
+      "visibleTextLength": 17142,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47495,7 +47495,7 @@
         "h1Count": 1,
         "h1Text": "Why RL Won Locomotion but Not Manipulation",
         "summaryCount": 1,
-        "summaryText": "The MDP simulability gap: contact-rich manipulation resists the simulation that ",
+        "summaryText": "Walking is cheap to simulate; contact-rich manipulation is not.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -47637,7 +47637,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Locomotion papers combine PPOPPOProximal policy optimization"
+          "text": "Locomotion papers combine PPOPPOPPO (proximal policy optimiz"
         },
         {
           "familyHead": "geist",
@@ -48214,7 +48214,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 600,
+      "visibleTextLength": 571,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48382,7 +48382,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1789,
+      "visibleTextLength": 1425,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48542,7 +48542,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16914,
+      "visibleTextLength": 16246,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48589,7 +48589,7 @@
         "h1Count": 1,
         "h1Text": "World Model Evaluation for Robotics",
         "summaryCount": 1,
-        "summaryText": "Testing a world model on what a robot needs from it: action sensitivity, tempora",
+        "summaryText": "Testing a world model on what a robot needs.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -49314,7 +49314,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20767,
+      "visibleTextLength": 20100,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49361,7 +49361,7 @@
         "h1Count": 1,
         "h1Text": "Generative Simulation",
         "summaryCount": 1,
-        "summaryText": "RoboGen, Holodeck and RoboCasa: generated tasks, scenes and assets inside a phys",
+        "summaryText": "Generated tasks, scenes and assets inside a physics engine.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -50207,7 +50207,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21799,
+      "visibleTextLength": 21185,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50254,7 +50254,7 @@
         "h1Count": 1,
         "h1Text": "Generative Video World Models",
         "summaryCount": 1,
-        "summaryText": "Cosmos, Genie and GR-2: action-conditioned video prediction as a simulator, and ",
+        "summaryText": "Cosmos, Genie and GR-2 use action-conditioned video prediction as a simulator.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -51212,7 +51212,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18982,
+      "visibleTextLength": 18652,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -51259,7 +51259,7 @@
         "h1Count": 1,
         "h1Text": "JEPA and the Non-Generative Counterargument",
         "summaryCount": 1,
-        "summaryText": "V-JEPA 2 and LeCun's case that prediction in representation space beats pixel ge",
+        "summaryText": "V-JEPA 2 and 2.1 predict in representation space, with no pixel decoder.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -51997,7 +51997,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16398,
+      "visibleTextLength": 15966,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52044,7 +52044,7 @@
         "h1Count": 1,
         "h1Text": "Latent-Dynamics World Models",
         "summaryCount": 1,
-        "summaryText": "Dreamer, TD-MPC2, and DayDreamer: compact learned dynamics for imagination-based",
+        "summaryText": "Dreamer 4, TD-MPC2 and Newt: compact learned dynamics for imagination-based cont",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -52113,7 +52113,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Latent dynamicslatent dynamicsA world-model paradigm that pr"
+          "text": "Latent dynamicslatent dynamicsLatent dynamics is a world-mod"
         },
         {
           "familyHead": "geist",
@@ -52767,7 +52767,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14835,
+      "visibleTextLength": 14262,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52814,7 +52814,7 @@
         "h1Count": 1,
         "h1Text": "Model-Based Robot Learning",
         "summaryCount": 1,
-        "summaryText": "Learn dynamics, plan through them, and improve from imagined rollouts: the commo",
+        "summaryText": "Learn dynamics, plan through them, and improve from imagined rollouts.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -52930,7 +52930,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A world modelworld modelA model of how an environment evolve"
+          "text": "A world modelworld modelA world model is a model an agent qu"
         },
         {
           "familyHead": "geist",
@@ -53408,7 +53408,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20628,
+      "visibleTextLength": 20047,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -53455,7 +53455,7 @@
         "h1Count": 1,
         "h1Text": "What Is a World Model?",
         "summaryCount": 1,
-        "summaryText": "A world model predicts how an environment evolves in a form useful for a robot's",
+        "summaryText": "Six example groups compared, from DreamerV3 to V-JEPA 2.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -53527,7 +53527,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A world modelworld modelA model of how an environment evolve"
+          "text": "A world modelworld modelA world model is a model an agent qu"
         },
         {
           "familyHead": "geist",
@@ -54415,7 +54415,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21335,
+      "visibleTextLength": 20735,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -54462,7 +54462,7 @@
         "h1Count": 1,
         "h1Text": "World Models vs Physics Simulators",
         "summaryCount": 1,
-        "summaryText": "Learned dynamics, explicit physics and hybrid simulation compared by controllabi",
+        "summaryText": "Learned dynamics, physics engines and hybrids compared as robot simulators.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -54533,7 +54533,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Learned world modelsworld modelA model of how an environment"
+          "text": "Learned world modelsworld modelA world model is a model an a"
         },
         {
           "familyHead": "geist",
@@ -55571,7 +55571,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 6578,
+      "visibleTextLength": 6568,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55731,7 +55731,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 2486,
+      "visibleTextLength": 2104,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -55878,7 +55878,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 918,
+      "visibleTextLength": 1810,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56038,7 +56038,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 46671,
+      "visibleTextLength": 46226,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56085,7 +56085,7 @@
         "h1Count": 1,
         "h1Text": "Autonomous Vehicles",
         "summaryCount": 1,
-        "summaryText": "The AV stack as a robotics problem: perception, prediction, planning, and the lo",
+        "summaryText": "Driving as a robotics problem, down to the long tail.",
         "breadcrumbLabels": [
           "Adjacent Domains"
         ],
@@ -56347,7 +56347,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The technical obstruction is the long taillong tailThe part "
+          "text": "The technical obstruction is the long taillong tailThe long "
         },
         {
           "familyHead": "geist",
@@ -57112,7 +57112,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32461,
+      "visibleTextLength": 32166,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57159,7 +57159,7 @@
         "h1Count": 1,
         "h1Text": "Drones and Aerial Robotics",
         "summaryCount": 1,
-        "summaryText": "Autonomous flight from state estimation to champion-level racing, swarm coordina",
+        "summaryText": "Autonomous flight, from state estimation to champion-level racing.",
         "breadcrumbLabels": [
           "Adjacent Domains"
         ],
@@ -58029,7 +58029,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 34698,
+      "visibleTextLength": 34563,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58076,7 +58076,7 @@
         "h1Count": 1,
         "h1Text": "Space Robotics",
         "summaryCount": 1,
-        "summaryText": "NASA/JPL systems, orbital servicing, and ISRU: robotics where repair is impossib",
+        "summaryText": "Robots where repair is impossible, from Mars to orbit.",
         "breadcrumbLabels": [
           "Adjacent Domains"
         ],
@@ -58253,7 +58253,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "On-orbit servicingon-orbit servicingUsing one spacecraft to "
+          "text": "On-orbit servicingon-orbit servicingOn-orbit servicing is us"
         },
         {
           "familyHead": "geist",
@@ -58658,7 +58658,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32252,
+      "visibleTextLength": 31910,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58705,7 +58705,7 @@
         "h1Count": 1,
         "h1Text": "Surgical Robotics",
         "summaryCount": 1,
-        "summaryText": "Intuitive, CMR, and Moon Surgical: the precision and reliability bar for certifi",
+        "summaryText": "From da Vinci to Hugo and OTTAVA, authorized one indication at a time.",
         "breadcrumbLabels": [
           "Adjacent Domains"
         ],
@@ -58998,7 +58998,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Intuitive says da Vinci 5's Force Feedbackforce feedbackSens"
+          "text": "Intuitive says da Vinci 5's Force Feedbackforce feedbackForc"
         }
       ],
       "sectionLinks": [
@@ -59321,7 +59321,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 1707,
+      "visibleTextLength": 1577,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59481,7 +59481,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21196,
+      "visibleTextLength": 20559,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -59528,7 +59528,7 @@
         "h1Count": 1,
         "h1Text": "Robot Calibration",
         "summaryCount": 1,
-        "summaryText": "Camera intrinsics, hand-eye transforms, kinematic zeroes, timing and dynamics: t",
+        "summaryText": "The measurements that make sensor coordinates agree with motion.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -60219,7 +60219,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30763,
+      "visibleTextLength": 30306,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60266,7 +60266,7 @@
         "h1Count": 1,
         "h1Text": "Control",
         "summaryCount": 1,
-        "summaryText": "PID, LQR, MPC, and whole-body QP: the classical stack under every learned policy",
+        "summaryText": "PID, LQR, MPC and whole-body QP, the stack under every learned policy.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -60482,7 +60482,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Model-predictive controlmodel predictive controlControl by c"
+          "text": "Model-predictive controlmodel predictive controlModel predic"
         },
         {
           "familyHead": "geist",
@@ -60563,7 +60563,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Admittance controladmittance controlCompliant control that m"
+          "text": "Admittance controladmittance controlAdmittance control is co"
         },
         {
           "familyHead": "geist",
@@ -61202,7 +61202,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26807,
+      "visibleTextLength": 26500,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -61416,7 +61416,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The admissible forces form the friction conefriction coneThe"
+          "text": "The admissible forces form the friction conefriction coneA f"
         },
         {
           "familyHead": "geist",
@@ -61461,7 +61461,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A grasp has force closureforce closureThe property that a gr"
+          "text": "A grasp has force closureforce closureForce closure is the p"
         },
         {
           "familyHead": "geist",
@@ -61997,7 +61997,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24161,
+      "visibleTextLength": 23724,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62044,7 +62044,7 @@
         "h1Count": 1,
         "h1Text": "Kinematics",
         "summaryCount": 1,
-        "summaryText": "How joint angles place a robot's hand, and how to find the angles that reach a t",
+        "summaryText": "How joint angles place a robot's hand, and the reverse.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -62349,7 +62349,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "TeleoperationteleoperationDirect remote control of a robot b"
+          "text": "TeleoperationteleoperationTeleoperation is direct remote con"
         },
         {
           "familyHead": "geist",
@@ -62759,7 +62759,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 36747,
+      "visibleTextLength": 36260,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62806,7 +62806,7 @@
         "h1Count": 1,
         "h1Text": "Motion Planning",
         "summaryCount": 1,
-        "summaryText": "Configuration space, RRT and its optimal variants, and trajectory optimization w",
+        "summaryText": "Configuration space, RRT and its variants, and trajectory optimization.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -63101,7 +63101,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Trajectory optimizationtrajectory optimizationMotion plannin"
+          "text": "Trajectory optimizationtrajectory optimizationTrajectory opt"
         },
         {
           "familyHead": "geist",
@@ -63712,7 +63712,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 43528,
+      "visibleTextLength": 43196,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63759,7 +63759,7 @@
         "h1Count": 1,
         "h1Text": "Perception for Manipulation",
         "summaryCount": 1,
-        "summaryText": "How a robot turns camera images into an object's position and orientation: calib",
+        "summaryText": "How camera images become an object's position and orientation.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -64037,7 +64037,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Depth yields a point cloudpoint cloudA set of 3D points, usu"
+          "text": "Depth yields a point cloudpoint cloudA point cloud is a set "
         },
         {
           "familyHead": "geist",
@@ -64100,7 +64100,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Promptable segmentationpromptable segmentationSegmentation t"
+          "text": "Promptable segmentationpromptable segmentationPromptable seg"
         },
         {
           "familyHead": "geist",
@@ -64136,7 +64136,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Pose estimationpose estimationRecovering an object's full ri"
+          "text": "Pose estimationpose estimationPose estimation is recovering "
         },
         {
           "familyHead": "geist",
@@ -64217,7 +64217,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Visual servoingvisual servoingUsing computer vision data to "
+          "text": "Visual servoingvisual servoingVisual servoing is controlling"
         },
         {
           "familyHead": "geist",
@@ -64853,7 +64853,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18803,
+      "visibleTextLength": 18268,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -64900,7 +64900,7 @@
         "h1Count": 1,
         "h1Text": "ROS 2 for Machine Learning Engineers",
         "summaryCount": 1,
-        "summaryText": "Topics, services, actions, QoS, tf2, rosbag2 and MoveIt explained as the product",
+        "summaryText": "ROS 2 as the production boundary around a learned policy.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -65680,7 +65680,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 36662,
+      "visibleTextLength": 36362,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65727,7 +65727,7 @@
         "h1Count": 1,
         "h1Text": "Scene Representation and Mapping",
         "summaryCount": 1,
-        "summaryText": "What a robot keeps in memory about the space around it, from point clouds and oc",
+        "summaryText": "From point clouds to Gaussian splats: what a robot remembers about space.",
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
@@ -65895,7 +65895,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A point cloudpoint cloudA set of 3D points, usually with no "
+          "text": "A point cloudpoint cloudA point cloud is a set of 3D points,"
         },
         {
           "familyHead": "geist",
@@ -65949,7 +65949,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "NeRF fits a neural radiance fieldneural radiance fieldA scen"
+          "text": "NeRF fits a neural radiance fieldneural radiance fieldA neur"
         },
         {
           "familyHead": "geist",
@@ -66075,7 +66075,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Place recognitionplace recognitionFor visual navigation, dec"
+          "text": "Place recognitionplace recognitionPlace recognition is decid"
         },
         {
           "familyHead": "geist",
@@ -66129,7 +66129,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A navigation stack plans over a costmapcostmapThe grid a mob"
+          "text": "A navigation stack plans over a costmapcostmapA costmap is t"
         },
         {
           "familyHead": "geist",
@@ -66676,7 +66676,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30649,
+      "visibleTextLength": 30375,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66888,7 +66888,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The 1960 Kalman filterKalman filterThe recursive state estim"
+          "text": "The 1960 Kalman filterKalman filterThe Kalman filter is the "
         },
         {
           "familyHead": "geist",
@@ -67490,7 +67490,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 57565,
+      "visibleTextLength": 57325,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67666,7 +67666,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1531,
+      "visibleTextLength": 1226,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67826,7 +67826,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 27543,
+      "visibleTextLength": 26747,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67873,7 +67873,7 @@
         "h1Count": 1,
         "h1Text": "The Data Bottleneck",
         "summaryCount": 1,
-        "summaryText": "Robot data is counted in hours and language data in trillions of tokens: the gap",
+        "summaryText": "Robot data comes in hours; language data in trillions of tokens.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -68053,7 +68053,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Open X-EmbodimentOpen X-EmbodimentA 2023 collaboration acros"
+          "text": "Open X-EmbodimentOpen X-EmbodimentOpen X-Embodiment is a 202"
         },
         {
           "familyHead": "geist",
@@ -68071,7 +68071,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Scaling lawsscaling lawAn empirical regularity between a sys"
+          "text": "Scaling lawsscaling lawA scaling law is an empirical relatio"
         },
         {
           "familyHead": "geist",
@@ -68726,7 +68726,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29057,
+      "visibleTextLength": 28421,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -68773,7 +68773,7 @@
         "h1Count": 1,
         "h1Text": "Major Datasets",
         "summaryCount": 1,
-        "summaryText": "Open X-Embodiment, DROID, BridgeData V2, AgiBot World and RoboMIND compared by w",
+        "summaryText": "The major open robot datasets and what each collected.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -68883,7 +68883,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Later cross-embodimentcross-embodimentLearning from, or tran"
+          "text": "Later cross-embodimentcross-embodimentCross-embodiment learn"
         },
         {
           "familyHead": "geist",
@@ -68919,7 +68919,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Diffusion policiesdiffusion policyA policy that produces act"
+          "text": "Diffusion policiesdiffusion policyA diffusion policy is a po"
         },
         {
           "familyHead": "geist",
@@ -69706,7 +69706,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28644,
+      "visibleTextLength": 27491,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69753,7 +69753,7 @@
         "h1Count": 1,
         "h1Text": "The Evaluation Crisis",
         "summaryCount": 1,
-        "summaryText": "What a success rate hides: trial count, task length, setup and scorer. At 95% pe",
+        "summaryText": "What a success rate hides, from trial count to scorer.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -70535,7 +70535,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 34045,
+      "visibleTextLength": 33690,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -70582,7 +70582,7 @@
         "h1Count": 1,
         "h1Text": "Hardware Taxonomy",
         "summaryCount": 1,
-        "summaryText": "Arms, humanoids, hands, sensors, and compute: a buyer's guide from SO-101 to Jet",
+        "summaryText": "A buyer's guide from SO-101 to Jetson Thor.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -71414,7 +71414,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32046,
+      "visibleTextLength": 31482,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71461,7 +71461,7 @@
         "h1Count": 1,
         "h1Text": "Industrial Deployment",
         "summaryCount": 1,
-        "summaryText": "The installed base robot learning is trying to enter, and the jam-rate arithmeti",
+        "summaryText": "The jam-rate arithmetic that decides whether a 99 percent cell ships.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -71815,7 +71815,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Cycle timecycle timeThe time required to produce a part or c"
+          "text": "Cycle timecycle timeCycle time is the measured time required"
         },
         {
           "familyHead": "geist",
@@ -71842,7 +71842,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The intervention rateintervention rateHow often an automated"
+          "text": "The intervention rateintervention rateIntervention rate is t"
         },
         {
           "familyHead": "geist",
@@ -72339,7 +72339,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24258,
+      "visibleTextLength": 23816,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -72386,7 +72386,7 @@
         "h1Count": 1,
         "h1Text": "The Robot Learning Stack",
         "summaryCount": 1,
-        "summaryText": "Data capture, schemas, training, simulation, evaluation, serving and robot integ",
+        "summaryText": "From data capture to robot integration as one reproducible system.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -73216,7 +73216,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24013,
+      "visibleTextLength": 23136,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73263,7 +73263,7 @@
         "h1Count": 1,
         "h1Text": "Teleoperation Rigs",
         "summaryCount": 1,
-        "summaryText": "ALOHA, GELLO, UMI, and VR teleop: cost, data quality, throughput, and the embodi",
+        "summaryText": "ALOHA, GELLO, UMI and VR rigs compared on cost and quality.",
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
@@ -73333,7 +73333,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "TeleoperationteleoperationDirect remote control of a robot b"
+          "text": "TeleoperationteleoperationTeleoperation is direct remote con"
         },
         {
           "familyHead": "geist",
@@ -73927,7 +73927,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2041,
+      "visibleTextLength": 1635,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74074,7 +74074,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1249,
+      "visibleTextLength": 1087,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74234,7 +74234,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22480,
+      "visibleTextLength": 22188,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74281,7 +74281,7 @@
         "h1Count": 1,
         "h1Text": "The Bear Case",
         "summaryCount": 1,
-        "summaryText": "Why this could be another robotics winter, and the milestones that would prove i",
+        "summaryText": "Why this could be another robotics winter.",
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
@@ -75275,7 +75275,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27444,
+      "visibleTextLength": 27077,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75322,7 +75322,7 @@
         "h1Count": 1,
         "h1Text": "Competing Theses",
         "summaryCount": 1,
-        "summaryText": "Six bets on how robot intelligence gets built, from end-to-end scaling to the hu",
+        "summaryText": "Six bets on how robot intelligence gets built.",
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
@@ -75436,7 +75436,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "EgoScale fit a log-linear scaling lawscaling lawAn empirical"
+          "text": "EgoScale fit a log-linear scaling lawscaling lawA scaling la"
         },
         {
           "familyHead": "geist",
@@ -75562,7 +75562,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The claim: deploy teleoperatedteleoperationDirect remote con"
+          "text": "The claim: deploy teleoperatedteleoperationTeleoperation is "
         },
         {
           "familyHead": "geist",
@@ -76318,7 +76318,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30486,
+      "visibleTextLength": 29867,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -76365,7 +76365,7 @@
         "h1Count": 1,
         "h1Text": "Dexterity",
         "summaryCount": 1,
-        "summaryText": "Contact-rich manipulation, the tactile sensing gap, in-hand reorientation, and d",
+        "summaryText": "Contact-rich manipulation, touch sensing, in-hand reorientation and deformables.",
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
@@ -76722,7 +76722,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In-hand manipulationin-hand manipulationRepositioning or reo"
+          "text": "In-hand manipulationin-hand manipulationIn-hand manipulation"
         },
         {
           "familyHead": "geist",
@@ -77341,7 +77341,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26108,
+      "visibleTextLength": 25732,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77388,7 +77388,7 @@
         "h1Count": 1,
         "h1Text": "Generalization",
         "summaryCount": 1,
-        "summaryText": "What pi0.5 and pi0.7 show about working in unseen homes, the EgoScale scaling la",
+        "summaryText": "From pi0.5's three unseen homes to Helix 2.5's 30.",
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
@@ -78223,7 +78223,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21283,
+      "visibleTextLength": 20523,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78270,7 +78270,7 @@
         "h1Count": 1,
         "h1Text": "The Reliability Gap",
         "summaryCount": 1,
-        "summaryText": "80% task success is a demo and 99.9% is a product: the per-step arithmetic, the ",
+        "summaryText": "80% task success is a demo; 99.9% is a product.",
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
@@ -79006,7 +79006,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 38293,
+      "visibleTextLength": 37780,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79053,7 +79053,7 @@
         "h1Count": 1,
         "h1Text": "Safety and Assurance",
         "summaryCount": 1,
-        "summaryText": "No industrial safety standard certifies a learned policy, so what ships is a ver",
+        "summaryText": "What ships is a verifiable safety layer around the learned policy.",
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
@@ -79267,7 +79267,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Risk assessmentrisk assessmentThe documented machinery-safet"
+          "text": "Risk assessmentrisk assessmentRisk assessment is the documen"
         },
         {
           "familyHead": "geist",
@@ -79285,7 +79285,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Functional safetyfunctional safetyThe part of a system’s saf"
+          "text": "Functional safetyfunctional safetyFunctional safety is the p"
         },
         {
           "familyHead": "geist",
@@ -79456,7 +79456,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Conformal predictionconformal predictionA distribution-free "
+          "text": "Conformal predictionconformal predictionConformal prediction"
         },
         {
           "familyHead": "geist",
@@ -79465,7 +79465,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Out-of-distribution detectionout-of-distribution detectionDe"
+          "text": "Out-of-distribution detectionout-of-distribution detectionOu"
         },
         {
           "familyHead": "geist",
@@ -80026,7 +80026,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 82106,
+      "visibleTextLength": 74503,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80426,7 +80426,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 2788,
+      "visibleTextLength": 2119,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80586,7 +80586,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 26176,
+      "visibleTextLength": 25735,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -80633,7 +80633,7 @@
         "h1Count": 1,
         "h1Text": "Action Chunking (ACT and ALOHA)",
         "summaryCount": 1,
-        "summaryText": "Predicting action sequences instead of single steps: the CVAE structure, the chu",
+        "summaryText": "ACT predicts short action sequences and smooths them with temporal ensembling.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -80764,7 +80764,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Behavior cloningbehavior cloningTraining a policy by supervi"
+          "text": "Behavior cloningbehavior cloningBehavior cloning is supervis"
         },
         {
           "familyHead": "geist",
@@ -80773,7 +80773,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Action chunkingaction chunkingPredicting a sequence of futur"
+          "text": "Action chunkingaction chunkingAction chunking is predicting "
         },
         {
           "familyHead": "geist",
@@ -80854,7 +80854,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Real-Time Chunkingreal-time chunkingAn inference-time scheme"
+          "text": "Real-Time Chunkingreal-time chunkingReal-time chunking is an"
         },
         {
           "familyHead": "geist",
@@ -81514,7 +81514,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21750,
+      "visibleTextLength": 21093,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81561,7 +81561,7 @@
         "h1Count": 1,
         "h1Text": "Action Spaces for Robot Learning",
         "summaryCount": 1,
-        "summaryText": "Joint, Cartesian, torque, impedance, chunked and tokenized actions: what each re",
+        "summaryText": "What each action representation gives the learner and asks of the controller.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -81733,7 +81733,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "An action chunkaction chunkingPredicting a sequence of futur"
+          "text": "An action chunkaction chunkingAction chunking is predicting "
         },
         {
           "familyHead": "geist",
@@ -82186,7 +82186,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24518,
+      "visibleTextLength": 23898,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82233,7 +82233,7 @@
         "h1Count": 1,
         "h1Text": "Behavior Cloning Foundations",
         "summaryCount": 1,
-        "summaryText": "Covariate shift and compounding error: why naive imitation breaks in closed loop",
+        "summaryText": "Covariate shift makes naive imitation drift, and DAgger is the standard fix.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -82305,7 +82305,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Behavior cloningbehavior cloningTraining a policy by supervi"
+          "text": "Behavior cloningbehavior cloningBehavior cloning is supervis"
         },
         {
           "familyHead": "geist",
@@ -82467,7 +82467,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "DAggerDAggerDataset Aggregation, the iterative fix for behav"
+          "text": "DAggerDAggerDAgger (Dataset Aggregation) is an iterative fix"
         },
         {
           "familyHead": "geist",
@@ -83030,7 +83030,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25331,
+      "visibleTextLength": 25017,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83077,7 +83077,7 @@
         "h1Count": 1,
         "h1Text": "Comparison Matrix",
         "summaryCount": 1,
-        "summaryText": "Every major policy across eight architectural axes: action representation, horiz",
+        "summaryText": "Every major policy compared on eight architectural axes.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -83907,7 +83907,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24460,
+      "visibleTextLength": 23861,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83954,7 +83954,7 @@
         "h1Count": 1,
         "h1Text": "Cross-Embodiment Transfer",
         "summaryCount": 1,
-        "summaryText": "Padded action vectors, relative end-effector actions, latent actions and human-t",
+        "summaryText": "How one policy learns from many robot bodies and from humans.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -84028,7 +84028,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Cross-embodiment transfercross-embodimentLearning from, or t"
+          "text": "Cross-embodiment transfercross-embodimentCross-embodiment le"
         },
         {
           "familyHead": "geist",
@@ -84724,7 +84724,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21978,
+      "visibleTextLength": 21691,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84841,7 +84841,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Diffusion Policydiffusion policyA policy that produces actio"
+          "text": "Diffusion Policydiffusion policyA diffusion policy is a poli"
         },
         {
           "familyHead": "geist",
@@ -85066,7 +85066,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Real-Time Chunkingreal-time chunkingAn inference-time scheme"
+          "text": "Real-Time Chunkingreal-time chunkingReal-time chunking is an"
         },
         {
           "familyHead": "geist",
@@ -85617,7 +85617,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22614,
+      "visibleTextLength": 22015,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -85664,7 +85664,7 @@
         "h1Count": 1,
         "h1Text": "Foundation Models for Robotics",
         "summaryCount": 1,
-        "summaryText": "What foundation means in robotics, how VLA, world-model and multimodal pretraini",
+        "summaryText": "What foundation means in robotics, and what adaptation still costs.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -86377,7 +86377,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24939,
+      "visibleTextLength": 24250,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86424,7 +86424,7 @@
         "h1Count": 1,
         "h1Text": "Other Generalist Policies",
         "summaryCount": 1,
-        "summaryText": "Gemini Robotics, GR00T, Helix, Skild, and GO-2: how to read closed-model vendor ",
+        "summaryText": "How to read the claims for Gemini Robotics, GR00T, Helix and GO-2.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -86590,7 +86590,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "GR00T N1 (March 2025) couples a VLMvision-language modelA mo"
+          "text": "GR00T N1 (March 2025) couples a VLMvision-language modelA vi"
         },
         {
           "familyHead": "geist",
@@ -87308,7 +87308,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28017,
+      "visibleTextLength": 27470,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -87355,7 +87355,7 @@
         "h1Count": 1,
         "h1Text": "Hierarchical Approaches",
         "summaryCount": 1,
-        "summaryText": "SayCan, Code as Policies and keypoint affordances, then the learned and orchestr",
+        "summaryText": "From SayCan and Code as Policies to the hierarchies in Helix and pi0.5.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -87622,7 +87622,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "ECoT trains a VLAvision-language-action modelA robot policy "
+          "text": "ECoT trains a VLAvision-language-action modelA vision-langua"
         },
         {
           "familyHead": "geist",
@@ -88263,7 +88263,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22918,
+      "visibleTextLength": 22573,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -88310,7 +88310,7 @@
         "h1Count": 1,
         "h1Text": "Knowledge Insulation",
         "summaryCount": 1,
-        "summaryText": "Training the VLM backbone on discrete tokens while a flow-matching expert learns",
+        "summaryText": "Discrete tokens train the backbone while the action expert trains behind a stop-",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -88379,7 +88379,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Knowledge insulationknowledge insulationPhysical Intelligenc"
+          "text": "Knowledge insulationknowledge insulationKnowledge insulation"
         },
         {
           "familyHead": "geist",
@@ -89042,7 +89042,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27489,
+      "visibleTextLength": 26993,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89089,7 +89089,7 @@
         "h1Count": 1,
         "h1Text": "The Pi Line",
         "summaryCount": 1,
-        "summaryText": "pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world genera",
+        "summaryText": "From pi0 to pi0.7, with flow-matching action experts and FAST tokenization.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -89234,7 +89234,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Cross-embodimentcross-embodimentLearning from, or transferri"
+          "text": "Cross-embodimentcross-embodimentCross-embodiment learning is"
         },
         {
           "familyHead": "geist",
@@ -90029,7 +90029,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24832,
+      "visibleTextLength": 24134,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -90076,7 +90076,7 @@
         "h1Count": 1,
         "h1Text": "Real-Time Execution",
         "summaryCount": 1,
-        "summaryText": "Temporal ensembling and real-time chunking: the latency budgets that decide whet",
+        "summaryText": "The latency budgets that decide whether the control loop closes.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -90235,7 +90235,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The Real-Time Chunkingreal-time chunkingAn inference-time sc"
+          "text": "The Real-Time Chunkingreal-time chunkingReal-time chunking i"
         },
         {
           "familyHead": "geist",
@@ -90289,7 +90289,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Chunkingaction chunkingPredicting a sequence of future actio"
+          "text": "Chunkingaction chunkingAction chunking is predicting a seque"
         },
         {
           "familyHead": "geist",
@@ -90316,7 +90316,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Temporal ensemblingtemporal ensemblingACT's execution scheme"
+          "text": "Temporal ensemblingtemporal ensemblingTemporal ensembling is"
         },
         {
           "familyHead": "geist",
@@ -90926,7 +90926,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42068,
+      "visibleTextLength": 41342,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -90973,7 +90973,7 @@
         "h1Count": 1,
         "h1Text": "RL Fine-Tuning of Policies",
         "summaryCount": 1,
-        "summaryText": "DPPO, ConRFT, Recap, pi_RL, residual RL and HIL-SERL: improving a pretrained pol",
+        "summaryText": "Improving a pretrained policy from its own online experience.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -91088,7 +91088,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "PPOPPOProximal policy optimization, the on-policy reinforcem"
+          "text": "PPOPPOPPO (proximal policy optimization) is the on-policy re"
         },
         {
           "familyHead": "geist",
@@ -91133,7 +91133,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "ConRFT reports 96.3% mean success ratesuccess rateThe standa"
+          "text": "ConRFT reports 96.3% mean success ratesuccess rateSuccess ra"
         },
         {
           "familyHead": "geist",
@@ -91947,7 +91947,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20022,
+      "visibleTextLength": 19693,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -91994,7 +91994,7 @@
         "h1Count": 1,
         "h1Text": "Robot Learning Curriculum for ML Engineers",
         "summaryCount": 1,
-        "summaryText": "A dependency-aware route from supervised learning to real robot policies, with t",
+        "summaryText": "A dependency-ordered route from supervised learning to real robot policies.",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -92656,7 +92656,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29463,
+      "visibleTextLength": 28536,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -92703,7 +92703,7 @@
         "h1Count": 1,
         "h1Text": "Vision-Language-Action Models",
         "summaryCount": 1,
-        "summaryText": "RT-1, RT-2, RT-X, Octo, and OpenVLA: web-scale pretraining meets robot control, ",
+        "summaryText": "RT-1, RT-2, Octo and OpenVLA, and what web-scale pretraining adds to robot contr",
         "breadcrumbLabels": [
           "Manipulation & Learned Policies"
         ],
@@ -92900,7 +92900,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Open X-EmbodimentOpen X-EmbodimentA 2023 collaboration acros"
+          "text": "Open X-EmbodimentOpen X-EmbodimentOpen X-Embodiment is a 202"
         },
         {
           "familyHead": "geist",
@@ -95200,7 +95200,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1789,
+      "visibleTextLength": 1489,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95360,7 +95360,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 27177,
+      "visibleTextLength": 26684,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95407,7 +95407,7 @@
         "h1Count": 1,
         "h1Text": "Humanoid Whole-Body Control",
         "summaryCount": 1,
-        "summaryText": "Tracking retargeted human motion, from PHC to ASAP and GMT, and the three decomp",
+        "summaryText": "How humanoids track retargeted human motion.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -96280,7 +96280,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25096,
+      "visibleTextLength": 24830,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96327,7 +96327,7 @@
         "h1Count": 1,
         "h1Text": "Legged Locomotion Lineage",
         "summaryCount": 1,
-        "summaryText": "From ANYmal's actuator networks to Unitree humanoids and Boston Dynamics: how le",
+        "summaryText": "How learned gaits became the default for legged robots.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -96400,7 +96400,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Legged locomotionlegged locomotionLocomotion on legs rather "
+          "text": "Legged locomotionlegged locomotionLegged locomotion is movin"
         },
         {
           "familyHead": "geist",
@@ -97128,7 +97128,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23973,
+      "visibleTextLength": 23631,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -97175,7 +97175,7 @@
         "h1Count": 1,
         "h1Text": "Offline Reinforcement Learning for Robotics",
         "summaryCount": 1,
-        "summaryText": "CQL, IQL, TD3+BC and Q-Transformer under the support constraint, with a decision",
+        "summaryText": "CQL and TD3+BC, and when behavior cloning is the stronger baseline.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -97278,7 +97278,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Offline RLoffline reinforcement learningLearning a policy fr"
+          "text": "Offline RLoffline reinforcement learningOffline reinforcemen"
         },
         {
           "familyHead": "geist",
@@ -98235,7 +98235,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24576,
+      "visibleTextLength": 23846,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98282,7 +98282,7 @@
         "h1Count": 1,
         "h1Text": "Massively Parallel Sim RL",
         "summaryCount": 1,
-        "summaryText": "Isaac Lab, Newton, MJX, and Brax: GPU-parallel environments and the wall-clock e",
+        "summaryText": "GPU-parallel simulation with Isaac Lab, Newton, MJX and Brax.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -98441,7 +98441,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Their game-inspired curriculumcurriculum learningTraining on"
+          "text": "Their game-inspired curriculumcurriculum learningCurriculum "
         },
         {
           "familyHead": "geist",
@@ -99048,7 +99048,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32979,
+      "visibleTextLength": 32505,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -99095,7 +99095,7 @@
         "h1Count": 1,
         "h1Text": "Reward Design and the MPC Debate",
         "summaryCount": 1,
-        "summaryText": "Hand-tuned reward weights, reward code written by language models, curricula and",
+        "summaryText": "Hand-tuned and language-model rewards, and the MPC debate.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -99390,7 +99390,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Reward shapingreward shapingSupplying extra training rewards"
+          "text": "Reward shapingreward shapingReward shaping is adding rewards"
         },
         {
           "familyHead": "geist",
@@ -100102,7 +100102,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28758,
+      "visibleTextLength": 28334,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100149,7 +100149,7 @@
         "h1Count": 1,
         "h1Text": "RL for Robotics",
         "summaryCount": 1,
-        "summaryText": "Sample efficiency decides which reinforcement learning algorithms a robot can be",
+        "summaryText": "Sample efficiency decides which RL algorithm a robot can use.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -100322,7 +100322,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "An on-policyon-policyA learning method whose updates are onl"
+          "text": "An on-policyon-policyAn on-policy method is a learning metho"
         },
         {
           "familyHead": "geist",
@@ -100385,7 +100385,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Sample efficiencysample efficiencyHow much environment inter"
+          "text": "Sample efficiencysample efficiencySample efficiency is how m"
         },
         {
           "familyHead": "geist",
@@ -100484,7 +100484,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Reset-free learningreset-free learningTraining on real hardw"
+          "text": "Reset-free learningreset-free learningReset-free learning is"
         },
         {
           "familyHead": "geist",
@@ -101063,7 +101063,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 31544,
+      "visibleTextLength": 30740,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101110,7 +101110,7 @@
         "h1Count": 1,
         "h1Text": "Sim-to-Real Transfer",
         "summaryCount": 1,
-        "summaryText": "Domain randomization, teacher-student distillation, system identification and re",
+        "summaryText": "Domain randomization, distillation, system identification and real-to-sim recons",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -102035,7 +102035,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22915,
+      "visibleTextLength": 22461,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102082,7 +102082,7 @@
         "h1Count": 1,
         "h1Text": "Why RL Won Locomotion but Not Manipulation",
         "summaryCount": 1,
-        "summaryText": "The MDP simulability gap: contact-rich manipulation resists the simulation that ",
+        "summaryText": "Walking is cheap to simulate; contact-rich manipulation is not.",
         "breadcrumbLabels": [
           "RL, Sim-to-Real & Locomotion"
         ],
@@ -102224,7 +102224,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Locomotion papers combine PPOPPOProximal policy optimization"
+          "text": "Locomotion papers combine PPOPPOPPO (proximal policy optimiz"
         },
         {
           "familyHead": "geist",
@@ -102790,7 +102790,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 600,
+      "visibleTextLength": 571,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102958,7 +102958,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1789,
+      "visibleTextLength": 1425,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103118,7 +103118,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 23684,
+      "visibleTextLength": 23016,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103165,7 +103165,7 @@
         "h1Count": 1,
         "h1Text": "World Model Evaluation for Robotics",
         "summaryCount": 1,
-        "summaryText": "Testing a world model on what a robot needs from it: action sensitivity, tempora",
+        "summaryText": "Testing a world model on what a robot needs.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -103879,7 +103879,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28013,
+      "visibleTextLength": 27346,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103926,7 +103926,7 @@
         "h1Count": 1,
         "h1Text": "Generative Simulation",
         "summaryCount": 1,
-        "summaryText": "RoboGen, Holodeck and RoboCasa: generated tasks, scenes and assets inside a phys",
+        "summaryText": "Generated tasks, scenes and assets inside a physics engine.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -104761,7 +104761,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27362,
+      "visibleTextLength": 26748,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104808,7 +104808,7 @@
         "h1Count": 1,
         "h1Text": "Generative Video World Models",
         "summaryCount": 1,
-        "summaryText": "Cosmos, Genie and GR-2: action-conditioned video prediction as a simulator, and ",
+        "summaryText": "Cosmos, Genie and GR-2 use action-conditioned video prediction as a simulator.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -105755,7 +105755,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25155,
+      "visibleTextLength": 24825,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -105802,7 +105802,7 @@
         "h1Count": 1,
         "h1Text": "JEPA and the Non-Generative Counterargument",
         "summaryCount": 1,
-        "summaryText": "V-JEPA 2 and LeCun's case that prediction in representation space beats pixel ge",
+        "summaryText": "V-JEPA 2 and 2.1 predict in representation space, with no pixel decoder.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -106529,7 +106529,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22713,
+      "visibleTextLength": 22281,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -106576,7 +106576,7 @@
         "h1Count": 1,
         "h1Text": "Latent-Dynamics World Models",
         "summaryCount": 1,
-        "summaryText": "Dreamer, TD-MPC2, and DayDreamer: compact learned dynamics for imagination-based",
+        "summaryText": "Dreamer 4, TD-MPC2 and Newt: compact learned dynamics for imagination-based cont",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -106645,7 +106645,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Latent dynamicslatent dynamicsA world-model paradigm that pr"
+          "text": "Latent dynamicslatent dynamicsLatent dynamics is a world-mod"
         },
         {
           "familyHead": "geist",
@@ -107288,7 +107288,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19674,
+      "visibleTextLength": 19101,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -107335,7 +107335,7 @@
         "h1Count": 1,
         "h1Text": "Model-Based Robot Learning",
         "summaryCount": 1,
-        "summaryText": "Learn dynamics, plan through them, and improve from imagined rollouts: the commo",
+        "summaryText": "Learn dynamics, plan through them, and improve from imagined rollouts.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -107451,7 +107451,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A world modelworld modelA model of how an environment evolve"
+          "text": "A world modelworld modelA world model is a model an agent qu"
         },
         {
           "familyHead": "geist",
@@ -107918,7 +107918,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25706,
+      "visibleTextLength": 25125,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -107965,7 +107965,7 @@
         "h1Count": 1,
         "h1Text": "What Is a World Model?",
         "summaryCount": 1,
-        "summaryText": "A world model predicts how an environment evolves in a form useful for a robot's",
+        "summaryText": "Six example groups compared, from DreamerV3 to V-JEPA 2.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -108037,7 +108037,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A world modelworld modelA model of how an environment evolve"
+          "text": "A world modelworld modelA world model is a model an agent qu"
         },
         {
           "familyHead": "geist",
@@ -108914,7 +108914,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26812,
+      "visibleTextLength": 26212,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -108961,7 +108961,7 @@
         "h1Count": 1,
         "h1Text": "World Models vs Physics Simulators",
         "summaryCount": 1,
-        "summaryText": "Learned dynamics, explicit physics and hybrid simulation compared by controllabi",
+        "summaryText": "Learned dynamics, physics engines and hybrids compared as robot simulators.",
         "breadcrumbLabels": [
           "World Models"
         ],
@@ -109032,7 +109032,7 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Learned world modelsworld modelA model of how an environment"
+          "text": "Learned world modelsworld modelA world model is a model an a"
         },
         {
           "familyHead": "geist",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "637341cede161b903ca53859d1bd654650c2af74c0d870b668cb1524bcf53047",
+  "fingerprint": "3e7a44b46756f2e085312f8e0621dfffe8cc4d869ad4c73cce130767bf92f64a",
   "viewports": [
     "375x812",
     "1440x900"
@@ -69,7 +69,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 31831,
+      "visibleTextLength": 31386,
       "figures": [
         {
           "imageId": "waymo-jaguar-ipace-san-francisco-2023",
@@ -204,7 +204,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22168,
+      "visibleTextLength": 21873,
       "figures": [
         {
           "imageId": "racing-quadrotor-minion-220-2016",
@@ -297,7 +297,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22962,
+      "visibleTextLength": 22827,
       "figures": [
         {
           "imageId": "perseverance-selfie-rochette-2021",
@@ -474,7 +474,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21785,
+      "visibleTextLength": 21443,
       "figures": [
         {
           "imageId": "da-vinci-xi-patient-cart-2018",
@@ -567,7 +567,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16116,
+      "visibleTextLength": 15479,
       "figures": [
         {
           "imageId": "leica-laser-tracker-ats600",
@@ -660,7 +660,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24196,
+      "visibleTextLength": 23739,
       "figures": [
         {
           "imageId": "centrifugal-governor-queen-street-mill",
@@ -795,7 +795,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 19162,
+      "visibleTextLength": 18855,
       "figures": [
         {
           "imageId": "care-o-bot-grasping-2010",
@@ -888,7 +888,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17311,
+      "visibleTextLength": 16874,
       "figures": [
         {
           "imageId": "ur16e-cobot-arm-2020",
@@ -981,7 +981,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 27214,
+      "visibleTextLength": 26727,
       "figures": [
         {
           "imageId": "pr2-willow-garage-2010",
@@ -1074,7 +1074,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 33690,
+      "visibleTextLength": 33358,
       "figures": [
         {
           "imageId": "realsense-d435-depth-camera",
@@ -1167,7 +1167,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 14748,
+      "visibleTextLength": 14213,
       "figures": [
         {
           "imageId": "pr2-maker-faire-2011",
@@ -1260,7 +1260,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 28220,
+      "visibleTextLength": 27920,
       "figures": [
         {
           "imageId": "ouster-lidar-point-cloud-sf",
@@ -1395,7 +1395,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22784,
+      "visibleTextLength": 22510,
       "figures": [
         {
           "imageId": "apollo-imu-draper-2019",
@@ -1488,7 +1488,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 57565,
+      "visibleTextLength": 57325,
       "figures": [
         {
           "imageId": "atlas-darpa-frontview-2013",
@@ -11527,7 +11527,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20775,
+      "visibleTextLength": 19979,
       "figures": [
         {
           "imageId": "droid-in-the-wild-scenes-2024",
@@ -11620,7 +11620,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21498,
+      "visibleTextLength": 20862,
       "figures": [
         {
           "imageId": "open-x-embodiment-overview-2023",
@@ -11713,7 +11713,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21395,
+      "visibleTextLength": 20242,
       "figures": [
         {
           "imageId": "roboarena-evaluation-2025",
@@ -11806,7 +11806,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 27270,
+      "visibleTextLength": 26915,
       "figures": [
         {
           "imageId": "nist-dexterous-manipulation-testbed-2013",
@@ -11983,7 +11983,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24630,
+      "visibleTextLength": 24066,
       "figures": [
         {
           "imageId": "bmw-leipzig-body-shop-spot-welding-2005",
@@ -12118,7 +12118,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18154,
+      "visibleTextLength": 17712,
       "figures": [
         {
           "imageId": "openvla-overview-2024",
@@ -12211,7 +12211,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18613,
+      "visibleTextLength": 17736,
       "figures": [
         {
           "imageId": "inl-hot-cell-manipulators-2006",
@@ -12304,7 +12304,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16803,
+      "visibleTextLength": 16511,
       "figures": [
         {
           "imageId": "asimo-miraikan-2016",
@@ -12397,7 +12397,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20864,
+      "visibleTextLength": 20497,
       "figures": [
         {
           "imageId": "unitree-g1-stage-japan-mobility-2025",
@@ -12490,7 +12490,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24914,
+      "visibleTextLength": 24295,
       "figures": [
         {
           "imageId": "uskin-tactile-allegro-hand-2021",
@@ -12625,7 +12625,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 19204,
+      "visibleTextLength": 18828,
       "figures": [
         {
           "imageId": "droid-cook-lentils-rollouts-2024",
@@ -12718,7 +12718,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16537,
+      "visibleTextLength": 15777,
       "figures": [
         {
           "imageId": "amazon-swindon-slam-line-2025",
@@ -12811,7 +12811,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 27279,
+      "visibleTextLength": 26766,
       "figures": [
         {
           "imageId": "robotic-welding-cell-guarding-2014",
@@ -12988,7 +12988,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20382,
+      "visibleTextLength": 19941,
       "figures": [
         {
           "imageId": "aloha-unleashed-tasks-2024",
@@ -13119,7 +13119,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16986,
+      "visibleTextLength": 16329,
       "figures": [
         {
           "imageId": "action-space-study-platforms-2026",
@@ -13212,7 +13212,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18585,
+      "visibleTextLength": 17965,
       "figures": [
         {
           "imageId": "droid-robot-platform-2024",
@@ -13343,7 +13343,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18899,
+      "visibleTextLength": 18585,
       "figures": [
         {
           "imageId": "octo-evaluation-setups-2024",
@@ -13478,7 +13478,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18853,
+      "visibleTextLength": 18254,
       "figures": [
         {
           "imageId": "open-x-embodiment-overview-2023",
@@ -13613,7 +13613,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16614,
+      "visibleTextLength": 16327,
       "figures": [
         {
           "imageId": "aloha-unleashed-shirt-rollout-2024",
@@ -13706,7 +13706,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17941,
+      "visibleTextLength": 17342,
       "figures": [
         {
           "imageId": "robocat-embodiments-2023",
@@ -13841,7 +13841,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 19574,
+      "visibleTextLength": 18885,
       "figures": [
         {
           "imageId": "gemini-robotics-apollo-franka-2025",
@@ -13976,7 +13976,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22237,
+      "visibleTextLength": 21690,
       "figures": [
         {
           "imageId": "rt-h-language-corrections-2024",
@@ -14111,7 +14111,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16133,
+      "visibleTextLength": 15788,
       "figures": [
         {
           "imageId": "pi0-fast-table-bussing-2025",
@@ -14204,7 +14204,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20718,
+      "visibleTextLength": 20222,
       "figures": [
         {
           "imageId": "pi06-espresso-2025",
@@ -14297,7 +14297,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18352,
+      "visibleTextLength": 17654,
       "figures": [
         {
           "imageId": "rtc-candle-lighting-2025",
@@ -14390,7 +14390,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 32282,
+      "visibleTextLength": 31556,
       "figures": [
         {
           "imageId": "hil-serl-tasks-2024",
@@ -14525,7 +14525,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 15002,
+      "visibleTextLength": 14673,
       "figures": [
         {
           "imageId": "droid-in-the-wild-scenes-2024",
@@ -14660,7 +14660,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22202,
+      "visibleTextLength": 21275,
       "figures": [
         {
           "imageId": "gemini-robotics-aloha-dexterous-2025",
@@ -14795,7 +14795,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22174,
+      "visibleTextLength": 21681,
       "figures": [
         {
           "imageId": "atlas-electric-hyundai-goyang-2026",
@@ -14930,7 +14930,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 19807,
+      "visibleTextLength": 19541,
       "figures": [
         {
           "imageId": "spot-boston-dynamics-2023",
@@ -15107,7 +15107,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18622,
+      "visibleTextLength": 18280,
       "figures": [
         {
           "imageId": "isaac-gym-trifinger-env-2021",
@@ -15200,7 +15200,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17823,
+      "visibleTextLength": 17093,
       "figures": [
         {
           "imageId": "isaac-gym-shadow-hand-envs-2021",
@@ -15293,7 +15293,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 25239,
+      "visibleTextLength": 24765,
       "figures": [
         {
           "imageId": "mini-cheetah-spin-rapid-locomotion-2022",
@@ -15386,7 +15386,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22628,
+      "visibleTextLength": 22204,
       "figures": [
         {
           "imageId": "daydreamer-a1-push-recovery-2022",
@@ -15479,7 +15479,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24668,
+      "visibleTextLength": 23864,
       "figures": [
         {
           "imageId": "isaac-gym-anymal-real-stairs-2021",
@@ -15572,7 +15572,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17596,
+      "visibleTextLength": 17142,
       "figures": [
         {
           "imageId": "anymal-x-offshore-stairs-2022",
@@ -15665,7 +15665,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16914,
+      "visibleTextLength": 16246,
       "figures": [
         {
           "imageId": "simpler-real-vs-sim-2024",
@@ -15800,7 +15800,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20767,
+      "visibleTextLength": 20100,
       "figures": [
         {
           "imageId": "robocasa-object-library-2024",
@@ -15893,7 +15893,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21799,
+      "visibleTextLength": 21185,
       "figures": [
         {
           "imageId": "gr1-video-prediction-2023",
@@ -16028,7 +16028,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18982,
+      "visibleTextLength": 18652,
       "figures": [
         {
           "imageId": "vjepa2-pick-place-goals-2025",
@@ -16121,7 +16121,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16398,
+      "visibleTextLength": 15966,
       "figures": [
         {
           "imageId": "tdmpc2-task-grid-2023",
@@ -16214,7 +16214,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 14835,
+      "visibleTextLength": 14262,
       "figures": [
         {
           "imageId": "daydreamer-a1-rollover-2022",
@@ -16307,7 +16307,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20628,
+      "visibleTextLength": 20047,
       "figures": [
         {
           "imageId": "dreamerv3-open-loop-quadruped-2023",
@@ -16442,7 +16442,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21335,
+      "visibleTextLength": 20735,
       "figures": [
         {
           "imageId": "isaac-lab-assembly-sim-2025",
@@ -16577,7 +16577,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 46671,
+      "visibleTextLength": 46226,
       "figures": [
         {
           "imageId": "waymo-jaguar-ipace-san-francisco-2023",
@@ -16712,7 +16712,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 32461,
+      "visibleTextLength": 32166,
       "figures": [
         {
           "imageId": "racing-quadrotor-minion-220-2016",
@@ -16805,7 +16805,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 34698,
+      "visibleTextLength": 34563,
       "figures": [
         {
           "imageId": "perseverance-selfie-rochette-2021",
@@ -16982,7 +16982,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 32252,
+      "visibleTextLength": 31910,
       "figures": [
         {
           "imageId": "da-vinci-xi-patient-cart-2018",
@@ -17075,7 +17075,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21196,
+      "visibleTextLength": 20559,
       "figures": [
         {
           "imageId": "leica-laser-tracker-ats600",
@@ -17168,7 +17168,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 30763,
+      "visibleTextLength": 30306,
       "figures": [
         {
           "imageId": "centrifugal-governor-queen-street-mill",
@@ -17303,7 +17303,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26807,
+      "visibleTextLength": 26500,
       "figures": [
         {
           "imageId": "care-o-bot-grasping-2010",
@@ -17396,7 +17396,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24161,
+      "visibleTextLength": 23724,
       "figures": [
         {
           "imageId": "ur16e-cobot-arm-2020",
@@ -17489,7 +17489,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 36747,
+      "visibleTextLength": 36260,
       "figures": [
         {
           "imageId": "pr2-willow-garage-2010",
@@ -17582,7 +17582,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 43528,
+      "visibleTextLength": 43196,
       "figures": [
         {
           "imageId": "realsense-d435-depth-camera",
@@ -17675,7 +17675,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 18803,
+      "visibleTextLength": 18268,
       "figures": [
         {
           "imageId": "pr2-maker-faire-2011",
@@ -17768,7 +17768,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 36662,
+      "visibleTextLength": 36362,
       "figures": [
         {
           "imageId": "ouster-lidar-point-cloud-sf",
@@ -17903,7 +17903,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 30649,
+      "visibleTextLength": 30375,
       "figures": [
         {
           "imageId": "apollo-imu-draper-2019",
@@ -17996,7 +17996,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 57565,
+      "visibleTextLength": 57325,
       "figures": [
         {
           "imageId": "atlas-darpa-frontview-2013",
@@ -28035,7 +28035,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27543,
+      "visibleTextLength": 26747,
       "figures": [
         {
           "imageId": "droid-in-the-wild-scenes-2024",
@@ -28128,7 +28128,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 29057,
+      "visibleTextLength": 28421,
       "figures": [
         {
           "imageId": "open-x-embodiment-overview-2023",
@@ -28221,7 +28221,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 28644,
+      "visibleTextLength": 27491,
       "figures": [
         {
           "imageId": "roboarena-evaluation-2025",
@@ -28314,7 +28314,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 34045,
+      "visibleTextLength": 33690,
       "figures": [
         {
           "imageId": "nist-dexterous-manipulation-testbed-2013",
@@ -28491,7 +28491,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 32046,
+      "visibleTextLength": 31482,
       "figures": [
         {
           "imageId": "bmw-leipzig-body-shop-spot-welding-2005",
@@ -28626,7 +28626,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24258,
+      "visibleTextLength": 23816,
       "figures": [
         {
           "imageId": "openvla-overview-2024",
@@ -28719,7 +28719,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24013,
+      "visibleTextLength": 23136,
       "figures": [
         {
           "imageId": "inl-hot-cell-manipulators-2006",
@@ -28812,7 +28812,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 22480,
+      "visibleTextLength": 22188,
       "figures": [
         {
           "imageId": "asimo-miraikan-2016",
@@ -28905,7 +28905,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27444,
+      "visibleTextLength": 27077,
       "figures": [
         {
           "imageId": "unitree-g1-stage-japan-mobility-2025",
@@ -28998,7 +28998,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 30486,
+      "visibleTextLength": 29867,
       "figures": [
         {
           "imageId": "uskin-tactile-allegro-hand-2021",
@@ -29133,7 +29133,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26108,
+      "visibleTextLength": 25732,
       "figures": [
         {
           "imageId": "droid-cook-lentils-rollouts-2024",
@@ -29226,7 +29226,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21283,
+      "visibleTextLength": 20523,
       "figures": [
         {
           "imageId": "amazon-swindon-slam-line-2025",
@@ -29319,7 +29319,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 38293,
+      "visibleTextLength": 37780,
       "figures": [
         {
           "imageId": "robotic-welding-cell-guarding-2014",
@@ -29496,7 +29496,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26176,
+      "visibleTextLength": 25735,
       "figures": [
         {
           "imageId": "aloha-unleashed-tasks-2024",
@@ -29627,7 +29627,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21750,
+      "visibleTextLength": 21093,
       "figures": [
         {
           "imageId": "action-space-study-platforms-2026",
@@ -29720,7 +29720,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24518,
+      "visibleTextLength": 23898,
       "figures": [
         {
           "imageId": "droid-robot-platform-2024",
@@ -29851,7 +29851,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 25331,
+      "visibleTextLength": 25017,
       "figures": [
         {
           "imageId": "octo-evaluation-setups-2024",
@@ -29986,7 +29986,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24460,
+      "visibleTextLength": 23861,
       "figures": [
         {
           "imageId": "open-x-embodiment-overview-2023",
@@ -30121,7 +30121,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21978,
+      "visibleTextLength": 21691,
       "figures": [
         {
           "imageId": "aloha-unleashed-shirt-rollout-2024",
@@ -30214,7 +30214,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 22614,
+      "visibleTextLength": 22015,
       "figures": [
         {
           "imageId": "robocat-embodiments-2023",
@@ -30349,7 +30349,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24939,
+      "visibleTextLength": 24250,
       "figures": [
         {
           "imageId": "gemini-robotics-apollo-franka-2025",
@@ -30484,7 +30484,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 28017,
+      "visibleTextLength": 27470,
       "figures": [
         {
           "imageId": "rt-h-language-corrections-2024",
@@ -30619,7 +30619,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 22918,
+      "visibleTextLength": 22573,
       "figures": [
         {
           "imageId": "pi0-fast-table-bussing-2025",
@@ -30712,7 +30712,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27489,
+      "visibleTextLength": 26993,
       "figures": [
         {
           "imageId": "pi06-espresso-2025",
@@ -30805,7 +30805,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24832,
+      "visibleTextLength": 24134,
       "figures": [
         {
           "imageId": "rtc-candle-lighting-2025",
@@ -30898,7 +30898,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 42068,
+      "visibleTextLength": 41342,
       "figures": [
         {
           "imageId": "hil-serl-tasks-2024",
@@ -31033,7 +31033,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 20022,
+      "visibleTextLength": 19693,
       "figures": [
         {
           "imageId": "droid-in-the-wild-scenes-2024",
@@ -31168,7 +31168,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 29463,
+      "visibleTextLength": 28536,
       "figures": [
         {
           "imageId": "gemini-robotics-aloha-dexterous-2025",
@@ -31303,7 +31303,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27177,
+      "visibleTextLength": 26684,
       "figures": [
         {
           "imageId": "atlas-electric-hyundai-goyang-2026",
@@ -31438,7 +31438,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 25096,
+      "visibleTextLength": 24830,
       "figures": [
         {
           "imageId": "spot-boston-dynamics-2023",
@@ -31615,7 +31615,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 23973,
+      "visibleTextLength": 23631,
       "figures": [
         {
           "imageId": "isaac-gym-trifinger-env-2021",
@@ -31708,7 +31708,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24576,
+      "visibleTextLength": 23846,
       "figures": [
         {
           "imageId": "isaac-gym-shadow-hand-envs-2021",
@@ -31801,7 +31801,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 32979,
+      "visibleTextLength": 32505,
       "figures": [
         {
           "imageId": "mini-cheetah-spin-rapid-locomotion-2022",
@@ -31894,7 +31894,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 28758,
+      "visibleTextLength": 28334,
       "figures": [
         {
           "imageId": "daydreamer-a1-push-recovery-2022",
@@ -31987,7 +31987,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 31544,
+      "visibleTextLength": 30740,
       "figures": [
         {
           "imageId": "isaac-gym-anymal-real-stairs-2021",
@@ -32080,7 +32080,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 22915,
+      "visibleTextLength": 22461,
       "figures": [
         {
           "imageId": "anymal-x-offshore-stairs-2022",
@@ -32173,7 +32173,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 23684,
+      "visibleTextLength": 23016,
       "figures": [
         {
           "imageId": "simpler-real-vs-sim-2024",
@@ -32308,7 +32308,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 28013,
+      "visibleTextLength": 27346,
       "figures": [
         {
           "imageId": "robocasa-object-library-2024",
@@ -32401,7 +32401,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27362,
+      "visibleTextLength": 26748,
       "figures": [
         {
           "imageId": "gr1-video-prediction-2023",
@@ -32536,7 +32536,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 25155,
+      "visibleTextLength": 24825,
       "figures": [
         {
           "imageId": "vjepa2-pick-place-goals-2025",
@@ -32629,7 +32629,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 22713,
+      "visibleTextLength": 22281,
       "figures": [
         {
           "imageId": "tdmpc2-task-grid-2023",
@@ -32722,7 +32722,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 19674,
+      "visibleTextLength": 19101,
       "figures": [
         {
           "imageId": "daydreamer-a1-rollover-2022",
@@ -32815,7 +32815,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 25706,
+      "visibleTextLength": 25125,
       "figures": [
         {
           "imageId": "dreamerv3-open-loop-quadruped-2023",
@@ -32950,7 +32950,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26812,
+      "visibleTextLength": 26212,
       "figures": [
         {
           "imageId": "isaac-lab-assembly-sim-2025",

@@ -1,0 +1,124 @@
+## /manipulation/ (lexical 0, shape 15)
+- shape: one-line block: Covariate shift makes naive imitation drift, and DAgger is the standard fix.
+- shape: one-line block: ACT predicts short action sequences and smooths them with temporal ensembling.
+- shape: one-line block: Visuomotor control as conditional denoising over action sequences, with receding-horizon execution.
+- shape: one-line block: RT-1, RT-2, Octo and OpenVLA, and what web-scale pretraining adds to robot control.
+- shape: one-line block: From pi0 to pi0.7, with flow-matching action experts and FAST tokenization.
+- shape: one-line block: How to read the claims for Gemini Robotics, GR00T, Helix and GO-2.
+- shape: one-line block: Every major policy compared on eight architectural axes.
+- shape: one-line block: From SayCan and Code as Policies to the hierarchies in Helix and pi0.5.
+- shape: one-line block: Improving a pretrained policy from its own online experience.
+- shape: one-line block: The latency budgets that decide whether the control loop closes.
+- shape: one-line block: How one policy learns from many robot bodies and from humans.
+- shape: one-line block: Discrete tokens train the backbone while the action expert trains behind a stop-gradient.
+- shape: one-line block: A dependency-ordered route from supervised learning to real robot policies.
+- shape: one-line block: What each action representation gives the learner and asks of the controller.
+- shape: one-line block: What foundation means in robotics, and what adaptation still costs.
+## /rl-sim2real/ (lexical 0, shape 8)
+- shape: one-line block: Sample efficiency decides which RL algorithm a robot can use.
+- shape: one-line block: Walking is cheap to simulate; contact-rich manipulation is not.
+- shape: one-line block: GPU-parallel simulation with Isaac Lab, Newton, MJX and Brax.
+- shape: one-line block: Domain randomization, distillation, system identification and real-to-sim reconstruction.
+- shape: one-line block: How learned gaits became the default for legged robots.
+- shape: one-line block: How humanoids track retargeted human motion.
+- shape: one-line block: Hand-tuned and language-model rewards, and the MPC debate.
+- shape: one-line block: CQL and TD3+BC, and when behavior cloning is the stronger baseline.
+## /world-models/ (lexical 0, shape 8)
+- shape: one-line block: Six example groups compared, from DreamerV3 to V-JEPA 2.
+- shape: one-line block: Dreamer 4, TD-MPC2 and Newt: compact learned dynamics for imagination-based control.
+- shape: one-line block: Cosmos, Genie and GR-2 use action-conditioned video prediction as a simulator.
+- shape: one-line block: V-JEPA 2 and 2.1 predict in representation space, with no pixel decoder.
+- shape: one-line block: Generated tasks, scenes and assets inside a physics engine.
+- shape: one-line block: Learn dynamics, plan through them, and improve from imagined rollouts.
+- shape: one-line block: Testing a world model on what a robot needs.
+- shape: one-line block: Learned dynamics, physics engines and hybrids compared as robot simulators.
+## /data-hardware/ (lexical 0, shape 7)
+- shape: one-line block: Robot data comes in hours; language data in trillions of tokens.
+- shape: one-line block: The major open robot datasets and what each collected.
+- shape: one-line block: A buyer's guide from SO-101 to Jetson Thor.
+- shape: one-line block: ALOHA, GELLO, UMI and VR rigs compared on cost and quality.
+- shape: one-line block: What a success rate hides, from trial count to scorer.
+- shape: one-line block: The jam-rate arithmetic that decides whether a 99 percent cell ships.
+- shape: one-line block: From data capture to robot integration as one reproducible system.
+## /classical/ (lexical 0, shape 9)
+- shape: one-line block: How joint angles place a robot's hand, and the reverse.
+- shape: one-line block: Configuration space, RRT and its variants, and trajectory optimization.
+- shape: one-line block: PID, LQR, MPC and whole-body QP, the stack under every learned policy.
+- shape: one-line block: Kalman filters, factor graphs, and pose estimation from noisy sensors.
+- shape: one-line block: Contact mechanics, grasp quality metrics, and force closure.
+- shape: one-line block: How camera images become an object's position and orientation.
+- shape: one-line block: From point clouds to Gaussian splats: what a robot remembers about space.
+- shape: one-line block: The measurements that make sensor coordinates agree with motion.
+- shape: one-line block: ROS 2 as the production boundary around a learned policy.
+## /frontier/ (lexical 0, shape 6)
+- shape: one-line block: 80% task success is a demo; 99.9% is a product.
+- shape: one-line block: Contact-rich manipulation, touch sensing, in-hand reorientation and deformables.
+- shape: one-line block: From pi0.5's three unseen homes to Helix 2.5's 30.
+- shape: one-line block: Six bets on how robot intelligence gets built.
+- shape: one-line block: Why this could be another robotics winter.
+- shape: one-line block: What ships is a verifiable safety layer around the learned policy.
+## /adjacent/ (lexical 0, shape 4)
+- shape: one-line block: Driving as a robotics problem, down to the long tail.
+- shape: one-line block: Autonomous flight, from state estimation to champion-level racing.
+- shape: one-line block: From da Vinci to Hugo and OTTAVA, authorized one indication at a time.
+- shape: one-line block: Robots where repair is impossible, from Mars to orbit.
+## /glossary/ (lexical 28, shape 23)
+- §1 not-X-but-Y [instead of]: 3D Gaussian splatting is a scene representation of anisotropic 3D Gaussians, each with position, covariance, opacity and view-dependent colour, rasterised onto the image plane instead of ray-marched.
+- §1 not-X-but-Y [instead of]: Action chunking is predicting a sequence of future actions in one inference instead of a single action per timestep.
+- §16 sales [commitment to]: The cost is commitment to a plan between replans.
+- §1 not-X-but-Y [instead of]: Zhang's method recovers them from a few views of a planar target at unknown orientations, so robots calibrate with a printed checkerboard instead of a metrology rig.
+- §1 not-X-but-Y [instead of]: A CVAE (conditional variational autoencoder) is a generative model learning a distribution over a latent variable instead of one deterministic output.
+- §1 not-X-but-Y [instead of]: A diffusion policy is a policy generating a whole action sequence by conditional denoising diffusion instead of regressing one action.
+- §1 not-X-but-Y [instead of]: Flow matching is a generative modeling recipe that learns a time-dependent vector field carrying noise to data, by regressing against the conditional flow instead of estimating a score.
+- §1 not-X-but-Y [instead of]: Goods-to-person is the warehouse principle of bringing stored items to a stationary picker at a pick station instead of walking the picker to the shelves.
+- §1 not-X-but-Y [instead of]: Imitation learning is learning a policy from expert demonstrations instead of a reward signal, by supervised fitting of recorded state-action pairs.
+- §1 not-X-but-Y [instead of]: Impedance control is Hogan's 1985 formulation of compliant contact control, programming the relationship between position and force instead of commanding either.
+- §12 AI word [key]: In-hand manipulation is repositioning or reorienting a grasped object within the hand without setting it down, like rolling a pen or turning a key.
+- §12 AI word [key]: Holson's Robot Olympics makes it the gold-medal bar for tool use with the key-in-lock task.
+- §1 not-X-but-Y [instead of]: In-situ resource utilization (ISRU) is producing mission consumables at the destination from local materials instead of launching them from Earth.
+- §1 not-X-but-Y [instead of]: Latent dynamics is a world-model paradigm predicting in a compact learned latent space instead of pixels.
+- §1 not-X-but-Y [instead of]: Legged locomotion is moving on legs instead of wheels or tracks, re-establishing balance at every discrete, intermittent foothold with no continuous contact patch.
+- §3 saying [in reality]: Waymo's Genie-3-based World Model targets events 'from a tornado to a casual encounter with an elephant', which are 'almost impossible to capture at scale in reality'.
+- §1 not-X-but-Y [instead of]: Minimally invasive surgery is surgery through small incisions with elongated instruments and a camera, instead of a large open incision.
+- §1 not-X-but-Y [instead of]: Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance.
+- §1 not-X-but-Y [instead of]: Out-of-distribution detection is deciding at run time whether a model's input resembles its training data, so a policy can decline instead of extrapolating.
+- §12 AI word [robustness]: In Cadena and colleagues' robustness argument, false-positive data associations can produce wrong back-end estimates; false negatives discard useful measurements and reduce estimation accuracy.
+- §12 AI word [robust]: Geometric verification and robust estimation can mitigate outliers, but do not establish a universal ranking of every false match against every missed match.
+- §1 not-X-but-Y [instead of]: Q-learning is learning a function predicting the return from each state-action pair, instead of a policy directly, then picking the action its own estimate rates highest.
+- §1 not-X-but-Y [instead of]: Classic shaping bugs, where the agent harvests the bonus instead of doing the task, come from non-potential-based rewards, which the theorem excludes.
+- §1 not-X-but-Y [instead of]: Semantic segmentation is labelling every pixel of an image with a class, instead of boxing each object.
+- §1 not-X-but-Y [instead of]: Symmetry-aware pose error (ADD-S) is a pose-error rule using nearest-neighbour matches instead of fixed model-point correspondences.
+- §1 not-X-but-Y [instead of]: Handoffs are smoother, at the cost of one inference per step instead of per chunk.
+- §1 not-X-but-Y [instead of]: Whole-body control is treating all of a robot's actuated degrees of freedom (legs, torso, arms, hands) as one coupled problem instead of an arm controller stacked on a separate locomotion controller.
+- §1 not-X-but-Y [instead of]: Policies can be trained, evaluated or planned against it instead of the real world.
+- shape: one-line block: 119 terms
+- shape: one-line block: It has no surface: opacity is a rendering weight, so contact geometry needs separate surface extraction.
+- shape: one-line block: Their separate flat-terrain headline is under four minutes on one workstation GPU.
+- shape: one-line block: Cycle time is the measured time required to produce a part or complete a process.
+- shape: one-line block: Cycle TimeLean Enterprise Institute n.d.
+- shape: one-line block: Linear excess-cost scaling needs a horizon-independent recovery-cost factor u, which can be O(T) at worst.
+- shape: one-line block: More degrees of freedom buy dexterity and obstacle avoidance at the price of a larger control problem.
+- shape: one-line block: The cost is conservatism: such a policy is optimal for no single instance.
+- shape: one-line block: Stopping also differs from removing power, hence the electrical standard's stop categories.
+- shape: one-line block: In the plane it is a wedge between two edge rays, making planar grasp analysis convex geometry.
+- shape: one-line block: Meta's Digit 360 research fingertip resolves normal force to 1.01 mN.
+- shape: one-line block: Its objective is view synthesis, so nothing in training shapes its geometry for a contact solver.
+- shape: one-line block: They reported substantially better sample efficiency than on-policy methods on the same tasks.
+- shape: one-line block: Crash-rate comparisons match the human baseline to the ODD's vehicle types, road types and locations.
+- shape: one-line block: Output uncertainty is a different question: a policy can be confidently wrong on unseen inputs.
+- shape: one-line block: Pooling summarizes, so some geometry can be lost; density-adaptive grouping addresses sparse neighbourhoods.
+- shape: one-line block: Pose estimation turns a detection into grasp-planner input, because force closure is computed against a known pose.
+- shape: one-line block: Miki et al. kept it as the trusted fallback when the terrain map disagrees with the body.
+- shape: three openings "A": A learned policy cannot be assigned one, because a level needs a verifiable specification of the function and a policy t
+- shape: one-line block: Takt TimeLean Enterprise Institute n.d.
+- shape: one-line block: Mobile ALOHA extended this leader-follower scheme to a mobile base for whole-body tasks.
+- shape: one-line block: Handoffs are smoother, at the cost of one inference per step instead of per chunk.
+- shape: one-line block: Later vision-language-action models all start from such a backbone.
+## /a-z/ (lexical 0, shape 1)
+- shape: one-line block: 57 articles and 119 glossary terms
+## /search/ (lexical 0, shape 0)
+## /credits/ (lexical 0, shape 1)
+- shape: one-line block: Written and maintained by Josef Chen (@josefchen).
+## /editorial-policy/ (lexical 0, shape 0)
+## /about/ (lexical 0, shape 0)
+{"/manipulation/":{"lexical":0,"shape":15},"/rl-sim2real/":{"lexical":0,"shape":8},"/world-models/":{"lexical":0,"shape":8},"/data-hardware/":{"lexical":0,"shape":7},"/classical/":{"lexical":0,"shape":9},"/frontier/":{"lexical":0,"shape":6},"/adjacent/":{"lexical":0,"shape":4},"/glossary/":{"lexical":28,"shape":23},"/a-z/":{"lexical":0,"shape":1},"/search/":{"lexical":0,"shape":0},"/credits/":{"lexical":0,"shape":1},"/editorial-policy/":{"lexical":0,"shape":0},"/about/":{"lexical":0,"shape":0}}

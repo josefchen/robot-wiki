@@ -307,7 +307,7 @@ test('all mounted glossary terms expose their literal final text and keyboard ex
   await e.clear(); const termId = 'trajectory-optimization';
   await page.locator(`${PROSE} [data-term-id="${termId}"] a`).click(); await expect(page).toHaveURL(new RegExp('/glossary/?#' + termId + '$'));
   await page.evaluate(() => document.fonts.ready);
-  const entry = page.locator(`[data-glossary-term="${termId}"]`); await expect(entry.locator('p')).toHaveText(DEFINITIONS[termId]);
+  const entry = page.locator(`[data-glossary-term="${termId}"]`); await expect(entry.locator('[data-glossary-definition]')).toHaveText(DEFINITIONS[termId]);
   await e.textCapture(entry, 'glossary-destination'); await e.axe(`[data-glossary-term="${termId}"]`, 'glossary-destination-axe');
   await page.goBack(); await expect(page).toHaveURL(new RegExp(ROUTE + '$'));
   e.record({ name: 'glossary-return', focus: await page.evaluate(() => document.activeElement?.tagName), focusRestorationAccepted: false });

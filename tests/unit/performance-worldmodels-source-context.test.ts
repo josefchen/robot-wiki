@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { getModule } from '@/data/modules';
 import { WM_PARADIGMS } from '@/lib/world-model-taxonomy';
 
 const text = (path: string) => readFileSync(path, 'utf8');
@@ -44,7 +45,11 @@ describe('Performance world-model source scopes', () => {
     expect(taxonomy()).not.toContain('at least six architecturally distinct paradigms');
     const summary = taxonomy().match(/^description: "(.+)"$/m)?.[1];
     expect(summary).toBeTruthy();
-    expect(text('data/modules.ts')).toContain(summary);
+    // Successor (2026-10-16): hub cards carry one line, so the card is now the description's
+    // closing sentence verbatim instead of the whole description.
+    const card = getModule('world-models', 'taxonomy')?.summary;
+    expect(card).toBe('Six example groups compared, from DreamerV3 to V-JEPA 2.');
+    expect(summary!.endsWith(` ${card}`)).toBe(true);
     expect(taxonomy()).toContain('id="the-six-paradigms"');
   });
 });

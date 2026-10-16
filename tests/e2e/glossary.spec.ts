@@ -87,9 +87,11 @@ test.describe('Glossary page', () => {
       const entry = entries.nth(i);
       expect(await entry.getAttribute('data-glossary-term')).toBe(expected[i].id);
       await expect(entry.locator('h2')).toHaveText(expected[i].term);
-      // A full sentence of real prose, verbatim from the registry.
+      // A full sentence of real prose, verbatim from the registry. A long
+      // definition is set as two paragraphs, so the whole definition block
+      // is compared rather than its first paragraph.
       const definition = normalize(
-        (await entry.locator('p').first().textContent()) ?? '',
+        (await entry.locator('[data-glossary-definition]').textContent()) ?? '',
       );
       expect(definition).toBe(normalize(expected[i].definition));
       expect(definition.length).toBeGreaterThan(40);
@@ -410,7 +412,7 @@ test.describe('Inline <Term>', () => {
       const entry = page.locator(`[data-glossary-term="${id}"]`);
       glossaryText.set(
         id,
-        normalize((await entry.locator('p').first().textContent()) ?? ''),
+        normalize((await entry.locator('[data-glossary-definition]').textContent()) ?? ''),
       );
     }
 

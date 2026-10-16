@@ -124,14 +124,15 @@ export default function CreditsPage() {
           Credits
         </h1>
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
-          {PUBLIC_IDENTITY} uses real photographs and diagrams, and every one of
-          them is listed here with its creator, the page it came from, and
-          the licence that permits its reuse. Article images stay under
-          CC0, CC BY, CC BY-SA, public domain, or a documented reuse
-          permission. Market-map logos also include official company marks
-          recorded as unlicensed or unknown when no reuse grant is named.
-          No image is AI-generated. The site&apos;s own text and original
-          diagrams are available under CC BY 4.0.
+          Every photograph and diagram on {PUBLIC_IDENTITY} is listed here
+          with its creator, source page and licence. Article images are CC0,
+          CC BY, CC BY-SA, public domain or used under a documented reuse
+          permission. No image is AI-generated.
+        </p>
+        <p className="mt-4 font-serif text-[1.0625rem] leading-relaxed text-text">
+          Market-map logos include official company marks, recorded as
+          unlicensed or unknown where no reuse grant is named. The
+          site&apos;s own text and original diagrams are licensed CC BY 4.0.
         </p>
         {/* Author identity (VAL-DIST-009): the /credits occurrence of the
             owner-supplied name, byte-identical with meta[name=author] and
@@ -161,27 +162,24 @@ export default function CreditsPage() {
           id="about-heading"
           className="font-sans text-lg font-semibold tracking-tight text-text"
         >
-          Who is behind this wiki
+          Who is behind {PUBLIC_IDENTITY}
         </h2>
         <p className="mt-4 font-serif text-[1.0625rem] leading-relaxed text-text">
-          I am {AUTHOR_NAME}. {AUTHOR_BIO}. What I needed over those years
-          was scattered across papers that skip the deployment context and
-          demos that never quote a failure rate, so I kept rebuilding the
-          same mental map of the field from scratch. This wiki is that map,
-          written down for engineers arriving from machine learning. Every
-          claim links to the source it came from, so you can check it
-          yourself.
+          {AUTHOR_BIO}. What I needed over those years was scattered across
+          papers that skip the deployment context and demos that never quote
+          a failure rate. {PUBLIC_IDENTITY} collects it for engineers who come
+          from machine learning and cites the source of every claim.
         </p>
         <p className="mt-4 font-sans text-sm text-text-dim">
-          Corrections and source disputes are welcome. Read the{' '}
+          Corrections follow the{' '}
           <Link
             data-brand-control-id="control:link-focus"
             href="/editorial-policy/"
             className="ink-link"
           >
             editorial policy
-          </Link>{' '}
-          or{' '}
+          </Link>
+          ;{' '}
           <a
             data-brand-control-id="control:link-focus"
             href={CONTENT_CORRECTION_URL}

@@ -1,0 +1,954 @@
+[
+ {
+  "id": "gaussian-splatting",
+  "term": "3D Gaussian splatting",
+  "paragraphs": 2,
+  "firstParagraphWords": 46,
+  "firstSentence": "3D Gaussian splatting is a scene representation of anisotropic 3D Gaussians, each with position, covariance, opacity and view-dependent colour, rasterised onto the image plane instead of ray-marched.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "action-chunking",
+  "term": "action chunking",
+  "paragraphs": 1,
+  "firstParagraphWords": 55,
+  "firstSentence": "Action chunking is predicting a sequence of future actions in one inference instead of a single action per timestep.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "action-tokenization",
+  "term": "action tokenization",
+  "paragraphs": 1,
+  "firstParagraphWords": 57,
+  "firstSentence": "Action tokenization is expressing continuous robot actions as discrete tokens a language model can produce.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "admittance-control",
+  "term": "admittance control",
+  "paragraphs": 2,
+  "firstParagraphWords": 43,
+  "firstSentence": "Admittance control is compliant control that measures contact force and commands motion in response, the dual of impedance control.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "affordance",
+  "term": "affordance",
+  "paragraphs": 1,
+  "firstParagraphWords": 51,
+  "firstSentence": "An affordance is an estimate of whether an available skill can succeed now.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "antipodal-grasp",
+  "term": "antipodal grasp",
+  "paragraphs": 2,
+  "firstParagraphWords": 43,
+  "firstSentence": "An antipodal grasp is a two-contact grasp in which the line through the contact points lies strictly inside both friction cones.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "automated-storage-and-retrieval",
+  "term": "automated storage and retrieval system",
+  "paragraphs": 2,
+  "firstParagraphWords": 51,
+  "firstSentence": "An automated storage and retrieval system is a warehouse subsystem of fixed racking, cranes or shuttles and control software storing and retrieving unit loads without a human walking an aisle.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "autonomous-mobile-robot",
+  "term": "autonomous mobile robot",
+  "paragraphs": 1,
+  "firstParagraphWords": 52,
+  "firstSentence": "An autonomous mobile robot is a self-navigating transport vehicle that plans its own paths through a facility with onboard sensors, unlike an automated guided vehicle following fixed tape or wire.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "backdrivability",
+  "term": "backdrivability",
+  "paragraphs": 2,
+  "firstParagraphWords": 52,
+  "firstSentence": "Backdrivability is how easily an external force can move a joint with the actuators passive, and it decides which compliance scheme fits the hardware.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "behavior-cloning",
+  "term": "behavior cloning",
+  "paragraphs": 1,
+  "firstParagraphWords": 59,
+  "firstSentence": "Behavior cloning is supervised learning of a policy from expert demonstrations, with observations as inputs and the expert's actions as labels.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "brownfield-deployment",
+  "term": "brownfield deployment",
+  "paragraphs": 1,
+  "firstParagraphWords": 59,
+  "firstSentence": "Brownfield deployment is installing automation in an existing, running facility, around its floor plans, ceiling heights, power drops, traffic lanes and a production schedule that cannot simply stop.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "camera-intrinsics",
+  "term": "camera intrinsics",
+  "paragraphs": 2,
+  "firstParagraphWords": 60,
+  "firstSentence": "Camera intrinsics are the camera's own parameters, independent of where it is mounted: focal length in pixels along each axis, the principal point where the optical axis meets the sensor, and lens distortion.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "committed-horizon",
+  "term": "committed horizon",
+  "paragraphs": 2,
+  "firstParagraphWords": 42,
+  "firstSentence": "The committed horizon is the number of predicted actions a system executes before a fresh inference replaces them.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "compounding-error",
+  "term": "compounding error",
+  "paragraphs": 1,
+  "firstParagraphWords": 59,
+  "firstSentence": "Compounding error is the accumulation of small per-step mistakes in a sequential task.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "configuration-space",
+  "term": "configuration space",
+  "paragraphs": 2,
+  "firstParagraphWords": 55,
+  "firstSentence": "Configuration space is the space of a robot's configurations, one point per complete joint assignment; a 7-DoF arm moves through a 7-dimensional space with joint angles as coordinates.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "conformal-prediction",
+  "term": "conformal prediction",
+  "paragraphs": 2,
+  "firstParagraphWords": 59,
+  "firstSentence": "Conformal prediction is a distribution-free procedure that turns any model’s raw score into a prediction set with guaranteed coverage.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "contact-rich-manipulation",
+  "term": "contact-rich manipulation",
+  "paragraphs": 1,
+  "firstParagraphWords": 49,
+  "firstSentence": "Contact-rich manipulation is manipulation governed by making, holding and breaking contact: insertion, screwing, wiping, folding.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "control-barrier-function",
+  "term": "control barrier function",
+  "paragraphs": 2,
+  "firstParagraphWords": 50,
+  "firstSentence": "A control barrier function is a scalar function of the state that is positive on a set the system should stay inside.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "costmap",
+  "term": "costmap",
+  "paragraphs": 2,
+  "firstParagraphWords": 39,
+  "firstSentence": "A costmap is the grid a mobile-robot navigation stack plans over: map and live sensor occupancy, inflated by the robot's footprint and marked with other route costs.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "covariate-shift",
+  "term": "covariate shift",
+  "paragraphs": 2,
+  "firstParagraphWords": 46,
+  "firstSentence": "Covariate shift is the mismatch between the state distribution of an imitation learner's training demonstrations and the distribution its learned policy visits at deployment.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "cross-embodiment",
+  "term": "cross-embodiment",
+  "paragraphs": 1,
+  "firstParagraphWords": 51,
+  "firstSentence": "Cross-embodiment learning is learning from, or transferring to, robots with different morphologies: joint counts, action dimensions and sensor suites.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "curriculum-learning",
+  "term": "curriculum learning",
+  "paragraphs": 2,
+  "firstParagraphWords": 57,
+  "firstSentence": "Curriculum learning is training on tasks that start easy and grow harder as the agent improves.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "cvae",
+  "term": "CVAE",
+  "paragraphs": 2,
+  "firstParagraphWords": 52,
+  "firstSentence": "A CVAE (conditional variational autoencoder) is a generative model learning a distribution over a latent variable instead of one deterministic output.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "cycle-time",
+  "term": "cycle time",
+  "paragraphs": 1,
+  "firstParagraphWords": 15,
+  "firstSentence": "Cycle time is the measured time required to produce a part or complete a process.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "dagger",
+  "term": "DAgger",
+  "paragraphs": 2,
+  "firstParagraphWords": 56,
+  "firstSentence": "DAgger (Dataset Aggregation) is an iterative fix for behavior cloning's distribution mismatch: the expert labels states the current policy visits, and the policy retrains on the aggregate.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "degrees-of-freedom",
+  "term": "degrees of freedom",
+  "paragraphs": 2,
+  "firstParagraphWords": 47,
+  "firstSentence": "Degrees of freedom are the number of independent coordinates needed to specify a mechanism's configuration; an arm has one per independent joint.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "denavit-hartenberg-parameters",
+  "term": "Denavit-Hartenberg parameters",
+  "paragraphs": 1,
+  "firstParagraphWords": 55,
+  "firstSentence": "Denavit-Hartenberg parameters are a four-parameter representation of a kinematic chain.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "diffusion-policy",
+  "term": "diffusion policy",
+  "paragraphs": 1,
+  "firstParagraphWords": 50,
+  "firstSentence": "A diffusion policy is a policy generating a whole action sequence by conditional denoising diffusion instead of regressing one action.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "distribution-shift",
+  "term": "distribution shift",
+  "paragraphs": 2,
+  "firstParagraphWords": 49,
+  "firstSentence": "Distribution shift is the mismatch between a model's training data and its deployment data.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "domain-randomization",
+  "term": "domain randomization",
+  "paragraphs": 2,
+  "firstParagraphWords": 55,
+  "firstSentence": "Domain randomization is training a policy across a distribution of simulators with randomized visual appearance, dynamics or both, so the real world reads as one more sample.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "emergency-stop",
+  "term": "emergency stop",
+  "paragraphs": 2,
+  "firstParagraphWords": 53,
+  "firstSentence": "An emergency stop is a machine function, started by a single human action, that halts hazardous motion.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "end-effector",
+  "term": "end effector",
+  "paragraphs": 2,
+  "firstParagraphWords": 35,
+  "firstSentence": "An end effector is the last link of a robot arm plus its gripper, hand or tool, whose pose the arm exists to place.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "end-to-end-driving",
+  "term": "end-to-end driving",
+  "paragraphs": 2,
+  "firstParagraphWords": 46,
+  "firstSentence": "End-to-end driving is a policy mapping raw sensor input directly to a motion plan or vehicle commands, without separate perception, prediction and planning modules.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "factor-graph",
+  "term": "factor graph",
+  "paragraphs": 2,
+  "firstParagraphWords": 41,
+  "firstSentence": "A factor graph is a bipartite graph of a probability distribution's factorization: variable nodes hold unknown states, factor nodes the measurements and motion constraints linking them.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "flow-matching",
+  "term": "flow matching",
+  "paragraphs": 2,
+  "firstParagraphWords": 46,
+  "firstSentence": "Flow matching is a generative modeling recipe that learns a time-dependent vector field carrying noise to data, by regressing against the conditional flow instead of estimating a score.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "force-closure",
+  "term": "force closure",
+  "paragraphs": 1,
+  "firstParagraphWords": 59,
+  "firstSentence": "Force closure is the property that a grasp can resist any external wrench with contact forces inside the friction cones.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "force-feedback",
+  "term": "force feedback",
+  "paragraphs": 2,
+  "firstParagraphWords": 44,
+  "firstSentence": "Force feedback is sensing interaction forces at the instrument tip and rendering them as resistance at the operator's controls.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "form-closure",
+  "term": "form closure",
+  "paragraphs": 1,
+  "firstParagraphWords": 50,
+  "firstSentence": "Form closure is force closure by geometry alone: frictionless contact normals positively span the wrench space, immobilizing the object however small the friction.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "forward-kinematics",
+  "term": "forward kinematics",
+  "paragraphs": 1,
+  "firstParagraphWords": 34,
+  "firstSentence": "Forward kinematics is the map from a robot's joint angles to its end-effector pose, a deterministic composition of per-joint transforms.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "friction-cone",
+  "term": "friction cone",
+  "paragraphs": 2,
+  "firstParagraphWords": 56,
+  "firstSentence": "A friction cone is the set of forces a frictional point contact can exert without slipping: all forces within arctan(mu) of the surface normal, mu being the Coulomb friction coefficient.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "functional-safety",
+  "term": "functional safety",
+  "paragraphs": 2,
+  "firstParagraphWords": 45,
+  "firstSentence": "Functional safety is the part of a system’s safety that depends on its control system working correctly, as opposed to inherent design or physical guarding.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "goods-to-person",
+  "term": "goods-to-person",
+  "paragraphs": 1,
+  "firstParagraphWords": 55,
+  "firstSentence": "Goods-to-person is the warehouse principle of bringing stored items to a stationary picker at a pick station instead of walking the picker to the shelves.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "grasp-wrench-space",
+  "term": "grasp wrench space",
+  "paragraphs": 1,
+  "firstParagraphWords": 60,
+  "firstSentence": "The grasp wrench space is the set of net wrenches a grasp can apply, mapped from admissible contact forces through the grasp map.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "hand-eye-calibration",
+  "term": "hand-eye calibration",
+  "paragraphs": 2,
+  "firstParagraphWords": 37,
+  "firstSentence": "Hand-eye calibration is estimating the rigid transform between a camera and the robot frame it reports into.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "hierarchical-policy",
+  "term": "hierarchical policy",
+  "paragraphs": 1,
+  "firstParagraphWords": 50,
+  "firstSentence": "A hierarchical policy is a control architecture in which a high-level policy chooses what to do next and low-level policies execute it.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "hindsight-experience-replay",
+  "term": "hindsight experience replay",
+  "paragraphs": 2,
+  "firstParagraphWords": 55,
+  "firstSentence": "Hindsight experience replay (HER) is an off-policy technique that replays stored transitions with alternative goals and recomputed rewards, alongside original-goal replay.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "hybrid-force-position-control",
+  "term": "hybrid force/position control",
+  "paragraphs": 2,
+  "firstParagraphWords": 55,
+  "firstSentence": "Hybrid force/position control is Raibert and Craig's split of a contact task into orthogonal subspaces.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "imitation-learning",
+  "term": "imitation learning",
+  "paragraphs": 2,
+  "firstParagraphWords": 39,
+  "firstSentence": "Imitation learning is learning a policy from expert demonstrations instead of a reward signal, by supervised fitting of recorded state-action pairs.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "impedance-control",
+  "term": "impedance control",
+  "paragraphs": 2,
+  "firstParagraphWords": 50,
+  "firstSentence": "Impedance control is Hogan's 1985 formulation of compliant contact control, programming the relationship between position and force instead of commanding either.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "in-hand-manipulation",
+  "term": "in-hand manipulation",
+  "paragraphs": 1,
+  "firstParagraphWords": 60,
+  "firstSentence": "In-hand manipulation is repositioning or reorienting a grasped object within the hand without setting it down, like rolling a pen or turning a key.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "in-situ-resource-utilization",
+  "term": "in-situ resource utilization (ISRU)",
+  "paragraphs": 2,
+  "firstParagraphWords": 37,
+  "firstSentence": "In-situ resource utilization (ISRU) is producing mission consumables at the destination from local materials instead of launching them from Earth.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "intervention-rate",
+  "term": "intervention rate",
+  "paragraphs": 2,
+  "firstParagraphWords": 35,
+  "firstSentence": "Intervention rate is the fraction of cycles in which an automated system needs a human for a jam, mispick or fault, or one minus the per-cycle success rate.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "inverse-kinematics",
+  "term": "inverse kinematics",
+  "paragraphs": 1,
+  "firstParagraphWords": 34,
+  "firstSentence": "Inverse kinematics is finding joint angles that place the end effector at a target pose, the reverse of forward kinematics.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "jacobian",
+  "term": "Jacobian",
+  "paragraphs": 1,
+  "firstParagraphWords": 59,
+  "firstSentence": "The Jacobian is the derivative of the forward-kinematics map: a matrix with one column per joint, relating joint velocities to end-effector velocity at the current configuration.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "kalman-filter",
+  "term": "Kalman filter",
+  "paragraphs": 1,
+  "firstParagraphWords": 59,
+  "firstSentence": "The Kalman filter is the recursive state estimator for linear systems with Gaussian noise.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "knowledge-insulation",
+  "term": "knowledge insulation",
+  "paragraphs": 2,
+  "firstParagraphWords": 39,
+  "firstSentence": "Knowledge insulation is Physical Intelligence's recipe for protecting a vision-language-action model's pretrained backbone from action learning.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "latent-dynamics",
+  "term": "latent dynamics",
+  "paragraphs": 2,
+  "firstParagraphWords": 44,
+  "firstSentence": "Latent dynamics is a world-model paradigm predicting in a compact learned latent space instead of pixels.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "legged-locomotion",
+  "term": "legged locomotion",
+  "paragraphs": 2,
+  "firstParagraphWords": 51,
+  "firstSentence": "Legged locomotion is moving on legs instead of wheels or tracks, re-establishing balance at every discrete, intermittent foothold with no continuous contact patch.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "long-tail",
+  "term": "long tail",
+  "paragraphs": 2,
+  "firstParagraphWords": 57,
+  "firstSentence": "The long tail is the individually rare, collectively decisive part of the scenario distribution.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "loop-closure",
+  "term": "loop closure",
+  "paragraphs": 1,
+  "firstParagraphWords": 57,
+  "firstSentence": "Loop closure is recognising a mapped place and adding a validated constraint between observations.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "mean-time-between-failures",
+  "term": "mean time between failures",
+  "paragraphs": 1,
+  "firstParagraphWords": 40,
+  "firstSentence": "Mean time between failures (MTBF) is a reliability parameter for repairable systems.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "mechanoreceptor",
+  "term": "mechanoreceptor",
+  "paragraphs": 2,
+  "firstParagraphWords": 60,
+  "firstSentence": "A mechanoreceptor is a sensory nerve ending that fires under mechanical stimuli such as pressure, vibration or skin stretch.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "minimally-invasive-surgery",
+  "term": "minimally invasive surgery",
+  "paragraphs": 2,
+  "firstParagraphWords": 54,
+  "firstSentence": "Minimally invasive surgery is surgery through small incisions with elongated instruments and a camera, instead of a large open incision.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "mpc",
+  "term": "model predictive control",
+  "paragraphs": 2,
+  "firstParagraphWords": 56,
+  "firstSentence": "Model predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "neural-radiance-field",
+  "term": "neural radiance field",
+  "paragraphs": 2,
+  "firstParagraphWords": 52,
+  "firstSentence": "A neural radiance field is a scene stored as a continuous function, a small neural network, from 3D position and viewing direction to volume density and view-dependent colour.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "occupancy-grid",
+  "term": "occupancy grid",
+  "paragraphs": 2,
+  "firstParagraphWords": 48,
+  "firstSentence": "An occupancy grid is a map of cells, each storing the probability that it is occupied.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "off-policy",
+  "term": "off-policy",
+  "paragraphs": 2,
+  "firstParagraphWords": 50,
+  "firstSentence": "An off-policy method is a learning method that can improve one policy from data generated by another, so old experience stays usable.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "offline-reinforcement-learning",
+  "term": "offline reinforcement learning",
+  "paragraphs": 2,
+  "firstParagraphWords": 28,
+  "firstSentence": "Offline reinforcement learning is learning a policy from a fixed dataset of previously collected transitions, without new environment experience during training.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "on-orbit-servicing",
+  "term": "on-orbit servicing",
+  "paragraphs": 2,
+  "firstParagraphWords": 54,
+  "firstSentence": "On-orbit servicing is using one spacecraft to work on another after launch.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "on-policy",
+  "term": "on-policy",
+  "paragraphs": 2,
+  "firstParagraphWords": 56,
+  "firstSentence": "An on-policy method is a learning method whose updates are valid only for data from the current policy, so each batch of experience is used once and discarded.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "open-x-embodiment",
+  "term": "Open X-Embodiment",
+  "paragraphs": 1,
+  "firstParagraphWords": 53,
+  "firstSentence": "Open X-Embodiment is a 2023 collaboration of 34 labs that pooled 60 existing robot datasets into one standardized format: over a million trajectories from 22 embodiments, covering 527 skills.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "operational-design-domain",
+  "term": "operational design domain (ODD)",
+  "paragraphs": 2,
+  "firstParagraphWords": 50,
+  "firstSentence": "An operational design domain (ODD) is the set of conditions an automated driving system is designed for: geography, road types, speed range, weather and time of day.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "out-of-distribution-detection",
+  "term": "out-of-distribution detection",
+  "paragraphs": 2,
+  "firstParagraphWords": 54,
+  "firstSentence": "Out-of-distribution detection is deciding at run time whether a model's input resembles its training data, so a policy can decline instead of extrapolating.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "parallel-simulation",
+  "term": "parallel simulation",
+  "paragraphs": 2,
+  "firstParagraphWords": 53,
+  "firstSentence": "Parallel simulation is running thousands of physics simulator instances at once on one GPU, so one workstation gathers reinforcement learning experience at rates that once needed CPU clusters.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "payback-period",
+  "term": "payback period",
+  "paragraphs": 1,
+  "firstParagraphWords": 52,
+  "firstSentence": "Payback period is the time an automation investment takes to return its cost: total cell capital over its monthly value, most often displaced labour.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "performance-level",
+  "term": "performance level",
+  "paragraphs": 2,
+  "firstParagraphWords": 46,
+  "firstSentence": "A performance level is the ISO 13849-1:2023 counterpart of a safety integrity level, the rating a machinery integrator in Europe most often must meet.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "place-recognition",
+  "term": "place recognition",
+  "paragraphs": 2,
+  "firstParagraphWords": 39,
+  "firstSentence": "Place recognition is deciding, in visual navigation, whether the current image shows a mapped place.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "point-cloud",
+  "term": "point cloud",
+  "paragraphs": 2,
+  "firstParagraphWords": 56,
+  "firstSentence": "A point cloud is a set of 3D points, usually with no ordering and no connectivity, as produced by back-projecting depth-camera or lidar measurements through the camera intrinsics.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "pose-estimation",
+  "term": "pose estimation",
+  "paragraphs": 2,
+  "firstParagraphWords": 53,
+  "firstSentence": "Pose estimation is recovering an object's full rigid position and orientation, six degrees of freedom, from sensor data.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "power-and-force-limiting",
+  "term": "power and force limiting",
+  "paragraphs": 1,
+  "firstParagraphWords": 55,
+  "firstSentence": "Power and force limiting is the collaborative mode that permits robot-person contact and makes it safe by bounding what the contact can do.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "ppo",
+  "term": "PPO",
+  "paragraphs": 2,
+  "firstParagraphWords": 54,
+  "firstSentence": "PPO (proximal policy optimization) is the on-policy reinforcement learning algorithm the locomotion literature standardized on.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "predicted-horizon",
+  "term": "predicted horizon",
+  "paragraphs": 1,
+  "firstParagraphWords": 53,
+  "firstSentence": "The predicted horizon is the chunk length H: the number of future actions a chunked policy emits in one forward pass, whether or not it executes them all.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "promptable-segmentation",
+  "term": "promptable segmentation",
+  "paragraphs": 2,
+  "firstParagraphWords": 60,
+  "firstSentence": "Promptable segmentation is predicting a mask from an image plus prompts such as foreground/background points, a box or a mask.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "proprioception",
+  "term": "proprioception",
+  "paragraphs": 2,
+  "firstParagraphWords": 49,
+  "firstSentence": "Proprioception is sensing the body's own state (joint positions and velocities, orientation, contact), as opposed to exteroception of the outside world through cameras or lidar.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "q-learning",
+  "term": "Q-learning",
+  "paragraphs": 2,
+  "firstParagraphWords": 60,
+  "firstSentence": "Q-learning is learning a function predicting the return from each state-action pair, instead of a policy directly, then picking the action its own estimate rates highest.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "real-time-chunking",
+  "term": "real-time chunking",
+  "paragraphs": 2,
+  "firstParagraphWords": 43,
+  "firstSentence": "Real-time chunking is an inference-time scheme keeping chunked policies responsive when inference is slower than control.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "replay-buffer",
+  "term": "replay buffer",
+  "paragraphs": 1,
+  "firstParagraphWords": 51,
+  "firstSentence": "A replay buffer is the store of past transitions an off-policy learner samples gradient batches from.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "reset-free-learning",
+  "term": "reset-free learning",
+  "paragraphs": 2,
+  "firstParagraphWords": 56,
+  "firstSentence": "Reset-free learning is training on real hardware without a human resetting the scene between attempts.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "retargeting",
+  "term": "retargeting",
+  "paragraphs": 1,
+  "firstParagraphWords": 59,
+  "firstSentence": "Retargeting is mapping motion recorded on one body, usually a human's, onto a robot with different proportions and joint limits, so human demonstrations become references the robot can track.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "reward-shaping",
+  "term": "reward shaping",
+  "paragraphs": 2,
+  "firstParagraphWords": 53,
+  "firstSentence": "Reward shaping is adding rewards to a task's base reward to guide learning, usually densifying a sparse success signal.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "risk-assessment",
+  "term": "risk assessment",
+  "paragraphs": 2,
+  "firstParagraphWords": 47,
+  "firstSentence": "Risk assessment is the documented machinery-safety procedure for finding a machine's hazards and judging their risks.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "robotic-assisted-surgical-device",
+  "term": "robotic assisted surgical device",
+  "paragraphs": 2,
+  "firstParagraphWords": 46,
+  "firstSentence": "A robotic assisted surgical device (RASD) is the US regulatory category for surgical robots, cleared or authorized to assist a surgeon, who remains the one practicing medicine.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "safety-case",
+  "term": "safety case",
+  "paragraphs": 2,
+  "firstParagraphWords": 47,
+  "firstSentence": "A safety case is a structured, documented argument, with evidence for each step, that a system is acceptably safe for a given application and environment.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "safety-integrity-level",
+  "term": "safety integrity level",
+  "paragraphs": 2,
+  "firstParagraphWords": 46,
+  "firstSentence": "A safety integrity level is the IEC 61508:2010 confidence rating for a safety function; it belongs to the function, whichever component implements it.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "sample-efficiency",
+  "term": "sample efficiency",
+  "paragraphs": 1,
+  "firstParagraphWords": 59,
+  "firstSentence": "Sample efficiency is how much environment interaction a method needs to reach a set performance, counted apart from wall-clock time and gradient updates.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "scaling-law",
+  "term": "scaling law",
+  "paragraphs": 2,
+  "firstParagraphWords": 45,
+  "firstSentence": "A scaling law is an empirical relation between performance and resources (parameters, data or compute), first made precise for language models and now measured in robot learning.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "semantic-segmentation",
+  "term": "semantic segmentation",
+  "paragraphs": 1,
+  "firstParagraphWords": 44,
+  "firstSentence": "Semantic segmentation is labelling every pixel of an image with a class, instead of boxing each object.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "series-elastic-actuator",
+  "term": "series elastic actuator",
+  "paragraphs": 2,
+  "firstParagraphWords": 56,
+  "firstSentence": "A series elastic actuator is one with a deliberately soft spring between gear train and load, proposed by Pratt and Williamson in 1995.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "signed-distance-field",
+  "term": "signed-distance field",
+  "paragraphs": 2,
+  "firstParagraphWords": 56,
+  "firstSentence": "A signed-distance field is a scalar field whose zero crossing represents a surface.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "sim-to-real-gap",
+  "term": "sim-to-real gap",
+  "paragraphs": 1,
+  "firstParagraphWords": 47,
+  "firstSentence": "The sim-to-real gap is the discrepancy between a simulator's physics and rendering and the real world, which degrades simulation-trained policies on hardware.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "slam",
+  "term": "SLAM",
+  "paragraphs": 2,
+  "firstParagraphWords": 58,
+  "firstSentence": "SLAM (simultaneous localization and mapping) is estimating a robot's state while building a model of its environment.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "speed-and-separation-monitoring",
+  "term": "speed and separation monitoring",
+  "paragraphs": 2,
+  "firstParagraphWords": 34,
+  "firstSentence": "Speed and separation monitoring is the collaborative mode in which robot and person may move simultaneously while a safety system continuously keeps a protective separation distance between them.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "success-rate",
+  "term": "success rate",
+  "paragraphs": 2,
+  "firstParagraphWords": 58,
+  "firstSentence": "Success rate is the fraction of attempted episodes in which a policy completes the task, the standard headline metric of robot learning evaluation.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "swarm-robotics",
+  "term": "swarm robotics",
+  "paragraphs": 2,
+  "firstParagraphWords": 53,
+  "firstSentence": "Swarm robotics is coordinating many relatively simple robots through local interaction, without a central planner, for collective behavior no individual achieves, such as coverage, mapping or search at fleet scale.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "add-s-metric",
+  "term": "symmetry-aware pose error (ADD-S)",
+  "paragraphs": 2,
+  "firstParagraphWords": 50,
+  "firstSentence": "Symmetry-aware pose error (ADD-S) is a pose-error rule using nearest-neighbour matches instead of fixed model-point correspondences.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "system-identification",
+  "term": "system identification",
+  "paragraphs": 1,
+  "firstParagraphWords": 60,
+  "firstSentence": "System identification is fitting a simulator's parameters to a real robot's measured dynamics, shrinking the sim-to-real gap by calibration.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "systems-integrator",
+  "term": "systems integrator",
+  "paragraphs": 2,
+  "firstParagraphWords": 53,
+  "firstSentence": "A systems integrator is an organisation that integrates a robot with end-effectors, sensors, safeguarding and controls needed for an application.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "tactile-sensing",
+  "term": "tactile sensing",
+  "paragraphs": 1,
+  "firstParagraphWords": 59,
+  "firstSentence": "Tactile sensing is sensing contact through a robot's skin with pressure arrays, barometric cells or optical fingertip cameras.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "takt-time",
+  "term": "takt time",
+  "paragraphs": 1,
+  "firstParagraphWords": 26,
+  "firstSentence": "Takt time is available production time divided by customer demand over the same period, in time per unit.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "teacher-student-distillation",
+  "term": "teacher-student distillation",
+  "paragraphs": 2,
+  "firstParagraphWords": 56,
+  "firstSentence": "Teacher-student distillation is training two policies in sequence for partial observability.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "teleoperation",
+  "term": "teleoperation",
+  "paragraphs": 2,
+  "firstParagraphWords": 48,
+  "firstSentence": "Teleoperation is direct remote control of a robot by a human operator, used in robot learning mostly to record expert demonstrations.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "temporal-ensembling",
+  "term": "temporal ensembling",
+  "paragraphs": 2,
+  "firstParagraphWords": 50,
+  "firstSentence": "Temporal ensembling is ACT's execution scheme for overlapping action chunks: the policy runs every timestep and averages in-flight predictions for the current step with exponential weights.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "trajectory-optimization",
+  "term": "trajectory optimization",
+  "paragraphs": 2,
+  "firstParagraphWords": 54,
+  "firstSentence": "Trajectory optimization is motion planning by numerically optimizing a candidate trajectory.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "vision-language-model",
+  "term": "vision-language model",
+  "paragraphs": 2,
+  "firstParagraphWords": 54,
+  "firstSentence": "A vision-language model is a model pretrained jointly on web-scale image and text data, so visual recognition and language semantics share one set of weights.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "vision-language-action-model",
+  "term": "vision-language-action model",
+  "paragraphs": 1,
+  "firstParagraphWords": 55,
+  "firstSentence": "A vision-language-action model is a vision-language model, pretrained on web-scale image and text data, adapted to output robot actions.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "visual-servoing",
+  "term": "visual servoing",
+  "paragraphs": 2,
+  "firstParagraphWords": 54,
+  "firstSentence": "Visual servoing is controlling a robot's motion with computer vision data.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "visual-inertial-odometry",
+  "term": "visual-inertial odometry (VIO)",
+  "paragraphs": 2,
+  "firstParagraphWords": 46,
+  "firstSentence": "Visual-inertial odometry (VIO) is state estimation for a flying robot fusing camera images with inertial measurement unit data.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "whole-body-control",
+  "term": "whole-body control",
+  "paragraphs": 2,
+  "firstParagraphWords": 39,
+  "firstSentence": "Whole-body control is treating all of a robot's actuated degrees of freedom (legs, torso, arms, hands) as one coupled problem instead of an arm controller stacked on a separate locomotion controller.",
+  "opensWithTermIsAre": true
+ },
+ {
+  "id": "world-model",
+  "term": "world model",
+  "paragraphs": 2,
+  "firstParagraphWords": 41,
+  "firstSentence": "A world model is a model an agent queries to make decisions: given the current observation or state and a candidate action, it predicts what happens next.",
+  "opensWithTermIsAre": true
+ }
+]

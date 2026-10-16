@@ -91,7 +91,12 @@ describe('evaluation statistics originals 2–7', () => {
     const term = GLOSSARY.find((t) => t.id === 'success-rate')!;
     expect(term.citations).toEqual(['tri-lbm-2025', 'optimal-stopping-2025']);
     expect(term.definition).toContain('significant risk');
-    expect(term.definition).toContain('does not establish policy equivalence');
+    // The shared tooltip carries Snyder et al.'s trial-count result; the
+    // equivalence caveat it used to close on stays in the article, on the
+    // same citation (frontier measures R-I1, 2026-10-14).
+    expect(term.definition).toContain('up to 32% fewer trials than the Lai and SAVI baselines');
+    expect(readFileSync('content/data-hardware/evaluation-crisis.mdx', 'utf8'))
+      .toContain('does not show two policies are equivalent <Cite id="optimal-stopping-2025" />');
     expect(term.definition).not.toContain('most papers measure it on 10 to 20');
     expect(term.definition).not.toContain('explains many published comparisons');
   });

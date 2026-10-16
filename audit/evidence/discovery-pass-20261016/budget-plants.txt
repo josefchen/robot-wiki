@@ -1,0 +1,4 @@
+  1 /manipulation/ (one planted sentence): discovery-prose: /manipulation/ budget: 218 words over a budget of 207
+  1 /glossary/ (one planted sentence): discovery-prose: /glossary/ budget: 8214 words over a budget of 8203
+  1 /about/ (one planted sentence): discovery-prose: /about/ budget: 196 words over a budget of 185
+  0 clean copy: discovery-prose: OK (13 pages within budget, first paragraphs, sentence length and sweep)

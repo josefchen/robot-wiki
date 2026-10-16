@@ -11307,6 +11307,11 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:app/(content)/[domain]/page.tsx:title:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:app/a-z/page.tsx:aria-labelledby:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -12148,6 +12153,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/tabs.tsx:aria-label:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:app/(content)/[domain]/page.tsx:aria-labelledby:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -21112,7 +21122,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1959,
+        "populationSize": 1961,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21121,6 +21131,7 @@
       },
       "producedResult": {
         "resultIds": [
+          "result:VAL-B2-BASE-002:accessible-names:expression:app/(content)/[domain]/page.tsx:title:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:app/a-z/page.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:app/about/page.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:app/page.tsx:aria-label:1",
@@ -21290,6 +21301,7 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/table.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/table.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/tabs.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:app/(content)/[domain]/page.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/a-z/page.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/about/page.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:app/about/page.tsx:aria-labelledby:2",

@@ -225,7 +225,8 @@ test('ORB readers: complete definitions, readable final caveats and observed his
   for (const id of ['loop-closure', 'place-recognition']) {
     await open(page, ARTICLE);
     const definition = GLOSSARY.find(t => t.id === id)!.definition;
-    const finalText = id === 'loop-closure' ? 'This is not a guarantee that every revisit removes all error.'
+    // 'so a revisit can leave residual error.' succeeds the 'This is not a guarantee' closer (2026-10-16).
+    const finalText = id === 'loop-closure' ? 'so a revisit can leave residual error.'
       : 'Geometric verification and robust estimation can mitigate outliers, but do not establish a universal ranking of every false match against every missed match.';
     const term = page.locator(`.prose [data-term-id="${id}"]`), trigger = term.locator('a.term-link'), tip = term.getByRole('tooltip');
     await trigger.evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
@@ -262,9 +263,9 @@ test('ORB readers: complete definitions, readable final caveats and observed his
     await expect(page).toHaveURL(new RegExp(`/glossary/?#${id}$`));
     await expect(page.getByRole('heading', { level: 1, name: 'Glossary', exact: true })).toBeVisible();
     const entry = page.locator(`[data-glossary-term="${id}"]`);
-    await expect(entry.locator('p').first()).toHaveText(definition);
-    await entry.locator('p').first().evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
-    await finalTextVisible(page, entry.locator('p').first(), finalText);
+    await expect(entry.locator('[data-glossary-definition]')).toHaveText(definition);
+    await entry.locator('[data-glossary-definition]').evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
+    await finalTextVisible(page, entry.locator('[data-glossary-definition]'), finalText);
     for (const sourceId of GLOSSARY.find(t => t.id === id)!.citations) {
       const citation = CITATIONS.find(c => c.id === sourceId)!;
       await expect(entry.getByRole('link', { name: citation.title, exact: true })).toHaveAttribute('href', citation.url);

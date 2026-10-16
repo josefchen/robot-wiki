@@ -1,0 +1,401 @@
+[
+ {
+  "hub": "manipulation",
+  "article": "manipulation/bc-foundations",
+  "summary": "Covariate shift makes naive imitation drift, and DAgger is the standard fix.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/action-chunking",
+  "summary": "ACT predicts short action sequences and smooths them with temporal ensembling.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/diffusion-policy",
+  "summary": "Visuomotor control as conditional denoising over action sequences, with receding-horizon execution.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/vla-models",
+  "summary": "RT-1, RT-2, Octo and OpenVLA, and what web-scale pretraining adds to robot control.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/pi-line",
+  "summary": "From pi0 to pi0.7, with flow-matching action experts and FAST tokenization.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/generalist-policies",
+  "summary": "How to read the claims for Gemini Robotics, GR00T, Helix and GO-2.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/comparison-matrix",
+  "summary": "Every major policy compared on eight architectural axes.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/hierarchical",
+  "summary": "From SayCan and Code as Policies to the hierarchies in Helix and pi0.5.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/rl-finetuning",
+  "summary": "Improving a pretrained policy from its own online experience.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/realtime-execution",
+  "summary": "The latency budgets that decide whether the control loop closes.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/cross-embodiment",
+  "summary": "How one policy learns from many robot bodies and from humans.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/knowledge-insulation",
+  "summary": "Discrete tokens train the backbone while the action expert trains behind a stop-gradient.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/robot-learning-roadmap",
+  "summary": "A dependency-ordered route from supervised learning to real robot policies.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/action-spaces",
+  "summary": "What each action representation gives the learner and asks of the controller.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "manipulation",
+  "article": "manipulation/foundation-models",
+  "summary": "What foundation means in robotics, and what adaptation still costs.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "rl-sim2real",
+  "article": "rl-sim2real/rl-for-robotics",
+  "summary": "Sample efficiency decides which RL algorithm a robot can use.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "rl-sim2real",
+  "article": "rl-sim2real/why-rl-locomotion",
+  "summary": "Walking is cheap to simulate; contact-rich manipulation is not.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "rl-sim2real",
+  "article": "rl-sim2real/parallel-sim-rl",
+  "summary": "GPU-parallel simulation with Isaac Lab, Newton, MJX and Brax.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "rl-sim2real",
+  "article": "rl-sim2real/sim2real-transfer",
+  "summary": "Domain randomization, distillation, system identification and real-to-sim reconstruction.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "rl-sim2real",
+  "article": "rl-sim2real/legged-locomotion",
+  "summary": "How learned gaits became the default for legged robots.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "rl-sim2real",
+  "article": "rl-sim2real/humanoid-wbc",
+  "summary": "How humanoids track retargeted human motion.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "rl-sim2real",
+  "article": "rl-sim2real/reward-design-mpc",
+  "summary": "Hand-tuned and language-model rewards, and the MPC debate.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "rl-sim2real",
+  "article": "rl-sim2real/offline-rl",
+  "summary": "CQL and TD3+BC, and when behavior cloning is the stronger baseline.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "world-models",
+  "article": "world-models/taxonomy",
+  "summary": "Six example groups compared, from DreamerV3 to V-JEPA 2.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "world-models",
+  "article": "world-models/latent-dynamics",
+  "summary": "Dreamer 4, TD-MPC2 and Newt: compact learned dynamics for imagination-based control.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "world-models",
+  "article": "world-models/generative-video",
+  "summary": "Cosmos, Genie and GR-2 use action-conditioned video prediction as a simulator.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "world-models",
+  "article": "world-models/jepa",
+  "summary": "V-JEPA 2 and 2.1 predict in representation space, with no pixel decoder.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "world-models",
+  "article": "world-models/generative-sim",
+  "summary": "Generated tasks, scenes and assets inside a physics engine.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "world-models",
+  "article": "world-models/model-based-robot-learning",
+  "summary": "Learn dynamics, plan through them, and improve from imagined rollouts.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "world-models",
+  "article": "world-models/evaluation",
+  "summary": "Testing a world model on what a robot needs.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "world-models",
+  "article": "world-models/world-models-vs-simulators",
+  "summary": "Learned dynamics, physics engines and hybrids compared as robot simulators.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "data-hardware",
+  "article": "data-hardware/data-bottleneck",
+  "summary": "Robot data comes in hours; language data in trillions of tokens.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "data-hardware",
+  "article": "data-hardware/datasets",
+  "summary": "The major open robot datasets and what each collected.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "data-hardware",
+  "article": "data-hardware/hardware-taxonomy",
+  "summary": "A buyer's guide from SO-101 to Jetson Thor.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "data-hardware",
+  "article": "data-hardware/teleop-rigs",
+  "summary": "ALOHA, GELLO, UMI and VR rigs compared on cost and quality.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "data-hardware",
+  "article": "data-hardware/evaluation-crisis",
+  "summary": "What a success rate hides, from trial count to scorer.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "data-hardware",
+  "article": "data-hardware/industrial-deployment",
+  "summary": "The jam-rate arithmetic that decides whether a 99 percent cell ships.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "data-hardware",
+  "article": "data-hardware/robot-learning-stack",
+  "summary": "From data capture to robot integration as one reproducible system.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "classical",
+  "article": "classical/kinematics",
+  "summary": "How joint angles place a robot's hand, and the reverse.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "classical",
+  "article": "classical/motion-planning",
+  "summary": "Configuration space, RRT and its variants, and trajectory optimization.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "classical",
+  "article": "classical/control",
+  "summary": "PID, LQR, MPC and whole-body QP, the stack under every learned policy.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "classical",
+  "article": "classical/state-estimation",
+  "summary": "Kalman filters, factor graphs, and pose estimation from noisy sensors.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "classical",
+  "article": "classical/grasp-planning",
+  "summary": "Contact mechanics, grasp quality metrics, and force closure.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "classical",
+  "article": "classical/perception",
+  "summary": "How camera images become an object's position and orientation.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "classical",
+  "article": "classical/scene-representation",
+  "summary": "From point clouds to Gaussian splats: what a robot remembers about space.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "classical",
+  "article": "classical/calibration",
+  "summary": "The measurements that make sensor coordinates agree with motion.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "classical",
+  "article": "classical/ros2-for-ml-engineers",
+  "summary": "ROS 2 as the production boundary around a learned policy.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "frontier",
+  "article": "frontier/reliability-gap",
+  "summary": "80% task success is a demo; 99.9% is a product.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "frontier",
+  "article": "frontier/dexterity",
+  "summary": "Contact-rich manipulation, touch sensing, in-hand reorientation and deformables.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "frontier",
+  "article": "frontier/generalization",
+  "summary": "From pi0.5's three unseen homes to Helix 2.5's 30.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "frontier",
+  "article": "frontier/competing-theses",
+  "summary": "Six bets on how robot intelligence gets built.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "frontier",
+  "article": "frontier/bear-case",
+  "summary": "Why this could be another robotics winter.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "frontier",
+  "article": "frontier/safety-and-assurance",
+  "summary": "What ships is a verifiable safety layer around the learned policy.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "adjacent",
+  "article": "adjacent/autonomous-vehicles",
+  "summary": "Driving as a robotics problem, down to the long tail.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "adjacent",
+  "article": "adjacent/drones",
+  "summary": "Autonomous flight, from state estimation to champion-level racing.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "adjacent",
+  "article": "adjacent/surgical",
+  "summary": "From da Vinci to Hugo and OTTAVA, authorized one indication at a time.",
+  "sentences": 1,
+  "missing": []
+ },
+ {
+  "hub": "adjacent",
+  "article": "adjacent/space",
+  "summary": "Robots where repair is impossible, from Mars to orbit.",
+  "sentences": 1,
+  "missing": []
+ }
+]

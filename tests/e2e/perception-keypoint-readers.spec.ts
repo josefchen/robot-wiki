@@ -162,7 +162,7 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
     await clear();
     const axe = await new AxeBuilder({ page }).include('#main-content').analyze(); states.push({ name: 'article-axe', violations: axe.violations, incomplete: axe.incomplete }); save(); expect(axe.violations).toEqual([]);
     await anchor.click(); await expect(page).toHaveURL(new RegExp('/glossary/?#' + termId + '$')); await page.evaluate(() => document.fonts.ready);
-    const entry = page.locator(`[data-glossary-term="${termId}"]`); await expect(entry.locator('p')).toHaveText(definition); await textCapture(entry, 'glossary-consumer');
+    const entry = page.locator(`[data-glossary-term="${termId}"]`); await expect(entry.locator('[data-glossary-definition]')).toHaveText(definition); await textCapture(entry, 'glossary-consumer');
     const glossaryAxe = await new AxeBuilder({ page }).include(`[data-glossary-term="${termId}"]`).analyze(); states.push({ name: 'glossary-axe', violations: glossaryAxe.violations, incomplete: glossaryAxe.incomplete }); save(); expect(glossaryAxe.violations).toEqual([]);
     await page.goBack(); await expect(page).toHaveURL(new RegExp(route.replaceAll('/', '\\/') + '(#ref-[^/]+)?$')); states.push({ name: 'history-return', activeElement: await page.evaluate(() => document.activeElement?.tagName), fullFocusRestorationAccepted: false });
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0); expect(errors).toEqual([]); expect(navigations).toHaveLength(3); expect(freshNavigations).toBeLessThanOrEqual(16); states.push({ name: 'scoped-axe', axe, freshNavigationBudgetPerCase: 3 }); save();

@@ -498,7 +498,7 @@ test.describe('classical scene-representation module', () => {
       const owned = page.locator(`[data-term-id="${id}"]`);
       await owned.locator('a').focus();
       await expect(owned.getByRole('tooltip')).toBeVisible();
-      await expect(owned.getByRole('tooltip')).toContainText(id === 'loop-closure' ? 'every revisit removes all error' : 'every false match against every missed match');
+      await expect(owned.getByRole('tooltip')).toContainText(id === 'loop-closure' ? 'a revisit can leave residual error' : 'every false match against every missed match');
     }
   });
 
