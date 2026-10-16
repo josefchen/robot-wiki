@@ -295,6 +295,13 @@ import {
   TEKTUR_ROLE_INSTANCE_POPULATION_SOURCE,
   TEKTUR_WEB_BINARY_POPULATION_SOURCE,
 } from '../lib/tektur-populations.ts';
+import {
+  OG_ASSERTION_MODES,
+  OG_ASSERTION_POPULATION_SOURCES,
+  ogAssertionVerdict,
+  ogPopulations,
+  readOgEvidence,
+} from '../lib/brand-v2-og-evidence.ts';
 
 const ROOT = process.cwd();
 const MAP_PATH = join(ROOT, 'contract', 'brand-v2-enforcement-map.json');
@@ -369,7 +376,8 @@ function isMeasured(id: string): boolean {
     TABLE_MATH_ASSERTIONS.has(id) ||
     ARTICLE_TRUTH_ASSERTIONS.has(id) ||
     LINK_SAFETY_ASSERTIONS.has(id) ||
-    SEARCH_ASSERTIONS.has(id)
+    SEARCH_ASSERTIONS.has(id) ||
+    OG_ASSERTIONS.has(id)
   );
 }
 
@@ -1343,6 +1351,31 @@ const FIGURE_POPULATIONS: Readonly<Record<string, string[]>> = {
   [MATERIAL_POPULATION_SOURCE]: MATERIAL_ROWS.map(({ id }) => id),
 };
 
+/**
+ * The Open Graph/X rows, routed to the published corpus as
+ * lib/brand-v2-og-evidence.ts re-reads it.
+ *
+ * Membership grants nothing. The reader rebuilds the renderer-input
+ * manifest from the current tree and the shipped bytes, decodes every
+ * shipped card again, holds each published tree to the journal, and reads
+ * every route's card metadata out of the export; it throws on a stale
+ * manifest or pixel reading, a tree that is not the journalled corpus, a
+ * destination set that is not the sealed one, or a route the export lacks,
+ * and each member's verdict throws on that member's own failure. Release
+ * also holds the tracked corpus to the blobs committed at HEAD.
+ */
+const OG_ASSERTIONS = new Set(Object.keys(OG_ASSERTION_POPULATION_SOURCES));
+const OG_EVIDENCE = readOgEvidence({
+  root: ROOT,
+  routes: REGISTRY.routes.public.map(({ id, path, routeKind }) => ({
+    id,
+    path,
+    routeKind,
+  })),
+  committed: process.argv.includes('--check-release'),
+});
+const OG_POPULATIONS = ogPopulations(OG_EVIDENCE);
+
 function populationSources(assertionIds: string[]) {
   return buildEnforcementPopulationSources({
     registry: REGISTRY,
@@ -1375,19 +1408,29 @@ function populationSources(assertionIds: string[]) {
  * never quantified over (R8a). They are merged here rather than added as a
  * parameter of the shared builder because that module sits inside the
  * closure every browser artifact fingerprints, so a signature change there
- * would stale thirteen sweeps that measured nothing new.
+ * would stale thirteen sweeps that measured nothing new. The Open Graph
+ * rows' populations (sealed cards, probed strings, publication trees and
+ * site-card destinations) are merged here for the same reason.
  */
 function allPopulationSources(assertionIds: string[]): Record<string, string[]> {
+  const shared = populationSources(assertionIds);
+  const clashes = Object.keys(OG_POPULATIONS).filter((source) => source in shared);
+  if (clashes.length > 0) {
+    throw new Error(`the Open Graph populations would replace shared ones: ${clashes.join(', ')}`);
+  }
   return {
-    ...populationSources(assertionIds),
+    ...shared,
     [ARTICLE_TRUTH_POPULATION_SOURCE]: ARTICLE_TRUTH_MEMBERS,
     [LINK_SAFETY_POPULATION_SOURCE]: linkSafetyRouteMembers(LINK_SAFETY_CENSUS),
     ...INDEX_POPULATIONS,
     ...SEARCH_POPULATIONS,
+    ...OG_POPULATIONS,
   };
 }
 
 function populationSourceFor(id: string): string {
+  const ogSource = OG_ASSERTION_POPULATION_SOURCES[id];
+  if (ogSource) return ogSource;
   const identitySource = IDENTITY_ASSERTION_POPULATION_SOURCES[id];
   if (identitySource) return identitySource;
   const shellSource = SHELL_ASSERTION_POPULATION_SOURCES[id];
@@ -1507,6 +1550,9 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // persisted browser sweep, so it is a browser-state row; the three that
   // are entirely about the checked-in binaries stay machine-inspection rows.
   if (TEKTUR_ASSERTIONS.has(id)) return TEKTUR_ASSERTION_MODES[id];
+  // A card row reads a shipped PNG; a route, font-probe or publication row
+  // reads the export head, the binaries or the journalled trees.
+  if (OG_ASSERTIONS.has(id)) return OG_ASSERTION_MODES[id];
   if (
     ['GOV', 'BASE'].includes(area) ||
     ['VAL-B2-EVID-014', 'VAL-B2-EVID-016'].includes(id)
@@ -2036,7 +2082,391 @@ const FIGURE_RECORD_MUTATION_TARGETS: Readonly<Record<string, TestTarget[]>> = {
   ],
 };
 
+/**
+ * The Open Graph/X gates. Every row names the run that decides it over the
+ * published corpus, the reader refusals that keep a stale record from
+ * reaching it, the test that plants a defect in the row's own clause, and
+ * the generator, publication and export gates that observe what one
+ * finished publication cannot: rollback, crash recovery, a second clean
+ * generation, served content types and the committed blobs.
+ */
+const OG_EVIDENCE_FILE = 'tests/unit/brand-v2-og-evidence.test.ts';
+const OG_EVIDENCE_GREEN_TARGET = testTarget(
+  OG_EVIDENCE_FILE,
+  'Open Graph corpus evidence > decides every row for every member of its population over the published corpus',
+  'Reads the published corpus through the reader every Open Graph row uses and decides each row for every member of its population, with every image payload hashed from the shipped file.',
+);
+const OG_MANIFEST_READER_TARGET = testTarget(
+  OG_EVIDENCE_FILE,
+  'Open Graph corpus evidence > refuses a recorded manifest the current tree and shipped bytes no longer rebuild',
+  'Feeds the reader a manifest whose painted title, and then whose corpus hash, the current tree and shipped bytes no longer rebuild, and requires it to throw instead of reading the record.',
+);
+const OG_PIXEL_READER_TARGET = testTarget(
+  OG_EVIDENCE_FILE,
+  'Open Graph corpus evidence > refuses a recorded pixel reading that decoding the shipped card does not reproduce',
+  'Feeds the reader a pixel record that decoding the shipped card does not reproduce and requires it to throw, so a row cannot rest on a pixel reading of other bytes.',
+);
+const OG_ROUTE_READER_TARGET = testTarget(
+  OG_EVIDENCE_FILE,
+  'Open Graph corpus evidence > refuses a destination set that is not the sealed one and a route the export lacks',
+  'Feeds the reader a registry route set missing a sealed site-card destination and holding a route the export never wrote, and requires both to be refused.',
+);
+
+function ogVerdictTarget(id: string, title: string, mechanism: string): TestTarget {
+  return testTarget(OG_EVIDENCE_FILE, `Open Graph row verdicts > ${id} ${title}`, mechanism);
+}
+
+const OG_CARD_IMAGES_FILE = 'tests/e2e/og-cards.spec.ts';
+const OG_SERVED_CARD_TARGET = testTarget(
+  OG_CARD_IMAGES_FILE,
+  'OG card images › every published route declares a large-image card pointing at a real exported asset (VAL-DIST-002, VAL-DIST-005)',
+  'Serves the static export and fetches every route’s declared card: 200, image/png, and the same bytes as the exported file.',
+);
+const OG_MATRIX_FILE = 'tests/unit/og-card-matrix.test.ts';
+const OG_MANIFEST_FILE = 'tests/unit/og-card-manifest.test.ts';
+const OG_PIXELS_FILE = 'tests/unit/og-card-pixels.test.ts';
+const OG_ARTWORK_FILE = 'tests/unit/og-card-artwork.test.ts';
+const OG_FONTS_FILE = 'tests/unit/og-renderer-fonts.test.ts';
+const OG_PROBES_FILE = 'tests/unit/og-card-glyph-probes.test.ts';
+const OG_PUBLICATION_FILE = 'tests/unit/og-card-publication.test.ts';
+const OG_PARITY_FILE = 'tests/unit/og-card-parity.test.ts';
+const OG_SHIPPED_FILE = 'tests/unit/og-card-shipped-bytes.test.ts';
+const OG_VOCABULARY_FILE = 'tests/unit/og-cards.test.ts';
+const OG_HONESTY_FILE = 'tests/unit/og-card-diagram-honesty.test.ts';
+const OG_METADATA_FILE = 'tests/e2e/og-card-metadata.spec.ts';
+
+const OG_ROW_TARGETS: Readonly<Record<string, TestTarget[]>> = {
+  'VAL-B2-ID-009': [
+    OG_PIXEL_READER_TARGET,
+    ogVerdictTarget(
+      'VAL-B2-ID-009',
+      'fails an article card that paints the descriptor and a site card that paints another identity',
+      'Adds the descriptor to an article card and renames the site identity, and proves the verdict fails each.',
+    ),
+    testTarget(
+      'tests/e2e/brand-v2-og.spec.ts',
+      'brand-v2 OG authority › VAL-B2-ID-009 drawn card artwork carries the exact v2 identity',
+      'Renders the site and article cards through the production renderer and reads the identity and descriptor each one paints.',
+    ),
+    testTarget(
+      OG_PIXELS_FILE,
+      'decoded Open Graph card pixels > fails a card whose identity region was left blank',
+      'Blanks the identity region of a decoded card and proves the pixel inspection fails it, so the identity ink count is a reading.',
+    ),
+  ],
+  'VAL-B2-OG-001': [
+    ogVerdictTarget(
+      'VAL-B2-OG-001',
+      'fails a sealed card the corpus does not ship and a structured image inside the OG/X corpus',
+      'Seals a card the corpus does not ship and moves a structured image into the OG/X tree, and proves the count verdict fails both.',
+    ),
+    testTarget(
+      OG_MATRIX_FILE,
+      'the sealed OG/X matrix > equals the corpus the registry derives, card for card',
+      'Holds the sealed 58-card matrix equal to the registry-derived corpus.',
+    ),
+    testTarget(
+      OG_MATRIX_FILE,
+      'the sealed OG/X matrix > reports a registry publish the contract has not sealed, and a sealed card the registry dropped',
+      'Proves the matrix gate reports an unsealed publish and a dropped card.',
+    ),
+    testTarget(
+      OG_CARD_IMAGES_FILE,
+      'OG card images › the image set is derived from the registry: one OG/X card plus two search-only ratios per published slug, and none for drafts',
+      'Reads the exported image set and holds it to one card per published slug plus the site card, with the structured ratios kept apart.',
+    ),
+  ],
+  'VAL-B2-OG-002': [
+    ogVerdictTarget(
+      'VAL-B2-OG-002',
+      'fails a card that decodes to another size and one under 5KB, each unlike its export copy',
+      'Ships a 1200x900 image and a truncated card under 5KB at a card path, and proves the verdict fails the size, ratio, weight and export copy.',
+    ),
+    OG_SERVED_CARD_TARGET,
+    testTarget(
+      OG_PIXELS_FILE,
+      'decoded Open Graph card pixels > passes every shipped card: opaque, on its painted palette, devices at their registered pixels',
+      'Decodes every shipped card at 1200x630.',
+    ),
+  ],
+  'VAL-B2-OG-003': [
+    ogVerdictTarget(
+      'VAL-B2-OG-003',
+      'fails a site card that paints a descriptor variant',
+      'Replaces the site descriptor with the retired one and proves the verdict fails it.',
+    ),
+    testTarget(
+      OG_CARD_IMAGES_FILE,
+      'OG card images › the site card carries the exact Brand v2 descriptor and the retired descriptor is absent',
+      'Reads the site card the export ships for the exact descriptor and the absence of the retired one.',
+    ),
+    testTarget(
+      OG_ARTWORK_FILE,
+      'card identity text > paints the compact identity and no descriptor on every article card, and both exact strings on the site card',
+      'Walks the site card tree for the two exact strings.',
+    ),
+  ],
+  'VAL-B2-OG-004': [
+    ogVerdictTarget(
+      'VAL-B2-OG-004',
+      'fails an article card whose painted fact differs from its frontmatter',
+      'Paints a reference count one higher than the frontmatter cites and proves the verdict fails it against the frontmatter.',
+    ),
+    testTarget(
+      OG_MANIFEST_FILE,
+      'the Open Graph renderer-input manifest > fails when an article frontmatter no longer yields what its card paints',
+      'Edits an article’s frontmatter under a fixed card and proves the manifest build fails the painted facts.',
+    ),
+    testTarget(
+      OG_ARTWORK_FILE,
+      'card identity text > limits each card to its canonical fields: site identity and descriptor, or article title, domain, review year, reference count and identity',
+      'Walks every card tree for exactly its canonical fields.',
+    ),
+  ],
+  'VAL-B2-OG-005': [
+    OG_ROUTE_READER_TARGET,
+    ogVerdictTarget(
+      'VAL-B2-OG-005',
+      'fails an article route that points at the site card and an article card that repeats the bytes of another',
+      'Points an article route’s exported head at the site card and ships another card’s bytes under its path, and proves the verdict fails both.',
+    ),
+    testTarget(
+      OG_CARD_IMAGES_FILE,
+      'OG card images › article cards are per-article: one distinct URL and one byte-distinct asset each, none equal to the site card (VAL-DIST-003)',
+      'Reads every exported article head and card for a distinct URL and distinct bytes.',
+    ),
+    testTarget(
+      OG_VOCABULARY_FILE,
+      'og card vocabulary > emits a card path per published article, each carrying its slug',
+      'Derives one slug-bearing card path per published article.',
+    ),
+  ],
+  'VAL-B2-OG-006': [
+    OG_ROUTE_READER_TARGET,
+    ogVerdictTarget(
+      'VAL-B2-OG-006',
+      'fails a destination that declares an article card',
+      'Points a destination’s exported head at an article card and proves the verdict fails it.',
+    ),
+    testTarget(
+      OG_MATRIX_FILE,
+      'the sealed OG/X matrix > seals one site card plus one card per published article, and the site-card destinations',
+      'Seals the site-card destination list the destination population is held to.',
+    ),
+    testTarget(
+      OG_VOCABULARY_FILE,
+      'og card vocabulary > routeOpenGraph declares the plain title, a website card block, and the site card',
+      'Proves non-article metadata declares the site card.',
+    ),
+  ],
+  'VAL-B2-OG-007': [
+    OG_PIXEL_READER_TARGET,
+    ogVerdictTarget(
+      'VAL-B2-OG-007',
+      'fails a display face off its checksum, a token whose renderer and runtime differ, and an off-palette decode',
+      'Changes the display face hash, a token’s renderer value and the decoded palette, and proves the verdict fails each.',
+    ),
+    testTarget(
+      OG_FONTS_FILE,
+      'OG renderer font delivery contract > walks every shipped card and covers each painted run (VAL-B2-TYPE-011 through 014)',
+      'Walks every shipped card and resolves each painted run to the registered static face.',
+    ),
+    testTarget(
+      OG_FONTS_FILE,
+      'OG renderer font mutation gates > rejects a variable renderer face',
+      'Proves the renderer refuses a variable face in place of the static instance.',
+    ),
+    testTarget(
+      OG_MANIFEST_FILE,
+      'the Open Graph renderer-input manifest > records painted devices from the website registry and palette tokens equal to their runtime values',
+      'Holds every recorded palette token equal to its runtime value and every device to the website registry.',
+    ),
+    testTarget(
+      OG_PIXELS_FILE,
+      'decoded Open Graph card pixels > fails a card whose registration cross or rail is missing at its registered pixel',
+      'Proves the decoded rail and registration anchors are readings.',
+    ),
+  ],
+  'VAL-B2-OG-008': [
+    ogVerdictTarget(
+      'VAL-B2-OG-008',
+      'fails a retired identity and descriptor, a highlight tone and an unregistered device',
+      'Paints the retired identity, the retired descriptor, the highlight tone and an unregistered device, and proves the verdict fails each.',
+    ),
+    testTarget(
+      OG_ARTWORK_FILE,
+      'card identity text > paints no v1 display identity, no descriptor paraphrase and no technical domain readout',
+      'Walks every card tree for retired identities and descriptor paraphrases.',
+    ),
+    testTarget(
+      OG_HONESTY_FILE,
+      'VAL-IMG-015 population > grades the shipped card corpus: registered devices on every card and no lattice field',
+      'Grades every shipped card for registered devices only.',
+    ),
+    testTarget(
+      OG_HONESTY_FILE,
+      'VAL-IMG-015 (a): no pseudo-random or unrelated-quantity geometry > constructs no random-number generator anywhere in the artwork module',
+      'Proves no card ornament is pseudo-random.',
+    ),
+    testTarget(
+      OG_PIXELS_FILE,
+      'decoded Open Graph card pixels > fails a retired lime fill, an off-token colour and a translucent pixel',
+      'Proves the decoded palette check fails a retired highlight fill.',
+    ),
+  ],
+  'VAL-B2-OG-009': [
+    OG_ROUTE_READER_TARGET,
+    ogVerdictTarget(
+      'VAL-B2-OG-009',
+      'fails a summary card, a relative or www image URL, a short alt and an X image unlike the Open Graph one',
+      'Edits a route’s exported head six ways and proves the verdict fails each.',
+    ),
+    testTarget(
+      OG_METADATA_FILE,
+      'social card metadata (VAL-DIST-001, VAL-DIST-004) › every route declares exactly one summary_large_image twitter:card (VAL-DIST-001)',
+      'Reads every route’s rendered head for exactly one large-image card declaration.',
+    ),
+    OG_SERVED_CARD_TARGET,
+    testTarget(
+      OG_VOCABULARY_FILE,
+      'og card vocabulary > produces alt text of at least 15 characters that is not the bare title',
+      'Proves the derived alt text is at least 15 characters and not the bare title.',
+    ),
+  ],
+  'VAL-B2-OG-010': [
+    ogVerdictTarget(
+      'VAL-B2-OG-010',
+      'fails a card whose second render differed from the staged bytes',
+      'Records a second render that differs from the staged bytes and proves the verdict fails it.',
+    ),
+    testTarget(
+      OG_SHIPPED_FILE,
+      'the shipped Open Graph card bytes > re-renders every corpus card and finds the tracked files byte-identical',
+      'Renders every card again from the current inputs and compares the bytes with the tracked files.',
+    ),
+    testTarget(
+      OG_PUBLICATION_FILE,
+      'staged Open Graph publication > commits a record that is identical across regenerations of the same corpus',
+      'Publishes the same corpus twice and proves the records are identical.',
+    ),
+  ],
+  'VAL-B2-OG-011': [
+    ogVerdictTarget(
+      'VAL-B2-OG-011',
+      'fails a string with no source and an asset hash the shipped file does not have',
+      'Removes a painted string’s source and replaces a recorded asset hash, and proves the verdict fails both.',
+    ),
+    testTarget(
+      OG_MANIFEST_FILE,
+      'the Open Graph renderer-input manifest > builds from the published corpus without a failure and matches the recorded manifest',
+      'Rebuilds the manifest from the published files and holds it equal to the recorded one.',
+    ),
+    testTarget(
+      OG_MANIFEST_FILE,
+      'the Open Graph renderer-input manifest > records each painted string with a source that independently yields it',
+      'Re-derives each recorded string from its named source.',
+    ),
+  ],
+  'VAL-B2-OG-012': [
+    ogVerdictTarget(
+      'VAL-B2-OG-012',
+      'fails a probe whose renders differ, a probe that never ran and a face off its checksum',
+      'Records a fallback render, drops a probe and changes a face hash, and proves the verdict fails each.',
+    ),
+    testTarget(
+      OG_PROBES_FILE,
+      'Open Graph glyph probes > were all run, fallback-free, for the published corpus',
+      'Holds every recorded probe to the derived population and to identical own-face and production renders.',
+    ),
+    testTarget(
+      OG_PROBES_FILE,
+      'Open Graph glyph probes > fail a display string with a glyph Tektur lacks but IBM Plex Mono has',
+      'Proves a per-glyph fallback to another registered face is caught.',
+    ),
+    testTarget(
+      OG_FONTS_FILE,
+      'OG renderer font mutation gates > rejects a wrong renderer face checksum',
+      'Proves the renderer refuses a face whose bytes differ from the registered checksum.',
+    ),
+  ],
+  'VAL-B2-OG-013': [
+    ogVerdictTarget(
+      'VAL-B2-OG-013',
+      'fails an incomplete journal, an unpinned toolchain and a staging tree left behind',
+      'Leaves the journal swapping, unpins a package and leaves the staging tree, and proves the verdict fails each.',
+    ),
+    testTarget(
+      OG_PUBLICATION_FILE,
+      'staged Open Graph publication > swaps every staged tree into place, completes the journal and leaves no staging behind',
+      'Publishes into a temporary root and checks every tree, the journal and the staging directory.',
+    ),
+    testTarget(
+      OG_PUBLICATION_FILE,
+      'staged Open Graph publication > leaves the prior corpus untouched when validation fails',
+      'Proves validation runs before any canonical tree moves.',
+    ),
+    testTarget(
+      OG_MANIFEST_FILE,
+      'the Open Graph renderer-input manifest > fails on a staged file of the wrong shape, a duplicate file, a stray file and a failed glyph probe',
+      'Proves the staged corpus is refused before publication when it is malformed.',
+    ),
+  ],
+  'VAL-B2-OG-014': [
+    ogVerdictTarget(
+      'VAL-B2-OG-014',
+      'fails a tree holding bytes the corpus did not record, a duplicate record and an evidence tree holding another manifest',
+      'Records another card’s hash for a card, and proves the verdict fails the public, export and evidence trees.',
+    ),
+    testTarget(
+      OG_PARITY_FILE,
+      'Open Graph corpus parity > fails on an extra, a missing, a changed or a linked file in any tree',
+      'Plants an extra, a missing, a changed and a linked file in copies of each tree and proves parity fails each.',
+    ),
+    testTarget(
+      OG_PARITY_FILE,
+      'Open Graph corpus parity > compares the checked-in trees with the blobs committed at HEAD',
+      'Commits a copy of the corpus and proves parity compares the checked-in trees with the committed blobs.',
+    ),
+    testTarget(
+      OG_PARITY_FILE,
+      'Open Graph corpus parity > fails on an interrupted or unjournalled publication',
+      'Proves parity refuses an incomplete or missing journal.',
+    ),
+  ],
+  'VAL-B2-OG-015': [
+    ogVerdictTarget(
+      'VAL-B2-OG-015',
+      'fails a tree the journal did not swap and a live journal awaiting recovery',
+      'Marks a tree moved aside and leaves a live journal, and proves the verdict fails both.',
+    ),
+    testTarget(
+      OG_PUBLICATION_FILE,
+      'staged Open Graph publication > restores every moved tree when a swap fails part-way',
+      'Fails a swap part-way and proves every moved tree is restored from the journal.',
+    ),
+    testTarget(
+      OG_PUBLICATION_FILE,
+      'staged Open Graph publication > recovers a crash mid-swap from the journal on the next run',
+      'Interrupts a publication mid-swap and proves the next run repairs it from the journal.',
+    ),
+    testTarget(
+      OG_PUBLICATION_FILE,
+      'staged Open Graph publication > refuses to recover from a journal it cannot trust',
+      'Proves an untrustworthy journal is rejected rather than repaired.',
+    ),
+  ],
+};
+
+function ogTargetsFor(id: string): TestTarget[] {
+  const targets = OG_ROW_TARGETS[id];
+  if (!targets) {
+    throw new Error(`${id} is an Open Graph row with no test that plants a defect in it`);
+  }
+  return [OG_EVIDENCE_GREEN_TARGET, OG_MANIFEST_READER_TARGET, ...targets];
+}
+
 function testTargetsFor(id: string): TestTarget[] {
+  if (OG_ASSERTIONS.has(id)) return ogTargetsFor(id);
   // Figure rows are decided by the figure sweep and its reader. They used to
   // fall through to the generic route census and flow, so the corpus named a
   // pair of tests that never look at a figure as the evidence for every
@@ -3762,6 +4192,15 @@ function resultFor(
             },
     };
   }
+  if (OG_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const verdict = ogAssertionVerdict(OG_EVIDENCE, assertionId, member);
+    return { ...common, actual: verdict.actual, payload: verdict.payload };
+  }
   if (mode === 'generated-image') {
     return {
       ...common,
@@ -3894,6 +4333,8 @@ function generate() {
                 ? `${id} per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over ${canonicalPopulationSource}`
                 : TEKTUR_ASSERTIONS.has(id)
                 ? `${id} per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over ${canonicalPopulationSource}`
+                : OG_ASSERTIONS.has(id)
+                ? `${id} per-member evidence derived from the published Open Graph/X corpus: the renderer-input manifest rebuilt from the current tree and the shipped bytes, every shipped card decoded again, the sealed card matrix, the publication journal and the trees it swapped, and the card metadata in each route's exported head, over ${canonicalPopulationSource}`
                 : `${id} pending rollout evidence over ${canonicalPopulationSource}`,
           })),
           ...testTargetsFor(id),

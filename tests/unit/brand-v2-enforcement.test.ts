@@ -99,6 +99,7 @@ import {
   searchFacetMemberId,
   searchStateMemberId,
 } from '@/lib/brand-v2-search-evidence';
+import { ogPopulations, readOgEvidence } from '@/lib/brand-v2-og-evidence';
 
 /**
  * The identity populations, rebuilt here from the same derivations the
@@ -580,6 +581,21 @@ describe('brand-v2 enforcement map and evidence schemas', { timeout: 30_000 }, (
           ),
           [SEARCH_MOBILE_STATE_POPULATION_SOURCE]: SEARCH_MOBILE_STATE_IDS.map(
             searchStateMemberId,
+          ),
+          // The Open Graph/X rows' populations, merged the same way from the
+          // reader that decides them: the sealed cards, the site-card
+          // destinations, the probed strings and the publication trees.
+          ...ogPopulations(
+            readOgEvidence({
+              root: ROOT,
+              routes: (
+                registry.routes.public as Array<{
+                  id: string;
+                  path: string;
+                  routeKind: 'article' | 'destination';
+                }>
+              ).map(({ id, path, routeKind }) => ({ id, path, routeKind })),
+            }),
           ),
         },
         map,
