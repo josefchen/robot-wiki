@@ -45,7 +45,7 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1452036, sha256: 'a46bef1ce016b62098a1a973c3341e1af5658b53ca2733796a4b02aec70eaf76' };
+const reviewPin = { bytes: 1452036, sha256: '47e45bc33c2da629904a781a0df798bba5aac3b3c4d4739fb6803833aef56ccb' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -99,7 +99,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/world-models/model-based-robot-learning.mdx', [10304, 'f835cb3c762a3fb667ca617f377fbf1bcb8668650196465a3d03a42a1c722fd8']],
   ['content/world-models/taxonomy.mdx', [13938, '22a45faa2b7feab6fae51ced32e9b10ef8ea1c3459e7205672d59637c38466bb']],
   ['content/world-models/world-models-vs-simulators.mdx', [13151, 'cfe3613bb35a93f74e6f76c5e3943d0440239c2303b86a8c7d062ea40a5f28d9']],
-  ['data/glossary.ts', [73649, '43ebbef39b380d62b29948fe7a104598c9265de5f488287540d23aaa02829f97']],
+  ['data/glossary.ts', [73649, '1a266e482aa554e879ca452c69904b912e5880c09aae6a12a742f9405c283891']],
 ]);
 // END domain-pass pins
 
@@ -1101,8 +1101,8 @@ const CORRECTED_SOURCES: ReadonlyMap<string, readonly (readonly [string, string]
       'into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model ' +
       'still costs closed-loop performance. Long assumed too slow for full robot dynamics, ' +
       'whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and ' +
-      'colleagues\\\' MuJoCo-based iLQR controller. It was first posted in 2025 and revised in ' +
-      '2026 for ICRA 2026.\'',
+      'colleagues\\\' MuJoCo-based iLQR controller. Posted in 2025, it was revised in ' +
+      '2026 to appear at ICRA 2026.\'',
   ], [
     '\'A generative modeling recipe that learns a time-dependent vector field carrying samples ' +
       'from a noise distribution to the data distribution, trained by regressing the model\\\'s ' +

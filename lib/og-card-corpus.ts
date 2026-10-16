@@ -2,7 +2,12 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DOMAIN_META, publishedModules } from '../data/modules.ts';
-import { articleCardElement, siteCardElement, type CardNode } from './og-card-artwork.ts';
+import {
+  articleCardElement,
+  glyphProbeElement,
+  siteCardElement,
+  type CardNode,
+} from './og-card-artwork.ts';
 import { articleCardFacts } from './og-card-facts.ts';
 import { SITE_CARD_PATH, articleCardPath } from './og-cards.ts';
 
@@ -126,4 +131,35 @@ export function ogCardCorpus(root: string): OgCardCorpusEntry[] {
     throw new Error('The Open Graph card corpus repeats a card path');
   }
   return corpus;
+}
+
+/**
+ * A sealed glyph-probe tree: one assigned string in one registered stack.
+ *
+ * Probes are rendered through the same boundary as the shipped cards so
+ * that the proof of "no per-glyph fallback" is made by the renderer that
+ * paints the corpus. They are sealed here for the same reason the cards
+ * are, and they are never written to a card destination.
+ */
+export type OgGlyphProbeEntry = {
+  probeId: string;
+  card: SealedCardTree;
+};
+
+export function sealGlyphProbe(input: {
+  probeId: string;
+  text: string;
+  stack: string;
+  fontSize: number;
+}): OgGlyphProbeEntry {
+  return {
+    probeId: input.probeId,
+    card: sealCardTree(
+      glyphProbeElement({
+        text: input.text,
+        stack: input.stack,
+        fontSize: input.fontSize,
+      }),
+    ),
+  };
 }

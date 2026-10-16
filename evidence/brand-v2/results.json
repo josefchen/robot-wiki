@@ -133608,7 +133608,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member canonical-metadata-source:data/glossary.ts moved from c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc to 380dcf6e942166f6bcf29ad7d6f61b5544fd989133ca8b30cdf3fdfbd7ab7a01 exactly as approved delta opus-pass-home-hubs-20261016-source-glossary permits: Discovery pass of 2026-10-16 on data/glossary.ts, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 33 earlier approved edges exactly, ending with opus-pass-home-hubs-20261014-source-glossary. Every definition now opens with a sentence that defines its term, its first paragraph is 60 words or fewer, and the rest is shortened. The success-rate gloss swaps its closing equivalence caveat, which evaluation-crisis still states on the same citation, for Snyder et al.'s trial-count result (frontier measures R-I1). No term, id or citation changes, every number and test-pinned phrase stays, and lib/audit-domain-pass-continuity.ts records each definition as an exact swap over the earlier bytes.",
+      "actual": "article-metadata member canonical-metadata-source:data/glossary.ts moved from c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc to 4e1f21737cab44305b3464244c1e74c1f2bb9669eac5951d66aad065467eb138 exactly as approved delta opus-pass-home-hubs-20261016-source-glossary permits: Discovery pass of 2026-10-16 on data/glossary.ts, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 33 earlier approved edges exactly, ending with opus-pass-home-hubs-20261014-source-glossary. Every definition now opens with a sentence that defines its term, its first paragraph is 60 words or fewer, and the rest is shortened. The success-rate gloss swaps its closing equivalence caveat, which evaluation-crisis still states on the same citation, for Snyder et al.'s trial-count result (frontier measures R-I1). No term, id or citation changes, every number and test-pinned phrase stays, and lib/audit-domain-pass-continuity.ts records each definition as an exact swap over the earlier bytes.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133620,7 +133620,7 @@
           "manifest": "article-metadata",
           "member": "canonical-metadata-source:data/glossary.ts",
           "baselineHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
-          "currentHash": "380dcf6e942166f6bcf29ad7d6f61b5544fd989133ca8b30cdf3fdfbd7ab7a01",
+          "currentHash": "4e1f21737cab44305b3464244c1e74c1f2bb9669eac5951d66aad065467eb138",
           "status": "approved-delta",
           "approvedDelta": "opus-pass-home-hubs-20261016-source-glossary"
         },
@@ -181399,7 +181399,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181439,7 +181439,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181479,7 +181479,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181519,7 +181519,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181559,7 +181559,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181599,7 +181599,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181639,7 +181639,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181679,7 +181679,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181719,7 +181719,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181759,7 +181759,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181799,7 +181799,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181839,7 +181839,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181879,7 +181879,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181919,7 +181919,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181959,7 +181959,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -181999,7 +181999,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182039,7 +182039,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182079,7 +182079,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182119,7 +182119,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182159,7 +182159,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182199,7 +182199,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182239,7 +182239,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182279,7 +182279,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182319,7 +182319,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182359,7 +182359,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182399,7 +182399,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182439,7 +182439,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182479,7 +182479,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182519,7 +182519,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182559,7 +182559,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182599,7 +182599,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182639,7 +182639,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182679,7 +182679,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182719,7 +182719,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182759,7 +182759,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182799,7 +182799,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182839,7 +182839,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182879,7 +182879,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182919,7 +182919,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182959,7 +182959,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -182999,7 +182999,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183039,7 +183039,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183079,7 +183079,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183119,7 +183119,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183159,7 +183159,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183199,7 +183199,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183239,7 +183239,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183279,7 +183279,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183319,7 +183319,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183359,7 +183359,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183399,7 +183399,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183439,7 +183439,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183479,7 +183479,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183519,7 +183519,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183559,7 +183559,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183599,7 +183599,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183639,7 +183639,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183679,7 +183679,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183719,7 +183719,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183759,7 +183759,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183799,7 +183799,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183839,7 +183839,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183879,7 +183879,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183919,7 +183919,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183959,7 +183959,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -183999,7 +183999,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184039,7 +184039,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184079,7 +184079,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184119,7 +184119,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184159,7 +184159,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184199,7 +184199,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184239,7 +184239,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184279,7 +184279,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184319,7 +184319,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184359,7 +184359,7 @@
             "signal": "#3B6EA8"
           },
           "paintedInCardCorpus": {
-            "signal": 57
+            "signal": 464
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184417,10 +184417,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184478,10 +184478,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184539,10 +184539,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184600,10 +184600,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184661,10 +184661,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184722,10 +184722,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184783,10 +184783,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184844,10 +184844,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184905,10 +184905,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -184966,10 +184966,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185027,10 +185027,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185088,10 +185088,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185149,10 +185149,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185210,10 +185210,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185271,10 +185271,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185332,10 +185332,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185393,10 +185393,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185454,10 +185454,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185515,10 +185515,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185576,10 +185576,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185637,10 +185637,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185698,10 +185698,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185759,10 +185759,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185820,10 +185820,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185881,10 +185881,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -185942,10 +185942,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186003,10 +186003,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186064,10 +186064,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186125,10 +186125,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186186,10 +186186,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186247,10 +186247,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186308,10 +186308,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186369,10 +186369,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186430,10 +186430,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186491,10 +186491,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186552,10 +186552,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186613,10 +186613,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186674,10 +186674,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186735,10 +186735,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186796,10 +186796,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186857,10 +186857,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186918,10 +186918,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -186979,10 +186979,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187040,10 +187040,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187101,10 +187101,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187162,10 +187162,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187223,10 +187223,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187284,10 +187284,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187345,10 +187345,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187406,10 +187406,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187467,10 +187467,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187528,10 +187528,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187589,10 +187589,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187650,10 +187650,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187711,10 +187711,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187772,10 +187772,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187833,10 +187833,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187894,10 +187894,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -187955,10 +187955,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188016,10 +188016,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188077,10 +188077,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188138,10 +188138,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188199,10 +188199,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188260,10 +188260,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188321,10 +188321,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188382,10 +188382,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188443,10 +188443,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188504,10 +188504,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188565,10 +188565,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188626,10 +188626,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188687,10 +188687,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188748,10 +188748,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188809,10 +188809,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188870,10 +188870,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -188931,10 +188931,10 @@
           },
           "paintedInCardCorpus": {
             "ink": 115,
-            "graphite": 117,
-            "concrete": 11368,
-            "paper": 58,
-            "white": 58
+            "graphite": 172,
+            "concrete": 346,
+            "paper": 172,
+            "white": 0
           },
           "cardsWalked": 58,
           "evidence": [
@@ -200489,7 +200489,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/adjacent/ rendered no v1 identity spelling and no v1 descriptor in 3620 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/adjacent/ rendered no v1 identity spelling and no v1 descriptor in 3654 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -200724,7 +200724,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/ rendered no v1 identity spelling and no v1 descriptor in 3154 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/ rendered no v1 identity spelling and no v1 descriptor in 3188 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -201241,7 +201241,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/ rendered no v1 identity spelling and no v1 descriptor in 2452 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/ rendered no v1 identity spelling and no v1 descriptor in 2486 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -201664,7 +201664,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/ rendered no v1 identity spelling and no v1 descriptor in 2174 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/ rendered no v1 identity spelling and no v1 descriptor in 2208 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -202087,7 +202087,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/ rendered no v1 identity spelling and no v1 descriptor in 4238 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/ rendered no v1 identity spelling and no v1 descriptor in 4272 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -202980,7 +202980,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/ rendered no v1 identity spelling and no v1 descriptor in 2978 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/ rendered no v1 identity spelling and no v1 descriptor in 3012 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -203450,7 +203450,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/world-models/ rendered no v1 identity spelling and no v1 descriptor in 2850 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/world-models/ rendered no v1 identity spelling and no v1 descriptor in 2884 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -203909,7 +203909,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki` still resolves 37 comment-free use(s) across 13 first-party runtime file(s) and 11018 use(s) across 312 shipped .html/.js/.txt/.xml file(s) of the built export, including 133 measured destination(s), and renders nowhere as visible product identity across 75 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki` still resolves 38 comment-free use(s) across 14 first-party runtime file(s) and 11018 use(s) across 312 shipped .html/.js/.txt/.xml file(s) of the built export, including 133 measured destination(s), and renders nowhere as visible product identity across 75 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -203917,7 +203917,7 @@
         "kind": "browser-state",
         "computed": {
           "literal": "robot-wiki",
-          "occurrences": 37,
+          "occurrences": 38,
           "files": [
             "components/analytics/anonymous-analytics.tsx",
             "components/explainers/viewer.ts",
@@ -203930,6 +203930,7 @@
             "lib/crossref-client.ts",
             "lib/identity.ts",
             "lib/neutral-tooling.ts",
+            "lib/og-card-matrix.ts",
             "lib/og-cards.ts",
             "lib/site.ts"
           ],

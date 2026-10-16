@@ -65,11 +65,16 @@ const IMAGE_RENDERER_SPECIFIERS: readonly RegExp[] = [
  * rather than one the check makes by not matching.
  */
 const RENDERER_FREE_SPECIFIERS: ReadonlySet<string> = new Set([
+  // A font parser: the glyph probes and the manifest read cmaps and OS/2
+  // classes with it. It lays out glyph runs but rasterizes nothing.
+  'fontkit',
   'gray-matter',
   'node:crypto',
   'node:fs',
   'node:fs/promises',
   'node:path',
+  // Inflate only: the checked-in PNG decoder reads the shipped cards back.
+  'node:zlib',
   'zod',
 ]);
 

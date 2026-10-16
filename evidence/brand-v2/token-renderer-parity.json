@@ -28,723 +28,672 @@
       "lib/og-card-artwork.ts",
       "lib/og-card-corpus.ts",
       "lib/og-card-facts.ts",
+      "lib/og-card-generation.ts",
+      "lib/og-card-glyph-probes.ts",
+      "lib/og-card-manifest.ts",
+      "lib/og-card-matrix.ts",
+      "lib/og-card-pixels.ts",
+      "lib/og-card-publication.ts",
       "lib/og-card-render-boundary.ts",
       "lib/og-cards.ts",
       "lib/og-render-boundary-invariant.ts",
       "lib/og-renderer-fonts.ts",
+      "lib/png-decode.ts",
       "lib/source-comments.ts",
       "lib/source-tokens.ts",
       "lib/sync-duplicates.ts",
       "scripts/generate-og-cards.ts"
     ],
-    "fingerprint": "415fc2264b1679e9dfcb83bd1dbf449dd6adf17e66804fb6daaaa6eb15e2b053"
+    "fingerprint": "137ff1d3d4439a2bbf20bf25894d478c03936294a2ab3d6981ad4a6e2ab959b8"
   },
   "cardCount": 58,
-  "paintedProperties": 11773,
+  "paintedProperties": 1269,
   "paintedByCard": [
     {
       "cardId": "site",
-      "paintedProperties": 202,
+      "paintedProperties": 15,
       "byHex": {
         "#1C1C1A": 1,
-        "#3F3F3B": 3,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 1,
+        "#DEDEDB": 4,
+        "#FAFAF8": 1
       }
     },
     {
       "cardId": "manipulation/bc-foundations",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/action-chunking",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/diffusion-policy",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/vla-models",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/pi-line",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/generalist-policies",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/comparison-matrix",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/hierarchical",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/rl-finetuning",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/realtime-execution",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/cross-embodiment",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/knowledge-insulation",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/robot-learning-roadmap",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/action-spaces",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "manipulation/foundation-models",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "rl-sim2real/rl-for-robotics",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "rl-sim2real/why-rl-locomotion",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "rl-sim2real/parallel-sim-rl",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "rl-sim2real/sim2real-transfer",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "rl-sim2real/legged-locomotion",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "rl-sim2real/humanoid-wbc",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "rl-sim2real/reward-design-mpc",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "rl-sim2real/offline-rl",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "world-models/taxonomy",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "world-models/latent-dynamics",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "world-models/generative-video",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "world-models/jepa",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "world-models/generative-sim",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "world-models/model-based-robot-learning",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "world-models/evaluation",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "world-models/world-models-vs-simulators",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "data-hardware/data-bottleneck",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "data-hardware/datasets",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "data-hardware/hardware-taxonomy",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "data-hardware/teleop-rigs",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "data-hardware/evaluation-crisis",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "data-hardware/industrial-deployment",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "data-hardware/robot-learning-stack",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "classical/kinematics",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "classical/motion-planning",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "classical/control",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "classical/state-estimation",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "classical/grasp-planning",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "classical/perception",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "classical/scene-representation",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "classical/calibration",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "classical/ros2-for-ml-engineers",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "frontier/reliability-gap",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "frontier/dexterity",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "frontier/generalization",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "frontier/competing-theses",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "frontier/bear-case",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "frontier/safety-and-assurance",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "adjacent/autonomous-vehicles",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "adjacent/drones",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "adjacent/surgical",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     },
     {
       "cardId": "adjacent/space",
-      "paintedProperties": 203,
+      "paintedProperties": 22,
       "byHex": {
         "#1C1C1A": 2,
-        "#3B6EA8": 1,
-        "#3F3F3B": 2,
-        "#DEDEDB": 196,
-        "#FAFAF8": 1,
-        "#FFFFFF": 1
+        "#3B6EA8": 8,
+        "#3F3F3B": 3,
+        "#DEDEDB": 6,
+        "#FAFAF8": 3
       }
     }
   ],
   "paintedByHex": {
     "#1C1C1A": 115,
-    "#3B6EA8": 57,
-    "#3F3F3B": 117,
-    "#DEDEDB": 11368,
-    "#FAFAF8": 58,
-    "#FFFFFF": 58
+    "#3B6EA8": 464,
+    "#3F3F3B": 172,
+    "#DEDEDB": 346,
+    "#FAFAF8": 172
   },
   "unregisteredPaintedValues": [],
   "mirrorParity": [

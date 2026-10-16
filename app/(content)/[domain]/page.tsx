@@ -199,7 +199,11 @@ export default async function DomainLandingPage({
               </>
             ) : null}
           </p>
+          {/* "Domain overview" is this page's link text in the Articles
+              panel. The hidden prefix lets search find the page under that
+              label (VAL-SEARCH-022) without printing it a second time. */}
           <p className="meta-line mt-6 max-w-[960px]">
+            <span className="sr-only">Domain overview: </span>
             {published.length} articles. {meta.readingOrder}
           </p>
           <p data-hub-related className="meta-line mt-2 max-w-[960px]">

@@ -1,144 +1,119 @@
 /**
- * Build-time OG card generation (VAL-DIST-002/003/005).
+ * Build-time OG card generation (VAL-DIST-002/003/005, VAL-B2-OG-001..015).
  *
  * Renders one 1200x630 PNG per published article plus one site-level
- * card, and writes them under out/og/ (and public/og/ so a local dev
- * server serves them too). Runs in postbuild: the static export serves
- * them as plain files, no framework process, no image-optimisation
+ * card, and the registered 4:3 and square structured-data variant of each
+ * article card, into public/og/ and public/structured-images/ — and into
+ * their out/ copies when the static export exists. The static export
+ * serves them as plain files: no framework process, no image-optimisation
  * endpoint, no API route (the three shapes VAL-DIST-005 rejects).
+ *
+ * Publication is staged and journalled (lib/og-card-publication.ts): the
+ * complete corpus is rendered into a clean staging tree, validated there
+ * in full (lib/og-card-generation.ts: sealed matrix, route ownership,
+ * strings against their sources, glyph probes, decoded pixels, a second
+ * render for determinism), and only then swapped into place tree by tree,
+ * with a rollback on any caught failure and recovery of an interrupted run
+ * from its journal. The renderer-input manifest and the completed journal
+ * are written to evidence/brand-v2/og-cards/.
  *
  * The card trees and their destinations come from the shared corpus in
  * lib/og-card-corpus.ts, which is also the population the renderer
  * evidence measures. This module must not build a card tree of its own,
- * and cannot transform one either: two parallel constructions of the same
- * corpus made a painted-colour change here invisible to the evidence, and
- * so did a wrapper applied to a corpus tree on its way to the renderer.
- * What it receives is a sealed handle whose element tree is unreachable
- * from here, and lib/og-card-render-boundary.ts is the only module that
- * opens one and paints it. Whether the files that end up on disk are that
- * module's output is not read out of this source: scripts/check-og-card-
- * bytes.ts runs immediately after this one in postbuild, re-renders every
- * corpus card through the boundary and requires each shipped file to be
- * exactly those bytes, so importing the boundary and shipping something
- * else — or overwriting the cards after these writes — fails the build.
+ * and cannot transform one either: what it receives is a sealed handle
+ * whose element tree is unreachable from here, and
+ * lib/og-card-render-boundary.ts is the only module that opens one and
+ * paints it. scripts/check-og-card-bytes.ts runs after this one in
+ * postbuild, re-renders every corpus card through the boundary and
+ * requires each shipped file to be exactly those bytes.
  *
- * The corpus is derived from the module registry, so publishing a
- * module adds its card with no hand edit. Rendering uses Next's bundled
- * @vercel/og ImageResponse (satori + resvg wasm): no new dependency.
- * Fonts come from the renderer face registry (lib/og-renderer-fonts.ts):
- * the separately vendored static Tektur SemiBold TTF for display text and
- * the vendored static IBM Plex Mono Regular TTF for the data and
- * registration labels. No runtime font request or variable-font renderer
- * support is involved.
- *
- * Byte-distinctness (VAL-DIST-003) holds structurally: since e937d16 the
- * panel artwork is one constant ornament per domain chosen by a literal
- * table (lib/og-card-artwork.ts has no Rng and no hashString), so
- * distinctness rests on each card's TEXT (title, domain, reference count,
- * review year), not on varied geometry. The generator additionally
- * verifies the produced set by hash and fails the build on any collision,
- * so a future edit cannot silently reintroduce a repeated canvas.
- *
- * Reference counts and review years come from the article MDX
- * frontmatter (citations list and lastReviewed) via the same helpers
- * the article template uses.
+ * Flags:
+ *   --check-only  build the corpus without rendering (registry and facts).
+ *   --stage-only  stage and validate into .og-staging/stage without
+ *                 publishing, and leave the staging tree for inspection.
  */
-import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
-import { createHash } from 'node:crypto';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ogCardCorpus } from '../lib/og-card-corpus.ts';
-import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';
 import {
-  ARTICLE_IMAGE_VARIANTS,
-  articleCardPath,
-} from '../lib/og-cards.ts';
+  stageOgCorpus,
+  validateStagedOgCorpus,
+  type StagedCorpus,
+} from '../lib/og-card-generation.ts';
+import { OG_CARD_JOURNAL_PATH, type OgCardManifest } from '../lib/og-card-manifest.ts';
+import {
+  OG_STAGING_DIR,
+  activeTrees,
+  publicationRecord,
+  publishOgCorpus,
+  recoverOgPublication,
+} from '../lib/og-card-publication.ts';
 
 const root = join(import.meta.dirname, '..');
-const publicOgDir = join(root, 'public', 'og');
-const outOgDir = join(root, 'out', 'og');
-const publicStructuredDir = join(root, 'public', 'structured-images');
-const outStructuredDir = join(root, 'out', 'structured-images');
 
-function sha256(buf: Buffer): string {
-  return createHash('sha256').update(buf).digest('hex');
+function fail(error: unknown): never {
+  console.error(`generate-og-cards: FAILED (${(error as Error).message})`);
+  process.exit(1);
+}
+
+type Trees = Parameters<typeof stageOgCorpus>[0]['trees'];
+
+/** One generation: the corpus, what staging rendered, and its validation. */
+function generation() {
+  const corpus = ogCardCorpus(root);
+  let staged: StagedCorpus | null = null;
+  let manifest: OgCardManifest | null = null;
+  return {
+    stage: async (stagingRoot: string, trees: Trees): Promise<void> => {
+      staged = await stageOgCorpus({ root, stagingRoot, trees, corpus });
+    },
+    validate: async (stagingRoot: string, trees: Trees): Promise<void> => {
+      if (staged === null) throw new Error('validation ran before staging');
+      const validated = await validateStagedOgCorpus({ root, stagingRoot, trees, corpus, staged });
+      if (validated.failures.length > 0) {
+        throw new Error(
+          `the staged corpus failed validation, so nothing canonical was changed:\n- ${validated.failures.join('\n- ')}`,
+        );
+      }
+      manifest = validated.manifest;
+    },
+    summary: (): string => {
+      if (manifest === null) return 'no validated manifest';
+      const { cards, glyphProbes, corpusSha256 } = manifest as OgCardManifest;
+      const variants = cards.reduce((sum, card) => sum + card.structuredVariants.length, 0);
+      return `${cards.length} OG/X cards + ${variants} structured images, ${glyphProbes.length} glyph probes, corpus ${corpusSha256.slice(0, 12)}`;
+    },
+  };
 }
 
 async function main(): Promise<void> {
-  const corpus = ogCardCorpus(root);
-  const hashes = new Map<string, string>(); // sha -> path
-  const seen = new Map<string, string>(); // path -> sha
-
-  const check = (path: string, buf: Buffer): void => {
-    if (buf.length < 5 * 1024) {
-      throw new Error(`${path} is only ${buf.length} bytes; minimum card body is 5KB`);
-    }
-    const digest = sha256(buf);
-    const clash = hashes.get(digest);
-    if (clash) {
-      throw new Error(`byte-identical cards: ${path} and ${clash} share ${digest}`);
-    }
-    hashes.set(digest, path);
-    seen.set(path, digest);
-  };
-
-  // Stale-card sweep: cards for unpublished modules must not ship. The
-  // whole tree is regenerated from the registry every build, so clear it
-  // first (drafts are excluded from the export and from this set).
-  rmSync(publicOgDir, { recursive: true, force: true });
-  rmSync(publicStructuredDir, { recursive: true, force: true });
-  if (outOgDir.startsWith(join(root, 'out'))) {
-    rmSync(outOgDir, { recursive: true, force: true });
-    rmSync(outStructuredDir, { recursive: true, force: true });
-  }
-
   const t0 = Date.now();
-  let articleCards = 0;
-  let siteCards = 0;
-
-  for (const entry of corpus) {
-    const { cardId, cardPath } = entry;
-    const rel = cardPath.replace(/^\/+/, '');
-    const publicFile = join(root, 'public', rel);
-    const outFile = join(root, 'out', rel);
-    mkdirSync(join(publicFile, '..'), { recursive: true });
-    mkdirSync(join(outFile, '..'), { recursive: true });
-    const buffer = await renderCorpusCard(entry, root);
-    writeFileSync(publicFile, buffer);
-    writeFileSync(outFile, buffer);
-    // After the writes, so nothing between the render call and disk can
-    // touch the bytes: a collision still fails the build, and the tree is
-    // cleared and regenerated on every run.
-    check(cardPath, buffer);
-    if (cardId === 'site') siteCards += 1;
-    else {
-      articleCards += 1;
-      // The search-only structured-data variants (4:3 and square) render
-      // the same sealed card tree through the same boundary at the
-      // registered variant dimensions; articleJsonLd and the sitemap
-      // point at these paths.
-      const [domain, slug] = cardId.split('/');
-      for (const variant of ARTICLE_IMAGE_VARIANTS) {
-        if (variant.id === 'landscape') continue;
-        const variantPath = articleCardPath(domain, slug, variant.id);
-        const relVariant = variantPath.replace(/^\/+/, '');
-        const publicVariant = join(root, 'public', relVariant);
-        const outVariant = join(root, 'out', relVariant);
-        mkdirSync(join(publicVariant, '..'), { recursive: true });
-        mkdirSync(join(outVariant, '..'), { recursive: true });
-        const variantBuffer = await renderCorpusCard(entry, root, {
-          width: variant.width,
-          height: variant.height,
-        });
-        writeFileSync(publicVariant, variantBuffer);
-        writeFileSync(outVariant, variantBuffer);
-        check(variantPath, variantBuffer);
-      }
-    }
+  const run = generation();
+  if (process.argv.includes('--stage-only')) {
+    const recovery = recoverOgPublication(root);
+    const stagingRoot = join(root, OG_STAGING_DIR, 'stage');
+    const trees = activeTrees(root);
+    mkdirSync(stagingRoot, { recursive: true });
+    await run.stage(stagingRoot, trees);
+    await run.validate(stagingRoot, trees);
+    console.log(
+      `generate-og-cards: STAGED (${run.summary()} validated in ${OG_STAGING_DIR}/stage; recovery ${recovery}; nothing published)`,
+    );
+    return;
   }
 
+  const { recovery, journal } = await publishOgCorpus({
+    root,
+    stage: run.stage,
+    validate: run.validate,
+  });
+  writeFileSync(
+    join(root, OG_CARD_JOURNAL_PATH),
+    `${JSON.stringify(publicationRecord(journal), null, 2)}\n`,
+  );
   const seconds = ((Date.now() - t0) / 1000).toFixed(1);
   console.log(
-    `generate-og-cards: OK (${articleCards} article cards + ${siteCards} site card, ${seen.size} distinct assets, ${seconds}s)`,
+    `generate-og-cards: OK (${run.summary()}; ${journal.trees.map(({ path }) => path).join(', ')} swapped; recovery ${recovery}; ${seconds}s)`,
   );
 }
 
@@ -149,12 +124,8 @@ if (process.argv.includes('--check-only')) {
     const corpus = ogCardCorpus(root);
     console.log(`generate-og-cards: OK (${corpus.length} card trees built)`);
   } catch (error) {
-    console.error(`generate-og-cards: FAILED (${(error as Error).message})`);
-    process.exit(1);
+    fail(error);
   }
 } else {
-  await main().catch((error: unknown) => {
-    console.error(`generate-og-cards: FAILED (${(error as Error).message})`);
-    process.exit(1);
-  });
+  await main().catch(fail);
 }

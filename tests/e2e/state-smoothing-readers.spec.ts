@@ -12,7 +12,7 @@ const ROUTE = '/classical/state-estimation/';
 const PROSE = 'div.prose[data-pagefind-body]';
 // Exact retained corrected definition and registry values. These are rendering
 // oracles, not new source reviews or bibliographic acceptance.
-const DEFINITION = "Simultaneous localization and mapping: estimating a robot's state while building a model of its environment. In the landmark-based formulation studied by Square Root SAM, the unknowns include the robot trajectory and landmark map. With known data associations, Gaussian process and measurement models, a uniform landmark prior, and the initial reference frame fixed, joint MAP estimation becomes nonlinear least squares. Cadena and colleagues describe MAP estimation, often expressed with factor graphs, as a standard SLAM formulation while also noting high-performing EKF-based systems.";
+const DEFINITION = "SLAM (simultaneous localization and mapping) is estimating a robot's state while building a model of its environment. In Square Root SAM's landmark-based formulation, the unknowns include the robot trajectory and landmark map. Given known data associations, Gaussian process and measurement models, a uniform landmark prior and a fixed initial reference frame, joint MAP estimation becomes nonlinear least squares. Cadena et al. call MAP estimation, often expressed with factor graphs, a standard SLAM formulation, while noting high-performing EKF-based systems.";
 const SOURCES = [
   { id: 'dellaert-kaess-2006', count: 5, title: 'Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing',
     authors: ['Frank Dellaert', 'Michael Kaess'], meta: 'Frank Dellaert, Michael Kaess, Int. J. Robotics Research, 2006', url: 'https://doi.org/10.1177/0278364906072768' },

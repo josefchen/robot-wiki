@@ -560,7 +560,7 @@
     },
     {
       "route": "/adjacent/",
-      "visibleTextLength": 1810,
+      "visibleTextLength": 1827,
       "header": {
         "present": true,
         "display": "flex",
@@ -1370,7 +1370,7 @@
     },
     {
       "route": "/classical/",
-      "visibleTextLength": 1577,
+      "visibleTextLength": 1594,
       "header": {
         "present": true,
         "display": "flex",
@@ -3152,7 +3152,7 @@
     },
     {
       "route": "/data-hardware/",
-      "visibleTextLength": 1226,
+      "visibleTextLength": 1243,
       "header": {
         "present": true,
         "display": "flex",
@@ -4602,7 +4602,7 @@
     },
     {
       "route": "/frontier/",
-      "visibleTextLength": 1087,
+      "visibleTextLength": 1104,
       "header": {
         "present": true,
         "display": "flex",
@@ -6060,7 +6060,7 @@
     },
     {
       "route": "/manipulation/",
-      "visibleTextLength": 2119,
+      "visibleTextLength": 2136,
       "header": {
         "present": true,
         "display": "flex",
@@ -9130,7 +9130,7 @@
     },
     {
       "route": "/rl-sim2real/",
-      "visibleTextLength": 1489,
+      "visibleTextLength": 1506,
       "header": {
         "present": true,
         "display": "flex",
@@ -10742,7 +10742,7 @@
     },
     {
       "route": "/world-models/",
-      "visibleTextLength": 1425,
+      "visibleTextLength": 1442,
       "header": {
         "present": true,
         "display": "flex",

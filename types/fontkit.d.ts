@@ -21,5 +21,11 @@ declare module 'fontkit' {
     };
   };
 
+  /** The shaping surface, for callers that measure set text. */
+  export type LayoutFont = Font & {
+    unitsPerEm: number;
+    layout(text: string): { advanceWidth: number };
+  };
+
   export function openSync(path: string): Font;
 }

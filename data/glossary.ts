@@ -198,7 +198,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'mpc',
     term: 'model predictive control',
     definition:
-      'Model predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues\' MuJoCo-based iLQR controller. It was first posted in 2025 and revised in 2026 for ICRA 2026.',
+      'Model predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues\' MuJoCo-based iLQR controller. Posted in 2025, it was revised in 2026 to appear at ICRA 2026.',
     citations: ['mujoco-ilqr-2026'],
   },
   {

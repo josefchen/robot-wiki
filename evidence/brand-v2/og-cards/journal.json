@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "state": "complete",
+  "corpusDigest": "5e48f11af6022e6c9e0ba3fb4e4f8246bb06539ce12bd65118b777ec2e23b566",
+  "trees": [
+    {
+      "path": "public/og",
+      "stagedDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
+      "status": "swapped"
+    },
+    {
+      "path": "public/structured-images",
+      "stagedDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
+      "status": "swapped"
+    },
+    {
+      "path": "out/og",
+      "stagedDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
+      "status": "swapped"
+    },
+    {
+      "path": "out/structured-images",
+      "stagedDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
+      "status": "swapped"
+    },
+    {
+      "path": "evidence/brand-v2/og-cards",
+      "stagedDigest": "58192609fc1e845f69a3eafbc5ba9dd385e15da010715f525f8ee606dbefea53",
+      "status": "swapped"
+    }
+  ]
+}
