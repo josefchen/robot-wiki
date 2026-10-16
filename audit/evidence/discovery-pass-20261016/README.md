@@ -174,3 +174,26 @@ load. What each pair shows:
 
 `overflow-320-375.txt`: no page is wider than the viewport at 320 or 375
 px, and the only horizontal scroll region is the adjacent table.
+
+## Figures (VAL-OPUS-115)
+
+`capture-manifest/` holds the capture test's manifests
+(`scripts/capture-visuals.ts`) for `/` and the 13 pages at Start and End,
+at 1440 and 375 px, with per-route DOM counts and `diff.txt`, matched on
+route, kind and label.
+
+- The hubs, `/glossary/`, `/a-z/`, `/search/`, `/editorial-policy/` and
+  `/about/` hold no visual at either end.
+- `/` holds one image, the featured scene's poster, unchanged.
+- `/credits/` holds two figures, the "Original schematic" drawings of
+  covariate shift and temporal ensembling, with identical entries at
+  Start and End. Their `offpal` value `#000000` is the initial value of
+  the inherited `fill` property, read on HTML elements and on `g` and
+  `line` nodes that paint no fill; no shape paints it.
+- `/credits/` images went from 200 to 237: 38 photos and reproduced
+  paper figures (no logos) that articles gained in other commits since
+  Start, less the DROID caption that `7e3cea90` removed. This pass
+  changed no image.
+
+`npm run check:figure-system` passes with 84 figures and an empty
+allowlist. No figure changed, so no figure needs a capture pair.

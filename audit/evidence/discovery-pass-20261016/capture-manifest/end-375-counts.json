@@ -1,0 +1,79 @@
+{
+ "width": 375,
+ "routes": 14,
+ "counts": {
+  "/": {
+   "dom": 1,
+   "manifest": 1
+  },
+  "/manipulation/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/rl-sim2real/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/world-models/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/data-hardware/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/classical/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/frontier/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/adjacent/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/glossary/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/a-z/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/search/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/credits/": {
+   "dom": 239,
+   "manifest": 239
+  },
+  "/editorial-policy/": {
+   "dom": 0,
+   "manifest": 0
+  },
+  "/about/": {
+   "dom": 0,
+   "manifest": 0
+  }
+ },
+ "palette": [
+  "#1A6F45",
+  "#1C1C1A",
+  "#3B6EA8",
+  "#3F3F3B",
+  "#6B1839",
+  "#6C6B66",
+  "#7D7A73",
+  "#8A5A00",
+  "#A3A39E",
+  "#A52A1E",
+  "#DEDEDB",
+  "#F0F3F6",
+  "#FAFAF8",
+  "#FFFFFF"
+ ],
+ "failures": []
+}
